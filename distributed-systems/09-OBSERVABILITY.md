@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:distributed-systems:observability
+kind: guide
+module: distributed-systems
+section: distributed-systems
+title: Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering
+status: source-custody
+source_custody: partial
+current_path: distributed-systems/09-OBSERVABILITY.md
+canonical_path: distributed-systems/09-OBSERVABILITY.md
+backsource_ids: [proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]
+concepts: [observability]
+root_concepts: [observability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering
 
 ## The Big Picture
@@ -9,29 +28,29 @@ THE THREE PILLARS OF OBSERVABILITY
 +-----------------------------------------------------------------------+
 |                                                                       |
 |   LOGS              METRICS              TRACES                       |
-|   +------------+    +------------+       +------------------+         |
-|   | Discrete   |    | Aggregated |       | Request journey  |        |
-|   | events at  |    | measurements|      | across services  |        |
-|   | a point in |    | over time  |       | (spans, timing,  |        |
-|   | time       |    | (counters, |       | causality)       |        |
-|   |            |    | gauges,    |       |                  |        |
-|   | ECS format |    | histograms)|       | W3C TraceContext  |        |
-|   | structured |    | Prometheus |       | Jaeger, Zipkin   |        |
-|   | JSON       |    | model      |       | OpenTelemetry    |        |
-|   +------------+    +------------+       +------------------+        |
-    |         |                 |                       |              |
-|         +─────────────────+───────────────────────+                  |
-|                           |                                           |
-|                  CORRELATION ID threads through all three            |
-|                  → single request traceable end-to-end               |
+|   Discrete events   Aggregated measures  Request journeys             |
+|   at a point in     over time: counters  across services              |
+|   time: ECS-style   gauges, histograms   with spans, timing,          |
+|   structured JSON   Prometheus model     and causality                |
+|                                        W3C TraceContext               |
+|                                        Jaeger, Zipkin                 |
+|                                        OpenTelemetry                  |
+|                                                                       |
+|                  all three feed shared correlation                    |
+|                                                                       |
+|                                                                       |
+|                                                                       |
+|                                                                       |
+|                  CORRELATION ID threads through all three             |
+|                  → single request traceable end-to-end                |
 |                                                                       |
 +-----------------------------------------------------------------------+
 
 TOOL LANDSCAPE
 +-----------------------------------------------------------------------+
-| LOGS:     ELK Stack, Splunk, Azure Monitor Logs, Loki               |
-| METRICS:  Prometheus + Grafana, Azure Monitor Metrics, Datadog      |
-| TRACES:   Jaeger, Zipkin, Azure Monitor (App Insights), Tempo       |
+| LOGS:     ELK Stack, Splunk, Azure Monitor Logs, Loki                 |
+| METRICS:  Prometheus + Grafana, Azure Monitor Metrics, Datadog        |
+| TRACES:   Jaeger, Zipkin, Azure Monitor (App Insights), Tempo         |
 | STANDARD: OpenTelemetry (OTEL) — collector + SDKs, replacing all      |
 +-----------------------------------------------------------------------+
 ```

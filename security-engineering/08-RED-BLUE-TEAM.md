@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:security-engineering:red-blue-team
+kind: guide
+module: security-engineering
+section: security-engineering
+title: Red and Blue Team: Penetration Testing, Purple Team, Tabletop Exercises
+status: source-custody
+source_custody: partial
+current_path: security-engineering/08-RED-BLUE-TEAM.md
+canonical_path: security-engineering/08-RED-BLUE-TEAM.md
+backsource_ids: [proof-backfill:security-engineering:08-red-blue-team, git-history:security-engineering:08-red-blue-team]
+concepts: [red, blue, team]
+root_concepts: [red, blue]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Red and Blue Team: Penetration Testing, Purple Team, Tabletop Exercises
 
 ## The Big Picture

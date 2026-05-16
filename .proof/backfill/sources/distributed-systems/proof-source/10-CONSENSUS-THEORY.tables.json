@@ -1,0 +1,296 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\10-CONSENSUS-THEORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 90,
+      "heading_context": "## Part I: Impossibility Results",
+      "headers": [
+        "Property",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "**Agreement**",
+          "All non-faulty processes decide the same value"
+        ],
+        [
+          "**Validity**",
+          "The decided value was proposed by some process"
+        ],
+        [
+          "**Termination**",
+          "Every non-faulty process eventually decides"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 153,
+      "heading_context": "## Part I: Impossibility Results",
+      "headers": [
+        "Computability Result",
+        "Domain",
+        "Statement"
+      ],
+      "rows": [
+        [
+          "Halting Problem",
+          "Sequential computation",
+          "No TM decides halting for all TMs"
+        ],
+        [
+          "Rice's Theorem",
+          "Sequential computation",
+          "No non-trivial semantic property is decidable"
+        ],
+        [
+          "FLP Impossibility",
+          "Distributed computation",
+          "No deterministic protocol solves consensus in async + crash"
+        ],
+        [
+          "CAP Theorem",
+          "Distributed computation",
+          "No protocol achieves C + A + P simultaneously"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 292,
+      "heading_context": "## Part I: Impossibility Results",
+      "headers": [
+        "Byzantine faults (f)",
+        "Nodes required (3f+1)",
+        "Quorum size"
+      ],
+      "rows": [
+        [
+          "1",
+          "4",
+          "3"
+        ],
+        [
+          "2",
+          "7",
+          "5"
+        ],
+        [
+          "3",
+          "10",
+          "7"
+        ],
+        [
+          "10",
+          "31",
+          "21"
+        ],
+        [
+          "33% of n",
+          "n",
+          "2n/3 + 1"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 876,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "Old Concept",
+        "New Concept",
+        "Key Difference"
+      ],
+      "rows": [
+        [
+          "2PC (distributed transactions)",
+          "Consensus (replicated log)",
+          "2PC decides commit/abort; consensus decides value. 2PC blocks on coordinator failure; consensus tolerates leader failure."
+        ],
+        [
+          "Primary-backup replication",
+          "Raft/Paxos leader-based replication",
+          "Primary-backup has no formal safety proof; Raft has provably correct leader election and log matching."
+        ],
+        [
+          "Manual failover (DBA promotes replica)",
+          "Automatic leader election",
+          "Consensus-based election guarantees no split-brain without human intervention."
+        ],
+        [
+          "NTP time synchronization",
+          "TrueTime / HLC",
+          "NTP gives a point estimate with ~100ms error. TrueTime gives an interval with ~4ms error. HLC combines logical and physical clocks."
+        ],
+        [
+          "Single-master SQL",
+          "Consensus-based NewSQL (CockroachDB, Spanner)",
+          "Same SQL interface; underneath is Raft/Paxos per shard with automatic failover."
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 886,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "VSTS / Azure Concept",
+        "Distributed Systems Theory"
+      ],
+      "rows": [
+        [
+          "SQL Server Always On (synchronous commit)",
+          "Paxos-like quorum commit (2 of 3 replicas must ack)"
+        ],
+        [
+          "Azure Service Fabric reliable services",
+          "Replicated state machine on top of Paxos-variant"
+        ],
+        [
+          "CosmosDB 5 consistency levels",
+          "Direct exposure of the consistency hierarchy from `02-CONSISTENCY-MODELS.md`"
+        ],
+        [
+          "Azure Event Hubs (Kafka-compatible)",
+          "Ordered log with consumer group consensus (ZAB-like internally)"
+        ],
+        [
+          "DTC / System.Transactions",
+          "2PC coordinator --- the blocking problem that consensus protocols solve for the control plane"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 920,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Protocol Family",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Replicated log, crash faults only",
+          "Raft",
+          "Understandable, complete spec, excellent library support"
+        ],
+        [
+          "Existing Google infrastructure",
+          "Multi-Paxos",
+          "Mature, deployed at Google scale for 20+ years"
+        ],
+        [
+          "Untrusted participants (permissioned)",
+          "PBFT / Tendermint",
+          "BFT with deterministic finality, O(n^2) acceptable for small n"
+        ],
+        [
+          "Untrusted participants (permissionless)",
+          "Nakamoto / Gasper",
+          "Scales to thousands of validators, probabilistic finality"
+        ],
+        [
+          "High-throughput BFT (100+ validators)",
+          "HotStuff / DiemBFT",
+          "Linear message complexity, pipelined phases"
+        ],
+        [
+          "Globally distributed SQL",
+          "Spanner (TrueTime) or CockroachDB (HLC)",
+          "External consistency (Spanner) or serializable (CRDB)"
+        ],
+        [
+          "Kubernetes coordination",
+          "etcd (Raft)",
+          "Purpose-built for K8s; do not use for application data"
+        ],
+        [
+          "Configuration/metadata store",
+          "ZooKeeper (ZAB) or etcd (Raft)",
+          "CP semantics, small data, coordination primitives"
+        ],
+        [
+          "Formal verification required",
+          "TLA+ spec of Raft or Paxos",
+          "Raft's TLA+ spec is more complete; Paxos variants need custom specs"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 936,
+      "heading_context": "## Further Reading — The Essential Papers",
+      "headers": [
+        "Paper",
+        "Year",
+        "Pages",
+        "Key Contribution"
+      ],
+      "rows": [
+        [
+          "Lamport, \"Time, Clocks, and the Ordering of Events\"",
+          "1978",
+          "11",
+          "Happens-before, logical clocks"
+        ],
+        [
+          "Fischer, Lynch, Paterson, \"Impossibility of Distributed Consensus...\"",
+          "1985",
+          "7",
+          "FLP impossibility"
+        ],
+        [
+          "Lamport, \"The Part-Time Parliament\" (Paxos)",
+          "1998",
+          "16",
+          "Consensus algorithm"
+        ],
+        [
+          "Dwork, Lynch, Stockmeyer, \"Consensus in the Presence of Partial Synchrony\"",
+          "1988",
+          "32",
+          "Partial synchrony model"
+        ],
+        [
+          "Lamport, Shostak, Pease, \"The Byzantine Generals Problem\"",
+          "1982",
+          "20",
+          "BFT formulation and bound"
+        ],
+        [
+          "Castro, Liskov, \"Practical Byzantine Fault Tolerance\"",
+          "1999",
+          "14",
+          "PBFT protocol"
+        ],
+        [
+          "Gilbert, Lynch, \"Brewer's Conjecture and the Feasibility of C, A, P...\"",
+          "2002",
+          "10",
+          "CAP formal proof"
+        ],
+        [
+          "Ongaro, Ousterhout, \"In Search of an Understandable Consensus Algorithm\"",
+          "2014",
+          "18",
+          "Raft"
+        ],
+        [
+          "Yin et al., \"HotStuff: BFT Consensus with Linearity and Responsiveness\"",
+          "2019",
+          "18",
+          "Linear BFT"
+        ],
+        [
+          "Corbett et al., \"Spanner: Google's Globally-Distributed Database\"",
+          "2012",
+          "14",
+          "TrueTime + Paxos"
+        ]
+      ]
+    }
+  ]
+}

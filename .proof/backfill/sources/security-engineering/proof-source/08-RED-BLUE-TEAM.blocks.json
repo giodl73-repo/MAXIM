@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "security-engineering\\08-RED-BLUE-TEAM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "OFFENSIVE AND DEFENSIVE SECURITY FUNCTIONS\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  RED TEAM                     BLUE TEAM               PURPLE TEAM     |\n|  +-----------------------+   +-------------------+   +------------+   |\n|  | Adversary simulation  |   | Detection &       |   | Red + Blue  | |\n|  | Goal-oriented         |   | Response          |   | working     | |\n|  | Persistent access     |   | SOC operations    |   | together    | |\n|  | Lateral movement      |   | Threat hunting    |   | Real-time   | |\n|  | Data exfiltration     |   | SIEM tuning       |   | knowledge   | |\n|  | months-long           |   | Playbook updates  |   | transfer    | |\n|  +-----------------------+   +-------------------+   +------------+ |\n|          |                           |                      |       |\n|          v                           v                      v       |\n|  PEN TEST                   THREAT HUNTING        TABLETOP          |\n|  Point-in-time              Hypothesis-driven     Scenario-based    |\n|  scoped assessment          proactive search      discussion exercise |\n|  weeks                      for undetected        no actual attack  |\n|                             threats               hours             |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "### Red Team Phases (Kill Chain)",
+      "confidence": "candidate",
+      "text": "RED TEAM ENGAGEMENT PHASES\n\n1. RECONNAISSANCE\n   OSINT: LinkedIn, job postings, GitHub, Shodan, Censys\n   Passive: no direct interaction with target systems\n   Active: DNS enumeration, service discovery (risk: early detection)\n\n2. INITIAL ACCESS\n   Phishing: spear-phishing email with payload\n   Credential stuffing: breached credentials tested against VPN/SSO\n   Supply chain: compromise a vendor that has access\n   Physical: tailgating, USB drops\n   Exploit: public-facing vulnerability (WebShell, etc.)\n\n3. EXECUTION\n   Run payload on compromised host\n   Fileless: PowerShell Empire, cobalt strike beacon in memory\n   Persistence: registry run key, scheduled task, service, WMI subscription\n\n4. PRIVILEGE ESCALATION\n   Local admin → domain admin\n   Kerberoasting, AS-REP roasting, DCSync attack\n   Token impersonation, process injection\n\n5. LATERAL MOVEMENT\n   Pass-the-Hash, Pass-the-Ticket\n   WMI, SMB, RDP, WinRM to reach target systems\n   Azure AD: consent phishing, token theft from browser memory\n\n6. EXFILTRATION / IMPACT\n   Data staging → exfil over DNS, HTTPS to attacker C2\n   Achieve stated objective (access customer DB, deploy \"ransomware\" simulation)\n\n7. REPORTING\n   Attack narrative: step-by-step timeline\n   Detection opportunities: where defenders could have seen each step\n   Dwell time: how long from initial access to objective",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "### Threat Hunting",
+      "confidence": "candidate",
+      "text": "THREAT HUNTING PROCESS\n\n1. FORM HYPOTHESIS\n   Trigger: threat intelligence report (\"APT29 using Cobalt Strike with\n   specific beacon configuration against Azure tenants\")\n   OR: anomaly noticed in data (\"unusual DNS query volume\")\n\n2. COLLECT AND ANALYZE DATA\n   EDR telemetry: process trees, network connections, file operations\n   Log analytics: SIEM, Azure Activity, sign-in logs\n   Memory: volatile forensics on suspect hosts\n\n3. INVESTIGATE\n   Hunt for IOCs: file hashes, C2 IPs, registry keys, beacon patterns\n   Hunt for TTPs: abnormal process hierarchy, LOLBAS usage, unusual persistence\n\n4. CONCLUDE\n   Finding: evidence of compromise → escalate to incident response\n   No finding: update detection rules, document hunt (validates environment)\n\nLOLBAS (Living Off the Land Binaries, Scripts and Libraries):\n  Attackers use legitimate Windows binaries to avoid AV detection\n  powershell.exe, mshta.exe, certutil.exe, regsvr32.exe, wscript.exe\n  Detecting LOLBAS requires behavioral detection (parent/child process trees)\n  not just file hash matching",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

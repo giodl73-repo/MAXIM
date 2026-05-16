@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:security-engineering:threat-models
+kind: guide
+module: security-engineering
+section: security-engineering
+title: Threat Models in Depth: Zero Trust, Authentication Ladders, Authorization Engines, Supply Chain
+status: source-custody
+source_custody: partial
+current_path: security-engineering/10-THREAT-MODELS.md
+canonical_path: security-engineering/10-THREAT-MODELS.md
+backsource_ids: [proof-backfill:security-engineering:10-threat-models, git-history:security-engineering:10-threat-models]
+concepts: [threat, models]
+root_concepts: [threat, models]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Threat Models in Depth: Zero Trust, Authentication Ladders, Authorization Engines, Supply Chain
 
 ## Sentinel Context

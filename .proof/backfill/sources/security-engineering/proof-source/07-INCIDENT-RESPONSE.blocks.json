@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "security-engineering\\07-INCIDENT-RESPONSE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "NIST SP 800-61 INCIDENT RESPONSE LIFECYCLE\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  PREPARATION → DETECTION & → CONTAINMENT, → POST-INCIDENT             |\n|               ANALYSIS      ERADICATION,   ACTIVITY                   |\n|                              RECOVERY                                 |\n|                                                                       |\n|  PREPARATION:        DETECTION &        CONTAINMENT:                  |\n|  IR plan             ANALYSIS:          Short-term containment        |\n|  CSIRT / SOC         SIEM alerts        Evidence preservation         |\n|  Runbooks            EDR telemetry      System isolation              |\n|  Communication       User reports       Network block                 |\n|  templates           Threat intel                                     |\n|  Legal contacts      Triage             ERADICATION:                  |\n|  Forensic tools      Severity matrix    Remove malware                |\n|  Offline backups                        Reset compromised creds       |\n|                                         Patch exploited vuln          |\n|                      RECOVERY:                                        |\n|                      Restore systems    POST-INCIDENT:                |\n|                      Validate integrity Lessons learned               |\n|                      Monitor closely    Blameless postmortem          |\n|                                         Control improvements          |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 79,
+      "heading_context": "### CSIRT Structure",
+      "confidence": "candidate",
+      "text": "CSIRT (Computer Security Incident Response Team) ROLES:\n  Incident Commander (IC):    Overall coordination and decisions\n  Security Analyst(s):        Technical analysis, malware/forensics\n  Infrastructure/Ops:         Isolation, containment actions\n  Communications Lead:        Internal exec comms, customer notification\n  Legal Counsel:              Regulatory requirements, evidence handling\n  Executive Sponsor:          Business decisions (take down a system?)\n\nOn-call rotation:\n  Security engineer with pager rotation\n  Escalation path defined: analyst → senior analyst → IC → CISO\n\nMICROSOFT SSIRT / MSRC:\n  Microsoft Security Response Center handles external vulnerability reports\n  SSIRT (Secure Software Incident Response Team) handles active incidents\n  Separate from CSIRT: SSIRT is for software vulnerabilities; CSIRT is for\n  operational security incidents",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "### Detection Sources",
+      "confidence": "candidate",
+      "text": "DETECTION INPUT SOURCES (by likelihood of true positive)\n\nHIGH SIGNAL:\n  EDR (Endpoint Detection and Response): Defender for Endpoint, CrowdStrike\n    → Process injection, credential dumping, LOLBAS (Living off the Land)\n    → Behavioral detection, not just signatures\n  UEBA (User and Entity Behavior Analytics):\n    → \"Admin account logged in from foreign country at 3am\"\n    → \"Service account making 50,000 AD queries in 10 minutes\"\n  Threat intelligence feeds:\n    → Known C2 IP in firewall logs, known malware hash in EDR\n\nMEDIUM SIGNAL:\n  SIEM correlation rules: multiple auth failures + successful login\n  Azure Security Center / Defender alerts\n  Deception technology: honeypot credentials used\n\nLOWER SIGNAL (high volume, needs correlation):\n  WAF alerts (many false positives from scanners)\n  IDS/IPS signatures\n  Firewall anomalies (volume, new destination)\n  User reports (\"my computer is acting weird\")",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "### Triage Methodology",
+      "confidence": "candidate",
+      "text": "INCIDENT TRIAGE MATRIX\n\nSEVERITY ASSESSMENT:\n  Impact score (data / system / user):\n    1 = low (single system, non-sensitive data)\n    2 = medium (multiple systems, sensitive data)\n    3 = high (production, PII/financial, critical service)\n  Urgency score (progression speed):\n    1 = slow (opportunistic, no active attacker)\n    2 = medium (automated malware, expanding)\n    3 = high (active human attacker, lateral movement observed)\n\n  P1: Impact 3 + Urgency 3 → Immediate response (15min SLA)\n  P2: Impact 3 + Urgency 2 or Impact 2 + Urgency 3 → 1 hour SLA\n  P3: Impact 2 + Urgency 2 → 4 hour SLA\n  P4: Impact 1 + Urgency 1 → Business hours SLA\n\nINITIAL TRIAGE QUESTIONS:\n  What systems are affected? (scope)\n  Is the attacker still present? (active vs. historic)\n  What data may have been accessed or exfiltrated? (impact)\n  When did the intrusion begin? (timeline)\n  How did they get in? (initial access vector)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "### Isolate vs. Monitor Decision",
+      "confidence": "candidate",
+      "text": "CONTAINMENT DECISION TREE\n\nActive attacker present?\n  |\n  YES → Do we want to gather intelligence first?\n        |\n        YES → MONITOR mode:\n               Keep attacker unaware while gathering IOCs\n               (Indicators of Compromise: malware hashes, C2 IPs, TTPs)\n               Risk: attacker may escalate, exfiltrate, destroy evidence\n               Use: when attribution or legal action is desired\n               Duration: short (hours, not days)\n        |\n        NO → ISOLATE immediately:\n              Cut network access (firewall rules, VLAN change)\n              Prevent lateral movement\n              Risk: attacker may have dead-man switches\n              May destroy evidence if not carefully done first\n  |\n  NO (no active attacker) → Isolate and investigate at own pace",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 219,
+      "heading_context": "## Evidence Preservation",
+      "confidence": "candidate",
+      "text": "FORENSIC EVIDENCE ORDER OF VOLATILITY (most volatile → least):\n  1. CPU registers and cache\n  2. Memory (RAM) — capture FIRST before powering off\n  3. Network connections / ARP cache / routing tables\n  4. Running processes\n  5. Open files\n  6. Disk (persistent, less volatile)\n  7. Remote logs (SIEM, external storage)\n  8. Backup media\n\nMEMORY ACQUISITION:\n  Tool: Volatility framework, WinPmem (Windows), LiME (Linux kernel module)\n  Captures: running processes, network connections, encryption keys in memory,\n            malware that exists only in memory (fileless)\n\nDISK IMAGING:\n  Forensic copy: bit-for-bit image (dd, FTK Imager, DC3DD)\n  Hash verification: SHA-256 of image before and after → proves no tampering\n  Chain of custody form: who collected, when, where stored, who accessed\n\nAZURE FORENSICS:\n  VM snapshot before remediation\n  Azure Disk → copy to forensic storage account\n  Enable boot diagnostics, serial console before incident\n  Azure Activity Log: immutable audit trail of Azure control plane operations\n  Defender for Endpoint: 30-day EDR timeline, offline investigation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 321,
+      "heading_context": "## Azure Sentinel (Microsoft Sentinel)",
+      "confidence": "candidate",
+      "text": "SENTINEL ARCHITECTURE\n\nDATA CONNECTORS:\n  Azure Activity Logs, Microsoft 365, Azure AD sign-in logs,\n  Defender for Endpoint, Syslog (Linux), Windows Event Logs,\n  CEF (Common Event Format) from NGFW/IDPS, custom REST API connectors\n\nANALYTICS RULES:\n  Scheduled: run KQL query on schedule, create alert if threshold met\n  NRT (Near-Real-Time): sub-minute latency for high-priority rules\n  ML Fusion: correlate low-fidelity alerts into high-confidence incidents\n  Threat Intelligence: match IOCs from TI feeds against log data\n\nINCIDENTS:\n  Aggregated from alerts + correlated\n  Investigation graph: show entities (IPs, users, hosts) and their relationships\n  Entity mapping: automatically extract entities from alerts\n\nWORKBOOKS: KQL-powered dashboards (Azure Monitor Workbooks)\n\nAUTOMATION (SOAR):\n  Playbooks: Azure Logic Apps triggered by incident/alert\n  \"When incident P1 created: send Teams message, create ServiceNow ticket,\n   isolate VM in Azure\"\n\nKQL EXAMPLES:\n  SecurityEvent | where EventID == 4625 | summarize count() by Account, Computer\n  → Count failed login attempts per account and computer\n\n  AzureActivity | where OperationName == \"Delete\" | where Caller !in (expected_admins)\n  → Alert on unexpected delete operations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

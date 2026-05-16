@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:security-engineering:network-security
+kind: guide
+module: security-engineering
+section: security-engineering
+title: Network Security: Segmentation, Firewall Rules, TLS Pinning, DNSSEC
+status: source-custody
+source_custody: partial
+current_path: security-engineering/06-NETWORK-SECURITY.md
+canonical_path: security-engineering/06-NETWORK-SECURITY.md
+backsource_ids: [proof-backfill:security-engineering:06-network-security, git-history:security-engineering:06-network-security]
+concepts: [network, security]
+root_concepts: [network, security]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Network Security: Segmentation, Firewall Rules, TLS Pinning, DNSSEC
 
 ## The Big Picture

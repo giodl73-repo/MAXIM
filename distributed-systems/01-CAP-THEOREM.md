@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:distributed-systems:cap-theorem
+kind: guide
+module: distributed-systems
+section: distributed-systems
+title: CAP Theorem: Consistency, Availability, Partition Tolerance
+status: source-custody
+source_custody: partial
+current_path: distributed-systems/01-CAP-THEOREM.md
+canonical_path: distributed-systems/01-CAP-THEOREM.md
+backsource_ids: [proof-backfill:distributed-systems:01-cap-theorem, git-history:distributed-systems:01-cap-theorem]
+concepts: [cap, theorem]
+root_concepts: [cap, theorem]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # CAP Theorem: Consistency, Availability, Partition Tolerance
 
 ## The Big Picture
@@ -251,7 +270,7 @@ DECIDING CP VS. AP
 |  "Data loss / incorrect charge / safety risk" |
 |       → CP (accept unavailability)            |
 |                                               |
-|  "Slightly stale UI / recommendation mismatch" |
+|  "Stale UI / recommendation mismatch"         |
 |       → AP (accept staleness)                 |
 +-----------------------------------------------+
 ```

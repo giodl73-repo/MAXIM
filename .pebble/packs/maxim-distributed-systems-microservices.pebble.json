@@ -1,0 +1,2393 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-distributed-systems-microservices",
+  "source": "../../distributed-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-MICROSERVICES.md#000",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "# Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure"
+    },
+    {
+      "id": "08-MICROSERVICES.md#001",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "08-MICROSERVICES.md#002",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Microservices decompose a system into independently deployable services. The distributed systems problems that arise — service discovery, traffic management, fault isolation, observability — are solved either at the application layer or delegated to infrastructure via a service mesh."
+    },
+    {
+      "id": "08-MICROSERVICES.md#003",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "```\nMICROSERVICES INFRASTRUCTURE LAYERS\n+-----------------------------------------------------------------------+\n|                    CLIENT / API CONSUMERS                             |\n+-----------------------------------------------------------------------+\n|                    API GATEWAY                                        |\n|   Rate limiting, auth, routing, SSL termination, API versioning      |\n+-----------------------------------------------------------------------+\n|                    SERVICE MESH (CONTROL PLANE)                       |\n|   Traffic policies, mTLS, circuit breaking, canary routing            |\n|   No application code change required                                 |\n+-----------------------------------------------------------------------+\n|                    DATA PLANE (SIDECAR PROXIES)                      |\n|   Envoy (Istio/Dapr) or Linkerd proxy per pod                       |\n|   Intercepts all network traffic in/out of service                   |\n+-----------------------------------------------------------------------+\n|    SVC A    |    SVC B    |    SVC C    |    SVC D    |  SVC E        |\n|  [app][proxy]  [app][proxy]  [app][proxy]  [app][proxy]  [app][proxy] |\n+-----------------------------------------------------------------------+\n|                    SERVICE REGISTRY / DISCOVERY                      |\n|   DNS (Kubernetes service DNS) or Consul / etcd                      |\n+-----------------------------------------------------------------------+\n|                    INFRASTRUCTURE                                     |\n|   Kubernetes (AKS), container runtime, CNI networking                 |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "08-MICROSERVICES.md#004",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-MICROSERVICES.md#005",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "## Service Mesh: Istio and Linkerd"
+    },
+    {
+      "id": "08-MICROSERVICES.md#006",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "A service mesh moves networking concerns (TLS, retries, circuit breaking, observability) out of application code and into infrastructure."
+    },
+    {
+      "id": "08-MICROSERVICES.md#007",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "### The Sidecar Pattern"
+    },
+    {
+      "id": "08-MICROSERVICES.md#008",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "```\nWITHOUT MESH:\n  Service A code:\n    - Manual retry logic\n    - Manual circuit breaker (Polly in .NET, Resilience4j in Java)\n    - Manual mutual TLS certificate management\n    - Manual metric emission for all calls\n    - Manual distributed tracing instrumentation"
+    },
+    {
+      "id": "08-MICROSERVICES.md#009",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "WITH MESH (sidecar proxy):\n  Service A code:\n    - Just HTTP/gRPC call to \"http://service-b/\"\n    - Proxy intercepts, handles retry/circuit break/TLS/metrics\n    - Code is unaware of the mesh"
+    },
+    {
+      "id": "08-MICROSERVICES.md#010",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "[Service A] → [Envoy sidecar] → network → [Envoy sidecar] → [Service B]\n       (all traffic routed through proxies, not directly)\n```"
+    },
+    {
+      "id": "08-MICROSERVICES.md#011",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "### Istio Architecture"
+    },
+    {
+      "id": "08-MICROSERVICES.md#012",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "```\nISTIO COMPONENTS"
+    },
+    {
+      "id": "08-MICROSERVICES.md#013",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "CONTROL PLANE (istiod):\n  Pilot:    Service discovery, traffic management, sidecar config push\n  Citadel:  Certificate authority (issues mTLS certs, rotates them)\n  Galley:   Config validation and distribution"
+    },
+    {
+      "id": "08-MICROSERVICES.md#014",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "DATA PLANE:\n  Envoy proxies (one per pod, as sidecar container)\n  Handle: L4/L7 traffic, retries, timeouts, circuit breaking,\n          mTLS termination, metrics emission, tracing spans"
+    },
+    {
+      "id": "08-MICROSERVICES.md#015",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "TRAFFIC POLICIES (defined in YAML, enforced by proxies):\n  VirtualService: routing rules (header-based, weight-based canary)\n  DestinationRule: load balancing, connection pool, circuit breaker\n  PeerAuthentication: mTLS policy (PERMISSIVE vs. STRICT mode)\n  AuthorizationPolicy: who can call what (RBAC on service calls)\n```"
+    },
+    {
+      "id": "08-MICROSERVICES.md#016",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "### Canary Routing Without App Changes"
+    },
+    {
+      "id": "08-MICROSERVICES.md#017",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "```\nISTIO CANARY ROUTING\n  VirtualService for \"product-service\":\n    - 95% traffic → version v1\n    - 5% traffic  → version v2 (canary)"
+    },
+    {
+      "id": "08-MICROSERVICES.md#018",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Both versions deployed in Kubernetes.\n  Envoy enforces the split — no code change in product-service.\n  Gradually shift weight: 5% → 20% → 50% → 100% as confidence grows."
+    },
+    {
+      "id": "08-MICROSERVICES.md#019",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "HEADER-BASED ROUTING:\n  - Route traffic with header \"x-user-id: 12345\" to v2 (beta testing)\n  - All other traffic to v1\n  - Useful for internal testing on production traffic\n```"
+    },
+    {
+      "id": "08-MICROSERVICES.md#020",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-MICROSERVICES.md#021",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "## Circuit Breaker Pattern"
+    },
+    {
+      "id": "08-MICROSERVICES.md#022",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Prevents cascading failures by stopping calls to a service that is failing."
+    },
+    {
+      "id": "08-MICROSERVICES.md#023",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "### Circuit States"
+    },
+    {
+      "id": "08-MICROSERVICES.md#024",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "```\nCIRCUIT BREAKER STATE MACHINE"
+    },
+    {
+      "id": "08-MICROSERVICES.md#025",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "failure threshold\nCLOSED ──────────────────────────────────> OPEN\n(normal)    N failures in time window      (stop calling)\n    ^                                           |\n    |                                           | reset timeout\n    |                                    (e.g., 30s)\n    |                                           v\n    |              success threshold       HALF-OPEN\n    +<──────────────────────────────────── (probe request)\n                 probe succeeded                |\n                                           failure\n                                               v\n                                           back to OPEN\n```"
+    },
+    {
+      "id": "08-MICROSERVICES.md#026",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "**CLOSED**: All requests flow normally. Failure counter tracking."
+    },
+    {
+      "id": "08-MICROSERVICES.md#027",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "**OPEN**: All requests immediately fail-fast (do not call downstream). Error returned instantly to caller. Downstream gets recovery time."
+    },
+    {
+      "id": "08-MICROSERVICES.md#028",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "**HALF-OPEN**: After reset timeout, allow one probe request. If it succeeds: close the circuit. If it fails: re-open."
+    },
+    {
+      "id": "08-MICROSERVICES.md#029",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "### Implementation Examples"
+    },
+    {
+      "id": "08-MICROSERVICES.md#030",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "```\n.NET (Polly library):\n  var circuitBreaker = Policy\n    .Handle<HttpRequestException>()\n    .CircuitBreakerAsync(\n        exceptionsAllowedBeforeBreaking: 3,\n        durationOfBreak: TimeSpan.FromSeconds(30));"
+    },
+    {
+      "id": "08-MICROSERVICES.md#031",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Istio (DestinationRule):\n  outlierDetection:\n    consecutive5xxErrors: 5\n    interval: 1s\n    baseEjectionTime: 30s\n    maxEjectionPercent: 50  # Don't eject more than 50% of endpoints"
+    },
+    {
+      "id": "08-MICROSERVICES.md#032",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Key difference:\n  Polly: circuit breaker per-service-instance (in-process)\n  Istio: circuit breaker at proxy level (per endpoint, mesh-wide)\n```"
+    },
+    {
+      "id": "08-MICROSERVICES.md#033",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-MICROSERVICES.md#034",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "## Bulkhead Pattern"
+    },
+    {
+      "id": "08-MICROSERVICES.md#035",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Isolate failure by partitioning resources so one service's problems cannot exhaust resources needed by others."
+    },
+    {
+      "id": "08-MICROSERVICES.md#036",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "### Thread Pool Isolation"
+    },
+    {
+      "id": "08-MICROSERVICES.md#037",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "```\nWITHOUT BULKHEAD:\n  Single shared thread pool (e.g., 200 threads for HTTP handling)\n  Service B starts failing → all 200 threads waiting on B timeouts\n  Service A, C, D calls queued → entire system degraded"
+    },
+    {
+      "id": "08-MICROSERVICES.md#038",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "WITH BULKHEAD (per-service thread pools):\n  Service B pool: 50 threads → B failure consumes only these 50\n  Service A pool: 50 threads → A still healthy\n  Service C pool: 50 threads → C still healthy\n  System pool:    50 threads → admin/health checks still work"
+    },
+    {
+      "id": "08-MICROSERVICES.md#039",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "ISOLATION SCOPE:\n  Thread pool: limits concurrent calls to a dependency\n  Semaphore:   limits concurrent calls but on same threads (lighter)\n  Process:     complete isolation (microservices themselves are bulkheads)\n  Pod:         Kubernetes resource limits per pod (CPU/memory)\n```"
+    },
+    {
+      "id": "08-MICROSERVICES.md#040",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "**The ships analogy**: Bulkheads in a ship partition the hull so water in one compartment does not sink the whole ship. Thread pool bulkheads partition the system so one dependency's failure does not sink the whole application."
+    },
+    {
+      "id": "08-MICROSERVICES.md#041",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-MICROSERVICES.md#042",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "## Backpressure"
+    },
+    {
+      "id": "08-MICROSERVICES.md#043",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Backpressure signals a producer to slow down when the consumer cannot keep up. Without backpressure, a slow consumer fills buffers until the system runs out of memory."
+    },
+    {
+      "id": "08-MICROSERVICES.md#044",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "```\nWITHOUT BACKPRESSURE:\n  Producer (fast) ──────> unbounded queue ──────> Consumer (slow)\n  Queue fills → OutOfMemoryError → crash"
+    },
+    {
+      "id": "08-MICROSERVICES.md#045",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "WITH BACKPRESSURE:\n  Producer (fast) ──x── bounded queue ← \"full\" signal ── Consumer (slow)\n  Producer: slow down, retry, or apply back-off"
+    },
+    {
+      "id": "08-MICROSERVICES.md#046",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "REACTIVE STREAMS SPECIFICATION (Java/JVM):\n  Publisher.subscribe(Subscriber)\n  Subscriber.onSubscribe(Subscription)\n  Subscription.request(n) ← consumer requests N items\n  Publisher emits at most n items → respects consumer capacity\n  Implemented by: RxJava, Reactor (Spring WebFlux), Akka Streams"
+    },
+    {
+      "id": "08-MICROSERVICES.md#047",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "HTTP/2 FLOW CONTROL:\n  TCP backpressure: receiver advertises window size\n  HTTP/2: per-stream flow control on top of TCP\n  gRPC (on HTTP/2): inherits flow control → natural backpressure"
+    },
+    {
+      "id": "08-MICROSERVICES.md#048",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "KAFKA CONSUMER BACKPRESSURE:\n  Consumer pulls at its own rate (consumer lag grows temporarily)\n  Producer continues writing to Kafka (durable buffer)\n  Consumer catches up when capacity is available\n  → Kafka log acts as a durable backpressure buffer\n```"
+    },
+    {
+      "id": "08-MICROSERVICES.md#049",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-MICROSERVICES.md#050",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "## Saga Orchestration vs. Choreography"
+    },
+    {
+      "id": "08-MICROSERVICES.md#051",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Revisited from the distributed transactions perspective, applied to microservices:"
+    },
+    {
+      "id": "08-MICROSERVICES.md#052",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "```\nORCHESTRATION PATTERN\n  Central orchestrator service drives the saga:"
+    },
+    {
+      "id": "08-MICROSERVICES.md#053",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Orchestrator\n       |── T1: call Payment Service ─→ success\n       |── T2: call Inventory Service ─→ success\n       |── T3: call Shipping Service ─→ FAIL\n       |── C2: call Inventory to rollback\n       |── C1: call Payment to rollback"
+    },
+    {
+      "id": "08-MICROSERVICES.md#054",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "+ Clear workflow visible in one place\n  + Easy to add monitoring, alerting on saga state\n  + Retry/resume logic in one service\n  - Orchestrator becomes coupled to all participating services\n  - Risk: orchestrator becomes too smart (domain logic leakage)"
+    },
+    {
+      "id": "08-MICROSERVICES.md#055",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Tool: Azure Durable Functions (orchestrator = orchestrator function,\n        activities = activity functions)"
+    },
+    {
+      "id": "08-MICROSERVICES.md#056",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "CHOREOGRAPHY PATTERN\n  No central coordinator; services react to events:"
+    },
+    {
+      "id": "08-MICROSERVICES.md#057",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Payment Service:\n    receives \"OrderPlaced\" event\n    processes payment → emits \"PaymentCompleted\""
+    },
+    {
+      "id": "08-MICROSERVICES.md#058",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Inventory Service:\n    receives \"PaymentCompleted\"\n    reserves stock → emits \"StockReserved\""
+    },
+    {
+      "id": "08-MICROSERVICES.md#059",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Shipping Service:\n    receives \"StockReserved\"\n    fails → emits \"ShippingFailed\""
+    },
+    {
+      "id": "08-MICROSERVICES.md#060",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Inventory Service:\n    receives \"ShippingFailed\"\n    releases stock → emits \"StockReleased\""
+    },
+    {
+      "id": "08-MICROSERVICES.md#061",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "Payment Service:\n    receives \"StockReleased\"\n    refunds payment"
+    },
+    {
+      "id": "08-MICROSERVICES.md#062",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "+ Services are decoupled (only know about events, not each other)\n  + Easier to add new participants (subscribe to existing events)\n  - Flow is implicit in event chains → hard to visualize end-to-end\n  - Debugging cross-service failures requires tracing correlation IDs\n  - Compensating logic is distributed across services"
+    },
+    {
+      "id": "08-MICROSERVICES.md#063",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "WHEN TO USE:\n  Orchestration: complex workflows with many conditions and rollbacks\n  Choreography: simple flows, high decoupling required, streaming pipelines\n```"
+    },
+    {
+      "id": "08-MICROSERVICES.md#064",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-MICROSERVICES.md#065",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "## API Gateway"
+    },
+    {
+      "id": "08-MICROSERVICES.md#066",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "```\nAPI GATEWAY RESPONSIBILITIES\n+----------------------------------------------------------+\n|                     API GATEWAY                          |\n+----------------------------------------------------------+\n| SSL/TLS termination  | Single HTTPS endpoint to clients  |\n| Auth/AuthZ           | JWT validation, OAuth token verify |\n| Rate limiting        | Per client, per endpoint limits   |\n| Request routing      | Route /users → user-service       |\n| Load balancing       | Distribute within a service pool  |\n| API versioning       | /v1/, /v2/ routing               |\n| Request/response     | Transform, validate, enrich       |\n| transformation                                           |\n| Response caching     | Cache GET responses               |\n| Observability        | Centralized access logging        |\n+----------------------------------------------------------+"
+    },
+    {
+      "id": "08-MICROSERVICES.md#067",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "AZURE API MANAGEMENT (APIM):\n  Products: logical group of APIs (e.g., \"Partner APIs\")\n  Subscriptions: key-based access to products\n  Policies: XML pipeline applied per operation:\n    inbound → backend → outbound → on-error\n  Built-in: JWT validation, rate limiting, IP filtering,\n            OpenAPI import, developer portal, analytics"
+    },
+    {
+      "id": "08-MICROSERVICES.md#068",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "ALTERNATIVES:\n  Kong (open source, Nginx-based, plugin ecosystem)\n  AWS API Gateway\n  Nginx/Envoy as gateway (more raw, less managed)\n```"
+    },
+    {
+      "id": "08-MICROSERVICES.md#069",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-MICROSERVICES.md#070",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "## Service Discovery"
+    },
+    {
+      "id": "08-MICROSERVICES.md#071",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "```\nDNS-BASED (Kubernetes default):\n  Service \"payment-service\" created in Kubernetes\n  kube-dns creates: payment-service.namespace.svc.cluster.local\n  Consumers call this DNS name → auto-resolved to current pods\n  Simple, no client-side library needed\n  Updates: when pods change, DNS TTL propagates (near-instant for kube-dns)"
+    },
+    {
+      "id": "08-MICROSERVICES.md#072",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "REGISTRY-BASED (Consul, etcd):\n  Services register on startup with name, address, health check endpoint\n  Consumer queries registry: \"give me instances of payment-service\"\n  Registry returns list → client-side load balancing\n  More control (weighted routing, metadata filtering)\n  Used by: Consul service catalog, Netflix Eureka (legacy)"
+    },
+    {
+      "id": "08-MICROSERVICES.md#073",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "CLIENT-SIDE vs. SERVER-SIDE LOAD BALANCING:\n  Client-side: client has registry, picks instance, calls directly\n    + No extra hop\n    - Every service needs registry client library (language proliferation)\n  Server-side: client calls a proxy/gateway, proxy picks instance\n    + Language-agnostic\n    - Extra network hop\n    - Service mesh uses server-side (proxy in sidecar)\n```"
+    },
+    {
+      "id": "08-MICROSERVICES.md#074",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-MICROSERVICES.md#075",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "08-MICROSERVICES.md#076",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "- `04-REPLICATION.md` explains the data duplication problems microservices inherit.\n- `05-DISTRIBUTED-TRANSACTIONS.md` covers sagas and transaction boundaries across services.\n- `../cloud-architecture/07-CONTAINERS-KUBERNETES.md` gives the deployment substrate for service meshes and discovery."
+    },
+    {
+      "id": "08-MICROSERVICES.md#077",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "08-MICROSERVICES.md#078",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "**\"Service mesh replaces the API gateway\"**\nNo. Service mesh (Istio/Linkerd) handles east-west traffic (service-to-service inside the cluster). API gateway handles north-south traffic (external clients to cluster). They serve different layers."
+    },
+    {
+      "id": "08-MICROSERVICES.md#079",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "**\"Circuit breaker = retry logic\"**\nThey are complementary but different. Retries try the same operation again (useful for transient failures). Circuit breakers stop calling a failing service entirely (useful for sustained failures). Retries without circuit breakers amplify load on a struggling service."
+    },
+    {
+      "id": "08-MICROSERVICES.md#080",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "**\"Bulkheads are about performance\"**\nBulkheads are about fault isolation, not performance. They limit the blast radius of a failure to a subset of resources. Performance may be similar with or without bulkheads under normal conditions."
+    },
+    {
+      "id": "08-MICROSERVICES.md#081",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "**\"Sagas are weaker than 2PC\"**\nSagas provide different guarantees. 2PC provides isolation (other readers don't see in-progress state). Sagas do not. For many business workflows, the lack of isolation is acceptable (users tolerate seeing intermediate states). For financial transactions, design compensating transactions carefully."
+    },
+    {
+      "id": "08-MICROSERVICES.md#082",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-MICROSERVICES.md#083",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "08-MICROSERVICES.md#084",
+      "path": [
+        "08-MICROSERVICES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]",
+        "canonical_path": "distributed-systems/08-MICROSERVICES.md",
+        "concepts": "[microservices]",
+        "current_path": "distributed-systems/08-MICROSERVICES.md",
+        "id": "maxim:distributed-systems:microservices",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[microservices]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| A flaky dependency | Measure timeout, retry budget, idempotency, circuit-breaker threshold, fallback behavior, and user-visible error. | Retries without budgets can amplify outages. |\n| A cascading failure | Identify shared pools, connection limits, queue depth, bulkhead boundaries, and priority traffic. | Bulkheads preserve capacity for other dependencies; they do not fix the failing dependency. |\n| Producer/consumer overload | Check backpressure signal, queue/broker durability, consumer lag, drop policy, and replay semantics. | Buffers buy time; they do not create infinite capacity. |\n| A cross-service workflow | Decide between saga orchestration, choreography, idempotent steps, compensation, and explicit user-visible states. | Sagas are not ACID transactions; intermediate states can be observable. |\n| Whether a service mesh helps | Look for mTLS, traffic splitting, retries, telemetry, policy, and sidecar/ambient operational cost. | A mesh centralizes cross-cutting traffic policy but adds control-plane complexity. |\n| API gateway vs service discovery | Separate external ingress/auth/rate limits from internal service location and load balancing. | Gateways are edge control points; registries/DNS solve internal lookup. |\n| A canary or A/B rollout | Define traffic split, metrics, rollback threshold, sticky sessions, and data compatibility. | Routing canaries do not protect you from incompatible database/schema changes. |"
+    }
+  ],
+  "refs": [
+    "08-MICROSERVICES.md"
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\03-CONSENSUS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CONSENSUS PROBLEM\n+-----------------------------------------------------------+\n|                                                           |\n|  N nodes, each proposes a value.                          |\n|  Agreement required: all decide on the same value.        |\n|  Validity required: the decided value was proposed.       |\n|  Termination required: all non-faulty nodes decide.       |\n|                                                           |\n|  Fault model: crash-stop (nodes halt silently)            |\n|  FLP (1985): impossible with >= 1 crash in async model    |\n|  Solution: partial synchrony (Dwork-Lynch-Stockmeyer)     |\n|                                                           |\n|  ALGORITHM LANDSCAPE                                      |\n|  Paxos (1989)     Raft (2014)       Viewstamped Rep (VR)  |\n|  Consensus        Consensus         Consensus             |\n|  via quorums      via leader        via views             |\n|  Hard to impl     Explicit          Liskov et al.         |\n|       |                |                  |               |\n|       v                v                  v               |\n|  Chubby           etcd, CockroachDB  MongoDB repl         |\n|  CosmosDB         TiKV, ConsulDB                          |\n|  internally       Kubernetes control                      |\n|                                                           |\n+-----------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 91,
+      "heading_context": "### Single-Decree Paxos: Two-Phase Protocol",
+      "confidence": "candidate",
+      "text": "Proposer                         Acceptors\n   |                             |   |   |\n   |-- PREPARE(n) -------------> |   |   |  (broadcast)\n   |   n = proposal number,      |   |   |\n   |   unique and increasing     |   |   |\n   |                             |   |   |\n   |   Each acceptor:            |   |   |\n   |   If n > maxSeen:           |   |   |\n   |     maxSeen = n             |   |   |\n   |     reply PROMISE(n, v_a)   |   |   |\n   |     where v_a = previously  |   |   |\n   |     accepted (value, round) |   |   |\n   |   Else: ignore or NACK      |   |   |\n   |                             |   |   |\n   |<-- PROMISE(n, v_a) -------- |   |   |  (from quorum)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 111,
+      "heading_context": "### Single-Decree Paxos: Two-Phase Protocol",
+      "confidence": "candidate",
+      "text": "Proposer                         Acceptors\n   |  (if quorum of promises)    |   |   |\n   |  choose value v:            |   |   |\n   |    if any promise carried   |   |   |\n   |    v_a, use highest-round v_a|  |   |\n   |    else use own proposed v  |   |   |\n   |                             |   |   |\n   |-- ACCEPT(n, v) -----------> |   |   |  (broadcast)\n   |                             |   |   |\n   |   Each acceptor:            |   |   |\n   |   If n >= maxSeen:          |   |   |\n   |     accept (n, v)           |   |   |\n   |     notify Learners         |   |   |\n   |                             |   |   |\n   |<-- ACCEPTED(n, v) --------- |   |   |  (quorum acks)\n   |                             |   |   |\n   CONSENSUS REACHED: v is decided",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "### Paxos Safety Trace: Competing Proposers",
+      "confidence": "candidate",
+      "text": "ACCEPTORS: A1 A2 A3          quorum = any 2\n\nRound 10:\n  P1 sends ACCEPT(10, X) to A1, A2\n  A1 accepts X, A2 accepts X          -> X may be chosen\n\nRound 11:\n  P2 sends PREPARE(11) to A2, A3\n  A2 replies: \"I accepted X at round 10\"\n  A3 replies: \"I accepted nothing\"\n\n  P2 MUST propose X, not its own value Y.\n\nWhy? Any quorum for round 11 intersects the round-10 quorum at A2.\nThe prepare phase carries the previously accepted value across the\nquorum intersection. That is the whole safety proof in one line:\n\n  later quorums inherit earlier possible decisions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "### Multi-Paxos: Replicating a Log",
+      "confidence": "candidate",
+      "text": "MULTI-PAXOS OPTIMIZATION\n  - Elect a distinguished leader (run single-decree Paxos for leader)\n  - Leader runs Phase 1 once (not per-entry)\n  - Each new log entry: leader runs only Phase 2 (accept/accepted)\n  - Leader failure → new Paxos election → new leader inherits log\n\nRESULT: Normal-case operation requires only 1 round-trip to a quorum\n        Leader election requires 2 round-trips",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 186,
+      "heading_context": "### Structure",
+      "confidence": "candidate",
+      "text": "RAFT CLUSTER (5 nodes, F=2 fault tolerance)\n+--------+    +--------+    +--------+    +--------+    +--------+\n| Node 1 |    | Node 2 |    | Node 3 |    | Node 4 |    | Node 5 |\n| LEADER |    |FOLLOWER|    |FOLLOWER|    |FOLLOWER|    |FOLLOWER|\n+--------+    +--------+    +--------+    +--------+    +--------+\n    |              |              |              |              |\n    |<- heartbeat  |              |              |              |\n    |   (AppendEntries RPC, empty)|              |              |\n    |              |              |              |              |\nClient writes to leader only.\nFollowers redirect clients to leader.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 202,
+      "heading_context": "### Terms",
+      "confidence": "candidate",
+      "text": "TIME\n----+------+--------+--------+------+----+------+----->\n   election election  normal  elec  split normal\n    term 1   term 2  term 2  fail  vote  term 4\n         |        |\n       leader   leader\n       elected  elected\n\n- Time is divided into terms (monotonically increasing integers)\n- Each term begins with an election\n- At most one leader per term\n- Terms act as logical clocks — stale leaders have old term numbers",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 219,
+      "heading_context": "### Leader Election",
+      "confidence": "candidate",
+      "text": "All nodes start as FOLLOWERS\n  |\n  | election timeout expires (150–300ms, randomized)\n  v\nBecome CANDIDATE\n  |\n  | increment term, vote for self\n  | send RequestVote RPC to all nodes\n  v\n  Receive votes from quorum? ──Yes──> Become LEADER\n        |                               Send heartbeats\n        No (split vote or\n            higher term seen)\n        |\n        v\n  Return to FOLLOWER, wait for next timeout",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 246,
+      "heading_context": "### Log Replication",
+      "confidence": "candidate",
+      "text": "CLIENT REQUEST\n     |\n     | write to leader\n     v\nLEADER appends entry to local log (uncommitted)\n     |\n     | AppendEntries RPC (new entry + previous entry info)\n     v\nFOLLOWERS append entry to their logs\n     |\n     | acknowledgment from quorum\n     v\nLEADER commits entry (advances commitIndex)\n     |\n     | next AppendEntries tells followers about commit\n     v\nFOLLOWERS commit entry → apply to state machine\n     |\n     | applied → respond to client",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 347,
+      "heading_context": "## etcd: Kubernetes Control Plane",
+      "confidence": "candidate",
+      "text": "KUBERNETES CONTROL PLANE\n+----------------------------------------------------------+\n| API Server | Scheduler | Controller Manager              |\n+----------------------------------------------------------+\n                         |\n                    reads/writes\n                         |\n                         v\n              +---------------------+\n              |        etcd         |\n              |   (Raft cluster,    |\n              |   typically 3 or 5) |\n              +---------------------+\n              Leader handles writes.\n              Followers handle reads (by default via leader forwarding).\n              etcd MUST have quorum — losing majority = cluster down.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\09-OBSERVABILITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 421,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Scenario",
+        "Tool / Approach"
+      ],
+      "rows": [
+        [
+          "Why did request X fail?",
+          "Distributed trace (trace-id lookup)"
+        ],
+        [
+          "Is p99 latency increasing?",
+          "Metrics (histogram query)"
+        ],
+        [
+          "What happened at 3am?",
+          "Structured logs with correlation ID"
+        ],
+        [
+          "Is service A talking to service B?",
+          "Service mesh telemetry"
+        ],
+        [
+          "Find all errors in the last hour",
+          "Log query (KQL / Elasticsearch)"
+        ],
+        [
+          "Measure if new deploy degraded latency",
+          "Before/after metric comparison"
+        ],
+        [
+          "Test resilience of circuit breaker",
+          "Chaos experiment (inject failure)"
+        ],
+        [
+          "Validate SLO compliance",
+          "Error budget dashboard"
+        ],
+        [
+          "Standardize instrumentation across 10 services",
+          "OpenTelemetry SDK"
+        ]
+      ]
+    }
+  ]
+}

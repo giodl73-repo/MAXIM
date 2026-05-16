@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:distributed-systems:consensus-theory
+kind: guide
+module: distributed-systems
+section: distributed-systems
+title: Consensus Theory: Impossibility Results, Byzantine Faults, and Protocol Internals
+status: source-custody
+source_custody: partial
+current_path: distributed-systems/10-CONSENSUS-THEORY.md
+canonical_path: distributed-systems/10-CONSENSUS-THEORY.md
+backsource_ids: [proof-backfill:distributed-systems:10-consensus-theory, git-history:distributed-systems:10-consensus-theory]
+concepts: [consensus, theory]
+root_concepts: [consensus, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Consensus Theory: Impossibility Results, Byzantine Faults, and Protocol Internals
 
 ## Sentinel Context
@@ -33,15 +52,15 @@ CONSENSUS THEORY — THE CONSTRAINT STACK
   │                                                             │
   │  CRASH FAULT TOLERANT (f crashes, 2f+1 nodes)               │
   │  ┌───────────┐  ┌──────────┐  ┌──────────────────┐          │
-  │  │ Paxos     │  │ Raft     │  │ Viewstamped Rep  │        │
-  │  │ (1989)    │  │ (2014)   │  │ (1988)           │        │
-  │  └───────────┘  └──────────┘  └──────────────────┘        │
+  │  │ Paxos     │  │ Raft     │  │ Viewstamped Rep  │          │
+  │  │ (1989)    │  │ (2014)   │  │ (1988)           │          │
+  │  └───────────┘  └──────────┘  └──────────────────┘          │
   │                                                             │
   │  BYZANTINE FAULT TOLERANT (f Byzantine, 3f+1 nodes)        │
-  │  ┌───────────┐  ┌──────────┐  ┌──────────────────┐        │
-  │  │ PBFT      │  │ Tendermint│  │ HotStuff         │       │
-  │  │ (1999)    │  │ (2014)   │  │ (2019)           │        │
-  │  └───────────┘  └──────────┘  └──────────────────┘        │
+  │  ┌───────────┐  ┌──────────┐  ┌──────────────────┐          │
+  │  │ PBFT      │  │Tendermint│  │ HotStuff         │          │
+  │  │ (1999)    │  │ (2014)   │  │ (2019)           │          │
+  │  └───────────┘  └──────────┘  └──────────────────┘          │
   │                                                             │
   └─────────────────────────┬───────────────────────────────────┘
                             │
@@ -154,7 +173,7 @@ FLP ESCAPE ROUTES
 ├──────────────────────────┼───────────────────────────────────┤
 │ Randomization            │ Ben-Or (1983): randomized async   │
 │                          │ consensus terminates w.p. 1.      │
-│                          │ Expected O(2^n) rounds. Impractical│
+│                          │ Expected O(2^n) rounds; costly.   │
 │                          │ alone; useful combined with       │
 │                          │ partial synchrony.                │
 ├──────────────────────────┼───────────────────────────────────┤
@@ -201,7 +220,7 @@ THE BYZANTINE GENERALS — 4 GENERALS, 1 TRAITOR
   Scenario A: General 3 is the traitor
   ┌─────────┐     "attack"     ┌─────────┐
   │General 1│────────────────> │General 2│
-  │(loyal)  │<────────────────│(loyal)   │
+  │(loyal)  │<──────────────── │(loyal)  │
   └────┬────┘    "attack"      └────┬────┘
        │                            │
   "attack"                     "attack"
@@ -219,7 +238,7 @@ THE BYZANTINE GENERALS — 4 GENERALS, 1 TRAITOR
   Scenario B: 3 generals, 1 traitor — FAILS
   ┌─────────┐     "attack"     ┌─────────┐
   │General 1│────────────────> │General 2│
-  │(loyal)  │<────────────────│(loyal)   │
+  │(loyal)  │<──────────────── │(loyal)  │
   └────┬────┘    "attack"      └────┬────┘
        │                            │
        │    ┌─────────┐            │
@@ -324,7 +343,7 @@ PAXOS SAFETY PROOF — QUORUM OVERLAP
 
    Quorum Q_n (accepted v at n)     Quorum Q_m (promised to m)
    ┌───────────────────────┐       ┌───────────────────────┐
-   │  a₁  a₂  a₃          │       │       a₃  a₄  a₅       │
+   │  a₁  a₂  a₃           │       │       a₃  a₄  a₅      │
    │                       │       │                       │
    │ All accepted (n, v)   │       │ All promised to m>n   │
    └───────────────────────┘       └───────────────────────┘
@@ -372,13 +391,11 @@ MULTI-PAXOS ARCHITECTURE
   └──────────────────────────────────────────────────┘
        │              │              │
        ▼              ▼              ▼
-  ┌─────────┐   ┌─────────┐   ┌─────────┐
-  │Acceptor1│   │Acceptor2│   │Acceptor3│
-  │ Log:    │   │ Log:    │   │ Log:    │
-  │ 1:X ✓  │   │ 1:X ✓  │   │ 1:X ✓     │
-  │ 2:Y ✓  │   │ 2:Y ✓  │   │ 2:Y ✓     │
-  │ 3:Z ?  │   │ 3:Z ✓  │   │ 3:Z ?     │
-  └─────────┘   └─────────┘   └─────────┘
+  Acceptor1       Acceptor2       Acceptor3
+  Log:            Log:            Log:
+    1:X ✓           1:X ✓           1:X ✓
+    2:Y ✓           2:Y ✓           2:Y ✓
+    3:Z ?           3:Z ✓           3:Z ?
 
   OPTIMIZATION: Leader runs Phase 1 once per term.
   Each new log entry: only Phase 2 (1 RTT to quorum).

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "security-engineering\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 52,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SECURITY ENGINEERING LANDSCAPE\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  PROACTIVE (prevent)              REACTIVE (detect and respond)       |\n|  +---------------------------+    +-------------------------------+   |\n|  | Threat Modeling           |    | Monitoring / SIEM             |   |\n|  | Secure Design Principles  |    | Incident Response             |   |\n|  | Vulnerability Management  |    | Forensics                     |   |\n|  | Secure SDLC (SDL)         |    | Red/Blue Team                 |   |\n|  | Identity & Access         |    | Threat Hunting                |   |\n|  | Network Security          |    | Post-Incident Review          |   |\n|  +---------------------------+    +-------------------------------+   |\n|                                                                       |\n|  ORGANIZATIONAL                   REGULATORY                          |\n|  +---------------------------+    +-------------------------------+   |\n|  | Security Champions        |    | SOC 2                         |   |\n|  | Security Training         |    | ISO 27001                     |   |\n|  | Bug Bounty Programs       |    | FedRAMP                       |   |\n|  | SSIRT / CERT              |    | GDPR / CCPA                   |   |\n|  +---------------------------+    | PCI DSS                       |   |\n|                                   +-------------------------------+   |\n+-----------------------------------------------------------------------+\n\nADVERSARY MODEL\n+-----------------------------------------------------------------------+\n| Nation-state      | Years of access, supply chain attacks, zero-days  |\n| Criminal org      | Ransomware, data theft, financial fraud            |\n| Hacktivist        | DDoS, defacement, data exposure                    |\n| Insider threat    | Privileged access misuse, accidental exfiltration  |\n| Script kiddie     | Known CVEs, commodity tools, opportunistic         |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 92,
+      "heading_context": "## Security as a Quality Attribute",
+      "confidence": "candidate",
+      "text": "COST OF FIXING SECURITY ISSUES BY PHASE\n          |\n          |         ████\n  Cost    |        ████████\n          |       ██████████\n          |      ████████████\n          |  █   ██████████████\n          |  █████████████████████\n          +---+-----+------+------+------> Phase\n           Req Design Code  Test  Prod\n\nDesign-time fix: 1x cost\nProduction fix:  30–100x cost (+ reputational, regulatory)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "## Microsoft SDL: The Canonical Enterprise Process",
+      "confidence": "candidate",
+      "text": "SDL PHASES\n\n1. TRAINING\n   Mandatory security training for all engineers\n   Role-specific: developer, PM, test, management\n\n2. REQUIREMENTS\n   Security and privacy requirements definition\n   Quality gates (security bugs = ship blockers)\n\n3. DESIGN\n   Threat model (STRIDE analysis)\n   Attack surface review (minimize exposed interfaces)\n   Privacy impact assessment\n\n4. IMPLEMENTATION\n   Banned API list (strcpy → strcpy_s, etc.)\n   Static analysis tools (PREfast, Roslyn analyzers)\n   Approved cryptography only (no homegrown crypto)\n\n5. VERIFICATION\n   Fuzz testing (required for network-facing components)\n   Dynamic analysis (ASan, Application Verifier)\n   Manual code review for high-risk components\n\n6. RELEASE\n   Final Security Review (FSR) — sign-off by security team\n   Security response plan in place\n\n7. RESPONSE\n   SSIRT (Security Response Center / MSRC)\n   Coordinated disclosure process\n   Patch release procedures\n\nMANDATORY SDL DELIVERABLES:\n  - Threat model document\n  - No banned APIs in code\n  - Static analysis passing at required warning level\n  - Fuzz results documented\n  - Crypto review (approved algorithms only)\n  - FSR sign-off",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "## Threat Surface vs. Attack Surface",
+      "confidence": "candidate",
+      "text": "THREAT SURFACE: Everything that could potentially be attacked\n  All input entry points, all auth mechanisms, all data stores,\n  all network interfaces, all dependencies, all human actors\n\nATTACK SURFACE: The subset exposed to attackers\n  → Security engineering aims to MINIMIZE the attack surface\n\nATTACK SURFACE REDUCTION:\n  Close unused ports / disable unused features\n  Remove debug endpoints before release\n  Restrict API access to authenticated clients only\n  Use private endpoints instead of public ones\n  Minimize privilege (service account has read-only where possible)\n  Remove dev/test credentials from production config",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

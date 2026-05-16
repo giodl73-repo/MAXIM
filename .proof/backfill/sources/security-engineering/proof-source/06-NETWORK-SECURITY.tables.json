@@ -1,0 +1,57 @@
+{
+  "schema_version": "1",
+  "source_markdown": "security-engineering\\06-NETWORK-SECURITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 335,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Requirement",
+        "Control"
+      ],
+      "rows": [
+        [
+          "Isolate web tier from DB tier",
+          "Subnet segmentation + NSG deny rules"
+        ],
+        [
+          "Detect lateral movement inside VNet",
+          "NSG flow logs → Sentinel"
+        ],
+        [
+          "HTTP/HTTPS attack protection",
+          "WAF (Azure Application Gateway WAF, Front Door WAF)"
+        ],
+        [
+          "L7 outbound inspection",
+          "Azure Firewall Premium (FQDN rules + IDPS)"
+        ],
+        [
+          "Replace VPN for remote employee access",
+          "ZTNA (Entra Private Access, Zscaler, Cloudflare)"
+        ],
+        [
+          "Service-to-service authentication",
+          "mTLS via service mesh (Istio)"
+        ],
+        [
+          "Prevent certificate forgery monitoring",
+          "Certificate Transparency monitoring"
+        ],
+        [
+          "DNS response authenticity",
+          "DNSSEC + CAA records"
+        ],
+        [
+          "DNS query privacy",
+          "DoH or DoT at resolver level"
+        ],
+        [
+          "Detect C2 beaconing",
+          "NDR / Sentinel + DNS anomaly detection"
+        ]
+      ]
+    }
+  ]
+}

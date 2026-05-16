@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:distributed-systems:overview
+kind: guide
+module: distributed-systems
+section: distributed-systems
+title: Distributed Systems - Landscape
+status: source-custody
+source_custody: partial
+current_path: distributed-systems/00-OVERVIEW.md
+canonical_path: distributed-systems/00-OVERVIEW.md
+backsource_ids: [proof-backfill:distributed-systems:00-overview, git-history:distributed-systems:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Distributed Systems — Landscape
 
 ## Sentinel Context
@@ -11,7 +30,7 @@ THE SENTINEL TRIAD — Distributed Systems View
               FLP Impossibility (1985)
               "No deterministic async consensus with 1 crash."
                          │
-        ┌────────────────┼────────────────┐
+             branches to the three Sentinel modules
         │                │                │
         ▼                ▼                ▼
   ╔════════════╗   ┌───────────┐   ┌──────────────┐
@@ -21,9 +40,9 @@ THE SENTINEL TRIAD — Distributed Systems View
   ║ "Who has   ║   │ "Who do   │   │ "Where do    │
   ║  the       ║   │  you      │   │  you put     │
   ║  truth?"   ║   │  trust?"  │   │  the truth?" │
-  ╚═════╤══════╝   └─────┬─────┘   └──────┬───────┘
+  ╚════════════╝   └───────────┘   └──────────────┘
         │                │                │
-        └────────────────┴────────────────┘
+             consensus connects all three modules
                          │
               Consensus as unifying abstraction
 ```
@@ -49,18 +68,18 @@ A distributed system is a collection of independent computers that appears to it
 |   FUNDAMENTAL IMPOSSIBILITIES        FUNDAMENTAL PROBLEMS           |
 |   +---------------------------+       +---------------------------+  |
 |   | FLP (1985): No async      |       | Consensus                 |  |
-|   | system can guarantee      |       | How do N nodes agree?    |   |
+|   | system can guarantee      |       | How do N nodes agree?     |  |
 |   | consensus with 1 failure  |       +---------------------------+  |
 |   +---------------------------+       | Consistency               |  |
-|   | CAP Theorem: You cannot   |       | What does "read" return? |   |
+|   | CAP Theorem: You cannot   |       | What does "read" return?  |  |
 |   | have C + A + P together   |       +---------------------------+  |
 |   +---------------------------+       | Availability              |  |
 |   | Einstein/SR: Speed of     |       | Does every request get    |  |
 |   | light bounds coordination |       | a response?               |  |
 |   +---------------------------+       +---------------------------+  |
-|                                       | Partition Tolerance       |  |
-|                                       | Works when network splits |  |
-|                                       +---------------------------+  |
+|                                       Partition Tolerance            |
+|                                       Works when network splits      |
+|                                                                      |
 |                                                                      |
 +---------------------------------------------------------------------+
 

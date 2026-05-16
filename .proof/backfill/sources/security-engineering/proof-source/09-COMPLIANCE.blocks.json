@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "security-engineering\\09-COMPLIANCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "COMPLIANCE LANDSCAPE\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  VOLUNTARY FRAMEWORKS           REGULATORY REQUIREMENTS               |\n|  +---------------------------+  +--------------------------------+    |\n|  | SOC 2 (AICPA)             |  | GDPR (EU - all personal data)  |   |\n|  | ISO 27001 (global ISMS)   |  | CCPA (California consumers)    |   |\n|  | CSA STAR (cloud security) |  | HIPAA (US health data)         |   |\n|  | CIS Controls              |  | PCI DSS (payment card data)    |   |\n|  +---------------------------+  | GLBA (US financial)            |   |\n|                                  | SOX (US public companies)      |  |\n|  US GOVERNMENT                  +--------------------------------+   |\n|  +---------------------------+                                        |\n|  | FedRAMP (cloud, federal)  |  COMPLIANCE vs. SECURITY:              |\n|  | FISMA (federal agencies)  |  Compliance = meeting audit criteria   |\n|  | NIST CSF (guidance)       |  Security = actually hard to attack    |\n|  | CMMC (defense contracts)  |  You can be compliant AND insecure     |\n|  +---------------------------+                                        |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 97,
+      "heading_context": "### Security Criterion (CC) Key Controls",
+      "confidence": "candidate",
+      "text": "CC6 LOGICAL ACCESS (most engineering-intensive):\n  CC6.1: Logical access security measures\n    → Multi-factor authentication for all privileged access\n    → Role-based access control, least privilege\n    → Access reviews (quarterly for privileged, annual for all)\n  CC6.2: Formal access granting/revoking process\n    → HR-to-IT provisioning/deprovisioning workflow\n    → Leavers: access revoked same day\n  CC6.3: Restrict privileged access\n    → No shared admin accounts\n    → Individual accountability for privileged actions\n    → PAM / JIT for production access\n\nCC7 SYSTEM OPERATIONS:\n  CC7.1: Monitoring for security events\n    → SIEM deployed, alerts configured, reviewed\n  CC7.2: Incident response procedures\n    → IR plan documented, tested (tabletop)\n  CC7.3: Incident identification and analysis\n\nCC8 CHANGE MANAGEMENT:\n  → Change management process\n  → Approval gates, rollback procedures\n  → Security review of significant changes\n\nCC9 RISK MITIGATION:\n  → Formal risk assessment process\n  → Vendor risk management (third-party assessments)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 162,
+      "heading_context": "### ISMS Structure",
+      "confidence": "candidate",
+      "text": "### Annex A Controls (2022 — ISO 27001:2022)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "## FedRAMP",
+      "confidence": "candidate",
+      "text": "FEDRAMP IMPACT LEVELS:\n\nLOW: Information with limited adverse effect if disclosed\n  72 controls (NIST SP 800-53 Rev 5 subset)\n  Example: public-facing informational websites\n\nMODERATE: Most federal systems (85% of federal use cases)\n  323 controls\n  Example: benefits systems, grant management, HR systems\n\nHIGH: National security, law enforcement, emergency services\n  400+ controls\n  Example: criminal justice, financial systems, health systems\n\nAUTHORIZATION TO OPERATE (ATO) PROCESS:\n  1. CSP selects impact level and boundary\n  2. CSP engages a 3PAO (Third Party Assessment Organization)\n  3. 3PAO performs security assessment\n  4. CSP submits Security Package to FedRAMP PMO\n     (System Security Plan, Security Assessment Report, Plan of Action)\n  5. Agency issues Provisional ATO or FedRAMP PMO issues P-ATO\n  6. Continuous monitoring: monthly vulnerability scans, annual assessment\n  7. Significant changes: require re-assessment\n\nAZURE FEDRAMP:\n  Azure Government cloud: FedRAMP High authorized\n  Azure Commercial: FedRAMP Moderate authorized for most services\n  Microsoft maintains the authorization; customers inherit controls\n  → Customer responsibility: application-level controls (data handling, access)\n\nTIMELINE: 6–24 months for initial authorization\nCOST: $2–5M+ for initial authorization; $500K–$1M annual continuous monitoring",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 239,
+      "heading_context": "## GDPR: Security Obligations",
+      "confidence": "candidate",
+      "text": "### Article 32: Security of Processing",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "### Article 32: Security of Processing",
+      "confidence": "candidate",
+      "text": "GDPR ARTICLE 32 REQUIREMENTS:\n  Implement \"appropriate technical and organizational measures\" to ensure\n  a level of security appropriate to the risk, including:\n\n  (a) Pseudonymisation and encryption of personal data\n  (b) Ability to ensure ongoing confidentiality, integrity,\n      availability and resilience of processing systems\n  (c) Ability to restore data in timely manner in event of incident\n  (d) Regular testing and evaluation of security measures\n\nRISK-PROPORTIONATE:\n  GDPR does not specify exact controls — it requires \"appropriate\" measures\n  relative to: nature of data, scope of processing, state of the art,\n  costs of implementation, risks to data subjects\n\n  → Encryption, MFA, and access controls for any PII\n  → Stronger controls for special category data (health, biometric, etc.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 261,
+      "heading_context": "### Article 32: Security of Processing",
+      "confidence": "candidate",
+      "text": "### Article 33: Breach Notification",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "### Article 33: Breach Notification",
+      "confidence": "candidate",
+      "text": "72-HOUR NOTIFICATION REQUIREMENT:\n  When a personal data breach occurs:\n  → Notify supervisory authority (e.g., ICO in UK, DPA in EU member state)\n    WITHIN 72 HOURS of becoming aware\n  → Unless breach is unlikely to result in risk to individuals\n\n  If notification to authority cannot happen in 72h:\n  → Notify with explanation of delay; provide info in phases\n\nNOTIFICATION CONTENT:\n  Nature of breach, categories and approximate number of individuals\n  Contact details of DPO (Data Protection Officer)\n  Likely consequences of breach\n  Measures taken to address breach\n\nARTICLE 34: Notification to data subjects:\n  When breach likely results in HIGH risk to individuals:\n  → Also notify individuals directly (without undue delay)\n  → Not required if effective technical measures rendered data unintelligible\n    (encrypted data with keys still secure = no individual notification)\n\nIRDA LESSONS (regulatory lens):\n  Microsoft itself has been subject to GDPR enforcement via data transfers\n  The 72-hour window means IR plan must include legal/DPO from the start",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 296,
+      "heading_context": "## PCI DSS v4.0",
+      "confidence": "candidate",
+      "text": "### 12 Requirements",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "### Cardholder Data Environment (CDE) Scoping",
+      "confidence": "candidate",
+      "text": "CDE = any system that stores, processes, or transmits PAN (Primary Account Number)\n       or is connected to such a system\n\nSCOPE REDUCTION STRATEGIES:\n  Tokenization: replace PAN with non-sensitive token at entry point\n    → Only the tokenization service is in-scope; rest of system is not\n    → Stripe, Braintree, PayPal handle PAN; you never see it\n  Network segmentation: isolate CDE from rest of environment\n    → Segmentation validated by pen tester\n  P2PE (Point-to-Point Encryption): encrypt at payment terminal\n    → Encrypted PAN travels through your system; cannot be decrypted\n\nTHE GOAL: make the CDE as small as possible",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 357,
+      "heading_context": "## Compliance vs. Security",
+      "confidence": "candidate",
+      "text": "COMPLIANCE IS THE FLOOR\n  SOC 2, ISO 27001, PCI DSS define MINIMUM requirements\n  A system can be fully compliant and still trivially breached:\n    → Compliant with MFA policy but phishing attack delivers session token\n    → Compliant with patch SLA but zero-day used before patch exists\n    → Compliant with access control but insider threat steals data legally\n\nSECURITY IS THE CEILING (you set it)\n  Real security is: threat model driven, risk proportionate,\n  defense in depth, continuously tested, blameless postmortem culture\n\nGRC TOOLS (Governance, Risk, Compliance):\n  ServiceNow GRC: integrated risk management + compliance tracking\n  Archer (OpenText): enterprise GRC platform\n  Vanta / Drata / Secureframe: automated evidence collection for SOC 2 / ISO 27001\n    (pull audit evidence from AWS/Azure/GCP/Okta APIs automatically)\n    Reduces audit preparation from months to weeks\n  Microsoft Purview Compliance Manager: Microsoft-specific compliance posture",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

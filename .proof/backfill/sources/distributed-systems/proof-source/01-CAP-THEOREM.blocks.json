@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\01-CAP-THEOREM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------+\n|                         CAP THEOREM                                 |\n|                                                                     |\n|   Brewer's Conjecture (2000): You cannot build a web service that   |\n|   simultaneously provides all three of:                             |\n|                                                                     |\n|         C — Consistency: every read receives the most recent        |\n|              write or an error                                      |\n|         A — Availability: every request receives a non-error        |\n|              response (no guarantee it's the latest data)           |\n|         P — Partition Tolerance: system continues to operate        |\n|              despite arbitrary network message loss                 |\n|                                                                     |\n|   Gilbert-Lynch formal proof (2002): proved in asynchronous         |\n|   network model with crash failures                                 |\n|                                                                     |\n|   The critical insight: P is not optional. Partitions happen.       |\n|   So the real choice is: what do you sacrifice during a partition?  |\n|                                                                     |\n|             C ──────────────── A                                    |\n|              \\                /                                     |\n|               \\   impossible /                                      |\n|                \\  to achieve /                                      |\n|                 \\   all 3   /                                       |\n|                  \\         /                                        |\n|                   \\       /                                         |\n|                    \\     /                                          |\n|                     \\   /                                           |\n|                      \\ /                                            |\n|                       P                                             |\n|                                                                     |\n|   CA: no partitions → only single-datacenter systems qualify        |\n|   CP: sacrifice availability during partition → return errors       |\n|   AP: sacrifice consistency during partition → return stale data    |\n+---------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 101,
+      "heading_context": "## Why P is Not Optional",
+      "confidence": "candidate",
+      "text": "PARTITION FREQUENCY (approximate, production experience)\n+----------------------------------------------------------+\n| Intra-datacenter (same AZ)     | minutes/month           |\n| Cross-AZ (same region)         | hours/year              |\n| Cross-region (e.g., US to EU)  | several times/year      |\n| Multi-cloud                    | days/year per provider  |\n+----------------------------------------------------------+\n\nWhen a partition occurs, your system MUST choose:\n  - Stop accepting writes (sacrifice A, maintain C) → CP\n  - Accept writes and risk divergence (sacrifice C, maintain A) → AP",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 121,
+      "heading_context": "## The Real Choice: CP vs. AP During Partition",
+      "confidence": "candidate",
+      "text": "PARTITION OCCURS\n        |\n        v\n Your system must decide:\n        |\n   +----+----+\n   |         |\n   v         v\n  CP         AP\n   |         |\n   v         v\nReturn     Accept\nerrors     writes,\n(no        risk\nstale      staleness\ndata)\n   |         |\n   v         v\nCorrect,   Available,\nunavailable inconsistent\nduring     during\npartition  partition",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 212,
+      "heading_context": "## Gilbert-Lynch Proof Sketch",
+      "confidence": "candidate",
+      "text": "Scenario setup:\n  - Two nodes: G1, G2\n  - Initial state: variable v = v0\n  - Network partition between G1 and G2\n\nStep 1: Client writes v = v1 to G1\n  - Partition means G1 cannot propagate to G2\n  - Availability requires G1 to acknowledge the write\n  - G1 accepts: v = v1\n\nStep 2: Client reads v from G2\n  - Availability requires G2 to respond (cannot wait for partition to heal)\n  - G2 responds with v = v0 (it has not received the write)\n\nContradiction:\n  - Write v1 was acknowledged (A satisfied for write)\n  - Read returned v0 (C violated: v0 is not the most recent write)\n  - Partition was present and system operated (P satisfied)\n  - Therefore C + A + P cannot all hold",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 265,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "DECIDING CP VS. AP\n+-----------------------------------------------+\n| What happens if a user gets stale data?       |\n|                                               |\n|  \"Data loss / incorrect charge / safety risk\" |\n|       → CP (accept unavailability)            |\n|                                               |\n|  \"Stale UI / recommendation mismatch\"         |\n|       → AP (accept staleness)                 |\n+-----------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

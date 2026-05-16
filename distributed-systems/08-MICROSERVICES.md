@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:distributed-systems:microservices
+kind: guide
+module: distributed-systems
+section: distributed-systems
+title: Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure
+status: source-custody
+source_custody: partial
+current_path: distributed-systems/08-MICROSERVICES.md
+canonical_path: distributed-systems/08-MICROSERVICES.md
+backsource_ids: [proof-backfill:distributed-systems:08-microservices, git-history:distributed-systems:08-microservices]
+concepts: [microservices]
+root_concepts: [microservices]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Microservices Patterns: Service Mesh, Circuit Breaker, Bulkhead, Backpressure
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:security-engineering:threat-modeling
+kind: guide
+module: security-engineering
+section: security-engineering
+title: Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA
+status: source-custody
+source_custody: partial
+current_path: security-engineering/01-THREAT-MODELING.md
+canonical_path: security-engineering/01-THREAT-MODELING.md
+backsource_ids: [proof-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]
+concepts: [threat, modeling]
+root_concepts: [threat, modeling]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA
 
 ## The Big Picture

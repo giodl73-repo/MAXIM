@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:security-engineering:secure-design
+kind: guide
+module: security-engineering
+section: security-engineering
+title: Secure Design Principles: Least Privilege, Defense in Depth, Zero Trust
+status: source-custody
+source_custody: partial
+current_path: security-engineering/02-SECURE-DESIGN.md
+canonical_path: security-engineering/02-SECURE-DESIGN.md
+backsource_ids: [proof-backfill:security-engineering:02-secure-design, git-history:security-engineering:02-secure-design]
+concepts: [secure, design]
+root_concepts: [secure, design]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Secure Design Principles: Least Privilege, Defense in Depth, Zero Trust
 
 ## The Big Picture

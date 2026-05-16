@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:security-engineering:incident-response
+kind: guide
+module: security-engineering
+section: security-engineering
+title: Incident Response: Detection, Containment, Eradication, Post-Mortem
+status: source-custody
+source_custody: partial
+current_path: security-engineering/07-INCIDENT-RESPONSE.md
+canonical_path: security-engineering/07-INCIDENT-RESPONSE.md
+backsource_ids: [proof-backfill:security-engineering:07-incident-response, git-history:security-engineering:07-incident-response]
+concepts: [incident, response]
+root_concepts: [incident, response]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Incident Response: Detection, Containment, Eradication, Post-Mortem
 
 ## The Big Picture

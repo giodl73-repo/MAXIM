@@ -1,0 +1,115 @@
+{
+  "schema_version": "1",
+  "source_markdown": "security-engineering\\01-THREAT-MODELING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 166,
+      "heading_context": "## DREAD Scoring",
+      "headers": [
+        "Factor",
+        "Description",
+        "Score Range"
+      ],
+      "rows": [
+        [
+          "**D**amage",
+          "How severe if exploited? (financial, reputational, regulatory)",
+          "1–10"
+        ],
+        [
+          "**R**eproducibility",
+          "How reliably can the attacker exploit it?",
+          "1–10"
+        ],
+        [
+          "**E**xploitability",
+          "How difficult to exploit? (skill required)",
+          "1–10"
+        ],
+        [
+          "**A**ffected users",
+          "How many users are impacted?",
+          "1–10"
+        ],
+        [
+          "**D**iscoverability",
+          "How likely is the attacker to find this?",
+          "1–10"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 329,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Recommended Approach"
+      ],
+      "rows": [
+        [
+          "New service, dev team owns it",
+          "STRIDE + Microsoft TM Tool, SDL deliverable"
+        ],
+        [
+          "High-risk payment / auth system",
+          "PASTA (risk-centric business alignment)"
+        ],
+        [
+          "Visual representation of all attack paths",
+          "Attack trees"
+        ],
+        [
+          "Quick team threat brainstorm",
+          "STRIDE categories on whiteboard"
+        ],
+        [
+          "Prioritizing 20 threats for backlog",
+          "DREAD scoring (relative, same reviewer)"
+        ],
+        [
+          "Validating mitigations in production",
+          "Pen test (08-RED-BLUE-TEAM.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 342,
+      "heading_context": "## Cross-References",
+      "headers": [
+        "If you want to understand...",
+        "Go to",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Cryptographic controls used as mitigations",
+          "`cryptography/01-SYMMETRIC.md`",
+          "Spoofing, tampering, and disclosure controls often reduce to keys, signatures, and encryption"
+        ],
+        [
+          "Distributed-system failure and trust boundaries",
+          "`distributed-systems/03-CONSENSUS.md`",
+          "Threat models and consensus protocols both begin by naming adversaries and failure modes"
+        ],
+        [
+          "Cloud identity and network surfaces",
+          "`cloud-architecture/01-CLOUD-MODELS.md`",
+          "Most modern DFDs cross IAM, network, storage, and deployment trust zones"
+        ],
+        [
+          "Formal verification of security claims",
+          "`formal-methods/01-LOGIC-FOUNDATIONS.md`",
+          "High-assurance systems turn mitigations into properties and proofs"
+        ],
+        [
+          "Red-team validation after design",
+          "`security-engineering/08-RED-BLUE-TEAM.md`",
+          "Threat modeling predicts attack paths; red-team work tests whether mitigations hold"
+        ]
+      ]
+    }
+  ]
+}

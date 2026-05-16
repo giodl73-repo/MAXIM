@@ -1,0 +1,1189 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-distributed-systems-observability",
+  "source": "../../distributed-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-OBSERVABILITY.md#000",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "# Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#001",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#002",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "Observability is the ability to understand the internal state of a system from its external outputs. In distributed systems, no single node has global visibility — observability must be engineered from day one."
+    },
+    {
+      "id": "09-OBSERVABILITY.md#003",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "```\nTHE THREE PILLARS OF OBSERVABILITY\n+-----------------------------------------------------------------------+\n|                                                                       |\n|   LOGS              METRICS              TRACES                       |\n|   Discrete events   Aggregated measures  Request journeys             |\n|   at a point in     over time: counters  across services              |\n|   time: ECS-style   gauges, histograms   with spans, timing,          |\n|   structured JSON   Prometheus model     and causality                |\n|                                        W3C TraceContext               |\n|                                        Jaeger, Zipkin                 |\n|                                        OpenTelemetry                  |\n|                                                                       |\n|                  all three feed shared correlation                    |\n|                                                                       |\n|                                                                       |\n|                                                                       |\n|                                                                       |\n|                  CORRELATION ID threads through all three             |\n|                  → single request traceable end-to-end                |\n|                                                                       |\n+-----------------------------------------------------------------------+"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#004",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "TOOL LANDSCAPE\n+-----------------------------------------------------------------------+\n| LOGS:     ELK Stack, Splunk, Azure Monitor Logs, Loki                 |\n| METRICS:  Prometheus + Grafana, Azure Monitor Metrics, Datadog        |\n| TRACES:   Jaeger, Zipkin, Azure Monitor (App Insights), Tempo         |\n| STANDARD: OpenTelemetry (OTEL) — collector + SDKs, replacing all      |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#005",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#006",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "## Structured Logging"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#007",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "Logs are the most primitive observability signal. Structured logs are machine-parseable (JSON/NDJSON) rather than free-form strings."
+    },
+    {
+      "id": "09-OBSERVABILITY.md#008",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "```\nUNSTRUCTURED LOG (terrible for distributed systems):\n  2026-02-25 10:23:45 ERROR Payment failed for user 12345 amount 99.99"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#009",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "STRUCTURED LOG (ECS format — Elastic Common Schema):\n  {\n    \"@timestamp\": \"2026-02-25T10:23:45.123Z\",\n    \"log.level\": \"error\",\n    \"message\": \"Payment failed\",\n    \"event.category\": \"payment\",\n    \"user.id\": \"12345\",\n    \"transaction.amount\": 99.99,\n    \"trace.id\": \"abc123def456\",       ← correlation ID\n    \"span.id\": \"789xyz\",\n    \"service.name\": \"payment-service\",\n    \"service.version\": \"1.2.3\",\n    \"error.type\": \"InsufficientFunds\",\n    \"error.message\": \"Account balance below required amount\"\n  }\n```"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#010",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "**Why structure matters**: In a system with 100 microservices emitting millions of logs per minute, you cannot grep through free text. You query: `service.name=payment-service AND log.level=error AND trace.id=abc123def456`."
+    },
+    {
+      "id": "09-OBSERVABILITY.md#011",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "### Log Levels in Practice"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#012",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "```\nDEBUG   Development only. Never in production (volume/noise/cost).\n        \"Entering method processPayment with args [...]\""
+    },
+    {
+      "id": "09-OBSERVABILITY.md#013",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "INFO    Normal operational events. \"Payment processed successfully\"\n        Filtered out in most production alerting."
+    },
+    {
+      "id": "09-OBSERVABILITY.md#014",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "WARN    Unusual but handled. \"Retry attempt 2/3 for payment API\"\n        Investigate if frequency rises. Not necessarily a problem."
+    },
+    {
+      "id": "09-OBSERVABILITY.md#015",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "ERROR   Something failed that requires attention.\n        \"Payment failed after 3 retries\"\n        Should trigger alert review."
+    },
+    {
+      "id": "09-OBSERVABILITY.md#016",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "CRITICAL/FATAL  System cannot continue. \"Database connection pool exhausted\"\n                Wake-up-at-3am alert.\n```"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#017",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "**Azure Monitor Logs (Log Analytics)**: Kusto Query Language (KQL). You know ADF's expression language; KQL is similar in spirit but far more powerful for log analytics. `AppTraces | where SeverityLevel == 3 | where Properties.TraceId == \"abc123\"`."
+    },
+    {
+      "id": "09-OBSERVABILITY.md#018",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#019",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "## Metrics: The Prometheus Model"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#020",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "Metrics are aggregated measurements over time — not individual events."
+    },
+    {
+      "id": "09-OBSERVABILITY.md#021",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "### Metric Types"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#022",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "```\nCOUNTER: Monotonically increasing value\n  http_requests_total{method=\"POST\", status=\"200\"} = 42389\n  Use: request count, error count, bytes sent\n  Query: rate(http_requests_total[5m]) → requests per second"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#023",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "GAUGE: Current value (can go up or down)\n  active_connections = 142\n  memory_usage_bytes = 2147483648\n  Use: current state, pool sizes, queue depth\n  Query: just the current value, or min/max over time window"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#024",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "HISTOGRAM: Distribution of values in configurable buckets\n  http_request_duration_seconds_bucket{le=\"0.1\"} = 8342   ← ≤100ms\n  http_request_duration_seconds_bucket{le=\"0.5\"} = 9981   ← ≤500ms\n  http_request_duration_seconds_bucket{le=\"1\"}   = 10000  ← ≤1s\n  http_request_duration_seconds_count = 10000\n  http_request_duration_seconds_sum = 1234.5\n  Use: latency percentiles (p50, p95, p99)\n  Query: histogram_quantile(0.99, rate(http_request_duration_seconds_bucket[5m]))\n         → p99 latency over last 5 minutes"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#025",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "SUMMARY: Pre-computed client-side quantiles\n  http_request_duration_seconds{quantile=\"0.99\"} = 0.943\n  Use: when you want quantiles without histogram overhead\n  Limitation: cannot aggregate across instances (already aggregated)\n  → Prefer HISTOGRAM for distributed systems (aggregate server-side)\n```"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#026",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "### Prometheus Pull vs. Push"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#027",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "```\nPROMETHEUS (pull model):\n  Scrapes /metrics endpoint on each service\n  Service exposes metrics in text format\n  Prometheus stores time series\n  Grafana queries Prometheus for dashboards\n  AlertManager handles alerting rules"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#028",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "PUSH GATEWAY (for short-lived jobs):\n  Batch job pushes metrics to Pushgateway\n  Prometheus scrapes Pushgateway"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#029",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "AZURE MONITOR METRICS (push model):\n  Azure services push metrics automatically\n  Custom metrics pushed via REST API or SDKs\n  Queried via Azure Metrics Explorer or KQL\n```"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#030",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#031",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "## Distributed Tracing"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#032",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "Traces show the complete journey of a single request through multiple services."
+    },
+    {
+      "id": "09-OBSERVABILITY.md#033",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "### Trace Anatomy"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#034",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "```\nTRACE: Single request (trace-id: abc123)\n+---------------------------------------------------------------+\n| SPAN: api-gateway (duration: 250ms)                           |\n|   |                                                           |\n|   +-- SPAN: auth-service (duration: 15ms)                     |\n|   |      JWT validation                                       |\n|   |                                                           |\n|   +-- SPAN: product-service (duration: 200ms)                 |\n|          |                                                    |\n|          +-- SPAN: product-db (duration: 45ms)                |\n|          |      SELECT * FROM products WHERE id=123           |\n|          |                                                    |\n|          +-- SPAN: recommendation-service (duration: 120ms)   |\n|                 async call, parallel with db query            |\n+---------------------------------------------------------------+"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#035",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "Each SPAN has:\n  trace-id:    same for all spans in this request (abc123)\n  span-id:     unique per span (xyz789)\n  parent-id:   id of parent span (enables tree reconstruction)\n  service:     which service emitted this span\n  operation:   what operation (HTTP GET /products/123)\n  start_time:  wall clock\n  duration:    milliseconds\n  status:      OK or ERROR\n  attributes:  key-value tags (http.method, db.statement, user.id)\n  events:      log-like annotations within the span\n```"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#036",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "### W3C TraceContext Header"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#037",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "The industry standard for propagating trace context across service boundaries:"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#038",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "```\ntraceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01\n             |  |                                |              |  |\n             |  trace-id (128-bit, 32 hex chars) |              |  |\n             version                          span-id           flags\n                                              (64-bit)         (sampled)"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#039",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "tracestate: vendor-specific additional context\n  e.g., tracestate: ms=abc123 (Microsoft-specific extensions)"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#040",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "HTTP HEADER PROPAGATION:\n  Service A calls Service B:\n    → include traceparent header with A's trace-id and A's span-id as parent\n  Service B receives:\n    → extracts trace-id (same throughout) and parent-id (A's span-id)\n    → creates new span with same trace-id, new span-id, parent=A's span-id\n    → propagates to any downstream calls\n```"
+    },
+    {
+      "id": "09-OBSERVABILITY.md#041",
+      "path": [
+        "09-OBSERVABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]",
+        "canonical_path": "distributed-systems/09-OBSERVABILITY.md",
+        "concepts": "[observability]",
+        "current_path": "distributed-systems/09-OBSERVABILITY.md",
+        "id": "maxim:distributed-systems:observability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[observability]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Observability in Distributed Systems: Tracing, Correlation IDs, Chaos Engineering",
+        "updated": "null"
+      },
+      "text": "**App Insights / Azure Monitor**: Uses W3C TraceContext natively. If you're already using Application Insights SDK (.NET, Java, Node), distributed tracing across services is automatic as long as all services use it."
+    }
+  ],
+  "refs": [
+    "09-OBSERVABILITY.md"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\04-REPLICATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "REPLICATION TOPOLOGY COMPARISON\n+----------------------------------------------------------+\n|                                                          |\n|  SINGLE-LEADER          MULTI-LEADER         LEADERLESS  |\n|  (Master-Replica)       (Multi-Master)        (Dynamo)   |\n|                                                          |\n|  Client                Client               Client       |\n|    |                   / \\                 / | \\         |\n|    | writes           /   \\               /  |  \\        |\n|    v                 v     v             v   v   v       |\n|  Leader            Leader Leader       N1  N2   N3       |\n|  (strong           A       B           (write to any)    |\n|  consistency)      \\       /            \\   |   /        |\n|    |                \\ sync/              \\  |  /         |\n|    | replicates      \\   /               Read Repair     |\n|    |                  \\ /                Anti-entropy    |\n|    v                  Merge             (eventual sync)  |\n|  R1  R2  R3          conflict                            |\n|  (read replicas)                                         |\n+----------------------------------------------------------+\n\nWRITE PATH     Single: one node    Multi: nearest DC    Leaderless: any node\nREAD PATH      Any replica         Any replica          Any W+R>N nodes\nCONSISTENCY    Strong (sync rep)   Eventual (conflicts) Tunable (quorum W+R)\nCONFLICT PATH  None (one writer)   Resolution required  Read repair\nUSE CASE       Most OLTP DBs       Multi-DC active-     DynamoDB, Cassandra\n                                   active (Lotus Notes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 64,
+      "heading_context": "### Write and Replication Flow",
+      "confidence": "candidate",
+      "text": "CLIENT\n  |\n  | write (INSERT/UPDATE/DELETE)\n  v\nLEADER\n  |  writes to local WAL (Write-Ahead Log)\n  |  applies to local state\n  |\n  +----------+----------+\n  |          |          |\n  | async    | async    | async\n  v          v          v\nFollower1  Follower2  Follower3\n  (read      (read      (read\n  replica)   replica)   replica)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 131,
+      "heading_context": "### Failover: Manual vs. Automatic",
+      "confidence": "candidate",
+      "text": "FAILOVER DECISION TREE\n\nLeader health check fails\n        |\n        v\n    Is it dead or just slow?  ──────────────────────────────+\n        |                                                   |\n   detection timeout expires                           Cannot tell!\n   (typically 30s–5min)                                Split-brain risk\n        |\n        v\n    Elect new leader (consensus or highest-replication-lag-wins)\n        |\n        v\n    Reconfigure clients and followers to point to new leader\n        |\n        v\n    Old leader comes back — must rejoin as FOLLOWER, not leader\n        (old leader may have accepted writes; these must be discarded\n         or reconciled — this is where data loss can occur)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 164,
+      "heading_context": "### When It Makes Sense",
+      "confidence": "candidate",
+      "text": "MULTI-LEADER USE CASES\n+--------------------------------------------+\n| Multi-datacenter writes                    |\n|   WestUS Leader ←──sync──→ EastUS Leader   |\n|   User in WestUS writes locally (low lat)  |\n|   User in EastUS writes locally (low lat)  |\n|   Async replication between DCs            |\n|   Conflict resolution on divergence        |\n+--------------------------------------------+\n| Offline-capable clients                    |\n|   Each device is its own \"leader\"          |\n|   Calendar app: edit offline, sync later   |\n|   Google Docs: CRDT-based conflict merge   |\n+--------------------------------------------+\n| Collaborative real-time editing            |\n|   Multiple writers on same document        |\n|   Operational transforms / CRDTs           |\n+--------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "### The Quorum Model",
+      "confidence": "candidate",
+      "text": "N = total replicas per key\nW = write quorum (must ack before write succeeds)\nR = read quorum (must respond before read returns)\n\nRULE FOR STRONG CONSISTENCY: W + R > N\n  (read quorum and write quorum overlap on at least one node)\n\nCOMMON CONFIGURATIONS:\n  N=3, W=2, R=2  ← balanced: tolerates 1 failure for both\n  N=3, W=3, R=1  ← write-heavy consistency, fast reads\n  N=3, W=1, R=3  ← write-fast, consistent reads (rare)\n  N=3, W=1, R=1  ← maximum availability (AP, eventual)\n\nCLIENT WRITE (W=2, N=3):\n  write to all 3 → wait for 2 acks → return success\n  if 1 node is down: still succeeds (2/3 ack)\n  if 2 nodes are down: fails (cannot get 2/3)\n\nCLIENT READ (R=2, N=3):\n  read from all 3 → return after 2 respond → resolve conflicts\n  version vectors or timestamps used to pick \"latest\"\n  stale response discarded or scheduled for read repair",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "### Sloppy Quorum and Hinted Handoff",
+      "confidence": "candidate",
+      "text": "SLOPPY QUORUM\n  Normal home nodes for key K: [N1, N2, N3]\n  N1 is unreachable\n  Write goes to [N2, N3, N4]  ← N4 is a \"hint\" node, not a home node\n  N4 stores the write with a hint: \"this belongs to N1\"\n\nHINTED HANDOFF\n  N1 comes back online\n  N4 notices N1 is healthy\n  N4 transfers the hinted write to N1\n  N4 deletes its copy\n\nEFFECT:\n  + Higher availability during partitions\n  - Quorum is \"sloppy\" — W+R>N no longer guarantees overlap\n  - Potential for stale reads even with quorum",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 276,
+      "heading_context": "### Anti-Entropy and Read Repair",
+      "confidence": "candidate",
+      "text": "READ REPAIR (synchronous)\n  Client reads from R nodes\n  Node A returns version 5\n  Node B returns version 3\n  Client detects divergence\n  Client (or coordinator) writes version 5 back to node B\n  Repairs on every read → accurate but adds latency\n\nANTI-ENTROPY (background, asynchronous)\n  Background process compares data between replicas\n  Uses Merkle trees to detect divergence efficiently:\n    Build tree where leaves = hashes of individual records\n    Parents = hash of children\n    Compare root hashes → if equal, no divergence\n    If different, descend tree to find differing subtree\n    Sync only the differing records\n  DynamoDB, Cassandra use Merkle tree anti-entropy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

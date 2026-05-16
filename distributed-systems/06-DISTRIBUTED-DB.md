@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:distributed-systems:distributed-db
+kind: guide
+module: distributed-systems
+section: distributed-systems
+title: Distributed Databases: Spanner, CockroachDB, DynamoDB - Design Choices
+status: source-custody
+source_custody: partial
+current_path: distributed-systems/06-DISTRIBUTED-DB.md
+canonical_path: distributed-systems/06-DISTRIBUTED-DB.md
+backsource_ids: [proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]
+concepts: [distributed, db]
+root_concepts: [distributed, db]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Distributed Databases: Spanner, CockroachDB, DynamoDB — Design Choices
 
 ## The Big Picture
@@ -50,7 +69,7 @@ SPANNER ARCHITECTURE
 |  |  (data shards)    |   |  (data shards)    |           |
 |  +-------------------+   +-------------------+           |
 |          |                        |                       |
-|          +----------+-------------+                       |
+|          ---------- connection ----------                |
 |                     |                                     |
 |          Paxos groups (per shard)                         |
 |          (majority = cross-zone quorum)                   |
@@ -160,7 +179,7 @@ DYNAMODB ARCHITECTURE
 +----------------------------------------------------------+
 | CONSISTENCY OPTIONS:                                     |
 |   Eventually consistent reads (default) → read 1 replica |
-|   Strongly consistent reads (2x read units) → read quorum|
+|   Strongly consistent reads (2x read units) → read quorum |
 +----------------------------------------------------------+
 | GLOBAL TABLES:                                           |
 |   Multi-region, multi-master replication                 |

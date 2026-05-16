@@ -1,0 +1,76 @@
+{
+  "schema_version": "1",
+  "source_markdown": "security-engineering\\07-INCIDENT-RESPONSE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 160,
+      "heading_context": "## Detection and Analysis",
+      "headers": [
+        "Category",
+        "Examples"
+      ],
+      "rows": [
+        [
+          "Denial of Service",
+          "DDoS, application-layer DoS, ransomware"
+        ],
+        [
+          "Malicious Code",
+          "Malware, ransomware, worm, rootkit"
+        ],
+        [
+          "Unauthorized Access",
+          "Account compromise, privilege escalation, unauthorized data access"
+        ],
+        [
+          "Inappropriate Usage",
+          "Policy violation, data exfiltration by insider"
+        ],
+        [
+          "Scans / Probes",
+          "Reconnaissance, vulnerability scanning"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 375,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Action"
+      ],
+      "rows": [
+        [
+          "SIEM alert: failed logins then success from new country",
+          "Triage P2: verify user, check for lateral movement, force password reset"
+        ],
+        [
+          "Ransomware detected on one server",
+          "P1: Isolate at network level, initiate IR plan, preserve memory image"
+        ],
+        [
+          "Possible data exfiltration to S3 bucket",
+          "P1: Quantify data, check DLP logs, invoke legal, 72-hour breach notification window starts"
+        ],
+        [
+          "Privileged account compromised",
+          "P1: Disable account immediately, audit all actions, reset all systems the account touched"
+        ],
+        [
+          "Insider threat suspected",
+          "P2: Engage HR + Legal first before taking technical action"
+        ],
+        [
+          "IR complete, writing postmortem",
+          "Blameless, 5 Whys to root cause, action items with owners and dates"
+        ],
+        [
+          "Planning for ransomware scenario",
+          "Run tabletop exercise, validate offline backups, pre-approve isolation authority"
+        ]
+      ]
+    }
+  ]
+}

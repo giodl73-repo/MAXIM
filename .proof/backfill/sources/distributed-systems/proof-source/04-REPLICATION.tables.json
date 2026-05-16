@@ -1,0 +1,103 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\04-REPLICATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 300,
+      "heading_context": "## Replication Comparison Table",
+      "headers": [
+        "Dimension",
+        "Single-Leader",
+        "Multi-Leader",
+        "Leaderless"
+      ],
+      "rows": [
+        [
+          "Write consistency",
+          "Strong (sync) or eventual (async)",
+          "Eventual (conflict resolution)",
+          "Tunable (W+R>N)"
+        ],
+        [
+          "Write availability",
+          "Limited by leader health",
+          "High — any DC accepts writes",
+          "High — any node accepts writes"
+        ],
+        [
+          "Read scalability",
+          "High — distribute to followers",
+          "High",
+          "High — R can be small"
+        ],
+        [
+          "Conflict handling",
+          "None (one writer)",
+          "Required",
+          "Read repair, anti-entropy"
+        ],
+        [
+          "Failover complexity",
+          "Moderate (leader election)",
+          "Complex (dual-leader coordination)",
+          "Low (no failover concept)"
+        ],
+        [
+          "Typical use case",
+          "OLTP, most relational DBs",
+          "Multi-DC active-active, offline clients",
+          "DynamoDB, Cassandra, Riak"
+        ],
+        [
+          "Azure example",
+          "Azure SQL, CosmosDB Strong",
+          "Cosmos multi-region writes",
+          "Cosmos eventual, Table Storage"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 336,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether single-leader fits",
+          "Check write locality, failover time, synchronous vs asynchronous replicas, fencing, and read-staleness tolerance.",
+          "Single-leader simplifies conflicts but can reduce write availability during leader failure."
+        ],
+        [
+          "Whether read replicas solve the problem",
+          "Measure read/write ratio, replica lag, read-your-writes needs, and query isolation.",
+          "More replicas improve read scale but can increase freshness ambiguity."
+        ],
+        [
+          "Whether multi-leader is safe",
+          "Identify conflict frequency, merge semantics, user locality, clock use, and application invariants.",
+          "Active-active is easy for independent writes and hard for uniqueness or balance invariants."
+        ],
+        [
+          "Whether leaderless/quorum replication fits",
+          "Tune N/R/W, hinted handoff, read repair, anti-entropy, and conflict resolution.",
+          "W+R>N only helps when quorums are real and overlap; sloppy quorum weakens that assumption."
+        ],
+        [
+          "Whether consensus is actually needed",
+          "Ask whether the data is coordination metadata, locks, membership, or configuration.",
+          "Consensus systems replicate state, but the point is agreement, not read scaling."
+        ],
+        [
+          "Whether global SQL is appropriate",
+          "Check latency budget, external consistency requirement, shard locality, clock assumptions, and transaction scope.",
+          "Strong global transactions trade off against tail latency and regional independence."
+        ]
+      ]
+    }
+  ]
+}

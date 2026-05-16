@@ -1,0 +1,95 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\03-CONSENSUS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 372,
+      "heading_context": "## When Consensus Is and Is Not Used",
+      "headers": [
+        "Need",
+        "Use Consensus",
+        "Avoid Consensus"
+      ],
+      "rows": [
+        [
+          "Leader election",
+          "Yes (always)",
+          "N/A"
+        ],
+        [
+          "Replicated log (append-only)",
+          "Yes",
+          "N/A"
+        ],
+        [
+          "Distributed lock",
+          "Yes",
+          "Use lease-based (reduce consensus ops)"
+        ],
+        [
+          "Incrementing a counter",
+          "No — use CRDT",
+          "Consensus is too expensive"
+        ],
+        [
+          "Appending to a queue",
+          "Often no — Kafka uses in-sync replicas",
+          ""
+        ],
+        [
+          "Key-value store reads",
+          "Only if linearizable",
+          "Use eventual for low-latency"
+        ],
+        [
+          "Metadata storage",
+          "Yes — ZooKeeper, etcd",
+          "Don't put data plane in consensus"
+        ],
+        [
+          "User data (large scale)",
+          "No — too expensive",
+          "Use quorum-based replication"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 405,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Algorithm",
+        "When to Choose",
+        "Trade-off"
+      ],
+      "rows": [
+        [
+          "Multi-Paxos",
+          "Existing Paxos infrastructure; Google-style",
+          "Complex to implement correctly"
+        ],
+        [
+          "Raft",
+          "New systems requiring replicated log",
+          "Cleaner implementation; more library support"
+        ],
+        [
+          "Zab",
+          "ZooKeeper integration",
+          "ZooKeeper-specific; not general-purpose"
+        ],
+        [
+          "etcd/Raft",
+          "Kubernetes coordination, config store",
+          "Do not use for data plane at scale"
+        ],
+        [
+          "Custom",
+          "Performance-critical, specific failure model",
+          "Requires deep expertise"
+        ]
+      ]
+    }
+  ]
+}

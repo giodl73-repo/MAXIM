@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:security-engineering:secure-sdlc
+kind: guide
+module: security-engineering
+section: security-engineering
+title: Secure SDLC: SDL at Microsoft, DevSecOps, SBOM, Secret Scanning
+status: source-custody
+source_custody: partial
+current_path: security-engineering/04-SECURE-SDLC.md
+canonical_path: security-engineering/04-SECURE-SDLC.md
+backsource_ids: [proof-backfill:security-engineering:04-secure-sdlc, git-history:security-engineering:04-secure-sdlc]
+concepts: [secure, sdlc]
+root_concepts: [secure, sdlc]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Secure SDLC: SDL at Microsoft, DevSecOps, SBOM, Secret Scanning
 
 ## The Big Picture

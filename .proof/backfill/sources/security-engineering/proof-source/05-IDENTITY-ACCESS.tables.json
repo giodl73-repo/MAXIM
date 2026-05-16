@@ -1,0 +1,57 @@
+{
+  "schema_version": "1",
+  "source_markdown": "security-engineering\\05-IDENTITY-ACCESS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 393,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Scenario",
+        "Recommended Approach"
+      ],
+      "rows": [
+        [
+          "Web app user login",
+          "Authorization Code + PKCE + OIDC"
+        ],
+        [
+          "Mobile app user login",
+          "Authorization Code + PKCE + OIDC"
+        ],
+        [
+          "Service calling another service",
+          "Managed Identity (Azure) or Client Credentials + certificate"
+        ],
+        [
+          "CI/CD pipeline to Azure",
+          "GitHub OIDC Federation → Azure AD (no client_secret)"
+        ],
+        [
+          "CLI tool user login",
+          "Device Flow"
+        ],
+        [
+          "Existing enterprise SSO (SAML)",
+          "SAML 2.0 (legacy) or migrate to OIDC"
+        ],
+        [
+          "Fine-grained document/resource sharing",
+          "ReBAC (SpiceDB, OpenFGA)"
+        ],
+        [
+          "Production database access by engineer",
+          "PAM with JIT (Azure PIM)"
+        ],
+        [
+          "Service needs SQL connection string",
+          "Key Vault reference in app config (not hardcoded)"
+        ],
+        [
+          "Azure resource access from code",
+          "Managed identity (system-assigned for simple cases)"
+        ]
+      ]
+    }
+  ]
+}
