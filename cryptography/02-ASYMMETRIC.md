@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cryptography:asymmetric
+kind: guide
+module: cryptography
+section: cryptography
+title: 02 - Asymmetric Cryptography
+status: source-custody
+source_custody: partial
+current_path: cryptography/02-ASYMMETRIC.md
+canonical_path: cryptography/02-ASYMMETRIC.md
+backsource_ids: [proof-backfill:cryptography:02-asymmetric, git-history:cryptography:02-asymmetric]
+concepts: [asymmetric]
+root_concepts: [asymmetric]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 02 — Asymmetric Cryptography
 
 ## RSA, Diffie-Hellman, Elliptic Curves, Pairings, KEM-DEM

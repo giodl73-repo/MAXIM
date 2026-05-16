@@ -1,0 +1,153 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-cryptography-symmetric",
+  "source": "../../cryptography",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-SYMMETRIC.md#000",
+      "path": [
+        "01-SYMMETRIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:01-symmetric, git-history:cryptography:01-symmetric]",
+        "canonical_path": "cryptography/01-SYMMETRIC.md",
+        "concepts": "[symmetric]",
+        "current_path": "cryptography/01-SYMMETRIC.md",
+        "id": "maxim:cryptography:symmetric",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[symmetric]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Symmetric Cryptography",
+        "updated": "null"
+      },
+      "text": "# 01 — Symmetric Cryptography"
+    },
+    {
+      "id": "01-SYMMETRIC.md#001",
+      "path": [
+        "01-SYMMETRIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:01-symmetric, git-history:cryptography:01-symmetric]",
+        "canonical_path": "cryptography/01-SYMMETRIC.md",
+        "concepts": "[symmetric]",
+        "current_path": "cryptography/01-SYMMETRIC.md",
+        "id": "maxim:cryptography:symmetric",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[symmetric]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Symmetric Cryptography",
+        "updated": "null"
+      },
+      "text": "## AES Internals, Modes of Operation, Authenticated Encryption, Hash Functions, KDFs"
+    },
+    {
+      "id": "01-SYMMETRIC.md#002",
+      "path": [
+        "01-SYMMETRIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:01-symmetric, git-history:cryptography:01-symmetric]",
+        "canonical_path": "cryptography/01-SYMMETRIC.md",
+        "concepts": "[symmetric]",
+        "current_path": "cryptography/01-SYMMETRIC.md",
+        "id": "maxim:cryptography:symmetric",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[symmetric]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Symmetric Cryptography",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-SYMMETRIC.md#003",
+      "path": [
+        "01-SYMMETRIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:01-symmetric, git-history:cryptography:01-symmetric]",
+        "canonical_path": "cryptography/01-SYMMETRIC.md",
+        "concepts": "[symmetric]",
+        "current_path": "cryptography/01-SYMMETRIC.md",
+        "id": "maxim:cryptography:symmetric",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[symmetric]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Symmetric Cryptography",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: Symmetric Primitive Stack"
+    },
+    {
+      "id": "01-SYMMETRIC.md#004",
+      "path": [
+        "01-SYMMETRIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:01-symmetric, git-history:cryptography:01-symmetric]",
+        "canonical_path": "cryptography/01-SYMMETRIC.md",
+        "concepts": "[symmetric]",
+        "current_path": "cryptography/01-SYMMETRIC.md",
+        "id": "maxim:cryptography:symmetric",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[symmetric]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Symmetric Cryptography",
+        "updated": "null"
+      },
+      "text": "```\n┌───────────────────────────────────────────────────────────────────────────┐\n│                     SYMMETRIC CRYPTOGRAPHY STACK                          │\n├───────────────────────────────────────────────────────────────────────────┤\n│                                                                           │\n│  APPLICATION LAYER                                                        │\n│   Disk encryption: AES-XTS (dm-crypt/LUKS, BitLocker)                    │\n│   Network encryption: AES-GCM or ChaCha20-Poly1305 (TLS 1.3)             │\n│   Database field encryption: AES-SIV (nonce-misuse resistant)            │\n│   Password storage: Argon2id                                              │\n│                              │                                            │\n│                              ▼                                            │\n│  AEAD (AUTHENTICATED ENCRYPTION WITH ASSOCIATED DATA)                     │\n│   AES-256-GCM: NIST standard; hardware acceleration (AES-NI + CLMUL)     │\n│   ChaCha20-Poly1305 (RFC 8439): software-fast; no timing side-channel     │\n│   AES-SIV (RFC 5297): nonce-misuse resistant (deterministic)              │\n│   AES-CCM: older; NIST; used in some constrained environments             │\n│                              │                                            │\n│                              ▼                                            │\n│  BUILDING BLOCKS                                                          │\n│   Block cipher: AES-128/192/256 (SP-network; FIPS 197)                   │\n│   Stream cipher: ChaCha20 (ARX design; RFC 8439)                         │\n│   Universal hash: GHASH (GF(2¹²⁸)); Poly1305 (GF(2¹³⁰-5))              │\n│   Cryptographic hash: SHA-2/3, BLAKE3                                    │\n│                              │                                            │\n│                              ▼                                            │\n│  KEY DERIVATION                                                           │\n│   HKDF: extract-then-expand from high-entropy secrets (RFC 5869)         │\n│   Argon2id: memory-hard password hashing (PHC winner 2015)               │\n└───────────────────────────────────────────────────────────────────────────┘\n```"
+    }
+  ],
+  "refs": [
+    "01-SYMMETRIC.md"
+  ]
+}

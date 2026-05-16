@@ -1,0 +1,73 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cryptography\\02-ASYMMETRIC.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 489,
+      "heading_context": "## 8. Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "RSA-2048 vs RSA-3072 for new systems?",
+          "RSA-3072 minimum for 128-bit security; RSA-2048 is 112-bit; use P-256/X25519 instead"
+        ],
+        [
+          "Why never use PKCS#1 v1.5 RSA encryption?",
+          "Bleichenbacher padding oracle; ROBOT attack still active; use RSA-OAEP or ECDH"
+        ],
+        [
+          "Ed25519 vs ECDSA advantage?",
+          "Deterministic nonce (no RNG failure risk); faster; simpler constant-time implementation"
+        ],
+        [
+          "Why is ECDLP harder than DLOG in ℤₚ*?",
+          "No sub-exponential algorithm known for general EC; index calculus doesn't apply"
+        ],
+        [
+          "KEM-DEM construction purpose?",
+          "Use asymmetric only for key exchange; symmetric AEAD for bulk data; hybrid"
+        ],
+        [
+          "Forward secrecy mechanism?",
+          "Ephemeral key pair per session (ECDHE); long-term compromise doesn't expose past sessions"
+        ],
+        [
+          "Why Curve25519 over P-256?",
+          "Clean parameters; no opaque seed; guaranteed prime-order; constant-time by design"
+        ],
+        [
+          "BLS signatures unique advantage?",
+          "Aggregatable: n signatures collapse to one; O(1) verification cost for aggregate"
+        ],
+        [
+          "What does the pairing e(aP, bQ)=?",
+          "e(P, Q)^{ab} — bilinearity is the key property enabling advanced constructions"
+        ],
+        [
+          "Bleichenbacher's attack requires?",
+          "Padding oracle: server reveals whether RSA-decrypted value has valid PKCS#1 v1.5 padding"
+        ],
+        [
+          "DH without authentication → ?",
+          "Man-in-the-middle attack; must sign DH values (STS, TLS, authenticated KEM)"
+        ],
+        [
+          "RSA-OAEP security model?",
+          "IND-CCA2 in ROM assuming RSA is one-way (trapdoor permutation)"
+        ],
+        [
+          "HPKE RFC number?",
+          "RFC 9180; standardizes KEM-DEM with multiple algorithm choices"
+        ],
+        [
+          "Critical ECDSA nonce requirement?",
+          "Must be uniformly random AND unique per signature; reuse → private key recovery"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:law:ip-patent
+kind: guide
+module: law
+section: law
+title: 02 - IP and Patent Law
+status: source-custody
+source_custody: partial
+current_path: law/02-IP-PATENT.md
+canonical_path: law/02-IP-PATENT.md
+backsource_ids: [proof-backfill:law:02-ip-patent, git-history:law:02-ip-patent]
+concepts: [ip, patent]
+root_concepts: [ip, patent]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 02 — IP & Patent Law
 
 ## Patent, Copyright, Trademark, Trade Secret, FOSS Licensing

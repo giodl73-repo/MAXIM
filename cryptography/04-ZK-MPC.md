@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cryptography:zk-mpc
+kind: guide
+module: cryptography
+section: cryptography
+title: 04 - Zero-Knowledge Proofs and Multi-Party Computation
+status: source-custody
+source_custody: partial
+current_path: cryptography/04-ZK-MPC.md
+canonical_path: cryptography/04-ZK-MPC.md
+backsource_ids: [proof-backfill:cryptography:04-zk-mpc, git-history:cryptography:04-zk-mpc]
+concepts: [zk, mpc]
+root_concepts: [zk, mpc]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — Zero-Knowledge Proofs & Multi-Party Computation
 
 ## Interactive Proofs, Schnorr, SNARKs/STARKs, Garbled Circuits, Secret Sharing

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "law\\03-PRIVACY-DATA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## Big Picture: Privacy Law Landscape",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│                     PRIVACY REGULATORY MAP                               │\n├───────────────────────┬──────────────────────────────────────────────────┤\n│  JURISDICTION         │  KEY LAWS                                        │\n├───────────────────────┼──────────────────────────────────────────────────┤\n│  European Union (EU)  │  GDPR (2018) — comprehensive                     │\n│                       │  ePrivacy Directive (cookies/tracking)           │\n│                       │  AI Act (2024) — AI-specific                     │\n├───────────────────────┼──────────────────────────────────────────────────┤\n│  United States        │  Sectoral approach: HIPAA, FERPA, COPPA, GLBA   │\n│  (federal)            │  No comprehensive federal privacy law (Feb 2026) │\n│                       │  APRA (American Privacy Rights Act): passed House│\n│                       │  committee 2024; stalled in Senate as of Feb 2026│\n│                       │  FTC Act §5: deceptive/unfair practices          │\n│                       │  ECPA: electronic communications interception    │\n├───────────────────────┼──────────────────────────────────────────────────┤\n│  US States            │  CCPA/CPRA (California), CPA (Colorado),         │\n│                       │  VCDPA (Virginia), CTDPA (Connecticut),          │\n│                       │  20+ state laws enacted or pending               │\n├───────────────────────┼──────────────────────────────────────────────────┤\n│  Other major          │  PIPEDA (Canada) → CPPA in progress             │\n│                       │  LGPD (Brazil), POPIA (South Africa)             │\n│                       │  APPI (Japan), PDPA (Singapore/Thailand)         │\n└───────────────────────┴──────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "### Scope and Key Definitions",
+      "confidence": "candidate",
+      "text": "TERRITORIAL SCOPE (Art. 3) — extraterritorial reach:\n  (1) Establishment principle: processing by controller/processor established in EU\n  (2) Targeting principle: offering goods/services to EU data subjects\n                           OR monitoring behavior of EU data subjects\n  → US company with no EU presence that has EU users = GDPR applies\n\nPERSONAL DATA: any information relating to an identified or identifiable natural person\n  Name, email, IP address, cookie ID, device ID, location data\n  Special categories (Art. 9): racial/ethnic origin, political opinions, religious beliefs,\n    trade union membership, genetic/biometric data, health data, sex life/orientation\n    → Requires explicit consent or other specific legal basis; higher penalties\n\nKEY ROLES:\n  Controller: determines purposes and means of processing (the company deciding why/how)\n  Processor: processes data on behalf of controller (SaaS vendor, cloud provider)\n    Processor needs a Data Processing Agreement (DPA) from controller\n  Joint controllers: two+ controllers jointly determine purposes and means\n  Data Protection Officer (DPO): required for public authorities, large-scale systematic\n    monitoring, large-scale special category data",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 98,
+      "heading_context": "### Scope and Key Definitions",
+      "confidence": "candidate",
+      "text": "### Six Lawful Bases for Processing (Art. 6)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 124,
+      "heading_context": "### Six Lawful Bases for Processing (Art. 6)",
+      "confidence": "candidate",
+      "text": "### Individual Rights (Arts. 15–22)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "### Security, Breach, Enforcement",
+      "confidence": "candidate",
+      "text": "SECURITY (Art. 32):\n  Appropriate technical and organizational measures (TOMs)\n  Risk-based approach; encryption/pseudonymization, availability/integrity, testing\n\nBREACH NOTIFICATION (Art. 33/34):\n  Notify supervisory authority: 72 hours of becoming aware (unless no risk to individuals)\n  Notify individuals: without undue delay if HIGH risk to their rights/freedoms\n  \"Becoming aware\": when processor notifies controller (not when breach first occurs)\n  What to include: nature of breach, categories/approximate numbers, consequences,\n    measures taken or proposed\n\nENFORCEMENT:\n  Fines (Art. 83):\n    Tier 1: up to €10M or 2% global annual turnover (whichever higher)\n      For: processor violations, certification bodies, monitoring bodies\n    Tier 2: up to €20M or 4% global annual turnover\n      For: basic principles, consent, data subject rights, international transfers\n  Notable fines:\n    Meta (Facebook): €1.2B (2023) — unlawful data transfers to US\n    Amazon: €746M (2021) — cookie/tracking consent\n    WhatsApp: €225M (2021) — transparency violations\n    Google: €50M (2019) — first major GDPR fine\n\nSUPERVISORY AUTHORITIES: each EU member state has one (UK: ICO; Germany: multiple Länder-level)\n  One-stop-shop: lead DPA for companies with main EU establishment\n    → Meta's lead DPA: Ireland DPC (until recent enforcement coordination)\n  EDPB (European Data Protection Board): consistency/guidance/dispute resolution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 332,
+      "heading_context": "## 5. FTC Act Section 5 Privacy Enforcement",
+      "confidence": "candidate",
+      "text": "FTC Act §5: prohibits \"unfair or deceptive acts or practices in or affecting commerce\"\n  Deceptive: representation, omission, practice that misleads a reasonable consumer\n    Privacy policy promises you break → deceptive\n    Saying \"we don't share data\" then sharing → deceptive\n  Unfair: substantial consumer harm that's not outweighed by benefits + not avoidable\n    Inadequate security → unfair (FTC v Wyndham)\n    Retroactive privacy changes without consent → unfair\n\nFTC CONSENT ORDERS: company agrees to 20-year oversight, audits, compliance\n  Facebook (Meta): $5B settlement 2019 (Cambridge Analytica + prior order violations)\n  Google: $22.5M (2012), $170M YouTube/COPPA (2019)\n  Twitter: $150M (2022) — used 2FA phone numbers for ads despite promising not to\n\nCOPPA (Children's Online Privacy Protection Act):\n  Applies to online services directed to children under 13 OR with actual knowledge\n  Must: get verifiable parental consent before collecting children's PI\n  No data collection beyond what needed; data retention limits; security\n  YouTube: $170M FTC/NY AG fine (2019) for COPPA violations on child-directed content\n\nGRAMM-LEACH-BLILEY Act (GLBA):\n  Financial institutions: privacy notices + opt-out of sharing with non-affiliated third parties\n  Safeguards Rule (2023 update): written information security program requirements\n    Encryption at rest and in transit; MFA; patch management; pen testing; incident response\n    500+ customer records breach: notify FTC within 30 days",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

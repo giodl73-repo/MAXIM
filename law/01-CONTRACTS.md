@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:law:contracts
+kind: guide
+module: law
+section: law
+title: 01 - Contract Law
+status: source-custody
+source_custody: partial
+current_path: law/01-CONTRACTS.md
+canonical_path: law/01-CONTRACTS.md
+backsource_ids: [proof-backfill:law:01-contracts, git-history:law:01-contracts]
+concepts: [contracts]
+root_concepts: [contracts]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 01 — Contract Law
 
 ## Formation, Breach, Remedies, UCC, Software Licensing

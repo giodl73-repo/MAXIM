@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cryptography:overview
+kind: guide
+module: cryptography
+section: cryptography
+title: 00 - Cryptography Overview
+status: source-custody
+source_custody: partial
+current_path: cryptography/00-OVERVIEW.md
+canonical_path: cryptography/00-OVERVIEW.md
+backsource_ids: [proof-backfill:cryptography:00-overview, git-history:cryptography:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 00 — Cryptography Overview
 
 ## Security Definitions, Computational Assumptions, Cryptographic Primitives

@@ -1,0 +1,110 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cryptography\\01-SYMMETRIC.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 528,
+      "heading_context": "## 10. Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "AES mode for general encryption?",
+          "AES-256-GCM (AEAD); nonce random 96-bit; rekey after 2³² messages"
+        ],
+        [
+          "Best mode without AES-NI?",
+          "ChaCha20-Poly1305 (RFC 8439); constant-time by design"
+        ],
+        [
+          "Never use which mode?",
+          "ECB (pattern leakage); CBC without authentication (padding oracle)"
+        ],
+        [
+          "Nonce reuse in GCM consequence?",
+          "Catastrophic: attacker recovers GHASH key H → can forge any ciphertext"
+        ],
+        [
+          "Nonce-misuse resistant mode?",
+          "AES-SIV (RFC 5297); uses synthetic IV; 2-pass; deterministic"
+        ],
+        [
+          "Password storage: which hash?",
+          "Argon2id (t=3, m=64MB, p=1); never plain SHA/MD5/bcrypt for new systems"
+        ],
+        [
+          "Key derivation from DH secret?",
+          "HKDF (extract + expand); DH output is not uniformly random → needs extraction"
+        ],
+        [
+          "Length extension attack affects?",
+          "SHA-1, SHA-256, SHA-512 (Merkle-Damgård); NOT SHA-3, HMAC, BLAKE3"
+        ],
+        [
+          "GF(2⁸) reduction polynomial?",
+          "x⁸ + x⁴ + x³ + x + 1 (AES irreducible polynomial; FIPS 197)"
+        ],
+        [
+          "AES-NI provides what?",
+          "Hardware instructions for AES round functions; eliminates timing side-channel"
+        ],
+        [
+          "When use PBKDF2 over Argon2id?",
+          "Only when FIPS compliance required; prefer Argon2id otherwise"
+        ],
+        [
+          "sUF-CMA requirement?",
+          "Use Ed25519 or RSA-PSS; ECDSA is EUF-CMA but has malleability"
+        ],
+        [
+          "AEAD = ?",
+          "AES-GCM provides: IND-CPA (CTR mode) + INT-CTXT (GHASH MAC) → IND-CCA2"
+        ],
+        [
+          "ChaCha20 key+nonce size?",
+          "256-bit key + 96-bit nonce + 32-bit counter = 480 bits of block function input"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 549,
+      "heading_context": "## Cross-References",
+      "headers": [
+        "If you want to understand...",
+        "Go to",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Protocol and system threat framing",
+          "`security-engineering/01-THREAT-MODELING.md`",
+          "Crypto primitives only help after the threat model names the property needed"
+        ],
+        [
+          "Public-key complements",
+          "`cryptography/02-PUBLIC-KEY.md`",
+          "Symmetric crypto handles bulk data; public-key crypto handles agreement and identity"
+        ],
+        [
+          "Finite-field algebra behind AES/GHASH",
+          "`abstract-algebra/01-GROUPS.md`",
+          "AES and GHASH are engineering uses of algebraic structure"
+        ],
+        [
+          "Information-theoretic limits",
+          "`information-theory/01-ENTROPY-INFORMATION.md`",
+          "Secrecy, randomness, compression, and authentication all depend on entropy"
+        ],
+        [
+          "Secure implementation risks",
+          "`security-engineering/01-THREAT-MODELING.md`",
+          "Side channels and nonce misuse are implementation/system failures, not primitive failures"
+        ]
+      ]
+    }
+  ]
+}

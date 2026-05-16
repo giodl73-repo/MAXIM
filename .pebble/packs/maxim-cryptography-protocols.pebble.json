@@ -1,0 +1,545 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-cryptography-protocols",
+  "source": "../../cryptography",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-PROTOCOLS.md#000",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "# 03 — Cryptographic Protocols"
+    },
+    {
+      "id": "03-PROTOCOLS.md#001",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "## TLS 1.3, SSH, Signal Protocol, Noise Framework, Key Management"
+    },
+    {
+      "id": "03-PROTOCOLS.md#002",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-PROTOCOLS.md#003",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "## Big Picture: Protocol Composition"
+    },
+    {
+      "id": "03-PROTOCOLS.md#004",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────────┐\n│                      PROTOCOL STACK                                     │\n├─────────────────────────────────────────────────────────────────────────┤\n│                                                                         │\n│  APPLICATION LAYER                                                      │\n│   HTTPS (TLS 1.3), SMTP/IMAP+TLS, QUIC+TLS 1.3, gRPC/TLS             │\n│   SSH (remote access, SCP/SFTP), WireGuard (Noise-based VPN)           │\n│   Signal (E2E messaging), WhatsApp/iMessage (Signal-derived)            │\n│                                                                         │\n│  HANDSHAKE LAYER (key establishment)                                    │\n│   TLS 1.3: ECDHE + signature-based auth + HKDF key schedule            │\n│   SSH: DH/ECDH key exchange + host key authentication                  │\n│   X3DH (Signal): multi-key DH for asynchronous key establishment       │\n│   Noise: composable pattern framework; WireGuard = Noise_IKpsk2        │\n│                                                                         │\n│  KEY DERIVATION + RATCHETING                                            │\n│   HKDF-based key schedule (TLS 1.3; section labels = domain separation)│\n│   Double Ratchet (Signal): per-message forward secrecy + recovery      │\n│                                                                         │\n│  RECORD/DATA LAYER                                                      │\n│   AEAD: AES-128-GCM, AES-256-GCM, ChaCha20-Poly1305 (TLS 1.3)        │\n│   Sequence number → nonce anti-replay                                  │\n│                                                                         │\n│  TRUST LAYER (authentication)                                           │\n│   PKI: X.509 certificates + certificate authorities + CT logs           │\n│   TOFU: Trust On First Use (SSH default)                                │\n│   Web of trust: PGP; forward-secret ratchet (Signal)                   │\n└─────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "03-PROTOCOLS.md#005",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-PROTOCOLS.md#006",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "## 1. TLS 1.3 Handshake (Full Transcript)"
+    },
+    {
+      "id": "03-PROTOCOLS.md#007",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "```\nTLS 1.3 OVERVIEW:\n  RFC 8446; 1-RTT full handshake; 0-RTT resumption; AEAD-only; no static RSA\n  Always forward-secret: ephemeral (EC)DHE required; no static DH or RSA key exchange\n  Removed from TLS 1.3: RSA key exchange, CBC+HMAC suites, RC4, 3DES, SHA-1, MD5, NULL"
+    },
+    {
+      "id": "03-PROTOCOLS.md#008",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "1-RTT HANDSHAKE:\n  Client ──────────────────────────────────────────────────────────► Server"
+    },
+    {
+      "id": "03-PROTOCOLS.md#009",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "ClientHello:\n    client_random (32 bytes)\n    legacy_session_id (for middlebox compat; ignored in TLS 1.3)\n    cipher_suites: TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384,\n                   TLS_CHACHA20_POLY1305_SHA256\n    extensions:\n      supported_versions: [TLS 1.3, TLS 1.2]  (TLS 1.3 indicated here)\n      key_share: [(X25519, client_ec_pub), (P-256, ...)]\n      supported_groups: X25519, P-256, X448, P-384\n      signature_algorithms: ecdsa_secp256r1_sha256, ed25519, rsa_pss_rsae_sha256, ...\n      server_name: \"example.com\"  (SNI — Server Name Indication)\n      early_data (optional for 0-RTT)"
+    },
+    {
+      "id": "03-PROTOCOLS.md#010",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "ServerHello:\n    server_random (32 bytes)\n    cipher_suite: TLS_AES_128_GCM_SHA256\n    extensions:\n      supported_versions: TLS 1.3\n      key_share: (X25519, server_ec_pub)   ← ephemeral key pair generated per handshake"
+    },
+    {
+      "id": "03-PROTOCOLS.md#011",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "──── Both sides compute ECDH shared secret Z = ECDH(client_priv, server_pub) ────\n  ──── Key schedule begins (all further messages encrypted) ────"
+    },
+    {
+      "id": "03-PROTOCOLS.md#012",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "EncryptedExtensions (encrypted):    additional server extensions\n  Certificate (encrypted):            server's X.509 cert chain\n  CertificateVerify (encrypted):      signature over handshake transcript\n    sign(server_private_key, \"TLS 1.3, server CertificateVerify\" || transcript_hash)\n  Finished (encrypted):               HMAC over handshake transcript with server_finished_key"
+    },
+    {
+      "id": "03-PROTOCOLS.md#013",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "Client ◄───────────────────────────────────────────────────────── Server"
+    },
+    {
+      "id": "03-PROTOCOLS.md#014",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "Client verifies Certificate chain, CertificateVerify signature, Finished MAC\n  Client sends Finished (HMAC with client_finished_key)\n  Total RTT: 1 full round trip; symmetric keys available before Finished"
+    },
+    {
+      "id": "03-PROTOCOLS.md#015",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "0-RTT (Early Data):\n  Resumed session; client can send application data with ClientHello\n  Uses resumption_secret from previous session → PSK\n  Security: 0-RTT is NOT forward-secret (PSK is reused)\n  Replay vulnerability: server sees early data before verifying; no replay protection\n    0-RTT data must be idempotent (GET requests; not financial transactions)\n  0-RTT is optional; servers can reject; limited use cases\n```"
+    },
+    {
+      "id": "03-PROTOCOLS.md#016",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-PROTOCOLS.md#017",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "## 2. TLS 1.3 Key Schedule"
+    },
+    {
+      "id": "03-PROTOCOLS.md#018",
+      "path": [
+        "03-PROTOCOLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]",
+        "canonical_path": "cryptography/03-PROTOCOLS.md",
+        "concepts": "[protocols]",
+        "current_path": "cryptography/03-PROTOCOLS.md",
+        "id": "maxim:cryptography:protocols",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cryptography",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protocols]",
+        "section": "cryptography",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Cryptographic Protocols",
+        "updated": "null"
+      },
+      "text": "```\nHKDF-BASED KEY SCHEDULE (RFC 8446 §7.1):\n  Uses HKDF-Extract and HKDF-Expand-Label throughout\n  Label format: HKDF-Expand-Label(secret, label, context, length)\n    = HKDF-Expand(secret, \"tls13 \" + label, context, length)"
+    }
+  ],
+  "refs": [
+    "03-PROTOCOLS.md"
+  ]
+}
