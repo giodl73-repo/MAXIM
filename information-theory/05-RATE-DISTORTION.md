@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:information-theory:rate-distortion
+kind: guide
+module: information-theory
+section: information-theory
+title: Rate-Distortion Theory
+status: source-custody
+source_custody: partial
+current_path: information-theory/05-RATE-DISTORTION.md
+canonical_path: information-theory/05-RATE-DISTORTION.md
+backsource_ids: [proof-backfill:information-theory:05-rate-distortion, git-history:information-theory:05-rate-distortion]
+concepts: [rate, distortion]
+root_concepts: [rate, distortion]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rate-Distortion Theory
 
 ```
@@ -35,7 +54,7 @@ Source X ──[Encoder]──> codeword (R bits/symbol) ──[Decoder]──> 
 |---------|---------|--------|
 | Hamming | 1[x ≠ x̂] | Discrete |
 | Squared error | (x - x̂)² | Continuous |
-| Absolute error | |x - x̂| | Continuous |
+| Absolute error | \|x - x̂\| | Continuous |
 | Log loss | log(1/p(x)) | Probabilistic |
 
 **Rate-distortion function**:

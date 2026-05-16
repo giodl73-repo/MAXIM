@@ -1,0 +1,68 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\02-SOURCE-CODING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 438,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether generic text needs fast compression",
+          "LZ4 or Zstandard",
+          "Speed/ratio tradeoffs depend on corpus redundancy"
+        ],
+        [
+          "Whether text ratio matters more than latency",
+          "Language model plus arithmetic coding",
+          "Model cost can dominate coding gain"
+        ],
+        [
+          "Whether lossy image compression is acceptable",
+          "JPEG/WebP transform coding",
+          "Perceptual quality is not captured by bits per pixel alone"
+        ],
+        [
+          "Whether image data must remain exact",
+          "PNG/deflate-style lossless coding",
+          "Natural images often compress worse losslessly than engineered assets"
+        ],
+        [
+          "Whether temporal redundancy dominates",
+          "Modern video codec motion compensation",
+          "Search complexity and encoder latency are major costs"
+        ],
+        [
+          "Whether perceptual audio coding is appropriate",
+          "AAC or Opus",
+          "Bitrate targets depend on content and listening conditions"
+        ],
+        [
+          "Whether a known discrete distribution needs prefix codes",
+          "Huffman coding",
+          "Huffman is within one bit, not exactly entropy-optimal in general"
+        ],
+        [
+          "Whether adaptive near-entropy coding is needed",
+          "Arithmetic coding",
+          "Probability-model quality determines realized compression"
+        ],
+        [
+          "Whether the source distribution is unknown",
+          "LZ77/LZ78-style universal coding",
+          "Asymptotic optimality may not help short files"
+        ],
+        [
+          "Whether lossy compression has an information-theoretic bound",
+          "Rate-distortion theory",
+          "Computing the operational optimum is hard and source/model dependent"
+        ]
+      ]
+    }
+  ]
+}

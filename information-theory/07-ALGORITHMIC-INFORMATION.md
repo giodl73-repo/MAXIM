@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:information-theory:algorithmic-information
+kind: guide
+module: information-theory
+section: information-theory
+title: Algorithmic Information Theory
+status: source-custody
+source_custody: partial
+current_path: information-theory/07-ALGORITHMIC-INFORMATION.md
+canonical_path: information-theory/07-ALGORITHMIC-INFORMATION.md
+backsource_ids: [proof-backfill:information-theory:07-algorithmic-information, git-history:information-theory:07-algorithmic-information]
+concepts: [algorithmic, information]
+root_concepts: [algorithmic, information]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Algorithmic Information Theory
 
 ## The Big Picture

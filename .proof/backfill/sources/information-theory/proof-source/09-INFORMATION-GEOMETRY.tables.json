@@ -1,0 +1,106 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\09-INFORMATION-GEOMETRY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 344,
+      "heading_context": "## 8. Applications in Machine Learning",
+      "headers": [
+        "Method",
+        "Fisher approximation",
+        "Cost",
+        "When to use"
+      ],
+      "rows": [
+        [
+          "SGD",
+          "Identity (ignore curvature)",
+          "O(p)",
+          "Large models"
+        ],
+        [
+          "Adam",
+          "Diagonal, adaptive",
+          "O(p)",
+          "Default in DL"
+        ],
+        [
+          "K-FAC",
+          "Kronecker-factored per layer",
+          "O(d²)",
+          "Medium networks"
+        ],
+        [
+          "Shampoo",
+          "Block-diagonal Kronecker",
+          "O(d²)",
+          "Large language models"
+        ],
+        [
+          "Exact NGD",
+          "Full Fisher F",
+          "O(p²)",
+          "Tiny models only"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 362,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether distribution distance should be intrinsic",
+          "Fisher-Rao geodesic",
+          "Computing geodesics can be hard outside simple families"
+        ],
+        [
+          "Whether divergence direction matters",
+          "KL divergence",
+          "`KL(P||Q)` and `KL(Q||P)` penalize different errors"
+        ],
+        [
+          "Whether a symmetric divergence is needed",
+          "Jensen-Shannon or Hellinger",
+          "Symmetry does not make every divergence a geodesic distance"
+        ],
+        [
+          "Whether geometry should move probability mass",
+          "Wasserstein `W2`",
+          "Transport cost depends on the ground metric"
+        ],
+        [
+          "Whether gradient descent ignores statistical curvature",
+          "Natural gradient",
+          "Fisher inverse estimation is the computational bottleneck"
+        ],
+        [
+          "Whether natural-gradient scaling is needed in deep nets",
+          "K-FAC approximation",
+          "Kronecker structure is an approximation to curvature"
+        ],
+        [
+          "Whether latent-variable fitting alternates projections",
+          "EM algorithm",
+          "EM is local and can converge slowly"
+        ],
+        [
+          "Whether optimal transport needs fast regularization",
+          "Sinkhorn iterations",
+          "Entropic regularization changes the transport problem"
+        ],
+        [
+          "Whether representation compression is the objective",
+          "Information bottleneck",
+          "Estimating mutual information in high dimension is difficult"
+        ]
+      ]
+    }
+  ]
+}

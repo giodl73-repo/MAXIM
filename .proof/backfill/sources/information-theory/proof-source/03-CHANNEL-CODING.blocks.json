@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\03-CHANNEL-CODING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 49,
+      "heading_context": "## Big Picture",
+      "confidence": "candidate",
+      "text": "NOISY CHANNEL CODING THEOREM (Shannon, 1948):\n  For any channel with capacity C bits/use:\n  • If R < C: ∃ a code such that P_e → 0 as block length n → ∞\n  • If R > C: P_e → 1 for all codes (unavoidable error)\n\n  C = max_{p(x)} I(X;Y)\n\nIMPLICATIONS:\n  • Can communicate reliably at ANY rate below capacity — but not above\n  • The theorem is EXISTENCE — doesn't say HOW to construct the code\n  • 70 years of coding theory = constructing codes that approach C efficiently\n\nPRACTICAL CODES vs SHANNON LIMIT:\n  1950: Hamming codes — first error-correcting, far from capacity\n  1960: Reed-Solomon — algebraic, excellent burst error correction (CDs, QR codes)\n  1993: Turbo codes — within 0.5 dB of Shannon limit (3GPP LTE data)\n  1997: LDPC rediscovered — within 0.01 dB (5G NR data channels)\n  2009: Polar codes — provably capacity-achieving, O(n log n) complexity (5G NR control)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "### Binary Erasure Channel (BEC)",
+      "confidence": "candidate",
+      "text": "CHANNEL: each bit erased (lost) with probability ε, received correctly otherwise\n  y ∈ {0, ?, 1}  (? = erased)\n\nCAPACITY: C_BEC = 1 - ε  [bits/channel use]\n  → Fraction of bits that are not erased\n\nInternet/wireless: erasures from packet loss; BEC models the unreliable path",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "### AWGN Channel (Gaussian)",
+      "confidence": "candidate",
+      "text": "y = x + z,   z ~ N(0, N₀/2)  per dimension (or N₀W noise power in bandwidth W)\n\nCAPACITY (Shannon-Hartley):\n  C = W log₂(1 + SNR)   [bits/second]\n  SNR = P/(N₀W)\n\n  W = bandwidth (Hz)\n  P = signal power (W)\n  N₀/2 = noise PSD (W/Hz)\n\nEXAMPLES:\n  Telephone: W=3400 Hz, SNR=30 dB (1000×) → C = 3400 × log₂(1001) ≈ 34 kbps\n  WiFi 802.11ac: W=160 MHz, SNR=40 dB → C ≈ 160M × 13.3 = 2.1 Gbps\n  5G mmWave: W=400 MHz, short range high SNR → multi-Gbps\n\nBANDWIDTH vs POWER:\n  C ↑ linearly with W (at fixed SNR): doubling bandwidth doubles capacity\n  C ↑ logarithmically with SNR: doubling power adds only log₂ bits → poor return\n  → In bandwidth-limited regime: add antennas (MIMO)\n  → In SNR-limited regime: add bandwidth\n\nWIDEBAND LIMIT (P/N₀ fixed, W→∞):\n  C → (P/N₀) / ln(2)  (capacity bounded even with infinite bandwidth)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "### Hamming Codes",
+      "confidence": "candidate",
+      "text": "[7,4,3] Hamming code: n=7, k=4, d=3 → t=1 (corrects single errors)\n\nPARITY CHECK MATRIX H (7×3):\n  H = [   p₁  p₂  p₃  p₄  p₅  p₆  p₇  ]\n      [ bit 1 in col = position in binary ]\n\n  H = [0 0 0 1 1 1 1]\n      [0 1 1 0 0 1 1]\n      [1 0 1 0 1 0 1]\n\nSYNDROME: s = Hc^T\n  If s=0: no error\n  If s≠0: s = binary representation of error position → flip that bit\n\nPERFECT CODE: exactly 2^{n-k} = 8 syndromes, one per error pattern (including no error)\n\nEXTENDED HAMMING [8,4,4]: add overall parity check → d=4 → detect 2 errors, correct 1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 187,
+      "heading_context": "### Reed-Solomon Codes",
+      "confidence": "candidate",
+      "text": "RS(n,k) over GF(q):   q = prime power (usually q = 2^8 for bytes)\n  n = q-1 symbols\n  k = message symbols\n  d = n-k+1 (MDS: achieve Singleton bound!)\n\n  ENCODING: Treat message as polynomial m(x) = m₀ + m₁x + ... + m_{k-1}x^{k-1}\n            Codeword: systematic + parity symbols = (m(x) × x^{n-k}) mod g(x)\n            g(x) = (x-α)(x-α²)...(x-α^{n-k})  where α = primitive element of GF(2^8)\n\nCORRECTION: Can correct up to t = (n-k)/2 symbol errors  (Berlekamp-Massey decoder)\n\nAPPLICATIONS:\n  CD-ROM: RS(255,251) → corrects 2 symbol errors; with interleaving: corrects burst errors\n  DVD: RS + convolutional interleaving\n  QR codes: RS over GF(256) with variable redundancy\n  RAID 6: RS(n,n-2) over GF(2^8) → tolerates any 2 disk failures\n\nBURST ERRORS: RS excellent because one symbol error = one Galois field element\n  regardless of how many bit errors in that byte",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 211,
+      "heading_context": "### LDPC Codes",
+      "confidence": "candidate",
+      "text": "Low-Density Parity-Check codes (Gallager 1962; MacKay & Neal 1996-1997).\n\nPARITY CHECK MATRIX H: very sparse (few 1s per row/column)\n  Tanner graph: bipartite graph of variable nodes + check nodes\n  Variable node i: corresponds to codeword bit cᵢ\n  Check node j: enforces parity constraint Σ_{i ∈ N(j)} cᵢ = 0 (mod 2)\n\nBELIEF PROPAGATION (Sum-Product):\n  Iterative message passing on Tanner graph\n  Variable → check: send belief about own bit\n  Check → variable: send constraint satisfaction probability\n  Converges in ~50 iterations for well-designed codes\n\nTHRESHOLD PHENOMENON: Below a capacity threshold, BP decodes with P_e → 0\n  LDPC can get within 0.01-0.05 dB of Shannon limit!\n\nAPPLICATIONS:\n  WiFi 802.11n/ac/ax (5G NR data channels), DVB-S2 (satellite TV)\n  WiMAX, 10GBase-T Ethernet",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "### Turbo Codes",
+      "confidence": "candidate",
+      "text": "Berrou, Glavieux, Thitimajshima (1993): \"Near Shannon limit error-correcting coding\"\n\nARCHITECTURE:\n  Message u\n    ├─→ Encoder 1 (RSC) → parity p₁\n    └─→ Interleaver π → Encoder 2 (RSC) → parity p₂\n\n  Transmit: (u, p₁, p₂) → rate 1/3 (or puncture some parity for higher rate)\n  Interleaver: permute bits to spread burst errors, make encoders see different patterns\n\nDECODING (BCJR/MAP decoder):\n  Iterative turbo decoding: two SISO (soft-in soft-out) decoders exchange extrinsic info\n  8-16 iterations → near-Shannon performance\n\nAPPLICATIONS: 3G (UMTS/WCDMA), LTE data channels, deep-space (Cassini)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "### Polar Codes",
+      "confidence": "candidate",
+      "text": "Arıkan (2009): First provably capacity-achieving code with O(n log n) encode/decode.\n\nKEY IDEA: \"Channel polarization\"\n  Combine n=2^m uses of a noisy channel W\n  Apply recursive butterfly transform (like FFT butterfly)\n  After n steps: ≈ nC \"perfect\" synthetic channels + n(1-C) \"useless\" channels\n  → \"Frozen\" bits: set to 0 on useless channels (known to both sides)\n  → Information bits: sent on perfect channels\n\n  As n→∞: fraction C channels become perfect, fraction 1-C become useless\n  → Rate = C → capacity-achieving!\n\nDECODING: Successive cancellation (SC): O(n log n)\n  Improved: SC-List (SCL): nearly as good as ML\n\nAPPLICATIONS: 5G NR control channels (PBCH, PDCCH) — chosen over LDPC\n             Due to low complexity, provable optimality, short blocklength performance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 281,
+      "heading_context": "### RAID Erasure Coding",
+      "confidence": "candidate",
+      "text": "RAID 5 (single parity): XOR of k disks → tolerates 1 failure\nRAID 6 (double parity): RS(k+2,k) → tolerates 2 failures\nErasure codes for storage (Ceph, HDFS EC, Azure, Facebook f4):\n  RS(14,10): store 1.4× data; tolerate 4 simultaneous failures\n  Facebook f4: warm storage → RS + XOR code for 2× fault tolerance\n\nREGENERATING CODES: minimize repair bandwidth (not just fault tolerance)\n  MSR (minimum storage regenerating): only download fraction of data to repair\n  → Important for large distributed storage (HDFS, S3 background)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 295,
+      "heading_context": "### Network Coding",
+      "confidence": "candidate",
+      "text": "CLASSIC ROUTING: each node just forwards packets\nNETWORK CODING: intermediate nodes can XOR/combine packets\n\nBUTTERFLY NETWORK EXAMPLE:\n  Source sends A and B over a network with bottleneck link\n  Without coding: can't send both A and B over bottleneck\n  With coding: send A⊕B over bottleneck → receivers decode A and B separately\n  → Achieves multicast capacity (Ahlswede et al. 2000)\n\nRANDOM LINEAR NETWORK CODING (RLNC):\n  Each node sends random GF(q) linear combinations of received packets\n  Receiver collects enough linearly independent combinations → decode (Gaussian elim)\n  Distributed, no central coordination\n  BitTorrent-like: peers spread random combinations → eventual decoding",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

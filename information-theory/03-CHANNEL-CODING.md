@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:information-theory:channel-coding
+kind: guide
+module: information-theory
+section: information-theory
+title: Channel Coding - Capacity and Error-Correcting Codes
+status: source-custody
+source_custody: partial
+current_path: information-theory/03-CHANNEL-CODING.md
+canonical_path: information-theory/03-CHANNEL-CODING.md
+backsource_ids: [proof-backfill:information-theory:03-channel-coding, git-history:information-theory:03-channel-coding]
+concepts: [channel, coding]
+root_concepts: [channel, coding]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Channel Coding — Capacity and Error-Correcting Codes
 
 ---
@@ -6,25 +25,25 @@
 
 ```
 CODE FAMILY TAXONOMY — STRUCTURE AND TRADEOFFS
-┌─────────────────────────────────────────────────────────────────────────┐
-│                                                                         │
-│  BY STRUCTURE:         BY DESIGN PHILOSOPHY:      BY BLOCK LENGTH:      │
-│  ┌────────────────┐    ┌─────────────────────┐    ┌───────────────────┐│
-│  │ BLOCK CODES    │    │ ALGEBRAIC            │    │ SHORT (n<256)     ││
-│  │ (n,k,d) fixed  │    │ Hamming, BCH, RS,   │    │ Hamming, BCH      ││
-│  │ rate = k/n     │    │ Golay — exact math   │    │ Strong guarantees ││
-│  ├────────────────┤    ├─────────────────────┤    ├───────────────────┤│
-│  │ CONVOLUTIONAL  │    │ PROBABILISTIC        │    │ MEDIUM (256-10K)  ││
-│  │ sliding window │    │ Turbo, LDPC, Polar   │    │ LDPC, Polar       ││
-│  │ (n,k,K) memory │    │ — random-like graphs │    │ Near-Shannon      ││
-│  ├────────────────┤    │   + iterative decode │    ├───────────────────┤│
-│  │ RATELESS       │    └─────────────────────┘    │ LONG (10K+)       ││
-│  │ Fountain/LT/   │                               │ LDPC, Turbo       ││
-│  │ Raptor         │    Rate vs complexity:         │ Capacity-approach ││
-│  └────────────────┘    Algebraic: O(n log n) dec   └───────────────────┘│
-│                        Iterative: O(n) per iter                         │
-│                        Polar: O(n log n) exact                          │
-└─────────────────────────────────────────────────────────────────────────┘
+
+BY STRUCTURE:
+- Block codes: (n,k,d) fixed, rate = k/n
+- Convolutional: sliding window, (n,k,K) memory
+- Rateless: Fountain/LT/Raptor
+
+BY DESIGN PHILOSOPHY:
+- Algebraic: Hamming, BCH, Reed-Solomon, Golay; exact math
+- Probabilistic: Turbo, LDPC, Polar; random-like graphs and iterative decode
+
+BY BLOCK LENGTH:
+- Short (n<256): Hamming, BCH; strong guarantees
+- Medium (256-10K): LDPC, Polar; near-Shannon
+- Long (10K+): LDPC, Turbo; capacity-approach
+
+RATE VS COMPLEXITY:
+- Algebraic: O(n log n) decoding
+- Iterative: O(n) per iteration
+- Polar: O(n log n) exact
 ```
 
 ```

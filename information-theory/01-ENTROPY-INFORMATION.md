@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:information-theory:entropy-information
+kind: guide
+module: information-theory
+section: information-theory
+title: Entropy and Information - Shannon's Core Measures
+status: source-custody
+source_custody: partial
+current_path: information-theory/01-ENTROPY-INFORMATION.md
+canonical_path: information-theory/01-ENTROPY-INFORMATION.md
+backsource_ids: [proof-backfill:information-theory:01-entropy-information, git-history:information-theory:01-entropy-information]
+concepts: [entropy, information]
+root_concepts: [entropy, information]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Entropy and Information — Shannon's Core Measures
 
 ## The Full Entropy Toolbox
@@ -12,13 +31,13 @@
          │         │
          │         └──► H(Y|X) = H(X,Y) - H(X)  ← conditional
          │
-         ├──► I(X;Y) = H(X) - H(X|Y)        ← mutual information
+         ├──► I(X;Y) = H(X) - H(X\|Y)        ← mutual information
          │         = H(X) + H(Y) - H(X,Y)
          │         = D_KL(p(x,y) || p(x)p(y))  ← MI IS the KL from joint to product
          │
-         ├──► D_KL(P||Q) = Σ p(x) log(p/q)  ← KL divergence (always ≥ 0)
+         ├──► D_KL(P\|\|Q) = Σ p(x) log(p/q)  ← KL divergence (always ≥ 0)
          │         │
-         │         └──► H(P,Q) = H(P) + D_KL(P||Q)  ← cross-entropy = entropy + KL
+         │         └──► H(P,Q) = H(P) + D_KL(P\|\|Q)  ← cross-entropy = entropy + KL
          │              = -Σ p(x) log q(x)
          │              (minimizing cross-entropy = minimizing KL = MLE)
          │
@@ -162,7 +181,7 @@ Since X→Y→Z, X ⊥ Z | Y → I(X;Z|Y) = 0. Since I(X;Y|Z) ≥ 0, I(X;Z) ≤ 
 
 ---
 
-## KL Divergence D_KL(P||Q)
+## KL Divergence D_KL(P\|\|Q)
 
 $$D_{KL}(P\|Q) = \sum_x p(x)\log\frac{p(x)}{q(x)} = E_P\left[\log\frac{P}{Q}\right]$$
 
@@ -175,20 +194,20 @@ with equality iff Q/P = const on support of P → P = Q.
 
 ```
     Key properties:
-    D_KL(P||Q) ≥ 0  (non-negative)
-    D_KL(P||Q) = 0 iff P = Q
-    D_KL(P||Q) ≠ D_KL(Q||P)  (asymmetric!)
-    D_KL(P||Q) = ∞ if Q(x)=0 but P(x)>0 for some x
+    D_KL(P\|\|Q) ≥ 0  (non-negative)
+    D_KL(P\|\|Q) = 0 iff P = Q
+    D_KL(P\|\|Q) ≠ D_KL(Q||P)  (asymmetric!)
+    D_KL(P\|\|Q) = ∞ if Q(x)=0 but P(x)>0 for some x
 
     Interpretation:
-    D_KL(P||Q) = extra bits needed per symbol when using code optimized for Q
+    D_KL(P\|\|Q) = extra bits needed per symbol when using code optimized for Q
                  but actual distribution is P.
-    Average code length under P using Q-optimal code = H(P) + D_KL(P||Q) = H(P,Q) (cross-entropy)
+    Average code length under P using Q-optimal code = H(P) + D_KL(P\|\|Q) = H(P,Q) (cross-entropy)
     vs. optimal average code length = H(P)
     → D_KL = inefficiency from using wrong distribution
 
     Forward vs reverse KL:
-    min D_KL(P||Q) over Q: q covers all of p (zero-forcing, mean-seeking behavior)
+    min D_KL(P\|\|Q) over Q: q covers all of p (zero-forcing, mean-seeking behavior)
     min D_KL(Q||P) over Q: q concentrates on modes of p (mode-seeking behavior)
     → VAEs minimize KL(q(z|x)||p(z)) = forward direction → approximate posterior covers prior
     → GAN uses reverse KL implicitly in some formulations
@@ -374,10 +393,10 @@ $$H(\mathcal{X}) = \lim_{n\to\infty} \frac{1}{n} H(X_1,...,X_n) = \lim_{n\to\inf
 | Need                                  | Formula                           | Key constraint |
 |---------------------------------------|-----------------------------------|---------------|
 | Average compression limit             | H(X) = -Σ p log p                | Can't go below H |
-| Reduce to uncertainty given Y         | H(X|Y) = H(X,Y) - H(Y)           | ≤ H(X) always |
-| How much Y tells us about X          | I(X;Y) = H(X) - H(X|Y)           | ≥ 0 always |
-| Compare distributions P, Q          | D_KL(P||Q) = Σ p log(p/q)        | ≥ 0, not symmetric |
-| ML training loss                      | H(p,q) = H(p) + D_KL(p||q)       | Minimize over model q |
+| Reduce to uncertainty given Y         | H(X\|Y) = H(X,Y) - H(Y)           | ≤ H(X) always |
+| How much Y tells us about X          | I(X;Y) = H(X) - H(X\|Y)           | ≥ 0 always |
+| Compare distributions P, Q          | D_KL(P\|\|Q) = Σ p log(p/q)        | ≥ 0, not symmetric |
+| ML training loss                      | H(p,q) = H(p) + D_KL(p\|\|q)       | Minimize over model q |
 | Maximum entropy for given variance   | N(μ,σ²), h = ½log(2πeσ²)         | Gaussian wins |
 | Estimation variance lower bound      | Var(θ̂) ≥ 1/(n I(θ))              | Cramér-Rao |
 | Optimal optimization direction        | F⁻¹ ∇L (natural gradient)         | Fisher = metric tensor |
@@ -392,7 +411,7 @@ observed value Y=y, the conditional entropy H(X|Y=y) can exceed H(X). Knowing th
 biased coin showed heads might increase your uncertainty about something correlated with
 that coin flip. The inequality holds on average, not pointwise.
 
-**KL divergence is not symmetric, and this matters**: D_KL(P||Q) ≠ D_KL(Q||P) in general.
+**KL divergence is not symmetric, and this matters**: D_KL(P\|\|Q) ≠ D_KL(Q||P) in general.
 Which direction you use in optimization has significant consequences:
 - Forward KL: D_KL(p_data || q_model) → mass-covering (q spreads to cover p)
 - Reverse KL: D_KL(q_model || p_data) → mode-seeking (q concentrates on modes of p)

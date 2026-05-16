@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:information-theory:source-coding
+kind: guide
+module: information-theory
+section: information-theory
+title: Source Coding - Data Compression Theory
+status: source-custody
+source_custody: partial
+current_path: information-theory/02-SOURCE-CODING.md
+canonical_path: information-theory/02-SOURCE-CODING.md
+backsource_ids: [proof-backfill:information-theory:02-source-coding, git-history:information-theory:02-source-coding]
+concepts: [source, coding]
+root_concepts: [source, coding]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Source Coding — Data Compression Theory
 
 ## The Big Picture

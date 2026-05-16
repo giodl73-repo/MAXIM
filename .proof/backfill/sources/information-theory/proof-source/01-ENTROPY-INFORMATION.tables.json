@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\01-ENTROPY-INFORMATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 393,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Formula",
+        "Key constraint"
+      ],
+      "rows": [
+        [
+          "Average compression limit",
+          "H(X) = -Σ p log p",
+          "Can't go below H"
+        ],
+        [
+          "Reduce to uncertainty given Y",
+          "H(X\\|Y) = H(X,Y) - H(Y)",
+          "≤ H(X) always"
+        ],
+        [
+          "How much Y tells us about X",
+          "I(X;Y) = H(X) - H(X\\|Y)",
+          "≥ 0 always"
+        ],
+        [
+          "Compare distributions P, Q",
+          "D_KL(P\\|\\|Q) = Σ p log(p/q)",
+          "≥ 0, not symmetric"
+        ],
+        [
+          "ML training loss",
+          "H(p,q) = H(p) + D_KL(p\\|\\|q)",
+          "Minimize over model q"
+        ],
+        [
+          "Maximum entropy for given variance",
+          "N(μ,σ²), h = ½log(2πeσ²)",
+          "Gaussian wins"
+        ],
+        [
+          "Estimation variance lower bound",
+          "Var(θ̂) ≥ 1/(n I(θ))",
+          "Cramér-Rao"
+        ],
+        [
+          "Optimal optimization direction",
+          "F⁻¹ ∇L (natural gradient)",
+          "Fisher = metric tensor"
+        ]
+      ]
+    }
+  ]
+}

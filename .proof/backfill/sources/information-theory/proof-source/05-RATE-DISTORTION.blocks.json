@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\05-RATE-DISTORTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# Rate-Distortion Theory",
+      "confidence": "candidate",
+      "text": "THE FUNDAMENTAL TRADEOFF\n\nSource X ──[Encoder]──> codeword (R bits/symbol) ──[Decoder]──> X̂\n\n     Perfect reproduction:  R = H(X)          D = 0\n     Tolerate distortion:   R = R(D) < H(X)   D > 0\n     Extreme compression:   R → 0             D → D_max\n\n     Key question: What is the minimum rate R to achieve distortion ≤ D?\n\n     ┌─────────────────────────────────────────────────────┐\n     │  R                                                  │\n     │  │  R(0) = H(X) ──────────────────────────────•     │\n     │  │              \\                                   │\n     │  │               \\  R(D) curve                      │\n     │  │                \\      (convex, non-increasing)   │\n     │  │                 \\                                │\n     │  │                  '─────────────────────────      │\n     │  │                           D_max    D             │\n     │  └────────────────────────────────────────────      │\n     │  D_max = E[d(X, x̂_const)] for best constant x̂       │\n     └─────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "## 2. Shannon Lower Bound",
+      "confidence": "candidate",
+      "text": "R(D) ≥ h(X) - max h(X̂)\n             E[d(X,X̂)]≤D\n\nFor squared-error distortion:\n  max h(X̂) subject to E[(X-X̂)²] ≤ D  →  achieved by Gaussian X̂\n  h(N(0,D)) = ½ log(2πeD)\n\nShannon lower bound:\n  R(D) ≥ h(X) - ½ log(2πeD)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "## 3. Gaussian Source: R(D) in Closed Form",
+      "confidence": "candidate",
+      "text": "X ~ N(0, σ²), distortion = squared error\n\n        ┌\n        │  ½ log₂(σ²/D)    if D ≤ σ²\nR(D) = ─┤\n        │  0                if D > σ²\n        └\n\nRearranged: D(R) = σ² · 2^{-2R}   (distortion at rate R)\n\nAt R = 0:  D = σ²     (just use mean 0; error = variance)\nAt R = 1:  D = σ²/4   (1 bit halves log-distortion)\nAt R → ∞:  D → 0      (exact reproduction)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 138,
+      "heading_context": "## 4. Gaussian Vector Source: Reverse Waterfilling",
+      "confidence": "candidate",
+      "text": "Reverse waterfilling: allocate distortions Dᵢ to minimize total rate\n\n  R(D) = Σᵢ max(0, ½ log₂(σᵢ²/λ))\n\n  Dᵢ = min(λ, σᵢ²)     ← water level λ chosen so Σ Dᵢ = D_total\n\n     σᵢ²  ###                        Variance profile\n          ###     ###\n          ###     ###     ###\n          ###     ###     ###    ###\nλ ----------------------------------------  \"water level\"\n          ###     ###     ###    ///   <- σ² <= λ get 0 bits\n           i=1     i=2     i=3    i=4\n        (allocate bits above λ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "## 6. Transform Coding and Lossy Compression in Practice",
+      "confidence": "candidate",
+      "text": "Compression standard comparison:\n\n┌──────────────┬─────────────────┬──────────────────┬─────────────────────┐\n│ Standard     │ Transform       │ Entropy coding   │ R-D gap vs Shannon  │\n├──────────────┼─────────────────┼──────────────────┼─────────────────────┤\n│ JPEG         │ DCT (8×8)       │ Huffman          │ ~2-3 dB             │\n│ JPEG-2000    │ DWT (9/7)       │ EBCOT (MQ-coder) │ ~0.5-1 dB           │\n│ H.264        │ DCT + motion    │ CABAC            │ ~0.5 dB             │\n│ H.265/HEVC   │ DCT (4×4-32×32) │ CABAC            │ ~0.3 dB             │\n│ AV1/VVC      │ DCT/DST + adapt │ ANS              │ ~0.1-0.2 dB         │\n│ Neural (2024)│ Learned         │ ANS + hyperprior │ Near Shannon        │\n└──────────────┴─────────────────┴──────────────────┴─────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "## 8. Vector Quantization",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────┐\n│  VQ for n-dimensional vectors:                                  │\n│                                                                 │\n│  Training: LBG algorithm (k-means generalization)               │\n│    Init: split codebook (Lloyd doubling)                        │\n│    Iterate: Voronoi partition + centroid update                 │\n│    Convergence: monotone decrease in quantization error         │\n│                                                                 │\n│  Variants:                                                      │\n│    Residual VQ (RVQ): quantize, then quantize residual          │\n│      X → q₁(X) → X - q₁(X) → q₂(X-q₁) → ...                     │\n│      Used in: neural codec language models (EnCodec, DAC)       │\n│                                                                 │\n│    Product Quantization (PQ): split vector, quantize subspaces  │\n│      X = [X₁, X₂, ..., Xₘ]  (d/m dimensions each)               │\n│      Rate = m · log₂(k)/n  bits/sample                          │\n│      Used in: FAISS ANN search, ANN vector databases            │\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 289,
+      "heading_context": "## 9. Perceptual Distortion and Generative Models",
+      "confidence": "candidate",
+      "text": "Perception quality P(D): how \"realistic\" is the reconstruction\nDistortion D:            pixel-level fidelity (MSE, SSIM)\n\n┌─────────────────────────────────────────────────────────┐\n│  P                                                      │\n│  │ • (perfect perception, high distortion)              │\n│  │   [generative models: hallucinate details]           │\n│  │    \\                                                 │\n│  │     \\   Pareto frontier                              │\n│  │      \\                                               │\n│  │       \\                                              │\n│  │        • (low distortion, imperfect perception)      │\n│  │          [averaging: blurry but PSNR-optimal]        │\n│  └──────────────────────────────────────── D            │\n└─────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\05-RATE-DISTORTION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 53,
+      "heading_context": "## 1. Formal Definition",
+      "headers": [
+        "Measure",
+        "Formula",
+        "Domain"
+      ],
+      "rows": [
+        [
+          "Hamming",
+          "1[x ≠ x̂]",
+          "Discrete"
+        ],
+        [
+          "Squared error",
+          "(x - x̂)²",
+          "Continuous"
+        ],
+        [
+          "Absolute error",
+          "\\|x - x̂\\|",
+          "Continuous"
+        ],
+        [
+          "Log loss",
+          "log(1/p(x))",
+          "Probabilistic"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 322,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Source type",
+        "Distortion metric",
+        "Optimal approach",
+        "Standard"
+      ],
+      "rows": [
+        [
+          "Gaussian scalar",
+          "MSE",
+          "Gaussian test channel",
+          "Shannon limit"
+        ],
+        [
+          "Gaussian vector",
+          "MSE",
+          "KL transform + reverse waterfill",
+          "JPEG-2000 (approx)"
+        ],
+        [
+          "Speech",
+          "Perceptual",
+          "LPC + VQ (MELP) / neural codec",
+          "Opus, EnCodec"
+        ],
+        [
+          "Image (natural)",
+          "PSNR",
+          "DCT/DWT + entropy code",
+          "JPEG, JPEG-2000"
+        ],
+        [
+          "Image (perceptual)",
+          "LPIPS",
+          "Diffusion / GAN decoder",
+          "Stable Diffusion"
+        ],
+        [
+          "Video",
+          "PSNR/VMAF",
+          "Motion + DCT + CABAC",
+          "H.265, AV1"
+        ],
+        [
+          "High-dim vectors",
+          "L2 approx",
+          "Product quantization",
+          "FAISS, ScaNN"
+        ],
+        [
+          "Symbolic/text",
+          "Hamming",
+          "Source coding (lossless)",
+          "zstd, brotli"
+        ],
+        [
+          "Genomic",
+          "Specialized bio",
+          "Reference-based compression",
+          "CRAM"
+        ]
+      ]
+    }
+  ]
+}

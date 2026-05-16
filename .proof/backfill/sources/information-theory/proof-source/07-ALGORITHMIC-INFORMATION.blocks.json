@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\07-ALGORITHMIC-INFORMATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "KOLMOGOROV COMPLEXITY: INFORMATION WITHOUT PROBABILITY\n\nShannon entropy:      H(X) = E[-log p(X)]     requires probability distribution\nKolmogorov complexity: K(x) = min |p|         defined for individual strings\n                               U(p)=x\n\nShannon = average case over ensemble\nKolmogorov = worst case / individual string\n\n┌──────────────────────────────────────────────────────────────────┐\n│  K(x) = length of shortest self-delimiting program p             │\n│         running on universal TM U that outputs x                 │\n│                                                                  │\n│  \"The complexity of a string is the length of its shortest       │\n│   description in a fixed universal formal language\"              │\n│                                         — Kolmogorov (1965)      │\n│                                                                  │\n│  K(\"0101010101...01\") = O(log n)   [short description]           │\n│  K(π to n places)    = O(log n)   [short program]                │\n│  K(random n bits)    ≈ n          [no compression possible]      │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "## 2. Invariance Theorem",
+      "confidence": "candidate",
+      "text": "Theorem (Kolmogorov 1965): For any two universal TMs U, V:\n  |K_U(x) - K_V(x)| ≤ c_{UV}     for all strings x\n\nwhere c_{UV} = |simulation program of V on U|  (a constant)\n\nProof: To simulate V on U, write a fixed program of constant length c\nthat first reads a simulation of V, then runs V's program.\n  K_U(x) ≤ K_V(x) + c  (simulate V on U)\n  K_V(x) ≤ K_U(x) + c' (simulate U on V)\n  → |K_U(x) - K_V(x)| ≤ max(c, c')",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 123,
+      "heading_context": "## 3. Basic Properties",
+      "confidence": "candidate",
+      "text": "I(x:y) = K(x) + K(y) - K(x,y) + O(log K(x,y))\n        = K(x) - K(x|y) + O(log K(x))    [via chain rule]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## 5. Algorithmic Randomness",
+      "confidence": "candidate",
+      "text": "Definition 1 (Kolmogorov): x is random if K(x) ≥ |x| - c  for small c\n  (incompressible: no significantly shorter description exists)\n\nDefinition 2 (Martin-Löf): x is random if it passes all effective statistical tests\n  Effective test: c.e. set of measure-0 covering sequences\n  A sequence fails at most countably many effective tests\n  Random ⟺ not in any effective null set\n\nDefinition 3 (Schnorr/martingales): x is random if no computable betting strategy\n  can win unboundedly on x\n  Martingale M(w): M(w) = ½M(w0) + ½M(w1) (fair game)\n  Random ⟺ no computable M with M(x₁...xₙ) → ∞\n\nTheorem (Schnorr-Levin): Definitions 1, 2, 3 are equivalent for infinite sequences.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "## 8. Thermodynamics of Computation",
+      "confidence": "candidate",
+      "text": "Erasing 1 bit of information ──> minimum entropy increase kT ln 2\n\nPhysical reasoning:\n  Erasure: 2 distinguishable states → 1 state\n  Thermodynamically irreversible (entropy must go somewhere)\n  Cost: at least kT ln 2 joules dissipated as heat\n\nAt room temperature (T = 300K):\n  kT ln 2 ≈ 2.9 × 10⁻²¹ J  per bit erased\n\nModern CPUs dissipate ~10⁶ × this per operation — still far from Landauer limit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 287,
+      "heading_context": "## 8. Thermodynamics of Computation",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│  Maxwell's Demon resolved:                                   │\n│                                                              │\n│  Gas ──[demon measures]──> Demon memory: {fast, slow, ...}   │\n│                                     ↓                        │\n│  Demon operates trap door (work extracted from gas)          │\n│                                     ↓                        │\n│  Demon erases memory to repeat: costs ≥ kT ln 2 per bit      │\n│                                     ↓                        │\n│  Heat dissipated ≥ work extracted   [2nd law preserved]      │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 311,
+      "heading_context": "## 9. Bridge to Machine Learning and Statistics",
+      "confidence": "candidate",
+      "text": "For concept class C and sample of size m:\n  If H = K(target_concept | domain), then m = O(H/ε·log(1/δ)) samples suffice\n  K(c) ≤ VC-dimension(C)·log(n) in most cases\n  → Kolmogorov complexity generalizes VC dimension for sample complexity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

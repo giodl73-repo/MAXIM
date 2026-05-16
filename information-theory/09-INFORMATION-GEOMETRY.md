@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:information-theory:information-geometry
+kind: guide
+module: information-theory
+section: information-theory
+title: Information Geometry
+status: source-custody
+source_custody: partial
+current_path: information-theory/09-INFORMATION-GEOMETRY.md
+canonical_path: information-theory/09-INFORMATION-GEOMETRY.md
+backsource_ids: [proof-backfill:information-theory:09-information-geometry, git-history:information-theory:09-information-geometry]
+concepts: [information, geometry]
+root_concepts: [information, geometry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Information Geometry
 
 ## The Big Picture

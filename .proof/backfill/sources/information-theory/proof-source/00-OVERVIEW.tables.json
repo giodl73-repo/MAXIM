@@ -1,0 +1,130 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 102,
+      "heading_context": "## Historical Arc",
+      "headers": [
+        "Year",
+        "Person",
+        "Contribution"
+      ],
+      "rows": [
+        [
+          "1924",
+          "Nyquist",
+          "Bandwidth limits telegraph transmission speed"
+        ],
+        [
+          "1928",
+          "Hartley",
+          "Logarithmic measure of information: log(N)"
+        ],
+        [
+          "1948",
+          "Shannon",
+          "\"A Mathematical Theory of Communication\" — the paper"
+        ],
+        [
+          "1949",
+          "Shannon",
+          "\"Communication Theory of Secrecy Systems\" — crypto IT"
+        ],
+        [
+          "1951",
+          "Shannon",
+          "\"Prediction and Entropy of Printed English\" — 1 bit/letter"
+        ],
+        [
+          "1954",
+          "McMillan",
+          "Proof of Kraft inequality uniqueness"
+        ],
+        [
+          "1957",
+          "Huffman",
+          "Optimal prefix-free code construction algorithm"
+        ],
+        [
+          "1977",
+          "Ziv, Lempel",
+          "LZ77 (universal compression without knowing source)"
+        ],
+        [
+          "1978",
+          "Pinsker",
+          "D_KL lower bound on total variation distance"
+        ],
+        [
+          "1990s",
+          "Gallager + others",
+          "LDPC codes rediscovered, turbo codes"
+        ],
+        [
+          "2009",
+          "Arıkan",
+          "Polar codes — first provably capacity-achieving with explicit construction"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 249,
+      "heading_context": "## Decision Cheat Sheet — Which IT Tool for What?",
+      "headers": [
+        "Problem",
+        "Tool",
+        "Formula/Result"
+      ],
+      "rows": [
+        [
+          "How much can I compress X?",
+          "Entropy H(X)",
+          "Min bits/symbol = H(X)"
+        ],
+        [
+          "What's redundancy in X?",
+          "H(X) vs log\\|X\\|",
+          "R = 1 - H(X)/log\\|X\\|"
+        ],
+        [
+          "How much info Y gives about X?",
+          "Mutual information I(X;Y)",
+          "I = H(X) + H(Y) - H(X,Y)"
+        ],
+        [
+          "How channel max rate?",
+          "Channel capacity C",
+          "C = max_{p(x)} I(X;Y) bits/use"
+        ],
+        [
+          "How similar are P and Q?",
+          "KL divergence D(P\\|\\|Q)",
+          "≥0, = 0 iff P=Q"
+        ],
+        [
+          "How to choose model?",
+          "MDL = K(model) + K(data\\|model)",
+          "Shortest description wins"
+        ],
+        [
+          "Minimum energy to erase 1 bit?",
+          "Landauer limit",
+          "k_B T ln 2 ≈ 3×10⁻²¹ J"
+        ],
+        [
+          "Can I communicate at rate R?",
+          "Shannon capacity C",
+          "Yes iff R < C"
+        ],
+        [
+          "How many secret bits from QKD?",
+          "S(ρ) + eavesdropper error",
+          "BB84 key rate formula"
+        ]
+      ]
+    }
+  ]
+}

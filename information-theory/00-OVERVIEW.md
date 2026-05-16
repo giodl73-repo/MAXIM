@@ -1,62 +1,66 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:information-theory:overview
+kind: guide
+module: information-theory
+section: information-theory
+title: Information Theory - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: information-theory/00-OVERVIEW.md
+canonical_path: information-theory/00-OVERVIEW.md
+backsource_ids: [proof-backfill:information-theory:00-overview, git-history:information-theory:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Information Theory — Landscape Overview
 
 ## The Big Picture
 
 ```
     INFORMATION THEORY — FIELD LANDSCAPE
-    ══════════════════════════════════════════════════════════
+    ==========================================================
 
     SHANNON'S CORE (1948)
-    ┌─────────────────────────────────────────────────────────┐
-    │  Entropy H(X), Mutual Info I(X;Y), Channel Capacity C   │
-    │  Three problems: compression, noisy transmission, R-D   │
-    └────────┬──────────────────────┬─────────────────────────┘
-             │                      │
-    ┌────────▼─────────┐  ┌────────▼─────────────────────────┐
-    │ 01-ENTROPY        │  │ 02-SOURCE-CODING                 │
-    │ Measures: H, KL,  │  │ Huffman, arithmetic, LZ,         │
-    │ MI, cross-entropy │  │ Shannon's source coding theorem   │
-    └──────────────────┘  └──────────────────────────────────┘
-    ┌──────────────────┐  ┌──────────────────────────────────┐
-    │ 03-CHANNEL-CODING │  │ 04-ML-CRYPTOGRAPHY-BRIDGE        │
-    │ Capacity theorem, │  │ Cross-entropy loss, VAE/ELBO,    │
-    │ LDPC, turbo, polar│  │ InfoNCE, perfect secrecy         │
-    └──────────────────┘  └──────────────────────────────────┘
-    ┌──────────────────┐  ┌──────────────────────────────────┐
-    │ 05-RATE-DISTORT.  │  │ 06-NETWORK-IT                    │
-    │ R(D) curve, lossy │  │ Slepian-Wolf, CEO, interference  │
-    │ compression limits│  │ channels, relay channels          │
-    └──────────────────┘  └──────────────────────────────────┘
-    ┌──────────────────┐  ┌──────────────────────────────────┐
-    │ 07-ALGORITHMIC-IT │  │ 08-QUANTUM-INFORMATION           │
-    │ Kolmogorov K(x),  │  │ Von Neumann entropy, Holevo,     │
-    │ MDL, randomness   │  │ quantum capacity, entanglement   │
-    └──────────────────┘  └──────────────────────────────────┘
-    ┌──────────────────────────────────────────────────────────┐
-    │ 09-INFORMATION-GEOMETRY                                   │
-    │ Fisher metric, exponential families, natural gradient     │
-    └──────────────────────────────────────────────────────────┘
+    - Entropy H(X), mutual information I(X;Y), channel capacity C
+    - Three problems: compression, noisy transmission, rate distortion
+
+    MODULE MAP
+    - 01-ENTROPY: measures H, KL, MI, cross-entropy
+    - 02-SOURCE-CODING: Huffman, arithmetic, LZ, source coding theorem
+    - 03-CHANNEL-CODING: capacity theorem, LDPC, turbo, polar
+    - 04-ML-CRYPTOGRAPHY-BRIDGE: cross-entropy loss, VAE/ELBO,
+      InfoNCE, perfect secrecy
+    - 05-RATE-DISTORTION: R(D) curve, lossy compression limits
+    - 06-NETWORK-IT: Slepian-Wolf, CEO, interference channels,
+      relay channels
+    - 07-ALGORITHMIC-IT: Kolmogorov K(x), MDL, randomness
+    - 08-QUANTUM-INFORMATION: von Neumann entropy, Holevo,
+      quantum capacity, entanglement
+    - 09-INFORMATION-GEOMETRY: Fisher metric, exponential families,
+      natural gradient
 
     FUNDAMENTAL QUESTION: How much "information" is in a message?
     And what does that mean physically?
 
     SHANNON'S THREE PROBLEMS (1948):
-    ┌─────────────────────────────────────────────────────────┐
-    │  1. LOSSLESS COMPRESSION                                │
-    │     Source → Source Encoder → Compressed bits           │
-    │     Limit: entropy H(X) bits/symbol                    │
-    │     Theorem: cannot compress below H(X) on average     │
-    │                                                          │
-    │  2. RELIABLE COMMUNICATION OVER NOISY CHANNEL           │
-    │     Source → Channel Encoder → Noisy Channel →          │
-    │     Channel Decoder → Sink                              │
-    │     Limit: channel capacity C bits/use                  │
-    │     Theorem: can communicate reliably iff R < C         │
-    │                                                          │
-    │  3. CRYPTOGRAPHY (1949 paper)                           │
-    │     Perfect secrecy: H(M|C) = H(M) → OTP               │
-    │     Key length lower bound: |K| ≥ |M|                   │
-    └─────────────────────────────────────────────────────────┘
+    1. LOSSLESS COMPRESSION
+       Source -> Source Encoder -> Compressed bits
+       Limit: entropy H(X) bits/symbol
+       Theorem: cannot compress below H(X) on average
+
+    2. RELIABLE COMMUNICATION OVER NOISY CHANNEL
+       Source -> Channel Encoder -> Noisy Channel -> Channel Decoder -> Sink
+       Limit: channel capacity C bits/use
+       Theorem: can communicate reliably iff R < C
+
+    3. CRYPTOGRAPHY (1949 paper)
+       Perfect secrecy: H(M|C) = H(M) -> OTP
+       Key length lower bound: |K| >= |M|
 
     SYSTEM DIAGRAM:
     Source → [Source Encoder] → [Channel Encoder] →
@@ -208,36 +212,34 @@ K(x) = length of shortest program that outputs x and halts. Standard properties 
 ## Modern Applications
 
 ```
-    ┌─────────────────────────────────────────────────────────────┐
-    │  APPLICATION MAP                                             │
-    │                                                             │
-    │  SOURCE CODING (compression):                               │
-    │  ZIP/gzip: LZ77 + Huffman → 2-3:1 on text                  │
-    │  brotli (Google): LZ + Huffman → web compression            │
-    │  JPEG: DCT + quantization + Huffman → image 10:1            │
-    │  H.264/HEVC/AV1: motion prediction + residual + entropy     │
-    │  → 200:1 compression ratio on video                         │
-    │                                                             │
-    │  CHANNEL CODING (error correction):                         │
-    │  HDD: Reed-Solomon, LDPC → read-after-write verification   │
-    │  SSD (NAND flash): BCH, LDPC → handle flash cell errors     │
-    │  WiFi (802.11n+): LDPC, BCC                                 │
-    │  5G NR: LDPC (data), polar codes (control) — 2019 standard  │
-    │  Deep space (Voyager, Cassini): convolutional + Reed-Solomon │
-    │  Satellite (DVB-S2): LDPC + BCH                             │
-    │                                                             │
-    │  CRYPTOGRAPHY:                                              │
-    │  OTP: provably perfect secrecy (keypad in WWII, Kremlin hotline) │
-    │  Shamir secret sharing: IT-secure threshold sharing         │
-    │  BB84 QKD: quantum key distribution (security from QM)      │
-    │                                                             │
-    │  MACHINE LEARNING:                                          │
-    │  Cross-entropy loss ← H(p,q) = H(p) + KL(p||q)             │
-    │  VAE ELBO ← variational inference (same as FEP!)            │
-    │  Information bottleneck ← I(X;Z) vs I(Y;Z) tradeoff        │
-    │  Perplexity = 2^{H} ← model quality measure                │
-    │  LLM compression = arithmetic coding with LM probs          │
-    └─────────────────────────────────────────────────────────────┘
+    APPLICATION MAP
+
+    SOURCE CODING (compression):
+    - ZIP/gzip: LZ77 + Huffman -> 2-3:1 on text
+    - brotli (Google): LZ + Huffman -> web compression
+    - JPEG: DCT + quantization + Huffman -> image 10:1
+    - H.264/HEVC/AV1: motion prediction + residual + entropy
+      -> 200:1 compression ratio on video
+
+    CHANNEL CODING (error correction):
+    - HDD: Reed-Solomon, LDPC -> read-after-write verification
+    - SSD (NAND flash): BCH, LDPC -> handle flash cell errors
+    - WiFi (802.11n+): LDPC, BCC
+    - 5G NR: LDPC (data), polar codes (control) — 2019 standard
+    - Deep space (Voyager, Cassini): convolutional + Reed-Solomon
+    - Satellite (DVB-S2): LDPC + BCH
+
+    CRYPTOGRAPHY:
+    - OTP: provably perfect secrecy (keypad in WWII, Kremlin hotline)
+    - Shamir secret sharing: IT-secure threshold sharing
+    - BB84 QKD: quantum key distribution (security from QM)
+
+    MACHINE LEARNING:
+    - Cross-entropy loss <- H(p,q) = H(p) + KL(p||q)
+    - VAE ELBO <- variational inference (same as FEP!)
+    - Information bottleneck <- I(X;Z) vs I(Y;Z) tradeoff
+    - Perplexity = 2^{H} <- model quality measure
+    - LLM compression = arithmetic coding with LM probs
 ```
 
 ---
@@ -247,11 +249,11 @@ K(x) = length of shortest program that outputs x and halts. Standard properties 
 | Problem                           | Tool                        | Formula/Result                  |
 |-----------------------------------|----------------------------|---------------------------------|
 | How much can I compress X?        | Entropy H(X)               | Min bits/symbol = H(X)          |
-| What's redundancy in X?           | H(X) vs log|X|             | R = 1 - H(X)/log|X|             |
+| What's redundancy in X?           | H(X) vs log\|X\|             | R = 1 - H(X)/log\|X\|             |
 | How much info Y gives about X?    | Mutual information I(X;Y)  | I = H(X) + H(Y) - H(X,Y)        |
 | How channel max rate?             | Channel capacity C          | C = max_{p(x)} I(X;Y) bits/use  |
-| How similar are P and Q?          | KL divergence D(P||Q)      | ≥0, = 0 iff P=Q                |
-| How to choose model?              | MDL = K(model) + K(data|model) | Shortest description wins    |
+| How similar are P and Q?          | KL divergence D(P\|\|Q)      | ≥0, = 0 iff P=Q                |
+| How to choose model?              | MDL = K(model) + K(data\|model) | Shortest description wins    |
 | Minimum energy to erase 1 bit?    | Landauer limit              | k_B T ln 2 ≈ 3×10⁻²¹ J          |
 | Can I communicate at rate R?      | Shannon capacity C          | Yes iff R < C                   |
 | How many secret bits from QKD?    | S(ρ) + eavesdropper error  | BB84 key rate formula           |

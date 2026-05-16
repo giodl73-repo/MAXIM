@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:information-theory:ml-cryptography-bridge
+kind: guide
+module: information-theory
+section: information-theory
+title: Information Theory → ML, Cryptography and Quantum
+status: source-custody
+source_custody: partial
+current_path: information-theory/04-ML-CRYPTOGRAPHY-BRIDGE.md
+canonical_path: information-theory/04-ML-CRYPTOGRAPHY-BRIDGE.md
+backsource_ids: [proof-backfill:information-theory:04-ml-cryptography-bridge, git-history:information-theory:04-ml-cryptography-bridge]
+concepts: [ml, cryptography, bridge]
+root_concepts: [ml, cryptography]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Information Theory → ML, Cryptography & Quantum
 
 ---

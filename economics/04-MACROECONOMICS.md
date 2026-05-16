@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economics:macroeconomics
+kind: guide
+module: economics
+section: economics
+title: Macroeconomics - GDP, Monetary Policy, Growth, Business Cycles
+status: source-custody
+source_custody: partial
+current_path: economics/04-MACROECONOMICS.md
+canonical_path: economics/04-MACROECONOMICS.md
+backsource_ids: [proof-backfill:economics:04-macroeconomics, git-history:economics:04-macroeconomics]
+concepts: [macroeconomics]
+root_concepts: [macroeconomics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Macroeconomics — GDP, Monetary Policy, Growth, Business Cycles
 
 ---

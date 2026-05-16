@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economics:overview
+kind: guide
+module: economics
+section: economics
+title: Economics and Game Theory - Overview
+status: source-custody
+source_custody: partial
+current_path: economics/00-OVERVIEW.md
+canonical_path: economics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:economics:00-overview, git-history:economics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Economics & Game Theory — Overview
 
 ---
