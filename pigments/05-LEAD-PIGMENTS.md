@@ -1,27 +1,46 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pigments:lead-pigments
+kind: guide
+module: pigments
+section: pigments
+title: Lead Pigments - 2,000 Years of Toxic Dominance
+status: source-custody
+source_custody: partial
+current_path: pigments/05-LEAD-PIGMENTS.md
+canonical_path: pigments/05-LEAD-PIGMENTS.md
+backsource_ids: [proof-backfill:pigments:05-lead-pigments, git-history:pigments:05-lead-pigments]
+concepts: [lead, pigments]
+root_concepts: [lead, pigments]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lead Pigments — 2,000 Years of Toxic Dominance
 
 ## The Big Picture
 
 ```
 +------------------------------------------------------------------+
-|              LEAD'S 2,000-YEAR MONOPOLY ON WHITE + YELLOW        |
+|              LEAD'S 2,000-YEAR MONOPOLY ON WHITE . YELLOW        |
 |                                                                  |
 |  LEAD WHITE: The dominant white for ~2,000 years                 |
 |  (Basic lead carbonate: 2PbCO₃·Pb(OH)₂)                          |
 |  Unmatched optical + handling properties                         |
 |  In oil: dense, warm, fast-drying, excellent film former         |
-|  Replaced by titanium white (1916) — 100 years ago               |
+|  Replaced by titanium white (1916) - 100 years ago               |
 |                                                                  |
 |  THE LEAD PIGMENT FAMILY:                                        |
-|  Lead white (cerussite/hydrocerussite)  → warm white             |
-|  Red lead (minium, Pb₃O₄)              → orange-red              |
-|  Naples yellow (lead antimonate)        → pale yellow            |
-|  Lead tin yellow (Pb₂SnO₄)             → warm yellow             |
-|  Chrome yellow (PbCrO₄, 19th c.)       → vivid yellow            |
+|  Lead white (cerussite/hydrocerussite)  -> warm white            |
+|  Red lead (minium, Pb₃O₄)              -> orange-red             |
+|  Naples yellow (lead antimonate)        -> pale yellow           |
+|  Lead tin yellow (Pb₂SnO₄)             -> warm yellow            |
+|  Chrome yellow (PbCrO₄, 19th c.)       -> vivid yellow           |
 |                                                                  |
 |  ALL: excellent color properties; ALL: serious toxicity          |
 |  The history of painting is partly the history of working        |
-|  with lead — and the health consequences                         |
+|  with lead - and the health consequences                         |
 +------------------------------------------------------------------+
 ```
 
@@ -57,13 +76,13 @@ PRODUCTION METHOD (in use from Roman period; Dutch refinement ~17th c.):
   Step 4: Stack pots in horse manure heaps
 
   CHEMISTRY AT WORK:
-  Vinegar (CH₃COOH) → acetic acid vapor
-  Manure → CO₂ (from decomposition) + heat
+  Vinegar (CH₃COOH) -> acetic acid vapor
+  Manure -> CO₂ (from decomposition) . heat
 
-  Pb → Pb(CH₃COO)₂ (lead acetate, "sugar of lead")
+  Pb -> Pb(CH₃COO)₂ (lead acetate, "sugar of lead")
     via acetic acid vapor
 
-  Pb(CH₃COO)₂ + CO₂ + H₂O → 2PbCO₃·Pb(OH)₂ + CH₃COOH
+  Pb(CH₃COO)₂ . CO₂ . H₂O -> 2PbCO₃·Pb(OH)₂ . CH₃COOH
   (basic lead carbonate precipitates on lead surface)
 
   Duration: several weeks
@@ -72,10 +91,10 @@ PRODUCTION METHOD (in use from Roman period; Dutch refinement ~17th c.):
          Production villages centered in Schiedam (Netherlands)
 
   "STACK PROCESS" = the name for this stacking/layering arrangement
-  Alternative: "Dutch process" — same thing
+  Alternative: "Dutch process" - same thing
 
   The Dutch were the primary European suppliers of lead white
-  to painters across Europe through the 17th–18th centuries
+  to painters across Europe through the 17th-18th centuries
   Enormous industry; multiple workers died of lead poisoning
 ```
 
@@ -85,28 +104,28 @@ PRODUCTION METHOD (in use from Roman period; Dutch refinement ~17th c.):
 WHY OIL PAINTERS VALUED LEAD WHITE:
   Optical properties:
   Refractive index: ~2.0 (vs titanium white's 2.7)
-    Lower RI than TiO₂ → slightly less opaque per unit
-    BUT: more transparent in oil → different optical character
+    Lower RI than TiO₂ -> slightly less opaque per unit
+    BUT: more transparent in oil -> different optical character
 
   In oil medium (linseed oil, RI ~1.48):
   Lead white (RI 2.0) vs TiO₂ (RI 2.7):
-    Higher RI difference (TiO₂) → more scattering → more opaque
-    PARADOX: Lead white's lower RI → slightly more transparent in oil
-    → Subtler gradations possible → preferred for flesh tones
+    Higher RI difference (TiO₂) -> more scattering -> more opaque
+    PARADOX: Lead white's lower RI -> slightly more transparent in oil
+    -> Subtler gradations possible -> preferred for flesh tones
 
   LEAD SOAP FORMATION (over centuries):
-  Pb²⁺ + fatty acid from oil → lead soap (plumbic palmitate/stearate)
-  Lead soap crystals form in oil layer → changes optical properties
+  Pb²⁺ . fatty acid from oil -> lead soap (plumbic palmitate/stearate)
+  Lead soap crystals form in oil layer -> changes optical properties
   Result: slight increase in transparency over decades
-  → "Pentimento effect": earlier layers become visible
-  → Lead-white flesh tones often become slightly transparent
+  -> "Pentimento effect": earlier layers become visible
+  -> Lead-white flesh tones often become slightly transparent
     revealing underdrawing or earlier paint below
 
   DRYING PROPERTIES:
   Lead catalyzes oxidative polymerization of linseed oil
   (siccative effect)
-  Lead white in oil: dries in 1–3 days (fast)
-  Compare: titanium white in oil: dries in 5–10 days
+  Lead white in oil: dries in 1-3 days (fast)
+  Compare: titanium white in oil: dries in 5-10 days
   This is WHY historical painters could work quickly in oil
 ```
 
@@ -123,13 +142,13 @@ PLUMBISM (chronic lead poisoning):
   Terminal: seizures, coma, death
 
   Route of exposure for painters:
-  Inhalation: grinding dry pigment → lead dust
+  Inhalation: grinding dry pigment -> lead dust
   Skin: handling lead pigment without gloves
   Ingestion: touching lips/food with lead-contaminated hands
   "Oral touch" for brush pointing (licking brush tip) was common practice
 
 SPECIFIC ARTISTS (attributed partly to lead exposure):
-  Francisco Goya: deteriorating health from ~1792; "black paintings" (1819–23);
+  Francisco Goya: deteriorating health from ~1792; "black paintings" (1819-23);
                  Goya used lead pigments extensively throughout career;
                  diagnosis uncertain but lead a plausible contributor
 
@@ -140,7 +159,7 @@ SPECIFIC ARTISTS (attributed partly to lead exposure):
   systemic in the industry; life expectancy of color-grinders low
 
   "PAINTER'S COLIC": historical medical term
-  Documented in Ramazzini's De Morbis Artificum (1700) —
+  Documented in Ramazzini's De Morbis Artificum (1700) -
   first systematic occupational medicine text
   Lead painters specifically identified as high-risk occupation
 ```
@@ -150,27 +169,27 @@ SPECIFIC ARTISTS (attributed partly to lead exposure):
 ## Red Lead (*Minium*, Pb₃O₄)
 
 ```
-COMPOSITION: Pb₃O₄ — mixed lead(II) lead(IV) oxide
+COMPOSITION: Pb₃O₄ - mixed lead(II) lead(IV) oxide
   Lead(II) oxide (PbO) + Lead(IV) oxide (PbO₂) combined
   Orange-red color
 
 PRODUCTION:
-  Heat lead white or litharge (PbO) in air at ~450–480°C
-  → Pb₃O₄ forms (specific temperature window important)
-  Above 550°C: red lead converts back to PbO (litharge)
+  Heat lead white or litharge (PbO) in air at ~450-480 deg C
+  -> Pb₃O₄ forms (specific temperature window important)
+  Above 550 deg C: red lead converts back to PbO (litharge)
 
 COLOR: Vivid orange-red
 
 HISTORICAL USES:
   Manuscript illumination:
   "Minium" = the Latin name for red lead
-  → "Miniature" derives from minium (not from "mini" = small)
+  -> "Miniature" derives from minium (not from "mini" = small)
   Medieval illuminated manuscripts: red initials, decorated borders
-  often in minium → "miniatura" = work done in minium → "miniature painting"
+  often in minium -> "miniatura" = work done in minium -> "miniature painting"
 
   ANTI-RUST PRIMER:
   Red lead (minium) applied as metal primer prevents rust
-  Mechanism: PbO₂ component is an oxidizing agent → passivates metal surface
+  Mechanism: PbO₂ component is an oxidizing agent -> passivates metal surface
   Lead chromate replaced it in industrial use; zinc-phosphate and
   other non-toxic primers now standard
   "Red lead primer" was standard for structural steel until ~1970s
@@ -196,7 +215,7 @@ COMPOSITION: Lead antimonate, Pb₂Sb₂O₇ (or Pb₂Sb₂O₄·Pb₂O₅ appro
 
 MANUFACTURE:
   Fuse lead oxide (PbO or Pb₃O₄) + antimony oxide (Sb₂O₃ or Sb₂O₅)
-  at high temperature → pale yellow product
+  at high temperature -> pale yellow product
 
 COLOR: Warm, slightly cream-pale yellow
   Similar to ochre but more opaque and more "warm/peachy"
@@ -231,9 +250,9 @@ LEAD TIN YELLOW:
   Brilliant, warm yellow; more intense than Naples yellow
 
 HISTORICAL MYSTERY:
-  Used extensively in 15th–17th century European painting
+  Used extensively in 15th-17th century European painting
   After ~1750: disappeared from use entirely
-  WHY? — Not known; possibly tin supplies changed, antimony cheaper?
+  WHY? - Not known; possibly tin supplies changed, antimony cheaper?
   The knowledge was LOST, not replaced
 
 REDISCOVERY:
@@ -257,7 +276,7 @@ MODERN RELEVANCE:
 
 ```
 MECHANISM:
-  2PbCO₃·Pb(OH)₂ + 3H₂S → 3PbS + 2H₂O + 2CO₂
+  2PbCO₃·Pb(OH)₂ . 3H₂S -> 3PbS . 2H₂O . 2CO₂
 
   H₂S source: atmospheric pollution (coal burning, industrial areas)
   PbS: black (galena-colored lead sulfide)
@@ -265,13 +284,13 @@ MECHANISM:
 
   HISTORICAL IMPACT:
   Pre-industrial: minimal (low ambient H₂S)
-  Industrial era (~1800–1970): widespread darkening in urban museums
+  Industrial era (~1800-1970): widespread darkening in urban museums
   Famous example: Raphael's "Madonna of the Goldfinch"
-                  — extensive darkening of lead white areas
+                  - extensive darkening of lead white areas
                   cleaned and restored in 20th century
 
 REVERSAL:
-  H₂O₂ treatment: PbS + 4H₂O₂ → PbSO₄ + 4H₂O
+  H₂O₂ treatment: PbS . 4H₂O₂ -> PbSO₄ . 4H₂O
   Lead sulfate (PbSO₄) = white
   This is a real conservation treatment (hydrogen peroxide vapor)
   Restores whiteness chemically
@@ -281,8 +300,8 @@ REVERSAL:
 ### Lead Soap Formation and Pentimento
 
 ```
-LEAD SOAP FORMATION (decades–centuries):
-  Pb²⁺ + fatty acid (from hydrolysis of oil) → lead carboxylate salt
+LEAD SOAP FORMATION (decades-centuries):
+  Pb²⁺ . fatty acid (from hydrolysis of oil) -> lead carboxylate salt
   Lead palmitate, lead stearate, lead oleate
   These form crystals (saponification of oil binder)
   Result: local increase in transparency of paint layer
@@ -290,9 +309,9 @@ LEAD SOAP FORMATION (decades–centuries):
 PENTIMENTO:
   "Pentimento" (Italian: "repentance") = earlier layer shows through
   When lead soap formation increases transparency of upper layers:
-  → Underdrawing becomes visible
-  → Earlier rejected compositions emerge
-  → Artist's changes of mind visible
+  -> Underdrawing becomes visible
+  -> Earlier rejected compositions emerge
+  -> Artist's changes of mind visible
 
   Famous examples:
   Raphael's "The School of Athens": figure changes visible
@@ -301,7 +320,7 @@ PENTIMENTO:
 
   IMPLICATION:
   Lead white's aging = accidentally reveals artistic process
-  X-ray radiography + IRR imaging now make this systematic
+  X-ray radiography . IRR imaging now make this systematic
 ```
 
 ---
@@ -310,11 +329,11 @@ PENTIMENTO:
 
 ```
 COMPARISON:
-  +---------------------+  +---------------------+
+  .---------------------.  .---------------------.
   | LEAD WHITE          |  | TITANIUM WHITE      |
   | (2PbCO₃·Pb(OH)₂)    |  | (TiO₂, rutile)      |
-  +---------------------+  +---------------------+
-  | RI: ~2.0            |  | RI: 2.70–2.73        |
+  .---------------------.  .---------------------.
+  | RI: ~2.0            |  | RI: 2.70-2.73        |
   | Less opaque/unit    |  | Max opacity           |
   | Warm tone           |  | Slightly cool         |
   | Fast drying in oil  |  | Slower drying in oil  |
@@ -323,14 +342,14 @@ COMPARISON:
   | Soft film           |  | Harder film           |
   | Some artists still  |  | ~95% of all white     |
   | prefer for flesh    |  | pigment globally      |
-  +---------------------+  +---------------------+
+  .---------------------.  .---------------------.
 
 WHY TITANIUM'S RI MATTERS:
-  RI 2.7 vs linseed oil RI 1.48 → large optical mismatch → max scattering
-  Lead white RI 2.0 vs linseed oil 1.48 → smaller mismatch → more transparent
-  TiO₂ scatters ~4× more light per unit than lead white
-  → TiO₂ needs much less pigment for equivalent coverage
-  → TiO₂ can opacify over any color below
+  RI 2.7 vs linseed oil RI 1.48 -> large optical mismatch -> max scattering
+  Lead white RI 2.0 vs linseed oil 1.48 -> smaller mismatch -> more transparent
+  TiO₂ scatters ~4x more light per unit than lead white
+  -> TiO₂ needs much less pigment for equivalent coverage
+  -> TiO₂ can opacify over any color below
 
 ARTIST COMPLAINT ABOUT TITANIUM:
   "Chalkiness" when mixed with colors (over-opacifying)

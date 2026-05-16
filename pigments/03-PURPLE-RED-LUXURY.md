@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pigments:purple-red-luxury
+kind: guide
+module: pigments
+section: pigments
+title: Purple, Red and Luxury Colorants - Tyrian Purple, Cochineal, Carmine
+status: source-custody
+source_custody: partial
+current_path: pigments/03-PURPLE-RED-LUXURY.md
+canonical_path: pigments/03-PURPLE-RED-LUXURY.md
+backsource_ids: [proof-backfill:pigments:03-purple-red-luxury, git-history:pigments:03-purple-red-luxury]
+concepts: [purple, red, luxury]
+root_concepts: [purple, red]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Purple, Red & Luxury Colorants — Tyrian Purple, Cochineal, Carmine
 
 ## The Big Picture
@@ -6,19 +25,19 @@
 +------------------------------------------------------------------+
 |              THE POLITICS OF EXPENSIVE COLOR                     |
 |                                                                  |
-|  TYRIAN PURPLE (600 BCE – 1453 CE)                               |
-|  ~10,000 Murex snails → 1 gram dye                               |
-|  6,6'-Dibromoindigo → reddish purple                             |
+|  TYRIAN PURPLE (600 BCE - 1453 CE)                               |
+|  ~10,000 Murex snails -> 1 gram dye                              |
+|  6,6'-Dibromoindigo -> reddish purple                            |
 |  Roman imperial symbol; Byzantine "born to the purple"           |
 |                                                                  |
-|  COCHINEAL (1200s → present)                                     |
-|  ~70,000 Dactylopius coccus insects → 1 lb dye                   |
-|  Carminic acid (anthraquinone) → crimson/scarlet                 |
-|  Aztec monopoly → Spanish New World monopoly                     |
-|  → Second most valuable New Spain export after silver            |
+|  COCHINEAL (1200s -> present)                                    |
+|  ~70,000 Dactylopius coccus insects -> 1 lb dye                  |
+|  Carminic acid (anthraquinone) -> crimson/scarlet                |
+|  Aztec monopoly -> Spanish New World monopoly                    |
+|  -> Second most valuable New Spain export after silver           |
 |                                                                  |
 |  SHARED STRUCTURE: Red/purple luxury colorants as POWER SYMBOLS  |
-|  Sumptuary laws restrict access → color = status                 |
+|  Sumptuary laws restrict access -> color = status                |
 |  Synthetic replacement = democratization + economic destruction  |
 |  Alizarin synthesis (1869) = madder collapse                     |
 |  Synthetic aniline dyes (1856+) = luxury color for everyone      |
@@ -41,17 +60,17 @@ BIOLOGY:
   Marine predatory snails; Mediterranean and Atlantic coast
   Hypobranchial (= mucous) gland in mantle tissue
   Contains: colorless precursor molecule (tyriverdin + related)
-  On cell disruption: enzyme cleaves precursor → reactive intermediate
-  UV light + air exposure → dibromoindigo forms (red-purple)
+  On cell disruption: enzyme cleaves precursor -> reactive intermediate
+  UV light . air exposure -> dibromoindigo forms (red-purple)
 
 PRODUCTION SCALE:
-  ~10,000 snails → ~1 gram of dye
-  One garment (toga) → thousands of grams
-  → Millions of snails per garment
+  ~10,000 snails -> ~1 gram of dye
+  One garment (toga) -> thousands of grams
+  -> Millions of snails per garment
 
 ARCHAEOLOGICAL EVIDENCE:
   Sidon, Lebanon: mountain of crushed Murex shells
-  Tyre, Lebanon: same — shells from centuries of production
+  Tyre, Lebanon: same - shells from centuries of production
   Scale of shell middens = scale of industry
   Entire coastline industry at peak production
 ```
@@ -60,18 +79,18 @@ ARCHAEOLOGICAL EVIDENCE:
 
 ```
 6,6'-DIBROMOINDIGO (C₁₆H₈Br₂N₂O₂):
-  Structural basis: indigo (C₁₆H₁₀N₂O₂) + bromine at 6-position each ring
+  Structural basis: indigo (C₁₆H₁₀N₂O₂) . bromine at 6-position each ring
 
   INDIGOTIN vs 6,6'-DIBROMOINDIGO:
-  Indigotin absorption: ~610 nm → blue
+  Indigotin absorption: ~610 nm -> blue
   Dibromoindigo absorption: ~580 nm (shifted hypsochromically)
-  → More of the orange-red retained → red-purple perceived
+  -> More of the orange-red retained -> red-purple perceived
 
   WHY BROMINE SHIFTS THE COLOR:
   Bromine = electron-withdrawing substituent on the indole ring
-  → Withdraws electron density from π system
-  → Changes HOMO-LUMO gap → absorption wavelength shifts
-  → 30 nm blueshift in absorption = significant perceptual shift
+  -> Withdraws electron density from π system
+  -> Changes HOMO-LUMO gap -> absorption wavelength shifts
+  -> 30 nm blueshift in absorption = significant perceptual shift
      from blue toward red-purple
 
 LIGHTFASTNESS:
@@ -84,7 +103,7 @@ LIGHTFASTNESS:
 DYEING MECHANISM:
   Like indigo: direct dyeing (no mordant needed)
   Reduced form (leuco-) = soluble, can penetrate fiber
-  Oxidation → insoluble dibromoindigo locked in fiber structure
+  Oxidation -> insoluble dibromoindigo locked in fiber structure
   Actual dyeing: complex multi-step process
 ```
 
@@ -99,7 +118,7 @@ PHOENICIAN MONOPOLY:
 ROMAN IMPERIAL PURPLE:
   Toga picta: full purple robe of Roman generals (triumph) and emperors
   Toga trabea: broad purple stripe (senators)
-  Purple dye cost: Emperor Aurelian (~275 CE) — refused to buy wife
+  Purple dye cost: Emperor Aurelian (~275 CE) - refused to buy wife
                   a purple robe because TOO EXPENSIVE, even for him
   Diocletian's Edict on Maximum Prices (301 CE):
     1 lb Tyrian purple: 150,000 denarii (= ~ 1 lb gold equivalent)
@@ -108,7 +127,7 @@ BYZANTINE "BORN TO THE PURPLE":
   Porphyrogennetos (πορφυρογέννητος): born in purple chamber
   Porphyra Room: purple-marble-lined birthing chamber in Constantinople
   Children born there had particular legitimacy claim
-  → The color was physically embedded in the claim to power
+  -> The color was physically embedded in the claim to power
 
 SUMPTUARY LAWS:
   Multiple Roman and Byzantine laws restricting purple to imperial family
@@ -124,10 +143,10 @@ FALL OF BYZANTIUM (1453):
 ### *Murex trunculus* Blue (Tekhelet)
 
 ```
-SURPRISE: Same snail, different conditions → DIFFERENT COLOR
+SURPRISE: Same snail, different conditions -> DIFFERENT COLOR
 
-With air exposure + UV → dibromoindigo → PURPLE
-Without air contact → indigo (not brominated) → BLUE
+With air exposure . UV -> dibromoindigo -> PURPLE
+Without air contact -> indigo (not brominated) -> BLUE
 
 "TEKHELET":
   Sacred blue-purple specified in Hebrew Torah for priestly garments
@@ -153,22 +172,22 @@ MODERN RESOLUTION:
 DACTYLOPIUS COCCUS:
   Scale insect (Hemiptera: Dactylopiidae)
   Parasitic on prickly pear cactus (Opuntia ficus-indica)
-  FEMALE: ~1–2mm, wingless, sedentary; the dye-producing sex
-  MALE: winged, tiny, only lives 2–3 days (reproduction only)
+  FEMALE: ~1-2mm, wingless, sedentary; the dye-producing sex
+  MALE: winged, tiny, only lives 2-3 days (reproduction only)
 
 CARMINIC ACID:
-  17–24% of dried female insect body weight (extraordinary concentration)
-  C₂₂H₂₀O₁₃ — anthraquinone glycoside
-  Structure: anthraquinone core + C-glucosyl group at C-4
+  17-24% of dried female insect body weight (extraordinary concentration)
+  C₂₂H₂₀O₁₃ - anthraquinone glycoside
+  Structure: anthraquinone core . C-glucosyl group at C-4
   The glucoside makes it water-soluble (mordant-reactive)
 
   WHY THE INSECT MAKES IT:
   Deterrent to ants and other insect predators
   Carminic acid is bitter and toxic to many insects
-  Mammals: poorly absorbed → relatively low toxicity
+  Mammals: poorly absorbed -> relatively low toxicity
 
 PRODUCTION:
-  ~70,000 dried females → 1 lb carmine
+  ~70,000 dried females -> 1 lb carmine
   Harvest: scrape females from cactus with brush
            Kill by heat (sun, oven), or cold water
            Dry (sun, oven)
@@ -189,25 +208,25 @@ ECONOMIC SIGNIFICANCE:
   Spanish brought cochineal to Europe ~1523 (Hernán Cortés)
   Immediately became major trade commodity
   New Spain exports: silver (1st), cochineal (2nd), indigo (3rd)
-  Cochineal value: 50–60 times weight of wool dye in equivalent quality
+  Cochineal value: 50-60 times weight of wool dye in equivalent quality
 
 THE SECRECY:
   Spain guarded the source identity jealously
-  Europeans called it "grana" (grain) — animal/mineral/vegetable unknown
+  Europeans called it "grana" (grain) - animal/mineral/vegetable unknown
   Debate among European naturalists: animal? mineral? plant?
-  Dried cochineal looks like small grain → "grain" label
+  Dried cochineal looks like small grain -> "grain" label
   Spanish deliberately obscured that it was an insect
 
-COMPETING THEORIES (European, 16th–17th c.):
+COMPETING THEORIES (European, 16th-17th c.):
   Monardes (1574): it's a seed/grain
   Hernández (1577): insect, but not believed in Europe
   Dodoens (1583): mineral dye
-  Leeuwenhoek (1703): CONFIRMED INSECT — used microscope to prove it
+  Leeuwenhoek (1703): CONFIRMED INSECT - used microscope to prove it
   180 years of deliberate Spanish obfuscation
 
 BREAKING THE MONOPOLY:
   Dutch and English attempted to establish Opuntia plantations
-  with native cochineal in their colonies — failed
+  with native cochineal in their colonies - failed
   India: attempted introduction failed (wrong Opuntia species)
   Only Canary Islands (Spain) succeeded outside Americas
   Spanish monopoly broken not by spying but by agricultural difficulty
@@ -218,11 +237,11 @@ BREAKING THE MONOPOLY:
 ```
 CARMINIC ACID (pH-dependent color):
   Acid conditions (pH <3): orange-yellow
-  Neutral (pH 5–7): crimson/red
+  Neutral (pH 5-7): crimson/red
   Alkaline (pH >8): purple-blue
 
   This is due to: anthraquinone chromophore responds to pH
-  Protonation/deprotonation of OH groups → shifts absorption
+  Protonation/deprotonation of OH groups -> shifts absorption
 
 MORDANT-DEPENDENT COLORS:
   Alum mordant (K₂SO₄·Al₂(SO₄)₃):    scarlet-crimson
@@ -232,8 +251,8 @@ MORDANT-DEPENDENT COLORS:
   Chrome mordant:                        dark crimson
 
 THE SCARLET OF EMPIRES:
-  Tin + cochineal = "New Scarlet" or "Kermes-style Scarlet"
-  British Redcoats (17th–19th c.): cochineal + tin mordant
+  Tin . cochineal = "New Scarlet" or "Kermes-style Scarlet"
+  British Redcoats (17th-19th c.): cochineal . tin mordant
   Cardinal red (Catholic): cochineal-dyed wool
   Berber tribal rugs: cochineal still the traditional red in Morocco
 ```
@@ -252,7 +271,7 @@ APPLICATIONS:
   Raspberry/strawberry/cherry-flavored confections
 
 VEGAN CONTROVERSY:
-  Carmine = insect-derived → not vegan
+  Carmine = insect-derived -> not vegan
   Major issue for food labeling in vegan/vegetarian markets
   Many companies switching to synthetic alternatives:
   - Lycopene (from tomatoes): red, but orange-red, less stable
@@ -271,21 +290,21 @@ SYNTHETIC CARMINIC ACID:
 ```
 KERMES VERMILIO / K. ILICIS:
   Scale insects on kermes oak (Quercus coccifera), Mediterranean
-  Active compound: kermesic acid (C₁₆H₁₀O₈) — anthraquinone structure
+  Active compound: kermesic acid (C₁₆H₁₀O₈) - anthraquinone structure
   Similarity to carminic acid is structural (same core) and evolutionary
   (~parallel evolution of anthraquinone defense in scale insects)
 
 DYE CONTENT:
-  Kermes: ~1.5–3% kermesic acid (dried insects)
-  Cochineal: ~17–24% carminic acid
-  Ratio: cochineal produces 6–15× more dye per unit weight
+  Kermes: ~1.5-3% kermesic acid (dried insects)
+  Cochineal: ~17-24% carminic acid
+  Ratio: cochineal produces 6-15x more dye per unit weight
 
 BEFORE COCHINEAL:
-  Kermes = primary European red dye, ~3000 BCE–1550 CE
-  "Grain scarlet" — the red of medieval European luxury textiles
+  Kermes = primary European red dye, ~3000 BCE-1550 CE
+  "Grain scarlet" - the red of medieval European luxury textiles
   "Cramoisy" (crimson) historically = kermes red
   "Scarlet" historically referred to a specific fine woven cloth
-    colored with kermes (the fabric name → color name)
+    colored with kermes (the fabric name -> color name)
 
 AFTER COCHINEAL:
   Spanish brought cochineal from Americas in 1523 (Hernán Cortés)
@@ -309,9 +328,9 @@ SHELLAC CONNECTION:
   Same insect (*Kerria lacca*) produces both:
   LAC DYE: the red dye (from body/blood)
   SHELLAC: the resin secreted as protective coating
-  → These are two completely different products from one insect
+  -> These are two completely different products from one insect
   Shellac: electrical insulator (used in records, early electronics),
-           food glaze (E904 — the shiny coat on candies/pills),
+           food glaze (E904 - the shiny coat on candies/pills),
            wood finish (French polish), nail polish historically
 
 Post-cochineal:
@@ -330,20 +349,20 @@ MADDER ROOT (Rubia tinctorum):
   Purpurin: 1,2,4-trihydroxyanthraquinone (less important)
 
 NOT A DIRECT PIGMENT:
-  Alizarin is a dye (soluble) → must be converted to pigment
+  Alizarin is a dye (soluble) -> must be converted to pigment
   LAKE PROCESS:
   1. Extract alizarin from madder root in hot water (+ mordant)
-  2. Add alum solution → aluminum hydroxide precipitates
+  2. Add alum solution -> aluminum hydroxide precipitates
   3. Alizarin bonds to Al(OH)₃ surface (coordination complex)
-  4. Filter + dry → rose madder lake (insoluble colored particle)
+  4. Filter . dry -> rose madder lake (insoluble colored particle)
 
   "TURKEY RED":
-  Specific high-quality madder red using aluminum mordant + turkey oil
+  Specific high-quality madder red using aluminum mordant . turkey oil
   Process developed in India, brought to Europe ~1770
   Extremely washfast; considered highest quality madder red
-  Characteristic warm crimson; used in 18th–19th c. European textiles
+  Characteristic warm crimson; used in 18th-19th c. European textiles
 
-ALIZARIN SYNTHESIS (1869) — SIMULTANEOUS DISCOVERY:
+ALIZARIN SYNTHESIS (1869) - SIMULTANEOUS DISCOVERY:
   William Perkin (England) announced synthesis of alizarin
   SAME DAY: Graebe + Liebermann (Germany) submitted their alizarin synthesis
   Both assigned patents the same day (or within days)

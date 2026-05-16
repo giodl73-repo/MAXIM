@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:spices:turmeric-ginger-galangal
+kind: guide
+module: spices
+section: spices
+title: Turmeric, Ginger and Galangal - The Zingiberaceae Family
+status: source-custody
+source_custody: partial
+current_path: spices/03-TURMERIC-GINGER-GALANGAL.md
+canonical_path: spices/03-TURMERIC-GINGER-GALANGAL.md
+backsource_ids: [proof-backfill:spices:03-turmeric-ginger-galangal, git-history:spices:03-turmeric-ginger-galangal]
+concepts: [turmeric, ginger, galangal]
+root_concepts: [turmeric, ginger]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Turmeric, Ginger & Galangal — The Zingiberaceae Family
 
 ## The Big Picture
@@ -9,21 +28,21 @@
 |  ~1,600 species | Monocots | Tropical | Aromatic rhizomes        |
 |                                                                  |
 |  KEY GENERA                                                      |
-|  +-----------+  +-----------+  +-----------+  +-----------+      |
-|  | Zingiber  |  | Curcuma   |  | Elettaria |  | Alpinia   |     |
-|  | (ginger)  |  | (turmeric)|  |(cardamom) |  |(galangal) |     |
-|  +-----------+  +-----------+  +-----------+  +-----------+     |
-   |                                                              |
-   |  WHAT THEY SHARE:                                            |
-   |  Rhizome (underground stem, not root) = the spice part       |
-   |  Aromatic essential oils in rhizome tissue                   |
-   |  Monocot leaf structure (parallel venation)                  |
-   |  Tropical distribution (high rainfall + humidity)            |
-   |                                                              |
-   |  RHIZOME vs ROOT:                                            |
-|  Rhizome = modified horizontal stem, has nodes, buds, scale leaves|
-   |  Root = no nodes, no buds, anchors plant, absorbs water      |
-   |  (Ginger/turmeric = rhizome. Maca/ginseng = root.)           |
+|  .-----------.  .-----------.  .-----------.  .-----------.      |
+|  | Zingiber  |  | Curcuma   |  | Elettaria |  | Alpinia   |      |
+|  | (ginger)  |  | (turmeric)|  |(cardamom) |  |(galangal) |      |
+|  .-----------.  .-----------.  .-----------.  .-----------.      |
+|                                                                  |
+|    WHAT THEY SHARE:                                              |
+|    Rhizome (underground stem, not root) = the spice part         |
+|    Aromatic essential oils in rhizome tissue                     |
+|    Monocot leaf structure (parallel venation)                    |
+|    Tropical distribution (high rainfall + humidity)              |
+|                                                                  |
+|    RHIZOME vs ROOT:                                              |
+|  Rhizome = horizontal stem; nodes, buds, scale leaves            |
+|    Root = no nodes, no buds, anchors plant, absorbs water        |
+|    (Ginger/turmeric = rhizome. Maca/ginseng = root.)             |
 +------------------------------------------------------------------+
 ```
 
@@ -36,12 +55,12 @@
 ```
 CURCUMA LONGA:
   Native: probably Bengal/Assam, NE India
-  Cultivated for >4,000 years — no wild ancestor identified
+  Cultivated for >4,000 years - no wild ancestor identified
   Large-leaved plant (up to 1m tall)
   Rhizomes: main (central) + lateral "fingers"
 
-  Processing: boil/steam → dry → grind → orange-yellow powder
-  Boiling pre-dries the inside → more uniform color
+  Processing: boil/steam -> dry -> grind -> orange-yellow powder
+  Boiling pre-dries the inside -> more uniform color
   Fresh rhizome: more complex flavor than dried; used in SE Asian cooking
 
   Top producers: India (~75% world supply), Bangladesh, Pakistan, China
@@ -54,38 +73,38 @@ CURCUMA LONGA:
 CURCUMIN (C21H20O6):
   Systematic name: (1E,6E)-1,7-bis(4-hydroxy-3-methoxyphenyl)-1,6-heptadiene-3,5-dione
   Diferuloylmethane structure
-  ~2–5% of dry turmeric weight (not as high as marketing implies)
+  ~2-5% of dry turmeric weight (not as high as marketing implies)
 
   COLOR:
-  Extended π-conjugation → absorbs blue/violet light (~430 nm)
-  → reflects yellow/orange. Same principle as other yellow dyes.
+  Extended π-conjugation -> absorbs blue/violet light (~430 nm)
+  -> reflects yellow/orange. Same principle as other yellow dyes.
 
   TAUTOMERISM:
-  Keto form ↔ Enol form (keto-enol tautomerism)
+  Keto form <-> Enol form (keto-enol tautomerism)
   Enol predominates in solution (intramolecular H-bonding stabilizes it)
 
   BIOSYNTHESIS:
   Phenylpropanoid pathway:
-  Phenylalanine → 4-coumaroyl-CoA → curcumin (via curcumin synthase)
+  Phenylalanine -> 4-coumaroyl-CoA -> curcumin (via curcumin synthase)
   Two ferulic acid units joined by a methylene bridge
 
-  PROBLEM — BIOAVAILABILITY:
-  Curcumin is hydrophobic → poor water solubility → poor GI absorption
+  PROBLEM - BIOAVAILABILITY:
+  Curcumin is hydrophobic -> poor water solubility -> poor GI absorption
   Rapid first-pass metabolism in liver (glucuronidation, sulfation)
   Plasma levels after oral dosing: extremely low (nanomolar range)
 
   PIPERINE BYPASS:
-  CYP3A4 metabolizes curcumin → piperine inhibits CYP3A4
-  → 20× increase in serum curcumin levels
-  → Traditional Indian curry = turmeric + black pepper (empirically found)
+  CYP3A4 metabolizes curcumin -> piperine inhibits CYP3A4
+  -> 20x increase in serum curcumin levels
+  -> Traditional Indian curry = turmeric + black pepper (empirically found)
 
   PAINS (Pan-Assay Interference Compounds):
   Curcumin is a canonical PAINS compound:
-  - Fluorescent at typical assay wavelengths → false positives
-  - Reactive (Michael acceptor, binds thiols) → nonspecific binding
+  - Fluorescent at typical assay wavelengths -> false positives
+  - Reactive (Michael acceptor, binds thiols) -> nonspecific binding
   - Colloidal aggregator at common assay concentrations
   Many published curcumin "activity" results are assay artifacts
-  This does NOT mean curcumin has no activity — it means most early data is noise
+  This does NOT mean curcumin has no activity - it means most early data is noise
 ```
 
 ### Clinical Evidence Reality
@@ -115,7 +134,7 @@ BOTTOM LINE:
 ```
 ZINGIBER OFFICINALE:
   Probably original: Maritime SE Asia (specific wild ancestor unknown)
-  Cultivated >5,000 years — exists only under human cultivation
+  Cultivated >5,000 years - exists only under human cultivation
   No wild populations known to exist anymore
 
   Fresh ("green") ginger: highest in gingerols
@@ -134,23 +153,23 @@ GINGEROLS                          SHOGAOLS
   |                                  |
   | Mechanism:                       |
   | Heat or drying                   |
-  | → dehydration reaction           |
-  | → gingerol loses water (β-elim.) |
+  | -> dehydration reaction           |
+  | -> gingerol loses water (β-elim.) |
   |                                  |
   v                                  v
-  Pungency: moderate                 Pungency: 2× more potent
+  Pungency: moderate                 Pungency: 2x more potent
   Flavor: fresh, bright              Flavor: intense, penetrating, drier
   TRPV1 binding: yes                 TRPV1 binding: stronger
 
 HEAT TRANSFORMATION (cooking):
-  Gingerols → zingerone (via retro-aldol)
+  Gingerols -> zingerone (via retro-aldol)
   Zingerone: milder, spicy-sweet, less sharp
   Explains why cooked ginger is gentler than fresh
 
 STRUCTURAL RELATIONSHIP:
   All three are phenylpropanoid-derived:
-  Phenylalanine backbone → similar structure to capsaicin
-  This is WHY gingerols activate TRPV1 — structural mimicry
+  Phenylalanine backbone -> similar structure to capsaicin
+  This is WHY gingerols activate TRPV1 - structural mimicry
   Same vanillyl group as capsaicin (4-hydroxy-3-methoxybenzyl)
 ```
 
@@ -158,7 +177,7 @@ STRUCTURAL RELATIONSHIP:
 
 ```
 HISTORICAL:
-  Ancient Indian Ayurveda — extensively documented
+  Ancient Indian Ayurveda - extensively documented
   Roman spice trade (imported from India via Arab traders)
   Medieval Europe: gingerbread, ginger wine, medicinal preparations
   English crystallized ginger and ginger beer = colonial products
@@ -192,15 +211,15 @@ TWO MAIN SPECIES:
     Historical European medicine (Hildegard von Bingen, 12th c.)
 
 KEY COMPOUNDS:
-  1-acetoxychavicol acetate (ACA) — pungent ester, distinctive character
-  Galangin (flavonoid) — bitter note
-  β-bisabolene (sesquiterpene) — woody, piney
+  1-acetoxychavicol acetate (ACA) - pungent ester, distinctive character
+  Galangin (flavonoid) - bitter note
+  β-bisabolene (sesquiterpene) - woody, piney
   Significant difference from ginger: ABSENCE of gingerols/shogaols
 
 GALANGAL vs GINGER:
   Ginger: warm, sharp, citric bite
   Galangal: piney, medicinal, more resinous, less "food" and more "forest"
-  Non-interchangeable in SE Asian cuisine — different flavor roles
+  Non-interchangeable in SE Asian cuisine - different flavor roles
 
 MEDIEVAL EUROPEAN USE:
   Imported from SE Asia as medicinal spice
@@ -221,18 +240,18 @@ AFRAMOMUM MELEGUETA:
   "Grain Coast" named after this spice's trade importance
 
   HISTORY:
-  Medieval Europe (13th–16th c.): major substitute for black pepper
-  When pepper was scarce/expensive → grains of paradise filled gap
+  Medieval Europe (13th-16th c.): major substitute for black pepper
+  When pepper was scarce/expensive -> grains of paradise filled gap
   Pope Clement VI's funeral feast (1352): extensive use
   Henry VI of England: banned from London ale to protect barley market
 
   DECLINED POST-PORTUGAL:
-  Portuguese Cape route made black pepper cheap → grains of paradise uncompetitive
+  Portuguese Cape route made black pepper cheap -> grains of paradise uncompetitive
   Essentially vanished from European cuisine by 1600s
 
   REVIVAL:
-  Craft beer/spirits (especially gin) — "botanical" character
-  West African cuisine — essential in various stews
+  Craft beer/spirits (especially gin) - "botanical" character
+  West African cuisine - essential in various stews
 
   KEY COMPOUNDS:
   Paradol, [6]-paradol, gingerol-related compounds

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pigments:conservation
+kind: guide
+module: pigments
+section: pigments
+title: Conservation and Authentication - Lightfastness, Forensic Pigment Analysis
+status: source-custody
+source_custody: partial
+current_path: pigments/10-CONSERVATION.md
+canonical_path: pigments/10-CONSERVATION.md
+backsource_ids: [proof-backfill:pigments:10-conservation, git-history:pigments:10-conservation]
+concepts: [conservation]
+root_concepts: [conservation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Conservation & Authentication — Lightfastness, Forensic Pigment Analysis
 
 ## The Big Picture
@@ -7,18 +26,18 @@
 |         CONSERVATION: MATERIALS SCIENCE MEETS ART HISTORY        |
 |                                                                  |
 |  THREE DOMAINS:                                                  |
-|  +------------------+  +------------------+  +----------------+  |
-|  | DEGRADATION      |  | ANALYTICAL       |  | AUTHENTICATION | |
-|  | SCIENCE          |  | METHODS          |  |                | |
+|  .------------------.  .------------------.  .----------------.  |
+|  | DEGRADATION      |  | ANALYTICAL       |  | AUTHENTICATION |  |
+|  | SCIENCE          |  | METHODS          |  |                |  |
 |  | Why pigments      |  | Non-destructive  |  | Pigment        | |
 |  | change over time  |  | ID and mapping   |  | anachronism    | |
 |  | Mechanisms,       |  | XRF, Raman, IRR, |  | = forgery      | |
 |  | predictors        |  | UV, X-ray        |  | detection      | |
-|  +------------------+  +------------------+  +----------------+ |
-|                                                                 |
-|  KEY PRINCIPLE: Artworks are chemical systems evolving in time  |
-|  What we see today ≠ what the artist intended                   |
-|  Authentication requires knowing what was possible at a date    |
+|  .------------------.  .------------------.  .----------------.  |
+|                                                                  |
+|  KEY PRINCIPLE: Artworks are chemical systems evolving in time   |
+|  What we see today ≠ what the artist intended                    |
+|  Authentication requires knowing what was possible at a date     |
 +------------------------------------------------------------------+
 ```
 
@@ -30,10 +49,10 @@
 
 ```
 MECHANISM:
-  UV light (300–400 nm) absorbed by organic chromophore
-  → Electronic excitation (S0 → S1 or Sn)
-  → Photochemical reactions:
-    Homolytic bond cleavage → radical chain reactions
+  UV light (300-400 nm) absorbed by organic chromophore
+  -> Electronic excitation (S0 -> S1 or Sn)
+  -> Photochemical reactions:
+    Homolytic bond cleavage -> radical chain reactions
     Oxidation of conjugated π system
     Hydrolysis in presence of moisture
 
@@ -41,13 +60,13 @@ MECHANISM:
   UV intensity: direct sun > window light > museum (filtered)
   Humidity: moisture accelerates hydrolysis
   Oxygen: required for oxidative pathways
-  Temperature: Arrhenius dependence — higher T = faster
+  Temperature: Arrhenius dependence - higher T = faster
 
   TYPICAL VULNERABLE CHROMOPHORES:
   Azo dyes (−N=N−): direct UV cleavage
   Anthraquinones (alizarin): moderately stable, eventually fades
   Indigotin: relatively stable for organic (ASTM II typically)
-  Flavonoids (weld, quercitron): generally ASTM III–IV
+  Flavonoids (weld, quercitron): generally ASTM III-IV
   Rhodamines (fluorescent): very fast degradation (ASTM V)
 ```
 
@@ -57,29 +76,29 @@ MECHANISM:
 MECHANISMS (varied):
 
 1. VALENCE STATE CHANGE:
-   Chrome yellow (Cr⁶⁺ → Cr³⁺): photoreduction
+   Chrome yellow (Cr⁶⁺ -> Cr³⁺): photoreduction
    Smalt (Co²⁺ leaches from glass): slow dissolution
-   Prussian blue (partial): some conditions → Turnbull's blue (different form)
+   Prussian blue (partial): some conditions -> Turnbull's blue (different form)
 
 2. SULFIDATION:
-   Lead + H₂S → PbS (black)
-   Silver + H₂S → Ag₂S (black)
-   Copper → CuS (black) [less common]
+   Lead . H₂S -> PbS (black)
+   Silver . H₂S -> Ag₂S (black)
+   Copper -> CuS (black) [less common]
    H₂S source: biological activity, industrial pollution, some materials
 
 3. CONVERSION:
-   Azurite (Cu carbonate blue) → malachite (Cu carbonate green)
+   Azurite (Cu carbonate blue) -> malachite (Cu carbonate green)
    Thermodynamically driven, irreversible
    Triggered by: moisture + CO₂
 
 4. MIGRATION:
-   Smalt: Co²⁺ migrates in oil → staining of surrounding area
-   Lead soap: Pb²⁺ migrates in oil → zinc soap forms with ZnO
+   Smalt: Co²⁺ migrates in oil -> staining of surrounding area
+   Lead soap: Pb²⁺ migrates in oil -> zinc soap forms with ZnO
    Protrusion formation: soap crystals grow through surface
 
 5. PHOTOREDUCTION (semiconductor pigments):
-   PbCrO₄ → Cr³⁺ green compounds
-   CdS → partial reduction under UV (minor in normal conditions)
+   PbCrO₄ -> Cr³⁺ green compounds
+   CdS -> partial reduction under UV (minor in normal conditions)
 ```
 
 ---
@@ -106,48 +125,48 @@ ASTM D4303 Standard (American Society for Testing and Materials):
 +--------------------------------------------------+
 | V      | Very Poor     | Very rapid fading       |
 +--------------------------------------------------+
-
-  "Normal museum light" = ~50 lux, limited UV, controlled humidity
-  Test method: xenon arc lamp (accelerated exposure)
-  At 100,000 lux-hours, compare to blue wool reference standards
-
-ASTM I EXAMPLES:
-  Titanium white, zinc white, iron oxides
-  Phthalocyanine blue/green, cobalt blue, cerulean
-  Quinacridone (oil and acrylic), dioxazine (oil)
-  Ultramarine blue (synthetic), cobalt violet
-
-ASTM II EXAMPLES:
-  Alizarin crimson (borderline — not recommended for archival)
-  Some cadmium colors in watercolor
-  Some dioxazine formulations (watercolor/acrylic)
-
-ASTM III–V EXAMPLES:
-  Most fugitive lake pigments
-  Rhodamine-based fluorescent pigments
-  Most aniline/coal tar dyes in artist use
+|                                                  |
+| "Normal museum light" = ~50 lux, limited UV, cont|
+| Test method: xenon arc lamp (accelerated exposure|
+| At 100,000 lux-hours, compare to blue wool refere|
+|                                                  |
+| ASTM I EXAMPLES:                                 |
+| Titanium white, zinc white, iron oxides          |
+| Phthalocyanine blue/green, cobalt blue, cerulean |
+| Quinacridone (oil and acrylic), dioxazine (oil)  |
+| Ultramarine blue (synthetic), cobalt violet      |
+|                                                  |
+| ASTM II EXAMPLES:                                |
+| Alizarin crimson (borderline - not recommended fo|
+| Some cadmium colors in watercolor                |
+| Some dioxazine formulations (watercolor/acrylic) |
+|                                                  |
+| ASTM III-V EXAMPLES:                             |
+| Most fugitive lake pigments                      |
+| Rhodamine-based fluorescent pigments             |
+| Most aniline/coal tar dyes in artist use         |
 ```
 
 ### Blue Wool Scale (ISO 105-B02)
 
 ```
 BLUE WOOL SCALE:
-  Eight wool samples (1–8) dyed with known lightfast-to-fugitive range:
+  Eight wool samples (1-8) dyed with known lightfast-to-fugitive range:
   1 = most fugitive; 8 = most lightfast (indanthrone blue standard)
   Comparison standard in textile industry
   Also used for watercolor/artist materials in EU
 
   CORRELATION to ASTM:
-  Blue Wool 7–8 ≈ ASTM I
-  Blue Wool 5–6 ≈ ASTM II
-  Blue Wool 3–4 ≈ ASTM III
+  Blue Wool 7-8 ≈ ASTM I
+  Blue Wool 5-6 ≈ ASTM II
+  Blue Wool 3-4 ≈ ASTM III
   (Approximate mapping; test conditions differ)
 
 TEST PROCEDURE:
   Cover half the sample with opaque mask
   Expose exposed half to specified light source for specified time
   Remove mask; compare covered vs exposed areas against Blue Wool standards
-  Repeat at intervals → determine Blue Wool rating when change equals BW1
+  Repeat at intervals -> determine Blue Wool rating when change equals BW1
 ```
 
 ---
@@ -156,40 +175,40 @@ TEST PROCEDURE:
 
 ```
 VAN GOGH'S SUNFLOWERS (multiple versions, 1888):
-  Chrome yellow (PbCrO₄) → Cr⁶⁺ photoreduced to Cr³⁺
-  Result: yellow → brown-green in affected areas
+  Chrome yellow (PbCrO₄) -> Cr⁶⁺ photoreduced to Cr³⁺
+  Result: yellow -> brown-green in affected areas
   Detection: synchrotron XRF maps showing Cr distribution
   "Virtual restoration": simulated original based on spectral data
   The bright yellow fields van Gogh intended ≠ what we see
 
-VERMEER'S "WOMAN IN BLUE READING A LETTER" (~1663–64):
+VERMEER'S "WOMAN IN BLUE READING A LETTER" (~1663-64):
   Blue areas: mix of natural ultramarine + smalt
-  Smalt = unstable cobalt glass → Co leaches → color fades to gray
+  Smalt = unstable cobalt glass -> Co leaches -> color fades to gray
   Current appearance: grayish-blue vs original deep blue
   The painting is darker/grayer than painted
 
-RAPHAEL'S "MADONNA OF THE GOLDFINCH" (c. 1505–06):
-  Lead white + H₂S from Florentine urban atmosphere → PbS darkening
+RAPHAEL'S "MADONNA OF THE GOLDFINCH" (c. 1505-06):
+  Lead white . H₂S from Florentine urban atmosphere -> PbS darkening
   Major restoration history: damaged in 1547 when a flood and partial wall collapse
   struck the Uffizi; survived; subsequent cleanings and interventions over centuries;
   most recent major restoration ~2008 using H₂O₂ vapor treatment
-  H₂O₂ vapor treatment → PbS → PbSO₄ (white)
+  H₂O₂ vapor treatment -> PbS -> PbSO₄ (white)
   Brightening documented and remarkable
 
 RENOIR'S FLESH TONES (throughout career):
-  Lake-heavy pinks → photodegradation of organic chromophore
-  Original vivid pinks → current muted pink-salmon
+  Lake-heavy pinks -> photodegradation of organic chromophore
+  Original vivid pinks -> current muted pink-salmon
   "The Renoir look" partly = what decay looks like, not what he painted
 
 REMBRANDT'S NIGHT WATCH (1642):
-  Smalt areas in sky/background → faded gray
+  Smalt areas in sky/background -> faded gray
   The dark "Night Watch" was originally lighter
   Title "Night Watch" = 19th century misnomer based on darkened appearance
   Original: a daytime scene with lighter background
 
 EL GRECO FLESH TONES:
-  Lead white + smalt mixtures → smalt graying + lead soap transparency
-  Complex interaction → distinctive grayish-pink translucency
+  Lead white . smalt mixtures -> smalt graying . lead soap transparency
+  Complex interaction -> distinctive grayish-pink translucency
   Partly original technique; partly 400 years of change
 ```
 
@@ -201,10 +220,10 @@ EL GRECO FLESH TONES:
 
 ```
 XRF PRINCIPLE:
-  X-rays bombard sample → inner-shell electrons ejected
-  → Outer electrons fall inward → characteristic fluorescence X-rays emitted
+  X-rays bombard sample -> inner-shell electrons ejected
+  -> Outer electrons fall inward -> characteristic fluorescence X-rays emitted
   Each element has unique fluorescence energy (Moseley's Law)
-  → Non-destructive elemental analysis
+  -> Non-destructive elemental analysis
 
   PIGMENT IDENTIFICATION:
   Pb (lead white, red lead, Naples yellow, chrome yellow)
@@ -214,11 +233,11 @@ XRF PRINCIPLE:
   Cd (cadmium yellow/red)
   Co (cobalt blue, smalt)
   Cr (chrome yellow, viridian)
-  Ti (titanium white — post 1916)
+  Ti (titanium white - post 1916)
   Sb (Naples yellow)
 
   MA-XRF (Macro Area X-ray Fluorescence):
-  Full painting scanned in 2D → element distribution maps
+  Full painting scanned in 2D -> element distribution maps
   Shows: where each pigment was applied
          Underpaintings (lead white under oil shows through)
          Changes/corrections (different element distribution beneath surface)
@@ -233,7 +252,7 @@ XRF PRINCIPLE:
 RAMAN PRINCIPLE:
   Laser light inelastically scattered from molecular vibrations
   Each molecule has unique vibrational fingerprint
-  → Identifies specific compounds, not just elements
+  -> Identifies specific compounds, not just elements
 
   ADVANTAGE OVER XRF:
   XRF: "lead is present"
@@ -257,9 +276,9 @@ RAMAN PRINCIPLE:
 
 ```
 IRR PRINCIPLE:
-  Near-infrared light (1,000–2,000 nm) penetrates oil paint layers
+  Near-infrared light (1,000-2,000 nm) penetrates oil paint layers
   Carbon-based materials absorb IR strongly (charcoal, carbon-based inks)
-  → Underdrawing visible through paint layers
+  -> Underdrawing visible through paint layers
 
   REVEALS:
   Initial underdrawing: black chalk, charcoal, carbon ink, ink drawings
@@ -291,7 +310,7 @@ UV FLUORESCENCE (UV-VIS reflectography):
   Egg tempera: strong white-green
   Oil paint (aged): pale green or dark (quench areas)
   Restoration patches: often very different from surroundings
-    → Patches glow or go dark against overall surface
+    -> Patches glow or go dark against overall surface
   Lead white: fluoresces differently than surrounding areas
   Egyptian blue: NIR fluorescence (requires NIR camera, not visible UV)
 
@@ -309,9 +328,9 @@ The most powerful forgery detection method: if a painting contains a pigment tha
 
 ```
 CHRONOLOGICAL CONSTRAINTS:
-+------------------+----------------------------------------+
+.------------------.----------------------------------------.
 | Pigment          | Earliest possible date in work         |
-+------------------+----------------------------------------+
+.------------------.----------------------------------------.
 | Prussian blue    | 1704 (accidental discovery, Berlin)   |
 | Synthetic ultra  | 1826 (Guimet + Gmelin)                |
 | Chrome yellow    | ~1814 (commercial availability)       |
@@ -324,28 +343,28 @@ CHRONOLOGICAL CONSTRAINTS:
 | Titanium white   | 1916 (commercial)                     |
 | Phthalocyanine   | 1935 (commercial)                     |
 | Quinacridone     | 1958 (commercial)                     |
-+------------------+----------------------------------------+
+.------------------.----------------------------------------.
 
-IF: Titanium white in "17th century Vermeer" → FORGERY
-IF: Phthalocyanine in "Rembrandt" → FORGERY
-IF: Prussian blue in "1600 Italian work" → FORGERY
+IF: Titanium white in "17th century Vermeer" -> FORGERY
+IF: Phthalocyanine in "Rembrandt" -> FORGERY
+IF: Prussian blue in "1600 Italian work" -> FORGERY
 ```
 
 ### Famous Forgeries Detected by Pigment Analysis
 
 ```
-HANS VAN MEEGEREN (1889–1947):
+HANS VAN MEEGEREN (1889-1947):
   Dutch forger of "Vermeer" and other Dutch Masters
   His "Supper at Emmaus" sold for 520,000 guilders (1937)
   Eventually confessed (to avoid WWII collaboration charges)
 
   DETECTION METHOD:
   Bakelite found in paint medium (phenol-formaldehyde resin)
-  Bakelite: invented 1907 — cannot be present in 17th century work
+  Bakelite: invented 1907 - cannot be present in 17th century work
   Also: cobaltic blue used where Vermeer wouldn't have had it
   The specific material anachronism caught what stylistic analysis missed
 
-ELMYR DE HORY (1906–1976):
+ELMYR DE HORY (1906-1976):
   Most prolific 20th century art forger
   Forged: Matisse, Picasso, Renoir, Modigliani (~1,000 works)
   Detection: partly via technical analysis
@@ -354,7 +373,7 @@ ELMYR DE HORY (1906–1976):
 
   His story: Clifford Irving biography "Fake!" (1969);
   then Irving himself forged the Howard Hughes autobiography (1972)
-  — a fractal of forgery
+  - a fractal of forgery
 
 MARK LANDIS (born 1955):
   American forger who donated works to museums (not for sale)
@@ -373,9 +392,9 @@ MARK LANDIS (born 1955):
 THE NEOCLASSICAL MISUNDERSTANDING:
   When Renaissance and later scholars/artists excavated Greek/Roman
   sculpture, they found WHITE marble (paint had weathered off)
-  → Assumed: ancient sculpture = white marble aesthetic
-  → This aesthetic dominated Neoclassicism (Canova, Thorvaldsen)
-  → The "purity" of white marble = idealized classical body
+  -> Assumed: ancient sculpture = white marble aesthetic
+  -> This aesthetic dominated Neoclassicism (Canova, Thorvaldsen)
+  -> The "purity" of white marble = idealized classical body
 
 THE REALITY:
   Ancient Greek and Roman sculpture was PAINTED in vivid colors
@@ -419,21 +438,21 @@ TRADITIONAL VARNISHES:
   Applied as protective/glossy coat over finished painting
 
 YELLOWING MECHANISM:
-  Polyterpene and polyketo resins → oxidative polymerization over decades
+  Polyterpene and polyketo resins -> oxidative polymerization over decades
   Results: yellowed, darkened varnish layer
   Old master paintings viewed through yellow-brown filter
   This changes perceived color balance: blues suppressed, yellows enhanced
 
   "GOLDEN GLAZE" myth: some 19th c. collectors valued the yellow patina
-  as "old master atmosphere" — in fact, they were admiring dirty varnish
+  as "old master atmosphere" - in fact, they were admiring dirty varnish
 
 VARNISH REMOVAL:
   Organic solvent cleaning: dissolves varnish
   Risk: may also dissolve thin paint layers or sensitive pigments
   Must be tested in inconspicuous area first
-  Specialist job — responsible for major museum controversies
+  Specialist job - responsible for major museum controversies
 
-  NATIONAL GALLERY (London) cleaning controversy (1947–1953):
+  NATIONAL GALLERY (London) cleaning controversy (1947-1953):
   Director Philip Hendy's cleaning policy revealed brighter Raphaels
   Critics argued originals were being damaged; supporters said restoring
   Original color balance; debate never fully resolved

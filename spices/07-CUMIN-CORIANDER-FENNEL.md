@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:spices:cumin-coriander-fennel
+kind: guide
+module: spices
+section: spices
+title: Cumin, Coriander and Fennel - The Apiaceae Seed Spices
+status: source-custody
+source_custody: partial
+current_path: spices/07-CUMIN-CORIANDER-FENNEL.md
+canonical_path: spices/07-CUMIN-CORIANDER-FENNEL.md
+backsource_ids: [proof-backfill:spices:07-cumin-coriander-fennel, git-history:spices:07-cumin-coriander-fennel]
+concepts: [cumin, coriander, fennel]
+root_concepts: [cumin, coriander]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cumin, Coriander & Fennel — The Apiaceae Seed Spices
 
 ## The Big Picture
@@ -17,10 +36,10 @@
 |  Anethum (dill) | Apium (celery) | Petroselinum (parsley)        |
 |                                                                  |
 |  CONVERGENT CHEMISTRY THEME:                                     |
-|  Anethole: appears in fennel, anise, star anise (different family)|
-|  Carvone enantiomers: caraway (R) vs spearmint (S) — same atom,  |
+|  Anethole: in fennel, anise, star anise (different family)       |
+|  Carvone enantiomers: caraway (R) vs spearmint (S) - same atom,  |
 |  different chirality, completely different smell                 |
-|  This family is a masterclass in chirality + convergent synthesis|
+|  This family shows chirality plus convergent synthesis           |
 +------------------------------------------------------------------+
 ```
 
@@ -34,13 +53,13 @@ BOTANICAL PRECISION:
   Schizocarp: a dry fruit that splits into 2 single-seeded halves (mericarps)
   The spice "seed" is actually the entire dried mericarp, including pericarp
 
-  Practically: doesn't matter. Whole or ground → same flavor.
+  Practically: doesn't matter. Whole or ground -> same flavor.
   The confusion matters only in botanical taxonomy.
 
   Volatile oil location:
   Essential oils stored in secretory ducts (vittae) in pericarp
-  → This is why whole "seeds" hold flavor better than ground
-  → Grinding ruptures the ducts → volatiles escape → rapid flavor loss
+  -> This is why whole "seeds" hold flavor better than ground
+  -> Grinding ruptures the ducts -> volatiles escape -> rapid flavor loss
 ```
 
 ---
@@ -53,9 +72,9 @@ BOTANICAL PRECISION:
 CUMINUM CYMINUM:
   Apiaceae; annual herb, ~30cm height
   Native: probably eastern Mediterranean / Levant (likely Egypt/Levant origin)
-  Cultivated: 4,000+ years — found in Tutankhamun's tomb
+  Cultivated: 4,000+ years - found in Tutankhamun's tomb
   Requires: hot, dry climate (80+ frost-free days)
-  TOP PRODUCERS: India (~65–70% world supply), Syria, Iran, Turkey
+  TOP PRODUCERS: India (~65-70% world supply), Syria, Iran, Turkey
 
   HISTORICAL FOOTPRINT:
   - One of the oldest spices in continuous use
@@ -71,24 +90,24 @@ CUMINUM CYMINUM:
 
 ```
 KEY COMPOUNDS:
-  Cuminaldehyde (4-isopropylbenzaldehyde): ~20–40% of EO
-    → Primary distinctive aroma; sharp, warm, slightly oily character
-  p-Cymene: ~10–25%
-  γ-Terpinene: ~10–20%
+  Cuminaldehyde (4-isopropylbenzaldehyde): ~20-40% of EO
+    -> Primary distinctive aroma; sharp, warm, slightly oily character
+  p-Cymene: ~10-25%
+  γ-Terpinene: ~10-20%
   β-Pinene: minor
   Linalool: minor (contributes subtle floral note in fresh cumin)
 
 FLAVOR PROFILE:
   Earthy, warm, slightly bitter, distinctly "Middle Eastern/Indian"
-  Toasting (dry pan): drives off water → concentrates oils → develops
-                      nutty Maillard compounds → roasted dimension
+  Toasting (dry pan): drives off water -> concentrates oils -> develops
+                      nutty Maillard compounds -> roasted dimension
   Toasted vs raw cumin = perceptibly different character
 
 BLACK CUMIN:
-  Nigella sativa (Ranunculaceae — COMPLETELY DIFFERENT FAMILY)
+  Nigella sativa (Ranunculaceae - COMPLETELY DIFFERENT FAMILY)
   Not related to cumin despite name
   Thymoquinone as primary active compound
-  "Habbatus sauda" in Arabic — extensive medicinal use
+  "Habbatus sauda" in Arabic - extensive medicinal use
   Onion-y, slightly bitter; used in naan bread, Eastern European breads
   Multiple claimed benefits; moderate clinical evidence for some
 ```
@@ -101,17 +120,17 @@ BLACK CUMIN:
 
 ```
 ONE PLANT, TWO COMPLETELY DIFFERENT CULINARY IDENTITIES:
-  Seeds → CORIANDER (spice): warm, citrusy, floral, gentle
-  Leaves → CILANTRO (herb): bright, "soapy" or citrus-fresh (depends on genetics)
+  Seeds -> CORIANDER (spice): warm, citrusy, floral, gentle
+  Leaves -> CILANTRO (herb): bright, "soapy" or citrus-fresh (depends on genetics)
 
 THE CHEMISTRY DIVERGENCE:
-  Seeds:   linalool (~65–80% EO), α-pinene, camphor, geraniol
-           → warm, citric, gently floral character
+  Seeds:   linalool (~65-80% EO), α-pinene, camphor, geraniol
+           -> warm, citric, gently floral character
 
   Leaves:  (E)-2-decenal and (E)-2-dodecenal (aldehyde compounds)
-           → sharp, green, "soapy" for some people (see below)
+           -> sharp, green, "soapy" for some people (see below)
 
-  Different compounds → completely different sensory experience
+  Different compounds -> completely different sensory experience
   These two are NOT interchangeable, despite being the same plant
 ```
 
@@ -119,14 +138,14 @@ THE CHEMISTRY DIVERGENCE:
 
 ```
 OLFACTORY RECEPTOR VARIANT:
-  ~4–14% of people experience cilantro as "soapy," "chemical,"
+  ~4-14% of people experience cilantro as "soapy," "chemical,"
   "unpleasant" rather than fresh/citrusy
 
   MECHANISM:
   Genome-wide association study (Eriksson et al., 2012, 23andMe data)
   Found SNP rs72921001 near olfactory receptor gene cluster
-  OR6A2 (olfactory receptor 6A2) variant → preferential binding
-  to the (E)-2-aldehyde compounds in cilantro → "soapy" perception
+  OR6A2 (olfactory receptor 6A2) variant -> preferential binding
+  to the (E)-2-aldehyde compounds in cilantro -> "soapy" perception
 
   POPULATION DATA:
   ~14% European ancestry
@@ -144,7 +163,7 @@ OLFACTORY RECEPTOR VARIANT:
 
 ```
 ARCHAEOLOGICAL:
-  Seeds found in Nahal Hemar cave, Israel (~8,000 BCE) — oldest documented
+  Seeds found in Nahal Hemar cave, Israel (~8,000 BCE) - oldest documented
   Bronze Age Mediterranean trade
   Egyptian papyri (Ebers Papyrus, ~1550 BCE)
   Sanskrit texts (~1000 BCE)
@@ -182,12 +201,12 @@ FOENICULUM VULGARE:
 
   FLORENCE FENNEL (F. vulgare var. azoricum):
     Bred for bulb (swollen leaf base) as vegetable
-    Fennel bulb ≠ fennel seed in flavor — different ratios
+    Fennel bulb ≠ fennel seed in flavor - different ratios
     Bulb: milder, sweeter; seed: more concentrated anethole
 
   FENNEL POLLEN (artisan premium product):
     Collected from flower heads; highly concentrated
-    ~$50–100/oz at retail — the truffle of the spice world
+    ~$50-100/oz at retail - the truffle of the spice world
 ```
 
 ### Anethole — The Anise Character
@@ -195,27 +214,27 @@ FOENICULUM VULGARE:
 ```
 TRANS-ANETHOLE (1-methoxy-4-propenylbenzene, C10H12O):
   Phenylpropanoid ether
-  ~75–90% of fennel essential oil
+  ~75-90% of fennel essential oil
   THE DEFINING COMPOUND creating "anise/licorice" character
 
   THE CONVERGENCE PARADOX:
   Anethole appears independently in:
   - Fennel (Apiaceae)
-  - Anise (Pimpinella anisum, Apiaceae — same family)
-  - Star anise (Illicium verum, Schisandraceae — completely different family)
-  - Licorice root (Glycyrrhiza glabra, Fabaceae — yet another family)
+  - Anise (Pimpinella anisum, Apiaceae - same family)
+  - Star anise (Illicium verum, Schisandraceae - completely different family)
+  - Licorice root (Glycyrrhiza glabra, Fabaceae - yet another family)
   - Tarragon (Artemisia dracunculus, Asteraceae)
 
-  These plants are NOT related — they independently evolved the same
+  These plants are NOT related - they independently evolved the same
   biosynthetic pathway to produce the same compound.
   This is biochemical convergent evolution.
 
   LIQUOR INDUSTRY:
   Anethole-based liquors (all "anise-flavored"):
-  pastis, Pernod, Ricard (France) — star anise + herbs
-  ouzo (Greece) — anise
-  arak (Lebanon/Syria) — anise
-  sambuca (Italy) — star anise + licorice
+  pastis, Pernod, Ricard (France) - star anise + herbs
+  ouzo (Greece) - anise
+  arak (Lebanon/Syria) - anise
+  sambuca (Italy) - star anise + licorice
   absinthe (wormwood + anise + fennel)
   In most cases, star anise is the industrial-scale source (cheapest/most productive)
 
@@ -243,13 +262,13 @@ R-CARVONE: CARAWAY             S-CARVONE: SPEARMINT
   But: completely different smell
 
 Why?
-  Olfactory receptors ARE CHIRAL — they are proteins
+  Olfactory receptors ARE CHIRAL - they are proteins
   Protein = amino acid polymer = inherently asymmetric
   Binding pocket distinguishes mirror images
-  → R-carvone fits one orientation: "caraway/dill" character
-  → S-carvone fits differently: "spearmint" character
+  -> R-carvone fits one orientation: "caraway/dill" character
+  -> S-carvone fits differently: "spearmint" character
 
-  This is not subtle — one smells like rye bread, the other like toothpaste
+  This is not subtle - one smells like rye bread, the other like toothpaste
   One molecule. Same atoms. Mirror image. Completely different sensory outcome.
 
 CARAWAY IN CULINARY USE:
@@ -266,7 +285,7 @@ ANETHUM GRAVEOLENS:
   Apiaceae; annual; Mediterranean/SW Asian origin
 
   DILL SEED vs DILL WEED:
-  Seed: carvone (~43%) + limonene (~40%) → caraway-like, slightly citric
+  Seed: carvone (~43%) + limonene (~40%) -> caraway-like, slightly citric
   Weed (fresh): more limonene relative + fresh green character
 
   GEOGRAPHIC PROFILE:
@@ -283,7 +302,7 @@ ANETHUM GRAVEOLENS:
 PIMPINELLA ANISUM:
   Mediterranean/SW Asian native
   Primarily grown for seeds (fruits)
-  ~80–90% anethole — same compound as fennel/star anise
+  ~80-90% anethole - same compound as fennel/star anise
   Annual; requires warm climate
 
   DISTINCTION FROM STAR ANISE:
@@ -295,7 +314,7 @@ PIMPINELLA ANISUM:
   (higher yield, lower cost)
 
   INDUSTRIAL IMPORTANCE:
-  Star anise = industrial source of shikimic acid → oseltamivir (Tamiflu)
+  Star anise = industrial source of shikimic acid -> oseltamivir (Tamiflu)
   Anise = artisan/culinary; not the industrial compound source
 ```
 

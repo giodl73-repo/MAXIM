@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:pigments:organic-dyes-mordants
+kind: guide
+module: pigments
+section: pigments
+title: Organic Dyes and Mordants - Indigo, Madder, Weld
+status: source-custody
+source_custody: partial
+current_path: pigments/06-ORGANIC-DYES-MORDANTS.md
+canonical_path: pigments/06-ORGANIC-DYES-MORDANTS.md
+backsource_ids: [proof-backfill:pigments:06-organic-dyes-mordants, git-history:pigments:06-organic-dyes-mordants]
+concepts: [organic, dyes, mordants]
+root_concepts: [organic, dyes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Organic Dyes & Mordants — Indigo, Madder, Weld
 
 ## The Big Picture
@@ -7,25 +26,25 @@
 |              ORGANIC COLORANTS: THE FABRIC OF HISTORY            |
 |                                                                  |
 |  THE FUNDAMENTAL CHALLENGE:                                      |
-|  Organic molecules absorb UV → π system breaks → color fades     |
-|  Every organic colorant = constant fight against photodegradation|
+|  Organic molecules absorb UV -> π system breaks -> color fades   |
+|  Every organic colorant fights photodegradation                  |
 |                                                                  |
 |  THE THREE PRIMARY COLORS OF HISTORICAL TEXTILES:                |
-|  +-----------------+  +-----------------+  +-----------------+   |
-|  | BLUE            |  | RED             |  | YELLOW          |  |
-|  | Indigo/Woad     |  | Madder/Kermes/  |  | Weld/           |  |
-|  | (indigotin)     |  | Cochineal       |  | Quercitron      |  |
-|  | Direct dye      |  | (anthraquinones)|  | (flavonoids)    |  |
-|  | Vat process     |  | Mordant dye     |  | Mordant dye     |  |
-|  +-----------------+  +-----------------+  +-----------------+  |
-|                                                                 |
-|  GREEN = blue (indigo) × yellow (weld) — "Lincoln green"        |
-|  ORANGE = yellow × red mordant variation                        |
-|  PURPLE = indigo × kermes/madder combinations                   |
-|                                                                 |
-|  MORDANT = the chemical key that bonds dye to fiber             |
-|  Without mordant: most dyes wash out                            |
-|  With mordant: dye fixed; mordant choice → color variation      |
+|  .-----------------.  .-----------------.  .-----------------.   |
+|  | BLUE            |  | RED             |  | YELLOW          |   |
+|  | Indigo/Woad     |  | Madder/Kermes/  |  | Weld/           |   |
+|  | (indigotin)     |  | Cochineal       |  | Quercitron      |   |
+|  | Direct dye      |  | (anthraquinones)|  | (flavonoids)    |   |
+|  | Vat process     |  | Mordant dye     |  | Mordant dye     |   |
+|  .-----------------.  .-----------------.  .-----------------.   |
+|                                                                  |
+|  GREEN = blue (indigo) x yellow (weld) - "Lincoln green"         |
+|  ORANGE = yellow x red mordant variation                         |
+|  PURPLE = indigo x kermes/madder combinations                    |
+|                                                                  |
+|  MORDANT = the chemical key that bonds dye to fiber              |
+|  Without mordant: most dyes wash out                             |
+|  With mordant: dye fixed; mordant choice -> color variation      |
 +------------------------------------------------------------------+
 ```
 
@@ -40,21 +59,21 @@ INDIGOTIN (C₁₆H₁₀N₂O₂):
   Two indole units linked through C=C double bond
   Planar, aromatic, extended π conjugation
   Absorption: ~610 nm (orange-red range)
-  → Reflects blue-violet
+  -> Reflects blue-violet
   MW: 262.27 g/mol
 
   THE PARADOX: Indigotin is INSOLUBLE in water
   You cannot "dissolve" indigo and dip cloth
-  → Requires the VAT process to work
+  -> Requires the VAT process to work
 
 INDIGOTIN IN TWO UNRELATED PLANT FAMILIES:
-  Woad: Isatis tinctoria (Brassicaceae — mustard family)
-        ~0.1–0.4% indigotin in fresh leaves
-  Indigo plant: Indigofera tinctoria (Fabaceae — legume family)
-        ~1–4% indigotin in fresh leaves
-  → Same molecule, 10× concentration difference
-  → Same processing required
-  → Different plants, same final product
+  Woad: Isatis tinctoria (Brassicaceae - mustard family)
+        ~0.1-0.4% indigotin in fresh leaves
+  Indigo plant: Indigofera tinctoria (Fabaceae - legume family)
+        ~1-4% indigotin in fresh leaves
+  -> Same molecule, 10x concentration difference
+  -> Same processing required
+  -> Different plants, same final product
 ```
 
 ### The Vat Process
@@ -66,21 +85,21 @@ VAT PROCESS (reduces indigotin to leucoindigo):
     Traditional vats: stale urine (ammonia + microbes provide reducing agents)
                      Woad-fermentation vats (microbiological reduction)
                      Ferrous sulfate + lime (later development)
-    Indigotin (insoluble) → leucoindigo (2,2'-bisindoxyl, soluble)
+    Indigotin (insoluble) -> leucoindigo (2,2'-bisindoxyl, soluble)
     Leucoindigo = yellow-green in solution; penetrates fiber
 
   Step 2: DYEING
-    Submerge fabric in vat → leucoindigo absorbed by fiber
+    Submerge fabric in vat -> leucoindigo absorbed by fiber
 
   Step 3: OXIDATION
-    Remove fabric → expose to air → leucoindigo oxidizes back to indigotin
-    Indigotin re-forms INSIDE the fiber → insoluble → fixed
-    Fabric changes: yellow-green → blue (visible oxidation)
+    Remove fabric -> expose to air -> leucoindigo oxidizes back to indigotin
+    Indigotin re-forms INSIDE the fiber -> insoluble -> fixed
+    Fabric changes: yellow-green -> blue (visible oxidation)
     Characteristic of traditional indigo: "watch the cloth turn blue in air"
 
   REPEATED DIPPING:
   Each dip/oxidation cycle = one layer of indigotin in fiber
-  Multiple dips → darker blue; single dip → light blue
+  Multiple dips -> darker blue; single dip -> light blue
   Navy blue = many dips; sky blue = few dips
 
 MICROBIOLOGICAL VAT:
@@ -102,8 +121,8 @@ WOAD (Isatis tinctoria):
 
 INDIGOFERA TINCTORIA:
   Tropical plant; India and SE Asia
-  Portuguese Vasco da Gama route (1498) → Indian indigo accessible
-  10× more dye per unit weight than woad
+  Portuguese Vasco da Gama route (1498) -> Indian indigo accessible
+  10x more dye per unit weight than woad
 
   "DEVIL'S DYE" CAMPAIGN:
   Woad farmers/merchants lobbied European governments to ban indigo
@@ -119,12 +138,12 @@ INDIGOFERA TINCTORIA:
 
 CARIBBEAN/SOUTH CAROLINA INDIGO:
   Spanish brought Indigofera to Caribbean
-  Elizabeth Lucas Pinckney (South Carolina, 1740–1744):
+  Elizabeth Lucas Pinckney (South Carolina, 1740-1744):
   Established indigo as major cash crop (on enslaved labor)
   By 1775: South Carolina exports ~1M pounds/year
   Slavery + indigo = another example of colonial commodity + forced labor
 
-BENGAL INDIGO REVOLT (1859–1860):
+BENGAL INDIGO REVOLT (1859-1860):
   British planters in Bengal forced peasants to grow indigo
   Under a coercive contract system (nil chaash = indigo cultivation contract)
   1859: Bengal farmers refused to plant, organized resistance
@@ -136,9 +155,9 @@ BENGAL INDIGO REVOLT (1859–1860):
 SYNTHETIC INDIGO (1897):
   Adolf von Baeyer: first synthesis 1865 (tiny quantities)
   BASF industrial synthesis: 1897 (Heumann synthesis)
-  Price collapse: natural indigo ~$1/lb → synthetic ~$0.05/lb
+  Price collapse: natural indigo ~$1/lb -> synthetic ~$0.05/lb
   Complete collapse of Indian and Caribbean indigo agriculture within 10 years
-  ~22,000 tons/year synthetic indigo produced now — almost entirely for denim
+  ~22,000 tons/year synthetic indigo produced now - almost entirely for denim
 ```
 
 ---
@@ -146,10 +165,10 @@ SYNTHETIC INDIGO (1897):
 ## Madder — The Red Root
 
 ```
-RUBIA TINCTORUM (Rubiaceae — coffee family):
+RUBIA TINCTORUM (Rubiaceae - coffee family):
   Perennial climbing plant; roots harvested after 3 years
   Active compounds in root:
-  - Alizarin (1,2-dihydroxyanthraquinone): ~0.5–3% dry weight
+  - Alizarin (1,2-dihydroxyanthraquinone): ~0.5-3% dry weight
   - Purpurin (1,2,4-trihydroxyanthraquinone): lesser amount
   - Pseudopurpurin (1,2,4-trihydroxy-3-carboxy anthraquinone): important in alkaline dyeing
 
@@ -178,7 +197,7 @@ ALIZARIN SYNTHESIS (1869):
   IMPACT:
   Synthetic alizarin: same compound, from anthracene (coal tar)
   Price ratio: synthetic = 1/10th natural
-  Madder farming in Netherlands, France, Turkey: collapsed 1870–1875
+  Madder farming in Netherlands, France, Turkey: collapsed 1870-1875
   Netherlands alone: 30,000 acres of madder fields abandoned
   "Agricultural chemical warfare" in miniature
 ```
@@ -190,18 +209,18 @@ ALIZARIN SYNTHESIS (1869):
 ```
 RESEDA LUTEOLA:
   Annual/biennial herb; entire above-ground plant used
-  Active compounds: luteolin (5,7,3',4'-tetrahydroxyflavone) + apigenin
-  Both flavones; abundant π conjugation → yellow absorption
+  Active compounds: luteolin (5,7,3',4'-tetrahydroxyflavone) . apigenin
+  Both flavones; abundant π conjugation -> yellow absorption
 
 VAT/MORDANT PROCESS:
-  Alum mordant → clear, bright lemon-yellow
-  Iron mordant → olive, greenish
-  Chrome mordant → deeper golden
+  Alum mordant -> clear, bright lemon-yellow
+  Iron mordant -> olive, greenish
+  Chrome mordant -> deeper golden
 
 LINCOLN GREEN:
   "Lincoln green" = the green of Robin Hood's Merry Men
-  Process: dye blue (indigo) first → overdye yellow (weld)
-           OR: dye yellow (weld) first → overdye blue (indigo)
+  Process: dye blue (indigo) first -> overdye yellow (weld)
+           OR: dye yellow (weld) first -> overdye blue (indigo)
   "Aldous" = double-dyed process
   Named for Lincoln (England) which was a major cloth production center
 
@@ -221,38 +240,38 @@ MORDANT DEFINITION:
   Metal salt that bonds simultaneously to:
   1. Textile fiber (coordinate bond to protein/cellulose)
   2. Dye molecule (coordinate bond to chromophore)
-  → Creates dye-mordant-fiber complex that is INSOLUBLE
+  -> Creates dye-mordant-fiber complex that is INSOLUBLE
 
-  Without mordant: most dyes wash out (soluble → diffuses out)
+  Without mordant: most dyes wash out (soluble -> diffuses out)
   With mordant: dye locked in fiber structure
 
 THE MOST IMPORTANT MORDANTS:
-+-------------------+------------------+-------------------------------+
+.-------------------.------------------.-------------------------------.
 | MORDANT           | ION              | COLOR MODIFICATION            |
-+-------------------+------------------+-------------------------------+
+.-------------------.------------------.-------------------------------.
 | Alum              | Al³⁺ (potassium  | Bright, warm, saturated       |
 | (potash alum)     | aluminum sulfate)| Workhorse mordant             |
-+-------------------+------------------+-------------------------------+
+.-------------------.------------------.-------------------------------.
 | Ferrous sulfate   | Fe²⁺             | Darker, cooler, "saddened"    |
 | (iron mordant)    |                  | "saddening" = mordant term    |
-+-------------------+------------------+-------------------------------+
+.-------------------.------------------.-------------------------------.
 | Tin mordant       | Sn²⁺ or Sn⁴⁺    | Brighter, more fluorescent-   |
-| (stannous chloride)                  | appearing; crimson → scarlet  |
-+-------------------+------------------+-------------------------------+
+| (stannous chloride)                  | appearing; crimson -> scarlet  |
+.-------------------.------------------.-------------------------------.
 | Copper sulfate    | Cu²⁺             | Greener, cooler tones         |
 | (blue vitriol)    |                  |                               |
-+-------------------+------------------+-------------------------------+
+.-------------------.------------------.-------------------------------.
 | Chrome mordant    | Cr³⁺             | Darker, more reddish          |
 | (potassium        |                  | Used for navy and dark shades |
 | dichromate)       |                  |                               |
-+-------------------+------------------+-------------------------------+
+.-------------------.------------------.-------------------------------.
 
 THE CHEMISTRY:
   Metal ion bonds to both sites via coordinate covalent bonds
   Oxygen atoms in dye molecule (OH groups) coordinate to metal
   Carboxyl/amino groups in wool fiber coordinate to metal
-  → Creates a CHELATE COMPLEX — thermodynamically stable
-  Chelation = multiple bonds from same ligand → very stable complex
+  -> Creates a CHELATE COMPLEX - thermodynamically stable
+  Chelation = multiple bonds from same ligand -> very stable complex
   This is why mordanted dyes are washfast
 ```
 
@@ -263,30 +282,30 @@ THE CHEMISTRY:
 ```
 THE LAKE PROCESS:
 
-  PROBLEM: Most organic dyes are soluble → can't be dispersed in oil/tempera
+  PROBLEM: Most organic dyes are soluble -> can't be dispersed in oil/tempera
   SOLUTION: Precipitate the dye onto an insoluble substrate
 
   PROCESS:
   1. Dissolve dye (cochineal/madder/weld) in hot water with alum
-  2. Add potassium carbonate or tartrate → raises pH
-  3. Al(OH)₃ precipitates → dye molecules adsorb to surface
-  4. Filter → wash → dry
+  2. Add potassium carbonate or tartrate -> raises pH
+  3. Al(OH)₃ precipitates -> dye molecules adsorb to surface
+  4. Filter -> wash -> dry
   Result: colored insoluble powder = LAKE PIGMENT
 
   Same chemistry as mordant dyeing but in suspension form
 
 COMMON LAKE PIGMENTS:
   Carmine lake (cochineal + alum): crimson
-  Rose madder (madder + alum): warm pink-red
-  Alizarin crimson (synthetic alizarin + alumina): semi-transparent red-violet
+  Rose madder (madder . alum): warm pink-red
+  Alizarin crimson (synthetic alizarin . alumina): semi-transparent red-violet
   Yellow lake (weld/quercitron + alum): transparent yellow
-  Indian yellow (magnesium euxanthate): deep warm yellow (since banned — derived from cows fed mango leaves; animal welfare issue)
+  Indian yellow (magnesium euxanthate): deep warm yellow (since banned - derived from cows fed mango leaves; animal welfare issue)
 
 FUGITIVITY PROBLEM:
   The organic chromophore is still present in the lake
-  → Still susceptible to UV photodegradation
-  → Most lakes = ASTM Lightfastness II or III
-  → Fade over years in museum conditions
+  -> Still susceptible to UV photodegradation
+  -> Most lakes = ASTM Lightfastness II or III
+  -> Fade over years in museum conditions
 
   FAMOUS FADED EXAMPLES:
   Renoir's large pink passages: lake pigments faded
@@ -303,9 +322,9 @@ FUGITIVITY PROBLEM:
 ```
 QUERCITRON (black oak bark, Quercus velutina):
   North America; discovered by Edward Bancroft (1775)
-  Active compound: quercetin + quercitrin (quercetin 3-rhamnoside)
+  Active compound: quercetin . quercitrin (quercetin 3-rhamnoside)
   Effective yellow; good lightfastness for a flavonoid
-  Major European yellow dye (~1775–1870)
+  Major European yellow dye (~1775-1870)
   Replaced weld as primary yellow in much of Europe
   Synthetic alternatives replaced both after 1850s
 ```
@@ -314,10 +333,10 @@ QUERCITRON (black oak bark, Quercus velutina):
 
 ```
 Crocus sativus stigmas: crocin (water-soluble carotenoid)
-Luxury yellow for textiles — the same compound that dyes food
+Luxury yellow for textiles - the same compound that dyes food
 Extravagantly expensive for textile use (same scarcity as culinary)
 Buddhist saffron robes: never genuine saffron (too expensive)
-  → Turmeric or marigold used instead
+  -> Turmeric or marigold used instead
 ```
 
 ---

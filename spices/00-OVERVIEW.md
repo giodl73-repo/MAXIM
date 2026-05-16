@@ -1,37 +1,56 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:spices:overview
+kind: guide
+module: spices
+section: spices
+title: Spices - Overview: Trade, History, and Global Landscape
+status: source-custody
+source_custody: partial
+current_path: spices/00-OVERVIEW.md
+canonical_path: spices/00-OVERVIEW.md
+backsource_ids: [proof-backfill:spices:00-overview, git-history:spices:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Spices — Overview: Trade, History, and Global Landscape
 
 ## The Big Picture
 
 ```
 +------------------------------------------------------------------+
-|                    THE SPICE WORLD                                |
+|                    THE SPICE WORLD                               |
 |                                                                  |
-|  ORIGIN → PROCESSING → TRADE ROUTE → DESTINATION → USE          |
+|  ORIGIN -> PROCESSING -> TRADE ROUTE -> DESTINATION -> USE       |
 |                                                                  |
-|  Tropics (5°–25° lat)  Dried/ground   Sea/land       Europe/   |
-|  Kerala, Sri Lanka     Extracted      Caravans       M.East     |
-|  Indonesia, Mexico     Fermented      Colonial       Asia       |
-|  Spain, Iran           Distilled      ships                     |
+|  Tropics (5-25 deg lat)  Dry/grind   Sea/land       Europe       |
+|  Kerala, Sri Lanka     Extracted      Caravans       M.East      |
+|  Indonesia, Mexico     Fermented      Colonial       Asia        |
+|  Spain, Iran           Distilled      ships                      |
 +------------------------------------------------------------------+
            |
            v
 +------------------------------------------------------------------+
 |                      FOUR TRADE ERAS                             |
 |                                                                  |
-|  ERA 1: Ancient caravan routes (3000 BCE–650 CE)                |
-|    Egypt ← Arabia ← India ← SE Asia via overland                |
-|    Spice markup: 100–1000x at destination                        |
+|  ERA 1: Ancient caravan routes (3000 BCE-650 CE)                 |
+|    Egypt <- Arabia <- India <- SE Asia via overland              |
+|    Spice markup: 100-1000x at destination                        |
 |                                                                  |
-|  ERA 2: Arab maritime dominance (650–1400 CE)                   |
-|    Dhow routes: Malabar Coast → Persian Gulf → Red Sea           |
-|    Arab traders controlled both ends — source monopoly           |
+|  ERA 2: Arab maritime dominance (650-1400 CE)                    |
+|    Dhow routes: Malabar Coast -> Persian Gulf -> Red Sea         |
+|    Arab traders controlled both ends - source monopoly           |
 |                                                                  |
-|  ERA 3: European Age of Exploration (1400–1700 CE)              |
+|  ERA 3: European Age of Exploration (1400-1700 CE)               |
 |    Portugal rounds Cape of Good Hope (1498)                      |
-|    Spain reaches Americas — Columbian Exchange (1492+)           |
-|    VOC/Dutch East India Company — first global corporation       |
+|    Spain reaches Americas - Columbian Exchange (1492+)           |
+|    VOC/Dutch East India Company - first global corporation       |
 |                                                                  |
-|  ERA 4: Industrialization & globalization (1700–present)        |
+|  ERA 4: Industrialization & globalization (1700-present)         |
 |    Monopolies collapse. Transplantation breaks geographic lock.  |
 |    Spices become commodity. Synthetic aroma/flavor emerges.      |
 +------------------------------------------------------------------+
@@ -47,7 +66,7 @@ Three interlocking facts explain the medieval spice obsession:
 FACT 1: PRESERVATION                     FACT 2: MEDICINE
 +---------------------------+            +---------------------------+
 | No refrigeration.         |            | Humoral medicine:         |
-| Black pepper, salt, clove  |            | Spices treated illness.   |
+| Black pepper, salt, clove |            | Spices treated illness.   |
 | retard bacterial growth.  |            | Galenic pharmacy = spices.|
 | Rotting meat + spices =   |            | Nutmeg against plague.    |
 | edible (barely). Before   |            | Ginger for digestion.     |
@@ -96,7 +115,7 @@ WORLD SPICE ORIGIN MAP
                                                  GALANGAL: SE Asia
 
 Key insight: The "spice map" is the tropics.
-Most valuable historical spices = narrow band ±25° from equator.
+Most valuable historical spices = narrow band ±25 deg  from equator.
 Europe/temperate zone = spice importer, not producer.
 Americas added a second node (chili/vanilla) post-1492.
 ```
@@ -109,17 +128,17 @@ Americas added a second node (chili/vanilla) post-1492.
 
 ```
 SPICE ORIGIN              MIDDLEMEN               DESTINATION
-+------------+            +----------+            +------------+
+.------------.            .----------.            .------------.
 | Malabar    |--sea------>| Arab     |--land/sea->| Venice/    |
 | (pepper)   |            | merchants|            | Genoa      |
-+------------+            | (Gulf/   |            | (European  |
+.------------.            | (Gulf/   |            | (European  |
 | Banda Isl  |            | Red Sea) |            | wholesale) |
-| (nutmeg,   |            +----------+            +------------+
+| (nutmeg,   |            .----------.            .------------.
 | cloves)    |                 |                       |
-+------------+            Ottoman                  Local markets
+.------------.            Ottoman                  Local markets
 | Sri Lanka  |            blocking                 (retail)
-| (cinnamon) |            (1453 —                  at 10–100x
-+------------+            Constantinople)          markup
+| (cinnamon) |            (1453 -                  at 10-100x
+.------------.            Constantinople)          markup
 ```
 
 ### The Portuguese Solution (1498)
@@ -134,7 +153,7 @@ MALABAR COAST
 CAPE OF GOOD HOPE
      |
      v
-LISBON → direct to European markets
+LISBON -> direct to European markets
 
 Result: Portugal briefly controls ~70% of global spice trade.
 Duration: ~80 years before Dutch VOC undercuts them systematically.
@@ -143,12 +162,12 @@ Duration: ~80 years before Dutch VOC undercuts them systematically.
 ### VOC Escalation (1602–1799)
 
 ```
-PORTUGUESE TRADING      →      VOC (Dutch) MONOPOLY BY FORCE
+PORTUGUESE TRADING      ->      VOC (Dutch) MONOPOLY BY FORCE
   (competitive markets)         (corporate-state with army + navy)
   Estado da India                Banda Islands massacre (1621)
   cartaz system                  Destroy surplus nutmeg trees
   (charging passage)             Kill or enslave local population
-                                 Run Island ↔ Manhattan (1667)
+                                 Run Island <-> Manhattan (1667)
                                  Monopoly price-setting for 150 yrs
 ```
 
@@ -159,41 +178,41 @@ PORTUGUESE TRADING      →      VOC (Dutch) MONOPOLY BY FORCE
 ```
 FAMILY                GENUS/SPECIES          SPICE(S)
 +--------------------+----------------------+----------------------+
-| Piperaceae         | Piper nigrum          | black/white/green    |
-|                    |                       | pepper               |
+| Piperaceae         | Piper nigrum         | black/white/green    |
+|                    |                      | pepper               |
 +--------------------+----------------------+----------------------+
-| Zingiberaceae      | Zingiber officinale   | ginger               |
-|                    | Curcuma longa         | turmeric             |
-|                    | Elettaria cardamomum  | green cardamom       |
-|                    | Alpinia galanga       | galangal             |
+| Zingiberaceae      | Zingiber officinale  | ginger               |
+|                    | Curcuma longa        | turmeric             |
+|                    | Elettaria cardamomum | green cardamom       |
+|                    | Alpinia galanga      | galangal             |
 +--------------------+----------------------+----------------------+
-| Myristicaceae      | Myristica fragrans    | nutmeg + mace        |
+| Myristicaceae      | Myristica fragrans   | nutmeg + mace        |
 +--------------------+----------------------+----------------------+
-| Myrtaceae          | Syzygium aromaticum   | cloves               |
-|                    | Pimenta dioica        | allspice             |
+| Myrtaceae          | Syzygium aromaticum  | cloves               |
+|                    | Pimenta dioica       | allspice             |
 +--------------------+----------------------+----------------------+
-| Apiaceae           | Cuminum cyminum       | cumin                |
-|                    | Coriandrum sativum    | coriander/cilantro   |
-|                    | Foeniculum vulgare    | fennel               |
-|                    | Carum carvi           | caraway              |
-|                    | Pimpinella anisum     | anise                |
+| Apiaceae           | Cuminum cyminum      | cumin                |
+|                    | Coriandrum sativum   | coriander/cilantro   |
+|                    | Foeniculum vulgare   | fennel               |
+|                    | Carum carvi          | caraway              |
+|                    | Pimpinella anisum    | anise                |
 +--------------------+----------------------+----------------------+
-| Lauraceae          | Cinnamomum verum      | Ceylon cinnamon      |
-|                    | C. cassia             | cassia               |
-|                    | Laurus nobilis        | bay leaf             |
+| Lauraceae          | Cinnamomum verum     | Ceylon cinnamon      |
+|                    | C. cassia            | cassia               |
+|                    | Laurus nobilis       | bay leaf             |
 +--------------------+----------------------+----------------------+
-| Iridaceae          | Crocus sativus        | saffron              |
+| Iridaceae          | Crocus sativus       | saffron              |
 +--------------------+----------------------+----------------------+
-| Orchidaceae        | Vanilla planifolia    | vanilla              |
+| Orchidaceae        | Vanilla planifolia   | vanilla              |
 +--------------------+----------------------+----------------------+
-| Solanaceae         | Capsicum annuum/chin. | chili, paprika       |
+| Solanaceae         | Capsicum ann./chin.  | chili, paprika       |
 +--------------------+----------------------+----------------------+
-| Lamiaceae          | Thymus vulgaris       | thyme                |
-|                    | Origanum vulgare      | oregano              |
-|                    | Rosmarinus/Salvia     | rosemary             |
-|                    | Ocimum basilicum      | basil                |
+| Lamiaceae          | Thymus vulgaris      | thyme                |
+|                    | Origanum vulgare     | oregano              |
+|                    | Rosmarinus/Salvia    | rosemary             |
+|                    | Ocimum basilicum     | basil                |
 +--------------------+----------------------+----------------------+
-| Schisandraceae     | Illicium verum        | star anise           |
+| Schisandraceae     | Illicium verum       | star anise           |
 +--------------------+----------------------+----------------------+
 ```
 
@@ -244,25 +263,25 @@ Pre-1400:  Arab maritime traders control Indian Ocean
      |
 1488:  Dias rounds Cape of Good Hope
 1498:  Vasco da Gama reaches Malabar Coast
-     → Portugal controls pepper, cinnamon (Estado da India)
+     -> Portugal controls pepper, cinnamon (Estado da India)
      |
 1511:  Portugal seizes Malacca (strategic SE Asia hub)
 1512:  Portuguese reach Banda Islands (nutmeg/cloves)
      |
 1602:  VOC (Vereenigde Oost-Indische Compagnie) founded
-     → First multinational joint-stock corporation
-     → Systematically displaces Portuguese
-     → Banda Islands massacre (1621): ~15,000 Bandanese killed/enslaved
-     → Monopoly enforcement: destroy surplus nutmeg trees
+     -> First multinational joint-stock corporation
+     -> Systematically displaces Portuguese
+     -> Banda Islands massacre (1621): ~15,000 Bandanese killed/enslaved
+     -> Monopoly enforcement: destroy surplus nutmeg trees
      |
 1667:  Anglo-Dutch Treaty of Breda
-     → English trade Run Island (nutmeg) for New Amsterdam (Manhattan)
-     → Nutmeg judged the more valuable asset at the time
+     -> English trade Run Island (nutmeg) for New Amsterdam (Manhattan)
+     -> Nutmeg judged the more valuable asset at the time
      |
 1770:  Pierre Poivre smuggles nutmeg/clove seedlings to Mauritius
-     → Geographic monopoly ENDS. Prices collapse over decades.
+     -> Geographic monopoly ENDS. Prices collapse over decades.
      |
-1800s: Industrial era — spices become cheap commodity food ingredient
+1800s: Industrial era - spices become cheap commodity food ingredient
        Synthetic flavors emerge: vanillin from lignin (1874)
        Refrigeration renders preservation function obsolete
 ```
@@ -281,9 +300,9 @@ HERB                              SPICE
 +------------------------------+  +------------------------------+
 
 GRAY ZONES (same plant, both herb and spice):
-  Coriander seed (spice) ← Coriandrum sativum → Cilantro leaf (herb)
-  Fennel seed (spice) ← Foeniculum vulgare → Fennel fronds (herb)
-  Dill seed (spice) ← Anethum graveolens → Dill weed (herb)
+  Coriander seed (spice) <- Coriandrum sativum -> Cilantro leaf (herb)
+  Fennel seed (spice) <- Foeniculum vulgare -> Fennel fronds (herb)
+  Dill seed (spice) <- Anethum graveolens -> Dill weed (herb)
 ```
 
 ---

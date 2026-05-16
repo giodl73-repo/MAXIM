@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:spices:capsicum-chili
+kind: guide
+module: spices
+section: spices
+title: Capsicum and Chili - The New World's Hottest Export
+status: source-custody
+source_custody: partial
+current_path: spices/06-CAPSICUM-CHILI.md
+canonical_path: spices/06-CAPSICUM-CHILI.md
+backsource_ids: [proof-backfill:spices:06-capsicum-chili, git-history:spices:06-capsicum-chili]
+concepts: [capsicum, chili]
+root_concepts: [capsicum, chili]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Capsicum & Chili — The New World's Hottest Export
 
 ## The Big Picture
@@ -38,29 +57,29 @@
 ```
 THE FIVE DOMESTICATED SPECIES:
 
-C. annuum — THE COMMON ONE (~80% of all chili production)
+C. annuum - THE COMMON ONE (~80% of all chili production)
   Origin: Mexico (single domestication from C. annuum var. glabriusculum)
-  Includes: bell peppers (0 SHU), jalapeño (2,500–8,000), cayenne (30,000–50,000),
+  Includes: bell peppers (0 SHU), jalapeño (2,500-8,000), cayenne (30,000-50,000),
             paprika, serrano, Anaheim, New Mexico, banana pepper
   Huge morphological variation within ONE species
 
-C. chinense — THE HOT ONES
-  Misnomer: "chinense" means "from China" — Nikolaus von Jacquin was wrong
+C. chinense - THE HOT ONES
+  Misnomer: "chinense" means "from China" - Nikolaus von Jacquin was wrong
   Actually from Amazonian South America
-  Includes: habanero (100,000–350,000 SHU), Scotch bonnet (150,000–350,000),
-            Trinidad Moruga Scorpion (1.2–2M SHU), Carolina Reaper (1.4–2.2M SHU)
+  Includes: habanero (100,000-350,000 SHU), Scotch bonnet (150,000-350,000),
+            Trinidad Moruga Scorpion (1.2-2M SHU), Carolina Reaper (1.4-2.2M SHU)
   Fruity, floral aromatics alongside extreme heat
 
-C. frutescens — THE COMPACT HOT ONES
-  Includes: Tabasco (30,000–50,000 SHU), piri piri (African bird's eye)
+C. frutescens - THE COMPACT HOT ONES
+  Includes: Tabasco (30,000-50,000 SHU), piri piri (African bird's eye)
   Small, upright fruits; often used for hot sauces
 
-C. baccatum — THE SOUTH AMERICAN ONES
-  Includes: ají amarillo (30,000–50,000 SHU) — Peru's foundational spice
+C. baccatum - THE SOUTH AMERICAN ONES
+  Includes: ají amarillo (30,000-50,000 SHU) - Peru's foundational spice
   Fruity, citric flavor profile different from Mexican species
   Inca empire used extensively
 
-C. pubescens — THE ANDEAN ONE
+C. pubescens - THE ANDEAN ONE
   Rocoto chile; black seeds (unique visual ID)
   High altitude Andes cultivation; thick flesh
   Not commonly exported; staple in Bolivia/Peru highlands
@@ -83,15 +102,15 @@ CAPSAICIN'S EVOLUTIONARY FUNCTION:
   |                            |   |                            |
   | Eat chili fruit freely     |   | Deterred by burning pain   |
   | Pass seeds through gut     |   | (OR crush seeds, killing   |
-  | intact (small seed,        |   | them — mammals have        |
+  | intact (small seed,        |   | them - mammals have        |
   | rapid transit)             |   | grinding molars)           |
-  | Fly distances → DISPERSE   |   |                            |
+  | Fly far -> DISPERSE        |   |                            |
   +----------------------------+   +----------------------------+
 
   RESULT: Capsaicin evolved as a mammal deterrent
   Birds = effective dispersers; mammals = seed destroyers
-  Selection pressure → plants that deter mammals but not birds
-  → capsaicin is the product of ~10M years of bird-plant co-evolution
+  Selection pressure -> plants that deter mammals but not birds
+  -> capsaicin is the product of ~10M years of bird-plant co-evolution
 
   HUMANS: Unique mammals who override TRPV1 signal culturally
   Spicy food enjoyment = habituated response to "benign masochism"
@@ -108,23 +127,23 @@ The 2021 Nobel Prize in Physiology or Medicine went to David Julius for discover
 TRPV1 (Transient Receptor Potential Vanilloid 1):
 
 NORMAL FUNCTION:
-  Thermosensor: fires when temperature exceeds ~43°C
+  Thermosensor: fires when temperature exceeds ~43 deg C
   Purpose: alert to nociceptive (tissue-damaging) heat
   Ion channel: non-selective cation channel
-  Opens → Na+ and Ca2+ rush in → depolarization → pain signal
+  Opens -> Na+ and Ca2+ rush in -> depolarization -> pain signal
 
 CAPSAICIN BINDING:
   Capsaicin = vanilloid agonist
   Binds transmembrane domain (Tyr511 + Ser512 key residues)
   Opens channel at ROOM TEMPERATURE
   Brain receives identical signal as "tissue-damaging heat"
-  → "burning" sensation that isn't actually hot
+  -> "burning" sensation that isn't actually hot
 
 ADAPTIVE VALUE TO US:
   1. Endorphin release (opioid system response to "pain" signal)
-  2. Topical depletion of substance P → pain relief
+  2. Topical depletion of substance P -> pain relief
      Medical applications: Qutenza (8% capsaicin patch) for neuropathic pain
-  3. Metabolic: TRPV1 activation in brown adipose tissue → thermogenesis
+  3. Metabolic: TRPV1 activation in brown adipose tissue -> thermogenesis
 
 MOLECULAR STRUCTURE:
   Capsaicin: 8-methyl-N-vanillyl-6-nonenamide
@@ -139,34 +158,34 @@ MOLECULAR STRUCTURE:
 ## Capsaicin Chemistry
 
 ```
-CAPSAICINOIDS — the family:
+CAPSAICINOIDS - the family:
   Capsaicin: ~69% of total capsaicinoids (most abundant)
   Dihydrocapsaicin: ~22% (slightly lower potency)
   Nordihydrocapsaicin, homocapsaicin, homodihydrocapsaicin: minor
 
 BIOSYNTHESIS:
   Phenylpropanoid pathway + fatty acid pathway
-  Phenylalanine → vanillylamine (aromatic portion)
-  Leucine/valine → branched-chain fatty acid (aliphatic portion)
+  Phenylalanine -> vanillylamine (aromatic portion)
+  Leucine/valine -> branched-chain fatty acid (aliphatic portion)
   Capsaicin synthase joins them
 
 LOCATION IN FRUIT:
   Placenta (white membrane, internal ribs) = highest concentration
   Flesh (pericarp) = lower concentration
   Seeds = contain some (absorbed from placenta)
-  "Seeds are the hottest part" is MYTH — seeds absorb capsaicin from placenta
+  "Seeds are the hottest part" is MYTH - seeds absorb capsaicin from placenta
   Remove placenta to reduce heat, not just seeds
 
 HEAT RELIEF:
-  Capsaicin is HYDROPHOBIC — not water-soluble
-  Water disperses but doesn't dissolve → spreads the burn
+  Capsaicin is HYDROPHOBIC - not water-soluble
+  Water disperses but doesn't dissolve -> spreads the burn
 
   Milk: casein (protein) + fat emulsion both work
     - Casein micelles: bind capsaicin (soap-like mechanism)
     - Fat: dissolves hydrophobic capsaicin
   Bread: mechanical dilution and binding
   Acid (lemon, vinegar): no chemical effect on capsaicin itself
-    — may help by overwhelming other receptors
+    - may help by overwhelming other receptors
 ```
 
 ---
@@ -192,24 +211,24 @@ MODERN METHOD (HPLC):
 REFERENCE SCALE:
 +--------------------------------------------------+
 | Bell pepper          | 0 SHU                     |
-| Banana pepper        | 0–500 SHU                 |
-| Pepperoncini         | 100–500 SHU               |
-| Jalapeño             | 2,500–8,000 SHU           |
-| Serrano              | 8,000–22,000 SHU          |
-| Cayenne              | 30,000–50,000 SHU         |
-| Tabasco sauce        | 2,500–5,000 SHU           |
-| Thai bird chili      | 50,000–100,000 SHU        |
-| Habanero             | 100,000–350,000 SHU       |
-| Scotch bonnet        | 150,000–350,000 SHU       |
-| Ghost pepper (bhut)  | 800,000–1,000,000 SHU     |
-| Carolina Reaper      | 1,400,000–2,200,000 SHU   |
+| Banana pepper        | 0-500 SHU                 |
+| Pepperoncini         | 100-500 SHU               |
+| Jalapeño             | 2,500-8,000 SHU           |
+| Serrano              | 8,000-22,000 SHU          |
+| Cayenne              | 30,000-50,000 SHU         |
+| Tabasco sauce        | 2,500-5,000 SHU           |
+| Thai bird chili      | 50,000-100,000 SHU        |
+| Habanero             | 100,000-350,000 SHU       |
+| Scotch bonnet        | 150,000-350,000 SHU       |
+| Ghost pepper (bhut)  | 800,000-1,000,000 SHU     |
+| Carolina Reaper      | 1,400,000-2,200,000 SHU   |
 | Pure capsaicin       | ~16,000,000 SHU           |
 +--------------------------------------------------+
 
 NOTE: SHU is not linear in perceived heat experience.
       Psychophysical response is logarithmic.
-      A 300,000 SHU habanero is not "10× hotter" than
-      a 30,000 SHU cayenne in experience — more like 2–3×.
+      A 300,000 SHU habanero is not "10x hotter" than
+      a 30,000 SHU cayenne in experience - more like 2-3x.
 ```
 
 ---
@@ -217,29 +236,29 @@ NOTE: SHU is not linear in perceived heat experience.
 ## The Columbian Exchange — Global Adoption Mechanisms
 
 ```
-HOW CHILIES SPREAD SO FAST (1492 → globally integrated by 1600):
+HOW CHILIES SPREAD SO FAST (1492 -> globally integrated by 1600):
 
 PORTUGUESE MARITIME ROUTES (dominant vector):
-  1. Spain (Columbus → Caribbean → Mexico, 1492)
-  2. → Canary Islands (1493)
-  3. → São Tomé, West Africa (1535–1540)
-  4. → India, Malabar Coast (Portuguese already present, 1498+)
-     Adopted into Indian cooking by 1530s–1550s
-  5. → Malaysia, Indonesia (Portuguese Malacca trade routes)
-  6. → Japan (via Portuguese traders, 1543)
-  7. Ottoman Empire → Hungary (via Turkish expansion, 16th c.)
+  1. Spain (Columbus -> Caribbean -> Mexico, 1492)
+  2. -> Canary Islands (1493)
+  3. -> São Tomé, West Africa (1535-1540)
+  4. -> India, Malabar Coast (Portuguese already present, 1498+)
+     Adopted into Indian cooking by 1530s-1550s
+  5. -> Malaysia, Indonesia (Portuguese Malacca trade routes)
+  6. -> Japan (via Portuguese traders, 1543)
+  7. Ottoman Empire -> Hungary (via Turkish expansion, 16th c.)
 
 ADOPTION INCENTIVE:
   Black pepper (Piper nigrum): expensive import, controlled by traders
   Chili pepper: can be grown anywhere in tropics for free
   Same "heat" sensation at zero import cost
-  → Replacement of expensive ingredient with free local crop
-  → Economic incentive drove rapid voluntary adoption
+  -> Replacement of expensive ingredient with free local crop
+  -> Economic incentive drove rapid voluntary adoption
 
 VITAMIN C BONUS:
-  Fresh chilies: extremely high vitamin C (6× lemon per gram)
+  Fresh chilies: extremely high vitamin C (6x lemon per gram)
   Scurvy was a genuine existential threat for coastal populations
-  and sailors — any vitamin C source adopted rapidly
+  and sailors - any vitamin C source adopted rapidly
 ```
 
 ---
@@ -251,21 +270,21 @@ PAPRIKA = Capsicum annuum cultivars bred for:
   LOW capsaicin (sweet/mild) + HIGH carotenoids (color)
 
 CAROTENOIDS IN PAPRIKA (fat-soluble red pigments):
-  Capsanthin (~40–60% of total carotenoids) — red
-  Capsorubin (~7–14%) — red-purple
-  β-carotene (~3–7%) — orange
+  Capsanthin (~40-60% of total carotenoids) - red
+  Capsorubin (~7-14%) - red-purple
+  β-carotene (~3-7%) - orange
   Zeaxanthin, cryptoxanthin: minor
 
 PRODUCTION REGIONS:
-  Hungary: PDO paprikas — Kalocsa, Szeged
+  Hungary: PDO paprikas - Kalocsa, Szeged
     • 8 official grades from kulonleges (noble sweet, deep red)
       to erős (strong, some heat)
   Spain: Pimentón de La Vera (PDO, Extremadura)
-    • Smoked over oak wood → smoky paprika
+    • Smoked over oak wood -> smoky paprika
     • Dulce (sweet), agridulce (bittersweet), picante (spicy)
 
 CULINARY FUNCTION:
-  Paprika is not just color — the carotenoids add fat-soluble flavor
+  Paprika is not just color - the carotenoids add fat-soluble flavor
   Oil extraction (paprika + hot oil first) = traditional technique
   to extract carotenoids into fat phase for full color/flavor
 ```

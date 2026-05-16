@@ -1,10 +1,29 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:spices:nutmeg-cloves-mace
+kind: guide
+module: spices
+section: spices
+title: Nutmeg, Cloves and Mace - The Banda Islands
+status: source-custody
+source_custody: partial
+current_path: spices/05-NUTMEG-CLOVES-MACE.md
+canonical_path: spices/05-NUTMEG-CLOVES-MACE.md
+backsource_ids: [proof-backfill:spices:05-nutmeg-cloves-mace, git-history:spices:05-nutmeg-cloves-mace]
+concepts: [nutmeg, cloves, mace]
+root_concepts: [nutmeg, cloves]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nutmeg, Cloves & Mace — The Banda Islands
 
 ## The Big Picture
 
 ```
 +------------------------------------------------------------------+
-|           THE SPICE ISLANDS — CAPITALISM'S ORIGIN STORY          |
+|           THE SPICE ISLANDS - CAPITALISM'S ORIGIN STORY          |
 |                                                                  |
 |  NUTMEG + MACE (Myristica fragrans)                              |
 |  Only native location: Banda Islands, Maluku, Indonesia          |
@@ -32,14 +51,14 @@
 MYRISTICA FRAGRANS (Myristicaceae family):
   Large evergreen tree, up to 20m
   Dioecious: separate male (pollen) and female (fruit) trees
-  Farmers kept 1 male per ~10 females → optimize female fruit
+  Farmers kept 1 male per ~10 females -> optimize female fruit
 
   THE FRUIT:
   +--------------------------------------------------+
   |                                                  |
   |  OUTER FLESH (pericarp)                          |
   |  Edible in Indonesia (made into candied fruit,   |
-  |  juice) — rarely seen in Western markets         |
+  |  juice) - rarely seen in Western markets         |
   |  Splits when ripe, revealing:                    |
   |                                                  |
   |    RED ARIL (network of red fibers               |
@@ -61,10 +80,10 @@ Mace: more delicate, floral version of nutmeg flavor.
 Mace: traded separately at higher price per unit weight (rarer).
 
 COMMERCIAL LIFECYCLE:
-  Trees: 7–9 years to first fruit production
-  Full production: ~15–20 years
+  Trees: 7-9 years to first fruit production
+  Full production: ~15-20 years
   Productive life: 70+ years
-  Yield: ~1,500–2,000 nutmegs per tree per year at peak
+  Yield: ~1,500-2,000 nutmegs per tree per year at peak
 ```
 
 ---
@@ -74,16 +93,16 @@ COMMERCIAL LIFECYCLE:
 ### Flavor Compounds
 
 ```
-ESSENTIAL OIL COMPOSITION (~10–15% of dry weight):
-  Sabinene: ~50% — fresh, woody terpene
-  α-pinene, β-pinene: ~15% — piney notes
-  Myristicin: 3–4% — the problematic one (see below)
+ESSENTIAL OIL COMPOSITION (~10-15% of dry weight):
+  Sabinene: ~50% - fresh, woody terpene
+  α-pinene, β-pinene: ~15% - piney notes
+  Myristicin: 3-4% - the problematic one (see below)
   Elemicin: ~2%
-  Eugenol: ~1–5%
+  Eugenol: ~1-5%
   Safrole: trace amounts
 
   Flavor profile: warm, sweet, woody, slightly floral
-  Mace: same compounds, lighter ratios → more delicate
+  Mace: same compounds, lighter ratios -> more delicate
 ```
 
 ### Myristicin — The Psychoactive Component
@@ -93,12 +112,12 @@ MYRISTICIN (C11H12O3):
   Phenylpropanoid ether
   Metabolized to MMDA (3-methoxy-4,5-methylenedioxy-amphetamine)
     a mild psychoactive phenethylamine
-  Also: elemicin → TMA-2 (another psychoactive)
+  Also: elemicin -> TMA-2 (another psychoactive)
 
   TOXIC DOSE:
-  Recreational dose: typically 5–15g ground nutmeg
+  Recreational dose: typically 5-15g ground nutmeg
   Malcolm X, in his memoir: describes nutmeg prison highs
-  Onset: 3–8 hours (delayed due to metabolism required)
+  Onset: 3-8 hours (delayed due to metabolism required)
   Duration: 24 hours+
 
   SIDE EFFECTS AT TOXIC DOSE (nutmeg poisoning is real):
@@ -107,7 +126,7 @@ MYRISTICIN (C11H12O3):
   Documented hospitalizations; no documented fatalities from nutmeg alone
 
   CULINARY CONTEXT:
-  1 tsp ground nutmeg ≈ 2–3g total — far below toxic threshold
+  1 tsp ground nutmeg ≈ 2-3g total - far below toxic threshold
   Trace myristicin in culinary amounts = negligible
   The psychoactivity is only relevant above ~5g
 ```
@@ -118,20 +137,20 @@ MYRISTICIN (C11H12O3):
 
 ```
 SYZYGIUM AROMATICUM (Myrtaceae family):
-  Dried FLOWER BUDS (not seeds, bark, or fruit — flower buds)
-  Harvested before flowers open — opening reduces essential oil content
+  Dried FLOWER BUDS (not seeds, bark, or fruit - flower buds)
+  Harvested before flowers open - opening reduces essential oil content
   Native: Ternate and Tidore, North Maluku (separate from Banda)
 
 EUGENOL (4-allyl-2-methoxyphenol):
-  ~72–90% of essential oil by weight
-  Phenylpropanoid: phenylalanine → eugenol pathway
+  ~72-90% of essential oil by weight
+  Phenylpropanoid: phenylalanine -> eugenol pathway
 
   MECHANISMS:
   1. Analgesic:
      TRPV1 agonist (like capsaicin) at low concentration
-     → at higher concentration, acts as TRPV1 ANTAGONIST
-     → also: Na+ channel blocker (local anesthetic)
-     → inhibits prostaglandin synthesis (COX inhibition)
+     -> at higher concentration, acts as TRPV1 ANTAGONIST
+     -> also: Na+ channel blocker (local anesthetic)
+     -> inhibits prostaglandin synthesis (COX inhibition)
      Clove oil for toothache: genuine mechanism, not folk medicine
      Used in dental procedures as local anesthetic/antiseptic
 
@@ -166,13 +185,13 @@ PRE-1600 BANDA:
   Population: ~15,000 Bandanese
   Society: republic of orang kaya ("wealthy men") merchant leaders
   Trade: sold nutmeg + mace to Arab, Malay, Javanese, Chinese merchants
-  at market prices with multiple buyers → competitive market
+  at market prices with multiple buyers -> competitive market
 
   Portuguese arrived (1512, Francisco Serrão):
   Established trading post, not full control
   Bandanese maintained multiple trading relationships
-  English also arrived (1599 — East India Company's first voyage)
-  → Competition kept prices competitive
+  English also arrived (1599 - East India Company's first voyage)
+  -> Competition kept prices competitive
 ```
 
 ### The VOC Plan
@@ -182,22 +201,22 @@ VOC FOUNDED 1602:
   Vereenigde Oost-Indische Compagnie (United East India Company)
   First joint-stock corporation with tradeable shares
   State powers: could raise armies, make war, sign treaties
-  Goal: MONOPOLY, not trade → eliminate all competition
+  Goal: MONOPOLY, not trade -> eliminate all competition
 
-  PIETER BOTH (VOC Governor-General 1610–1614):
+  PIETER BOTH (VOC Governor-General 1610-1614):
   Tried to negotiate exclusive contracts
   Bandanese refused: they preferred open competition
 
-  JAN PIETERSZOON COEN (VOC Governor-General 1619–1629):
+  JAN PIETERSZOON COEN (VOC Governor-General 1619-1629):
   "We cannot carry on trade without war, nor war without trade"
-  — Coen's own words. The explicit doctrine.
+  - Coen's own words. The explicit doctrine.
 ```
 
 ### The Banda Massacre (1621)
 
 ```
 WHAT HAPPENED:
-  April–May 1621: Coen led VOC force + Japanese mercenaries
+  April-May 1621: Coen led VOC force + Japanese mercenaries
   into Banda islands
 
   SCALE OF VIOLENCE:
@@ -227,7 +246,7 @@ MODERN ASSESSMENT:
 
 ```
 ENGLISH PROBLEM:
-  English had a colony on Run (Pulau Run) — tiny Banda island
+  English had a colony on Run (Pulau Run) - tiny Banda island
   English nutmeg trade undermined VOC monopoly
   Wars between VOC and English East India Company
 
@@ -251,7 +270,7 @@ TREATY OF BREDA (1667):
 ## Breaking the Monopoly
 
 ```
-1769–1770: PIERRE POIVRE
+1769-1770: PIERRE POIVRE
   French colonial administrator on Île Maurice (Mauritius)
   Name literally means "Peter Pepper" (he changed the spice world)
 
@@ -263,7 +282,7 @@ TREATY OF BREDA (1667):
 
   Planted at Pamplemousses Botanical Garden, Mauritius
 
-1778–1800: Propagation spreads
+1778-1800: Propagation spreads
   French introduce cloves to Zanzibar (now world's top clove producer)
   Nutmeg spreads to Penang, Grenada, Zanzibar
 
