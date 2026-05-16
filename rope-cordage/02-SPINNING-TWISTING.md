@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rope-cordage:spinning-twisting
+kind: guide
+module: rope-cordage
+section: rope-cordage
+title: Spinning and Twisting: S-Twist, Z-Twist, Lay, and Construction
+status: source-custody
+source_custody: partial
+current_path: rope-cordage/02-SPINNING-TWISTING.md
+canonical_path: rope-cordage/02-SPINNING-TWISTING.md
+backsource_ids: [proof-backfill:rope-cordage:02-spinning-twisting, git-history:rope-cordage:02-spinning-twisting]
+concepts: [spinning, twisting]
+root_concepts: [spinning, twisting]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Spinning and Twisting: S-Twist, Z-Twist, Lay, and Construction
 
 ## The Big Picture
@@ -96,7 +115,7 @@ SPINNING MECHANICS
   │                                                                   │
   │  TWISTING: roving receives Z or S twist at drafting frame       │
   │  ┌──────────────────────────────────────────────────────────┐   │
-  │  │  ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱  (Z-spun yarn)      │     │
+  │  │  ///////////////////////////////////  (Z-spun yarn)      │   │
   │  └──────────────────────────────────────────────────────────┘   │
   └──────────────────────────────────────────────────────────────────┘
 

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rope-cordage:braiding-plaiting
+kind: guide
+module: rope-cordage
+section: rope-cordage
+title: Braiding and Plaiting: Round Braid, Hollow Braid, Kernmantle
+status: source-custody
+source_custody: partial
+current_path: rope-cordage/03-BRAIDING-PLAITING.md
+canonical_path: rope-cordage/03-BRAIDING-PLAITING.md
+backsource_ids: [proof-backfill:rope-cordage:03-braiding-plaiting, git-history:rope-cordage:03-braiding-plaiting]
+concepts: [braiding, plaiting]
+root_concepts: [braiding, plaiting]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Braiding and Plaiting: Round Braid, Hollow Braid, Kernmantle
 
 ## The Big Picture
@@ -80,11 +99,11 @@ HOLLOW BRAID
   │                                                                  │
   │  Cross-section:                                                  │
   │  ┌────────────────────────────────────────────────────────────┐  │
-  │  │                  ╭──────────────────╮                      │ │
-  │  │                  │  HOLLOW CENTER   │                      │ │
-  │  │   BRAID WALL     │  (empty)         │  BRAID WALL         │  │
-  │  │   (interlaced)   ╰──────────────────╯  (interlaced)        │ │
-  │  └────────────────────────────────────────────────────────────┘ │
+  │  │                  HOLLOW CENTER AREA                         │  │
+  │  │                  (empty)                                    │  │
+  │  │   BRAID WALL                         BRAID WALL             │  │
+  │  │   (interlaced)                       (interlaced)            │  │
+  │  └────────────────────────────────────────────────────────────┘  │
   │                                                                   │
   │  Properties:                                                    │
   │  • Lower strength than double braid (wall carries all load)    │
@@ -195,7 +214,7 @@ KERNMANTLE ANATOMY
   │  Dynamic climbing (UIAA EN 892):                                 │
   │   Diameter: 9–11 mm                                              │
   │   Impact force: ≤ 12 kN (single strand, standard factor fall)    │
-  │   Elongation under load: 5–10% (designed for energy absorption)│
+  │   Elongation under load: 5-10% (designed for energy absorption)  │
   │   Falls held: ≥ 5 (UIAA test: fall factor 1.77)                  │
   │                                                                  │
   │  Static rescue (NFPA 1983 Technical Use):                        │
@@ -222,7 +241,7 @@ DYNAMIC vs. STATIC CLIMBING/RESCUE ROPE
   │    key design parameter, not breaking strength                   │
   │                                                                  │
   │  PHYSICS: F = m × a = m × Δv/Δt                                  │
-  │  More rope elongation → longer Δt → lower peak force on climber│
+  │  More rope elongation -> more dt -> lower peak force on climber  │
   │  Dynamic rope trading some energy as elongation = less force     │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -300,7 +319,7 @@ BRAID ANGLE EFFECTS
   │  High α (shallow strands):                                       │
   │  ╱╱╱╱╱╱    (shallow — more diagonal to axis)                     │
   │  → Lower tensile strength                                        │
-  │  → Higher elongation (braid must "straighten" before tensioning)│
+  │  -> More elongation (braid must "straighten" before tensioning)  │
   │  → More flexible in bending                                      │
   │                                                                  │
   │  TYPICAL VALUES:                                                 │

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:masonry:arches-vaults
+kind: guide
+module: masonry
+section: masonry
+title: Arches and Vaults: Thrust Line Theory, Voussoirs, and Gothic Structure
+status: source-custody
+source_custody: partial
+current_path: masonry/06-ARCHES-VAULTS.md
+canonical_path: masonry/06-ARCHES-VAULTS.md
+backsource_ids: [proof-backfill:masonry:06-arches-vaults, git-history:masonry:06-arches-vaults]
+concepts: [arches, vaults]
+root_concepts: [arches, vaults]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Arches and Vaults: Thrust Line Theory, Voussoirs, and Gothic Structure
 
 ## The Big Picture

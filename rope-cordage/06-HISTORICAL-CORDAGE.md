@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rope-cordage:historical-cordage
+kind: guide
+module: rope-cordage
+section: rope-cordage
+title: Historical Cordage: Ancient Egypt, Inca Quipu, Viking Rigging, Sailmaking
+status: source-custody
+source_custody: partial
+current_path: rope-cordage/06-HISTORICAL-CORDAGE.md
+canonical_path: rope-cordage/06-HISTORICAL-CORDAGE.md
+backsource_ids: [proof-backfill:rope-cordage:06-historical-cordage, git-history:rope-cordage:06-historical-cordage]
+concepts: [historical, cordage]
+root_concepts: [historical, cordage]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Historical Cordage: Ancient Egypt, Inca Quipu, Viking Rigging, Sailmaking
 
 ## The Historical Landscape

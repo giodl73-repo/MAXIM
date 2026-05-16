@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rope-cordage:rope-properties
+kind: guide
+module: rope-cordage
+section: rope-cordage
+title: Rope Properties: Strength, Elongation, Abrasion, UV, Creep
+status: source-custody
+source_custody: partial
+current_path: rope-cordage/04-ROPE-PROPERTIES.md
+canonical_path: rope-cordage/04-ROPE-PROPERTIES.md
+backsource_ids: [proof-backfill:rope-cordage:04-rope-properties, git-history:rope-cordage:04-rope-properties]
+concepts: [rope, properties]
+root_concepts: [rope, properties]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rope Properties: Strength, Elongation, Abrasion, UV, Creep
 
 ## The Performance Framework
@@ -19,8 +38,8 @@ ROPE PERFORMANCE DIMENSIONS
   │  DURABILITY PROPERTIES          HANDLING PROPERTIES             │
   │  ┌──────────────────┐           ┌──────────────────┐            │
   │  │ UV degradation   │           │ Flexibility      │            │
-  │  │ Abrasion resistance│         │ Knotability      │            │
-  │  │ Chemical resistance│         │ Coilability      │            │
+  │  │ Abrasion resist. │           │ Knotability      │            │
+  │  │ Chemical resist. │           │ Coilability      │            │
   │  │ Creep (sustained)│           │ Hand (softness)  │            │
   │  └──────────────────┘           └──────────────────┘            │
   └──────────────────────────────────────────────────────────────────┘

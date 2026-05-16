@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:masonry:modern-applications
+kind: guide
+module: masonry
+section: masonry
+title: Modern Masonry Applications
+status: source-custody
+source_custody: partial
+current_path: masonry/09-MODERN-APPLICATIONS.md
+canonical_path: masonry/09-MODERN-APPLICATIONS.md
+backsource_ids: [proof-backfill:masonry:09-modern-applications, git-history:masonry:09-modern-applications]
+concepts: [modern, applications]
+root_concepts: [modern, applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Masonry Applications
 
 ## The Modern Masonry Landscape

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rope-cordage:knots-splices
+kind: guide
+module: rope-cordage
+section: rope-cordage
+title: Knots and Splices: Ashley's Taxonomy, Strength Retention, Whipping
+status: source-custody
+source_custody: partial
+current_path: rope-cordage/05-KNOTS-SPLICES.md
+canonical_path: rope-cordage/05-KNOTS-SPLICES.md
+backsource_ids: [proof-backfill:rope-cordage:05-knots-splices, git-history:rope-cordage:05-knots-splices]
+concepts: [knots, splices]
+root_concepts: [knots, splices]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Knots and Splices: Ashley's Taxonomy, Strength Retention, Whipping
 
 ## The Big Picture

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rope-cordage\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ROPE STRUCTURE HIERARCHY\n========================\n\n  FIBER           YARN              STRAND          ROPE\n  (individual     (parallel or      (multiple        (3-strand or\n   filament)       twisted fibers)   yarns twisted     braided\n                                     together)         together)\n\n  ┌──────┐       ┌──────────┐      ┌─────────────┐  ┌─────────────┐\n  │ ~~   │  ->   │ ~~~~~~~  │  ->  │  STRAND 1   │  │  /-------\\  │\n  │ ~~   │       │ (Z-twist)│      │  (3 yarns)  │  │  │ ╭───╮ │  │\n  │fiber │       │          │      │  STRAND 2   │ →│  │ │   │ │  │\n  └──────┘       └──────────┘      │  (3 yarns)  │  │  │ ╰───╯ │  │\n                                    │  STRAND 3   │  │  ╰───────╯  │\n                                    └─────────────┘  └─────────────┘\n\n  EACH LEVEL ADDS:\n  • Structural coherence (won't fall apart when cut)\n  • Bending compliance (can coil without kinking)\n  • Load distribution (no single fiber takes all load)\n  • Manufacturing tractability (can be produced continuously)\n\n  EACH LEVEL COSTS:\n  • Tensile efficiency (helix angle means fibers not purely axial)\n  • Some elongation increase (helix straightens under load)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## Construction Methods",
+      "confidence": "candidate",
+      "text": "TWISTED (LAID) ROPE\n===================\n\n  3-strand hawser laid (classic):\n  Z yarn → S ply → Z strand → S rope\n  (alternating direction at each level = balanced, won't self-unlay)\n\n  Cross-section view:          Side view:\n  ┌─────────────────────┐     ┌────────────────────────────────────┐\n  │   STRAND 1  \\       │     │  /\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\    │\n  │  /----------/       │     │  Left lay: S on the body           │\n  │  STRAND 2           │     │  Right lay: Z on the body          │\n  │  /----------\\       │     │  (most rope is right-lay = Z)      │\n  │  STRAND 3  /        │     └────────────────────────────────────┘\n  └─────────────────────┘\n\n  BRAIDED ROPE\n  ============\n\n  Round braid: carriers interlace diagonally\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  8-carrier braid:  4 clockwise + 4 counterclockwise              │\n  │  16-carrier braid: 8 + 8 (tighter, rounder, smoother)            │\n  │  Hollow braid: no core — can accept core for double-braid        │\n  │  Solid braid: fully filled cross-section                         │\n  └──────────────────────────────────────────────────────────────────┘\n\n  KERNMANTLE (core-and-sheath):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  KERN: parallel fiber core (takes 70–80% of load)                │\n  │  MANTLE: braided sheath (abrasion protection, handling)          │\n  │  Cross-section:  [sheath ═══ CORE ═══ sheath]                    │\n  │  Use: climbing rope, technical rescue                            │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## Natural vs. Synthetic: The Revolution",
+      "confidence": "candidate",
+      "text": "NATURAL vs. SYNTHETIC FIBER COMPARISON\n========================================\n\n  ERA 1 (antiquity – 1930s): NATURAL FIBERS ONLY\n  ┌────────────────────────────────────────────────────────────────┐\n  │ Hemp: workhorse of sailing rigging (300–900 MPa tensile)       │\n  │ Manila (abaca): superior to hemp for marine use                │\n  │ Sisal: cheaper, less durable — baling twine                    │\n  │ Cotton: soft, low strength — clothing, light use               │\n  │ Jute: low strength, high absorption — burlap, packaging        │\n  │ Coir (coconut): buoyant, rot-resistant, low strength           │\n  └────────────────────────────────────────────────────────────────┘\n\n  ERA 2 (1938–1980s): FIRST-GENERATION SYNTHETICS\n  ┌────────────────────────────────────────────────────────────────┐\n  │ Nylon (PA 6/6.6, DuPont 1938): 10x manila strength, elastic    │\n  │ Polyester (PET, ICI 1941): lower stretch than nylon, marine    │\n  │ Polypropylene (PP, 1950s): cheap, floats, weak UV degradation  │\n  └────────────────────────────────────────────────────────────────┘\n\n  ERA 3 (1980s–present): HIGH-PERFORMANCE SYNTHETICS\n  ┌────────────────────────────────────────────────────────────────┐\n  │ UHMWPE (Dyneema/Spectra, DSM 1979): 15x steel by weight        │\n  │ Aramid (Kevlar/Technora, DuPont 1965): heat-resistant          │\n  │ Vectran (liquid crystal polymer, Kuraray): ultra-low creep     │\n  │ PBO (Zylon, Toyobo): highest strength, UV degradation warning  │\n  └────────────────────────────────────────────────────────────────┘\n\n  PERFORMANCE SNAPSHOT:\n  ┌───────────────────────────────────────────────────────────────────────┐\n  │ Fiber          Tensile (MPa)  Elongation%  Density(g/cc)  UV stable?  │\n  │ ──────────────────────────────────────────────────────────────────────│\n  │ Hemp (natural) 300–900        2–4%          1.4–1.5        Moderate   │\n  │ Nylon 6.6      900–1,000      20–30%         1.14          Good       │\n  │ Polyester      800–1,100      10–15%         1.38          Good       │\n  │ Polypropylene  300–500        15–25%         0.91          Poor       │\n  │ UHMWPE (Dyn.)  2,400-3,600   3-4% (rope)    0.97          Moderate    │\n  │ Kevlar 29      2,900–3,600   3.6%            1.44          Poor       │\n  │ Vectran HS     2,850–3,340   3.3%            1.41          Moderate   │\n  │ PBO (Zylon)    5,800         3.5%            1.56          Very poor  │\n  └───────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "## Applications by Rope Type",
+      "confidence": "candidate",
+      "text": "APPLICATION MAP\n===============\n\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  MARINE SAILING (see 07-MARINE-APPLICATIONS.md)                 │\n  │  Standing rigging: stainless wire or Dyneema (low stretch)      │\n  │  Running rigging: polyester (sheets, halyards)                  │\n  │  Mooring: nylon (stretch absorbs surge)                         │\n  └─────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  CLIMBING / RESCUE (see 08-INDUSTRIAL-USE.md)                   │\n  │  Dynamic climbing: nylon kernmantle (UIAA/EN 892)               │\n  │  Static rescue: low-elongation polyester kernmantle (NFPA 1983) │\n  │  Life safety escape: polyester or nylon, 5:1 min safety factor  │\n  └─────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  LIFTING / RIGGING (see 08-INDUSTRIAL-USE.md)                   │\n  │  Wire rope: steel, torque-balanced, safety factor 5:1 to 8:1    │\n  │  Synthetic slings: web, round-sling, polyester or nylon         │\n  │  Chain: for high-temperature, abrasion-exposed applications     │\n  └─────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  HIGH-PERFORMANCE APPLICATIONS (see 09-MODERN-SYNTHETICS.md)    │\n  │  Offshore moorings: UHMWPE (Dyneema) for buoyancy + strength    │\n  │  Racing yacht rigging: Vectran (low creep)                      │\n  │  Aerospace: Zylon/Kevlar (weight-critical, not UV exposed)      │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "## Strength Terminology",
+      "confidence": "candidate",
+      "text": "ROPE STRENGTH TERMS\n===================\n\n  MBS (Minimum Breaking Strength) = Breaking Strength:\n  Lowest breaking load from testing (not average — minimum)\n  Also called BL (Breaking Load), ASTM F1623 / BS EN 919\n\n  WLL (Working Load Limit) = SWL (Safe Working Load):\n  Maximum load allowed in normal service\n  WLL = MBS / Safety Factor (SF)\n\n  SAFETY FACTORS BY APPLICATION:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Application         SF Typical   Comments                       │\n  │  ─────────────────────────────────────────────────────────────── │\n  │  Crane lifting        5:1 - 8:1   ASME B30; depends on mode      │\n  │  Life safety          10:1        NFPA 1983 (rescue ropes)       │\n  │  Marine mooring       5:1 - 6:1   Depends on surge/dynamic       │\n  │  Arborist (static)    10:1        ANSI Z133                      │\n  │  Tow lines            5:1         Dynamic consideration          │\n  │  Military (SOP)       10:1        Field/life-critical            │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

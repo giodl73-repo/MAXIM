@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rope-cordage:marine-applications
+kind: guide
+module: rope-cordage
+section: rope-cordage
+title: Marine Rope Applications: Standing and Running Rigging, Mooring, Anchoring
+status: source-custody
+source_custody: partial
+current_path: rope-cordage/07-MARINE-APPLICATIONS.md
+canonical_path: rope-cordage/07-MARINE-APPLICATIONS.md
+backsource_ids: [proof-backfill:rope-cordage:07-marine-applications, git-history:rope-cordage:07-marine-applications]
+concepts: [marine, applications]
+root_concepts: [marine, applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Marine Rope Applications: Standing and Running Rigging, Mooring, Anchoring
 
 ## The Marine Rigging System

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rope-cordage:overview
+kind: guide
+module: rope-cordage
+section: rope-cordage
+title: Rope and Cordage - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: rope-cordage/00-OVERVIEW.md
+canonical_path: rope-cordage/00-OVERVIEW.md
+backsource_ids: [proof-backfill:rope-cordage:00-overview, git-history:rope-cordage:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rope and Cordage — Landscape Overview
 
 ## The Big Picture
@@ -14,7 +33,7 @@ ROPE STRUCTURE HIERARCHY
                                      together)         together)
 
   ┌──────┐       ┌──────────┐      ┌─────────────┐  ┌─────────────┐
-  │ ~~   │  →    │ ≋≋≋≋≋≋≋ │  →   │  STRAND 1   │  │  ╭───────╮   │
+  │ ~~   │  ->   │ ~~~~~~~  │  ->  │  STRAND 1   │  │  /-------\  │
   │ ~~   │       │ (Z-twist)│      │  (3 yarns)  │  │  │ ╭───╮ │  │
   │fiber │       │          │      │  STRAND 2   │ →│  │ │   │ │  │
   └──────┘       └──────────┘      │  (3 yarns)  │  │  │ ╰───╯ │  │
@@ -46,11 +65,11 @@ TWISTED (LAID) ROPE
 
   Cross-section view:          Side view:
   ┌─────────────────────┐     ┌────────────────────────────────────┐
-  │   STRAND 1  ╮       │     │  /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ │
-  │  ╱──────────╯        │     │  Left lay: S on the body          │
-  │  STRAND 2            │     │  Right lay: Z on the body         │
-  │  ╱──────────╮        │     │  (most rope is right-lay = Z)     │
-  │  STRAND 3  ╯         │     └────────────────────────────────────┘
+  │   STRAND 1  \       │     │  /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\    │
+  │  /----------/       │     │  Left lay: S on the body           │
+  │  STRAND 2           │     │  Right lay: Z on the body          │
+  │  /----------\       │     │  (most rope is right-lay = Z)      │
+  │  STRAND 3  /        │     └────────────────────────────────────┘
   └─────────────────────┘
 
   BRAIDED ROPE
@@ -93,14 +112,14 @@ NATURAL vs. SYNTHETIC FIBER COMPARISON
 
   ERA 2 (1938–1980s): FIRST-GENERATION SYNTHETICS
   ┌────────────────────────────────────────────────────────────────┐
-  │ Nylon (PA 6/6.6, DuPont 1938): 10× manila strength, elastic  │
+  │ Nylon (PA 6/6.6, DuPont 1938): 10x manila strength, elastic    │
   │ Polyester (PET, ICI 1941): lower stretch than nylon, marine    │
   │ Polypropylene (PP, 1950s): cheap, floats, weak UV degradation  │
   └────────────────────────────────────────────────────────────────┘
 
   ERA 3 (1980s–present): HIGH-PERFORMANCE SYNTHETICS
   ┌────────────────────────────────────────────────────────────────┐
-  │ UHMWPE (Dyneema/Spectra, DSM 1979): 15× steel by weight      │
+  │ UHMWPE (Dyneema/Spectra, DSM 1979): 15x steel by weight        │
   │ Aramid (Kevlar/Technora, DuPont 1965): heat-resistant          │
   │ Vectran (liquid crystal polymer, Kuraray): ultra-low creep     │
   │ PBO (Zylon, Toyobo): highest strength, UV degradation warning  │
@@ -109,12 +128,12 @@ NATURAL vs. SYNTHETIC FIBER COMPARISON
   PERFORMANCE SNAPSHOT:
   ┌───────────────────────────────────────────────────────────────────────┐
   │ Fiber          Tensile (MPa)  Elongation%  Density(g/cc)  UV stable?  │
-  │ ─────────────────────────────────────────────────────────────────────│
+  │ ──────────────────────────────────────────────────────────────────────│
   │ Hemp (natural) 300–900        2–4%          1.4–1.5        Moderate   │
   │ Nylon 6.6      900–1,000      20–30%         1.14          Good       │
   │ Polyester      800–1,100      10–15%         1.38          Good       │
   │ Polypropylene  300–500        15–25%         0.91          Poor       │
-  │ UHMWPE (Dyn.)  2,400–3,600   3–4% (rope)    0.97          Moderate  │
+  │ UHMWPE (Dyn.)  2,400-3,600   3-4% (rope)    0.97          Moderate    │
   │ Kevlar 29      2,900–3,600   3.6%            1.44          Poor       │
   │ Vectran HS     2,850–3,340   3.3%            1.41          Moderate   │
   │ PBO (Zylon)    5,800         3.5%            1.56          Very poor  │
@@ -143,13 +162,13 @@ APPLICATION MAP
   └─────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────┐
   │  LIFTING / RIGGING (see 08-INDUSTRIAL-USE.md)                   │
-  │  Wire rope: steel, torque-balanced, safety factor 5:1 to 8:1  │
+  │  Wire rope: steel, torque-balanced, safety factor 5:1 to 8:1    │
   │  Synthetic slings: web, round-sling, polyester or nylon         │
   │  Chain: for high-temperature, abrasion-exposed applications     │
   └─────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────┐
   │  HIGH-PERFORMANCE APPLICATIONS (see 09-MODERN-SYNTHETICS.md)    │
-  │  Offshore moorings: UHMWPE (Dyneema) for buoyancy + strength  │
+  │  Offshore moorings: UHMWPE (Dyneema) for buoyancy + strength    │
   │  Racing yacht rigging: Vectran (low creep)                      │
   │  Aerospace: Zylon/Kevlar (weight-critical, not UV exposed)      │
   └─────────────────────────────────────────────────────────────────┘
@@ -175,12 +194,12 @@ ROPE STRENGTH TERMS
   ┌──────────────────────────────────────────────────────────────────┐
   │  Application         SF Typical   Comments                       │
   │  ─────────────────────────────────────────────────────────────── │
-  │  Crane lifting        5:1 – 8:1   ASME B30; depends on mode    │
-  │  Life safety          10:1        NFPA 1983 (rescue ropes)     │
-  │  Marine mooring       5:1 – 6:1   Depends on surge/dynamic     │
-  │  Arborist (static)    10:1        ANSI Z133                    │
-  │  Tow lines            5:1         Dynamic consideration        │
-  │  Military (SOP)       10:1        Field/life-critical          │
+  │  Crane lifting        5:1 - 8:1   ASME B30; depends on mode      │
+  │  Life safety          10:1        NFPA 1983 (rescue ropes)       │
+  │  Marine mooring       5:1 - 6:1   Depends on surge/dynamic       │
+  │  Arborist (static)    10:1        ANSI Z133                      │
+  │  Tow lines            5:1         Dynamic consideration          │
+  │  Military (SOP)       10:1        Field/life-critical            │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

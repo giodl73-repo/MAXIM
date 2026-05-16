@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:masonry:mortar-grout
+kind: guide
+module: masonry
+section: masonry
+title: Mortar and Grout: ASTM Types, Mix Design, Compatibility
+status: source-custody
+source_custody: partial
+current_path: masonry/02-MORTAR-GROUT.md
+canonical_path: masonry/02-MORTAR-GROUT.md
+backsource_ids: [proof-backfill:masonry:02-mortar-grout, git-history:masonry:02-mortar-grout]
+concepts: [mortar, grout]
+root_concepts: [mortar, grout]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mortar and Grout: ASTM Types, Mix Design, Compatibility
 
 ## The Big Picture

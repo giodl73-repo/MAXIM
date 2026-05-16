@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:masonry:overview
+kind: guide
+module: masonry
+section: masonry
+title: Masonry - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: masonry/00-OVERVIEW.md
+canonical_path: masonry/00-OVERVIEW.md
+backsource_ids: [proof-backfill:masonry:00-overview, git-history:masonry:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Masonry — Landscape Overview
 
 ## The Big Picture

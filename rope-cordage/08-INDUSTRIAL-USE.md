@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rope-cordage:industrial-use
+kind: guide
+module: rope-cordage
+section: rope-cordage
+title: Industrial Rope Use: Crane Slings, Arborist, Rescue, Mining
+status: source-custody
+source_custody: partial
+current_path: rope-cordage/08-INDUSTRIAL-USE.md
+canonical_path: rope-cordage/08-INDUSTRIAL-USE.md
+backsource_ids: [proof-backfill:rope-cordage:08-industrial-use, git-history:rope-cordage:08-industrial-use]
+concepts: [industrial, use]
+root_concepts: [industrial, use]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Industrial Rope Use: Crane Slings, Arborist, Rescue, Mining
 
 ## The Industrial Landscape
