@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:visionaries:systems-thinkers
+kind: guide
+module: visionaries
+section: visionaries
+title: Systems Thinkers: Wiener, Von Bertalanffy, Forrester, Beer
+status: source-custody
+source_custody: partial
+current_path: visionaries/05-SYSTEMS-THINKERS.md
+canonical_path: visionaries/05-SYSTEMS-THINKERS.md
+backsource_ids: [proof-backfill:visionaries:05-systems-thinkers, git-history:visionaries:05-systems-thinkers]
+concepts: [systems, thinkers]
+root_concepts: [systems, thinkers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Systems Thinkers: Wiener, Von Bertalanffy, Forrester, Beer
 
 ## The Big Picture — Why This File Matters to You

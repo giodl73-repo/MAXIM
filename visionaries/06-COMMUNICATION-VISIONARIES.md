@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:visionaries:communication-visionaries
+kind: guide
+module: visionaries
+section: visionaries
+title: Communication Visionaries: McLuhan, Innis, Licklider, Negroponte
+status: source-custody
+source_custody: partial
+current_path: visionaries/06-COMMUNICATION-VISIONARIES.md
+canonical_path: visionaries/06-COMMUNICATION-VISIONARIES.md
+backsource_ids: [proof-backfill:visionaries:06-communication-visionaries, git-history:visionaries:06-communication-visionaries]
+concepts: [communication, visionaries]
+root_concepts: [communication, visionaries]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Communication Visionaries: McLuhan, Innis, Licklider, Negroponte
 
 ## The Big Picture

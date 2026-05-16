@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-reformers:civil-liberties
+kind: guide
+module: social-reformers
+section: social-reformers
+title: Civil Liberties: ACLU, Frankfurter, Thurgood Marshall, Ruth Bader Ginsburg
+status: source-custody
+source_custody: partial
+current_path: social-reformers/06-CIVIL-LIBERTIES.md
+canonical_path: social-reformers/06-CIVIL-LIBERTIES.md
+backsource_ids: [proof-backfill:social-reformers:06-civil-liberties, git-history:social-reformers:06-civil-liberties]
+concepts: [civil, liberties]
+root_concepts: [civil, liberties]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Civil Liberties: ACLU, Frankfurter, Thurgood Marshall, Ruth Bader Ginsburg
 
 ## The Big Picture

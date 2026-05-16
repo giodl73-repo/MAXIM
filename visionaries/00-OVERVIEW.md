@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:visionaries:overview
+kind: guide
+module: visionaries
+section: visionaries
+title: Visionaries - Overview
+status: source-custody
+source_custody: partial
+current_path: visionaries/00-OVERVIEW.md
+canonical_path: visionaries/00-OVERVIEW.md
+backsource_ids: [proof-backfill:visionaries:00-overview, git-history:visionaries:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Visionaries — Overview
 
 ## What a Visionary Is

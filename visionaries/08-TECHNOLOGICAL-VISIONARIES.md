@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:visionaries:technological-visionaries
+kind: guide
+module: visionaries
+section: visionaries
+title: Technological Visionaries: Fuller, Feynman, Drexler, Kurzweil, Bostrom
+status: source-custody
+source_custody: partial
+current_path: visionaries/08-TECHNOLOGICAL-VISIONARIES.md
+canonical_path: visionaries/08-TECHNOLOGICAL-VISIONARIES.md
+backsource_ids: [proof-backfill:visionaries:08-technological-visionaries, git-history:visionaries:08-technological-visionaries]
+concepts: [technological, visionaries]
+root_concepts: [technological, visionaries]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Technological Visionaries: Fuller, Feynman, Drexler, Kurzweil, Bostrom
 
 ## The Big Picture

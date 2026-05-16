@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-reformers:labor-movement
+kind: guide
+module: social-reformers
+section: social-reformers
+title: Labor Movement: Owen, Debs, Gompers, Chavez, Walesa
+status: source-custody
+source_custody: partial
+current_path: social-reformers/03-LABOR-MOVEMENT.md
+canonical_path: social-reformers/03-LABOR-MOVEMENT.md
+backsource_ids: [proof-backfill:social-reformers:03-labor-movement, git-history:social-reformers:03-labor-movement]
+concepts: [labor, movement]
+root_concepts: [labor, movement]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Labor Movement: Owen, Debs, Gompers, Chavez, Walesa
 
 ## The Big Picture
@@ -20,7 +39,7 @@
   │ UTOPIAN SOCIALISM (Owen, Fourier, Saint-Simon)              │
   │ Goal: replace capitalism with cooperative communities       │
   │ Method: demonstrate the alternative; moral suasion          │
-  │ Result: the communes failed; the ideas influenced later work │
+  │ Result: the communes failed; ideas influenced later work    │
   ├─────────────────────────────────────────────────────────────┤
   │ MARXIST SOCIALISM (Marx, Engels, Debs)                       │
   │ Goal: replace capitalism with worker ownership of production │

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:visionaries:space-civilization
+kind: guide
+module: visionaries
+section: visionaries
+title: Space and Civilization Visionaries: Tsiolkovsky, Sagan, Hawking, Musk
+status: source-custody
+source_custody: partial
+current_path: visionaries/09-SPACE-CIVILIZATION.md
+canonical_path: visionaries/09-SPACE-CIVILIZATION.md
+backsource_ids: [proof-backfill:visionaries:09-space-civilization, git-history:visionaries:09-space-civilization]
+concepts: [space, civilization]
+root_concepts: [space, civilization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Space and Civilization Visionaries: Tsiolkovsky, Sagan, Hawking, Musk
 
 ## The Big Picture
