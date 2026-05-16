@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:criminology:organized-crime
+kind: guide
+module: criminology
+section: criminology
+title: Organized Crime and Networks
+status: source-custody
+source_custody: partial
+current_path: criminology/05-ORGANIZED-CRIME.md
+canonical_path: criminology/05-ORGANIZED-CRIME.md
+backsource_ids: [proof-backfill:criminology:05-organized-crime, git-history:criminology:05-organized-crime]
+concepts: [organized, crime]
+root_concepts: [organized, crime]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Organized Crime and Networks
 
 ## The Big Picture

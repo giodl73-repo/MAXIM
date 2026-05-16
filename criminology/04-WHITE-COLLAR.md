@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:criminology:white-collar
+kind: guide
+module: criminology
+section: criminology
+title: White-Collar Crime: Sutherland and Beyond
+status: source-custody
+source_custody: partial
+current_path: criminology/04-WHITE-COLLAR.md
+canonical_path: criminology/04-WHITE-COLLAR.md
+backsource_ids: [proof-backfill:criminology:04-white-collar, git-history:criminology:04-white-collar]
+concepts: [white, collar]
+root_concepts: [white, collar]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # White-Collar Crime: Sutherland and Beyond
 
 ## The Big Picture

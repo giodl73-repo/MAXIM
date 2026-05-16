@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "media-studies\\08-ALGORITHMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              ALGORITHMIC MEDIA LANDSCAPE                         |\n+------------------------------------------------------------------+\n|                                                                  |\n|  RECOMMENDATION SYSTEMS         SOCIETAL EFFECTS (CONTESTED)    |\n|  --------------------           ----------------------------     |\n|  Collaborative filtering        Filter bubbles (Pariser)        |\n|  (users like you also liked)    Echo chambers (homophily)       |\n|  Content-based filtering        Radicalization pathways          |\n|  (you liked X, here's Y)        Polarization amplification      |\n|  Reinforcement learning         Disinformation spread            |\n|  (optimize for engagement)                                       |\n|                                 COUNTER-EVIDENCE                 |\n|  PLATFORMS                      ----------------                 |\n|  --------                       Most people see diverse         |\n|  YouTube: recommendations       content (Guess et al.)          |\n|  Netflix: what to watch next    Polarization predates social    |\n|  Spotify: Discover Weekly       media                           |\n|  TikTok: For You Page           Homophily is human, not algo    |\n|  Facebook/Instagram: Feed       Offline networks more polarized |\n|  Twitter/X: For You / Topics   than online (some research)     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 57,
+      "heading_context": "### Technical Architecture",
+      "confidence": "candidate",
+      "text": "  RECOMMENDATION SYSTEM TYPES\n  ============================\n\n  1. COLLABORATIVE FILTERING\n     \"Users like you also liked...\"\n     Builds user-item matrix.\n     If user A and B have similar history:\n     recommend to A what B liked (and A hasn't seen).\n\n     +---------+------+------+------+------+\n     |         | Item1| Item2| Item3| Item4|\n     +---------+------+------+------+------+\n     | User A  |  5   |  ?   |  4   |      |\n     | User B  |  5   |  3   |  4   |  2   |\n     | User C  |      |  4   |      |  5   |\n     +---------+------+------+------+------+\n\n     User A's ? is predicted from User B's similar taste.\n     Formally: matrix factorization — decompose the sparse\n     user-item matrix M ≈ UV^T via SVD or ALS, where U is\n     user latent factors and V is item latent factors.\n     Prediction for missing entry = row_u · col_i dot product.\n     Cold start problem (no history) is the sparsity problem.\n\n  2. CONTENT-BASED FILTERING\n     \"You liked X (features); here is Y (similar features)\"\n     Builds item feature vectors.\n     Recommend items with similar features to liked items.\n     Pandora \"Music Genome Project\": 400+ musical attributes.\n\n  3. HYBRID SYSTEMS\n     Most production systems combine both.\n     Netflix: collaborative filtering + content features\n     + recency + device + time of day + geography\n\n  4. REINFORCEMENT LEARNING (YouTube, TikTok)\n     Reward function: engagement metrics (watch time,\n     likes, shares, comments, replays).\n     System learns policies that maximize reward.\n     No explicit content categories -- learns from behavior.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 363,
+      "heading_context": "## Algorithmic News: Google Discover, Apple News",
+      "confidence": "candidate",
+      "text": "  ALGORITHMIC NEWS DISTRIBUTION\n  ================================\n\n  Traditional flow:\n    Publisher --> website --> reader who navigated to it\n\n  Platform-mediated flow:\n    Publisher --> platform (Google, Facebook, Apple News)\n    --> reader in platform environment\n    --> publisher gets traffic (or doesn't)\n\n  CONSEQUENCES FOR PUBLISHERS:\n    Platform algorithms determine what content surfaces.\n    Change in Facebook algorithm (2018):\n    Mark Zuckerberg announcement: \"meaningful social\n    interactions\" over \"public content.\"\n    Result: News publisher traffic from Facebook\n    dropped 40-50% overnight.\n    Publishers had no recourse; platform changed rules.\n\n  GOOGLE NEWS ALGORITHM:\n    Google top stories component in search.\n    Determines which news source surfaces for a query.\n    Non-transparent; no appeal process.\n    Large publishers can invest in SEO;\n    small local outlets often can't.\n    Structurally advantages scale.\n\n  \"DARK TRAFFIC\" PROBLEM:\n    Publishers see direct traffic but don't know\n    why it fluctuates.\n    Algorithm changes cause traffic swings with\n    no explanation.\n    Dependency without transparency.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 438,
+      "heading_context": "## Engineering Bridge: Recommendation Systems as ML Infrastructure",
+      "confidence": "candidate",
+      "text": "MEDIA STUDIES CONCEPT         ML / SYSTEMS ENGINEERING PARALLEL\n=====================         ==================================\n\nCollaborative filtering        Matrix factorization (SVD / ALS):\n                               Sparse user-item matrix → decomposed\n                               into user-latent and item-latent factor\n                               matrices. Dot product predicts missing\n                               entries. PyTorch / TensorFlow implement\n                               this as an embedding lookup + dot product.\n\nContent-based filtering        Feature-vector similarity:\n                               Items represented as feature vectors\n                               (genre, topic, style embeddings).\n                               Cosine similarity or L2 distance\n                               ranks items near user's preference centroid.\n                               Spotify's audio embedding space encodes\n                               tempo, key, energy, valence as dimensions.\n\nEngagement optimization        Reinforcement learning from human feedback\n(maximize watch time, clicks)  (RLHF): reward = engagement signal\n                               (watch time, completion, like). Policy\n                               gradient methods update the recommendation\n                               policy to maximize expected reward.\n                               Same objective function as ChatGPT training,\n                               different domain. YouTube uses RL to\n                               optimize multi-step session reward, not\n                               just single-video engagement.\n\nFilter bubble (feedback loop)  Training data distribution shift / model\n                               collapse: model trained on user's prior\n                               engagement → recommends similar content →\n                               user engages → training data now more\n                               concentrated → model more confident in\n                               narrow distribution → tighter feedback loop.\n                               This is the same dynamics as LLM fine-tuning\n                               on generated outputs causing model collapse\n                               (Shumailov et al., 2023). The filter bubble\n                               is model collapse applied to taste.\n\nBlack box / opaque algorithm   ML interpretability / XAI problem:\n                               Neural collaborative filtering and\n                               transformer-based recommenders are\n                               not interpretable by construction.\n                               SHAP values, LIME, attention visualization\n                               provide post-hoc approximations but not\n                               causal explanations. EU DSA's algorithmic\n                               transparency requirement hits the same wall\n                               as XAI in regulated industries (healthcare,\n                               credit scoring): the \"explanation\" is\n                               approximate and may not reflect actual\n                               model internals.\n\nSock puppet auditing           Adversarial probing / red-teaming:\n(create fake accounts to       Create synthetic users with controlled\ntest recommendations)          behavioral histories, test model outputs.\n                               Same methodology as red-teaming LLMs\n                               with adversarial prompts. Same limitation:\n                               the controlled probe does not replicate\n                               the full context of real users.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

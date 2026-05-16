@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:media-studies:medium-is-message
+kind: guide
+module: media-studies
+section: media-studies
+title: McLuhan: Medium Is the Message and the Tetrad
+status: source-custody
+source_custody: partial
+current_path: media-studies/01-MEDIUM-IS-MESSAGE.md
+canonical_path: media-studies/01-MEDIUM-IS-MESSAGE.md
+backsource_ids: [proof-backfill:media-studies:01-medium-is-message, git-history:media-studies:01-medium-is-message]
+concepts: [medium, is, message]
+root_concepts: [medium, is]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # McLuhan: Medium Is the Message and the Tetrad
 
 ## The Big Picture

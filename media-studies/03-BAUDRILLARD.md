@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:media-studies:baudrillard
+kind: guide
+module: media-studies
+section: media-studies
+title: Baudrillard: Simulacra and Hyperreality
+status: source-custody
+source_custody: partial
+current_path: media-studies/03-BAUDRILLARD.md
+canonical_path: media-studies/03-BAUDRILLARD.md
+backsource_ids: [proof-backfill:media-studies:03-baudrillard, git-history:media-studies:03-baudrillard]
+concepts: [baudrillard]
+root_concepts: [baudrillard]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Baudrillard: Simulacra and Hyperreality
 
 ## The Big Picture

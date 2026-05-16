@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:media-studies:algorithms
+kind: guide
+module: media-studies
+section: media-studies
+title: Algorithmic Media and Filter Bubbles
+status: source-custody
+source_custody: partial
+current_path: media-studies/08-ALGORITHMS.md
+canonical_path: media-studies/08-ALGORITHMS.md
+backsource_ids: [proof-backfill:media-studies:08-algorithms, git-history:media-studies:08-algorithms]
+concepts: [algorithms]
+root_concepts: [algorithms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Algorithmic Media and Filter Bubbles
 
 ## The Big Picture

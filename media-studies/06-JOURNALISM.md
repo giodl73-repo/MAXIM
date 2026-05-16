@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:media-studies:journalism
+kind: guide
+module: media-studies
+section: media-studies
+title: Journalism: Norms, Crisis, and Digital Disruption
+status: source-custody
+source_custody: partial
+current_path: media-studies/06-JOURNALISM.md
+canonical_path: media-studies/06-JOURNALISM.md
+backsource_ids: [proof-backfill:media-studies:06-journalism, git-history:media-studies:06-journalism]
+concepts: [journalism]
+root_concepts: [journalism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Journalism: Norms, Crisis, and Digital Disruption
 
 ## The Big Picture

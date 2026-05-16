@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:media-studies:political-economy
+kind: guide
+module: media-studies
+section: media-studies
+title: Political Economy of Media
+status: source-custody
+source_custody: partial
+current_path: media-studies/04-POLITICAL-ECONOMY.md
+canonical_path: media-studies/04-POLITICAL-ECONOMY.md
+backsource_ids: [proof-backfill:media-studies:04-political-economy, git-history:media-studies:04-political-economy]
+concepts: [political, economy]
+root_concepts: [political, economy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Political Economy of Media
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:criminology:social-control
+kind: guide
+module: criminology
+section: criminology
+title: Social Control and Labeling Theory
+status: source-custody
+source_custody: partial
+current_path: criminology/03-SOCIAL-CONTROL.md
+canonical_path: criminology/03-SOCIAL-CONTROL.md
+backsource_ids: [proof-backfill:criminology:03-social-control, git-history:criminology:03-social-control]
+concepts: [social, control]
+root_concepts: [social, control]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Social Control and Labeling Theory
 
 ## The Big Picture

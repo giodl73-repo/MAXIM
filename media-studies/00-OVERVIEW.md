@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:media-studies:overview
+kind: guide
+module: media-studies
+section: media-studies
+title: Media Studies - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: media-studies/00-OVERVIEW.md
+canonical_path: media-studies/00-OVERVIEW.md
+backsource_ids: [proof-backfill:media-studies:00-overview, git-history:media-studies:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Media Studies — Landscape and Taxonomy
 
 ## The Big Picture
@@ -49,9 +68,9 @@ Media studies analyzes how media forms, industries, and texts shape culture, pow
           Critical Theory: mass media as ideological domination
           Culture Industry thesis
                  |
-         +-------+--------+
-         |                |
-         v                v
+        /                 \
+       /                   \
+       v                     v
   1950s  EMPIRICAL         TORONTO SCHOOL
          EFFECTS          Innis, McLuhan
          Lazarsfeld,      Medium shapes message,
@@ -65,9 +84,9 @@ Media studies analyzes how media forms, industries, and texts shape culture, pow
          Hegemony (Gramsci applied to media)
          Polysemic texts, preferred readings
                  |
-         +-------+--------+
-         |                |
-         v                v
+        /                 \
+       /                   \
+       v                     v
   1980s  BAUDRILLARD      POLITICAL ECONOMY
          Simulacra        Mosco, Murdock, Golding
          Hyperreality     Media ownership & power
