@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mineralogy:gemology
+kind: guide
+module: mineralogy
+section: mineralogy
+title: Gemology
+status: source-custody
+source_custody: partial
+current_path: mineralogy/07-GEMOLOGY.md
+canonical_path: mineralogy/07-GEMOLOGY.md
+backsource_ids: [proof-backfill:mineralogy:07-gemology, git-history:mineralogy:07-gemology]
+concepts: [gemology]
+root_concepts: [gemology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Gemology
 
 ## The Big Picture
@@ -14,7 +33,7 @@
 |  VALUE: highest        VALUE: moderate      VALUE: much lower    |
 |  (rarity premium)      (disclosed req'd)    (no rarity premium)  |
 |                                                                  |
-|  GEM QUALITY DIMENSIONS (the 4Cs for diamonds, more for colored)|
+|  GEM QUALITY DIMENSIONS (the 4Cs for diamonds, more for colored) |
 |  Cut × Clarity × Color × Carat weight × (Origin for colored)     |
 +------------------------------------------------------------------+
 ```
@@ -29,28 +48,28 @@ The Gemological Institute of America (GIA) introduced standardized 4C grading in
 
 ```
 CUT QUALITY: proportions, symmetry, polish
-+------------------------------------------------------------------+
-|  IDEAL CUT PHYSICS:                                              |
-|  Light enters through table (top flat face)                      |
-|  Internal total reflection off pavilion facets                   |
-|  Exits through crown → "brilliance"                              |
-|                                                                  |
-|  Table   Crown facets                                            |
-|    ___________                                                   |
-|   /     |     \    ← Crown: angles 34-35° from horizontal        |
-|  /      |      \                                                 |
-|  |   Girdle    |   ← Where stone is set                          |
-|  \             /                                                 |
-|   \           /    ← Pavilion: angles ~40.75°                    |
-|    \    |    /                                                   |
-|     \___|___/                                                    |
-|         Culet (tiny bottom facet)                                |
-|                                                                  |
-|  Round Brilliant: 57 or 58 facets (standard)                     |
-|  If pavilion too deep: light exits through sides (dark center)   |
-|  If pavilion too shallow: light exits through bottom (washed out)|
-|  Ideal proportions: total internal reflection back through crown|
-+------------------------------------------------------------------+
++-------------------------------------------------------------------+
+|  IDEAL CUT PHYSICS:                                               |
+|  Light enters through table (top flat face)                       |
+|  Internal total reflection off pavilion facets                    |
+|  Exits through crown → "brilliance"                               |
+|                                                                   |
+|  Table   Crown facets                                             |
+|    ___________                                                    |
+|   /     |     \    ← Crown: angles 34-35° from horizontal         |
+|  /      |      \                                                  |
+|  |   Girdle    |   ← Where stone is set                           |
+|  \             /                                                  |
+|   \           /    ← Pavilion: angles ~40.75°                     |
+|    \    |    /                                                    |
+|     \___|___/                                                     |
+|         Culet (tiny bottom facet)                                 |
+|                                                                   |
+|  Round Brilliant: 57 or 58 facets (standard)                      |
+|  If pavilion too deep: light exits through sides (dark center)    |
+|  If pavilion too shallow: light exits through bottom (washed out) |
+|  Ideal proportions: total internal reflection back through crown  |
++-------------------------------------------------------------------+
 
 GIA CUT GRADES: Excellent, Very Good, Good, Fair, Poor
 AGS grades: Ideal, Excellent, Very Good, Good, Fair, Poor
@@ -136,16 +155,16 @@ For colored gemstones (rubies, emeralds, sapphires, etc.), **origin** and **colo
 
 ```
 COLORED GEM VALUE HIERARCHY
-+------------------------------------------------------------------+
-|  Most valuable: unheated natural stone from premium origin       |
-|  Ruby:    Burma (Mogok Valley) > Mozambique > Thailand           |
-|  Sapphire: Kashmir > Burma > Ceylon (Sri Lanka) > Madagascar     |
-|  Emerald: Colombia > Zambia > Brazil > Zimbabwe                  |
-|                                                                  |
-|  Origin affects: color quality + prestige + provenance           |
-|  Kashmir sapphire (no longer mined): velvety blue; 20-30× premium|
-|  Mogok ruby ("pigeon's blood"): fluorescent red; 5-10× premium   |
-+------------------------------------------------------------------+
++-------------------------------------------------------------------+
+|  Most valuable: unheated natural stone from premium origin        |
+|  Ruby:    Burma (Mogok Valley) > Mozambique > Thailand            |
+|  Sapphire: Kashmir > Burma > Ceylon (Sri Lanka) > Madagascar      |
+|  Emerald: Colombia > Zambia > Brazil > Zimbabwe                   |
+|                                                                   |
+|  Origin affects: color quality + prestige + provenance            |
+|  Kashmir sapphire (no longer mined): velvety blue; 20-30× premium |
+|  Mogok ruby ("pigeon's blood"): fluorescent red; 5-10× premium    |
++-------------------------------------------------------------------+
 
 THE COLORED STONE 4Cs (modified):
   Color: hue + tone + saturation (HSB color model essentially)
@@ -243,38 +262,38 @@ DIAMOND (C):
 
 ```
 COMMON TREATMENTS
-+------------------------------------------------------------------+
-|  HEAT TREATMENT (thermal)                                        |
-|  Ruby/sapphire: 99%+ of commercial stones heated                 |
-|  Purpose: improve color and/or clarity (dissolve silk)           |
-|  Temperature: 1500–1900°C in controlled atmosphere               |
-|  Detection: inclusions altered (melted, tension halos),          |
-|    no rutile silk, altered chemistry at parting planes           |
-|  Emerald: heat improves clarity (dissolves inclusions) rarely used|
-|                                                                  |
-|  FRACTURE FILLING                                                |
-|  Emerald: 99%+ of commercial emeralds have fractures filled      |
-|    Filler: cedar oil, synthetic resins, Opticon                  |
-|  Ruby/sapphire: glass or borax filling of heavy fractures        |
-|    Lead glass (Pb) filling in rubies: changes density, RI        |
-|    Detection: RI measurement, heavy element by XRF               |
-|  Diamond: Laser drilling + filling (improving clarity)           |
-|    Laser drill channel → acid bleaches inclusion                 |
-|    Then resin fills channel                                      |
-|                                                                  |
-|  IRRADIATION (radiation exposure)                                |
-|  Blue topaz: colorless/pale → blue (neutron/electron/gamma)      |
-|  Blue diamond: irradiation (then heating for green diamond)      |
-|  Fancy colored diamond: gamma or electron bombardment            |
-|  Detection: temperature gradient of color (color zoned vs.       |
-|    uniform); spectroscopy; distinctive absorption features       |
-|                                                                  |
-|  COATING                                                         |
-|  Pale blue sapphire: thin Be-oxide coating = pink                |
-|  Topaz: mylar film on pavilion for "mystic topaz" colors         |
-|  Beryllium diffusion: heat + Be saturate lattice → new colors    |
-|  Detection: by immersion (color only at surface)                 |
-+------------------------------------------------------------------+
++--------------------------------------------------------------------+
+|  HEAT TREATMENT (thermal)                                          |
+|  Ruby/sapphire: 99%+ of commercial stones heated                   |
+|  Purpose: improve color and/or clarity (dissolve silk)             |
+|  Temperature: 1500–1900°C in controlled atmosphere                 |
+|  Detection: inclusions altered (melted, tension halos),            |
+|    no rutile silk, altered chemistry at parting planes             |
+|  Emerald: heat improves clarity (dissolves inclusions) rarely used |
+|                                                                    |
+|  FRACTURE FILLING                                                  |
+|  Emerald: 99%+ of commercial emeralds have fractures filled        |
+|    Filler: cedar oil, synthetic resins, Opticon                    |
+|  Ruby/sapphire: glass or borax filling of heavy fractures          |
+|    Lead glass (Pb) filling in rubies: changes density, RI          |
+|    Detection: RI measurement, heavy element by XRF                 |
+|  Diamond: Laser drilling + filling (improving clarity)             |
+|    Laser drill channel → acid bleaches inclusion                   |
+|    Then resin fills channel                                        |
+|                                                                    |
+|  IRRADIATION (radiation exposure)                                  |
+|  Blue topaz: colorless/pale → blue (neutron/electron/gamma)        |
+|  Blue diamond: irradiation (then heating for green diamond)        |
+|  Fancy colored diamond: gamma or electron bombardment              |
+|  Detection: temperature gradient of color (color zoned vs.         |
+|    uniform); spectroscopy; distinctive absorption features         |
+|                                                                    |
+|  COATING                                                           |
+|  Pale blue sapphire: thin Be-oxide coating = pink                  |
+|  Topaz: mylar film on pavilion for "mystic topaz" colors           |
+|  Beryllium diffusion: heat + Be saturate lattice → new colors      |
+|  Detection: by immersion (color only at surface)                   |
++--------------------------------------------------------------------+
 ```
 
 ---
@@ -365,7 +384,7 @@ DETECTION METHODS AT LABS (GIA, AGL, Gübelin, SSEF)
 |                                                  |
 |  X-ray fluorescence (XRF):                       |
 |  → Heavy elements (Pb) in glass-filled ruby      |
-|  → Be detection (Be diffusion treated sapphire)|
+|  → Be detection (Be diffusion treated sapphire)  |
 +--------------------------------------------------+
 ```
 

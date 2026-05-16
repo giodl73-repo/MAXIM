@@ -1,20 +1,39 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mineralogy:physical-properties
+kind: guide
+module: mineralogy
+section: mineralogy
+title: Physical Properties of Minerals
+status: source-custody
+source_custody: partial
+current_path: mineralogy/06-PHYSICAL-PROPERTIES.md
+canonical_path: mineralogy/06-PHYSICAL-PROPERTIES.md
+backsource_ids: [proof-backfill:mineralogy:06-physical-properties, git-history:mineralogy:06-physical-properties]
+concepts: [physical, properties]
+root_concepts: [physical, properties]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Physical Properties of Minerals
 
 ## The Big Picture
 
 ```
-+------------------------------------------------------------------+
-|           MINERAL IDENTIFICATION: OBSERVABLE PROPERTIES          |
-|                                                                  |
-|  MECHANICAL                 OPTICAL               OTHER          |
-|  Hardness (Mohs)            Color                 Magnetism      |
-|  Cleavage                   Streak                Fluorescence   |
-|  Fracture                   Luster                Taste/smell    |
-|  Tenacity                   Transparency          Radioactivity  |
-|  Specific gravity           Birefringence         Piezoelectricity|
-|                             Pleochroism                          |
-|                             Fluorescence                         |
-+------------------------------------------------------------------+
++--------------------------------------------------------------------+
+|           MINERAL IDENTIFICATION: OBSERVABLE PROPERTIES            |
+|                                                                    |
+|  MECHANICAL                 OPTICAL               OTHER            |
+|  Hardness (Mohs)            Color                 Magnetism        |
+|  Cleavage                   Streak                Fluorescence     |
+|  Fracture                   Luster                Taste/smell      |
+|  Tenacity                   Transparency          Radioactivity    |
+|  Specific gravity           Birefringence         Piezoelectricity |
+|                             Pleochroism                            |
+|                             Fluorescence                           |
++--------------------------------------------------------------------+
 
 Each property is a macroscopic expression of crystal structure + bonding
 → Cleavage follows crystallographic planes (weakest bond directions)
@@ -31,22 +50,22 @@ Each property is a macroscopic expression of crystal structure + bonding
 
 ```
 MOHS SCALE (1812) — comparative, not linear
-+--------------------------------------------------+
-|  1   Talc          scratched by fingernail       |
-|  2   Gypsum        scratched by fingernail       |
-|  2.5 ————————————— fingernail threshold ————————|
-|  3   Calcite       scratched by copper coin      |
-|  3.5 ————————————— copper coin threshold ————————|
-|  4   Fluorite      scratched by steel nail       |
-|  5   Apatite       scratched by steel knife      |
-|  5.5 ————————————— steel knife threshold ————————|
-|  6   Orthoclase    scratched by window glass     |
-|  6.5 ————————————— window glass threshold ————————|
-|  7   Quartz        scratches window glass easily |
-|  8   Topaz         scratches quartz              |
-|  9   Corundum      scratches topaz               |
-| 10   Diamond       scratches everything          |
-+--------------------------------------------------+
++----------------------------------------------------+
+|  1   Talc          scratched by fingernail         |
+|  2   Gypsum        scratched by fingernail         |
+|  2.5 ————————————— fingernail threshold ————————   |
+|  3   Calcite       scratched by copper coin        |
+|  3.5 ————————————— copper coin threshold ————————  |
+|  4   Fluorite      scratched by steel nail         |
+|  5   Apatite       scratched by steel knife        |
+|  5.5 ————————————— steel knife threshold ————————  |
+|  6   Orthoclase    scratched by window glass       |
+|  6.5 ————————————— window glass threshold ———————— |
+|  7   Quartz        scratches window glass easily   |
+|  8   Topaz         scratches quartz                |
+|  9   Corundum      scratches topaz                 |
+| 10   Diamond       scratches everything            |
++----------------------------------------------------+
 
 Scale is ordinal, not interval:
   The jump from 9 → 10 (corundum → diamond) represents a
@@ -123,38 +142,38 @@ The quality and intensity of light reflected from a mineral's surface:
 
 ```
 LUSTER TYPES AND WHAT CAUSES THEM
-+------------------------------------------------------------------+
-|  METALLIC: opaque minerals with free electrons (metals, sulfides)|
-|  → Mirror-like, like polished metal                              |
-|  Examples: native gold, silver, galena, chalcopyrite, pyrite     |
-|                                                                  |
-|  SUB-METALLIC: partially opaque, less mirror-like                |
-|  Examples: magnetite, hematite (specular)                        |
-|                                                                  |
-|  ADAMANTINE (diamond-like): very high refractive index           |
-|  → Brilliant, fire, high dispersion of light                     |
-|  Examples: diamond (n=2.42), cerussite, anglesite, cassiterite   |
-|                                                                  |
-|  VITREOUS (glassy): most common; moderate refractive index       |
-|  → Clear to glassy like glass (n=1.4–1.9)                        |
-|  Examples: quartz, calcite, fluorite, garnet, most silicates     |
-|                                                                  |
-|  RESINOUS: amber-like; moderate-high n in non-metallic minerals  |
-|  Examples: sphalerite, opal, some garnets                        |
-|                                                                  |
-|  PEARLY: pearl-like; seen in some cleavage faces                 |
-|  → Interference at subsurface layers                             |
-|  Examples: talc, mica (cleavage faces), dolomite                 |
-|                                                                  |
-|  SILKY: fibrous minerals, parallel reflections                   |
-|  Examples: fibrous gypsum (satin spar), asbestos, tiger's eye    |
-|                                                                  |
-|  WAXY/GREASY: slightly rough surface scatters light              |
-|  Examples: nephrite jade, talc (greasy feel), serpentine         |
-|                                                                  |
-|  DULL/EARTHY: fine-grained, rough, no specular reflection        |
-|  Examples: kaolinite, limonite, chalk                            |
-+------------------------------------------------------------------+
++-------------------------------------------------------------------+
+|  METALLIC: opaque minerals with free electrons (metals, sulfides) |
+|  → Mirror-like, like polished metal                               |
+|  Examples: native gold, silver, galena, chalcopyrite, pyrite      |
+|                                                                   |
+|  SUB-METALLIC: partially opaque, less mirror-like                 |
+|  Examples: magnetite, hematite (specular)                         |
+|                                                                   |
+|  ADAMANTINE (diamond-like): very high refractive index            |
+|  → Brilliant, fire, high dispersion of light                      |
+|  Examples: diamond (n=2.42), cerussite, anglesite, cassiterite    |
+|                                                                   |
+|  VITREOUS (glassy): most common; moderate refractive index        |
+|  → Clear to glassy like glass (n=1.4–1.9)                         |
+|  Examples: quartz, calcite, fluorite, garnet, most silicates      |
+|                                                                   |
+|  RESINOUS: amber-like; moderate-high n in non-metallic minerals   |
+|  Examples: sphalerite, opal, some garnets                         |
+|                                                                   |
+|  PEARLY: pearl-like; seen in some cleavage faces                  |
+|  → Interference at subsurface layers                              |
+|  Examples: talc, mica (cleavage faces), dolomite                  |
+|                                                                   |
+|  SILKY: fibrous minerals, parallel reflections                    |
+|  Examples: fibrous gypsum (satin spar), asbestos, tiger's eye     |
+|                                                                   |
+|  WAXY/GREASY: slightly rough surface scatters light               |
+|  Examples: nephrite jade, talc (greasy feel), serpentine          |
+|                                                                   |
+|  DULL/EARTHY: fine-grained, rough, no specular reflection         |
+|  Examples: kaolinite, limonite, chalk                             |
++-------------------------------------------------------------------+
 ```
 
 ---

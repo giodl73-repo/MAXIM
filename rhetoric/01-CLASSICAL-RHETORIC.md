@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rhetoric:classical-rhetoric
+kind: guide
+module: rhetoric
+section: rhetoric
+title: Classical Rhetoric
+status: source-custody
+source_custody: partial
+current_path: rhetoric/01-CLASSICAL-RHETORIC.md
+canonical_path: rhetoric/01-CLASSICAL-RHETORIC.md
+backsource_ids: [proof-backfill:rhetoric:01-classical-rhetoric, git-history:rhetoric:01-classical-rhetoric]
+concepts: [classical, rhetoric]
+root_concepts: [classical, rhetoric]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Classical Rhetoric
 
 ## The Big Picture

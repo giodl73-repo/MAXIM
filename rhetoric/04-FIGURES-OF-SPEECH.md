@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rhetoric:figures-of-speech
+kind: guide
+module: rhetoric
+section: rhetoric
+title: Figures of Speech: Schemes and Tropes
+status: source-custody
+source_custody: partial
+current_path: rhetoric/04-FIGURES-OF-SPEECH.md
+canonical_path: rhetoric/04-FIGURES-OF-SPEECH.md
+backsource_ids: [proof-backfill:rhetoric:04-figures-of-speech, git-history:rhetoric:04-figures-of-speech]
+concepts: [figures, of, speech]
+root_concepts: [figures, of]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Figures of Speech: Schemes and Tropes
 
 ## The Big Picture

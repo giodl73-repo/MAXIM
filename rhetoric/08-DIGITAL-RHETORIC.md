@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rhetoric:digital-rhetoric
+kind: guide
+module: rhetoric
+section: rhetoric
+title: Digital Rhetoric
+status: source-custody
+source_custody: partial
+current_path: rhetoric/08-DIGITAL-RHETORIC.md
+canonical_path: rhetoric/08-DIGITAL-RHETORIC.md
+backsource_ids: [proof-backfill:rhetoric:08-digital-rhetoric, git-history:rhetoric:08-digital-rhetoric]
+concepts: [digital, rhetoric]
+root_concepts: [digital, rhetoric]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Rhetoric
 
 ## The Big Picture

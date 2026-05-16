@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rhetoric:political-rhetoric
+kind: guide
+module: rhetoric
+section: rhetoric
+title: Political Rhetoric
+status: source-custody
+source_custody: partial
+current_path: rhetoric/06-POLITICAL-RHETORIC.md
+canonical_path: rhetoric/06-POLITICAL-RHETORIC.md
+backsource_ids: [proof-backfill:rhetoric:06-political-rhetoric, git-history:rhetoric:06-political-rhetoric]
+concepts: [political, rhetoric]
+root_concepts: [political, rhetoric]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Political Rhetoric
 
 ## The Big Picture
