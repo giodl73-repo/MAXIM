@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "linguistics\\03-SYNTAX.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    SYNTAX LANDSCAPE                              |\n|                                                                  |\n|  PHRASE STRUCTURE              TRANSFORMATIONS                   |\n|  (what hierarchical            (how structures                   |\n|   structure sentences have)    are derived from base)            |\n|  X-bar theory, CFGs            Movement operations,              |\n|  constituency tests            traces, copies                    |\n|                                                                  |\n|  BINDING THEORY                WORD ORDER                        |\n|  (how NPs refer and            (universals + parameters          |\n|   corefer — reflexives,        SOV/SVO/VSO/OVS/OVS/VOS)          |\n|   pronouns, R-expressions)                                       |\n|                                                                  |\n|  FROM GENERATIVE GRAMMAR:                                        |\n|  Government and Binding (GB) → Minimalist Program (MP)           |\n|  Core operation: MERGE builds hierarchical structure             |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 87,
+      "heading_context": "### Context-Free Grammar — The TCS Bridge",
+      "confidence": "candidate",
+      "text": "PHRASE STRUCTURE RULES (early Chomsky 1957):\n\n  S  → NP VP\n  NP → (Det) (Adj)* N (PP)*\n  VP → V (NP) (PP)* (AdvP)*\n  PP → P NP\n  AP → (AdvP) A\n\nThese are CFG productions: A → α, where α ∈ (V ∪ T)*\n\nParse tree for \"The cat saw a mouse\":\n            S\n           / \\\n         NP   VP\n        /  \\  / \\\n      Det   N V  NP\n      |     |  | / \\\n     The   cat saw Det N\n                   |   |\n                   a  mouse",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "## Part II: X-bar Theory",
+      "confidence": "candidate",
+      "text": "X-BAR SCHEMA:\n\n       XP  (maximal projection)\n      /  \\\n  (Spec)  X'  (X-bar)\n         / \\\n      X    (Complement)\n    (head)\n\nX can be: N, V, A, P, I (Inflection), C (Complementizer)\n\nRules:\n  XP  → (Spec) X'\n  X'  → X (Complement)\n  X'  → X' (Adjunct)   [adjuncts attach to X', creating multiple X' levels]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "### Wh-Movement",
+      "confidence": "candidate",
+      "text": "Underlying: You saw what yesterday?\nSurface:    What did you see ___ yesterday?\n\n\"What\" has moved from its base position (object of \"see\") to SpecCP.\nThe base position is marked by a TRACE t (or COPY in Minimalism):\n\n         CP\n        / \\\n     What_i  C'\n            / \\\n           C   IP\n          did  / \\\n              NP  I'\n             you  / \\\n                 I   VP\n                past  |\n                      V'\n                     / \\\n                    V   NP\n                  see  [t_i]  ← trace / copy of \"what\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 297,
+      "heading_context": "### Raising vs. Control",
+      "confidence": "candidate",
+      "text": "RAISING:\n  John seems [to be sick].\n\n  \"John\" is base-generated as subject of \"be sick\" and RAISED to matrix subject.\n  Evidence: \"There seems to be a problem.\" — \"there\" is expletive, not agent of \"seems\"\n  John seems → John is raised, leaving expletive possible\n\nCONTROL:\n  John wants [PRO to leave].\n\n  \"John\" is matrix subject and CO-REFERS with PRO (controlled null subject).\n  Evidence: \"There wants *(John) to be a problem.\" — can't put expletive in controller position",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 360,
+      "heading_context": "## Part VI: Government and Binding → Minimalism",
+      "confidence": "candidate",
+      "text": "GENERATIVE EVOLUTION:\n  Syntactic Structures (1957)    — phrase structure + transformations\n  Aspects (1965)                 — deep structure / surface structure, sub-categorization\n  Government and Binding (1981)  — Principles and Parameters framework,\n                                   modularity: X-bar, Theta, Case, Binding, Bounding, Control\n  Minimalist Program (1995→)     — reduce to absolute minimum\n                                   Single operation: MERGE\n                                   Economy: shortest derivation wins\n                                   Interface conditions: PF and LF",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 374,
+      "heading_context": "### Minimalist Merge",
+      "confidence": "candidate",
+      "text": "MERGE: takes two syntactic objects α and β, creates {α, β}\n\nINTERNAL MERGE = movement (merge with already-present element)\nEXTERNAL MERGE = combine two new elements\n\nStructure building is bottom-up:\n  1. Select: saw, a, mouse\n  2. Merge(saw, a) → {V, D} ← nope, Merge(a, mouse) first\n  3. Merge(a, mouse) → DP: {D, N} = [DP a mouse]\n  4. Merge(saw, [DP a mouse]) → VP: {V, DP}\n  5. Merge([NP the cat], VP) → IP: {NP, VP}\n  ...continue until CP\n\nINTERNAL MERGE for questions:\n  [CP What_i [IP did [VP you [V' see [DP t_i]]]]]\n  \"what\" is internally merged to SpecCP from its base DP position",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 402,
+      "heading_context": "## Part VII: Word Order Universals",
+      "confidence": "candidate",
+      "text": "### Greenberg's Universals (1963)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 406,
+      "heading_context": "### Greenberg's Universals (1963)",
+      "confidence": "candidate",
+      "text": "BASIC WORD ORDER FREQUENCIES:\n  SOV  — subject, object, verb       ~41%  (Japanese, Turkish, Hindi, Latin, Korean)\n  SVO  — subject, verb, object       ~35%  (English, Mandarin, French, Swahili)\n  VSO  — verb, subject, object       ~9%   (Classical Arabic, Irish, Welsh)\n  OVS  — object, verb, subject       ~3%   (Hixkaryana)\n  OVS  — (same)\n  VOS  — rare (Malagasy)\n  Free — Russian, Finnish (case-marked → order expressive)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

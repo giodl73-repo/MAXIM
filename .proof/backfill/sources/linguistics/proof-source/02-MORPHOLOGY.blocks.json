@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "linguistics\\02-MORPHOLOGY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------+\n|                    MORPHOLOGY LANDSCAPE                        |\n|                                                                |\n|  MORPHEMES                    WORD FORMATION                   |\n|  (minimal meaningful          Affixation: pre/in/suf/circum    |\n|   units)                      Compounding: blackbird           |\n|  +---------+                  Conversion: \"to google\"          |\n|  | FREE     | — stand alone   Reduplication: zig-zag           |\n|  | \"cat\"    |                 Clipping: advertisement→ad       |\n|  +---------+                  Blending: smoke+fog=smog         |\n|  | BOUND    | — must attach                                    |\n|  | -s, pre- |                                                  |\n|  +---------+                                                   |\n|                                                                |\n|  INFLECTION vs. DERIVATION                                     |\n|  Inflection: grammatical   Derivation: creates new word        |\n|  words → same lexeme       \"teach\" → \"teacher\" (new lexeme)    |\n|  \"walk/walks/walked\"       \"happy\" → \"unhappy\" (new adjective) |\n+----------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 72,
+      "heading_context": "### Morpheme Classification",
+      "confidence": "candidate",
+      "text": "MORPHEMES\n├── FREE (can stand alone)\n│   ├── Content: cat, run, big, quickly (nouns, verbs, adjectives, adverbs)\n│   └── Function: the, and, of, will (determiners, conjunctions, prepositions, auxiliaries)\n│\n└── BOUND (must attach to something)\n    ├── Affixes\n    │   ├── Prefix: un-, pre-, anti-, mis-\n    │   ├── Suffix: -ness, -tion, -er, -s (past/plural/etc.)\n    │   ├── Infix: -in- in \"abso-bloody-lutely\" (expressive, rare in English)\n    │   └── Circumfix: ge-...-t in German past participle: ge+lern+t (\"learned\")\n    │\n    ├── Clitic (phonologically bound, but syntactically free)\n    │   ├── Proclitic: French \"le\" in \"le chat\" (attached to following word)\n    │   └── Enclitic: \"'s\" in \"John's\", \"'ll\" in \"I'll\" (attached to preceding word)\n    │\n    └── Root (bound root): -ceive (perceive, receive, conceive) — can't stand alone",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "## The Compiler Front-End Bridge",
+      "confidence": "candidate",
+      "text": "COMPILER FRONT-END               MORPHOLOGICAL ANALYSIS\n------------------               ----------------------\nLexer / tokenizer                Morphological segmenter:\n                                 \"readers\" → [read][er][s]\n                                 token boundaries ≈ morpheme boundaries\n\nToken type (NUM, IDENT, OP)      Morpheme class:\n                                 root (read), agentive suffix (-er),\n                                 plural inflection (-s)\n\nSymbol table / identifier        Lemma / lexeme:\n  resolution                     \"walked\", \"walks\", \"walking\" all point\n                                 to the same lexeme WALK —\n                                 morphological analysis = lemmatization\n\nMaximal munch rule               Maximal onset principle in syllabification;\n                                 morpheme boundary disambiguation:\n                                 \"un-lock-able\" = (un-)(lock)(able) or\n                                 (un-)(lock-able)?  Scope ambiguity.\n\nRegex-based lexer rules          Finite-state transducer (FST):\n                                 morphological analysis implemented as\n                                 an FST mapping surface forms to\n                                 underlying morpheme sequences.\n                                 (Koskenniemi 1983 two-level morphology —\n                                 the standard for morphological tools.)\n\nLexer state machine              Phonologically conditioned allomorph\n                                 selection: in- → im- before bilabials,\n                                 il- before laterals. The allomorph\n                                 selector is a finite-state transducer\n                                 operating on the surface phonology.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 241,
+      "heading_context": "### Four Types with Examples",
+      "confidence": "candidate",
+      "text": "LATIN:\n  amo  =  am + o\n  \"I love\"  =  love + 1SG.PRES.ACT.IND (all bundled in -o)\n\n  amaba-m = love + IMPERFECT + 1SG (bundled in -bam → -m isn't separable from -ba-)\n\n  portarum = porta + rum\n  \"of the gates\" = gate + GEN.PL.FEM (three features, one suffix)\n\nRUSSIAN:\n  stol-a = table + GEN.SG (two features in -a, not separable)\n  stol-y = table + NOM.PL (same -y that also appears in other cases for other nouns)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 290,
+      "heading_context": "## Part IV: Inflection vs. Derivation",
+      "confidence": "candidate",
+      "text": "INFLECTION                           DERIVATION\n+--------------------------------+   +---------------------------------+\n| Grammatically required         |   | Lexically creative              |\n| Stays same lexeme/lexical class|   | Typically creates new lexeme    |\n| Not listed separately in dict  |   | Listed as separate entry        |\n| Highly regular, few exceptions |   | Less regular, more idiosyncratic|\n| Outer position in word         |   | Inner position (closer to root) |\n+--------------------------------+   +---------------------------------+\n\nINFLECTION examples:\n  walk / walks / walked / walking — all the SAME word in different forms\n  cat / cats — same word\n  big / bigger / biggest — same adjective\n\nDERIVATION examples:\n  teach → teacher (new noun, different meaning)\n  happy → unhappy (same class, opposite meaning)\n  nation → national → nationalize → nationalization (each = new lexeme)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 313,
+      "heading_context": "## Part IV: Inflection vs. Derivation",
+      "confidence": "candidate",
+      "text": "ROOT + DERIVATION + INFLECTION\n  nation + al + ize + ation + s   (nations becomes nationalization's final form via derivation first)\n  teach + er + s                   (teacher-s: derive first, then inflect for plural)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 344,
+      "heading_context": "### Compounding",
+      "confidence": "candidate",
+      "text": "- German: right-headed (Abgasskandal = Abgas+Skandal = exhaust+scandal = diesel scandal)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 349,
+      "heading_context": "### Conversion (Zero Derivation)",
+      "confidence": "candidate",
+      "text": "  to google (noun → verb)\n  to text (noun → verb)\n  a must (verb → noun)\n  a google (proper noun → common noun)\n  to up the ante (preposition → verb)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 446,
+      "heading_context": "### Phonologically conditioned (predictable by rule)",
+      "confidence": "candidate",
+      "text": "English negation prefix:\n  in-    before alveolars: in-complete, in-sane\n  im-    before bilabials: im-possible, im-mature\n  il-    before laterals: il-legal, il-literate\n  ir-    before rhotics: ir-regular, ir-responsible\n  i-     before nasals: i-mmune? (→ im-)\n\nThis is NASAL PLACE ASSIMILATION — the morpheme /in-/ assimilates\nto the place of the following consonant.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 460,
+      "heading_context": "### Morphologically conditioned (lexically specified)",
+      "confidence": "candidate",
+      "text": "English past tense:\n  WEAK (regular): -ed → walked, jumped, painted\n  STRONG (ablaut): sing/sang/sung, drive/drove/driven — class-specific vowel change\n  SUPPLETIVE: go/went\n\nThe strong verb classes are memorized lexically; cannot be predicted from phonology alone.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

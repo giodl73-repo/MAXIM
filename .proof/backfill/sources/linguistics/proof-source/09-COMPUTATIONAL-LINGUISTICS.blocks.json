@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "linguistics\\09-COMPUTATIONAL-LINGUISTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              COMPUTATIONAL LINGUISTICS LANDSCAPE                 |\n|                                                                  |\n|  FORMAL GRAMMARS              PARSING ALGORITHMS                 |\n|  (CFG, PCFG, CCG, TAG,        (CYK, Earley, chart,               |\n|   dependency grammar)          shift-reduce, neural)             |\n|                                                                  |\n|  CLASSIC NLP PIPELINE         STATISTICAL REVOLUTION             |\n|  (tokenize → POS tag →        (IBM alignment models,             |\n|   parse → NER → SRL)           n-gram LMs, HMMs, PCFGs)          |\n|                                                                  |\n|  DISTRIBUTIONAL               NEURAL NLP                         |\n|  SEMANTICS                    (word2vec, GloVe, BERT,            |\n|  (word2vec, GloVe,             Transformer, LLMs)                |\n|   pointwise mutual info)                                         |\n|                                                                  |\n|  TCS BRIDGES:                                                    |\n|  CFG parsing → CYK (O(n³)), Earley (O(n³)),                      |\n|  weighted automata, inside-outside algorithm                     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "### Context-Free Grammar (CFG) — Review from TCS + Syntax",
+      "confidence": "candidate",
+      "text": "CFG = (N, Σ, R, S)\n  N   — non-terminals (categories: NP, VP, S, ...)\n  Σ   — terminals (words)\n  R   — production rules: A → α, where A ∈ N, α ∈ (N ∪ Σ)*\n  S   — start symbol\n\nEXAMPLE:\n  S  → NP VP\n  NP → Det N | Det Adj N | N | NP PP\n  VP → V | V NP | V NP PP | V PP\n  PP → P NP\n  Det → the | a\n  N  → cat | dog | mouse | floor\n  V  → chased | saw | put\n  P  → on | under | near\n  Adj → big | small\n\nDERIVATION of \"the cat chased a small dog\":\n  S → NP VP → Det N VP → \"the\" N VP → \"the cat\" VP\n    → \"the cat\" V NP → \"the cat chased\" NP\n    → \"the cat chased\" Det Adj N\n    → \"the cat chased a small dog\"\n\nAMBIGUITY: One string may have multiple parse trees.\n  \"I saw the man with the telescope\"\n    Reading 1: [I saw [the man with the telescope]] — man has telescope\n    Reading 2: [[I saw the man] with the telescope] — I used telescope to see man\n  Two distinct parse trees from same grammar.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 88,
+      "heading_context": "### Probabilistic CFG (PCFG)",
+      "confidence": "candidate",
+      "text": "PCFG: each production rule has a probability.\n\n  S  → NP VP    [1.0]\n  NP → Det N    [0.6]\n  NP → Det Adj N [0.2]\n  NP → N        [0.2]\n  VP → V NP     [0.5]\n  VP → V        [0.3]\n  VP → V PP     [0.2]\n\nPROBABILITY OF PARSE TREE:\n  P(tree) = ∏ P(rule) over all rules used\n\nDISAMBIGUATION: Choose the most probable parse tree.\n  P(reading 1) vs P(reading 2) → pick higher probability parse.\n\nTRAINING: Estimate rule probabilities from treebank\n  (annotated corpus of parsed sentences — e.g., Penn Treebank)\n  MLE: P(A → α) = count(A → α) / count(A)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "### Chomsky Normal Form (CNF)",
+      "confidence": "candidate",
+      "text": "CHOMSKY NORMAL FORM:\n  Every production is either:\n  A → B C    (exactly two non-terminals)\n  A → a      (exactly one terminal)\n\n  Any CFG can be converted to CNF:\n  1. Eliminate ε-productions\n  2. Eliminate unit productions (A → B)\n  3. Binarize: A → B C D → A → B X, X → C D (introduce new non-terminals)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "### CYK Algorithm — O(n³)",
+      "confidence": "candidate",
+      "text": "CYK ALGORITHM (Cocke-Younger-Kasami):\n  Input: string w = w₁w₂...wₙ, grammar G in CNF\n  Output: membership in L(G) (or parse forest if PCFG)\n\n  TABLE: T[i][j] = set of non-terminals that generate wᵢ...wⱼ\n\n  BASE CASE:\n    T[i][i] = {A | A → wᵢ ∈ R}  (single words)\n\n  RECURSIVE CASE:\n    T[i][j] = {A | A → B C ∈ R, ∃k: B ∈ T[i][k] ∧ C ∈ T[k+1][j]}\n\n  FINAL: w ∈ L(G) iff S ∈ T[1][n]\n\nCOMPLEXITY: O(n³ |G|) where |G| = number of rules\n  Three nested loops: i (start), j (end), k (split point)\n\nPCFG VARIANT:\n  T[i][j][A] = max probability of A → wᵢ...wⱼ\n  Use Viterbi-like dynamic programming\n  Find max over all splits k and all rule A → B C",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "### Earley Algorithm — O(n³) general, O(n²) unambiguous",
+      "confidence": "candidate",
+      "text": "EARLEY ALGORITHM:\n  Earley items: [A → α • β, i]\n    — production A → αβ\n    — dot (•) shows how far parse has progressed\n    — i = start position of this constituent\n\n  OPERATIONS:\n  SCANNER:    [A → α • aβ, i] + w_{j} = a → [A → αa • β, i]\n  PREDICTOR:  [A → α • Bβ, i] → [B → • γ, j] for all B → γ\n  COMPLETER:  [B → γ •, j] + [A → α • Bβ, i] → [A → αB • β, i]\n\nCOMPLEXITY:\n  O(n³) general, O(n²) for unambiguous grammars, O(n) for some simple grammars.\n  Handles arbitrary CFGs (not just CNF) directly.\n  Earley parsers are general; CYK requires CNF but is simpler to implement.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "## Part III: Classic NLP Pipeline",
+      "confidence": "candidate",
+      "text": "RAW TEXT\n    │\n    ▼\nTOKENIZATION — split into words, handle punctuation, contractions\n    │           \"it's\" → [\"it\", \"'s\"] or [\"it's\"] depending on task\n    ▼\nSENTENCE SEGMENTATION — find sentence boundaries\n    │                   \"Mr. Smith bought shares. He paid $1.2M.\" → 2 sentences\n    ▼\nPOS TAGGING — assign grammatical category to each token\n    │          \"The/DT cat/NN sat/VBD on/IN the/DT mat/NN\"\n    │          (Penn Treebank tagset: DT, NN, VBD, IN, etc.)\n    │          Algorithm: HMM Viterbi (1990s), MaxEnt (2000s), neural (2015+)\n    ▼\nPARSING — syntactic analysis\n    │      CFG/PCFG parsing (above), dependency parsing\n    ▼\nNER — Named Entity Recognition\n    │   Identify PERSON/LOCATION/ORGANIZATION/DATE/MONEY tokens\n    │   \"Barack Obama/PERSON visited Paris/LOCATION in 2010/DATE\"\n    ▼\nCOREFERENCE RESOLUTION — find which mentions refer to same entity\n    │   \"Obama... He said... The president...\"  → all Obama\n    ▼\nSEMANTIC ROLE LABELING (SRL)\n    │   \"John sold Mary a book yesterday.\"\n    │   John = AGENT, Mary = RECIPIENT, book = THEME, yesterday = TEMPORAL\n    ▼\nDISCOURSE — RST relations, coherence, QA, summarization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 279,
+      "heading_context": "### N-gram Language Models",
+      "confidence": "candidate",
+      "text": "N-GRAM LM:\n  Model: P(w₁w₂...wₙ) = ∏ᵢ P(wᵢ | wᵢ₋ₙ₊₁...wᵢ₋₁)\n\n  BIGRAM: P(wᵢ | wᵢ₋₁) — probability of word given previous word\n  TRIGRAM: P(wᵢ | wᵢ₋₂, wᵢ₋₁) — given two previous words\n\n  MLE: P(w₂|w₁) = count(w₁,w₂) / count(w₁)\n\n  SMOOTHING needed (zero counts):\n    Laplace (add-1): P(w₂|w₁) = (count(w₁,w₂)+1) / (count(w₁)+|V|)\n    Kneser-Ney: sophisticated backoff + interpolation — long standard baseline\n    Perplexity = 2^H where H = entropy of model on test data",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 351,
+      "heading_context": "## Part V: Distributional Semantics — word2vec / GloVe",
+      "confidence": "candidate",
+      "text": "### word2vec (Mikolov et al., 2013)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 374,
+      "heading_context": "### word2vec (Mikolov et al., 2013)",
+      "confidence": "candidate",
+      "text": "### GloVe (Pennington et al., 2014)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 376,
+      "heading_context": "### GloVe (Pennington et al., 2014)",
+      "confidence": "candidate",
+      "text": "GloVe (Global Vectors):\n  Explicitly models log of co-occurrence counts\n  Loss function:\n    ∑_{i,j} f(X_{ij}) (v_i · ṽ_j + b_i + b̃_j - log X_{ij})²\n\n  X_{ij} = count(word i, context j)\n  f(X) = weighting function (down-weights very frequent pairs)\n\n  Advantage over word2vec: explicitly uses global corpus statistics\n  rather than local window predictions.\n  Both produce similar quality vectors in practice.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 396,
+      "heading_context": "## Part VI: Transformers as Linguistic Models",
+      "confidence": "candidate",
+      "text": "TRANSFORMER ARCHITECTURE (simplified):\n  Input: sequence of tokens w₁...wₙ\n  Tokenization: subword (BPE, WordPiece, SentencePiece)\n    \"tokenization\" → [\"token\", \"##ization\"] (BERT WordPiece)\n    \"unbelievable\" → [\"un\", \"##believe\", \"##able\"]\n\n  SELF-ATTENTION (the key mechanism):\n    For each token, compute attention over all other tokens.\n    h_i = ∑_j α_{ij} v_j   where α_{ij} = softmax(q_i · k_j / √d)\n\n    q (query), k (key), v (value) are learned projections.\n    Attention = weighted sum of values, weighted by query-key similarity.\n\n  MULTI-HEAD ATTENTION:\n    H parallel attention heads → different \"aspects\" of meaning\n    (some heads capture syntax, some semantics, some coreference — empirically)\n\n  POSITIONAL ENCODING:\n    No recurrence — position encoded as sinusoidal or learned embeddings.\n\nBERT (Bidirectional Encoder Representations from Transformers):\n  Pre-trained on masked language modeling (predict masked tokens)\n  and next sentence prediction.\n  Produces CONTEXTUAL word embeddings — same word gets different vectors\n  in different contexts (\"bank\" in \"river bank\" ≠ \"bank account\").\n  Fine-tuned on downstream tasks (classification, NER, QA).\n\nGPT family:\n  Decoder-only transformer, autoregressive language modeling.\n  Predict next token given all previous tokens.\n  Scaled to LLM sizes → emergent few-shot learning.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 466,
+      "heading_context": "## Part VI: Transformers as Linguistic Models",
+      "confidence": "candidate",
+      "text": "PROBING STUDIES (2019–present):\n  Train classifiers on frozen BERT representations to decode:\n  - POS tags → highly decodable from early layers\n  - Parse tree depth → decodable from middle layers\n  - Semantic roles → decodable from upper layers\n  - Coreference → partially decodable, but hard\n  - Anaphora → still difficult\n\n  ATTENTION HEADS and syntax:\n  Specific heads in BERT reliably track:\n  - Direct object of verb\n  - Determiners\n  - Coreferent mentions\n  Attention ≈ dependency tree relations in some heads (Michel et al.)\n\n  Transformers implicitly learn syntactic/semantic structure from raw text.\n  They are not parsing explicitly, but the representations encode structure.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 492,
+      "heading_context": "## Part VII: Universal Dependencies",
+      "confidence": "candidate",
+      "text": "DEPENDENCY GRAMMAR:\n  Instead of phrase structure trees, represent syntax as labeled arcs\n  from head to dependent.\n\n  \"The cat chased the dog.\"\n\n  cat ←det— The\n  cat ←nsubj— chased (root)\n  chased ←obj— dog\n  dog ←det— the\n\n  Graph: directed arcs, each word has one head (except ROOT)\n  Root: \"chased\" is root of the sentence.\n\nUD RELATION TYPES (selected):\n  nsubj   — nominal subject\n  obj     — direct object\n  iobj    — indirect object\n  det     — determiner\n  amod    — adjectival modifier\n  nmod    — nominal modifier\n  advmod  — adverbial modifier\n  case    — case marker (preposition as dependent of NP)\n  aux     — auxiliary\n  mark    — subordinator\n\nUD TREEBANKS:\n  ~250 treebanks in ~100 languages (UD v2.12)\n  Consistent annotation scheme enables cross-linguistic comparison\n  Training data for neural dependency parsers (transition-based, graph-based)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 531,
+      "heading_context": "## Part VIII: Open Problems",
+      "confidence": "candidate",
+      "text": "UNSOLVED / HARD PROBLEMS:\n\n1. COREFERENCE RESOLUTION AT SCALE:\n   Current systems handle explicit pronouns reasonably well.\n   Cross-document coreference, implicit coreference (who is \"the president\"\n   in complex discourse?) still difficult.\n   Winograd schema: \"The city council refused the demonstrators a permit\n   because they feared violence.\" — who feared? Humans solve trivially; models struggle.\n\n2. COMMON-SENSE REASONING:\n   \"The man who was hit by the car was rushed to the hospital.\"\n   → the car didn't go to the hospital (infer)\n   → the man might not survive (infer)\n   Requires world knowledge, not just linguistic patterns.\n   LLMs have improved this but not solved it — failures are systematic and surprising.\n\n3. COMPOSITIONALITY AT SCALE:\n   \"The tall, bald professor whose students always submit late assignments\n    during finals week agreed that the proposal was problematic.\"\n   Formal semantics can compose this. Neural models may handle it well.\n   But rare constructions, nested negations, complex quantifier interactions\n   still fail in current models.\n\n4. GROUNDED MEANING:\n   Words in LLMs are defined by contexts of other words — no connection\n   to the physical world. \"Red\" has distributional relations with \"apple,\"\n   \"blood,\" \"fire\" — but no visual grounding (for text-only LLMs).\n   Multimodal models attempt to bridge this.\n\n5. DISCOURSE AND DIALOGUE:\n   Tracking topic, given/new information, implicature across turns,\n   common ground update — deep discourse-level processing is where\n   current models degrade fastest in long documents.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

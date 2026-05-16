@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:linguistics:computational-linguistics
+kind: guide
+module: linguistics
+section: linguistics
+title: Computational Linguistics - Formal Grammars, Parsing, NLP
+status: source-custody
+source_custody: partial
+current_path: linguistics/09-COMPUTATIONAL-LINGUISTICS.md
+canonical_path: linguistics/09-COMPUTATIONAL-LINGUISTICS.md
+backsource_ids: [proof-backfill:linguistics:09-computational-linguistics, git-history:linguistics:09-computational-linguistics]
+concepts: [computational, linguistics]
+root_concepts: [computational, linguistics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Computational Linguistics — Formal Grammars, Parsing, NLP
 
 ## The Big Picture

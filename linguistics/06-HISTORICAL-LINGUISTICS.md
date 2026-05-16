@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:linguistics:historical-linguistics
+kind: guide
+module: linguistics
+section: linguistics
+title: Historical Linguistics - Language Change
+status: source-custody
+source_custody: partial
+current_path: linguistics/06-HISTORICAL-LINGUISTICS.md
+canonical_path: linguistics/06-HISTORICAL-LINGUISTICS.md
+backsource_ids: [proof-backfill:linguistics:06-historical-linguistics, git-history:linguistics:06-historical-linguistics]
+concepts: [historical, linguistics]
+root_concepts: [historical, linguistics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Historical Linguistics — Language Change
 
 ## The Big Picture

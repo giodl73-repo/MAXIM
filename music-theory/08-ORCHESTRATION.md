@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:music-theory:orchestration
+kind: guide
+module: music-theory
+section: music-theory
+title: Orchestration
+status: source-custody
+source_custody: partial
+current_path: music-theory/08-ORCHESTRATION.md
+canonical_path: music-theory/08-ORCHESTRATION.md
+backsource_ids: [proof-backfill:music-theory:08-orchestration, git-history:music-theory:08-orchestration]
+concepts: [orchestration]
+root_concepts: [orchestration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Orchestration
 
 ## The Big Picture: The Orchestra as an Instrument

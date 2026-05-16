@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "linguistics\\04-SEMANTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------+\n|                    SEMANTICS LANDSCAPE                            |\n|                                                                   |\n|  TRUTH-CONDITIONAL          COMPOSITIONAL                         |\n|  SEMANTICS                  SEMANTICS                             |\n|  (Frege, Tarski,            (how word meanings                    |\n|   Montague)                  combine — Frege's principle)         |\n|  Meaning = intension         principle: meaning of                |\n|  + extension                 whole from parts)                    |\n|                                                                   |\n|  LAMBDA CALCULUS            LEXICAL SEMANTICS                     |\n|  for semantic               (word meaning:                        |\n|  composition — TCS bridge   prototype theory,                     |\n|  (types, function app,      thematic roles,                       |\n|   quantifier raising)       frames, fields)                       |\n|                                                                   |\n|  SCOPE AMBIGUITY            SEMANTIC RELATIONS                    |\n|  (every, some, not —        synonymy, antonymy,                   |\n|   quantifier scope)         hyponymy, meronymy,                   |\n|                             entailment, presupposition            |\n+-------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Part I: Truth-Conditional Semantics",
+      "confidence": "candidate",
+      "text": "SENSE vs. REFERENCE:\n\n  \"The morning star\" ————————\\\n                              +——→  Venus  (same REFERENCE)\n  \"The evening star\" ————————/\n\n  But different SENSE — you can discover they're the same (it's informative),\n  which wouldn't be possible if sense = reference.\n\n  Frege: sense determines reference.\n  \"The morning star\" = the unique celestial body visible before sunrise\n  \"The evening star\" = the unique celestial body visible after sunset\n  Both descriptions pick out Venus, but via different senses.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "### Quantifiers",
+      "confidence": "candidate",
+      "text": "\"Every cat runs\"\n\n  [[every]] = λP.λQ.∀x[P(x) → Q(x)]    (type ⟨⟨e,t⟩, ⟨⟨e,t⟩, t⟩⟩)\n  [[cat]]   = λx.cat(x)                 (type ⟨e, t⟩)\n\n  [[every cat]] = [[every]]([[cat]])\n               = (λP.λQ.∀x[P(x) → Q(x)])(λx.cat(x))\n               = λQ.∀x[cat(x) → Q(x)]   (type ⟨⟨e,t⟩, t⟩)\n\n  [[every cat runs]]\n               = (λQ.∀x[cat(x) → Q(x)])(λx.run(x))\n               = ∀x[cat(x) → run(x)]    (type t)\n\n  Translation: \"for every x, if x is a cat, then x runs\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "### Quantifiers",
+      "confidence": "candidate",
+      "text": "  [[some]] = λP.λQ.∃x[P(x) ∧ Q(x)]\n\n  \"Some cat runs\" → ∃x[cat(x) ∧ run(x)]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "## Part IV: Quantifier Scope Ambiguity",
+      "confidence": "candidate",
+      "text": "\"Every student read some book\"\n\nREADING 1 (∀ > ∃ — surface scope):\n  ∀x[student(x) → ∃y[book(y) ∧ read(x, y)]]\n  \"For every student, there exists a (possibly different) book they read.\"\n  → students may have read different books\n\nREADING 2 (∃ > ∀ — inverse scope):\n  ∃y[book(y) ∧ ∀x[student(x) → read(x, y)]]\n  \"There exists a specific book that every student read.\"\n  → one book, read by all students\n\nBoth readings are grammatical for this sentence. In context, disambiguation\nvia discourse.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 251,
+      "heading_context": "## Part VI: Entailment, Presupposition, Implicature",
+      "confidence": "candidate",
+      "text": "ENTAILMENT:\n  S entails S' iff in every world where S is true, S' is true.\n  Logical consequence.\n\n  \"John knows that Mary left\" → \"Mary left\"  (entailment — knowledge is factive)\n  Negation: \"John doesn't know that Mary left\" → \"Mary left\"  (presupposition — survives)\n\n  Entailment does NOT survive negation:\n  \"John ate the pizza\" → \"The pizza was eaten\"\n  \"John didn't eat the pizza\" → ↝ \"The pizza was eaten\"  ✗",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 264,
+      "heading_context": "## Part VI: Entailment, Presupposition, Implicature",
+      "confidence": "candidate",
+      "text": "PRESUPPOSITION:\n  S presupposes S' iff both S and ¬S require S' to be true.\n\n  \"The king of France is bald\" presupposes \"There is a king of France\"\n  \"The king of France is not bald\" presupposes \"There is a king of France\"\n  Both are truth-valueless if France has no king (or false — theoretically disputed)\n\n  Russell's analysis: presupposition as existential entailment\n  \"The F is G\" = ∃x[F(x) ∧ ∀y[F(y) → y=x] ∧ G(x)]\n\n  But if presupposition fails: sentence is strange, not just false.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 303,
+      "heading_context": "## Part VII: Prototype Theory (Rosch)",
+      "confidence": "candidate",
+      "text": "CATEGORY STRUCTURE:\n  Core/Prototype: most typical member(s) — robin for BIRD\n  Gradient: members with varying degrees of membership\n  Fuzzy boundaries: no sharp in/out\n\n  BIRD:\n    Central: robin, sparrow, finch\n    Less typical: chicken, penguin, ostrich, bat (not a bird, but \"bird-like\")\n    Family resemblance: no one feature shared by all\n\nTYPICALITY EFFECTS:\n  \"Is a robin a bird?\" → fast RT\n  \"Is a penguin a bird?\" → slower RT\n  \"A robin is a more typical bird than a penguin\" — felicitous statement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

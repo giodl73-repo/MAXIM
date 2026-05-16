@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:linguistics:semantics
+kind: guide
+module: linguistics
+section: linguistics
+title: Semantics - Linguistic Meaning
+status: source-custody
+source_custody: partial
+current_path: linguistics/04-SEMANTICS.md
+canonical_path: linguistics/04-SEMANTICS.md
+backsource_ids: [proof-backfill:linguistics:04-semantics, git-history:linguistics:04-semantics]
+concepts: [semantics]
+root_concepts: [semantics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Semantics — Linguistic Meaning
 
 ## The Big Picture
@@ -11,7 +30,7 @@ Semantics is the study of linguistic meaning — what words and sentences mean, 
 |  TRUTH-CONDITIONAL          COMPOSITIONAL                         |
 |  SEMANTICS                  SEMANTICS                             |
 |  (Frege, Tarski,            (how word meanings                    |
-|   Montague)                  combine — Frege's principle)        |
+|   Montague)                  combine — Frege's principle)         |
 |  Meaning = intension         principle: meaning of                |
 |  + extension                 whole from parts)                    |
 |                                                                   |
@@ -353,7 +372,7 @@ EXPERIENCER → Subject with psychological verbs ("John fears dogs")
 | "Robin is a better example of bird than ostrich" | Prototype effects | Typicality gradient |
 | "The cat" refers to a specific cat | Definite description | Russell's ιx operator |
 | "John admires himself" — who does "himself" refer to? | Binding + semantics | Anaphora resolution |
-| "dog" means what? | Lexical semantics | Extension = set of dogs; Intension = λw.{x | dog(x) in w} |
+| "dog" means what? | Lexical semantics | Extension = set of dogs; Intension = λw.{x \| dog(x) in w} |
 
 ---
 

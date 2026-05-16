@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:music-theory:voice-leading-counterpoint
+kind: guide
+module: music-theory
+section: music-theory
+title: Voice Leading and Counterpoint
+status: source-custody
+source_custody: partial
+current_path: music-theory/05-VOICE-LEADING-COUNTERPOINT.md
+canonical_path: music-theory/05-VOICE-LEADING-COUNTERPOINT.md
+backsource_ids: [proof-backfill:music-theory:05-voice-leading-counterpoint, git-history:music-theory:05-voice-leading-counterpoint]
+concepts: [voice, leading, counterpoint]
+root_concepts: [voice, leading]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Voice Leading & Counterpoint
 
 ## The Big Picture: Independent Lines in Harmonic Space

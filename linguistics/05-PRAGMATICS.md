@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:linguistics:pragmatics
+kind: guide
+module: linguistics
+section: linguistics
+title: Pragmatics - Meaning in Context
+status: source-custody
+source_custody: partial
+current_path: linguistics/05-PRAGMATICS.md
+canonical_path: linguistics/05-PRAGMATICS.md
+backsource_ids: [proof-backfill:linguistics:05-pragmatics, git-history:linguistics:05-pragmatics]
+concepts: [pragmatics]
+root_concepts: [pragmatics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pragmatics — Meaning in Context
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:music-theory:modes-pentatonic
+kind: guide
+module: music-theory
+section: music-theory
+title: Modes and Non-Diatonic Scales
+status: source-custody
+source_custody: partial
+current_path: music-theory/02-MODES-PENTATONIC.md
+canonical_path: music-theory/02-MODES-PENTATONIC.md
+backsource_ids: [proof-backfill:music-theory:02-modes-pentatonic, git-history:music-theory:02-modes-pentatonic]
+concepts: [modes, pentatonic]
+root_concepts: [modes, pentatonic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modes & Non-Diatonic Scales
 
 ## The Big Picture: Scales as Rotations and Transpositions
@@ -7,7 +26,7 @@ THE DIATONIC SET AND ITS MODES
 C major scale: C D E F G A B  (7 notes, 5 whole + 2 half steps)
 
 Rotate the starting point → 7 different modes, same pitch content:
-┌────────────┬────────┬──────────────────────┬──────────────────────┐
+┌───────────────────────────────────────────────────────────────────┐
 │ Start on   │ Mode   │ Pattern (W/H)        │ Character            │
 ├────────────┼────────┼──────────────────────┼──────────────────────┤
 │ C (I)      │ Ionian  │ W W H W W W H       │ Major = bright       │
@@ -17,7 +36,7 @@ Rotate the starting point → 7 different modes, same pitch content:
 │ G (V)      │ Mixolydian│ W W H W W H W     │ Major + ♭7, bluesy   │
 │ A (VI)     │ Aeolian │ W H W W H W W       │ Natural minor        │
 │ B (VII)    │ Locrian │ H W W H W W W       │ Minor + ♭2 + ♭5, unstable│
-└────────────┴────────┴──────────────────────┴──────────────────────┘
+└───────────────────────────────────────────────────────────────────┘
 ```
 
 **Key insight:** Modes are **not just transpositions** of a parent scale. D Dorian uses the same notes as C major but they function differently — D is tonic, D minor chord is home. The character comes from which intervals appear *relative to the tonic*.

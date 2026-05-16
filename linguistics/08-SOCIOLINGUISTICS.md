@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:linguistics:sociolinguistics
+kind: guide
+module: linguistics
+section: linguistics
+title: Sociolinguistics - Language and Society
+status: source-custody
+source_custody: partial
+current_path: linguistics/08-SOCIOLINGUISTICS.md
+canonical_path: linguistics/08-SOCIOLINGUISTICS.md
+backsource_ids: [proof-backfill:linguistics:08-sociolinguistics, git-history:linguistics:08-sociolinguistics]
+concepts: [sociolinguistics]
+root_concepts: [sociolinguistics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sociolinguistics — Language and Society
 
 ## The Big Picture

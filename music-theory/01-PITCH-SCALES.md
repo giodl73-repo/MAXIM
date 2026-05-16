@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:music-theory:pitch-scales
+kind: guide
+module: music-theory
+section: music-theory
+title: Pitch and Scales
+status: source-custody
+source_custody: partial
+current_path: music-theory/01-PITCH-SCALES.md
+canonical_path: music-theory/01-PITCH-SCALES.md
+backsource_ids: [proof-backfill:music-theory:01-pitch-scales, git-history:music-theory:01-pitch-scales]
+concepts: [pitch, scales]
+root_concepts: [pitch, scales]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pitch & Scales
 
 ## The Big Picture: From Frequency to Scale

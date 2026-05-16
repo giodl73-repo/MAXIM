@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "music-theory\\05-VOICE-LEADING-COUNTERPOINT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "## SATB Chorale Rules",
+      "confidence": "candidate",
+      "text": "CSP VARIABLE                     MUSICAL CONSTRAINT\n──────────────────────────────────────────────────────────────────────────\nDomain per variable               Voice range (S: C₄–G₅, A: G₃–C₅, etc.)\nBinary constraint (adjacent       No parallel P5/P8 between any voice pair\n  time steps × voice pairs)\nUnary constraint on specific      Leading tone (7̂) must resolve up to 1̂\n  pitch-class assignments         Chordal 7th must resolve down by step\nConstraint on chord voicing       Double root (preferred), never double\n                                  leading tone\nArc consistency / propagation     If soprano = B (leading tone), then\n                                  soprano at t+1 ∈ {C} — prunes the tree",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 80,
+      "heading_context": "### Rules about Motion Type",
+      "confidence": "candidate",
+      "text": "FOUR TYPES OF MOTION BETWEEN TWO VOICES:\n  Parallel: both voices move in the same direction by the same interval type\n  Similar:  both voices move in the same direction by different intervals\n  Contrary: voices move in opposite directions (preferred)\n  Oblique:  one voice holds, other moves\n\nFORBIDDEN MOTIONS:\n  1. Parallel fifths (P5→P5): two voices maintaining a fifth apart while both move\n     C–G to D–A: FORBIDDEN\n     Why: two voices \"fuse\" into one timbre — voice independence lost\n          Historically heard as medieval, regression to organum\n\n  2. Parallel octaves (P8→P8): same pitch doubling at octave while both move\n     C–C to D–D: FORBIDDEN\n     Why: voices become identical, lose identity as separate lines\n\n  3. Direct (hidden) fifths/octaves: voices jump in similar motion to P5 or P8\n     S and B moving in same direction to a perfect fifth or octave\n     ALLOWED only if soprano moves by step (one of the voices)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "### Rules about Specific Notes",
+      "confidence": "candidate",
+      "text": "LEADING TONE RULE: The leading tone (scale degree 7) must resolve up to tonic\n  In V or V7 → I, the 7th degree MUST go to the tonic\n  Exception: leading tone in inner voice (A or T) may occasionally go down\n             to the 5th of I if needed to complete the chord\n\n  V7 → I resolution in C major:\n    G7 (G B D F) → C (C E G)\n    G: stays as G (common tone rule — common tones held)\n    B: resolves UP to C (leading tone → tonic) ↑\n    D: resolves DOWN to C or up to E (choose based on voice)\n    F: resolves DOWN to E (7th of chord resolves down by step) ↓\n\nCHORDAL SEVENTH RULE: The 7th of a seventh chord must resolve DOWN by step\n  In G7 → C: the F (7th) resolves to E\n  The 7th is a \"prepared dissonance\" — it arrives by step or common tone,\n  and departs by step downward\n\nDOUBLED NOTES:\n  Root position: double the root (preferred), or the fifth\n  NEVER double the leading tone (already has strong tendency — doubling\n    would require parallel octaves or awkward resolution)\n  First inversion: double the soprano note or root (avoid doubling the bass = 3rd)\n  Second inversion (I⁶₄): double the 5th (which is in the bass)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "## Cadence Types",
+      "confidence": "candidate",
+      "text": "AUTHENTIC CADENCE (AC): V(7) → I\n  Perfect Authentic (PAC): V → I, both in ROOT POSITION, soprano ends on tonic (1̂)\n    Strongest possible ending — full stop, resolved\n  Imperfect Authentic (IAC): V → I but:\n    - V or I not in root position (inversion used), OR\n    - Soprano does not land on scale degree 1\n    Weaker, sense of continuation\n\nHALF CADENCE (HC): ends on V (no resolution)\n  Any chord → V\n  Feels like a question — \"comma\" in the phrase, not a full stop\n  Common endings: I → V, ii → V, IV → V, ii⁶ → V\n\nPLAGAL CADENCE (PC): IV → I\n  \"Church\" cadence (the \"Amen\" cadence)\n  Softer, less directed than authentic — more conclusive than half\n  Can follow an authentic cadence to extend the ending\n\nDECEPTIVE CADENCE (DC): V → vi (or other non-I)\n  Frustrated expectation — sounds like an AC coming, lands on vi\n  vi shares two notes with I (both C and E in Am and C) → partial satisfaction\n  Creates continuation: phrase must keep going to find the real cadence",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 210,
+      "heading_context": "## Suspension Types",
+      "confidence": "candidate",
+      "text": "SUSPENSION FORMULA: Preparation → Suspension → Resolution\n  P: consonant note (prepared)\n  S: same note held over bar line into dissonance (suspended)\n  R: resolves DOWN by step to consonance\n\nNOTATION: interval of suspension → interval of resolution\n  4–3 suspension: suspended P4 resolves down to M3\n    Tenor: ... G | G – F♯ |     (G = P4 above D, resolves to F♯ = M3)\n    Bass:  ... D | D – D  |\n\n  7–6 suspension: suspended m7 resolves down to M6\n  9–8 suspension: suspended M9 (= M2) resolves down to P8\n  2–1 suspension: M2 resolves down to unison\n\nRETARDATION: suspension resolves UP instead of down (rare)\n  7–8: seventh resolves up to octave (the \"delayed leading tone\")\n\nBASS SUSPENSION (2–3): bass voice has the suspension, resolves down\n  Upper voice is consonant, bass is dissonant → inverts the normal hierarchy\n\nDECORATED RESOLUTION: resolution elaborated with passing tones, ornaments\n  Common in Baroque: the resolution note approached via ornamental turn or trill",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "## Invertible Counterpoint",
+      "confidence": "candidate",
+      "text": "INVERTIBLE AT THE OCTAVE (most common):\n  Original:   Soprano: C E G  (above)\n              Bass:    G E C  (below)\n  Inverted:   Soprano: G E C  (was the bass, now soprano)\n              Bass:    C E G  (was the soprano, now bass)\n\n  When inverted at the octave:\n    P1 → P8 (fine)\n    M3 → m6 (fine, both consonant)\n    P5 → P4 (PROBLEM: P4 is now dissonant in bass position)\n    P8 → P1 (fine)\n\n  Consequence: avoid perfect fifths when writing invertible counterpoint\n    at the octave — they become fourths upon inversion (fourths require\n    resolution when in bass)\n\nINVERTIBLE AT THE 12th (Fux, used in fugue):\n  Transpose one voice by a 12th rather than an octave\n  Intervals transform differently: M3 → m7 (problem)\n  More restricted — only certain interval combinations work\n\nDOUBLE COUNTERPOINT = generic term for invertible counterpoint (two voices swappable)\nTRIPLE COUNTERPOINT = three voices, all permutations valid (6 orderings)\n  Bach's \"Art of the Fugue\" uses triple and quadruple counterpoint",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 272,
+      "heading_context": "## Canon and Imitation",
+      "confidence": "candidate",
+      "text": "IMITATION: one voice enters with a melody, another enters with the same\n  (or similar) melody after a time delay\n\n  Strict imitation: exact copy at some interval (unison, octave, 5th, etc.)\n  Free imitation: melodic shape preserved, pitches adjusted for harmony\n\nCANON: strict imitation maintained throughout — the \"follow\" voice\n  mirrors the \"lead\" voice at every moment after the initial delay\n\n  Canon at the octave: follower enters a perfect octave below/above leader\n  Canon at the fifth: follower enters a perfect fifth below (most common)\n  Canon at the unison: follower enters at same pitch level (hardest)\n\n  ROUND: canon at the unison where voices cycle endlessly\n    \"Row, Row, Row Your Boat\" = a 3-part round\n    Pachelbel's Canon in D = canon at the unison over a repeating bass\n    (technically: canon with basso ostinato)\n\n  CRAB CANON (cancrizans): follower plays the leader backwards\n    Rare, found in Bach's Musical Offering\n\n  MIRROR CANON: follower is exact inversion (upside-down) of leader\n    All ups → downs, all downs → ups",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "## Fugue Anatomy",
+      "confidence": "candidate",
+      "text": "FUGUE STRUCTURE:\n┌─────────────────────────────────────────────────────────────────┐\n│ EXPOSITION           │ DEVELOPMENT         │ FINAL SECTION      │\n│ (all voices enter)   │ (episodes + entries)│ (stretto + coda)   │\n└─────────────────────────────────────────────────────────────────┘\n\nEXPOSITION:\n  SUBJECT: the main melodic idea (5–15 notes typically)\n    Enters first in one voice alone (called the \"dux\" or leader)\n\n  ANSWER: the second entry of the subject, in dominant key (a 5th higher)\n    REAL ANSWER: exact transposition of subject to dominant\n    TONAL ANSWER: adjusted intervals to preserve key feeling\n      (first note: if subject begins with P5 leap, answer adjusts to P4\n       to avoid overshooting the key — the \"tonal answer\" keeps the exposition\n       within the home key region)\n\n  COUNTERSUBJECT (CS): the melody that accompanies the answer/subject\n    Designed to be invertible with the subject (double counterpoint)\n    The CS must work whether above or below the subject\n\n  Entry order (typical 4-voice fugue):\n    Entry 1: SOPRANO — SUBJECT in tonic key (C major)\n    Entry 2: ALTO    — ANSWER in dominant (G major), soprano has CS\n    Entry 3: TENOR   — SUBJECT in tonic, alto has CS\n    Entry 4: BASS    — ANSWER in dominant, tenor has CS\n    → All four voices now active\n\nMIDDLE ENTRIES AND EPISODES:\n  EPISODE: passage with no complete subject statement\n    Uses sequences, fragmentation of subject motives, harmonic motion\n    Typically modulates to related keys\n\n  MIDDLE ENTRY: full subject statement in a related key\n    Common keys: relative major/minor, subdominant, mediant\n\n  SEQUENCE: melodic/harmonic pattern repeated at successive pitch levels\n    The primary developmental device in Baroque music\n    \"Rosalia\" sequence (Italian ground): diatonic sequence descending by step\n\nFINAL SECTION:\n  STRETTO: overlapping entries — answer enters before subject finishes\n    Creates intensification (compression of time between entries)\n\n  AUGMENTATION: subject played in doubled note values (twice as slow)\n    Gives weight and grandeur at the climax\n\n  DIMINUTION: subject in halved note values (twice as fast)\n    Creates agitation or a fleeting echo\n\n  INVERSION: subject played upside-down (all intervals flipped)\n    P: ascending becomes descending, M3 up → M3 down\n\n  RETROGRADE: subject played backwards (very rare in tonal fugue, common in 12-tone)\n\n  CODA/FINAL PEDAL POINT: tonic sustained in bass, final resolution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

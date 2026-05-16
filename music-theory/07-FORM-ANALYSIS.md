@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:music-theory:form-analysis
+kind: guide
+module: music-theory
+section: music-theory
+title: Form Analysis
+status: source-custody
+source_custody: partial
+current_path: music-theory/07-FORM-ANALYSIS.md
+canonical_path: music-theory/07-FORM-ANALYSIS.md
+backsource_ids: [proof-backfill:music-theory:07-form-analysis, git-history:music-theory:07-form-analysis]
+concepts: [form, analysis]
+root_concepts: [form, analysis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Form Analysis
 
 ## Engineering Bridge: Musical Form as Formal Grammar
