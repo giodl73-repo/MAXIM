@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plastics-polymers:advanced-polymers
+kind: guide
+module: plastics-polymers
+section: plastics-polymers
+title: Advanced Polymers: Engineering and High-Performance
+status: source-custody
+source_custody: partial
+current_path: plastics-polymers/09-ADVANCED-POLYMERS.md
+canonical_path: plastics-polymers/09-ADVANCED-POLYMERS.md
+backsource_ids: [proof-backfill:plastics-polymers:09-advanced-polymers, git-history:plastics-polymers:09-advanced-polymers]
+concepts: [advanced, polymers]
+root_concepts: [advanced, polymers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Advanced Polymers: Engineering and High-Performance
 
 ## The Big Picture
@@ -9,12 +28,12 @@
 |   USE TEMP     POLYMER          KEY PROPERTY          MARKET     |
 |   ────────     ───────          ────────────          ──────     |
 |   >300°C       Polyimide (PI)   Extreme T + chem      Aerospace  |
-|   250°C        PTFE             Teflon — min friction  Seals,wire |
+|   250°C        PTFE             Teflon low friction   Seals/wire |
 |   250°C        PPS (Ryton)      Xtal + chem resist    Automotive |
 |   250°C+       PEEK             Best overall balance  Aerospace  |
 |   200°C        PSU / PES        Transparent at T      Medical    |
 |   200°C        PEI (Ultem)      Amorphous, moldable   Aircraft   |
-|   200°C+       LCP              Near-zero CTE, low µ  Electronics|
+|   200°C+       LCP              Near-0 CTE, low µ    Electronics |
 |   150°C        POM (Delrin)     Best gear polymer     Precision  |
 |   ────────────────────────────────────────────────────────────── |
 |   ALL: >$10/kg, often $50–200+/kg, used in grams not kilograms   |

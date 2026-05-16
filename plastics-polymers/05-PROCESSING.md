@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plastics-polymers:processing
+kind: guide
+module: plastics-polymers
+section: plastics-polymers
+title: Processing: Injection Molding, Extrusion, Blow Molding
+status: source-custody
+source_custody: partial
+current_path: plastics-polymers/05-PROCESSING.md
+canonical_path: plastics-polymers/05-PROCESSING.md
+backsource_ids: [proof-backfill:plastics-polymers:05-processing, git-history:plastics-polymers:05-processing]
+concepts: [processing]
+root_concepts: [processing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Processing: Injection Molding, Extrusion, Blow Molding
 
 ## The Big Picture
@@ -15,7 +34,7 @@
 |                             Compression     →   Thermoset parts  |
 |                             Transfer mold   →   Precision TS     |
 |                             Rotomolding     →   Large hollow     |
-|                             Foam            →   Structural / pack |
+|                             Foam            →   Structural/pack  |
 +------------------------------------------------------------------+
 ```
 
@@ -290,7 +309,7 @@ material thins. Draw ratio = depth / width. Ratio > 1 requires plug assist.
    KEY CHARACTERISTICS:
    ┌──────────────────────────────────────────────────────────────┐
    │  + Large hollow parts: impossible by injection or blow mold  │
-   │  + Uniform wall thickness (controlled by powder distribution)│
+   │  + Uniform wall thickness (controlled by powder distrib.)    │
    │  + Low tooling cost: aluminum molds ~$5K–$50K vs injection   │
    │    steel molds $50K–$500K                                    │
    │  + No weld lines, no gates, no sink marks                    │

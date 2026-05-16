@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plastics-polymers:bioplastics
+kind: guide
+module: plastics-polymers
+section: plastics-polymers
+title: Bioplastics: Promises, Reality, and Limits
+status: source-custody
+source_custody: partial
+current_path: plastics-polymers/08-BIOPLASTICS.md
+canonical_path: plastics-polymers/08-BIOPLASTICS.md
+backsource_ids: [proof-backfill:plastics-polymers:08-bioplastics, git-history:plastics-polymers:08-bioplastics]
+concepts: [bioplastics]
+root_concepts: [bioplastics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bioplastics: Promises, Reality, and Limits
 
 ## The Big Picture

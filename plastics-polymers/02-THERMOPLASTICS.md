@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plastics-polymers:thermoplastics
+kind: guide
+module: plastics-polymers
+section: plastics-polymers
+title: Major Thermoplastics: PE, PP, PET, PS, PVC
+status: source-custody
+source_custody: partial
+current_path: plastics-polymers/02-THERMOPLASTICS.md
+canonical_path: plastics-polymers/02-THERMOPLASTICS.md
+backsource_ids: [proof-backfill:plastics-polymers:02-thermoplastics, git-history:plastics-polymers:02-thermoplastics]
+concepts: [thermoplastics]
+root_concepts: [thermoplastics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Major Thermoplastics: PE, PP, PET, PS, PVC
 
 ## The Big Picture

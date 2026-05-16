@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plastics-polymers:additives
+kind: guide
+module: plastics-polymers
+section: plastics-polymers
+title: Additives: Stabilizers, Plasticizers, Fillers
+status: source-custody
+source_custody: partial
+current_path: plastics-polymers/06-ADDITIVES.md
+canonical_path: plastics-polymers/06-ADDITIVES.md
+backsource_ids: [proof-backfill:plastics-polymers:06-additives, git-history:plastics-polymers:06-additives]
+concepts: [additives]
+root_concepts: [additives]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Additives: Stabilizers, Plasticizers, Fillers
 
 ## The Big Picture

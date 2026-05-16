@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plastics-polymers:polymer-chemistry
+kind: guide
+module: plastics-polymers
+section: plastics-polymers
+title: Polymer Chemistry: Chains, Mw/Mn, and Tg
+status: source-custody
+source_custody: partial
+current_path: plastics-polymers/01-POLYMER-CHEMISTRY.md
+canonical_path: plastics-polymers/01-POLYMER-CHEMISTRY.md
+backsource_ids: [proof-backfill:plastics-polymers:01-polymer-chemistry, git-history:plastics-polymers:01-polymer-chemistry]
+concepts: [polymer, chemistry]
+root_concepts: [polymer, chemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Polymer Chemistry: Chains, Mw/Mn, and Tg
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:papermaking:specialty-papers
+kind: guide
+module: papermaking
+section: papermaking
+title: Specialty Papers: Technical and Security Papers
+status: source-custody
+source_custody: partial
+current_path: papermaking/07-SPECIALTY-PAPERS.md
+canonical_path: papermaking/07-SPECIALTY-PAPERS.md
+backsource_ids: [proof-backfill:papermaking:07-specialty-papers, git-history:papermaking:07-specialty-papers]
+concepts: [specialty, papers]
+root_concepts: [specialty, papers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Specialty Papers: Technical and Security Papers
 
 ## The Big Picture

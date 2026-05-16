@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:papermaking:history
+kind: guide
+module: papermaking
+section: papermaking
+title: History: Cai Lun Through the Fourdrinier Machine
+status: source-custody
+source_custody: partial
+current_path: papermaking/01-HISTORY.md
+canonical_path: papermaking/01-HISTORY.md
+backsource_ids: [proof-backfill:papermaking:01-history, git-history:papermaking:01-history]
+concepts: [history]
+root_concepts: [history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # History: Cai Lun Through the Fourdrinier Machine
 
 ## The Big Picture: 1900 Years

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:papermaking:kraft-process
+kind: guide
+module: papermaking
+section: papermaking
+title: The Kraft Process: Chemical Pulping
+status: source-custody
+source_custody: partial
+current_path: papermaking/03-KRAFT-PROCESS.md
+canonical_path: papermaking/03-KRAFT-PROCESS.md
+backsource_ids: [proof-backfill:papermaking:03-kraft-process, git-history:papermaking:03-kraft-process]
+concepts: [kraft, process]
+root_concepts: [kraft, process]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Kraft Process: Chemical Pulping
 
 ## The Big Picture
@@ -20,7 +39,7 @@
 |                    WHITE LIQUOR                                  |
 |                    (recycled)                                    |
 |                                                                  |
-|  CHEMICAL LOOP: NaOH + Na2S → Black liquor → Recovery → White L.|
+|  CHEMICAL LOOP: NaOH + Na2S → Black liquor → Recovery → White L. |
 +------------------------------------------------------------------+
 ```
 
@@ -369,12 +388,12 @@ KRAFT RECOVERY CYCLE — CLOSED-LOOP ARCHITECTURE
                            ▼
                     RECOVERY BOILER  ◄── THE ARCHITECTURAL INSIGHT
                   ┌─────────────────────────────────────────────┐
-                  │  DUAL ROLE:                                  │
+                  │  DUAL ROLE:                                 │
                   │  1. Burn organics (lignin) → STEAM → POWER  │
-                  │     (mill is energy self-sufficient or net   │
+                  │     (mill is energy self-sufficient or net  │
                   │      exporter — pulp mill as power plant)   │
                   │  2. Na2SO4 reduced to Na2S in smelt →       │
-                  │     CHEMICAL REGENERATION                    │
+                  │     CHEMICAL REGENERATION                   │
                   └─────────────────────────────────────────────┘
                            │ (smelt: Na2S + Na2CO3)
                            ▼

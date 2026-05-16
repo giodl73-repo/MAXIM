@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plastics-polymers:thermosets
+kind: guide
+module: plastics-polymers
+section: plastics-polymers
+title: Thermosets: Epoxies, Polyurethanes, Phenolics
+status: source-custody
+source_custody: partial
+current_path: plastics-polymers/03-THERMOSETS.md
+canonical_path: plastics-polymers/03-THERMOSETS.md
+backsource_ids: [proof-backfill:plastics-polymers:03-thermosets, git-history:plastics-polymers:03-thermosets]
+concepts: [thermosets]
+root_concepts: [thermosets]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Thermosets: Epoxies, Polyurethanes, Phenolics
 
 ## The Big Picture
