@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coatings:varnish-lacquer
+kind: guide
+module: coatings
+section: coatings
+title: Varnish, Lacquer and Polyurethane
+status: source-custody
+source_custody: partial
+current_path: coatings/04-VARNISH-LACQUER.md
+canonical_path: coatings/04-VARNISH-LACQUER.md
+backsource_ids: [proof-backfill:coatings:04-varnish-lacquer, git-history:coatings:04-varnish-lacquer]
+concepts: [varnish, lacquer]
+root_concepts: [varnish, lacquer]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Varnish, Lacquer & Polyurethane
 
 ## Film-Forming Clear Finishes — Chemistry and Performance Hierarchy
@@ -352,12 +371,12 @@ CLEAR FINISH SELECTION MATRIX:
     Final coat: do NOT sand (scratches visible, ruins gloss)
 
   COMPATIBLE SEQUENCES:
-    Oil-based stain → water-based poly ✅ (24-48h dry first)
+    Oil-based stain → water-based poly OK (24-48h dry first)
     Water-based stain → oil-based poly ⚠️ (test; oil may
       not penetrate over water-based film)
-    Shellac (dewaxed) → ANY topcoat ✅
+    Shellac (dewaxed) → ANY topcoat OK
     Wax → NOTHING ✗ (remove wax first)
-    Nitro lacquer → nitro lacquer ✅ (re-dissolves and bonds)
+    Nitro lacquer → nitro lacquer OK (re-dissolves and bonds)
     Nitro → conversion varnish ⚠️ (adhesion sometimes poor)
 
   DRY TIME vs CURE TIME:

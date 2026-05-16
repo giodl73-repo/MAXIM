@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:climate-science:overview
+kind: guide
+module: climate-science
+section: climate-science
+title: Climate Science - Overview: Earth's Energy Budget
+status: source-custody
+source_custody: partial
+current_path: climate-science/00-OVERVIEW.md
+canonical_path: climate-science/00-OVERVIEW.md
+backsource_ids: [proof-backfill:climate-science:00-overview, git-history:climate-science:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Climate Science — Overview: Earth's Energy Budget
 
 ## The Big Picture: Climate Science Landscape
@@ -28,9 +47,9 @@ Average over sphere: 1361/4 = 340 W/m² (spherical vs. disk factor)
      INCOMING: 340 W/m²
           ↓
      ┌────┴─────────────────────────────────────────────────┐
-     │                  ATMOSPHERE                           │
-     │  ↑ 77 W/m² reflected by clouds/atmosphere (albedo)  │
-     │  ↑ 23 W/m² absorbed by O₃/water vapor               │
+     │                  ATMOSPHERE                          │
+     │  ↑ 77 W/m² reflected by clouds/atmosphere (albedo)   │
+     │  ↑ 23 W/m² absorbed by O₃/water vapor                │
      │         ↓ 240 W/m² reaches surface                   │
      └──────────────────────────────────────────────────────┘
           ↑ 30 W/m² reflected by surface (surface albedo)
@@ -191,7 +210,7 @@ PROXY METHODS FOR RECONSTRUCTING PAST CLIMATES:
 │ Ocean sediment│ Foram shells │ δ¹⁸O → SST + ice volume            │
 │               │ 65 Myr       │ Mg/Ca → SST; alkenone → SST        │
 ├───────────────┼──────────────┼─────────────────────────────────────┤
-│ Speleothems   │ Cave         │ Stalagmite δ¹⁸O → precipitation    │
+│ Speleothems   │ Cave         │ Stalagmite δ¹⁸O → precipitation     │
 │               │              │ pattern; U-Th dating                │
 ├───────────────┼──────────────┼─────────────────────────────────────┤
 │ Coral         │ Reef coral   │ δ¹⁸O + Sr/Ca → SST back ~500 yr   │

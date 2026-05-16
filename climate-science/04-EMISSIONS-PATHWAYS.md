@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:climate-science:emissions-pathways
+kind: guide
+module: climate-science
+section: climate-science
+title: Emissions and Pathways
+status: source-custody
+source_custody: partial
+current_path: climate-science/04-EMISSIONS-PATHWAYS.md
+canonical_path: climate-science/04-EMISSIONS-PATHWAYS.md
+backsource_ids: [proof-backfill:climate-science:04-emissions-pathways, git-history:climate-science:04-emissions-pathways]
+concepts: [emissions, pathways]
+root_concepts: [emissions, pathways]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Emissions & Pathways
 
 ## RCP/SSP Scenarios, Carbon Budget Math, Sector Contributions, Net Zero

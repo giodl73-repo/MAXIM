@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:climate-science:mitigation-geo
+kind: guide
+module: climate-science
+section: climate-science
+title: 06 - Mitigation and Geoengineering
+status: source-custody
+source_custody: partial
+current_path: climate-science/06-MITIGATION-GEO.md
+canonical_path: climate-science/06-MITIGATION-GEO.md
+backsource_ids: [proof-backfill:climate-science:06-mitigation-geo, git-history:climate-science:06-mitigation-geo]
+concepts: [mitigation, geo]
+root_concepts: [mitigation, geo]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 06 — Mitigation & Geoengineering
 
 ## Renewables, Grid Decarbonization, CDR, Solar Radiation Management
@@ -212,13 +231,13 @@ Wright's Law governs solar PV costs: every doubling of cumulative production yie
 ### Energy Storage Technologies
 
 ```
-  ┌───────────────────────────────────────────────────────────────────────┐
-  │ STORAGE TECHNOLOGY COMPARISON                                         │
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ STORAGE TECHNOLOGY COMPARISON                                        │
   ├────────────────────┬──────────────┬──────────────┬───────────────────┤
   │ Technology         │ Scale        │ Duration     │ Best Use          │
   ├────────────────────┼──────────────┼──────────────┼───────────────────┤
   │ Li-ion (LFP/NMC)   │ kWh-GWh      │ 2-8 hours    │ Daily cycling,    │
-  │                    │              │              │ frequency response │
+  │                    │              │              │ frequency response│
   │                    │              │              │ Declining cost:   │
   │                    │              │              │ ~$150/kWh (2023)  │
   │                    │              │              │ vs $1,200/kWh(2010│
@@ -350,28 +369,28 @@ from hard-to-decarbonize sectors require compensation.
 ```
   CDR PORTFOLIO:
 
-  ┌──────────────────────────────────────────────────────────────────────┐
-  │ METHOD          POTENTIAL     COST           PERMANENCE  RISKS       │
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │ METHOD          POTENTIAL     COST           PERMANENCE  RISKS      │
   ├─────────────────┬────────────┬───────────────┬───────────┬──────────┤
-  │ Afforestation/  │1-3 GtCO₂/yr│ $5-50/tCO₂   │ Decades   │ Wildfire │
+  │ Afforestation/  │1-3 GtCO₂/yr│ $5-50/tCO₂   │ Decades   │ Wildfire  │
   │ Reforestation   │            │               │ (not      │ drought  │
   │                 │            │               │ permanent)│ land use │
   ├─────────────────┼────────────┼───────────────┼───────────┼──────────┤
   │ Soil carbon     │1-3 GtCO₂/yr│ $10-100/tCO₂  │ Decades   │ Reversal │
-  │ (regen ag)      │            │               │ (can      │ with land │
+  │ (regen ag)      │            │               │ (can      │ with land│
   │                 │            │               │ reverse)  │ mgmt chg │
   ├─────────────────┼────────────┼───────────────┼───────────┼──────────┤
-  │ BECCS           │1-5 GtCO₂/yr│ $100-200/tCO₂│ Centuries │ Land use │
+  │ BECCS           │1-5 GtCO₂/yr│ $100-200/tCO₂ │ Centuries │ Land use │
   │ (Bioenergy +    │(theoretical│ (incl. energy │ (if       │ water    │
   │  CCS)           │ high end)  │ value credit) │ stored)   │ food     │
   ├─────────────────┼────────────┼───────────────┼───────────┼──────────┤
   │ Direct Air      │ Uncapped   │ $300-1000/    │ Permanent │ Energy   │
-  │ Capture (DAC)   │ (limited by│ tCO₂ (today) │ (if       │ intensive│
+  │ Capture (DAC)   │ (limited by│ tCO₂ (today) │ (if       │ intensive │
   │                 │ energy +   │ ~$50-100/t    │ stored    │ scaling  │
   │                 │ capital)   │ theoretical   │ geologic) │ challenge│
   │                 │            │ minimum       │           │          │
   ├─────────────────┼────────────┼───────────────┼───────────┼──────────┤
-  │ Enhanced        │1-4 GtCO₂/yr│ $50-200/tCO₂ │ Permanent │ Spreading│
+  │ Enhanced        │1-4 GtCO₂/yr│ $50-200/tCO₂ │ Permanent │ Spreading │
   │ weathering      │            │               │ (mineral  │ scale    │
   │ (basalt, etc.)  │            │               │ carbonates│ unknowns │
   ├─────────────────┼────────────┼───────────────┼───────────┼──────────┤

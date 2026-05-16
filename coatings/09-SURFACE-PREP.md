@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coatings:surface-prep
+kind: guide
+module: coatings
+section: coatings
+title: 09 - Surface Preparation
+status: source-custody
+source_custody: partial
+current_path: coatings/09-SURFACE-PREP.md
+canonical_path: coatings/09-SURFACE-PREP.md
+backsource_ids: [proof-backfill:coatings:09-surface-prep, git-history:coatings:09-surface-prep]
+concepts: [surface, prep]
+root_concepts: [surface, prep]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 09 — Surface Preparation
 
 ## The Most Critical Step — Cleaning, Profiling, Why 80% of Failures Are Prep Failures
@@ -134,7 +153,7 @@ coating specs — you'll see "SSPC SP10" in coating specifications.
 ```
   ┌────────────────────────────────────────────────────────────────────────┐
   │ SSPC STANDARDS — Metal Surface Preparation (ascending quality)         │
-  ├──────────┬────────────────────────────────┬───────────────────────────┤
+  ├──────────┬────────────────────────────────┬────────────────────────────┤
   │ Standard │ Name                           │ Description               │
   ├──────────┼────────────────────────────────┼───────────────────────────┤
   │ SP1      │ Solvent Cleaning               │ Remove oil/grease; not    │

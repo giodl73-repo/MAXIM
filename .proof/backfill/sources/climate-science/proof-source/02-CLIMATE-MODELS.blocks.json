@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "climate-science\\02-CLIMATE-MODELS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture: Model Hierarchy",
+      "confidence": "candidate",
+      "text": "CLIMATE MODEL HIERARCHY (increasing complexity →)\n\nEBM          RCM/1D-RC   AGCM/OGCM    GCM (coupled)   ESM\n====         =========   =========    =============    ===\nEnergy       Vertical     Separate     Atmos + Ocean   + Carbon\nBalance      column       atmos or     coupled         + Land carbon\nModels       (temp        ocean        + Sea ice       + Ice sheets\n             profile)     models       + Land surface  + Aerosols\n                                                       + Chemistry\n\nAnalytical   Process      Regional     Global          Earth\ninsight      understanding downscaling  projection      projection\n\n°C/W/m²      T(z) profile  Regional     Global temp     Carbon\nsensitivity               detail       + precip        feedbacks\n\nIPCC line:    ← Research tools      │      Projection tools →",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "### Zero-Dimensional EBM",
+      "confidence": "candidate",
+      "text": "  THE SIMPLEST CLIMATE MODEL:\n\n  dT/dt = (1/C) × [S(1-α)/4 - σT⁴]\n\n  where:\n    T = global mean surface temperature\n    C = heat capacity of climate system (ocean dominates)\n    S = solar constant (1361 W/m²)\n    α = planetary albedo (0.30)\n    σ = Stefan-Boltzmann constant (5.67×10⁻⁸ W/m²/K⁴)\n    σT⁴ = outgoing longwave radiation\n\n  EQUILIBRIUM: dT/dt = 0\n    T_eq = [S(1-α)/(4σ)]^(1/4) = 255 K = -18°C\n\n  THE GREENHOUSE EFFECT IN THE EBM:\n    Replace σT⁴ with σT⁴/ε where ε = emissivity of atmosphere\n    (ε < 1 because GHGs trap some OLR)\n    → T_eq increases to match observed 288 K\n\n  WHY EBMs ARE USEFUL DESPITE SIMPLICITY:\n    Analytically tractable: can derive ECS exactly\n    Parameter sensitivity is transparent\n    Fast: compute climate sensitivity in milliseconds\n    Good for testing feedbacks conceptually\n\n  ECS FROM EBM:\n    ΔT = ΔF / λ  where λ = climate feedback parameter (W/m²/K)\n    λ = λ_Planck + λ_WV + λ_LR + λ_albedo + λ_cloud\n    λ_Planck = -3.2 W/m²/K (stabilizing, always present)\n    ECS = -ΔF₂ₓCO₂ / λ = 3.7 / λ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "  COUPLED GCM = AGCM + OGCM + SEA ICE + LAND SURFACE MODEL\n  ┌──────────────────────────────────────────────────────────────┐\n  │  ATMOSPHERIC GCM (AGCM)                                      │\n  │  Horizontal resolution: 50–100 km typical (1–2° lat/lon)     │\n  │  High-resolution: 25 km (~0.25°)                             │\n  │  Vertical levels: 30–90 levels (surface to ~80 km)           │\n  │  Time step: 20–30 minutes                                    │\n  │  Variables: T, u, v, w, q (water vapor), surface pressure    │\n  ├──────────────────────────────────────────────────────────────┤\n  │  OCEAN GCM (OGCM)                                            │\n  │  Resolution: 0.25°–1° (coarser runs faster; 1° = standard)  │\n  │  Vertical levels: 30–60 depth levels (surface to ~6000 m)   │\n  │  Time step: 30–60 minutes                                    │\n  │  Variables: T, S (salinity), u, v, w, density               │\n  ├──────────────────────────────────────────────────────────────┤\n  │  SEA ICE MODEL                                               │\n  │  Thermodynamic (melt/freeze) + dynamic (drift)               │\n  │  Viscous-plastic or elastic-viscous-plastic rheology         │\n  ├──────────────────────────────────────────────────────────────┤\n  │  LAND SURFACE MODEL                                          │\n  │  CLM (Community Land Model), JSBACH, CABLE                  │\n  │  Soil temperature/moisture, evapotranspiration, vegetation  │\n  │  Runoff generation → ocean freshwater flux                  │\n  └──────────────────────────────────────────────────────────────┘\n\n  COUPLING:\n  Atmosphere ↔ Ocean: exchange heat, momentum, freshwater at interface\n  Every 1-6 hours: exchange fluxes (Oasis3/MCT coupler)\n  Flux adjustment: historical approach to correct model biases;\n                   modern models avoid it (physically inconsistent)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 131,
+      "heading_context": "### Dynamical Core",
+      "confidence": "candidate",
+      "text": "  PRIMITIVE EQUATIONS (hydrostatic, spherical geometry):\n    ∂u/∂t + (u·∇)u - fv = -∂Φ/∂x + Fλ\n    ∂v/∂t + (u·∇)v + fu = -∂Φ/∂y + Fφ\n    ∂Φ/∂p = -α = -RT/p  (hydrostatic)\n    ∂ω/∂p + ∇·u = 0   (continuity)\n    ∂T/∂t + (u·∇)T + ωσ = Q/cp  (thermodynamic)\n    ∂q/∂t + (u·∇)q = E - P    (water vapor)\n\n  where f = Coriolis parameter, Φ = geopotential, α = specific volume\n  These 5 equations govern large-scale atmospheric dynamics\n\n  HYDROSTATIC APPROXIMATION:\n    Valid for scales >> horizontal resolution\n    Breaks down for convection (vertical acceleration significant)\n    → convection must be parameterized, not resolved\n\n  NUMERICAL METHODS:\n    Spectral: expand in spherical harmonics; T85 = truncation at\n              wavenumber 85 → ~1.4° resolution\n    Finite difference: gridded, traditional\n    Finite volume: conservative (matter/energy conserved exactly)\n                   Modern preference; used in CESM/WRF\n\n  CFL STABILITY CONDITION:\n    Time step ≤ grid spacing / wave speed\n    Reducing grid spacing by 2× requires 2× shorter time step\n    → 3D refinement costs 8× (2× in each of x, y, t)\n    → high-resolution models are enormously more expensive",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 168,
+      "heading_context": "## Parameterization: The Core Challenge",
+      "confidence": "candidate",
+      "text": "  THE PROBLEM:\n  Grid cell: typically 50-100 km × 50-100 km × 1-3 km vertical\n  Processes smaller than grid: cannot be explicitly resolved\n  But: these subgrid processes profoundly affect large-scale dynamics\n\n  WHAT MUST BE PARAMETERIZED:\n  ┌────────────────────┬─────────────────────────────────────────┐\n  │ Process            │ Scale     │ Parameterization approach   │\n  ├────────────────────┼───────────┼─────────────────────────────┤\n  │ Deep convection    │ 1-10 km   │ Mass flux (Arakawa-Schubert)│\n  │ (thunderstorms)    │           │ or relaxed Arakawa-Schubert │\n  │                    │           │ or Kain-Fritsch             │\n  ├────────────────────┼───────────┼─────────────────────────────┤\n  │ Shallow convection │ 0.1-1 km  │ Shallow convection scheme   │\n  │ (cumulus clouds)   │           │ (boundary layer turbulence) │\n  ├────────────────────┼───────────┼─────────────────────────────┤\n  │ Cloud microphysics │ μm-mm     │ Bulk microphysics: prognostic│\n  │ (droplet/ice)      │           │ cloud water, ice, snow, rain │\n  ├────────────────────┼───────────┼─────────────────────────────┤\n  │ Ocean eddy mixing  │ 10-100 km │ Gent-McWilliams eddy-induced│\n  │                    │           │ advection parameterization  │\n  ├────────────────────┼───────────┼─────────────────────────────┤\n  │ Boundary layer     │ 10-1000 m │ Turbulent kinetic energy;   │\n  │ turbulence         │           │ mixing length theory        │\n  ├────────────────────┼───────────┼─────────────────────────────┤\n  │ Land-surface       │ < grid    │ Tiling approach: multiple   │\n  │ heterogeneity      │           │ vegetation/soil tiles per   │\n  │                    │           │ grid cell; area-weighted avg│\n  └────────────────────┴───────────┴─────────────────────────────┘\n\n  PARAMETERIZATION UNCERTAINTY:\n  Parameters in these schemes are \"tuned\" to match observed climate\n  Different tuning choices → different model behavior → uncertainty\n  This is a key source of inter-model spread",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 207,
+      "heading_context": "### Clouds: The Primary Uncertainty Source",
+      "confidence": "candidate",
+      "text": "  CLOUD RADIATIVE EFFECT (CRE):\n  Low clouds (stratocumulus):\n    SW (solar) cooling: reflect ~47 W/m² back to space\n    LW (thermal) effect: small (low clouds are warm; warm = OLR ≈ surface OLR)\n    Net: STRONG COOLING\n\n  High clouds (cirrus):\n    SW effect: modest (thin ice clouds, partial transparency)\n    LW (thermal) warming: +26 W/m² (cold clouds emit less OLR)\n    Net: NET WARMING\n\n  THE CLOUD FEEDBACK PROBLEM:\n  As climate warms:\n  Do low clouds decrease? (less coverage → less SW reflection → amplifying +)\n  Do low clouds increase? (more coverage → more SW reflection → negative -)\n  This question is NOT yet definitively answered\n\n  CONSTRAINED BY:\n  Observational constraint (Sherwood et al. 2020, Nature):\n    Used observations of atmospheric mixing to constrain\n    ECS lower bound → \"very likely above 2.5°C\"\n    Key advance: ruled out low ECS values (< 2.5°C)\n\n  SATELLITE OBSERVATIONS (CERES):\n    Measure radiative fluxes at TOA\n    Cloud fraction, optical depth, height\n    Constrain CRE and feedback sign in models\n    STILL: cloud feedbacks uncertain within ~1 W/m²/K",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 242,
+      "heading_context": "## Earth System Models (ESMs)",
+      "confidence": "candidate",
+      "text": "  GCM + BIOGEOCHEMISTRY + VEGETATION DYNAMICS + ICE SHEETS\n\n  ADDITIONAL COMPONENTS:\n  ┌────────────────────────────────────────────────────────────┐\n  │  Carbon cycle:                                             │\n  │    Ocean biogeochemistry (OMIP): DIC, alkalinity,          │\n  │    phytoplankton, biological pump                          │\n  │    Land carbon: NPP, respiration, fire, permafrost         │\n  │    → prognostic CO₂ (C4MIP simulations)                    │\n  │                                                            │\n  │  Atmospheric chemistry:                                    │\n  │    Tropospheric ozone, OH, aerosol chemistry               │\n  │    Methane oxidation, NOₓ chemistry                        │\n  │                                                            │\n  │  Dynamic vegetation:                                       │\n  │    Competition between plant functional types              │\n  │    Biome shifts under warming                              │\n  │    Albedo and evapotranspiration feedbacks                 │\n  │                                                            │\n  │  Interactive aerosols:                                     │\n  │    Dust, sea salt, sulfate, black carbon, organic aerosol  │\n  │    Aerosol-cloud interactions (indirect effect)            │\n  │                                                            │\n  │  Ice sheet model:                                          │\n  │    BISICLES, PISM — Greenland/Antarctic dynamics           │\n  │    Sea level contribution; coupled via freshwater flux     │\n  └────────────────────────────────────────────────────────────┘\n\n  COST: ESMs are 5-20× more computationally expensive than GCMs\n  Required computation: largest runs use >10,000 CPU cores for months\n  DOE, NSF, NCAR, MPI, GFDL, UK Met Office, CNRM — major centers",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 280,
+      "heading_context": "## CMIP and Ensemble Methods",
+      "confidence": "candidate",
+      "text": "### CMIP6: The Model Comparison Framework",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 282,
+      "heading_context": "### CMIP6: The Model Comparison Framework",
+      "confidence": "candidate",
+      "text": "  CMIP (Coupled Model Intercomparison Project):\n    Coordinated by WCRP (World Climate Research Programme)\n    Common protocols: same scenarios, same output variables\n    → allows model comparison apples-to-apples\n\n  CMIP6 (current, AR6):\n    40+ models from 20+ institutions globally\n    Scenario runs: SSP (Shared Socioeconomic Pathways)\n    ScenarioMIP: SSP1-1.9, SSP1-2.6, SSP2-4.5, SSP3-7.0, SSP5-8.5\n\n  CMIP6 ECS RANGE:\n    1.8–5.7°C (wider than CMIP5 2.1–4.7°C)\n    Some models ECS > 5°C → \"hot models\" problem\n    Constrained after: emerged constraints remove highest-ECS models\n    AR6 likely range: 2.5–4.0°C (narrower than raw CMIP6)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 302,
+      "heading_context": "### Three Sources of Uncertainty",
+      "confidence": "candidate",
+      "text": "  UNCERTAINTY IN CLIMATE PROJECTIONS:\n  ┌────────────────────────────────────────────────────────────┐\n  │  1. SCENARIO UNCERTAINTY (emissions pathway)               │\n  │     What do humans emit?                                   │\n  │     Dominant at LONG lead times (>50 years)                │\n  │     Reducible by: policy choices                           │\n  │                                                            │\n  │  2. MODEL UNCERTAINTY (structural)                         │\n  │     How sensitive is the climate system?                   │\n  │     Dominant at MEDIUM lead times (10-50 years)            │\n  │     Reducible by: better observations, process research    │\n  │                                                            │\n  │  3. INTERNAL VARIABILITY (chaotic atmosphere)              │\n  │     What decade/year is climate in its cycle?              │\n  │     Dominant at SHORT lead times (< 10-15 years)           │\n  │     NOT reducible — fundamental to chaotic dynamics        │\n  └────────────────────────────────────────────────────────────┘\n\n  PRACTICAL:\n  For 2030 temperature: internal variability dominates\n  For 2050 temperature: model uncertainty and scenarios comparable\n  For 2100 temperature: scenario uncertainty dominates\n  → Uncertainty doesn't go away but its CHARACTER changes\n\n  INITIAL-CONDITION ENSEMBLE:\n  Run same model 40-50 times with tiny initial perturbations\n  → Spread = internal variability range\n  → Mean = forced response (signal extracted from noise)\n  CanESM5: 25-member ensemble; CESM2: 100+ member LENS2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 363,
+      "heading_context": "### Paleoclimate Validation",
+      "confidence": "candidate",
+      "text": "  THE GOLD STANDARD FOR LONG-TERM MODEL PERFORMANCE:\n\n  LAST GLACIAL MAXIMUM (LGM, ~21,000 yr ago):\n    Known forcing: ice sheets + CO₂ (~190 ppm)\n    Observed cooling: ~4-7°C globally (proxy-based)\n    Models must reproduce LGM cooling with same sensitivity\n    Emergent constraint: LGM cooling vs modern amplification\n    → constrains ECS lower bound\n\n  PALEOCENE-EOCENE THERMAL MAXIMUM (PETM, ~56 Myr ago):\n    Rapid CO₂ injection (~1,000-2,000 GtC in < 10,000 yr)\n    Warming: ~5-8°C globally\n    Ocean acidification\n    ECS analogue: but CO₂ background different, slower than modern\n    Best studied rapid warming event in geological record\n\n  HOLOCENE THERMAL OPTIMUM (~8,000-5,000 yr ago):\n    Northern hemisphere insolation maximum (orbital)\n    Warmer than preindustrial: ~0.5-1.0°C globally\n    Models validated against proxy reconstructions",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:climate-science:impacts
+kind: guide
+module: climate-science
+section: climate-science
+title: Climate Impacts
+status: source-custody
+source_custody: partial
+current_path: climate-science/05-IMPACTS.md
+canonical_path: climate-science/05-IMPACTS.md
+backsource_ids: [proof-backfill:climate-science:05-impacts, git-history:climate-science:05-impacts]
+concepts: [impacts]
+root_concepts: [impacts]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Climate Impacts
 
 ## Sea Level, Extreme Events, Agriculture, Ecosystems, Risk Framing

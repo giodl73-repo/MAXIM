@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coatings:paint-history
+kind: guide
+module: coatings
+section: coatings
+title: Paint History
+status: source-custody
+source_custody: partial
+current_path: coatings/01-PAINT-HISTORY.md
+canonical_path: coatings/01-PAINT-HISTORY.md
+backsource_ids: [proof-backfill:coatings:01-paint-history, git-history:coatings:01-paint-history]
+concepts: [paint, history]
+root_concepts: [paint, history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Paint History
 
 ## 40,000 Years of Surface Coating
