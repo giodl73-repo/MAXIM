@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:signal-processing:applications
+kind: guide
+module: signal-processing
+section: signal-processing
+title: DSP Applications - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: signal-processing/09-APPLICATIONS.md
+canonical_path: signal-processing/09-APPLICATIONS.md
+backsource_ids: [proof-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]
+concepts: [applications]
+root_concepts: [applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # DSP Applications — A Layered Guide
 
 ## The Big Picture

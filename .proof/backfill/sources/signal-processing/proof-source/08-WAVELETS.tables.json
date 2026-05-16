@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\08-WAVELETS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 308,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Image compression",
+          "Biorthogonal CDF 9/7 or 5/3",
+          "Linear phase matters for edge artifacts; orthogonality is traded away."
+        ],
+        [
+          "Edge detection",
+          "Haar wavelet",
+          "Compact support gives step sensitivity but poor smoothness."
+        ],
+        [
+          "Audio analysis",
+          "Morlet or related CWT wavelets",
+          "Time-frequency localization still obeys uncertainty limits."
+        ],
+        [
+          "Biomedical ECG/EEG",
+          "Daubechies D-4 to D-8",
+          "Wavelet regularity should match morphology and sampling constraints."
+        ],
+        [
+          "Geophysical reflection signals",
+          "Mexican hat/Ricker wavelet",
+          "Best when the assumed wavelet shape matches the acquisition physics."
+        ],
+        [
+          "Denoising",
+          "Daubechies basis plus thresholding",
+          "Shrinkage is strongest for sparse/piecewise-smooth signals, not arbitrary noise."
+        ],
+        [
+          "Fourier-like interpretation",
+          "Morlet CWT",
+          "Intuitive frequency axes come with redundancy and higher compute."
+        ]
+      ]
+    }
+  ]
+}

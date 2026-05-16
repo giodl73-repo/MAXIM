@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\06-STOCHASTIC-SIGNALS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "STOCHASTIC SIGNAL FRAMEWORK\n════════════════════════════════════════════════════════════════════\n\nRandom process X(t):          Ensemble of realizations\nOne realization x₁(t): ────────────────────────────────────►\nAnother:         x₂(t): ──────────────────────────────────►\nAnother:         x₃(t): ─────────────────────────────────►\n                                    │\n                              At any time t₀:\n                              X(t₀) is a RANDOM VARIABLE\n                              with a PDF p(x, t₀)\n\nComplete description: joint PDF p(x₁, t₁; x₂, t₂; ...) — intractable in general\n\nPRACTICAL DESCRIPTION for WSS processes:\n• Mean: μ_X = E[X(t)] — constant (not a function of t)\n• Autocorrelation: Rxx(τ) = E[X(t)X(t+τ)] — depends only on lag τ\n• Power Spectral Density: Sxx(f) = F{Rxx(τ)}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "## Passing Random Signal Through LTI System",
+      "confidence": "candidate",
+      "text": "INPUT              LTI SYSTEM h(t)           OUTPUT\nX(t) ─────────────► [H(f)] ────────────────► Y(t)\n\nOutput PSD:    Syy(f) = |H(f)|² · Sxx(f)\nOutput mean:   μ_Y = H(0) · μ_X\nOutput power:  E[|Y(t)|²] = ∫|H(f)|² Sxx(f) df\n\nThis is the fundamental tool for noise analysis:\n• Given input noise PSD Sxx(f)\n• Know filter frequency response |H(f)|²\n• Output noise power = area under |H(f)|² × Sxx(f)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "## Noise Types",
+      "confidence": "candidate",
+      "text": "NOISE TYPE TAXONOMY\n\nPower/Hz                         Spectral Density\n   │\n   │ White noise (flat):  ─────────────────────── (constant S₀)\n   │\n   │ Pink noise (1/f):   ╲                         (Sxx ∝ 1/f)\n   │                      ╲                        common in nature\n   │\n   │ Red/Brownian (1/f²):  ╲                       (Sxx ∝ 1/f²)\n   │                         ╲                     random walk\n   │\n   │ Blue noise (f):      ╱                         (Sxx ∝ f)\n   │                     ╱\n   │\n   └─────────────────────────────────────────────────────► f",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 184,
+      "heading_context": "## Signal-to-Noise Ratio",
+      "confidence": "candidate",
+      "text": "SNR = Signal power / Noise power = Ps/Pn   (dimensionless ratio)\nSNR_dB = 10·log₁₀(Ps/Pn)\n\nALTERNATIVE SNR DEFINITIONS (context matters!):\n\nSNR (signal processing): Ps/Pn — how loud is signal vs noise\n\nEb/N₀ (digital comms): Energy per bit / noise density — BER performance metric\n\nSQNR (ADC): Signal power / quantization noise power ≈ 6.02B + 1.76 dB\n\nSINAD: Signal + noise + distortion / noise + distortion — amplifier quality\n\nNF (noise figure, RF): NF = SNR_in/SNR_out (dB) — degradation added by component\n      NF = 0 dB → ideal (no noise added); typical LNA NF ≈ 0.5–2 dB\n\nNOISE FLOOR: Minimum detectable signal level.\n   In receiver: -174 dBm/Hz + NF + 10·log(BW) + required SNR",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 267,
+      "heading_context": "## Kalman Filter — Recursive Optimal Estimation",
+      "confidence": "candidate",
+      "text": "STATE-SPACE MODEL:\n  State:       x[n+1] = A·x[n] + B·u[n] + w[n]    (process noise w ~ N(0,Q))\n  Observation: z[n]   = C·x[n] + v[n]               (measurement noise v ~ N(0,R))\n\nPREDICT step (propagate state and covariance forward):\n  x̂[n|n-1] = A·x̂[n-1|n-1] + B·u[n-1]\n  P[n|n-1]  = A·P[n-1|n-1]·Aᵀ + Q\n\nUPDATE step (incorporate measurement):\n  K[n] = P[n|n-1]·Cᵀ·(C·P[n|n-1]·Cᵀ + R)⁻¹       ← Kalman gain\n  x̂[n|n] = x̂[n|n-1] + K[n]·(z[n] - C·x̂[n|n-1])    ← state update\n  P[n|n] = (I - K[n]·C)·P[n|n-1]                    ← covariance update\n\nRELATIONSHIP TO WIENER:\n  For stationary processes, the Kalman gain converges to a constant K∞\n  → steady-state Kalman = causal Wiener filter\n  The algebraic Riccati equation (P = A·P·Aᵀ + Q - A·P·Cᵀ·(C·P·Cᵀ+R)⁻¹·C·P·Aᵀ)\n  gives K∞ directly",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

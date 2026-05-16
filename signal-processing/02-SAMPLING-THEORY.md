@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:signal-processing:sampling-theory
+kind: guide
+module: signal-processing
+section: signal-processing
+title: Sampling Theory - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: signal-processing/02-SAMPLING-THEORY.md
+canonical_path: signal-processing/02-SAMPLING-THEORY.md
+backsource_ids: [proof-backfill:signal-processing:02-sampling-theory, git-history:signal-processing:02-sampling-theory]
+concepts: [sampling, theory]
+root_concepts: [sampling, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sampling Theory — A Layered Guide
 
 ## The Big Picture

@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\04-CONVOLUTION-CORRELATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 259,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Short FIR filtering",
+          "Direct convolution by sum products",
+          "Simpler and often faster than FFT once setup overhead dominates."
+        ],
+        [
+          "Long streaming FIR filtering",
+          "Overlap-save or overlap-add",
+          "Block boundaries require correct padding and discard/keep rules."
+        ],
+        [
+          "Long filter by long signal",
+          "FFT-domain multiply followed by IFFT",
+          "Zero-pad to at least `M + L - 1` or circular wrap aliases the result."
+        ],
+        [
+          "Known signal in noise",
+          "Matched filter by correlating with the replica",
+          "Maximizes output SNR, not range/time resolution."
+        ],
+        [
+          "Time-delay estimation",
+          "Cross-correlation peak",
+          "High correlation indicates predictability at lag, not causality."
+        ],
+        [
+          "Signal energy measurement",
+          "Autocorrelation at lag 0",
+          "Scaling convention determines whether the value is energy, power, or biased estimate."
+        ],
+        [
+          "Periodicity detection",
+          "Autocorrelation recurring peaks",
+          "Periodic peaks can also arise from repeated artifacts or windowing."
+        ],
+        [
+          "2D image filtering",
+          "2D convolution, separable when kernel permits",
+          "Convolution flips the kernel; correlation-like implementations may differ at asymmetric edges."
+        ]
+      ]
+    }
+  ]
+}

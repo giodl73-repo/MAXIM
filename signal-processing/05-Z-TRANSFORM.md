@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:signal-processing:z-transform
+kind: guide
+module: signal-processing
+section: signal-processing
+title: Z-Transform - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: signal-processing/05-Z-TRANSFORM.md
+canonical_path: signal-processing/05-Z-TRANSFORM.md
+backsource_ids: [proof-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]
+concepts: [z, transform]
+root_concepts: [z, transform]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Z-Transform — A Layered Guide
 
 ## The Big Picture

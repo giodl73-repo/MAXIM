@@ -1,0 +1,2029 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-signal-processing-convolution-correlation",
+  "source": "../../signal-processing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#000",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "# Convolution and Correlation — A Layered Guide"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#001",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#002",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Convolution and correlation are the fundamental operations of LTI signal processing.\nConvolution IS filtering. Correlation IS similarity measurement."
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#003",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nOPERATIONS OVERVIEW\n════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#004",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Convolution (x ★ h):               Correlation (Rxy):"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#005",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "y[n] = Σ x[k] · h[n-k]            Rxy[n] = Σ x[k] · y[k+n]\n        k                                     k"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#006",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "LTI filter output                  Similarity measurement"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#007",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "h is FLIPPED and slid              y is slid over x (no flip)\nover x                             Measures lag/time offset"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#008",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Use: filtering, blur, edge detect  Use: radar, sonar, match filter,\n     reverb, FIR implementation         time delay estimation"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#009",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "═══════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#010",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "KEY CONNECTION:\nConvolution in time ↔ Multiplication in frequency\nF{x ★ h} = X(f) · H(f)     ← fundamental theorem\nThis is why FFT-based filtering is O(N log N) instead of O(N²)\n```"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#011",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#012",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Linear Convolution"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#013",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "For sequences x[n] of length M and h[n] of length L:\n- Output y[n] = x[n] ★ h[n] has length M + L - 1\n- Linear convolution is acyclic (no wraparound)"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#014",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nLINEAR CONVOLUTION EXAMPLE\nx = [1, 2, 3]   (M=3)\nh = [1, 1]      (L=2)"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#015",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Method: flip h, slide over x, multiply and sum at each position:"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#016",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "n=0:    h flip = [1,1], align: h=[1,1] × x=[1,2,3] → 1·1 + 0 = 1\nn=1:    [1,1] shifted: h=[1,1] × x=[1,2,_] → 1·2 + 1·1 = 3\nn=2:    [_,1,1] × x=[_,2,3] → 1·3 + 1·2 = 5\nn=3:    [__,1,1] × x=[__,3,_] → 1·3 + 0 = 3"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#017",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "y = [1, 3, 5, 3]   length = 3+2-1 = 4  ✓\n```"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#018",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**Graphical interpretation**: Convolution is the area of overlap between x and a\nflipped, sliding version of h as a function of offset n."
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#019",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**Properties**:\n- Commutativity: x ★ h = h ★ x\n- Associativity: (x ★ h₁) ★ h₂ = x ★ (h₁ ★ h₂)  (cascade = single filter)\n- Distributivity: x ★ (h₁ + h₂) = (x ★ h₁) + (x ★ h₂)  (parallel = add filters)\n- Identity: x ★ δ = x  (delta is identity for convolution)"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#020",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#021",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Circular Convolution"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#022",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "DFT-based convolution is inherently circular — it assumes the signal is periodic with period N."
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#023",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nLINEAR vs CIRCULAR (N-point DFT)"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#024",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Linear convolution:     y_lin[n] = Σ x[k]·h[n-k],  length = M+L-1\n                                    k"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#025",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Circular convolution:   y_circ[n] = Σ x[k]·h[(n-k) mod N]\n                                      k"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#026",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "PROBLEM: If N < M+L-1, the circular convolution wraps around:\n  y_lin   = [1, 3, 5, 3,  0,  0, ...]  (linear, zero tail)\n  y_circ  = [1+3, 3+0, 5+0, 3+0] = [4, 3, 5, 3]  for N=4\n             └── aliasing from wrap! ─┘"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#027",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "SOLUTION: Zero-pad both x and h to length ≥ M+L-1 before DFT.\nThen circular convolution equals linear convolution.\n```"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#028",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**DFT-based filtering**:\n```\ny = IFFT{ FFT{x} × FFT{h} }   with N ≥ M+L-1\n```\nComplexity: O(N log N) vs O(N²) for direct method."
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#029",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#030",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Long-Input Convolution: Overlap-Add / Overlap-Save"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#031",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "For streaming audio/real-time filtering, input x is continuous (infinite) while filter h has\nfinite length L. Process in blocks."
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#032",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nOVERLAP-ADD METHOD"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#033",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Filter h: length L\nInput x: broken into blocks of length M (non-overlapping)"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#034",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "For each block xₖ:\n1. Zero-pad xₖ to length N ≥ M+L-1\n2. FFT(xₖ) × FFT(h)  (precompute FFT of h)\n3. IFFT → yₖ of length N = M+L-1\n4. Each yₖ output has L-1 samples of \"tail\" that overlap with next block\n5. Add overlapping parts → correct linear convolution output"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#035",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "OUTPUT ASSEMBLY:\nBlock 1:  [────────────────────]tail₁\nBlock 2:  [────────────────────]tail₂\n                            tail₁+[tail of block2 start]\n```"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#036",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nOVERLAP-SAVE METHOD (more common in practice)"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#037",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Keep a sliding buffer of length N = M+L-1 (overlapping input)\n1. Fill buffer (L-1 old samples + M new samples)\n2. Compute N-point FFT of buffer\n3. Multiply by H[k]\n4. IFFT\n5. Discard first L-1 samples (they contain circular aliasing)\n6. Output M valid samples\n7. Slide buffer: keep last L-1 samples for next block\n```"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#038",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**Computational cost**: N = M+L-1 ≈ next power of 2.\nFor M=1024 input block, L=256 filter: N=2048, cost ≈ 2048·log₂(2048)/1024 ≈ 22 mults/sample.\nCompare: direct convolution = 256 mults/sample. 11× speedup."
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#039",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#040",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Cross-Correlation"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#041",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Cross-correlation measures the similarity between x and y as a function of time lag τ:"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#042",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nRxy[n] = Σ x[k] · y[k+n] = Σ x[k] · y[k+n]\n          k                  k"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#043",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "or equivalently: Rxy[n] = x[-n] ★ y[n]  (convolution with x reversed)"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#044",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Normalized: ρxy[n] = Rxy[n] / √(Rxx[0]·Ryy[0])   ∈ [-1, +1]\n```"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#045",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**Key insight**: Rxy[n] peaks at n = n₀ when y is a delayed copy of x by n₀ samples.\nThis gives the time delay estimate."
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#046",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**Applications**:\n- **Radar/sonar**: transmitted pulse correlated with received echo → range\n- **Time delay estimation**: two microphones, find which signal arrived first\n- **GPS**: known C/A code correlated with received signal → time of arrival → position\n- **Vibration analysis**: find resonances, transfer functions"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#047",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#048",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Autocorrelation"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#049",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Autocorrelation is cross-correlation of a signal with itself:"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#050",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nRxx[n] = Σ x[k] · x[k+n]\n          k"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#051",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "PROPERTIES:\n• Rxx[0] = Σ|x[k]|² = signal energy (peak at zero lag)\n• Rxx[n] = Rxx[-n]  (even function, symmetric)\n• |Rxx[n]| ≤ Rxx[0] for all n\n• For periodic x with period P: Rxx[n] is also periodic with period P"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#052",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "FOURIER PAIR:\nF{Rxx[n]} = |X(f)|² = Power Spectral Density (PSD)\n→ Wiener-Khinchin theorem (see 06-STOCHASTIC)\n```"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#053",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#054",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Matched Filter"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#055",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "The matched filter maximizes SNR at a specific time instant in the presence of white noise."
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#056",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nMATCHED FILTER DESIGN"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#057",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Given known signal s[n] of length L contaminated by noise:\nReceived: x[n] = α·s[n - n₀] + w[n]   (delayed signal + white noise)"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#058",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Optimal filter: h[n] = s[L-1-n]  (time-reversed version of s)\nFilter output: y[n] = x[n] ★ h[n] = Rsx[n]  (cross-correlation)"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#059",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "At n = n₀ + L - 1:\n  Signal term: α · Rss[0] = α · ∫|s|²   (maximum possible, by Cauchy-Schwarz)\n  Noise term:  minimum"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#060",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Peak SNR = 2·E_s / N₀   where E_s = signal energy, N₀ = noise PSD"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#061",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "RADAR PULSE COMPRESSION:\nTransmit long coded pulse (high energy) → correlate with replica →\ndetect narrow pulse (high range resolution) with full energy\nThis is why radar waveforms are designed for good autocorrelation properties\n(low sidelobes) — LFM chirp, phase-coded sequences (Barker codes, Gold codes).\n```"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#062",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#063",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Bridge: CNN Layers as Learned FIR Filter Banks"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#064",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "A CNN convolutional layer IS a bank of FIR filters with learned coefficients:"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#065",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nDSP CONVOLUTION              CNN \"CONVOLUTION\"\n──────────────────────────────────────────────────────────────────────────\nFIR filter h[n]              Kernel weights w[k] (3×3, 5×5, etc.)\nConvolution y = h * x        Forward pass y = w ⊛ x (actually cross-correlation —\n  (flip h, slide, dot)          ML libraries don't flip the kernel)\nFilter bank (parallel FIRs)  Multiple output channels = multiple learned filters\nDownsampling by M            Stride = M (skip M positions between outputs)\nFilter design (Parks-McCl)   Backpropagation (gradient descent on w)\n```"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#066",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "The forward pass in a CNN is cross-correlation, not convolution — `torch.nn.Conv2d` does NOT flip the kernel. For symmetric kernels this doesn't matter; for asymmetric ones the distinction is real. In classical DSP the flip is essential for the associativity property (cascade of filters); in ML the kernel is learned end-to-end so the flip is irrelevant."
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#067",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#068",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#069",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "- `signal-processing/03-FILTERS.md` — convolution is the time-domain operation behind FIR filtering.\n- `signal-processing/01-FOURIER-ANALYSIS.md` — convolution in time becomes multiplication in frequency.\n- `partial-differential-equations/07-GREENS-FUNCTIONS.md` — Green's functions are convolution kernels for linear PDEs."
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#070",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "04-CONVOLUTION-CORRELATION.md#071",
+      "path": [
+        "04-CONVOLUTION-CORRELATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]",
+        "canonical_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "concepts": "[convolution, correlation]",
+        "current_path": "signal-processing/04-CONVOLUTION-CORRELATION.md",
+        "id": "maxim:signal-processing:convolution-correlation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[convolution, correlation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Convolution and Correlation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Short FIR filtering | Direct convolution by sum products | Simpler and often faster than FFT once setup overhead dominates. |\n| Long streaming FIR filtering | Overlap-save or overlap-add | Block boundaries require correct padding and discard/keep rules. |\n| Long filter by long signal | FFT-domain multiply followed by IFFT | Zero-pad to at least `M + L - 1` or circular wrap aliases the result. |\n| Known signal in noise | Matched filter by correlating with the replica | Maximizes output SNR, not range/time resolution. |\n| Time-delay estimation | Cross-correlation peak | High correlation indicates predictability at lag, not causality. |\n| Signal energy measurement | Autocorrelation at lag 0 | Scaling convention determines whether the value is energy, power, or biased estimate. |\n| Periodicity detection | Autocorrelation recurring peaks | Periodic peaks can also arise from repeated artifacts or windowing. |\n| 2D image filtering | 2D convolution, separable when kernel permits | Convolution flips the kernel; correlation-like implementations may differ at asymmetric edges. |"
+    }
+  ],
+  "refs": [
+    "04-CONVOLUTION-CORRELATION.md"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "acoustics\\09-NOISE-VIBRATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "NOISE AND VIBRATION CONTROL FRAMEWORK\n════════════════════════════════════════════════════════════════════\n\nSOURCE ─────────────────► PATH ─────────────────► RECEIVER\n  │                        │                         │\n  │ Reduce at source:       │ Interrupt path:          │ Protect receiver:\n  │ • Change process        │ • Barriers/enclosures    │ • Hearing protection\n  │ • Redesign mechanism    │ • Isolation mounts       │ • PPE, HPDs\n  │ • Balance rotating      │ • Decoupling             │ • Administrative controls\n  │   parts                 │ • Absorption             │   (time limits)\n  │ • Damping               │ • Mass addition          │ • Distance (1/r² rule)\n  │ • Quiet materials       │ • Stiffness change       │\n  │                         │ (for vibration)          │\n  ▼                         ▼                          ▼\nFIRST PRIORITY          SECOND PRIORITY           LAST RESORT",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 52,
+      "heading_context": "## Sound Radiation Mechanisms",
+      "confidence": "candidate",
+      "text": "MULTIPOLE RADIATION ORDERS\n\nMONOPOLE (point source, pulsating sphere):\n  Radiates equally in all directions\n  Intensity ∝ 1/r² (spherical spreading)\n  Radiation efficiency: Pr ∝ ω⁴ · (volume velocity)²  → HIGH\n  Example: pulsating balloon, loudspeaker diaphragm (bass)\n\nDIPOLE (two equal and opposite monopoles):\n  Figure-8 radiation pattern: strong at poles, null at equator\n  Intensity ∝ 1/r² but lower efficiency\n  Radiation efficiency: Pr ∝ ω⁶ → low at low frequencies\n  Example: vibrating sphere, open-back loudspeaker, vibrating plate (free)\n\nQUADRUPOLE (two equal and opposite dipoles):\n  Complex radiation pattern\n  Radiation efficiency: Pr ∝ ω⁸ → very low\n  Example: turbulent jet noise (Lighthill's acoustic analogy)\n  Jet aircraft noise is dominated by quadrupole → 8th power of jet velocity!\n  This is why jet noise decreases so dramatically when throttling back.\n\nRULE: Higher multipole order → less efficient radiator → easier to reduce noise\n      Adding a baffle to a dipole source can increase radiation (converts to monopole)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 84,
+      "heading_context": "## Vibration Isolation",
+      "confidence": "candidate",
+      "text": "SINGLE DEGREE OF FREEDOM ISOLATOR MODEL\n\n         m (machine)\n          ╔═══╗\n          ║   ║\n          └─┬─┘\n          [k]|[c]   spring k + damper c\n          ──┴──\n         Foundation\n\nEQUATION OF MOTION:\n  m·ẍ + c·ẋ + k·x = F(t)\n\nNATURAL FREQUENCY:\n  fₙ = (1/2π)·√(k/m)   Hz  (lower → better isolation at high frequencies)\n\nFORCE TRANSMISSIBILITY (ratio of transmitted to applied force):\n\nT(f) = |1 + 2jζ(f/fₙ)| / |1 - (f/fₙ)² + 2jζ(f/fₙ)|\n\nwhere ζ = c/(2√(km)) = damping ratio\n\nISOLATION REGION: f > √2 · fₙ  (T < 1 → isolation achieved)\n\nAt f = fₙ: resonance → T > 1 (amplification!)\nT at resonance ≈ 1/(2ζ) — damping prevents catastrophic amplification\n\nTRANSMISSIBILITY vs FREQUENCY:\n\nT(dB)\n  │    Resonance peak\n +20 ─         ╱╲\n    │          ╱  ╲\n  0 ─────────╱────╲──────────────\n    │      fₙ·√2   ╲\n -20 ─                ╲─────────── isolation region (-40 dB/decade for undamped)\n    └─────────────────────────────►\n    0       fₙ     2fₙ    5fₙ   10fₙ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "## Vibration Isolation",
+      "confidence": "candidate",
+      "text": "ISOLATION MOUNT TYPES\n\nRubber mounts:\n  fₙ: 5–25 Hz depending on stiffness and load\n  ζ: 0.05–0.1 (some damping inherent)\n  Use: HVAC equipment, industrial machinery\n\nAir springs (pneumatic):\n  fₙ: 0.5–2 Hz (very low, very good isolation)\n  Need air supply, level-sensing for variable load\n  Use: precision optical tables, printing presses, premium isolation\n\nWire rope isolators:\n  High load capacity, weather resistant, fatigue resistant\n  Use: military electronics, outdoor equipment\n\nActive isolation:\n  Sensors measure vibration → actuators cancel it\n  Can achieve isolation below fₙ\n  Use: AFM microscopes, semiconductor fabs, premium optics\n\nSTATIC DEFLECTION RULE:\nfₙ = 0.5/√(x_st)   Hz  where x_st = static deflection (cm)\n\nTo isolate 50 Hz machine at 85% isolation (T < 0.15):\nNeed fₙ < 50/(√(1/0.15)) ≈ 19 Hz\nx_st = (0.5/fₙ)² = (0.5/19)² ≈ 0.7 mm → achievable with rubber",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "## Damping vs Isolation",
+      "confidence": "candidate",
+      "text": "DAMPING:\n  Converts vibration energy → heat within the structure\n  Reduces amplitude at resonance (reduces resonance peak)\n  Acts over the entire frequency range\n  Material damping: η (loss factor), typically 0.001–0.1 for metals\n  Constrained layer damping: viscoelastic material sandwiched between stiff layers\n  Use when: resonance amplification is the problem\n\nISOLATION:\n  Prevents vibration energy from entering or leaving a structure\n  Attenuates vibration ABOVE the isolator's natural frequency\n  Does nothing (amplifies!) at and below resonance frequency\n  Soft mounts → lower fₙ → better isolation at given excitation frequency\n  Use when: excitation frequency is fixed and above the natural frequency\n\nBOTH TOGETHER: Damping reduces the resonance peak; isolation reduces transmission above fₙ\n  Ideal isolator: very soft spring (low fₙ) + moderate damping (ζ ≈ 0.1–0.2)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 188,
+      "heading_context": "## NVH: Noise, Vibration, and Harshness",
+      "confidence": "candidate",
+      "text": "AUTOMOTIVE NVH SOURCES\n\nFrequency     Source                  Path                   Receiver\n────────────────────────────────────────────────────────────────────────\n10–80 Hz      Engine vibration        Mounts → body → seat  Whole-body vibration\n20–200 Hz     Road roughness          Tires → suspension     Floor, seat vibration\n20–500 Hz     Powertrain              Drivetrain → mounts    Structural vibration\n100–1000 Hz   Tire-road noise         Air → door seals       Interior noise\n500–8000 Hz   Wind noise              A-pillars, mirrors     Interior noise\nAll           Brake squeal            Caliper chatter        Airborne noise\n\nNVH TESTING:\n• Modal analysis: hammer test or shaker → FRF (frequency response function)\n  Identify resonant modes of panels, chassis, subframes\n• Transfer path analysis (TPA): decompose contribution of each path\n• Sound quality metrics: loudness, sharpness, roughness, tonality, articulation index",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 208,
+      "heading_context": "## NVH: Noise, Vibration, and Harshness",
+      "confidence": "candidate",
+      "text": "AUTOMOTIVE NOISE TREATMENTS\n\nDead space barrier: mass + decoupling\n  - Mass law for transmission loss: TL = 20·log(m·f) - 47 dB\n  - Typical: 5 kg/m² bituminous layer → TL ≈ 30–40 dB at 1 kHz\n\nAcoustic absorption:\n  - Porous absorber (foam, felt, fibrous materials) in cavities\n  - Absorbs reflected energy in trunk, door panels\n\nConstrained layer damping (CLD):\n  - Viscoelastic + steel sheet bonded to body panels\n  - Reduces panel resonances (sheet metal modes at 100–1000 Hz)\n\nAcoustic encapsulation:\n  - Full engine bay enclosure: barrier + absorber\n  - Can reduce 6–10 dB engine noise in passenger compartment",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 232,
+      "heading_context": "## Regulatory Standards",
+      "confidence": "candidate",
+      "text": "NOISE EXPOSURE LIMITS\n\nOSHA (USA) — Occupational:\n  90 dB(A) for 8 hours TWA (time-weighted average)\n  For every 5 dB increase: permitted time halves\n  85 dB(A): action level (must provide hearing protection option)\n  85 dB: NIOSH recommends as TLV\n\n  TWA (dB) | Permissible hours/day\n  ─────────────────────────────────\n  90       | 8\n  95       | 4\n  100      | 2\n  105      | 1\n  110      | 0.5\n  115      | 0.25 (15 min)\n  120      | impulse only\n\nWHO Community Noise Guidelines:\n  Day (7am-11pm): < 55 dB Lden outdoors\n  Night (11pm-7am): < 45 dB outdoors (sleep disturbance)\n  Schools: < 35 dB during teaching\n  Hospitals: < 30 dB in wards at night\n\nEU Environmental Noise Directive:\n  Noise mapping → action plans → quiet zones\n  L_den (day-evening-night level): penalties for evening (+5 dB) and night (+10 dB)\n\nVEHICLE PASS-BY NOISE:\n  Euro 6d passenger cars: 68–72 dB(A) (ISO 362 pass-by test)\n  Targets reduction to 68 dB(A) by 2024 (EU Regulation 540/2014)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

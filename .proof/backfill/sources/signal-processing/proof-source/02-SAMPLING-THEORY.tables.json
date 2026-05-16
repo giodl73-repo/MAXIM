@@ -1,0 +1,90 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\02-SAMPLING-THEORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 140,
+      "heading_context": "## Quantization",
+      "headers": [
+        "ADC Bits",
+        "SQNR (ideal)",
+        "Dynamic Range",
+        "Typical Use"
+      ],
+      "rows": [
+        [
+          "8",
+          "~50 dB",
+          "256 levels",
+          "Low-cost audio, video"
+        ],
+        [
+          "12",
+          "~74 dB",
+          "4,096 levels",
+          "Instrumentation"
+        ],
+        [
+          "16",
+          "~98 dB",
+          "65,536 levels",
+          "CD audio, high-quality"
+        ],
+        [
+          "24",
+          "~146 dB",
+          "16M levels",
+          "Studio recording (noise floor limits at ~120 dB)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 243,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether audio sample rate is sufficient",
+          "44.1 kHz or 48 kHz for 20 kHz audio",
+          "Real anti-alias filters need transition-band margin"
+        ],
+        [
+          "Whether exactly `2B` sampling works",
+          "Use `fs > 2B` plus filter margin",
+          "Equality is a mathematical edge case, not an engineering target"
+        ],
+        [
+          "Whether analog anti-aliasing is too hard",
+          "Oversample then digitally decimate",
+          "Oversampling moves complexity into digital filtering"
+        ],
+        [
+          "Whether high-resolution audio conversion is needed",
+          "Sigma-delta ADC architecture",
+          "Resolution comes from oversampling/noise shaping, not instantaneous precision"
+        ],
+        [
+          "Whether instrumentation needs speed/resolution balance",
+          "SAR ADC",
+          "Front-end bandwidth and aperture jitter can dominate"
+        ],
+        [
+          "Whether GS/s capture is required",
+          "Flash ADC",
+          "Speed trades off resolution, power, and cost"
+        ],
+        [
+          "Whether quantization noise is audible or correlated",
+          "Dither before quantization",
+          "Dither raises noise floor to linearize quantization error"
+        ]
+      ]
+    }
+  ]
+}

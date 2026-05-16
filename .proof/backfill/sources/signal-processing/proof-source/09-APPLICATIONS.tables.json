@@ -1,0 +1,68 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\09-APPLICATIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 385,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Audio EQ",
+          "Parametric biquad IIR filters",
+          "Coefficient quantization and cascade ordering affect stability/noise."
+        ],
+        [
+          "Audio compression",
+          "MDCT plus perceptual masking",
+          "Coding artifacts track psychoacoustic model failures, not just bitrate."
+        ],
+        [
+          "High-quality digital reverb",
+          "FFT overlap-add convolution with room impulse response",
+          "Latency and block size are part of the sound/UX tradeoff."
+        ],
+        [
+          "Cheap digital reverb",
+          "Schroeder or FDN comb/allpass structure",
+          "Efficient approximations can sound metallic if modes are too regular."
+        ],
+        [
+          "Radar range",
+          "Pulse compression with matched filter/FFT",
+          "Range resolution comes from bandwidth, not matched-filter SNR alone."
+        ],
+        [
+          "Radar velocity",
+          "DFT across pulse train for Doppler",
+          "Ambiguity depends on PRF and coherent processing interval."
+        ],
+        [
+          "ECG beat detection",
+          "Pan-Tompkins bandpass, square, and integration chain",
+          "Clinical morphology can be distorted by careless notch/filter design."
+        ],
+        [
+          "Speech features",
+          "MFCC frame coefficients",
+          "MFCC decorrelation was designed for GMM-era assumptions."
+        ],
+        [
+          "Audio classification",
+          "Log-mel spectrogram plus CNN",
+          "Learned models still inherit front-end window/hop choices."
+        ],
+        [
+          "Image blur/sharpen",
+          "2D convolution with appropriate kernel",
+          "Boundary handling and kernel symmetry change visual artifacts."
+        ]
+      ]
+    }
+  ]
+}

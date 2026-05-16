@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "acoustics\\07-UNDERWATER-ACOUSTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "UNDERWATER ACOUSTICS APPLICATIONS MAP\n════════════════════════════════════════════════════════════════════\n\nMilitary:           Navigation:          Science:             Commercial:\nSubmarine           SONAR                Seismic survey       Echo sounding\ndetection           GPS (surface)        Marine mammal        Fish finding\nTorpedo guidance    Acoustic beacons     research             Seabed mapping\nMine detection      USBL positioning     Climate monitoring   Offshore drilling\n\n                    CORE PHYSICS:\n                    Sound speed profile → refraction and ducting\n                    Impedance and boundary → reflection/bottom loss\n                    Absorption → range limits\n                    Noise → detection limits",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 51,
+      "heading_context": "## Sound Speed in the Ocean",
+      "confidence": "candidate",
+      "text": "SOUND SPEED EQUATION (Medwin approximation):\n\nc(T, S, z) = 1449.2 + 4.6T - 0.055T² + 0.00029T³\n             + (1.34 - 0.010T)(S - 35) + 0.016z\n\nT = temperature (°C), S = salinity (PSU), z = depth (m)\n\nRanges: c ≈ 1450–1540 m/s in typical ocean\n\nSENSITIVITY:\n∂c/∂T ≈ +4.6 m/s per °C   (temperature most important near surface)\n∂c/∂S ≈ +1.3 m/s per PSU  (salinity less important)\n∂c/∂z ≈ +0.016 m/s per m  (pressure effect, increases with depth)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 70,
+      "heading_context": "## Sound Speed in the Ocean",
+      "confidence": "candidate",
+      "text": "TYPICAL OCEAN SOUND SPEED PROFILE\n\nDepth (m)     c (m/s)\n              1480    1500    1520    1540\n     0        ├─────────────────●         ← warm surface layer (~1530)\n  100 │       │               ●           thermocline: temp drops fast\n  200 │       │           ●\n  300 │       │       ●\n  500 │       │     ●                     minimum sound speed (~1480 m/s)\n 1000 │       │      ●                    ← SOFAR axis\n 2000 │       │         ●\n 3000 │       │             ●\n 4000 │       │                 ●         ← pressure dominates (c increases)\n 5000 │       │                     ●\n\nSOFAR (Sound Fixing And Ranging) channel:\nCentered at the sound speed minimum (~1000 m typical)\nSound refracts back toward the axis → trapped in horizontal waveguide\nAllows propagation over thousands of km with little loss",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "## Sound Propagation: Snell's Law and Ray Theory",
+      "confidence": "candidate",
+      "text": "SNELL'S LAW IN OCEAN:\nsin(θ₁)/c₁ = sin(θ₂)/c₂ = constant along a ray\n\n(θ is angle from horizontal, not from vertical as in optics convention)\n\nRAY BENDING RULES:\nc increases with depth → rays bend downward (toward high c)\nc decreases with depth → rays bend upward (toward high c above)\n\nPROPAGATION SCENARIOS:\n\n1. SURFACE DUCT (c increases from surface downward):\n   Rays trapped near surface by temperature inversion\n   Common in Arctic waters or after warm surface layer\n   ┌──────────────────────────────────────────►\n   │ ╲╱╲╱╲╱╲╱╲╱╲╱   Sound trapped in duct\n   └──────────────────────────────────────────\n\n2. SHADOW ZONE (thermocline):\n   Source near surface, thermocline below\n   Rays that go down: refracted through thermocline, no return\n   Shadow zone at distance beyond first convergence zone\n   Submarines can hide in shadow zone\n\n3. CONVERGENCE ZONES (deep ocean):\n   SOFAR channel traps → refracted up → convergence zone at surface\n   CZ spacing: ~65 km intervals in typical N Atlantic\n   Reliable detection at 65, 130, 195 km without bottom interaction\n\n4. BOTTOM BOUNCE:\n   Shallow water or direct bottom-hitting rays\n   Bottom type determines bottom loss (sand: low loss, silt: high loss)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 139,
+      "heading_context": "## SONAR",
+      "confidence": "candidate",
+      "text": "SONAR EQUATION (passive):\n\nSE = SL - TL - NL + DI - DT ≥ 0   (detection)\n\nSE = Signal Excess (dB)\nSL = Source Level (dB re 1 µPa at 1 m)\nTL = Transmission Loss (dB)\nNL = Noise Level (dB re 1 µPa in receiver bandwidth)\nDI = Directivity Index of hydrophone array (dB)\nDT = Detection Threshold (related to required SNR for given Pd, Pfa)\n\nSONAR EQUATION (active):\n\nSE = SL - 2·TL + TS - NL + DI - DT ≥ 0\n\nTS = Target Strength (dB) = 10·log₁₀(σ/(4π))\n     σ = backscattering cross-section (m²)\n     Large submarine: TS ≈ 15–25 dB\n     School of fish: TS ≈ -20 to 0 dB\n     Seamount: TS ≈ high positive",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 194,
+      "heading_context": "## Beamforming",
+      "confidence": "candidate",
+      "text": "LINEAR ARRAY BEAMFORMING\n\nN hydrophones spaced d apart:\n\nOutput of delay-and-sum beamformer pointing at angle θ:\ny(t) = Σ xₙ(t - τₙ)\n        n\nwhere τₙ = n·d·sin(θ)/c   (time delay for nth element)\n\nArray gain: 10·log₁₀(N) dB improvement in SNR over single hydrophone\nFor N=100: 20 dB gain\n\nBEAM PATTERN (far field):\n|B(θ)| = |sin(N·π·d·sin(θ)/λ)| / |N·sin(π·d·sin(θ)/λ)|\n\nMain lobe width ≈ λ/(N·d)   (radians, -3dB)\n\nCRITICAL DESIGN:\nElement spacing d ≤ λ/2 to avoid grating lobes (spatial aliasing)\nSame rule as Nyquist sampling in space!",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 219,
+      "heading_context": "### Matched Field Processing (MFP)",
+      "confidence": "candidate",
+      "text": "MFP: Advanced coherent beamforming using full ocean acoustic model\n\nConventional beamforming: assumes straight-line paths\nMFP: models actual curved ray paths through measured SSP\n    Correlate received field with predicted field for each (r, z) source location\n    → finds source location even in complex ocean environment\n\nUSE: Precision localization, ASW (anti-submarine warfare)\nCOST: Requires accurate ocean environmental model (SSP, bathymetry, bottom properties)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 237,
+      "heading_context": "## Ambient Ocean Noise",
+      "confidence": "candidate",
+      "text": "KNUDSEN CURVES — Ocean Noise Spectrum\n\ndB re 1 µPa²/Hz\n│\n130 ─                    ← Sea state 6 (high wind, waves)\n    │\n120 ─\n    │                    Wind-generated noise:\n110 ─                    dominant above ~200 Hz\n    │\n100 ─                    ← Sea state 2 (moderate)\n    │\n 90 ─                    ← Sea state 0 (calm)\n    │\n 80 ─         ←Shipping noise (dominant 10–200 Hz)\n    │\n 70 ─                    ← Thermal noise (dominant > 30 kHz)\n    │\n 60 ─\n    └──────────────────────────────────────────────────►\n    1 Hz    10     100     1k     10k    100k  (Hz)\n\nNOISE SOURCES:\n1–200 Hz:    Commercial shipping (dominant in most oceans)\n200–50 kHz:  Wind-generated whitecapping, spray, bubbles\n>50 kHz:     Thermal agitation noise of water molecules\nSpecial:     Rain, ice cracking, snapping shrimp (bioacoustics)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

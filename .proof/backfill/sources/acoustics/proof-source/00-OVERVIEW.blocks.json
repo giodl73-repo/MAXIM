@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "acoustics\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE ACOUSTIC FREQUENCY SPECTRUM\n════════════════════════════════════════════════════════════════════════\n\nFrequency:  0.001 Hz    20 Hz    200 Hz   2 kHz    20 kHz   1 MHz    1 GHz\n            │           │        │        │        │        │        │\n            ▼           ▼        ▼        ▼        ▼        ▼        ▼\n            ─────────────────────────────────────────────────────────────\nINFRASOUND: ████████████│                                              │\n(< 20 Hz)  Seismic,     │                                              │\n           wind, whale  │                                              │\n                        │                                              │\nAUDIBLE:                │█████████████████████████│                   │\n(20–20k Hz) Speech, music│ Human hearing range      │                   │\n                         │ Most sensitive: 2–5 kHz  │                   │\n                                                    │                   │\nULTRASOUND:                                         │█████████████████│ │\n(20 kHz–1 GHz)                   Medical imaging,  │bat, sonar, NDT   │ │\n                                  HIFU treatment                       │\n                                                                       │\nHYPERSOUND: (> 1 GHz)                              Phonons, THz acoustics│\n                                                    quantum acoustics      │",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "## Sound as a Physical Phenomenon",
+      "confidence": "candidate",
+      "text": "SOUND PROPAGATION MECHANISM\n\nIn a gas (air):\n1. Source vibrates → compresses adjacent air layer\n2. Compression wave propagates outward as series of high/low pressure regions\n\n                Source     Compressions     Rarefactions\n                  │        │ │ │ │          │ │ │ │\n                  ●────────▓ ▓ ▓ ▓──────────░ ░ ░ ░────────►\n                         (high P)          (low P)\n                         ←─────── wavelength λ ──────────►\n\nSpeed of sound in air (ideal gas):\n  c = √(γ·P₀/ρ₀) = √(γ·R·T/M) ≈ 331 + 0.6·T(°C)  m/s\n\n  At 20°C: c ≈ 343 m/s\n  At 0°C:  c ≈ 331 m/s\n\nSOUND IS NOT EM RADIATION:\n  • Requires a medium (can't travel through vacuum)\n  • Particle motion is longitudinal (parallel to propagation)\n  • Speed depends on medium elasticity and density\n  • NOT c = 3×10⁸ m/s",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "## Conceptual Landscape",
+      "confidence": "candidate",
+      "text": "ACOUSTICS — DEPENDENCY MAP\n═══════════════════════════════════════════════════════════════════\n\n    ┌─────────────────────────────────────────┐\n    │       01-WAVE-PHYSICS (Foundation)      │\n    │  Wave equation, impedance, reflection,  │\n    │  diffraction, standing waves, resonance │\n    └──────────┬──────────────┬───────────────┘\n               │              │\n       ┌───────▼───────┐  ┌──▼──────────────┐\n       │02-PSYCHO-     │  │06-ELECTRO-      │\n       │ACOUSTICS      │  │ACOUSTICS        │\n       │Perception:    │  │Transduction:    │\n       │ear → brain    │  │acoustic ↔ elec  │\n       └───┬───────┬───┘  └──┬──────────────┘\n           │       │         │\n    ┌──────▼──┐ ┌──▼────────▼──┐  ┌──────────────┐\n    │03-ROOM  │ │04-ARCHITEC-  │  │05-MUSICAL    │\n    │ACOUSTICS│ │TURAL ACOUST. │  │ACOUSTICS     │\n    │RT60,    │ │Concert halls,│  │Instruments,  │\n    │Sabine   │ │studios, NC   │  │string/wind   │\n    └─────────┘ └──────────────┘  └──────────────┘\n\n    ┌──────────────┐  ┌──────────┐  ┌──────────────┐\n    │07-UNDERWATER │  │08-ULTRA- │  │09-NOISE-     │\n    │ACOUSTICS     │  │SOUND     │  │VIBRATION     │\n    │SOFAR, sonar, │  │Medical,  │  │Isolation,    │\n    │beamforming   │  │NDT, >20k │  │damping, NVH  │\n    └──────────────┘  └──────────┘  └──────────────┘\n    ← Applied domains (all depend on wave physics + one or more branches) →",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

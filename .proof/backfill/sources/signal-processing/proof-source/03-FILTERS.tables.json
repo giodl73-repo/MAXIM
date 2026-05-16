@@ -1,0 +1,139 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\03-FILTERS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 121,
+      "heading_context": "## FIR Filters",
+      "headers": [
+        "Method",
+        "Description",
+        "Trade-off"
+      ],
+      "rows": [
+        [
+          "Window method",
+          "Multiply ideal h[n] by window",
+          "Simple; transition band not optimal"
+        ],
+        [
+          "Parks-McClellan",
+          "Chebyshev equiripple optimization",
+          "Optimal; requires specification of bands"
+        ],
+        [
+          "Frequency sampling",
+          "Specify H[k] at DFT points",
+          "Simple; can get leakage between bands"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 183,
+      "heading_context": "## IIR Filter Families",
+      "headers": [
+        "Filter Type",
+        "Magnitude",
+        "Phase",
+        "Transition Band",
+        "Use When"
+      ],
+      "rows": [
+        [
+          "Butterworth",
+          "Maximally flat (monotone)",
+          "Moderate",
+          "Widest",
+          "Simple, clean design"
+        ],
+        [
+          "Chebyshev I",
+          "Equiripple in passband",
+          "Poor",
+          "Narrower",
+          "Passband ripple OK"
+        ],
+        [
+          "Chebyshev II",
+          "Equiripple in stopband",
+          "Better",
+          "Narrower",
+          "Need exact stopband"
+        ],
+        [
+          "Elliptic (Cauer)",
+          "Equiripple both",
+          "Worst",
+          "Narrowest",
+          "Minimum order"
+        ],
+        [
+          "Bessel",
+          "Very gentle rolloff",
+          "Best (linear)",
+          "Widest",
+          "Phase fidelity matters"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 264,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether linear phase is mandatory",
+          "Symmetric FIR",
+          "Linear phase usually costs more taps and delay"
+        ],
+        [
+          "Whether latency must be minimal",
+          "Low-order FIR or Bessel IIR",
+          "Low delay weakens selectivity"
+        ],
+        [
+          "Whether coefficient count must be minimized",
+          "Elliptic IIR",
+          "Sharp transitions come with ripple and nonlinear phase"
+        ],
+        [
+          "Whether smooth magnitude is the goal",
+          "Butterworth filter",
+          "Flat magnitude does not mean sharp cutoff"
+        ],
+        [
+          "Whether pulse shape must be preserved",
+          "Bessel or linear-phase FIR",
+          "Bessel preserves group delay but rolls off slowly"
+        ],
+        [
+          "Whether parametric audio EQ is needed",
+          "Biquad IIR sections",
+          "Coefficient quantization and stability matter"
+        ],
+        [
+          "Whether cheap analog antialiasing is enough",
+          "Butterworth analog filter",
+          "Real hardware tolerances shift poles"
+        ],
+        [
+          "Whether FIR sidelobe/bandwidth tradeoff is explicit",
+          "Kaiser-window FIR",
+          "Window methods are not minimum order"
+        ],
+        [
+          "Whether minimum FIR taps for ripple specs matter",
+          "Parks-McClellan equiripple design",
+          "Equiripple optimality assumes the specified bands/weights are right"
+        ]
+      ]
+    }
+  ]
+}

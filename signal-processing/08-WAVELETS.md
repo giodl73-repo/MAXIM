@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:signal-processing:wavelets
+kind: guide
+module: signal-processing
+section: signal-processing
+title: Wavelets - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: signal-processing/08-WAVELETS.md
+canonical_path: signal-processing/08-WAVELETS.md
+backsource_ids: [proof-backfill:signal-processing:08-wavelets, git-history:signal-processing:08-wavelets]
+concepts: [wavelets]
+root_concepts: [wavelets]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Wavelets — A Layered Guide
 
 ## The Big Picture

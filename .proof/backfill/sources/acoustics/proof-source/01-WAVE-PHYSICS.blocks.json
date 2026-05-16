@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "acoustics\\01-WAVE-PHYSICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ACOUSTIC WAVE PHYSICS MAP\n════════════════════════════════════════════════════════════════════\n\nWave equation ──► Plane waves, speed of sound, wavelength\n      │\n      ├──► Impedance mismatch ──► Reflection / Transmission\n      │\n      ├──► Huygens principle ──► Diffraction (bending around obstacles)\n      │\n      ├──► Multiple reflections ──► Standing waves, resonance modes\n      │\n      └──► Superposition ──► Interference (constructive / destructive)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 48,
+      "heading_context": "## The Wave Equation",
+      "confidence": "candidate",
+      "text": "ACOUSTIC WAVE EQUATION (linear, lossless):\n\n∂²p/∂t² = c² · ∇²p\n\nwhere p(x,t) = acoustic pressure (Pa)\n      c = √(γP₀/ρ₀) = speed of sound in the medium\n\nIn 1D (plane wave):  ∂²p/∂x² = (1/c²)·∂²p/∂t²\n\nGENERAL SOLUTION (d'Alembert):\np(x,t) = f₊(t - x/c) + f₋(t + x/c)\n\nf₊ = wave traveling in +x direction at speed c\nf₋ = wave traveling in -x direction at speed c",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "## Speed of Sound in Various Media",
+      "confidence": "candidate",
+      "text": "SPEED OF SOUND c\n\nMedium           c (m/s)       ρ (kg/m³)    Z = ρc (MRayl)\n────────────────────────────────────────────────────────────\nAir (0°C)        331           1.29         0.000428\nAir (20°C)       343           1.21         0.000415\nAir (100°C)      387           0.95         0.000368\nCO₂ (0°C)        259           1.98         0.000513\nFresh water      1480          998          1.48\nSea water        ~1520         1025         ~1.56\nSteel            5100          7800         39.8\nGlass            5200          2500         13.0\nConcrete         3400          2300         7.8\nWood (pine)      3300          600          1.98\nHuman tissue     ~1540         ~1060        ~1.63\nRubber           ~1500         ~1100        ~1.65\n────────────────────────────────────────────────────────────\n\nTEMPERATURE DEPENDENCE IN AIR:\nc(T) ≈ 331 + 0.6·T °C   (linear approximation)\nc = 331·√(T/273)  (exact, T in Kelvin)\n\nWHY VARIES BY MEDIUM:\nc = √(B/ρ)  where B = bulk modulus (stiffness), ρ = density\nStiff, light materials → fast (steel, aluminum)\nDense, soft materials → slow (rubber, foam)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 113,
+      "heading_context": "## Acoustic Impedance and Wave Behavior at Boundaries",
+      "confidence": "candidate",
+      "text": "NORMAL INCIDENCE AT INTERFACE\n\nMedium 1 (Z₁)              Medium 2 (Z₂)\n─────────────────────────│──────────────────────\n                         │\n   Incident ──────────►  │  ──────────► Transmitted\n                         │\n   Reflected ◄────────   │\n\nREFLECTION COEFFICIENT (pressure):\nR = (Z₂ - Z₁) / (Z₂ + Z₁)   [-1, +1]\n\nTRANSMISSION COEFFICIENT (pressure):\nT = 2Z₂ / (Z₂ + Z₁)          [0, 2]\n\nPOWER REFLECTION:\nRₚ = ((Z₂-Z₁)/(Z₂+Z₁))²\n\nPOWER TRANSMISSION:\nTₚ = 4Z₁Z₂/(Z₁+Z₂)²   = 1 - Rₚ   ✓\n\nEXAMPLES:\nAir (0.000415) → Water (1.48 MRayl):\nRₚ = ((1.48-0.000415)/(1.48+0.000415))² ≈ 0.999   (99.9% reflected!)\n\nAir (0.000415) → Glass (13 MRayl):\nRₚ ≈ 0.9997   (99.97% reflected)\n→ Double-pane glass achieves isolation by air gap, not glass mass at these levels\n\nAir → Air (no interface): R = 0, T = 1 (no reflection, perfect transmission)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

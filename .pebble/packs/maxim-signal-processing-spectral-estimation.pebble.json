@@ -1,0 +1,1105 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-signal-processing-spectral-estimation",
+  "source": "../../signal-processing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#000",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "# Spectral Estimation — A Layered Guide"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#001",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#002",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Spectral estimation is the problem of estimating the PSD of a random process from a\nfinite observed record. The fundamental challenge: you never have the true, infinite-length\nsignal — only a short, noisy window of it."
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#003",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nTHE SPECTRAL ESTIMATION PROBLEM"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#004",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "True PSD (unknown):   Sxx(f) = \"What are the frequency components?\""
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#005",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Available data:        x[0], x[1], ..., x[N-1]   (N finite samples)\n                       N is always too small for perfect estimation"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#006",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "│\n                            ▼\n                    Estimation method\n                            │\n                            ▼\n              Ŝxx(f) = estimated PSD   ←── has variance/bias"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#007",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "TRADE-OFFS:\n• Frequency resolution: Δf ≈ 1/T (where T = N·Ts = record length)\n  More data → finer resolution — cannot be overcome\n• Variance: how much the estimate fluctuates\n  More data or averaging → lower variance\n• Bias: systematic offset from true PSD (from windowing, model mismatch)"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#008",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "KEY INSIGHT: For fixed N, there's a fundamental trade-off between\nfrequency resolution and variance. You cannot have both simultaneously.\n```"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#009",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#010",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## The Periodogram"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#011",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Simplest estimate: compute |DFT|² / N."
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#012",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nPERIODOGRAM DEFINITION"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#013",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "I_x(f_k) = (1/N) |X[k]|² = (1/N) |Σ x[n] e^{-j2πkn/N}|²\n                                    n=0"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#014",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "where f_k = k·fs/N   (k = 0, 1, ..., N-1)"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#015",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "INTERPRETATION:\nThe periodogram is the squared magnitude of the DFT, normalized by N.\nIt's the sample version of the PSD.\n```"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#016",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**The periodogram problem — variance**:"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#017",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nE[I_x(f)] ≈ Sxx(f)    (asymptotically unbiased — good)"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#018",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "BUT: Var[I_x(f)] ≈ S²xx(f)   (variance equals the square of what we're estimating!)"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#019",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "This means: as N → ∞, the periodogram does NOT converge to Sxx(f) in mean-square.\nThe estimate stays noisy regardless of how long the record is."
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#020",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "WHY: Each DFT coefficient X[k] is a complex Gaussian r.v.\n     |X[k]|² = |Re(X[k])|² + |Im(X[k])|² follows chi-squared(2) distribution\n     → 100% coefficient of variation (std/mean = 1) for all N\n```"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#021",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "This is the fundamental reason Bartlett (1948) invented the averaged periodogram."
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#022",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#023",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Welch Method"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#024",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Welch's method reduces variance by averaging multiple periodograms."
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#025",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nWELCH METHOD ALGORITHM"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#026",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "1. Divide N-sample record into K overlapping segments of length M:\n   ┌─────────────────────┐\n   │ Segment 1 (length M)│\n   └─────────────────────┘\n         ┌────────────────────────┐\n         │ Segment 2 (50% overlap)│\n         └────────────────────────┘\n               ┌─────────────────────┐\n               │ Segment 3           │\n               └─────────────────────┘"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#027",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "2. Apply window to each segment: w[n]·xₖ[n]"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#028",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "3. Compute periodogram for each segment:\n   I_k(f) = (1/MU) |Σ w[n]·xₖ[n]·e^{-j2πfn}|²\n   where U = (1/M)Σw²[n] (normalizes for window power)"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#029",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "4. Average all periodograms:\n   Ŝxx(f) = (1/K) Σ I_k(f)"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#030",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "RESULT:\n• Variance ≈ S²xx(f)/K   (K× reduction from averaging K segments)\n• Frequency resolution ≈ 1/(M·Ts)   (set by segment length M, not total N)"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#031",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "TRADE-OFF: Using short segments (K↑) reduces variance but loses frequency resolution.\n           Using long segments (K↓) preserves resolution but keeps variance high.\n```"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#032",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**Typical parameters**: 50% overlap, Hann window, segment length M = N/8 to N/4.\nAt 50% overlap with Hann window: K ≈ 2N/M independent estimates."
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#033",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#034",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Multitaper Spectral Estimation"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#035",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Multitaper (Thomson, 1982) uses multiple orthogonal windows (tapers) applied simultaneously."
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#036",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nMULTITAPER METHOD"
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#037",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Key insight: One window = one taper = one periodogram.\n             But multiple orthogonal tapers → multiple uncorrelated estimates."
+    },
+    {
+      "id": "07-SPECTRAL-ESTIMATION.md#038",
+      "path": [
+        "07-SPECTRAL-ESTIMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]",
+        "canonical_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "concepts": "[spectral, estimation]",
+        "current_path": "signal-processing/07-SPECTRAL-ESTIMATION.md",
+        "id": "maxim:signal-processing:spectral-estimation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spectral, estimation]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spectral Estimation - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "DPSS (Discrete Prolate Spheroidal Sequences / Slepian sequences):\nOptimal tapers that are:\n• Maximally concentrated within bandwidth W = K/(N·Ts)\n• Orthogonal to each other\n• First K tapers are effectively independent (K ≈ 2NW - 1)"
+    }
+  ],
+  "refs": [
+    "07-SPECTRAL-ESTIMATION.md"
+  ]
+}

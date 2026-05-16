@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:signal-processing:convolution-correlation
+kind: guide
+module: signal-processing
+section: signal-processing
+title: Convolution and Correlation - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: signal-processing/04-CONVOLUTION-CORRELATION.md
+canonical_path: signal-processing/04-CONVOLUTION-CORRELATION.md
+backsource_ids: [proof-backfill:signal-processing:04-convolution-correlation, git-history:signal-processing:04-convolution-correlation]
+concepts: [convolution, correlation]
+root_concepts: [convolution, correlation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Convolution and Correlation — A Layered Guide
 
 ## The Big Picture

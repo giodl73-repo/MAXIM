@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:signal-processing:spectral-estimation
+kind: guide
+module: signal-processing
+section: signal-processing
+title: Spectral Estimation - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: signal-processing/07-SPECTRAL-ESTIMATION.md
+canonical_path: signal-processing/07-SPECTRAL-ESTIMATION.md
+backsource_ids: [proof-backfill:signal-processing:07-spectral-estimation, git-history:signal-processing:07-spectral-estimation]
+concepts: [spectral, estimation]
+root_concepts: [spectral, estimation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Spectral Estimation — A Layered Guide
 
 ## The Big Picture

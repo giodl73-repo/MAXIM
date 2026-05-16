@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:acoustics:electroacoustics
+kind: guide
+module: acoustics
+section: acoustics
+title: Electroacoustics - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: acoustics/06-ELECTROACOUSTICS.md
+canonical_path: acoustics/06-ELECTROACOUSTICS.md
+backsource_ids: [proof-backfill:acoustics:06-electroacoustics, git-history:acoustics:06-electroacoustics]
+concepts: [electroacoustics]
+root_concepts: [electroacoustics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electroacoustics — A Layered Guide
 
 ## The Big Picture

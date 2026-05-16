@@ -1,0 +1,1861 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-acoustics-wave-physics",
+  "source": "../../acoustics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-WAVE-PHYSICS.md#000",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "# Acoustic Wave Physics — A Layered Guide"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#001",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#002",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "All acoustic phenomena derive from the wave equation. The solutions predict how sound propagates,\nreflects, diffracts, and forms standing wave patterns."
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#003",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nACOUSTIC WAVE PHYSICS MAP\n════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#004",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Wave equation ──► Plane waves, speed of sound, wavelength\n      │\n      ├──► Impedance mismatch ──► Reflection / Transmission\n      │\n      ├──► Huygens principle ──► Diffraction (bending around obstacles)\n      │\n      ├──► Multiple reflections ──► Standing waves, resonance modes\n      │\n      └──► Superposition ──► Interference (constructive / destructive)\n```"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#005",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#006",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## The Wave Equation"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#007",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "The derivation path (Newton's second law + mass conservation for a fluid element → linearize → wave equation) is standard. The acoustic-specific value lies in what follows: impedance mismatch at material interfaces, reflection/transmission coefficients, and standing wave boundary conditions."
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#008",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nACOUSTIC WAVE EQUATION (linear, lossless):"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#009",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "∂²p/∂t² = c² · ∇²p"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#010",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "where p(x,t) = acoustic pressure (Pa)\n      c = √(γP₀/ρ₀) = speed of sound in the medium"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#011",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "In 1D (plane wave):  ∂²p/∂x² = (1/c²)·∂²p/∂t²"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#012",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "GENERAL SOLUTION (d'Alembert):\np(x,t) = f₊(t - x/c) + f₋(t + x/c)"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#013",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "f₊ = wave traveling in +x direction at speed c\nf₋ = wave traveling in -x direction at speed c\n```"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#014",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**For a harmonic (single-frequency) plane wave**:\n```\np(x,t) = P₀ · cos(ωt - kx + φ)"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#015",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "ω = 2πf    (angular frequency, rad/s)\nk = ω/c = 2π/λ   (wavenumber, rad/m)\nλ = c/f    (wavelength)\n```"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#016",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#017",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Speed of Sound in Various Media"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#018",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nSPEED OF SOUND c"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#019",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Medium           c (m/s)       ρ (kg/m³)    Z = ρc (MRayl)\n────────────────────────────────────────────────────────────\nAir (0°C)        331           1.29         0.000428\nAir (20°C)       343           1.21         0.000415\nAir (100°C)      387           0.95         0.000368\nCO₂ (0°C)        259           1.98         0.000513\nFresh water      1480          998          1.48\nSea water        ~1520         1025         ~1.56\nSteel            5100          7800         39.8\nGlass            5200          2500         13.0\nConcrete         3400          2300         7.8\nWood (pine)      3300          600          1.98\nHuman tissue     ~1540         ~1060        ~1.63\nRubber           ~1500         ~1100        ~1.65\n────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#020",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "TEMPERATURE DEPENDENCE IN AIR:\nc(T) ≈ 331 + 0.6·T °C   (linear approximation)\nc = 331·√(T/273)  (exact, T in Kelvin)"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#021",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "WHY VARIES BY MEDIUM:\nc = √(B/ρ)  where B = bulk modulus (stiffness), ρ = density\nStiff, light materials → fast (steel, aluminum)\nDense, soft materials → slow (rubber, foam)\n```"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#022",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#023",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Acoustic Impedance and Wave Behavior at Boundaries"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#024",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Specific acoustic impedance Z = ρ·c. When a wave hits an interface between two media:"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#025",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nNORMAL INCIDENCE AT INTERFACE"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#026",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Medium 1 (Z₁)              Medium 2 (Z₂)\n─────────────────────────│──────────────────────\n                         │\n   Incident ──────────►  │  ──────────► Transmitted\n                         │\n   Reflected ◄────────   │"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#027",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "REFLECTION COEFFICIENT (pressure):\nR = (Z₂ - Z₁) / (Z₂ + Z₁)   [-1, +1]"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#028",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "TRANSMISSION COEFFICIENT (pressure):\nT = 2Z₂ / (Z₂ + Z₁)          [0, 2]"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#029",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "POWER REFLECTION:\nRₚ = ((Z₂-Z₁)/(Z₂+Z₁))²"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#030",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "POWER TRANSMISSION:\nTₚ = 4Z₁Z₂/(Z₁+Z₂)²   = 1 - Rₚ   ✓"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#031",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\nAir (0.000415) → Water (1.48 MRayl):\nRₚ = ((1.48-0.000415)/(1.48+0.000415))² ≈ 0.999   (99.9% reflected!)"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#032",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Air (0.000415) → Glass (13 MRayl):\nRₚ ≈ 0.9997   (99.97% reflected)\n→ Double-pane glass achieves isolation by air gap, not glass mass at these levels"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#033",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Air → Air (no interface): R = 0, T = 1 (no reflection, perfect transmission)\n```"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#034",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**Oblique incidence**: Snell's law applies — sin(θ₂)/c₂ = sin(θ₁)/c₁.\nBeyond the critical angle (when c₂ > c₁), total internal reflection occurs."
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#035",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#036",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Diffraction"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#037",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Sound bends around obstacles when wavelength λ is comparable to or larger than obstacle size."
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#038",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nDIFFRACTION PARAMETER: ka = 2πa/λ = (circumference)/(wavelength)"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#039",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "ka << 1  → obstacle much smaller than wavelength → sound goes around freely\nka >> 1  → obstacle much larger than wavelength → geometric shadow (like light)\nka ≈ 1   → transition region, complex pattern"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#040",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "EXAMPLES AT 1 kHz IN AIR (λ = 0.34 m):\nPerson (shoulder width ~0.5 m): ka ≈ 9 → noticeable shadow\nDoorway (0.9 m wide): ka ≈ 17 → directional, but some diffraction\nPencil (1 cm diameter): ka ≈ 0.2 → almost no shadow"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#041",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "WHY BASS \"GOES THROUGH WALLS\":\n100 Hz: λ = 3.4 m — longer than most building features\nGeometric acoustics fails → energy diffracts around/through\nAlso: walls absorb less at low frequencies (mass law)\n```"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#042",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**Huygens principle**: Every point on a wavefront acts as a point source of secondary waves.\nThe diffracted wave field is the superposition of all secondary waves.\nThis explains sound wrapping around corners and through gaps."
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#043",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#044",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Standing Waves and Resonance"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#045",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "When waves reflect and interfere with themselves, standing waves form."
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#046",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\n1D STANDING WAVE (tube/room dimension L):"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#047",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Forward:  p₊ = P₀·cos(ωt - kx)\nBackward: p₋ = P₀·cos(ωt + kx)   (from rigid wall reflection, R=1)\nSum:      p  = 2P₀·cos(kx)·cos(ωt)"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#048",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "NODES: zeros of cos(kx) → no pressure oscillation\nANTINODES: maxima of cos(kx) → maximum pressure oscillation"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#049",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "RESONANT FREQUENCIES for room dimension L:\n• Both ends rigid (pressure antinodes):\n  f_n = n·c/(2L)    n = 1, 2, 3, ..."
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#050",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "• One end rigid, one end open (one node, one antinode):\n  f_n = (2n-1)·c/(4L)    n = 1, 2, 3, ..."
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#051",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "ROOM MODES (3D box, dimensions L_x, L_y, L_z):\nf_{nx,ny,nz} = (c/2)·√((nx/Lx)² + (ny/Ly)² + (nz/Lz)²)"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#052",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Axial modes: one dimension (nx, 0, 0) — strongest\nTangential modes: two dimensions (nx, ny, 0) — moderate\nOblique modes: all three (nx, ny, nz) — weaker\n```"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#053",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**Modal density and Schroeder frequency** (preview of room acoustics):\nBelow the Schroeder frequency, modes are discrete and audible as coloration.\nAbove it, modes overlap and behavior becomes diffuse (statistical)."
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#054",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#055",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Spherical Wave Divergence"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#056",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "A point source radiates spherically in free field:"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#057",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nSPHERICAL WAVE:\np(r,t) = (A/r) · cos(ωt - kr)"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#058",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Amplitude falls as 1/r → intensity falls as 1/r² (inverse square law)\nSPL decreases 6 dB per doubling of distance"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#059",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "DIRECTIVITY:\nReal sources are not omnidirectional.\nDirectivity index (DI) = 10·log₁₀(Q)\nwhere Q = directivity factor (Q=1 omnidirectional, Q=2 halfspace/flush mount)"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#060",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "NEAR FIELD vs FAR FIELD:\nNear field (r < λ/2π): reactive field, pressure and velocity out of phase\nFar field (r > λ/2π): propagating wave, well-behaved 1/r decay\n```"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#061",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#062",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#063",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "- `physics/01-ELECTROSTATICS.md` — field and potential analogies for wave-equation thinking.\n- `signal-processing/01-SIGNALS-SYSTEMS.md` — frequency-domain analysis used throughout acoustics.\n- `acoustics/03-ROOM-ACOUSTICS.md` — direct application of reflection, resonance, and interference."
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#064",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "01-WAVE-PHYSICS.md#065",
+      "path": [
+        "01-WAVE-PHYSICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]",
+        "canonical_path": "acoustics/01-WAVE-PHYSICS.md",
+        "concepts": "[wave, physics]",
+        "current_path": "acoustics/01-WAVE-PHYSICS.md",
+        "id": "maxim:acoustics:wave-physics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "acoustics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wave, physics]",
+        "section": "acoustics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Acoustic Wave Physics - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Whether sound will bend around an obstacle | Wavelength versus obstacle size (`ka`) | Low frequencies diffract strongly; high frequencies cast sharper acoustic shadows |\n| Whether a boundary reflects sound | Acoustic impedance mismatch | Reflection depends on material impedance and angle, not just surface hardness |\n| Whether a room problem is modal | Room dimensions and low-frequency standing-wave frequencies | Bass peaks are spatial; moving listener or source can change the symptom |\n| Whether temperature changes propagation | `c ≈ 331 + 0.6T` m/s for air | Humidity and wind matter in outdoor propagation, but temperature is the first-order estimate |\n| Whether bass penetrates a wall | Mass law, wavelength, and flanking paths | Long wavelengths and structure-borne paths defeat simple surface treatments |\n| Whether ultrasound couples into a medium | Transducer-medium impedance match | Coupling gels work because air gaps are enormous impedance discontinuities |\n| Whether sound will focus underwater | Sound-speed profile and waveguide geometry | The SOFAR channel is refraction by a speed minimum, not reflection from a hard boundary |"
+    }
+  ],
+  "refs": [
+    "01-WAVE-PHYSICS.md"
+  ]
+}

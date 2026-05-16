@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:acoustics:wave-physics
+kind: guide
+module: acoustics
+section: acoustics
+title: Acoustic Wave Physics - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: acoustics/01-WAVE-PHYSICS.md
+canonical_path: acoustics/01-WAVE-PHYSICS.md
+backsource_ids: [proof-backfill:acoustics:01-wave-physics, git-history:acoustics:01-wave-physics]
+concepts: [wave, physics]
+root_concepts: [wave, physics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Acoustic Wave Physics — A Layered Guide
 
 ## The Big Picture

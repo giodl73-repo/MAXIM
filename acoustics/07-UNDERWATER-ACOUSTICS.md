@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:acoustics:underwater-acoustics
+kind: guide
+module: acoustics
+section: acoustics
+title: Underwater Acoustics - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: acoustics/07-UNDERWATER-ACOUSTICS.md
+canonical_path: acoustics/07-UNDERWATER-ACOUSTICS.md
+backsource_ids: [proof-backfill:acoustics:07-underwater-acoustics, git-history:acoustics:07-underwater-acoustics]
+concepts: [underwater, acoustics]
+root_concepts: [underwater, acoustics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Underwater Acoustics — A Layered Guide
 
 ## The Big Picture

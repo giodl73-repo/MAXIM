@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\09-APPLICATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "DSP APPLICATION MAP\n════════════════════════════════════════════════════════════════════\n\n   AUDIO                RADAR/SONAR          MEDICAL              ML/AI\n   ──────               ─────────────        ───────              ─────\n   EQ, dynamics,        Pulse compression,   ECG, EEG,            Feature extraction,\n   reverb, codec        Doppler, CFAR        fMRI, ultrasound     spectrograms, MFCC\n\n                      CORE DSP TOOLS\n   ┌──────────────────────────────────────────────────────────────┐\n   │ FFT/DFT | Filters (FIR/IIR) | Convolution | PSD estimation   │\n   │ Z-transform | Correlation | Wavelets | Sampling theory       │\n   └──────────────────────────────────────────────────────────────┘\n\n   IMAGE               COMMUNICATIONS        CONTROL              INSTRUMENTATION\n   ──────              ──────────────        ───────              ──────────────\n   Kernels, edge,      Equalization,         Feedback,            Lock-in amplifiers,\n   compression,        demodulation,         vibration sensing,   spectrum analyzers,\n   OCR                 channel coding        servo                lock-on filters",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "### Equalization (EQ)",
+      "confidence": "candidate",
+      "text": "EQ TYPES\n\nParametric EQ band (single):\n  Biquad with peaking filter:\n  H(z) = (b₀ + b₁z⁻¹ + b₂z⁻²) / (1 + a₁z⁻¹ + a₂z⁻²)\n  Parameters: center frequency fc, gain G (dB), bandwidth Q\n\n  Response:   ┌── +G dB ──┐\n              ╱            ╲\n  ────────────              ────────────\n              fc             (bell curve)\n\nGraphic EQ: fixed set of bands (31-band = ISO octave centers)\n              Each band is an independent biquad.\n\nShelving EQ:\n  Low shelf: boost/cut all frequencies below fc\n  High shelf: boost/cut all frequencies above fc",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "### Digital Reverb",
+      "confidence": "candidate",
+      "text": "REVERB ALGORITHMS\n\nReal room: x[n] ★ h[n] where h[n] = room impulse response (RIR)\n\nFor a real room h[n] can be 1–5 seconds @ 44.1 kHz = 44,100–220,500 samples.\nDirect FFT convolution: overlap-add with precomputed H[k].\n\nAlgorithmic reverb (cheaper):\nSchroeder reverb (1962): cascade of comb filters + allpass filters\n• Comb filter: y[n] = x[n] + g·y[n-D]  (feedback delay line)\n  → models a single reflection path with decay\n• Allpass filter: flattens spectral coloration\n• Parallel comb filters + series allpass → dense reverb tail\n\nFreeverb: 8 parallel comb + 4 series allpass (open source, widely used)\n\nModern: FDN (Feedback Delay Network) — matrix of cross-coupled delay lines.\nConvolution reverb: real RIR measured with impulse (starter pistol or sweep).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 125,
+      "heading_context": "### Digital Reverb",
+      "confidence": "candidate",
+      "text": "### Audio Codec Pipeline (MP3/AAC)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "### Pulse Compression",
+      "confidence": "candidate",
+      "text": "RADAR WAVEFORM DESIGN\n\nSimple pulse radar:\n  • Transmit short pulse (narrow → good range resolution)\n  • Short pulse → low energy → poor range\n  • Constraint: range_res = c·τ/2 where τ = pulse width\n\nPulse compression solves the range/energy trade-off:\n  • Transmit LONG coded pulse (high energy)\n  • After reception, apply matched filter (compression)\n  • Output: narrow peak with full energy\n\nLINEAR FM CHIRP (LFM):\n  x(t) = rect(t/T) · exp(j·π·k·t²)   where k = B/T (chirp rate)\n  Bandwidth B, duration T → time-bandwidth product TBP = BT >> 1\n\n  After matched filter: sinc-shaped output with width ≈ 1/B\n  Pulse compression ratio = TBP (typical: 100–10,000)\n\nRANGE SIDELOBE LEVEL: LFM has sinc sidelobes (-13 dB).\nApply amplitude weighting (Taylor window) to reduce sidelobes to -40 dB or lower.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "### ECG (Electrocardiogram)",
+      "confidence": "candidate",
+      "text": "ECG SIGNAL CHARACTERISTICS:\nSample rate: 500–1000 Hz (standard clinical), up to 5 kHz (research)\nFrequency content: 0.05–150 Hz (signal), 50/60 Hz (powerline noise)\nKey features: P wave, QRS complex, T wave, ST segment\n\nDSP PIPELINE:\n1. Baseline wander removal:\n   Drift at 0.05–0.5 Hz (breathing, movement)\n   Solution: highpass filter at 0.5 Hz or cubic spline baseline estimation\n\n2. Powerline notch filter:\n   Notch at 50 Hz (Europe) or 60 Hz (US)\n   IIR notch biquad: H(z) with zeros on unit circle at ω = 2π·50/fs\n\n3. EMG noise removal:\n   Muscle noise above 100 Hz\n   Lowpass at 100–150 Hz (Butterworth or FIR)\n\n4. QRS detection (Pan-Tompkins algorithm, 1985):\n   a. Bandpass 5–15 Hz (QRS energy band)\n   b. Differentiate: d/dt amplifies high-freq components of QRS\n   c. Square: |x|² (all positive, enhances peaks)\n   d. Moving window integration: width ≈ 150 ms\n   e. Threshold detection with adaptive threshold\n   f. Result: R-wave fiducial points → heart rate, HRV",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 232,
+      "heading_context": "### EEG (Electroencephalogram)",
+      "confidence": "candidate",
+      "text": "EEG FREQUENCY BANDS:\nBand     | Range  | State\n─────────────────────────────────────────\nDelta    | 0.5–4 Hz  | Deep sleep\nTheta    | 4–8 Hz    | Drowsy, meditation\nAlpha    | 8–13 Hz   | Relaxed, eyes closed\nBeta     | 13–30 Hz  | Alert, active thinking\nGamma    | 30–100 Hz | High cognitive processing\n\nDSP: Bandpass filter to each band → power in each band → feature vector.\n\nICA (Independent Component Analysis): Separate EEG channels into\nindependent sources → removes eye blink artifacts, cardiac artifacts.\n\nBCI (Brain-Computer Interface): Real-time EEG → feature extraction →\nclassifier → control signal. P300 event-related potential is key BCI target.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "### MFCC (Mel-Frequency Cepstral Coefficients)",
+      "confidence": "candidate",
+      "text": "MFCC PIPELINE\n\nx[n] (audio) ──► [Pre-emphasis] ──► [Framing 20–50ms] ──► [Hamming window]\n         ──► [FFT] ──► [Mel filterbank] ──► [log] ──► [DCT] ──► MFCCs\n\nSTEPS:\n1. Pre-emphasis: y[n] = x[n] - 0.97·x[n-1]  (boost high frequencies)\n2. Frame: divide into overlapping 20–50ms frames (25ms frame, 10ms hop typical)\n3. Window: Hamming window per frame\n4. FFT: typically 512 or 1024 points\n5. Mel filterbank: triangular filters on Mel scale\n   Mel(f) = 2595·log₁₀(1 + f/700)   (perceptual frequency scale)\n   Human ear: logarithmic frequency perception\n   Apply 26–40 triangular filters on Mel scale → 26–40 energies\n6. Log: human perception of loudness is logarithmic\n7. DCT: decorrelates filterbank outputs → 13–40 MFCC coefficients\n   (only first 12–13 kept; higher coefficients encode fine spectral detail)\n\nPLUS: Δ (delta) and ΔΔ (delta-delta) coefficients capture temporal dynamics.\nFinal feature vector: 39 features per 10ms frame (13 MFCC + 13Δ + 13ΔΔ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 304,
+      "heading_context": "### DSP → Deep Learning Correspondence",
+      "confidence": "candidate",
+      "text": "CLASSICAL DSP                    DEEP LEARNING EQUIVALENT\n──────────────────────────────────────────────────────────────────────────\nFIR filter bank                  CNN convolutional layer\n  hand-designed coefficients       → learned kernel weights (backprop = filter optimization)\n  parallel filters                 → output channels = number of learned filters\n\nDownsampling (↓M)                Stride = M in conv layer; pooling layers\n  anti-alias filter + decimate     → max/avg pool = nonlinear downsampling\n\nDWT multiresolution              CNN depth hierarchy\n  coarse → fine scale analysis     → early layers = low-frequency features\n                                   → deep layers = high-frequency/local features\n\nWiener filter (MMSE)             Linear layer with MSE loss\n  optimal linear estimator         → same objective, same solution (Wiener-Hopf = normal eqns)\n\nMatched filter (correlation)     Attention mechanism (transformer)\n  fixed template × signal          → Q·Kᵀ = dynamic cross-correlation\n  output = similarity score        → softmax weighting = data-driven spectral shaping\n                                   → attention IS an input-dependent matched filter bank\n\nNote: ML \"convolution\" is actually cross-correlation (no kernel flip).\nFor symmetric kernels the distinction vanishes; for asymmetric ones it's real.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 332,
+      "heading_context": "### Signal Features in ML Pipelines",
+      "confidence": "candidate",
+      "text": "COMMON DSP FEATURES FOR ML\n\nTime domain:     Zero crossing rate, RMS energy, kurtosis, skewness\nSpectral:        Centroid, rolloff, flux, bandwidth, flatness\nFrequency bands: Energy in each octave band\nMFCC:           Dominant for speech/audio\nWavelets:        Multi-scale energy features\nAutocorrelation: Period estimation (pitch detection)\nLine spectrum:   LPC coefficients (linear prediction for speech)\n\nFEATURE PIPELINE (typical):\nSignal ──► Preprocessing ──► Segmentation ──► Feature extraction ──► Normalization ──► ML model\n          (filter/resample)  (frames, HOP)   (FFT, MFCC, etc.)     (z-score, minmax)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 352,
+      "heading_context": "## Image Processing via 2D Convolution",
+      "confidence": "candidate",
+      "text": "2D CONVOLUTION AS FILTERING\n\nI_out[m,n] = Σ Σ I_in[m-j, n-k] · K[j,k]\n              j  k\n\nCommon 2D kernels:\n┌─────────────────────────────────────────────────────────────────┐\n│ Gaussian blur (low-pass):        Edge detection (Sobel X):      │\n│  1/16 · [1 2 1]                  [-1  0  1]                     │\n│          [2 4 2]                  [-2  0  2]                    │\n│          [1 2 1]                  [-1  0  1]                    │\n│                                                                 │\n│ Sharpen:                         Laplacian (edge enhance):      │\n│  [0  -1   0]                      [ 0  1   0]                   │\n│  [-1  5  -1]                      [ 1 -4   1]                   │\n│  [0  -1   0]                      [ 0  1   0]                   │\n└─────────────────────────────────────────────────────────────────┘\n\nSEPARABILITY: if K[j,k] = h₁[j]·h₂[k], then 2D convolution = 1D + 1D\n  Cost: O(N²·K²) → O(N²·K) with separability (Gaussian is separable)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

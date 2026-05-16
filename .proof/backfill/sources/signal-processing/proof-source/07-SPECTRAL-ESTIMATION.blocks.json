@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\07-SPECTRAL-ESTIMATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE SPECTRAL ESTIMATION PROBLEM\n\nTrue PSD (unknown):   Sxx(f) = \"What are the frequency components?\"\n\nAvailable data:        x[0], x[1], ..., x[N-1]   (N finite samples)\n                       N is always too small for perfect estimation\n\n                            │\n                            ▼\n                    Estimation method\n                            │\n                            ▼\n              Ŝxx(f) = estimated PSD   ←── has variance/bias\n\nTRADE-OFFS:\n• Frequency resolution: Δf ≈ 1/T (where T = N·Ts = record length)\n  More data → finer resolution — cannot be overcome\n• Variance: how much the estimate fluctuates\n  More data or averaging → lower variance\n• Bias: systematic offset from true PSD (from windowing, model mismatch)\n\nKEY INSIGHT: For fixed N, there's a fundamental trade-off between\nfrequency resolution and variance. You cannot have both simultaneously.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "## The Periodogram",
+      "confidence": "candidate",
+      "text": "E[I_x(f)] ≈ Sxx(f)    (asymptotically unbiased — good)\n\nBUT: Var[I_x(f)] ≈ S²xx(f)   (variance equals the square of what we're estimating!)\n\nThis means: as N → ∞, the periodogram does NOT converge to Sxx(f) in mean-square.\nThe estimate stays noisy regardless of how long the record is.\n\nWHY: Each DFT coefficient X[k] is a complex Gaussian r.v.\n     |X[k]|² = |Re(X[k])|² + |Im(X[k])|² follows chi-squared(2) distribution\n     → 100% coefficient of variation (std/mean = 1) for all N",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 96,
+      "heading_context": "## Welch Method",
+      "confidence": "candidate",
+      "text": "WELCH METHOD ALGORITHM\n\n1. Divide N-sample record into K overlapping segments of length M:\n   ┌─────────────────────┐\n   │ Segment 1 (length M)│\n   └─────────────────────┘\n         ┌────────────────────────┐\n         │ Segment 2 (50% overlap)│\n         └────────────────────────┘\n               ┌─────────────────────┐\n               │ Segment 3           │\n               └─────────────────────┘\n\n2. Apply window to each segment: w[n]·xₖ[n]\n\n3. Compute periodogram for each segment:\n   I_k(f) = (1/MU) |Σ w[n]·xₖ[n]·e^{-j2πfn}|²\n   where U = (1/M)Σw²[n] (normalizes for window power)\n\n4. Average all periodograms:\n   Ŝxx(f) = (1/K) Σ I_k(f)\n\nRESULT:\n• Variance ≈ S²xx(f)/K   (K× reduction from averaging K segments)\n• Frequency resolution ≈ 1/(M·Ts)   (set by segment length M, not total N)\n\nTRADE-OFF: Using short segments (K↑) reduces variance but loses frequency resolution.\n           Using long segments (K↓) preserves resolution but keeps variance high.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 166,
+      "heading_context": "## Parametric Methods: AR/ARMA",
+      "confidence": "candidate",
+      "text": "AR (AutoRegressive) MODEL OF ORDER p:\n\nx[n] = -a₁x[n-1] - a₂x[n-2] - ... - aₚx[n-p] + w[n]\n\nx[n] is a linear combination of past p samples + white noise w[n].\n\nPSD:           Ŝxx(f) = σ²_w / |A(f)|²\n\nwhere A(f) = 1 + a₁e^{-j2πf} + ... + aₚe^{-j2πpf}\n      σ²_w = white noise variance\n\nESTIMATION: Yule-Walker equations (solve linear system for {aₖ} given autocorrelation estimates)\n            or Burg algorithm (robust, forward-backward LP).\n\nWHY USEFUL: AR model can represent sharp spectral peaks with very few parameters.\n            A 6th-order AR can model 3 sinusoids — no window effects, high resolution.\n            Welch might need 1000 points to achieve the same resolution.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "## MUSIC and ESPRIT: Subspace Methods",
+      "confidence": "candidate",
+      "text": "MUSIC pseudo-spectrum:\n\nP_MUSIC(f) = ─────────────────────────────────────────\n             eᴴ(f) · [noise subspace projector] · e(f)\n\n= eᴴ(f) · Eₙ · EₙH · e(f)   (where Eₙ = noise eigenvectors)\n\nPeaks of P_MUSIC → true frequencies (where e(f) ⊥ noise subspace → denominator → 0)\n\nRESOLUTION: Can resolve two sinusoids separated by << 1/N·Ts (Rayleigh limit)\nREQUIREMENT: Know p (number of sinusoids) in advance (or estimate it)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## MUSIC and ESPRIT: Subspace Methods",
+      "confidence": "candidate",
+      "text": "COMPARISON OF SPECTRAL ESTIMATION METHODS\n\nMethod         | Resolution | Variance | Assumptions | Computation\n───────────────────────────────────────────────────────────────────\nPeriodogram    | 1/NTs      | S²xx     | None        | O(N log N)\nWelch          | 1/MTs      | S²xx/K   | WSS         | K FFTs\nMultitaper     | 2W         | low      | WSS         | K FFTs\nAR(p)          | high       | low      | x is AR(p)  | O(pN) or O(p²)\nMUSIC          | superhigh  | moderate | p sinusoids | O(N² + K·N)\nESPRIT         | superhigh  | good     | p sinusoids | O(N²)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

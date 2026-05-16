@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:acoustics:architectural-acoustics
+kind: guide
+module: acoustics
+section: acoustics
+title: Architectural Acoustics - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: acoustics/04-ARCHITECTURAL-ACOUSTICS.md
+canonical_path: acoustics/04-ARCHITECTURAL-ACOUSTICS.md
+backsource_ids: [proof-backfill:acoustics:04-architectural-acoustics, git-history:acoustics:04-architectural-acoustics]
+concepts: [architectural, acoustics]
+root_concepts: [architectural, acoustics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Architectural Acoustics — A Layered Guide
 
 ## The Big Picture

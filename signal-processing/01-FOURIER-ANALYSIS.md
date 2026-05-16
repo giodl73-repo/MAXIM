@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:signal-processing:fourier-analysis
+kind: guide
+module: signal-processing
+section: signal-processing
+title: Fourier Analysis - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: signal-processing/01-FOURIER-ANALYSIS.md
+canonical_path: signal-processing/01-FOURIER-ANALYSIS.md
+backsource_ids: [proof-backfill:signal-processing:01-fourier-analysis, git-history:signal-processing:01-fourier-analysis]
+concepts: [fourier, analysis]
+root_concepts: [fourier, analysis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fourier Analysis — A Layered Guide
 
 ## The Big Picture
