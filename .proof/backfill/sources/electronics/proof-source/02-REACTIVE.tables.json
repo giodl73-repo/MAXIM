@@ -1,0 +1,114 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\02-REACTIVE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 98,
+      "heading_context": "## 1. Capacitors",
+      "headers": [
+        "Type",
+        "Capacitance",
+        "Polarized?",
+        "Frequency",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Ceramic (MLCC)",
+          "pF–μF",
+          "No",
+          "High",
+          "Decoupling, RF"
+        ],
+        [
+          "Electrolytic",
+          "μF–mF",
+          "Yes",
+          "Low",
+          "Bulk bypass, filtering"
+        ],
+        [
+          "Tantalum",
+          "μF",
+          "Yes",
+          "Medium",
+          "Compact bulk bypass"
+        ],
+        [
+          "Film (polyester/polypropylene)",
+          "nF–μF",
+          "No",
+          "Medium-High",
+          "Audio, precision"
+        ],
+        [
+          "Mica",
+          "pF–nF",
+          "No",
+          "Very High",
+          "RF precision"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 362,
+      "heading_context": "## 9. Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "What you need"
+      ],
+      "rows": [
+        [
+          "AC circuit, find voltages/currents at one frequency",
+          "Z_R=R, Z_L=jωL, Z_C=1/(jωC), then KVL/KCL"
+        ],
+        [
+          "Full frequency response, find H(jω)",
+          "Build H(s) via impedances, evaluate on jω axis"
+        ],
+        [
+          "Time domain transient, ICs given",
+          "Laplace transform with ICs, partial fractions, inverse"
+        ],
+        [
+          "Characterize resonance",
+          "Find ω₀, Q, ζ. Determine over/under/critically damped"
+        ],
+        [
+          "Fast step response, no overshoot",
+          "Critically damped (ζ = 1)"
+        ],
+        [
+          "Narrow frequency selection (filter)",
+          "High Q resonance, ζ << 1"
+        ],
+        [
+          "Energy storage per unit voltage",
+          "Capacitor (W = ½CV²)"
+        ],
+        [
+          "Energy storage per unit current",
+          "Inductor (W = ½LI²)"
+        ],
+        [
+          "Block DC, pass AC",
+          "Series capacitor"
+        ],
+        [
+          "Block high-frequency noise on supply",
+          "Shunt capacitor to ground (bypass)"
+        ],
+        [
+          "Inductors in series",
+          "Add L values (like resistors)"
+        ],
+        [
+          "Capacitors in parallel",
+          "Add C values (opposite of resistors)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electronics:overview
+kind: guide
+module: electronics
+section: electronics
+title: Electronics - Field Overview
+status: source-custody
+source_custody: partial
+current_path: electronics/00-OVERVIEW.md
+canonical_path: electronics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:electronics:00-overview, git-history:electronics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electronics — Field Overview
 
 Electronics is applied electromagnetism, reduced through successive approximations to tractable models — the same abstraction-layer strategy used in compiler theory (source → IR → machine code) or numerical analysis (exact PDE → finite element → algebraic system). The approximation hierarchy here is Maxwell's equations → quasi-static fields → lumped circuit elements (R, L, C), and the art of electronics is knowing when each layer breaks.

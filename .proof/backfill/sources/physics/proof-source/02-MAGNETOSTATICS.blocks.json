@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "physics\\02-MAGNETOSTATICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|                     MAGNETOSTATICS LANDSCAPE                           |\n|                                                                        |\n|   SOURCE          CREATES            FIELD          DESCRIBED BY       |\n|   ──────          ───────            ─────          ────────────       |\n|                                                                        |\n|   current J  ──>  force on           B(x,y,z)       ∇·B  = 0           |\n|   (vector)        moving charges     vector field    ∇×B  = μ₀J        |\n|                                          │                             |\n|                                          │ B = ∇×A                     |\n|                                          ▼                             |\n|                                     A(x,y,z)       ∇²A = -μ₀J          |\n|                                     vector field   (Coulomb gauge)     |\n|                                                                        |\n|   FORCE ON CHARGE:   F = q(E + v×B)   ← Lorentz force (full)           |\n|   FORCE ON WIRE:     F = I L×B                                         |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "  ELECTROSTATICS              MAGNETOSTATICS\n  ──────────────              ──────────────\n  Source: charge ρ            Source: current J\n  Field: E                    Field: B\n  ∇·E = ρ/ε₀  (monopoles)    ∇·B = 0  (no monopoles)\n  ∇×E = 0     (static)        ∇×B = μ₀J\n  Potential: V (scalar)       Potential: A (vector)\n  E = -∇V                     B = ∇×A\n  ∇²V = -ρ/ε₀                 ∇²A = -μ₀J",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 72,
+      "heading_context": "## The Lorentz Force",
+      "confidence": "candidate",
+      "text": "  F = q(E + v×B)     ← Lorentz force law\n\n  Electric part:  qE    — acts on charge regardless of motion\n  Magnetic part:  qv×B  — acts only on moving charges, perpendicular to v",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "## The Lorentz Force",
+      "confidence": "candidate",
+      "text": "  v = v x̂  (moving right)\n  B = B ẑ  (pointing out of page)\n\n  v×B = vB (x̂ × ẑ) = -vB ŷ    ← force is downward",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "## Biot-Savart Law",
+      "confidence": "candidate",
+      "text": "         μ₀   I dl × r̂\n  dB  = ────  ──────────\n         4π      r²\n\n  μ₀ = 4π × 10⁻⁷ T·m/A    (permeability of free space)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "## Biot-Savart Law",
+      "confidence": "candidate",
+      "text": "         μ₀       dl × r̂\n  B(r) = ────  I ∫ ──────\n          4π          r²",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "## Biot-Savart Law",
+      "confidence": "candidate",
+      "text": "  STRAIGHT WIRE (cross section view):\n\n  Current I  →  into page ⊗\n\n        ↙  ↓  ↘\n        ←  ⊗  →     B field circles counterclockwise\n        ↖  ↑  ↗     (viewed from behind: current coming toward you, B clockwise)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "### Biot-Savart: Infinite Straight Wire",
+      "confidence": "candidate",
+      "text": "          μ₀ I\n  |B| = ───────    (at distance r from wire)\n          2πr",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 211,
+      "heading_context": "## Ampere's Law — The Magnetostatic Shortcut",
+      "confidence": "candidate",
+      "text": "### Example 1: Infinite Straight Wire",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "### Example 1: Infinite Straight Wire",
+      "confidence": "candidate",
+      "text": "  ∮ B·dl = |B| × 2πr = μ₀I\n\n          μ₀I\n  |B| = ──────    ← same as Biot-Savart result, much faster\n          2πr",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 224,
+      "heading_context": "### Example 1: Infinite Straight Wire",
+      "confidence": "candidate",
+      "text": "### Example 2: Infinite Solenoid",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 242,
+      "heading_context": "### Example 2: Infinite Solenoid",
+      "confidence": "candidate",
+      "text": "### Example 3: Toroid",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "### Example 3: Toroid",
+      "confidence": "candidate",
+      "text": "         μ₀NI\n  B  = ────────    (inside the toroid, varies with r)\n          2πr\n\n  B = 0  outside the toroid entirely",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 274,
+      "heading_context": "## No Magnetic Monopoles: ∇·B = 0",
+      "confidence": "candidate",
+      "text": "  ELECTRIC FIELD LINES:      MAGNETIC FIELD LINES:\n  start and end on charges   always closed loops\n\n     +          -              N ↑ S\n     ·──────────·              │ │ │\n  →→→→→→→→→→→→→→→          ─────────\n                              ↑     ↑\n                             closed loops through\n                             magnet and around outside",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 312,
+      "heading_context": "## Engineering Bridge: The Vector Potential as Gauge Connection",
+      "confidence": "candidate",
+      "text": "MAGNETOSTATICS CONCEPT              DIFFERENTIAL GEOMETRY EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nVector potential A                  Connection 1-form on a U(1) principal bundle\n  B = ∇×A                            Curvature F = dA (the field strength 2-form)\n  Gauge freedom A → A + ∇Λ           Gauge transformation: change of trivialization\n  B unchanged (∇×∇Λ = 0)             Curvature is gauge-invariant\n\nAharonov-Bohm phase                Holonomy of the connection\n  ∮A·dl = Φ (enclosed flux)          Phase = exp(i e/ℏ ∮A·dl)\n  Measurable even where B = 0        Observable = holonomy, not connection itself\n\nMagnetic flux quantization          Chern number (first Chern class)\n  Φ₀ = h/2e in superconductors       Topological invariant of the bundle\n                                      Integer-valued → quantized",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 361,
+      "heading_context": "## Force on Current-Carrying Conductors",
+      "confidence": "candidate",
+      "text": "  Force per unit length:\n\n       μ₀ I₁I₂\n  f = ─────────\n         2πd\n\n  Same direction currents:  attractive force\n  Opposite direction:       repulsive force",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "ascii_table_candidate",
+      "line": 417,
+      "heading_context": "## Electrostatics vs Magnetostatics — Full Comparison",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────────+\n|                    SIDE BY SIDE COMPARISON                           |\n+──────────────────────────────────────────────────────────────────────+\n|                   ELECTROSTATICS    |    MAGNETOSTATICS              |\n+──────────────────────────────────────────────────────────────────────+\n| Source                ρ (charge)    |    J (current)                 |\n| Constant              1/ε₀          |    μ₀                          |\n| Field                 E             |    B                           |\n| Divergence law     ∇·E = ρ/ε₀      |    ∇·B = 0                      |\n| Curl law           ∇×E = 0          |    ∇×B = μ₀J                   |\n| Integral (div)   ∮∮E·dA = Q/ε₀     |    ∮∮B·dA = 0                   |\n| Integral (curl)  ∮E·dl = 0          |    ∮B·dl = μ₀I_enc             |\n| Potential         V scalar           |    A vector                   |\n| Field from pot    E = -∇V           |    B = ∇×A                     |\n| Poisson eq        ∇²V = -ρ/ε₀      |    ∇²A = -μ₀J                   |\n| Point source      Coulomb 1/r²       |    Biot-Savart (messier)      |\n| Symmetric tool    Gauss's law        |    Ampere's law               |\n| Force on charge   F = qE             |    F = qv×B                   |\n| Does work?        Yes                |    No (F⊥v)                   |\n| Monopoles?        Yes (charges)      |    No                         |\n| Field lines       start/end          |    closed loops               |\n+──────────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

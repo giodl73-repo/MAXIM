@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\09-EMBEDDED-VLSI.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 22,
+      "heading_context": "# 09 — Embedded Systems and VLSI Design",
+      "confidence": "candidate",
+      "text": "EMBEDDED / VLSI LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  EMBEDDED SYSTEMS                        VLSI DESIGN\n  ─────────────────────────────────────   ─────────────────────────────────────\n  Programming close to the metal           Designing the metal itself\n\n  MCU/MPU + RTOS + peripherals       →    RTL description → synthesis →\n  C/C++ with HAL or register-direct        place-and-route → tapeout → silicon\n\n  Abstraction levels:                      Design levels:\n  Application code                         Algorithm / architecture\n  RTOS (FreeRTOS, Zephyr)                  RTL (SystemVerilog, VHDL)\n  HAL / device drivers                     Gate-level netlist\n  Peripheral registers                     Physical layout (GDSII)\n  Interrupt vectors                        Foundry fabrication\n  Bare metal / startup code\n\n  BRIDGE TO SOFTWARE BACKGROUND:\n  MCU bare-metal ≈ kernel development (no OS, direct hardware access)\n  RTOS ≈ user-space OS with cooperative/preemptive scheduling\n  VLSI flow ≈ compiler toolchain: RTL→netlist is \"compile\", P&R is \"link\"\n  FPGA ≈ ASIC prototype: same RTL, reconfigurable fabric instead of fixed silicon",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "### MCU vs MPU — Core Distinction",
+      "confidence": "candidate",
+      "text": "  MCU (Microcontroller Unit)              MPU (Microprocessor Unit)\n  ─────────────────────────────────────   ─────────────────────────────────────\n  CPU + RAM + Flash + peripherals         CPU only — memory and peripherals\n  all on ONE chip                         are external\n\n  Self-contained                          Needs: external DRAM, Flash/eMMC,\n  Boot from internal Flash                PMIC (power management), boot ROM\n  No OS typically (or lightweight RTOS)   Runs Linux, RTOS, or bare-metal\n\n  ARM Cortex-M series:                    ARM Cortex-A series:\n    M0/M0+: ultra-low-power, IoT            A53/A55: efficiency cores (mobile)\n    M4: FPU, DSP instructions, sensors      A72/A76/A78: performance cores\n    M7: dual-issue, branch pred, TCM        A510/A715: Armv9, modern SoC\n    M33/M55: TrustZone, Helium DSP         Apple M-series: custom Arm cores\n    M85: Armv8.1-M, MVE vector engine     RISC-V: U74 (SiFive), CV72 (Andes)\n                                          x86: Intel Atom for embedded\n\n  Examples by use case:\n  STM32F4 (M4):   sensor fusion, motor ctrl   Raspberry Pi (A72): Linux SBC\n  ESP32 (Xtensa): WiFi/BLE IoT device         i.MX8 (A72+M4): automotive MCU\n  RP2040 (M0+×2): maker boards, custom PIO    NVIDIA Jetson: GPU+A57 for AI\n  nRF52840 (M4):  BLE mesh, Nordic SDK        BeagleBone (A8): industrial Linux",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 81,
+      "heading_context": "### Memory Hierarchy in Embedded",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  CPU REGISTERS         ~32 × 32-bit          0-cycle access             │\n  │  Cortex-M: R0-R12, SP, LR, PC, PSR          inside CPU core             │\n  └─────────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  TCM (Tightly Coupled Memory)     64KB–1MB   1-cycle                    │\n  │  Cortex-M7+: ITCM/DTCM mapped    deterministic — use for ISRs           │\n  │  directly, no cache uncertainty   and real-time control loops           │\n  └─────────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  SRAM (on-chip)                   4KB–4MB    2-5 cycles                 │\n  │  Variables, stack, heap           Fast, volatile                        │\n  │  CCM (Core-Coupled Memory) on STM32: DMA cannot reach it                │\n  └─────────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  Flash (program storage, on-chip) 32KB–2MB   3-10 cycles (with cache)   │\n  │  Non-volatile; .text and .rodata  ART Accelerator (STM32) = 0-wait      │\n  │  Erase in pages (512B–128KB)      ~100K erase cycles lifetime           │\n  └─────────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  External DRAM (SDRAM, PSRAM)     8MB–4GB    ~100 cycles                │\n  │  Flexible Memory Controller (FMC) On MPU systems only                   │\n  └─────────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  External Flash (QSPI, eMMC, SD)  MBs–TBs    very slow (µs+ erase)      │\n  │  Firmware OTA storage             Not XiP (execute in place) unless QSPI│\n  └─────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "### Bare-Metal Programming",
+      "confidence": "candidate",
+      "text": "  POWER-ON RESET\n       │\n       ▼\n  RESET VECTOR (address 0x00000004 on Cortex-M)\n  Vector table at start of Flash:\n    [0]: initial stack pointer value\n    [1]: Reset_Handler address  ← CPU jumps here\n    [2]: NMI_Handler\n    [3]: HardFault_Handler\n    ...\n    [n]: IRQn_Handler\n       │\n       ▼\n  Reset_Handler (startup_stm32xxx.s or equivalent)\n    1. Copy .data section from Flash to SRAM  (initialized globals)\n    2. Zero-fill .bss section in SRAM         (zero-initialized globals)\n    3. Initialize heap pointer (if using malloc)\n    4. Configure FPU enable (if Cortex-M4/M7)\n    5. Call SystemInit() → PLL setup, clock tree\n    6. Call main()\n       │\n       ▼\n  main()",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 143,
+      "heading_context": "### Bare-Metal Programming",
+      "confidence": "candidate",
+      "text": "  MEMORY {\n    FLASH (rx)  : ORIGIN = 0x08000000, LENGTH = 2048K\n    SRAM (xrw)  : ORIGIN = 0x20000000, LENGTH = 192K\n    DTCMRAM(xrw): ORIGIN = 0x20000000, LENGTH = 128K  /* Cortex-M7 */\n  }\n  SECTIONS {\n    .text   → FLASH   /* code, constants, vector table */\n    .data   → SRAM    /* initialized globals; LMA in Flash, VMA in SRAM */\n    .bss    → SRAM    /* uninitialized globals, zero at startup */\n    .stack  → SRAM    /* grows downward */\n    .heap   → SRAM    /* grows upward; optional */\n  }\n  Bridge: LMA (Load Memory Address) = where it's stored (Flash)\n          VMA (Virtual Memory Address) = where CPU expects it (SRAM)\n          Startup code does the Flash→SRAM copy for .data",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "### RTOS Concepts",
+      "confidence": "candidate",
+      "text": "  RTOS CORE STRUCTURE\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  APPLICATION TASKS                                                      │\n  │  Task A (priority 3)   Task B (priority 2)   Task C (priority 1)        │\n  │  [Stack] [TCB]         [Stack] [TCB]         [Stack] [TCB]              │\n  │                                                                         │\n  │  TCB (Task Control Block): stack pointer, priority, state,              │\n  │  task name, run-time stats, list links                                  │\n  └─────────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  SCHEDULER                                                              │\n  │  Preemptive priority: highest-priority ready task always runs           │\n  │  Tick interrupt (e.g., 1 kHz = 1ms tick): drives time slicing           │\n  │  Context switch: save registers to TCB stack, load next task's          │\n  │  registers — Cortex-M uses PendSV exception for this                    │\n  │  Context switch cost: ~100-300ns (Cortex-M4 at 168 MHz, FreeRTOS)       │\n  └─────────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  IPC PRIMITIVES                                                         │\n  │  Queue: thread-safe FIFO, blocks producer if full, consumer if empty    │\n  │  Semaphore: counting or binary; counts available resources              │\n  │  Mutex: binary + priority inheritance; prevents priority inversion      │\n  │  Event flags: 32-bit flags, task waits for bit pattern                  │\n  │  Stream buffer / message buffer (FreeRTOS 10+): lockless for 1P/1C      │\n  └─────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 231,
+      "heading_context": "### Peripheral Interfaces",
+      "confidence": "candidate",
+      "text": "  INTERFACE COMPARISON\n  ┌──────────────┬────────────────┬──────────────┬───────────────────────────┐\n  │ Interface    │ Wires          │ Speed        │ Notes                     │\n  ├──────────────┼────────────────┼──────────────┼───────────────────────────┤\n  │ SPI          │ 4: SCLK,MOSI,  │ 1–100 MHz    │ Full-duplex; master       │\n  │              │ MISO,CS        │              │ selects slave via CS pin  │\n  ├──────────────┼────────────────┼──────────────┼───────────────────────────┤\n  │ I²C          │ 2: SDA, SCL    │ 100k/400k/   │ Multi-master; 7-bit addr; │\n  │              │ (open-drain)   │ 1M/3.4MHz    │ ACK/NACK; clock stretch   │\n  ├──────────────┼────────────────┼──────────────┼───────────────────────────┤\n  │ UART         │ 2: TX, RX      │ 9.6k–5Mbps   │ Async; start/stop bits;  │\n  │              │ (+RTS/CTS opt) │              │ no clock; must match baud │\n  ├──────────────┼────────────────┼──────────────┼───────────────────────────┤\n  │ CAN bus      │ 2: CAN_H/L     │ 1 Mbps       │ Differential; multi-node; │\n  │              │ (differential) │ (CAN-FD 8M)  │ arbitration; auto. ACK    │\n  ├──────────────┼────────────────┼──────────────┼───────────────────────────┤\n  │ USB 2.0 FS   │ D+/D- (diff)   │ 12 Mbps      │ Host/device; enumeration; │\n  │              │ + VBUS + GND   │              │ protocol stack required   │\n  ├──────────────┼────────────────┼──────────────┼───────────────────────────┤\n  │ USB 3.2      │ D+/D- + TX/RX  │ 10 Gbps      │ SuperSpeed; separate      │\n  │              │ differential   │              │ SuperSpeed lanes          │\n  ├──────────────┼────────────────┼──────────────┼───────────────────────────┤\n  │ I²S          │ SCK,WS,SD      │ to 100 MHz   │ Audio serial; word-select │\n  │              │                │              │ sets L/R channel          │\n  ├──────────────┼────────────────┼──────────────┼───────────────────────────┤\n  │ SDIO/SD      │ CLK,CMD,D0-D3  │ 25–208 MHz   │ SD card, eMMC, WiFi module│\n  └──────────────┴────────────────┴──────────────┴───────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "### Power Management",
+      "confidence": "candidate",
+      "text": "  MCU POWER STATES (STM32 as example — similar across MCUs)\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  RUN mode         CPU + all peripherals on        10–100 mA @ 3.3V       │\n  │    ↓ sleep entry  WFI / WFE instruction                                  │\n  │  SLEEP mode       CPU halted; peripherals + RAM on  5–50 mA              │\n  │    ↓ stop entry   peripheral clocks off                                  │\n  │  STOP mode        CPU + most clocks off; RAM retained  1–300 µA          │\n  │    ↓ standby      SRAM off; RTC still on                                 │\n  │  STANDBY mode     Almost everything off; RTC on       1–10 µA            │\n  │    ↓ shutdown                                                            │\n  │  SHUTDOWN mode    Only WKUP pin and tamper detection  ~100 nA            │\n  └──────────────────────────────────────────────────────────────────────────┘\n\n  Wakeup sources: external interrupt (EXTI), RTC alarm, UART activity,\n  comparator event, USB detect, ADC watchdog threshold cross\n\n  Energy calculation: E = ∫ P(t) dt\n  Typical IoT duty cycle:  sleep 9.9s at 2µA + wake 100ms at 20mA\n  Average I = (2µA × 9.9 + 20mA × 0.1) / 10 = 1.99µA + 200µA/10 = 21.99µA\n  At 3V with 1000mAh battery: ~3V × 1Ah = 3 Wh / (3V × 21.99µA) ≈ 4.5 years",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 292,
+      "heading_context": "### The Complete Flow",
+      "confidence": "candidate",
+      "text": "  SPECIFICATION\n  (performance, area, power, interface, process node)\n         │\n         ▼\n  ARCHITECTURE DESIGN\n  (datapath width, pipeline stages, memory hierarchy, ISA)\n         │\n         ▼\n  RTL DESIGN  ──────────── testbench ───────┐\n  SystemVerilog / VHDL                       │\n  (logic behavior description)               ▼\n         │                           RTL SIMULATION\n         │                           (ModelSim, Questa, VCS)\n         │                           Functional verification\n         │                           Formal verification (JasperGold)\n         ▼\n  LOGIC SYNTHESIS  (Design Compiler, Yosys)\n  RTL → gate-level netlist\n  Technology mapping: logic → standard cells\n  Timing constraints (.sdc file)\n  Area / power / timing (APT) optimization\n         │\n         ▼\n  GATE-LEVEL SIMULATION + STA\n  Static Timing Analysis: check all setup/hold across all paths\n  Gate-level simulation: confirm netlist matches RTL behavior\n         │\n         ▼\n  PHYSICAL DESIGN (Place & Route)  (Cadence Innovus, Synopsys ICC2)\n  ┌─────────────────────────────────────────────────────────┐\n  │  Floorplanning: macro placement, I/O ring, power domain │\n  │  Power planning: VDD/GND grid, IR drop analysis         │\n  │  Placement: standard cells into rows                    │\n  │  CTS: Clock Tree Synthesis — buffers to minimize skew   │\n  │  Routing: global → detailed → DRC fix                   │\n  │  Filler cells: fill empty rows (well continuity)        │\n  └─────────────────────────────────────────────────────────┘\n         │\n         ▼\n  SIGNOFF CHECKS\n  DRC (Design Rule Check): minimum spacing, width, via rules\n  LVS (Layout vs Schematic): layout connectivity matches netlist\n  ERC (Electrical Rule Check): floating nodes, shorts\n  IR drop / EM (electromigration) analysis\n  Timing signoff: PrimeTime — corner analysis (worst-case: SS/0.9V/125°C)\n         │\n         ▼\n  TAPEOUT → GDS II file to foundry\n  Re-spin economics: a mask set at 5nm costs $25M–$30M and adds 3–6 months.\n  Every bug caught before tapeout is free; every bug caught after costs millions.\n  This is why verification (RTL sim, gate-level sim, formal, STA at all PVT\n  corners) consumes 60–70% of the total design effort.\n         │\n         ▼\n  FABRICATION (TSMC, Samsung, GlobalFoundries, Intel Foundry)\n  ~3-6 months turnaround at advanced nodes\n         │\n         ▼\n  SILICON BRING-UP\n  Scan test, JTAG debug, ATE (Automated Test Equipment)\n  Board bring-up, driver development",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 393,
+      "heading_context": "### Timing Analysis",
+      "confidence": "candidate",
+      "text": "  SETUP TIME CONSTRAINT\n  ┌────────────────────────────────────────────────────────────────────────┐\n  │  Clock period T ≥ t_clk_to_Q + t_combinational + t_setup               │\n  │                                                                        │\n  │  Clock edge                                  Next clock edge           │\n  │       │                                           │                    │\n  │       │  t_clk_to_Q    t_comb          t_setup    │                    │\n  │       │◄────────────►◄───────────────►◄─────────►│                     │\n  │       │                                           │                    │\n  │       ▼                                           ▼                    │\n  │  FF1 output        logic propagation         FF2 must be stable        │\n  │                                                                        │\n  │  Critical path: the combinational path with maximum propagation delay  │\n  │  Clock frequency = 1/T_critical_path (after meeting all timing)        │\n  │                                                                        │\n  │  HOLD TIME CONSTRAINT (independent of frequency!)                      │\n  │  t_clk_to_Q + t_comb_min ≥ t_hold                                      │\n  │  Hold violation: data changes too fast → metastability at FF2          │\n  │  Fix: add buffer/delay on data path (NOT by slowing clock)             │\n  └────────────────────────────────────────────────────────────────────────┘\n\n  CLOCK DOMAIN CROSSING (CDC)\n  Two FFs driven by different clocks → metastability risk\n  Fix: 2-flop synchronizer (for single-bit), gray-coded counter (for bus),\n       asynchronous FIFO (for burst data)\n  Never use a combinational mux between clock domains.\n\n  PVT CORNERS in signoff:\n  SS (Slow-Slow) / 0.9V / 125°C  → worst-case setup (slowest silicon)\n  FF (Fast-Fast) / 1.1V / -40°C  → worst-case hold (fastest silicon)\n  Typical: TT / 1.0V / 25°C      → nominal simulation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 429,
+      "heading_context": "### FPGA vs ASIC",
+      "confidence": "candidate",
+      "text": "  FPGA (Field-Programmable Gate Array)    ASIC (Application-Specific IC)\n  ─────────────────────────────────────   ─────────────────────────────────────\n  Reconfigurable LUT-based fabric         Fixed silicon; custom design\n\n  Architecture:                           Process:\n    LUT4/6: n-input truth table           Full VLSI flow as above\n    FF: flip-flop after each LUT          Tapeout cost: $5M–$100M+ NRE\n    DSP48: hard multiply-accumulate       (mask set at 5nm: ~$30M)\n    BRAM: dual-port 36Kb block RAM\n    Routing: programmable interconnect    Performance/Power/Area (PPA):\n                                          ~10× better than FPGA at same node\n  Power: ~5–10× worse than ASIC\n  Speed: ~5–10× slower than ASIC         Production cost: ~$1–$50/unit (volume)\n  NRE cost: $0 (just buy FPGA)\n  Unit cost: $10 (Spartan) – $10k (HBM)  Lead time: 3–6 months for tapeout\n\n  Xilinx/AMD: Artix (low-cost) → Kintex (mid) → Virtex/Ultrascale+ (high)\n  Intel: Cyclone → Arria → Stratix → Agilex (AI-enhanced)\n  Microchip: PolarFire (RISC-V hard core)\n  Lattice: iCE40 (ultra-low-power), ECP5, Nexus\n\n  HLS (High-Level Synthesis):\n  Vitis HLS (AMD/Xilinx), Catapult (Mentor), Stratus: C/C++ → RTL\n  Tradeoff: faster design but worse PPA than hand-written RTL\n  Useful for: DSP kernels, control algorithms, ML accelerators",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 461,
+      "heading_context": "### Physical Design Details",
+      "confidence": "candidate",
+      "text": "  POWER GRID\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  Metal 8 (top): wide VDD/GND straps (horizontal)                        │\n  │  Metal 7: wide straps (vertical)                                        │\n  │  ...                                                                    │\n  │  Metal 3-4: intermediate routing                                        │\n  │  Metal 1-2: signal routing + local power rails                          │\n  │  Standard cell row: VDD rail at top, GND rail at bottom                 │\n  │                                                                         │\n  │  IR drop: ΔV = I·R_grid_path; budget typically < 5% of VDD              │\n  │  EM: current density > limit → metal void over time (failure)           │\n  └─────────────────────────────────────────────────────────────────────────┘\n\n  CLOCK TREE SYNTHESIS (CTS) GOAL:\n  All FF clock pins arrive at (nearly) same time\n    → minimize skew: σ < 50 ps (typical goal)\n    → balanced H-tree or fishbone topology\n    → clock buffers (high drive strength, low jitter) inserted\n  Clock gating: AND gate before clock enable → power saving (clock off = no FF toggling)\n  ICG (Integrated Clock Gating cell): standard cell with latch + AND gate,\n    avoids glitch on enable input\n\n  FINSET TECHNOLOGY NODES (marketing names vs reality)\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Node name    Fin pitch    Gate pitch    Density (MTx/mm²)  Foundry  │\n  │  \"5nm\"        27 nm        48 nm         ~171               TSMC N5  │\n  │  \"3nm\"        21 nm        48 nm         ~292               TSMC N3E │\n  │  \"2nm\"        ~18 nm       ~45 nm        ~350+              TSMC N2  │\n  │  \"7nm\"        30 nm        57 nm         ~96                TSMC N7  │\n  │                                                                      │\n  │  Node names are marketing; actual gate length is ~2-3× smaller       │\n  │  than node name implies. N3 gate length ≈ 12-15 nm.                  │\n  │  Power density becomes the bottleneck — more transistors, more heat  │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  CHIPLETS AND 3D:\n  Monolithic: everything on one die (area yield drops exponentially)\n  Chiplets: separate dies in same package (HBM + logic, AMD EPYC MCM)\n  3D stacking: SRAM on top of logic (TSMC SoIC, Intel Foveros)\n    → SRAM latency drops 3-5× vs off-die; bandwidth ~10 TB/s\n  TSMC CoWoS (Chip on Wafer on Substrate): HBM + GPU in silicon interposer\n    → H100: 814mm² die + 6× HBM3 = 3.35 TB/s bandwidth",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

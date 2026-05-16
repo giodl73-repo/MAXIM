@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physics:magnetostatics
+kind: guide
+module: physics
+section: physics
+title: Magnetostatics - Currents, Fields, and the Vector Potential
+status: source-custody
+source_custody: partial
+current_path: physics/02-MAGNETOSTATICS.md
+canonical_path: physics/02-MAGNETOSTATICS.md
+backsource_ids: [proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]
+concepts: [magnetostatics]
+root_concepts: [magnetostatics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Magnetostatics — Currents, Fields, and the Vector Potential
 
 ## The Big Picture

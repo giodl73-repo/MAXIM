@@ -1,0 +1,314 @@
+{
+  "schema_version": "1",
+  "source_markdown": "physics\\10-GRAVITY-EM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  GENERAL RELATIVITY (strong fields, fast motion, curved spacetime)\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  Gμν = (8πG/c⁴) Tμν                                                     │\n  │  Geometry = Energy/Momentum content                                     │\n  │  Black holes, gravitational waves, cosmology                            │\n  └────────────────────────┬────────────────────────────────────────────────┘\n                           │ weak-field, slow-motion limit\n                           ▼\n  GRAVITOELECTROMAGNETISM — GEM (weak gravity ≈ Maxwell-like equations)\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  ∇·Eg = -ρm/ε₀g           ∇·Bg = 0                                      │\n  │  ∇×Eg = -∂Bg/∂t           ∇×Bg = -(4/c²)(Jm/ε₀g) + ...                  │\n  │  Gravitoelectric ≈ Newtonian gravity                                    │\n  │  Gravitomagnetic ≈ frame-dragging (Lense-Thirring effect)               │\n  └────────────────────────┬────────────────────────────────────────────────┘\n                           │ G/c² ≈ 7.4×10⁻²⁸ m/kg — 36 orders smaller\n                           ▼                    than EM coupling\n  PRACTICAL LEVITATION OPTIONS (what actually works)\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  Meissner levitation     — superconductors expel B completely           │\n  │  Diamagnetic levitation  — stable with strong magnets (frogs, graphite) │\n  │  Maglev                  — active feedback or Halbach arrays            │\n  │  Acoustic/optical        — radiation pressure (micro-objects only)      │\n  └────────────────────────┬────────────────────────────────────────────────┘\n                           │\n                           ▼\n  FRINGE CLAIMS (evaluated from first principles)\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  Podkletnov spinning disc  — not replicated (covered in module 07)      │\n  │  Biefeld-Brown effect      — ion wind, not EM-gravity coupling          │\n  │  Mercury vortex / Vimana   — standard MHD, ~10⁻²³ T gravitomagnetic     │\n  │  Ning Li \"ac-gravity\"      — not published in peer-reviewed physics     │\n  └─────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 69,
+      "heading_context": "## 1. Why Gravity Looks Like Electromagnetism",
+      "confidence": "candidate",
+      "text": "### 1.1 Newtonian Gravity as \"Gravitoelectric\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 85,
+      "heading_context": "### 1.1 Newtonian Gravity as \"Gravitoelectric\"",
+      "confidence": "candidate",
+      "text": "### 1.2 The GEM Equations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "### 1.2 The GEM Equations",
+      "confidence": "candidate",
+      "text": "Gravitoelectric field:   Eg ≡ -∇Φ - ∂Ag/∂t\nGravitomagnetic field:   Bg ≡ ∇ × Ag\n\nwhere Ag is the \"gravitomagnetic vector potential\" (comes from off-diagonal\nmetric components — spacetime twisting due to mass currents)\n\nGEM equations (Mashhoon 2001, linearized GR):\n┌─────────────────────────────────────────────────────────┐\n│  ∇·Eg = -4πGρ           ∇·Bg = 0                        │\n│  ∇×Eg = -∂Bg/∂t         ∇×Bg = (1/c²)(4πG·Jm + ∂Eg/∂t)  │\n└─────────────────────────────────────────────────────────┘\n  Jm = mass current density ρv [kg/m²s]\n\nGeodesic equation in this limit:\n  a = Eg + v × (2Bg)     ← factor of 2 vs EM! (spin-2 graviton vs spin-1 photon)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 113,
+      "heading_context": "## 2. The Lense-Thirring Effect (Frame-Dragging)",
+      "confidence": "candidate",
+      "text": "### 2.1 What It Is",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "### 2.1 What It Is",
+      "confidence": "candidate",
+      "text": "EARTH FRAME-DRAGGING (Lense-Thirring, 1918)\n                     ┌──────────────────────┐\n   North Pole        │  Earth's spin → mass │\n       ↑             │  current → Bg field  │\n       │             │  like magnetic dipole│\n    ┌──┴──┐          └──────────────────────┘\n    │     │  ← spin\n    │  ⊕  │         Bg ~ (2GI_E ω_E)/(c² r³)\n    │     │\n    └──┬──┘         For Earth at surface:\n       │             Bg ~ 10⁻¹⁴ rad/s\n   South Pole\n\n  Orbital effect: gyroscope precession rate\n  Ω_LT = (G/c²r³)[3(L·r̂)r̂ - L]    L = angular momentum vector\n\n  For a 650 km orbit gyroscope:\n  Ω_LT ≈ 39 milliarcseconds/year",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 138,
+      "heading_context": "### 2.1 What It Is",
+      "confidence": "candidate",
+      "text": "### 2.2 Gravity Probe B — The Measurement",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 150,
+      "heading_context": "### 2.2 Gravity Probe B — The Measurement",
+      "confidence": "candidate",
+      "text": "### 2.3 Gravitational Waves — The GEM Wave Equation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 174,
+      "heading_context": "## 3. Real Levitation: Meissner Effect",
+      "confidence": "candidate",
+      "text": "### 3.1 The Mechanism",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "### 3.1 The Mechanism",
+      "confidence": "candidate",
+      "text": "NORMAL CONDUCTOR vs SUPERCONDUCTOR in B field\n\n  Normal conductor:          Superconductor (T < Tc):\n  ┌─────────────────┐        ┌─────────────────┐\n  │  ← B →          │        │                 │\n  │  ← B →          │        │  (B = 0 inside) │\n  │  ← B →          │        │                 │\n  └─────────────────┘        └─────────────────┘\n  B passes through            B expelled completely\n                              (not just zero resistivity —\n                               active expulsion via surface currents)\n\n  This is the Meissner effect (1933)\n  M = -H inside superconductor  → χ_m = -1 (perfect diamagnet)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "### 3.1 The Mechanism",
+      "confidence": "candidate",
+      "text": "MEISSNER LEVITATION MECHANISM\n\n  Magnet approaching superconductor:\n  ┌─────────────────────────────────────────────────────┐\n  │                                                     │\n  │         N  [magnet]  S                              │\n  │                ↓                                    │\n  │         ┌──────────────┐  ← persistent surface      │\n  │         │superconductor│    currents induced        │\n  │         └──────────────┘                            │\n  │                                                     │\n  │  Surface currents create image magnet:              │\n  │         S  [image]   N  ← mirror below surface      │\n  │                                                     │\n  │  Like poles repel → levitation                      │\n  │  Energy stored in expelled B field → restoring force │\n  └─────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 226,
+      "heading_context": "### 3.1 The Mechanism",
+      "confidence": "candidate",
+      "text": "### 3.2 Type I vs Type II Superconductors",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 228,
+      "heading_context": "### 3.2 Type I vs Type II Superconductors",
+      "confidence": "candidate",
+      "text": "TYPE I                         TYPE II\n──────────────────────────     ──────────────────────────\nComplete Meissner for B < Bc   Partial flux penetration Bc1 < B < Bc2\nSingle critical field Bc       Two critical fields\nSoft metals: Hg, Pb, Al        Hard materials: YBCO, Nb₃Sn, MgB₂\nBc ~ 0.01–0.1 T               Bc2 can be ~100 T\n                               Flux vortices (Abrikosov lattice)\nNot useful for strong magnets  Used for MRI, maglev, fusion magnets",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 239,
+      "heading_context": "### 3.2 Type I vs Type II Superconductors",
+      "confidence": "candidate",
+      "text": "### 3.3 Flux Pinning — Why Maglev Superconductors Lock in Space",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "### 3.3 Flux Pinning — Why Maglev Superconductors Lock in Space",
+      "confidence": "candidate",
+      "text": "FLUX PINNING (Type II in mixed state)\n\n  ┌─────────────────────────────────────────────────────┐\n  │  Magnetic flux threads through the superconductor   │\n  │  in quantized flux tubes: Φ₀ = h/2e = 2.07×10⁻¹⁵ Wb │\n  │                                                     │\n  │  Defects in the material PIN the vortices in place  │\n  │                                                     │\n  │  Result: superconductor is locked in 3D space       │\n  │  ┌────────────────────────────────────────┐         │\n  │  │ Restoring force in ALL directions:      │         │\n  │  │  ↑  ↓  →  ←  and rotation              │         │\n  │  │  \"Quantum levitation\" / \"flux locking\"  │         │\n  │  └────────────────────────────────────────┘         │\n  │                                                     │\n  │  YBCO disc + permanent magnet:                      │\n  │  disc can be held upside down, tilted, moved on     │\n  │  track — it maintains its exact height and angle    │\n  └─────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 269,
+      "heading_context": "## 4. Diamagnetic Levitation",
+      "confidence": "candidate",
+      "text": "### 4.1 Mechanism",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 298,
+      "heading_context": "### 4.1 Mechanism",
+      "confidence": "candidate",
+      "text": "### 4.2 Earnshaw's Theorem and How to Circumvent It",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 302,
+      "heading_context": "### 4.2 Earnshaw's Theorem and How to Circumvent It",
+      "confidence": "candidate",
+      "text": "Proof: Any static potential satisfying Laplace's equation ∇²U = 0\n       has no local minimum in free space (only saddle points)\n       → no restoring force in all directions simultaneously\n\nCircumventions:\n┌──────────────────────────────────────────────────────────────────┐\n│  1. Diamagnetism     — χ_m < 0 creates a local maximum in U      │\n│  2. Superconductors  — perfect diamagnet, Meissner               │\n│  3. Active feedback  — sensor + coil (Maglev trains, EMS type)   │\n│  4. AC traps         — Paul trap (ions), optical tweezer         │\n│  5. Rotation         — spinning gyroscopic stabilization         │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 321,
+      "heading_context": "## 5. Maglev — Engineering Implementations",
+      "confidence": "candidate",
+      "text": "THREE MAGLEV ARCHITECTURES\n\n  EMS (Electromagnetic Suspension — Transrapid/Germany)\n  ┌─────────────────────────────────────────────────────────────┐\n  │  Electromagnets on vehicle pull UP toward iron rail         │\n  │  Inherently unstable → 1000 Hz active control loop          │\n  │  Gap: ~10 mm, maintained by sensor feedback                 │\n  │  Speed record (conventional): 501 km/h (2003)               │\n  │  Shanghai maglev operates at 430 km/h commercially          │\n  └─────────────────────────────────────────────────────────────┘\n\n  EDS (Electrodynamic Suspension — SCMaglev/Japan)\n  ┌─────────────────────────────────────────────────────────────┐\n  │  Superconducting coils on vehicle                           │\n  │  Moving field induces currents in guideway → repulsion      │\n  │  Inherently stable (Lenz's law restoring force)             │\n  │  Gap: ~150 mm                                               │\n  │  Speed record: 603 km/h (April 2015)                        │\n  │  Drawback: no levitation below ~150 km/h → needs wheels     │\n  └─────────────────────────────────────────────────────────────┘\n\n  Halbach Array (Inductrack — Post/LLNL)\n  ┌─────────────────────────────────────────────────────────────┐\n  │  Permanent magnet array with rotating orientation           │\n  │  Cancels field above array, concentrates below              │\n  │  Induced currents in conducting track → lift                │\n  │  Passive (no power), but only lifts when moving             │\n  │  Hyperloop pod designs use this                             │\n  └─────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 395,
+      "heading_context": "## 7. Fringe Claims — Final Analysis",
+      "confidence": "candidate",
+      "text": "### 7.1 Podkletnov Spinning Disc (covered in module 07)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "chart_like",
+      "line": 402,
+      "heading_context": "### 7.1 Podkletnov Spinning Disc (covered in module 07)",
+      "confidence": "candidate",
+      "text": "### 7.2 Biefeld-Brown Effect",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 404,
+      "heading_context": "### 7.2 Biefeld-Brown Effect",
+      "confidence": "candidate",
+      "text": "CLAIM: High-voltage asymmetric capacitor produces thrust in vacuum\n\nMECHANISM TESTED:\n  ┌────────────────────────────────────────────────────────────┐\n  │  Asymmetric lifter: small top electrode (+), large bottom  │\n  │  Applied voltage: 20–50 kV                                 │\n  │                                                            │\n  │  Result in air:  YES — upward thrust observed              │\n  │  Result in vacuum: NO — thrust disappears                  │\n  │                                                            │\n  │  Mechanism: Ion wind (electrohydrodynamic thrust)          │\n  │  Corona discharge ionizes air near small electrode         │\n  │  Ions accelerate to large electrode, collide with air      │\n  │  Net momentum transfer to air → reaction force upward      │\n  └────────────────────────────────────────────────────────────┘\n\n  Tested by NASA (Bahder & Fazi 2003): ion wind confirmed\n  Tested by MIT Lincoln Lab: vacuum tests, no thrust\n\n  Status: REAL EFFECT, wrong explanation\n  Application: EHD thrusters for silent aircraft (MIT 2018, Xu et al. Nature)\n               NOT gravity manipulation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "chart_like",
+      "line": 429,
+      "heading_context": "### 7.2 Biefeld-Brown Effect",
+      "confidence": "candidate",
+      "text": "### 7.3 Ning Li and \"AC-Gravity\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "chart_like",
+      "line": 440,
+      "heading_context": "### 7.3 Ning Li and \"AC-Gravity\"",
+      "confidence": "candidate",
+      "text": "### 7.4 Mercury Vortex / Nazi Bell / Vimana (covered in modules 06–07)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "ascii_table_candidate",
+      "line": 466,
+      "heading_context": "## 8. What IS Real and Interesting",
+      "confidence": "candidate",
+      "text": "GENUINE PHYSICS AT THE EM-GRAVITY INTERFACE\n\n  1. GRAVITATIONAL WAVES\n     GR prediction, confirmed LIGO 2015\n     ~1 detection/week now (LIGO/Virgo/KAGRA)\n     Next gen: LISA (space-based), Einstein Telescope\n\n  2. EQUIVALENCE PRINCIPLE TESTS\n     Eötvös experiment: EM and gravitational mass equal to 10⁻¹³\n     Atom interferometry: 10⁻¹⁵ precision tests ongoing\n\n  3. CASIMIR LEVITATION (module 09)\n     Real but microscopic — MEMS devices\n     Repulsive Casimir via fluid medium (Dzyaloshinskii et al.)\n\n  4. GRAVITATIONAL REDSHIFT — EM AFFECTED BY GRAVITY\n     GPS requires GR correction: clocks run faster by 45 μs/day\n     (GR effect: +45 μs/day, SR effect: -7 μs/day, net: +38 μs/day)\n     Without correction: GPS drifts 11 km/day\n     This is EM (radio) affected BY gravity, not controlled by EM\n\n  5. FRAME-DRAGGING CONFIRMED\n     Gravity Probe B (2011): Lense-Thirring confirmed\n     LAGEOS satellites: geodetic precession confirmed\n     Real, measured, utterly negligible for engineering\n\n  6. ANALOGUE GRAVITY\n     Use fluid/EM systems to model GR geometry\n     Sonic black holes (dumb holes) — Unruh radiation analog\n     BEC (Bose-Einstein condensates) as curved spacetime analog\n     Legitimate research area, NOT gravity control\n\n  7. DARK MATTER / DARK ENERGY INTERSECTION\n     Unknown physics at large scales\n     Could involve new long-range forces\n     But: no evidence these interact with EM in a controllable way",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "ascii_table_candidate",
+      "line": 507,
+      "heading_context": "## 8. What IS Real and Interesting",
+      "confidence": "candidate",
+      "text": "**Differential geometry bridge**: General relativity IS differential geometry. Spacetime is a pseudo-Riemannian 4-manifold (M, g_mu_nu), where the metric g_mu_nu is the fundamental dynamical field. The Einstein field equations G_mu_nu = 8 pi G / c^4 T_mu_nu say that Ricci curvature (contracted from the Riemann tensor) equals stress-energy. GEM (gravitoelectromagnetism) is linearized GR: write g_mu_nu = eta_mu_nu + h_mu_nu (flat Minkowski + small perturbation), and the linearized Einstein equations look exactly like Maxwell's equations with h_mu_nu playing the role of the gauge potential. The precise analogy: both EM and linearized GR are gauge theories — EM is U(1), GR is diff(M) (the diffeomorphism group). The GEM fields (gravitoelectric E_g and gravitomagnetic B_g) are components of the linearized Riemann tensor, just as E and B are components of the field strength tensor F_mu_nu. See `differential-geometry/` for the full mathematical treatment of curvature, connections, and the Riemann tensor.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "diagram_like",
+      "line": 511,
+      "heading_context": "## 9. Unification Status — Honest Picture",
+      "confidence": "candidate",
+      "text": "THE UNIFICATION LANDSCAPE (2026)\n\n  CONFIRMED UNIFIED:\n  ┌───────────────────────────────────────────────────────┐\n  │  Electroweak: EM + Weak force unified at ~100 GeV     │\n  │  (Glashow-Weinberg-Salam 1967, Nobel 1979)            │\n  │  Standard Model: EM + Weak + Strong in one framework  │\n  │  Tested to extraordinary precision                    │\n  └───────────────────────────────────────────────────────┘\n\n  NOT YET UNIFIED:\n  ┌───────────────────────────────────────────────────────┐\n  │  Gravity is not in the Standard Model                 │\n  │  GR is classical — no quantum gravity theory          │\n  │  Candidates: String theory, Loop QG, asymptotic safety│\n  │  None tested, none produce predictions yet            │\n  │                                                       │\n  │  Planck scale: E_P = √(ℏc⁵/G) = 1.22 × 10¹⁹ GeV       │\n  │  Where QM and GR must both matter                     │\n  │  LHC reaches 10⁴ GeV — 15 orders below Planck scale   │\n  └───────────────────────────────────────────────────────┘\n\n  IMPLICATION:\n  \"Manipulating gravity electromagnetically\" requires new physics\n  beyond the Standard Model and GR, operative at laboratory scales.\n  No evidence any such physics exists.\n  If it existed at lab-accessible energies, we'd have seen it\n  in precision tests of the Standard Model.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "diagram_like",
+      "line": 585,
+      "heading_context": "## Module Arc — Where We've Been",
+      "confidence": "candidate",
+      "text": "PHYSICS TRACK COMPLETE\n═══════════════════════════════════════════════════════════════════════════════\n\n  01-ELECTROSTATICS   Field from charge — Coulomb, Gauss, potential\n  02-MAGNETOSTATICS   Field from current — Biot-Savart, Ampere, Lorentz\n  03-MAXWELL          The four equations — displacement current, c = 1/√μ₀ε₀\n  04-EM-WAVES         Propagation, polarization, skin depth\n  05-MOTORS-GENERATORS  Faraday, back-EMF, transformers, three-phase, steam\n  06-MHD              Conducting fluids, Alfvén waves, tokamaks, dynamos\n  07-LIQUID-METALS    Lab Rm << 1, EM pumping, fringe claim quantification\n  08-QUANTUM-BRIDGE   Planck → Schrödinger → Hilbert space → ZPE preview\n  09-ZERO-POINT-ENERGY  Casimir, Lamb shift, cosmological constant problem\n  10-GRAVITY-EM ←     GEM, frame-dragging, Meissner, fringe final answers\n\n═══════════════════════════════════════════════════════════════════════════════\n  You now have the full physics foundation.\n  The fringe claims have been evaluated from first principles.\n  The answer is: EM-to-gravity control at lab scale is not physics — yet.\n  The path forward is quantum gravity, which we don't have.\n═══════════════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

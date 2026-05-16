@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physics:mhd
+kind: guide
+module: physics
+section: physics
+title: Magnetohydrodynamics - When Fluid Meets Field
+status: source-custody
+source_custody: partial
+current_path: physics/06-MHD.md
+canonical_path: physics/06-MHD.md
+backsource_ids: [proof-backfill:physics:06-mhd, git-history:physics:06-mhd]
+concepts: [mhd]
+root_concepts: [mhd]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Magnetohydrodynamics — When Fluid Meets Field
 
 ## The Big Picture
@@ -136,7 +155,7 @@ Using the identity ∇×(∇×B) = -∇²B (since ∇·B = 0):
   │   ∂B/∂t  =  ∇×(v×B)  +  η∇²B                            │
   │              ─────────     ─────                        │
   │              advection   diffusion                      │
-  │             (fluid carries B)  (B diffuses through fluid)│
+  │             (fluid carries B)  (B diffuses in fluid)    │
   │                                                         │
   │   η = 1/(μ₀σ)   magnetic diffusivity (m²/s)             │
   │                                                         │
@@ -383,9 +402,9 @@ to both. J×B Lorentz force pushes the liquid metal along the duct.
       B (external, into page)
       ⊗ ⊗ ⊗ ⊗ ⊗ ⊗
 
-  +── ────────────── ──→ flow
+  +────────────────────→ flow
   I   liquid metal
-  -── ────────────── ──
+  -────────────────────
       J: current across duct (top to bottom)
       J×B: force along duct (left to right) → pumping
 
@@ -439,11 +458,11 @@ The combined helical field traces a path that stays inside the torus.
   Plasma current (Ip): driven by transformer action → poloidal B
   Combined helical field: charged particles trace helical paths, staying confined
 
-         ╭─────────╮
-        ╱  plasma   ╲
-       │   current→  │
-        ╲           ╱
-         ╰─────────╯
+         .---------.
+        /  plasma   \
+       | current -> |
+        \           /
+         '---------'
 ```
 
 **MHD instabilities** — the challenge of fusion:

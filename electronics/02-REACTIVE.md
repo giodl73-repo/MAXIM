@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electronics:reactive
+kind: guide
+module: electronics
+section: electronics
+title: 02 - Reactive Components: Capacitors, Inductors, RLC
+status: source-custody
+source_custody: partial
+current_path: electronics/02-REACTIVE.md
+canonical_path: electronics/02-REACTIVE.md
+backsource_ids: [proof-backfill:electronics:02-reactive, git-history:electronics:02-reactive]
+concepts: [reactive]
+root_concepts: [reactive]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 02 — Reactive Components: Capacitors, Inductors, RLC
 
 ```

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electronics:signals-systems
+kind: guide
+module: electronics
+section: electronics
+title: 05 - Signals and Systems (6.003 Refresher)
+status: source-custody
+source_custody: partial
+current_path: electronics/05-SIGNALS-SYSTEMS.md
+canonical_path: electronics/05-SIGNALS-SYSTEMS.md
+backsource_ids: [proof-backfill:electronics:05-signals-systems, git-history:electronics:05-signals-systems]
+concepts: [signals, systems]
+root_concepts: [signals, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05 — Signals & Systems (6.003 Refresher)
 
 ```

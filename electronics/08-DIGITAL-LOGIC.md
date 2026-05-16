@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electronics:digital-logic
+kind: guide
+module: electronics
+section: electronics
+title: 08 - Digital Logic
+status: source-custody
+source_custody: partial
+current_path: electronics/08-DIGITAL-LOGIC.md
+canonical_path: electronics/08-DIGITAL-LOGIC.md
+backsource_ids: [proof-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]
+concepts: [digital, logic]
+root_concepts: [digital, logic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 08 — Digital Logic
 
 This is the physical substrate beneath the entire computing stack: NAND gates compose into ALUs, ALUs into pipeline stages, pipelines into CPUs that execute the ISA, and the OS scheduler manages threads atop that ISA. Every abstraction from Boolean algebra through FSMs to RTL synthesis has a direct counterpart in the software world — truth tables are lookup tables, FSMs are state machines in protocol handlers, and the synthesis flow is a compiler toolchain targeting silicon instead of machine code.

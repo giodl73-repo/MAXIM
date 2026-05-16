@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "physics\\05-MOTORS-GENERATORS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|                  THE ELECTROMECHANICAL LANDSCAPE                       |\n|                                                                        |\n|   FARADAY'S LAW              LORENTZ FORCE LAW                         |\n|   ∮ E·dl = -dΦ_B/dt          F = IL × B                                |\n|   ─────────────────          ────────────────                          |\n|   changing flux → EMF        current in B field → force                |\n|         ↓                              ↓                               |\n|     GENERATOR                        MOTOR                             |\n|   (mechanical → electric)      (electric → mechanical)                 |\n|         ↑                              ↑                               |\n|         └──────── same machine ────────┘                               |\n|                                                                        |\n|   TRANSFORMER: Faraday's law between two coils (no moving parts)      |\n|                                                                        |\n|   THE CHAIN:                                                           |\n|   HEAT → STEAM → TURBINE → SHAFT → GENERATOR → ELECTRICITY            |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "## EMF and Faraday's Law — The Generator Principle",
+      "confidence": "candidate",
+      "text": "  1. Change |B|        — vary the field strength (electromagnet with varying current)\n  2. Change area       — expand/contract the loop (motional EMF, sliding bar)\n  3. Change angle      — rotate the loop in a fixed field ← how generators work",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "## DC Motor — Anatomy and Operation",
+      "confidence": "candidate",
+      "text": "  DC MOTOR CROSS SECTION (simplified):\n\n         N pole\n          ║\n     ┌────║────┐\n     │    ║    │\n     │  ──┼──  │\n     │    ║    │\n     (── = armature coil, current-carrying)\n     └────║────┘\n          ║\n         S pole\n\n  Current in armature: I\n  Force on each side of coil: F = BIL\n  These forces are in opposite directions → torque → rotation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "## DC Motor — Anatomy and Operation",
+      "confidence": "candidate",
+      "text": "  COMMUTATOR:\n\n  Split ring attached to coil shaft.\n  Brushes (stationary contacts) press against split ring.\n\n  First half turn:   brush A contacts segment 1 → current flows right in coil\n  Second half turn:  brush A now contacts segment 2 → current reverses in coil\n                     but coil has also flipped → net force still same direction\n\n  Result: torque always in same rotational direction.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "### Back-EMF — The Self-Regulating Mechanism",
+      "confidence": "candidate",
+      "text": "  V_supply = EMF_back + I × R_armature\n\n  At rest (ω = 0):      EMF_back = 0,   I = V_supply / R   ← SURGE CURRENT\n  At full speed:        EMF_back ≈ V_supply,  I is small    ← normal operation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "## DC Generator — Same Machine, Reversed",
+      "confidence": "candidate",
+      "text": "  MOTOR:      electrical in  →  mechanical out\n  GENERATOR:  mechanical in  →  electrical out\n\n  Same machine. Same equations. Direction of energy flow reversed.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "## DC Generator — Same Machine, Reversed",
+      "confidence": "candidate",
+      "text": "  Conductor moving with velocity v in field B:\n\n  Free electrons feel:  F = q(v×B)  — pushed along the conductor\n  This charge separation → potential difference → EMF\n  Connect a circuit → current flows",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "## AC Generator (Alternator)",
+      "confidence": "candidate",
+      "text": "  EMF(t) = NBAω sin(ωt)    ← directly the AC voltage waveform\n\n  Peak voltage: V₀ = NBAω\n  RMS voltage:  V_rms = V₀/√2  ← what your wall outlet voltage means\n\n  US: 120 V_rms, 60 Hz  →  V₀ = 170 V peak\n  EU: 230 V_rms, 50 Hz  →  V₀ = 325 V peak",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "## Transformer — Faraday Coupling, No Moving Parts",
+      "confidence": "candidate",
+      "text": "  PRIMARY COIL (N₁ turns, voltage V₁)\n       │\n  ─────┼──────────────────────────────\n  │    │  IRON CORE (high μ)          │\n  │    │  concentrates and guides flux│\n  │    │                              │\n  ─────┼──────────────────────────────\n       │\n  SECONDARY COIL (N₂ turns, voltage V₂)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 250,
+      "heading_context": "## Transformer — Faraday Coupling, No Moving Parts",
+      "confidence": "candidate",
+      "text": "  EMF₁ = -N₁ dΦ/dt\n  EMF₂ = -N₂ dΦ/dt\n\n  Same dΦ/dt (shared core), so:\n\n  V₂/V₁ = N₂/N₁    ← TURNS RATIO\n\n  Power conservation (ideal transformer):\n  P_in = P_out  →  V₁I₁ = V₂I₂  →  I₂/I₁ = N₁/N₂",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 276,
+      "heading_context": "### Power Transmission — Why High Voltage",
+      "confidence": "candidate",
+      "text": "  P = VI    →    I = P/V\n\n  Line loss = I²R = P²R/V²\n\n  Double the voltage → quarter the transmission losses\n  10× the voltage → 100× less losses",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "### Power Transmission — Why High Voltage",
+      "confidence": "candidate",
+      "text": "  POWER GRID CHAIN:\n\n  Generator       Step-up           Transmission      Step-down\n  (10-25 kV)  → transformer  →  (115-765 kV)   →   transformer → Home (120/240 V)\n                 N₂ >> N₁                              N₂ << N₁\n\n  Long distance at ultra-high voltage (UHV): very low I, very low I²R loss.\n  Dangerous to work with, not safe for homes → step down at substations.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 364,
+      "heading_context": "## Three-Phase Power",
+      "confidence": "candidate",
+      "text": "  Line voltage = √3 × phase voltage (US: 120 V phase → 208 V line)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 406,
+      "heading_context": "## The Prime Mover Chain — Steam to Grid",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────────+\n│                       THERMAL POWER CHAIN                            │\n+──────────────────────────────────────────────────────────────────────+\n│                                                                      │\n│  HEAT SOURCE                                                         │\n│  Coal/gas combustion, nuclear fission, geothermal                   │\n│       ↓  heat                                                        │\n│  BOILER                                                              │\n│  Water → high pressure steam (typically 500-600°C, 200+ bar)        │\n│       ↓  steam                                                       │\n│  STEAM TURBINE                                                       │\n│  Steam expands, pushes turbine blades → shaft rotation              │\n│  Multi-stage: high pressure → intermediate → low pressure           │\n│       ↓  mechanical rotation (3000 rpm at 50 Hz, 3600 at 60 Hz)    │\n│  GENERATOR (synchronous alternator)                                  │\n│  Rotating shaft spins rotor with electromagnets in stator coils     │\n│  → three-phase AC at grid frequency                                  │\n│       ↓  electrical power                                            │\n│  STEP-UP TRANSFORMER                                                 │\n│  Generator voltage (typically 10-25 kV) → transmission (100-750 kV) │\n│       ↓  high voltage AC                                             │\n│  TRANSMISSION GRID                                                   │\n│  Hundreds to thousands of km, very low losses                       │\n│       ↓                                                              │\n│  STEP-DOWN TRANSFORMERS (substations → distribution → homes)        │\n│                                                                      │\n│  EFFICIENCY AT EACH STAGE:                                           │\n│  Boiler: 90%  ×  Turbine: 40%  ×  Generator: 98%  ×  Transform: 99%│\n│  Overall thermal efficiency: ~35-40% (limited by Carnot)            │\n│                                                                      │\n│  Nuclear = same chain. Heat source is fission, not combustion.      │\n│  The reactor just boils water. Everything downstream is identical.  │\n+──────────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 452,
+      "heading_context": "## Losses and Efficiency",
+      "confidence": "candidate",
+      "text": "  COPPER LOSSES (I²R):\n  Current flowing through winding resistance → heat\n  Proportional to I² — double the current, quadruple the heat\n  Reduce by using lower resistance wire (thicker, better material)\n\n  IRON LOSSES (core losses):\n  Two components:\n  ├── Eddy currents: changing B induces circulating currents in core\n  │   Power ∝ f² B² (worse at high frequency — why transformers use 50/60 Hz\n  │   not higher)\n  │   Reduce: laminate core (thin insulated layers break up eddy paths)\n  └── Hysteresis: energy lost each time B-H curve is cycled\n      Power ∝ f B_max^n (n ≈ 1.6-2)\n      Reduce: use grain-oriented silicon steel (low hysteresis loss)\n\n  MECHANICAL LOSSES (motors only):\n  Friction in bearings, windage (air resistance on rotor)\n\n  STRAY LOSSES:\n  Leakage flux, non-uniform current distribution (skin effect in windings)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "ascii_table_candidate",
+      "line": 477,
+      "heading_context": "## Losses and Efficiency",
+      "confidence": "candidate",
+      "text": "**Control theory connection**: The DC motor is a canonical control plant. In Laplace domain: V(s) = (Ls + R)I(s) + K_e * omega(s), and tau(s) = K_t * I(s) = (Js + B) * omega(s). The transfer function omega(s)/V(s) is a second-order system (electrical pole + mechanical pole). Back-EMF K_e * omega is tachometer feedback — a velocity proportional signal. The motor naturally implements a first-order lag on speed. Adding a PI controller closes the loop: P provides fast response, I eliminates steady-state error. This is covered formally in `control-theory/01-PID-CLASSICAL.md`; the motor is the motivating example for classical PID control.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\05-SIGNALS-SYSTEMS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 69,
+      "heading_context": "## 1. Signal Classification",
+      "headers": [
+        "Signal",
+        "Definition",
+        "Fourier"
+      ],
+      "rows": [
+        [
+          "δ(t)",
+          "Dirac delta (sifting: ∫f(t)δ(t-t₀)dt = f(t₀))",
+          "1"
+        ],
+        [
+          "u(t)",
+          "Unit step (0 for t<0, 1 for t≥0)",
+          "πδ(ω) + 1/(jω)"
+        ],
+        [
+          "e^(jω₀t)",
+          "Complex exponential",
+          "2πδ(ω-ω₀)"
+        ],
+        [
+          "rect(t/T)",
+          "Rectangular pulse (1 for",
+          "t",
+          "<T/2)",
+          "T·sinc(ωT/2)"
+        ],
+        [
+          "sinc(t) = sin(πt)/(πt)",
+          "Sinc function",
+          "rect(ω/2π)"
+        ],
+        [
+          "e^(-at)u(t)",
+          "Decaying exponential",
+          "1/(a+jω)"
+        ],
+        [
+          "Σ δ(t-nT)",
+          "Dirac comb",
+          "(2π/T)Σ δ(ω-k·2π/T)"
+        ],
+        [
+          "δ[n]",
+          "Unit impulse (1 at n=0, else 0)",
+          "1"
+        ],
+        [
+          "u[n]",
+          "Unit step (1 for n≥0)",
+          "e^(jω)/(e^(jω)-1)"
+        ],
+        [
+          "a^n u[n]",
+          "Discrete exponential",
+          "1/(1-ae^(-jω)) for",
+          "a",
+          "<1"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 331,
+      "heading_context": "## 10. Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "Find output of LTI to arbitrary input",
+          "Convolution y(t) = h(t)*x(t)"
+        ],
+        [
+          "Find frequency response",
+          "H(jω) = FT of h(t)"
+        ],
+        [
+          "Find system with ICs",
+          "Laplace Y(s) = H(s)X(s) + IC terms"
+        ],
+        [
+          "Design stable analog filter",
+          "Poles of H(s) in LHP"
+        ],
+        [
+          "Design stable digital filter",
+          "Poles of H(z) inside unit circle"
+        ],
+        [
+          "Verify linear phase (no distortion)",
+          "Check FIR symmetry → linear phase"
+        ],
+        [
+          "Find natural frequencies",
+          "Eigenvalues of A (state space)"
+        ],
+        [
+          "MIMO system, multiple I/O",
+          "State-space representation"
+        ],
+        [
+          "Sample/reconstruct correctly",
+          "fₛ ≥ 2·f_max, anti-aliasing filter"
+        ],
+        [
+          "Represent simple DT filter",
+          "Difference equation ↔ H(z)"
+        ],
+        [
+          "Analyze control loop stability",
+          "Phase margin from loop gain bode plot"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physics:electrostatics
+kind: guide
+module: physics
+section: physics
+title: Electrostatics - Charges, Fields, and Potential
+status: source-custody
+source_custody: partial
+current_path: physics/01-ELECTROSTATICS.md
+canonical_path: physics/01-ELECTROSTATICS.md
+backsource_ids: [proof-backfill:physics:01-electrostatics, git-history:physics:01-electrostatics]
+concepts: [electrostatics]
+root_concepts: [electrostatics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electrostatics — Charges, Fields, and Potential
 
 ## The Big Picture

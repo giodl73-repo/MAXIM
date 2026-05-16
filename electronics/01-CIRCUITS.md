@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electronics:circuits
+kind: guide
+module: electronics
+section: electronics
+title: 01 - Circuit Analysis Fundamentals
+status: source-custody
+source_custody: partial
+current_path: electronics/01-CIRCUITS.md
+canonical_path: electronics/01-CIRCUITS.md
+backsource_ids: [proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]
+concepts: [circuits]
+root_concepts: [circuits]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 01 — Circuit Analysis Fundamentals
 
 ## The Big Picture

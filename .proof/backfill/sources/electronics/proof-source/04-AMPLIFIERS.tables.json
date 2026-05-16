@@ -1,0 +1,197 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\04-AMPLIFIERS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 148,
+      "heading_context": "## 2. MOSFET — Field Effect Transistor",
+      "headers": [
+        "Property",
+        "BJT",
+        "MOSFET"
+      ],
+      "rows": [
+        [
+          "Control",
+          "Base current I_B",
+          "Gate voltage V_GS"
+        ],
+        [
+          "Input",
+          "Low-Z (r_π)",
+          "Very high-Z (capacitive)"
+        ],
+        [
+          "Current eq",
+          "Exponential I_C = I_S e^(V_BE/V_T)",
+          "Quadratic I_D ∝ (V_GS-V_th)²"
+        ],
+        [
+          "g_m at same I",
+          "Higher (g_m = I_C/V_T)",
+          "Lower (g_m ∝ √I_D)"
+        ],
+        [
+          "V_BE/V_GS-V_th",
+          "~0.7V (fixed)",
+          "0.3–1V (adjustable)"
+        ],
+        [
+          "DC bias power",
+          "V_BE × I_B wasted",
+          "No gate current"
+        ],
+        [
+          "Matching",
+          "Good",
+          "Excellent (digital VLSI)"
+        ],
+        [
+          "Speed",
+          "High (bipolar process)",
+          "High (submicron CMOS)"
+        ],
+        [
+          "Use case",
+          "RF, precision analog",
+          "Digital VLSI, power, CMOS analog"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 208,
+      "heading_context": "## 3. Single-Transistor Amplifier Configurations",
+      "headers": [
+        "BJT",
+        "MOSFET",
+        "Properties"
+      ],
+      "rows": [
+        [
+          "Common emitter",
+          "Common source",
+          "Inverting voltage gain, medium Rin"
+        ],
+        [
+          "Common base",
+          "Common gate",
+          "Low Rin, high-freq, non-inverting"
+        ],
+        [
+          "Common collector",
+          "Common drain (source follower)",
+          "Buffer, gain≈1, low Rout"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 467,
+      "heading_context": "## 7. Multi-Stage and Operational Amplifiers",
+      "headers": [
+        "Parameter",
+        "Effect",
+        "Typical Value"
+      ],
+      "rows": [
+        [
+          "Input offset voltage V_os",
+          "Output error even with 0 input",
+          "1–10 mV (BJT), 1–25 mV (CMOS)"
+        ],
+        [
+          "Input bias current I_B",
+          "Error from source resistance",
+          "pA (CMOS), nA–μA (BJT)"
+        ],
+        [
+          "Input offset current I_os",
+          "Differential of I_B",
+          "I_B/10"
+        ],
+        [
+          "Common-mode rejection (CMRR)",
+          "Rejects V_ic",
+          "80–120 dB"
+        ],
+        [
+          "Power supply rejection (PSRR)",
+          "Rejects supply noise",
+          "60–120 dB"
+        ],
+        [
+          "Slew rate (SR)",
+          "Max dV/dt at output",
+          "0.5–1000 V/μs"
+        ],
+        [
+          "GBW product",
+          "Gain × bandwidth",
+          "1 MHz–1 GHz"
+        ],
+        [
+          "Output swing",
+          "Maximum output voltage range",
+          "V_ss+0.1 to V_dd-0.1 (rail-to-rail)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 490,
+      "heading_context": "## 7. Decision Cheat Sheet",
+      "headers": [
+        "Need...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Moderate voltage gain, common",
+          "Common emitter (BJT) or common source (MOSFET)"
+        ],
+        [
+          "Current-to-voltage conversion",
+          "Shunt-shunt feedback transresistance amp"
+        ],
+        [
+          "Impedance buffer (Z transform)",
+          "Emitter/source follower or op-amp buffer"
+        ],
+        [
+          "High-frequency amplifier (avoid Miller)",
+          "Common base/gate (cascode)"
+        ],
+        [
+          "Reject common-mode noise",
+          "Differential pair + high tail current source"
+        ],
+        [
+          "Stable precise gain",
+          "Negative feedback, A_f ≈ 1/β"
+        ],
+        [
+          "Amplify + filter in one stage",
+          "Transimpedance amp (photodiode)"
+        ],
+        [
+          "High input impedance (sensor)",
+          "MOSFET input (FET op-amp)"
+        ],
+        [
+          "High precision offset/low noise",
+          "BJT diff pair (lower V_os than CMOS)"
+        ],
+        [
+          "Low power, VLSI",
+          "CMOS differential pair"
+        ],
+        [
+          "Understand op-amp frequency rolloff",
+          "GBW = g_m1/Cc, check SR for large signals"
+        ]
+      ]
+    }
+  ]
+}

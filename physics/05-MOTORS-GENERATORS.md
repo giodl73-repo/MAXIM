@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physics:motors-generators
+kind: guide
+module: physics
+section: physics
+title: Motors, Generators, and Transformers - Maxwell Made Mechanical
+status: source-custody
+source_custody: partial
+current_path: physics/05-MOTORS-GENERATORS.md
+canonical_path: physics/05-MOTORS-GENERATORS.md
+backsource_ids: [proof-backfill:physics:05-motors-generators, git-history:physics:05-motors-generators]
+concepts: [motors, generators]
+root_concepts: [motors, generators]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Motors, Generators, and Transformers — Maxwell Made Mechanical
 
 ## The Big Picture

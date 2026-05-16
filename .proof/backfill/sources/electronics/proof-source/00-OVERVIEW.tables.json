@@ -1,0 +1,207 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 244,
+      "heading_context": "## Key Metrics Reference",
+      "headers": [
+        "Metric",
+        "Symbol",
+        "Unit",
+        "What It Measures",
+        "Typical Range"
+      ],
+      "rows": [
+        [
+          "Voltage gain",
+          "A_v",
+          "V/V or dB",
+          "Signal amplification",
+          "1–120 dB"
+        ],
+        [
+          "Current gain",
+          "A_i",
+          "A/A or dB",
+          "Current amplification",
+          "β = 50–500 (BJT)"
+        ],
+        [
+          "Bandwidth",
+          "BW",
+          "Hz",
+          "Frequency range of flat response",
+          "kHz – GHz"
+        ],
+        [
+          "Gain-bandwidth product",
+          "GBW",
+          "Hz",
+          "Op-amp figure of merit",
+          "1 MHz – 10 GHz"
+        ],
+        [
+          "Noise figure",
+          "NF",
+          "dB",
+          "SNR degradation by component",
+          "0.5 – 20 dB"
+        ],
+        [
+          "Signal-to-noise ratio",
+          "SNR",
+          "dB",
+          "Signal power / noise power",
+          "20 – 120 dB"
+        ],
+        [
+          "Spurious-free dynamic range",
+          "SFDR",
+          "dBc",
+          "Strongest spurious relative to carrier",
+          "50 – 100 dBc"
+        ],
+        [
+          "Total harmonic distortion",
+          "THD",
+          "% or dB",
+          "Nonlinearity measure",
+          "0.001% – 10%"
+        ],
+        [
+          "Input impedance",
+          "Z_in",
+          "Ω",
+          "Load presented to source",
+          "50Ω – 1MΩ"
+        ],
+        [
+          "Output impedance",
+          "Z_out",
+          "Ω",
+          "Source impedance presented to load",
+          "0.1Ω – 10kΩ"
+        ],
+        [
+          "Power supply rejection",
+          "PSRR",
+          "dB",
+          "Immunity to supply noise",
+          "60 – 100 dB"
+        ],
+        [
+          "Phase margin",
+          "PM",
+          "degrees",
+          "Stability margin in feedback",
+          ">45° desired"
+        ],
+        [
+          "Sample rate",
+          "f_s",
+          "S/s",
+          "ADC/DAC conversion rate",
+          "kS/s – GS/s"
+        ],
+        [
+          "ENOB",
+          "bits",
+          "bits",
+          "Effective number of bits (actual ADC quality)",
+          "6 – 18 bits"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 359,
+      "heading_context": "## What Is NOT in This Directory",
+      "headers": [
+        "Domain",
+        "Why excluded",
+        "Where to look"
+      ],
+      "rows": [
+        [
+          "Power electronics",
+          "Inverters, SMPS, motor drives — specialized discipline",
+          "separate power-electronics directory"
+        ],
+        [
+          "RF/microwave design",
+          "S-parameters, Smith chart, transmission line theory",
+          "telecom / RF modules"
+        ],
+        [
+          "Full VLSI design flow",
+          "Partially in 09; deep dive in semiconductor-manufacturing/",
+          "semiconductor-manufacturing/"
+        ],
+        [
+          "Analog IC design",
+          "Full custom (not covered): bandgap references, PLLs, ADC architectures",
+          "EE textbooks (Razavi)"
+        ],
+        [
+          "Electromagnetic compatibility (EMC)",
+          "FCC/CE compliance, shielding, ferrite beads",
+          "EMC standards references"
+        ],
+        [
+          "Power distribution networks",
+          "Grid-scale power systems",
+          "electrical-grid/"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 372,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether the lumped-circuit model applies",
+          "Compare physical length to signal wavelength, edge rate, parasitic inductance/capacitance, and return path.",
+          "A board trace becomes a transmission line because of edge rate and geometry, not because the schematic changed."
+        ],
+        [
+          "Whether a problem is analog, digital, or mixed-signal",
+          "Identify whether information is represented by continuous voltage/current, logic thresholds, timing, or sampled values.",
+          "Digital failures often have analog causes: noise margins, ground bounce, jitter, and power integrity."
+        ],
+        [
+          "A filter or frequency-response problem",
+          "Locate poles/zeros, bandwidth, phase margin, sampling rate, aliasing risk, and load/source impedance.",
+          "The same math appears in analog filters, DSP, feedback amplifiers, and control loops."
+        ],
+        [
+          "An amplifier or feedback issue",
+          "Check gain-bandwidth, noise, input/output impedance, stability margin, slew rate, and supply headroom.",
+          "High DC gain is useless if the loop oscillates or saturates under real load."
+        ],
+        [
+          "A signal-integrity problem",
+          "Inspect impedance control, termination, return current, crosstalk, eye diagram, jitter, and connector/package discontinuities.",
+          "At high speed, the interconnect is part of the circuit, not a wire annotation."
+        ],
+        [
+          "A power-integrity problem",
+          "Map load transient current, regulator bandwidth, decoupling hierarchy, plane impedance, and package inductance.",
+          "Capacitors are a distributed energy-delivery network; \"more capacitance\" in the wrong place may not help."
+        ],
+        [
+          "Where to go next in the module set",
+          "Pick by failure mode: circuit laws, reactive transients, filtering, amplification, systems/DSP, digital logic, embedded/VLSI, or SI/PI.",
+          "Module boundaries are pedagogical; real electronics failures often cross several layers."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electronics:dsp
+kind: guide
+module: electronics
+section: electronics
+title: 06 - Digital Signal Processing
+status: source-custody
+source_custody: partial
+current_path: electronics/06-DSP.md
+canonical_path: electronics/06-DSP.md
+backsource_ids: [proof-backfill:electronics:06-dsp, git-history:electronics:06-dsp]
+concepts: [dsp]
+root_concepts: [dsp]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 06 — Digital Signal Processing
 
 ```

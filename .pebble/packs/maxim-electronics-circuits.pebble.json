@@ -1,0 +1,2309 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-electronics-circuits",
+  "source": "../../electronics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-CIRCUITS.md#000",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "# 01 — Circuit Analysis Fundamentals"
+    },
+    {
+      "id": "01-CIRCUITS.md#001",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-CIRCUITS.md#002",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\nCIRCUIT ANALYSIS LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "01-CIRCUITS.md#003",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Sources + Elements                      Analysis builds upward:\n  ────────────────────                    ────────────────────────────────────\n  V/I sources (indep/dep)                 Layer 1: KVL/KCL\n  R, C, L, Z(s)                              Write equations from topology\n                 │                                    │\n                 ▼                                    ▼\n            ┌─────────────────────────────────────────────┐\n            │  Layer 2: Node Voltage / Mesh Current       │\n            │  Systematic approach: converts circuit into │\n            │  system of linear equations Ax = b          │\n            └─────────────────┬───────────────────────────┘\n                              │\n                              ▼\n            ┌─────────────────────────────────────────────┐\n            │  Layer 3: Thévenin / Norton Equivalents     │\n            │  Reduce any subcircuit to V_th + R_th       │\n            │  Enables interface thinking: source → load  │\n            └─────────────────┬───────────────────────────┘\n                              │\n                              ▼\n            ┌─────────────────────────────────────────────┐\n            │  Layer 4: Op-Amp Analysis                   │\n            │  Golden rules (V+=V−, I_in=0) from          │\n            │  negative feedback + high open-loop gain    │\n            │  Builds on Layers 1–3 for each topology     │\n            └─────────────────────────────────────────────┘"
+    },
+    {
+      "id": "01-CIRCUITS.md#004",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "6.002 bridge: This is the 6.002 core. 30-year refresher for intuition,\n  not re-derivation from first principles.\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#005",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CIRCUITS.md#006",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "## 1. Kirchhoff's Laws"
+    },
+    {
+      "id": "01-CIRCUITS.md#007",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "### KVL — Kirchhoff's Voltage Law"
+    },
+    {
+      "id": "01-CIRCUITS.md#008",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n  Around any closed loop: ΣVₖ = 0"
+    },
+    {
+      "id": "01-CIRCUITS.md#009",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Physical basis: Conservative electric field in lumped circuits.\n    ∮ E·dl = 0  →  sum of voltage drops around loop = 0."
+    },
+    {
+      "id": "01-CIRCUITS.md#010",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Sign convention:\n    Trace the loop in a chosen direction.\n    + if you enter the + terminal of element\n    − if you enter the − terminal"
+    },
+    {
+      "id": "01-CIRCUITS.md#011",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Example — single loop:\n    +Vs - V_R1 - V_R2 = 0\n    Vs = IR1 + IR2 = I(R1 + R2)\n    I = Vs/(R1 + R2)    ← voltage divider\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#012",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "### KCL — Kirchhoff's Current Law"
+    },
+    {
+      "id": "01-CIRCUITS.md#013",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n  At any node: ΣIᵢₙ = ΣIₒᵤₜ     (charge conservation)\n  Equivalently: Σ Iₖ = 0  (with sign convention on currents)"
+    },
+    {
+      "id": "01-CIRCUITS.md#014",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Physical basis: Charge cannot accumulate at a node (lumped circuit model).\n    ∇·J = 0  →  KCL."
+    },
+    {
+      "id": "01-CIRCUITS.md#015",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Current divider (two parallel resistors R1, R2):\n    I₁ = I_total · R2/(R1+R2)\n    I₂ = I_total · R1/(R1+R2)\n    (current takes path inversely proportional to resistance)\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#016",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CIRCUITS.md#017",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "## 2. Resistor Combinations"
+    },
+    {
+      "id": "01-CIRCUITS.md#018",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n  Series:    R_eq = R₁ + R₂ + ... + Rₙ          (currents equal)\n  Parallel:  1/R_eq = 1/R₁ + 1/R₂ + ... + 1/Rₙ  (voltages equal)"
+    },
+    {
+      "id": "01-CIRCUITS.md#019",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Two in parallel: R_eq = R₁R₂/(R₁+R₂)  ← memorize this"
+    },
+    {
+      "id": "01-CIRCUITS.md#020",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Y-Δ / Star-Delta conversion:\n    R_Y → R_Δ: each Δ resistor = sum of adjacent Y / opposite Y\n    Useful when neither series nor parallel simplification works.\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#021",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "### Voltage Divider"
+    },
+    {
+      "id": "01-CIRCUITS.md#022",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n  Vs ──R1──┬──R2── GND\n           │\n           V_out"
+    },
+    {
+      "id": "01-CIRCUITS.md#023",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "V_out = Vs · R2/(R1+R2)"
+    },
+    {
+      "id": "01-CIRCUITS.md#024",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Valid only when no current drawn from output (load = ∞).\n  With finite load R_L: R2 is replaced by R2||R_L.\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#025",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CIRCUITS.md#026",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "## 3. Node Voltage Method"
+    },
+    {
+      "id": "01-CIRCUITS.md#027",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n  Best when: fewer nodes than meshes."
+    },
+    {
+      "id": "01-CIRCUITS.md#028",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Steps:\n  1. Choose reference node (ground, V = 0)\n  2. Label all other nodes V₁, V₂,...\n  3. Write KCL at each non-reference node:\n       ΣI leaving node = 0\n       (V_n - V_neighbor)/R = 0 for each branch\n  4. For voltage sources: constraint equation V_a - V_b = Vs\n     (supernode if source between two non-reference nodes)\n  5. Solve system of linear equations."
+    },
+    {
+      "id": "01-CIRCUITS.md#029",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Example — two-node circuit:\n    V₁ is unknown.\n    (V₁ - Vs)/R₁ + V₁/R₂ = 0     ← KCL at node 1\n    V₁/R₂ - V₁/R₁ + Vs/R₁ = 0\n    V₁(1/R₁ + 1/R₂) = Vs/R₁\n    V₁ = Vs · R₂/(R₁+R₂)         ← same as voltage divider ✓\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#030",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CIRCUITS.md#031",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "## 4. Thévenin and Norton Equivalents"
+    },
+    {
+      "id": "01-CIRCUITS.md#032",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n  Any linear two-terminal circuit can be replaced by:"
+    },
+    {
+      "id": "01-CIRCUITS.md#033",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Thévenin:               Norton:\n    ┌──────Vth──────┐       ┌────────────────┐\n    │               │       │                │\n   Rth            Load     Isc   Rth(=Vth/Isc)   Load\n    │               │       │                │\n    └──────────────┘        └────────────────┘"
+    },
+    {
+      "id": "01-CIRCUITS.md#034",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Finding Thévenin equivalent:\n    Vth = V_oc   (open-circuit voltage at terminals)\n    Rth = V_oc / I_sc   (open circuit / short circuit)\n    OR: Rth = resistance seen at terminals with all independent sources killed\n              (voltage sources → short, current sources → open)"
+    },
+    {
+      "id": "01-CIRCUITS.md#035",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Norton equivalent:\n    Isc = I_sc  (short-circuit current)\n    Rth same as Thévenin"
+    },
+    {
+      "id": "01-CIRCUITS.md#036",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Max power transfer: Load receives max power when R_load = R_th\n    P_max = Vth² / (4·Rth)\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#037",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "### Why Thévenin Matters"
+    },
+    {
+      "id": "01-CIRCUITS.md#038",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n  Real-world use:\n    - Amplifier output impedance = Thévenin Rth seen at output\n    - Source driving a load: effective voltage source + series impedance\n    - Signal chain: each stage has Thévenin output, next stage is load\n    - Interface design: want low Rth_out, high Rin (for voltage)"
+    },
+    {
+      "id": "01-CIRCUITS.md#039",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Impedance matching:\n    Power transfer: R_source = R_load (conjugate match in AC)\n    Signal voltage: R_source << R_load (voltage divider doesn't divide)\n    Signal current: R_source >> R_load\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#040",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CIRCUITS.md#041",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "## 5. Superposition"
+    },
+    {
+      "id": "01-CIRCUITS.md#042",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n  In linear circuits, the response to multiple sources = sum of responses\n  with each source active individually (others killed)."
+    },
+    {
+      "id": "01-CIRCUITS.md#043",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Kill: voltage source → short circuit\n        current source → open circuit"
+    },
+    {
+      "id": "01-CIRCUITS.md#044",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Not applicable to nonlinear elements (diodes, transistors in general)."
+    },
+    {
+      "id": "01-CIRCUITS.md#045",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "When to use: circuit with multiple sources, need contribution of each.\n  When NOT: dependent sources stay active (only kill independent sources).\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#046",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CIRCUITS.md#047",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "## 6. Op-Amp Analysis"
+    },
+    {
+      "id": "01-CIRCUITS.md#048",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "### Ideal Op-Amp Model"
+    },
+    {
+      "id": "01-CIRCUITS.md#049",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n  ┌───────────────────────────────────────────────────────┐\n  │  Op-amp golden rules (for negative feedback circuits): │\n  │                                                       │\n  │  Rule 1: V+ = V−   (virtual short — inputs equalize)  │\n  │  Rule 2: Iin = 0   (no current into inputs)           │\n  │                                                       │\n  │  Open-loop gain A → ∞, Rin → ∞, Rout → 0              │\n  └───────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "01-CIRCUITS.md#050",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "These rules are consequences of large open-loop gain + negative feedback.\n  Without feedback: output saturates to ±Vs. Rules require feedback.\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#051",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "### Inverting Amplifier"
+    },
+    {
+      "id": "01-CIRCUITS.md#052",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n         R_f\n    ┌────┤├────┐\n    │          │\n  Vin ──R_in──(−)──── Vout\n               (+)──GND"
+    },
+    {
+      "id": "01-CIRCUITS.md#053",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Apply golden rules:\n    V- = V+ = 0   (virtual ground at − input)\n    I_in = Vin/R_in flows through R_f (KCL: no current into op-amp)\n    Vout = -I_in · R_f = -Vin · R_f/R_in"
+    },
+    {
+      "id": "01-CIRCUITS.md#054",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Gain: A_v = Vout/Vin = -R_f/R_in    (inverting, magnitude = R_f/R_in)\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#055",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "### Non-Inverting Amplifier"
+    },
+    {
+      "id": "01-CIRCUITS.md#056",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n  Vin ──────(+)────── Vout\n             (−)──┤├──GND\n                 R₁   R₂"
+    },
+    {
+      "id": "01-CIRCUITS.md#057",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "V- = Vout · R₁/(R₁+R₂)   (voltage divider from Vout to GND)\n  V+ = Vin\n  Golden rule: V+ = V-\n    Vin = Vout · R₁/(R₁+R₂)\n  Gain: A_v = 1 + R₂/R₁    (non-inverting, gain ≥ 1)\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#058",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "### Voltage Follower (Buffer)"
+    },
+    {
+      "id": "01-CIRCUITS.md#059",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n  Vin ──(+)──── Vout\n         (−)──── Vout  (direct feedback)"
+    },
+    {
+      "id": "01-CIRCUITS.md#060",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "V- = Vout,  V+ = Vin → Vout = Vin\n  Gain = 1, but: Rin = ∞, Rout = 0  ← the valuable property\n  Use: impedance buffer. Drive a low-impedance load from high-impedance source.\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#061",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "### Summing Amplifier"
+    },
+    {
+      "id": "01-CIRCUITS.md#062",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n      R_f\n  ┌───┤├────────┐\n  │             │\n  V₁ ──R₁──(−)──── Vout\n  V₂ ──R₂──\n  V₃ ──R₃──\n            (+)──GND"
+    },
+    {
+      "id": "01-CIRCUITS.md#063",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Virtual ground at − input.\n  Currents: I₁=V₁/R₁, I₂=V₂/R₂, I₃=V₃/R₃ all flow into feedback R_f.\n  Vout = -R_f(V₁/R₁ + V₂/R₂ + V₃/R₃)\n  If all R equal: Vout = -(V₁+V₂+V₃) · R_f/R\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#064",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "### Difference Amplifier"
+    },
+    {
+      "id": "01-CIRCUITS.md#065",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n  Vout = (R_f/R_in)(V₂ - V₁)  when all resistors matched R_in/R_f\n  CMR: rejects signals common to both inputs — key for sensor interfaces.\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#066",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "### Integrator"
+    },
+    {
+      "id": "01-CIRCUITS.md#067",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "The op-amp integrator is where circuit analysis directly meets control theory: H(s) = -1/(sRC) is a pure integrator in the Laplace domain — the same transfer function that appears in the \"I\" term of a PID controller. Analog PID controllers were historically built from exactly these op-amp blocks (integrator for I, differentiator for D, summing amplifier to combine). See 05-SIGNALS-SYSTEMS for the full s-domain framework and control-theory/01-PID-CLASSICAL for the control perspective."
+    },
+    {
+      "id": "01-CIRCUITS.md#068",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n       C\n  ┌────┤├────┐\n  │          │\n  Vin ──R──(−)──── Vout\n            (+)──GND"
+    },
+    {
+      "id": "01-CIRCUITS.md#069",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "I = Vin/R flows through C.\n  Vout = -(1/RC)∫Vin dt\n  In s-domain: H(s) = -1/(sRC)\n  Pole at s=0 → integrates; DC input → output ramps → saturation risk.\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#070",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "### Differentiator"
+    },
+    {
+      "id": "01-CIRCUITS.md#071",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "```\n       R_f\n  ┌────┤├────┐\n  │          │\n  Vin ──C──(−)──── Vout\n           (+)──GND"
+    },
+    {
+      "id": "01-CIRCUITS.md#072",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "Vout = -R_f·C · dVin/dt\n  In s-domain: H(s) = -sR_fC\n  Zero at s=0. Amplifies high-frequency noise → practical differentiators\n  add small R in series with C to limit high-freq gain.\n```"
+    },
+    {
+      "id": "01-CIRCUITS.md#073",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CIRCUITS.md#074",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "## 7. Common Op-Amp Configurations Summary"
+    },
+    {
+      "id": "01-CIRCUITS.md#075",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "| Configuration | Gain | Key Feature |\n|---|---|---|\n| Inverting | -R_f/R_in | Virtual ground at input |\n| Non-inverting | 1+R_f/R_in | High input impedance |\n| Voltage follower | 1 | Impedance buffer |\n| Summing | -R_f·Σ(Vᵢ/Rᵢ) | Weighted sum |\n| Difference | R_f/R_in · (V₂-V₁) | Common-mode rejection |\n| Integrator | -1/(sRC) | Integrates over time |\n| Differentiator | -sR_fC | Differentiates (noisy) |\n| Instrumentation amp | (1+2R/R_g)·diff | Very high CMR |\n| Comparator | ±Vsat (open loop) | No negative feedback |\n| Schmitt trigger | Hysteresis ΔV = ±β·Vsat | Noisy signal → clean switch |"
+    },
+    {
+      "id": "01-CIRCUITS.md#076",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CIRCUITS.md#077",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "## 8. Decision Cheat Sheet"
+    },
+    {
+      "id": "01-CIRCUITS.md#078",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "| Situation | Method |\n|---|---|\n| Find current in simple series/parallel | Ohm's law + series/parallel combination |\n| Multiple voltage/current sources | Superposition or node voltage |\n| Find voltage at multiple nodes | Node voltage method |\n| Find current in multiple loops | Mesh current method |\n| Replace complex subcircuit with simple equivalent | Thévenin/Norton |\n| Amplify with controlled gain | Op-amp inverting or non-inverting |\n| Buffer (high-Z source → low-Z load) | Voltage follower |\n| Add weighted signals | Summing amplifier |\n| Measure differential signal, reject common mode | Difference or instrumentation amp |\n| Integrate control error | Op-amp integrator |"
+    },
+    {
+      "id": "01-CIRCUITS.md#079",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CIRCUITS.md#080",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "01-CIRCUITS.md#081",
+      "path": [
+        "01-CIRCUITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:electronics:01-circuits, git-history:electronics:01-circuits]",
+        "canonical_path": "electronics/01-CIRCUITS.md",
+        "concepts": "[circuits]",
+        "current_path": "electronics/01-CIRCUITS.md",
+        "id": "maxim:electronics:circuits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[circuits]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "01 - Circuit Analysis Fundamentals",
+        "updated": "null"
+      },
+      "text": "| If you want to understand... | Go to | Why |\n|---|---|---|\n| Field-level basis for circuit laws | `physics/01-ELECTROSTATICS.md` | KVL/KCL are lumped approximations of electromagnetic field constraints |\n| Signal behavior in circuits | `signal-processing/01-FOURIER-ANALYSIS.md` | Impedance, filters, and AC analysis are frequency-domain signal problems |\n| Control-loop applications | `control-theory/01-PID-CLASSICAL.md` | Op-amps, feedback, stability, and loop gain connect directly to control theory |\n| Digital hardware above circuits | `computer-architecture/01-ISA-FUNDAMENTALS.md` | Logic and processors rest on circuit abstractions, timing, and physical limits |\n| Semiconductor device substrate | `semiconductor-manufacturing/01-SILICON-SUBSTRATE.md` | Real circuits depend on doped silicon, process variation, and parasitics |"
+    }
+  ],
+  "refs": [
+    "01-CIRCUITS.md"
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physics:em-waves
+kind: guide
+module: physics
+section: physics
+title: Electromagnetic Waves - Propagation, Spectrum, and Interaction with Matter
+status: source-custody
+source_custody: partial
+current_path: physics/04-EM-WAVES.md
+canonical_path: physics/04-EM-WAVES.md
+backsource_ids: [proof-backfill:physics:04-em-waves, git-history:physics:04-em-waves]
+concepts: [em, waves]
+root_concepts: [em, waves]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electromagnetic Waves — Propagation, Spectrum, and Interaction with Matter
 
 ## The Big Picture

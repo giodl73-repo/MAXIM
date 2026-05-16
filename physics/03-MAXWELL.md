@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physics:maxwell
+kind: guide
+module: physics
+section: physics
+title: Maxwell's Equations - The Unification of Electricity and Magnetism
+status: source-custody
+source_custody: partial
+current_path: physics/03-MAXWELL.md
+canonical_path: physics/03-MAXWELL.md
+backsource_ids: [proof-backfill:physics:03-maxwell, git-history:physics:03-maxwell]
+concepts: [maxwell]
+root_concepts: [maxwell]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Maxwell's Equations — The Unification of Electricity and Magnetism
 
 ## The Big Picture

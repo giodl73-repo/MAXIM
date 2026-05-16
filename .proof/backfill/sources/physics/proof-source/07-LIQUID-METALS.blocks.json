@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "physics\\07-LIQUID-METALS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|                      LIQUID METALS LANDSCAPE                           |\n|                                                                        |\n|  THE FLUID          EM PROPERTIES         APPLICATIONS                 |\n|  ────────           ─────────────         ────────────                 |\n|  Mercury Hg         σ ~ 10⁶ S/m           Industrial processing        |\n|  Gallium Ga         δ (skin depth)        EM pumping                   |\n|  Sodium Na          Rm << 1 (lab)         Induction heating            |\n|  Lead-Bismuth       η = 1/μ₀σ            EM stirring/forming           |\n|  Aluminum (melt)                          Liquid metal batteries       |\n|                                           Soft robotics (Ga)           |\n|                                           Levitation melting           |\n|                                                                        |\n|  FRINGE TERRITORY (evaluated at end of this module):                   |\n|  Rotating mercury + EM → anti-gravity?   What physics actually says.   |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 72,
+      "heading_context": "## Properties of Key Liquid Metals",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────────────────+\n│ Metal     │Melt  │Density │Viscosity│Conductivity│Skin depth │ Rm per        │\n│           │ (°C) │(kg/m³) │(mPa·s)  │σ (MS/m)    │δ at 60 Hz │ m·(m/s)       │\n+──────────────────────────────────────────────────────────────────────────────+\n│ Mercury   │ -39  │ 13,600 │  1.5    │   1.0      │  65 mm    │  1.3×10⁻⁶   │\n│ Gallium   │  30  │  6,090 │  2.0    │   3.7      │  34 mm    │  4.6×10⁻⁶   │\n│ Indium    │ 157  │  7,020 │  1.9    │   3.4      │  36 mm    │  4.3×10⁻⁶   │\n│ Sodium    │  98  │    930 │  0.7    │  10.0      │  21 mm    │  1.3×10⁻⁵   │\n│ Lithium   │ 181  │    510 │  0.6    │   4.0      │  33 mm    │  5.0×10⁻⁶   │\n│ Lead-Bi   │ 125  │ 10,500 │  1.7    │   0.9      │  69 mm    │  1.1×10⁻⁶   │\n│ Al (melt) │ 660  │  2,380 │  1.3    │   4.1      │  33 mm    │  5.2×10⁻⁶   │\n│ Fe (melt) │1538  │  6,980 │  5.5    │   0.7      │  76 mm    │  8.8×10⁻⁷   │\n+──────────────────────────────────────────────────────────────────────────────+\n\n  δ = √(2/ωμ₀σ) at f=60 Hz    Rm per m·(m/s) = μ₀σ  (multiply by v×L for Rm)\n\n  Skin depth: depth at which EM field amplitude falls to 1/e\n  Rm column: multiply by v (m/s) × L (m) to get magnetic Reynolds number",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "### Electromagnetic Pumping",
+      "confidence": "candidate",
+      "text": "  DC CONDUCTION PUMP:\n  Apply DC current across the duct + static external B\n  J×B force drives flow\n  Requires electrical contacts in the liquid metal\n  Simple, reliable, used in sodium reactor loops\n\n  AC INDUCTION PUMP (linear induction motor):\n  AC coils outside the duct create traveling magnetic field\n  Traveling field induces eddy currents in liquid metal\n  Eddy currents + traveling field → J×B force pushes metal\n  No electrical contacts with fluid\n  Higher frequency → more induced current but shallower penetration\n\n  ROTATING FIELD PUMP:\n  Three-phase coils create rotating B field\n  Rotating field drives azimuthal flow → centrifugal pumping\n  Used for large-volume aluminum stirring",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "### Induction Heating",
+      "confidence": "candidate",
+      "text": "  INDUCTION FURNACE:\n\n  AC coil (kHz-MHz)\n       │\n  ─────┼─────\n  │ ~~~│~~~ │   ← Eddy currents (circles in liquid metal)\n  │    │    │   ← Joule heating → temperature rise\n  ─────┼─────\n       │\n  Frequency chosen so δ ~ R (container radius)\n  for efficient coupling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 223,
+      "heading_context": "### Electromagnetic Stirring",
+      "confidence": "candidate",
+      "text": "  CONTINUOUS CASTING:\n\n  Liquid steel → mold → solidification front\n                    ↕\n  External rotating B field → induced currents → rotating flow\n  → breaks up dendrites → uniform grain structure → better steel",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "### Electromagnetic Forming and Shaping",
+      "confidence": "candidate",
+      "text": "  LEVITATION PRINCIPLE:\n\n  AC coil (RF, ~ 100 kHz-MHz)\n       │     B field concentrated above coil\n  ─────────────────\n  ~~~~~~~~~~~~~~~~~~~~   ← induced eddy currents in metal\n  ─────────────────\n  metal droplet floats    Force = B²/2μ₀ × area > mg",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 274,
+      "heading_context": "## Liquid Metal Batteries",
+      "confidence": "candidate",
+      "text": "  LIQUID METAL BATTERY:\n\n  ─────────────────────────────\n  Negative electrode (top):    Mg, Li, Na  (low density, electropositive)\n  ─────────────────────────────\n  Electrolyte (middle):        Molten salt (MgCl₂, LiCl, etc.)\n  ─────────────────────────────\n  Positive electrode (bottom): Sb, Bi, Pb  (high density, electronegative)\n  ─────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 318,
+      "heading_context": "## Gallium-Based Soft Robotics",
+      "confidence": "candidate",
+      "text": "  RECONFIGURABLE ANTENNA:\n  Gallium in elastomer channel → apply pressure → metal flows → antenna\n  changes shape → resonant frequency changes\n  No moving mechanical parts — fluid reconfiguration",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 337,
+      "heading_context": "## Gallium-Based Soft Robotics",
+      "confidence": "candidate",
+      "text": "**Microfluidics connection**: Liquid metal channels (galinstan) in microfluidic chips serve as reconfigurable electrodes, interconnects, and antennas. The intersection of liquid metal + microfluidics + EM actuation enables lab-on-chip devices with dynamically reconfigurable circuit elements — an active research area (Dickey group, NC State; Rogers group, Northwestern). Applications include stretchable electronics for wearable health monitoring, reconfigurable RF antennas, and soft sensors for prosthetics.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

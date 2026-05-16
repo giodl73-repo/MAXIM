@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\02-REACTIVE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# 02 — Reactive Components: Capacitors, Inductors, RLC",
+      "confidence": "candidate",
+      "text": "REACTIVE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  Energy storage elements — they remember. Resistors dissipate; these store.\n\n  INDIVIDUAL ELEMENTS\n  ┌──────────────────────────────┐    ┌──────────────────────────────┐\n  │  Capacitor C                 │    │  Inductor L                  │\n  │  Stores E-field: W = ½CV²   │    │  Stores B-field: W = ½LI²     │\n  │  I = C dV/dt                 │    │  V = L dI/dt                 │\n  │  Z_C = 1/(sC)  — falls w/ ω │    │  Z_L = sL   — rises w/ ω      │\n  └──────────────┬───────────────┘    └──────────────┬───────────────┘\n                 │                                    │\n                 ▼                                    ▼\n  COMBINATIONS: Series/parallel rules (§1-2), mutual inductance (§2)\n                 │\n                 ▼\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  RLC CIRCUITS — energy exchanges between C and L                 │\n  │  Natural frequency ω₀ = 1/√(LC)    Q = ω₀L/R = 1/(2ζ)            │\n  │  Damping ζ controls: oscillation (ζ<1) vs exponential decay (ζ>1)│\n  │  Characteristic equation roots = s-domain poles (§3-4)           │\n  └──────────────────────────────┬───────────────────────────────────┘\n                                 │\n                                 ▼\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  RESONANCE & FILTERING — frequency selectivity (§5-6)            │\n  │  High Q → narrow bandpass, voltage magnification                 │\n  │  → Foundation for filter design (03-FILTERS)                     │\n  └──────────────────────────────────────────────────────────────────┘\n\n  6.002/6.003 bridge: RLC is where circuit analysis meets differential equations\n  and s-domain analysis becomes essential.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "### Basic Relations",
+      "confidence": "candidate",
+      "text": "  Charge:    Q = CV\n  Current:   I = C dV/dt    (current proportional to rate of voltage change)\n  Voltage:   V(t) = (1/C)∫₀ᵗ I(τ)dτ + V(0)\n\n  Energy stored:  W = ½CV²\n  Power:          P = VI = CV·(dV/dt)\n\n  Key behavior:\n    DC steady state: I = 0  (capacitor is open circuit at DC)\n    Instantaneous voltage change requires infinite current\n    Acts as short circuit at high frequency (Z → 0 as ω → ∞)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "### Basic Relations",
+      "confidence": "candidate",
+      "text": "  Magnetic flux: Φ = LI\n  Voltage:       V = L dI/dt    (voltage proportional to rate of current change)\n  Current:       I(t) = (1/L)∫₀ᵗ V(τ)dτ + I(0)\n\n  Energy stored: W = ½LI²\n  Power:         P = VI = LI·(dI/dt)\n\n  Key behavior:\n    DC steady state: V = 0  (inductor is short circuit at DC)\n    Instantaneous current change requires infinite voltage\n    Acts as open circuit at high frequency (Z → ∞ as ω → ∞)\n    Real inductors: resistance R_L (wire resistance) + parasitic capacitance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "## 3. Series RLC Circuit",
+      "confidence": "candidate",
+      "text": "    Vs ──R──L──C──┐\n                   │\n                  GND\n\n  Differential equation:\n    L·d²i/dt² + R·di/dt + (1/C)i = dVs/dt\n\n  Characteristic equation (set Vs=0, i = e^(st)):\n    Ls² + Rs + 1/C = 0\n    s² + (R/L)s + 1/LC = 0\n    s² + 2ζω₀s + ω₀² = 0\n\n  where:\n    ω₀ = 1/√(LC)        natural frequency (rad/s)\n    ζ = R/(2√(L/C)) = R/(2L·ω₀)  damping ratio\n    Q = ω₀L/R = 1/(2ζ) = (1/R)√(L/C)    quality factor",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "### Three Cases",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────────┐\n  │  ζ > 1  (Q < 0.5)  OVERDAMPED                                       │\n  │    s₁,₂ = -ζω₀ ± ω₀√(ζ²-1)   (two real negative poles)              │\n  │    i(t) = A₁e^(s₁t) + A₂e^(s₂t)                                     │\n  │    No oscillation. Exponential decay. Slow response.                │\n  │                                                                     │\n  │  ζ = 1  (Q = 0.5)  CRITICALLY DAMPED                                │\n  │    s₁,₂ = -ω₀   (repeated pole)                                     │\n  │    i(t) = (A₁ + A₂t)e^(-ω₀t)                                        │\n  │    Fastest decay without oscillation. Optimal for step response.    │\n  │                                                                     │\n  │  ζ < 1  (Q > 0.5)  UNDERDAMPED                                      │\n  │    s₁,₂ = -ζω₀ ± jω_d   where ω_d = ω₀√(1-ζ²)  (damped freq)        │\n  │    i(t) = e^(-ζω₀t)[A·cos(ω_d t) + B·sin(ω_d t)]                    │\n  │    Oscillates at ω_d with decaying envelope.                        │\n  │    Overshoot in step response.                                      │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  Physical intuition:\n    L↑ or C↑ → ω₀ down (slower oscillation, more inertia)\n    R↑ → ζ up (more damping, dissipates energy faster)\n    High Q ↔ low damping ↔ rings for a long time",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "## 4. Parallel RLC Circuit",
+      "confidence": "candidate",
+      "text": "       Is ──┬──R──┬──L──┬──C──┐\n            │     │     │     │\n           GND   GND   GND   GND\n\n  Same natural frequency ω₀ = 1/√(LC)\n  Different Q:  Q = R/√(L/C) = Rω₀C = R/(ω₀L)   (note: R in parallel → higher R = higher Q)\n  ζ = 1/(2Q) = √(L/C)/(2R) = 1/(2Rω₀C)\n\n  Series vs parallel:\n    Series RLC: higher R → more damping (lower Q)\n    Parallel RLC: higher R → less damping (higher Q)\n    Physical: in parallel, R shunts current from LC tank; large R = less current shunted = less loss",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "## 5. Q Factor — Quality Factor",
+      "confidence": "candidate",
+      "text": "  Q = 2π · (energy stored) / (energy lost per cycle) = ω₀ · W_stored / P_dissipated\n\n  For resonant circuits:\n    Q = ω₀ / Δω   where Δω = 3dB bandwidth of resonance peak\n\n  High Q → narrow resonance peak → selective filter\n  Low Q  → wide resonance peak → broadband\n\n  ┌────────────────────────────────────────────────────────────────────┐\n  │           |H(jω)|                                                  │\n  │              │ ← Q=10 (tall, narrow)                               │\n  │              │                                                     │\n  │         ─── │ ──── Q=1 (shorter, wider)                            │\n  │    ─────────┼─────────── Q=0.5 (no peak)                           │\n  │             ω₀    ω→                                               │\n  └────────────────────────────────────────────────────────────────────┘\n\n  Typical Q values:\n    Power inductor: Q ~ 20–100\n    Crystal oscillator: Q ~ 10⁴–10⁶\n    Atomic clock resonator: Q ~ 10¹⁰\n    LC filter for RF: Q ~ 100–500\n    Active RC filter: Q as designed (no real energy storage)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 277,
+      "heading_context": "### Series RLC Voltage Output",
+      "confidence": "candidate",
+      "text": "  H(s) = V_out/V_in depends on which element you take V_out across:\n\n  Across R:  H_R(s) = sRC/(s²LC + sRC + 1)   → Bandpass  (peak at ω₀)\n  Across C:  H_C(s) = 1/(s²LC + sRC + 1)      → Low-pass  (−40dB/dec above ω₀)\n  Across L:  H_L(s) = s²LC/(s²LC + sRC + 1)   → High-pass (−40dB/dec below ω₀)\n\n  Standard 2nd-order LP form:\n    H(s) = ω₀²/(s² + 2ζω₀s + ω₀²)\n    = ω₀²/(s² + (ω₀/Q)s + ω₀²)\n\n  Frequency response at resonance ω = ω₀:\n    H_R(jω₀) = 1                   (R gets all the voltage — max for bandpass)\n    H_C(jω₀) = jQ                  (capacitor voltage = Q × source voltage!)\n    H_L(jω₀) = -jQ                 (inductor voltage = Q × source voltage!)\n    → In high-Q circuit, inductor and capacitor have large voltages that cancel.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 297,
+      "heading_context": "### Resonance and Impedance",
+      "confidence": "candidate",
+      "text": "  Series RLC total impedance: Z(jω) = R + jωL + 1/(jωC) = R + j(ωL - 1/(ωC))\n\n  At resonance: ωL = 1/(ωC)  →  Z = R  (purely resistive)\n  Below ω₀: capacitive  (imaginary part < 0)\n  Above ω₀: inductive   (imaginary part > 0)\n\n  Parallel RLC admittance: Y(jω) = 1/R + jωC + 1/(jωL) = 1/R + j(ωC - 1/(ωL))\n  At resonance: Y = 1/R  →  Z = R  (impedance maximum for parallel)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "## 8. Practical LC Design",
+      "confidence": "candidate",
+      "text": "  Choose ω₀ and Q:\n    ω₀ = 1/√(LC)   →  once ω₀ fixed, LC product determined\n    Q = ω₀L/R       →  pick L and C to give desired LC product and Q\n\n  Example: 10 MHz bandpass filter, Q=50, R=50Ω\n    ω₀ = 2π × 10⁷ rad/s\n    L = QR/ω₀ = 50 × 50 / (2π × 10⁷) ≈ 40 μH\n    C = 1/(ω₀²L) ≈ 6.3 pF\n\n  Bandwidth: Δf = f₀/Q = 10 MHz / 50 = 200 kHz\n\n  Parasitic effects:\n    Inductor wire resistance R_L adds series loss → degrades Q\n    Capacitor ESR (equivalent series resistance) → degrades Q\n    Actual Q ≈ Q_design only if R_L, ESR << R\n\n  Above SRF of inductor → element no longer inductive → design breaks.\n  Keep operating frequency well below SRF of all components.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

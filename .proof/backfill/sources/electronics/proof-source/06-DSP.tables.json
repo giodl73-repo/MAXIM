@@ -1,0 +1,126 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\06-DSP.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 194,
+      "heading_context": "## 3. FIR vs IIR Comparison",
+      "headers": [
+        "Property",
+        "FIR",
+        "IIR"
+      ],
+      "rows": [
+        [
+          "Stability",
+          "Always stable",
+          "Depends on pole locations"
+        ],
+        [
+          "Linear phase",
+          "Yes (symmetric)",
+          "No"
+        ],
+        [
+          "Delay",
+          "High (N-1)/2 samples",
+          "Lower (for same spec)"
+        ],
+        [
+          "Order for given spec",
+          "High",
+          "Low (~5–10× fewer)"
+        ],
+        [
+          "Arithmetic",
+          "Multiply-add only",
+          "Adds feedback"
+        ],
+        [
+          "Numerical sensitivity",
+          "Low",
+          "Higher (near-unity poles)"
+        ],
+        [
+          "Design",
+          "Window or Parks-McClellan",
+          "Bilinear transform from analog"
+        ],
+        [
+          "Use case",
+          "When linear phase required",
+          "When low order/delay important"
+        ],
+        [
+          "Example",
+          "Audio EQ, communication",
+          "60 Hz notch filter, audio"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 387,
+      "heading_context": "## 8. Decision Cheat Sheet",
+      "headers": [
+        "Need...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Linear phase filter (pulse fidelity)",
+          "FIR (symmetric)"
+        ],
+        [
+          "Minimum order filter, delay OK",
+          "IIR via bilinear transform"
+        ],
+        [
+          "Simple LPF/HPF/BPF design",
+          "Window method FIR"
+        ],
+        [
+          "Optimal equiripple FIR",
+          "Parks-McClellan (remez)"
+        ],
+        [
+          "Convert analog prototype to digital",
+          "Bilinear transform"
+        ],
+        [
+          "Frequency-accurate digital filter",
+          "Pre-warp cutoff before bilinear"
+        ],
+        [
+          "Efficient decimation/interpolation",
+          "Polyphase decomposition"
+        ],
+        [
+          "PSD estimate from finite data",
+          "Welch method"
+        ],
+        [
+          "Detect specific DFT bins only",
+          "Goertzel algorithm"
+        ],
+        [
+          "Filter adapts to changing signal",
+          "LMS or RLS adaptive"
+        ],
+        [
+          "Echo/noise cancellation",
+          "LMS adaptive filter"
+        ],
+        [
+          "Fixed-point implementation",
+          "SOS/biquad, Transposed Direct Form II"
+        ],
+        [
+          "Check stability of designed IIR",
+          "All pole magnitudes < 1"
+        ]
+      ]
+    }
+  ]
+}

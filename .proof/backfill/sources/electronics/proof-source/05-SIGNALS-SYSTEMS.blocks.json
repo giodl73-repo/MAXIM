@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\05-SIGNALS-SYSTEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# 05 — Signals & Systems (6.003 Refresher)",
+      "confidence": "candidate",
+      "text": "SIGNALS & SYSTEMS LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  SIGNALS                    SYSTEMS                  ANALYSIS DOMAINS\n  ─────────────────────────  ──────────────────────   ────────────────────────\n  Continuous: x(t)           Linear Time-Invariant    Time: convolution y=h*x\n  Discrete: x[n]             (LTI) systems            Frequency: Y(ω)=H(ω)X(ω)\n  Periodic, aperiodic        Non-LTI: nonlinear or    s-domain: Y(s)=H(s)X(s)\n  Energy, power signals      time-varying             z-domain (discrete)\n  Even/odd, complex                                   State space: ẋ=Ax+Bu\n\n  LTI systems are characterized completely by their impulse response h(t):\n    y(t) = h(t) * x(t) = ∫ h(τ)x(t-τ)dτ   (convolution)\n\n  Fourier/Laplace transforms convert convolution → multiplication.\n  This is the central insight of signals & systems.\n\n  6.003 bridge: Sections 1–7 are 6.003 review (convolution, Fourier, Laplace,\n  z-transform, sampling). The value-add is sections 8–9: state-space\n  representation, controllability/observability rank conditions, and the\n  feedback loop connecting to modern control theory.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 50,
+      "heading_context": "## 1. Signal Classification",
+      "confidence": "candidate",
+      "text": "  Continuous-time (CT): x(t), t ∈ ℝ   (e.g., voltage from microphone)\n  Discrete-time (DT): x[n], n ∈ ℤ     (e.g., sampled audio, 44100 Hz)\n\n  Periodic:  x(t+T) = x(t) for all t    T = fundamental period\n             x[n+N] = x[n] for all n    N = fundamental period\n\n  Energy signal:   E = ∫|x(t)|² dt < ∞    (finite energy, e.g., pulse)\n  Power signal:    P = lim_{T→∞} (1/2T)∫_{-T}^{T}|x(t)|² dt < ∞\n                   (finite average power, e.g., periodic signal, infinite energy)\n\n  Even:  x(-t) = x(t)     symmetric about t=0   (cosine, |t|)\n  Odd:   x(-t) = -x(t)    antisymmetric         (sine, t)\n  Any signal = even part + odd part:\n    x_e(t) = [x(t)+x(-t)]/2,   x_o(t) = [x(t)-x(-t)]/2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "## 2. LTI Systems — Definition and Properties",
+      "confidence": "candidate",
+      "text": "  Linearity: T{ax₁+bx₂} = aT{x₁} + bT{x₂}\n  Time-invariance: if y(t) = T{x(t)}, then y(t-t₀) = T{x(t-t₀)}\n\n  Why LTI is special:\n    Linear + TI → completely characterized by impulse response h(t).\n    Input-output: y(t) = h(t) * x(t)\n    This is the convolution integral.\n\n  Causality: h(t) = 0 for t < 0   (output depends only on past inputs)\n  Stability (BIBO): ∫|h(t)|dt < ∞  (bounded input → bounded output)\n    In s-domain: all poles of H(s) in left half-plane.\n\n  Memoryless: h(t) = c·δ(t) (instantaneous output)\n  Dynamic: h(t) has non-zero duration → integrator, resonator, etc.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "### Continuous-Time",
+      "confidence": "candidate",
+      "text": "  y(t) = x(t) * h(t) = ∫_{-∞}^∞ x(τ) h(t-τ) dτ\n\n  How to compute graphically:\n    1. Reflect h(τ) → h(-τ)\n    2. Slide h(-τ) right by t → h(t-τ)\n    3. Multiply x(τ) · h(t-τ), integrate over τ\n    4. Result is y(t) for that specific t value\n    5. Repeat for all t\n\n  Properties:\n    Commutative: x*h = h*x\n    Associative: (x*h₁)*h₂ = x*(h₁*h₂)\n    Distributive: x*(h₁+h₂) = x*h₁ + x*h₂\n\n  Important: h₁*h₂ is cascade connection of two systems.\n    Cascade order doesn't matter for LTI (commutative).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 130,
+      "heading_context": "### Discrete-Time",
+      "confidence": "candidate",
+      "text": "  y[n] = x[n]*h[n] = Σₖ x[k]h[n-k]   (sum instead of integral)\n\n  For finite-length sequences: FIR (finite impulse response)\n    h[n] has finite duration N → convolution sum has N terms\n    Length of y = length of x + length of h - 1\n    Efficiently computed via FFT for large N.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "### Group Delay",
+      "confidence": "candidate",
+      "text": "  Group delay: τ(ω) = -d∠H(jω)/dω\n\n  Physical meaning: time delay experienced by a narrow-band signal at frequency ω.\n  Constant group delay → all frequencies delayed equally → shape preserved.\n\n  Linear phase: ∠H(jω) = -ωt_0  →  τ = t_0 (constant)\n    FIR filters can have exact linear phase (symmetric coefficients).\n    IIR filters cannot (poles introduce phase nonlinearity).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 229,
+      "heading_context": "## 7. Z-Transform (Discrete-Time Systems)",
+      "confidence": "candidate",
+      "text": "  For DT LTI:\n    H(z) = Σₙ h[n] z^(-n)   (z-transform of impulse response)\n    Y(z) = H(z) X(z)\n\n  Frequency response: H(e^(jω)) = H(z)|_{z=e^(jω)}\n    DTFT evaluated on unit circle.\n\n  Stability: all poles of H(z) inside unit circle (|pole| < 1)\n  Causal: h[n] = 0 for n < 0\n\n  Difference equations ↔ H(z):\n    y[n] + a₁y[n-1] + ... = b₀x[n] + b₁x[n-1] + ...\n    H(z) = (b₀ + b₁z⁻¹ + ...) / (1 + a₁z⁻¹ + ...)\n\n  FIR: all poles at z=0 (or no poles). Always stable.\n  IIR: poles at other locations. Can be unstable.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 307,
+      "heading_context": "## 9. Interconnected Systems",
+      "confidence": "candidate",
+      "text": "  ┌───────────────────────────────────────────────────────────────────┐\n  │  Series (cascade):  H = H₁ · H₂   (multiply transfer functions)   │\n  │                                                                   │\n  │  Parallel:  H = H₁ + H₂   (add transfer functions)                │\n  │                                                                   │\n  │  Feedback:                                                        │\n  │         E = X - Y·B                                               │\n  │         Y = E·A                                                   │\n  │         Y = A·X/(1+AB)   (closed-loop TF)                         │\n  │                                                                   │\n  │  Control loop:                                                    │\n  │    R ──►(Σ)──►[C(s)]──►[G(s)]──► Y                                │\n  │          ↑─────────────────────┘                                  │\n  │                                                                   │\n  │    Closed-loop: T = CG/(1+CG)                                     │\n  │    Sensitivity: S = 1/(1+CG)   (disturbance rejection)            │\n  └───────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

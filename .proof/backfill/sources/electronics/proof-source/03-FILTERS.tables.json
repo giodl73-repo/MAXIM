@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\03-FILTERS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 143,
+      "heading_context": "## 2. Filter Design Approximations",
+      "headers": [
+        "Approximation",
+        "Passband",
+        "Stopband",
+        "Group delay",
+        "Rolloff",
+        "Order needed"
+      ],
+      "rows": [
+        [
+          "Butterworth",
+          "Flat",
+          "Monotone",
+          "Moderate",
+          "Moderate",
+          "Medium"
+        ],
+        [
+          "Chebyshev I",
+          "Equiripple",
+          "Monotone",
+          "Worse",
+          "Better",
+          "Less"
+        ],
+        [
+          "Chebyshev II",
+          "Flat",
+          "Equiripple",
+          "Better",
+          "Better",
+          "Less"
+        ],
+        [
+          "Elliptic",
+          "Equiripple",
+          "Equiripple",
+          "Worst",
+          "Best",
+          "Minimum"
+        ],
+        [
+          "Bessel",
+          "Slight roll",
+          "Monotone",
+          "Flat",
+          "Worst",
+          "Most"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 374,
+      "heading_context": "## 8. Decision Cheat Sheet",
+      "headers": [
+        "Need...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Flat passband, no ripple",
+          "Butterworth"
+        ],
+        [
+          "Sharpest rolloff, don't care about ripple",
+          "Elliptic"
+        ],
+        [
+          "Preserve pulse shape / group delay",
+          "Bessel"
+        ],
+        [
+          "Compromise rolloff + group delay",
+          "Butterworth or Chebyshev II"
+        ],
+        [
+          "Audio / voice filter (op-amp)",
+          "Sallen-Key (simple) or MFB"
+        ],
+        [
+          "High Q (>10) active filter",
+          "State variable (KHN)"
+        ],
+        [
+          "High accuracy without trimming",
+          "Switched-capacitor"
+        ],
+        [
+          "High frequency (RF)",
+          "Passive LC (no op-amp GBW limit)"
+        ],
+        [
+          "Simple 20 dB/dec rolloff",
+          "Single-pole RC, ω_c = 1/RC"
+        ],
+        [
+          "40 dB/dec, max flat",
+          "2nd order Butterworth Sallen-Key, Q=1/√2"
+        ],
+        [
+          "Quick 3dB corner calc",
+          "f_c = 1/(2πRC)"
+        ]
+      ]
+    }
+  ]
+}

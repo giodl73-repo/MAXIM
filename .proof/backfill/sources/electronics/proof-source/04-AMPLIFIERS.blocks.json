@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\04-AMPLIFIERS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# 04 — Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+      "confidence": "candidate",
+      "text": "AMPLIFIER LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  DEVICE MODELS               CONFIGURATIONS             FEEDBACK\n  ─────────────────────────   ─────────────────────────  ─────────────────────\n  BJT: NPN/PNP                Common emitter (CE)        Negative: stabilizes\n    I_C = β·I_B                 High gain                  Reduces Rin, Rout\n    I_C = I_S e^(V_BE/V_T)     High R_in (hfe topology)   Increases BW\n                              Common base (CB)           Positive: oscillates\n  MOSFET: NMOS/PMOS             Low R_in, high freq         or clips\n    I_D = ½μnCox(W/L)(Vgs-Vth)² Common collector (CC)   Miller effect\n    Vgs controls I_D             Follower, gain<1, low Rout  frequency limitation\n\n  Small-signal model:          Differential pair          Op-amp = macromodel\n    BJT: g_m, r_π, r_o          Tail current source           of amplifier\n    MOSFET: g_m, r_o            CMRR, high gain               principles\n\n  6.012 bridge: Device physics behind BJT/MOSFET. This module uses\n  behavioral models — physics is the course you haven't taken.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 50,
+      "heading_context": "### Physical Operation (Behavioral Model)",
+      "confidence": "candidate",
+      "text": "  NPN BJT:\n    Base-Emitter junction forward biased (like diode, ~0.7V)\n    Collector-Base junction reverse biased\n    Small I_B controls large I_C\n\n  Active region (linear amplifier):\n    I_C = β·I_B        (β = hFE = current gain, typically 50–300)\n    I_E = I_C + I_B = (β+1)·I_B\n    V_BE ≈ 0.6–0.7 V  (forward biased junction)\n    V_CE > V_CE_sat   (keep out of saturation for linear operation)\n\n  Exact (Ebers-Moll, active region):\n    I_C = I_S · e^(V_BE/V_T)\n    V_T = kT/q ≈ 26 mV at room temperature  (thermal voltage)\n    → Exponential relationship!\n\n  Transconductance:\n    g_m = dI_C/dV_BE = I_C/V_T    (at operating point I_C)\n    At I_C = 1 mA: g_m = 1/(26 mV) ≈ 38.5 mA/V\n    g_m proportional to bias current — key design parameter.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 75,
+      "heading_context": "### Small-Signal Model (π-model)",
+      "confidence": "candidate",
+      "text": "  For AC analysis: replace BJT with linear equivalent at operating point.\n\n           B        C\n           o        o\n           |        |\n           [r_pi]   [g_m * v_pi]   (current source)\n           |        |\n           |        [r_o]          (output resistance)\n           |        |\n           o========o\n                    |\n                    E\n\n  r_π = β/g_m = V_T·β/I_C   (input resistance)\n  g_m = I_C/V_T              (transconductance)\n  r_o = V_A/I_C              (output resistance, V_A = Early voltage ~50–100V)\n\n  Finding the operating point:\n    1. Ignore AC sources, set to DC values\n    2. Assume V_BE = 0.7V for NPN\n    3. Find I_C from DC circuit (KVL with V_BE = 0.7V)\n    4. Compute g_m, r_π, r_o at that I_C",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 106,
+      "heading_context": "### Physical Operation (Behavioral Model)",
+      "confidence": "candidate",
+      "text": "  NMOS (n-channel):\n    Gate-Source voltage V_GS creates channel under gate oxide.\n    Drain current I_D flows when V_GS > V_th (threshold voltage).\n\n  Operating regions:\n    Cutoff (V_GS < V_th):      I_D = 0\n    Linear/Triode (V_GS-V_th > V_DS > 0):\n      I_D = μnCox(W/L)[(V_GS-V_th)V_DS - V_DS²/2]\n      Acts like voltage-controlled resistor.\n    Saturation (V_DS ≥ V_GS-V_th):\n      I_D = ½μnCox(W/L)(V_GS-V_th)²    ← quadratic, not exponential!\n      Current independent of V_DS (approximately).\n\n  Key difference from BJT:\n    BJT: exponential V_BE → I_C, base current required\n    MOSFET: quadratic V_GS → I_D, gate current ≈ 0 (capacitive input)\n    MOSFET advantage: zero DC gate current, easier biasing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 128,
+      "heading_context": "### MOSFET Small-Signal Model",
+      "confidence": "candidate",
+      "text": "         G          D\n         o          o\n         |          |\n         |     [g_m * v_gs]  (current source)\n         |          |\n         |          [r_o]\n         |          |\n         o==========o\n                    S\n\n  g_m = dI_D/dV_GS = μnCox(W/L)(V_GS-V_th) = √(2μnCox(W/L)I_D)\n  r_o = 1/(λI_D)   where λ = channel-length modulation parameter\n\n  Note: MOSFET g_m is typically lower than BJT g_m at same current.\n  MOSFET threshold V_th: 0.3–1V (depends on process, adjustable by bias)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "### Common Emitter (CE) — BJT Voltage Amplifier",
+      "confidence": "candidate",
+      "text": "  VCC\n   │\n   R_C ──── V_out\n   │\n  (C)──── V_out\n  (B)──── V_in (via coupling cap)\n  (E)────[R_E]── GND (bypass C_E to GND for AC)\n\n  Small-signal (with emitter bypass cap, so r_e = 0):\n    A_v = V_out/V_in = -g_m · (r_o || R_C) ≈ -g_m · R_C\n    R_in = R_B1 || R_B2 || r_π                (bias resistors in parallel)\n    R_out = r_o || R_C ≈ R_C\n\n  Without emitter bypass (R_E in small-signal path):\n    A_v = -g_m R_C / (1 + g_m R_E) ≈ -R_C/R_E\n    R_in = R_B || (r_π + (β+1)R_E)            (much higher input resistance)\n    Gain stabilized (less sensitive to β variation) ← this is local feedback",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 218,
+      "heading_context": "## 4. Differential Pair",
+      "confidence": "candidate",
+      "text": "  The building block of all op-amps and precision analog circuits.\n\n        VCC\n         │\n      ┌──┴──┐\n     R_C   R_C\n      │     │\n  V_out2   V_out1\n      │     │\n     (C₁)  (C₂)    Q1, Q2: matched transistors\n     (B₁)  (B₂)\n     V_in1  V_in2\n     (E₁)  (E₂)\n       └──┬──┘\n          │\n         I_EE (tail current source)\n          │\n         GND\n\n  Differential input: V_id = V_in1 - V_in2\n  Common-mode input:  V_ic = (V_in1 + V_in2)/2\n\n  Operation:\n    Tail current I_EE is fixed (from current source).\n    V_id → 0: I_EE splits equally, V_out1 = V_out2\n    V_id → positive: Q1 steals current from Q2\n    V_id large positive: Q1 takes all I_EE, Q2 cuts off (saturated diff amp)\n    Transfer characteristic: I_C1-I_C2 = I_EE·tanh(V_id/(2V_T))  [for BJT]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 251,
+      "heading_context": "### Small-Signal Analysis",
+      "confidence": "candidate",
+      "text": "  Half-circuit concept: split into two independent circuits.\n    Differential mode: tail current source → open circuit for differential\n    Common mode: tail current source → 2·r_ee (resistance to GND)\n\n  Differential gain:\n    A_d = -g_m · R_C         (same as single CE with R_C as load)\n\n  Common-mode gain:\n    A_c = -R_C / (2·r_ee + 1/g_m)  ← small when r_ee large\n    With ideal current source r_ee → ∞: A_c → 0\n\n  CMRR = |A_d/A_c| = g_m · 2·r_ee = 2·g_m·r_ee  ← want large\n    High CMRR → rejects noise common to both inputs.\n    Op-amp spec: CMRR typically 80–120 dB.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 274,
+      "heading_context": "### The Four Feedback Topologies",
+      "confidence": "candidate",
+      "text": "  Negative feedback in amplifiers: sense output, subtract from input.\n\n  What you sense (at output):  V or I\n  How you feed back (at input): V (series) or I (shunt)\n\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Topology         Sense    Feed    Effect on              Gain       │\n  │                   output   back    Rin    Rout            stability  │\n  ├──────────────────────────────────────────────────────────────────────┤\n  │  Series-Shunt     V        V       Up     Down     A_v (V→V)  stable │\n  │  (non-inverting)                                                     │\n  │  Series-Series    I        V       Up     Up       A_i (V→I) stable  │\n  │  Shunt-Shunt      V        I       Down   Down     Z (I→V)   stable  │\n  │  (transresistance)                                                   │\n  │  Shunt-Series     I        I       Down   Up       A_i (I→I) stable  │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  Summary:\n    Sense voltage → Rout decreases (good voltage source)\n    Series subtraction → Rin increases (good voltage input)\n    Feed back current → Rin decreases (good current input)\n    Series injection → Rout increases (good current source)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 322,
+      "heading_context": "### Stability and the Miller Effect",
+      "confidence": "candidate",
+      "text": "  BODE PLOT EXAMPLE: TWO-POLE SYSTEM — LOOP GAIN Aβ(jω)\n\n  |Aβ| (dB)     Phase of Aβ\n  60│──.                           0°│──────────────.\n    │   ╲  -20 dB/dec                │                ╲\n  40│    ╲                        -45°│                 ╲\n    │     ╲                          │                   ╲\n  20│      ╲  p₁                 -90°│        ╲           ╲\n    │       ·─── -40 dB/dec          │         ╲           ╲\n   0│─ ─ ─ ─╲─ gain crossover  -135°│          ╲  p₂       ╲\n    │    ωgc  ╲  (|Aβ|=1)           │           ·────────────╲\n -20│          ╲            PM -180°│─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ (oscillation)\n    └───────────────→ ω              └───────────────────────→ ω\n              p₂                            ωgc\n                                       PM = 180° + phase(Aβ) at ωgc\n\n  Phase margin vs step response:\n    PM ≈ 75°:  no overshoot, slow response\n    PM ≈ 60°:  ~5% overshoot, well-damped\n    PM ≈ 45°:  ~23% overshoot, slight ringing — minimum acceptable\n    PM ≈ 20°:  severe ringing, near-oscillation\n    PM ≤ 0°:   unstable — sustained oscillation\n\n  Mapping to pole locations (closed-loop):\n    PM ≈ 60° → ζ ≈ 0.6 → complex poles well into LHP\n    PM ≈ 45° → ζ ≈ 0.45 → poles closer to jω axis, more ringing\n    PM < 0°  → poles cross into RHP → unstable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 352,
+      "heading_context": "### Stability and the Miller Effect",
+      "confidence": "candidate",
+      "text": "  Stability:\n    Negative feedback → phase shift at high frequency → becomes positive feedback.\n    If loop gain > 1 at the frequency where phase = 180°: oscillation.\n\n    Phase margin PM = 180° + ∠(A(jω)β) at gain crossover (|Aβ|=1)\n    PM > 0°: stable. PM > 45°: well-damped.\n\n  Miller Effect:\n    Capacitor C across inverting amplifier with gain -A:\n    Input capacitance = C(1+A)  ← appears much larger!\n\n    Why: if input voltage changes by 1V, output changes by -A volts.\n    Capacitor sees A+1 volts change → draws A+1 times as much current.\n    Effective C_in = C_f(1+A).\n\n    Problem: limits bandwidth of common-emitter and common-source amps.\n    Fix: cascode topology puts common-base/gate stage between C and E/S.\n      Common-base has low impedance input → Miller multiplier ≈ 1.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 379,
+      "heading_context": "## 6. Amplifier Noise — The Information-Theoretic Floor",
+      "confidence": "candidate",
+      "text": "  NOISE SOURCES IN AMPLIFIERS\n  ┌────────────────────────────────────────────────────────────────────────────┐\n  │  Johnson-Nyquist (thermal):  v_n² = 4kTRΔf                                 │\n  │    k = 1.38×10⁻²³ J/K, T = temperature (K), R = resistance, Δf = BW        │\n  │    At 300K, 1 kΩ, 1 Hz BW: v_n = 4.07 nV/√Hz                               │\n  │    → Every resistor is a noise source. R_source noise → amplifier input.   │\n  │                                                                            │\n  │  Shot noise:  i_n² = 2qI_DC Δf                                             │\n  │    q = 1.6×10⁻¹⁹ C, I_DC = DC bias current                                 │\n  │    Dominant in BJT base current and photodiode dark current.               │\n  │                                                                            │\n  │  Flicker (1/f):  S(f) ∝ 1/f                                                │\n  │    Dominant below corner frequency f_c (1 Hz – 10 kHz depending on tech).  │\n  │    CMOS has higher 1/f noise than BJT — matters for DC precision amps.     │\n  └────────────────────────────────────────────────────────────────────────────┘\n\n  NOISE FIGURE AND SIGNAL CHAIN\n  ┌────────────────────────────────────────────────────────────────────────────┐\n  │  Noise figure NF = 10 log₁₀(SNR_in / SNR_out) [dB]                         │\n  │  NF = 0 dB → noiseless amplifier (impossible; ≥ 0.5 dB for best LNAs)      │\n  │                                                                            │\n  │  Friis cascade formula (N stages):                                         │\n  │    NF_total = NF₁ + (NF₂-1)/G₁ + (NF₃-1)/(G₁G₂) + ...                     │\n  │    → First stage dominates! Low-noise amplifier (LNA) must be first.       │\n  │                                                                            │\n  │  Information-theoretic connection:                                         │\n  │    Shannon capacity: C = B log₂(1 + SNR)  [bits/s]                         │\n  │    Amplifier NF degrades SNR → directly reduces channel capacity.          │\n  │    For an ADC front end: input-referred noise + quantization noise         │\n  │    together set ENOB = (SINAD - 1.76) / 6.02.                              │\n  │    A 16-bit ADC with NF = 10 dB front-end amp may achieve only 14 ENOB.    │\n  └────────────────────────────────────────────────────────────────────────────┘\n\n  DESIGN RULES\n  Input-referred noise:  v_ni = √(v_n_amp² + (i_n_amp × R_source)²)\n  SNR at ADC input:      SNR = V_signal_rms / v_ni\n  Budget allocation:     amplifier noise ≤ quantization noise → ENOB preserved\n    For N-bit ADC, full-scale V_FS:  v_q = V_FS / (√12 × 2^N)\n    Require v_ni < v_q for noise not to degrade resolution.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 427,
+      "heading_context": "### Op-Amp Internal Architecture",
+      "confidence": "candidate",
+      "text": "  Typical two-stage CMOS op-amp:\n\n  V_in+ ──┐\n           ├── Diff pair ──── Gain stage ──── Output buffer ──── V_out\n  V_in- ──┘        │                │\n                 Tail              Compensation\n                 current           capacitor Cc\n                 source            (Miller compensation)\n\n  Stage 1: Differential pair → high CMRR, sets input characteristics\n  Stage 2: Common source → high voltage gain (typically 1000–10000)\n  Stage 3: Output buffer (source follower) → low Rout\n\n  Compensation capacitor Cc:\n    Creates dominant pole at low frequency (Miller effect).\n    Ensures other poles are beyond gain crossover → PM > 45°.\n    \"Pole splitting\" — moves one pole lower, one higher.\n\n  Gain: A_v = g_m1 · r_o1 · g_m2 · r_o2   (product of stage gains)\n  GBW = g_m1 / Cc",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 454,
+      "heading_context": "### Op-Amp Non-Idealities",
+      "confidence": "candidate",
+      "text": "  12-bit ADC with 3.3V full-scale → LSB = 3.3V / 4096 ≈ 0.8 mV\n  → V_os of 5 mV = 6 LSB error at DC (unacceptable without calibration)\n  → I_B of 1 µA through R_source = 10 kΩ → V_error = 10 mV = 12 LSB\n  → CMRR of 80 dB with 1V common-mode → CM error = 100 µV ≈ 0.1 LSB (OK)\n\n  Design rules:\n  • V_os budget: select op-amp with V_os < 1 LSB of your ADC\n  • Source impedance limit: R_source < V_os_budget / I_B\n  • For precision (>14 bits): use chopper-stabilized op-amp (V_os < 10 µV)\n  • Slew rate check: SR > 2π × f_signal × V_peak for full-power bandwidth",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

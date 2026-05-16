@@ -1,0 +1,73 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\07-2D-DSP.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 583,
+      "heading_context": "## 10. Decision Cheat Sheet",
+      "headers": [
+        "Task",
+        "Method"
+      ],
+      "rows": [
+        [
+          "Convolve large image with large kernel",
+          "2D FFT method (O(MN log MN))"
+        ],
+        [
+          "Convolve with small kernel (≤7×7)",
+          "Direct convolution (O(MN·PQ))"
+        ],
+        [
+          "Separable kernel (Gaussian blur)",
+          "Two passes of 1D convolution"
+        ],
+        [
+          "Blur image smoothly",
+          "2D Gaussian convolution"
+        ],
+        [
+          "Detect edges",
+          "Canny (gold standard) or Sobel + threshold"
+        ],
+        [
+          "Sharpen image",
+          "Unsharp mask = original + (original - blur)"
+        ],
+        [
+          "Analyze image frequency content",
+          "2D FFT → fftshift → log magnitude"
+        ],
+        [
+          "Remove periodic noise (e.g., scan lines)",
+          "FFT, zero out offending peaks, IFFT"
+        ],
+        [
+          "Reconstruct image from projections (CT)",
+          "Filtered backprojection (or iterative)"
+        ],
+        [
+          "Reconstruct MRI image",
+          "2D IFFT of k-space data"
+        ],
+        [
+          "Compress image (lossy)",
+          "JPEG (DCT-based)"
+        ],
+        [
+          "Compress image (no blocking artifacts)",
+          "JPEG2000 (wavelet-based)"
+        ],
+        [
+          "Multi-resolution analysis",
+          "Gaussian/Laplacian pyramid or 2D DWT"
+        ],
+        [
+          "Undersample MRI and still reconstruct",
+          "Compressed sensing (L1 optimization)"
+        ]
+      ]
+    }
+  ]
+}

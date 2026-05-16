@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\03-FILTERS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 22,
+      "heading_context": "# 03 — Filters",
+      "confidence": "candidate",
+      "text": "FILTER LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  Frequency selective networks — pass some frequencies, attenuate others.\n\n  IDEAL                      REALIZABLE\n  ────────────────           ─────────────────────────────────────────\n  |H(jω)|                    |H(jω)|\n    ___                         /‾‾‾\\___\n   |   |                       /      ‾‾‾───\n  ─┘   └──  →ω              ──        →ω\n                             ↑           ↑\n                           Passband    Stopband (rolloff, not brick wall)\n                         (ripple ok)   (attenuation in dB)\n\n  Filter types:      LPF  HPF  BPF  BSF (band-stop/notch)\n  Classic designs:   Butterworth, Chebyshev I/II, Elliptic, Bessel\n  Realizations:      Passive RLC, Active RC (op-amp), Switched capacitor, Digital\n\n  6.002 bridge: passive LC filters. 6.003 bridge: H(jω) concept, Bode plots.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 49,
+      "heading_context": "## 1. Filter Specifications",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────────┐\n  │          |H(jω)| (dB)                                               │\n  │   0 ──────────────────                                              │\n  │                          ╲                                          │\n  │  -Rp (ripple) ─ ─ ─ ─ ─  ╲ ─ ─ ─ ─ ─                                │\n  │                              ╲ transition                           │\n  │  -As (stopband) ─ ─ ─ ─ ─ ─  ╲─────────── ─ ─ ─                     │\n  │                   ωp     ωs        ω                                │\n  │            passband  stopband edge                                  │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  Key specs:\n    ωp = passband edge frequency (where attenuation = Rp dB)\n    ωs = stopband edge frequency (where attenuation ≥ As dB)\n    Rp = passband ripple (typically 0.1–3 dB)\n    As = stopband attenuation (typically 20–80 dB)\n    Selectivity: ωs/ωp (closer to 1 = harder)\n\n  Order n: higher order → sharper rolloff, more components, more phase shift.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 162,
+      "heading_context": "## 3. First and Second Order Sections",
+      "confidence": "candidate",
+      "text": "### First Order (n=1)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 164,
+      "heading_context": "### First Order (n=1)",
+      "confidence": "candidate",
+      "text": "  Low-pass:   H(s) = ω_c/(s + ω_c)        = 1/(1 + s/ω_c)\n  High-pass:  H(s) = s/(s + ω_c)           = (s/ω_c)/(1 + s/ω_c)\n  |rolloff| = 20 dB/decade\n\n  RC circuit: ω_c = 1/(RC)\n  RL circuit: ω_c = R/L",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 173,
+      "heading_context": "### First Order (n=1)",
+      "confidence": "candidate",
+      "text": "### Second Order (n=2)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "### Second Order (n=2)",
+      "confidence": "candidate",
+      "text": "  General 2nd order LP:\n    H(s) = ω₀²/(s² + (ω₀/Q)s + ω₀²)\n         = ω₀²/(s² + 2ζω₀s + ω₀²)\n\n  Q = 1/(2ζ): quality factor of the poles\n  For Butterworth 2nd order: Q = 1/√2 ≈ 0.707\n  For Chebyshev: Q > 1/√2\n  For Bessel: Q < 1/√2\n\n  HP version: multiply LP by s²/ω₀²  (replace s/ω₀ → ω₀/s)\n    H_HP(s) = s²/(s² + (ω₀/Q)s + ω₀²)\n\n  Bandpass (LP to BP transform: s → (s² + ω₀²)/(BW·s)):\n    H_BP(s) = (BW·s)/(s² + BW·s + ω₀²)\n    Peak at ω₀, 3dB bandwidth = BW, Q = ω₀/BW\n\n  Notch (band-stop):\n    H_BS(s) = (s² + ω₀²)/(s² + (ω₀/Q)s + ω₀²)\n    Zeros on jω axis at ±jω₀ → null at ω₀",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 219,
+      "heading_context": "### Why Active Filters?",
+      "confidence": "candidate",
+      "text": "  Passive LC filters:\n    + No power required\n    + Low noise\n    − Inductors: large, heavy, lossy, component tolerances poor at audio freq\n    − No gain possible\n    − Load-dependent (component values shift with load)\n\n  Active RC filters (op-amp + R + C):\n    + No inductors\n    + Can provide gain\n    + Low output impedance (load-independent)\n    − Need power supply\n    − Op-amp bandwidth limits high-frequency operation (GBW product)\n    − Power supply noise enters signal path\n    Use for: audio, instrumentation, data acquisition",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 237,
+      "heading_context": "### Why Active Filters?",
+      "confidence": "candidate",
+      "text": "### Sallen-Key Topology (2nd order LP)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "### Sallen-Key Topology (2nd order LP)",
+      "confidence": "candidate",
+      "text": "         R₁    R₂\n  Vin ───┤├────┤├────┬────── Vout\n                     │         │\n                    C₂         C₁\n                     │         │\n                    (−)        │\n                    (+)────────┘\n                    (op-amp as voltage follower)\n\n  Unity gain Sallen-Key LP:\n    H(s) = 1/[R₁R₂C₁C₂s² + (R₁C₁ + R₂C₁)s + 1]\n\n    ω₀ = 1/√(R₁R₂C₁C₂)\n    Q = √(R₁R₂C₁C₂) / (R₁C₁ + R₂C₁)\n\n  Butterworth: choose R₁=R₂=R, C₁=C, C₂=C/2 → Q=1/√2\n\n  Advantages: low component count, good sensitivity for moderate Q.\n  Limitation: Q limited to ~10 (high Q requires tight component matching).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 261,
+      "heading_context": "### Sallen-Key Topology (2nd order LP)",
+      "confidence": "candidate",
+      "text": "### Multiple Feedback (MFB) Topology (2nd order LP)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "### Multiple Feedback (MFB) Topology (2nd order LP)",
+      "confidence": "candidate",
+      "text": "      Z₁     Z₂\n  Vin─┤├────┤├────┬────── Vout\n                  │         │\n                 (−)       Z₃ (feedback to summing node)\n                 (+)──GND  │\n                            (input side, + side = GND)\n\n  More complex but: inverting, arbitrary gain, better high-Q performance.\n  Standard form for Chebyshev sections.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "### State Variable / KHN (Kerwin-Huelsman-Newcomb)",
+      "confidence": "candidate",
+      "text": "  Three op-amps. Simultaneously provides LP, HP, and BP outputs.\n  Best for high-Q sections (Q > 10).\n  Excellent component sensitivity.\n\n  ARCHITECTURE\n  ┌─────────────┐    ┌──────────────┐    ┌──────────────┐\n  │  Summing amp │───▶│ Integrator 1 │───▶│ Integrator 2│\n  │  (op-amp 1) │    │  (op-amp 2)  │    │  (op-amp 3)  │\n  │  HP output  │    │  BP output   │    │  LP output   │\n  └──────┬───────┘    └──────────────┘    └──────┬───────┘\n         ↑                                        │\n         └────── R_Q feedback ────────────────────┘\n         └────── R_f feedback (from BP) ──────────┘\n\n  Transfer functions (equal-value design: R₁=R₂=R, C₁=C₂=C):\n    ω₀ = 1/RC                        (set by integrator R and C)\n    Q  = (1 + R_f/R_Q) / 3           (set by feedback resistor ratio)\n    → ω₀ depends only on RC; Q depends only on R_f/R_Q\n    → tuning Q does not shift ω₀, and vice versa\n\n  Design example — 1 kHz bandpass, Q = 20:\n    Choose C = 10 nF → R = 1/(2π×1000×10⁻⁸) ≈ 15.9 kΩ  (use 16 kΩ)\n    Q = 20 → R_f/R_Q = 3Q - 1 = 59 → R_Q = 1 kΩ, R_f = 59 kΩ\n\n  Why independent tuning matters for production:\n    In Sallen-Key at Q > 10, ω₀ and Q both depend on the same component\n    ratios — a 1% resistor tolerance can shift both simultaneously.\n    In the KHN topology, component drift in the integrator chain shifts ω₀\n    without affecting Q, and vice versa. This makes KHN practical for\n    high-Q sections where Sallen-Key would need 0.1% components.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 314,
+      "heading_context": "## 5. Switched-Capacitor Filters",
+      "confidence": "candidate",
+      "text": "  Key idea:  A capacitor C switched at frequency f_clk simulates a resistor:\n    R_eq = 1/(C·f_clk)\n\n  Operation:\n    φ₁: charge C to V_in    → q = C·V_in\n    φ₂: discharge C to V_out → ΔV = V_in - V_out, ΔQ = C·ΔV\n\n  Average current: I_avg = ΔQ/T_clk = C·f_clk·(V_in - V_out) = (V_in-V_out)/R_eq\n\n  Advantage:\n    Filter cutoff tracks f_clk exactly.\n    No absolute R and C tolerance issues — only ratio C₁/C₂ matters.\n    Accurate ratios achievable in CMOS (0.1% easily).\n    Tunable by changing clock frequency.\n\n  Used in: audio codecs, ADC anti-aliasing, CMOS IC filters.\n  Limitation: sampled-data system (aliasing, clock feedthrough noise).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 340,
+      "heading_context": "## 6. Filter Frequency Transformations",
+      "confidence": "candidate",
+      "text": "  Start with prototype LP with ω_c = 1 rad/s.\n  Transform to get other types:\n\n  LP → HP:   s → ω₀²/s     (invert frequency axis)\n  LP → BP:   s → Q(s/ω₀ + ω₀/s) = (s² + ω₀²)/(ω₀ BW · s)\n  LP → BS:   s → ω₀ BW·s/(s² + ω₀²)    (inverse of LP→BP)\n\n  LP → LP (frequency scale):  s → s·ω_old/ω_new  (shift cutoff)\n\n  Then denormalize: scale R and C values to practical ranges.\n  Impedance scaling: R → kR, C → C/k (doesn't change H(s))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 393,
+      "heading_context": "## 9. Common Confusion Points",
+      "confidence": "candidate",
+      "text": "A 4th order filter has 4 poles. Active RC: each 2nd-order section has 2 poles and uses 2 capacitors + 2 resistors + 1 op-amp. Two sections → 4 poles, 4 caps, 4 resistors, 2 op-amps. Not 4 of everything.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}
