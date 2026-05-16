@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy:ethics
+kind: guide
+module: philosophy
+section: philosophy
+title: 05 - Ethics
+status: source-custody
+source_custody: partial
+current_path: philosophy/05-ETHICS.md
+canonical_path: philosophy/05-ETHICS.md
+backsource_ids: [proof-backfill:philosophy:05-ethics, git-history:philosophy:05-ethics]
+concepts: [ethics]
+root_concepts: [ethics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05 — Ethics
 
 ## Metaethics, Normative Theories, Applied Ethics, AI Ethics

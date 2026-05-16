@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:aeronautics:aerodynamics
+kind: guide
+module: aeronautics
+section: aeronautics
+title: 01 - Aerodynamics
+status: source-custody
+source_custody: partial
+current_path: aeronautics/01-AERODYNAMICS.md
+canonical_path: aeronautics/01-AERODYNAMICS.md
+backsource_ids: [proof-backfill:aeronautics:01-aerodynamics, git-history:aeronautics:01-aerodynamics]
+concepts: [aerodynamics]
+root_concepts: [aerodynamics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 01 — Aerodynamics
 
 ## Lift, Drag, Boundary Layers, Compressible Flow, Wing Theory

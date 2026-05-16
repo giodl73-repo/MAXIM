@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:aeronautics:overview
+kind: guide
+module: aeronautics
+section: aeronautics
+title: 00 - Aeronautics Overview
+status: source-custody
+source_custody: partial
+current_path: aeronautics/00-OVERVIEW.md
+canonical_path: aeronautics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:aeronautics:00-overview, git-history:aeronautics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 00 — Aeronautics Overview
 
 ## Four Forces, The Aeronautics Stack, Certification, Systems Overview
@@ -15,20 +34,20 @@
 │                              │                                           │
 │                              ▼                                           │
 │  ┌────────────────────────────────────────────────────────────────────┐ │
-│  │  AERODYNAMICS — lift, drag, flow fields, airfoil shapes, stall    │ │
-│  │  Tool: Navier-Stokes → boundary layer theory → potential flow     │ │
+│  │  AERODYNAMICS — lift, drag, flow fields, airfoil shapes, stall     │ │
+│  │  Tool: Navier-Stokes → boundary layer theory → potential flow      │ │
 │  ├────────────────────────────────────────────────────────────────────┤ │
-│  │  PROPULSION — thrust generation                                   │ │
-│  │  Piston/Otto, Turbojet/Brayton, Turbofan, Rocket/Tsiolkovsky      │ │
+│  │  PROPULSION — thrust generation                                    │ │
+│  │  Piston/Otto, Turbojet/Brayton, Turbofan, Rocket/Tsiolkovsky       │ │
 │  ├────────────────────────────────────────────────────────────────────┤ │
-│  │  FLIGHT MECHANICS — equations of motion, stability, control       │ │
-│  │  6-DOF dynamics, Euler angles, static/dynamic stability, FCS      │ │
+│  │  FLIGHT MECHANICS — equations of motion, stability, control        │ │
+│  │  6-DOF dynamics, Euler angles, static/dynamic stability, FCS       │ │
 │  ├────────────────────────────────────────────────────────────────────┤ │
-│  │  STRUCTURES — loads, stress, fatigue, damage tolerance            │ │
-│  │  V-n diagram, composites, fail-safe design, aeroelasticity        │ │
+│  │  STRUCTURES — loads, stress, fatigue, damage tolerance             │ │
+│  │  V-n diagram, composites, fail-safe design, aeroelasticity         │ │
 │  ├────────────────────────────────────────────────────────────────────┤ │
-│  │  AVIONICS — navigation, FBW, FMS, datalinks, displays             │ │
-│  │  INS/GPS, ILS/GLS, TCAS, ARINC 429/664, IMA                      │ │
+│  │  AVIONICS — navigation, FBW, FMS, datalinks, displays              │ │
+│  │  INS/GPS, ILS/GLS, TCAS, ARINC 429/664, IMA                        │ │
 │  └────────────────────────────────────────────────────────────────────┘ │
 │                              │                                           │
 │                              ▼                                           │

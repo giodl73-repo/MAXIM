@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:aeronautics:flight-mechanics
+kind: guide
+module: aeronautics
+section: aeronautics
+title: 03 - Flight Mechanics
+status: source-custody
+source_custody: partial
+current_path: aeronautics/03-FLIGHT-MECHANICS.md
+canonical_path: aeronautics/03-FLIGHT-MECHANICS.md
+backsource_ids: [proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]
+concepts: [flight, mechanics]
+root_concepts: [flight, mechanics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03 — Flight Mechanics
 
 ## Equations of Motion, Stability, Control, Performance
@@ -88,12 +107,10 @@ QUATERNIONS (q = [q₀, q₁, q₂, q₃] = [scalar, vector]):
   q₀² + q₁² + q₂² + q₃² = 1  (unit quaternion constraint)
   Encodes same info as rotation matrix but no singularity
   q̇ = ½ · Ξ(q) · ω    where ω = [p, q, r] (body angular rates)
-  ┌        ┐   ┌                    ┐ ┌   ┐
-  │ q̇₀    │   │  0  -p  -q  -r    │ │ q₀│
-  │ q̇₁    │ = │  p   0   r  -q    │ │ q₁│
-  │ q̇₂    │   │  q  -r   0   p    │ │ q₂│
-  │ q̇₃    │   │  r   q  -p   0    │ │ q₃│
-  └        ┘   └                    ┘ └   ┘
+  [ q0_dot ]   [  0  -p  -q  -r ] [ q0 ]
+  [ q1_dot ] = [  p   0   r  -q ] [ q1 ]
+  [ q2_dot ]   [  q  -r   0   p ] [ q2 ]
+  [ q3_dot ]   [  r   q  -p   0 ] [ q3 ]
   Advantage: no singularity; computationally efficient; avoids quadrant issues
   Used in: flight simulation, inertial nav, IMUs, quaternion AHRS filters
   Cost: less intuitive; 4 parameters instead of 3 (constrained)

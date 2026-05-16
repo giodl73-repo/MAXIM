@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy:philosophy-of-science
+kind: guide
+module: philosophy
+section: philosophy
+title: 06 - Philosophy of Science
+status: source-custody
+source_custody: partial
+current_path: philosophy/06-PHILOSOPHY-OF-SCIENCE.md
+canonical_path: philosophy/06-PHILOSOPHY-OF-SCIENCE.md
+backsource_ids: [proof-backfill:philosophy:06-philosophy-of-science, git-history:philosophy:06-philosophy-of-science]
+concepts: [philosophy, of, science]
+root_concepts: [philosophy, of]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 06 — Philosophy of Science
 
 ## Demarcation, Falsificationism, Kuhn, Lakatos, Underdetermination, Realism

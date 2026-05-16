@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy:metaphysics
+kind: guide
+module: philosophy
+section: philosophy
+title: 03 - Metaphysics
+status: source-custody
+source_custody: partial
+current_path: philosophy/03-METAPHYSICS.md
+canonical_path: philosophy/03-METAPHYSICS.md
+backsource_ids: [proof-backfill:philosophy:03-metaphysics, git-history:philosophy:03-metaphysics]
+concepts: [metaphysics]
+root_concepts: [metaphysics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03 — Metaphysics
 
 ## Ontology, Causation, Time, Modality, Identity, Laws of Nature

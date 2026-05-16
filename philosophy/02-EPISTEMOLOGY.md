@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy:epistemology
+kind: guide
+module: philosophy
+section: philosophy
+title: 02 - Epistemology
+status: source-custody
+source_custody: partial
+current_path: philosophy/02-EPISTEMOLOGY.md
+canonical_path: philosophy/02-EPISTEMOLOGY.md
+backsource_ids: [proof-backfill:philosophy:02-epistemology, git-history:philosophy:02-epistemology]
+concepts: [epistemology]
+root_concepts: [epistemology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 02 — Epistemology
 
 ## Knowledge, Justification, Gettier, Reliabilism, Bayesian Epistemology

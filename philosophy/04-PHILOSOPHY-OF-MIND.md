@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy:philosophy-of-mind
+kind: guide
+module: philosophy
+section: philosophy
+title: 04 - Philosophy of Mind
+status: source-custody
+source_custody: partial
+current_path: philosophy/04-PHILOSOPHY-OF-MIND.md
+canonical_path: philosophy/04-PHILOSOPHY-OF-MIND.md
+backsource_ids: [proof-backfill:philosophy:04-philosophy-of-mind, git-history:philosophy:04-philosophy-of-mind]
+concepts: [philosophy, of, mind]
+root_concepts: [philosophy, of]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — Philosophy of Mind
 
 ## Consciousness, Functionalism, Qualia, Chinese Room, Extended Mind, AI

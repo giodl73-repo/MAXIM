@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:aeronautics:structures
+kind: guide
+module: aeronautics
+section: aeronautics
+title: 05 - Aerospace Structures
+status: source-custody
+source_custody: partial
+current_path: aeronautics/05-STRUCTURES.md
+canonical_path: aeronautics/05-STRUCTURES.md
+backsource_ids: [proof-backfill:aeronautics:05-structures, git-history:aeronautics:05-structures]
+concepts: [structures]
+root_concepts: [structures]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05 — Aerospace Structures
 
 ## Loads, Stress Analysis, Materials, Fatigue, Aeroelasticity, Certification
@@ -16,7 +35,7 @@
 │   Ground loads: landing impact, taxiing, towing, jacking                    │
 │   Pressurization: hoop stress in fuselage from cabin ΔP                     │
 │   Thermal loads: aerodynamic heating, CTE mismatch at joints                │
-│                              │                                              │
+│                           │                                                  │
 │                              ▼                                              │
 │  STRUCTURAL ANALYSIS (how the structure responds)                           │
 │   Global: stick model / beam model → internal forces (M, V, T)              │
@@ -60,13 +79,13 @@ SEMI-MONOCOQUE CONSTRUCTION:
 WING BOX CROSS-SECTION:
   ┌──────────────────────────────────────────────────┐
   │                  SKIN (upper)                    │
-  │  ┌─┐   ┌─┐ ┌─┐   ┌─┐    ← Stringers (Z/L/T)      │
-  │  │ │   │ │ │ │   │ │                             │
-  │──┼─┼───┼─┼─┼─┼───┼─┼──  ← FRONT SPAR (web+caps)│
-  │  │ │   │ │ │ │   │ │                             │
-  │──┼─┼───┼─┼─┼─┼───┼─┼──  ← REAR SPAR             │
-     │                                              │
-     │                  SKIN (lower)                │
+  │  [ ]   [ ] [ ]   [ ]    Stringers (Z/L/T)        │
+  │  | |   | | | |   | |                             │
+  │  ======= FRONT SPAR (web+caps) =======           │
+  │  | |   | | | |   | |                             │
+  │  =============== REAR SPAR ============          │
+  │                                                  │
+  │                  SKIN (lower)                    │
   └──────────────────────────────────────────────────┘
   Upper skin: compression (buckling critical)
   Lower skin: tension (fatigue critical)
@@ -378,7 +397,7 @@ SAFE-LIFE vs FAIL-SAFE vs DAMAGE TOLERANCE:
   │                  │ total failure; fuselage skin, stringers                │
   │                  │ Must sustain 80% design limit load with element failed  │
   ├──────────────────┼───────────────────────────────────────────────────────┤
-  │ Damage tolerant  │ Fracture mechanics; flaw assumed present; crack growth │
+  │ Damage tolerant  │ Fracture mechanics; flaw present; crack growth        │
   │                  │ rate analyzed; inspection interval set                │
   │                  │ Now dominant philosophy per FAR 25.571 Amendment 45   │
   └──────────────────┴───────────────────────────────────────────────────────┘

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "philosophy\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## Big Picture: The Philosophy Map",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│                         PHILOSOPHY                                       │\n│              The discipline that asks foundational questions             │\n│              that every other field assumes away                         │\n├────────────────────────────────┬─────────────────────────────────────────┤\n│  FORMAL / FOUNDATIONAL         │  SUBSTANTIVE                           │\n├────────────────────────────────┼─────────────────────────────────────────┤\n│  Logic & Formal Methods        │  Epistemology (theory of knowledge)     │\n│  ├── Propositional logic       │  ├── What is knowledge?                 │\n│  ├── Predicate (FOL)           │  ├── Justification & evidence           │\n│  ├── Modal logic               │  ├── Skepticism                         │\n│  ├── Proof theory              │  └── Bayesian epistemology              │\n│  └── Gödel's incompleteness    │                                         │\n│                                │  Metaphysics (nature of reality)        │\n│  Philosophy of Mathematics     │  ├── Ontology (what exists)             │\n│  ├── Platonism                 │  ├── Causation & laws                   │\n│  ├── Formalism (Hilbert)       │  ├── Time & persistence                 │\n│  ├── Intuitionism              │  └── Modality (possible worlds)         │\n│  └── Logicism (Frege/Russell)  │                                         │\n│                                │  Ethics & Political Philosophy          │\n│  Philosophy of Science         │  ├── Metaethics                         │\n│  ├── Demarcation               │  ├── Consequentialism                   │\n│  ├── Explanation               │  ├── Deontology (Kant)                  │\n│  ├── Scientific realism        │  └── Virtue ethics                      │\n│  └── Paradigm shifts (Kuhn)    │                                         │\n│                                │  Philosophy of Mind                     │\n│                                │  ├── Mind-body problem                  │\n│                                │  ├── Consciousness & qualia             │\n│                                │  ├── Functionalism                      │\n│                                │  └── AI & machine consciousness         │\n└────────────────────────────────┴─────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "### Gödel's Shadow Over Everything",
+      "confidence": "candidate",
+      "text": "Gödel's incompleteness theorems (1931) — the most philosophically important results in 20th-century\nmathematics, from an MIT TCS perspective:\n\n  FIRST INCOMPLETENESS THEOREM:\n  Any consistent formal system F strong enough to express arithmetic contains statements\n  that are true (in the standard model) but not provable in F.\n\n  Construction: Gödel numbering assigns natural numbers to formulas and proofs.\n    Construct: G ≡ \"G is not provable in F\"\n    If F proves G → F proves something false → F is inconsistent (contradiction)\n    If F proves ¬G → F proves G is provable → but then G is false in any model\n    where F is consistent → soundness violated\n    Conclusion: G is true but unprovable → F is incomplete.\n\n  SECOND INCOMPLETENESS THEOREM:\n  F cannot prove its own consistency, if F is consistent.\n    This killed Hilbert's Program: impossible to prove arithmetic consistent from within\n    arithmetic using only finitary methods.\n\n  TCS CONNECTION:\n    Halting problem undecidability (Turing 1936): reduction to Gödel\n    Rice's theorem: all non-trivial semantic properties of programs are undecidable\n    Kolmogorov complexity: no program can compute K(x) for all x (non-computability)\n    Proof assistants (Coq, Lean): must accept axioms on faith (can't prove consistency)\n    Curry-Howard: propositions-as-types → proof ≡ program; incompleteness = some types\n      are inhabited but you can't construct the term\n\n  PHILOSOPHICAL IMPLICATIONS:\n    Mathematical platonism vs formalism: if true statements exist beyond provability →\n      math has a reality independent of formal systems (Gödel was a Platonist)\n    Limits of mechanism: Lucas-Penrose argument (contested): human minds can see truths\n      formal systems cannot → mind ≠ algorithm (most logicians reject this)\n    Foundations crisis resolved pragmatically: ZFC as standard foundation; accept\n      unprovable axioms; move on",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "### Philosophy of Probability (Engineers Need This)",
+      "confidence": "candidate",
+      "text": "FREQUENTISM:\n  Probability = long-run relative frequency over repeated trials\n  P(heads) = limit of #heads / #flips as n → ∞\n  Problems: what about singular events? \"Probability WWII started in 1939\" has no repeatable\n    trial. Probability of life on Mars? Of a specific diagnosis?\n  Cannot handle priors; inference limited to frequentist procedures\n\nBAYESIANISM:\n  Probability = degree of rational belief\n  Prior P(H) + Evidence E → Posterior P(H|E) via Bayes' theorem\n  P(H|E) = P(E|H) × P(H) / P(E)\n  Coherence: rational agent's degrees of belief must be probabilities (Dutch Book argument)\n  Problem: subjectivity of priors; Bayesians disagree on which priors are rational\n\nSUBJECTIVE vs OBJECTIVE BAYESIANISM:\n  Subjective: any coherent prior is permissible (de Finetti)\n  Objective: some priors are uniquely rational (reference priors, maximum entropy)\n    Jaynes: maximum entropy principle → unique prior given constraints\n\nRELEVANCE TO ML/STATISTICS:\n  Maximum likelihood estimation: frequentist; regularization = implicit prior\n  Bayesian neural networks: full posterior over weights; uncertainty quantification\n  MCMC (Markov Chain Monte Carlo): sampling from posterior distributions\n  Bayes optimal classifier: minimizes expected loss under posterior\n  Frequentist hypothesis testing (p-values): not probability hypothesis is true;\n    probability of getting this data if null hypothesis were true\n    → p = 0.03 does not mean 97% chance hypothesis is true (base rate neglect)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 143,
+      "heading_context": "### Analytic vs Continental Philosophy",
+      "confidence": "candidate",
+      "text": "ANALYTIC PHILOSOPHY (dominant in US/UK/Australia):\n  Method: logical analysis of language; formal rigor; argument clarity\n  Exemplars: Frege, Russell, Wittgenstein (early), Carnap, Quine, Kripke\n  Relation to science: continuous; naturalized epistemology (Quine); philosophy as partner\n  Relation to TCS: logic, semantics, philosophy of math, mind → deep overlap\n\nCONTINENTAL PHILOSOPHY (France, Germany):\n  Method: hermeneutics, phenomenology, dialectics; history of ideas\n  Exemplars: Hegel, Husserl, Heidegger, Sartre, Derrida, Foucault\n  Different mode of inquiry; engages differently with science\n  Relevant for: philosophy of technology, social theory, critical theory of AI\n\nPRAGMATISM (American tradition):\n  Peirce: truth is what works for rational inquiry in the long run\n  James: truth is what is useful to believe\n  Dewey: naturalistic; inquiry as problem-solving; education as growth\n  Contemporary: Rorty (antirealist), Brandom (inferentialism)\n  Relevant: pragmatist AI evaluation (is it useful?) vs realist (does it understand?)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 287,
+      "heading_context": "## 3c. Philosophy of Mathematics (cross-reference: 01-LOGIC.md §5)",
+      "confidence": "candidate",
+      "text": "THE FOUNDATIONAL QUESTION: What are mathematical objects, and how do we know about them?\n\nPLATONISM (Mathematical Realism):\n  Mathematical objects (numbers, sets, functions) exist independently of minds.\n  Gödel was a Platonist: we perceive mathematical truths by \"mathematical intuition.\"\n  Explanatory virtue: why does math work so well in physics? (Wigner's \"unreasonable\n    effectiveness\") — if math is invented, this is mysterious; if discovered, less so.\n  Problem: epistemic access — how do we come into contact with abstract objects?\n\nFORMALISM (Hilbert):\n  Mathematics is manipulation of formal symbols according to rules.\n  No abstract objects; just strings and inference rules.\n  Decimated by Gödel: Hilbert's program (prove consistency of arithmetic by finitary\n    means) is impossible. Formalism must accept axioms on faith.\n\nLOGICISM (Frege, Russell):\n  Mathematics = logic; mathematical truths are logical truths.\n  Russell's Principia Mathematica: derive all math from logic.\n  Russell's paradox undermined naive set theory (set of all sets not members of themselves).\n  Type theory (Russell) as the fix → genealogy of modern type systems in PL.\n\nINTUITIONISM (Brouwer):\n  Mathematical objects are mental constructions; they exist only when constructed.\n  Consequence: reject law of excluded middle (¬¬P ≠ P constructively).\n  Proof must be constructive: existence proof by contradiction is illegitimate.\n  → Intuitionistic type theory (Martin-Löf) → Coq, Agda, Lean foundations.\n  → Curry-Howard: constructive proofs = programs; classical logic = programs with\n    control operators (callcc). The foundational position has real PL consequences.\n\nSTRUCTURALISM:\n  Mathematics is about structures, not specific objects.\n  Natural numbers: not specific objects but any ω-sequence satisfying Peano axioms.\n  Multiple realizations: the same structure can be instantiated differently.\n  Explains applicability: science uses mathematical structures; which objects fill\n    the structure roles is irrelevant.\n\nSee 01-LOGIC.md for proof theory, Gödel details, and proof assistants.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 331,
+      "heading_context": "### Decision Theory",
+      "confidence": "candidate",
+      "text": "EXPECTED UTILITY MAXIMIZATION:\n  Agent has utility function U over outcomes; beliefs = probability distribution\n  Chooses action a* = argmax_a Σ_s P(s) × U(outcome(a,s))\n  Von Neumann-Morgenstern theorem: if preferences satisfy rationality axioms →\n    can be represented by expected utility maximization\n\nPROBLEMS WITH EXPECTED UTILITY:\n  Allais paradox: people violate EU in predictable ways\n  Ellsberg paradox: ambiguity aversion (unknown vs known probability)\n  St. Petersburg paradox: infinite expected value; no rational max bid\n  Prospect theory (Kahneman-Tversky): descriptive model; loss aversion; probability weighting\n\nNEWCOMB'S PROBLEM:\n  Predictor puts $1M in box B if it predicts you take only box B; $0 if you take both\n  $1K in box A guaranteed; box B already set (opaque)\n  Two-box: dominant strategy (causal decision theory — cause of boxes already determined)\n  One-box: evidential decision theory (taking only B is evidence predictor put money there)\n  Relevance: CDT vs EDT in AI alignment; what decision theory to build into AI agents\n\nDUTCH BOOK ARGUMENT:\n  If your probability assignments are incoherent (not proper probability), a clever bookie\n  can construct a set of bets you'll accept that guarantees your loss\n  → Bayesian coherence is rationality requirement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 359,
+      "heading_context": "### Ethics and AI",
+      "confidence": "candidate",
+      "text": "TROLLEY PROBLEM (Philippa Foot, 1967):\n  Runaway trolley will kill 5; pull lever and divert to kill 1?\n  Most people: yes (utilitarian intuition)\n  Footbridge version: push fat man off bridge to stop trolley and save 5?\n  Most people: no (despite identical arithmetic)\n  → Distinction between doing and allowing; doctrine of double effect; agent-relative ethics\n  AUTONOMOUS VEHICLE VERSION: program car to kill X to save Y? Whose values? Legal liability?\n\nMORAL STATUS OF AI:\n  What properties confer moral status? Sentience (capacity for suffering)?\n    Consciousness? Rationality? Social relations?\n  If LLMs are not conscious: moral status = zero (no obligations to them)\n  If future AI has something like experience: moral consideration required\n  Difficulty: we lack reliable tests for consciousness even in humans (by analogy)\n\nAI ALIGNMENT (technical philosophy):\n  Value learning: RLHF trains on human feedback → which humans? Which preferences?\n    (Preference aggregation problem → Arrow's impossibility theorem applies)\n  Goodhart's Law: any measure used as a target ceases to be a good measure\n  Orthogonality thesis (Bostrom): intelligence and goals are orthogonal → any goal can be\n    combined with any level of intelligence (paperclip maximizer)\n  Instrumental convergence: sufficiently capable agents will pursue self-preservation,\n    goal-content integrity, capability acquisition regardless of terminal goals",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 389,
+      "heading_context": "## Bridge — Philosophy and Formal Engineering Practice",
+      "confidence": "candidate",
+      "text": "PHILOSOPHICAL POSITION          ENGINEERING / CS PARALLEL\n─────────────────────────────────────────────────────────────────\nGödel completeness vs.          Every formal system has limits.\nincompleteness:                 Type systems cannot catch all bugs.\nSome truths are beyond          Turing completeness ↔ halting\nprovable reach.                 undecidability. Rice's theorem:\n                                no semantic property of programs\n                                is decidable in general.\n                                Engineers live with this daily.\n\nHilbert's Program (formalize    Formal verification (TLA+, Coq,\neverything; prove consistency): Lean, Isabelle): provably correct\nfailed by Gödel, but the        code. You accept axioms on faith\npractice lives on in            (OS correctness, compiler, hardware).\nproof-assistant culture.        seL4 verified kernel; CompCert\n                                verified C compiler. Hilbert's\n                                dream, bounded.\n\nPhilosophical foundations of    Schema-first (relational, typed):\nknowledge (rationalism vs.      rationalist architecture — structure\nempiricism):                    imposed before data arrives.\nHow much structure to impose    Schema-last (NoSQL, document store):\non data vs. let it emerge.      empiricist — let structure emerge\n                                from the data itself.\n                                Any data architect has made this\n                                trade-off explicitly.\n\nKuhn's paradigm shifts:         Platform migrations: every 10-15\nNormal science → crisis →       years, a new computational paradigm\nnew paradigm. The old paradigm  replaces the old.\nis incommensurable with the     mainframe → client-server → web →\nnew; no neutral comparison.     cloud → mobile → AI.\n                                Old skills don't directly transfer;\n                                the new paradigm has its own\n                                ontology (containers ≠ VMs, even\n                                though they serve some of the same\n                                function). You cannot evaluate the\n                                new paradigm from entirely within\n                                the old one's terms.\n\nRawlsian veil of ignorance:     API design and system design under\nDesign principles without       uncertainty about who the caller will\nknowing your position.          be. Design contracts that are fair\n                                to all future callers, not just the\n                                first one you have in mind.\n                                \"You are not the user.\"\n\nArrow's Impossibility Theorem:  No aggregation of diverse team\nNo consistent social choice     preferences (on architecture, stack,\nfunction satisfying basic       process) satisfies all fairness\nfairness axioms exists.         criteria simultaneously. Org\n                                decision-making is inherently\n                                constrained by impossibility results.\n                                Acknowledgment of this is more\n                                productive than searching for the\n                                \"right\" aggregation procedure.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

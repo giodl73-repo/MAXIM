@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:aeronautics:avionics
+kind: guide
+module: aeronautics
+section: aeronautics
+title: 04 - Avionics
+status: source-custody
+source_custody: partial
+current_path: aeronautics/04-AVIONICS.md
+canonical_path: aeronautics/04-AVIONICS.md
+backsource_ids: [proof-backfill:aeronautics:04-avionics, git-history:aeronautics:04-avionics]
+concepts: [avionics]
+root_concepts: [avionics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — Avionics
 
 ## Navigation, Autopilot, Sensor Fusion, Data Buses, Displays, Surveillance
@@ -302,7 +321,7 @@ AUTOPILOT CONTROL LAW ARCHITECTURE:
   │                                                                  │
   │  AUTOTHROTTLE (AT):                                              │
   │  Speed mode: target CAS/Mach → throttle PID                      │
-  │  Thrust mode: N1/EPR target → throttle PID (for CLMB, MCT, IDLE)│
+  │  Thrust mode: N1/EPR target → throttle PID (for CLMB, MCT, IDLE) │
   └──────────────────────────────────────────────────────────────────┘
 
 AUTOPILOT MODES (Airbus A320-family nomenclature):
