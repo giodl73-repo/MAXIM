@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:marine-biology:marine-ecology
+kind: guide
+module: marine-biology
+section: marine-biology
+title: Marine Food Webs and Trophic Dynamics
+status: source-custody
+source_custody: partial
+current_path: marine-biology/08-MARINE-ECOLOGY.md
+canonical_path: marine-biology/08-MARINE-ECOLOGY.md
+backsource_ids: [proof-backfill:marine-biology:08-marine-ecology, git-history:marine-biology:08-marine-ecology]
+concepts: [marine, ecology]
+root_concepts: [marine, ecology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Marine Food Webs and Trophic Dynamics
 
 ## The Big Picture

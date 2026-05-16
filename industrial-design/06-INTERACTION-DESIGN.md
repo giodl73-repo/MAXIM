@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:industrial-design:interaction-design
+kind: guide
+module: industrial-design
+section: industrial-design
+title: Product to Interaction Design
+status: source-custody
+source_custody: partial
+current_path: industrial-design/06-INTERACTION-DESIGN.md
+canonical_path: industrial-design/06-INTERACTION-DESIGN.md
+backsource_ids: [proof-backfill:industrial-design:06-interaction-design, git-history:industrial-design:06-interaction-design]
+concepts: [interaction, design]
+root_concepts: [interaction, design]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Product to Interaction Design
 
 ## The Big Picture
@@ -105,7 +124,7 @@ EXAMPLES:
 DIGITAL AFFORDANCES:
   Buttons that look raised/3D (skeuomorphic): afford pressing
   Underlined blue text: affords clicking (learned convention)
-  Drag handle: ☰ icon affords drag (learned convention)
+  Drag handle: hamburger icon affords drag (learned convention)
   The "flat design" problem: buttons that don't look like buttons
   are buttons that violate their affordance
 ```

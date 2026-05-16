@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "industrial-design\\04-MATERIALS-MANUFACTURING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|           DFM: DESIGN FOR MANUFACTURABILITY                          |\n|                                                                      |\n|  DESIGN INTENT            MANUFACTURING CONSTRAINT     RESULT        |\n|  (what designer wants)    (what process allows)         (trade-offs) |\n|                                                                      |\n|  Sharp internal corner    Injection mold min radius     Radii needed |\n|  Perfectly flat surface   Warpage in plastics           Ribs needed  |\n|  Invisible seam           Parting line always visible   Locate seam  |\n|  Uniform wall thickness   Thin walls cool unevenly      Redesign     |\n|  Seamless enclosure       Assembly requires access      Add seam     |\n|  Tight tolerances         Cost scales with precision    Relax specs  |\n|                                                                      |\n|  BRIDGE: This is exactly constraints programming. The design         |\n|  solution space is the intersection of:                              |\n|  aesthetic intent ∩ engineering specs ∩ manufacturing envelope       |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 52,
+      "heading_context": "### Material Properties That Drive Design Choice",
+      "confidence": "candidate",
+      "text": "MATERIAL PROPERTIES MATRIX\n\nPROPERTY          WHAT IT DETERMINES                 TESTING METHOD\n-----------------+----------------------------------+------------------\nTensile strength  Maximum stress before failure      ASTM D638 (plastics)\n                  Wall thickness; rib spacing         ASTM E8 (metals)\n\nStiffness (E)     Deflection under load              Flexural modulus\n                  Snap-fit design; hinge design       Young's modulus\n\nHardness          Surface scratch resistance          Shore A/D (plastics)\n                  Durability of visible surfaces      Rockwell (metals)\n\nImpact strength   Drop resistance                    Charpy/Izod test\n                  How thick walls must be\n\nThermal expansion How dimensions change with temp    CTE value\n                  Joint design; outdoor products\n\nDensity           Weight; shipping cost              g/cm3\n                  Perceived quality (\"heft\")\n\nChemical resist.  Cleaning products, solvents        Exposure tests\n                  Medical/food contact compatibility\n\nColor capability  Whether can achieve desired color  Pigment compatibility\n                  UV stability of color over time\n\nCost per kg       Direct manufacturing cost          Market price",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "### Injection Molding",
+      "confidence": "candidate",
+      "text": "INJECTION MOLDING: HOW IT WORKS\n\nPROCESS:\n  1. Plastic pellets melted in heated barrel (200-300°C)\n  2. Screw pushes molten plastic into closed mold\n  3. Mold chilled; plastic solidifies (seconds to minutes)\n  4. Mold opens; part ejected\n  5. Repeat: cycle time 15 seconds to 5 minutes\n\nECONOMIC MODEL:\n  Mold cost: $5,000 (simple) to $500,000 (complex)\n  Part cost: $0.05 (simple, large volume) to $50 (complex, small volume)\n  Break-even: typically 10,000-100,000 units before mold cost amortized\n  Volume sweet spot: 10,000+ units per year\n\nDESIGN RULES:\n  1. DRAFT ANGLES:\n     Walls must taper 1-3 degrees (helps part release from mold)\n     No vertical walls (locked in mold)\n\n  2. UNIFORM WALL THICKNESS:\n     Thick sections cool slower -> sink marks on surface\n     Target: 1.5-3mm wall thickness; avoid thick bosses\n     Use ribs (thin fins) instead of solid thick sections for stiffness\n\n  3. NO UNDERCUTS (or use slides):\n     An undercut is a feature that prevents part from sliding out of mold\n     Options: design to avoid; add side action (costly); use collapsible core\n\n  4. PARTING LINE:\n     Where the two mold halves meet; always visible as a seam\n     Design locations the parting line will appear; make it a feature\n\n  5. GATE AND RUNNERS:\n     Where plastic enters: small mark always visible\n     Locate gate in hidden area or design gate scar into feature\n\n  6. MINIMUM FEATURE SIZE:\n     Text: minimum 0.5mm depth; prefer 0.8mm\n     Holes: minimum 0.8mm; prefer 1.5mm\n     Walls: minimum 0.6mm; prefer 1.2mm+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 298,
+      "heading_context": "### Sheet Metal",
+      "confidence": "candidate",
+      "text": "### 3D Printing / Additive Manufacturing",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 300,
+      "heading_context": "### 3D Printing / Additive Manufacturing",
+      "confidence": "candidate",
+      "text": "3D PRINTING PROCESSES COMPARISON\n\nPROCESS         MATERIAL      ACCURACY    SURFACE    USE IN DESIGN\n--------------+-------------+-----------+-----------+------------------\nFDM            Thermoplastics  Low       Visible     Early concept\n(Fused Dep.)   (PLA, ABS, PETG) ±0.5mm  layer lines  models\n\nSLA            Photopolymer    High      Smooth      Appearance models\n(Stereolith.)  resin           ±0.1mm   (post-cure)  fine detail test\n\nSLS            Nylon, PA       Medium    Slightly    Functional parts;\n(Selective     powder          ±0.2mm   rough       small mechanisms\nLaser Sint.)\n\nMJF            PA12 nylon      High      Smooth      Production-grade\n(Multi Jet     (HP process)    ±0.1mm                small volumes\nFusion)\n\nDMLS/SLM       Metal powder    High      Rough pre-  Production metal\n(Metal SLS)    (Ti, SS, Al)    ±0.1mm   finish      < 100 parts\n\nDESIGN FOR ADDITIVE:\n  -- Overhangs > 45 degrees require support (FDM/SLA)\n  -- No mold cost; no draft angles required\n  -- Internal geometries possible (lattices, internal channels)\n  -- Anisotropic: strength varies by print direction\n  -- NOT for mass production (cost per part too high)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 334,
+      "heading_context": "## Surface Finishing: Where Aesthetics Meet Manufacturing",
+      "confidence": "candidate",
+      "text": "SURFACE FINISH OPTIONS\n\nPROCESS              MATERIALS     EFFECT              DESIGN USE\n-------------------+-------------+-------------------+-----------------\nANODIZING          Aluminum      Hard colored oxide   Consumer electronics\n                                 layer; 5-20 micron   Space Gray, Gold,\n                                 thickness            Silver on Apple\n\nPAINTING           Any solid     Any color; texture   Automotive; appliances\n                   substrate     options (matte/gloss/ Consumer electronics\n                                 texture)             (PC era Thinkpads)\n\nPOWDER COATING     Metal         Tough, durable;      Industrial; furniture;\n                                 textured options     outdoor equipment\n\nPLATING            Metal or      Thin metal layer     Watch bezels; jewelry;\n(electroplating)   plateable     (chrome, nickel,     connector contacts\n                   plastic       gold, silver)\n\nPVD COATING        Metal         Very hard thin film   Watch cases (DLC =\n(Physical Vapor    (and some      (black, rainbow,     diamond-like carbon);\nDeposition)        plastics)      gold effects)        Apple Watch Ultra\n\nBRUSHING           Aluminum,     Directional texture   Apple product sides;\n                   stainless     (satin finish)        architectural\n\nPOLISHING          Metal         Mirror finish         Watch cases;\n                                                       medical devices\n\nIN-MOLD DECORATION Plastic       Pattern/texture       Automotive interior;\n(IMD)                            trapped under         consumer electronics\n                                 plastic surface       textured surfaces\n\nTEXTURE (mold)     Plastic       Mold surface texture  Tool grip surfaces;\n                   injection     transferred directly   anti-fingerprint",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

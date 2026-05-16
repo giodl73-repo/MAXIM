@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:marine-biology:bioluminescence
+kind: guide
+module: marine-biology
+section: marine-biology
+title: Bioluminescence: Mechanisms and Functions
+status: source-custody
+source_custody: partial
+current_path: marine-biology/07-BIOLUMINESCENCE.md
+canonical_path: marine-biology/07-BIOLUMINESCENCE.md
+backsource_ids: [proof-backfill:marine-biology:07-bioluminescence, git-history:marine-biology:07-bioluminescence]
+concepts: [bioluminescence]
+root_concepts: [bioluminescence]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bioluminescence: Mechanisms and Functions
 
 ## The Big Picture

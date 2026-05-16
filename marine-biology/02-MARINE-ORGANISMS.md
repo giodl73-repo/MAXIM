@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:marine-biology:marine-organisms
+kind: guide
+module: marine-biology
+section: marine-biology
+title: Major Marine Organism Groups
+status: source-custody
+source_custody: partial
+current_path: marine-biology/02-MARINE-ORGANISMS.md
+canonical_path: marine-biology/02-MARINE-ORGANISMS.md
+backsource_ids: [proof-backfill:marine-biology:02-marine-organisms, git-history:marine-biology:02-marine-organisms]
+concepts: [marine, organisms]
+root_concepts: [marine, organisms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Major Marine Organism Groups
 
 ## The Big Picture

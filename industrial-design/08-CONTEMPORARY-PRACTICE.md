@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:industrial-design:contemporary-practice
+kind: guide
+module: industrial-design
+section: industrial-design
+title: Contemporary Practice and Digital Tools
+status: source-custody
+source_custody: partial
+current_path: industrial-design/08-CONTEMPORARY-PRACTICE.md
+canonical_path: industrial-design/08-CONTEMPORARY-PRACTICE.md
+backsource_ids: [proof-backfill:industrial-design:08-contemporary-practice, git-history:industrial-design:08-contemporary-practice]
+concepts: [contemporary, practice]
+root_concepts: [contemporary, practice]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Contemporary Practice and Digital Tools
 
 ## The Big Picture

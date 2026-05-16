@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:marine-biology:deep-sea
+kind: guide
+module: marine-biology
+section: marine-biology
+title: Deep Sea: The Alien Biosphere
+status: source-custody
+source_custody: partial
+current_path: marine-biology/05-DEEP-SEA.md
+canonical_path: marine-biology/05-DEEP-SEA.md
+backsource_ids: [proof-backfill:marine-biology:05-deep-sea, git-history:marine-biology:05-deep-sea]
+concepts: [deep, sea]
+root_concepts: [deep, sea]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Deep Sea: The Alien Biosphere
 
 ## The Big Picture

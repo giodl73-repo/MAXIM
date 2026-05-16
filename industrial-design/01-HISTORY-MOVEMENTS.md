@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:industrial-design:history-movements
+kind: guide
+module: industrial-design
+section: industrial-design
+title: Industrial Design History: Bauhaus, Streamlining, and Modernism
+status: source-custody
+source_custody: partial
+current_path: industrial-design/01-HISTORY-MOVEMENTS.md
+canonical_path: industrial-design/01-HISTORY-MOVEMENTS.md
+backsource_ids: [proof-backfill:industrial-design:01-history-movements, git-history:industrial-design:01-history-movements]
+concepts: [history, movements]
+root_concepts: [history, movements]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Industrial Design History: Bauhaus, Streamlining, and Modernism
 
 ## The Big Picture

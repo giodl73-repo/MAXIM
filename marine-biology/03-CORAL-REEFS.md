@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:marine-biology:coral-reefs
+kind: guide
+module: marine-biology
+section: marine-biology
+title: Coral Reef Ecosystems
+status: source-custody
+source_custody: partial
+current_path: marine-biology/03-CORAL-REEFS.md
+canonical_path: marine-biology/03-CORAL-REEFS.md
+backsource_ids: [proof-backfill:marine-biology:03-coral-reefs, git-history:marine-biology:03-coral-reefs]
+concepts: [coral, reefs]
+root_concepts: [coral, reefs]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Coral Reef Ecosystems
 
 ## The Big Picture

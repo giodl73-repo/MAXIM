@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:industrial-design:sustainability
+kind: guide
+module: industrial-design
+section: industrial-design
+title: Sustainable Design and Circular Economy
+status: source-custody
+source_custody: partial
+current_path: industrial-design/07-SUSTAINABILITY.md
+canonical_path: industrial-design/07-SUSTAINABILITY.md
+backsource_ids: [proof-backfill:industrial-design:07-sustainability, git-history:industrial-design:07-sustainability]
+concepts: [sustainability]
+root_concepts: [sustainability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sustainable Design and Circular Economy
 
 ## The Big Picture

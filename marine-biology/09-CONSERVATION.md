@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:marine-biology:conservation
+kind: guide
+module: marine-biology
+section: marine-biology
+title: Marine Conservation and Anthropogenic Impacts
+status: source-custody
+source_custody: partial
+current_path: marine-biology/09-CONSERVATION.md
+canonical_path: marine-biology/09-CONSERVATION.md
+backsource_ids: [proof-backfill:marine-biology:09-conservation, git-history:marine-biology:09-conservation]
+concepts: [conservation]
+root_concepts: [conservation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Marine Conservation and Anthropogenic Impacts
 
 ## The Big Picture
