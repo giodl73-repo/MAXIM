@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:botany:stems-wood
+kind: guide
+module: botany
+section: botany
+title: Stems and Wood - Primary Growth, Secondary Growth, and Dendrochronology
+status: source-custody
+source_custody: partial
+current_path: botany/03-STEMS-WOOD.md
+canonical_path: botany/03-STEMS-WOOD.md
+backsource_ids: [proof-backfill:botany:03-stems-wood, git-history:botany:03-stems-wood]
+concepts: [stems, wood]
+root_concepts: [stems, wood]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stems and Wood — Primary Growth, Secondary Growth, and Dendrochronology
 
 ## The Big Picture

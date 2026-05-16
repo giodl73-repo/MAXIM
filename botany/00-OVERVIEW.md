@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:botany:overview
+kind: guide
+module: botany
+section: botany
+title: Botany - Overview: The Plant Kingdom
+status: source-custody
+source_custody: partial
+current_path: botany/00-OVERVIEW.md
+canonical_path: botany/00-OVERVIEW.md
+backsource_ids: [proof-backfill:botany:00-overview, git-history:botany:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Botany — Overview: The Plant Kingdom
 
 ## The Big Picture

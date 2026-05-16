@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:food-plants:stimulant-crops
+kind: guide
+module: food-plants
+section: food-plants
+title: Stimulant Crops - Coffee, Tea, and Cacao
+status: source-custody
+source_custody: partial
+current_path: food-plants/08-STIMULANT-CROPS.md
+canonical_path: food-plants/08-STIMULANT-CROPS.md
+backsource_ids: [proof-backfill:food-plants:08-stimulant-crops, git-history:food-plants:08-stimulant-crops]
+concepts: [stimulant, crops]
+root_concepts: [stimulant, crops]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stimulant Crops — Coffee, Tea, and Cacao
 
 ## The Big Picture

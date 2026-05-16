@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:food-plants:legumes
+kind: guide
+module: food-plants
+section: food-plants
+title: Legumes - Nitrogen Fixation and Protein Architecture
+status: source-custody
+source_custody: partial
+current_path: food-plants/02-LEGUMES.md
+canonical_path: food-plants/02-LEGUMES.md
+backsource_ids: [proof-backfill:food-plants:02-legumes, git-history:food-plants:02-legumes]
+concepts: [legumes]
+root_concepts: [legumes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Legumes — Nitrogen Fixation and Protein Architecture
 
 ## The Big Picture

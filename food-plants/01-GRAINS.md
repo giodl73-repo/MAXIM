@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:food-plants:grains
+kind: guide
+module: food-plants
+section: food-plants
+title: Grains - The Grass Family Feeds the World
+status: source-custody
+source_custody: partial
+current_path: food-plants/01-GRAINS.md
+canonical_path: food-plants/01-GRAINS.md
+backsource_ids: [proof-backfill:food-plants:01-grains, git-history:food-plants:01-grains]
+concepts: [grains]
+root_concepts: [grains]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Grains — The Grass Family Feeds the World
 
 ## The Big Picture

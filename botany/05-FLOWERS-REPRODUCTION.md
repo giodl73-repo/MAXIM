@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:botany:flowers-reproduction
+kind: guide
+module: botany
+section: botany
+title: Flowers and Reproduction - Pollination, Double Fertilization, and Seed Dispersal
+status: source-custody
+source_custody: partial
+current_path: botany/05-FLOWERS-REPRODUCTION.md
+canonical_path: botany/05-FLOWERS-REPRODUCTION.md
+backsource_ids: [proof-backfill:botany:05-flowers-reproduction, git-history:botany:05-flowers-reproduction]
+concepts: [flowers, reproduction]
+root_concepts: [flowers, reproduction]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Flowers and Reproduction — Pollination, Double Fertilization, and Seed Dispersal
 
 ## The Big Picture

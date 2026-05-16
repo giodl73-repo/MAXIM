@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:food-plants:fruits
+kind: guide
+module: food-plants
+section: food-plants
+title: Fruits - Apple, Citrus, Banana, and the Geometry of Seed Dispersal
+status: source-custody
+source_custody: partial
+current_path: food-plants/04-FRUITS.md
+canonical_path: food-plants/04-FRUITS.md
+backsource_ids: [proof-backfill:food-plants:04-fruits, git-history:food-plants:04-fruits]
+concepts: [fruits]
+root_concepts: [fruits]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fruits — Apple, Citrus, Banana, and the Geometry of Seed Dispersal
 
 ## The Big Picture

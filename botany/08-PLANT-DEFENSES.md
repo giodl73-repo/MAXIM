@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:botany:plant-defenses
+kind: guide
+module: botany
+section: botany
+title: Plant Defenses - Alkaloids, Terpenes, Phenolics, and the Arms Race
+status: source-custody
+source_custody: partial
+current_path: botany/08-PLANT-DEFENSES.md
+canonical_path: botany/08-PLANT-DEFENSES.md
+backsource_ids: [proof-backfill:botany:08-plant-defenses, git-history:botany:08-plant-defenses]
+concepts: [plant, defenses]
+root_concepts: [plant, defenses]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Plant Defenses — Alkaloids, Terpenes, Phenolics, and the Arms Race
 
 ## The Big Picture

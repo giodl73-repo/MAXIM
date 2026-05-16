@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:food-plants:root-tubers
+kind: guide
+module: food-plants
+section: food-plants
+title: Root Crops and Tubers - Underground Storage, Global Consequences
+status: source-custody
+source_custody: partial
+current_path: food-plants/03-ROOT-TUBERS.md
+canonical_path: food-plants/03-ROOT-TUBERS.md
+backsource_ids: [proof-backfill:food-plants:03-root-tubers, git-history:food-plants:03-root-tubers]
+concepts: [root, tubers]
+root_concepts: [root, tubers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Root Crops and Tubers — Underground Storage, Global Consequences
 
 ## The Big Picture
