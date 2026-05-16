@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cartography\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## Maps as Compressed Worldview",
+      "confidence": "candidate",
+      "text": "THE CARTOGRAPHIC STACK\n═══════════════════════════════════════════════════════════════════════\n\n  REALITY: 3D rotating ellipsoidal Earth with complex terrain\n           covered in cultural and physical features\n\n  ↓  GEODESY: measure the actual shape precisely\n     (geoid, reference ellipsoid, datum — see 05-TRIANGULATION)\n\n  ↓  PROJECTION: map curved surface → flat plane\n     (introduces distortion — shape, area, distance, direction)\n     (one property preserved at cost of others — see 04-PROJECTIONS)\n\n  ↓  SCALE: decide level of abstraction\n     (1:1,000 = detailed; 1:50,000,000 = continental)\n\n  ↓  GENERALIZATION: simplify features for chosen scale\n     (coastlines, road networks, label density)\n\n  ↓  SYMBOLIZATION: encode information as visual variables\n     (color, size, shape, pattern, orientation, value)\n\n  ↓  MAP: flat, bounded, finite representation\n     (always a lie — the useful kind)\n\n═══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 63,
+      "heading_context": "## The Fundamental Impossibility",
+      "confidence": "candidate",
+      "text": "GAUSSIAN CURVATURE — THE CORE PROBLEM\n══════════════════════════════════════════════════════════════\n\n  Gaussian curvature K = κ₁ × κ₂\n  (product of principal curvatures at a point)\n\n  Sphere:  K = 1/r²  > 0  (positive — curves in both directions)\n  Plane:   K = 0          (flat)\n\n  Theorema Egregium (Gauss, 1827):\n  Gaussian curvature is an intrinsic property — invariant\n  under any isometric (distance-preserving) transformation.\n\n  ∴  No isometric map from sphere to plane is possible.\n\n  Translation: You CANNOT preserve all of these simultaneously:\n  ┌────────────────────────────────────────────────────────┐\n  │  AREA      — regions have correct relative sizes       │\n  │  SHAPE     — angles preserved at every point           │\n  │  DISTANCE  — distances to/from one point correct       │\n  │  DIRECTION — bearing between any two points correct    │\n  └────────────────────────────────────────────────────────┘\n\n  Every projection preserves some subset at cost of others.\n  The choice of projection is the choice of acceptable lies.\n\n══════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## Map Type Taxonomy",
+      "confidence": "candidate",
+      "text": "MAP TYPES — FULL TAXONOMY\n═══════════════════════════════════════════════════════════════════════════════\n\n  PRIMARY PURPOSE\n  ├── REFERENCE MAPS — \"where is this?\"\n  │   ├── Topographic  — terrain, elevation, named features\n  │   ├── Road/street  — transportation network\n  │   ├── Political    — borders, capitals, admin divisions\n  │   ├── Nautical chart — depths (bathymetry), hazards, aids to nav\n  │   └── Aeronautical — airways, airspace, elevation (for pilots)\n  │\n  ├── THEMATIC MAPS — \"what quantity varies where?\"\n  │   ├── Choropleth     — shaded regions by variable (GDP, votes)\n  │   ├── Dot density    — dots proportional to count\n  │   ├── Proportional symbol — circles/squares scaled to value\n  │   ├── Isoline/isopleth   — contour lines (elevation, temperature)\n  │   ├── Cartogram      — area distorted by data variable\n  │   ├── Flow map       — lines showing movement/volume\n  │   └── Heat map       — continuous density surface\n  │\n  └── NAVIGATIONAL MAPS — \"how do I get there?\"\n      ├── Portolan chart  — medieval sailing directions\n      ├── Mercator chart  — rhumb line navigation\n      ├── Great circle charts — shortest path (air/sea)\n      └── Digital turn-by-turn — routed graph with real-time data\n\n  SCALE RANGES\n  ├── Large scale    — 1:1,000 to 1:50,000   (detailed, small area)\n  ├── Medium scale   — 1:50,000 to 1:500,000 (regional)\n  └── Small scale    — 1:500,000+             (continental, world)\n\n  NOTE: \"large scale\" = large ratio = zoomed in (confusingly named)\n        1:1,000 shows more detail than 1:1,000,000\n\n═══════════════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 143,
+      "heading_context": "## Historical Arc",
+      "confidence": "candidate",
+      "text": "CARTOGRAPHIC HISTORY — TIMELINE OF BREAKTHROUGHS\n══════════════════════════════════════════════════════════════════════════════\n\n  600 BCE  Babylonian World Map (clay tablet)\n           ┌────────────────────────────────────────────────────────┐\n           │ Ocean ring surrounding disk of earth                   │\n           │ Babylon at center; mythological outer regions          │\n           │ PURPOSE: cosmological / sacred, not navigational       │\n           └────────────────────────────────────────────────────────┘\n\n  ~150 CE  Ptolemy's Geographia\n           ┌────────────────────────────────────────────────────────┐\n           │ Coordinate system: latitude/longitude                  │\n           │ Conic projection (first systematic projection)         │\n           │ 8,000 named places with coordinates                    │\n           │ PURPOSE: geographic reference, first \"scientific\" map  │\n           │ PROBLEM: Mediterranean ~25% too long (cumulative error)│\n           └────────────────────────────────────────────────────────┘\n\n  4th–5th c  Peutinger Table (Roman itinerary)\n           ┌────────────────────────────────────────────────────────┐\n           │ Distance between places, not geographic accuracy       │\n           │ Roads, towns, way stations across Roman Empire         │\n           │ PURPOSE: logistics and military routing                │\n           └────────────────────────────────────────────────────────┘\n\n  ~1300    T-O Maps (mappa mundi)\n           ┌────────────────────────────────────────────────────────┐\n           │ Jerusalem at center, East at top, Ocean surrounding    │\n           │ Theological cosmography, not navigation                │\n           │ Hereford Mappa Mundi (~1300) — most famous example     │\n           └────────────────────────────────────────────────────────┘\n\n  13th c.  Portolan Charts\n           ┌────────────────────────────────────────────────────────┐\n           │ Mediterranean sailing charts — empirically accurate    │\n           │ No coordinate grid; purely measurement-based           │\n           │ Compass rose network, accurate coastlines              │\n           │ PURPOSE: navigation. Accurate without theory.          │\n           └────────────────────────────────────────────────────────┘\n\n  1406     Ptolemy rediscovered in Western Europe (Florence)\n  1492     Columbus crosses Atlantic using dead reckoning\n  1507     Waldseemüller names America — maps naming the world\n  1569     Mercator's projection\n           ┌────────────────────────────────────────────────────────┐\n           │ Rhumb lines as straight lines                          │\n           │ The navigator's essential tool for 400+ years          │\n           │ Area distortion at poles accepted as trade-off         │\n           └────────────────────────────────────────────────────────┘\n\n  1600s–   National Triangulation Surveys\n  1800s    ┌────────────────────────────────────────────────────────┐\n           │ France, Britain, India — precision measurement         │\n           │ Establishes accurate base for national topographic maps│\n           │ Discovers Earth is oblate spheroid, not perfect sphere │\n           └────────────────────────────────────────────────────────┘\n\n  1854     John Snow's cholera map — thematic mapping as science\n  1869     Minard's Napoleon campaign map — 6 variables, 2D plane\n\n  1900s    Aerial photography → photogrammetry → systematic coverage\n  1960s    Corona satellite — first overhead imagery of denied areas\n  1960s    Roger Tomlinson's GIS — Canada Land Inventory\n           ┌────────────────────────────────────────────────────────┐\n           │ Maps become computable data, not just documents        │\n           └────────────────────────────────────────────────────────┘\n\n  1972     Landsat 1 — first civilian multispectral satellite\n  1978     GPS satellites begin launching (NAVSTAR)\n  1995     GPS fully operational (24 satellites); Corona declassified\n  2000     Selective Availability removed — 10m accuracy for all\n  2004     OpenStreetMap founded\n  2005     Google Maps launches — the AJAX slippy map revolution\n  2010s    LiDAR archaeology; drone surveys; vector tiles\n  2020s    Planet Labs — daily imaging of entire Earth's surface\n\n══════════════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 242,
+      "heading_context": "## The Projection Zoo — Preview",
+      "confidence": "candidate",
+      "text": "PROJECTION TRADEOFF SPACE\n══════════════════════════════════════════════════════════════\n\n  PRESERVE AREA              PRESERVE SHAPE\n  (equal-area)               (conformal)\n       │                          │\n  Mollweide               Mercator (cylindrical)\n  Gall-Peters             Lambert Conformal Conic\n  Goode's Homolosine      Stereographic\n  Albers Equal-Area       Transverse Mercator\n       │                          │\n       └──────────┬───────────────┘\n                  │\n            COMPROMISE\n            (neither perfectly)\n            ├── Robinson\n            ├── Winkel Tripel (National Geographic standard)\n            └── Natural Earth\n\n  SPECIAL PURPOSE:\n  ├── Gnomonic     — great circles as straight lines (navigation)\n  ├── Azimuthal equidistant — distances from center correct (polar)\n  └── Orthographic — looks like globe from space (aesthetic)\n\n══════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 281,
+      "heading_context": "## Bridges",
+      "confidence": "candidate",
+      "text": "The tile scheme is a **quadtree**: zoom level z gives a 2^z x 2^z grid, and tile (z,x,y) contains exactly 4 children at (z+1, 2x, 2y), (z+1, 2x+1, 2y), (z+1, 2x, 2y+1), (z+1, 2x+1, 2y+1). The tile URL encodes the quadtree path. This is the same spatial indexing structure used in spatial databases (R-tree) and game engines (octree).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 283,
+      "heading_context": "## Bridges",
+      "confidence": "candidate",
+      "text": "**GIS as spatial database**: GIS = relational database + geometry column type + spatial index (R-tree) + spatial predicates (ST_Intersects, ST_DWithin, ST_Buffer). Tomlinson's 1963 insight was that **map overlay = relational join** — two thematic layers overlaid spatially is the same operation as joining two tables on a shared key. PostGIS is PostgreSQL extended with this. Any database-familiar engineer can reason about GIS operations as SQL with a geometry type.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 345,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "GIS is the discipline. ArcGIS (Esri) is one commercial implementation. QGIS (open-source), PostGIS (spatial database), GRASS, and Google Earth Engine are equally valid tools. The conceptual framework (spatial data + topology + overlay analysis) is tool-independent.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

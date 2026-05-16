@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cartography\\09-GPS-DIGITAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## From Atomic Clocks to Slippy Maps",
+      "confidence": "candidate",
+      "text": "GPS → DIGITAL MAP STACK\n══════════════════════════════════════════════════════════════════════\n\n  POSITIONING:\n  GPS satellites (orbital mechanics + atomic clocks)\n    ↓ radio signals (L1/L2 frequencies)\n  GPS receiver (trilateration → position fix)\n    ↓ WGS84 (lat/lon/altitude)\n\n  MAPPING DATA:\n  OpenStreetMap contributors / Google surveys\n    ↓ vector data (roads, POIs, buildings)\n  Tile server (renders map tiles at each zoom level)\n    ↓ z/x/y tile coordinates\n  CDN (caches tiles globally)\n    ↓ HTTP tile requests\n\n  WEB APPLICATION:\n  JavaScript (Leaflet / MapboxGL / Google Maps API)\n    ↓ combines: GPS position + map tiles + routing\n  User: sees themselves as a dot on a map\n         gets turn-by-turn directions\n         sees live traffic overlay\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## GPS Architecture — How It Works",
+      "confidence": "candidate",
+      "text": "GPS SYSTEM ARCHITECTURE\n══════════════════════════════════════════════════════════════════════\n\n  SPACE SEGMENT:\n  ┌──────────────────────────────────────────────────────────┐\n  │  24 operational satellites (+ spares, currently ~31)     │\n  │  6 orbital planes, 4 satellites per plane                │\n  │  Altitude: 20,200 km (medium Earth orbit)                │\n  │  Inclination: 55° (covers ±55° latitude well)            │\n  │  Orbital period: ~11h 58min (2 orbits per sidereal day)  │\n  │  Guarantee: 4+ satellites visible anywhere on Earth      │\n  │             > 95% of time (more typically 6–12 visible)  │\n  │                                                          │\n  │  Each satellite carries:                                 │\n  │  - 2–4 cesium atomic clocks (accurate to 1ns/day)        │\n  │  - Transmitters broadcasting on L1 (1575.42 MHz) and     │\n  │    L2 (1227.60 MHz)                                      │\n  └──────────────────────────────────────────────────────────┘\n\n  CONTROL SEGMENT:\n  ┌──────────────────────────────────────────────────────────┐\n  │  Master Control Station: Schriever AFB, Colorado         │\n  │  Ground antennas: 5 worldwide monitoring stations        │\n  │  Functions:                                              │\n  │  - Monitor satellite health and clock accuracy           │\n  │  - Upload corrected ephemeris (position) data            │\n  │  - Update navigation message                             │\n  │  - Manage constellation (retirements, launches)          │\n  └──────────────────────────────────────────────────────────┘\n\n  USER SEGMENT:\n  ┌──────────────────────────────────────────────────────────┐\n  │  Any device with a GPS receiver chip                     │\n  │  Smartphone chip: ~$5; survey-grade receiver: $15,000+   │\n  │  Passive receiver: only receives, does not transmit      │\n  │  Privacy note: GPS is one-way — no one knows where you   │\n  │  are from GPS alone (apps are different)                 │\n  └──────────────────────────────────────────────────────────┘\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "## How GPS Actually Works — The Physics",
+      "confidence": "candidate",
+      "text": "GPS POSITIONING — STEP BY STEP\n══════════════════════════════════════════════════════════════════════\n\n  STEP 1: Each satellite continuously broadcasts:\n  ├── Its precise position at time T (from ephemeris data)\n  └── The precise time T (from atomic clock)\n\n  STEP 2: GPS receiver receives signals from multiple satellites.\n  ├── Signal travels at speed of light c ≈ 3×10⁸ m/s\n  └── Travel time Δt = distance / c\n\n  STEP 3: Receiver measures pseudorange:\n  ┌────────────────────────────────────────────────────────┐\n  │  Pseudorange = c × (receiver time) - (satellite time)  │\n  │  \"Pseudo\" because receiver clock is not as accurate    │\n  │  as the satellite's atomic clock                       │\n  │  → receiver clock error adds unknown offset to all     │\n  │     pseudoranges equally                               │\n  └────────────────────────────────────────────────────────┘\n\n  STEP 4: Trilateration (NOT triangulation):\n   ────────────────────────────────────────────────────────\n  │  TRIANGULATION: measures angles → derives distances    │\n  │  TRILATERATION: measures distances → derives position  │\n  │                                                        │\n  │  From satellite S1 at known position: receiver is on   │\n  │  a sphere of radius r1                                 │\n  │  From satellite S2: receiver is on a sphere of r2      │\n  │  Two spheres intersect in a circle                     │\n  │  From satellite S3: receiver is at one of two points   │\n  │  (one is usually in space — eliminated)                │\n  │  3 satellites → position (2D, or 3D if alt known)      │\n  │                                                        │\n  │  BUT: receiver clock error → need a 4th satellite      │\n  │  4th satellite provides the equation needed to solve   │\n  │  for receiver clock error simultaneously with position│\n  │                                                        │\n  │  4 unknowns: x, y, z, t (clock error)                  │\n  │  4 satellites: 4 equations → unique solution           │\n  └────────────────────────────────────────────────────────┘\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## Selective Availability and the Clinton Decision",
+      "confidence": "candidate",
+      "text": "SELECTIVE AVAILABILITY — INTENTIONAL DEGRADATION\n══════════════════════════════════════════════════════════════════════\n\n  CONTEXT:\n  GPS was a US military system. The military was concerned that\n  adversaries would use GPS for precision missile guidance.\n\n  SELECTIVE AVAILABILITY (SA):\n  ├── Implemented: 1990 (Gulf War era)\n  ├── Method: dithering the satellite clock signals with\n  │   controlled error, changing pseudorandomly\n  ├── Civilian accuracy: ~100m horizontal (with SA on)\n  ├── Military accuracy: ~10m (with P(Y) encrypted code)\n  └── Effect: civilians got a degraded service\n\n  WORKAROUND (DGPS):\n   ────────────────────────────────────────────────────────\n  │  Place a reference GPS receiver at a known location    │\n  │  Measure the SA error in real time                     │\n  │  Broadcast the correction to nearby receivers          │\n  │  Result: errors cancel → ~1m accuracy                  │\n  │                                                        │\n  │  Coast Guard DGPS network: established 1990s           │\n  │  WAAS (Wide Area Augmentation System): 2003 for aviation│\n   ────────────────────────────────────────────────────────\n\n  THE CLINTON DECISION (May 1, 2000):\n  ┌────────────────────────────────────────────────────────┐\n  │  Executive order: turn off Selective Availability      │\n  │  Rationale:                                            │\n  │  - DGPS and foreign GNSS systems already provide       │\n  │    workarounds — SA no longer provides security        │\n  │  - Economic value of precise GPS enormous              │\n  │  - Commercial GPS market would benefit                 │\n  │                                                        │\n  │  Immediate effect:                                     │\n  │  Civilian GPS accuracy: 100m → 10m (same night)        │\n  │  Overnight, every civilian GPS receiver improved 10×   │\n  └────────────────────────────────────────────────────────┘\n\n  POST-SA ACCURACY:\n  ├── Civilian GPS: ~3–5m (UNAIDED)\n  ├── WAAS-augmented: ~1m\n  ├── DGPS: ~0.3m\n  └── RTK (Real-Time Kinematic): ~1–2 cm\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 214,
+      "heading_context": "## Other GNSS Constellations",
+      "confidence": "candidate",
+      "text": "GLOBAL NAVIGATION SATELLITE SYSTEMS\n══════════════════════════════════════════════════════════════════════\n\n  GPS (NAVSTAR):\n  ├── Operator: US Space Force\n  ├── Satellites: 31 operational\n  ├── Altitude: 20,200 km\n  ├── Fully operational: 1995\n  └── Codes: C/A (civilian), P(Y) (military)\n\n  GLONASS (Global Navigation Satellite System):\n  ├── Operator: Russia\n  ├── Satellites: 24 operational (target)\n  ├── Altitude: 19,100 km (slightly lower than GPS)\n  ├── Fully operational: 1995 (degraded after Soviet collapse;\n  │   rebuilt to full constellation by 2011)\n  ├── Key difference: uses frequency division multiplexing\n  │   (GPS uses code division; GLONASS uses different frequencies\n  │   for each satellite)\n  └── Most smartphones: receive GPS + GLONASS\n\n  GALILEO:\n  ├── Operator: European Union (GSA)\n  ├── Satellites: 30 planned, ~27 operational (2024)\n  ├── Altitude: 23,222 km (higher than GPS → better geometry)\n  ├── Fully operational: 2016 (initial), complete: 2020+\n  ├── Accuracy: ~1m civilian (vs GPS ~3m) — more precise signal\n  └── Key: fully independent of US military control\n\n  BEIDOU (BDS, formerly COMPASS):\n  ├── Operator: China\n  ├── Satellites: 35 (mixed MEO + GEO + IGSO)\n  ├── Fully operational: 2020 (global coverage)\n  ├── Coverage: enhanced accuracy over China\n  └── Used in: all Chinese phones, Belt and Road infrastructure\n\n  RECEIVING MULTIPLE CONSTELLATIONS:\n  Modern GPS chips receive all four (GPS+GLONASS+Galileo+BeiDou).\n  More satellites visible → better geometry (GDOP) → better accuracy.\n  Typical smartphone with all-constellation chip: ~2m accuracy.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "## Differential GPS, WAAS, and RTK",
+      "confidence": "candidate",
+      "text": "GPS ACCURACY ENHANCEMENT METHODS\n══════════════════════════════════════════════════════════════════════\n\n  BASE CONCEPT:\n  Any GPS error affects all receivers in an area similarly.\n  If you know where a reference receiver IS, you can measure\n  the current GPS error and broadcast a correction.\n\n  WAAS / SBAS (Satellite-Based Augmentation System):\n  ├── US: WAAS; Europe: EGNOS; Japan: MSAS; India: GAGAN\n  ├── Ground reference stations at known positions\n  ├── Compute error; upload to geostationary satellites\n  ├── Geostationary satellites broadcast correction on GPS freq\n  ├── Any WAAS-enabled receiver gets <1m accuracy\n  └── Aviation-grade: certified for IFR approaches (APV-I)\n\n  DGPS (Differential GPS):\n  ├── Local reference station broadcasts real-time corrections\n  ├── Accuracy: 0.3–1m\n  └── US Coast Guard operated for harbor/coastal navigation\n\n  RTK (Real-Time Kinematic):\n  ┌────────────────────────────────────────────────────────┐\n  │  Uses carrier phase, not just code phase               │\n  │                                                        │\n  │  Code phase: measure signal arrival time → ~3m         │\n  │  Carrier phase: measure phase of the 19cm carrier wave │\n  │  → sub-cm accuracy after integer ambiguity resolution  │\n  │                                                        │\n  │  RTK: base station + rover; corrections over radio     │\n  │  Range: ~10km from base station                        │\n  │  Accuracy: 1–2cm horizontal, 3–5cm vertical            │\n  │  Use: survey, machine control, precision agriculture   │\n  └────────────────────────────────────────────────────────┘\n\n  PPP (Precise Point Positioning):\n  ├── No local base station needed\n  ├── Uses precise satellite orbit + clock products\n  │   (IGS: downloaded or broadcast)\n  ├── Convergence time: 30–60 minutes\n  └── Accuracy: 2–5cm globally (no base station required)\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 345,
+      "heading_context": "### The AJAX Slippy Map — What Google Maps Invented",
+      "confidence": "candidate",
+      "text": "GOOGLE MAPS UX INNOVATION (2005)\n══════════════════════════════════════════════════════════════════════\n\n  BEFORE (MapQuest, TerraServer):\n  ├── Click button → full page reload → new static image\n  ├── Pan = re-center → reload\n  ├── Zoom = click zoom in button → reload\n  └── Result: clunky, frustrating, best-effort\n\n  GOOGLE MAPS INNOVATION:\n  ├── Map = HTML div with positioned tile images\n  ├── Each 256×256px tile: loaded asynchronously (AJAX)\n  ├── Pan = CSS translate the tile container\n  │   → new tiles loaded at edges, old ones drop off\n  ├── Zoom = fade in new zoom level's tiles over old\n  └── Result: fluid, continuous, responsive\n\n  THE TILE SCHEME:\n   ────────────────────────────────────────────────────────\n  │  Zoom 0:  1 tile  = whole world (very small)           │\n  │  Zoom 1:  4 tiles (2×2 grid)                           │\n  │  Zoom 2: 16 tiles (4×4 grid)                           │\n  │  Zoom n: 4ⁿ tiles (2ⁿ × 2ⁿ grid)                       │\n  │  Zoom 18: 68 billion tiles (house-level detail)        │\n  │                                                        │\n  │  Tile URL: https://maps.example.com/tiles/{z}/{x}/{y}.png│\n  │                                                        │\n  │  At zoom 18: each tile covers ~75m × 75m at equator    │\n  └────────────────────────────────────────────────────────┘\n\n  PROJECTION: Web Mercator (EPSG:3857)\n  ├── Entire world fits in a square\n  ├── Tiles are square (Mercator makes this clean)\n  ├── Scale factor at equator = 1; at poles = ∞\n  └── Accepted trade-off: Greenland looks as big as Africa\n      (most users zoom in to their city — they don't notice)\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 392,
+      "heading_context": "## OpenStreetMap — The Wikipedia of Maps",
+      "confidence": "candidate",
+      "text": "OPENSTREETMAP — DATA MODEL AND COMMUNITY\n══════════════════════════════════════════════════════════════════════\n\n  DATA MODEL:\n  Three primitive types:\n  ├── NODE: a point (lat/lon) with optional tags\n  │   Examples: a fire hydrant, a bus stop, a POI\n  │\n  ├── WAY: an ordered list of nodes\n  │   Closed way (first=last node): polygon (building, park)\n  │   Open way: line (road, river, power line)\n  │\n  └── RELATION: a multi-purpose grouping primitive\n      Multipolygon: complex polygon with holes\n      Route relation: bus/subway/hiking route\n      Turn restriction: \"no left turn\" at intersection\n\n  TAGGING:\n  Any primitive can have key=value tags.\n  Not a fixed schema — folksonomy with conventions.\n  Conventions documented at wiki.openstreetmap.org\n  ├── highway=motorway (major road)\n  ├── amenity=hospital\n  ├── building=yes (or residential, commercial, etc.)\n  ├── name=Main Street\n  └── opening_hours=Mo-Sa 09:00-17:00\n\n  QUALITY:\n  ├── Roads: generally good in developed world\n  ├── Buildings: complete footprints in many cities\n  ├── POIs: variable (volunteer-driven → gaps)\n  ├── Developing world: often better than commercial\n  │   (Humanitarian OSM: crisis mapping, HOT team)\n  └── Freshness: some areas updated daily; some stale\n\n  DATA ACCESS:\n  ├── Full planet dump: ~80 GB compressed (weekly)\n  ├── Overpass API: query current data by region/type\n  ├── Geofabrik downloads: country/region extracts\n  └── OSM2PGSQL: import into PostGIS for analysis\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 443,
+      "heading_context": "## Vector Tiles — The Modern Standard",
+      "confidence": "candidate",
+      "text": "RASTER TILES vs VECTOR TILES\n══════════════════════════════════════════════════════════════════════\n\n  RASTER TILES:\n  ├── Pre-rendered PNG/JPEG images\n  ├── Fixed style (one style = one tile pyramid)\n  ├── Not scalable (pixelate if over-zoomed)\n  ├── Large storage (full pyramid = terabytes)\n  ├── Text labels: burned in, can't rotate with map\n  └── Simple: static file serving, works everywhere\n\n  VECTOR TILES (MVT/PBF):\n  ├── Binary protobuf containing geometry + attributes\n  │   (much smaller than raster: 10–100× smaller)\n  ├── Styled CLIENT-SIDE (style is a JSON document)\n  │   One vector tile dataset → infinite visual styles\n  ├── Scalable (geometry, not pixels → no pixelation)\n  ├── Labels: positioned and rotated client-side\n  ├── Interactivity: click feature → get its attributes\n  └── Requires more powerful client (WebGL via MapboxGL)\n\n  HOW VECTOR TILES WORK:\n  ┌────────────────────────────────────────────────────────┐\n  │  Server: tile/{z}/{x}/{y}.mvt                          │\n  │  Content: protobuf-encoded geometry + properties       │\n  │           for all features in that tile's area         │\n  │           clipped to tile boundary                     │\n  │           generalized to zoom level                    │\n  │                                                        │\n  │  Client (MapboxGL):                                    │\n  │  1. Request tile                                       │\n  │  2. Decode protobuf → geometry + properties            │\n  │  3. Apply style rules (JSON) to features               │\n  │  4. Render via WebGL to canvas                         │\n  └────────────────────────────────────────────────────────┘\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 489,
+      "heading_context": "## Navigation and Routing",
+      "confidence": "candidate",
+      "text": "ROUTING PIPELINE\n══════════════════════════════════════════════════════════════════════\n\n  DATA:\n  ├── Road network graph: nodes (intersections) + edges (road segments)\n  │   Each edge: length, speed limit, road type, turn restrictions\n  ├── Turn restrictions: \"no left turn\", \"no U-turn\"\n  └── Traversal cost: time (for fastest) or distance (for shortest)\n\n  BASIC ROUTING:\n  Dijkstra's algorithm: O(E log V) with binary heap\n  A* with Euclidean heuristic: faster in practice for point-to-point\n  Contraction Hierarchies: state-of-the-art for road networks\n  ├── Preprocessing: create shortcut edges, order nodes by importance\n  ├── Query: bidirectional Dijkstra on contracted graph\n  ├── Speed: milliseconds for any city-pair query\n  └── Used by: Graphhopper, OSRM, Valhalla (open source)\n\n  TURN-BY-TURN INSTRUCTIONS:\n  ├── Road name extraction\n  ├── Turn angle classification (left/right/straight/u-turn)\n  ├── Landmark detection (\"turn right at the McDonald's\")\n  └── Instruction localization (language, units)\n\n  REAL-TIME ENHANCEMENTS:\n  ┌────────────────────────────────────────────────────────┐\n  │  TRAFFIC DATA:                                         │\n  │  Sources: probe data (GPS tracks from phones/fleet),   │\n  │           toll reader / loop detector feeds,           │\n  │           incident reports (user-reported + municipal) │\n  │                                                        │\n  │  Google Maps: anonymized GPS from Android phones       │\n  │  Waze: crowdsourced incident reports                   │\n  │  HERE: commercial probe data + traffic sensors         │\n  │                                                        │\n  │  TRAFFIC-WEIGHTED ROUTING:                             │\n  │  Edge weight = f(distance, current_speed, time_of_day) │\n  │  Dynamic re-routing: as traffic changes, reroute       │\n  └────────────────────────────────────────────────────────┘\n\n  ETA PREDICTION:\n  ├── Historical speed data by road × time-of-day × day-of-week\n  ├── Current incident data\n  ├── Weather conditions\n  └── ML models on historical actual travel times\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 543,
+      "heading_context": "## Location-Based Services Ecosystem",
+      "confidence": "candidate",
+      "text": "LBS ECOSYSTEM — WHAT GPS + MAPS ENABLES\n══════════════════════════════════════════════════════════════════════\n\n  NAVIGATION:\n  ├── Turn-by-turn (Waze, Google Maps, Apple Maps)\n  ├── Pedestrian navigation\n  ├── Multimodal (transit + walk + bike)\n  └── Indoor navigation (Bluetooth beacons, WiFi triangulation)\n\n  LOGISTICS:\n  ├── Routing: UPS, FedEx, Amazon last-mile\n  ├── Fleet tracking: trucks, trains, aircraft (AIS/ADS-B)\n  └── Supply chain: warehouse location optimization\n\n  RIDE-SHARING / DELIVERY:\n  ├── Real-time driver-passenger matching\n  ├── Dynamic pricing (surge)\n  ├── ETA display\n  └── Driver position real-time tracking\n\n  GEOFENCING:\n  ├── Alert when asset enters/leaves a polygon\n  ├── Retail: alert when customer near store\n  └── Safety: construction site, school zone\n\n  SPATIAL ANALYTICS:\n  ├── Site selection: optimal location for new store\n  ├── Market analysis: customer density around locations\n  └── Urban planning: transit access coverage\n\n  PRIVACY IMPLICATIONS:\n  ├── GPS chip: passive, no tracking (one-way signal)\n  ├── Apps: upload your location to servers\n  ├── Cell tower data: carriers know your location 24/7\n  ├── Advertising ID: cross-app location tracking\n  └── Data brokers: buy/aggregate/resell location history\n      (used for: ads, insurance, surveillance, law enforcement)\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cartography\\05-TRIANGULATION-GEODESY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## Measuring Earth Precisely",
+      "confidence": "candidate",
+      "text": "GEODESY PROBLEM HIERARCHY\n══════════════════════════════════════════════════════════════════════\n\n  LEVEL 1: What is the shape of the Earth?\n  ├── First approximation: sphere (Eratosthenes, ~240 BCE)\n  ├── Better: oblate spheroid (Newton, ~1687; confirmed ~1740)\n  ├── Better still: reference ellipsoid (parameterized)\n  └── Best physical approximation: geoid\n\n  LEVEL 2: What reference surface do we use for coordinates?\n  ├── Reference ellipsoid (mathematical approximation)\n  │   defines latitude/longitude/height\n  └── Geoid (physical surface of constant gravity)\n      defines mean sea level / orthometric height\n\n  LEVEL 3: How do we position features on this surface?\n  ├── Historical: triangulation networks (angles + one baseline)\n  ├── Modern: GNSS (GPS + GLONASS + Galileo + BeiDou)\n  └── Both: combined in national geodetic surveys\n\n  LEVEL 4: What datum are we using?\n  ├── Each reference ellipsoid + positioning = a datum\n  ├── NAD27, NAD83 (North America)\n  ├── WGS84 (GPS global), ETRS89 (Europe)\n  └── Local datums worldwide (hundreds exist)\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "## Triangulation — The Core Method",
+      "confidence": "candidate",
+      "text": "TRIANGULATION PRINCIPLE\n══════════════════════════════════════════════════════════════════════\n\n  STEP 1: Measure a baseline precisely\n  ┌──────────────────────────────────────────────────────────┐\n  │  A ─────────────────────────────────── B                 │\n  │  ←────── known length L exactly ──────→                  │\n  │                                                          │\n  │  Method: lay calibrated rods end-to-end on flat ground   │\n  │  UK Hounslow Heath baseline (1784): 5 miles,             │\n  │  measured to 1.4 inches accuracy (error < 0.001%)        │\n  └──────────────────────────────────────────────────────────┘\n\n  STEP 2: Measure angles to a third point\n  ┌──────────────────────────────────────────────────────────┐\n  │               C                                          │\n  │              /│\\                                         │\n  │             / │ \\                                        │\n  │            /  │  \\                                       │\n  │           /α  │  β\\                                      │\n  │  A ──────────────────── B                                │\n  │                                                          │\n  │  Instrument: theodolite (precision angle measurement)    │\n  │  Measure: angle α at A, angle β at B                     │\n  │  The triangle ABC is fully determined:                   │\n  │  - Third angle γ = 180° - α - β                          │\n  │  - Side AC = L × sin(β) / sin(γ)     (law of sines)      │\n  │  - Side BC = L × sin(α) / sin(γ)                         │\n  │  ∴ Position of C is known exactly                        │\n   ──────────────────────────────────────────────────────────\n\n  STEP 3: Extend the network\n   ──────────────────────────────────────────────────────────\n  │  C is now known → use AC and BC as new baselines         │\n  │  Measure angles to new point D → position D              │\n  │  Continue outward across the entire country              │\n  │                                                          │\n  │  Network of triangles covers entire territory            │\n  │  Only ONE baseline measured directly (the rest derived)  │\n  │  Error accumulates but slowly (random errors cancel,     │\n  │  systematic errors managed by occasional baseline checks)│\n   ──────────────────────────────────────────────────────────\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "## The Great Trigonometrical Survey of India (1802–1871)",
+      "confidence": "candidate",
+      "text": "GREAT TRIGONOMETRICAL SURVEY — KEY FACTS\n══════════════════════════════════════════════════════════════════════\n\n  Director: William Lambton (1802–1823), then George Everest (1823–1843)\n  Duration: ~70 years (1802–1871)\n  Coverage: ~3 million km² of the Indian subcontinent\n\n  Scale of operation:\n  ├── Theodolite: Lambton's instrument weighed 500 kg\n  │   Required 12 men to carry; required masonry towers to support\n  ├── Triangulation towers: 30–60m tall, built from stone/brick\n  │   Purpose: see over jungle canopy and intervening terrain\n  ├── Field parties: 700+ men per team (porters, soldiers, workers)\n  └── Duration per triangle: days to weeks per point (clearing\n      vegetation, building towers, making measurements)\n\n  Major achievements:\n  1. First accurate measurement of the Indian subcontinent's extent\n  2. Discovery that the Himalayas were taller than the Andes\n     (previously assumed the Andes were the world's highest mountains)\n  3. First measurement of \"Peak XV\" (later named Everest)\n     as the world's highest mountain\n  4. Detection of gravitational anomaly caused by Himalayan mass\n     (deflection of plumb bob — see Geoid section below)\n\n  The Everest calculation (1852):\n  ┌────────────────────────────────────────────────────────────┐\n  │  Radhanath Sikdar (mathematician/computer) calculated      │\n  │  height of Peak XV from triangulation angles observed      │\n  │  at 6 stations, 150–200 km from the peak                   │\n  │                                                            │\n  │  Required atmospheric refraction correction                │\n  │  Required geoid undulation correction                      │\n  │  Required parallax correction for Earth's curvature        │\n  │                                                            │\n  │  Result: 29,002 feet (8,839m)                              │\n  │  Modern value: 8,848.86m (as of 2020 Chinese survey)       │\n  │  Error: ~10m = 0.1%                                        │\n  │  From 150km away, without ever setting foot near it        │\n  └────────────────────────────────────────────────────────────┘\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "## The Geoid — What \"Sea Level\" Actually Means",
+      "confidence": "candidate",
+      "text": "GEOID — DEFINITION AND RELATIONSHIP TO OTHER SURFACES\n══════════════════════════════════════════════════════════════════════\n\n  THREE SURFACES:\n  ┌──────────────────────────────────────────────────────────────┐\n  │                     TOPOGRAPHIC SURFACE                      │\n  │  (actual terrain — mountains, valleys, ocean floor)          │\n  │                          ↕ terrain height above geoid        │\n  │  ~~~~~~~~~~~~~~~~~~~ GEOID ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ │\n  │  (equipotential surface of Earth's gravity field)            │\n  │  (physically: where mean sea level would be everywhere)      │\n  │  (deviates from ellipsoid by ±100m due to mass distribution) │\n  │                          ↕ geoid undulation N                │\n  │  - - - - - - - - - REFERENCE ELLIPSOID - - - - - - - - - -   │\n  │  (mathematical approximation: flattened sphere)              │\n  │  (used for coordinate calculations)                          │\n  └──────────────────────────────────────────────────────────────┘\n\n  WHAT THE GEOID IS:\n  - The surface of equal gravitational potential (plus rotation)\n  - Where water would settle if all the land were removed\n  - The \"physical\" definition of sea level\n  - Lumpy: pulls toward dense rock, away from less dense regions\n\n  GEOID UNDULATION (N):\n  h(ellipsoidal) = H(orthometric) + N\n  where:\n  h = GPS-measured height above ellipsoid\n  H = actual height above sea level (orthometric)\n  N = geoid undulation (±100m globally)\n\n  PRACTICAL CONSEQUENCE:\n  GPS gives ellipsoidal height (h).\n  Engineering, elevation contours, flood mapping need orthometric height (H).\n  You need a geoid model (EGM2008, GEOID18) to convert.\n  Ignoring this error can be up to 100m in some regions.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 229,
+      "heading_context": "## Reference Ellipsoids and Datums",
+      "confidence": "candidate",
+      "text": "REFERENCE ELLIPSOID — PARAMETERIZATION\n══════════════════════════════════════════════════════════════════════\n\n  An oblate spheroid (ellipsoid of revolution) is defined by:\n  ├── Semi-major axis a (equatorial radius)\n  ├── Semi-minor axis b (polar radius)\n  └── Flattening f = (a-b)/a\n\n  WGS84 (World Geodetic System 1984):\n  ├── a = 6,378,137.0 m (equatorial radius)\n  ├── b = 6,356,752.3 m (polar radius)\n  ├── f = 1/298.257223563\n  └── Used by GPS; the global standard today\n\n  GRS80 (Geodetic Reference System 1980):\n  ├── a = 6,378,137.0 m (same as WGS84)\n  ├── f = 1/298.257222101 (very slightly different)\n  └── Used by NAD83, ETRS89; essentially identical to WGS84\n\n  Historical ellipsoids (still embedded in old datums):\n  ├── Clarke 1866: used in NAD27 (North America)\n  │   a = 6,378,206.4 m (bigger equatorial radius than WGS84)\n  └── Airy 1830: used in OSGB36 (UK maps)\n      a = 6,377,563.4 m\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "### The Datum Problem — Why GPS Coordinates Don't Match Paper Maps",
+      "confidence": "candidate",
+      "text": "DATUM COMPARISON — NAD27 vs NAD83 vs WGS84\n══════════════════════════════════════════════════════════════════════\n\n  NAD27 (North American Datum 1927):\n  ├── Ellipsoid: Clarke 1866\n  ├── Origin: Meades Ranch, Kansas (the \"center\" of North America)\n  ├── Orientation: fit to the North American triangulation network\n  └── Problem: local fit to North America; poor globally;\n      the US is not at the correct position on a global system\n\n  NAD83 (North American Datum 1983):\n  ├── Ellipsoid: GRS80 (essentially same as WGS84)\n  ├── Origin: Earth's center of mass\n  ├── Orientation: consistent with global VLBI measurements\n  ├── Difference from NAD27: up to ~200m in horizontal position\n  └── Difference from WGS84: millimeters (functionally same)\n\n  WGS84 (World Geodetic System 1984):\n  ├── Ellipsoid: WGS84 ellipsoid\n  ├── Origin: Earth's center of mass\n  ├── Used by: GPS, Google Maps, OpenStreetMap\n  └── Updated: WGS84 is actually a series of realizations\n      (G730, G873, G1150, G1674, G1762, G2139)\n      each refined as GPS measurements accumulated\n\n  PRACTICAL CONSEQUENCE:\n  A geographic feature at NAD27 coordinates (45°N, 120°W)\n  is NOT at the same physical location as WGS84 (45°N, 120°W).\n  Difference: up to 200m in the contiguous US.\n\n  Real-world problem:\n  Old US paper maps: NAD27\n  GPS receiver output: WGS84\n  If you navigate with a GPS to old map coordinates,\n  you can be 100–200m off your target.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 310,
+      "heading_context": "## Modern Geodesy — GNSS and Plate Tectonics",
+      "confidence": "candidate",
+      "text": "MODERN GEODETIC MONITORING\n══════════════════════════════════════════════════════════════════════\n\n  GNSS PRECISE POINT POSITIONING:\n  ├── GPS alone: ~3m horizontal accuracy (civilian, no augmentation)\n  ├── WAAS/SBAS augmented: ~1m\n  ├── DGPS (differential): ~0.3m\n  ├── RTK (Real-Time Kinematic): ~1–2 cm horizontal\n  └── Post-processed static: sub-cm to mm (survey standard)\n\n  CONTINUOUS GPS NETWORKS:\n  ├── CORS (Continuously Operating Reference Stations): 1,900+\n  │   stations in US alone, run by NOAA/NGS\n  ├── IGS (International GNSS Service): global network\n  ├── Each station: records position every second, continuously\n  └── Data used to:\n      - Detect earthquake displacement (mm-level)\n      - Measure tectonic plate motion (cm/year)\n      - Monitor volcano inflation (uplift precedes eruption)\n      - Detect subsidence (aquifer depletion, mine collapse)\n      - Measure isostatic rebound (Scandinavia rising 5–10 mm/year\n        as glacial ice load removed since last ice age)\n\n  PLATE TECTONIC MOTION — MEASURED RATES:\n  ├── Pacific Plate (Hawaii to Japan): ~7 cm/year\n  ├── Atlantic spreading (Mid-Atlantic Ridge): ~2.5 cm/year\n  ├── India subducting under Asia: ~5 cm/year\n  └── San Andreas Fault (Pacific vs N. American): ~5 cm/year\n\n  CONSEQUENCE FOR COORDINATES:\n  North America moves ~2 cm/year relative to WGS84 frame.\n  Over 10 years: 20 cm of motion.\n  For sub-cm precision work (airport runways, tectonic studies):\n  coordinates need a reference epoch and velocity model.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 357,
+      "heading_context": "## Arc Measurement and Earth's Shape",
+      "confidence": "candidate",
+      "text": "THE PROLATE/OBLATE CONTROVERSY — RESOLUTION\n══════════════════════════════════════════════════════════════════════\n\n  THE QUESTION: does 1° of latitude represent a longer arc\n  near the poles or near the equator?\n\n  OBLATE (Newton): polar flattening → longer arc near poles\n  PROLATE (Cassini): equatorial bulge → longer arc near equator\n\n  RESOLUTION EXPEDITIONS (1735–1737):\n  ┌──────────────────────────────────────────────────────────┐\n  │  French Academy of Sciences sent two expeditions:        │\n  │                                                          │\n  │  Ecuador expedition (Bouguer, La Condamine):             │\n  │  Measured arc near equator (1735–44)                     │\n  │  Result: 1° arc = 110,613m                               │\n  │                                                          │\n  │  Lapland expedition (Maupertuis, Celsius):               │\n  │  Measured arc near Arctic Circle (1736–37)               │\n  │  Result: 1° arc = 111,909m                               │\n  └──────────────────────────────────────────────────────────┘\n\n  Polar arc > Equatorial arc → Newton was right → OBLATE\n  (Maupertuis: \"I have flattened the poles and the Cassinis\")\n\n  Measured flattening:\n  Lapland/Ecuador expeditions: f ≈ 1/200 (too flat — instrument error)\n  Modern (WGS84): f = 1/298.26 (very slightly oblate)\n\n  PHYSICAL EXPLANATION:\n  Earth's rotation → centrifugal effect → equatorial bulge\n  Equatorial radius exceeds polar radius by ~21 km\n  (6,378 km vs 6,357 km — difference of 21 km)\n  This makes the summit of Chimborazo (Ecuador) farther\n  from Earth's center than Everest (despite being ~2.6km lower\n  in elevation), because of the equatorial bulge.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 402,
+      "heading_context": "## Vertical Datums and Height Systems",
+      "confidence": "candidate",
+      "text": "HEIGHT SYSTEMS — THE VERTICAL DATUM PROBLEM\n══════════════════════════════════════════════════════════════════════\n\n  ORTHOMETRIC HEIGHT (H): height above the geoid\n  ├── What elevation contours, flood maps, engineering use\n  ├── \"Altitude above sea level\" in common speech\n  └── Measured by: spirit leveling (precise, slow) or\n      GPS + geoid model (fast, slightly less precise)\n\n  ELLIPSOIDAL HEIGHT (h): height above reference ellipsoid\n  ├── What GPS directly measures\n  └── Not directly useful for engineering (geoid is lumpy)\n\n  NORMAL HEIGHT: quasi-geoid based (Helmert/Normal-Orthometric)\n  └── Used in some national systems (Europe, Russia)\n\n  EXAMPLE — PRACTICAL PROBLEM:\n  ┌──────────────────────────────────────────────────────────┐\n  │  GPS says you're at elevation 147m (ellipsoidal)         │\n  │  Geoid undulation at your location: N = -31m             │\n  │  Actual orthometric height: H = 147 - (-31) = 178m       │\n  │                                                          │\n  │  The 31m difference matters for:                         │\n  │  - Flood plain determination                             │\n  │  - Drainage design (water flows downhill by gravity,     │\n  │    not down the ellipsoid)                               │\n  │  - Building permits in flood-risk areas                  │\n  └──────────────────────────────────────────────────────────┘\n\n  NAVD88 (North American Vertical Datum 1988):\n  ├── US standard orthometric vertical datum\n  ├── Origin: Father Point/Rimouski tidal gauge, Quebec\n  ├── Covers: continental US and Canada\n  └── NAPGD2022 (replacement in progress): GNSS-compatible\n      will eliminate the GPS→orthometric conversion burden\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

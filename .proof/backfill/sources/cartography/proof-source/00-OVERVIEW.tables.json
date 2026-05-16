@@ -1,0 +1,120 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cartography\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 308,
+      "heading_context": "## Module Guide",
+      "headers": [
+        "File",
+        "Topic",
+        "Key Concepts"
+      ],
+      "rows": [
+        [
+          "01-ANCIENT-MAPS",
+          "Babylonian to medieval",
+          "What maps were for before accuracy mattered"
+        ],
+        [
+          "02-PORTOLAN-CHARTS",
+          "Medieval sailing charts",
+          "Empirical accuracy without theory"
+        ],
+        [
+          "03-AGE-OF-EXPLORATION",
+          "1400–1800 expansion",
+          "Maps as state secrets; naming the New World"
+        ],
+        [
+          "04-PROJECTIONS",
+          "The math of flattening",
+          "Mercator, equal-area, compromise projections"
+        ],
+        [
+          "05-TRIANGULATION-GEODESY",
+          "Measuring Earth precisely",
+          "Triangulation, geoid, WGS84, datum"
+        ],
+        [
+          "06-THEMATIC-MAPS",
+          "Maps as argument",
+          "Snow, Minard, choropleth, cartogram"
+        ],
+        [
+          "07-AERIAL-REMOTE-SENSING",
+          "Seeing from above",
+          "Photogrammetry, Landsat, LiDAR, SAR"
+        ],
+        [
+          "08-GIS",
+          "Geographic information systems",
+          "Vector/raster, PostGIS, spatial queries"
+        ],
+        [
+          "09-GPS-DIGITAL",
+          "GPS to Google Maps",
+          "Trilateration, slippy maps, OSM"
+        ],
+        [
+          "10-CARTOGRAPHIC-DESIGN",
+          "Making effective maps",
+          "Color, hierarchy, typography, propaganda"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 323,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Task",
+        "Approach",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Choropleth (area comparison) map",
+          "Equal-area projection (Albers, Mollweide)",
+          "Area must be preserved for visual comparison of density/rate data"
+        ],
+        [
+          "Navigation / bearing measurement",
+          "Conformal projection (Mercator)",
+          "Angles preserved = constant compass bearing = straight rhumb lines"
+        ],
+        [
+          "Web mapping application",
+          "EPSG:3857 (Web Mercator) + Leaflet or MapboxGL",
+          "Industry standard tile system; all basemaps use this CRS"
+        ],
+        [
+          "Spatial SQL queries on geodata",
+          "PostGIS (PostgreSQL + spatial extension)",
+          "Full SQL + geometry types + R-tree spatial index + OGC predicates"
+        ],
+        [
+          "Survey-grade positioning (cm)",
+          "RTK GPS (Real-Time Kinematic)",
+          "Carrier-phase corrections give cm-level accuracy vs. m-level standalone"
+        ],
+        [
+          "Satellite/aerial image analysis",
+          "QGIS or Google Earth Engine",
+          "Raster analysis, multispectral bands, change detection"
+        ],
+        [
+          "Offline field data collection",
+          "QField (mobile QGIS) or ArcGIS Field Maps",
+          "GPS-tagged feature collection with custom attribute forms"
+        ],
+        [
+          "Global thematic comparison",
+          "Robinson or Natural Earth projection",
+          "Compromise projections — neither conformal nor equal-area but visually balanced"
+        ]
+      ]
+    }
+  ]
+}

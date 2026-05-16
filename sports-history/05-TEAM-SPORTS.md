@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-history:team-sports
+kind: guide
+module: sports-history
+section: sports-history
+title: Team Sports History
+status: source-custody
+source_custody: partial
+current_path: sports-history/05-TEAM-SPORTS.md
+canonical_path: sports-history/05-TEAM-SPORTS.md
+backsource_ids: [proof-backfill:sports-history:05-team-sports, git-history:sports-history:05-team-sports]
+concepts: [team, sports]
+root_concepts: [team, sports]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Team Sports History
 
 ## The Big Picture
@@ -447,9 +466,9 @@ RUGBY SPLIT (1895):
   -- England: delayed, chaotic transition
 
 COMPARISON TABLE:
-  +---------------------------+---------------------------+
+  :---------------------------:---------------------------:
   | Rugby Union              | Rugby League               |
-  +---------------------------+---------------------------+
+  :---------------------------:---------------------------:
   | 15 players               | 13 players               |
   | Contested possession     | Possession more linear   |
   | Ruck, maul, lineout      | Simplified restarts      |
@@ -459,7 +478,7 @@ COMPARISON TABLE:
   |   France, Ireland, Arg   |   England (N), NZ        |
   | Global spread (80+ nations| Concentrated: UK,        |
   |   playing seriously)     |  Australia, NZ, France   |
-  +---------------------------+---------------------------+
+  :---------------------------:---------------------------:
 ```
 
 **Jonah Lomu (1975-2015)**: New Zealand wing, ~120kg, 100m in under 11 seconds. Destroyed England at 1995 Rugby World Cup (4 tries in semifinal). Changed understanding of what was physically possible at international level for a wing. Died at 40 from kidney disease (fought kidney disease throughout career -- played through dialysis).

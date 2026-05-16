@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cartography:overview
+kind: guide
+module: cartography
+section: cartography
+title: Cartography - Overview
+status: source-custody
+source_custody: partial
+current_path: cartography/00-OVERVIEW.md
+canonical_path: cartography/00-OVERVIEW.md
+backsource_ids: [proof-backfill:cartography:00-overview, git-history:cartography:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cartography — Overview
 
 ## Maps as Compressed Worldview

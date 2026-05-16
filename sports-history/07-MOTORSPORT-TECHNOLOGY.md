@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-history:motorsport-technology
+kind: guide
+module: sports-history
+section: sports-history
+title: Motorsport and Technology
+status: source-custody
+source_custody: partial
+current_path: sports-history/07-MOTORSPORT-TECHNOLOGY.md
+canonical_path: sports-history/07-MOTORSPORT-TECHNOLOGY.md
+backsource_ids: [proof-backfill:sports-history:07-motorsport-technology, git-history:sports-history:07-motorsport-technology]
+concepts: [motorsport, technology]
+root_concepts: [motorsport, technology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Motorsport and Technology
 
 ## The Big Picture

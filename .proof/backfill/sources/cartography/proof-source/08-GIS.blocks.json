@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cartography\\08-GIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## Maps Become Computable",
+      "confidence": "candidate",
+      "text": "GIS CONCEPTUAL STACK\n══════════════════════════════════════════════════════════════════════\n\n  USER QUESTION:\n  \"Show me all hospitals within 10km of the earthquake epicenter\"\n\n  ↓ GIS PROCESSING:\n\n  1. SPATIAL DATA:\n     - Hospital point layer (geometry + attributes)\n     - Earthquake epicenter (point)\n     - Administrative boundary (polygon)\n\n  2. SPATIAL OPERATION:\n     Buffer(epicenter, 10km) → circular polygon\n     SpatialJoin(hospitals, buffer) → hospitals inside buffer\n     Select(result, \"status = 'open'\") → operating hospitals\n\n  3. RESULT:\n     List of hospitals + distance from epicenter + capacity\n\n  ↓ OUTPUT:\n\n  MAP + TABLE + REPORT\n\n  ─────────────────────────────────────────────────────────────\n\n  GIS IS: spatial database + spatial analysis engine + renderer\n\n  GIS is NOT: just mapping software (though it does that)\n              just GPS navigation (though it includes that)\n              just pretty pictures (though it makes those)\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 69,
+      "heading_context": "## Roger Tomlinson and the First GIS (1960s)",
+      "confidence": "candidate",
+      "text": "CANADA LAND INVENTORY — THE PROBLEM THAT CREATED GIS\n══════════════════════════════════════════════════════════════════════\n\n  THE PROBLEM (1962):\n  The Canadian government needed to inventory:\n  - 2.5 million km² of rural Canada\n  - Multiple themes: soil capability, land use, wildlife,\n    forestry, recreation suitability\n  - Goal: find the best agricultural land for settlement programs\n\n  THE PAPER MAP APPROACH (what they tried first):\n  ├── Map each theme onto paper maps at 1:50,000 scale\n  ├── Overlay maps by hand (physical lightbox)\n  ├── Measure areas by dot grid or planimeter\n  └── PROBLEM: ~10,000 map sheets × 5 themes = 50,000 overlays\n      Impossible at that scale to do by hand\n\n  TOMLINSON'S INSIGHT (1963):\n  ├── Digitize the maps (scan/encode as computer data)\n  ├── Store in structured database\n  ├── Overlay by Boolean operations, not by hand\n  ├── Measure areas computationally, not with dot grids\n  └── Query: \"show me all areas with soil class A AND within 10km\n      of a road\" = database query, not physical map manipulation\n\n  THE RESULT:\n  CGIS ran from 1966, fully operational by 1971.\n  Completed in years what would have taken decades by hand.\n  Tomlinson coined the term \"Geographic Information System\" in 1968.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "## Data Models — Vector vs Raster",
+      "confidence": "candidate",
+      "text": "VECTOR DATA MODEL\n══════════════════════════════════════════════════════════════════════\n\n  GEOMETRY TYPES:\n   ──────────────────────────────────────────────────────────\n  │  POINT: single coordinate pair (x,y) or (x,y,z)          │\n  │  Examples: city center, tree location, sensor station    │\n  │                                                          │\n  │  LINE (LineString): ordered sequence of points           │\n  │  Examples: road, river, pipeline, power line             │\n  │                                                          │\n  │  POLYGON: closed ring of points                          │\n  │  Examples: parcel, country boundary, lake, building      │\n  │                                                          │\n  │  MULTI-variants: MultiPoint, MultiLineString, MultiPolygon│\n  │  Example: country with islands = MultiPolygon            │\n  │                                                          │\n  │  GEOMETRY COLLECTION: mix of types                       │\n  │                                                          │\n  │  These are the OGC Simple Features standard geometry     │\n  │  types — used by PostGIS, GEOS, Shapefile, GeoJSON, KML  │\n  └──────────────────────────────────────────────────────────┘\n\n  ATTRIBUTES:\n  Each geometry has associated attributes (like database table row):\n  Road: {geometry: LineString, name: \"I-90\", lanes: 6, surface: \"asphalt\"}\n  Parcel: {geometry: Polygon, owner: \"Smith\", area_sqm: 4500, zoning: \"R1\"}\n\n  TOPOLOGY:\n  Vector data can have topological rules enforced:\n  - Polygons must not overlap\n  - Road network must be connected at intersections\n  - Parcels must cover the entire jurisdiction without gaps\n  Topological GIS (traditional ESRI coverage model) was important\n  before database constraints; modern GIS uses rules/validation instead.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "## Data Models — Vector vs Raster",
+      "confidence": "candidate",
+      "text": "RASTER DATA MODEL\n══════════════════════════════════════════════════════════════════════\n\n  STRUCTURE:\n  ┌──────────────────────────────────────────────────────────┐\n  │  Regular grid of cells (pixels)                          │\n  │  Each cell: single value (or multiple bands)             │\n  │  Cell size = spatial resolution                          │\n  │                                                          │\n  │  1m cell: 1 cell = 1m² of Earth surface                  │\n  │  30m cell (Landsat): 1 cell = 900m² of Earth             │\n  │  1km cell (MODIS): 1 cell = 1km²                         │\n  └──────────────────────────────────────────────────────────┘\n\n  COMMON RASTER TYPES:\n  ├── DEM (Digital Elevation Model): height per cell\n  ├── Satellite imagery: spectral reflectance per band per cell\n  ├── Population density: people per km² per cell\n  ├── Land cover classification: category code per cell\n  └── Interpolated field: rainfall, temperature, pollution\n\n  RASTER MATH:\n  Rasters of same extent/resolution can be combined:\n  NDVI = (NIR - Red) / (NIR + Red)  → cell-by-cell arithmetic\n  Slope = gradient of DEM → surface analysis\n  Reclassify: value bins → category codes\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "## Spatial Reference Systems and EPSG Codes",
+      "confidence": "candidate",
+      "text": "COORDINATE REFERENCE SYSTEMS IN GIS\n══════════════════════════════════════════════════════════════════════\n\n  Every spatial dataset must declare its CRS.\n  Without a CRS, coordinates are meaningless numbers.\n\n  CRS COMPONENTS:\n  ├── Datum: which ellipsoid, which origin (WGS84, NAD83, etc.)\n  ├── Projection: how coordinates are expressed\n  │   Geographic: (latitude, longitude) in degrees\n  │   Projected: (easting, northing) in meters or feet\n  └── Units: degrees or meters or feet\n\n  EPSG CODES (European Petroleum Survey Group codes):\n  Standard integer identifiers for CRS definitions.\n  Maintained at epsg.io\n\n  COMMONLY USED:\n  ┌──────────────────────────────────────────────────────────┐\n  │  EPSG:4326  WGS84 geographic (lat/lon in degrees)        │\n  │             Used by GPS, GeoJSON, Google APIs            │\n  │                                                          │\n  │  EPSG:3857  Web Mercator / Pseudo-Mercator               │\n  │             Used by Google Maps tiles, OSM tiles         │\n  │             Units: meters (but spherical approximation)  │\n  │                                                          │\n  │  EPSG:4269  NAD83 geographic (lat/lon, N. America)       │\n  │             US federal standard                          │\n  │                                                          │\n  │  EPSG:32618  UTM Zone 18N (WGS84)                        │\n  │  EPSG:326xx  UTM Zone xx N (WGS84) — xx = 01 to 60       │\n  │  EPSG:327xx  UTM Zone xx S (WGS84)                       │\n  │                                                          │\n  │  EPSG:27700  British National Grid (OSGB36)              │\n  │  EPSG:2154   French Lambert-93                           │\n  │  EPSG:25832  ETRF89 / UTM Zone 32N (Germany/Netherlands) │\n  └──────────────────────────────────────────────────────────┘\n\n  CRS MISMATCH — THE #1 GIS ERROR:\n  ┌──────────────────────────────────────────────────────────┐\n  │  Data A: EPSG:4326 (degrees)                             │\n  │  Data B: EPSG:3857 (meters)                              │\n  │                                                          │\n  │  Overlaying without reprojection: Africa appears where   │\n  │  the North Sea should be. Classic beginner error.        │\n  │                                                          │\n  │  GIS tools: \"project on the fly\" (display only, risky)   │\n  │             Transform/reproject (correct, permanent)     │\n  └──────────────────────────────────────────────────────────┘\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 261,
+      "heading_context": "## Spatial Operations",
+      "confidence": "candidate",
+      "text": "SPATIAL OPERATIONS CATALOG\n══════════════════════════════════════════════════════════════════════\n\n  PROXIMITY:\n  ├── Buffer: create polygon at distance d from feature\n  │   Buffer(hospital, 5000m) → 5km service area polygon\n  │\n  ├── Nearest neighbor: find closest feature\n  │   NearestNeighbor(parcels, hospitals) → nearest hospital per parcel\n  │\n  └── Distance: calculate distances between features\n\n  OVERLAY:\n  ├── Intersect: return features present in BOTH layers\n  │   Intersect(parcels, flood_zone) → parcels in flood zone\n  │\n  ├── Union: combine all features from both layers\n  │   Union(counties_A, counties_B) → merged layer\n  │\n  ├── Clip: cut one layer to the extent of another\n  │   Clip(roads, study_area) → roads inside study area\n  │\n  └── Erase: remove features where they overlap another layer\n      Erase(land, water_bodies) → land with lakes removed\n\n  MEASUREMENT:\n  ├── Area: polygon area calculation (using projection units)\n  ├── Length: line length\n  └── Perimeter: polygon perimeter\n\n  SPATIAL JOINS:\n  Join attributes from one layer to another based on spatial relationship\n  SpatialJoin(parcels, census_tracts, \"within\") →\n    each parcel gets its census tract's demographic attributes\n\n  TOPOLOGICAL PREDICATES (DE-9IM model):\n  ├── Equals: identical geometries\n  ├── Disjoint: no shared points\n  ├── Intersects: any shared point\n  ├── Touches: share boundary, not interior\n  ├── Crosses: interiors intersect (lines crossing)\n  ├── Within: A entirely inside B\n  ├── Contains: B entirely inside A\n  └── Overlaps: interiors intersect, neither contains the other\n\n  NETWORK ANALYSIS:\n  ├── Shortest path: Dijkstra/A* on road network graph\n  ├── Service area: all locations reachable within T minutes\n  ├── Closest facility: nearest hospital/fire station/school\n  └── Route optimization: TSP variants for delivery routing\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 320,
+      "heading_context": "## Software Landscape",
+      "confidence": "candidate",
+      "text": "GIS SOFTWARE LANDSCAPE\n══════════════════════════════════════════════════════════════════════\n\n  ESRI / ArcGIS ECOSYSTEM (dominant commercial):\n  ├── ArcGIS Pro: desktop GIS — the industry standard\n  │   Government, utilities, transportation: ~90% market\n  │   Steep learning curve, expensive license\n  │   Python API + Jupyter integration (modern)\n  ├── ArcGIS Online: cloud-hosted GIS + web maps\n  ├── ArcGIS Enterprise: on-premises server GIS\n  └── ArcPy: Python scripting interface\n\n  OPEN SOURCE STACK:\n  ├── QGIS: desktop GIS (ArcGIS alternative, free)\n  │   Active community; covers most ArcGIS use cases\n  │   Plugin ecosystem; Python scripting\n  │\n  ├── PostGIS: PostgreSQL extension (spatial SQL database)\n  │   Spatial types: geometry, geography\n  │   Spatial indexes: GiST, BRIN\n  │   Full OGC Simple Features + many analysis functions\n  │   The backend for most web GIS applications\n  │\n  ├── GDAL/OGR: foundational raster/vector library\n  │   GDAL: raster (GeoTIFF, NetCDF, HDF, JPEG, PNG, etc.)\n  │   OGR: vector (Shapefile, GeoJSON, KML, PostGIS, etc.)\n  │   Powers: QGIS, PostGIS, Rasterio, Fiona, etc.\n  │   CLI tools: gdal_translate, gdalwarp, ogr2ogr\n  │\n  ├── GeoServer / MapServer: WMS/WFS tile/feature servers\n  │   Serve geodata as OGC web services\n  │\n  ├── Leaflet: JavaScript web mapping library (lightweight)\n  │   Interactive maps in browser; tile-based; mobile-friendly\n  │\n  └── OpenLayers: JavaScript web mapping library (full-featured)\n      WMS/WFS client support; rotation; advanced symbolization\n\n  PYTHON ECOSYSTEM:\n  ├── Shapely: geometry operations (GEOS bindings)\n  ├── Fiona: vector I/O (OGR bindings)\n  ├── Rasterio: raster I/O (GDAL bindings)\n  ├── GeoPandas: spatial DataFrames (Shapely + Fiona + Pandas)\n  ├── pyproj: coordinate transformations (PROJ bindings)\n  ├── Folium: Leaflet maps from Python\n  ├── Kepler.gl: high-performance WebGL mapping (Uber)\n  └── Xarray + Rioxarray: raster cubes (time series rasters)\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 389,
+      "heading_context": "## Data Formats",
+      "confidence": "candidate",
+      "text": "GIS DATA FORMAT COMPARISON\n══════════════════════════════════════════════════════════════════════\n\n  VECTOR FORMATS:\n  ┌───────────────┬──────────────────────────────────────────┐\n  │  Shapefile    │ \"Industry standard\" — actually 3-4 files │\n  │               │ .shp (geometry) + .dbf (attributes) +    │\n  │               │ .prj (CRS) + .shx (spatial index)        │\n  │               │ 2GB limit; field names ≤10 chars;        │\n  │               │ no null values; one geometry type only   │\n  │               │ Legacy but ubiquitous — still dominant   │\n  │               │                                          │\n  │  GeoJSON      │ JSON with geometry + properties          │\n  │               │ Web-native; human-readable; text-based   │\n  │               │ Good for small-medium web datasets       │\n  │               │ No spatial index; slow for large data    │\n  │               │                                          │\n  │  GeoPackage   │ SQLite database with spatial extensions  │\n  │               │ Single file (no multi-file mess)         │\n  │               │ No size limit; multiple layers; tiles    │\n  │               │ OGC standard; modern shapefile replace   │\n  │               │                                          │\n  │  KML/KMZ      │ Google Earth format; XML-based           │\n  │               │ Good for visualization; poor for analysis│\n  │               │                                          │\n  │  FlatGeobuf   │ Binary, streamable, spatial index baked  │\n  │               │ Fast for large datasets; web-optimized   │\n  └───────────────┴──────────────────────────────────────────┘\n\n  RASTER FORMATS:\n  ┌───────────────┬──────────────────────────────────────────┐\n  │  GeoTIFF      │ TIFF + embedded CRS (most common)        │\n  │               │ Cloud-Optimized GeoTIFF (COG): partial   │\n  │               │ reads over HTTP; the streaming standard  │\n  │               │                                          │\n  │  NetCDF/HDF5  │ Multi-dimensional arrays (climate data)  │\n  │               │ Time as a dimension; good for data cubes │\n  │               │                                          │\n  │  JPEG2000     │ Compressed imagery; used by Planet, etc. │\n  │               │                                          │\n  │  MBTiles      │ SQLite-packed tiles (offline maps)       │\n  └───────────────┴──────────────────────────────────────────┘\n\n  THE SHAPEFILE PROBLEM:\n  Shapefiles are a 1990s format (ESRI proprietary, then open spec).\n  They are the GIS equivalent of the CSV: ubiquitous, limited, will\n  never die. Use GeoPackage for new projects; support shapefile for\n  data exchange with legacy users.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 446,
+      "heading_context": "## Web GIS Architecture",
+      "confidence": "candidate",
+      "text": "WEB GIS ARCHITECTURE\n══════════════════════════════════════════════════════════════════════\n\n  CLIENT (Browser):\n  ┌──────────────────────────────────────────────────────────┐\n  │  Leaflet / MapboxGL / OpenLayers (JavaScript)            │\n  │  ├── Renders tiles (raster or vector)                    │\n  │  ├── Renders GeoJSON features                            │\n  │  ├── Handles pan/zoom/click interactions                 │\n  │  └── Makes WMS/WFS/tile requests                         │\n  └──────────────────────────────────────────────────────────┘\n         ↕ HTTP\n  SERVER (Tile/Feature Server):\n  ┌──────────────────────────────────────────────────────────┐\n  │  GeoServer / MapServer / pg_tileserv / Martin            │\n  │  ├── WMS: raster tile rendering (fixed style)            │\n  │  ├── WFS: vector features + attributes (GeoJSON)         │\n  │  ├── WMTS: pre-rendered raster tiles (cached)            │\n  │  └── Vector Tiles (MVT): styled client-side              │\n  └──────────────────────────────────────────────────────────┘\n         ↕ SQL\n  DATABASE:\n  ┌──────────────────────────────────────────────────────────┐\n  │  PostGIS (PostgreSQL + spatial extension)                │\n  │  ├── Stores: geometries + attributes + spatial index     │\n  │  ├── Answers: spatial queries in milliseconds            │\n  │  └── CRS management, coordinate transformation (PROJ)    │\n  └──────────────────────────────────────────────────────────┘\n\n  TILE SCHEMES:\n  Raster tiles: pre-rendered PNG at each z/x/y\n  Vector tiles: Mapbox Vector Tiles (MVT/PBF binary)\n    - Tiles contain feature geometries + attributes\n    - Styling applied in browser (client-side)\n    - One tile dataset, infinite styles\n    - Much smaller than raster tiles + responsive\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

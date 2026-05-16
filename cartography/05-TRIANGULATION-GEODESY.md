@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cartography:triangulation-geodesy
+kind: guide
+module: cartography
+section: cartography
+title: 05 - Triangulation and Geodesy
+status: source-custody
+source_custody: partial
+current_path: cartography/05-TRIANGULATION-GEODESY.md
+canonical_path: cartography/05-TRIANGULATION-GEODESY.md
+backsource_ids: [proof-backfill:cartography:05-triangulation-geodesy, git-history:cartography:05-triangulation-geodesy]
+concepts: [triangulation, geodesy]
+root_concepts: [triangulation, geodesy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05 — Triangulation and Geodesy
 
 ## Measuring Earth Precisely
@@ -70,10 +89,10 @@ TRIANGULATION PRINCIPLE
   │  - Side AC = L × sin(β) / sin(γ)     (law of sines)      │
   │  - Side BC = L × sin(α) / sin(γ)                         │
   │  ∴ Position of C is known exactly                        │
-  └──────────────────────────────────────────────────────────┘
+   ──────────────────────────────────────────────────────────
 
   STEP 3: Extend the network
-  ┌──────────────────────────────────────────────────────────┐
+   ──────────────────────────────────────────────────────────
   │  C is now known → use AC and BC as new baselines         │
   │  Measure angles to new point D → position D              │
   │  Continue outward across the entire country              │
@@ -82,7 +101,7 @@ TRIANGULATION PRINCIPLE
   │  Only ONE baseline measured directly (the rest derived)  │
   │  Error accumulates but slowly (random errors cancel,     │
   │  systematic errors managed by occasional baseline checks)│
-  └──────────────────────────────────────────────────────────┘
+   ──────────────────────────────────────────────────────────
 
 ══════════════════════════════════════════════════════════════════════
 ```

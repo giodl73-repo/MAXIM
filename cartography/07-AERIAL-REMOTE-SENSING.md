@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cartography:aerial-remote-sensing
+kind: guide
+module: cartography
+section: cartography
+title: 07 - Aerial and Remote Sensing
+status: source-custody
+source_custody: partial
+current_path: cartography/07-AERIAL-REMOTE-SENSING.md
+canonical_path: cartography/07-AERIAL-REMOTE-SENSING.md
+backsource_ids: [proof-backfill:cartography:07-aerial-remote-sensing, git-history:cartography:07-aerial-remote-sensing]
+concepts: [aerial, remote, sensing]
+root_concepts: [aerial, remote]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 07 — Aerial and Remote Sensing
 
 ## Seeing Earth from Above
@@ -69,7 +88,7 @@ WWI AERIAL PHOTOGRAPHY — SYSTEMATIC INTELLIGENCE
   - 4-hour turnaround: fly → develop → print → brief
 
   TECHNICAL METHODS:
-  ┌──────────────────────────────────────────────────────────┐
+   ──────────────────────────────────────────────────────────
   │  STEREOSCOPIC INTERPRETATION:                            │
   │  Two photos of same area from slightly different positions│
   │  → 3D effect when viewed with stereo viewer              │
@@ -174,7 +193,7 @@ CORONA SATELLITE PROGRAM
   └── Missions: 145 total (1960–1972); 102 returned usable imagery
 
   TECHNICAL CHALLENGE — FILM RETURN:
-  ┌──────────────────────────────────────────────────────────┐
+   ──────────────────────────────────────────────────────────
   │  No digital transmission possible in 1960                │
   │  Film exposed in orbit → put in reentry capsule          │
   │  Capsule separates → reenters atmosphere → parachute     │
@@ -182,7 +201,7 @@ CORONA SATELLITE PROGRAM
   │  Film developed, duplicated, analyzed                    │
   │  Turnaround: days to weeks                               │
   │  Compare to: modern Maxar EarthWatch → image in hours    │
-  └──────────────────────────────────────────────────────────┘
+   ──────────────────────────────────────────────────────────
 
   INTELLIGENCE ACHIEVEMENTS:
   ├── First mission (1960): more Soviet territory photographed
@@ -216,16 +235,16 @@ MULTISPECTRAL IMAGING — THE ELECTROMAGNETIC SPECTRUM AS TOOL
 
   Different wavelengths reveal different surface properties:
 
-  ┌────────────────────────────────────────────────────────────┐
+   ────────────────────────────────────────────────────────────
   │  VISIBLE (0.4–0.7 μm): what the eye sees                   │
-  │  ├── Blue (0.45–0.52 μm): atmosphere scatter, water depth  │
-  │  ├── Green (0.52–0.60 μm): vegetation health (peak reflect)│
-  │  └── Red (0.63–0.69 μm): vegetation chlorophyll absorption │
+  │   ── Blue (0.45–0.52 μm): atmosphere scatter, water depth  │
+  │   ── Green (0.52–0.60 μm): vegetation health (peak reflect)│
+  │   ── Red (0.63–0.69 μm): vegetation chlorophyll absorption │
   │                                                            │
   │  NEAR-INFRARED (0.77–0.90 μm):                             │
-  │  ├── Strong reflection by healthy green vegetation         │
-  │  ├── Absorption by water                                   │
-  │  └── Used for: NDVI (vegetation index), land/water boundary│
+  │   ── Strong reflection by healthy green vegetation         │
+  │   ── Absorption by water                                   │
+  │   ── Used for: NDVI (vegetation index), land/water boundary│
   │                                                            │
   │  SHORT-WAVE INFRARED (1.55–2.35 μm):                       │
   │  ├── Soil moisture content                                 │

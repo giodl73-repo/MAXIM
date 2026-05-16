@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cartography\\04-PROJECTIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Unsolvable Problem",
+      "confidence": "candidate",
+      "text": "THE DISTORTION IMPOSSIBILITY — FORMAL STATEMENT\n══════════════════════════════════════════════════════════════════════\n\n  Gauss's Theorema Egregium (1827):\n  ────────────────────────────────\n  Gaussian curvature K is an intrinsic invariant.\n  It is preserved by any isometry (distance-preserving map).\n\n  Sphere: K = 1/R² > 0  (everywhere)\n  Plane:  K = 0         (everywhere)\n\n  Since K(sphere) ≠ K(plane), no isometry exists between them.\n\n  Therefore: every projection must introduce distortion.\n\n  The four properties that cannot simultaneously be preserved:\n  ┌──────────────────────────────────────────────────────────────┐\n  │  CONFORMAL (shape-preserving):                               │\n  │  Angles between curves preserved at every point              │\n  │  Local shapes correct; area wrong                            │\n  │                                                              │\n  │  EQUAL-AREA (area-preserving):                               │\n  │  Areas of regions proportional to their true areas           │\n  │  Area correct; local shapes distorted                        │\n  │                                                              │\n  │  EQUIDISTANT (distance-preserving):                          │\n  │  Distances from one or two specific points correct           │\n  │  Cannot be globally equidistant                              │\n  │                                                              │\n  │  GNOMONIC (great-circle-preserving):                         │\n  │  Great circles (shortest paths) render as straight lines     │\n  │  Strong distortion of both area and shape away from center   │\n  └──────────────────────────────────────────────────────────────┘\n\n  A projection can preserve at most one of conformal or equal-area.\n  (These are mutually exclusive everywhere except at a tangent point.)\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "## The Tissot Indicatrix",
+      "confidence": "candidate",
+      "text": "TISSOT INDICATRIX — WHAT IT SHOWS\n══════════════════════════════════════════════════════════════════════\n\n  Concept: Draw a tiny circle on the sphere at each grid point.\n           Project it through the map projection.\n           The resulting shape reveals the local distortion.\n\n  Possible shapes:\n  ┌──────────────────────────────────────────────────────────────┐\n  │  Circle (same size): no distortion (impossible globally)     │\n  │  Circle (different sizes): equal-area, scale varies          │\n  │  Ellipse (equal area): conformal → shape distorted           │\n  │  Ellipse (different area): neither                           │\n  │  Ellipse with equal semi-axes: conformal at that point       │\n  └──────────────────────────────────────────────────────────────┘\n\n  On a conformal projection (Mercator):\n  - All indicatrices are circles\n  - But circles at high latitudes are larger than at equator\n  - Greenland looks the same shape as a circle at equator\n  - But it appears much larger (because the circle is bigger)\n\n  On an equal-area projection (Mollweide):\n  - All indicatrices have equal area\n  - But the circles at high latitudes are elongated ellipses\n  - Regions look squashed toward the poles\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "## Projection Families",
+      "confidence": "candidate",
+      "text": "PROJECTION FAMILIES — CLASSIFICATION TREE\n════════════════════════════════════════════════════════════════════\n\n  By projection surface:\n  ├── CYLINDRICAL: sphere projected onto cylinder\n  │   ├── Standard: cylinder tangent at equator\n  │   │   Mercator, Plate Carée (equirectangular), Miller\n  │   └── Transverse: cylinder tangent at a meridian\n  │       Transverse Mercator (UTM uses this)\n  │\n  ├── CONIC: sphere projected onto cone\n  │   ├── Albers Equal-Area Conic\n  │   ├── Lambert Conformal Conic\n  │   └── Polyconic (older US survey standard)\n  │\n  ├── AZIMUTHAL (planar): sphere projected onto tangent plane\n  │   ├── Gnomonic — great circles as straight lines\n  │   ├── Stereographic — conformal, used for polar regions\n  │   ├── Lambert Azimuthal Equal-Area\n  │   └── Azimuthal Equidistant\n  │\n  └── PSEUDO-CYLINDRICAL: meridians are curves, not lines\n      ├── Mollweide — equal-area, oval world\n      ├── Robinson — compromise, used by National Geographic 1988–98\n      └── Winkel Tripel — compromise, National Geographic current\n\n  By property:\n  ├── CONFORMAL: Mercator, Lambert Conformal Conic, Stereographic\n  ├── EQUAL-AREA: Albers, Mollweide, Gall-Peters, Lambert AEA\n  ├── EQUIDISTANT: Azimuthal Equidistant (from center only)\n  ├── GNOMONIC: Gnomonic (great circles only)\n  └── COMPROMISE: Robinson, Winkel Tripel, Natural Earth\n\n════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "## Mercator Projection (1569) — The Navigator's Solution",
+      "confidence": "candidate",
+      "text": "MERCATOR PROJECTION — MATHEMATICS AND PROPERTIES\n══════════════════════════════════════════════════════════════════════\n\n  The navigational requirement:\n   ────────────────────────────────────────────────────────────\n  │  A rhumb line (loxodrome) = path of constant compass bearing│\n  │  On a sphere: spirals toward pole (never reaches it)       │\n  │  On a Mercator chart: straight line                        │\n  │                                                            │\n  │  Navigator's use: draw straight line from current pos      │\n  │  to destination → read bearing → steer that bearing        │\n  │  → arrive (approximately)                                  │\n  └────────────────────────────────────────────────────────────┘\n\n  Mathematical construction:\n  ┌────────────────────────────────────────────────────────────┐\n  │  Standard parametrization:                                 │\n  │  x = R·λ  (longitude → x, linear)                          │\n  │  y = R·ln|tan(π/4 + φ/2)|  (latitude → y, nonlinear)       │\n  │                                                            │\n  │  Where φ = latitude, λ = longitude, R = Earth radius       │\n  │                                                            │\n  │  The y formula is the Gudermannian function's inverse.     │\n  │  Mercator arrived at this geometrically; Edward Wright     │\n  │  (1599) provided the mathematical derivation — it requires │\n  │  computing ∫ sec(φ)dφ, which is the integral of secant.    │\n  │  This was a hard problem in 1569 (calculus didn't exist).  │\n  └────────────────────────────────────────────────────────────┘\n\n  Properties:\n  ├── Conformal: angles preserved locally (rhumb lines work)\n  ├── Not equal-area: scale factor = 1/cos(φ) = sec(φ)\n  │   At equator (φ=0): scale factor = 1\n  │   At 60° latitude:  scale factor = 2   (2× too big)\n  │   At 75° latitude:  scale factor = 3.9 (4× too big)\n  │   At 85° latitude:  scale factor = 11  (11× too big)\n  ├── Poles: cannot be shown (y → ±∞ as φ → ±90°)\n  └── Great circles: curves (except equator and meridians)\n\n  The Greenland problem:\n  ┌────────────────────────────────────────────────────────────┐\n  │  Greenland: actual area ~2.2 million km²                   │\n  │  Africa:    actual area ~30 million km²  (14× larger)      │\n  │  On Mercator: Greenland appears about the same size Africa │\n  │  Because Greenland is at ~60-80°N; scale factor ~2-6×      │\n  └────────────────────────────────────────────────────────────┘\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 212,
+      "heading_context": "### The Peters Controversy",
+      "confidence": "candidate",
+      "text": "GALL-PETERS CONTROVERSY\n══════════════════════════════════════════════════════════════════════\n\n  Peters's claims (1974):\n  - His projection is the only \"fair\" map (equal-area)\n  - Mercator deliberately distorts to make Europe look large\n  - All previous cartographers conspired in this distortion\n  - His projection is \"new\" (he coined \"Peters Projection\")\n\n  Problems:\n  ├── Not new: James Gall published the identical projection in 1855\n  │   It's correctly called the Gall-Peters projection\n  │\n  ├── Equal-area but shape-distorting:\n  │   Africa and South America appear vertically elongated\n  │   High latitudes appear horizontally stretched\n  │   Shapes are as distorted as Mercator — just differently\n  │\n  ├── Not the only equal-area projection:\n  │   Mollweide (1805), Goode's Homolosine (1923), Lambert (1772)\n  │   all predate Peters and have better aesthetic properties\n  │\n  └── The \"conspiracy\" claim:\n      Mercator was adopted for navigation, not politics.\n      Navigational use does not require nor imply political endorsement.\n\n  What Peters got right:\n  ├── Equal-area projections have real value for area comparison\n  ├── Projection choice does have real-world perception effects\n  └── The dominant world map projection (Mercator) is genuinely\n      not appropriate for general audience use (school maps, etc.)\n\n  Resolution (1988+):\n  National Geographic switched from Van der Grinten to Robinson (1988)\n  National Geographic switched from Robinson to Winkel Tripel (1998)\n  UN uses Robinson (compromise)\n  Cartographic profession consensus: Winkel Tripel or Robinson\n  for general audience world maps\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 382,
+      "heading_context": "## Azimuthal Projections",
+      "confidence": "candidate",
+      "text": "AZIMUTHAL PROJECTIONS\n══════════════════════════════════════════════════════════════════════\n\n  All azimuthal projections share:\n  - Centered on a single point (can be any point on Earth)\n  - Circular symmetry around that center\n  - Azimuths (bearings) from center are correct\n\n  GNOMONIC:\n  - Projection from Earth's center onto tangent plane\n  - Property: ALL great circles appear as straight lines\n  - Use: plotting great circle routes (shortest path navigation)\n  - Problem: extreme distortion away from center\n    (hemisphere cannot be shown — distortion → ∞)\n\n  STEREOGRAPHIC:\n  - Projection from antipode of tangent point\n  - Property: conformal (circles on sphere = circles on map)\n  - Use: polar maps, hemispheric scientific maps\n  - Can show full hemisphere (with some distortion at edges)\n\n  AZIMUTHAL EQUIDISTANT:\n  - Not a \"real\" geometric projection — constructed to be equidist\n  - Property: distances from center point are correct\n  - Use: maps centered on a city showing all destinations by dist;\n    UN emblem uses this centered on North Pole\n  - Cannot show opposite pole\n\n  LAMBERT AZIMUTHAL EQUAL-AREA:\n  - Property: areas correct\n  - Use: continental maps, thematic maps of hemispheres\n  - Used by EU for Europe reference maps\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 425,
+      "heading_context": "## Compromise Projections",
+      "confidence": "candidate",
+      "text": "COMPROMISE PROJECTIONS — WHEN NEITHER PROPERTY IS PARAMOUNT\n══════════════════════════════════════════════════════════════════════\n\n  ROBINSON (1963, Arthur Robinson):\n  - Pseudocylindrical; neither conformal nor equal-area\n  - Constructed empirically to \"look right\" (tabulated, not formula)\n  - National Geographic: 1988–1998\n  - Poles shown as lines (not points)\n  - Moderate distortion everywhere — no severe distortion anywhere\n\n  WINKEL TRIPEL (1921, Oswald Winkel):\n  - Average of equirectangular and Aitoff projections\n  - \"Tripel\" = three: minimizes area, distance, and direction errors\n  - National Geographic: 1998–present\n  - Lower average distortion than Robinson by modern metrics\n  - Used by many atlases as the current \"best compromise\"\n\n  NATURAL EARTH (2007, Tom Patterson and Bernhard Jenny):\n  - Pseudocylindrical; constructed numerically\n  - Designed for natural Earth background maps and terrain\n  - Even flatter poles than Robinson\n  - Software-optimized design (coefficients from optimization)\n\n  SELECTION GUIDE:\n  ┌──────────────────────────────────────────────────────────────┐\n  │  Purpose                → Recommended projection             │\n  │  Navigation (sea)       → Mercator                           │\n  │  Navigation (air, GC)  → Lambert Conformal Conic / Gnomonic  │\n  │  Thematic (area)        → Albers / Mollweide / Gall-Peters   │\n  │  General world map      → Winkel Tripel / Robinson           │\n  │  Regional mid-lat map   → Lambert CC or Albers               │\n  │  Polar region           → Stereographic / Azimuthal EA       │\n  │  US national map (USGS) → Albers Equal-Area Conic            │\n  │  Web slippy map         → Web Mercator (EPSG:3857)           │\n  │  Survey / GPS coords    → UTM (zone-specific TM)             │\n  └──────────────────────────────────────────────────────────────┘\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 472,
+      "heading_context": "## Web Mercator — The Modern Default",
+      "confidence": "candidate",
+      "text": "WEB MERCATOR — WHAT IT IS AND WHY IT'S USED\n══════════════════════════════════════════════════════════════════════\n\n  Mathematical difference from true Mercator:\n  ┌────────────────────────────────────────────────────────────┐\n  │  True Mercator: projects onto ellipsoid (WGS84)            │\n  │  Web Mercator: projects as if Earth were a sphere          │\n  │  (using spherical formula with WGS84 equatorial radius)    │\n  │                                                            │\n  │  Error: up to ~0.33% in scale near the equator             │\n  │  This is invisible at web map zoom levels                  │\n  └────────────────────────────────────────────────────────────┘\n\n  Why it was adopted:\n  ├── Tiles are square: at each zoom level, world fits in 2ⁿ × 2ⁿ tiles\n  │   (zoom 0 = 1 tile = whole world; zoom 1 = 4 tiles; etc.)\n  ├── Efficient: tiles cache well (static PNG files)\n  ├── Simple: x/y calculation straightforward\n  └── Google chose it for Google Maps (2005); industry followed\n\n  The tile scheme:\n  ┌────────────────────────────────────────────────────────────┐\n  │  Zoom 0: 1 tile  (256×256px = whole world)                 │\n  │  Zoom 1: 4 tiles (2×2 grid)                                │\n  │  Zoom n: 4ⁿ tiles (2ⁿ × 2ⁿ grid)                           │\n  │  Zoom 18: 68 billion tiles (street level)                  │\n  │                                                            │\n  │  Tile URL format: /tiles/{z}/{x}/{y}.png                   │\n  │  z = zoom level, x = column, y = row                       │\n  │                                                            │\n  │  This is a function: f(z,x,y) → PNG                        │\n  │  Precomputed and cached; server complexity is generating   │\n  │  and storing tiles, not computation per request            │\n  └────────────────────────────────────────────────────────────┘\n\n  Limitation: Distorts area at high latitudes (same as Mercator).\n  At zoom 0, Greenland appears nearly as large as Africa.\n  Most users don't notice because they zoom in for their use case.\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
