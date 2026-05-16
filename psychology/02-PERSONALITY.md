@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:psychology:personality
+kind: guide
+module: psychology
+section: psychology
+title: Personality Psychology
+status: source-custody
+source_custody: partial
+current_path: psychology/02-PERSONALITY.md
+canonical_path: psychology/02-PERSONALITY.md
+backsource_ids: [proof-backfill:psychology:02-personality, git-history:psychology:02-personality]
+concepts: [personality]
+root_concepts: [personality]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Personality Psychology
 
 ## The Big Picture
@@ -57,7 +76,7 @@ replicated across cultures, and predictively valid. MBTI is not this.
 ```
   ┌────────────────────────────────────────────────────────────────────┐
   │ OPENNESS TO EXPERIENCE (O)                                         │
-  │ High: intellectual curiosity, aesthetic sensitivity, novelty-seeking│
+  │ High: intellectual curiosity aesthetic sensitivity, novelty-seeking│
   │       creativity, abstract thinking, broad interests               │
   │ Low:  practical, conventional, prefers familiar, concrete thinking │
   │                                                                    │
@@ -83,7 +102,7 @@ replicated across cultures, and predictively valid. MBTI is not this.
   │                                                                    │
   │ Facets: Warmth, Gregariousness, Assertiveness, Activity,           │
   │         Excitement Seeking, Positive Emotions                      │
-  │ Predicts: leadership emergence (r~0.31), happiness, social network│
+  │ Predicts: leadership emergence (r~0.31), happiness, social network │
   │           size; NOT intelligence (common misconception)            │
   ├────────────────────────────────────────────────────────────────────┤
   │ AGREEABLENESS (A)                                                  │
@@ -102,7 +121,7 @@ replicated across cultures, and predictively valid. MBTI is not this.
   │                                                                    │
   │ Facets: Anxiety, Angry Hostility, Depression, Self-Consciousness,  │
   │         Impulsiveness, Vulnerability                               │
-  │ Predicts: mental health problems, subjective unhappiness, physical│
+  │ Predicts: mental health problems, subjective unhappiness, physical │
   │           health (psychosomatic pathways), negative relationship   │
   │           outcomes; strongest predictor of psychological distress  │
   └────────────────────────────────────────────────────────────────────┘

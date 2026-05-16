@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geography:overview
+kind: guide
+module: geography
+section: geography
+title: Geography - Overview
+status: source-custody
+source_custody: partial
+current_path: geography/00-OVERVIEW.md
+canonical_path: geography/00-OVERVIEW.md
+backsource_ids: [proof-backfill:geography:00-overview, git-history:geography:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Geography — Overview
 
 ## The Big Picture
@@ -115,7 +134,7 @@ than distant things."
   │ Eurasia's E-W axis → crops/animals spread along same latitude  │
   │ → same climate → rapid diffusion of domesticates               │
   │                                                                │
-  │ Americas/Africa N-S axes → climate barriers → slower diffusion│
+  │ Americas/Africa N-S axes → climate barriers → slower diffusion │
   │                                                                │
   │ Domesticable plants + animals → food surplus → population      │
   │ density → specialization → state capacity → technology →       │

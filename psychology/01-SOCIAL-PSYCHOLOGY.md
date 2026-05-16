@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:psychology:social-psychology
+kind: guide
+module: psychology
+section: psychology
+title: Social Psychology
+status: source-custody
+source_custody: partial
+current_path: psychology/01-SOCIAL-PSYCHOLOGY.md
+canonical_path: psychology/01-SOCIAL-PSYCHOLOGY.md
+backsource_ids: [proof-backfill:psychology:01-social-psychology, git-history:psychology:01-social-psychology]
+concepts: [social, psychology]
+root_concepts: [social, psychology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Social Psychology
 
 ## The Big Picture

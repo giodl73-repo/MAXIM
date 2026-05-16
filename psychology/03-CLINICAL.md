@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:psychology:clinical
+kind: guide
+module: psychology
+section: psychology
+title: Clinical and Abnormal Psychology
+status: source-custody
+source_custody: partial
+current_path: psychology/03-CLINICAL.md
+canonical_path: psychology/03-CLINICAL.md
+backsource_ids: [proof-backfill:psychology:03-clinical, git-history:psychology:03-clinical]
+concepts: [clinical]
+root_concepts: [clinical]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Clinical & Abnormal Psychology
 
 ## The Big Picture
@@ -208,7 +227,7 @@ for most major disorders, with CBT having the broadest support.
   │ POSITIVE (added/excess symptoms):                              │
   │ Hallucinations: perception without stimulus (auditory most     │
   │   common; commanding voices; second-person commentary)         │
-  │ Delusions: fixed false beliefs (paranoid, referential, grandiose│
+  │ Delusions: fixed false beliefs (paranoid/ref./grandiose)       │
   │ Disorganized thinking: loose associations, word salad          │
   │                                                                │
   │ NEGATIVE (diminished function):                                │

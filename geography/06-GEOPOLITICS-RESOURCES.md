@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geography:geopolitics-resources
+kind: guide
+module: geography
+section: geography
+title: Geopolitics and Resource Geography
+status: source-custody
+source_custody: partial
+current_path: geography/06-GEOPOLITICS-RESOURCES.md
+canonical_path: geography/06-GEOPOLITICS-RESOURCES.md
+backsource_ids: [proof-backfill:geography:06-geopolitics-resources, git-history:geography:06-geopolitics-resources]
+concepts: [geopolitics, resources]
+root_concepts: [geopolitics, resources]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Geopolitics & Resource Geography
 
 ## The Big Picture
@@ -187,13 +206,13 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   │ Critical for Pakistani wheat production                        │
   │                                                                │
   │ ARABIAN AQUIFER SYSTEM:                                        │
-  │ Saudi Arabia: fossil water (non-renewable); agriculture already │
+  │ Saudi Arabia: fossil water (non-renewable); agriculture already│
   │ partially abandoned due to depletion                           │
   └────────────────────────────────────────────────────────────────┘
 
   TRANSBOUNDARY WATER CONFLICTS:
   ┌──────────────────────────────────────────────────────────────┐
-  │ NILE: 11 countries; Ethiopia (GERD dam) vs Egypt (downstream) │
+  │ NILE: 11 countries; Ethiopia (GERD dam) vs Egypt (downstream)│
   │   → Existential threat to Egypt (95% water from Nile)        │
   │   GERD filling rate dispute; no binding agreement            │
   │                                                              │
@@ -281,7 +300,7 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   │   "Cobalt Congo": geopolitical and ESG risk concentration    │
   │                                                              │
   │ Nickel (Ni): battery cathodes, stainless steel               │
-  │   Indonesia: ~37% of global production (overtook Philippines) │
+  │   Indonesia: ~37% of global production (overtook Philippines)│
   │   China: processes much of Indonesian nickel ore             │
   │                                                              │
   │ Silicon/Polysilicon: solar PV                                │
@@ -417,9 +436,9 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   │                                                              │
   │ NORTHERN SEA ROUTE (NSR):                                    │
   │ Russia's exclusive economic zone; ~40% shorter Europe-Asia   │
-  │   than Suez route (12,000 km vs 21,000 km: Hamburg-Yokohama)│
+  │   than Suez route (12,000 km vs 21,000 km: Hamburg-Yokohama) │
   │ Current: ice-free ~3 months/yr (September peak)              │
-  │ Russian icebreaker fleet: world's largest (including nuclear) │
+  │ Russian icebreaker fleet: world's largest (including nuclear)│
   │ 2022: Western sanctions → NSR traffic dropped; few willing   │
   │   to use Russian waters                                      │
   │                                                              │
@@ -432,12 +451,12 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   │ MILITARY COMPETITION:                                        │
   │ Russia: rebuilt Arctic bases (Nagurskoye); new icebreakers   │
   │ NATO: Norway, Canada, Denmark/Greenland strategic investment │
-  │ China: "Near Arctic State" (2018 White Paper); polar Silk Road│
+  │ China: "Near Arctic State" (2018 paper); polar Silk Road     │
   │   → Observer in Arctic Council; Chinese icebreaker Xuelong   │
   │                                                              │
   │ SOVEREIGNTY CLAIMS:                                          │
   │ UNCLOS Article 76: extended continental shelf submissions    │
-  │ Russia: 2015 submission claiming Lomonosov Ridge (under-Arctic)│
+  │ Russia: 2015 submission claim Lomonosov Ridge (under-Arctic) │
   │ Canada/Denmark: competing claims to North Pole seabed        │
   │ Arctic Council: 8 members (A5 + Finland/Sweden/Iceland);     │
   │   Norway/Canada/Denmark/Russia/USA core; Russia suspended    │

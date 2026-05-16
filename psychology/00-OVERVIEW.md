@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:psychology:overview
+kind: guide
+module: psychology
+section: psychology
+title: Psychology - Overview
+status: source-custody
+source_custody: partial
+current_path: psychology/00-OVERVIEW.md
+canonical_path: psychology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:psychology:00-overview, git-history:psychology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Psychology — Overview
 
 ## Systems Architecture
@@ -12,7 +31,7 @@ PSYCHOLOGY AS A MEASUREMENT PROBLEM — FOUR ANALYSIS LEVELS
   │ Neurotransmitters        │      │ Group norms              │
   │ HPA axis / cortisol      │◄────►│ Cultural scripts         │
   │ Neural circuits          │      │ Power structures         │
-  │ Genetic variance (h²)   │      │ Conformity pressure       │
+  │ Genetic variance (h²)    │      │ Conformity pressure      │
   │ Psychopharmacology       │      │ Role expectations        │
   └────────────┬─────────────┘      └─────────────┬────────────┘
                │                                   │
@@ -21,19 +40,19 @@ PSYCHOLOGY AS A MEASUREMENT PROBLEM — FOUR ANALYSIS LEVELS
                ├──►│  (computation layer)  │◄──────┤
                │   │                       │       │
                │   │ Perception · Memory   │       │
-               │   │ Attention · Language   │      │
+               │   │ Attention · Language  │       │
                │   │ Decision / Judgment   │       │
                │   │ Executive control     │       │
                │   └───────────┬───────────┘       │
                │               │                   │
                │   ┌───────────▼───────────┐       │
                └──►│   CLINICAL / APPLIED  │◄──────┘
-                   │   (cross-cutting)     │
-                   │                       │
-                   │ Diagnosis · Treatment │
-                   │ I-O · Forensic        │
-                   │ Health · Counseling   │
-                   └───────────────────────┘
+                   │   (cross-cutting)     │       │
+                   │                       │       │
+                   │ Diagnosis · Treatment │       │
+                   │ I-O · Forensic        │       │
+                   │ Health · Counseling   │       │
+                   └───────────────────────┘       │
 
   ALL ARROWS ARE BIDIRECTIONAL:
    Bio → Cog:  serotonin levels alter decision thresholds
@@ -217,7 +236,7 @@ The most important context for evaluating psychological findings:
   │ Miller (7±2), Chomsky critique of Skinner, Simon/Newell AI     │
   │ Information processing models; mental representations OK again │
   │                                                                │
-  │ 1980s+: Social-cognitive, evolutionary, neuroscience integration│
+  │ 1980s+: Social-cognitive, evolutionary, neuro integration      │
   │ Gene-environment interaction research                          │
   │                                                                │
   │ 2010s+: Replication crisis → reform → more rigorous science    │

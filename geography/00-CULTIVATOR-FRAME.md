@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geography:cultivator-frame
+kind: guide
+module: geography
+section: geography
+title: ES-III - The Cultivator's Frame
+status: source-custody
+source_custody: partial
+current_path: geography/00-CULTIVATOR-FRAME.md
+canonical_path: geography/00-CULTIVATOR-FRAME.md
+backsource_ids: [proof-backfill:geography:00-cultivator-frame, git-history:geography:00-cultivator-frame]
+concepts: [cultivator, frame]
+root_concepts: [cultivator, frame]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # ES-III — The Cultivator's Frame
 
 ## Volume 3 of Hearts: Ground Underfoot

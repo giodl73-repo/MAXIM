@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geography:climate-zones
+kind: guide
+module: geography
+section: geography
+title: Climate Zones and Biomes
+status: source-custody
+source_custody: partial
+current_path: geography/02-CLIMATE-ZONES.md
+canonical_path: geography/02-CLIMATE-ZONES.md
+backsource_ids: [proof-backfill:geography:02-climate-zones, git-history:geography:02-climate-zones]
+concepts: [climate, zones]
+root_concepts: [climate, zones]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Climate Zones & Biomes
 
 ## The Big Picture
@@ -20,10 +39,10 @@ with remarkable fidelity — you can reconstruct one from the other.
 |  │                                                                   |
 |  ├── Subtropical (23.5°-35°): HIGH PRESSURE BELTS                    |
 |  │     Descending air → deserts      ←──── Cold upwelling currents   |
-|  │     (Sahara, Arabian, Sonoran)          amplify dryness on W coasts
+|  │     (Sahara, Arabian, Sonoran)          amplify dryness on W coast|
 |  │                                                                   |
 |  ├── Temperate (35°-60°): MIDLATITUDE WESTERLIES                     |
-|  │     Storm tracks; ocean moderation ←── Warm currents (Gulf Stream)
+|  │     Storm tracks; ocean moderation ←── Warm currents (Gulf Stream)|
 |  │     4 seasons on continental interiors ←── Continentality effect  |
 |  │                       ↑                                           |
 |  │                 OROGRAPHY: mountains intercept westerly flow      |
@@ -75,7 +94,7 @@ with remarkable fidelity — you can reconstruct one from the other.
   │ Humboldt/Peru Current: cold and dry; Atacama Desert          │
   │ Benguela: cold and dry; Namib Desert                         │
   │ Canary: dry NW Africa coast                                  │
-  │ Effect: desert formation on W coasts at subtropical latitudes │
+  │ Effect: desert formation on W coasts at subtropical latitude │
   └──────────────────────────────────────────────────────────────┘
 
   ITCZ (Intertropical Convergence Zone):
@@ -220,8 +239,8 @@ with remarkable fidelity — you can reconstruct one from the other.
   │        Boreal/taiga │ Boreal (Dfc)  │  Cold desert              │
   │  ───────────────────┼───────────────┼─────────────────────────  │
   │  Low T  Tundra (ET) │               │  Ice cap (EF)             │
-  │        ←────────────────────────────────────────→               │
-  │               Wet (high precip)     Dry (low precip)            │
+  │        <----------  │---------------│---------->                │
+  │                     │Wet/high precip│Dry/low precip             │
   └─────────────────────────────────────────────────────────────────┘
 
   TROPICAL RAINFOREST:
@@ -297,7 +316,7 @@ with remarkable fidelity — you can reconstruct one from the other.
   ┌────────────────────────────────────────────────────────────────┐
   │ TROPICAL ZONES (A) EXPANDING POLEWARD:                         │
   │ → Tropical wet-dry zone (Aw) migrating ~50–200 km poleward     │
-  │ → Subtropics (B zones) following: Sahara expanding S + N edges│
+  │ → Subtropics (B zones) following: Sahara expanding S + N edges │
   │ → Sahel wetter in some models (ITCZ shift); drier in others    │
   │   (high model disagreement due to vegetation feedbacks)        │
   │                                                                │

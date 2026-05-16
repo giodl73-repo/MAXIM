@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:psychology:organizational
+kind: guide
+module: psychology
+section: psychology
+title: Organizational Psychology
+status: source-custody
+source_custody: partial
+current_path: psychology/04-ORGANIZATIONAL.md
+canonical_path: psychology/04-ORGANIZATIONAL.md
+backsource_ids: [proof-backfill:psychology:04-organizational, git-history:psychology:04-organizational]
+concepts: [organizational]
+root_concepts: [organizational]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Organizational Psychology
 
 ## The Big Picture
@@ -17,7 +36,7 @@ or design work systems, this field's findings directly apply.
 |  Validity of       Campbell's model   JD-R model         Leader      |
 |  predictors        OCB vs             SDT at work        emergence   |
 |  GMA, struct.      in-role behavior   Job enrichment     vs          |
-|  interviews,       Rater biases       Job crafting       effectiveness|
+|  interviews       Rater biases       Job crafting       effectiveness|
 |  work samples      360-degree                                        |
 |                    feedback                                          |
 |                                                                      |
@@ -44,10 +63,10 @@ These represent ~100 years of research on thousands of studies.
   ├──────────────────────────────────────┼────────────────────────────┤
   │ GMA (General Mental Ability)         │ 0.51 (single best predictor│
   │   — cognitive ability tests          │ across all jobs)            │
-  ├──────────────────────────────────────┼────────────────────────────┤
+  ├──────────────────────────────────────┼─────────────────────────────┤
   │ Structured interviews                │ 0.58 (situational/behavioral│
-  │   — behavioral + situational         │ with standardized scoring) │
-  ├──────────────────────────────────────┼────────────────────────────┤
+  │   — behavioral + situational         │ with standardized scoring)  │
+  ├──────────────────────────────────────┼─────────────────────────────┤
   │ Work sample tests                    │ 0.54 (actual task performance│
   │   — test actual job tasks            │ high face validity)         │
   ├──────────────────────────────────────┼────────────────────────────┤
@@ -282,7 +301,7 @@ These represent ~100 years of research on thousands of studies.
   │ → Distribution of ratings compressed; poor differentiation     │
   │                                                                │
   │ CENTRAL TENDENCY: Rater avoids extremes                        │
-  │ → All ratings near the middle; top performers underdistinguished│
+  │ → All ratings near the middle; top performers blurred          │
   │                                                                │
   │ RECENCY: Recent events dominate over full period               │
   │ → Last 3 months = "entire year" in rater's mind                │

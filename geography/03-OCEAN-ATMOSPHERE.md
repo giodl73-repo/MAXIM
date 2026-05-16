@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geography:ocean-atmosphere
+kind: guide
+module: geography
+section: geography
+title: Ocean-Atmosphere Coupling
+status: source-custody
+source_custody: partial
+current_path: geography/03-OCEAN-ATMOSPHERE.md
+canonical_path: geography/03-OCEAN-ATMOSPHERE.md
+backsource_ids: [proof-backfill:geography:03-ocean-atmosphere, git-history:geography:03-ocean-atmosphere]
+concepts: [ocean, atmosphere]
+root_concepts: [ocean, atmosphere]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ocean-Atmosphere Coupling
 
 ## The Big Picture
@@ -293,7 +312,7 @@ propagates spatially.
 
   NORTH ATLANTIC OSCILLATION (NAO):
   ┌────────────────────────────────────────────────────────────────┐
-  │ Index: pressure difference between Icelandic Low and Azores High│
+  │ Index: pressure difference between Icelandic Low and Azores H. │
   │                                                                │
   │ NAO+ (high index): strong pressure gradient                    │
   │   → Strong westerlies → mild, wet W Europe                     │
