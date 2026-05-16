@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "04-MACOS.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:os:macos
 kind: guide

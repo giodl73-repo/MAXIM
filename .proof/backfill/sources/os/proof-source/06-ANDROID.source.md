@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "06-ANDROID.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:os:android
 kind: guide

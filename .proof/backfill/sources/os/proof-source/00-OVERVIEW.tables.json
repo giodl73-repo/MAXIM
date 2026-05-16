@@ -1,0 +1,273 @@
+{
+  "schema_version": "1",
+  "source_markdown": "os\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 420,
+      "heading_context": "## \"Same Thing\" Vocabulary Cross-Reference",
+      "headers": [
+        "Concept",
+        "Windows",
+        "Linux",
+        "macOS",
+        "iOS",
+        "Android"
+      ],
+      "rows": [
+        [
+          "Service / daemon",
+          "Windows Service (SCM)",
+          "systemd unit",
+          "launchd agent/daemon",
+          "launchd daemon",
+          "Android Service component"
+        ],
+        [
+          "Config store",
+          "Registry",
+          "/etc files + ~/.config",
+          "plist files",
+          "plist (in sandbox)",
+          "SharedPreferences / SQLite"
+        ],
+        [
+          "Scheduled task",
+          "Task Scheduler (.xml)",
+          "cron / systemd timer",
+          "launchd StartCalendarInterval",
+          "Background fetch",
+          "WorkManager / JobScheduler"
+        ],
+        [
+          "Crash dump",
+          ".dmp (WinDbg)",
+          "core dump (/var/crash)",
+          ".crash (~/Library/Logs)",
+          "crash log (Xcode Organizer)",
+          "tombstone (/data/tombstones)"
+        ],
+        [
+          "Package format",
+          ".msi / .msix / .exe",
+          ".deb / .rpm / snap",
+          ".pkg / .dmg / .app",
+          ".ipa",
+          ".apk / .aab"
+        ],
+        [
+          "App manifest",
+          "AppxManifest.xml",
+          "(none standard)",
+          "Info.plist",
+          "Info.plist + entitlements",
+          "AndroidManifest.xml"
+        ],
+        [
+          "Font/resource dir",
+          "C:\\Windows\\Fonts",
+          "/usr/share/fonts",
+          "/System/Library/Fonts",
+          "(embedded in bundle)",
+          "assets/ in APK"
+        ],
+        [
+          "Dynamic library",
+          ".dll (PE format)",
+          ".so (ELF format)",
+          ".dylib (Mach-O)",
+          ".dylib (Mach-O)",
+          ".so (ELF, loaded by ART)"
+        ],
+        [
+          "Executable format",
+          "PE (Portable Executable)",
+          "ELF",
+          "Mach-O",
+          "Mach-O",
+          "ELF inside APK"
+        ],
+        [
+          "Debug symbols",
+          ".pdb (Program Database)",
+          "DWARF (in ELF)",
+          "dSYM bundle",
+          "dSYM bundle",
+          ".sym (symbol table)"
+        ],
+        [
+          "Env variable",
+          "$env:VAR (PS) / %VAR%",
+          "$VAR",
+          "$VAR",
+          "(runtime injection)",
+          "(build config / Intent)"
+        ],
+        [
+          "Temp dir",
+          "%TEMP%",
+          "/tmp (tmpfs)",
+          "/tmp → /private/tmp",
+          "NSTemporaryDirectory()",
+          "getCacheDir()"
+        ],
+        [
+          "User data dir",
+          "%APPDATA%",
+          "~/.local/share",
+          "~/Library/Application Support",
+          "NSDocumentDirectory",
+          "getFilesDir()"
+        ],
+        [
+          "Log location",
+          "Event Viewer / ETW",
+          "journalctl / /var/log",
+          "Console.app / ~/Library/Logs",
+          "Xcode Organizer",
+          "logcat / /data/anr"
+        ],
+        [
+          "Network config",
+          "ipconfig, netsh",
+          "ip, ss, nmcli",
+          "ifconfig, networksetup",
+          "(no direct CLI)",
+          "adb shell ifconfig"
+        ],
+        [
+          "Firewall",
+          "Windows Firewall (netsh)",
+          "iptables/nftables",
+          "pfctl (pf)",
+          "(managed by iOS)",
+          "(managed by Android)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 443,
+      "heading_context": "## Decision Cheat Sheet — Platform Targets",
+      "headers": [
+        "You want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Ship a native Windows desktop app (.NET, modern UI)",
+          "WinUI 3 + WinApp SDK or WPF (if legacy OK)"
+        ],
+        [
+          "Ship a cross-platform desktop (Win/Mac/Linux)",
+          "Electron (JS) or Tauri (Rust+webview) or .NET MAUI"
+        ],
+        [
+          "Ship a Linux server daemon",
+          "systemd service + Docker container"
+        ],
+        [
+          "Ship an iOS app to App Store",
+          "Swift + SwiftUI, Xcode, Apple Developer Program"
+        ],
+        [
+          "Ship an Android app to Play Store",
+          "Kotlin + Jetpack Compose, Android Studio, Play Console"
+        ],
+        [
+          "Ship a cross-platform mobile app",
+          "React Native or Flutter (if not Apple Silicon perf critical)"
+        ],
+        [
+          "Automate Windows admin",
+          "PowerShell (pwsh) — not cmd, not bash"
+        ],
+        [
+          "Automate Linux/macOS admin",
+          "bash/zsh + Python for complex logic"
+        ],
+        [
+          "Debug a Windows process crash",
+          "WinDbg + PDB symbols + !analyze -v"
+        ],
+        [
+          "Debug a Linux kernel crash",
+          "crash + vmcore + DWARF symbols"
+        ],
+        [
+          "Understand why an app is slow on macOS",
+          "Instruments (Time Profiler / Allocations)"
+        ],
+        [
+          "Understand why an app is slow on Android",
+          "Android Studio Profiler + systrace"
+        ],
+        [
+          "Debug a Linux kernel crash",
+          "crash + vmcore + DWARF symbols"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 461,
+      "heading_context": "## Decision Cheat Sheet — OS Primitives",
+      "headers": [
+        "You need...",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "rows": [
+        [
+          "Async I/O at scale",
+          "epoll / io_uring",
+          "IOCP (I/O Completion Ports)",
+          "kqueue"
+        ],
+        [
+          "Watch filesystem for changes",
+          "inotify / fanotify",
+          "ReadDirectoryChangesW",
+          "kqueue EVFILT_VNODE"
+        ],
+        [
+          "Pass fd/handle to another process",
+          "SCM_RIGHTS via AF_UNIX",
+          "DuplicateHandle()",
+          "mach_port_insert_right()"
+        ],
+        [
+          "Signal a different process",
+          "kill(pid, sig)",
+          "(no direct equiv) / WM_CLOSE for windows",
+          "kill(pid, sig)"
+        ],
+        [
+          "Shared memory between processes",
+          "shm_open + mmap",
+          "CreateFileMapping + MapViewOfFile",
+          "shm_open + mmap"
+        ],
+        [
+          "Enforce per-process resource limits",
+          "cgroups v2",
+          "Job Object limits",
+          "Resource limits + App Sandbox"
+        ],
+        [
+          "Run code in reduced privilege",
+          "seccomp-bpf + capabilities",
+          "AppContainer / Integrity Level Low",
+          "Sandbox + entitlements"
+        ],
+        [
+          "Periodic scheduled work",
+          "systemd timer or cron",
+          "Task Scheduler",
+          "launchd StartCalendarInterval"
+        ]
+      ]
+    }
+  ]
+}

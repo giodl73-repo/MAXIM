@@ -1,0 +1,206 @@
+{
+  "schema_version": "1",
+  "source_markdown": "os\\06-ANDROID.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 60,
+      "heading_context": "## The Android Stack — Big Picture",
+      "headers": [
+        "Aspect",
+        "Standard Linux",
+        "Android"
+      ],
+      "rows": [
+        [
+          "IPC mechanism",
+          "Unix domain sockets",
+          "Binder (kernel driver, one-copy IPC)"
+        ],
+        [
+          "C library",
+          "glibc",
+          "Bionic (lighter, BSD-derived)"
+        ],
+        [
+          "Init",
+          "systemd / SysVinit",
+          "init → Zygote → SystemServer"
+        ],
+        [
+          "Display server",
+          "X11 / Wayland",
+          "SurfaceFlinger (no X11 ever)"
+        ],
+        [
+          "App isolation",
+          "uid/gid only",
+          "uid per-app + SELinux + seccomp"
+        ],
+        [
+          "Package manager",
+          "apt/rpm",
+          "PackageManager service"
+        ],
+        [
+          "Log system",
+          "syslog / journald",
+          "logd + logcat (circular ring buffer)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 482,
+      "heading_context": "## AndroidManifest.xml — The App's Contract With the OS",
+      "headers": [
+        "Tier",
+        "Examples",
+        "Grant method"
+      ],
+      "rows": [
+        [
+          "Normal",
+          "INTERNET, VIBRATE, NFC",
+          "Granted at install, no dialog"
+        ],
+        [
+          "Dangerous",
+          "CAMERA, LOCATION, CONTACTS, MIC",
+          "Runtime dialog (API 23+)"
+        ],
+        [
+          "Signature",
+          "BIND_ACCESSIBILITY_SERVICE",
+          "Only granted to apps signed with same key"
+        ],
+        [
+          "Special",
+          "MANAGE_EXTERNAL_STORAGE, OVERLAY",
+          "User navigates to Settings manually"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 1171,
+      "heading_context": "## Security on Android",
+      "headers": [
+        "Risk",
+        "Android manifestation",
+        "Mitigation"
+      ],
+      "rows": [
+        [
+          "M1: Improper Credential Usage",
+          "Hardcoded API keys, keys in git",
+          "Android Keystore, secrets.properties, never in code"
+        ],
+        [
+          "M2: Inadequate Supply Chain",
+          "Unvetted third-party SDKs",
+          "Dependency auditing, Gradle dependency verification"
+        ],
+        [
+          "M3: Insecure Auth",
+          "Missing cert validation, no pinning",
+          "Network security config, OkHttp CertificatePinner"
+        ],
+        [
+          "M4: Insufficient Input/Output",
+          "Implicit intents intercepted",
+          "Explicit intents for sensitive operations"
+        ],
+        [
+          "M5: Insecure Communication",
+          "Cleartext HTTP",
+          "cleartext disabled in network security config"
+        ],
+        [
+          "M6: Inadequate Privacy Controls",
+          "Logging PII, world-readable files",
+          "Filter Logcat, use internal storage, EncryptedPreferences"
+        ],
+        [
+          "M7: Insufficient Binary Protection",
+          "Unobfuscated binaries",
+          "R8 minification, anti-tamper checks"
+        ],
+        [
+          "M8: Security Misconfiguration",
+          "android:exported=true unnecessarily",
+          "Explicit exported declarations, minimal permissions"
+        ],
+        [
+          "M9: Insecure Data Storage",
+          "SQLite unencrypted, external storage",
+          "Room + EncryptedSharedPreferences, internal storage"
+        ],
+        [
+          "M10: Insufficient Cryptography",
+          "MD5/SHA1, ECB mode",
+          "AES-256-GCM, RSA-OAEP, Android Keystore"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 1351,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "Which Android API level to target?",
+          "minSdk 26 (covers 95%+ devices as of 2024), targetSdk = latest"
+        ],
+        [
+          "New app: XML Views or Compose?",
+          "Compose for all new apps; XML only if large existing View codebase"
+        ],
+        [
+          "Background work: Service or WorkManager?",
+          "WorkManager for deferrable; ForegroundService only for user-facing ongoing ops"
+        ],
+        [
+          "LiveData or StateFlow?",
+          "StateFlow (Kotlin-native, no Android dependency, testable)"
+        ],
+        [
+          "Kotlin coroutines: launch or async?",
+          "launch for fire-and-forget; async when you need the return value"
+        ],
+        [
+          "Flow collection in Fragment?",
+          "repeatOnLifecycle(STARTED) always; collectAsStateWithLifecycle() in Compose"
+        ],
+        [
+          "DI: Hilt or Koin?",
+          "Hilt for new projects (Google-first-party, compile-time validation)"
+        ],
+        [
+          "JSON parsing: Gson, Moshi, or kotlinx.serialization?",
+          "kotlinx.serialization (multiplatform, no reflection, KMP-compatible)"
+        ],
+        [
+          "Store keys/secrets: SharedPreferences or Keystore?",
+          "Keystore for keys, EncryptedSharedPreferences for secrets"
+        ],
+        [
+          "Distribute: APK or AAB?",
+          "Always AAB to Play Store; APK only for sideloading/enterprise"
+        ],
+        [
+          "Single Activity or Multi-Activity?",
+          "Single Activity + Navigation component (standard modern pattern)"
+        ],
+        [
+          "kapt or KSP?",
+          "KSP (faster, Kotlin-native; kapt is deprecated path)"
+        ]
+      ]
+    }
+  ]
+}

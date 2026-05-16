@@ -1,0 +1,341 @@
+{
+  "schema_version": "1",
+  "source_markdown": "os\\03-LINUX.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 127,
+      "heading_context": "## Distro Families — Know Which One You're On",
+      "headers": [
+        "Attribute",
+        "Debian/Ubuntu",
+        "RHEL/Rocky/Fedora",
+        "Arch",
+        "Azure Linux"
+      ],
+      "rows": [
+        [
+          "Package format",
+          ".deb",
+          ".rpm",
+          ".pkg.tar.zst",
+          ".rpm"
+        ],
+        [
+          "Package tool",
+          "apt, dpkg",
+          "dnf (yum alias exists)",
+          "pacman",
+          "tdnf (tiny dnf)"
+        ],
+        [
+          "Package query",
+          "dpkg -l, dpkg -S",
+          "rpm -qa, rpm -qf",
+          "pacman -Q",
+          "tdnf list"
+        ],
+        [
+          "Repo config",
+          "/etc/apt/sources.list",
+          "/etc/yum.repos.d/*.repo",
+          "/etc/pacman.conf",
+          "/etc/yum.repos.d/"
+        ],
+        [
+          "Default shell",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        [
+          "Init system",
+          "systemd",
+          "systemd",
+          "systemd",
+          "systemd"
+        ],
+        [
+          "Firewall tool",
+          "ufw (wraps nftables)",
+          "firewalld",
+          "iptables/nftables",
+          "none (use NSG)"
+        ],
+        [
+          "SELinux/AppArmor",
+          "AppArmor",
+          "SELinux",
+          "neither (opt-in)",
+          "SELinux"
+        ],
+        [
+          "Where used",
+          "Ubuntu VMs, Debian k8s",
+          "Enterprise, AWS, AKS",
+          "Desktop, rolling",
+          "AKS nodes, Azure"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 492,
+      "heading_context": "## Containers = Linux Primitives",
+      "headers": [
+        "Namespace",
+        "Flag",
+        "Isolates",
+        "Example impact"
+      ],
+      "rows": [
+        [
+          "pid",
+          "CLONE_NEWPID",
+          "Process ID numbers",
+          "Container's process is PID 1, not 47382"
+        ],
+        [
+          "net",
+          "CLONE_NEWNET",
+          "Network interfaces, routing, firewall rules",
+          "Container has its own eth0, 172.17.0.x"
+        ],
+        [
+          "mnt",
+          "CLONE_NEWNS",
+          "Filesystem mount points",
+          "Container sees its image as /"
+        ],
+        [
+          "uts",
+          "CLONE_NEWUTS",
+          "Hostname and domain name",
+          "Container can have hostname \"webapp-1\""
+        ],
+        [
+          "ipc",
+          "CLONE_NEWIPC",
+          "POSIX message queues, SysV IPC, shared memory",
+          "Container IPC can't reach host IPC"
+        ],
+        [
+          "user",
+          "CLONE_NEWUSER",
+          "UID/GID mapping",
+          "Container root (uid 0) = host uid 65534"
+        ],
+        [
+          "cgroup",
+          "CLONE_NEWCGROUP",
+          "cgroup root",
+          "Container can't see host cgroup hierarchy"
+        ],
+        [
+          "time",
+          "CLONE_NEWTIME",
+          "System clock offsets (Linux 5.6+)",
+          "Each container can have different clock"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 590,
+      "heading_context": "## eBPF — The Modern Linux Superpower",
+      "headers": [
+        "Tool",
+        "What it does",
+        "Layer"
+      ],
+      "rows": [
+        [
+          "Cilium",
+          "eBPF-based CNI for Kubernetes; replaces iptables routing",
+          "K8s networking"
+        ],
+        [
+          "Pixie",
+          "Zero-instrumentation app observability (HTTP, SQL traces)",
+          "Observability"
+        ],
+        [
+          "Falco",
+          "Runtime security; alerts on unexpected syscalls",
+          "Security"
+        ],
+        [
+          "Tetragon",
+          "Network + process execution policy enforcement in K8s",
+          "Security"
+        ],
+        [
+          "bpftrace",
+          "Dynamic tracing scripts (production debugging)",
+          "Dev tooling"
+        ],
+        [
+          "Hubble",
+          "Network flow visibility built on Cilium",
+          "Networking"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 1885,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "You want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Start/stop/restart a daemon",
+          "`systemctl start/stop/restart <service>`"
+        ],
+        [
+          "See why a service failed",
+          "`systemctl status <svc>` then `journalctl -u <svc> -n 50`"
+        ],
+        [
+          "Add a service that starts on boot",
+          "`systemctl enable --now <svc>`"
+        ],
+        [
+          "Run a script on a schedule (replace cron)",
+          "systemd timer unit (`.timer` + `.service` pair)"
+        ],
+        [
+          "See all listening ports with owning process",
+          "`ss -tlnp`"
+        ],
+        [
+          "Find which process is using port 8080",
+          "`ss -tlnp | grep 8080` or `lsof -i :8080`"
+        ],
+        [
+          "See CPU/memory/load in real time",
+          "`htop` or `btop`"
+        ],
+        [
+          "Kill a stuck process",
+          "`kill <pid>` (SIGTERM); if unresponsive: `kill -9 <pid>`"
+        ],
+        [
+          "See what files a process has open",
+          "`lsof -p <pid>`"
+        ],
+        [
+          "Trace syscalls of a running process",
+          "`strace -p <pid>`"
+        ],
+        [
+          "Find which package owns a file",
+          "`dpkg -S /path` (Debian) or `rpm -qf /path` (RHEL)"
+        ],
+        [
+          "Install a package",
+          "`apt install <pkg>` (Debian) or `dnf install <pkg>` (RHEL)"
+        ],
+        [
+          "Find where a binary came from",
+          "`which nginx`, `type nginx`, `command -v nginx`"
+        ],
+        [
+          "Check disk space",
+          "`df -h`"
+        ],
+        [
+          "Find what's eating disk space",
+          "`du -sh /var/*` then drill down"
+        ],
+        [
+          "Resize a filesystem without downtime",
+          "LVM: `lvextend` + `resize2fs` or `xfs_growfs`"
+        ],
+        [
+          "See kernel messages / hardware errors",
+          "`dmesg -T | tail -50` or `journalctl -k`"
+        ],
+        [
+          "Debug DNS resolution",
+          "`resolvectl query hostname` or `dig hostname @8.8.8.8`"
+        ],
+        [
+          "Check if a port is open on remote host",
+          "`nc -zv host port` or `curl -m 3 http://host:port`"
+        ],
+        [
+          "Capture network traffic",
+          "`tcpdump -i eth0 -w /tmp/cap.pcap` → open in Wireshark"
+        ],
+        [
+          "Debug container permission issues",
+          "`docker inspect <ctr>`, check SELinux/AppArmor denials"
+        ],
+        [
+          "Enable IP forwarding (routing between NICs)",
+          "`echo 1 > /proc/sys/net/ipv4/ip_forward`; persist in sysctl"
+        ],
+        [
+          "See container resource usage",
+          "`docker stats` (user-facing) or inspect cgroup directly"
+        ],
+        [
+          "Profile CPU in production (no restart)",
+          "`bpftrace -e 'profile:hz:99 { @[kstack]=count(); }'`"
+        ],
+        [
+          "Trace file opens system-wide",
+          "`opensnoop-bpfcc` or bpftrace openat tracepoint"
+        ],
+        [
+          "Add a firewall rule (Ubuntu)",
+          "`ufw allow 443/tcp`"
+        ],
+        [
+          "Add a firewall rule (RHEL)",
+          "`firewall-cmd --add-port=443/tcp --permanent && firewall-cmd --reload`"
+        ],
+        [
+          "Give a user sudo access",
+          "Add to `/etc/sudoers.d/username` via `visudo -f`"
+        ],
+        [
+          "Change file permissions",
+          "`chmod 644 file`, `chown user:group file`"
+        ],
+        [
+          "Check what distro you're on",
+          "`cat /etc/os-release`"
+        ],
+        [
+          "Check kernel version",
+          "`uname -r`"
+        ],
+        [
+          "Check system uptime and load",
+          "`uptime` or `w`"
+        ],
+        [
+          "Keep a process running after logout",
+          "`tmux` session, or `nohup cmd &`"
+        ],
+        [
+          "See boot time breakdown",
+          "`systemd-analyze blame`"
+        ],
+        [
+          "Check SELinux denials (RHEL)",
+          "`ausearch -m AVC -ts recent`"
+        ],
+        [
+          "Allow a service through SELinux (RHEL)",
+          "`setsebool -P httpd_can_network_connect on`"
+        ]
+      ]
+    }
+  ]
+}

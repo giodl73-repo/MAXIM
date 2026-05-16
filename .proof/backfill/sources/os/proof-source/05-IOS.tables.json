@@ -1,0 +1,553 @@
+{
+  "schema_version": "1",
+  "source_markdown": "os\\05-IOS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 69,
+      "heading_context": "## 1. iOS Architecture",
+      "headers": [
+        "Feature",
+        "macOS",
+        "iOS"
+      ],
+      "rows": [
+        [
+          "`fork()`",
+          "Yes (POSIX)",
+          "No — not allowed in sandboxed apps"
+        ],
+        [
+          "`exec()`",
+          "Yes",
+          "No"
+        ],
+        [
+          "JIT compilation",
+          "Yes (with entitlement)",
+          "No (prior to iOS 14.2); restricted even now"
+        ],
+        [
+          "Multiple user accounts",
+          "Yes",
+          "No (single user; enterprise managed)"
+        ],
+        [
+          "Unsigned code execution",
+          "Yes (without SIP)",
+          "Never — all code must be signed"
+        ],
+        [
+          "Dynamic library loading",
+          "Yes (developer dylibs)",
+          "No — only system dylibs; app frameworks must be embedded"
+        ],
+        [
+          "Terminal / shell access",
+          "Yes",
+          "No"
+        ],
+        [
+          "Sandbox",
+          "Optional (App Store only)",
+          "Mandatory — every app, always"
+        ],
+        [
+          "GUI customization",
+          "Menubar, Dock, etc.",
+          "Fixed: SpringBoard controls all"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 172,
+      "heading_context": "## 2. Xcode Build System",
+      "headers": [
+        "Target",
+        "Output",
+        "Key Info"
+      ],
+      "rows": [
+        [
+          "App",
+          ".app bundle",
+          "Main product"
+        ],
+        [
+          "Framework",
+          ".framework",
+          "Reusable code; embedded in app"
+        ],
+        [
+          "Static Library",
+          ".a",
+          "No resources; linked at build time"
+        ],
+        [
+          "App Extension",
+          ".appex",
+          "Runs in host process's sandbox"
+        ],
+        [
+          "Unit Test Bundle",
+          ".xctest",
+          "XCTest framework; runs in-process"
+        ],
+        [
+          "UI Test Bundle",
+          ".xctest",
+          "Runs in separate process; drives app via XCUIApplication"
+        ],
+        [
+          "Watch App",
+          ".app",
+          "Requires companion iOS app target"
+        ],
+        [
+          "Widget Extension",
+          ".appex",
+          "WidgetKit; displayed in Home Screen"
+        ],
+        [
+          "Notification Service Ext",
+          ".appex",
+          "Modify push before display"
+        ],
+        [
+          "Share Extension",
+          ".appex",
+          "Appears in share sheet"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 319,
+      "heading_context": "## 3. Provisioning, Certificates, and Signing",
+      "headers": [
+        "Profile Type",
+        "Distribution",
+        "Device Restriction"
+      ],
+      "rows": [
+        [
+          "Development",
+          "Internal dev + testing",
+          "Up to 100 registered UDIDs"
+        ],
+        [
+          "Ad Hoc",
+          "Share outside team, testing",
+          "Up to 100 registered UDIDs"
+        ],
+        [
+          "App Store",
+          "App Store Connect submission",
+          "None (Apple's servers distribute)"
+        ],
+        [
+          "Enterprise (In-House)",
+          "Internal apps (B2B)",
+          "None; requires $299/yr enterprise account"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 468,
+      "heading_context": "## 4. App Sandbox and Privacy",
+      "headers": [
+        "Capability",
+        "Info.plist Key"
+      ],
+      "rows": [
+        [
+          "Camera",
+          "`NSCameraUsageDescription`"
+        ],
+        [
+          "Photo Library (read)",
+          "`NSPhotoLibraryUsageDescription`"
+        ],
+        [
+          "Photo Library (write)",
+          "`NSPhotoLibraryAddUsageDescription`"
+        ],
+        [
+          "Microphone",
+          "`NSMicrophoneUsageDescription`"
+        ],
+        [
+          "Location (always)",
+          "`NSLocationAlwaysAndWhenInUseUsageDescription`"
+        ],
+        [
+          "Location (when in use)",
+          "`NSLocationWhenInUseUsageDescription`"
+        ],
+        [
+          "Contacts",
+          "`NSContactsUsageDescription`"
+        ],
+        [
+          "Calendars",
+          "`NSCalendarsUsageDescription`"
+        ],
+        [
+          "Reminders",
+          "`NSRemindersUsageDescription`"
+        ],
+        [
+          "Bluetooth",
+          "`NSBluetoothAlwaysUsageDescription`"
+        ],
+        [
+          "Motion (accelerometer)",
+          "`NSMotionUsageDescription`"
+        ],
+        [
+          "Face ID",
+          "`NSFaceIDUsageDescription`"
+        ],
+        [
+          "Health (read)",
+          "`NSHealthShareUsageDescription`"
+        ],
+        [
+          "Health (write)",
+          "`NSHealthUpdateUsageDescription`"
+        ],
+        [
+          "HomeKit",
+          "`NSHomeKitUsageDescription`"
+        ],
+        [
+          "Local Network",
+          "`NSLocalNetworkUsageDescription`"
+        ],
+        [
+          "NFC",
+          "`NFCReaderUsageDescription`"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 714,
+      "heading_context": "## 5. UIKit vs SwiftUI on iOS",
+      "headers": [
+        "Scenario",
+        "Why UIKit"
+      ],
+      "rows": [
+        [
+          "`UITextView` with precise cursor positioning",
+          "SwiftUI TextEditor lacks fine control"
+        ],
+        [
+          "`UICollectionViewLayout` custom layouts",
+          "SwiftUI Grid cannot replicate all compositional layouts"
+        ],
+        [
+          "`UIScrollView` with complex delegate logic",
+          "SwiftUI ScrollView has limited customization"
+        ],
+        [
+          "`UIPageViewController` with gesture interception",
+          "Tricky to replicate exactly in SwiftUI"
+        ],
+        [
+          "Third-party SDKs that provide UIView/UIViewController",
+          "Use UIViewRepresentable"
+        ],
+        [
+          "Complex drag & drop (UIDragInteraction)",
+          "Partially available in SwiftUI, gaps remain"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 956,
+      "heading_context": "## 7. Networking on iOS",
+      "headers": [
+        "Code",
+        "Constant",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "-999",
+          "`cancelled`",
+          "Task cancelled by app"
+        ],
+        [
+          "-1001",
+          "`timedOut`",
+          "Request timed out"
+        ],
+        [
+          "-1003",
+          "`cannotFindHost`",
+          "DNS resolution failed"
+        ],
+        [
+          "-1004",
+          "`cannotConnectToHost`",
+          "TCP connection refused"
+        ],
+        [
+          "-1005",
+          "`networkConnectionLost`",
+          "Mid-request disconnect"
+        ],
+        [
+          "-1009",
+          "`notConnectedToInternet`",
+          "No network"
+        ],
+        [
+          "-1012",
+          "`userAuthenticationRequired`",
+          "407 / HTTP auth"
+        ],
+        [
+          "-1200",
+          "`secureConnectionFailed`",
+          "TLS handshake failed"
+        ],
+        [
+          "-1202",
+          "`serverCertificateUntrusted`",
+          "Self-signed / unknown CA"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 1198,
+      "heading_context": "## 9. Push Notifications",
+      "headers": [
+        "Field",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "`alert`",
+          "Text displayed in notification"
+        ],
+        [
+          "`badge`",
+          "App icon badge number (0 to clear)"
+        ],
+        [
+          "`sound`",
+          "Audio; \"default\" or custom filename"
+        ],
+        [
+          "`content-available: 1`",
+          "Silent push — wakes app in background"
+        ],
+        [
+          "`mutable-content: 1`",
+          "Triggers Notification Service Extension"
+        ],
+        [
+          "`thread-id`",
+          "Groups notifications together"
+        ],
+        [
+          "`category`",
+          "Links to UNNotificationCategory for action buttons"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 1370,
+      "heading_context": "## 10. TestFlight and App Store Distribution",
+      "headers": [
+        "Concept",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "Internal testers",
+          "Up to 100; must be in App Store Connect team; available immediately after upload"
+        ],
+        [
+          "External testers",
+          "Up to 10,000; can be anyone with email invite; requires Beta App Review (~1 day)"
+        ],
+        [
+          "Build expiry",
+          "TestFlight builds expire after 90 days"
+        ],
+        [
+          "Feedback",
+          "Testers can send feedback with screenshot from TestFlight app"
+        ],
+        [
+          "App Store Connect API",
+          "Use API key (not Apple ID) for CI to avoid 2FA"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 1474,
+      "heading_context": "## 11. Debugging and Instruments",
+      "headers": [
+        "Template",
+        "What It Shows",
+        "Key Use Case"
+      ],
+      "rows": [
+        [
+          "Time Profiler",
+          "CPU call-stack samples every 1ms",
+          "Find slow code"
+        ],
+        [
+          "Allocations",
+          "Heap allocations over time; generation snapshots",
+          "Memory growth"
+        ],
+        [
+          "Leaks",
+          "Reference cycles; objects never freed",
+          "Retain cycle"
+        ],
+        [
+          "Network",
+          "All URLSession requests + response times",
+          "Slow API calls"
+        ],
+        [
+          "Energy Log",
+          "CPU/GPU/network/location wakeups",
+          "Battery drain"
+        ],
+        [
+          "Core Data",
+          "Fetches, saves, faults",
+          "N+1 fetches"
+        ],
+        [
+          "System Trace",
+          "Thread scheduling, VM faults, syscalls",
+          "Deep thread issues"
+        ],
+        [
+          "SwiftUI",
+          "View body calls, attribute graph diff",
+          "SwiftUI perf"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 1551,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Task",
+        "Tool / Approach"
+      ],
+      "rows": [
+        [
+          "New iOS app, 2025",
+          "SwiftUI + Swift Concurrency (async/await)"
+        ],
+        [
+          "Complex custom table/collection",
+          "UIKit UITableView / UICollectionView"
+        ],
+        [
+          "Embed UIKit in SwiftUI",
+          "`UIViewRepresentable` / `UIViewControllerRepresentable`"
+        ],
+        [
+          "Embed SwiftUI in UIKit",
+          "`UIHostingController`"
+        ],
+        [
+          "Share data between app + extension",
+          "App Group entitlement + shared container"
+        ],
+        [
+          "Run code when app is suspended",
+          "BGAppRefreshTask (30s) or BGProcessingTask (minutes)"
+        ],
+        [
+          "Download in background",
+          "Background URLSessionConfiguration"
+        ],
+        [
+          "Push notifications",
+          "APNs + UNUserNotificationCenter + auth key (.p8)"
+        ],
+        [
+          "Modify push before display",
+          "Notification Service Extension"
+        ],
+        [
+          "Custom push notification UI",
+          "Notification Content Extension"
+        ],
+        [
+          "Store credentials",
+          "Keychain (same API as macOS)"
+        ],
+        [
+          "Biometric auth",
+          "LocalAuthentication (same as macOS)"
+        ],
+        [
+          "Network connectivity check",
+          "NWPathMonitor"
+        ],
+        [
+          "Network request",
+          "URLSession async/await"
+        ],
+        [
+          "Parallel async work",
+          "async let / TaskGroup"
+        ],
+        [
+          "UI always on main thread",
+          "@MainActor"
+        ],
+        [
+          "Profile CPU",
+          "Instruments Time Profiler"
+        ],
+        [
+          "Find memory leaks",
+          "Instruments Leaks + Memory Graph"
+        ],
+        [
+          "Distribute for beta",
+          "TestFlight (internal or external)"
+        ],
+        [
+          "Build on CI",
+          "xcodebuild archive + xcodebuild -exportArchive"
+        ],
+        [
+          "Symbolicate crashes",
+          "xcrun symbolicatecrash + dSYM"
+        ],
+        [
+          "Control Simulator from CLI",
+          "xcrun simctl"
+        ],
+        [
+          "Log in production",
+          "os_log / Logger (not print)"
+        ]
+      ]
+    }
+  ]
+}

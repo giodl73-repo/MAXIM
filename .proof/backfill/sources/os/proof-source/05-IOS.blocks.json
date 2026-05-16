@@ -1,0 +1,314 @@
+{
+  "schema_version": "1",
+  "source_markdown": "os\\05-IOS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                          iOS SYSTEM LAYERS                                  │\n│                                                                             │\n│  ┌──────────────────────────────────────────────────────────────────────┐   │\n│  │  Your App (SwiftUI / UIKit)                                          │  │\n│  └────────────────────────────┬─────────────────────────────────────────┘  │\n│                               │                                             │\n│  ┌──────────────────────────────────────────────────────────────────────┐  │\n│  │  Cocoa Touch Frameworks                                              │  │\n│  │  UIKit · SwiftUI · WatchKit · tvOS · WidgetKit · StoreKit            │  │\n│  │  CoreData · CloudKit · CoreLocation · HealthKit · ARKit              │  │\n│  └────────────────────────────┬─────────────────────────────────────────┘  │\n│                               │                                             │\n│  ┌──────────────────────────────────────────────────────────────────────┐  │\n│  │  Media + Graphics                                                    │  │\n│  │  CoreGraphics · CoreText · CoreImage · AVFoundation · Metal          │  │\n│  └────────────────────────────┬─────────────────────────────────────────┘  │\n│                               │                                             │\n│  ┌──────────────────────────────────────────────────────────────────────┐  │\n│  │  Core Services                                                       │  │\n│  │  Foundation · CoreFoundation · Security · CFNetwork · SQLite         │  │\n│  └────────────────────────────┬─────────────────────────────────────────┘  │\n│                               │                                             │\n│  ┌──────────────────────────────────────────────────────────────────────┐  │\n│  │  libSystem  (libc + libpthread + libdispatch + libobjc)              │  │\n│  └────────────────────────────┬─────────────────────────────────────────┘  │\n│                               │                                             │\n│  ┌──────────────────────────────────────────────────────────────────────┐  │\n│  │  XNU Kernel + Darwin (same base as macOS)                            │  │\n│  │  Mach · BSD · IOKit · Sandbox (every app, always)                    │  │\n│  └──────────────────────────────────────────────────────────────────────┘  │\n│                               │                                             │\n│  ┌──────────────────────────────────────────────────────────────────────┐  │\n│  │  Apple Silicon SoC (A-series / M-series on iPad)                     │  │\n│  └──────────────────────────────────────────────────────────────────────┘  │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 85,
+      "heading_context": "### SpringBoard",
+      "confidence": "candidate",
+      "text": "SpringBoard (com.apple.springboard)\n├── Home Screen grid of app icons\n├── Notification Center\n├── Control Center\n├── Lock Screen\n├── App switcher\n└── Manages app lifecycle signals → your app's UIApplicationDelegate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 97,
+      "heading_context": "### App Lifecycle State Machine",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────┐\n│                    APP LIFECYCLE STATES                              │\n│                                                                      │\n│  ┌─────────────┐                                                     │\n│  │ Not Running │  ← fresh install, crashed, explicitly quit         │\n│  └──────┬──────┘                                                     │\n│         │ user taps icon / URL scheme / notification                 │\n│         ▼                                                            │\n│  ┌─────────────┐                                                     │\n│  │  Inactive   │  ← in foreground but not receiving events           │\n│  │             │    (phone call, Notification Center pull-down)      │\n│  └──────┬──────┘                                                     │\n│         │ OS hands events to app                                     │\n│         ▼                                                            │\n│  ┌─────────────┐  applicationDidBecomeActive(_:)                    │\n│  │   Active    │  ← receiving touch events, running                 │\n│  └──────┬──────┘  applicationWillResignActive(_:)                   │\n│         │ user presses Home / other app comes foreground            │\n│         ▼                                                            │\n│  ┌─────────────┐  applicationDidEnterBackground(_:)                 │\n│  │ Background  │  ← ~5 seconds to finish work                       │\n│  │             │    beginBackgroundTask() buys 30 more seconds      │\n│  └──────┬──────┘                                                     │\n│         │ OS decides (low memory, time limit)                        │\n│         ▼                                                            │\n│  ┌─────────────┐                                                     │\n│  │  Suspended  │  ← frozen in RAM; no CPU time; can be killed        │\n   │  └─────────────┘    without notification (jetsam)                 │\n   │                                                                   │\n   │  SwiftUI equivalent:  @Environment(\\.scenePhase)                  │\n   │    .active / .inactive / .background                              │\n└──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "### Project Hierarchy",
+      "confidence": "candidate",
+      "text": "MyWorkspace.xcworkspace          ← optional; groups multiple projects\n└── MyApp.xcodeproj              ← the project file (actually a directory)\n    ├── project.pbxproj          ← the actual build graph (Xcode's Makefile; never edit by hand)\n    ├── MyApp.xcscheme           ← scheme: ties build/run/test/profile/archive\n    └── xcshareddata/\n\nSwift Packages (SPM):\n  Package.swift                  ← no .xcodeproj; Xcode imports it directly\n  Sources/\n  Tests/",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "### Scheme and Actions",
+      "confidence": "candidate",
+      "text": "Scheme \"MyApp\"\n├── Build         ← which targets to build and in what order\n├── Run           ← target + arguments + environment + launch via Xcode vs system\n├── Test          ← test targets + test plan\n├── Profile       ← launch under Instruments (Allocations, Time Profiler, etc.)\n├── Analyze       ← Clang static analyzer\n└── Archive       ← production build → IPA for TestFlight / App Store",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "### Build Settings Inheritance",
+      "confidence": "candidate",
+      "text": "Project-level (xcconfig or project settings)\n    ↑ overridden by\nTarget-level settings\n    ↑ overridden by\nxcconfig file (if assigned)\n    ↑ overridden by\nBuild phase environment\n\nPractical use:\n  Base.xcconfig          ← shared settings (SWIFT_VERSION, IPHONEOS_DEPLOYMENT_TARGET)\n  Debug.xcconfig         ← SWIFT_OPTIMIZATION_LEVEL = -Onone; DEBUG=1\n  Release.xcconfig       ← SWIFT_OPTIMIZATION_LEVEL = -O; ENABLE_BITCODE = NO\n\nAssign in Xcode: Project → Info → Configurations → set xcconfig for Debug/Release",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 284,
+      "heading_context": "## 3. Provisioning, Certificates, and Signing",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│               WHAT MUST ALL LINE UP TO INSTALL ON A DEVICE                  │\n│                                                                             │\n│  1. Certificate  — proves you are who you say (trusted by Apple)            │\n│     Generated on your Mac (private key in Keychain)                         │\n│     Apple signs the public key → certificate                                │\n│                                                                             │\n│  2. App ID       — identifier: com.myco.myapp (explicit or wildcard)        │\n│     Registered on developer.apple.com                                       │\n│     Enables specific capabilities: push, iCloud, HealthKit, etc.            │\n│                                                                             │\n│  3. Device UDID  — 40-char hex ID unique to each physical device            │\n│     Must be registered in developer portal (development only)               │\n│     Ad Hoc profiles: up to 100 registered UDIDs                             │\n│                                                                             │\n│  4. Provisioning Profile — a signed bag containing:                         │\n│       { certificate + app ID + device list + entitlements + expiry }        │\n│     Lives in ~/Library/MobileDevice/Provisioning Profiles/                  │\n│     Embedded in the .ipa at build time                                      │\n│                                                                             │\n│  5. Entitlements — the capability list your app actually claims             │\n│     Must be a subset of what the provisioning profile allows                │\n│                                                                             │\n│  codesign writes: binary + entitlements + profile seal → verifiable IPA     │\n└─────────────────────────────────────────────────────────────────────────────┘\n\nWindows bridge:\n  Certificate + private key in Keychain  ↔  cert in Windows cert store (Personal)\n  Provisioning profile                   ↔  ClickOnce/MSIX deployment manifest signed by cert\n  Entitlements                           ↔  app manifest requested execution level / capabilities",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 376,
+      "heading_context": "### Entitlements File",
+      "confidence": "candidate",
+      "text": "<!-- MyApp.entitlements -->\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<plist version=\"1.0\">\n<dict>\n    <!-- Push notifications -->\n    <key>aps-environment</key>\n    <string>production</string>            <!-- or: development -->\n\n    <!-- iCloud Documents -->\n    <key>com.apple.developer.icloud-container-identifiers</key>\n    <array><string>iCloud.com.myco.myapp</string></array>\n    <key>com.apple.developer.ubiquity-kvstore-identifier</key>\n    <string>$(TeamIdentifierPrefix)com.myco.myapp</string>\n\n    <!-- App Groups (share data with extensions) -->\n    <key>com.apple.security.application-groups</key>\n    <array><string>group.com.myco.myapp</string></array>\n\n    <!-- HealthKit -->\n    <key>com.apple.developer.healthkit</key>            <true/>\n    <key>com.apple.developer.healthkit.access</key>\n    <array><string>health-records</string></array>\n\n    <!-- Wallet / Apple Pay -->\n    <key>com.apple.developer.pass-type-identifiers</key>\n    <array><string>pass.com.myco.myapp</string></array>\n\n    <!-- Associated Domains (Universal Links + Sign in with Apple) -->\n    <key>com.apple.developer.associated-domains</key>\n    <array><string>applinks:myapp.example.com</string></array>\n\n    <!-- Network Extension -->\n    <key>com.apple.developer.networking.networkextension</key>\n    <array><string>packet-tunnel-provider</string></array>\n</dict>\n</plist>",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 421,
+      "heading_context": "### iOS Container Structure",
+      "confidence": "candidate",
+      "text": "App Sandbox  (/private/var/mobile/Containers/Data/Application/<UUID>/)\n├── Documents/          ← user-created files; visible in Files app if declared\n│                          backed up by iCloud/iTunes; persist across updates\n├── Library/\n│   ├── Application Support/    ← app data files; backed up\n│   ├── Caches/                 ← can be purged by OS; not backed up\n│   └── Preferences/            ← UserDefaults plist (do not edit directly)\n└── tmp/                ← temporary; purged when app not running; not backed up\n\nApp Bundle  (/private/var/containers/Bundle/Application/<UUID>/MyApp.app/)\n  ← read-only; cannot write here\n\nShared Container (App Groups)\n  ~/Library/Group Containers/group.com.myco.myapp/\n  ← R/W; shared between app + extensions with matching app group entitlement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 518,
+      "heading_context": "## 5. UIKit vs SwiftUI on iOS",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                       UI FRAMEWORK COMPARISON                               │\n│                                                                             │\n│  UIKit                                    SwiftUI                           │\n│  ┌──────────────────────────────┐        ┌────────────────────────────┐     │\n│  │ UIViewController lifecycle  │        │ View.body computed prop    │   │\n│  │   viewDidLoad()             │        │ .onAppear / .onDisappear   │   │\n│  │   viewWillAppear()          │        │ @State, @Binding           │   │\n│  │   viewDidAppear()           │        │ @StateObject, @ObservedObj │   │\n│  │   viewWillDisappear()       │        │ @EnvironmentObject         │   │\n│  │   viewDidDisappear()        │        │ @Environment(\\.key)        │   │\n│  │ UIView subclass + addSubview│        │ View protocol, body prop   │   │\n│  │ Auto Layout constraints     │        │ HStack, VStack, ZStack     │   │\n│  │ UITableView + dataSource    │        │ List / LazyVStack          │   │\n│  │ UICollectionView + layout   │        │ LazyVGrid / LazyHGrid      │   │\n│  │ UINavigationController      │        │ NavigationStack (iOS 16+)  │   │\n│  │ UITabBarController          │        │ TabView                    │   │\n│  │ present() / dismiss()       │        │ .sheet() / .fullScreenCover│   │\n│  │ Storyboards / .xib files    │        │ No IB; all in code         │   │\n│  └──────────────────────────────┘        └────────────────────────────┘   │\n│                                                                             │\n│  Universal bridge (any MVC framework):                                      │\n│    UIViewController  ↔  any MVC controller (ASP.NET Controller,            │\n│                          Android Activity, Rails controller action)         │\n│    viewDidLoad()     ↔  constructor / initialize (resource setup)          │\n│    viewWillAppear()  ↔  before_action / onResume (pre-render setup)        │\n│    viewDidDisappear()↔  cleanup / onPause (teardown)                       │\n│    UITableView       ↔  any virtual scroll list (RecyclerView, WPF         │\n│                          ListView, ag-Grid)                                 │\n│    @EnvironmentObject↔  DI container / ServiceLocator (universal)          │\n│    App Sandbox       ↔  containerized process with restricted namespaces   │\n│                          (Docker --read-only, k8s securityContext)         │\n│                                                                             │\n│  Windows bridge:                                                            │\n│    UIViewController  ↔  WPF Page / UserControl + code-behind               │\n│    Auto Layout       ↔  WPF Grid with star-sizing + margin                 │\n│    UITableView       ↔  WPF ListView + ItemsControl                        │\n│    UINavigationCtrl  ↔  WPF NavigationWindow / Frame                       │\n│    @StateObject      ↔  WPF ViewModel with INotifyPropertyChanged          │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 563,
+      "heading_context": "### UIViewController Lifecycle — Universal MVC Controller Bridge",
+      "confidence": "candidate",
+      "text": "CONTROLLER LIFECYCLE PATTERN — CROSS-FRAMEWORK\n════════════════════════════════════════════════════════════════════════\n\n  Phase            UIViewController     Android Activity     ASP.NET MVC          Rails/Express\n  ──────────────   ─────────────────    ─────────────────    ──────────────────   ─────────────────\n  Instantiation    init() / initCoder   onCreate()           Controller ctor       initialize\n  Resource setup   viewDidLoad()        onCreate() cont.     before_action         before_action\n  About to show    viewWillAppear()     onResume()           (no equiv — stateless)(no equiv)\n  Shown            viewDidAppear()      (onWindowFocusChanged)(no equiv)           (no equiv)\n  About to hide    viewWillDisappear()  onPause()            (no equiv)            after_action\n  Hidden           viewDidDisappear()   onStop()             (no equiv)            (no equiv)\n  Destroyed        deinit              onDestroy()           Dispose()             (GC)\n\n  The universal pattern:\n  1. Constructor / init: inject dependencies, set up stable state\n  2. Will-appear / resume: refresh data, register observers/listeners\n  3. Did-disappear / pause: save state, unregister observers (prevent leaks)\n  4. Destroy / deinit: release resources, close connections\n\n  Why iOS differs from stateless web controllers:\n  iOS UIViewController is long-lived and may appear/disappear many times.\n  ASP.NET MVC Controller is request-scoped and stateless by default.\n  Android Activity is closer to UIViewController (long-lived, state machine).\n  The \"will/did appear\" hooks have no web equivalent because web is stateless.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 592,
+      "heading_context": "### APNs Universal Push Notification Bridge",
+      "confidence": "candidate",
+      "text": "PUSH NOTIFICATION BROKER COMPARISON\n════════════════════════════════════════════════════════════════════\n\n  Concept        APNs (Apple)           FCM (Google/Firebase)     WNS (Windows)\n  ──────────     ──────────────────     ──────────────────────     ──────────────────────\n  Device token   256-byte token         Registration token         Channel URI (URL)\n                 per-device per-app     (string)                   per-device per-app\n  Auth           APNs auth key (.p8)    Server key / OAuth 2.0    Client secret + cert\n                 or certificate         service account\n  Protocol       HTTP/2                 HTTP v1 (REST)             HTTP REST\n  Payload        JSON ≤ 4KB             JSON                       XML or JSON ≤ 5KB\n  Delivery       At-most-once           At-most-once               At-most-once\n  guarantee      (best effort)          (best effort)              (best effort)\n  Priority       high / normal          high / normal              high / normal\n  TTL / expiry   expiration header      time_to_live (sec)         X-WNS-TTL header\n  Badge/sound    Yes (apns-push-type)   Yes (notification obj)     Yes (tile/toast/badge)\n  Silent push    content-available: 1   data-only message          (none standard)\n  Collapse key   apns-collapse-id       collapse_key               X-WNS-Tag\n\n  All three share the same architecture:\n    App server → broker API → broker cloud → device push channel → OS → app\n\n  Cross-platform push library:\n    FCM can proxy to APNs — send to FCM, Google delivers to both Android + iOS\n    One FCM project token can reach iOS devices (Firebase configures APNs keys)\n    WNS is Windows-only; no cross-delivery\n    Server: node-apn (Node.js), Firebase Admin SDK, or direct HTTP/2 to each broker",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 648,
+      "heading_context": "### UIKit Navigation Stack",
+      "confidence": "candidate",
+      "text": "### SwiftUI Navigation (iOS 16+)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 679,
+      "heading_context": "### UIViewRepresentable / UIHostingController Interop",
+      "confidence": "candidate",
+      "text": "// Embed UIKit view in SwiftUI\nstruct MapView: UIViewRepresentable {\n    @Binding var region: MKCoordinateRegion\n\n    func makeUIView(context: Context) -> MKMapView {\n        let map = MKMapView()\n        map.delegate = context.coordinator\n        return map\n    }\n\n    func updateUIView(_ map: MKMapView, context: Context) {\n        map.setRegion(region, animated: true)\n    }\n\n    func makeCoordinator() -> Coordinator { Coordinator(self) }\n\n    class Coordinator: NSObject, MKMapViewDelegate {\n        var parent: MapView\n        init(_ parent: MapView) { self.parent = parent }\n        // implement delegate methods\n    }\n}\n\n// Embed SwiftUI view in UIKit\nlet swiftUIView = SomeSwiftUIView()\nlet hosting = UIHostingController(rootView: swiftUIView)\naddChild(hosting)\nview.addSubview(hosting.view)\nhosting.view.frame = view.bounds\nhosting.didMove(toParent: self)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 727,
+      "heading_context": "## 6. Swift Concurrency",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    SWIFT CONCURRENCY MODEL                                  │\n│                                                                             │\n│  Structured Concurrency  (Swift 5.5+)                                       │\n│  ┌──────────────────────────────────────────────────────────────────────┐   │\n│  │  async func   — can be suspended and resumed                        │  │\n│  │  await        — suspension point; thread is freed while waiting     │  │\n│  │  Task { }     — unstructured; fire and forget; can cancel           │  │\n│  │  async let    — parallel: start multiple async ops, await all       │  │\n│  │  TaskGroup    — dynamic number of parallel child tasks              │  │\n│  └──────────────────────────────────────────────────────────────────────┘  │\n│                                                                             │\n│  Actors  (data isolation)                                                   │\n│  ┌──────────────────────────────────────────────────────────────────────┐  │\n│  │  actor        — reference type; only one caller at a time inside     │  │\n│  │  @MainActor   — global actor pinned to main thread                   │  │\n│  │  Sendable     — marker: safe to pass across actor boundaries         │  │\n│  │  nonisolated  — method opts out of actor isolation                   │  │\n│  └──────────────────────────────────────────────────────────────────────┘  │\n│                                                                             │\n│  Bridge from GCD:                                                           │\n│    DispatchQueue.main.async { } → await MainActor.run { }                  │\n│    DispatchQueue.global().async { } → Task { } or Task.detached { }        │\n│    DispatchGroup → async let / TaskGroup                                    │\n│    OperationQueue → structured concurrency (rarely needed now)             │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 817,
+      "heading_context": "### @MainActor",
+      "confidence": "candidate",
+      "text": "// Mark a class as always running on main thread\n@MainActor\nclass ViewModel: ObservableObject {\n    @Published var items: [Item] = []\n\n    func load() async {\n        // we're on main actor, but URLSession suspends → releases main thread\n        let data = try? await URLSession.shared.data(from: url)\n        // resumes on main actor — items update is safe\n        items = parse(data)\n    }\n}\n\n// MainActor.run: explicitly hop to main thread\nTask {\n    let data = await fetchData()          // off main thread\n    await MainActor.run {\n        self.label.text = data.title     // on main thread\n    }\n}\n\n// nonisolated: method does NOT require main thread\n@MainActor\nclass MyClass {\n    nonisolated func purePureComputation() -> Int { ... }  // no actor hop needed\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 848,
+      "heading_context": "### Actor for Data Isolation",
+      "confidence": "candidate",
+      "text": "actor ImageCache {\n    private var cache: [URL: UIImage] = [:]\n\n    func image(for url: URL) async -> UIImage? {\n        return cache[url]\n    }\n\n    func store(_ image: UIImage, for url: URL) {\n        cache[url] = image\n    }\n}\n\n// Usage — cross-actor call requires await\nlet cache = ImageCache()\nawait cache.store(image, for: url)\nlet img = await cache.image(for: url)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 907,
+      "heading_context": "### URLSession",
+      "confidence": "candidate",
+      "text": "// Shared (no configuration; cookies/cache shared with other uses)\nlet task = URLSession.shared.dataTask(with: url) { data, response, error in }\ntask.resume()\n\n// Modern async API (preferred)\nlet (data, response) = try await URLSession.shared.data(from: url)\n\n// Ephemeral (no persistent cache/cookies — good for private sessions)\nlet config = URLSessionConfiguration.ephemeral\nlet session = URLSession(configuration: config)\n\n// Background (downloads/uploads survive app suspension)\nlet bgConfig = URLSessionConfiguration.background(withIdentifier: \"com.myco.myapp.bg\")\nbgConfig.isDiscretionary = true     // OS picks best time (charging, wifi)\nlet bgSession = URLSession(configuration: bgConfig, delegate: self, delegateQueue: nil)\n\n// Background download task\nlet task = bgSession.downloadTask(with: url)\ntask.resume()\n\n// AppDelegate must handle URL session events on relaunch\nfunc application(_ application: UIApplication,\n                 handleEventsForBackgroundURLSession identifier: String,\n                 completionHandler: @escaping () -> Void) {\n    // Recreate the background session, save completionHandler\n    // Call completionHandler() when URLSessionDelegate signals done\n    backgroundCompletionHandler = completionHandler\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 1026,
+      "heading_context": "## 8. Background Execution",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                     BACKGROUND EXECUTION MODES                              │\n│                                                                             │\n│  Mode                │ Entitlement            │ Use Case                    │\n│  ────────────────────┼────────────────────────┼────────────────────────     │\n│  audio               │ UIBackgroundModes      │ Music, podcast, VoIP audio │\n│  location            │ UIBackgroundModes      │ Navigation, tracking        │\n│  voip                │ UIBackgroundModes      │ Incoming call (deprecated;  │\n│                      │                        │ use PushKit instead)        │\n│  fetch               │ UIBackgroundModes      │ BGAppRefreshTask            │\n│  remote-notification │ UIBackgroundModes      │ Silent push triggers code  │\n│  processing          │ UIBackgroundModes      │ BGProcessingTask            │\n│  bluetooth-central   │ UIBackgroundModes      │ BLE central in background  │\n│  bluetooth-peripheral│ UIBackgroundModes      │ BLE peripheral in bg       │\n│  external-accessory  │ UIBackgroundModes      │ MFi accessories            │\n│  newsstand-content   │ (deprecated)           │                            │\n│  background URLSession── (automatic with bg URLSessionConfiguration)       │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 1047,
+      "heading_context": "## 8. Background Execution",
+      "confidence": "candidate",
+      "text": "### BGTaskScheduler (iOS 13+)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 1122,
+      "heading_context": "## 9. Push Notifications",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                       APNs ARCHITECTURE                                     │\n│                                                                             │\n│  Your Server                  APNs                     Device               │\n│  ┌───────────────┐           ┌──────────┐            ┌──────────────────┐   │\n│  │               │           │  Apple   │            │  iOS app         │  │\n│  │  POST /3/     │  TLS+HTTP2│  Push    │  persistent│  registers:      │  │\n│  │  device/token │──────────►│  Notif   │  connection│  deviceToken =   │  │\n│  │               │◄──────────│  service │◄───────────│  UIApplication   │  │\n│  │  { aps: {     │  200 OK / │          │            │  .registerFor    │  │\n│  │    alert: ... │  error    │          │            │  RemoteNotifs()  │  │\n│  │  } }          │           │          │            │                  │  │\n│  └───────────────┘           └──────────┘            └──────────────────┘  │\n│                                                                             │\n│  Auth: HTTP/2 bearer JWT (auth key .p8) OR TLS client cert                 │\n│  Prefer auth key: doesn't expire; one key for all apps in team             │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 1144,
+      "heading_context": "### Device Token Registration",
+      "confidence": "candidate",
+      "text": "// AppDelegate\nfunc application(_ application: UIApplication,\n                 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {\n    // Request permission\n    UNUserNotificationCenter.current().requestAuthorization(\n        options: [.alert, .badge, .sound]\n    ) { granted, error in\n        if granted {\n            DispatchQueue.main.async {\n                UIApplication.shared.registerForRemoteNotifications()\n            }\n        }\n    }\n    return true\n}\n\nfunc application(_ application: UIApplication,\n                 didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {\n    let token = deviceToken.map { String(format: \"%02x\", $0) }.joined()\n    // Send token to your server\n    MyAPI.shared.register(pushToken: token)\n}\n\nfunc application(_ application: UIApplication,\n                 didFailToRegisterForRemoteNotificationsWithError error: Error) {\n    print(\"Push registration failed: \\(error)\")\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 1210,
+      "heading_context": "### UNUserNotificationCenter",
+      "confidence": "candidate",
+      "text": "import UserNotifications\n\n// Schedule a local notification\nlet content = UNMutableNotificationContent()\ncontent.title = \"Reminder\"\ncontent.body = \"Check your dashboard\"\ncontent.sound = .default\ncontent.badge = 1\n\nlet trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)\n// or: UNCalendarNotificationTrigger / UNLocationNotificationTrigger\n\nlet request = UNNotificationRequest(identifier: \"my-reminder\", content: content, trigger: trigger)\nUNUserNotificationCenter.current().add(request)\n\n// Handle notification received while app is in foreground\nclass NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {\n    func userNotificationCenter(_ center: UNUserNotificationCenter,\n                                willPresent notification: UNNotification,\n                                withCompletionHandler completionHandler:\n                                    @escaping (UNNotificationPresentationOptions) -> Void) {\n        // Show banner even in foreground:\n        completionHandler([.banner, .sound, .badge])\n    }\n\n    func userNotificationCenter(_ center: UNUserNotificationCenter,\n                                didReceive response: UNNotificationResponse,\n                                withCompletionHandler completionHandler: @escaping () -> Void) {\n        let id = response.actionIdentifier\n        let userInfo = response.notification.request.content.userInfo\n        // Handle tap or action button\n        completionHandler()\n    }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 1251,
+      "heading_context": "### Notification Service Extension",
+      "confidence": "candidate",
+      "text": "class NotificationService: UNNotificationServiceExtension {\n    var contentHandler: ((UNNotificationContent) -> Void)?\n    var bestAttemptContent: UNMutableNotificationContent?\n\n    override func didReceive(_ request: UNNotificationRequest,\n                             withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {\n        self.contentHandler = contentHandler\n        bestAttemptContent = request.content.mutableCopy() as? UNMutableNotificationContent\n\n        guard let best = bestAttemptContent,\n              let urlString = best.userInfo[\"image-url\"] as? String,\n              let url = URL(string: urlString) else {\n            contentHandler(request.content)\n            return\n        }\n\n        // Download attachment\n        URLSession.shared.downloadTask(with: url) { tempURL, _, _ in\n            if let tempURL,\n               let attachment = try? UNNotificationAttachment(identifier: \"image\",\n                                                               url: tempURL) {\n                best.attachments = [attachment]\n            }\n            contentHandler(best)\n        }.resume()\n    }\n\n    override func serviceExtensionTimeWillExpire() {\n        // Called when time is almost up — deliver best effort\n        contentHandler?(bestAttemptContent ?? UNNotificationContent())\n    }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "diagram_like",
+      "line": 1292,
+      "heading_context": "### Build → Distribution Pipeline",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    DISTRIBUTION PIPELINE                                    │\n│                                                                             │\n│  Xcode                    App Store Connect           Devices               │\n│  ┌──────────────────┐    ┌──────────────────────┐   ┌─────────────────┐     │\n│  │ 1. Product →     │    │ 3. Processing (mins) │   │                 │   │\n│  │    Archive       │    │ 4. TestFlight tab     │   │ Internal testers│   │\n│  │                  │    │    - Internal (≤100)  │──►│ (same org)      │   │\n│  │ 2. Distribute    │───►│    - External (≤10k) │──►│ External beta   │   │\n│  │    App →         │    │      (Beta Review)    │   │                 │   │\n│  │    App Store     │    │ 5. App Store tab       │──►│ All users       │   │\n│  │    Connect       │    │    (full review)       │   │                 │   │\n│  └──────────────────┘    └──────────────────────┘   └─────────────────┘   │\n│                                                                             │\n│  Or: xcodebuild archive + xcodebuild -exportArchive (CI)                   │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "diagram_like",
+      "line": 1342,
+      "heading_context": "### ExportOptions.plist",
+      "confidence": "candidate",
+      "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<plist version=\"1.0\">\n<dict>\n    <key>method</key>\n    <string>app-store</string>           <!-- app-store | ad-hoc | development | enterprise -->\n\n    <key>teamID</key>\n    <string>MYTEAMID</string>\n\n    <key>signingStyle</key>\n    <string>manual</string>              <!-- automatic | manual -->\n\n    <key>provisioningProfiles</key>\n    <dict>\n        <key>com.myco.myapp</key>\n        <string>MyApp App Store Distribution</string>\n    </dict>\n\n    <key>uploadSymbols</key>             <true/>\n    <key>uploadBitcode</key>             <false/>   <!-- Bitcode deprecated Xcode 14+ -->\n    <key>stripSwiftSymbols</key>         <true/>\n</dict>\n</plist>",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "diagram_like",
+      "line": 1419,
+      "heading_context": "### Xcode Debugger",
+      "confidence": "candidate",
+      "text": "Breakpoint types:\n  Line breakpoint       — click gutter\n  Symbolic breakpoint   — Debug → Breakpoints → Symbolic; break on any -[ClassName method]\n  Exception breakpoint  — break on all Objective-C / Swift exceptions (essential)\n  Runtime issue         — break on main-thread checker / sanitizer violations\n  Watchpoint            — break when memory address changes (Data → right-click var → Watch)\n\nLLDB in Xcode console:\n  po self                    — print object description\n  p self.count               — print expression (uses LLDB formatter)\n  expr self.items = []       — mutate in-flight\n  bt                         — full backtrace\n  thread info                — current thread details\n  frame info                 — current frame's source location\n\nView Hierarchy Debugger:\n  Debug → View Debugging → Capture View Hierarchy\n  3D exploded view of all views + Auto Layout violations\n  Inspect any view's frame, alpha, hidden state\n\nMemory Graph Debugger:\n  Debug → Memory Graph Debugger\n  Shows all live objects + reference cycles (purple !-badge = leak)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "diagram_like",
+      "line": 1524,
+      "heading_context": "### Crash Reports",
+      "confidence": "candidate",
+      "text": "Device crash logs location (connected to Mac):\n  Xcode → Window → Devices and Simulators → View Device Logs\n\nProgrammatic crash reporting:\n  App Store Connect → App → Crashes (if dSYM uploaded)\n  Or: third-party — Firebase Crashlytics, Sentry, Bugsnag\n\nCrash report structure:\n  Incident Identifier   — UUID\n  CrashReporter Key     — anonymized device ID\n  Hardware Model        — iPhone15,2\n  Process               — MyApp [1234]\n  Exception Type        — EXC_BAD_ACCESS SIGSEGV / EXC_CRASH SIGABRT\n  Exception Subtype     — KERN_INVALID_ADDRESS at 0x0000000000000000\n  Thread 0 Crashed:\n    frame #0  MyApp  0x000000010001234  MyClass.myMethod() + 48\n    frame #1  ...\n\nSymbolicated frame example (after dsymutil):\n  frame #0  0x000000010001234  MyClass.myMethod (MyClass.swift:42)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

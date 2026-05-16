@@ -1,0 +1,345 @@
+{
+  "schema_version": "1",
+  "source_markdown": "os\\07-CROSS-PLATFORM.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 388,
+      "heading_context": "## Cross-Platform Decision Matrix",
+      "headers": [
+        "Attribute",
+        ".NET MAUI",
+        "React Native",
+        "Flutter",
+        "Electron",
+        "Tauri",
+        "Capacitor/Ionic"
+      ],
+      "rows": [
+        [
+          "**Language**",
+          "C#",
+          "JS / TypeScript",
+          "Dart",
+          "JS / TypeScript",
+          "JS + Rust",
+          "JS / TypeScript"
+        ],
+        [
+          "**UI approach**",
+          "Handler-mapped native widgets",
+          "Native widgets via JS bridge / JSI",
+          "Custom renderer (Skia/Impeller)",
+          "HTML/CSS in Chromium",
+          "HTML/CSS in OS webview",
+          "HTML/CSS in native webview"
+        ],
+        [
+          "**Targets: Mobile**",
+          "iOS, Android",
+          "iOS, Android",
+          "iOS, Android",
+          "No",
+          "No",
+          "iOS, Android"
+        ],
+        [
+          "**Targets: Desktop**",
+          "Windows (WinUI 3), macOS (Mac Catalyst)",
+          "No (limited)",
+          "Windows, macOS, Linux",
+          "Windows, macOS, Linux",
+          "Windows, macOS, Linux",
+          "No"
+        ],
+        [
+          "**Targets: Web**",
+          "Blazor Hybrid (partial)",
+          "Experimental",
+          "Flutter Web",
+          "No",
+          "No",
+          "Yes (it IS a web app)"
+        ],
+        [
+          "**Code sharing**",
+          "~80-90%",
+          "~70-85%",
+          "~85-95%",
+          "~95%",
+          "~90%",
+          "~95%"
+        ],
+        [
+          "**Performance**",
+          "Near-native",
+          "Good (JSI) / was poor (bridge)",
+          "Near-native (custom renderer)",
+          "Heavy (Chromium per window)",
+          "Good (native webview, Rust core)",
+          "Web perf"
+        ],
+        [
+          "**Native look & feel**",
+          "Yes (per-platform widgets)",
+          "Mostly yes",
+          "No (consistent custom look)",
+          "No",
+          "No",
+          "No"
+        ],
+        [
+          "**Microsoft support**",
+          "First-party",
+          "Community + Meta",
+          "Community + Google",
+          "Community",
+          "Community",
+          "Community"
+        ],
+        [
+          "**Maturity**",
+          "Medium (2022; replaces Xamarin)",
+          "High (2015, Meta-backed)",
+          "High (2017, Google-backed)",
+          "Very high (2013, Slack/VS Code)",
+          "Growing (2022)",
+          "Medium"
+        ],
+        [
+          "**Ecosystem / packages**",
+          "NuGet + .NET ecosystem",
+          "npm + React ecosystem",
+          "pub.dev (growing)",
+          "npm + Node ecosystem",
+          "Cargo + npm",
+          "npm + web ecosystem"
+        ],
+        [
+          "**Team profile**",
+          ".NET / C# team",
+          "React / JS team",
+          "Any (Dart is learnable)",
+          "Web / Node team",
+          "Web + Rust team",
+          "Web team"
+        ],
+        [
+          "**Install size**",
+          "~30-80 MB",
+          "~10-30 MB",
+          "~10-25 MB",
+          "50-200 MB",
+          "3-10 MB",
+          "~5-15 MB"
+        ],
+        [
+          "**Primary weakness**",
+          "Mac Catalyst limitations; not SwiftUI",
+          "New Architecture migration complexity",
+          "No native widgets (platform-purists object)",
+          "Size + memory (Chromium per window)",
+          "Webview inconsistency across OS; Rust barrier",
+          "WebView is not native; browser engine limits"
+        ],
+        [
+          "**Best for**",
+          ".NET enterprise teams; Windows + mobile from one codebase",
+          "React teams going mobile; apps with heavy web component",
+          "Consistent custom design; high-quality cross-platform",
+          "VS Code-style desktop tools; developer tools; productivity apps",
+          "New desktop app; size/security-conscious; OK with Rust",
+          "Existing web app needs native packaging"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 450,
+      "heading_context": "## .NET MAUI — Microsoft's Cross-Platform Answer",
+      "headers": [
+        "Aspect",
+        "Xamarin.Forms",
+        ".NET MAUI"
+      ],
+      "rows": [
+        [
+          "Project structure",
+          "1 shared + N platform projects",
+          "Single project, multi-targeted"
+        ],
+        [
+          "Foundation",
+          "Mono runtime (separate from .NET)",
+          ".NET 6+ unified runtime"
+        ],
+        [
+          "Renderers",
+          "Full class per control per platform",
+          "Handlers (lighter, partial class overrides)"
+        ],
+        [
+          "Hot reload",
+          "Limited",
+          "Full XAML hot reload + C# hot reload"
+        ],
+        [
+          "Web integration",
+          "WebView only",
+          "BlazorWebView (run Blazor components natively)"
+        ],
+        [
+          ".NET version",
+          "Xamarin.* packages",
+          "Microsoft.Maui.* NuGet packages"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 1058,
+      "heading_context": "## Electron — Desktop via Web Technologies",
+      "headers": [
+        "Tool",
+        "Main distinction"
+      ],
+      "rows": [
+        [
+          "Electron",
+          "Node in main, Chromium in renderer; most mature ecosystem"
+        ],
+        [
+          "NW.js",
+          "Node + Chromium merged (less isolation); older; less popular"
+        ],
+        [
+          "Tauri",
+          "Rust core + OS webview; much smaller; see below"
+        ],
+        [
+          "neutralinojs",
+          "Lightweight; OS webview; simpler feature set"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 1161,
+      "heading_context": "## Tauri — Modern Electron Alternative",
+      "headers": [
+        "Factor",
+        "Electron",
+        "Tauri"
+      ],
+      "rows": [
+        [
+          "Install size",
+          "50-150 MB",
+          "3-10 MB"
+        ],
+        [
+          "Memory",
+          "100-300 MB baseline",
+          "30-100 MB"
+        ],
+        [
+          "Runtime consistency",
+          "Bundled Chromium = identical",
+          "OS webview = differences between Win/Mac/Linux"
+        ],
+        [
+          "Backend language",
+          "Node.js (JS/TS)",
+          "Rust"
+        ],
+        [
+          "Security model",
+          "Explicit contextIsolation",
+          "Rust memory safety + stricter capability model"
+        ],
+        [
+          "Maturity",
+          "Very high",
+          "Medium (2.0 released 2024)"
+        ],
+        [
+          "Team requirement",
+          "Any web developer",
+          "Web dev + Rust knowledge (or learn it)"
+        ],
+        [
+          "When to choose",
+          "Known quantity; fast to ship",
+          "New app; size matters; willing to learn Rust"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 1415,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Scenario",
+        "Recommendation",
+        "Rationale"
+      ],
+      "rows": [
+        [
+          "**Existing .NET/C# team, need iOS + Android + Windows**",
+          ".NET MAUI",
+          "First-party Microsoft support; full .NET ecosystem; Blazor Hybrid for web component reuse; single language for the whole team"
+        ],
+        [
+          "**Existing React/TypeScript web team, need iOS + Android**",
+          "React Native + Expo",
+          "Same React patterns; fastest ramp-up; EAS for build + OTA; largest mobile JS ecosystem"
+        ],
+        [
+          "**Custom design system, pixel-perfect on all platforms**",
+          "Flutter",
+          "Owns the canvas; looks identical everywhere; Material 3 + Cupertino included"
+        ],
+        [
+          "**Desktop developer tool (IDE-like, VS Code-like)**",
+          "Electron",
+          "Proven at VS Code scale; web tech; large ecosystem; acceptable size for dev tools"
+        ],
+        [
+          "**New desktop app, size/memory matters, OK with Rust**",
+          "Tauri",
+          "10x smaller than Electron; Rust backend security; Tauri 2.0 adds mobile"
+        ],
+        [
+          "**Existing web app needs iOS/Android native packaging**",
+          "Capacitor",
+          "Wrap your existing web app; no rewrite; live updates; native API access"
+        ],
+        [
+          "**Performance-critical native features (AR, Camera ML, Complex animation)**",
+          "Swift (iOS) + Kotlin (Android) native",
+          "No abstraction layer; day-one API access; platform idioms"
+        ],
+        [
+          "**Enterprise internal app, heavy forms + data, fast delivery**",
+          "Capacitor / Ionic",
+          "Web devs productive; Ionic components adaptive; store packaging with live updates"
+        ],
+        [
+          "**Shared backend + mobile logic, native UI**",
+          "Kotlin Multiplatform",
+          "Share Kotlin domain layer; native SwiftUI + Compose for UI; no UI compromise"
+        ],
+        [
+          "**Google/Firebase ecosystem, need Android + iOS + web**",
+          "Flutter",
+          "Google-first integrations; large firebase_flutter ecosystem; Flutter Web maturing"
+        ],
+        [
+          "**Microsoft shop: web + Azure + mobile from one team**",
+          "MAUI + Blazor Hybrid",
+          "Azure MAUI integrations (MSAL, App Center, Azure DevOps); Blazor for web; C# throughout"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "schema_version": "1",
+  "source_markdown": "os\\04-MACOS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 250,
+      "heading_context": "## 3. The App Bundle",
+      "headers": [
+        "Key",
+        "Type",
+        "Example",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "`CFBundleIdentifier`",
+          "String",
+          "`com.mycompany.myapp`",
+          "Unique app ID (reverse DNS)"
+        ],
+        [
+          "`CFBundleExecutable`",
+          "String",
+          "`MyApp`",
+          "Name of executable in MacOS/"
+        ],
+        [
+          "`CFBundleShortVersionString`",
+          "String",
+          "`2.3.1`",
+          "Marketing version (user-visible)"
+        ],
+        [
+          "`CFBundleVersion`",
+          "String",
+          "`451`",
+          "Build number (monotonically increasing)"
+        ],
+        [
+          "`LSMinimumSystemVersion`",
+          "String",
+          "`13.0`",
+          "Minimum macOS requirement"
+        ],
+        [
+          "`NSPrincipalClass`",
+          "String",
+          "`NSApplication`",
+          "The app delegate host class"
+        ],
+        [
+          "`CFBundleURLTypes`",
+          "Array",
+          "`[{URLSchemes:[myapp]}]`",
+          "Custom URL scheme registration"
+        ],
+        [
+          "`CFBundleDocumentTypes`",
+          "Array",
+          "see UTI section",
+          "File type associations"
+        ],
+        [
+          "`NSHumanReadableCopyright`",
+          "String",
+          "`© 2026 MyCo`",
+          "About box text"
+        ],
+        [
+          "`LSUIElement`",
+          "Boolean",
+          "`YES`",
+          "Agent app (no Dock icon)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 498,
+      "heading_context": "## 5. Signing, Notarization, and Gatekeeper",
+      "headers": [
+        "Certificate Type",
+        "Where Used",
+        "Distribution Channel"
+      ],
+      "rows": [
+        [
+          "Apple Development",
+          "Debug builds on own devices",
+          "Local only"
+        ],
+        [
+          "Apple Distribution",
+          "Production builds",
+          "App Store"
+        ],
+        [
+          "Developer ID Application",
+          "Direct download (outside App Store)",
+          "Web, your own server"
+        ],
+        [
+          "Developer ID Installer",
+          "Signing .pkg installers",
+          "Web distribution"
+        ],
+        [
+          "Mac Installer Distribution",
+          "Mac App Store .pkg",
+          "App Store"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 591,
+      "heading_context": "## 5. Signing, Notarization, and Gatekeeper",
+      "headers": [
+        "Entitlement",
+        "When Needed"
+      ],
+      "rows": [
+        [
+          "`cs.allow-jit`",
+          "JavaScript engines (V8, JavaScriptCore with JIT on)"
+        ],
+        [
+          "`cs.allow-unsigned-executable-memory`",
+          "Code that generates and runs native code"
+        ],
+        [
+          "`cs.disable-library-validation`",
+          "Plugins/dylibs not signed by same team"
+        ],
+        [
+          "`cs.allow-dyld-environment-variables`",
+          "`DYLD_*` env vars (e.g., DYLD_LIBRARY_PATH)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 819,
+      "heading_context": "## 7. macOS Development Tools",
+      "headers": [
+        "Command",
+        "What it Does"
+      ],
+      "rows": [
+        [
+          "`xcrun swift`",
+          "Swift compiler + REPL"
+        ],
+        [
+          "`xcrun swiftc`",
+          "Swift compiler directly"
+        ],
+        [
+          "`xcrun clang`",
+          "C/C++/ObjC compiler"
+        ],
+        [
+          "`xcrun lldb`",
+          "LLDB debugger"
+        ],
+        [
+          "`xcrun simctl`",
+          "Simulator control"
+        ],
+        [
+          "`xcrun notarytool`",
+          "Notarization"
+        ],
+        [
+          "`xcrun stapler`",
+          "Staple notarization tickets"
+        ],
+        [
+          "`xcrun actool`",
+          "Asset catalog compiler"
+        ],
+        [
+          "`xcrun ibtool`",
+          "Interface Builder tool"
+        ],
+        [
+          "`xcrun dsymutil`",
+          "dSYM symbol bundle generator"
+        ],
+        [
+          "`xcrun xctrace`",
+          "Instruments from CLI"
+        ],
+        [
+          "`xcrun xcodebuild`",
+          "Build Xcode projects from CLI"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 1176,
+      "heading_context": "## 8. SwiftUI vs AppKit",
+      "headers": [
+        "Behavior",
+        "iOS SwiftUI",
+        "macOS SwiftUI"
+      ],
+      "rows": [
+        [
+          "Default navigation",
+          "`NavigationStack`",
+          "`NavigationSplitView`"
+        ],
+        [
+          "List selection",
+          "single tap",
+          "click (multi-select with Shift/Cmd)"
+        ],
+        [
+          "Context menus",
+          "long press",
+          "right-click"
+        ],
+        [
+          "`.toolbar`",
+          "bottom bar or nav bar",
+          "toolbar above content"
+        ],
+        [
+          "Focus",
+          "limited",
+          "`@FocusState` + keyboard full support"
+        ],
+        [
+          "Menu bar",
+          "N/A",
+          "`MenuBarExtra` (macOS 13+)"
+        ],
+        [
+          "Window sizing",
+          "full screen",
+          "`.frame(minWidth:minHeight:)`"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 1411,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Task",
+        "Tool / Approach"
+      ],
+      "rows": [
+        [
+          "Install CLI tools",
+          "`xcode-select --install` (CLT) or Homebrew"
+        ],
+        [
+          "Install GUI apps",
+          "Homebrew Cask, Mac App Store, direct .dmg"
+        ],
+        [
+          "Run a background daemon",
+          "LaunchDaemon plist in `/Library/LaunchDaemons/`"
+        ],
+        [
+          "Run a per-user background agent",
+          "LaunchAgent plist in `~/Library/LaunchAgents/`"
+        ],
+        [
+          "Replace cron job",
+          "`StartCalendarInterval` in launchd plist"
+        ],
+        [
+          "Crash isolation in app",
+          "XPC Service (PlugIns/ subdirectory of app bundle)"
+        ],
+        [
+          "New macOS app, starting fresh",
+          "SwiftUI (cross-platform, previews, modern concurrency)"
+        ],
+        [
+          "Complex document-based or legacy app",
+          "AppKit (full control, decades of APIs)"
+        ],
+        [
+          "iOS app also on Mac",
+          "SwiftUI with platform checks, or Mac Catalyst"
+        ],
+        [
+          "Sign for outside App Store",
+          "Developer ID Application cert + notarize + staple"
+        ],
+        [
+          "Sign for Mac App Store",
+          "Apple Distribution cert + App Sandbox entitlement"
+        ],
+        [
+          "Store credentials",
+          "Keychain (SecItemAdd / SecItemCopyMatching)"
+        ],
+        [
+          "Biometric auth",
+          "LocalAuthentication framework"
+        ],
+        [
+          "Profile CPU performance",
+          "Instruments Time Profiler (xcrun xctrace)"
+        ],
+        [
+          "Debug memory",
+          "Instruments Allocations + Leaks"
+        ],
+        [
+          "Debug low-level",
+          "LLDB (not GDB)"
+        ],
+        [
+          "Find framework/dylib paths",
+          "`otool -L binary`"
+        ],
+        [
+          "Inspect Mach-O",
+          "`otool`, `nm`, `objdump --macho`, `dyld_info`"
+        ],
+        [
+          "Check signing status",
+          "`codesign -dv --verbose=4 MyApp.app`"
+        ],
+        [
+          "Remove quarantine xattr",
+          "`xattr -d com.apple.quarantine file`"
+        ],
+        [
+          "Build for both architectures",
+          "Universal binary via Xcode \"Any Mac\" destination"
+        ],
+        [
+          "Force x86_64 (Rosetta)",
+          "`arch -x86_64 command`"
+        ]
+      ]
+    }
+  ]
+}
