@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electrical-grid:energy-storage
+kind: guide
+module: electrical-grid
+section: electrical-grid
+title: Electrical Grid - Energy Storage
+status: source-custody
+source_custody: partial
+current_path: electrical-grid/06-ENERGY-STORAGE.md
+canonical_path: electrical-grid/06-ENERGY-STORAGE.md
+backsource_ids: [proof-backfill:electrical-grid:06-energy-storage, git-history:electrical-grid:06-energy-storage]
+concepts: [energy, storage]
+root_concepts: [energy, storage]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electrical Grid — Energy Storage
 ## Buffering the Unbuffered: From Pumped Hydro to Batteries to Hydrogen
 

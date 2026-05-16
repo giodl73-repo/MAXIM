@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electrical-grid:distribution
+kind: guide
+module: electrical-grid
+section: electrical-grid
+title: Electrical Grid - Distribution Systems
+status: source-custody
+source_custody: partial
+current_path: electrical-grid/04-DISTRIBUTION.md
+canonical_path: electrical-grid/04-DISTRIBUTION.md
+backsource_ids: [proof-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]
+concepts: [distribution]
+root_concepts: [distribution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electrical Grid — Distribution Systems
 ## Last-Mile Delivery: From Substation to Meter
 

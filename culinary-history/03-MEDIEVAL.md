@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:culinary-history:medieval
+kind: guide
+module: culinary-history
+section: culinary-history
+title: Medieval Food - Spice Trade, Preservation, Feast and Famine
+status: source-custody
+source_custody: partial
+current_path: culinary-history/03-MEDIEVAL.md
+canonical_path: culinary-history/03-MEDIEVAL.md
+backsource_ids: [proof-backfill:culinary-history:03-medieval, git-history:culinary-history:03-medieval]
+concepts: [medieval]
+root_concepts: [medieval]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Medieval Food — Spice Trade, Preservation, Feast and Famine
 
 ## The Big Picture

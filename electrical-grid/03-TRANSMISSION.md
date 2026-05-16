@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electrical-grid:transmission
+kind: guide
+module: electrical-grid
+section: electrical-grid
+title: Electrical Grid - Transmission Systems
+status: source-custody
+source_custody: partial
+current_path: electrical-grid/03-TRANSMISSION.md
+canonical_path: electrical-grid/03-TRANSMISSION.md
+backsource_ids: [proof-backfill:electrical-grid:03-transmission, git-history:electrical-grid:03-transmission]
+concepts: [transmission]
+root_concepts: [transmission]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electrical Grid — Transmission Systems
 ## Moving Gigawatts Across Hundreds of Miles
 

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:culinary-history:food-science
+kind: guide
+module: culinary-history
+section: culinary-history
+title: Food Science - Maillard, Emulsification, Sous Vide, and Molecular Gastronomy
+status: source-custody
+source_custody: partial
+current_path: culinary-history/08-FOOD-SCIENCE.md
+canonical_path: culinary-history/08-FOOD-SCIENCE.md
+backsource_ids: [proof-backfill:culinary-history:08-food-science, git-history:culinary-history:08-food-science]
+concepts: [food, science]
+root_concepts: [food, science]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Food Science — Maillard, Emulsification, Sous Vide, and Molecular Gastronomy
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:culinary-history:global-traditions
+kind: guide
+module: culinary-history
+section: culinary-history
+title: Global Culinary Traditions - China, Japan, India, West African Diaspora
+status: source-custody
+source_custody: partial
+current_path: culinary-history/07-GLOBAL-TRADITIONS.md
+canonical_path: culinary-history/07-GLOBAL-TRADITIONS.md
+backsource_ids: [proof-backfill:culinary-history:07-global-traditions, git-history:culinary-history:07-global-traditions]
+concepts: [global, traditions]
+root_concepts: [global, traditions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Global Culinary Traditions — China, Japan, India, West African Diaspora
 
 ## The Big Picture
@@ -35,28 +54,28 @@ THE EIGHT SCHOOLS OF CHINESE CUISINE
 School          Region        Flavor Profile          Key Characteristics
 ─────────────────────────────────────────────────────────────────────────────
 Shandong        NE coastal    Fresh, salty,           Seafood; vinegar-garlic;
-(鲁菜)                          clear broths            braising techniques;
+(Lu cai)                        clear broths            braising techniques;
                                                        Yellow River fish
 Sichuan         SW inland     Numbing (má), spicy,    Doubanjiang; Sichuan
-(川菜)                          fragrant                peppercorn (hydroxy-
+(Chuan cai)                     fragrant                peppercorn (hydroxy-
                                                        alpha-sanshool); mapo
                                                        tofu, hot pot
 Cantonese       S coastal     Mild, fresh,            Dim sum; stir-fry;
-(粤菜)           (Guangdong)  light sauce             seafood; steaming;
+(Yue cai)        (Guangdong)  light sauce             seafood; steaming;
                                                        char siu; roast meats
 Jiangsu         E coastal     Tender, fresh,          Soft textures; river fish;
-(苏菜)           (near         sweet-salty             lion's head meatball;
+(Su cai)         (near         sweet-salty             lion's head meatball;
                  Shanghai)                             Yangzhou fried rice
 Zhejiang        E coastal     Tender, fresh,          Dongpo pork; West Lake
-(浙菜)                          light                   vinegar fish; fresh
+(Zhe cai)                       light                   vinegar fish; fresh
                                                        bamboo shoots
 Fujian          SE coastal    Umami, light,           Forest + seafood; red wine
-(闽菜)                          sweet-sour              lees cooking; soup culture
+(Min cai)                       sweet-sour              lees cooking; soup culture
 Hunan           S central     Hot, sour, stinky       Fermented black bean;
-(湘菜)                                                  dried salted fish; Chairman
+(Xiang cai)                                             dried salted fish; Chairman
                                                        Mao braised pork
 Anhui           Inland        Robust, wild             Mountain flora; stews;
-(徽菜)                          ingredients             wild herbs; hairy tofu
+(Hui cai)                       ingredients             wild herbs; hairy tofu
 ```
 
 ### Wok Hei: The Chemistry of Heat
@@ -102,7 +121,7 @@ Observation: dashi broth (kombu seaweed) had a distinct savory quality
 
 1908: Ikeda extracted glutamate from kombu (Laminaria japonica)
       L-glutamate = key umami compound
-      Named it "umami" (旨味, "pleasant taste")
+      Named it "umami" ("pleasant taste")
       Filed patent for monosodium glutamate (MSG) production
 
 1913: Shintaro Kodama: inosinate (IMP) in dried bonito (katsuobushi)
@@ -154,7 +173,7 @@ DASHI TYPES:
 ```
 WASHOKU STRUCTURE
 ──────────────────────────────────────────────────────────────────────────────
-ICHIJU-SANSAI (一汁三菜, "one soup, three sides"):
+ICHIJU-SANSAI ("one soup, three sides"):
   Rice (main: gohan) — center
   Soup (ichiju): usually miso soup
   Three sides (sansai):

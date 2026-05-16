@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electrical-grid:generation
+kind: guide
+module: electrical-grid
+section: electrical-grid
+title: Electrical Grid - Generation
+status: source-custody
+source_custody: partial
+current_path: electrical-grid/01-GENERATION.md
+canonical_path: electrical-grid/01-GENERATION.md
+backsource_ids: [proof-backfill:electrical-grid:01-generation, git-history:electrical-grid:01-generation]
+concepts: [generation]
+root_concepts: [generation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electrical Grid — Generation
 ## Thermal Power, Nuclear, Hydro: Converting Energy Into Electrons
 

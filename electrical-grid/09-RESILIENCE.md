@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electrical-grid:resilience
+kind: guide
+module: electrical-grid
+section: electrical-grid
+title: Electrical Grid - Grid Resilience and Restoration
+status: source-custody
+source_custody: partial
+current_path: electrical-grid/09-RESILIENCE.md
+canonical_path: electrical-grid/09-RESILIENCE.md
+backsource_ids: [proof-backfill:electrical-grid:09-resilience, git-history:electrical-grid:09-resilience]
+concepts: [resilience]
+root_concepts: [resilience]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electrical Grid — Grid Resilience and Restoration
 ## N-1 Planning, Cascading Failures, Hardening, and Black Start
 

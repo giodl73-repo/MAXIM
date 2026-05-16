@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electrical-grid:grid-stability
+kind: guide
+module: electrical-grid
+section: electrical-grid
+title: Electrical Grid - Grid Stability and Protection
+status: source-custody
+source_custody: partial
+current_path: electrical-grid/05-GRID-STABILITY.md
+canonical_path: electrical-grid/05-GRID-STABILITY.md
+backsource_ids: [proof-backfill:electrical-grid:05-grid-stability, git-history:electrical-grid:05-grid-stability]
+concepts: [grid, stability]
+root_concepts: [grid, stability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electrical Grid — Grid Stability and Protection
 ## Frequency, Voltage, Inertia, Faults, and Cascade Failure
 

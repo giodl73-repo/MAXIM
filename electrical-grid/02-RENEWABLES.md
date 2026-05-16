@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electrical-grid:renewables
+kind: guide
+module: electrical-grid
+section: electrical-grid
+title: Electrical Grid - Renewable Generation
+status: source-custody
+source_custody: partial
+current_path: electrical-grid/02-RENEWABLES.md
+canonical_path: electrical-grid/02-RENEWABLES.md
+backsource_ids: [proof-backfill:electrical-grid:02-renewables, git-history:electrical-grid:02-renewables]
+concepts: [renewables]
+root_concepts: [renewables]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electrical Grid — Renewable Generation
 ## Solar PV, Wind, and the Grid Integration Challenge
 

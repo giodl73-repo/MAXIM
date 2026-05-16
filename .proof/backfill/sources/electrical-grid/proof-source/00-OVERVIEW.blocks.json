@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electrical-grid\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "GENERATION              STEP-UP TX    HV TRANSMISSION           DISTRIBUTION       END USE\n(10 MW–1500 MW units)                 (230 kV – 765 kV)         (4–35 kV)\n\n┌─────────────┐  GSU      ┌──────────────────────────────┐  Substation  ┌─────────┐  Service TX  ┌────────────────┐\n│  Coal/Gas   │  13.8kV   │                              │  230→12.4kV  │ Primary │  12.4kV→240V │ 120/240V       │\n│  Nuclear    │──────────▶│  HV Transmission Backbone    │─────────────▶│ Feeder  │─────────────▶│ Residential    │\n│  Hydro      │  →500 kV  │  (hundreds of miles)         │              │ (miles) │              │                │\n│  Wind/Solar │           │                              │              │         │              │ 480V/208V      │\n└─────────────┘           └──────────────────────────────┘              └─────────┘              │ Commercial     │\n                                                                                                  └────────────────┘\n\nVOLTAGE LADDER:\n  Generator terminal:      13.8 kV – 25 kV\n  Generator step-up (GSU): 13.8 kV → 230/345/500/765 kV\n  HV/EHV Transmission:     230 kV / 345 kV / 500 kV / 765 kV\n  Sub-transmission:         69 kV – 138 kV\n  Primary distribution:     4.16 kV – 34.5 kV (12.47 kV most common US)\n  Secondary service:        120/240V single-phase (residential US)\n                            208/480V three-phase (commercial/industrial)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## The Fundamental Problem: No Buffer",
+      "confidence": "candidate",
+      "text": "Producer ──▶ [ Queue (buffer) ] ──▶ Consumer\n                    ↑\n           Buffer absorbs mismatches",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "## The Fundamental Problem: No Buffer",
+      "confidence": "candidate",
+      "text": "Generator ──▶ [ WIRE — no buffer ] ──▶ Load\n\nSupply and demand must be balanced within tight tolerance at every instant.\nImbalance → frequency drifts\nUncorrected drift → cascading failure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 85,
+      "heading_context": "## The Three North American Interconnections",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────────┐\n│                     NORTH AMERICAN GRID STRUCTURE                            │\n│                                                                              │\n│  ┌────────────────────────────────────────────────────────────────────────┐  │\n│  │                   EASTERN INTERCONNECTION                              │  │\n│  │   ~700 GW installed capacity                                           │  │\n│  │   26 states + eastern Canada (Ontario, Quebec, Maritime provinces)     │  │\n│  │   ISOs/RTOs: PJM, MISO, SPP, SERC, NYISO, ISO-NE, IESO (Ontario)     │  │\n│  │   The largest synchronously connected AC system on Earth by load       │  │\n│  └────────────────────────────┬───────────────────────────────────────────┘  │\n│                               │  DC ties only (back-to-back converters)      │\n│  ┌────────────────────────────▼───────────────────────────────────────────┐  │\n│  │                   WESTERN INTERCONNECTION                              │  │\n│  │   ~300 GW installed capacity                                           │  │\n│  │   11 western US states + 2 Canadian provinces + N. Baja Mexico         │  │\n│  │   ISOs/RTOs: CAISO, WECC-coordinated areas, BPA (Bonneville)           │  │\n│  └────────────────────────────┬───────────────────────────────────────────┘  │\n│                               │  DC ties only                                │\n│  ┌────────────────────────────▼───────────────────────────────────────────┐  │\n│  │                   ERCOT (Texas)                                        │  │\n│  │   ~90 GW installed capacity                                            │  │\n│  │   Most of Texas (not El Paso, Panhandle — those are in EI/WI)          │  │\n│  │   Single control area — unique in North America                        │  │\n│  │   Intentionally isolated: avoids federal FERC jurisdiction             │  │\n│  │   Consequence: minimal mutual aid during ERCOT-wide emergency          │  │\n│  └────────────────────────────────────────────────────────────────────────┘  │\n│                                                                              │\n│  KEY: The interconnections are NOT synchronously connected to each other.    │\n│  They each run at 60 Hz independently. DC ties (back-to-back converters)    │\n│  allow controlled power flow without synchronization. This is identical to  │\n│  the architectural choice of isolated failure domains connected by async     │\n│  message passing rather than synchronous RPC.                               │\n└──────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 127,
+      "heading_context": "## AC vs DC: Why Tesla Won, and Why DC Is Coming Back",
+      "confidence": "candidate",
+      "text": "### Why AC Won (1880s–1900s)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "### Why AC Won (1880s–1900s)",
+      "confidence": "candidate",
+      "text": "Edison's DC world (1882):              Tesla/Westinghouse AC world (1888+):\n  Generator terminal: 110V DC            Generator terminal: ~2,300V AC\n  Copper wire: very large gauge          Step up to 10,000V+ at substation\n  I²R losses: severe at any distance    Transmission at high V, low I → low loss\n  Service radius: ~1 mile               Niagara Falls → Buffalo: 26 miles (1896)\n  Cost: massive copper investment        Then 100 miles, then transcontinental",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 193,
+      "heading_context": "## The Load Curve and Dispatch Stack",
+      "confidence": "candidate",
+      "text": "TYPICAL WEEKDAY LOAD CURVE (Eastern US, Summer weekday)\n\nDemand\n(GW)\n 550                              ____________________\n                              ___/  Afternoon AC      \\__\n 500                  _______/      peak (~3pm)           \\__\n                  ___/   Morning                              \\__\n 450        _____/        ramp                                    \\___\n        ___/                                                          \\_____\n 400  _/    Overnight minimum                                                \\_\n            (hydro + nuclear + some coal)\n 350\n       12am  3am  6am  9am  12pm  3pm  6pm  9pm  12am\n\nDISPATCH STACK (how generators are called in order of marginal cost):\n\nMarginal  ┌─────────────────────────────────────────────────────────────────┐\nCost      │                                                          ┌──────┐│\n$/MWh     │                                                     ┌────┤Peaker││ Oil/gas CT\n $150+    │                                                 ┌───┤    ├──────┘│ ~$120-200/MWh\n          │                                             ╔═══╪   │           │\n  $80     │                                         ╔═══║ D │ C │           │ D=Demand\n          │                                     ╔═══║   ║   │   │           │ Response\n  $50     │                            ╔══════╗ ║   ║   ║   │   │           │ C=Coal\n          │               ╔════════════║ CCGT ║═╝   ║   ║   │   │           │ B=CCGT gas\n  $30     │ ╔═════════════║            ╠══════╝     ║   ║   │   │           │\n          │ ║  Nuclear,   ║            ║            ╚═══╝   │   │           │\n  $5      │ ║  hydro,     ║  Wind/Solar║                    │   │           │\n          │ ║  wind/solar ║  (variable)║                    └───┘           │\n   $0     │─╚═════════════╚═══════════╚════════════════════════════════════╝│\n          └────────────────────────────────────────────────────────────────▶┘\n                                         ← Load →",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 237,
+      "heading_context": "## The Duck Curve: Why High Solar Creates Its Own Problem",
+      "confidence": "candidate",
+      "text": "NET LOAD CURVE (Total load MINUS solar generation) — California, March/April\n\nNet Load\n(GW)\n  30 │╲                                                              ╭──\n     │  ╲  Morning demand                                           ╭╯\n  25 │   ╲ before solar              \"Duck's back\"           ╭─────╯  Evening\n     │    ╲ peaks                    (evening demand)       ╭╯        peak &\n  20 │     ╰────────────╮──────────────────────────────────╯         steep ramp\n     │                  ╰────────────────────────────╯\n  15 │                  Midday solar surplus            ▲\n     │                  (low/negative net load)    13 GW ramp\n  10 │                                              in 3 hours\n     └────────────────────────────────────────────────────────────────▶ hour\n      6am   9am   12pm  3pm   6pm   9pm\n\nThree problems this creates:\n1. Steep RAMP RATE: 13 GW in 3 hours at sunset → needs fast-responding gas or storage\n2. Midday MINIMUM may go negative without curtailment or exports (pay someone to take power)\n3. OVERGENERATION: must curtail solar or export to neighbors — in 2023, CA curtailed\n   ~3 TWh of solar (wasted)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 267,
+      "heading_context": "## Carbon Intensity by Generation Source",
+      "confidence": "candidate",
+      "text": "LIFECYCLE CO₂e EMISSIONS (grams CO₂ equivalent per kWh, IPCC median estimates)\n\nCoal (subcritical):      820 g/kWh  ████████████████████████████████████████████\nCoal (supercritical):    740 g/kWh  █████████████████████████████████████████\nOil/Distillate:          650 g/kWh  █████████████████████████████████████\nNatural gas (CCGT):      490 g/kWh  ████████████████████████████\nNatural gas + CCS:        49 g/kWh  ███\nBiomass (varies widely): 230 g/kWh  ████████████\nSolar PV (utility):       48 g/kWh  ███\nConcentrating solar:      27 g/kWh  ██\nHydro (reservoir):        24 g/kWh  ██\nNuclear:                  12 g/kWh  ▌\nWind (onshore):           11 g/kWh  ▌\nWind (offshore):          12 g/kWh  ▌\n\nIncludes manufacturing, construction, operations, decommissioning.\n\n2024 context:\n  US average grid:       ~380 g/kWh (improving ~2-3% annually as coal retires)\n  France (80% nuclear):   ~56 g/kWh\n  Germany (coal+RE mix): ~350 g/kWh (high despite large renewable build-out)\n  Sweden (hydro+nuclear):  ~13 g/kWh\n  Poland (coal-heavy):   ~650 g/kWh",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 299,
+      "heading_context": "## Full Grid Taxonomy",
+      "confidence": "candidate",
+      "text": "LAYER                VOLTAGE RANGE       KEY EQUIPMENT               OPERATORS\n──────────────────────────────────────────────────────────────────────────────────\nGeneration           0.4–25 kV           Turbine-generators,         GENCOs, IPPs,\n(source)             (terminal)          excitation systems,         vertically\n                                         auxiliary power systems      integrated utilities\n\nGenerator Step-Up    13.8kV → 230-765kV  GSU transformer,            Generator owner\nTransformer                              disconnect switches,\n                                         generator breaker\n\nHV Transmission      69 kV – 765 kV AC   Transmission lines          Transmission\n(backbone)           ±200–800 kV DC      (ACSR conductors), towers,  Owner (TO)\n                                         substations, CB arrays      RTO/ISO\n\nSub-Transmission     26 kV – 69 kV       Lower-voltage HV lines      Utility or TO\n\nBulk Transmission    Varies              Bus, transformers,           Utility, DISCO\nSubstation                               protective relays, breakers\n\nPrimary Distribution 4.16 kV – 34.5 kV  Overhead/underground        Distribution\n                     (12.47 kV typical)  feeders, reclosers,         utility (DISCO)\n                                         sectionalizing switches,\n                                         capacitor banks, regulators\n\nDistribution         ~25 kV → 120/240V   Pole-mounted or             Utility\nTransformer                              pad-mount transformers\n\nSecondary Service    120V – 600V         Service drop, meter,        Utility + customer\n                                         service entrance,\n                                         load center / panel\n\nDistributed Energy   1W – 20 MW          Rooftop solar, batteries,   Customer, aggregator,\nResources (DER)                          EV chargers, fuel cells,    DISCO coordination\n                                         smart thermostats",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 393,
+      "heading_context": "## Why the Grid Is Hard: The Engineering Constraints",
+      "confidence": "candidate",
+      "text": "CHALLENGE                 WHY IT'S HARD                     MANAGING IT\n─────────────────────────────────────────────────────────────────────────────────\nReal-time balance         No buffer; supply = demand always  Economic dispatch + AGC\n                          (millisecond-to-millisecond)       Governor response\n                                                             Demand response\n                                                             Storage (limited)\n\nCascading failure         Power automatically redistributes  N-1 planning\n                          (Kirchhoff) when a line trips →    Protection coordination\n                          overloads → more trips             Wide-area monitoring\n\nNo geographic routing     Power takes paths of least         FACTS devices\n                          impedance, not what you want       HVDC for control\n                                                             Congestion pricing (LMP)\n\nReactive power            Q does no work but causes I²      VAr compensation (caps,\n                          and voltage drops — must           reactors, STATCOMs)\n                          be locally sourced                 Synchronous generators\n\nInertia erosion           Inverter-based resources (wind,    Grid-forming inverters\n(high-RE grids)           solar) contribute zero            Virtual inertia\n                          synchronous inertia               Fast frequency response\n\nEquipment age             Average US transmission           Modernization programs\n                          transformer: >40 years old        Smart grid investment\n                          Many substations predate          Infrastructure bills\n                          digital controls",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

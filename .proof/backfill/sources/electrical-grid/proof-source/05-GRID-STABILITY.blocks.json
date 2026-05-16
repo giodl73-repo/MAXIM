@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electrical-grid\\05-GRID-STABILITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture: Stability Dimensions",
+      "confidence": "candidate",
+      "text": "GRID STABILITY TAXONOMY:\n\n┌─────────────────────────────────────────────────────────────────────────┐\n│                        GRID STABILITY                                   │\n├─────────────────────┬───────────────────────┬───────────────────────────┤\n│  FREQUENCY          │  VOLTAGE              │  ANGULAR (TRANSIENT)     │\n│  STABILITY          │  STABILITY            │  STABILITY               │\n│                     │                       │                           │\n│  Supply = Demand    │  Q supply = Q demand  │  Synchronous machines    │\n│  at every instant   │  (reactive power      │  maintain synchronism    │\n│  → 60.000 Hz        │   balance at nodes)   │  after a disturbance     │\n│                     │                       │                           │\n│  Time frame:        │  Time frame:          │  Time frame:             │\n│  Seconds to minutes │  Seconds to minutes   │  Sub-second to seconds   │\n│                     │                       │                           │\n│  Indicator:         │  Indicator:           │  Indicator:              │\n│  System frequency   │  Bus voltages         │  Generator angle         │\n│  (Eastern IC shares │  (local, can vary     │  (generator poles in/out │\n│   one frequency)    │   across grid)        │   of synchronism)        │\n└─────────────────────┴───────────────────────┴───────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## Frequency: The Grid's Universal Consensus Variable",
+      "confidence": "candidate",
+      "text": "FREQUENCY = ROTATIONAL SPEED RELATIONSHIP:\n  f = (N_poles × n_rpm) / 120\n  2-pole machine: 3600 RPM = 60 Hz ✓\n  4-pole machine: 1800 RPM = 60 Hz ✓ (large steam turbines, some nuclear)\n  8-pole machine:  900 RPM = 60 Hz   (large hydro generators, more poles)\n  14-pole machine: 514 RPM = 60 Hz   (slow hydro, many poles)\n\n  EUROPE/ASIA: 50 Hz standard → 3000 RPM (2-pole) or 1500 RPM (4-pole)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 71,
+      "heading_context": "### What Drives Frequency Up or Down",
+      "confidence": "candidate",
+      "text": "FREQUENCY DYNAMICS:\n\n  Generation > Load:\n    Net torque on generator shaft = driving (turbine) - retarding (electrical load)\n    If torque > 0 → shaft accelerates → RPM increases → frequency increases\n\n  Generation < Load:\n    Net torque on shaft = driving - retarding\n    If retarding > driving → shaft decelerates → RPM decreases → frequency decreases\n    ENERGY SOURCE: kinetic energy of rotating mass (stored in shaft + flywheel)\n\n  AT EXACTLY 60.000 Hz: torque balance → steady state\n\nKINETIC ENERGY IN ROTATING MASS:\n  KE = ½ × J × ω²  (J = moment of inertia, ω = angular velocity)\n  For a 1,000 MW steam turbine-generator:\n    J ≈ 100,000 kg·m²\n    ω = 2π × 60 = 377 rad/s\n    KE = ½ × 100,000 × 377² ≈ 7 × 10⁹ J = 7 GWs = 7 GW for 1 second\n  This is the \"inertia\" — the shock absorber that prevents instantaneous frequency collapse\n\n  Inertia constant H = KE stored / rated MVA (units: seconds = MWs/MVA)\n  Typical H values:\n    Steam turbine-generator: H = 2–6 MWs/MVA\n    Hydro generator: H = 2–4 MWs/MVA\n    Gas turbine (peaker): H = 1.5–2 MWs/MVA\n    System-wide weighted H (Eastern IC): H_sys ≈ 3–5 MWs/MVA",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "## Frequency Response Timeline",
+      "confidence": "candidate",
+      "text": "FREQUENCY RESPONSE AFTER SUDDEN GENERATION LOSS:\n\nFrequency\n(Hz)\n 60.5 │\n 60.0 │─────── EVENT (generation loss at t=0) ──────────────────────────────\n      │              ╲\n 59.5 │               ╲  INERTIA PHASE (0-10s)\n      │                ╲  Spinning mass slows, frequency droops\n 59.3 │                 ╲──── NADIR (lowest point)\n      │                      ╲  GOVERNOR RESPONSE (10s-30s) — turbines\n      │                       ╲ open fuel valves, increase output\n 59.0 │─── ─ ─ ─UFLS Threshold 1 ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─\n      │                            ╲              /\n      │                             ╲    AGC    /  SECONDARY RESPONSE (30s-5min)\n 58.5 │─── ─ ─ ─UFLS Threshold 2 ─  ╲________/    AGC restores to 60.000 Hz\n      │\n 58.0 │─── ─ ─ ─Generator Trip Threshold ─ ─ ─ ─ (underfrequency protection)\n      │\n 57.5 │  If frequency reaches here: generators begin tripping offline\n      │  → removes supply → worsens imbalance → cascade!\n      └────────────────────────────────────────────────────────────────────▶ t\n       0s        30s        2min        5min      10min\n\nRESPONSE TIERS:\n  0–30s:     Inertia (free, physics) + Primary frequency response (governor)\n  30s–5min:  Secondary frequency response (AGC — Automatic Generation Control)\n  5–30min:   Tertiary (manual redispatch, economic re-optimization)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "### Governor Response (Primary Frequency Response)",
+      "confidence": "candidate",
+      "text": "SPEED DROOP CHARACTERISTIC:\n  Governor output change / Frequency change = 1/R (R = droop setting, typically 5%)\n\n  At 5% droop: a 5% frequency drop (3 Hz at 60 Hz) → 100% increase in output\n  At 60 Hz - 0.5% = 59.7 Hz: governor calls for 0.5/5 = 10% more output\n\n  Multiple generators with droop characteristics in parallel:\n  Each contributes in proportion to its rating and droop setting\n  → load sharing is automatic without coordination between generators\n\nGOVERNOR DEADBAND: ±0.036 Hz (36 mHz)\n  NERC requires governors to respond outside the deadband\n  Within deadband: no response required (avoids constant hunting)\n  Widening deadband is a key reliability concern — if too many generators\n  set wide deadbands, the primary response reserve is inadequate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "### AGC (Automatic Generation Control — Secondary Response)",
+      "confidence": "candidate",
+      "text": "AGC ARCHITECTURE:\n\n┌─────────────────────────────────────────────────────────────────┐\n│                    ENERGY MANAGEMENT SYSTEM (EMS)               │\n│                                                                 │\n│  State Estimation  →  ACE (Area Control Error)  →  Dispatch     │\n│  (every 4 seconds)     = ΔFrequency × 10B + ΔPtie               │\n│                         (frequency deviation     (tie-line power│\n│                          × frequency bias)        deviation)    │\n│                              ↓                                  │\n│                     AGC CONTROLLER                              │\n│                     PI controller → raise/lower signals         │\n│                              ↓                                  │\n└─────────────────────────────┬───────────────────────────────────┘\n                              │ Basepoint + raise/lower signals\n                              │ (every 4 seconds, called \"regulating signal\")\n                              ↓\n            Participating generators (on regulation)\n            ↕ ±Regulation Range (e.g., ±10 MW)\n            Ramp up or down at 1-5 MW/min",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 223,
+      "heading_context": "## Under-Frequency Load Shedding (UFLS)",
+      "confidence": "candidate",
+      "text": "TYPICAL UFLS SCHEME (US, varies by utility/region):\n\nFrequency Threshold    Load Shed (% of system)    Rationale\n──────────────────────────────────────────────────────────────────\n59.7 Hz               5-10% of peak load          Early warning; first-round shed\n59.3 Hz               +5-10% (cumulative 10-20%)  Stopping frequency decline\n58.9 Hz               +5-10% (cumulative 15-30%)  Preventing generator trips\n58.5 Hz               +5-10% (cumulative 20-40%)  Emergency\nContinuous (58.0 Hz)  Automatic underfrequency     Last resort\n                       relay on generators\n\nWHY NOT SHED EVERYTHING AT ONCE?\n  Overshoot: shed too much load → frequency rockets above 60 Hz\n             → excess generation damages equipment\n  Controlled shedding: arrest decline, allow governors time to respond\n  Target: stabilize frequency ≥ 57.5 Hz (prevents generator underfrequency trips)\n\nROTATIONAL LOAD SHEDDING:\n  Each shedding \"block\" = specific feeders at specific substations\n  Distribution operators preprogram which feeders get shed at each frequency\n  Rotated annually so no customer always loses power during events",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "## Voltage Stability",
+      "confidence": "candidate",
+      "text": "VOLTAGE STABILITY MECHANISM:\n\n  Heavy load condition:\n    Line carries large P + Q → large current → large voltage drop\n    Load (constant impedance or constant power) demands same P at lower V\n    Constant-power loads: at lower V, draw higher I to maintain P = V×I\n    Higher I → more voltage drop → lower V → even higher I → unstable!\n\n  This is a positive feedback loop — the \"voltage collapse\" mechanism\n\n  VOLTAGE COLLAPSE SEQUENCE:\n    1. Heavy load on a long transmission corridor\n    2. Generator trips or line trips (N-1 event)\n    3. Remaining lines carry more power → more reactive consumption\n    4. Bus voltages begin to fall\n    5. Reactive power compensation reaches limits (capacitors saturate,\n       generators hit reactive limits)\n    6. Voltages slide down — \"nose curve\" tip point reached\n    7. Rapid uncontrolled voltage collapse (minutes to seconds)\n\nNOSE CURVE:\n\nVoltage\n(pu)\n  1.1 │╲\n  1.0 │  ╲\n  0.9 │   ╲\n  0.8 │    ╲_________ \"Nose\" — maximum loadability point\n  0.7 │             ╲ (operating past here: unstable)\n      │              ╲\n  0.5 │               ╲\n  0.0 │                ╲___\n      └──────────────────────────────▶ Load (P, pu)\n\n  Operating above the nose: stable (more load → lower voltage, but stable)\n  Operating past the nose: unstable (more load → voltage collapses)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 303,
+      "heading_context": "## Protection Systems: Detecting and Isolating Faults",
+      "confidence": "candidate",
+      "text": "PROTECTION RELAY TYPES:\n\nOVERCURRENT RELAY (Type 51, 67):\n  Trips if current exceeds pickup threshold\n  Time-inverse characteristic: higher current → shorter time to trip\n  Coordination: upstream relay waits longer than downstream → only closest\n               breaker to fault trips (selectivity)\n  Use: distribution feeders, line protection backup\n  Fast/slow modes: instantaneous (< 1 cycle for severe faults), time-overcurrent\n\nDISTANCE RELAY (Type 21):\n  Measures apparent impedance V/I seen from relay terminal\n  Under fault: impedance drops dramatically (low V, high I)\n  Zones of protection:\n    Zone 1: 80-85% of line length, trips instantaneously (<30 ms)\n    Zone 2: 120-130% of line length, trips with ~300-400 ms delay\n             (overreaches into next section — delayed to avoid false trip)\n    Zone 3: 200%+ of line length, trips with ~1-2 second delay (remote backup)\n  Use: primary protection on transmission lines (most common)\n\nDIFFERENTIAL RELAY (Type 87):\n  Compares current entering vs leaving a protected zone\n  Kirchhoff: if no fault inside, current in = current out\n  Any difference = fault inside zone → instantaneous trip\n  Very fast: < 1 cycle\n  Very selective: only trips for faults inside its protected zone\n  Use: transformers (87T), generators (87G), buses (87B), short lines (87L)\n  Requirement: communication channel to compare currents at both ends\n\nDIRECTIONAL RELAY (Type 67):\n  Determines whether fault is in forward or reverse direction\n  Uses phase angle between V and I\n  Used to prevent incorrect tripping when power flows change direction\n\nPILOT PROTECTION (for long transmission lines):\n  Current differential: measure current at both ends via fiber/microwave\n  Permissive overreach: relay at one end sends \"permission\" signal to far end\n  Use: whenever line is too long for Zone 1 to cover both ends simultaneously",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 346,
+      "heading_context": "### Circuit Breakers vs Reclosers vs Sectionalizers",
+      "confidence": "candidate",
+      "text": "CIRCUIT BREAKER (substation):\n  Interrupts full fault current (20-50 kA) in < 3 cycles\n  Mechanism: SF₆ gas, vacuum, or air-blast arc quench\n  Control: manually or relay-commanded trip\n  Location: substations, transmission lines\n  Rating: 69 kV to 1000 kV; 1 kA to 80 kA interrupting\n\nRECLOSER (distribution feeder):\n  Smaller circuit breaker with built-in automatic reclosing control\n  Trips on fault, automatically recloses after time delay\n  Sequence: instantaneous trip → reclose (0.5s) → trip → reclose (5s) → trip → reclose (30s) → lockout\n  Purpose: clear transient faults (80% of distribution faults are transient)\n  Location: every 3-8 miles on distribution feeders\n  Rating: 15-69 kV; up to 12 kA fault interrupting\n\nSECTIONALIZER (distribution):\n  NOT a fault interrupter — cannot open under load\n  Opens only when de-energized (after upstream breaker/recloser trips)\n  Counts fault current pulses — if sees N faults, opens automatically when de-energized\n  Coordinated with reclosers: upstream recloser trips → sectionalizer counts pulse →\n  recloser recloses → sectionalizer counts again if fault still there →\n  after N counts sectionalizer opens (isolates its downstream section) → recloser stays closed\n  Location: between reclosers to subdivide feeder protection zones",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 378,
+      "heading_context": "## Oscillations and Power System Stabilizers",
+      "confidence": "candidate",
+      "text": "OSCILLATION MODES:\n\nLOCAL MODE (plant mode):  0.7–2.0 Hz\n  One generator oscillates against the rest of the local area\n  Caused by: weak transmission, high generator loading\n  Damped by: Power System Stabilizer (PSS) in excitation system\n\nINTER-AREA MODE:  0.1–0.8 Hz\n  Large group of generators in one region oscillating against large group\n  in another region (like Eastern US generators swinging against Midwest)\n  2003 Western Interconnection blackout had inter-area oscillations\n  Requires wide-area measurements to observe and damp\n  Damped by: coordinated PSS settings, FACTS devices, HVDC modulation\n\nINTRA-PLANT MODE: >2 Hz\n  Multiple generator units in same plant oscillating against each other\n  Rarely problematic with modern controls\n\nTORSIONAL MODE: 5–50 Hz\n  Mechanical resonances of turbine shaft sections\n  Series capacitors can excite: Subsynchronous Resonance (SSR) —\n  electrical resonance frequency matches shaft mechanical frequency → shaft fatigue\n  Example: 1970 Mohave Power Plant incident (shaft failure from SSR)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 412,
+      "heading_context": "## The Inertia Problem in High-Renewable Grids",
+      "confidence": "candidate",
+      "text": "INERTIA DECLINE AS THERMAL/NUCLEAR RETIRES AND RENEWABLES GROW:\n\nYear 2010 (US):    H_system ≈ 5.5 MWs/MVA (lots of heavy steam turbines)\nYear 2024 (US):    H_system ≈ 3.8 MWs/MVA (coal retiring, gas growing, RE growing)\nYear 2035 (projected 80% RE): H_system could drop to 1.5–2.5 MWs/MVA\n                              if no grid-forming inverter requirements added\n\nCONSEQUENCE: At lower inertia, ROCOF increases for same disturbance\n  Same 1400 MW generator trip at H=5.5: ROCOF = 0.11 Hz/s (ERCOT example)\n  Same event at H=2.0: ROCOF = 0.30 Hz/s (3× faster frequency decline)\n\n  ROCOF protection: many industrial loads and DERs have ROCOF-triggered\n  relays (trip if rate of frequency change > 0.5 Hz/s or similar)\n  High ROCOF → trips these loads → worsens the imbalance → cascade risk\n\nSOLUTIONS:\n  1. Grid-forming inverters: synthesize virtual inertia from stored energy\n     Fast response (< 100 ms) can exceed synchronous inertia response quality\n     But: requires stored energy behind the inverter (battery)\n\n  2. Synchronous condensers: electric machines spinning (no prime mover)\n     Used purely for inertia and reactive power support\n     Reconnect retired generators as synchronous condensers (remove steam turbine)\n     Cost: $15-40M per unit; 1-8 MWs of inertia per unit\n\n  3. Flywheel energy storage: kinetic energy → fast frequency response\n     Beacon Power (New York): 20 MW flywheel facility, ±0.5 Hz frequency regulation\n\n  4. Fast frequency response (FFR): non-inertial but fast power injection\n     BESS responding in 100-200 ms to frequency events\n     Australia mandated FFR after 2016 South Australia blackout",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 452,
+      "heading_context": "## The 2003 Northeast Blackout: Anatomy of a Cascade",
+      "confidence": "candidate",
+      "text": "TIMELINE (all times EDT, August 14, 2003):\n\n12:15 PM: Eastlake Unit 5 (677 MW, Cleveland) trips. FirstEnergy territory. High load day.\n          → Increases loading on remaining transmission paths\n\n13:31 PM: Chamberlin-Harding 345 kV line trips (contacts overgrown tree — ROW not maintained)\n          → Redistributes 345 kV flows\n\n14:02 PM: FirstEnergy's EMS alarm processor crashes (GE XA/21 EMS system software bug)\n          → Race condition: alarm processor hangs; backup doesn't detect\n          → Operators see no new alarms for 90 MINUTES despite system distress\n\n14:14 PM: Harding-Chamberlin (different segment) 345 kV trips (same reason — tree)\n\n14:27 PM: Quarry-Hazel 345 kV trips (another FirstEnergy line)\n\n14:41 PM: Star-South Canton 345 kV trip → current redistributes to 138 kV network\n          138 kV lines now overloaded\n\n15:05 PM: Sammis-Star 345 kV (large line) trips → massive redistribution\n          Michigan-Ohio voltage drops dramatically\n          NOW: situation becoming unrecoverable but NO ONE KNOWS\n\n15:39 PM: Michigan/Indiana electric companies begin seeing voltage collapse\n          Operators try remedial actions but without the alarm data, can't diagnose\n\n15:42-16:05: Series of 345 kV and 138 kV trips as overloaded lines sag into trees\n             or reach thermal limits and trip\n\n16:05:57 PM: The cascade becomes irreversible. Power flows begin reversing\n             In 9 seconds, 263 power plants trip offline\n\n16:10 PM: Eastern US and Ontario grid has split into islands\n          Northeast has massive load-generation imbalance → complete blackout\n          New York City: completely dark\n\n16:11 PM: 55 million people without power\n\nRESTORATION: 4 days for some areas, 2 weeks for some of Ontario\n\nROOT CAUSES (NERC investigation):\n  1. FirstEnergy inadequate ROW vegetation management\n  2. Software bug in EMS alarm system (race condition → silent failure)\n  3. No real-time situational awareness sharing between utilities\n  4. Multiple line trips below N-1 criteria absorbed without response\n  5. Failure to implement corrective actions when system was degrading",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 513,
+      "heading_context": "## Protection Coordination and Selectivity",
+      "confidence": "candidate",
+      "text": "OVERCURRENT RELAY COORDINATION (distribution feeder):\n\n  SUBSTATION BREAKER ──── RECLOSER 1 ──── RECLOSER 2 ──── FUSE\n       (CB-1)               (R1)             (R2)           (F1)\n\nFAULT AT X (beyond fuse F1):\n  Current flows through CB-1 → R1 → R2 → F1 → fault\n  F1 \"sees\" highest current, trips first (fastest curve)\n  R2 \"sees\" same current, waits longer (slower curve)\n  R1 waits even longer\n  CB-1 waits longest\n  → Only F1 opens → minimal customers affected\n\nCOORDINATION CRITERION:\n  Each upstream device's operating time must exceed downstream device's\n  operating time by a \"coordination time interval\" (CTI) = 0.2–0.4 seconds\n  This ensures proper selectivity\n\nRECLOSER-FUSE COORDINATION:\n  Recloser instantaneous element: fast trip (< 2 cycles) before fuse can blow\n  → For temporary faults: recloser trips fast, recloses, fuse never blown\n  → For permanent faults: after recloser locks out, fuse blows (final isolation)\n  This \"save-the-fuse\" strategy is standard; reduces fuse replacements",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

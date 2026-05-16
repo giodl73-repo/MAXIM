@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electrical-grid\\03-TRANSMISSION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture: Why Transmission Exists",
+      "confidence": "candidate",
+      "text": "GENERATION SITES                              LOAD CENTERS\n(Where power is cheap to make)               (Where power is needed)\n\n  Coal/nuclear: remote riverside locations       Cities: dense, expensive land\n  Wind:  Texas Panhandle, Great Plains           Industrial: need reliable supply\n  Solar: Arizona/Nevada desert                   New England: imported energy\n  Hydro: Columbia River gorge, Hoover Dam        Southeast: need Florida/SE coal\n\n  Distance: 50 to 1,000+ miles between source and sink\n\nWITHOUT HIGH-VOLTAGE TRANSMISSION:\n  Transmit at 13.8 kV (generator terminal voltage)\n  1,000 MW over 100 miles of copper → I = P/V = 1,000,000,000 / 13,800 ≈ 72,000 A\n  Typical ACSR conductor resistance: 0.1 Ω/mile\n  Loss per 100 miles = I²R = (72,000)² × 0.1 × 100 = 5.2 × 10¹⁰ watts — impossible\n\nWITH 500 kV TRANSMISSION:\n  I = 1,000,000,000 / 500,000 = 2,000 A (36× less current)\n  Loss = (2,000)² × 0.1 × 100 = 40,000,000 W = 40 MW = 4% loss\n  This is manageable. Step-up to 500 kV is why long-distance transmission works.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "### ACSR: Aluminum Conductor Steel Reinforced",
+      "confidence": "candidate",
+      "text": "ACSR CROSS-SECTION:\n\n        Stranded aluminum wires\n        (carry current, ρ = 2.65 μΩ·cm)\n     ╱╲\n    ╱  ╲    ← Aluminum outer wires (multiple layers)\n   │Steel│   ← Steel core wires (structural strength)\n    ╲  ╱     ρ_steel = 10.0 μΩ·cm (steel carries little current due to\n     ╲╱       higher resistivity — mostly structural)\n\nPROPERTIES:\n  Aluminum: ρ = 2.65 μΩ·cm (vs copper 1.72 μΩ·cm — 54% more resistive)\n  But aluminum density = 2.70 g/cm³ vs copper 8.96 g/cm³\n  → For same conductance: aluminum wire is 54% heavier than copper would be\n    in resistance, but aluminum weighs 50% of copper for same resistance\n  → Tower loading allows much larger aluminum conductors vs copper\n  → Economic winner for overhead at scale\n\nCommon ACSR conductors:\n  Drake (795 MCM): 0.0523 Ω/km, 1,600 A ampacity (typical 345/500 kV)\n  Lapwing (1590 MCM): 0.0283 Ω/km, 2,200 A (large conductors)\n  Cardinal (954 MCM): 0.0443 Ω/km, 1,800 A\n  MCM = Thousand Circular Mils = cross-sectional area unit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 116,
+      "heading_context": "### Bundled Conductors",
+      "confidence": "candidate",
+      "text": "SINGLE CONDUCTOR (230 kV and below):  Phase A: ●\n\nBUNDLED CONDUCTORS (345 kV+):\n  2-conductor bundle (345 kV):     Phase A: ● ●  (30-46 cm spacing)\n  3-conductor bundle (500 kV):     Phase A: ● ● ●  (triangular arrangement)\n  4-conductor bundle (765 kV+):    Phase A: ● ● ● ●  (square arrangement)\n\nWHY BUNDLE?\n1. Corona discharge control: Electric field at conductor surface ∝ V/r\n   At 500 kV, single conductor surface field exceeds ~30 kV/cm → air ionization → corona\n   (audible hum, ozone, radio interference, real power loss)\n   Bundled conductors: equivalent larger radius → lower surface field → less corona\n2. Lower impedance: Multiple parallel conductors reduce resistance + inductance\n3. Higher current capacity: More conductor material",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "### Operating Principle",
+      "confidence": "candidate",
+      "text": "TRANSFORMER INTERNALS:\n\n    Primary winding         Secondary winding\n    (N₁ turns)              (N₂ turns)\n\n    V₁ ──▶ [ xxxx ] ── Core (silicon steel laminations) ──▶ [ xxxx ] ──▶ V₂\n    I₁ ◀── [ xxxx ] ──                                  ── [ xxxx ] ──▶ I₂\n\nV₁/V₂ = N₁/N₂\nI₂/I₁ = N₁/N₂ (current transforms inversely)\nImpedance transforms as (N₁/N₂)²\n\nCORE DESIGN: Silicon steel laminations (0.3–0.5 mm thick, insulated from each other)\n  Purpose: laminations break eddy current paths → reduce eddy current losses\n  Hysteresis loss: core magnetization/demagnetization each cycle → heat\n  Core losses: typically 0.1–0.5% of rated capacity (constant, 24/7)\n  Copper losses: I²R in windings (proportional to load²)\n\nINSULATION: Paper impregnated with mineral oil\n  Oil serves: insulation + cooling (convection)\n  Temperature limits: 105°C top oil, 65°C winding hotspot rise above 40°C ambient\n  Transformer life: 40-65 years (if operated within limits)\n  Oil-cooled: ONAN (self-cooled), ONAF (forced air), OFAF (forced oil + air)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "### Real Power vs Reactive Power vs Apparent Power",
+      "confidence": "candidate",
+      "text": "POWER TRIANGLE:\n\n         ╱| S (Apparent Power, MVA) = V × I\n        ╱ |\n   Q   ╱  | Q (Reactive Power, MVAR) = V × I × sin(φ)\n(MVAR) ╱   |   — stores/releases energy in inductors/capacitors\n      ╱ φ  |   — does NO net work\n     ╱─────┘\n         P (Real Power, MW) = V × I × cos(φ)\n           — does actual work (heats homes, runs motors)\n\nPower Factor = P/S = cos(φ) (1.0 is ideal, 0.0 is pure reactive)\n\nPHYSICAL INTERPRETATION:\n  An inductive load (motor, transformer, induction generator) draws lagging current\n  (current lags voltage by angle φ) → consumes reactive power\n  A capacitive load (capacitor bank, overexcited generator, lightly loaded cable)\n  supplies reactive power → current leads voltage\n  Power lines themselves are both: inductive in series (self-inductance),\n  capacitive in shunt (line-to-ground capacitance)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 240,
+      "heading_context": "### Why Reactive Power Management Is Critical",
+      "confidence": "candidate",
+      "text": "REACTIVE POWER PROBLEM:\n\n  Inductive loads consume Q locally. Q cannot be efficiently transmitted long distances\n  because: delivering Q over a line = more current I → more I²R loss → voltage drops\n  Q must be generated near where it's consumed.\n\n  Long transmission line characteristic:\n  Loaded line (heavy load): line inductance dominates → line CONSUMES reactive power\n                            → voltage drops toward load end\n  Lightly loaded line: line capacitance dominates → line GENERATES reactive power\n                        → voltage RISES toward load end (Ferranti effect)\n                        → problem for long lines during low-load periods\n\nSOLUTION TOOLS:\n  Shunt capacitor banks:   Generate Q locally at distribution level (+MVARs)\n  Shunt reactors:          Absorb excess Q on long lightly-loaded lines (-MVARs)\n  Synchronous generators:  Best VAR source — continuously variable, fast control\n                           Overexcited = capacitor (supplies Q), underexcited = inductor (absorbs Q)\n  STATCOM:                 Fast electronic VAR injection/absorption (see FACTS)\n  SVC:                     Thyristor-controlled reactor/capacitor banks",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "### LCC-HVDC vs VSC-HVDC",
+      "confidence": "candidate",
+      "text": "LCC-HVDC (Line-Commutated Converter):\n  Technology: Thyristors (silicon-controlled rectifiers, SCR)\n  Commutation: Uses AC grid voltage at the converter bus to commutate (switch) thyristors\n               → REQUIRES existing AC voltage to operate (cannot feed a passive load)\n  Reactive power: Consumes 50-60% of active power as reactive power (must compensate)\n  Power flow: Bipolar (±500 kV common)\n  Four-quadrant: NO — current direction fixed, voltage reversal for power reversal\n  Fault ride-through: Poor at AC faults (commutation failure)\n  Black start: NO — needs AC voltage to commutate\n  Efficiency: ~99.4% per converter station (very low losses)\n  Cost: Lower than VSC for very high power\n  Projects: Pacific DC Intertie (±500 kV, 3,100 MW), China UHV DC (±1,100 kV, 12,000 MW)\n\nVSC-HVDC (Voltage-Source Converter):\n  Technology: IGBTs (Insulated Gate Bipolar Transistors) in MMC configuration\n               (Modular Multi-level Converter — many series-connected sub-modules)\n  Commutation: Self-commutated — switches at any time, independent of AC grid\n               → CAN feed a passive network (black start capability)\n  Reactive power: Can generate or absorb Q independently of active power (4-quadrant)\n  Power flow: Monopolar, bipolar, or symmetrical monopole\n  Four-quadrant: YES — full independent P and Q control\n  Fault ride-through: Excellent\n  Black start: YES — can re-energize dead AC system\n  Efficiency: ~98.5-99.0% per converter station (slightly lower than LCC)\n  Cost: Higher capex than LCC, but dropping rapidly\n  Projects: BritNed (900 MW), Caithness-Moray (UK offshore wind), NordLink (Germany-Norway)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 337,
+      "heading_context": "### MMC (Modular Multi-Level Converter) — Modern VSC",
+      "confidence": "candidate",
+      "text": "MMC ARCHITECTURE (one phase, one arm):\n\n  DC Bus +\n     │\n  ┌─────┐\n  │ SM1 │\n  ├─────┤\n  │ SM2 │\n  ├─────┤\n  │ SM3 │\n  ├─────┤\n  │ ... │\n  └──┬──┘\n     │\n  AC output (to transformer/grid)\n     │\n  ┌─────┐\n  │ SM  │\n  ├─────┤\n  │ SM  │\n  └──┬──┘\n     │\n  DC Bus -\n\n  Sub-module 1: half-bridge (IGBT + diode + capacitor)\n  Each SM: ~1-2 kV DC voltage step\n  Hundreds of SMs in series → smooth staircase waveform approximating AC sinusoid\n  → Very low harmonics without heavy filtering\n  (30-400 SMs per arm depending on voltage level)\n  Lower arm SMs in second stack\n\n  Key MMC advantage: synthesizes very high quality AC waveform from DC\n                     without need for large filters\n                     Each SM capacitor also acts as local energy storage\n                     (helps with fault current and inertia emulation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 390,
+      "heading_context": "### Corona Discharge",
+      "confidence": "candidate",
+      "text": "CORONA THRESHOLD:\n  Air breakdown field: ~30 kV/cm (30,000 V per centimeter)\n  Electric field at conductor surface: E = V / (r × ln(D/r))\n  Where: r = conductor radius, D = distance between conductors\n\n  For 500 kV line, single conductor (r = 1.5 cm):\n  E_surface ≈ 20-25 kV/cm → approaching breakdown → corona!\n\n  Solution: bundled conductors\n  3-conductor bundle with s = 45 cm spacing:\n  Equivalent radius r_eq = r × (s²)^(1/3) ≈ 12 cm (effective)\n  E_surface drops to ~8-10 kV/cm → below corona threshold\n\nCORONA EFFECTS:\n  Power loss: 0.5-5 kW/km in wet weather, less in dry\n  Audible noise: 40-55 dB at 15m (annoying to nearby residents)\n  Radio/TV interference: electromagnetic noise\n  Ozone production: O₃ — chemical oxidizer, damages materials\n  UV light: visible as bluish glow in darkness",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 443,
+      "heading_context": "### Right-of-Way (ROW)",
+      "confidence": "candidate",
+      "text": "ROW WIDTHS (typical):\n  115 kV single circuit:     75-100 ft (23-30m)\n  230 kV double circuit:    150-200 ft (46-61m)\n  345 kV double circuit:    200-250 ft (61-76m)\n  500 kV double circuit:    250-350 ft (76-107m)\n  765 kV single circuit:    200-300 ft (61-91m)\n\nROW REQUIREMENTS:\n  Vegetation management: mandatory under NERC FAC-003\n    (failure → contributing factor in 2003 Northeast Blackout)\n  No permanent structures (buildings, but agriculture OK)\n  Height restrictions near airports\n  Access roads for maintenance\n\nPERMITTING/SITING:\n  Federal: FERC (if across state lines), NEPA environmental review\n  State: Public Utility Commission approval required\n  Local: county/municipal zoning (some veto power)\n  Typical timeline: 7-15 years from proposal to energization\n  This is why transmission buildout is the bottleneck for renewable integration",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 472,
+      "heading_context": "## Substation Architecture",
+      "confidence": "candidate",
+      "text": "BULK TRANSMISSION SUBSTATION (simplified):\n\n    From 500 kV line ──────────────────── To 500 kV line\n                      │                       │\n                    ┌─────┐                 ┌─────┐\n                    │ CB  │                 │ CB  │\n                    └──┬──┘                 └──┬──┘\n                       │                       │\n               500 kV Bus ─────────────────────┘\n                       │\n                    ┌─────────┐\n                    │ 500/230 │\n                    │   kV    │\n                    │ AutoTX  │\n                    └────┬────┘\n                         │\n               230 kV Bus ──────────────────────┐\n                       │                        │\n                    ┌─────┐                  ┌─────┐\n                    │ CB  │                  │ CB  │\n                    └──┬──┘                  └──┬──┘\n                       │                        │\n               To 230 kV line           To distribution substation\n\n  500 kV CB: 500 kV circuit breaker (SF₆ gas insulated)\n  AutoTX: Autotransformer (e.g., 500 MVA)\n\nKEY EQUIPMENT:\n  SF₆ Circuit Breakers: Sulfur hexafluoride gas as arc-quenching medium\n    Contact opens during fault → arc forms → SF₆ quenches arc in < 3 cycles (50 ms)\n    Also used as insulation (5× better than air) → compact substation\n  Disconnect switches: Manually operated, de-energize equipment for maintenance\n  Current Transformers (CT): Step down current for metering and protection\n    (5,000A line current → 5A for relays)\n  Potential Transformers (PT): Step down voltage for metering\n    (500 kV → 115V for relays)\n  Surge Arresters (MOV): Metal oxide varistor; clamp lightning transients\n  Lightning mast: Ground rods and overhead shielding wires",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 521,
+      "heading_context": "## Power Flow and Kirchhoff in Meshed Networks",
+      "confidence": "candidate",
+      "text": "MESHED NETWORK EXAMPLE:\n\n  Bus A ────── Line 1 (Z=j1Ω) ────── Bus B\n    │                                   │\n    │ Line 3 (Z=j2Ω)          Line 4 (Z=j1Ω)\n    │                                   │\n  Bus C ────── Line 2 (Z=j1Ω) ────── Bus D\n\n  Generator at A: inject 300 MW\n  Load at D: consume 300 MW\n\n  Power flow distribution (simplified):\n  Line 1 (A→B): carries ~150 MW (lower impedance path)\n  Line 2 (A→C via Line 3, then to D via Line 4) splits remaining\n  NO OPERATOR ACTION controls this — it's Kirchhoff's current law\n\n  Problem: if Line 1 has a thermal limit of 100 MW, operator cannot\n  \"redirect\" power around it (without FACTS or HVDC)\n  Must either:\n    - Redispatch generation (use different generators)\n    - Build transmission\n    - Install FACTS device\n    - Accept congestion (cost uplift)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

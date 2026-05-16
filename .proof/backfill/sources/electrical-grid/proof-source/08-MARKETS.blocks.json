@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electrical-grid\\08-MARKETS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture: Market Structure",
+      "confidence": "candidate",
+      "text": "ELECTRICITY MARKET STRUCTURE (US):\n\n┌────────────────────────────────────────────────────────────────────────────┐\n│                    WHOLESALE ELECTRICITY MARKETS                           │\n├────────────────────────────────────────────────────────────────────────────┤\n│  ISO/RTO Competitive Markets          Non-ISO Regulated Utility Areas      │\n│  (PJM, MISO, CAISO, ERCOT, etc.)      (Southeast, Pacific NW)              │\n│                                                                            │\n│  ┌───────────────────────────────┐    ┌──────────────────────────────────┐ │\n│  │  ENERGY MARKETS               │    │  TRADITIONAL VERTICALLY          │ │\n│  │  • Day-ahead (DA) market      │    │  INTEGRATED UTILITY              │ │\n│  │  • Real-time (RT) market      │    │  • Owns generation + T + D       │ │\n│  │  • Price mechanism: LMP       │    │  • Rate-of-return regulation     │ │\n│  │    (nodal pricing)            │    │  • State PUC sets retail rates   │ │\n│  │                               │    │  • No competitive energy market  │ │\n│  ├───────────────────────────────┤    └──────────────────────────────────┘ │\n│  │  CAPACITY MARKETS             │                                         │\n│  │  • Forward capacity auctions  │    Examples: Duke Energy Carolinas,     │\n│  │  • Ensure adequate MW exist   │    Southern Company, Xcel Energy        │\n│  │    3 years forward            │    Pacific Gas & Electric (hybrid)      │\n│  ├───────────────────────────────┤                                         │\n│  │  ANCILLARY SERVICES MARKETS   │                                         │\n│  │  • Regulation (frequency)     │                                         │\n│  │  • Spinning reserve           │                                         │\n│  │  • Voltage support            │                                         │\n│  └───────────────────────────────┘                                         │\n└────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 71,
+      "heading_context": "## The Deregulation Story: FERC Orders 888 and 889 (1996)",
+      "confidence": "candidate",
+      "text": "PRE-DEREGULATION (1990):              POST-DEREGULATION (2000+):\n\n  Utility Corp                          Generator A (GENCO)  }\n  ├── Generation (owned)               Generator B (GENCO)  } Competitive\n  ├── Transmission (owned)             Generator C (GENCO)  }\n  └── Distribution (owned)                     │\n                                               ▼\n  State PUC sets rates                   ISO/RTO (independent)\n  Utility recovers all costs             ├── Operates transmission\n  + guaranteed return                    ├── Runs competitive markets\n                                         └── Coordinates dispatch\n                                               │\n                                               ▼\n                                         Distribution Utility (DISCO)\n                                         (buys wholesale, sells retail)\n                                         State PUC regulates retail rates",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "### Why Location Matters: Congestion",
+      "confidence": "candidate",
+      "text": "CONGESTION EXAMPLE:\n\n  Node A ─────────── Line AB (limit: 500 MW) ─────────── Node B\n  │                                                         │\n  Generator A: 100 MW at $20/MWh (cheap gas)              Load B: 1000 MW\n  Generator B: 500 MW at $30/MWh (more expensive gas)\n\n  Scenario 1: Line AB NOT congested (can carry 600 MW)\n    Dispatch cheapest first: A (100 MW at $20), B (500 MW at $30) plus local Gen C\n    LMP at both nodes: ~$30/MWh (last dispatched unit sets price)\n\n  Scenario 2: Line AB AT LIMIT (can carry only 500 MW)\n    Can only send 500 MW from cheap generation region to Node B\n    Node B needs 1000 MW; local generation must make up the rest\n    Local Node B generator (expensive): 500 MW at $80/MWh\n    LMP at Node A: $30/MWh (plenty of cheap generation)\n    LMP at Node B: $80/MWh (expensive local generation at margin)\n    LMP DIVERGENCE = $50/MWh = CONGESTION COST\n\n  RESULT: Same electricity; different prices at different locations\n  Generator at A: sells at $30/MWh\n  Load at B: pays $80/MWh\n  ISO keeps the difference ($50/MWh × 500 MW = $25,000/hour) → Congestion rent\n  (redistributed to Financial Transmission Rights holders)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "## The Merit Order and Uniform Clearing Price",
+      "confidence": "candidate",
+      "text": "MERIT ORDER DISPATCH + UNIFORM CLEARING PRICE:\n\n                          MW demand at hour t = 8,000 MW\n                                              │\nCost     Nuclear, wind, solar                 │ All dispatched generators\n$/MWh    (near zero marginal cost)            │ receive clearing price!\n         │                                    │\n  $80    │                             ┌──────▼───────┐ ← CLEARING PRICE\n         │                    ┌────────┘    Peaker     │   set by marginal unit\n  $50    │           ┌────────┘  Coal/Oil  │           │\n         │  ┌────────┘  CCGT gas          │           │\n  $30    │  │                             │           │\n         │  │                             │           │\n  $10    │  │                             │           │\n         │──┘                             │           │\n   $0    │                                │           │\n         └────────────────────────────────┴───────────┴──▶ MW\n         0        2000       4000       6000       8000 10000\n\n  Nuclear and wind at $5/MWh → run; also receive $50/MWh clearing price\n  CCGT at $30/MWh → dispatched; receive $50/MWh (profit: $20/MWh)\n  Coal at $40/MWh → dispatched; receive $50/MWh (profit: $10/MWh)\n  Peaker at $50/MWh → marginal unit; receive $50/MWh (breakeven)\n  Any unit at $55/MWh → not dispatched\n\n  \"UNIFORM PRICE AUCTION\": Everyone pays (or receives) the same clearing price,\n  set by the most expensive dispatched unit. This is the standard design in\n  most US energy markets.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "## Day-Ahead vs Real-Time Markets",
+      "confidence": "candidate",
+      "text": "TWO SETTLEMENT SYSTEMS (standard in all major US ISOs):\n\nDAY-AHEAD (DA) MARKET:\n  Runs: day before delivery (by ~noon for next day)\n  Mechanism: demand bids + supply offers → co-optimize → optimal schedule\n  Settlement: financially binding forward contract\n  Clears at: hourly or sub-hourly intervals\n  Why participate: hedge price risk; predictable revenue; commitment certainty\n  Generators: want to be committed DA so they know to start up\n  Loads: want to lock in price vs face uncertain RT price\n\nREAL-TIME (RT) MARKET (balancing market):\n  Runs: every 5 minutes (some markets: 15 min)\n  Mechanism: continuous clearing; dispatch instructions to generators\n  Settlement: deviation from DA schedules settled at RT price\n  Prices: highly volatile; can diverge dramatically from DA\n\nSETTLEMENT EXAMPLE:\n  Generator bids 100 MW in DA at $45/MWh → cleared at $45/MWh (DA price = $45)\n  Actually generates 110 MW in real time → 10 MW extra settled at RT price\n  RT price at that hour = $65/MWh (demand spike)\n  Total revenue: (100 MW × $45) + (10 MW × $65) = $4,500 + $650 = $5,150\n\n  If RT price = $20/MWh (mild weather, oversupply):\n  Revenue: (100 MW × $45) + (10 MW × $20) = $4,500 + $200 = $4,700\n\nThe DA market is the \"hedge\" — it locks in predictable revenue for ~95% of generation.\nThe RT market handles deviations and real-time balancing.\n\nVIRTUAL TRADING (financial participants):\n  \"Virtual supply\" bid: buy in DA, sell in RT (if RT < DA, profit)\n  \"Virtual demand\" bid: sell in DA, buy in RT (if RT > DA, profit)\n  Financials arbitrage DA vs RT price differences\n  Efficiency: improved price convergence between DA and RT",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 300,
+      "heading_context": "### The Missing Money Problem",
+      "confidence": "candidate",
+      "text": "MISSING MONEY ANALYSIS:\n\n  Gas peaker (CT): Capital cost $450/kW\n  Annual fixed cost (capital recovery + fixed O&M): $60/kW/yr = $60,000/MW/yr\n\n  Revenue from energy market:\n    8% capacity factor = 700 hours/year\n    Average price during those 700 hours: $80/MWh\n    Energy revenue: 1 MW × 700h × $80 = $56,000/MW/yr\n\n  SHORTFALL: $60,000 - $56,000 = $4,000/MW/yr missing\n  (In volatile markets, scarcity pricing fills this gap — but unpredictably)\n\n  IMPLICATIONS:\n    Peakers may retire if energy prices are depressed (high renewables)\n    But peakers are NEEDED for the 700 hours they run (system reliability)\n    If they retire, reliability degrades → blackouts\n    ERCOT learned this painfully: no capacity market → inadequate reserve margins → Uri 2021\n\nSOLUTION: CAPACITY MARKET\n  Pay generators for \"capacity\" = being available = option to generate\n  Separate from energy payment\n  Revenue: $60-120/kW-year (PJM typical range)\n  Ensures generators stay in service even if energy revenue alone is insufficient",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 329,
+      "heading_context": "### PJM Capacity Market: RPM (Reliability Pricing Model)",
+      "confidence": "candidate",
+      "text": "PJM CAPACITY MARKET MECHANICS:\n\n  Annual Base Residual Auction (BRA):\n    Held 3 years before delivery (e.g., 2024 auction clears capacity for 2027-28)\n    Generators offer capacity (MW available)\n    Load Serving Entities (LSEs) required to procure capacity for their load\n    ISO clears supply vs demand → clearing price ($/MW-day)\n\n  Demand Curve (VRR — Variable Resource Requirement):\n    Not a vertical demand curve (which would cause extreme price volatility)\n    Downward-sloping: if excess capacity, price falls; if shortage, price rises\n    Design to provide reasonable revenue while limiting price spikes\n\n  CLEARING PRICE EXAMPLES:\n    2016-17 delivery year: $59/MW-day = $21,535/MW-year = $21.5/kW-year (very low)\n    2021-22 delivery year: $140/MW-day = $51,100/MW-year = $51.1/kW-year (higher)\n    2024-25 delivery year (cleared 2022): $28.92/MW-day (very low; excess capacity)\n    2025-26 delivery year: $269.92/MW-day (historic high — capacity shortage signal!)\n\n  LOCATIONAL CONSIDERATIONS:\n    RTO-wide auction; but \"Limited Deliverability\" zones\n    If a region can't import enough capacity (transmission constraints):\n    Local clearing price can exceed RTO price significantly\n    Boston: often $200+/MW-day vs RTO $50/MW-day (transmission constrained)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 432,
+      "heading_context": "### Physical PPA",
+      "confidence": "candidate",
+      "text": "PHYSICAL PPA STRUCTURE:\n\n  Generator (wind farm)\n  ┌────────────────────┐\n  │ Nameplate: 200 MW  │\n  │ CF: ~35%           │\n  │ Annual output:     │\n  │  ~613 GWh/yr       │\n  └────────────────────┘\n           ↕  PPA Contract: $/MWh, 15-25 years\n           ↕  Fixed price: $35/MWh\n           ↕  Delivery point: grid\n           ↕  All energy physically delivered\n\n  Offtaker (utility)\n  ┌────────────────┐\n  │ Utility LSE    │\n  │ (or corporate) │\n  └────────────────┘\n  Physically buys and uses the energy\n\nTERMS:\n  Duration: 10-25 years (long-term certainty enables project finance)\n  Price: fixed $/MWh (hedge against energy price volatility)\n  Indexing: some PPAs: CPI-escalator, or partial index\n  Shape risk: wind generates when it generates → utility may not want that shape\n  Firming: utility may need \"firm\" power (guaranteed MW) → need storage or backup\n  Physical delivery: actual kWh change hands",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 470,
+      "heading_context": "### Virtual PPA (VPPA) / Financial PPA",
+      "confidence": "candidate",
+      "text": "VPPA STRUCTURE:\n\n  Wind farm in Texas (ERCOT)\n  ┌────────────────────────┐\n  │ Generate electricity   │\n  │ Sell into ERCOT spot   │\n  │ market at market price │\n  └────────────────────────┘\n           ↕  Financial settlement (Contract for Differences)\n           ↕  Strike price: $30/MWh\n           ↕  Duration: 20 years\n\n  Microsoft data center\n  ┌─────────────────┐\n  │  Buys local     │\n  │  grid power at  │\n  │  market rate    │\n  └─────────────────┘\n           │                                                           │\n           │ Settle difference with Microsoft:                        │\n           │ If ERCOT spot = $25 (below strike):                     │\n           │   Microsoft pays wind farm $5/MWh difference            │\n           │ If ERCOT spot = $45 (above strike):                     │\n           │   Wind farm pays Microsoft $15/MWh difference           │\n           │                                                          │\n  MICROSOFT'S ECONOMICS:                                             │\n    Earns more from VPPA when prices high → offsets higher grid costs │\n    Net cost: approximately the $30/MWh strike price                 │\n    Gets RECs (renewable energy credits) from Texas wind             │\n    Claims renewable energy for sustainability reporting             │\n\nVPPA ADVANTAGES:\n  ✓ No physical delivery constraint (can be anywhere)\n  ✓ No \"shape risk\" (wind generates when it generates — financial settlement)\n  ✓ RECs for sustainability claims\n  ✓ Long-term price hedge for both parties\n  CONSIDERATION: \"Additionality\" debate — does this actually cause new renewable\n  capacity to be built? (It generally does — project finance requires the PPA)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 526,
+      "heading_context": "## Electricity Price Formation: What Drives the Price",
+      "confidence": "candidate",
+      "text": "PRICE FORMATION SUMMARY:\n\nSHORT-TERM (daily):\n  Primary driver: fuel costs (natural gas price dominates US wholesale)\n  Gas $3/MMBtu → CCGT marginal cost ~$20/MWh → wholesale ~$25-40/MWh\n  Gas $8/MMBtu → CCGT marginal cost ~$53/MWh → wholesale ~$55-70/MWh\n\n  Demand: hot summer → high AC load → high prices; mild spring → low prices\n  Renewables: high wind/solar → push gas off margin → lower prices\n  Congestion: transmission limits → LMP spikes in constrained areas\n\nMEDIUM-TERM (monthly/seasonal):\n  Gas storage levels (is winter supply adequate?)\n  Hydro conditions (drought in West → lower CF → higher prices)\n  Generator outage schedule (when do nuke/coal units refuel/overhaul?)\n  Forward gas prices (NYMEX Henry Hub curve)\n\nLONG-TERM (years):\n  Capacity adequacy: are enough plants in service?\n  Capacity factor trends: retiring coal → less supply → higher prices\n  New renewable entry: more solar → lower midday prices\n  Demand growth: more EVs, data centers → higher load → higher prices\n  Carbon policy: carbon price → higher gas/coal generation cost → higher prices\n\nPRICE VOLATILITY EXAMPLES:\n  ERCOT Winter Storm Uri (Feb 2021):\n    Price cap hit: $9,000/MWh for extended periods\n    Total cost: ~$50B in consumer bills + debt\n    Some generators: $30,000/MWh average revenue during the week\n\n  California heat dome (Sep 2022):\n    CAISO peak hour price: $2,000-5,000/MWh\n    Grid operator issued flex alerts; narrowly avoided blackouts\n\n  European natural gas crisis (2022):\n    UK/Germany day-ahead: $1,000-1,500/MWh (yes, per MWh) in winter\n    Driven by: Russia gas supply cut, LNG competition from Asia\n    US comparatively insulated (domestic gas production)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 571,
+      "heading_context": "## Energy Arbitrage: Storage Economics in Markets",
+      "confidence": "candidate",
+      "text": "BATTERY STORAGE ARBITRAGE LOGIC:\n\n  Revenue = (Discharge price - Charge price) × MWh × Round-trip efficiency - Operating costs\n\n  EXAMPLE (California CAISO, 2023):\n    Off-peak price (10am-2pm solar surplus): $0-20/MWh (sometimes negative)\n    Peak price (5pm-9pm evening ramp): $80-150/MWh\n    Spread: $80-150/MWh\n    100 MW / 400 MWh BESS, 90% round-trip efficiency\n    Daily cycle: charge 400 MWh at $10/MWh, discharge 360 MWh at $100/MWh\n    Revenue: 360 MWh × $100 = $36,000\n    Cost of charging: 400 MWh × $10 = $4,000\n    Net: $32,000/day\n    Annual (250 operating days): $8M/yr from arbitrage alone\n    (Plus capacity payments + ancillary services for total of $12-20M/yr)\n\nPRICE CANNIBALIZATION LIMIT:\n  As more batteries build out in California, they ALL charge at the same\n  off-peak hours and discharge at the same peak hours.\n  Effect: off-peak prices rise (battery demand), peak prices fall (battery supply)\n  → spread narrows → arbitrage revenue declines\n  This is the same \"value deflation\" problem as solar\n  First-mover advantage; later projects earn less",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 611,
+      "heading_context": "## Market Design Challenges: Texas as a Case Study",
+      "confidence": "candidate",
+      "text": "ERCOT URI FAILURE ANATOMY:\n  Cold snap: -18°F in Texas (far below design temperature for ERCOT equipment)\n  Generation: thermal plants (gas, coal, some nuclear) freeze:\n    - Gas wellheads freeze → fuel supply cut\n    - Gas plant instruments freeze → forced outages\n    - Nuclear unit (Wolf Creek): cooling tower froze\n    Total loss: ~30 GW of generation, simultaneously\n  ERCOT had ~85 GW of capacity; lost 30 GW → reserve margin evaporated\n\n  Market response:\n    ERCOT hit system-wide offer cap ($9,000/MWh) for ~80 hours\n    Total uplift cost: ~$50B (socialized across all ratepayers)\n    Some generators earned $9,000/MWh for 80 hours → windfall\n\n  Lessons:\n    Energy-only markets provide incentives for weatherization in theory\n    but $9,000/MWh cap may not recover weatherization costs over 10+ years\n    Winter fuel security requires PIPELINE winterization (gas supply chain)\n    Interconnection isolation limits mutual aid\n    Market design does not guarantee physical reliability under extreme stress",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

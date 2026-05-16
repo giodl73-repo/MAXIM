@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:culinary-history:ancient-civilizations
+kind: guide
+module: culinary-history
+section: culinary-history
+title: Ancient Civilizations - Beer, Bread, Garum, and the First Food Economies
+status: source-custody
+source_custody: partial
+current_path: culinary-history/02-ANCIENT-CIVILIZATIONS.md
+canonical_path: culinary-history/02-ANCIENT-CIVILIZATIONS.md
+backsource_ids: [proof-backfill:culinary-history:02-ancient-civilizations, git-history:culinary-history:02-ancient-civilizations]
+concepts: [ancient, civilizations]
+root_concepts: [ancient, civilizations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient Civilizations — Beer, Bread, Garum, and the First Food Economies
 
 ## The Big Picture
@@ -8,7 +27,7 @@ Ancient food systems were not about pleasure — they were infrastructure. Grain
 ANCIENT FOOD SYSTEMS — THE COMMON ARCHITECTURE
 
           GRAIN STORAGE
-         ┌─────────────┐
+         ┌──────────────┐
          │ State granary│
          │ temple store │
          │ palace cellar│

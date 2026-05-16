@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electrical-grid\\06-ENERGY-STORAGE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture: Why Storage Matters",
+      "confidence": "candidate",
+      "text": "THE FUNDAMENTAL GRID PROBLEM (revisited):\n\n  Generation and consumption must stay balanced within tight tolerance\n  at every instant.\n  Mismatches → frequency deviation → cascade risk.\n\nWITHOUT STORAGE:          WITH STORAGE:\n  Demand curve              Demand curve\n   ___________               _____________\n  /           \\             |             |   ← Storage absorbs peak\n |             |    →       |  smoothed   |   ← Storage supplies valley\n |_____________|            |_____________|\n\nHISTORICALLY: Storage wasn't economical, so the grid was designed around\n  dispatchable thermal generators that could match demand.\n\nNOW: High-penetration renewables (variable output) often need storage or\nother flexibility to:\n  1. Time-shift generation (solar at noon → discharge at 6pm)\n  2. Provide backup (2-week Dunkelflaute)\n  3. Provide ancillary services (frequency regulation, voltage support)\n  4. Defer transmission upgrades (reduce peak flows on congested lines)\n  5. Enable grid restoration (black start after blackout)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "### By the Numbers",
+      "confidence": "candidate",
+      "text": "PUMPED HYDRO CONFIGURATION:\n\n           ┌──────────────────────────────────┐\n           │         UPPER RESERVOIR          │\n           │     (millions of cubic meters)   │\n           │       ~stored gravitational PE   │\n           └──────────────┬───────────────────┘\n                          │ penstock (large pipe)\n                          │ vertical drop: 100-700 m\n                          │\n                    ┌─────▼─────────────────────┐\n                    │   POWERHOUSE              │\n                    │                           │\n                    │  Pump/turbine (reversible)│\n                    │  Motor/generator (dual)   │\n                    │  Variable speed possible  │\n                    └─────┬─────────────────────┘\n                          │\n           ┌──────────────▼───────────────────┐\n           │         LOWER RESERVOIR          │\n           └──────────────────────────────────┘\n\nGENERATING: Upper → penstock → turbine → generator → grid\nPUMPING:    Grid → motor → pump → penstock → upper reservoir\nRound-trip efficiency: 78-82% (older sites) to 85-90% (modern variable-speed)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 134,
+      "heading_context": "### Economics",
+      "confidence": "candidate",
+      "text": "- Geological constraints: requires elevation differential + water + proximity to grid",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 154,
+      "heading_context": "### Why Li-ion Dominates Grid Storage Now",
+      "confidence": "candidate",
+      "text": "### The 4-Hour Paradigm",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "### The 4-Hour Paradigm",
+      "confidence": "candidate",
+      "text": "THE 4-HOUR RATIONALE:\n\n1. Economic: The daily arbitrage opportunity (California duck curve) is\n   approximately a 4-hour window (noon cheap solar → 6-10pm expensive peak)\n   A 4h battery optimally captures this cycle\n\n2. Market design: Many capacity markets and RFPs specify \"4-hour capacity\"\n   as the qualifying standard for a \"capacity resource\"\n\n3. Battery degradation: Deep discharge cycles (100% depth) degrade Li-ion\n   faster. At 4-hour sizing, the battery runs at 80-90% depth daily.\n   8-hour sizing for same power = twice the battery → higher cost.\n   4h is often the sweet spot of cost vs value.\n\n4. System need: Most grids need power for 3-6 hour evening peaks.\n   4 hours covers most of this.\n\nLIMITATION:\n  4h batteries don't help with:\n  - Multi-day weather events (wind drought, cold snap)\n  - Seasonal storage (summer solar surplus → winter deficit)\n  These require \"long-duration energy storage\" (LDES) solutions",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "### Li-ion Chemistry Options for Grid",
+      "confidence": "candidate",
+      "text": "COMPARISON: LFP vs NMC for Grid BESS\n\n                    LFP                     NMC\n                    (Lithium Iron Phosphate)  (Nickel Manganese Cobalt)\n──────────────────────────────────────────────────────────────────────────\nCycle life          3,000-6,000 cycles       1,500-3,000 cycles\nCalendar life       15-20 years              10-15 years\nRound-trip η        90-93%                   88-92%\nEnergy density      150-200 Wh/kg           200-300 Wh/kg\nSafety              Excellent (thermally     Good (NMC can thermal runaway\n                    stable cathode)          at higher temperature)\nCost (2024)         ~$130-160/kWh            ~$150-180/kWh\nTemperature range   Better at cold           Better at high temp output\nPreferred for       Grid BESS (dominant)     EVs (higher energy density)\n\nWHY LFP DOMINATES GRID:\n  Grid BESS: weight doesn't matter → energy density irrelevant\n  Grid BESS: cycles daily for 20 years → cycle life critical\n  Grid BESS: thermal runaway is catastrophic in large system → safety critical\n  LFP wins on all three criteria that matter for stationary storage",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 210,
+      "heading_context": "### BESS System Architecture",
+      "confidence": "candidate",
+      "text": "BESS PHYSICAL HIERARCHY:\n\nCell (Ah capacity, ~3.2V LFP cell)\n  │\n  ├── Module (cells in series/parallel, ~100V, ~200Ah)\n  │       (16-32 cells typical; welded or bolted bus)\n  │       BMS: monitors each cell V, T, SOC\n  │\n  ├── Rack (modules in series, ~700V-1500V DC)\n  │       Protection: fuses, contactors\n  │       BMS aggregates module data\n  │\n  ├── Container (10-20+ racks, ~1-3 MWh per container)\n  │       20-40ft container (climate controlled, fire suppression)\n  │       DC-AC inverter (typically inside or adjacent)\n  │       EMS (energy management system for the block)\n  │\n  └── Site (multiple containers, grid interconnect, step-up transformer)\n          Total: 100 MWh – 10 GWh+\n\nCOMMERCIAL SYSTEMS (2024):\n  Tesla Megapack 2XL: 3.9 MWh/unit, 750 kW AC, 10-unit minimum\n  BYD Energy: 2.5 MWh/container\n  Fluence Gridstack: modular, variable sizing\n  CATL EnerC: 5 MWh/container",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 256,
+      "heading_context": "### Operating Principle",
+      "confidence": "candidate",
+      "text": "FLOW BATTERY CONCEPT:\n\n          ┌─────────────────────┐\n          │    POSITIVE         │\n          │    ELECTROLYTE      │\n          │    TANK             │\n          └──────────┬──────────┘\n                     │ pump\n                     ▼\n          ┌─────────────────────┐\n          │   ELECTROCHEMICAL   │\n          │   CELL (STACK)      │\n          │   carbon electrodes │\n          │   ion-exchange      │\n          │   membrane          │\n          └─────────────────────┘\n                     │ pump\n                     ▼\n          ┌─────────────────────┐\n          │    NEGATIVE         │\n          │    ELECTROLYTE      │\n          │    TANK             │\n          └─────────────────────┘\n\n  Positive electrolyte: VO²⁺/VO₂⁺ (vanadium, higher oxidation states)\n  Negative electrolyte: V²⁺/V³⁺ (vanadium, lower oxidation states)\n  Cell stack connects to EXTERNAL CIRCUIT (AC system)\n\nCHARGING:   Oxidize positive tank (VO²⁺ → VO₂⁺), reduce negative (V³⁺ → V²⁺)\nDISCHARGING: Reverse; energy extracted as current flows through external circuit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 310,
+      "heading_context": "## Flywheels",
+      "confidence": "candidate",
+      "text": "FLYWHEEL ENERGY STORAGE:\n\n┌─────────────────────────────────────────────────────┐\n│                  VACUUM CHAMBER                     │\n│  ┌───────────────────────────────────────────────┐  │\n│  │                                               │  │\n│  │         COMPOSITE CARBON FIBER ROTOR          │  │\n│  │         (high tensile strength → fast spin)  │  │\n│  │         Operating speed: 16,000-40,000 RPM   │  │\n│  │         Mass: 300-2,000 kg                   │  │\n│  │                                               │  │\n│  │    MAGNETIC BEARING (frictionless, active)   │  │\n│  │    → eliminates mechanical bearing losses     │  │\n│  │    → extends cycle life to ~10 million        │  │\n│  │                                               │  │\n│  │    MOTOR/GENERATOR                           │  │\n│  │    (permanent magnet synchronous)             │  │\n│  └───────────────────────────────────────────────┘  │\n│                                                     │\n│  POWER ELECTRONICS: bidirectional AC-DC converter  │\n└─────────────────────────────────────────────────────┘\n\nSPECS (typical Beacon Power unit):\n  Energy:   ~25 kWh per unit (100 units = 2.5 MWh)\n  Power:    100-200 kW continuous per unit\n  Response: < 4 seconds to full output\n  Round-trip efficiency: 85-90%\n  Cycle life: 10+ million cycles (essentially unlimited)\n  Standby loss: 1-2 kW per unit (spinning losses)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 352,
+      "heading_context": "## Compressed Air Energy Storage (CAES)",
+      "confidence": "candidate",
+      "text": "CAES OPERATING PRINCIPLE:\n\nCHARGING (off-peak):          DISCHARGING (peak):\n\nGrid ──▶ Motor ──▶ Multi-stage    Cavern ──▶ Multi-stage\n         compressor               (high-P   expander/turbine\n         (compresses air           air)     ──▶ Generator ──▶ Grid\n         to 40-80 bar)\n         │\n         ▼\n     Underground cavern\n     (salt cavern, aquifer,\n      abandoned mine)\n      ~50-80 bar air\n      Large volume (10⁵-10⁶ m³)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 401,
+      "heading_context": "### Molten Salt (CSP Plants)",
+      "confidence": "candidate",
+      "text": "CSP + MOLTEN SALT STORAGE:\n\nSunlight → Heliostats → Solar Tower → Heat transfer fluid → Molten salt tanks\n                                                              │\n                                              HOT TANK (~565°C)\n                                              │\n                        Heat exchanger ◀─────┘ (discharging)\n                           │\n                     Steam generator → Steam turbine → Generator → Grid\n                           │\n                     COLD TANK (~290°C)\n                           │ (pump back to solar field for reheating)\n\nNOOR III (Morocco): 150 MW, 7.5h storage at full power\nCrescent Dunes (Nevada): 110 MW, 10h storage (startup issues, now sold)\nSolana (Arizona): 280 MW, 6h storage",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 421,
+      "heading_context": "### Molten Salt (CSP Plants)",
+      "confidence": "candidate",
+      "text": "**Cons:** CSP + storage LCOE > utility PV + BESS in most markets. CSP plants require high direct normal irradiance (DNI) — limited geography. Molten salt freezes below 220°C (must maintain temperature 24/7 → parasitic heating during low-sun periods).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 442,
+      "heading_context": "## Hydrogen: Long-Duration Storage",
+      "confidence": "candidate",
+      "text": "HYDROGEN GRID STORAGE CHAIN:\n\nExcess RE → Electrolyzer → H₂ gas → Storage → Fuel cell or gas turbine → Grid\nelectricity   (PEM or alkaline)              (compressed,    → electricity\n                                              liquefied,      → heat\n                                              underground     (for industry)\n                                              cavern)\n\nELECTROLYZER TYPES:\n  PEM (Proton Exchange Membrane):\n    High current density → compact\n    Fast response (10% to 100% in <1 second) → can follow RE variability\n    Uses pure water, DI quality\n    Efficiency: 60-70% (electrical in → hydrogen LHV)\n    Cost: ~$700-1,500/kW (falling; target $200/kW by 2030)\n\n  Alkaline:\n    Lower cost, larger cells\n    KOH electrolyte → safer chemistry\n    Efficiency: 60-65%\n    Slower response: designed for steady-state operation\n    Lower current density → larger footprint\n\n  SOEC (Solid Oxide Electrolyzer):\n    High temperature (700-900°C) → uses waste heat → higher efficiency (~80%)\n    Pairs with nuclear or industrial heat\n    Less mature; durability challenges",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 474,
+      "heading_context": "### Round-Trip Efficiency: The Hard Truth",
+      "confidence": "candidate",
+      "text": "HYDROGEN STORAGE ROUND-TRIP EFFICIENCY:\n\nElectrolysis:      60-70% (electrical → hydrogen HHV)\nCompression/storage: 5-10% energy cost (compression work)\nReconversion:\n  Fuel cell:       50-60% (hydrogen → electricity)\n  Gas turbine:     30-40% (hydrogen → electricity; could be CCGT)\n\nTOTAL ROUND-TRIP (electrolysis + fuel cell): 60% × 55% = 33%\nTOTAL ROUND-TRIP (electrolysis + turbine):  65% × 38% = 25%\n\nCompare: Li-ion BESS: 90% round-trip\n         Pumped hydro: 80-85% round-trip\n\nHydrogen for grid ELECTRICITY storage is economically challenged at 25-33% round-trip.\nThe economics only work if:\n  1. Excess renewable electricity is very cheap (near $0/MWh or negative)\n  2. The hydrogen has HIGH-VALUE uses (industry, fuel cells for transport, heat)\n  3. Storage duration is very long (seasonal) where other options don't work\n  4. The turbine plant provides other grid services (capacity, black start)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 511,
+      "heading_context": "## Long-Duration Energy Storage (LDES)",
+      "confidence": "candidate",
+      "text": "LDES TECHNOLOGY LANDSCAPE (2024):\n\nTechnology          Duration    Round-trip η    Cost $/kWh    TRL\n───────────────────────────────────────────────────────────────────\nPumped hydro        8-24h       80-90%         $100-200      9 (mature)\nCompressed air      20-100h     42-75%         $80-180       8 (Huntorf operational)\nVanadium flow       8-20h       65-75%         $250-400      8 (commercial)\nIron-air battery    100h+       45-55%         $20-30 (proj.) 6-7 (demo)\nLiquid air (LAES)   8-24h       50-70%         $200-400      7 (Highview Power)\nGravity (rail/shaft) 8-16h     80-85%         $100-250      6-7\nHydrogen (P2G2P)    Seasonal    25-35%         $300-600      7-8 (no full chain demo)\nThermal (molten salt) 10-24h   90%+ (heat)    $20-60        8 (CSP commercial)\n\nTRL = Technology Readiness Level (1-9)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 538,
+      "heading_context": "## Storage Markets and Revenue Stacking",
+      "confidence": "candidate",
+      "text": "REVENUE STACK FOR A 100 MW / 400 MWh BESS IN CALIFORNIA (approximate 2024):\n\nRevenue source       $/MWh or $/kW-yr   Annual $ estimate\n─────────────────────────────────────────────────────────────────────────\nEnergy arbitrage     $30-80/MWh spread  $5-15M/yr\n  (charge cheap solar, discharge evening peak)\n  (400 MWh × 250 cycles × $40 spread)\n\nCapacity payments    $50-100/kW-yr      $5-10M/yr\n  (CAISO Resource Adequacy; paid to be available as capacity resource)\n\nFrequency regulation $5-20/MWh          $1-3M/yr\n  (CAISO fast frequency regulation; BESS earns premium vs slow generators)\n\nSpinning reserve      $2-10/MWh         $0.5-1M/yr\n\nDistribution deferral (one-time)        $10-50M (defers $50-200M substation upgrade)\n\nAncillary services premium (fast response): +20-30% vs slower resources\n\nTOTAL:                                  $11-29M/yr\n\nCapital cost: 100 MW × $1,100/kW = $110M\nAnnual revenue: $15-25M\nSimple payback: 5-7 years (with incentives)\nProject finance typically 20-year term\n\nKey insight: No single revenue stream makes BESS economic alone.\nRevenue stacking across energy, capacity, and ancillary services is required.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

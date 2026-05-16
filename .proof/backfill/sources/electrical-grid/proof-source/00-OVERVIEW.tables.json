@@ -1,0 +1,336 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electrical-grid\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 146,
+      "heading_context": "## AC vs DC: Why Tesla Won, and Why DC Is Coming Back",
+      "headers": [
+        "Use Case",
+        "Why HVDC Wins"
+      ],
+      "rows": [
+        [
+          "Submarine cable (>50 km)",
+          "AC cable acts as a capacitor; capacitive charging current dominates at length → almost no real power delivered. DC has no such limit."
+        ],
+        [
+          "Asynchronous interconnection",
+          "HVDC links two AC systems without requiring frequency synchronization. The Pacific DC Intertie (CA–OR–WA) operates without the two ends being in sync."
+        ],
+        [
+          "Very long distance (>800 km)",
+          "HVDC losses are lower than AC over very long distances, even including converter station losses (~0.6% per 100 km for DC vs ~1-2% for AC including reactive losses)."
+        ],
+        [
+          "Underground cable (long)",
+          "Same capacitive issue as submarine. London, NYC, urban underground systems increasingly HVDC."
+        ],
+        [
+          "Controllability",
+          "Power flow in AC networks is governed by impedance ratios (Kirchhoff) — you can't easily direct where power goes. HVDC sets power flow precisely and quickly."
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 172,
+      "heading_context": "## Capacity Factor vs Nameplate Capacity",
+      "headers": [
+        "Source",
+        "Typical CF",
+        "Range",
+        "Key driver"
+      ],
+      "rows": [
+        [
+          "Nuclear",
+          "92%",
+          "85–94%",
+          "Refueling cycle ~18 months; outages planned"
+        ],
+        [
+          "Geothermal",
+          "85%",
+          "75–95%",
+          "Continuous thermal resource"
+        ],
+        [
+          "Run-of-river hydro",
+          "40–50%",
+          "25–60%",
+          "Seasonal river flow"
+        ],
+        [
+          "Reservoir hydro",
+          "30–60%",
+          "varies",
+          "Operator-controlled dispatch"
+        ],
+        [
+          "Coal (US, 2024)",
+          "38%",
+          "20–60%",
+          "Economic dispatch below renewables"
+        ],
+        [
+          "CCGT (baseload)",
+          "55%",
+          "40–70%",
+          "Dispatched when gas is competitive"
+        ],
+        [
+          "CCGT (peaker)",
+          "10%",
+          "5–20%",
+          "Only for peak hours"
+        ],
+        [
+          "Offshore wind",
+          "45%",
+          "35–55%",
+          "Higher, more consistent wind resource"
+        ],
+        [
+          "Onshore wind",
+          "35%",
+          "25–48%",
+          "Site-dependent; Texas Panhandle ~48%"
+        ],
+        [
+          "Utility solar PV",
+          "25%",
+          "18–32%",
+          "US SW hits 30%; Seattle ~15%"
+        ],
+        [
+          "Simple-cycle gas",
+          "8%",
+          "1–20%",
+          "Emergency/peaking only"
+        ],
+        [
+          "Residential solar",
+          "15%",
+          "10–20%",
+          "Roof orientation, shading"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 342,
+      "heading_context": "## The Grid as a Distributed Real-Time System",
+      "headers": [
+        "Distributed Systems Concept",
+        "Electrical Grid Equivalent"
+      ],
+      "rows": [
+        [
+          "**Consensus protocol** (Raft, Paxos)",
+          "Grid frequency (60.000 Hz) — all synchronous generators must agree on this single value; it emerges from physics, not software"
+        ],
+        [
+          "**Byzantine fault tolerance**",
+          "N-1 contingency planning — system must remain stable and serve all load despite any single component failure"
+        ],
+        [
+          "**Message propagation speed**",
+          "Electromagnetic propagation at ~0.97c — effectively zero delay vs mechanical response time"
+        ],
+        [
+          "**Cache / message queue**",
+          "Energy storage (pumped hydro, batteries) — the grid has almost no native buffering; storage is expensive and limited"
+        ],
+        [
+          "**Load balancer**",
+          "Economic dispatch + AGC (Automatic Generation Control) — continuously allocates generation to match load"
+        ],
+        [
+          "**Circuit breaker (Hystrix pattern)**",
+          "Protection relay + circuit breaker — detects fault, isolates faulted segment in < 100 ms, redistributes load"
+        ],
+        [
+          "**CAP theorem**",
+          "Grid can't sacrifice Consistency (frequency) or Availability (serving load) — Partition tolerance managed by DC tie isolation"
+        ],
+        [
+          "**Eventual consistency**",
+          "Frequency restoration via AGC — after a disturbance, returns to exactly 60.000 Hz within minutes, not immediately"
+        ],
+        [
+          "**Cascading failure (thundering herd)**",
+          "Grid cascade — one line trip overloads neighbors, exponential cascade; 2003 Northeast Blackout, 55M people"
+        ],
+        [
+          "**Microservice isolation / bulkheads**",
+          "Microgrid islanding — local system survives external failure by disconnecting at controlled boundary"
+        ],
+        [
+          "**Rate limiting / admission control**",
+          "Under-frequency load shedding (UFLS) — automatically drops load to match remaining supply"
+        ],
+        [
+          "**Health check / heartbeat**",
+          "PMU (Phasor Measurement Unit) measurements — GPS-synced, 30-120 samples/sec, real-time situational awareness"
+        ],
+        [
+          "**Configuration drift**",
+          "Transmission topology changes — must track line status in real-time for accurate power flow models"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 364,
+      "heading_context": "## Key Numbers to Internalize",
+      "headers": [
+        "Metric",
+        "Value"
+      ],
+      "rows": [
+        [
+          "US total installed generation capacity (2024)",
+          "~1,250 GW"
+        ],
+        [
+          "US annual electricity generation",
+          "~4,200 TWh/yr"
+        ],
+        [
+          "US average demand",
+          "~480 GW"
+        ],
+        [
+          "US summer peak demand",
+          "~750 GW (extreme heat event)"
+        ],
+        [
+          "Eastern Interconnection installed capacity",
+          "~700 GW"
+        ],
+        [
+          "Western Interconnection",
+          "~300 GW"
+        ],
+        [
+          "ERCOT",
+          "~90 GW"
+        ],
+        [
+          "Transmission EHV range",
+          "500–765 kV AC; ±500–800 kV DC"
+        ],
+        [
+          "North American nominal frequency",
+          "60.000 Hz"
+        ],
+        [
+          "NERC frequency tolerance (normal)",
+          "±0.036 Hz"
+        ],
+        [
+          "UFLS begins (automatic load shedding)",
+          "~59.3–59.7 Hz (varies by utility)"
+        ],
+        [
+          "Frequency at which generators trip offline",
+          "~57–58 Hz (underfrequency protection)"
+        ],
+        [
+          "Largest single generating unit (US)",
+          "Grand Coulee Dam: 6,809 MW"
+        ],
+        [
+          "World's largest single unit",
+          "Three Gorges Dam: 22,500 MW"
+        ],
+        [
+          "US average retail electricity price",
+          "~13¢/kWh (2024; range: 10–30¢)"
+        ],
+        [
+          "Wholesale electricity price (normal operations)",
+          "$20–80/MWh (varies by region, season)"
+        ],
+        [
+          "Wholesale price spikes (scarcity events)",
+          "Up to $10,000/MWh (ERCOT February 2021)"
+        ],
+        [
+          "Negative prices (oversupply)",
+          "Down to -$50/MWh or below"
+        ],
+        [
+          "US electricity industry revenue",
+          "~$450B/yr"
+        ],
+        [
+          "Transmission line losses (typical)",
+          "2–5% (national average ~5%)"
+        ],
+        [
+          "Distribution losses",
+          "3–7%"
+        ],
+        [
+          "Total grid losses (US)",
+          "~6% of generation"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 427,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "A grid-stability claim",
+          "Separate energy balance, instantaneous power balance, frequency response, voltage support, reserves, and protection action.",
+          "Annual MWh adequacy does not prove real-time operability."
+        ],
+        [
+          "Whether transmission voltage is high enough",
+          "Estimate current, I²R loss, thermal limit, voltage drop, right-of-way, and reactive-power burden.",
+          "Higher voltage lowers losses but raises insulation, clearance, equipment, and permitting cost."
+        ],
+        [
+          "Whether AC or HVDC is the right bulk-transfer architecture",
+          "Check distance, cable vs overhead, asynchronous interconnection, controllability, converter-station cost, and reliability model.",
+          "HVDC wins some long/cable/asynchronous cases; HVAC remains cheaper and simpler for many networked overhead corridors."
+        ],
+        [
+          "A capacity-factor comparison",
+          "Compute actual MWh over nameplate MWh and then ask what hours the output arrives.",
+          "Capacity factor is not capacity credit; timing and dispatchability determine grid value."
+        ],
+        [
+          "A frequency-event narrative",
+          "Identify lost MW, inertia, governor response, AGC, reserves, under-frequency load shedding, and protection settings.",
+          "The same MW loss is more severe on a low-inertia or weakly connected system."
+        ],
+        [
+          "A duck-curve or renewable-integration problem",
+          "Look at net load, ramp rate, curtailment, storage duration, transmission export path, and flexible demand.",
+          "The problem is not \"too much solar\"; it is temporal/location mismatch plus insufficient flexibility."
+        ],
+        [
+          "A wholesale-price explanation",
+          "Trace marginal unit, congestion, losses, scarcity adders, uplift, and local market rules.",
+          "Merit order explains the baseline; real LMPs are also network prices."
+        ],
+        [
+          "A cascade risk",
+          "Map contingency, automatic power redistribution, relay action, voltage collapse risk, and operator time window.",
+          "Cascades are system-state dependent; N-1 planning reduces but does not eliminate correlated or hidden failures."
+        ]
+      ]
+    }
+  ]
+}

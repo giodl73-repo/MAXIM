@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electrical-grid\\05-GRID-STABILITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 543,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "A frequency-stability event",
+          "Identify lost generation/load, inertia, ROCOF, governor response, fast frequency response, reserves, and UFLS thresholds.",
+          "Inertia buys time; response arrests the decline. They are related but not interchangeable."
+        ],
+        [
+          "Whether a disturbance is transient-stability limited",
+          "Check fault clearing time, generator angle separation, transfer level, protection action, and post-fault network topology.",
+          "A line can be thermally acceptable but transient-stability constrained."
+        ],
+        [
+          "A voltage-collapse risk",
+          "Locate reactive-power demand, weak buses, long transfers, capacitor/reactor settings, load behavior, and voltage-support devices.",
+          "Voltage is local; system-wide MW surplus does not guarantee local VAR adequacy."
+        ],
+        [
+          "Whether AGC or primary response is relevant",
+          "Separate governor/fast response seconds, AGC minutes, economic dispatch intervals, and manual operator action.",
+          "AGC restores setpoint after the arresting response; it is not the first line of defense."
+        ],
+        [
+          "A protection-system trip",
+          "Identify relay type, protected zone, pickup settings, time curve, communication channel, breaker duty, and coordination with upstream/downstream devices.",
+          "Protection is designed for selectivity and speed, but hidden failures and bad coordination can enlarge an event."
+        ],
+        [
+          "A low-inertia claim",
+          "Measure synchronous online inertia, inverter controls, grid-forming capability, contingency size, and ROCOF withstand settings.",
+          "Wind/solar do not provide synchronous inertia by default, but inverter controls can provide fast active-power response."
+        ],
+        [
+          "A blackout narrative",
+          "Reconstruct initiating events, alarm/operator visibility, vegetation or equipment condition, relay trips, power redistribution, and time window.",
+          "Cascades are not single-cause stories; they are interactions between physics, protection, software, and operations."
+        ]
+      ]
+    }
+  ]
+}
