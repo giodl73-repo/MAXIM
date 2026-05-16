@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:human-biology:cardiovascular
+kind: guide
+module: human-biology
+section: human-biology
+title: Cardiovascular System
+status: source-custody
+source_custody: partial
+current_path: human-biology/02-CARDIOVASCULAR.md
+canonical_path: human-biology/02-CARDIOVASCULAR.md
+backsource_ids: [proof-backfill:human-biology:02-cardiovascular, git-history:human-biology:02-cardiovascular]
+concepts: [cardiovascular]
+root_concepts: [cardiovascular]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cardiovascular System
 
 ## The Big Picture: Dual-Circuit Pump
@@ -125,13 +144,13 @@ ECG axis: normal is −30° to +90° (vectors point down-left toward LV mass). L
 EVENTS IN ONE BEAT (~800 ms at 75 bpm):
 
 DIASTOLE (filling):
-  ┌─────────────────────────────────────────────────────┐
-  │  Isovolumetric relaxation: AV + semilunar valves    │
-  │  both closed, pressure falls rapidly                │
-  │  → Mitral/tricuspid open when ventricular P < atrial │
-  │  Passive rapid filling → slow filling → atrial kick │
-  │  End-diastolic volume (EDV) ~130 mL                 │
-  └─────────────────────────────────────────────────────┘
+  +-----------------------------------------------------+
+  | Isovolumetric relaxation: AV + semilunar valves     |
+  | both closed, pressure falls rapidly                 |
+  | -> AV valves open when ventricular P < atrial       |
+  | Rapid filling -> slow filling -> atrial kick        |
+  | End-diastolic volume (EDV) ~130 mL                  |
+  +-----------------------------------------------------+
 
 SYSTOLE (ejection):
   ┌─────────────────────────────────────────────────────┐

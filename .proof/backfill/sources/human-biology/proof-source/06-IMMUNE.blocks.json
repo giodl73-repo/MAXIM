@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-biology\\06-IMMUNE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "IMMUNE SYSTEM\n┌──────────────────────────────────────────────────────────────────┐\n│  INNATE IMMUNITY (first hours)                                   │\n│  Fast · Generic · No memory                                      │\n│  Barriers, phagocytes, NK cells, complement, inflammation        │\n│  Pattern recognition: PAMPs (pathogen patterns) via PRRs         │\n│  Fails to clear? → activates adaptive                            │\n├──────────────────────────────────────────────────────────────────┤\n│  ADAPTIVE IMMUNITY (days to weeks)                               │\n│  Slow · Specific · Memory                                        │\n│  T cells (cell-mediated) + B cells (humoral/antibody)            │\n│  Antigen-specific receptor repertoire (~10⁷ unique)              │\n│  Second exposure: 100–1,000× faster, larger response            │\n└──────────────────────────────────────────────────────────────────┘\n\nBoth branches interact constantly:\n  Innate APC (dendritic cell) → presents antigen → activates T cells\n  T helper cells → activate B cells\n  Antibodies opsonize → phagocytes kill better\n  Cytokines coordinate everything",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "### Natural Killer Cells (NK)",
+      "confidence": "candidate",
+      "text": "NK cell activation balance:\n  Activating signals (NKG2D, NCR) from \"stress ligands\" on target\n  Inhibitory signals (KIR, NKG2A) from MHC I on normal cells\n\n  Normal cell: lots of MHC I → inhibitory signal dominates → NOT killed\n  Virus-infected/tumor: downregulate MHC I (to hide from T cells)\n    → loss of inhibitory signal → NK activation → kill target",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "## Inflammation",
+      "confidence": "candidate",
+      "text": "ACUTE INFLAMMATION SEQUENCE:\n\nTissue injury / pathogen\n  ↓\nMast cell degranulation: histamine + tryptase (vasodilation, ↑ permeability)\n  ↓\nVasodilation (arterioles) → Redness, Warmth\n  ↓\n↑ Vascular permeability (venules) → fluid and proteins leak → Swelling (edema)\n  ↓\nNeutrophil margination → rolling (selectins) → firm adhesion (integrins/ICAMs)\n  → diapedesis → chemotaxis (IL-8/CXCL8, C5a, LTB4) → phagocytosis\n  ↓\nResolution (if infection cleared):\n  Neutrophil apoptosis → macrophage efferocytosis → anti-inflammatory resolution phase\n  (resolvins, protectins from omega-3 FAs)\n\nChronic inflammation (if not resolved):\n  Macrophage + lymphocyte dominated\n  Tissue destruction + fibrosis\n  Granuloma formation (TB, sarcoid, Crohn's): macrophage cluster + multinucleate giant cells",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "## Complement System",
+      "confidence": "candidate",
+      "text": "THREE ACTIVATION PATHWAYS:\n  Classical:   IgM/IgG bound to antigen → C1q → C1r/s → C4 → C2 → C3\n  Lectin:      MBL (mannose-binding lectin) on pathogen surface → MASPs → C4 → C2 → C3\n  Alternative: Spontaneous C3 hydrolysis on pathogen surfaces → amplification loop\n\nALL CONVERGE:\n  C3 → C3b (opsonin, deposited on surface) + C3a (anaphylatoxin, histamine release)\n  C3b → C5 convertase → C5a (most potent anaphylatoxin, chemotactic) + C5b\n  C5b + C6, C7, C8, C9 (polymerize) → MEMBRANE ATTACK COMPLEX (MAC, C5b-9)\n    → ion pore in bacterial membrane → osmotic lysis\n\nFUNCTIONS:\n  Opsonization: C3b + iC3b → phagocyte CR1/CR3 binding → enhanced phagocytosis\n  Inflammation: C3a + C5a → mast cell degranulation, neutrophil recruitment\n  Lysis: MAC → direct kill (gram-negative bacteria, some viruses)\n  Clearance: C1q binds apoptotic cells → complement mediates clearance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "### T Cell Development and Activation",
+      "confidence": "candidate",
+      "text": "Bone marrow progenitor → Thymus\n  Positive selection: T cells must recognize self-MHC (or die by neglect)\n  Negative selection: T cells that bind self-MHC + self-peptide with HIGH affinity → apoptosis\n  Result: T cell repertoire recognizes self-MHC + foreign peptide (but not self-peptides strongly)\n\nTCR (T cell receptor): heterodimer (αβ or γδ) + CD3 complex\n  Recognizes: peptide + MHC (both required — MHC restriction)\n  CD4: co-receptor for MHC II (helper T cells)\n  CD8: co-receptor for MHC I (cytotoxic T cells)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "### MHC I vs MHC II",
+      "confidence": "candidate",
+      "text": "MHC I (HLA-A, B, C):\n  Present on: ALL nucleated cells\n  Loads: endogenous peptides (intracellular proteins, viral)\n  Peptides: 8–10 amino acids (TAP transporter into ER, peptide loading)\n  Activates: CD8+ cytotoxic T cells (CTLs)\n  Logic: \"look inside me — am I infected or cancerous?\"\n\nMHC II (HLA-DR, DP, DQ):\n  Present on: Professional APCs only (DCs, macrophages, B cells)\n  Loads: exogenous peptides (phagocytosed bacteria, external antigens)\n  Peptides: 13–25 amino acids (endosomal processing, invariant chain)\n  Activates: CD4+ helper T cells\n  Logic: \"look what I ate — are there pathogens in the environment?\"\n\nCross-presentation: DCs can load exogenous antigens onto MHC I\n  → activate CTLs against extracellular pathogens (important for antitumor immunity, vaccines)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 210,
+      "heading_context": "### T Helper Cell Subsets",
+      "confidence": "candidate",
+      "text": "Naive CD4+ T cell → activated by DC (signal 1: TCR + MHC II; signal 2: CD28 + CD80/86)\n\nCYTOKINE ENVIRONMENT DURING ACTIVATION DETERMINES FATE:\n\nIL-12, IFN-γ  → TH1: IFN-γ producer → activate macrophages, CTLs\n                     Defense against intracellular pathogens (Mycobacteria, Listeria, viruses)\n                     Role in autoimmunity (Crohn's, MS, T1DM)\n\nIL-4          → TH2: IL-4, IL-5, IL-13 → B cell class switch to IgE, eosinophil activation\n                     Defense against helminths; drives allergy/asthma\n\nTGF-β + IL-6  → TH17: IL-17, IL-22 → neutrophil recruitment, epithelial defense\n                     Defense against extracellular bacteria + fungi (Candida)\n                     Role in psoriasis, IBD, ankylosing spondylitis\n\nTGF-β (alone) → Treg: FoxP3+, produces IL-10 + TGF-β\n                     Suppress immune responses, maintain peripheral tolerance\n                     Prevent autoimmunity; can suppress antitumor immunity\n\nIL-21         → TFH (follicular helper): support germinal center reaction + B cell responses",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 233,
+      "heading_context": "### T Helper Cell Subsets",
+      "confidence": "candidate",
+      "text": "### CD8+ Cytotoxic T Cells (CTLs)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 246,
+      "heading_context": "### B Cell Activation and Germinal Center",
+      "confidence": "candidate",
+      "text": "B cell: BCR (surface IgM) recognizes antigen\n  ↓\nT-dependent response (most protein antigens):\n  B cell ingests antigen → presents on MHC II → cognate Th2/TFH recognizes it\n  CD40 (B cell) + CD40L (T cell) = co-stimulation signal\n  Cytokines (IL-4, IL-21) drive proliferation + germinal center formation\n\nGERMINAL CENTER (lymph node follicle):\n  Rapid B cell proliferation (centroblasts)\n  Somatic hypermutation: activation-induced cytidine deaminase (AID) mutates V region\n  Affinity maturation: cells with higher BCR affinity for antigen selected (survive)\n                        cells with lower affinity die (apoptosis)\n  Isotype switching: AID again — changes constant region:\n    IgM → IgG (systemic, complement, phagocytosis)\n    IgM → IgA (mucosal immunity)\n    IgM → IgE (allergy, antiparasite)\n  ↓\nPlasma cells: migrate to bone marrow → long-lived, constitutive Ab secretion\nMemory B cells: circulate, rapid response on re-exposure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 270,
+      "heading_context": "### Immunoglobulin Classes",
+      "confidence": "candidate",
+      "text": "STRUCTURE: 2 heavy chains + 2 light chains (κ or λ)\n  Fab region (variable): antigen binding (tip of Y)\n  Fc region (constant): effector functions — complement activation, FcR binding\n\nCLASS  MW      Properties and functions\nIgM    900kDa  Pentamer; first produced in response; best complement activator\n               Does NOT cross placenta; found in serum only\nIgG    150kDa  Most abundant in serum; 4 subclasses (IgG1–4)\n               ONLY antibody to cross placenta (neonatal protection)\n               Opsonization, ADCC, complement (IgG1/3)\n               Secondary response dominant\nIgA    160-    Monomer (serum) or dimer (secretory, with J chain + secretory component)\n       385kDa  Dominant at mucosal surfaces (gut, respiratory, breast milk)\n               No complement activation; prevents pathogen adherence\nIgE    190kDa  Lowest serum concentration; Fc binds mast cells and basophils\n               Cross-linking by antigen → immediate hypersensitivity (allergy, anaphylaxis)\n               Defense against helminths (worm expulsion)\nIgD    185kDa  Surface of naive B cells; signaling receptor; minimal serum function",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 318,
+      "heading_context": "## Immune Tolerance",
+      "confidence": "candidate",
+      "text": "CENTRAL TOLERANCE (delete self-reactive cells at origin):\n  T cells: thymic negative selection (AIRE expression allows thymic DCs to present\n           peripheral self-antigens → clonal deletion of high-affinity self-reactive T cells)\n  B cells: receptor editing or clonal deletion in bone marrow\n\nPERIPHERAL TOLERANCE (suppress remaining self-reactive cells):\n  Anergy: T cell encounters antigen without co-stimulation → functional unresponsiveness\n  Regulatory T cells (Treg): FoxP3+, secrete IL-10 + TGF-β, CTLA-4 high expression\n  Activation-induced cell death (AICD): Fas/FasL — activated T cells eliminate each other\n  Checkpoint receptors:\n    CTLA-4 (CD152): on T cells, competes with CD28 for CD80/86 → dampens activation\n    PD-1: on activated T cells; PD-L1/L2 on tumor cells → \"don't kill me\" signal\n\nCHECKPOINT BLOCKADE (cancer immunotherapy):\n  anti-CTLA-4 (ipilimumab) + anti-PD-1 (pembrolizumab, nivolumab) + anti-PD-L1\n  Release brakes on T cells → enhanced antitumor immunity\n  Side effects: immune-related adverse events (irAEs) — autoimmune-like",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

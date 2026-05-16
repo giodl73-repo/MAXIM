@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cognitive-science:problem-solving
+kind: guide
+module: cognitive-science
+section: cognitive-science
+title: Problem Solving, Expertise, and Creativity - Cognitive Science
+status: source-custody
+source_custody: partial
+current_path: cognitive-science/05-PROBLEM-SOLVING.md
+canonical_path: cognitive-science/05-PROBLEM-SOLVING.md
+backsource_ids: [proof-backfill:cognitive-science:05-problem-solving, git-history:cognitive-science:05-problem-solving]
+concepts: [problem, solving]
+root_concepts: [problem, solving]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Problem Solving, Expertise, and Creativity — Cognitive Science
 
 ## The Big Picture

@@ -1,0 +1,102 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cognitive-science\\05-PROBLEM-SOLVING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 76,
+      "heading_context": "## Problem Space (Newell & Simon 1972)",
+      "headers": [
+        "Strategy",
+        "Description",
+        "Good when",
+        "Bad when"
+      ],
+      "rows": [
+        [
+          "**Breadth-first**",
+          "Explore all states at depth d before d+1",
+          "Short paths, complete exploration needed",
+          "Deep solutions, exponential space"
+        ],
+        [
+          "**Depth-first**",
+          "Follow one path to completion before backtracking",
+          "Deep solutions, limited space",
+          "Gets lost in dead ends"
+        ],
+        [
+          "**Hill climbing**",
+          "Always move toward states that seem closer to goal",
+          "Smooth landscapes",
+          "Local optima, plateaus"
+        ],
+        [
+          "**Means-ends analysis**",
+          "Detect biggest difference between current/goal state; find operator that reduces it",
+          "Many AI / human problems",
+          "Requires measuring \"difference\""
+        ],
+        [
+          "**Working backward**",
+          "Start from goal, work toward initial state",
+          "Well-defined goals with few states",
+          ""
+        ],
+        [
+          "**Analogy**",
+          "Map structure from solved problem to new one",
+          "Novel problems with known analog",
+          "Finding the right analog"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 329,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether a small well-defined space can be solved directly",
+          "Systematic search such as BFS or DFS",
+          "Exhaustive search works only when state space and operators are explicit and bounded."
+        ],
+        [
+          "Whether a large defined space needs guidance",
+          "Means-ends analysis or heuristic search",
+          "Heuristics trade completeness for tractability unless carefully bounded."
+        ],
+        [
+          "Why an ill-defined problem feels stuck",
+          "Representational change",
+          "List alternate object functions and problem framings; the obstacle may be the representation."
+        ],
+        [
+          "Why a familiar strategy keeps failing",
+          "Mental set",
+          "Deliberate meta-cognitive break helps only if you try a genuinely different representation."
+        ],
+        [
+          "Whether a known analog can transfer",
+          "Explicit analogical mapping",
+          "Spontaneous transfer is weak; map relations, not surface features."
+        ],
+        [
+          "Whether a creative leap is likely",
+          "Incubation after preparation",
+          "Stepping away works after serious preparation, not instead of it."
+        ],
+        [
+          "How expertise develops",
+          "Deliberate practice at the edge of ability",
+          "Time-on-task without feedback mostly automates current habits."
+        ]
+      ]
+    }
+  ]
+}

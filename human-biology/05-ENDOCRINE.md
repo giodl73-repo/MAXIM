@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:human-biology:endocrine
+kind: guide
+module: human-biology
+section: human-biology
+title: Endocrine System
+status: source-custody
+source_custody: partial
+current_path: human-biology/05-ENDOCRINE.md
+canonical_path: human-biology/05-ENDOCRINE.md
+backsource_ids: [proof-backfill:human-biology:05-endocrine, git-history:human-biology:05-endocrine]
+concepts: [endocrine]
+root_concepts: [endocrine]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Endocrine System
 
 ## The Big Picture

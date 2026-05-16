@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:human-biology:digestive
+kind: guide
+module: human-biology
+section: human-biology
+title: Digestive System
+status: source-custody
+source_custody: partial
+current_path: human-biology/07-DIGESTIVE.md
+canonical_path: human-biology/07-DIGESTIVE.md
+backsource_ids: [proof-backfill:human-biology:07-digestive, git-history:human-biology:07-digestive]
+concepts: [digestive]
+root_concepts: [digestive]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digestive System
 
 ## The Big Picture

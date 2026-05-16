@@ -1,29 +1,41 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:human-biology:overview
+kind: guide
+module: human-biology
+section: human-biology
+title: Human Biology - Overview
+status: source-custody
+source_custody: partial
+current_path: human-biology/00-OVERVIEW.md
+canonical_path: human-biology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:human-biology:00-overview, git-history:human-biology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Human Biology — Overview
 
 ## The Big Picture: Levels of Organization
 
 ```
-+-----------------------------------------------------------------------+
-|  ORGANISM                                                             |
-|  ~37 trillion cells, ~206 bones, ~600 muscles                        |
-|  +-------------------------------------------------------------------+|
-|  |  ORGAN SYSTEMS (11)                                               ||
-|  |  cardiovascular · respiratory · nervous · endocrine · immune     ||
-|  |  digestive · renal · reproductive · musculoskeletal              ||
-|  |  integumentary · lymphatic                                       ||
-|  |  +---------------------------------------------------------------+||
-|  |  |  ORGANS                                                      ||||
-|  |  |  heart, lungs, liver, kidneys, brain, skin...                ||||
-|  |  |  +-------------------------------------------------------------+||
-|  |  |  |  TISSUES (4 primary types)                               |||||
-|  |  |  |  epithelial · connective · muscle · nervous              |||||
-|  |  |  |  +-----------------------------------------------------------+|
-|  |  |  |  |  CELLS (~200 types)                                  ||||||
-|  |  |  |  |  cardiomyocytes, neurons, hepatocytes, chondrocytes  ||||||
-|  |  |  |  |  +-------------------------------------------------------+|
-|  |  |  |  |  |  MOLECULES                                       |||||||
-|  |  |  |  |  |  proteins, lipids, nucleic acids, carbohydrates  |||||||
-+--+--+--+--+--+--------------------------------------------------+----++
+ORGANISM
+  ~37 trillion cells, ~206 bones, ~600 muscles
+  -> ORGAN SYSTEMS (11)
+     cardiovascular, respiratory, nervous, endocrine, immune
+     digestive, renal, reproductive, musculoskeletal
+     integumentary, lymphatic
+     -> ORGANS
+        heart, lungs, liver, kidneys, brain, skin...
+        -> TISSUES (4 primary types)
+           epithelial, connective, muscle, nervous
+           -> CELLS (~200 types)
+              cardiomyocytes, neurons, hepatocytes, chondrocytes
+              -> MOLECULES
+                 proteins, lipids, nucleic acids, carbohydrates
 ```
 
 ---
@@ -70,19 +82,15 @@
 Every body system implements **negative feedback control**. The engineering analogy is exact.
 
 ```
-     SET POINT
-    (reference)
-         |
-         v
-   +----------+        +-----------+
-   |  ERROR   |------->|  EFFECTOR |  (actuator — muscle, gland, organ)
-   | DETECTOR |        +-----------+
-   +----------+               |
-         ^                    v
-   +----------+        +--------------+
-   |  SENSOR  |<-------|  CONTROLLED  |
-   | (afferent)|        |  VARIABLE    |
-   +----------+        +--------------+
+SET POINT (reference)
+  -> ERROR DETECTOR
+     compares sensed value with set point
+  -> EFFECTOR
+     actuator: muscle, gland, or organ
+  -> CONTROLLED VARIABLE
+     body state being regulated
+  -> SENSOR (afferent)
+     reports current value back to the detector
 ```
 
 | Controlled variable | Sensor | Set point | Effectors |
@@ -107,7 +115,7 @@ Every body system implements **negative feedback control**. The engineering anal
 ```
 +-------------------+--------------------------------------------------+
 | EPITHELIAL        | Linings, barriers, secretory surfaces            |
-|                   | Skin surface, GI lining, kidney tubules, alveoli|
+|                   | Skin surface, GI lining, kidney tubules, alveoli |
 |                   | Avascular — no direct blood supply               |
 |                   | Polarity: apical face ≠ basolateral face         |
 |                   | Subtypes: simple/stratified × squamous/cuboidal/ |
@@ -142,21 +150,16 @@ Water is ~60% of body weight (~42 L in a 70 kg reference male):
 
 ```
 TOTAL BODY WATER ~42 L
-┌──────────────────────────────────────────────────┐
-│  INTRACELLULAR FLUID (ICF)  ~28 L  (67%)        │
-│  Dominant ions: K⁺, Mg²⁺, HPO₄²⁻, proteins     │
-│  Low: Na⁺, Cl⁻, Ca²⁺                            │
-├──────────────────────────────────────────────────┤
-│  EXTRACELLULAR FLUID (ECF)  ~14 L  (33%)        │
-│  Dominant ions: Na⁺, Cl⁻, HCO₃⁻                │
-│  Low: K⁺, proteins                               │
-│                                                  │
-│  ┌───────────────────┬──────────────────────┐    │
-│  │  INTERSTITIAL     │  PLASMA              │    │
-│  │  ~11 L  (78%)     │  ~3 L  (22%)        │    │
-│  │  bathes cells     │  + RBCs = ~5 L blood│    │
-│  └───────────────────┴──────────────────────┘    │
-└──────────────────────────────────────────────────┘
+  INTRACELLULAR FLUID (ICF) ~28 L (67%)
+    Dominant ions: K+, Mg2+, HPO4(2-), proteins
+    Low: Na+, Cl-, Ca2+
+
+  EXTRACELLULAR FLUID (ECF) ~14 L (33%)
+    Dominant ions: Na+, Cl-, HCO3-
+    Low: K+, proteins
+
+    Interstitial: ~11 L (78%), bathes cells
+    Plasma:       ~3 L (22%), plus RBCs = ~5 L blood
 ```
 
 The ICF/ECF gradient is maintained by **Na⁺/K⁺-ATPase** in every cell membrane:

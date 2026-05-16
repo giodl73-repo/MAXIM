@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cognitive-science\\02-ATTENTION-MEMORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  ATTENTION AND MEMORY: THE PIPELINE                              |\n+------------------------------------------------------------------+\n|                                                                  |\n|  SENSORY INPUT                                                   |\n|       |                                                          |\n|       v                                                          |\n|  SENSORY REGISTERS (iconic ~250ms / echoic ~2-4s)               |\n|       |                                                          |\n|       | ← ATTENTION SELECTS ←─────────────────────────+        |\n|       v                                               |         |\n|  WORKING MEMORY (active, limited capacity)            |         |\n|       |    ← Long-term knowledge shapes WM ──────────-+         |\n|       v                                                          |\n|  LONG-TERM MEMORY (vast, persistent)                             |\n|       |                                                          |\n|       v                                                          |\n|  BEHAVIOR / RESPONSE                                             |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 62,
+      "heading_context": "## Bottleneck Models of Attention",
+      "confidence": "candidate",
+      "text": "BROADBENT (1958)          TREISMAN (1964)         DEUTSCH-NORMAN (1963)\nEarly Selection           Attenuation             Late Selection\n\nSensory buffer            Sensory buffer          Sensory buffer\n    |                         |                       |\n [FILTER]                 [ATTENUATOR]            Full analysis\n (physical                (reduces signal          of all inputs\n  features:               of unattended             |\n  location,               channel, doesn't      [SELECTION]\n  pitch)                  eliminate it)          at response\n    |                         |                  selection stage\nOnly attended            Attended + weak            |\ninput analyzed           unattended processed    One output\n    |                         |\n    v                         v\nResponse                  Response",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "## Spatial Attention — Posner Cueing",
+      "confidence": "candidate",
+      "text": "  1. Fixation point +\n  2. Cue (arrow left/right, or peripheral flash)\n  3. Target appears at cued or uncued location\n\n  VALID cue (80%): target at cued location → faster RT\n  INVALID cue (20%): target at uncued location → slower RT\n\n  PERIPHERAL cue: capture attention even if not predictive\n  (exogenous / reflexive / bottom-up)\n\n  CENTRAL arrow: only helps if predictive\n  (endogenous / voluntary / top-down)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "## Engineering Bridge: Working Memory as Cache Architecture",
+      "confidence": "candidate",
+      "text": "BADDELEY'S WM COMPONENT            CACHE ARCHITECTURE EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nPhonological loop                   L1 cache (instruction-side)\n  ~2 sec of speech, serial access     Small, fast, serial access\n  Articulatory rehearsal = refresh    Write-back loop to keep lines hot\n  Decay if not refreshed (~2s)        Eviction on timeout / LRU\n\nVisuospatial sketchpad              L1 cache (data-side) / GPU VRAM\n  Separate address space from         Separate memory-mapped region\n  verbal; spatial + visual            Different bus, different format\n  ~4 items                            Limited line count\n\nCentral executive                   Cache controller / scheduler\n  Allocates attention, coordinates    Arbitrates bus access, handles\n  Does NOT store — it schedules       coherence protocol, prioritizes\n  Frontal cortex                      requests between subsystems\n\nEpisodic buffer                     L2 cache / TLB\n  Integrates across subsystems        Unified, slightly slower\n  Binds WM content with LTM           Bridges fast local + slow backing\n  Added in 2000 revision              store\n\nLong-term memory                    Main memory (DRAM) / disk\n  Vast, persistent, slow retrieval    High capacity, high latency\n  Retrieval = cache miss penalty      Access time >> cache hit time",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 197,
+      "heading_context": "## Working Memory — Baddeley & Hitch",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  WORKING MEMORY (Baddeley 1974, revised 2000)                    |\n+------------------------------------------------------------------+\n|                                                                  |\n|              CENTRAL EXECUTIVE                                   |\n|         (attention + control + coordination)                     |\n|         Frontal cortex                                           |\n|              /           \\           \\                           |\n|             /             \\           \\                          |\n|  PHONOLOGICAL LOOP    VISUOSPATIAL    EPISODIC BUFFER            |\n|  (inner speech)        SKETCHPAD      (integrated episodes,      |\n|  ~2 seconds of         (visual+        binds WM with LTM)        |\n|   speech rehearsal)     spatial)       Added in 2000 revision    |\n|  Broca's area           Parietal                                 |\n|  + premotor             cortex                                   |\n+------------------------------------------------------------------+\n          ↕                    ↕                    ↕\n                    LONG-TERM MEMORY",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## Long-Term Memory — Taxonomy",
+      "confidence": "candidate",
+      "text": "LONG-TERM MEMORY\n├── DECLARATIVE (explicit — conscious access)\n│   ├── EPISODIC — personal events, autobiography\n│   │   \"I had lunch at the Pike Place Market in 2019\"\n│   │   Hippocampus-dependent\n│   └── SEMANTIC — general knowledge, facts\n│       \"The capital of France is Paris\"\n│       Neocortex; survives hippocampal damage\n└── NONDECLARATIVE (implicit — no conscious access)\n    ├── PROCEDURAL — skills, habits\n    │   Riding a bike, touch typing\n    │   Basal ganglia + cerebellum\n    ├── PRIMING — facilitated processing from prior exposure\n    │   Implicit word completion, repetition priming\n    │   Neocortex\n    └── CONDITIONING\n        Classical (amygdala) + instrumental (basal ganglia)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "## Encoding — Levels of Processing",
+      "confidence": "candidate",
+      "text": "SHALLOW ──────────────────────────────────────► DEEP\n  Structural      Phonological      Semantic\n  (appearance)    (sound)           (meaning)\n\n  \"Is the word    \"Does it          \"Does it fit:\n  in capital       rhyme with        'The ___\n  letters?\"        'hat'?\"           jumped'\"?\n\n  Worse retention ──────────────────► Better retention",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 290,
+      "heading_context": "## Forgetting — Ebbinghaus and Interference",
+      "confidence": "candidate",
+      "text": "100% |*\n     | \\\n  50% |  \\\n     |   \\*\n  25% |    \\  *\n     |     \\    *  *  *\n   0% +--+--+--+--+------→ time\n      1h 1d 2d 1w  1mo",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

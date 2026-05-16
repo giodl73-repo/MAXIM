@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cognitive-science:perception
+kind: guide
+module: cognitive-science
+section: cognitive-science
+title: Perception - Cognitive Science
+status: source-custody
+source_custody: partial
+current_path: cognitive-science/01-PERCEPTION.md
+canonical_path: cognitive-science/01-PERCEPTION.md
+backsource_ids: [proof-backfill:cognitive-science:01-perception, git-history:cognitive-science:01-perception]
+concepts: [perception]
+root_concepts: [perception]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Perception — Cognitive Science
 
 ## The Big Picture
@@ -134,11 +153,11 @@ MONOCULAR CUES (one eye sufficient):
 |  Perspective (parallel lines     |
 |   converge to vanishing point)   |
 |  Occlusion (A blocks B → A near) |
-|  Relative size (farther = smaller|
+|  Relative size (farther=smaller) |
 |  Texture gradient                |
 |  Motion parallax (nearer things  |
 |   move faster in visual field)   |
-|  Shading (light-from-above prior)|
+|  Shading (light-from-above)      |
 |  Aerial perspective (blue haze)  |
 +----------------------------------+
 

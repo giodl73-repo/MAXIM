@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:human-biology:musculoskeletal
+kind: guide
+module: human-biology
+section: human-biology
+title: Musculoskeletal System
+status: source-custody
+source_custody: partial
+current_path: human-biology/01-MUSCULOSKELETAL.md
+canonical_path: human-biology/01-MUSCULOSKELETAL.md
+backsource_ids: [proof-backfill:human-biology:01-musculoskeletal, git-history:human-biology:01-musculoskeletal]
+concepts: [musculoskeletal]
+root_concepts: [musculoskeletal]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Musculoskeletal System
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:human-biology:respiratory
+kind: guide
+module: human-biology
+section: human-biology
+title: Respiratory System
+status: source-custody
+source_custody: partial
+current_path: human-biology/03-RESPIRATORY.md
+canonical_path: human-biology/03-RESPIRATORY.md
+backsource_ids: [proof-backfill:human-biology:03-respiratory, git-history:human-biology:03-respiratory]
+concepts: [respiratory]
+root_concepts: [respiratory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Respiratory System
 
 ## The Big Picture
@@ -34,17 +53,12 @@ RESPIRATORY ZONE (gas exchange, ~2.5 L)
 ```
 ALVEOLUS CROSS-SECTION:
 
-  Capillary
-  ┌──────────────────────────────────┐
-  │  RBC ──────────────────────────  │
-  └──┬───────────────────────────┬──┘
-     │ Endothelium (0.1–0.2 μm)  │
-     │ Fused basement membranes   │
-     │ Type I pneumocyte (0.1 μm) │
-  ┌──┴───────────────────────────┴──┐
-  │     ALVEOLAR AIR SPACE          │
-  │  Surfactant layer (DPPC)        │
-  └─────────────────────────────────┘
+  Capillary: RBCs pass along the alveolar wall
+     Endothelium (0.1-0.2 um)
+     Fused basement membranes
+     Type I pneumocyte (0.1 um)
+  Alveolar air space
+     Surfactant layer (DPPC)
 
 Type I pneumocyte: flat, covers 95% alveolar surface — gas exchange
 Type II pneumocyte: cuboidal, 5% surface area — secretes surfactant, stem cell for repair

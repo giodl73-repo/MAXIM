@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cognitive-science\\06-DEVELOPMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  DEVELOPMENTAL FRAMEWORKS                                        |\n+------------------------------------------------------------------+\n|                                                                  |\n|  PIAGET              VYGOTSKY            NATIVIST               |\n|  (endogenous)        (sociocultural)     (Chomsky, Spelke)       |\n|                                                                  |\n|  Child is a          Development is      Core knowledge is      |\n|  \"little scientist\"  fundamentally        innate (language,      |\n|  Constructs           social              physics, number,       |\n|  knowledge through                       space, social)          |\n|  action               Language drives                            |\n|                        thought (not       Experience tunes       |\n|  Stage theory:         other way)         innate systems         |\n|  universal,                                                      |\n|  sequential           ZPD: learning      Baillargeon:            |\n|                        happens in zone    infants show object     |\n|                        of proximal dev    permanence much         |\n|                                           earlier than Piaget     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "### Four Stages",
+      "confidence": "candidate",
+      "text": "AGE     STAGE              KEY FEATURES + LANDMARK TASKS\n──────────────────────────────────────────────────────────────────\n0-2     SENSORIMOTOR       Object permanence (milestone: ~8 months)\n                           Circular reactions (discover body)\n                           Deferred imitation (by end)\n                           Language emerges at end\n\n2-7     PREOPERATIONAL     Symbolic thought (language, drawing)\n                           Egocentrism (Three Mountains Task)\n                           Centration (focus on one feature)\n                           Failure of conservation tasks\n                           Animism: attribute life to objects\n\n7-11    CONCRETE           Conservation mastered\n        OPERATIONAL        Decentering\n                           Seriation + classification\n                           Concrete logical operations\n                           Reversibility understood\n                           But: only with tangible objects\n\n12+     FORMAL             Hypothetico-deductive reasoning\n        OPERATIONAL        Abstract reasoning (\"If A then B...\")\n                           Systematic experimental thinking\n                           Proportional reasoning\n                           (not all adults reach this fully)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 130,
+      "heading_context": "## Baillargeon — Infant Competence Undermined by Performance",
+      "confidence": "candidate",
+      "text": "VIOLATION-OF-EXPECTATION PARADIGM:\n  Habituate infant to an event.\n  Show two test events: EXPECTED (possible) vs UNEXPECTED (impossible).\n  If infant stares longer at unexpected → they expected the expected event\n  → they have a mental model that was violated.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "## Vygotsky — Sociocultural Development",
+      "confidence": "candidate",
+      "text": "                       CANNOT DO with\n                       any help (too far)\n                           ↑\n  ┌─────────────────────────────────────────────┐\n  │  ZPD: Can do with assistance of more        │\n  │  capable other (parent, teacher, peer)      │\n  │  This is where LEARNING happens             │\n  │  This is where to target instruction        │\n  └─────────────────────────────────────────────┘\n                           ↓\n                    CAN DO independently\n                    (already mastered)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 201,
+      "heading_context": "## Theory of Mind",
+      "confidence": "candidate",
+      "text": "### False Belief Task (Baron-Cohen, Leslie & Frith 1985)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "### False Belief Task (Baron-Cohen, Leslie & Frith 1985)",
+      "confidence": "candidate",
+      "text": "SCENE:\n  Sally puts marble in basket. Sally leaves room.\n  Anne moves marble to box.\n\nQUESTION: \"Where will Sally look for her marble?\"\n\nCorrect answer: BASKET (where Sally believes it to be)\nWrong answer:   BOX (where it actually is)\n\nResults:\n  Neurotypical children under 4: mostly answer BOX (fail)\n  Neurotypical children over 4-5: mostly answer BASKET (pass)\n  Children with autism (verbal IQ matched): ~80% answer BOX (fail)\n  → Linked to impaired theory of mind in autism",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 351,
+      "heading_context": "## Engineering Bridge: Developmental Psychology Meets Machine Learning",
+      "confidence": "candidate",
+      "text": "DEVELOPMENTAL CONCEPT               ML / AI EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nSpelke's core knowledge systems     Inductive biases / architectural priors\n  Object permanence, number,          CNNs have translation invariance built in\n  agency, space — innate modules      GNNs have relational structure built in\n  Present before any learning         These are not learned — they constrain\n                                      what the network CAN learn\n\nNativist position (Chomsky)         Strong architectural priors\n  Universal Grammar is innate         Transformer's attention mechanism is\n  Experience tunes, doesn't create    a structural prior — not learned from\n                                      data but shapes what data can teach\n\nEmpiricist position (Elman)         Minimal priors + lots of data\n  General learning mechanism +        GPT-style: generic architecture + massive\n  structured input is sufficient      data — \"innate\" structure is minimal\n\nVygotsky's ZPD                      Curriculum learning / scaffolding\n  Learn in the zone where you need    Train on easy examples first, increase\n  support, not where you can do       difficulty — Bengio et al. (2009)\n  it alone or can't do it at all      showed this accelerates convergence\n\nScaffolding                         Few-shot prompting / in-context learning\n  More capable other provides         Demonstrations in the prompt scaffold\n  temporary structure, then fades     the model's performance on a task it\n                                      couldn't solve zero-shot\n\nPrivate speech (Vygotsky)           Chain-of-thought prompting\n  Children talk through problems      LLMs produce intermediate reasoning\n  aloud before internalizing          steps — externalized \"thinking\" that\n  → becomes inner speech              improves performance on complex tasks\n                                      Structurally identical to Vygotsky's\n                                      external → internal speech trajectory",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
