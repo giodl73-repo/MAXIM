@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:public-health:infectious-disease-control
+kind: guide
+module: public-health
+section: public-health
+title: Infectious Disease Control
+status: source-custody
+source_custody: partial
+current_path: public-health/03-INFECTIOUS-DISEASE-CONTROL.md
+canonical_path: public-health/03-INFECTIOUS-DISEASE-CONTROL.md
+backsource_ids: [proof-backfill:public-health:03-infectious-disease-control, git-history:public-health:03-infectious-disease-control]
+concepts: [infectious, disease, control]
+root_concepts: [infectious, disease]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Infectious Disease Control
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:radio-television:early-radio
+kind: guide
+module: radio-television
+section: radio-television
+title: Early Radio: Maxwell/Hertz, Marconi Transatlantic 1901, Spark Gaps to Continuous Wave, Audion Tube
+status: source-custody
+source_custody: partial
+current_path: radio-television/02-EARLY-RADIO.md
+canonical_path: radio-television/02-EARLY-RADIO.md
+backsource_ids: [proof-backfill:radio-television:02-early-radio, git-history:radio-television:02-early-radio]
+concepts: [early, radio]
+root_concepts: [early, radio]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Early Radio: Maxwell/Hertz, Marconi Transatlantic 1901, Spark Gaps to Continuous Wave, Audion Tube
 
 ## The Big Picture

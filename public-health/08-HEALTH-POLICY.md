@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:public-health:health-policy
+kind: guide
+module: public-health
+section: public-health
+title: Health Policy
+status: source-custody
+source_custody: partial
+current_path: public-health/08-HEALTH-POLICY.md
+canonical_path: public-health/08-HEALTH-POLICY.md
+backsource_ids: [proof-backfill:public-health:08-health-policy, git-history:public-health:08-health-policy]
+concepts: [health, policy]
+root_concepts: [health, policy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Health Policy
 
 ## The Big Picture

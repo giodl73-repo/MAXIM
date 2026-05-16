@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:radio-television:television-technology
+kind: guide
+module: radio-television
+section: radio-television
+title: Television Technology: Mechanical Scanning, Electronic TV, NTSC/PAL/SECAM, CRT to Flat Panel
+status: source-custody
+source_custody: partial
+current_path: radio-television/05-TELEVISION-TECHNOLOGY.md
+canonical_path: radio-television/05-TELEVISION-TECHNOLOGY.md
+backsource_ids: [proof-backfill:radio-television:05-television-technology, git-history:radio-television:05-television-technology]
+concepts: [television, technology]
+root_concepts: [television, technology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Television Technology: Mechanical Scanning, Electronic TV, NTSC/PAL/SECAM, CRT to Flat Panel
 
 ## The Big Picture

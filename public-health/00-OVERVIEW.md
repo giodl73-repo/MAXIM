@@ -1,30 +1,46 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:public-health:overview
+kind: guide
+module: public-health
+section: public-health
+title: Public Health - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: public-health/00-OVERVIEW.md
+canonical_path: public-health/00-OVERVIEW.md
+backsource_ids: [proof-backfill:public-health:00-overview, git-history:public-health:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Public Health — Landscape Overview
 
 ## The Big Picture: Population vs. Clinical Medicine
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                        HEALTH INTERVENTION SPECTRUM                          │
+│                        HEALTH INTERVENTION SPECTRUM                         │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                               │
-│  CLINICAL MEDICINE          PUBLIC HEALTH           POLICY / SYSTEMS          │
-│  (individual level)         (population level)      (structural level)        │
-│                                                                               │
-│  ┌──────────────┐           ┌──────────────┐        ┌──────────────┐          │
-│  │ Diagnosis    │           │ Surveillance  │        │ Health system│          │
-│  │ Treatment    │           │ Epidemiology  │        │ design       │          │
-│  │ Follow-up    │           │ Vaccination   │        │ Financing    │          │
-│  │ Cure/manage  │           │ Health promo  │        │ Workforce    │          │
-│  └──────────────┘           └──────────────┘        └──────────────┘          │
-│         │                         │                        │                  │
-│    Downstream:              Midstream:               Upstream:                │
-│    Treat disease            Reduce risk at           Change conditions         │
-│    after onset              population level         that create risk          │
-│                                                                               │
-│  NNT ≈ 1 patient            NNT = thousands          NNT = policy lever       │
-│  High visibility            Low individual           Structural/invisible      │
-│                             visibility                                         │
-│                                                                               │
+│                                                                             │
+│  CLINICAL MEDICINE          PUBLIC HEALTH           POLICY / SYSTEMS        │
+│  (individual level)         (population level)      (structural level)      │
+│                                                                             │
+│ Clinical: diagnosis, treatment, follow-up, cure/manage                      │
+│ Public health: surveillance, epidemiology, vaccination, health promotion    │
+│ Policy/systems: health system design, financing, workforce                  │
+│         │                         │                        │                │
+│    Downstream:              Midstream:               Upstream:              │
+│    Treat disease            Reduce risk at           Change conditions      │
+│    after onset              population level         that create risk       │
+│                                                                             │
+│  NNT ≈ 1 patient            NNT = thousands          NNT = policy lever     │
+│  High visibility            Low individual           Structural/invisible   │
+│                             visibility                                      │
+│                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 NNT = number needed to treat (or reach) for one outcome prevented
@@ -35,7 +51,7 @@ NNT = number needed to treat (or reach) for one outcome prevented
 ```
 ┌──────────────────┬──────────────────────────┬──────────────────────────────┐
 │  PRIMARY         │  SECONDARY               │  TERTIARY                    │
-│  (before disease)│  (early detection)       │  (limit disability)          │
+│ (before disease) │  (early detection)       │  (limit disability)          │
 ├──────────────────┼──────────────────────────┼──────────────────────────────┤
 │ Vaccines         │ Cancer screening         │ Cardiac rehab                │
 │ Seat belts       │ BP measurement           │ Diabetes management          │
@@ -57,22 +73,22 @@ Often most powerful. Least visible. Hardest to measure.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                      PUBLIC HEALTH SYSTEM LAYERS                             │
-│                                                                               │
-│  GLOBAL          WHO, PAHO, UNICEF, Global Fund, Gavi, CEPI                  │
-│     │            International Health Regulations (IHR 2005)                 │
-│     ↓            Coordinates across 194 member states                        │
+│                      PUBLIC HEALTH SYSTEM LAYERS                            │
+│                                                                             │
+│  GLOBAL          WHO, PAHO, UNICEF, Global Fund, Gavi, CEPI                 │
+│     │            International Health Regulations (IHR 2005)                │
+│     ↓            Coordinates across 194 member states                       │
 │  NATIONAL        CDC (US), ECDC (EU), UKHSA (UK), PHAC (Canada)             │
-│     │            National surveillance, immunization schedules                │
-│     ↓            Sets standards, allocates federal resources                 │
-│  STATE/REGIONAL  State health departments (50 in US)                         │
-│     │            Regional public health labs, epidemiologists                │
-│     ↓            Primary regulatory authority in US for most PHLaws          │
-│  LOCAL           County/city health departments                               │
-│     │            Front-line inspection, community programs                   │
-│     ↓            Restaurant inspection, STI clinics, WIC                     │
-│  COMMUNITY       FQHCs, CHCs, NGOs, schools, workplaces, pharmacies          │
-│                  Point of contact with individuals                            │
+│     │            National surveillance, immunization schedules              │
+│     ↓            Sets standards, allocates federal resources                │
+│  STATE/REGIONAL  State health departments (50 in US)                        │
+│     │            Regional public health labs, epidemiologists               │
+│     ↓            Primary regulatory authority in US for most PHLaws         │
+│  LOCAL           County/city health departments                             │
+│     │            Front-line inspection, community programs                  │
+│     ↓            Restaurant inspection, STI clinics, WIC                    │
+│  COMMUNITY       FQHCs, CHCs, NGOs, schools, workplaces, pharmacies         │
+│                  Point of contact with individuals                          │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 FQHC = Federally Qualified Health Center (sliding-scale primary care)
@@ -115,27 +131,17 @@ Example objectives (HP2030):
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│           DETERMINANTS OF HEALTH (Dahlgren-Whitehead concentric model)       │
-│                                                                               │
-│  ┌─────────────────────────────────────────────────────────────────────┐     │
-│  │  MACRO: Socioeconomic, cultural, environmental conditions           │     │
-│  │  ┌───────────────────────────────────────────────────────────────┐ │     │
-│  │  │  COMMUNITY: Social networks, social capital, norms            │ │     │
-│  │  │  ┌─────────────────────────────────────────────────────────┐ │ │     │
-│  │  │  │  LIVING/WORKING: Physical environment, employment        │ │ │     │
-│  │  │  │  ┌───────────────────────────────────────────────────┐  │ │ │     │
-│  │  │  │  │  INDIVIDUAL LIFESTYLE: Diet, smoking, exercise     │  │ │ │     │
-│  │  │  │  │  ┌─────────────────────────────────────────────┐  │  │ │ │     │
-│  │  │  │  │  │  CORE: Age, sex, constitutional genetics    │  │  │ │ │     │
-│  │  │  │  │  └─────────────────────────────────────────────┘  │  │ │ │     │
-│  │  │  │  └───────────────────────────────────────────────────┘  │ │ │     │
-│  │  │  └─────────────────────────────────────────────────────────┘ │ │     │
-│  │  └───────────────────────────────────────────────────────────────┘ │     │
-│  └─────────────────────────────────────────────────────────────────────┘     │
-│                                                                               │
-│  Most interventions target individual level.                                  │
-│  Most health INEQUALITY is generated at community and macro levels.           │
-│  Most public health SPENDING is consumed at clinical/individual level.        │
+│           DETERMINANTS OF HEALTH (Dahlgren-Whitehead concentric model)      │
+│                                                                             │
+│ MACRO: Socioeconomic, cultural, environmental conditions                    │
+│   COMMUNITY: Social networks, social capital, norms                         │
+│     LIVING/WORKING: Physical environment, employment                        │
+│       INDIVIDUAL LIFESTYLE: Diet, smoking, exercise                         │
+│         CORE: Age, sex, constitutional genetics                             │
+│                                                                             │
+│  Most interventions target individual level.                                │
+│  Most health INEQUALITY is generated at community and macro levels.         │
+│  Most public health SPENDING is consumed at clinical/individual level.      │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

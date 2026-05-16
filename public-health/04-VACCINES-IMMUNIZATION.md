@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:public-health:vaccines-immunization
+kind: guide
+module: public-health
+section: public-health
+title: Vaccines and Immunization
+status: source-custody
+source_custody: partial
+current_path: public-health/04-VACCINES-IMMUNIZATION.md
+canonical_path: public-health/04-VACCINES-IMMUNIZATION.md
+backsource_ids: [proof-backfill:public-health:04-vaccines-immunization, git-history:public-health:04-vaccines-immunization]
+concepts: [vaccines, immunization]
+root_concepts: [vaccines, immunization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Vaccines and Immunization
 
 ## Vaccine Landscape
@@ -6,7 +25,7 @@
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                        VACCINE TECHNOLOGY SPECTRUM                          │
 │                                                                             │
-│  PLATFORM          MECHANISM              EXAMPLES         THERMAL STABILITY │
+│  PLATFORM          MECHANISM              EXAMPLES        THERMAL STABILITY │
 │  ────────────────────────────────────────────────────────────────────────── │
 │  Live attenuated   Weakened pathogen,     MMR, varicella,  +2–8°C (fragile) │
 │                    replicates in host,    OPV, yellow     Freeze-sensitive  │
@@ -17,12 +36,12 @@
 │                                          rabies, typhoid                    │
 │                                                                             │
 │  Subunit/protein   Purified antigen       Hep B, Tdap,    +2–8°C            │
-│                    component only         HPV, pertussis,  Adjuvant required │
+│                    component only         HPV, pertussis, Adjuvant required │
 │                                          meningococcal                      │
 │                                                                             │
 │  Viral vector      Adenovirus carries     AstraZeneca      +2–8°C           │
 │                    antigen gene           (COVID), Ebola   (some ≤ −20°C)   │
-│                                          (rVSV), Johnson  Moderate stability │
+│                                          (rVSV), Johnson Moderate stability │
 │                                                                             │
 │  mRNA              Lipid nanoparticle     Pfizer-BioNTech  Pfizer: ≤−60°C   │
 │                    delivers mRNA →        (COVID),         Moderna: ≤−20°C  │

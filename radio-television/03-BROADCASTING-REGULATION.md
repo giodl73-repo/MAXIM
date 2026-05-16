@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:radio-television:broadcasting-regulation
+kind: guide
+module: radio-television
+section: radio-television
+title: Broadcasting Regulation: Radio Acts 1912/1927, FCC 1934, Public Interest Standard, ITU, Fairness Doctrine
+status: source-custody
+source_custody: partial
+current_path: radio-television/03-BROADCASTING-REGULATION.md
+canonical_path: radio-television/03-BROADCASTING-REGULATION.md
+backsource_ids: [proof-backfill:radio-television:03-broadcasting-regulation, git-history:radio-television:03-broadcasting-regulation]
+concepts: [broadcasting, regulation]
+root_concepts: [broadcasting, regulation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Broadcasting Regulation: Radio Acts 1912/1927, FCC 1934, Public Interest Standard, ITU, Fairness Doctrine
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:public-health:disease-surveillance
+kind: guide
+module: public-health
+section: public-health
+title: Disease Surveillance
+status: source-custody
+source_custody: partial
+current_path: public-health/02-DISEASE-SURVEILLANCE.md
+canonical_path: public-health/02-DISEASE-SURVEILLANCE.md
+backsource_ids: [proof-backfill:public-health:02-disease-surveillance, git-history:public-health:02-disease-surveillance]
+concepts: [disease, surveillance]
+root_concepts: [disease, surveillance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Disease Surveillance
 
 ## The Big Picture

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "radio-television\\02-EARLY-RADIO.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## Maxwell's Equations and the Prediction of Radio",
+      "confidence": "candidate",
+      "text": "MAXWELL'S EQUATIONS (1864)\n\nJames Clerk Maxwell: unified electricity, magnetism, and optics\n\nFour equations (modern vector form):\n  ∇·E = ρ/ε₀             (Gauss's law: charges create E fields)\n  ∇·B = 0                (No magnetic monopoles)\n  ∇×E = -∂B/∂t           (Faraday's law: changing B creates E)\n  ∇×B = μ₀(J + ε₀∂E/∂t)  (Ampere-Maxwell: currents + changing E create B)\n\nCRITICAL ADDITION: displacement current (ε₀∂E/∂t)\n  Maxwell added this term to make equations self-consistent\n  Without it: equations are inconsistent (∇·(∇×B) ≠ 0 in vacuum)\n  With it: equations predict electromagnetic waves\n\nWAVE EQUATION DERIVATION:\n  Combine Faraday + Ampere-Maxwell -> wave equation:\n  ∇²E = μ₀ε₀ × ∂²E/∂t²\n  Wave speed: v = 1/√(μ₀ε₀) = 3×10^8 m/s (speed of light!)\n  Maxwell: \"We can scarcely avoid the inference that light itself...\n            is an electromagnetic disturbance propagated through\n            the electromagnetic field according to electromagnetic laws.\"\n  1864: electromagnetic theory of light; predicted radio waves\n  No one had observed them yet; theory preceded experiment by 23 years\n\nSIGNIFICANCE:\n  Maxwell never built a transmitter or receiver\n  He published equations; others built on them\n  The theory was so complete that Hertz's experiment was \"merely\"\n  confirming what was mathematically inevitable\n  Analogous: Shannon's information theory (1948) predicted\n  everything about modern communications before most of it was built",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 149,
+      "heading_context": "## Guglielmo Marconi and Wireless Telegraphy",
+      "confidence": "candidate",
+      "text": "MARCONI: SYSTEMS INTEGRATION AND COMMERCIALIZATION\n\nBACKGROUND:\n  Guglielmo Marconi (Italy/Ireland, 1874-1937)\n  Not primarily a theorist: an engineer and entrepreneur\n  Read Hertz's obituary (1894): learned of EM wave demonstrations\n  Immediately: decided to use EM waves for communication\n  Family estate (Bologna): conducted experiments 1894-1895\n\nEARLY EXPERIMENTS (1895):\n  Improved Hertz's detector: coherer (Branly/Lodge)\n  Coherer: glass tube filled with metal filings\n    At rest: high resistance (filings not aligned)\n    When EM wave arrives: filings cohere (align) -> low resistance\n    Current flows: rings bell or marks tape\n    Must tap to de-cohere (reset)\n  Extended range: added vertical wire antennas, improved spark gap\n  1895: sent signal 1.5 km (much further than Hertz had achieved)\n\nUK PATENT AND COMMERCIALIZATION (1896):\n  Italian government uninterested\n  Marconi: went to UK (mother Irish, British connections)\n  British Patent #12039 (1896): first patent for wireless telegraphy\n  British General Post Office: demonstrated 14 km range (1897)\n  Marconi's Wireless Telegraph Company: founded 1897\n\nCROSS-CHANNEL (1899):\n  Transmitted across English Channel (45 km, England to France)\n  First wireless international communication\n\nTRANSATLANTIC (December 12, 1901):\n  Setup:\n    Transmitter: Poldhu, Cornwall (southwest England)\n    Power: 20 kW (later 50 kW), 4 antenna towers (collapsed in wind)\n    Antenna: fan-shaped array of wires (500m high ultimately)\n    Receiver: Signal Hill, St. John's Newfoundland\n    Receiver antenna: kite-lofted wire, 150m high\n    Signal: Morse \"S\" (three dots): · · ·\n\n  Distance: ~3,500 km\n  Problem: Earth's curvature meant horizon was ~100 km\n           How could signal travel 3,500 km line-of-sight?\n\n  MARCONI'S EXPLANATION: Wrong at the time\n    He believed the signal traveled along the ground\n    (Ground wave theory, sort of)\n\n  ACTUAL MECHANISM (not known until 1902-1905):\n    Kennelly and Heaviside independently proposed: ionosphere\n    Upper atmosphere: ionized by solar radiation\n    Signal: bounces off ionosphere (sky wave propagation)\n    This is why it worked and why Marconi couldn't predict range exactly\n\nIMPACT:\n  1903-1904: Royal Navy signs major wireless contract\n  Ship-to-shore: maritime safety transformed\n  Titanic (1912): Marconi operators sent distress signals\n                  Saved 710 lives; without radio: all 1,517 might die\n  Nobel Prize: 1909 (with Karl Ferdinand Braun)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "## Spark Gap Transmission and Its Limits",
+      "confidence": "candidate",
+      "text": "SPARK GAP TECHNOLOGY\n\nHOW SPARK GAP WORKS:\n  High voltage applied across small gap between conductors\n  When voltage exceeds breakdown voltage: spark jumps\n  Spark: ionizes air briefly; current oscillates across gap\n  LC circuit: inductive coil + capacitive gap = oscillation\n  Frequency: f = 1/(2π√LC)\n  Antenna coupled: oscillation radiates as EM wave\n\nSPARK GAP WAVEFORM:\n  Spark: produces DAMPED oscillation\n  Each spark: brief burst, then decays rapidly\n  Multiple sparks: series of damped bursts\n\n  |  Amplitude\n  |  *\n  |  ***      *\n  |  *****    ***    *\n  |  ******* *****   ***  *\n  +--------------------------------------------> Time\n  Damped oscillations; sparse between sparks\n\nBANDWIDTH PROBLEM:\n  Damped oscillation contains many frequency components\n  Not a single clean sine wave\n  Occupied bandwidth: VERY WIDE (many times the \"carrier\" frequency)\n  Two stations: interference across wide band\n  Morse code only: CW keying (on/off) sends dots/dashes\n  Voice: impossible - AM needs clean single-frequency carrier to modulate\n\n  Analogy: Spark gap = noisy interrupt-driven polling\n           Continuous wave = clean async event stream\n           One is a hack; the other is engineered\n\nSPARK GAP REGULATIONS:\n  Multiple stations on same frequency = interference\n  1906 Berlin Conference: first international wireless treaty\n  Ships: required to monitor specific distress frequencies\n  But: spark's wide bandwidth made clean frequency separation hard\n\nSPARK GAP PERFORMANCE:\n  Reginald Fessenden record: ~80 words per minute Morse\n  Faster: spark gap overheats, degrades\n  Long-distance: needs high power (10-50 kW or more)\n  Efficiency: terrible (most power as heat and broadband noise)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 311,
+      "heading_context": "## The Audion Tube — Amplification Changes Everything",
+      "confidence": "candidate",
+      "text": "LEE DE FOREST AND THE AUDION (1907)\n\nCONTEXT:\n  Fleming valve (1904): vacuum tube diode\n    Thermionic emission: heated filament emits electrons\n    Plate: collects electrons when positive; repels when negative\n    Result: rectifier (converts AC to pulsating DC)\n    Better detector than coherer\n    But: no amplification; just detection\n\n  De Forest's insight: add a third electrode\n\nDE FOREST AUDION (TRIODE):\n  Three elements:\n    1. CATHODE (filament): heated, emits electrons\n    2. GRID: wire mesh between cathode and plate\n    3. PLATE (anode): collects electrons\n\n  Operation:\n    Positive plate: electrons accelerate from cathode to plate\n    Grid voltage: controls electron flow\n    Small signal on grid -> large change in plate current\n    = AMPLIFICATION\n\n  SIGNAL FLOW:\n    Input signal -> grid -> modulates electron stream\n    Plate current: large, modulated by input signal\n    Output signal (from plate circuit): amplified version of input\n\nVACUUM TUBE CIRCUIT DIAGRAM (simplified):\n  +V (plate supply)\n   |\n  [R_load]  <- output signal across this\n   |\n  [PLATE]\n  ( GRID  ) <- small input signal here\n  [CATHODE]\n   |\n  [FILAMENT SUPPLY]\n\n  Amplification: plate current variations >> grid signal variations\n  Voltage gain: 10-100x in early tubes; more in cascaded stages\n\nIMPACT ON RADIO:\n  Before triode: detectors only; no amplification\n  Signals: had to be strong enough to drive detector directly\n  Range: limited by transmitter power and antenna size\n\n  After triode:\n  Receivers: amplify weak signals to audible level\n  Long-distance: same transmitter power, much greater range\n  Multiple stages: amplify first stage, amplify again...\n  Cascade: 3-4 tube stages = 1000x amplification possible\n\nIMPACT ON BROADCASTING:\n  Triode as oscillator: generates clean continuous wave\n    (Feedback: feed output back to input -> sustains oscillation)\n    Replaced: mechanical alternators and arc transmitters\n    Compact, adjustable frequency, controllable power\n  Triode as modulator: amplitude-modulate carrier with audio\n  Triode as amplifier: amplify audio before and after modulation\n  Result: complete radio system possible with vacuum tubes only\n  1920: KDKA Pittsburgh = first regular commercial broadcast using tubes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 381,
+      "heading_context": "## From Wireless Telegraphy to Broadcasting",
+      "confidence": "candidate",
+      "text": "TRANSITION: POINT-TO-POINT -> BROADCASTING\n\nWIRELESS TELEGRAPHY MODEL (1901-1920):\n  Purpose: replace telegraph wire with radio\n  Design: point-to-point (ship to shore, station to station)\n  Technology: Morse code, skilled operators at both ends\n  Business model: message service (per-word charges)\n  Regulation: treat like telegraph (common carrier)\n  User: institution (shipping companies, military, newspapers)\n\nBROADCASTING MODEL (1920+):\n  Purpose: deliver content to many simultaneous listeners\n  Design: one transmitter -> unlimited receivers\n  Technology: voice and music (AM on continuous wave)\n  Business model: ??? (not obvious at first)\n  Problems:\n    Who pays? Listeners receive for free (cannot exclude)\n    How does broadcaster recover cost?\n  Solutions tried:\n    1. Radio set sales: RCA / Westinghouse made receivers; broadcasting\n       drove receiver sales (Sarnoff's \"music box memo\", 1915)\n    2. Sponsorship: AT&T (1922): sold \"toll broadcasting\" — paid announcements\n    3. Advertising: same as newspapers; advertisers pay for listener access\n\n  ADVERTISING MODEL WIN (by ~1928):\n  NBC (1926): national advertising supported network\n  CBS (1928): national advertising supported network\n  Model: free to listeners, paid by advertisers\n  Same model: newspapers (1830s penny press) -> radio (1920s) ->\n              TV (1950s) -> internet (Facebook/Google 1990s-2000s)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

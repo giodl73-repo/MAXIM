@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:radio-television:radio-golden-age
+kind: guide
+module: radio-television
+section: radio-television
+title: Radio's Golden Age: Network Radio 1920s-1950s, NBC/CBS/ABC, Soap Operas, War of the Worlds 1938
+status: source-custody
+source_custody: partial
+current_path: radio-television/04-RADIO-GOLDEN-AGE.md
+canonical_path: radio-television/04-RADIO-GOLDEN-AGE.md
+backsource_ids: [proof-backfill:radio-television:04-radio-golden-age, git-history:radio-television:04-radio-golden-age]
+concepts: [radio, golden, age]
+root_concepts: [radio, golden]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Radio's Golden Age: Network Radio 1920s-1950s, NBC/CBS/ABC, Soap Operas, War of the Worlds 1938
 
 ## The Big Picture

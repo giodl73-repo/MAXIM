@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:public-health:environmental-health
+kind: guide
+module: public-health
+section: public-health
+title: Environmental Health
+status: source-custody
+source_custody: partial
+current_path: public-health/06-ENVIRONMENTAL-HEALTH.md
+canonical_path: public-health/06-ENVIRONMENTAL-HEALTH.md
+backsource_ids: [proof-backfill:public-health:06-environmental-health, git-history:public-health:06-environmental-health]
+concepts: [environmental, health]
+root_concepts: [environmental, health]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Environmental Health
 
 ## The Big Picture
