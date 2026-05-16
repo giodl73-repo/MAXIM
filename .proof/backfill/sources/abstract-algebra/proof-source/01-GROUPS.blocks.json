@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "abstract-algebra\\01-GROUPS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|                GROUP THEORY LANDSCAPE                              |\n+====================================================================+\n|                                                                      |\n|  FINITE GROUPS                      INFINITE GROUPS                  |\n|  ─────────────                      ───────────────                  |\n|  Sylow theorems → structure         Lie groups (SO(n), SU(n), GL(n)) |\n|  CFSG → complete classification     Finitely generated (free, surface)|\n|  Solvable → radical extensions      Arithmetic (SL(2,Z), etc.)       |\n|  Simple → atoms (A_n, Lie, sporadic)                                |\n|                                                                      |\n|  ABELIAN                            NON-ABELIAN                      |\n|  ───────                            ──────────                       |\n|  Structure theorem over Z           Sylow analysis                   |\n|  (invariant factors / primary)      Semidirect products              |\n|  Finitely generated: Z^r ⊕ torsion  Presentation (generators+rels)  |\n|                                                                      |\n|  COMPUTATIONAL                      APPLICATIONS                     |\n|  ─────────────                      ────────────                     |\n|  Schreier-Sims (perm groups)        Cryptography (cyclic, elliptic)  |\n|  Graph isomorphism (Babai)          Physics (Noether, representations)|\n|  Word problem (undecidable general) ML (equivariant networks)        |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 50,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|                    THE GROUP AXIOMS                                |\n+====================================================================+\n|                                                                    |\n|  A GROUP (G, ·) satisfies:                                        |\n|  1. CLOSURE:       a · b ∈ G for all a, b ∈ G                    |\n|  2. ASSOCIATIVITY: (a · b) · c = a · (b · c)                     |\n|  3. IDENTITY:      ∃e ∈ G: e · a = a · e = a  for all a          |\n|  4. INVERSES:      ∀a ∈ G ∃a⁻¹: a · a⁻¹ = a⁻¹ · a = e          |\n|                                                                    |\n|  ABELIAN: additionally a · b = b · a for all a, b.               |\n|                                                                    |\n|  The identity and inverses are UNIQUE (provable from the axioms). |\n+====================================================================+\n\n                          EXAMPLES OF GROUPS\n+---------------+----------+---------------------+-------------------+\n| Group         | Operation| Order               | Abelian?          |\n+---------------+----------+---------------------+-------------------+\n| Z             | +        | infinite            | Yes               |\n| Z/nZ          | + mod n  | n                   | Yes               |\n| (Z/nZ)*       | x mod n  | phi(n)              | Yes               |\n| Q*, R*, C*    | x        | infinite            | Yes               |\n| S_n           | compose  | n!                  | n<=2 only         |\n| A_n           | compose  | n!/2                | n<=3 only         |\n| D_n           | compose  | 2n                  | n<=2 only         |\n| GL(n,F)       | x        | finite/infinite     | No (n>=2)         |\n| SL(n,F)       | x        | finite/infinite     | No (n>=2)         |\n| SO(n)         | x        | infinite Lie group  | n<=2 only         |\n| SU(2)         | x        | infinite Lie group  | No                |\n| (Z/pZ)*       | x        | p-1                 | Yes (cyclic)      |\n+---------------+----------+---------------------+-------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "### Symmetric Group S_n",
+      "confidence": "candidate",
+      "text": "S_n = all bijections {1,...,n} → {1,...,n}, under composition.\n|S_n| = n!.  Non-abelian for n ≥ 3.\n\nTwo-line notation for σ ∈ S_4:\n  σ = (1 2 3 4)  means 1→2, 2→3, 3→4, 4→1.\n      (2 3 4 1)\n  In cycle notation: σ = (1 2 3 4), a single 4-cycle.\n\nComposition: σ∘τ means \"apply τ first, then σ.\"\n  (1 2)(1 3) = ?  Apply (1 3) first: 1→3, 3→1; then (1 2): 3→3, 1→2.\n  Net: 1→3, 3→2, 2→2 ... computing:\n  1 →^{(13)} 3 →^{(12)} 3: so 1→3.\n  2 →^{(13)} 2 →^{(12)} 1: so 2→1.\n  3 →^{(13)} 1 →^{(12)} 2: so 3→2.\n  Result: (1 3 2) = (1 2)(1 3).  [Note: S_3 is non-abelian.]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 150,
+      "heading_context": "### Dihedral Group D_n",
+      "confidence": "candidate",
+      "text": "### Quaternion Group Q_8",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 296,
+      "heading_context": "## Engineering Bridge: Group Actions in Machine Learning",
+      "confidence": "candidate",
+      "text": "GROUP ACTION CONCEPT               ML / PHYSICS APPLICATION\n──────────────────────────────────────────────────────────────────────────────\nG acts on X by symmetry             Equivariant neural networks\n  φ: G → Aut(X)                     Network f satisfies f(g·x) = g·f(x)\n  Invariant: f(g·x) = f(x)         Invariant networks: f(g·x) = f(x)\n\nTranslation group (Z², R²)          CNNs: convolution = translation equivariance\n  Images are translation-equivalent   Weight sharing across spatial positions\n  → same features everywhere          IS equivariance under translations\n\nRotation group SO(2), SO(3)         E(n)-equivariant GNNs (EGNN, PaiNN)\n  Molecular conformations rotated     Network outputs rotate WITH the molecule\n  → same physics regardless of        Used in: protein structure, drug design,\n  orientation                          molecular dynamics\n\nSymmetric group Sₙ                  Set functions / DeepSets (Zaheer et al.)\n  Permutation of input elements       f({x₁,...,xₙ}) = f({xσ(1),...,xσ(n)})\n  → output unchanged                  Architecture: Σᵢ φ(xᵢ) enforces this\n\nSE(3) = SO(3) ⋉ R³                 Geometric deep learning (Bronstein et al.)\n  Rigid motions in 3D                  Tensor field networks, spherical harmonics\n  → physical systems                   as basis for equivariant features\n\nNoether's theorem                    Conservation laws from continuous symmetry\n  Continuous symmetry of Lagrangian    Time invariance → energy conservation\n  → conserved quantity                  Space invariance → momentum conservation\n                                       Gauge invariance → charge conservation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:abstract-algebra:applications
+kind: guide
+module: abstract-algebra
+section: abstract-algebra
+title: Applications of Abstract Algebra
+status: source-custody
+source_custody: partial
+current_path: abstract-algebra/10-APPLICATIONS.md
+canonical_path: abstract-algebra/10-APPLICATIONS.md
+backsource_ids: [proof-backfill:abstract-algebra:10-applications, git-history:abstract-algebra:10-applications]
+concepts: [applications]
+root_concepts: [applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Applications of Abstract Algebra
 
 ## The Big Picture

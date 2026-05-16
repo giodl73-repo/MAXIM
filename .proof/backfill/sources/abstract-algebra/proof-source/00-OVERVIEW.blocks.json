@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "abstract-algebra\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|           THE HIERARCHY OF ALGEBRAIC STRUCTURES                    |\n+====================================================================+\n|                                                                    |\n|  MAGMA: (S, ·), closure only                                      |\n|    ↓ + associativity                                               |\n|  SEMIGROUP: (S, ·), associative                                   |\n|    ↓ + identity                                                    |\n|  MONOID: (S, ·), associative, identity e                          |\n|    ↓ + inverses                                                    |\n|  GROUP: (G, ·), associative, identity, inverses ← CORE STRUCTURE  |\n|    ↓ + commutativity                                               |\n|  ABELIAN GROUP: a·b = b·a for all a,b                            |\n|    ↓ + second operation (multiplication distributing over +)       |\n|  RING: (R, +, ·), abelian group under +, monoid under ·, distrib. |\n|    ↓ + commutativity of ·                                          |\n|  COMMUTATIVE RING                                                  |\n|    ↓ + no zero divisors                                            |\n|  INTEGRAL DOMAIN                                                   |\n|    ↓ + unique factorization                                        |\n|  UFD (Unique Factorization Domain)                                 |\n|    ↓ + every ideal is principal                                    |\n|  PID (Principal Ideal Domain)                                      |\n|    ↓ + division algorithm                                          |\n|  EUCLIDEAN DOMAIN: Z, Z[i], F[x]                                  |\n|    ↓ + every nonzero element has a multiplicative inverse          |\n|  FIELD: (F, +, ·), both operations form abelian groups            |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 60,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "        GROUPS ←───── Galois Theory ─────→ FIELDS\n          |                                    |\n   Representation                        Field Extensions\n      Theory                             Splitting Fields\n          |                                    |\n          v                                    v\n  MODULES / VECTOR SPACES             POLYNOMIAL RINGS\n      (R-modules)                       (F[x], ideals)\n          |                                    |\n                   Structure Theorem\n                  (over PIDs: Z, F[x])\n                            |\n  abelian groups <---------- Z-modules\n  Jordan form    <---------- k[x]-modules\n                            |\n                    CATEGORY THEORY\n                  (unifies all via functors,\n                   adjunctions, Yoneda)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 113,
+      "heading_context": "## The Algebraic Structures — Summary",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------+\n| STRUCTURE    | OPERATIONS     | KEY AXIOMS          | EXAMPLES     |\n+--------------------------------------------------------------------+\n| Magma        | ·              | Closure only        | (N, -)       |\n| Semigroup    | ·              | Associativity       | (N, +), (N,·)|\n| Monoid       | ·              | Assoc. + identity   | (N,·, 1)     |\n| Group        | ·              | + inverses          | Z, S_n, GL_n |\n| Abelian grp  | +              | + commutativity     | Z, Q, R      |\n| Ring         | +, ·           | Abelian grp + ring  | Z, Z[x]      |\n| Comm. ring   | +, ·           | + comm. mult.       | Z, Z[x], F[x]|\n| Domain       | +, ·           | + no zero divs      | Z, F[x]      |\n| UFD          | +, ·           | + unique factor.    | Z, Z[x]      |\n| PID          | +, ·           | + principal ideals  | Z, Z[i]      |\n| Euclidean    | +, ·           | + div. algorithm    | Z, F[x], Z[i]|\n| Field        | +, ·           | Both groups         | Q, R, C, F_p |\n| Module       | +, R-action    | Generalized VS      | Z-modules     |\n| Algebra      | +, ·, k-action | Ring + vector space | Matrix alg.  |\n+--------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 183,
+      "heading_context": "## Category Theory — The Unifying Language",
+      "confidence": "candidate",
+      "text": "CATEGORY THEORY speaks about algebraic structures without specifying them.\n\nA CATEGORY C consists of:\n  Objects: Ob(C)\n  Morphisms: Hom(A,B) for each pair of objects\n  Composition: f: A→B, g: B→C → g∘f: A→C\n  Identity: id_A for each A.\n\nExamples:\n  Grp: groups + group homomorphisms\n  Ring: rings + ring homomorphisms\n  Vect_k: vector spaces over k + linear maps\n  Top: topological spaces + continuous maps\n  Set: sets + functions\n\nFUNCTOR: A \"morphism of categories\" F: C → D preserving composition.\n  Forgetful functor: Grp → Set (forget group structure, keep underlying set)\n  Free functor: Set → Grp (free group on a set) — left adjoint to forgetful\n\nNATURAL TRANSFORMATION: A morphism of functors.\n  The isomorphism theorems ARE natural transformations.\n\nConnection to programming (Haskell):\n  Functor typeclass = functor C → Hask (category of Haskell types)\n  Monad = a monoid in the category of endofunctors\n  (Reader, State, IO are all monads = endofunctor monoids on Hask)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "## Connections to Computer Science",
+      "confidence": "candidate",
+      "text": "TYPE THEORY:\n  Product types (A, B) = product in category of types\n  Sum types A | B = coproduct (disjoint union)\n  Function types A → B = exponential object B^A\n  Dependent types = indexed families → topos theory\n\n  Curry-Howard isomorphism:\n    Types ↔ Propositions\n    Terms (programs) ↔ Proofs\n    Function types A→B ↔ Logical implication A⟹B\n  This is a category-theoretic statement (Cartesian closed categories ↔ intuitionistic logic).\n\nCOMPILER THEORY:\n  Monoids: string concatenation, used for \"associativity\" of code gen.\n  Free monoids: lists (free monoid on single element set = N).\n  Regular languages: recognized by finite monoids.\n  (Kleene-Myhill: language is regular iff its syntactic monoid is finite)\n\nCOMPUTATIONAL ALGEBRA AND COMPLEXITY:\n  Group isomorphism problem (GI): given two groups by Cayley tables, are they isomorphic?\n    GI ∈ NP ∩ coAM. Not known to be in P. Not known to be NP-complete.\n    Babai (2015): quasipolynomial time (exp(polylog(n))) for graph isomorphism\n    — a landmark connecting group theory and complexity.\n    Permutation group algorithms: Schreier-Sims (polytime membership, order, generators).\n    These underpin GAP, Magma, SageMath computer algebra systems.\n\n  Linear codes = subspaces of F_q^n.\n  Cyclic codes = ideals in F_q[x]/(x^n-1).\n  Reed-Solomon = polynomial evaluation codes over F_q.\n  All require field arithmetic, polynomial rings, ideal theory.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

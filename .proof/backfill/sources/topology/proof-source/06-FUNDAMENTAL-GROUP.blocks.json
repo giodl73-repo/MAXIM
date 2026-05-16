@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "topology\\06-FUNDAMENTAL-GROUP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|         THE FUNDAMENTAL GROUP — π₁(X, x₀)                          |\n+====================================================================+\n|                                                                    |\n|  LOOPS at x₀: continuous γ: [0,1] → X with γ(0) = γ(1) = x₀.   |\n|  HOMOTOPY: a deformation of one loop to another (fixing endpoints). |\n|  π₁(X,x₀) = {homotopy classes of loops based at x₀}.             |\n|                                                                    |\n|  GROUP OPERATION: [γ][δ] = [γ * δ]  (concatenation of loops).    |\n|                                                                    |\n|  EXAMPLES:                                                         |\n|  π₁(Rⁿ) = 0          (contractible — all loops shrink to point)  |\n|  π₁(S¹) = Z          (winding number counts loops around circle)  |\n|  π₁(Sⁿ) = 0 (n≥2)    (spheres are simply connected)              |\n|  π₁(T²) = Z × Z      (two independent generators on torus)        |\n|  π₁(RP²) = Z/2        (double cover = universal cover)            |\n|  π₁(Figure 8) = F₂   (free group on 2 generators)                |\n|                                                                    |\n|  VAN KAMPEN'S THEOREM:                                            |\n|  π₁(A∪B) = π₁(A) *_{π₁(A∩B)} π₁(B)   (pushout of groups)        |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 52,
+      "heading_context": "## Loops and Homotopy",
+      "confidence": "candidate",
+      "text": "LOOP at x₀ ∈ X:\n  γ: [0,1] → X continuous with γ(0) = γ(1) = x₀.\n\nHOMOTOPY (RELATIVE TO ENDPOINTS):\n  Two loops γ, δ at x₀ are homotopic (γ ≃ δ rel x₀) if:\n  ∃H: [0,1]×[0,1] → X continuous with:\n    H(t,0) = γ(t), H(t,1) = δ(t)  (start and end are γ and δ)\n    H(0,s) = H(1,s) = x₀  (basepoint fixed throughout)\n\n  Think: H(t,s) is a continuous family of loops, s ∈ [0,1] is the \"time\" of deformation.\n\nCONCATENATION:\n  (γ * δ)(t) = γ(2t) for t ∈ [0,1/2]\n               δ(2t-1) for t ∈ [1/2,1]\n  First traverse γ at double speed, then δ at double speed.\n  Well-defined up to homotopy.\n\nCONSTANT LOOP: cₓ₀(t) = x₀ for all t. The identity element.\nREVERSE LOOP: γ̄(t) = γ(1-t). The inverse element.\n\nπ₁(X, x₀) = {[γ] : γ loops at x₀} with operation [γ][δ] = [γ * δ].\nThis is a group (associativity up to homotopy, identity = [cₓ₀], inverse = [γ̄]).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "### The Circle π₁(S¹) = Z",
+      "confidence": "candidate",
+      "text": "WINDING NUMBER: The integer measuring how many times a loop goes around the circle.\n\nPROOF: The universal cover of S¹ is R (unwrap the circle to the real line).\n  Covering map: p: R → S¹ by p(t) = e^{2πit}.\n  Any loop γ in S¹ based at 1 lifts uniquely to a path γ̃ in R starting at 0.\n  γ̃(1) ∈ Z (since γ̃(0) = 0 and p(γ̃(1)) = p(0) = 1, so γ̃(1) ∈ p^{-1}(1) = Z).\n  The winding number: [γ] ↦ γ̃(1) ∈ Z.\n\n  This map Z → π₁(S¹) is an isomorphism.\n  Generator: [e^{2πit}] ↦ 1 (one counterclockwise loop).\n\nIMPORTANT IMPLICATION:\n  No retraction D² → S¹.  (Proof: if r: D² → S¹ were a retraction with r|_{S¹} = id,\n  consider r composed with inclusion S¹ → D²: S¹ → D² → S¹.\n  This is id on S¹. But π₁(D²) = 0, π₁(S¹) = Z.\n  A map 0 → Z cannot be surjective → contradiction.)\n\nBROUWER'S FIXED POINT THEOREM (from this):\n  Every continuous f: D² → D² has a fixed point.\n  Proof: If f(x) ≠ x for all x, define r(x) = point on ∂D² by extending x to f(x) to\n  the boundary. Then r: D² → S¹ is a retraction with r|_{S¹} = id. Contradiction. □",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "### Deck Transformations",
+      "confidence": "candidate",
+      "text": "DECK TRANSFORMATION (= covering transformation):\n  Homeomorphism φ: X̃ → X̃ with p ∘ φ = p.\n  (Permutes the sheets over each point of X.)\n\n  Deck(X̃/X) = group of all deck transformations.\n\nGALOIS COVERING (= normal covering):\n  If H = p*(π₁(X̃)) ◁ π₁(X), the covering is called \"regular\" or \"Galois.\"\n  In this case: Deck(X̃/X) ≅ π₁(X)/H.\n\nUNIVERSAL COVER:\n  H = {e} is always normal → universal cover is always Galois.\n  Deck(X̃/X) ≅ π₁(X)/\\{e} = π₁(X).\n  π₁(X) acts freely and properly discontinuously on X̃, and X = X̃/π₁(X).\n\nEXAMPLES:\n  R → S¹: deck transformations = t ↦ t+n for n ∈ Z.  Deck ≅ Z = π₁(S¹). ✓\n  Sⁿ → RPⁿ: deck transformations = {id, antipodal map}. Deck ≅ Z/2 = π₁(RPⁿ). ✓\n\nANALOGY TO GALOIS THEORY:\n  Covering spaces of X ↔ Subgroups of π₁(X)\n  Normal coverings ↔ Normal subgroups\n  Deck transformations ↔ Quotient group\n  Universal cover ↔ \"Splitting field\" (simply connected = fully resolved)\n\n  This is the precise topological analog of Galois correspondence:\n  Extension fields of K ↔ Subgroups of Gal(K/F).\n  The same categorical structure!\n\nCATEGORICAL STATEMENT (for the ∞-categories reader):\n  π₁ is a functor Top* → Grp (pointed spaces to groups).\n  The covering space correspondence is an EQUIVALENCE OF CATEGORIES:\n    Cov(X) ≃ π₁(X)-Set  (covering spaces ↔ π₁(X)-sets).\n  For non-connected spaces, replace π₁(X,x₀) with the FUNDAMENTAL GROUPOID\n    Π₁(X): objects = points of X, morphisms = homotopy classes of paths.\n  The groupoid version: Cov(X) ≃ Funct(Π₁(X), Set).\n  ∞-categorical generalization: the fundamental ∞-groupoid Π_∞(X)\n    classifies fibrations with arbitrary fiber (not just discrete).\n    This is the bridge from covering space theory to higher category theory.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

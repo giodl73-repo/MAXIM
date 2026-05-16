@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "abstract-algebra\\10-APPLICATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|           ABSTRACT ALGEBRA IN THE WORLD                            |\n+====================================================================+\n|                                                                    |\n|  ERROR-CORRECTING CODES                                           |\n|  Linear codes = subspaces of F_q^n                                |\n|  Cyclic codes = ideals in F_q[x]/(x^n-1)                          |\n|  Reed-Solomon = polynomial evaluation codes over F_q              |\n|  Used in: CDs, DVDs, RAID-6, QR codes, deep space comm.           |\n|                                                                    |\n|  CRYSTALLOGRAPHY                                                   |\n|  17 plane groups (wallpaper), 230 space groups                    |\n|  Determine all possible crystal structures in 3D                  |\n|  Used in: X-ray crystallography, drug design, materials science   |\n|                                                                    |\n|  PUBLIC-KEY CRYPTOGRAPHY                                          |\n|  Group theory: DH in (Z/pZ)*, ECDH in E(F_p)                     |\n|  Ring theory: RSA in Z/nZ, NTRU in Z[x]/(x^n-1)                  |\n|  Module theory: LWE over R_q = Z_q[x]/(x^n+1)                    |\n|                                                                    |\n|  PHYSICS                                                          |\n|  Symmetry groups: SO(3) rotations, SU(2) spin, SU(3) quarks      |\n|  Noether's theorem: continuous symmetry → conservation law        |\n|  Classification of particles: irreps of Poincaré group           |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "## Crystallography",
+      "confidence": "candidate",
+      "text": "CRYSTAL SYMMETRY GROUP = set of all rigid motions (rotations, reflections,\n  translations, glide reflections, screw axes) that map a crystal to itself.\n\nCLASSIFICATION:\n  2D: 17 WALLPAPER GROUPS (plane crystallographic groups).\n    Classified in 1891 by Fedorov and Schönflies.\n    Types: 5 Bravais lattices + point symmetries.\n\n  3D: 230 SPACE GROUPS.\n    Classified 1891-1894.\n    32 point groups + 14 Bravais lattices + screw axes + glide reflections.\n\nPOINT GROUP: the rotational/reflection symmetry of a crystal.\n  In 3D: 32 crystallographic point groups.\n  Subgroups of O(3) compatible with periodicity.\n  RESTRICTION: only 1-fold, 2-fold, 3-fold, 4-fold, 6-fold rotations allowed\n    (not 5-fold, 7-fold, etc.) — why? The unit cell must tile space.\n  Proof: rotation by 2π/n. For lattice compatibility: 2 cos(2π/n) must be integer.\n    Only n ∈ {1,2,3,4,6} give integer. ← No 5-fold or 7-fold!\n\nQUASICRYSTALS:\n  5-fold symmetry observed by Shechtman (1984). Nobel Prize 2011.\n  NOT a periodic crystal; uses Penrose tiling (quasiperiodic).\n  Diffraction pattern: icosahedral symmetry (5-fold). Not a space group.\n\nX-RAY CRYSTALLOGRAPHY:\n  Crystal structure determined by Fourier analysis of diffraction pattern.\n  F(h) = Σ_j f_j exp(2πi h·r_j) (structure factor = Fourier transform of atom positions).\n  Space group determines which F(h) must vanish (systematic absences).\n  This allows determination of crystal structure from diffraction data.\n  Application: protein structure determination (key for drug design).\n    COVID spike protein structure: X-ray crystallography guided vaccine design.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "## Algebraic Cryptography",
+      "confidence": "candidate",
+      "text": "DISCRETE LOGARITHM GROUP (Z/pZ)*:\n  Group: cyclic of order p-1.\n  DH key exchange: g^a, g^b → g^{ab} (DLP hardness).\n  ElGamal: g^k, m·(g^a)^k → m·g^{ak} (IND-CPA under DDH).\n  DSA: Sign with modular arithmetic, verify with modular exponentiation.\n\nELLIPTIC CURVE GROUPS E(F_p):\n  Group law: chord-tangent construction.\n  ECDH: scalar multiplication. ECDLP hardness.\n  ECDSA, EdDSA: signature schemes.\n  Faster per bit than (Z/pZ)*: 256-bit ECC ≈ 3072-bit DH.\n\nRING LEARNING WITH ERRORS (Ring-LWE):\n  Ring R = Z_q[x]/(x^n+1) where n = power of 2.\n  LWE sample: (a, a·s + e) where s ∈ R (secret), e ∈ R (small error).\n  Hardness: worst-case ideal lattice SVP.\n  Kyber (ML-KEM): public-key encryption/KEM from Module-LWE.\n    Module: small number of Ring-LWE instances → compact keys.\n\nNTRU:\n  Ring: R = Z_q[x]/(x^n-1) (for cyclic structure) or Z_q[x]/(x^n+1) (NTRU Prime).\n  Key: h = g/f (in R, invertible f and short g).\n  Encryption: c = r·h + m (r random, small).\n  Decryption: f·c = f·r·h + f·m = r·g + f·m → recover m.\n  Hardness: finding short vector in a specific lattice (NTRU lattice).\n\nSUPERSINGULAR ISOGENY-BASED (SIKE):\n  Use isogenies between supersingular elliptic curves over F_{p²}.\n  Broken in 2022 by Castryck-Decru using unexpected algebraic geometry.\n  Teaches: even \"hard-looking\" problems can fall; new math can break crypto.\n\nPAIRING-BASED CRYPTOGRAPHY:\n  Weil and Tate pairings on elliptic curves:\n    e: E[r] × E[r] → μ_r ⊂ F*_{p^k}\n  Bilinear: e(aP, bQ) = e(P,Q)^{ab}. Non-degenerate. Galois-equivariant.\n  Embedding degree k: smallest k with r | p^k - 1 (Galois theory determines this).\n\n  BN curves (Barreto-Naehrig): pairing-friendly curves with k=12.\n    Used in Ethereum 2.0 BLS signatures: aggregate many signatures into one.\n    BLS signature: σ = sH(m) where s is secret key, H maps to curve point.\n    Verification: e(σ, G) = e(H(m), Pub) — one pairing check verifies.\n    Aggregation: σ_agg = Σσᵢ verifies against all signers with one pairing equation.\n\n  Identity-Based Encryption (Boneh-Franklin 2001):\n    Public key = your email address (any string). No certificate infrastructure needed.\n    Construction: e(H₁(ID), s·G) = e(H₁(ID), G)^s — pairing enables.\n\n  zk-SNARKs (Groth16, PLONK):\n    Bilinear pairing groups enable polynomial commitment schemes.\n    Prove knowledge of a satisfying assignment to an R1CS system in O(1) proof size.\n    Verifier: check e(A, B) = e(C, D) — one pairing equation.\n    Used in: Zcash (privacy), Ethereum rollups (scaling), verifiable computation.\n\n  The algebraic core: the pairing maps E[r] × E[r] into the r-th roots of unity\n  in the extension field F_{p^k}. The embedding degree k is the order of p in\n  (Z/rZ)* — this is Galois theory (the Frobenius of Gal(F_{p^k}/F_p) acting on\n  r-torsion) meeting elliptic curve arithmetic.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 329,
+      "heading_context": "## Quantum Groups and Quantum Algebra",
+      "confidence": "candidate",
+      "text": "QUANTUM GROUPS: q-deformations of classical Lie groups/algebras.\n  Replace standard algebraic relations by q-deformed versions.\n  As q → 1: recover classical structure.\n\nQUANTUM ENVELOPING ALGEBRA U_q(sl₂):\n  Standard sl₂: [E,F]=H, [H,E]=2E, [H,F]=-2F.\n  Quantum version: E·F - F·E = (q^H - q^{-H})/(q-q^{-1}).\n  (As q→1: → standard commutator [E,F]=H.)\n\nAPPLICATIONS:\n  Knot theory: quantum groups → polynomial invariants of knots (Jones polynomial).\n  Jones polynomial V_K(t): from representation of braid group using Hecke algebra,\n    which is a q-deformation of the group algebra C[S_n].\n    Distinguishes knots that Alexander polynomial cannot.\n\n  Quantum computing:\n    Topological quantum computation: anyons in quantum Hall effect.\n    Fibonacci anyons: non-Abelian anyons; braiding = quantum gate.\n    Mathematical framework: modular tensor categories (quantum group representations).\n\n  Quantum integrability:\n    Yang-Baxter equation R₁₂ R₁₃ R₂₃ = R₂₃ R₁₃ R₁₂ in V⊗V⊗V.\n    Solutions from quantum groups → exactly solvable models.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 359,
+      "heading_context": "## Summary: Algebra in Modern Computing",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------+\n| COMPUTING USE CASE      | ALGEBRAIC STRUCTURE        | FILE REF.   |\n+--------------------------------------------------------------------+\n| RSA encryption           | Z/nZ, Euler φ(n)           | NT-10       |\n| DH key exchange          | (Z/pZ)*, primitive root    | NT-03       |\n| Elliptic curve crypto    | E(F_p) group law           | NT-10       |\n| Post-quantum (Kyber)     | Z_q[x]/(x^n+1) module-LWE | NT-06,AA-08 |\n| AES byte operations      | GF(2^8) = F_2[x]/(irred.) | AA-05       |\n| CRC checksums            | F_2[x] polynomial division | AA-04       |\n| Reed-Solomon (RAID,QR)   | F_q[x] eval codes          | AA-10       |\n| FFT/NTT                  | Roots of unity in Z/pZ     | NT-03       |\n| Hash-to-curve (ECDSA)    | Quadratic residues mod p   | NT-04       |\n| Molecular vibration modes| Representation theory      | AA-07       |\n| Crystallography          | 230 space groups           | AA-10       |\n| Haskell monads           | Monads in endofunctor cat. | AA-09       |\n| Type theory              | Cartesian closed categories| AA-09       |\n| Persistent homology      | Chain complexes, homology  | Top-07      |\n| Quantum error correction | GF(4) / stabilizer codes   | AA-10       |\n+--------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

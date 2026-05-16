@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "topology\\08-COHOMOLOGY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|        COHOMOLOGY — THE DUAL THEORY WITH RING STRUCTURE            |\n+====================================================================+\n|                                                                    |\n|  HOMOLOGY: chains (add up geometric pieces) → groups Hₙ(X).      |\n|  COHOMOLOGY: cochains (assign numbers to pieces) → groups Hⁿ(X). |\n|                                                                    |\n|  RELATIONSHIP: Hⁿ(X;Z) ≅ Hom(Hₙ(X),Z) ⊕ Ext(Hₙ₋₁(X),Z)        |\n|  (Universal Coefficient Theorem — cohomology ≈ dual of homology)  |\n|                                                                    |\n|  WHY COHOMOLOGY IS RICHER:                                        |\n|  Cohomology groups Hⁿ(X;R) form a graded RING under cup product: |\n|  ⌣: Hᵖ(X) ⊗ Hq(X) → Hᵖ⁺q(X)                                    |\n|  This ring structure distinguishes spaces with the same groups.   |\n|                                                                    |\n|  DE RHAM COHOMOLOGY (for smooth manifolds):                       |\n|  HᵈᴿⁿR(M) = {closed n-forms} / {exact n-forms}                   |\n|  De Rham's theorem: HᵈᴿⁿR(M;R) ≅ Hⁿ(M;R).                       |\n|  Bridges topology, analysis, and differential geometry.           |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "### From Homology to Cohomology",
+      "confidence": "candidate",
+      "text": "COCHAIN GROUP: Cⁿ(X; R) = Hom(Cₙ(X), R)\n  = { functions f: {singular n-simplices} → R }\n\n  For R = Z: integer-valued functions on chains.\n  For R = R: real-valued functions (relevant for de Rham).\n\nCOBOUNDARY OPERATOR δⁿ: Cⁿ → Cⁿ⁺¹:\n  (δf)(σ) = f(∂σ)  for f ∈ Cⁿ, σ a singular (n+1)-simplex.\n  δδ = 0 follows from ∂∂ = 0.\n\nCOCHAIN COMPLEX: 0 → C⁰ --δ⁰--> C¹ --δ¹--> C² --δ²--> ...\n\nCOCYCLES: Zⁿ = ker(δⁿ) = {cochains f with δf = 0}\nCOBOUNDARIES: Bⁿ = im(δⁿ⁻¹) = {cochains of the form f = δg}\n\nCOHOMOLOGY GROUP: Hⁿ(X; R) = Zⁿ/Bⁿ\n\nUNIVERSAL COEFFICIENT THEOREM:\n  0 → Ext¹(Hₙ₋₁(X;Z), Z) → Hⁿ(X;Z) → Hom(Hₙ(X;Z), Z) → 0.\n  This sequence splits (non-naturally).\n\n  Ext¹(Z, Z) = 0, Ext¹(Z/n, Z) = Z/n, Ext¹(free, Z) = 0.\n\n  KEY CONSEQUENCE: If all homology groups are torsion-free (free abelian),\n  then Hⁿ(X;Z) ≅ Hₙ(X;Z). (Homology and cohomology groups agree when free.)\n\n  When there's torsion: cohomology can have torsion one degree higher.\n  Example: RP²:\n    H₁(RP²;Z) = Z/2 → Ext¹(Z/2, Z) = Z/2 appears in H²(RP²;Z).\n    So H²(RP²;Z) = Z/2, even though H₂(RP²;Z) = 0.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 175,
+      "heading_context": "### Differential Forms",
+      "confidence": "candidate",
+      "text": "SETUP: M a smooth n-manifold. Local coordinates x₁,...,xₙ.\n\n0-FORM: a smooth function f: M → R.\n1-FORM: a smooth section of T*M (cotangent bundle).\n  Locally: ω = Σᵢ fᵢ dxᵢ.\n  dxᵢ is the \"differential of the i-th coordinate function.\"\n\nk-FORM: a smooth antisymmetric (0,k) tensor field.\n  Locally: ω = Σ_{i₁<...<iₖ} fᵢ₁...ᵢₖ dxᵢ₁ ∧ ... ∧ dxᵢₖ\n  The wedge product ∧ is antisymmetric: dxᵢ ∧ dxⱼ = -dxⱼ ∧ dxᵢ.\n\nEXTERIOR DERIVATIVE d: Ωᵏ(M) → Ωᵏ⁺¹(M):\n  For a function f: df = Σᵢ (∂f/∂xᵢ) dxᵢ.\n  For a k-form: dω = Σ (df_{...}) ∧ dx_{...}.\n\n  d² = 0: d(dω) = 0 for all ω. (Antisymmetry kills second partials.)\n\nKEY EXAMPLES:\n  On R³: 0-form f, 1-form ω = P dx + Q dy + R dz, 2-form η = A dy∧dz + B dz∧dx + C dx∧dy.\n\n  d(f) = (∂f/∂x)dx + (∂f/∂y)dy + (∂f/∂z)dz   ↔  grad f\n  d(ω) = (∂R/∂y - ∂Q/∂z)dy∧dz + ...            ↔  curl ω\n  d(η) = (∂A/∂x + ∂B/∂y + ∂C/∂z)dx∧dy∧dz      ↔  div η\n\n  The identities curl(grad f) = 0 and div(curl F) = 0 are d²=0!",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 205,
+      "heading_context": "### de Rham Complex and Cohomology",
+      "confidence": "candidate",
+      "text": "DE RHAM COMPLEX:\n  0 → Ω⁰(M) --d--> Ω¹(M) --d--> Ω²(M) --d--> ... --d--> Ωⁿ(M) → 0\n\nCLOSED FORM: dω = 0 (ω is a cocycle).\nEXACT FORM: ω = dη for some (k-1)-form η (ω is a coboundary).\nExact → closed (d² = 0), but closed ≠ exact in general.\n\nDE RHAM COHOMOLOGY:\n  HᵈᴿᴿR^k(M) = ker(d: Ωᵏ → Ωᵏ⁺¹) / im(d: Ωᵏ⁻¹ → Ωᵏ)\n              = {closed k-forms} / {exact k-forms}\n\nKEY EXAMPLE: R²\\{0}.\n  Consider the 1-form: ω = (-y dx + x dy) / (x² + y²).\n  dω = 0 (closed — check directly).\n  Is ω exact? If ω = df for some f, then df = ω → f = arctan(y/x) + const.\n  But arctan(y/x) is multi-valued around the origin — no single-valued f exists.\n  So ω is closed but NOT exact. H¹_dR(R²\\{0}) = R. ✓\n  (This is the \"winding form\" — its integral around the origin = 2π.)\n\nCONNECTION TO PHYSICS:\n  Maxwell's equations in 4D: F = dA (F is closed since d²=0), dF=0 (Bianchi identity).\n  The electromagnetic potential A is the \"exact\" part.\n  H² of spacetime measures whether A exists globally (gauge field = exact 2-form).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "### de Rham's Theorem",
+      "confidence": "candidate",
+      "text": "DE RHAM'S THEOREM:\n  For a smooth manifold M:\n  HᵈᴿᴿR^k(M; R) ≅ Hᵏ(M; R)  (singular cohomology with real coefficients).\n\n  The isomorphism is given by integration:\n  [ω] ↦ ([σ] ↦ ∫_σ ω)\n  This is the PERIOD MAP of ω over cycles σ.\n\nSTOKES' THEOREM (generalized):\n  ∫_∂σ ω = ∫_σ dω.\n  This is why the integration pairing Hᵏ_dR × Hₖ → R is well-defined:\n  - ω closed: ∫_∂σ ω = ∫_σ dω = 0 (boundary terms vanish for cycles).\n  - σ a boundary: ∫_∂τ ω = ∫_τ dω = 0 (integral over boundary is zero for closed forms).\n\nEXAMPLES:\n  H⁰_dR(M) = R^(# connected components).\n  H^k_dR(Rⁿ) = 0 for k ≥ 1 (Poincaré lemma: closed → exact on contractible domains).\n  H^k_dR(Sⁿ) = R if k=0 or k=n, else 0.\n  H^1_dR(S¹) = R, generated by dθ (the angle form).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "## Poincaré Duality",
+      "confidence": "candidate",
+      "text": "POINCARÉ DUALITY:\n  Let M be a compact, oriented, smooth n-manifold (no boundary).\n  Then there is a natural isomorphism:\n  Hᵏ(M; Z) ≅ Hₙ₋ₖ(M; Z)  [if M is torsion-free]\n  More precisely:\n  Hᵏ(M; R) ≅ Hₙ₋ₖ(M; R)  for any ring R.\n\n  The isomorphism is given by \"cap product with the fundamental class [M]\":\n  Hᵏ(M) --∩[M]--> Hₙ₋ₖ(M).\n\nFUNDAMENTAL CLASS [M]:\n  For a compact oriented n-manifold: Hₙ(M;Z) = Z, generated by [M].\n  [M] represents \"the entire manifold\" as an n-cycle.\n  Non-orientable manifolds have Hₙ(M;Z) = 0 (no Z fundamental class).\n  (They do have Hₙ(M;Z/2) = Z/2.)\n\nEXAMPLES:\n  S²: H⁰ ≅ H₂ = Z ✓, H¹ ≅ H₁ = 0 ✓. (n=2, duality k ↔ 2-k)\n  T² (n=2): H⁰≅H₂=Z ✓, H¹≅H₁=Z² ✓.\n  Σ_g (genus-g): H⁰≅H₂=Z, H¹≅H₁=Z^{2g}. ✓\n\nPOINCARÉ DUALITY AND CUP PRODUCT:\n  On M compact oriented n-manifold, the pairing:\n  Hᵏ(M;R) × Hⁿ⁻ᵏ(M;R) → Hⁿ(M;R) ≅ R\n  given by (α,β) ↦ ⟨α⌣β, [M]⟩ is a perfect (non-degenerate) bilinear pairing.\n\n  The cup product structure combined with Poincaré duality gives:\n  Signature of Hⁿ/²(M) (for n=4k): the \"intersection form\" with index theory.\n\nNON-ORIENTABLE MANIFOLDS:\n  RP² is compact but not orientable.\n  H₂(RP²;Z) = 0, not Z → Poincaré duality fails over Z.\n  H₂(RP²;Z/2) = Z/2 → Poincaré duality holds over Z/2 for all compact manifolds.\n\nPOINCARÉ DUALITY FOR MANIFOLDS WITH BOUNDARY:\n  Poincaré-Lefschetz duality: Hᵏ(M,∂M) ≅ Hₙ₋ₖ(M).\n  Key in surgery theory and 4-manifold topology.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 341,
+      "heading_context": "## Spectral Sequences (Overview)",
+      "confidence": "candidate",
+      "text": "SPECTRAL SEQUENCE: A machine that computes cohomology via successive approximation.\n  A spectral sequence is a collection {Eᵣᵖ·q} (r ≥ 0) with differentials\n  dᵣ: Eᵣᵖ·q → Eᵣᵖ⁺ʳ·q⁻ʳ⁺¹\n  such that Eᵣ₊₁ = H(Eᵣ, dᵣ).\n  Under good conditions: Eᵣ stabilizes to E∞, and H*(X) is built from E∞.\n\nSERRE SPECTRAL SEQUENCE:\n  For a fibration F → E → B:\n  Eᵣᵖ·q ⟹ Hᵖ⁺q(E; R).\n  E₂ᵖ·q = Hᵖ(B; Hq(F; R)).\n\nEXAMPLE: S¹-bundle over S²:\n  E₂ = H*(S²; R) ⊗ H*(S¹; R).\n  Grids: columns for S², rows for S¹. Differential d₂ can kill some entries.\n  For S³ → S² (Hopf fibration with fiber S¹):\n  d₂: E₂⁰·¹ = H⁰(S²)⊗H¹(S¹) = R → E₂²·⁰ = H²(S²) = R is an isomorphism.\n  Result: H*(S³) computed successfully. E∞ = R in degree 0,3 only. ✓\n\nSPECTRAL SEQUENCE DECISION TABLE:\n\n  Need to compute...                Use...\n  ──────────────────────────────────────────────────────────────────\n  H*(total space) of fibration     Serre spectral sequence\n    F → E → B                       E₂ = H*(B; H*(F)) ⟹ H*(E)\n\n  Stable homotopy groups πₛₙ      Adams spectral sequence\n    of spheres                       E₂ = Ext_{A}(H*;H*) ⟹ πₛ*\n                                     A = Steenrod algebra\n\n  K-theory K*(X) from H*(X)       Atiyah-Hirzebruch spectral seq.\n                                     E₂ = H*(X; K*(pt)) ⟹ K*(X)\n\n  Group cohomology H*(G;M)        Lyndon-Hochschild-Serre\n    for group extension             E₂ = H*(Q; H*(N;M)) ⟹ H*(G;M)\n    1 → N → G → Q → 1\n\n  Equivariant cohomology           Borel spectral sequence\n    H*_G(X)                          E₂ = H*(BG; H*(X)) ⟹ H*_G(X)\n\n  The Adams spectral sequence is the workhorse of stable homotopy theory.\n  It uses the Steenrod algebra (see below) as input.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 389,
+      "heading_context": "## de Rham vs Singular Cohomology: Comparison",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n| ASPECT          | SINGULAR H*(X;R)    | DE RHAM H*_dR(M;R)       |\n+------------------------------------------------------------------+\n| Domain          | Any top. space      | Smooth manifolds only    |\n| Construction    | Dual of chains      | Differential forms       |\n| Computation     | Algebraic (CW/simp) | Analytic (differential)  |\n| Functoriality   | f*: H*(Y)→H*(X)     | f*: H*(Y)→H*(X) via pullback|\n| Cup product     | Abstract formula    | Wedge product ∧          |\n| Stokes' theorem | Boundary operator  | Integral = pairing       |\n| Connection      | De Rham's theorem  | De Rham's theorem        |\n+------------------------------------------------------------------+\n\nDe Rham's theorem makes these equivalent (over R coefficients).\nThe bridge: periods ∫_σ ω pair de Rham cohomology with singular homology.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

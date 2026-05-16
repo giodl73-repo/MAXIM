@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:topology:continuity-homeomorphism
+kind: guide
+module: topology
+section: topology
+title: Continuity and Homeomorphisms
+status: source-custody
+source_custody: partial
+current_path: topology/03-CONTINUITY-HOMEOMORPHISM.md
+canonical_path: topology/03-CONTINUITY-HOMEOMORPHISM.md
+backsource_ids: [proof-backfill:topology:03-continuity-homeomorphism, git-history:topology:03-continuity-homeomorphism]
+concepts: [continuity, homeomorphism]
+root_concepts: [continuity, homeomorphism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Continuity and Homeomorphisms
 
 ## The Big Picture

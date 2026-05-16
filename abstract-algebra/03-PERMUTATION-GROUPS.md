@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:abstract-algebra:permutation-groups
+kind: guide
+module: abstract-algebra
+section: abstract-algebra
+title: Permutation Groups
+status: source-custody
+source_custody: partial
+current_path: abstract-algebra/03-PERMUTATION-GROUPS.md
+canonical_path: abstract-algebra/03-PERMUTATION-GROUPS.md
+backsource_ids: [proof-backfill:abstract-algebra:03-permutation-groups, git-history:abstract-algebra:03-permutation-groups]
+concepts: [permutation, groups]
+root_concepts: [permutation, groups]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Permutation Groups
 
 ## The Big Picture

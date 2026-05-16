@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:abstract-algebra:representation-theory
+kind: guide
+module: abstract-algebra
+section: abstract-algebra
+title: Representation Theory
+status: source-custody
+source_custody: partial
+current_path: abstract-algebra/07-REPRESENTATION-THEORY.md
+canonical_path: abstract-algebra/07-REPRESENTATION-THEORY.md
+backsource_ids: [proof-backfill:abstract-algebra:07-representation-theory, git-history:abstract-algebra:07-representation-theory]
+concepts: [representation, theory]
+root_concepts: [representation, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Representation Theory
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:abstract-algebra:subgroups-quotients
+kind: guide
+module: abstract-algebra
+section: abstract-algebra
+title: Subgroups, Quotient Groups, and the Isomorphism Theorems
+status: source-custody
+source_custody: partial
+current_path: abstract-algebra/02-SUBGROUPS-QUOTIENTS.md
+canonical_path: abstract-algebra/02-SUBGROUPS-QUOTIENTS.md
+backsource_ids: [proof-backfill:abstract-algebra:02-subgroups-quotients, git-history:abstract-algebra:02-subgroups-quotients]
+concepts: [subgroups, quotients]
+root_concepts: [subgroups, quotients]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Subgroups, Quotient Groups, and the Isomorphism Theorems
 
 ## The Big Picture

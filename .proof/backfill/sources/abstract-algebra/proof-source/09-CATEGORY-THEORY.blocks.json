@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "abstract-algebra\\09-CATEGORY-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|          CATEGORY THEORY — THE LANGUAGE OF STRUCTURE               |\n+====================================================================+\n|                                                                    |\n|  CATEGORY C:                                                       |\n|  - Objects: Ob(C)                                                  |\n|  - Morphisms: Hom(A,B) for each pair A, B                         |\n|  - Composition: f: A→B, g: B→C  ↦  g∘f: A→C                      |\n|  - Identity: id_A: A→A for each object A                          |\n|  - Associativity: (h∘g)∘f = h∘(g∘f)                              |\n|  - Unit laws: id∘f = f, f∘id = f                                  |\n|                                                                    |\n|  FUNCTOR F: C → D: maps objects to objects, morphisms to           |\n|  morphisms, preserving composition and identity.                   |\n|                                                                    |\n|  NATURAL TRANSFORMATION η: F ⟹ G: for each object A, a           |\n|  morphism η_A: F(A) → G(A), natural in A (commuting square).      |\n|                                                                    |\n|  ADJUNCTION: F ⊣ G means Hom(F(A),B) ≅ Hom(A,G(B)) natural.     |\n|                                                                    |\n|  YONEDA LEMMA: Nat(Hom(A,-), F) ≅ F(A) — objects are determined  |\n|  by how other objects map into them.                               |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "## Functors",
+      "confidence": "candidate",
+      "text": "FUNCTOR F: C → D:\n  F maps: Ob(C) → Ob(D) and Hom_C(A,B) → Hom_D(F(A),F(B)).\n  Preserves: F(g∘f) = F(g)∘F(f) and F(id_A) = id_{F(A)}.\n\nCOVARIANT vs CONTRAVARIANT:\n  Covariant: F(f: A→B) = F(f): F(A)→F(B).\n  Contravariant: F(f: A→B) = F(f): F(B)→F(A). (Reverses arrows.)\n  Contravariant functor C→D = covariant functor C^op→D.\n\nEXAMPLES:\n  Forgetful functor U: Grp → Set (forget group structure).\n  Free functor F: Set → Grp (free group on a set).\n  Powerset: Set → Set (covariant: f↦f(−), contravariant: f↦f^{-1}(−)).\n  Hom(A,-): C → Set: B ↦ Hom(A,B). Covariant. (Representable functor.)\n  Hom(-,B): C → Set: A ↦ Hom(A,B). Contravariant.\n  Tensor: M ⊗_R -: R-Mod → R-Mod.\n  Homology: Top → Ab (a covariant functor from spaces to abelian groups).\n  Galois correspondence: subfields ↔ subgroups is a contravariant functor.\n  K-theory: C* algebras → Ab (topological K-theory).\n\nFULL, FAITHFUL, ESSENTIALLY SURJECTIVE:\n  Full: each Hom(A,B) → Hom(FA,FB) is surjective.\n  Faithful: each Hom(A,B) → Hom(FA,FB) is injective.\n  Equivalence of categories: F is full, faithful, and essentially surjective.\n    (Essentially surjective: every D-object is isomorphic to some F(C).)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 119,
+      "heading_context": "## Natural Transformations",
+      "confidence": "candidate",
+      "text": "NATURAL TRANSFORMATION η: F ⟹ G (between functors F,G: C → D):\n  For each A ∈ Ob(C): a morphism η_A: F(A) → G(A) in D.\n  Naturality condition: for every f: A → B in C:\n    G(f) ∘ η_A = η_B ∘ F(f)\n  (The square commutes: both paths from F(A) to G(B) agree.)\n\nNATURAL ISOMORPHISM: η is a natural transformation where every η_A is an isomorphism.\n  F ≅ G means they're naturally isomorphic.\n\nEXAMPLES:\n  Double dual: V → V** (for f.d. vector spaces).\n    The map v ↦ (φ ↦ φ(v)) is natural in V.\n    Compare: V ≅ V* (for f.d. inner product spaces) but NOT naturally.\n  Determinant: GL_n(-): Ring → Grp, with det a natural transformation.\n  Group cohomology: H^n(-,M): Grp → Ab.\n\nTHE NATURALITY OF DETERMINANT:\n  For ring homomorphism φ: R → S:\n    GL_n(R) → GL_n(S)  (apply φ entrywise)\n    det_R: GL_n(R) → R*   det_S: GL_n(S) → S*\n  Naturality: φ(det_R(A)) = det_S(φ(A)).\n  (Applying ring map then taking determinant = taking determinant then applying ring map.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "## Adjunctions",
+      "confidence": "candidate",
+      "text": "ADJUNCTION F ⊣ G (F left adjoint, G right adjoint):\n  F: C → D,  G: D → C.\n  Natural bijection: Hom_D(F(A), B) ≅ Hom_C(A, G(B)).\n  \"Maps out of FA ↔ maps into GB.\"\n\nUNIT AND COUNIT:\n  Unit: η_A: A → G(F(A)) (from C to C, \"universal map into adjoint\")\n  Counit: ε_B: F(G(B)) → B (from D to D, \"universal map from adjoint\")\n  Triangle identities: G(ε)∘η_G = id_G and ε_F∘F(η) = id_F.\n\nEXAMPLES OF ADJUNCTIONS (pervasive in mathematics):\n  Free ⊣ Forgetful: Free(S) ⊣ U(G).\n    Hom_Grp(Free(S), G) ≅ Hom_Set(S, U(G)).\n    \"Group maps from free group = functions from generating set.\"\n\n  Product ⊣ Diagonal: (- × A) ⊣ Hom(A,-).\n    Hom(B×A, C) ≅ Hom(B, Hom(A,C)).  [Curry-Howard!]\n    This is the tensor-hom adjunction for sets/vector spaces.\n\n  Tensor ⊣ Hom: M⊗_R - ⊣ Hom_R(M,-).\n    Hom_R(M⊗N, P) ≅ Hom_R(N, Hom_R(M,P)).\n\n  Colimit ⊣ Constant: (computing colimit) ⊣ (sending to constant diagram).\n\n  Suspension ⊣ Loop: Σ ⊣ Ω in homotopy theory.\n\n  Sheafification ⊣ Inclusion: in sheaf theory/algebraic geometry.\n\nCURRY-HOWARD CORRESPONDENCE (PROGRAMMING):\n  Products × correspond to conjunction ∧.\n  Functions A→B correspond to implication A⟹B.\n  The adjunction Hom(B×A, C) ≅ Hom(B, A→C) is \"currying.\"\n  In Haskell: curry :: ((a,b) -> c) -> a -> b -> c.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 281,
+      "heading_context": "## Monads",
+      "confidence": "candidate",
+      "text": "MONAD (T, η, μ) on category C:\n  T: C → C  (endofunctor)\n  η: Id ⟹ T  (unit, natural transformation)\n  μ: T∘T ⟹ T  (multiplication/join, natural transformation)\n  Satisfying: μ ∘ Tη = id_T = μ ∘ ηT  and  μ ∘ μT = μ ∘ Tμ.\n  (Just like a monoid: unit and associative multiplication.)\n\n  \"A monad is just a monoid in the category of endofunctors.\"\n  (Famously quoted; this is technically precise.)\n\nEXAMPLES:\n  List monad (in Haskell: [] monad):\n    T(A) = List(A) = A* (all finite lists of A's).\n    η(a) = [a] (singleton list).\n    μ([[a,b],[c,d]]) = [a,b,c,d] (concatenation/flatten).\n\n  Maybe monad: T(A) = A ⊔ {Nothing}.\n    Models failure/partiality.\n\n  State monad: T(A) = (S → A × S).\n    Models stateful computation.\n\n  Continuation monad: T(A) = ((A → R) → R).\n    Models continuation-passing style.\n\n  Reader monad: T(A) = (E → A).\n    Models access to environment.\n\n  IO monad (Haskell): Models effects; keeps purity.\n\nKLEISLI CATEGORY:\n  Morphisms A → T(B) in C become morphisms A → B in the Kleisli category.\n  Composition: A →^f T(B) →^{T(g)} T(T(C)) →^{μ_C} T(C).\n  This is \"effectful computation chaining\" — the essence of monadic bind (>>=).\n\nCONNECTION TO ADJUNCTIONS:\n  Every adjunction F ⊣ G gives a monad T = G∘F.\n  Conversely, every monad arises from an adjunction (Kleisli or Eilenberg-Moore).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 326,
+      "heading_context": "## Connection to Programming",
+      "confidence": "candidate",
+      "text": "HASKELL TYPE SYSTEM ≈ CARTESIAN CLOSED CATEGORY (CCC):\n\nProduct type (a, b) → categorical product A × B.\nSum type Either a b → categorical coproduct A ⊔ B.\nFunction type a -> b → internal hom (exponential) B^A.\n                        or \"Hom(A, B)\" as an object.\n\nCURRY-HOWARD-LAMBEK CORRESPONDENCE:\n  Logic          ↔  Types          ↔  Category theory\n  Proposition    ↔  Type           ↔  Object\n  Proof          ↔  Term/Program   ↔  Morphism\n  Conjunction P∧Q↔  (P, Q)         ↔  Product P×Q\n  Implication P⟹Q↔  P -> Q         ↔  Exponential Q^P\n  Truth ⊤        ↔  ()             ↔  Terminal object\n  Falsum ⊥       ↔  Void           ↔  Initial object\n  Cut rule       ↔  Let binding    ↔  Composition\n\nFUNCTOR LAWS (Haskell):\n  fmap id = id\n  fmap (g . f) = fmap g . fmap f\n  These are exactly the functor axioms F(id)=id, F(g∘f)=F(g)∘F(f).\n\nMONAD LAWS (Haskell):\n  return a >>= f = f a           (left unit: μ∘ηT = id)\n  m >>= return = m               (right unit: μ∘Tη = id)\n  (m >>= f) >>= g = m >>= (\\x -> f x >>= g) (associativity: μ∘μT = μ∘Tμ)\n\nTYPE THEORY EXTENSIONS:\n  Dependent types (Π-types, Σ-types) → locally Cartesian closed categories.\n  Homotopy type theory (HoTT) → ∞-toposes (Voevodsky, Lurie).\n  Universes in type theory → Grothendieck universes in set theory.\n\nHOMOTOPY TYPE THEORY (HoTT) AND ∞-CATEGORIES:\n  Classical category theory: composition is strictly associative ((h∘g)∘f = h∘(g∘f)).\n  ∞-categories: composition is associative only up to coherent homotopy.\n    A composition g∘f is defined, but (h∘g)∘f and h∘(g∘f) are only EQUIVALENT,\n    not equal — and the equivalences themselves are coherent.\n\n  Why this matters:\n  - SPACES AS ∞-GROUPOIDS (Grothendieck's hypothesis): a topological space IS\n    an ∞-groupoid where points are objects, paths are morphisms, homotopies between\n    paths are 2-morphisms, etc. ∞-categories = homotopy theory done algebraically.\n  - LURIE'S ∞-TOPOS PROGRAM: \"Higher Topos Theory\" (2009) + \"Higher Algebra\" (2017)\n    rebuild algebraic geometry, algebraic topology, and representation theory in the\n    ∞-categorical setting. This is the dominant framework in modern algebraic topology.\n  - UNIVALENCE AXIOM (Voevodsky): \"equivalent types are equal.\" In HoTT, the identity\n    type A = B is equivalent to the type of equivalences A ≃ B. This makes isomorphism-\n    invariance a theorem, not a convention.\n  - CUBICAL TYPE THEORY: makes HoTT computationally tractable. Implemented in\n    Cubical Agda and Cubical Coq. Enables formalized proofs that are automatically\n    invariant under equivalences — a significant advance for proof assistants.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:abstract-algebra:rings-ideals
+kind: guide
+module: abstract-algebra
+section: abstract-algebra
+title: Rings and Ideals
+status: source-custody
+source_custody: partial
+current_path: abstract-algebra/04-RINGS-IDEALS.md
+canonical_path: abstract-algebra/04-RINGS-IDEALS.md
+backsource_ids: [proof-backfill:abstract-algebra:04-rings-ideals, git-history:abstract-algebra:04-rings-ideals]
+concepts: [rings, ideals]
+root_concepts: [rings, ideals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rings and Ideals
 
 ## The Big Picture

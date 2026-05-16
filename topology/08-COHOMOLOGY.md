@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:topology:cohomology
+kind: guide
+module: topology
+section: topology
+title: Cohomology
+status: source-custody
+source_custody: partial
+current_path: topology/08-COHOMOLOGY.md
+canonical_path: topology/08-COHOMOLOGY.md
+backsource_ids: [proof-backfill:topology:08-cohomology, git-history:topology:08-cohomology]
+concepts: [cohomology]
+root_concepts: [cohomology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cohomology
 
 ## The Big Picture
