@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astronomy:astrobiology
+kind: guide
+module: astronomy
+section: astronomy
+title: Astrobiology
+status: source-custody
+source_custody: partial
+current_path: astronomy/12-ASTROBIOLOGY.md
+canonical_path: astronomy/12-ASTROBIOLOGY.md
+backsource_ids: [proof-backfill:astronomy:12-astrobiology, git-history:astronomy:12-astrobiology]
+concepts: [astrobiology]
+root_concepts: [astrobiology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Astrobiology
 ## Origin of Life, Habitable Environments, Biosignatures, Fermi Paradox
 

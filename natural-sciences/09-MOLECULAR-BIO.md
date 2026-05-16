@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:molecular-bio
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 09-MOLECULAR-BIO - Molecular Biology
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/09-MOLECULAR-BIO.md
+canonical_path: natural-sciences/09-MOLECULAR-BIO.md
+backsource_ids: [proof-backfill:natural-sciences:09-molecular-bio, git-history:natural-sciences:09-molecular-bio]
+concepts: [molecular, bio]
+root_concepts: [molecular, bio]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 09-MOLECULAR-BIO — Molecular Biology
 
 > DNA replication, transcription, translation, gene regulation, CRISPR.

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astronomy:cosmology
+kind: guide
+module: astronomy
+section: astronomy
+title: Cosmology
+status: source-custody
+source_custody: partial
+current_path: astronomy/05-COSMOLOGY.md
+canonical_path: astronomy/05-COSMOLOGY.md
+backsource_ids: [proof-backfill:astronomy:05-cosmology, git-history:astronomy:05-cosmology]
+concepts: [cosmology]
+root_concepts: [cosmology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cosmology
 ## Big Bang, Expansion, CMB, Dark Matter, Dark Energy, Large-Scale Structure
 

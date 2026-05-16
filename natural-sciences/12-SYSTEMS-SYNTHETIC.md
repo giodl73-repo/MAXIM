@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:systems-synthetic
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 12-SYSTEMS-SYNTHETIC - Systems and Synthetic Biology
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/12-SYSTEMS-SYNTHETIC.md
+canonical_path: natural-sciences/12-SYSTEMS-SYNTHETIC.md
+backsource_ids: [proof-backfill:natural-sciences:12-systems-synthetic, git-history:natural-sciences:12-systems-synthetic]
+concepts: [systems, synthetic]
+root_concepts: [systems, synthetic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 12-SYSTEMS-SYNTHETIC — Systems & Synthetic Biology
 
 > Gene regulatory networks, ODE/Boolean models, flux balance analysis,

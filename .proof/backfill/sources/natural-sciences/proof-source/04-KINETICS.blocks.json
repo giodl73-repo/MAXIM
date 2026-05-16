@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "natural-sciences\\04-KINETICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌───────────────────────────────────────────────────────────────────┐\n│                      CHEMICAL KINETICS                            │\n│                                                                   │\n│  EXPERIMENTAL OBSERVABLES                                         │\n│  ─────────────────────────                                        │\n│  Concentration vs. time data → method of initial rates            │\n│          │                                                        │\n│          ▼                                                        │\n│  RATE LAWS  rate = k[A]^m [B]^n                                   │\n│  ─────────────────────────────                                    │\n│  Integrated forms (0th, 1st, 2nd order)                           │\n│  Diagnostic plots ([A] vs t, ln[A] vs t, 1/[A] vs t)              │\n│          │                                                        │\n│     ┌────┴─────────────────┐                                      │\n│     ▼                      ▼                                       │\n│  MECHANISM              TEMPERATURE DEPENDENCE                    │\n│  ──────────             ─────────────────────                      │\n│  Elementary steps       Arrhenius: k = A·e^(-Ea/RT)              │\n│  RDS / SSA              TST (Eyring): separates ΔH‡ from ΔS‡    │\n│  Pre-equilibrium        Reaction coordinate diagrams              │\n│     │                                                              │\n│     ▼                                                              │\n│  CATALYSIS                         CHAIN REACTIONS                │\n│  ──────────                        ───────────────                 │\n│  Lower Ea (both directions)        Radical initiation             │\n│  Homogeneous (acid, Rh complex)    Propagation cycles             │\n│  Heterogeneous (surface, Haber)    Termination                    │\n│  Enzyme (TST: ΔH‡ + ΔS‡ both ↓)                                  │\n└───────────────────────────────────────────────────────────────────┘\n\nKey hierarchy: measure rate → fit rate law → hypothesize mechanism →\nexplain via collision theory or TST → apply to catalysis design.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 69,
+      "heading_context": "## The Central Question",
+      "confidence": "candidate",
+      "text": "THERMODYNAMICS                 KINETICS\n──────────────────────────────────────────────────────────\nΔG < 0 ?                       k = ?  (rate constant)\nWill reaction occur?           How fast will it occur?\nPath-independent               Path-dependent\nState functions (H, S, G)      Activation barrier (Ea, ΔG‡)\nEquilibrium position           Mechanism, intermediates\nAnswer: yes/no/maybe           Answer: seconds, years, never\n\nBoth required for full picture.\nDiamond → graphite: ΔG < 0 (thermodynamics says yes),\n                    k ≈ 0 at 298 K (kinetics says never in practice).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 94,
+      "heading_context": "### Empirical Rate Law",
+      "confidence": "candidate",
+      "text": "- **Overall order**: m + n + …",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "### Summary Table",
+      "confidence": "candidate",
+      "text": "Order  Rate law    Integrated          Plot      t₁/₂\n──────────────────────────────────────────────────────────────\n0      k           [A] = [A]₀ − kt    [A] vs t  [A]₀/2k\n1      k[A]        ln[A] = ln[A]₀−kt  ln[A] vs t  0.693/k\n2      k[A]²       1/[A] = 1/[A]₀+kt  1/[A] vs t  1/(k[A]₀)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "## Arrhenius Equation — Temperature Dependence",
+      "confidence": "candidate",
+      "text": "k = A · e^(−Ea/RT)\n\nA  = pre-exponential (frequency) factor  — collision frequency × steric factor\nEa = activation energy (J/mol)\nR  = 8.314 J/(mol·K)\nT  = temperature (K)\n\nLinearized:\n  ln k = ln A − Ea/(RT)\n  plot ln k vs 1/T → slope = −Ea/R,  intercept = ln A\n\nTwo-temperature form:\n  ln(k₂/k₁) = −(Ea/R) · (1/T₂ − 1/T₁)\n\nRule of thumb: rate doubles per 10°C rise (for Ea ≈ 50 kJ/mol near 25°C)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "## Arrhenius Equation — Temperature Dependence",
+      "confidence": "candidate",
+      "text": "REACTION COORDINATE DIAGRAM:\n\nEnergy\n  │          ‡ (transition state)\n  │         /│\\\n  │        / │ \\\n  │       /  │  \\           Ea (forward)  = activation energy\n  │      /   │   \\          Ea (reverse)  = Ea − ΔH°rxn\n  │─────/    │    \\─────    ΔH°rxn = Ea(fwd) − Ea(rev)\n  │  reactants     products\n  │\n  └──────────────────────── Reaction coordinate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 260,
+      "heading_context": "## Transition State Theory (Eyring Equation)",
+      "confidence": "candidate",
+      "text": "Activation parameters from Eyring plot:\n  ln(k/T) vs 1/T → slope = −ΔH‡/R, intercept = ln(k_B/h) + ΔS‡/R",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 286,
+      "heading_context": "### Rate-Determining Step (RDS)",
+      "confidence": "candidate",
+      "text": "Example: NO₂(g) + CO(g) → NO(g) + CO₂(g)  (observed: rate = k[NO₂]²)\n\nProposed mechanism:\n  Step 1 (slow): NO₂ + NO₂ → NO₃ + NO         rate₁ = k₁[NO₂]²\n  Step 2 (fast): NO₃ + CO → NO₂ + CO₂         rate₂ = k₂[NO₃][CO]\n\nOverall rate = rate₁ = k₁[NO₂]²     ✓ matches experiment\nNO₃ is a reactive intermediate (formed and consumed, not in net equation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 322,
+      "heading_context": "### Pre-Equilibrium Approximation",
+      "confidence": "candidate",
+      "text": "A + B ⇌ C    (fast, K = k₁/k₋₁)\nC → D        (slow, k₂)\n\nK = [C]/([A][B])  →  [C] = K[A][B]\nrate = k₂[C] = k₂K[A][B] = k_obs[A][B]\n\nMichaelis-Menten enzyme kinetics is the biochemical analog:\n  E + S ⇌ ES (fast) → E + P (slow)  → rate = Vmax[S]/(Km + [S])\n  (see 07-ENZYMES.md for full treatment)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 341,
+      "heading_context": "## Catalysis",
+      "confidence": "candidate",
+      "text": "Without catalyst:\n  A → [TS‡] → B     Ea = 200 kJ/mol,  k = 10⁻¹⁰ s⁻¹\n\nWith catalyst:\n  A → [TS‡_cat] → B  Ea = 80 kJ/mol,   k = 10³ s⁻¹\n\nRate ratio ~ 10¹³ — 13 orders of magnitude from 120 kJ/mol reduction in Ea",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 355,
+      "heading_context": "### Homogeneous Catalysis",
+      "confidence": "candidate",
+      "text": "Acid catalysis: H⁺ protonates substrate → lowers Ea for bond breaking\n  Example: ester hydrolysis in HCl(aq)\n\nTransition metal complexes:\n  Wilkinson's catalyst: RhCl(PPh₃)₃  →  olefin hydrogenation\n  Mechanism: oxidative addition → migratory insertion → reductive elimination",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 368,
+      "heading_context": "### Heterogeneous Catalysis",
+      "confidence": "candidate",
+      "text": "Langmuir-Hinshelwood mechanism (both reactants adsorb):\n  A(g) ⇌ A(ads)\n  B(g) ⇌ B(ads)\n  A(ads) + B(ads) → products\n\nEley-Rideal mechanism (one reactant from gas phase):\n  A(g) ⇌ A(ads)\n  A(ads) + B(g) → products\n\nIndustrial examples:\n  Haber-Bosch (N₂ + 3H₂ → 2NH₃): Fe catalyst, 400–500°C, 150–300 atm\n  Fischer-Tropsch (CO + H₂ → hydrocarbons): Fe or Co catalyst\n  Catalytic converter (CO + O₂, NOₓ reduction): Pt/Pd/Rh on CeO₂/Al₂O₃\n\nPoisoning: CO blocks Pt surface (strong adsorption, no vacant sites)\nPromoters: K₂O on Fe increases N₂ adsorption in Haber process",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 389,
+      "heading_context": "### Enzyme Catalysis (Preview)",
+      "confidence": "candidate",
+      "text": "Rate enhancement: 10⁶ – 10¹⁷ over uncatalyzed reaction\nMechanism: lowers ΔH‡ AND ΔS‡\n  → Proximity/orientation effect (reduces −ΔS‡)\n  → Electrostatic stabilization of TS\n  → Covalent intermediates (serine proteases, coenzyme A)\n  → Metal ion catalysis\nFull treatment: 07-ENZYMES.md",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 405,
+      "heading_context": "## Chain Reactions",
+      "confidence": "candidate",
+      "text": "H₂ + Cl₂ → 2HCl   (chain reaction — quantum yield up to 10⁶)\n\nINITIATION:\n  Cl₂ + hν → 2 Cl•           (photochemical — or thermal)\n\nPROPAGATION (repeats ~10⁶ times):\n  Cl• + H₂ → HCl + H•\n  H•  + Cl₂ → HCl + Cl•\n\nTERMINATION:\n  Cl• + Cl• → Cl₂    (wall or third-body recombination)\n  H•  + Cl• → HCl\n  H•  + H•  → H₂\n\nChain length = propagation steps per initiation event\nInhibitors terminate chains: ROOR peroxides, NO, antioxidants",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 426,
+      "heading_context": "## Chain Reactions",
+      "confidence": "candidate",
+      "text": "  Cl• + O₃ → ClO• + O₂\n  ClO• + O → Cl• + O₂       (net: O₃ + O → 2O₂, Cl• regenerated)\n  One Cl• destroys ~100,000 O₃ molecules",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

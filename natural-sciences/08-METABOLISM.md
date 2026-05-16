@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:metabolism
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 08-METABOLISM - Cellular Metabolism
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/08-METABOLISM.md
+canonical_path: natural-sciences/08-METABOLISM.md
+backsource_ids: [proof-backfill:natural-sciences:08-metabolism, git-history:natural-sciences:08-metabolism]
+concepts: [metabolism]
+root_concepts: [metabolism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 08-METABOLISM — Cellular Metabolism
 
 > Glycolysis → TCA → oxidative phosphorylation → ~30 ATP per glucose.

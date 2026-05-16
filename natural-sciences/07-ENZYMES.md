@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:enzymes
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 07-ENZYMES - Enzyme Kinetics and Catalysis
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/07-ENZYMES.md
+canonical_path: natural-sciences/07-ENZYMES.md
+backsource_ids: [proof-backfill:natural-sciences:07-enzymes, git-history:natural-sciences:07-enzymes]
+concepts: [enzymes]
+root_concepts: [enzymes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 07-ENZYMES — Enzyme Kinetics & Catalysis
 
 > Michaelis-Menten derivation, inhibition types, allostery, covalent modification.

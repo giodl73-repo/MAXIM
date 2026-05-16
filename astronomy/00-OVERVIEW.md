@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astronomy:overview
+kind: guide
+module: astronomy
+section: astronomy
+title: Astronomy - Overview
+status: source-custody
+source_custody: partial
+current_path: astronomy/00-OVERVIEW.md
+canonical_path: astronomy/00-OVERVIEW.md
+backsource_ids: [proof-backfill:astronomy:00-overview, git-history:astronomy:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Astronomy — Overview
 
 **The Timekeeper's Instruments: measuring the universe by measuring when**

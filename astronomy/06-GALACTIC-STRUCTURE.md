@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astronomy:galactic-structure
+kind: guide
+module: astronomy
+section: astronomy
+title: Galactic Structure and Dynamics
+status: source-custody
+source_custody: partial
+current_path: astronomy/06-GALACTIC-STRUCTURE.md
+canonical_path: astronomy/06-GALACTIC-STRUCTURE.md
+backsource_ids: [proof-backfill:astronomy:06-galactic-structure, git-history:astronomy:06-galactic-structure]
+concepts: [galactic, structure]
+root_concepts: [galactic, structure]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Galactic Structure and Dynamics
 ## Milky Way Anatomy, Spiral Arms, Dark Matter, Stellar Dynamics, Galaxy Formation
 

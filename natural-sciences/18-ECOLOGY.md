@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:ecology
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 18-ECOLOGY - Ecology
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/18-ECOLOGY.md
+canonical_path: natural-sciences/18-ECOLOGY.md
+backsource_ids: [proof-backfill:natural-sciences:18-ecology, git-history:natural-sciences:18-ecology]
+concepts: [ecology]
+root_concepts: [ecology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 18-ECOLOGY — Ecology
 
 ## Ecosystems, Population Dynamics, Food Webs, Biogeochemical Cycles, Conservation

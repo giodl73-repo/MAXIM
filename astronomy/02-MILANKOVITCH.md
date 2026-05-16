@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astronomy:milankovitch
+kind: guide
+module: astronomy
+section: astronomy
+title: Milankovitch Cycles
+status: source-custody
+source_custody: partial
+current_path: astronomy/02-MILANKOVITCH.md
+canonical_path: astronomy/02-MILANKOVITCH.md
+backsource_ids: [proof-backfill:astronomy:02-milankovitch, git-history:astronomy:02-milankovitch]
+concepts: [milankovitch]
+root_concepts: [milankovitch]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Milankovitch Cycles
 ## Orbital Mechanics, Insolation Forcing, and the Pacemaker of Ice Ages
 

@@ -1,0 +1,399 @@
+{
+  "schema_version": "1",
+  "source_markdown": "astronomy\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 200,
+      "heading_context": "## Bridge — Clocks Without a Global Clock",
+      "headers": [
+        "Distributed Systems",
+        "Astronomy"
+      ],
+      "rows": [
+        [
+          "No global clock",
+          "No cosmic time (GR: coordinate freedom)"
+        ],
+        [
+          "Lamport timestamp",
+          "Redshift z (monotonic, causal)"
+        ],
+        [
+          "Vector clock",
+          "Light cone (full causal structure)"
+        ],
+        [
+          "Clock synchronization event",
+          "CMB (z = 1100, shared by all observers)"
+        ],
+        [
+          "Network partition",
+          "Spacelike separation (causal disconnect)"
+        ],
+        [
+          "Happens-before relation",
+          "Past light cone containment"
+        ],
+        [
+          "Clock drift",
+          "Gravitational time dilation"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 252,
+      "heading_context": "## Module Map — The 12 Guides",
+      "headers": [
+        "File",
+        "Core Concept",
+        "Timescale"
+      ],
+      "rows": [
+        [
+          "`01-EARTH-MOTIONS.md`",
+          "Rotation, precession, nutation, Chandler wobble, obliquity",
+          "1 day → 413 kyr"
+        ],
+        [
+          "`02-MILANKOVITCH.md`",
+          "Orbital forcing of ice ages — eccentricity, obliquity, precession",
+          "41 kyr → 413 kyr"
+        ],
+        [
+          "`03-CELESTIAL-MECHANICS.md`",
+          "Kepler's laws, two-body & three-body problems, resonances, tides",
+          "Orbital periods → Gyr stability"
+        ],
+        [
+          "`04-STELLAR-PHYSICS.md`",
+          "HR diagram, stellar structure, nucleosynthesis, compact remnants",
+          "10 Myr (O-stars) → 10 Tyr (M-dwarfs)"
+        ],
+        [
+          "`05-COSMOLOGY.md`",
+          "LCDM, CMB, inflation, dark matter/energy, large-scale structure",
+          "10^-44 s → 13.787 Gyr"
+        ],
+        [
+          "`06-GALACTIC-STRUCTURE.md`",
+          "Milky Way anatomy — disk, bulge, halo, spiral arms, dynamics",
+          "10 Myr (arm passage) → 13 Gyr (halo age)"
+        ],
+        [
+          "`07-SOLAR-SYSTEM-FORMATION.md`",
+          "Nebular hypothesis, disk physics, accretion, Nice model, Grand Tack",
+          "0 → 700 Myr (Late Heavy Bombardment)"
+        ],
+        [
+          "`08-PLANETARY-INTERIORS.md`",
+          "Differentiation, seismology, geodynamo, comparative planetology",
+          "Formation → present (4.567 Gyr)"
+        ],
+        [
+          "`09-PLANETARY-ATMOSPHERES.md`",
+          "Escape, greenhouse, circulation, biosignatures",
+          "Formation → present"
+        ],
+        [
+          "`10-EXOPLANETS.md`",
+          "Detection methods, demographics, characterization, JWST era",
+          "1995 → present (observational)"
+        ],
+        [
+          "`11-SMALL-BODIES.md`",
+          "Asteroids, comets, TNOs, Kuiper Belt, Oort Cloud, impacts",
+          "4.567 Gyr (primordial) → present"
+        ],
+        [
+          "`12-ASTROBIOLOGY.md`",
+          "Origin of life, habitable zones, biosignatures, Fermi paradox",
+          "3.8 Ga (first life) → future"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 271,
+      "heading_context": "## Key Numbers — The Timekeeper's Constants",
+      "headers": [
+        "Quantity",
+        "Value",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "**Astronomical Unit (AU)**",
+          "1.496 x 10^8 km",
+          "Earth-Sun mean distance; light-travel = 499 s"
+        ],
+        [
+          "**Light-year (ly)**",
+          "9.461 x 10^12 km",
+          "Distance light travels in 1 Julian year"
+        ],
+        [
+          "**Parsec (pc)**",
+          "3.086 x 10^13 km = 3.262 ly",
+          "Distance at which 1 AU subtends 1 arcsecond"
+        ],
+        [
+          "**Hubble constant H₀**",
+          "67.4 ± 0.5 km/s/Mpc (Planck)",
+          "Or 73.0 ± 1.0 (SH0ES) — the tension"
+        ],
+        [
+          "**Hubble time 1/H₀**",
+          "~14.4 Gyr (Planck value)",
+          "Naive expansion age; actual age = 13.787 Gyr"
+        ],
+        [
+          "**Age of universe**",
+          "13.787 ± 0.020 Gyr",
+          "From CMB (Planck 2018)"
+        ],
+        [
+          "**CMB temperature**",
+          "2.7255 ± 0.0006 K",
+          "Blackbody; redshifted from ~3000 K at z = 1100"
+        ],
+        [
+          "**Solar luminosity L☉**",
+          "3.828 x 10^26 W",
+          "Standard candle reference"
+        ],
+        [
+          "**Solar mass M☉**",
+          "1.989 x 10^30 kg",
+          "Standard mass reference"
+        ],
+        [
+          "**Solar age**",
+          "4.603 ± 0.005 Gyr",
+          "Main-sequence G2V; ~5 Gyr of H remaining"
+        ],
+        [
+          "**Solar System age**",
+          "4.5672 ± 0.0006 Gyr",
+          "From CAI U-Pb dating (oldest solids)"
+        ],
+        [
+          "**Earth-Moon distance**",
+          "384,400 km (mean)",
+          "Receding ~3.8 cm/yr (tidal dissipation)"
+        ],
+        [
+          "**Precession period**",
+          "25,772 yr",
+          "Lunisolar torque on equatorial bulge"
+        ],
+        [
+          "**Speed of light c**",
+          "299,792.458 km/s",
+          "Exact (defines the meter since 1983)"
+        ],
+        [
+          "**Gravitational constant G**",
+          "6.674 x 10^-11 m^3 kg^-1 s^-2",
+          "Least precisely known fundamental constant"
+        ],
+        [
+          "**Planck time**",
+          "5.391 x 10^-44 s",
+          "sqrt(hbar G / c^5); below this, QG needed"
+        ],
+        [
+          "**Stefan-Boltzmann constant**",
+          "5.670 x 10^-8 W m^-2 K^-4",
+          "L = 4pi R^2 sigma T_eff^4"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 402,
+      "heading_context": "## Observational Techniques — How We Read the Clocks",
+      "headers": [
+        "Technique",
+        "What it measures",
+        "Key instruments"
+      ],
+      "rows": [
+        [
+          "**Photometry**",
+          "Brightness vs. time (transits, variability, SN light curves)",
+          "Kepler, TESS, LSST/Rubin"
+        ],
+        [
+          "**Spectroscopy**",
+          "Radial velocity, composition, temperature, redshift",
+          "HARPS, ESPRESSO, JWST NIRSpec"
+        ],
+        [
+          "**Astrometry**",
+          "Position, proper motion, parallax → distance",
+          "Gaia (1.8 billion stars, DR3)"
+        ],
+        [
+          "**Interferometry**",
+          "Angular resolution beyond single-dish limit",
+          "VLBI, ALMA, EHT (black hole imaging)"
+        ],
+        [
+          "**Gravitational waves**",
+          "Spacetime strain from merging compact objects",
+          "LIGO/Virgo/KAGRA, LISA (2030s)"
+        ],
+        [
+          "**Neutrino detection**",
+          "Core-collapse supernovae, solar pp-chain",
+          "Super-Kamiokande, IceCube"
+        ],
+        [
+          "**Cosmic ray detection**",
+          "High-energy particle flux, composition",
+          "Pierre Auger, HAWC"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 418,
+      "heading_context": "## Cross-Library Connections",
+      "headers": [
+        "Topic",
+        "Covered elsewhere"
+      ],
+      "rows": [
+        [
+          "Orbital mechanics derivations",
+          "physics/ (classical mechanics, Lagrangian/Hamiltonian)"
+        ],
+        [
+          "Milankovitch → ice age climate record",
+          "paleontology/10-PALEOCLIMATOLOGY.md"
+        ],
+        [
+          "Radiometric dating physics",
+          "natural-sciences/01-ATOMIC-QUANTUM.md (nuclear decay)"
+        ],
+        [
+          "Geological time scale, stratigraphy",
+          "geology/07-GEOLOGIC-TIME.md"
+        ],
+        [
+          "Paleomagnetic reversal timescale",
+          "geology/05-PLATE-TECTONICS.md"
+        ],
+        [
+          "Atmospheric physics (escape, greenhouse)",
+          "natural-sciences/14-ATMOSPHERE-CLIMATE.md"
+        ],
+        [
+          "Plasma physics (stellar interiors, corona)",
+          "natural-sciences/15-PLASMA-FUNDAMENTALS.md, 16-PLASMA-DYNAMICS.md"
+        ],
+        [
+          "Spectral line physics",
+          "natural-sciences/01-ATOMIC-QUANTUM.md (quantum mechanics)"
+        ],
+        [
+          "Origin of life biochemistry",
+          "natural-sciences/06-BIOMOLECULES.md, 09-MOLECULAR-BIO.md"
+        ],
+        [
+          "General relativity, curved spacetime",
+          "physics/ (GR module)"
+        ],
+        [
+          "Signal processing (radio astronomy, FFT)",
+          "signal-processing/"
+        ],
+        [
+          "Thermodynamics of stellar interiors",
+          "natural-sciences/03-THERMOCHEM.md"
+        ],
+        [
+          "Information theory (signal detection)",
+          "information-theory/"
+        ],
+        [
+          "Geologic deep time, rock cycle",
+          "geology/00-OVERVIEW.md"
+        ],
+        [
+          "Fossil record, mass extinctions",
+          "paleontology/00-OVERVIEW.md"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 440,
+      "heading_context": "## Decision Cheat Sheet — Which Guide First?",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Seasons, precession, or ice-age timing",
+          "Use Earth motions, axial tilt, orbital cycles, insolation geometry, and Milankovitch forcing.",
+          "Orbital forcing paces climate; feedbacks determine amplitude."
+        ],
+        [
+          "Orbital behavior",
+          "Check Keplerian baseline, perturbations, resonance, tides, angular momentum, and reference frame.",
+          "The two-body answer is often only the first approximation."
+        ],
+        [
+          "Stellar life cycle",
+          "Trace mass, fusion stage, hydrostatic balance, opacity, nucleosynthesis, and endpoint.",
+          "Mass controls the branch; metallicity and binarity complicate it."
+        ],
+        [
+          "Cosmological claim",
+          "Separate expansion, CMB, nucleosynthesis, dark matter, dark energy, and horizon/flatness evidence.",
+          "Cosmology is parameter inference from multiple probes, not one origin story."
+        ],
+        [
+          "Milky Way structure",
+          "Check disk, bulge, halo, spiral arms, stellar populations, dark matter, and merger history.",
+          "The Galaxy is assembled history, not a static diagram."
+        ],
+        [
+          "Solar-system formation",
+          "Start with nebular disk, condensation sequence, accretion, migration, differentiation, and late bombardment.",
+          "Present order preserves formation clues but not a simple original layout."
+        ],
+        [
+          "Planet interior or atmosphere",
+          "Combine density, gravity, magnetic field, spectra, pressure-temperature profile, and escape history.",
+          "Surface appearance can mislead without interior and atmospheric physics."
+        ],
+        [
+          "Exoplanet characterization",
+          "Compare transit, radial velocity, direct imaging, spectra, selection bias, and host-star context.",
+          "Detection method shapes the population you think exists."
+        ],
+        [
+          "Small-body or impact question",
+          "Inspect orbit family, composition, volatile content, collisional history, and resonance delivery route.",
+          "Small bodies are both leftovers and dynamically processed records."
+        ],
+        [
+          "Astrobiology link",
+          "Separate habitability, biosignature, origin-of-life chemistry, target access, and Fermi constraints.",
+          "\"Life beyond Earth\" spans astronomy, chemistry, geology, and biology."
+        ],
+        [
+          "Astronomical-to-geological time",
+          "Chain orbital clocks, stellar clocks, radiometric clocks, stratigraphy, and fossil calibration.",
+          "Deep-time arguments are strongest when independent clocks agree."
+        ]
+      ]
+    }
+  ]
+}

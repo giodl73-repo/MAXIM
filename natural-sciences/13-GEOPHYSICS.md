@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:geophysics
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 13-GEOPHYSICS - Geophysics
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/13-GEOPHYSICS.md
+canonical_path: natural-sciences/13-GEOPHYSICS.md
+backsource_ids: [proof-backfill:natural-sciences:13-geophysics, git-history:natural-sciences:13-geophysics]
+concepts: [geophysics]
+root_concepts: [geophysics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 13-GEOPHYSICS — Geophysics
 
 > Earth's interior from seismology, mantle convection, plate tectonics,

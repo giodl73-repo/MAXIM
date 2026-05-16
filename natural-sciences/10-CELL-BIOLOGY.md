@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:cell-biology
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 10-CELL-BIOLOGY - Cell Biology
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/10-CELL-BIOLOGY.md
+canonical_path: natural-sciences/10-CELL-BIOLOGY.md
+backsource_ids: [proof-backfill:natural-sciences:10-cell-biology, git-history:natural-sciences:10-cell-biology]
+concepts: [cell, biology]
+root_concepts: [cell, biology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 10-CELL-BIOLOGY — Cell Biology
 
 > Organelles, membranes, transport, signal transduction, cytoskeleton,

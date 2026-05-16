@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:evolution-genetics
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 11-EVOLUTION-GENETICS - Evolution and Genetics
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/11-EVOLUTION-GENETICS.md
+canonical_path: natural-sciences/11-EVOLUTION-GENETICS.md
+backsource_ids: [proof-backfill:natural-sciences:11-evolution-genetics, git-history:natural-sciences:11-evolution-genetics]
+concepts: [evolution, genetics]
+root_concepts: [evolution, genetics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 11-EVOLUTION-GENETICS — Evolution & Genetics
 
 > Mendelian inheritance to molecular population genetics to evo-devo.

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "natural-sciences\\15-PLASMA-FUNDAMENTALS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## What is a Plasma?",
+      "confidence": "candidate",
+      "text": "A plasma is a quasi-neutral gas of charged particles that exhibits COLLECTIVE behavior.\n\nThree conditions distinguish plasma from weakly ionized gas:\n  1. QUASI-NEUTRALITY: n_e ≈ n_i  (charge neutrality over scales >> λ_D)\n  2. DEBYE SHIELDING:  λ_D << system size L  (field screened beyond Debye length)\n  3. COLLECTIVE:       ωₚ >> ν_collision    (plasma oscillations faster than collisions)\n\nPlasma parameter (coupling parameter):\n  Λ = n_e · λ_D³  (number of particles in Debye sphere)\n  Ideal plasma: Λ >> 1  (many particles per Debye sphere → collective dominates)\n  Strongly coupled: Λ < 1  (inter-particle potential > thermal energy → dense/cold)\n\nPLASMA EXAMPLES:\n  System              n_e (m⁻³)    T_e (eV)    λ_D (m)     Classification\n  ──────────────────────────────────────────────────────────────────────\n  Solar wind          10⁶–10⁷      10–50       10–50       Collisionless, hot\n  Solar corona        10¹²–10¹³    100–200     0.001       Hot, tenuous\n  Tokamak plasma      10¹⁹–10²⁰   10,000      10⁻⁴        Hot, magnetized\n  Glow discharge      10¹⁶         1–3         10⁻⁴        Cold, magnetized\n  Lightning bolt      10²⁰         ~1 eV       10⁻⁵        Dense, transient\n  Laser-plasma        10²⁶–10²⁸   keV–MeV     10⁻⁹        Dense, hot\n\n(1 eV = 11,605 K — plasma physicists measure temperature in energy units)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "### Derivation",
+      "confidence": "candidate",
+      "text": "Poisson equation:  ∇²φ = −ρ/ε₀\n\nCharge density (assuming Boltzmann distribution of electrons + fixed ions):\n  n_e = n₀ exp(+eφ/k_BT_e)   (electrons attracted to positive potential)\n  n_i = n₀ exp(−eφ/k_BT_i)   (ions repelled — or fixed if T_i → ∞)\n\nLinearized (eφ << k_BT):\n  ρ = e(n_i − n_e) ≈ −n₀e²φ(1/k_BT_e + 1/k_BT_i)\n\nSubstituting into Poisson:\n  ∇²φ = φ/λ_D²\n\nwhere:  1/λ_D² = n₀e²/ε₀ (1/k_BT_e + 1/k_BT_i) = 1/λ_De² + 1/λ_Di²\n\nSolution (spherical):\n  φ(r) = (q/4πε₀r) · exp(−r/λ_D)    (Yukawa / screened Coulomb potential)\n\nDebye length:\n  λ_De = √(ε₀k_BT_e / n_e e²)\n\n  λ_De (m) = 7430 √(T_e(eV) / n_e(m⁻³))     (useful numerical formula)\n\nExamples:\n  Tokamak: T_e = 10 keV, n_e = 10²⁰ m⁻³  →  λ_D ~ 7 × 10⁻⁵ m = 70 µm\n  Solar wind: T_e = 10 eV, n_e = 10⁶ m⁻³  →  λ_D ~ 7 m",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "## Plasma Frequency",
+      "confidence": "candidate",
+      "text": "Derivation:\n  Displace electron slab by δx → charge separation → restoring E-field\n  n_e e δx = ε₀ E   →   E = n_e e δx / ε₀\n  Equation of motion: m_e ẍ = −eE = −(n_e e²/m_e ε₀) x = −ωₚₑ² x\n\nElectron plasma frequency:\n  ωₚₑ = √(n_e e²/ ε₀ m_e)\n  fₚₑ = ωₚₑ/2π = 9 √(n_e) Hz   (n_e in m⁻³)\n\nIon plasma frequency:\n  ωₚᵢ = √(n_i Z²e²/ ε₀ m_i)   << ωₚₑ  (because m_i >> m_e)\n\nPhysical meaning:\n  EM waves with ω < ωₚ cannot propagate in plasma (reflected/absorbed)\n  → Radio waves reflected by ionosphere (f < fₚ ≈ 1–10 MHz)\n  → Opacity of solar interior to certain frequencies\n  → Plasma mirror for laser pulse compression",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "## Characteristic Scales",
+      "confidence": "candidate",
+      "text": "Quantity                   Formula                          Physical meaning\n────────────────────────────────────────────────────────────────────────────\nDebye length λ_D          √(ε₀k_BT_e/n_ee²)              Shielding scale\nPlasma frequency ωₚ       √(ne²/ε₀m)                     Oscillation frequency\nCyclotron frequency Ω     eB/m  (electrons: Ωₑ; ions: Ωᵢ) Gyration about field\nLarmor radius r_L         v_⊥/Ω = mv_⊥/eB               Gyration radius\nAlfvén speed v_A          B/√(µ₀ρ)                        MHD wave speed\nSound speed c_s           √(γk_BT/m)                      Acoustic wave speed\nThermal speed v_th        √(k_BT/m)                       Typical particle speed\nMean free path λ_mfp      v_th/ν_collision                 Distance between collisions\n\nMagnetization:   r_L << system scale  (plasma magnetized)\nCollisionality:  λ_mfp >> system scale (collisionless limit; λ_mfp << → collisional)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 168,
+      "heading_context": "### Guiding Center Drifts",
+      "confidence": "candidate",
+      "text": "General drift formula:\n  v_drift = (F × B) / (qB²)\n\nE × B drift (most important):\n  F = qE  →  v_E×B = (E × B) / B²\n  SAME for ions and electrons (no q dependence) → no current, just bulk flow\n  Example: radial E in tokamak → toroidal rotation of entire plasma\n\nGradient drift (∇B perpendicular to B):\n  v_∇B = (mv_⊥²/2) (B × ∇B) / (qB³)\n  Opposite sign for ions and electrons → CURRENT (drives instabilities)\n\nCurvature drift (field line curvature):\n  v_κ = (mv_∥²)(R_c × B) / (qB² R_c²)\n  Opposite for ions/electrons → current\n\nPolarization drift (time-varying E):\n  v_pol = (m/qB²) dE_⊥/dt\n  Ions only (m_i/m_e ratio): determines low-frequency plasma dielectric",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "### Flux Freezing (Alfvén's Theorem)",
+      "confidence": "candidate",
+      "text": "∂B/∂t = ∇×(v×B)   →   d(Φ_B)/dt = 0   along fluid element\n\nPhysical consequence: plasma and field move together\n  → B-field topology preserved (no reconnection)\n  → Exception: resistive layers → reconnection → topology change (see 16-PLASMA-DYNAMICS.md)\n\nApplications:\n  Star formation: collapse of gas cloud → B-field compressed → magnetic braking\n  Solar wind: B-field lines spiral outward (Parker spiral) frozen to solar wind\n  MHD pumping in metallurgy: apply B → E×B drift → contactless liquid metal stirring",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "### Dispersion Relations — Signal Processing Bridge",
+      "confidence": "candidate",
+      "text": "WAVEGUIDE CUTOFF ↔ PLASMA CUTOFF:\n\n  Rectangular waveguide TE₁₀:\n    k² = (ω/c)² − (π/a)²\n    Cutoff: ω_c = πc/a → below cutoff, k is imaginary → evanescent, no propagation\n\n  EM wave in plasma (O-mode):\n    k² = (ω/c)² − (ωₚ/c)²\n    Cutoff: ω = ωₚ → below plasma frequency, k imaginary → reflected, not transmitted\n    Ionosphere reflects AM radio (ω < ωₚ,iono ≈ 10 MHz) → long-distance AM propagation\n    FM/TV (ω > ωₚ) passes through → satellite communication, line-of-sight only\n\n  EXACT SAME MATH — only the physical origin of the cutoff frequency differs.\n  Waveguide: geometric constraint (boundary conditions on cavity)\n  Plasma:    collective electron oscillation (inertia of electron fluid)\n\nDISPERSION DIAGRAM (ω vs k plot) = FILTER RESPONSE:\n\n  Passband (k real, wave propagates)  ↔  passband of a filter\n  Stopband (k imaginary, evanescent)  ↔  stopband / attenuation band\n  Resonance (k → ∞ at finite ω)      ↔  resonant frequency (Q factor → ∞)\n  Cutoff (ω_min for propagation)      ↔  high-pass cutoff frequency\n\n  Group velocity: v_g = dω/dk = slope of ω(k) curve\n    → same as in dispersive optical fiber or waveguide\n    → plasma is dispersive: v_g(ω) ≠ c, and v_g × v_φ = c² for EM waves in plasma\n\nLANDAU DAMPING = WAVE-PARTICLE RESONANCE (collisionless damping):\n  Electrons with velocity v ≈ ω/k see the wave as nearly static → absorb energy\n  → collisionless damping without any dissipation mechanism\n  Analog: resonant absorption in a forced oscillator at natural frequency\n  (but here: the \"oscillator\" population is a continuum of particles at all velocities)\n  Mathematically: pole in the complex k-plane → Bromwich contour integral\n  → same contour deformation as used in control theory / Laplace analysis of stability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 324,
+      "heading_context": "### Wave Taxonomy",
+      "confidence": "candidate",
+      "text": "ELECTROMAGNETIC WAVES IN PLASMA:\n  O-mode (ordinary): E ∥ k ⊥ B\n    Dispersion: ω² = ωₚ² + k²c²\n    Cutoff: ω < ωₚ → evanescent (reflected by ionosphere)\n\n  X-mode (extraordinary): E ⊥ B, k ⊥ B\n    Multiple cutoffs and resonances; more complex dispersion\n\nELECTROSTATIC WAVES (k ∥ E, no B perturbation):\n  Electron plasma waves (Langmuir waves):\n    ω² = ωₚₑ² + 3k²v_the²   (Bohm-Gross dispersion)\n    Landau damping: electrons with v ≈ ω/k absorb wave → collisionless damping\n\n  Ion acoustic waves:\n    ω/k ≈ c_s = √(Z k_B T_e/m_i)   (like sound, driven by electron pressure)\n    Undamped if T_e >> T_i\n\nMAGNETOHYDRODYNAMIC WAVES (k ∥ B or k ⊥ B):\n  Alfvén wave: transverse, k ∥ B\n    ω = k v_A = k B/√(µ₀ρ)\n    Non-compressive; field line tension restoring force\n    Observed in: solar corona (heating?), tokamak (TAE modes), magnetosphere\n\n  Fast magnetosonic: compressive, k ⊥ B\n    v_fast = √(v_A² + c_s²)\n\n  Slow magnetosonic: compressive, k ∥ B roughly\n    v_slow < v_A, c_s  (both field and pressure restoring)\n\nWhistler wave: right-hand circularly polarized EM wave, f between Ωᵢ and Ωₑ\n  Dispersion: ω = Ωₑ cos θ (kc/ωₚ)²\n  Audible in HF receivers as descending tone → lightning source",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 363,
+      "heading_context": "## Transport in Magnetized Plasma",
+      "confidence": "candidate",
+      "text": "CROSS-FIELD TRANSPORT (⊥ to B) — classical theory:\n  Diffusion coefficient: D_⊥ = r_L² ν_collision\n  Heat conductivity: χ_⊥ ∝ D_⊥\n\nPARALLEL TRANSPORT (∥ to B):\n  D_∥ = v_th²/ν_collision >> D_⊥ by factor (r_L/λ_mfp)²\n  Highly anisotropic: parallel >> perpendicular\n\nANOMALOUS TRANSPORT (actual tokamak transport):\n  Classical (neoclassical) theory severely underestimates actual transport\n  Observed cross-field diffusion ~ 10–100× classical (Bohm diffusion: D_Bohm ∝ k_BT/eB)\n  Cause: micro-turbulence (drift waves, ITG modes, TEM modes)\n  Controlling turbulent transport → key challenge in fusion research",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

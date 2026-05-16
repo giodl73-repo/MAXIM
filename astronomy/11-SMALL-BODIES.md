@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astronomy:small-bodies
+kind: guide
+module: astronomy
+section: astronomy
+title: Small Bodies
+status: source-custody
+source_custody: partial
+current_path: astronomy/11-SMALL-BODIES.md
+canonical_path: astronomy/11-SMALL-BODIES.md
+backsource_ids: [proof-backfill:astronomy:11-small-bodies, git-history:astronomy:11-small-bodies]
+concepts: [small, bodies]
+root_concepts: [small, bodies]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Small Bodies
 ## Asteroids, Comets, TNOs, Kuiper Belt, Oort Cloud, Impacts, Meteorite Taxonomy
 

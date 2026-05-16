@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astronomy:stellar-physics
+kind: guide
+module: astronomy
+section: astronomy
+title: Stellar Physics
+status: source-custody
+source_custody: partial
+current_path: astronomy/04-STELLAR-PHYSICS.md
+canonical_path: astronomy/04-STELLAR-PHYSICS.md
+backsource_ids: [proof-backfill:astronomy:04-stellar-physics, git-history:astronomy:04-stellar-physics]
+concepts: [stellar, physics]
+root_concepts: [stellar, physics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stellar Physics
 ## Structure, Evolution, Nucleosynthesis, and Compact Objects
 

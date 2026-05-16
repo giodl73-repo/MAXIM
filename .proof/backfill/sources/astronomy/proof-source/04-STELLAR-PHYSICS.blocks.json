@@ -1,0 +1,369 @@
+{
+  "schema_version": "1",
+  "source_markdown": "astronomy\\04-STELLAR-PHYSICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## 1. The Full Picture — Stars as Engines",
+      "confidence": "candidate",
+      "text": "  THE STAR LIFECYCLE MAP\n\n  Molecular cloud\n       │\n       ▼  gravitational collapse (Jeans instability)\n  Protostar → Pre-main sequence (Hayashi track, then Henyey track)\n       │\n       ▼  core T reaches ~10 MK → hydrogen ignites\n  ZERO-AGE MAIN SEQUENCE (ZAMS)\n       │\n       ├─────────────────────────────────────────────────────────────────────┐\n       │  M < ~8 M☉ (low/intermediate mass)                                 │ M > ~8 M☉ (massive)\n       ▼                                                                     ▼\n  Core H exhaustion                                              Much faster — core H out\n       ▼                                                                     ▼\n  Subgiant → Red Giant Branch (RGB)                          Red Supergiant / LBV / Wolf-Rayet\n  (H shell burning, He core contracts)                           (He, C, Ne, O, Si shell burning)\n       ▼                                                                     ▼\n  Helium Flash (M < 2M☉) or smooth He ignition              Fe core accumulates → IRON WALL\n       ▼                                                          (no exothermic fusion past Fe)\n  Horizontal Branch (He core burning)                                        ▼\n       ▼                                                         Core collapse (0.1 s implosion)\n  Asymptotic Giant Branch (AGB)                                              ▼\n  (He + H shell, thermal pulses)                              CORE BOUNCE → supernova shock\n       ▼                                                                     ▼\n  Mass loss → planetary nebula                               Type II/Ib/Ic supernova\n       ▼                                                          ▼               ▼\n  WHITE DWARF                                              NEUTRON STAR        BLACK HOLE\n  (< 8 M☉ remnant, ~0.6 M☉)                               (M_rem < 3M☉)     (M_rem > 3M☉)\n                                                          Pulsar, MSP, magnetar",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "## 2. Stellar Structure — The Four Equations",
+      "confidence": "candidate",
+      "text": "  HYDROSTATIC EQUILIBRIUM:\n  ┌───────────────────────────────────────────────────────┐\n  │  dP/dr = −G m(r) ρ(r) / r²                            │\n  └───────────────────────────────────────────────────────┘\n  Inward gravity of shell mass balanced by outward pressure gradient.\n  m(r) = total mass interior to radius r.\n\n  MASS CONTINUITY:\n  ┌───────────────────────────────────────────────────────┐\n  │  dm/dr = 4π r² ρ(r)                                   │\n  └───────────────────────────────────────────────────────┘\n  Trivial: mass in thin shell dr is 4πr²ρ dr.\n\n  ENERGY TRANSPORT:\n  ┌───────────────────────────────────────────────────────────────────────┐\n  │  dT/dr = − (3 κ ρ L(r)) / (64π r² σ_SB T³)   [radiative]              │\n  │  dT/dr = − (1 − 1/γ) T/P · dP/dr                [convective/adiabatic]│\n  └───────────────────────────────────────────────────────────────────────┘\n  κ = opacity [cm²/g]; σ_SB = Stefan-Boltzmann constant.\n  The steeper gradient applies — if radiative gradient exceeds adiabatic,\n  convection sets in (Schwarzschild criterion): ∇_rad > ∇_ad\n\n  ENERGY GENERATION:\n  ┌───────────────────────────────────────────────────────┐\n  │  dL/dr = 4π r² ρ ε(r, T, ρ, composition)              │\n  └───────────────────────────────────────────────────────┘\n  ε = nuclear energy generation rate [erg/g/s], strong T-dependence.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 98,
+      "heading_context": "## 2. Stellar Structure — The Four Equations",
+      "confidence": "candidate",
+      "text": "### 2.1 The Virial Theorem — Why Gravity Has Negative Heat Capacity",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 100,
+      "heading_context": "### 2.1 The Virial Theorem — Why Gravity Has Negative Heat Capacity",
+      "confidence": "candidate",
+      "text": "  For a self-gravitating system in equilibrium:\n  2K + U = 0     K = total kinetic (thermal) energy, U = gravitational PE\n\n  Total energy: E = K + U = U/2 = −K\n\n  COUNTERINTUITIVE RESULT:\n  When a star contracts (loses energy, E decreases):\n    → U decreases (more negative), but K INCREASES\n    → the star gets HOTTER as it radiates energy away\n\n  Kelvin-Helmholtz mechanism: gravitational contraction → temperature rise\n\n  This is why pre-main-sequence stars heat up, why cores contract\n  after fuel exhaustion, and why nuclear burning eventually ignites\n  in the contracted core.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 118,
+      "heading_context": "### 2.1 The Virial Theorem — Why Gravity Has Negative Heat Capacity",
+      "confidence": "candidate",
+      "text": "### 2.2 The Three Timescales",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "### 2.2 The Three Timescales",
+      "confidence": "candidate",
+      "text": "  DYNAMICAL TIMESCALE:  τ_dyn = 1/√(Gρ̄) ≈ (R³/GM)^(1/2)\n    Sun: ~27 minutes\n    Giant: hours to days\n    White dwarf: ~10 seconds\n    If pressure support removed → collapse in τ_dyn\n\n  KELVIN-HELMHOLTZ TIMESCALE:  τ_KH = GM²/(RL)\n    Sun: ~15 Myr\n    (Before nuclear was known, Kelvin proposed this as solar age — wrong)\n    Controls pre-MS contraction rate; also sets mass-loss response time\n\n  NUCLEAR TIMESCALE:  τ_nuc = ε M / L  (fraction of mass available × efficiency)\n    Sun: ~10 Gyr for H burning (10% of mass available, 0.7% mass→energy efficiency)\n    20 M☉: ~8 Myr for H burning\n    ∝ M / L ∝ M^(−2.5)  →  massive stars live much shorter\n\n  HIERARCHY:  τ_dyn ≪ τ_KH ≪ τ_nuc\n  → structure equilibrates faster than composition changes: quasi-static evolution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 145,
+      "heading_context": "## 3. The Hertzsprung-Russell Diagram",
+      "confidence": "candidate",
+      "text": "### 3.1 Axes and Regions",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "### 3.1 Axes and Regions",
+      "confidence": "candidate",
+      "text": "  HERTZSPRUNG-RUSSELL DIAGRAM\n\n  log L/L☉\n    6 │         ●●  Supergiants (I)\n      │       ●●●\n    4 │          ●● Giants (III)\n      │ ●●●●●●●●●●●●●●●\n    2 │  ●●●●●●●●●●●●   ← Main Sequence\n      │  ●●●●●●●        (ZAMS band)\n    0 │  ●●●●\n      │ ● Sun (G2V)  ●● Subgiants (IV)\n   −2 │              ●●●●●● White Dwarfs\n      │              ●●●●●\n   −4 │──────────────────────────────────→ log T_eff (reversed)\n      50000  20000   10000   6000   3000  K\n        O      B       A     F G K       M\n\n  KEY REGIONS:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │ Main Sequence:  hydrogen core burning; τ_nuc ∝ M^(−2.5)              │\n  │ Red Giants:     H shell burning; greatly expanded envelope           │\n  │ Horizontal Branch: He core burning (post-RGB helium flash)           │\n  │ AGB:            He+H shell burning; thermal pulses; mass loss        │\n  │ White Dwarfs:   cooling sequence; no nuclear burning; e⁻ degeneracy  │\n  │ Instability Strip: Cepheid, RR Lyrae, Delta Scuti variables          │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 176,
+      "heading_context": "### 3.1 Axes and Regions",
+      "confidence": "candidate",
+      "text": "### 3.2 Spectral Classification",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 178,
+      "heading_context": "### 3.2 Spectral Classification",
+      "confidence": "candidate",
+      "text": "  O B A F G K M  (L T Y for cool dwarfs/brown dwarfs, added later)\n  \"Oh Be A Fine Guy/Girl Kiss Me\"\n\n  Class   T_eff (K)   Color       Features              Examples\n  ─────────────────────────────────────────────────────────────────────\n  O       > 30,000    Blue-white  He II absorption       ζ Pup, Mintaka\n  B       10–30,000   Blue-white  He I, H Balmer          Rigel, Spica\n  A        7–10,000   White       Strong Balmer           Sirius, Vega\n  F        6–7,000    Yellow-wht  Ca II, weaker Balmer    Procyon\n  G        5–6,000    Yellow      Ca II K&H, Fe lines     Sun, Capella\n  K        3.5–5,000  Orange      Neutral metals          Arcturus, Aldebaran\n  M        < 3,500    Red         TiO molecular bands     Betelgeuse, Proxima\n  ─────────────────────────────────────────────────────────────────────\n  Luminosity classes (Roman numerals):\n  Ia/Ib = supergiants, II = bright giants, III = giants,\n  IV = subgiants, V = main sequence (dwarfs)\n  Sun = G2V",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 198,
+      "heading_context": "### 3.2 Spectral Classification",
+      "confidence": "candidate",
+      "text": "### 3.3 Mass-Luminosity Relation and Stellar Lifetimes",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "### 3.3 Mass-Luminosity Relation and Stellar Lifetimes",
+      "confidence": "candidate",
+      "text": "  MAIN SEQUENCE: L ∝ M^n\n\n  n ≈ 4    for solar-type (0.3–30 M☉)  — empirical power law\n  n ≈ 3.5  for low-mass stars\n  n ≈ 1    for M > ~60 M☉ (Eddington luminosity limit)\n\n  L_Edd = 4πGMc/κ_es ≈ 1.26 × 10³⁸ (M/M☉) erg/s\n  (electron scattering opacity limits radiation pressure to this value)\n\n  STELLAR LIFETIMES: τ ∝ M/L ∝ M^(1−n) ≈ M^(−3)\n\n  Star        Mass      τ_MS\n  ─────────────────────────────────────────\n  O5 V        40 M☉     ~3 Myr\n  B0 V        15 M☉     ~12 Myr\n  A0 V         3 M☉     ~400 Myr\n  G2 V (Sun)   1 M☉     ~10 Gyr\n  K5 V        0.7 M☉    ~30 Gyr\n  M5 V        0.2 M☉    > 200 Gyr (older than universe)\n  ─────────────────────────────────────────\n\n  CLUSTER DATING — the turnoff point:\n  A star cluster formed at the same time; plot all stars on HR diagram.\n  The \"main sequence turnoff\" — where stars are just departing for the giant\n  branch — corresponds to stars whose τ_MS ≈ cluster age.\n  Fitting isochrones (theoretical evolutionary tracks) gives cluster age.\n  Oldest globular clusters: ~13 Gyr (constrains minimum age of universe)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 234,
+      "heading_context": "## 4. Nuclear Burning — Fuel Sequence",
+      "confidence": "candidate",
+      "text": "### 4.1 The Gamow Peak — Why Stars Can Fuse at All",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "### 4.1 The Gamow Peak — Why Stars Can Fuse at All",
+      "confidence": "candidate",
+      "text": "  GAMOW PEAK (qualitative):\n\n  Probability(E) ∝ e^(−E/kT)     ← Maxwell-Boltzmann (high E suppressed)\n              ×  e^(−E_G/E)^(1/2) ← Gamow tunneling (low E suppressed)\n                  E_G = Gamow energy ∝ Z₁²Z₂²\n\n  Product has a peak at E_Gamow ≈ 1.22 (Z₁Z₂/A_r)^(2/3) T₆^(2/3)  keV\n\n  Sun core: T ≈ 15.7 MK → kT ≈ 1.4 keV, Gamow peak for pp at ~6 keV\n  Classical barrier for pp: ~550 keV → tunneling through factor 10^(−80)\n  → quantum tunneling is the only reason stars burn slowly (not explosively)\n\n  T-dependence of reaction rates (steep!):\n  pp chain:   ε ∝ T⁴       (at solar T)\n  CNO cycle:  ε ∝ T^17     (at solar T)\n  Triple-α:   ε ∝ T^40     (at He burning T)\n  → Small T change → huge rate change → stellar thermostat",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 258,
+      "heading_context": "### 4.1 The Gamow Peak — Why Stars Can Fuse at All",
+      "confidence": "candidate",
+      "text": "### 4.2 The Proton-Proton Chain (pp chain)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "### 4.2 The Proton-Proton Chain (pp chain)",
+      "confidence": "candidate",
+      "text": "  THREE BRANCHES (all start with):\n  p + p → D + e⁺ + ν_e          (slow! weak force, τ ~ 5 Gyr at solar core density)\n  p + D → ³He + γ               (fast)\n\n  PP I  (86% in Sun):\n  ³He + ³He → ⁴He + 2p\n\n  PP II (14% in Sun):\n  ³He + ⁴He → ⁷Be + γ\n  ⁷Be + e⁻  → ⁷Li + ν_e        ← solar neutrino problem (these ν detected)\n  ⁷Li + p   → 2⁴He\n\n  PP III (0.02% in Sun, but high-energy neutrinos):\n  ⁷Be + p   → ⁸B + γ\n  ⁸B        → ⁸Be + e⁺ + ν_e   ← SNO detected these, solved neutrino problem\n  ⁸Be       → 2⁴He\n\n  NET (all branches): 4p → ⁴He + 2e⁺ + 2ν + energy\n  Q = 26.73 MeV per ⁴He formed (minus neutrino losses)\n  Sun fuses ~600 million tons of H per second",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 285,
+      "heading_context": "### 4.2 The Proton-Proton Chain (pp chain)",
+      "confidence": "candidate",
+      "text": "### 4.3 The CNO Cycle",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "ascii_table_candidate",
+      "line": 289,
+      "heading_context": "### 4.3 The CNO Cycle",
+      "confidence": "candidate",
+      "text": "  CNO BI-CYCLE (main branch):\n\n  ¹²C + p → ¹³N + γ        (¹³N β⁺ decays quickly)\n  ¹³C + p → ¹⁴N + γ        (bottleneck: ¹⁴N+p slowest step)\n  ¹⁴N + p → ¹⁵O + γ        ← rate-limiting step (entire cycle speed)\n  ¹⁵N + p → ¹²C + ⁴He      (catalyst recovered — but 0.04% goes ¹⁵N+p→¹⁶O+γ)\n\n  Net: 4p → ⁴He + 2e⁺ + 2ν + 26.73 MeV   (same as pp, CNO just catalyzes)\n\n  KEY: CNO converts ¹²C to ¹⁴N (¹⁴N+p is slowest step)\n  → CNO-processed stellar material has ¹²C/¹⁴N ratio far below solar\n  → Observed in spectra of evolved stars (CN anomalies, mixing signatures)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 304,
+      "heading_context": "### 4.3 The CNO Cycle",
+      "confidence": "candidate",
+      "text": "### 4.4 Helium Burning — The Triple-Alpha Process",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "ascii_table_candidate",
+      "line": 308,
+      "heading_context": "### 4.4 Helium Burning — The Triple-Alpha Process",
+      "confidence": "candidate",
+      "text": "  THE HOYLE RESONANCE PROBLEM:\n\n  ⁴He + ⁴He → ⁸Be + γ        ⁸Be is UNSTABLE (τ ~ 10⁻¹⁶ s)\n  ⁸Be + ⁴He → ¹²C + γ        requires resonance to work at stellar T\n\n  Without a resonance at ~7.65 MeV in ¹²C, there would be essentially\n  no carbon in the universe.\n\n  Fred Hoyle (1953): predicted this resonance MUST exist from the existence\n  of carbon-based life. Fowler and team found it at exactly 7.6549 MeV.\n  First use of anthropic reasoning to make a successful prediction in physics.\n\n  NET: 3⁴He → ¹²C + 7.27 MeV\n  Plus: ¹²C + ⁴He → ¹⁶O + γ   (competes with triple-α, sets C/O ratio)\n  The C/O ratio from He burning (~0.5-1) has profound implications for\n  subsequent evolution and for the existence of rocky planets.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "chart_like",
+      "line": 327,
+      "heading_context": "### 4.4 Helium Burning — The Triple-Alpha Process",
+      "confidence": "candidate",
+      "text": "### 4.5 Advanced Burning Stages (Massive Stars Only)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 331,
+      "heading_context": "### 4.5 Advanced Burning Stages (Massive Stars Only)",
+      "confidence": "candidate",
+      "text": "  BURNING STAGES IN A 20 M☉ STAR\n\n  Stage        Fuel   Products      T_core     τ_stage\n  ──────────────────────────────────────────────────────────────\n  H burning    H      He            15 MK      ~8 Myr\n  He burning   He     C, O          200 MK     ~0.8 Myr\n  C burning    C      Ne, Mg, Na    700 MK     ~1000 yr\n  Ne burning   Ne     O, Mg         1.5 GK     ~1 yr\n  O burning    O      Si, S, Ar     2 GK       ~6 months\n  Si burning   Si     Fe-peak (Ni)  5 GK       ~1 day (!)\n  ──────────────────────────────────────────────────────────────\n  Si burning = nuclear statistical equilibrium (NSE):\n  At 5 GK, photons have enough energy to photodisintegrate nuclei;\n  reactions go both ways; equilibrium favors the deepest nuclear binding\n  energy: the iron-peak (⁵⁶Fe, ⁵⁶Ni, ⁵⁸Ni, ⁵⁴Cr...)\n\n  THE IRON WALL:\n  ⁵⁶Fe has the highest binding energy per nucleon (~8.8 MeV)\n  Fusing beyond Fe is ENDOTHERMIC — energy cost, not yield\n  → no radiation pressure support from Fe fusion\n  → core collapses when Fe mass > Chandrasekhar limit (~1.4 M☉)\n\n  ONION SHELL STRUCTURE just before collapse:\n         ┌───────────────┐\n         │    H envelope │\n         │    He shell   │\n         │   C/O shell   │\n         │   Ne/Mg shell │\n         │   O/Si shell  │\n         │   Si/S shell  │\n         │   Fe core     │\n         └───────────────┘\n  Fe core: ~1.4 M☉, Earth-sized, about to collapse.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 373,
+      "heading_context": "## 5. Nucleosynthesis — Origin of the Elements",
+      "confidence": "candidate",
+      "text": "  NUCLEOSYNTHESIS CHANNELS\n\n  Process        Location              Products          Key nuclei\n  ──────────────────────────────────────────────────────────────────────────────\n  Big Bang (BBN) First 3 minutes       H, ⁴He, D, ³He, ⁷Li  H (~75%), He (~25%)\n  pp chain/CNO   All main-seq stars    ⁴He from H           He\n  Triple-α       He-burning (AGB, MS)  ¹²C, ¹⁶O             C, O\n  α-capture      Core/shell burning    Ne, Mg, Si, S, Ar, Ca, Ti, Cr, Fe\n  s-process      AGB stars (low mass)  Sr→Ba→Pb (slow)      roughly Fe→Bi\n  r-process      NS mergers + CC SN    Au, Pt, U, Th (fast)  roughly Fe→U\n  p-process      SN shockwave          Proton-rich isotopes  rare p-nuclei\n  Spallation     Cosmic ray + ISM      Li, Be, B            fragmentation\n  ──────────────────────────────────────────────────────────────────────────────\n\n  s-PROCESS (slow neutron capture):\n  Neutron added slower than β-decay: n + ¹⁴N → ¹⁵N → ¹⁵O (etc.)\n  AGB stars: neutrons from ¹³C(α,n)¹⁶O and ²²Ne(α,n)²⁵Mg reactions\n  Builds a path along the valley of stability from Fe to Bi (~209)\n  Cannot make anything heavier than ²⁰⁹Bi (alpha-unstable beyond)\n\n  r-PROCESS (rapid neutron capture):\n  Neutron flux so high (~10²² n/cm²/s) that nuclei capture before β-decay\n  → far neutron-rich side of stability valley → highly exotic nuclei\n  → β-decay back toward stability produces heavy r-process nuclei\n  GW170817 (2017): kilonova spectrum showed Au, Pt, Eu — r-process confirmed\n  in neutron star merger. ~10 Earth masses of r-process material produced.\n\n  WHERE DID YOUR ELEMENTS COME FROM:\n  H in your body:    Big Bang\n  He in birthday balloons: Big Bang + stars\n  O, C, N in you:    AGB stars + CC supernovae (previous stellar generations)\n  Fe in your blood:  Type Ia supernova (WD+WD or WD+accretion → Chandrasekhar)\n  Gold in jewelry:   Neutron star merger r-process (~all Au in universe)\n  Ca in your bones:  CC supernovae (oxygen burning shell)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "chart_like",
+      "line": 414,
+      "heading_context": "## 6. Compact Objects",
+      "confidence": "candidate",
+      "text": "### 6.1 White Dwarfs — Electron Degeneracy",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "diagram_like",
+      "line": 416,
+      "heading_context": "### 6.1 White Dwarfs — Electron Degeneracy",
+      "confidence": "candidate",
+      "text": "  ELECTRON DEGENERACY PRESSURE:\n  From Pauli exclusion + uncertainty principle (covered in physics/09-ZERO-POINT-ENERGY.md):\n  Fermions cannot share quantum states → momentum spread even at T=0\n\n  P_deg ∝ (ρ/μ_e)^(5/3)    [non-relativistic; μ_e = mean molecular weight per electron ≈ 2]\n  P_deg ∝ (ρ/μ_e)^(4/3)    [ultra-relativistic; softer → less stable]\n\n  KEY: degeneracy pressure is INDEPENDENT OF TEMPERATURE\n  → WDs don't regulate temperature by burning — they just cool forever\n\n  CHANDRASEKHAR LIMIT:\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  M_Ch = 5.83 / μ_e² × M☉ ≈ 1.44 M☉    (μ_e ≈ 2 for He/C/O)              │\n  └─────────────────────────────────────────────────────────────────────────┘\n  At M > M_Ch: electrons become ultra-relativistic → P ∝ ρ^(4/3) → pressure\n  cannot balance gravity → no equilibrium → collapse or Type Ia SN\n\n  Derivation sketch:\n  Hydrostatic: dP/dr ~ −GM²/R⁴ (from virial)\n  Degeneracy: P ~ ℏ²/m_e × (ρ/m_H)^(5/3) ~ ℏ²/m_e × (M/R³)^(5/3)\n  Setting dP ~ gravity → R ∝ M^(−1/3)\n  → as M increases, R decreases (WDs get smaller when more massive)\n  → R → 0 as M → M_Ch: the Chandrasekhar limit\n\n  PROPERTIES:\n  Typical mass:  0.6 M☉ (most WDs end here from ~2-8 M☉ progenitors)\n  Typical radius: ~R_Earth (~7000 km)\n  Density:       ~10⁶ g/cm³ (teaspoon ~ 5 tons)\n  Composition:   C/O core (C/O WD), He envelope, H atmosphere (DA type)\n  Cooling time:  ~10 Gyr to cool below visibility → \"cold black dwarfs\"\n                (none exist yet — universe too young)\n\n  TYPE Ia SUPERNOVA:\n  WD in binary system accretes from companion → approaches M_Ch\n  → thermonuclear runaway (C ignition at ~1 GK, degenerate → no regulation)\n  → entire star consumed in ~1 second\n  → nearly uniform peak luminosity: L_peak ~ 10⁴³ erg/s (10¹⁰ L☉)\n  → standard candle for cosmology\n  → powered by: ⁵⁶Ni (→⁵⁶Co→⁵⁶Fe) decay, τ ~ 8.8 days → light curve shape\n  Perlmutter + Schmidt + Riess (1998): Type Ia SNe dimmer than expected\n  → universe expansion is ACCELERATING → dark energy (Nobel 2011)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "chart_like",
+      "line": 460,
+      "heading_context": "### 6.1 White Dwarfs — Electron Degeneracy",
+      "confidence": "candidate",
+      "text": "### 6.2 Neutron Stars — Nuclear Density",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "diagram_like",
+      "line": 462,
+      "heading_context": "### 6.2 Neutron Stars — Nuclear Density",
+      "confidence": "candidate",
+      "text": "  FORMATION: Fe core collapse when M_Fe > M_Ch\n  ─────────────────────────────────────────────────────────────────────────\n  1. Photodisintegration: γ + ⁵⁶Fe → 13⁴He + 4n   (endothermic, removes pressure)\n  2. Neutronization:      p + e⁻ → n + ν_e          (removes electrons + emits ν)\n  3. Core collapse:       ~0.1 s implosion to nuclear density\n  4. Core bounce:         nuclear repulsion at ρ ~ 3×10¹⁴ g/cm³ → outward shock\n  5. Neutrino heating:    99% of SN energy in ν's; ~1% heats shock → explosion\n\n  Neutrino luminosity during collapse: ~3×10⁵³ erg (10× Sun's 10-Gyr output)\n  in ~10 seconds. SN 1987A: 24 neutrinos detected at Earth (17 kpc away).\n\n  PROPERTIES:\n  Mass:     1.4–2.5 M☉ (typical ~1.4 M☉; max uncertain, EOS-dependent)\n  Radius:   ~10–12 km\n  Density:  ~3×10¹⁴ g/cm³ (nuclear density; teaspoon ~ mass of Everest)\n  B field:  10⁸–10¹² T (born magnetized; old pulsars lower B)\n  Spin:     ~ms (milliseconds) to ~seconds at birth (young: 10-100 ms)\n\n  TOV EQUATION (GR hydrostatic equilibrium):\n  ┌────────────────────────────────────────────────────────────────────────┐\n  │  dP/dr = −(ε + P)(m + 4πr³P/c²)  ×  G / (r²c² (1 − 2Gm/rc²))           │\n  │                                                                        │\n  │  Newtonian: dP/dr = −Gm ρ/r²                                           │\n  │  GR additions: (ε+P) instead of ρ  [energy density + pressure]         │\n  │               (m + 4πr³P/c²)      [effective gravitating mass + P]     │\n  │               (1 − 2Gm/rc²)       [curved spacetime near center]       │\n  └────────────────────────────────────────────────────────────────────────┘\n  Maximum NS mass from TOV: ~2–3 M☉ (uncertain because nuclear EOS unknown)\n  Observed: PSR J0952-0607 at 2.35 M☉ (2022) — near the theoretical ceiling\n\n  PULSARS:\n  Rotating NS + misaligned magnetic dipole → lighthouse emission\n  ─────────────────────────────────────────────────────────────────────────\n  Spin-down: E_rot lost → EM radiation; Ṗ/P gives B field estimate\n  B ~ 3.2×10¹⁹ G √(P · Ṗ)    [Gaussian units]\n\n  P–Ṗ DIAGRAM (key diagnostic):\n  log Ṗ                        ●  ← magnetars (ultra-high B, soft gamma repeaters)\n     │           ●●            ●● ← young pulsars (Crab, Vela)\n     │      ●●●●●●●\n     │    ●●●●●●●●\n     │  ●●●●●● ← pulsar \"graveyard\" (too slow/low B to emit)\n     │\n     └───────────────────────────── log P\n          ●●●●  ← ms pulsars (recycled by accretion, B weakened)\n\n  Millisecond Pulsars (MSP): spun up by accreting matter from binary companion\n  → fastest: PSR J1748-2446ad at 716 Hz (1.4 ms period)\n  → timing precision rivals atomic clocks\n  → PTA (Pulsar Timing Array): using MSPs to detect gravitational waves (NANOGrav)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "chart_like",
+      "line": 515,
+      "heading_context": "### 6.2 Neutron Stars — Nuclear Density",
+      "confidence": "candidate",
+      "text": "### 6.3 Black Holes — Compact Remnants Beyond Neutrons",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "diagram_like",
+      "line": 517,
+      "heading_context": "### 6.3 Black Holes — Compact Remnants Beyond Neutrons",
+      "confidence": "candidate",
+      "text": "  FORMATION: neutron star cannot form if M_rem > ~3 M☉\n  (or \"failed SN\" — collapse without explosion for very massive progenitors)\n\n  SCHWARZSCHILD BLACK HOLE (non-rotating):\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  Schwarzschild radius:  r_s = 2GM/c²                               │\n  │  Sun:     r_s = 3.0 km                                             │\n  │  Earth:   r_s = 8.9 mm                                             │\n  │  10 M☉:   r_s = 30 km                                              │\n  └────────────────────────────────────────────────────────────────────┘\n\n  Event horizon: surface of no return; not a physical surface, a causal boundary\n  Singularity: r = 0, classical GR breaks down; quantum gravity required\n\n  KERR BLACK HOLE (rotating — astrophysically relevant):\n  Most astrophysical BHs rotate. Kerr metric adds spin parameter a = J/(Mc)\n  Ergosphere: region outside horizon where spacetime rotation drags everything\n  ISCO (Innermost Stable Circular Orbit):\n    Schwarzschild: r_ISCO = 3 r_s = 6GM/c²\n    Maximally spinning: r_ISCO → 0.5 r_s (retrograde) or r_s/2 (prograde)\n  → spin determines accretion efficiency: up to ~42% for max spin vs 6% Schwarzschild\n\n  HAWKING RADIATION:\n  T_H = ℏ c³ / (8π G M k_B) ≈ 6×10⁻⁸ (M☉/M) K\n\n  10 M☉ BH:     T_H ~ 6×10⁻⁹ K        (utterly negligible)\n  M = 10¹⁵ g:   T_H ~ 100 MeV         (primordial BH, evaporating now)\n  Stellar BHs never evaporate in any cosmological timescale (CMB 2.7K > T_H)\n\n  STELLAR BH CLASSES:\n  ─────────────────────────────────────────────────────────────────────────\n  Stellar mass BH:   5–100 M☉         CC SN or direct collapse; BH+BH mergers\n  Intermediate:      100–10⁵ M☉       uncertain origin; in some globular clusters\n  Supermassive (SMBH): 10⁶–10¹⁰ M☉   galactic centers; accrete as AGN/quasars\n  ─────────────────────────────────────────────────────────────────────────\n  Sgr A* (Milky Way center): 4.15×10⁶ M☉ (orbit of S2 star; Nobel 2020 Genzel/Ghez)\n  M87* (EHT imaged 2019): 6.5×10⁹ M☉, 55 Mly away",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "diagram_like",
+      "line": 561,
+      "heading_context": "## 7. Supernovae — Taxonomy",
+      "confidence": "candidate",
+      "text": "  TYPE      SPECTRUM          CAUSE                        Key Product\n  ──────────────────────────────────────────────────────────────────────────\n  Ia        no H, no He,      WD → Chandrasekhar limit     ⁵⁶Ni (→Fe), no remnant\n            Si II at 6150Å    thermonuclear runaway         (standard candle)\n  Ib        no H, He present  Massive star, H-stripped      NS/BH remnant\n  Ic        no H, no He       Massive star, H+He stripped   NS/BH remnant (WR progenitor)\n  II        H present         Core collapse, massive star   NS/BH remnant\n   IIP      plateau in LC     Extended H envelope           NS\n   IIb      H then He         Partial H stripping           NS\n  ──────────────────────────────────────────────────────────────────────────\n\n  ENERGETICS (core collapse):\n  Total energy released:  ~3×10⁵³ erg  (99% in neutrinos)\n  Optical energy:         ~10⁵¹ erg    (\"one Bethe\" = 1 foe)\n  Kinetic energy of ejecta: ~10⁵¹ erg\n  Peak optical luminosity: ~10¹⁰ L☉ for weeks → visible in daytime historically\n  (SN 1006, SN 1054/Crab, Tycho 1572, Kepler 1604, SN 1987A)\n\n  SN 1987A: only naked-eye SN since 1604; ~170,000 ly in LMC\n  23 neutrinos detected (Kamiokande, IMB, Baksan) — confirmed core-collapse theory\n  Central compact object still unconfirmed (dust-obscured; possibly NS)\n\n  RATE:\n  Milky Way: ~2 core-collapse SN per century (most dust-obscured)\n  Type Ia: ~0.3 per century per Milky-Way-sized galaxy\n  Closest Type Ia risk: no WD near Chandrasekhar limit within threat distance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "diagram_like",
+      "line": 594,
+      "heading_context": "## 8. Stellar Populations",
+      "confidence": "candidate",
+      "text": "  STELLAR POPULATIONS: metallicity + age + location\n\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │          Pop I          Pop II          Pop III                         │\n  ├─────────────────────────────────────────────────────────────────────────┤\n  │ Metallicity  High (Z ~ Z☉) Low (Z < 0.01 Z☉) Zero (Z = 0)            │\n  │ Age          Young (<1-2 Gyr) Old (>10 Gyr)   First stars (~200 Myr)  │\n  │ Location     Disk, spiral arms Halo, bulge, GC Unknown — undetected    │\n  │ Examples     Sun, Pleiades    Globular cluster  Predicted, not observed │\n  │                               stars, metal-poor                        │\n  │ Origin       Multiple SN      Early galaxy      Primordial H+He only   │\n  │              enrichment       formation         (no metals to form dust)│\n  ├─────────────────────────────────────────────────────────────────────────┤\n  │ \"Metallicity\" in astronomy = everything heavier than He                 │\n  │ Z☉ ≈ 0.0142 (1.42% of solar mass in elements heavier than He)           │\n  └─────────────────────────────────────────────────────────────────────────┘\n\n  POP III STARS: theoretical first stars (z ~ 20-30, ~200 Myr after BB)\n  No metals → no dust cooling → very high Jeans mass → massive (100-1000 M☉)\n  → die as direct-collapse BHs or pair-instability SN\n  → seed early ISM with metals for Pop II formation\n  → JWST searching for signatures via extreme UV emission lines",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "diagram_like",
+      "line": 623,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "  ┌────────────────────────────────────────────────────────────────────────────┐\n  │ Question                               │ Answer                            │\n  ├────────────────────────────────────────┼───────────────────────────────────┤\n  │ What supports a star against collapse? │ Main seq: thermal (gas+radiation) │\n  │                                        │ WD: e⁻ degeneracy                │\n  │                                        │ NS: neutron deg + nuclear repulse │\n  │                                        │ BH: nothing → collapsed           │\n  ├────────────────────────────────────────┼───────────────────────────────────┤\n  │ What kills a WD?                       │ Accumulate > M_Ch (~1.44 M☉)      │\n  │                                        │ → Type Ia SN                      │\n  ├────────────────────────────────────────┼───────────────────────────────────┤\n  │ Why does a star heat up when it        │ Virial theorem: negative heat      │\n  │ contracts (loses energy)?              │ capacity of gravity                │\n  ├────────────────────────────────────────┼───────────────────────────────────┤\n  │ What ends the main sequence?           │ Core H exhaustion; core contracts;│\n  │                                        │ H shell ignites; star expands     │\n  ├────────────────────────────────────────┼───────────────────────────────────┤\n  │ Why does He burning have triple-alpha? │ ⁸Be is unstable; needs resonance  │\n  │ Why is the Hoyle state remarkable?     │ Predicted from existence of C life │\n  ├────────────────────────────────────────┼───────────────────────────────────┤\n  │ Where does gold come from?             │ r-process in neutron star mergers │\n  │ Where does Fe come from?               │ Type Ia SN (⁵⁶Ni→⁵⁶Co→⁵⁶Fe)       │\n  │ Where does C come from?                │ Triple-α in He-burning stars      │\n  ├────────────────────────────────────────┼───────────────────────────────────┤\n  │ What is the turnoff point?             │ Stars just leaving main sequence;  │\n  │                                        │ τ_MS = cluster age → dating method │\n  ├────────────────────────────────────────┼───────────────────────────────────┤\n  │ How does Type Ia constrain cosmology?  │ Standard candle (uniform L_peak); │\n  │                                        │ used to discover dark energy 1998 │\n  ├────────────────────────────────────────┼───────────────────────────────────┤\n  │ Why is Fe the nuclear endpoint?        │ Highest binding energy per nucleon │\n  │                                        │ (~8.8 MeV); fusion past it costs   │\n  │                                        │ energy → no pressure support       │\n  ├────────────────────────────────────────┼───────────────────────────────────┤\n  │ Which nuclear chain dominates in Sun?  │ pp chain (~99%); CNO ~1%          │\n  │ Which dominates in more massive stars? │ CNO (ε_CNO ∝ T^17 >> pp at T>18MK)│\n  └────────────────────────────────────────┴───────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "ascii_table_candidate",
+      "line": 671,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "Outer layers: neutron-rich nuclei in a neutron drip lattice. Inner core: free neutrons + protons + electrons. Possibly at highest densities: hyperons, deconfined quark matter (QCD). The equation of state (EOS) of dense matter is an open problem — that's why the maximum NS mass is uncertain, and why NS merger observations (GW170817) are so valuable.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

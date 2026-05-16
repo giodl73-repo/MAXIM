@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:natural-sciences:biomolecules
+kind: guide
+module: natural-sciences
+section: natural-sciences
+title: 06-BIOMOLECULES - Biological Molecules
+status: source-custody
+source_custody: partial
+current_path: natural-sciences/06-BIOMOLECULES.md
+canonical_path: natural-sciences/06-BIOMOLECULES.md
+backsource_ids: [proof-backfill:natural-sciences:06-biomolecules, git-history:natural-sciences:06-biomolecules]
+concepts: [biomolecules]
+root_concepts: [biomolecules]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 06-BIOMOLECULES — Biological Molecules
 
 > Amino acids, proteins, nucleic acids, lipids, carbohydrates.

@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "natural-sciences\\08-METABOLISM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "FUEL INPUTS\n  Glucose ──────────────────────────────────────────┐\n  Fatty acids ─────────────────────────────────┐    │\n  Amino acids ────────────────────────────┐    │    │\n  Glycerol ───────────────────────────┐   │    │    │\n                                      │   │    │    │\n                                      ▼   ▼    ▼    ▼\n                              GLYCOLYSIS (cytoplasm)\n                              Glucose → 2 Pyruvate\n                              Net: 2 ATP, 2 NADH\n\n                                          ▼\n                              PYRUVATE DEHYDROGENASE (matrix)\n                              2 Pyruvate → 2 Acetyl-CoA\n                              Yield: 2 NADH, 2 CO₂\n\n                 Fatty acids (β-oxidation) ─→ Acetyl-CoA ←─ Amino acids (ketogenic)\n                                                   │\n                                                   ▼\n                                        TCA CYCLE (matrix)\n                                        2 × (3 NADH + 1 FADH₂ + 1 GTP)\n                                        Release: 4 CO₂\n\n                                                   │\n                                                   ▼\n                              OXIDATIVE PHOSPHORYLATION (inner membrane)\n                              NADH, FADH₂ → proton gradient → ATP synthase\n                              Yield: ~26–28 ATP\n\n                                         TOTAL: ~30–32 ATP/glucose",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 67,
+      "heading_context": "## Glycolysis (10 Steps, Cytoplasm)",
+      "confidence": "candidate",
+      "text": "INVESTMENT PHASE (steps 1–5): consume 2 ATP\n  1.  Glucose + ATP → Glucose-6-phosphate (G6P) + ADP\n      Enzyme: Hexokinase (or glucokinase in liver)\n      Irreversible. Traps glucose in cell. Key regulation point.\n\n  2.  G6P ⇌ Fructose-6-phosphate (F6P)\n      Enzyme: Phosphoglucose isomerase\n\n  3.  F6P + ATP → Fructose-1,6-bisphosphate (FBP) + ADP\n      Enzyme: Phosphofructokinase-1 (PFK-1)\n      *** THE KEY REGULATORY STEP ***\n      Inhibited by: ATP (energy sufficient), citrate (TCA running)\n      Activated by: AMP, ADP (energy needed), fructose-2,6-bisphosphate\n\n  4.  FBP → DHAP + Glyceraldehyde-3-phosphate (G3P)\n      Enzyme: Aldolase\n\n  5.  DHAP ⇌ G3P\n      Enzyme: Triose phosphate isomerase (TPI — near-perfect catalyst)\n      — BOTH molecules continue as G3P (×2 for all subsequent steps) —\n\nPAYOFF PHASE (steps 6–10): produce 4 ATP, 2 NADH\n  6.  G3P + Pᵢ + NAD⁺ → 1,3-BPG + NADH + H⁺\n      Enzyme: G3P dehydrogenase\n\n  7.  1,3-BPG + ADP → 3-phosphoglycerate (3-PG) + ATP\n      Enzyme: Phosphoglycerate kinase  (substrate-level phosphorylation)\n\n  8.  3-PG ⇌ 2-phosphoglycerate (2-PG)\n      Enzyme: Phosphoglycerate mutase\n\n  9.  2-PG ⇌ Phosphoenolpyruvate (PEP) + H₂O\n      Enzyme: Enolase\n\n  10. PEP + ADP → Pyruvate + ATP\n      Enzyme: Pyruvate kinase  (substrate-level phosphorylation, irreversible)\n      Inhibited by: ATP, alanine; Activated by: fructose-1,6-bisphosphate\n\nNET per glucose:\n  −2 ATP (investment) + 4 ATP (payoff) = +2 ATP\n  +2 NADH (cytoplasmic)\n  +2 Pyruvate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 116,
+      "heading_context": "## Pyruvate Fate",
+      "confidence": "candidate",
+      "text": "Aerobic conditions:\n  Pyruvate → mitochondrial matrix → Pyruvate Dehydrogenase Complex (PDC)\n  Pyruvate + CoA + NAD⁺ → Acetyl-CoA + CO₂ + NADH\n  × 2 per glucose: 2 Acetyl-CoA, 2 CO₂, 2 NADH\n\nAnaerobic (animals, yeast under O₂ deprivation):\n  Pyruvate + NADH → Lactate + NAD⁺   (lactate dehydrogenase)\n  Purpose: regenerate NAD⁺ so glycolysis can continue\n  (NADH from step 6 must be reoxidized — O₂ not available)\n\nYeast fermentation:\n  Pyruvate → Acetaldehyde + CO₂   (pyruvate decarboxylase)\n  Acetaldehyde + NADH → Ethanol + NAD⁺  (alcohol dehydrogenase)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "### PDC — Three Enzymes, Five Cofactors",
+      "confidence": "candidate",
+      "text": "E1 (pyruvate decarboxylase):   cofactor TPP (thiamine pyrophosphate, vitamin B1)\nE2 (dihydrolipoyl transacetylase): cofactor lipoic acid + CoA\nE3 (dihydrolipoyl dehydrogenase):  cofactor FAD + NAD⁺\n\nRegulation:\n  Inhibited by: Acetyl-CoA (product), NADH (product), ATP\n  Activated by: CoA, NAD⁺, ADP, pyruvate\n  PDC kinase phosphorylates E1 → inactive\n  PDC phosphatase dephosphorylates → active",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "## TCA Cycle (8 Steps, Mitochondrial Matrix)",
+      "confidence": "candidate",
+      "text": "         Acetyl-CoA (2C)\n              │\n              + Oxaloacetate (4C)\n              ↓ citrate synthase\n         Citrate (6C)\n              ↓ aconitase\n         Isocitrate (6C)\n              ↓ isocitrate dehydrogenase ← [NAD⁺→NADH + CO₂]  regulated by ADP/ATP\n         α-Ketoglutarate (5C)\n              ↓ α-ketoglutarate dehydrogenase ← [NAD⁺→NADH + CO₂]\n         Succinyl-CoA (4C)\n              ↓ succinyl-CoA synthetase ← [GDP+Pᵢ→GTP] substrate-level\n         Succinate (4C)\n              ↓ succinate dehydrogenase ← [FAD→FADH₂] (Complex II!)\n         Fumarate (4C)\n              ↓ fumarase\n         Malate (4C)\n              ↓ malate dehydrogenase ← [NAD⁺→NADH]\n         Oxaloacetate (4C) ─── regenerated ─── cycle continues\n\nPer turn (per Acetyl-CoA):\n  3 NADH,  1 FADH₂,  1 GTP,  2 CO₂\n\nPer glucose (× 2 turns):\n  6 NADH,  2 FADH₂,  2 GTP",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "### Oxidative Phosphorylation — Engineering Bridge",
+      "confidence": "candidate",
+      "text": "ELECTROCHEMICAL GRADIENT AS STORED ENERGY:\n\n  Inner mitochondrial membrane ≈ capacitor / charged battery\n  ┌─────────────────────────────────────────────────────┐\n  │  Intermembrane space  (high H⁺ — positive terminal) │\n  │  ~ +180 mV electrical potential across membrane     │\n  │  ~ 1 pH unit ΔpH (0.06 V per pH unit contribution)  │\n  │  Total proton-motive force: Δp ≈ 220 mV             │\n  ╔═════════════════════════════════════════════════════╗\n  ║  Inner mitochondrial membrane (insulator + machine) ║\n  ╚═════════════════════════════════════════════════════╝\n  │  Matrix  (low H⁺ — negative terminal)               │\n  └─────────────────────────────────────────────────────┘\n\nETC (Complexes I–IV) = pumps building the gradient\n  → like charging a battery or compressing a spring\n  → NADH/FADH₂ are the \"fuel\" (oxidized to drive pumping)\n  → O₂ is the terminal electron acceptor (the \"drain\")\n\nATP synthase (Complex V) = turbine / motor driven by the gradient\n  → F₀ c-ring: 8–15 subunits; H⁺ flow drives mechanical rotation\n  → F₁ head: α₃β₃γ; γ rotation drives conformational changes\n     (binding change mechanism: O → L → T sites cycle, releasing ATP)\n  → ~2.7 H⁺ per ATP; ~3 ATP per revolution of c-ring\n\nPARALLEL TO ELECTROCHEMICAL CELLS (05-ELECTROCHEMISTRY.md):\n  E°(NADH → O₂) = +1.14 V\n  ΔG° = −nFE° = −2 × 96485 × 1.14 = −220 kJ/mol per 2e⁻ pair\n  → enough free energy to synthesize ~2.5 ATP\n  The ~2.5–3 ATP/NADH efficiency reflects this thermodynamic budget.\n\nPARALLEL TO HYDRAULIC TURBINES:\n  Proton gradient (Δp) = hydraulic head\n  H⁺ flux through ATP synthase = water flow\n  ATP = mechanical work output\n  Uncouplers (DNP, FCCP) = bypass bypass — flow without doing work → heat",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 242,
+      "heading_context": "### The Five Complexes",
+      "confidence": "candidate",
+      "text": "Complex I   NADH dehydrogenase (NADH → CoQ)\n  NADH + H⁺ + CoQ → NAD⁺ + CoQH₂\n  Pumps: 4 H⁺ per NADH (into intermembrane space)\n  Contains: FMN + 8–9 Fe-S clusters\n\nComplex II  Succinate dehydrogenase (FADH₂ → CoQ)\n  Succinate + CoQ → Fumarate + CoQH₂\n  Pumps: 0 H⁺  (no proton pumping — explains lower ATP yield from FADH₂)\n  Note: same enzyme as TCA step 6\n\nComplex III  CoQ-cytochrome c reductase (CoQ → cyt c)\n  CoQH₂ + 2 cyt c(ox) → CoQ + 2 cyt c(red)\n  Pumps: 4 H⁺ per 2e⁻ (Q cycle mechanism)\n  Contains: cytochrome b, Rieske Fe-S, cytochrome c₁\n\nComplex IV  Cytochrome c oxidase (cyt c → O₂)\n  4 cyt c(red) + O₂ + 4H⁺ → 4 cyt c(ox) + 2H₂O\n  Pumps: 4 H⁺ per 4e⁻ (per O₂ reduced)\n  Contains: heme a, heme a₃, CuA, CuB\n\nComplex V   ATP synthase\n  F₀ subunit: proton channel in membrane (rotary motor, c-ring)\n  F₁ subunit: catalytic head in matrix (α₃β₃γ, binding change mechanism)\n  H⁺ flow drives c-ring rotation → γ rotation → conformational change → ATP\n  ~8 H⁺/revolution (c-ring with 8 subunits), 3 ATP/revolution\n  → ~2.7 H⁺/ATP\n\nMobile electron carriers:\n  CoQ (ubiquinone): lipid-soluble, between I/II and III\n  Cytochrome c: water-soluble, on outer face of inner membrane, between III and IV",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 317,
+      "heading_context": "## Gluconeogenesis",
+      "confidence": "candidate",
+      "text": "Glycolysis step 1 (hexokinase): reversed by Glucose-6-phosphatase (liver ER)\nGlycolysis step 3 (PFK-1):      reversed by Fructose-1,6-bisphosphatase\nGlycolysis step 10 (pyruvate kinase): two steps to bypass:\n  Pyruvate → OAA (pyruvate carboxylase, uses ATP + CO₂, requires biotin)\n  OAA → PEP (PEPCK, uses GTP)\n\nPrecursors:\n  Glucogenic amino acids (most AA) → pyruvate, OAA, α-KG, succinate, fumarate\n  Lactate (Cori cycle: muscle → liver → glucose → muscle)\n  Glycerol (from triglyceride breakdown) → DHAP\n  Propionate (odd-chain fatty acid) → succinyl-CoA → OAA\n\nRegulation (reciprocal with glycolysis):\n  High glucagon/low insulin → activate gluconeogenesis\n  F-2,6-BP low → FBPase-1 active (gluconeogenesis); PFK-1 inactive (glycolysis)\n  Acetyl-CoA activates pyruvate carboxylase (feeds substrate into gluconeogenesis)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 340,
+      "heading_context": "## β-Oxidation of Fatty Acids",
+      "confidence": "candidate",
+      "text": "Fatty acid activation: FA + CoA + ATP → Fatty acyl-CoA + AMP + PPᵢ  (cytoplasm)\nTransport into matrix: carnitine shuttle (acyl-carnitine through inner membrane)\n\nβ-Oxidation (4 steps per cycle, matrix):\n  1. Acyl-CoA dehydrogenase:    Acyl-CoA + FAD → Trans-Δ²-enoyl-CoA + FADH₂\n  2. Enoyl-CoA hydratase:       + H₂O → 3-L-Hydroxyacyl-CoA\n  3. 3-Hydroxyacyl-CoA dehydrogenase: + NAD⁺ → 3-Ketoacyl-CoA + NADH\n  4. Thiolase:                  + CoA → Acyl-CoA (shortened by 2C) + Acetyl-CoA\n\nPer cycle: 1 FADH₂ + 1 NADH + 1 Acetyl-CoA (enters TCA)\n\nPalmitate (C16:0) example:\n  7 cycles of β-oxidation → 8 Acetyl-CoA, 7 NADH, 7 FADH₂\n  ATP: 8 × 10 (TCA/OxPhos per Acetyl-CoA) + 7 × 2.5 + 7 × 1.5 = 108 ATP\n  Cost: 2 ATP (activation) → Net: 106 ATP per palmitate\n\nVs glucose (C16 equiv ≈ 2.3 glucose): ~72 ATP → fat gives ~50% more ATP/carbon\nFat: ~37 kJ/g stored energy vs carbohydrate/protein: ~17 kJ/g",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 367,
+      "heading_context": "## Pentose Phosphate Pathway (PPP)",
+      "confidence": "candidate",
+      "text": "OXIDATIVE PHASE (irreversible):\n  G6P + 2 NADP⁺ + H₂O → Ribulose-5-P + 2 NADPH + CO₂\n  Enzyme: G6P dehydrogenase (rate-limiting)\n  Purpose: generate NADPH for reductive biosynthesis + antioxidant defense\n\nNONOXIDATIVE PHASE (reversible):\n  Ribulose-5-P → Ribose-5-P (for nucleotide synthesis)\n  Or: interconvert C3-C7 sugars, feed back into glycolysis\n\nKey outputs:\n  NADPH: fatty acid synthesis, cholesterol synthesis, glutathione reduction,\n         cytochrome P450, NADPH oxidase (immune)\n  Ribose-5-P: nucleotide and nucleic acid biosynthesis\n\nG6PD deficiency (X-linked, most common enzyme defect in humans):\n  Red blood cells: no mitochondria → PPP is only NADPH source\n  → oxidative stress → hemolysis → favism (broad beans contain oxidants)\n  Protective against P. falciparum malaria → high frequency in malaria zones",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 392,
+      "heading_context": "## Metabolic Integration — Regulatory Logic",
+      "confidence": "candidate",
+      "text": "ENERGY CHARGE = ([ATP] + ½[ADP]) / ([ATP] + [ADP] + [AMP])\n  Range: 0 (depleted) to 1 (fully charged)\n  Normal cells: ~0.8–0.9\n  High EC → inhibit catabolism, activate anabolism\n  Low EC → activate catabolism, inhibit anabolism\n\nKEY REGULATORY ENZYMES AND SIGNALS:\n\nEnzyme           Activated by          Inhibited by\n──────────────────────────────────────────────────────────────\nHexokinase       —                     G6P (product)\nPFK-1            AMP, ADP, F-2,6-BP    ATP, citrate\nPyruvate kinase  F-1,6-BP              ATP, Ala\nPDC              ADP, NAD⁺, CoA        ATP, NADH, Acetyl-CoA\nIsocitrate DH    ADP, Ca²⁺             ATP, NADH\nCitrate synthase —                     ATP, NADH, Succinyl-CoA\nPyruvate         Acetyl-CoA,           ADP\n  carboxylase    ATP\n\nHORMONAL CONTROL:\n  Glucagon (liver):  ↑ cAMP → PKA → activate glycogenolysis, gluconeogenesis\n                                    → inhibit glycolysis, glycogen synthesis\n  Insulin (all tissues): ↑ PI3K/Akt → activate glucose uptake, glycolysis, lipogenesis\n                                      → inhibit gluconeogenesis\n  Epinephrine (muscle+liver): ↑ cAMP → same as glucagon + activates glycogenolysis",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
