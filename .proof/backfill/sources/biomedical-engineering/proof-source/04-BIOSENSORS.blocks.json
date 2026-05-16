@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biomedical-engineering\\04-BIOSENSORS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------+\n|              BIOSENSOR ARCHITECTURE                                 |\n+---------------------------------------------------------------------+\n|                                                                     |\n|  BIORECEPTOR          TRANSDUCER             SIGNAL PROCESSING      |\n|  (specificity layer)  (conversion)           (output)               |\n|                                                                     |\n|  Enzyme               Electrochemical        Analog conditioning    |\n|  Antibody             (amperometric,         ADC / digital         |\n|  Aptamer              potentiometric,        Calibration            |\n|  Nucleic acid         impedimetric)          Alarm/display         |\n|  Whole cell                                                         |\n|  Molecularly          Optical                                       |\n|  imprinted            (SPR, fluorescence,                           |\n|  polymer (MIP)        LSPR)                                         |\n|                                                                     |\n|                       Piezoelectric                                 |\n|                       (QCM, SAW)                                    |\n+---------------------------------------------------------------------+\n\n  APPLICATIONS SPECTRUM:\n  Lab (central)    -> Point-of-care      -> Continuous wearable\n  High accuracy       Rapid, portable       Real-time monitoring\n  Slow turnaround     Minutes to result     CGM, ECG patches\n  Gold standard       LFT, i-STAT           No lab required",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 65,
+      "heading_context": "### Electrochemical — Amperometric",
+      "confidence": "candidate",
+      "text": "  AMPEROMETRIC BIOSENSOR\n  ======================\n\n  Applied potential V (fixed, anodic or cathodic)\n       |\n       v\n  Working electrode surface\n       |\n       |  Redox reaction: A -> B + ne-\n       v\n  Electron transfer to/from electrode\n       |\n       v\n  Current i measured (nA to μA range)\n  i is proportional to concentration [A] (at low concentrations)\n  Governed by Cottrell equation for diffusion-limited systems\n\n  GLUCOSE OXIDASE MECHANISM (glucose sensor):\n  Step 1: GOx (glucose oxidase) oxidizes glucose to gluconolactone\n          Glucose + O2 -> Gluconolactone + H2O2  (1st gen: oxygen mediator)\n          Glucose + mediator_ox -> Gluconolactone + mediator_red (2nd gen)\n          Glucose + electrode -> Gluconolactone + 2H+ + 2e- (3rd gen: direct)\n\n  1st gen: measure H2O2 oxidation (or O2 depletion) — oxygen-dependent\n  2nd gen: synthetic mediator (ferrocene, osmium complex) shuttles electrons\n           to electrode — oxygen-independent, lower applied potential\n  3rd gen: direct electron transfer — no mediator needed — ideal but\n           difficult because GOx active site is buried deep in protein\n\n  Modern CGMs (continuous glucose monitors):\n  - 2nd generation amperometric\n  - Subcutaneous insertion ~5-7mm\n  - Glucose diffuses through outer membrane (rate-limiting)\n  - GOx in enzyme layer\n  - Mediator transports electrons to electrode\n  - Platinum working electrode at ~0.5V vs. Ag/AgCl reference",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 109,
+      "heading_context": "### Electrochemical — Potentiometric",
+      "confidence": "candidate",
+      "text": "  POTENTIOMETRIC BIOSENSOR (ION-SELECTIVE ELECTRODE)\n  ===================================================\n\n  E = E° + (RT/nF) * ln([analyte])\n       Nernst equation\n\n  E° = standard potential\n  R = gas constant (8.314 J/mol·K)\n  T = temperature (K)\n  n = charge of ion\n  F = Faraday constant (96485 C/mol)\n\n  At 37°C:\n  For monovalent ion (H+): slope = 61.5 mV/decade\n  For divalent ion (Ca2+): slope = 30.7 mV/decade\n\n  pH electrode (glass pH electrode):\n  Special glass membrane (LaFeSi2O6) selectively permeable to H+\n  -> Nernstian response to pH, slope ~59 mV/pH at 25°C\n\n  FET-BASED (ISFET — Ion Sensitive FET):\n  Gate oxide replaced with ion-selective membrane\n  -> gate voltage modulated by ion concentration\n  -> output: drain current\n  Integrated circuits possible -> miniaturization -> lab-on-chip\n\n  CLINICAL: i-STAT (Abbott) uses potentiometric sensors for\n  Na+, K+, Cl-, Ca2+, pH, PCO2, PO2 in a credit-card-sized\n  single-use cartridge. Point-of-care blood gas + electrolytes\n  in 2 minutes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "### Electrochemical — Impedimetric (EIS)",
+      "confidence": "candidate",
+      "text": "  ELECTROCHEMICAL IMPEDANCE SPECTROSCOPY (EIS)\n  =============================================\n\n  Apply: V(t) = V0 * sin(ωt)\n  Measure: I(t) = I0 * sin(ωt + φ)\n  Z = V/I = |Z| * exp(jφ) = R + jX\n\n  Equivalent circuit (Randles):\n  Rs (solution resistance)\n  Cdl (double-layer capacitance)\n  Rct (charge transfer resistance) — binding changes this!\n  Zw (Warburg impedance — diffusion)\n\n  BIOSENSING: antibody on electrode surface\n  Before binding: given Rct\n  After target binding: Rct increases (blocked electron transfer)\n  Delta Rct proportional to surface coverage -> concentration\n\n  Advantages: label-free (no fluorescent tag needed)\n  Disadvantages: matrix effects, non-specific binding\n  Applications: immunosensors, DNA hybridization detection,\n  bacterial detection, cell monitoring",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "### Optical — Surface Plasmon Resonance (SPR)",
+      "confidence": "candidate",
+      "text": "  SURFACE PLASMON RESONANCE (SPR)\n  ================================\n\n  PHYSICS:\n  Thin gold film (~50nm) on glass prism\n  Monochromatic light incident at angle θ\n  At specific angle θSPR: evanescent field couples to plasmons\n  -> resonance -> sharp dip in reflected light intensity\n\n  SENSING PRINCIPLE:\n  Refractive index n at gold surface changes when molecules bind\n  -> shifts θSPR\n  -> monitors binding in real-time without labels\n\n  SENSORGRAM:\n  Response (RU)\n    ^\n    |              plateau (saturation)\n    |         /----\\\n    |        /      \\  dissociation\n    |       / assoc  \\\n    |      /          \\\n    |_____/            \\________\n    +-------------------------> time\n    inject                 regenerate\n\n  Association phase: ka (on-rate, M^-1 s^-1)\n  Dissociation phase: kd (off-rate, s^-1)\n  KD = kd / ka (equilibrium dissociation constant)\n  Biacore (Cytiva) is the dominant instrument.\n\n  1 RU = change in refractive index corresponding to\n         ~1 pg/mm2 protein surface coverage\n\n  Applications: drug-target interaction kinetics,\n  antibody characterization, early lead selection in pharma R&D",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 217,
+      "heading_context": "### Piezoelectric — Quartz Crystal Microbalance (QCM-D)",
+      "confidence": "candidate",
+      "text": "  QCM-D (Quartz Crystal Microbalance with Dissipation)\n  =====================================================\n\n  AT-cut quartz crystal oscillates in shear mode at resonant frequency f0\n  (~5 MHz common). Binding of mass to surface -> frequency decrease:\n\n  Sauerbrey equation (rigid thin film):\n  Δf = -C * Δm / A\n  C = 17.7 ng cm^-2 Hz^-1 at 5 MHz\n\n  Mass sensitivity: ~1 ng/cm2\n\n  Dissipation (D) monitoring:\n  Viscoelastic films (hydrogels, cells) cause energy dissipation\n  ΔD = stored energy / dissipated energy per cycle\n  High ΔD/Δf ratio = soft, viscoelastic layer\n  Low ΔD/Δf ratio = rigid layer\n\n  Applications: thin film deposition, lipid bilayer formation,\n  protein-surface adsorption, drug membrane interactions,\n  cell adhesion monitoring",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 248,
+      "heading_context": "## Continuous Glucose Monitors (CGM)",
+      "confidence": "candidate",
+      "text": "  CGM SYSTEM ARCHITECTURE\n  =======================\n\n  Subcutaneous sensor (7-15 day wear)\n  +----------------------------------+----------------------------+\n  | Outer membrane (glucose limiting)| Rate-limiting diffusion    |\n  | Enzyme layer (GOx immobilized)   | Enzymatic oxidation        |\n  | Inner membrane (H2O2 limiting)   | (1st gen systems)          |\n  | Working electrode (Pt or C)      | Amperometric detection     |\n  | Reference electrode (Ag/AgCl)    | vs. reference              |\n  +----------------------------------+----------------------------+\n           |  (transcutaneous wire)\n           v\n  Electronics patch (worn on skin)\n  +----------------------------------+\n  | ADC (analog-to-digital)          |\n  | Microcontroller                  |\n  | Calibration algorithm            |\n  | Bluetooth LE radio               |\n  +----------------------------------+\n           |  Bluetooth\n           v\n  Smartphone app or receiver\n  Glucose trend + alarms\n\n  PERFORMANCE METRICS:\n  MARD = Mean Absolute Relative Difference\n       = mean |CGM_reading - reference| / reference × 100%\n  Abbott Libre 3: MARD ~7.9%\n  Dexcom G7:      MARD ~8.2%\n  FDA accuracy requirement: <15% for CGM clearance\n\n  CALIBRATION:\n  Factory-calibrated (Libre 3, Dexcom G7): no fingerstick needed\n  User-calibrated (older Dexcom): 2 fingersticks/day\n\n  CLINICALLY IMPORTANT DIFFERENCES:\n  Abbott Libre: factory calibrated, reader required originally,\n                sensor applied in back of upper arm, 60-min\n                warm-up, 8-15 day wear\n  Dexcom G7: factory calibrated, 30-min warm-up, direct phone\n              integration, predictive alerts, 10-day wear\n  Both integrated with insulin pumps for closed-loop (\"artificial pancreas\")\n\n  Lag time: ISF glucose lags blood glucose by ~5-15 minutes\n  -> algorithms predict blood glucose from ISF trend",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 304,
+      "heading_context": "## Lateral Flow Assays (LFA)",
+      "confidence": "candidate",
+      "text": "  LATERAL FLOW ASSAY — MECHANISM\n  ================================\n\n  STRIP ARCHITECTURE:\n  +-------+----------+--------+---------+--------+\n  | Sample |  Conj.  |  Test  | Control |  Absorp|\n  | pad   |  pad     |  line  |  line   |  pad   |\n  +-------+----------+--------+---------+--------+\n    Add      Colloidal  Capture  Validates  Excess\n    sample   gold-Ab    Ab       strip      fluid\n    here     released             function  wicks\n\n  SANDWICH FORMAT (for larger antigens like proteins):\n  1. Sample added to sample pad\n  2. Analyte flows into conjugate pad\n  3. Colloidal gold-labeled antibody (detector Ab) binds analyte\n  4. Complex flows along nitrocellulose membrane\n  5. Test line: capture Ab immobilized -> captures analyte-gold complex\n     -> visible line if analyte present\n  6. Control line: anti-species antibody -> always captures excess gold-Ab\n     -> always forms line (validates strip function)\n\n  Result: 2 lines = POSITIVE (test + control)\n          1 line (control only) = NEGATIVE\n          0 lines = INVALID\n\n  COMPETITIVE FORMAT (for small molecules like drugs, hormones):\n  Small analyte in sample competes with immobilized analyte-conjugate\n  on test line for limited gold-labeled antibody.\n  Result: 2 lines = NEGATIVE (no analyte -> all antibody captured at test line)\n          1 line = POSITIVE (analyte in sample -> fewer gold captured at test line)\n  COUNTERINTUITIVE — darker test line = more negative\n\n  QUANTIFICATION:\n  Reader devices (Sofia, Quidel; Cube, LumiraDx) use reflectance\n  photometry to quantify test line intensity.\n  Dynamic range limited vs. lab assay; CV ~10-20%.\n\n  COVID-19 ANTIGEN TEST EXAMPLE:\n  Detects SARS-CoV-2 nucleocapsid protein\n  Sensitivity: ~65-90% (vs. RT-PCR)\n  Specificity: ~99%\n  Best when viral load high (early symptomatic infection)\n  PPV depends heavily on prevalence (Bayes theorem applies)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 358,
+      "heading_context": "## CRISPR-Based Diagnostics",
+      "confidence": "candidate",
+      "text": "  CRISPR DIAGNOSTIC MECHANISM (SHERLOCK, DETECTR)\n  ================================================\n\n  Cas13a collateral cleavage (SHERLOCK):\n  Cas13a + guide RNA (gRNA) + target RNA\n  -> Cas13a:gRNA recognizes and cleaves target RNA (cis-cleavage)\n  -> Activated Cas13a also cleaves nearby non-target RNAs (TRANS-cleavage)\n  -> Reporter: ssRNA labeled with fluorophore-quencher pair\n  -> Trans-cleavage separates F from Q -> fluorescent signal\n\n  Cas12a collateral cleavage (DETECTR):\n  Same principle but recognizes DNA targets and cleaves ssDNA reporters.\n  Combined with LAMP or RPA for isothermal pre-amplification.\n\n  SENSITIVITY:\n  Without amplification: ~100 fM (attomolar with digital readout)\n  With LAMP pre-amplification: single copy level (aM)\n  Comparable to RT-PCR in optimized formats.\n\n  SELECTIVITY:\n  Single nucleotide discrimination possible (mismatch detection)\n  -> can distinguish pathogen strains, drug resistance mutations\n\n  SHERLOCK vs DETECTR:\n  SHERLOCK: Cas13 + RPA + T7 transcription -> RNA target\n  DETECTR:  Cas12 + LAMP -> DNA target -> faster workflow\n\n  COMMERCIAL STATUS (2026):\n  Sherlock Biosciences: FDA-authorized COVID test (EUA, 2020)\n  Abbott ID Now (LAMP-based, not CRISPR): rapid flu/RSV/COVID\n  Mammoth Biosciences: CRISPR diagnostics platform\n  Still mostly research/limited commercial vs LFA ubiquity.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 400,
+      "heading_context": "## Microfluidics — Lab-on-Chip",
+      "confidence": "candidate",
+      "text": "  MICROFLUIDICS FUNDAMENTALS\n  ==========================\n\n  REYNOLDS NUMBER: Re = ρvL/μ\n  Typical microfluidic Re: 0.001 to 10 (always laminar)\n  Laminar flow: mixing only by diffusion -> slow (problem)\n  Solutions: chaotic advection (herringbone mixer), droplets\n\n  FABRICATION:\n  PDMS (polydimethylsiloxane) soft lithography:\n  1. Photolithography: UV expose SU-8 photoresist on Si wafer\n     -> master mold with raised features\n  2. Pour PDMS prepolymer over master, cure at 70°C, peel off\n     -> PDMS chip with channels\n  3. Oxygen plasma bond PDMS to glass slide\n  4. PDMS is transparent, gas-permeable, cheap, biocompatible\n  Limitation: PDMS absorbs small hydrophobic molecules (drug assays)\n\n  Thermoplastics (PMMA, COC, PC): injection molding\n  -> mass production, lower absorption than PDMS\n  Silicon/glass: best optical properties, hard to fabricate\n\n  DROPLET MICROFLUIDICS:\n  Two immiscible fluids (water + oil) at T-junction or flow-focusing\n  -> monodisperse droplets (1-100 μm)\n  Each droplet = independent reaction vessel\n  Digital PCR: partition sample into millions of droplets\n  -> Poisson statistics -> absolute quantification\n  -> no standard curve required (ddPCR)\n\n  ORGAN-ON-CHIP:\n  Multi-layer PDMS chip with tissue cells + fluid channels\n  Lung-on-chip (Wyss Institute): alveolar cells + vascular cells\n  separated by thin porous membrane, cyclic stretching mimics breathing\n  Applications: drug toxicity testing, disease modeling\n  Goal: replace animal testing for ADMET studies",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 443,
+      "heading_context": "## Point-of-Care Devices",
+      "confidence": "candidate",
+      "text": "  KEY POC PLATFORMS\n  =================\n\n  Abbott i-STAT:\n  Handheld analyzer, single-use cartridges\n  Measures: blood gases (pH, PCO2, PO2), electrolytes (Na+, K+, Cl-, Ca2+),\n            glucose, lactate, creatinine, cardiac troponin I, INR/PT\n  Technology mix: biosensors (amperometric, potentiometric) + immunosensors\n  Result in 2 minutes. FDA cleared. Used in ICU, ED, operating room.\n\n  Cepheid GeneXpert:\n  Cartridge-based real-time PCR (RT-PCR)\n  Lysis + extraction + amplification + detection all in one cartridge\n  Time to result: 45 min for MTB (tuberculosis), flu/COVID, GBS\n  Uses: TB diagnosis (Xpert MTB/RIF), COVID, MRSA screening\n  GeneXpert Omni: battery-powered, field-deployable version\n\n  BioFire FilmArray (bioMerieux):\n  Multiplex PCR: 20-200 pathogens from one sample in one run\n  Panels: respiratory (FilmArray RP: flu, RSV, COVID, others),\n          blood culture ID (FilmArray BCID), meningitis\n  Time: ~1 hour. Used in hospital lab, ED.\n\n  Roche cobas Liat:\n  On-demand RT-PCR in 20 minutes (flu/COVID)\n  Simple operator interface\n\n  POC Troponin (cardiac biomarker):\n  Abbot ARCHITECT STAT, Siemens Atellica VTLi\n  High-sensitivity troponin I or T for rapid rule-in/rule-out of AMI",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 480,
+      "heading_context": "## Wearable Biosensors",
+      "confidence": "candidate",
+      "text": "  WEARABLE BIOSENSOR LANDSCAPE\n  =============================\n\n  OPTICAL (PPG — Photoplethysmography):\n  LED illuminates skin -> photodetector measures backscattered light\n  Blood volume changes with heartbeat -> oscillating signal\n  Heart rate: peak detection in PPG signal\n  SpO2 (blood oxygen): ratio of red (660nm) to IR (940nm) PPG\n      Hb absorbs more red, HbO2 absorbs more IR -> SpO2 ratio\n      Typical accuracy: ±2% at SpO2 >90%\n  Wrist (Apple Watch, Fitbit): motion artifact is major challenge\n  Finger (pulse ox): more accurate, clinical grade (SpO2 certified)\n  Continuous blood pressure: in-development (calibration remains unsolved)\n\n  ECG PATCHES:\n  Zio (iRhythm): adhesive patch, 14-day Holter equivalent\n  -> remote cardiac rhythm monitoring\n  Electrode pair on skin -> differential amplifier -> filtered ECG\n  AI-annotated arrhythmia report to cardiologist\n  FDA cleared (Class II) for atrial fibrillation detection\n\n  Apple Watch ECG: lead-I equivalent (finger to watch case)\n  FDA cleared for AFib detection\n\n  SWEAT SENSORS (research -> early commercial):\n  Electrochemical sensors integrated in wristband/patch\n  Measure: Na+, K+, Cl-, glucose, lactate, cortisol in sweat\n  Challenge: sweat is highly variable in composition and rate\n  Not clinical grade; wellness/research applications\n  FIDO Biosciences, Eccrine Systems: early commercial stage\n\n  CONTINUOUS BLOOD GLUCOSE (non-invasive):\n  Multiple approaches (NIR spectroscopy, Raman, microwave, US)\n  None have achieved FDA clearance as of 2026\n  Samsung Galaxy watches promote \"metabolic health\" measures —\n  regulatory status varies; not cleared for clinical decisions\n  Abbott Libre Sense: interstitial fluid glucose via NFC, launched EU\n  CGM remains gold standard",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

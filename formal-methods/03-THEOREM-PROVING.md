@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:formal-methods:theorem-proving
+kind: guide
+module: formal-methods
+section: formal-methods
+title: Theorem Proving and Proof Assistants
+status: source-custody
+source_custody: partial
+current_path: formal-methods/03-THEOREM-PROVING.md
+canonical_path: formal-methods/03-THEOREM-PROVING.md
+backsource_ids: [proof-backfill:formal-methods:03-theorem-proving, git-history:formal-methods:03-theorem-proving]
+concepts: [theorem, proving]
+root_concepts: [theorem, proving]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Theorem Proving and Proof Assistants
 
 ## The Big Picture

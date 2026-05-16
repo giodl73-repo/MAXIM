@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "formal-methods\\01-LOGIC-FOUNDATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                        LOGIC LAYERS                                      |\n|                                                                          |\n|  PROPOSITIONAL LOGIC         \"P and Q implies R\"                         |\n|  SAT Solvers: DPLL, CDCL     NP-complete, but practical at millions vars |\n|  MiniSat, CaDiCaL, Kissat                                                |\n+--------------------------------------------------------------------------+\n         |   embeds into\n         v\n+--------------------------------------------------------------------------+\n|  FIRST-ORDER LOGIC (FOL)     Quantifiers over domains                    |\n|  \"For all x, if P(x) then Q(x)\"                                          |\n|  Semi-decidable (not fully decidable) — halting problem lurks here       |\n+--------------------------------------------------------------------------+\n         |   decidable fragments\n         v\n+--------------------------------------------------------------------------+\n|  SMT: SATISFIABILITY MODULO THEORIES                                     |\n|  \"This formula over integers/arrays/bitvectors\" — is it satisfiable?     |\n|  DPLL(T) architecture: SAT core + theory solvers                         |\n|  Z3, CVC5, Yices2 — the engines behind Dafny, CBMC, Infer, Lean 4        |\n+--------------------------------------------------------------------------+\n         |   specialized logics\n         v\n+--------------------------------------------------------------------------+\n|  TEMPORAL LOGICS             Reasoning about TIME and STATE SEQUENCES    |\n|  LTL: linear time (paths)    \"Always p\", \"Eventually q\", \"p Until q\"     |\n|  CTL: branching time (trees) \"There exists a path where...\", \"All paths\" |\n|  CTL*: full (unifies both)   Expressiveness: LTL ⊄ CTL, CTL ⊄ LTL        |\n|  Used in: model checkers (SPIN, NuSMV, TLC)                              |\n+--------------------------------------------------------------------------+\n         |   proof systems\n         v\n+--------------------------------------------------------------------------+\n|  HIGHER-ORDER LOGIC (HOL)    Quantify over predicates and functions      |\n|  Expressiveness: all of math  Decidability: none (semi-decidable)        |\n|  Used in: Isabelle/HOL, HOL4, Coq (via CIC), Lean 4                      |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 97,
+      "heading_context": "### CNF and the Resolution Proof System",
+      "confidence": "candidate",
+      "text": "### DPLL: The Algorithmic Foundation (1960/1962)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "### CDCL: Conflict-Driven Clause Learning (Modern SAT Solvers)",
+      "confidence": "candidate",
+      "text": "  CDCL algorithm:\n  ┌─────────────────────────────────────────────┐\n  │  1. Unit propagate                          │\n  │     If conflict: goto ANALYZE               │\n  │  2. If all vars assigned: return SAT        │\n  │  3. Decide: pick next variable, assign it   │\n  │     (decision heuristic: VSIDS)             │\n  │  4. Goto 1                                  │\n  │                                             │\n  │  ANALYZE (conflict analysis):               │\n  │  - Walk implication graph to find           │\n  │    1-UIP (unique implication point)         │\n  │  - Learn conflict clause from cut           │\n  │  - Backjump to appropriate decision level   │\n  │  - If level 0 conflict: return UNSAT        │\n  └─────────────────────────────────────────────┘\n\n  Clause learning turns local contradictions into\n  global knowledge — future search avoids same mistakes.\n\n  VSIDS (Variable State Independent Decaying Sum):\n  - Track how often each variable appears in conflict clauses\n  - Decay all scores periodically\n  - Prioritize highest-score variables for branching\n  - Effect: focuses search on \"hot\" parts of the problem",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 152,
+      "heading_context": "### CDCL: Conflict-Driven Clause Learning (Modern SAT Solvers)",
+      "confidence": "candidate",
+      "text": "- CaDiCaL / Kissat (2020+): ~10M+ variables on industrial instances",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 163,
+      "heading_context": "### Herbrand's Theorem and the Decidability Boundary",
+      "confidence": "candidate",
+      "text": "  FOL = semi-decidable (r.e. but not co-r.e.)\n  - If a formula is valid, there exists a finite proof\n  - If a formula is invalid, no procedure is guaranteed to terminate\n\n  Herbrand's theorem: A formula is unsatisfiable iff some\n  finite set of ground instances (no variables) is unsatisfiable.\n\n  This is the foundation of resolution theorem proving:\n  saturate the ground instances with resolution,\n  derive contradiction if unsatisfiable.\n\n  Key fragments that ARE decidable:\n  +----------------------------+---------------------+-----------+\n  | Fragment                   | Decidability        | Complexity|\n  +----------------------------+---------------------+-----------+\n  | Propositional logic        | Decidable           | NP-complete|\n  | Monadic FOL (1-var preds)  | Decidable           | 2-EXPTIME  |\n  | Presburger arithmetic      | Decidable           | 2-EXPTIME  |\n  | (linear integer arithmetic)|                     |            |\n  | Quantifier-free FOL        | Decidable (via SMT) | NP-hard    |\n  | Full FOL                   | Semi-decidable      | r.e.       |\n  | FOL + arithmetic           | Undecidable         | N/A        |\n  +----------------------------+---------------------+-----------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 193,
+      "heading_context": "### Unification",
+      "confidence": "candidate",
+      "text": "  Find substitution s such that s(t1) = s(t2)\n\n  Example:\n    t1 = f(x, g(y))\n    t2 = f(h(a), g(z))\n    Unifier: { x -> h(a), y -> z }  (or equivalently z -> y)\n\n  Most general unifier (MGU): the \"simplest\" substitution.\n  Unification is decidable and O(n alpha(n)) — practically linear.\n  Occurs check: x cannot unify with a term containing x.\n  (Prolog omits occurs check for speed — unsound but fast.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 232,
+      "heading_context": "## SMT: Satisfiability Modulo Theories",
+      "confidence": "candidate",
+      "text": "### Theories in Z3",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 234,
+      "heading_context": "### Theories in Z3",
+      "confidence": "candidate",
+      "text": "  +------------------+---------------------------------------+--------------+\n  | Theory           | Domain                                | Abbreviation |\n  +------------------+---------------------------------------+--------------+\n  | EUF              | Uninterpreted functions + equality    | EUF          |\n  | Linear arithmetic| Integer or real linear constraints    | LIA / LRA    |\n  | Nonlinear arith. | Polynomial constraints                | NIA          |\n  | Bit-vectors      | Fixed-width integers, hardware-like   | BV           |\n  | Arrays           | Extensional arrays, select/store      | A            |\n  | Strings          | String constraints                    | S            |\n  | Datatypes        | Algebraic data types (lists, trees)   | DT           |\n  | Floating point   | IEEE 754 semantics                    | FP           |\n  +------------------+---------------------------------------+--------------+\n\n  Combinations: Z3 handles combinations of theories via\n  Nelson-Oppen combination: exchange equality constraints\n  between theory solvers until a fixed point or contradiction.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "### DPLL(T) Architecture",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────┐\n  │                    DPLL(T) CORE                      │\n  │                                                      │\n  │  SAT Solver                 Theory Solver T          │\n  │  ────────────               ─────────────────        │\n  │  Works on              <--> Handles T-consistency    │\n  │  propositional          |   of assignments           │\n  │  abstraction            |                            │\n  │  of the formula         |   Theory propagation:      │\n  │                         |   infer literals forced    │\n  │  Assigns T-atoms:   --->|   by T-constraints         │\n  │  (x + y <= 5)           |                            │\n  │  (a[i] = b[j])          |   Theory conflict:         │\n  │  (f(a) = f(b))      <---|  return explanation clause |\n  │                                                      │\n  │  If T-consistent: continue                           │\n  │  If T-conflict:   learn clause, backjump             │\n  └──────────────────────────────────────────────────────┘\n\n  The SAT solver handles propositional structure.\n  Theory solvers handle the semantics of each domain.\n  They communicate via learned clauses.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 280,
+      "heading_context": "### DPLL(T) Architecture",
+      "confidence": "candidate",
+      "text": "### Z3 API Example (Python)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 328,
+      "heading_context": "### LTL: Linear Temporal Logic",
+      "confidence": "candidate",
+      "text": "  Path: s0 -> s1 -> s2 -> s3 -> ...\n\n  Operators:\n  ┌───────┬───────────────────────────────────────────────────┐\n  | X p   | NEXT: p holds in the next state (s1)              |\n  | G p   | GLOBALLY (always): p holds in all states          |\n  |       | (also written as □p)                              |\n  | F p   | FINALLY (eventually): p holds in some future      |\n  |       | state (also written as ◇p)                        |\n  | p U q | UNTIL: p holds until q becomes true               |\n  |       | (q must eventually become true)                   |\n  | p W q | WEAK UNTIL: p holds until q, or p holds forever   |\n  | p R q | RELEASE: q holds until (and including) p does     |\n  └───────┴───────────────────────────────────────────────────┘\n\n  Examples:\n  G (request -> F response)    \"Every request is eventually answered\"\n  G (critical -> X -critical)  \"Critical section is released in next step\"\n  G (-deadlock)                 \"No deadlock ever\"\n  F G stable                    \"Eventually, the system reaches stable state\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 355,
+      "heading_context": "### CTL: Computation Tree Logic",
+      "confidence": "candidate",
+      "text": "  Tree:        s0\n              / \\\n            s1   s2\n           / \\     \\\n          s3  s4    s5\n          ...\n\n  Path quantifiers: A (all paths), E (exists a path)\n  Combined with temporal operators: X, G, F, U\n\n  But CTL requires operators to be paired:\n  AX p   - All next states: p holds in ALL successors\n  EX p   - Exists next state: p holds in SOME successor\n  AG p   - All paths, always: p holds on all states of all paths\n  EG p   - Exists a path: p holds globally on that path\n  AF p   - All paths, eventually: p holds on all paths\n  EF p   - Exists a path: p holds eventually on that path\n  A[p U q] - All paths: p until q\n  E[p U q] - Exists a path: p until q\n\n  Key CTL properties:\n  AG (-deadlock)             \"No reachable deadlock on any path\"\n  AG (request -> AF response) \"All paths: every request answered\"\n  EF (state = ready)         \"It's possible to reach ready state\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 412,
+      "heading_context": "### Buchi Automata: The LTL/Automata Connection",
+      "confidence": "candidate",
+      "text": "  LTL Formula phi\n       |\n       | (translate — exponential in worst case, polynomial for common formulas)\n       v\n  Buchi Automaton A_phi     (accepts exactly the infinite paths satisfying phi)\n       |\n       |  [also build]\n       v\n  Buchi Automaton A_M       (state space of the system M as an automaton)\n       |\n       | intersect\n       v\n  A_M x A_(-phi)            (paths of M that violate phi)\n       |\n       | check emptiness (does it accept any infinite word?)\n       v\n  Empty -> phi holds for all paths of M   (return \"verified\")\n  Non-empty -> pull out accepting run      (return counterexample)\n\n  Emptiness of Buchi automata = reachability of an accepting state\n  in a strongly connected component (SCC).\n  Standard algorithm: Tarjan's SCC + reachability.\n  This is the core of SPIN.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 444,
+      "heading_context": "## Modal Logic",
+      "confidence": "candidate",
+      "text": "  Kripke structure: M = (W, R, V)\n    W = set of possible worlds (states)\n    R = accessibility relation between worlds\n    V = valuation (which propositions hold where)\n\n  □p  (necessarily p): p holds in ALL worlds accessible from here\n  ◇p  (possibly p):    p holds in SOME world accessible from here\n\n  Modal systems (axiom schemas):\n  K:  □(p -> q) -> (□p -> □q)       (distribution — all systems)\n  T:  □p -> p                         (reflexivity — what's necessary is true)\n  4:  □p -> □□p                      (transitivity — S4 = K + T + 4)\n  5:  ◇p -> □◇p                      (euclidean — S5 = S4 + 5)\n\n  S5 with multiple agents = epistemic logic:\n    K_i(p)  \"agent i knows p\"\n    Used in: cryptographic protocol verification (BAN logic),\n             distributed knowledge reasoning, game theory",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 506,
+      "heading_context": "## Decidability Reference",
+      "confidence": "candidate",
+      "text": "  DECIDABLE FRAGMENTS (relevant to verification):\n  +-----------------------------------+-----------+------------------------------+\n  | Theory / Fragment                 | Complexity| Solver                       |\n  +-----------------------------------+-----------+------------------------------+\n  | Propositional logic (SAT)         | NP-complete| Z3, CaDiCaL, MiniSat        |\n  | Linear arithmetic (integers)      | NP-hard   | Z3 (LIA theory solver)       |\n  | Linear arithmetic (reals)         | PTIME     | Simplex in Z3                |\n  | Presburger arithmetic             | 2-EXPTIME | Z3 / Omega                   |\n  | Quantifier-free linear arith.     | PTIME     | Simplex                      |\n  | Quantifier-free bitvectors        | NP-complete| Z3 (BV theory solver)        |\n  | Arrays (quantifier-free)          | NP-hard   | Z3 (array theory solver)     |\n  | Monadic second-order logic        | decidable | MONA tool                    |\n  | Linear temporal logic (model ck.) | PSPACE    | SPIN, TLC                    |\n  | CTL model checking                | P         | NuSMV                        |\n  | First-order logic (full)          | semi-dec. | Prover9, Vampire, E          |\n  | Higher-order logic                | semi-dec. | Isabelle, Coq, Lean 4        |\n  | FOL + arithmetic (mixed)          | undecidable| n/a (approximations only)   |\n  +-----------------------------------+-----------+------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

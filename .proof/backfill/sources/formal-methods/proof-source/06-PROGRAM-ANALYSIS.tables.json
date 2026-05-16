@@ -1,0 +1,57 @@
+{
+  "schema_version": "1",
+  "source_markdown": "formal-methods\\06-PROGRAM-ANALYSIS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 682,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Tool / Technique"
+      ],
+      "rows": [
+        [
+          "Find null deref / resource leaks in Java on every PR",
+          "Infer (Meta's approach)"
+        ],
+        [
+          "Find security vulnerabilities (SQL injection, XSS) in Java/Python/JS",
+          "CodeQL"
+        ],
+        [
+          "Check memory safety of embedded C (buffer overflow, null)",
+          "CBMC or Infer"
+        ],
+        [
+          "Need sound absence of runtime errors in safety-critical C",
+          "Frama-C + Value analysis or Astrée"
+        ],
+        [
+          "Full functional correctness for certified C code (DO-178C)",
+          "Frama-C + WP plugin + ACSL"
+        ],
+        [
+          "Find bugs in a new algorithm / data structure in C",
+          "KLEE (symbolic execution)"
+        ],
+        [
+          "Pointer aliasing information for compiler optimization",
+          "LLVM AA (Andersen-based)"
+        ],
+        [
+          "Track sensitive data flow (GDPR compliance, PII tracking)",
+          "Taint analysis (CodeQL or Semgrep)"
+        ],
+        [
+          "Prove heap-manipulating code correct modularly",
+          "Separation logic + VeriFast or Infer"
+        ],
+        [
+          "Full proof of complex algorithm (sorting, graph theory)",
+          "Coq or Lean 4 (deductive)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biomedical-engineering\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------+\n|              BIOMEDICAL ENGINEERING — FIELD MAP                     |\n+---------------------------------------------------------------------+\n|                                                                     |\n|  BIOMECHANICS        BIOMATERIALS        MEDICAL IMAGING            |\n|  (forces & motion)   (implant materials) (non-invasive view)        |\n|  Bone, cartilage,    Metals, ceramics,   MRI, CT, PET,             |\n|  muscle, gait,       polymers, composites,ultrasound, SPECT         |\n|  FEA, fatigue        biocompatibility                               |\n|       |                    |                    |                   |\n|       v                    v                    v                   |\n|  +-----------------------------------------------------------+      |\n|  |          MEDICAL DEVICE LIFECYCLE                         |      |\n|  |  Research -> Design -> V&V -> Regulatory -> Clinical ->   |      |\n|  |  Post-Market Surveillance -> CAPA -> Iteration            |      |\n|  +-----------------------------------------------------------+      |\n|       ^                    ^                    ^                   |\n|       |                    |                    |                   |\n|  BIOSENSORS/DIAG     NEURAL INTERFACES    TISSUE ENGINEERING        |\n|  (detect & measure)  (brain-machine)      (grow it back)           |\n|  Electrochemical,    EEG, Utah array,     Scaffolds, iPSC,         |\n|  optical, CGM,       BCI, DBS,            bioreactors,             |\n|  lateral flow,       cochlear implants    3D bioprinting            |\n|  CRISPR diagnostics                                                 |\n+---------------------------------------------------------------------+\n\n  CROSS-CUTTING: ISO 13485 (QMS) | ISO 14971 (Risk) | ISO 10993 (Biocompat)\n                 FDA / CE marking / PMDA | UDI | CAPA | Design Controls",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 69,
+      "heading_context": "## FDA Device Classification — Risk-Stratified Regulation",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------+\n|  FDA DEVICE CLASSIFICATION                                  |\n|                                                             |\n|  CLASS I          CLASS II           CLASS III              |\n|  (Low Risk)       (Moderate Risk)    (High Risk)            |\n|  General          General +          General +              |\n|  Controls         Special Controls   Special Controls +     |\n|  only                                Premarket Approval     |\n|                                                             |\n|  510(k) EXEMPT    510(k) REQUIRED    PMA REQUIRED           |\n|  (~47% of devices)(most devices)     (life-sustaining or    |\n|                                       life-supporting)      |\n|                                                             |\n|  Examples:        Examples:          Examples:              |\n|  Tongue           Blood pressure     Pacemakers             |\n|  depressors       monitors           Heart valves           |\n|  Bandages         Infusion pumps     Cochlear implants      |\n|  Exam gloves      Glucose meters     LVADs                  |\n|  Stethoscopes     Endoscopes         Deep brain stim.       |\n|                   Surgical robots    Neurovascular stents   |\n+-------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 93,
+      "heading_context": "## FDA Device Classification — Risk-Stratified Regulation",
+      "confidence": "candidate",
+      "text": "### 510(k) — Predicate Clearance (Class II, most common path)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 98,
+      "heading_context": "### 510(k) — Predicate Clearance (Class II, most common path)",
+      "confidence": "candidate",
+      "text": "  510(k) SUBSTANTIAL EQUIVALENCE DECISION TREE\n  =============================================\n\n  YOUR DEVICE\n      |\n      v\n  Same intended use as predicate? ----NO----> Different class or De Novo\n      |\n      YES\n      v\n  Same technological characteristics? ----YES----> SUBSTANTIALLY EQUIVALENT\n      |                                             (cleared)\n      NO\n      v\n  New questions of safety/efficacy raised?\n      |                    |\n      NO                   YES\n      v                    v\n  SUBSTANTIALLY      Not substantially equivalent\n  EQUIVALENT         -> PMA track or De Novo\n  (can still clear)\n\n  Timeline: 90 days statutory, ~180 days in practice\n  Special 510(k): streamlined path for design changes to your own cleared device\n  De Novo: novel moderate-risk device, no valid predicate -> creates new classification\n           -> that De Novo can then serve as predicate for future 510(k)s",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 174,
+      "heading_context": "## EU MDR — CE Marking",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------+\n|  EU MDR DEVICE CLASSIFICATION                               |\n|                                                             |\n|  Class I      Class IIa      Class IIb      Class III       |\n|  (Lowest)                                   (Highest)       |\n|                                                             |\n|  Self-declare  Notified Body  Notified Body  Notified Body  |\n|  CE (some NB   review         full review    + clinical     |\n|  for sterile/                               evidence        |\n|  measuring)                                                 |\n|                                                             |\n|  CE Mark = Declaration of Conformity + Technical File       |\n|            + Notified Body Certificate (IIa and above)      |\n+-------------------------------------------------------------+\n\n  EU MDR vs FDA comparison:\n  +---------------------------+----------------------------+\n  | FDA                       | EU MDR                     |\n  +---------------------------+----------------------------+\n  | Government agency review  | Notified Body (private)    |\n  | Predicate system (510k)   | GSPR conformity            |\n  | PMA for Class III         | Clinical evaluation + NB   |\n  | UDI system                | EUDAMED + UDI              |\n  | MAUDE adverse event DB    | National competent auth.   |\n  | MDR reporting             | Vigilance reporting        |\n  +---------------------------+----------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 210,
+      "heading_context": "## ISO 13485 — Medical Device Quality Management System",
+      "confidence": "candidate",
+      "text": "  ISO 13485 STRUCTURE\n  ===================\n\n  +------------------------------------------------------+\n  |  QUALITY MANAGEMENT SYSTEM                           |\n  |                                                      |\n  |  Management Responsibility                           |\n  |  -> Quality policy, objectives, management review    |\n  |                                                      |\n  |  Resource Management                                 |\n  |  -> Personnel competence, infrastructure             |\n  |                                                      |\n  |  Product Realization  <--- THE CORE                  |\n  |  -> Design Controls (21 CFR 820.30)                  |\n  |  -> Risk Management (ISO 14971)                      |\n  |  -> Supplier qualification and purchasing controls   |\n  |  -> Production and service controls                  |\n  |  -> Traceability (lot/serial records)                |\n  |  -> Sterile device controls                          |\n  |                                                      |\n  |  Measurement, Analysis, Improvement                  |\n  |  -> CAPA (corrective and preventive action)          |\n  |  -> Internal audits                                  |\n  |  -> Post-market surveillance                         |\n  +------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "## Design Controls — The SDLC Bridge",
+      "confidence": "candidate",
+      "text": "  DESIGN CONTROLS (21 CFR 820.30) <-> SOFTWARE ENGINEERING PARALLEL\n  =================================================================\n\n  DESIGN INPUT          = Requirements specification\n  (what it must do)       User needs → design requirements\n\n  DESIGN OUTPUT         = Architecture docs + device itself\n  (how it does it)        Drawings, specifications, software\n\n  DESIGN VERIFICATION   = Unit and integration testing\n  (outputs meet inputs?)  \"Did we build it according to spec?\"\n\n  DESIGN VALIDATION     = User acceptance testing (UAT)\n  (device meets user need)\"Did we build the right thing?\"\n                          Simulated use or actual use studies\n\n  DESIGN REVIEW         = Design review gates\n  (formal checkpoints)    Documented, cross-functional\n\n  DESIGN TRANSFER       = DevOps / release engineering\n  (R&D -> Manufacturing)  Manufacturing can replicate it\n\n  DESIGN CHANGES        = Change control process\n  (controlled iterations) Every change reviewed, tested, documented\n\n  DESIGN HISTORY FILE   = Git blame + spec docs + test results\n  (DHF — the audit trail)  Coherent record of the entire design process\n                           FDA inspectors pull this first",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 283,
+      "heading_context": "## Risk Management — ISO 14971",
+      "confidence": "candidate",
+      "text": "  ISO 14971 RISK MANAGEMENT PROCESS\n  ==================================\n\n  1. RISK ANALYSIS\n     Identify hazards (what can go wrong for patient, user, environment?)\n     Estimate probability P and severity S\n     Risk = P x S\n\n  2. RISK EVALUATION\n     Compare to pre-defined acceptability criteria\n     Acceptable? -> document and continue\n     Not acceptable? -> apply risk controls\n\n  3. RISK CONTROL (priority order — must justify if skipping down)\n     a. Inherently safe design (remove the hazard)\n     b. Protective measures (guards, alarms, interlocks)\n     c. Information for safety (warnings, labeling, IFU)\n\n  4. RESIDUAL RISK EVALUATION\n     After controls applied: still acceptable?\n\n  5. RISK-BENEFIT ANALYSIS\n     Class III: even high residual risk can be acceptable\n     if clinical benefit outweighs it — must be documented\n\n  6. POST-MARKET FEEDBACK LOOP\n     Real-world adverse event data updates risk file\n     CAPA may be required\n\n  FMEA row structure:\n  Function | Failure Mode | Effect | Sev | Prob | RPN | Control | Residual",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 321,
+      "heading_context": "## The Medical Device Lifecycle",
+      "confidence": "candidate",
+      "text": "  MEDICAL DEVICE LIFECYCLE\n  ========================\n\n  CONCEPT & NEED\n  Unmet clinical need, literature review, IP landscape, KOL interviews\n      |\n      v\n  DESIGN & DEVELOPMENT\n  Design controls (21 CFR 820.30), bench testing, animal testing (GLP),\n  ISO 14971 risk management, design freezes, V&V testing\n      |\n      |  IDE application (if clinical trial needed for US)\n      v\n  CLINICAL INVESTIGATION\n  Pivotal study or clinical evaluation (EU), IRB/Ethics board,\n  informed consent, statistical endpoints, monitoring\n      |\n      v\n  REGULATORY SUBMISSION\n  510(k) / De Novo / PMA (US) + CE Mark / MDR (EU) + PMDA (Japan)\n  Labeling, UDI, Quality System evidence\n      |\n      v\n  CLEARANCE / APPROVAL\n  FDA clearance letter or PMA approval order\n  CE certificate from Notified Body\n      |\n      v\n  COMMERCIAL LAUNCH\n  Physician training, reimbursement strategy (CPT codes, CMS coverage),\n  post-market surveillance plan activated\n      |\n      v\n  POST-MARKET SURVEILLANCE\n  MDR adverse event reporting, recalls (Class I/II/III),\n  post-market studies (if mandated), CAPA, design iterations\n      |\n      +------- feedback loop back to DESIGN & DEVELOPMENT -----------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 391,
+      "heading_context": "## Career Map",
+      "confidence": "candidate",
+      "text": "  ACADEMIC / RESEARCH        INDUSTRY                    REGULATORY / CLINICAL\n  ===================        ========                    ====================\n  University labs            R&D Engineer                FDA reviewer / CDRH\n  NIH/NSF grants             Systems Engineer            Regulatory Affairs Mgr\n  Publication cycle          V&V Engineer                Notified Body assessor\n  Technology transfer        Clinical Affairs            RA consultant (ex-FDA)\n  SBIR bridge to industry    Quality Engineer            Hospital Clinical Eng.\n  Postdoc -> faculty         Medical Science Liaison     Biomedical Technician\n                             Product Management          Clinical Scientist\n                             VP Engineering              IRB member\n\n  STARTUP PATH\n  Founder / CTO / CMO\n  NIH SBIR/STTR Phase I ($300k) -> Phase II ($2M)\n  Seed round -> Series A (usually post-IDE or post-clearance)\n  Common exit: acquisition by Medtronic / Abbott / Stryker / BSN",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

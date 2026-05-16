@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biomedical-engineering\\07-MEDICAL-DEVICES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------+\n|              MEDICAL DEVICE REGULATORY FRAMEWORK                    |\n+---------------------------------------------------------------------+\n|                                                                     |\n|  DEVICE CLASSIFICATION        MARKET ACCESS PATHWAY                 |\n|                                                                     |\n|  Class I                      510(k) Exempt                         |\n|  (Low Risk)                   Establish design controls, QMS        |\n|  ~47% of devices              File Technical File                   |\n|                                                                     |\n|  Class II                     510(k) or De Novo                     |\n|  (Moderate Risk)              Demonstrate substantial equivalence    |\n|  ~43% of devices              to predicate device                   |\n|                                                                     |\n|  Class III                    PMA (Premarket Approval)              |\n|  (High Risk)                  Clinical evidence of safety+efficacy  |\n|  ~10% of devices              IDE for clinical trials               |\n|                                                                     |\n|       +-------------------------------------------+                |\n|       | POST-MARKET: MDR reporting, recalls, PMS  |                |\n|       | UDI, MAUDE, CAPA, 21 CFR 820 QMS          |                |\n|       +-------------------------------------------+                |\n+---------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "### Substantial Equivalence Framework",
+      "confidence": "candidate",
+      "text": "  510(k) SUBSTANTIAL EQUIVALENCE DECISION TREE\n  =============================================\n\n  STEP 1: Identify predicate(s)\n  Predicate must be legally marketed:\n  - Cleared via 510(k) (any year)\n  - Exempt Class I/II (legally marketed before 1976)\n  - Preamendment device (on market before May 28, 1976)\n  NOT a valid predicate: pending 510(k), recalled, fraudulent\n\n  STEP 2: Same intended use?\n  +-- YES --> Continue\n  +-- NO  --> Substantially NOT equivalent -> consider Class III\n\n  STEP 3: Same technological characteristics?\n  +-- YES --> Substantially equivalent. Done.\n  +-- NO  --> Does the difference raise new safety/efficacy questions?\n              +-- NO  --> Substantially equivalent (can use different tech)\n              +-- YES --> Must show performance data:\n                          Bench testing, animal, clinical\n                          If data demonstrates safe -> SE\n                          If not -> NSE (not substantially equivalent)\n\n  REVIEW TIMELINE:\n  Traditional 510(k): 90 days target, ~200 days actual\n  Special 510(k): 30 days target for design changes to own cleared device\n  Abbreviated 510(k): uses guidance documents, recognized standards\n  De Novo: 120 days target (novel, no predicate, moderate risk)\n\n  WHAT GOES IN A 510(k):\n  Device description + substantial equivalence comparison\n  Labeling (draft IFU, indications, contraindications, warnings)\n  Biocompatibility (ISO 10993 data or justification)\n  Performance testing (per applicable FDA guidance documents)\n  Software documentation (IEC 62304 compliance if applicable)\n  Sterility (if sterile device)\n  Electrical safety (IEC 60601 if powered)\n  EMC (IEC 60601-1-2)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "### Predicate Strategy",
+      "confidence": "candidate",
+      "text": "  PREDICATE SELECTION STRATEGY\n  ==============================\n\n  Multiple predicates are allowed (and common):\n  Split-predicates: intended use from Predicate A + tech from Predicate B\n  Predicate chains: cleared device that used a cleared device as predicate\n\n  PREDICATE DAISY-CHAIN CONCERNS:\n  If every 510(k) clears based on predicate which itself\n  predicated on an older device, technology drift occurs.\n  FDA 2020: \"Safety concerns about predicates\" -> De Novo more enforced\n\n  PRACTICAL STRATEGY:\n  1. Search 510(k) database (FDA.gov) for competitors' cleared devices\n  2. Identify their predicates from their 510(k) summaries\n  3. Build a predicate tree showing lineage\n  4. Choose most recent directly analogous cleared device\n  5. Engage FDA via Q-sub (pre-submission meeting) before submitting\n     to confirm predicate acceptance and testing approach\n\n  Q-SUBMISSION (Pre-Sub):\n  Voluntary meeting request with FDA\n  Ask specific questions: Is Predicate X acceptable?\n  What testing is needed for substantial equivalence?\n  FDA responds in ~60 days\n  Critical for novel or borderline devices — sets expectations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "### Clinical Investigation Requirements",
+      "confidence": "candidate",
+      "text": "  PMA — CLINICAL EVIDENCE STANDARDS\n  ===================================\n\n  PRIMARY ENDPOINT: must be pre-specified, FDA-agreed\n  Examples:\n  - LVAD: survival at 2 years (vs. optimal medical management)\n  - Spinal implant: VAS pain score at 12 months\n  - Coronary stent: MACE at 12 months (major adverse cardiac events)\n\n  STUDY DESIGN OPTIONS:\n  Randomized controlled trial (RCT): gold standard, required when\n  feasible. Control arm = standard of care or sham procedure.\n  Historically controlled: when RCT is not feasible\n  (e.g., no standard therapy for severe condition)\n  Objective performance criterion (OPC): compare to literature-\n  derived performance benchmark (for device classes with\n  established benchmarks)\n\n  IDE TYPES:\n  Significant Risk (SR) Study:\n  -> Full IDE application to FDA required\n  -> IRB approval at each site\n  -> FDA holds 30 days before enrollment begins\n  -> Annual reports, adverse event reporting\n\n  Non-Significant Risk (NSR) Study:\n  -> No FDA IDE application needed\n  -> IRB approval still required\n  -> Record keeping and labeling requirements still apply\n  -> NSR determination made by sponsor + IRB\n\n  PIVOTAL vs. FEASIBILITY STUDIES:\n  Feasibility (pilot): small, demonstrate can be done safely,\n                       collect preliminary data, refine design\n  Pivotal: statistically powered, endpoints pre-agreed with FDA,\n           used in PMA submission",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 218,
+      "heading_context": "## Design Controls — 21 CFR 820.30",
+      "confidence": "candidate",
+      "text": "  DESIGN CONTROLS DETAILED — 21 CFR 820.30\n  =========================================\n\n  (a) GENERAL: requires design control procedures for Class II/III\n               Class I: generally exempt from design controls\n\n  (b) DESIGN AND DEVELOPMENT PLANNING:\n      Plans must identify responsible staff, interfaces,\n      controlled documents, schedule. Living document.\n\n  (c) DESIGN INPUT:\n      User needs -> formal design requirements\n      Physical, performance, safety requirements\n      Regulatory requirements\n      Standards compliance\n      Must be documented and reviewed\n\n  (d) DESIGN OUTPUT:\n      Device drawings, specs, software, manufacturing procedures\n      Must meet design inputs\n      Must identify critical characteristics (acceptance criteria)\n\n  (e) DESIGN REVIEW:\n      Formal reviews at major design phases\n      Multi-disciplinary team (must include independent reviewer)\n      Results documented in DHF\n\n  (f) DESIGN VERIFICATION:\n      Testing that design outputs meet design inputs\n      \"Did we build it according to the spec?\"\n      Test reports signed by appropriate authority\n\n  (g) DESIGN VALIDATION:\n      Test against actual or simulated user needs\n      \"Did we build the right thing?\"\n      Must include simulated or actual use conditions\n      Human factors validation (21 CFR 820.30(g), HE75)\n\n  (h) DESIGN TRANSFER:\n      Ensures manufacturing can reproduce the design\n      Production specifications = design outputs\n\n  (i) DESIGN CHANGES:\n      All changes require formal review and approval\n      Assess if change requires new verification/validation\n      Re-submit 510(k) if change affects safety/efficacy\n\n  (j) DESIGN HISTORY FILE (DHF):\n      The auditable package of all the above\n      FDA inspectors will ask for DHF\n      Must be organized, indexed, retrievable\n      Bridge: DHF = formalized git blame + spec docs + test reports\n              + sign-offs in an auditable package",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 280,
+      "heading_context": "### Coronary Stents",
+      "confidence": "candidate",
+      "text": "  CORONARY STENTS\n  ================\n\n  BARE METAL STENT (BMS):\n  316L SS or CoCrMo metallic scaffold\n  Deployed via balloon catheter in coronary artery\n  Opens blocked artery, holds lumen patent\n  Problem: restenosis (re-narrowing) in 20-30% at 6 months\n  Mechanism: neointimal hyperplasia (smooth muscle cell proliferation)\n  BMS now largely replaced by DES except specific indications\n\n  DRUG-ELUTING STENT (DES) — current standard:\n  Metal scaffold + polymer coating + antiproliferative drug\n\n  STENT DESIGN ANATOMY:\n  Strut thickness: 60-100 μm (thinner = less inflammation = less restenosis)\n  Metal: CoCrMo (higher radial strength at thinner struts than SS)\n  Polymer: biodegradable (PLGA) or durable (fluoropolymer)\n  Drug: sirolimus (rapamycin) — mTOR inhibitor, blocks cell cycle\n        paclitaxel — stabilizes microtubules, blocks mitosis\n        zotarolimus, everolimus — sirolimus derivatives\n\n  DES MECHANISM:\n  Drug elutes over 30-90 days (biphasic: burst + sustained)\n  Inhibits smooth muscle cell migration and proliferation\n  -> near-zero restenosis (<5%) vs. BMS ~20-30%\n\n  LATE STENT THROMBOSIS:\n  DES risk: delayed endothelialization of struts\n  -> bare metal on strut surface -> thrombogenic\n  Managed with DAPT (dual antiplatelet therapy) for 1-12 months\n  First-gen DES: higher late thrombosis risk (thick polymer, high drug dose)\n  Second-gen (current): thinner struts, biocompatible polymer -> safer\n\n  BIORESORBABLE VASCULAR SCAFFOLD (BVS):\n  PLLA scaffold + drug coating -> absorbs over 3 years\n  Concept: restore vasomotion, avoid permanent foreign body\n  Abbott Absorb BVS: approved, then voluntarily recalled (2017)\n  -> higher late thrombosis and stent fracture vs. DES\n  Still active research; newer designs in trials\n\n  FDA REGULATION: Class III PMA for coronary DES",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "### Pacemakers",
+      "confidence": "candidate",
+      "text": "  PACEMAKERS\n  ==========\n\n  INDICATION:\n  Bradycardia: heart rate too slow\n  AV block: electrical conduction block between atria and ventricles\n  Sick sinus syndrome\n\n  PACEMAKER TYPES:\n  Single-chamber (VVIR): right ventricle lead only\n  Dual-chamber (DDDR): right atrium + right ventricle leads\n  Biventricular (CRT — Cardiac Resynchronization Therapy):\n    RV + LV + RA leads: for heart failure with LBBB (dyssynchrony)\n    Resynchronizes ventricular contraction -> improved EF\n  Leadless pacemaker: Medtronic Micra — capsule deployed directly\n    into RV via catheter (no leads, no pocket needed)\n\n  PACEMAKER FUNCTION:\n  Sensing: detects native cardiac depolarizations\n  Pacing: delivers electrical stimulus when no native beat detected\n  Demand mode: paces only when needed (inhibited by native beats)\n  Rate response: increases rate with activity (accelerometer, minute ventilation)\n\n  LEAD DESIGN:\n  Active fixation: helical screw extends from tip into myocardium\n  Passive fixation: tines or fins catch in trabeculae\n  Bipolar: tip + ring electrode on same lead (better sensing)\n  Unipolar: tip electrode + can (housing) as return (larger pacing radius)\n\n  SENSING THRESHOLDS:\n  P-wave: >1.5 mV (atrial sensing), >2 mV preferred\n  R-wave: >5 mV (ventricular sensing), >7 mV preferred\n  Pacing threshold: <1.5 V @ 0.4 ms (energy efficiency)\n\n  PACEMAKER SYNDROME: AV dyssynchrony from single-chamber pacing\n  Solution: dual-chamber or biventricular pacing\n\n  FDA REGULATION: Class III PMA",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 370,
+      "heading_context": "### ICD — Implantable Cardioverter-Defibrillator",
+      "confidence": "candidate",
+      "text": "  ICD — IMPLANTABLE CARDIOVERTER-DEFIBRILLATOR\n  ==============================================\n\n  INDICATION:\n  Primary prevention: ejection fraction <35% (at risk for SCD)\n  Secondary prevention: survived VF or hemodynamically unstable VT\n\n  ICD THERAPY HIERARCHY:\n  1. ATP (Anti-Tachycardia Pacing): rapid burst or ramp pacing\n     -> terminates monomorphic VT ~75-90% of the time painlessly\n  2. Low-energy cardioversion (1-15 J): for VT not responding to ATP\n  3. High-energy defibrillation (up to 40 J): for VF\n     The shock is PAINFUL — equivalent to kick in chest\n     -> programming to maximize ATP use and minimize shocks\n\n  DETECTION ZONES:\n  VT zone (150-200 bpm): ATP first, then shock if needed\n  VF zone (>200 bpm): immediate shock\n\n  SPURIOUS SHOCKS:\n  T-wave oversensing: high T-wave amplitude detected as R -> double counts\n  Supraventricular tachycardia (SVT): AF, SVT misdetected as VT\n  Lead fracture: noise detected as VF -> inappropriate shock\n  Discrimination algorithms: PR Logic, Wavelet, SVT-VT discrimination\n  Rate + morphology + onset + stability to distinguish SVT from VT\n\n  S-ICD (Subcutaneous ICD — Boston Scientific):\n  No intravascular leads — electrode on thorax\n  Senses surface ECG analog, delivers 80 J shock through chest wall\n  No pacing capability (unless combined with leadless pacemaker)\n  Advantage: no vascular access, no lead complications, removable\n  Limitation: no ATP, no pacing, sensing affected by patient movement\n\n  FDA REGULATION: Class III PMA",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 409,
+      "heading_context": "### LVAD — Left Ventricular Assist Device",
+      "confidence": "candidate",
+      "text": "  LVAD — LEFT VENTRICULAR ASSIST DEVICE\n  ======================================\n\n  INDICATION:\n  Bridge to transplant (BTT): keep patient alive until donor heart\n  Bridge to candidacy: deteriorating patient may become transplant eligible\n  Destination therapy (DT): permanent implant for ineligible-for-transplant\n\n  PHYSIOLOGY:\n  Cannula in LV apex -> pump -> outflow graft to ascending aorta\n  Pump augments (not replaces) LV output\n  Reduces LV filling pressure, increases forward flow\n  Some myocardial recovery possible (bridge to recovery — rare)\n\n  PUMP TYPES:\n  GENERATION 1: pulsatile (pneumatic or electric) — HeartMate XVE\n  Large, heavy, wear on moving parts, loud. Replaced.\n\n  GENERATION 2: axial continuous flow — HeartMate II (still widely used)\n  Single moving part (impeller on bearings/jewel bearings)\n  Smaller, quieter, better 2-year survival vs Gen 1\n  Risk: pump thrombosis at bearings -> strokes, pump failure\n\n  GENERATION 3: centrifugal flow, magnetically levitated — HeartMate 3\n  Impeller suspended magnetically (no contact bearings)\n  Wide gap minimizes blood cell damage (hemolysis)\n  Artificial pulse: programmed speed modulation\n  HeartMate 3: best 2-year outcomes of any LVAD (MOMENTUM 3 trial)\n  Medtronic HVAD: centrifugal, wearable — withdrawn 2021 (stroke risk)\n\n  COMPLICATIONS:\n  Stroke (ischemic and hemorrhagic) — leading cause of morbidity\n  Gastrointestinal bleeding (acquired vWF deficiency from shear)\n  Driveline infection (percutaneous cable)\n  Right heart failure (increased LVAD flow -> RV volume overload)\n  Pump thrombosis (HM2 more than HM3)\n\n  MANAGEMENT:\n  INR 2.0-3.0 (anticoagulation)\n  Antiplatelet (aspirin) in addition\n  BP management (mean arterial pressure 70-90 mmHg)\n  Continuous flow: no pulsatile BP -> MAP measured, not systolic/diastolic\n\n  FDA REGULATION: Class III PMA (HeartMate 3 PMA P160054)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 460,
+      "heading_context": "## Infusion Pumps",
+      "confidence": "candidate",
+      "text": "  INFUSION PUMPS\n  ==============\n\n  TYPES:\n  +-------------------+------------------------------------------------+\n  | Syringe pump      | Syringe driven by stepper motor                |\n  |                   | Very precise, low flow rates (0.1-300 mL/hr)   |\n  |                   | ICU/OR for vasoactive drugs, opioids           |\n  +-------------------+------------------------------------------------+\n  | Volumetric pump   | Peristaltic cassette mechanism                 |\n  | (general purpose) | 1-999 mL/hr. IV fluids, antibiotics, chemo    |\n  +-------------------+------------------------------------------------+\n  | PCA pump          | Patient-controlled analgesia                   |\n  | (patient-control) | Patient button triggers dose within limits     |\n  |                   | Lockout interval prevents overdose             |\n  +-------------------+------------------------------------------------+\n  | Ambulatory pump   | Small, wearable (CADD, Walkmed)                |\n  |                   | Home chemo, total parenteral nutrition          |\n  +-------------------+------------------------------------------------+\n  | Insulin pump      | Continuous subcutaneous insulin infusion (CSII)|\n  |                   | Basal + bolus. Medtronic MiniMed 780G,         |\n  |                   | Insulet Omnipod 5 (tubeless, patch pump)       |\n  +-------------------+------------------------------------------------+\n\n  SAFETY ARCHITECTURE:\n  DERS (Drug Error Reduction Software = Drug Library):\n  Pre-programmed drug library with soft limits (warnings) and\n  hard limits (cannot be overridden) for each drug\n  Pump alerts if programmed dose exceeds drug library limit\n  Interoperability: BCMA (barcode medication administration) + pump\n  -> EHR verifies drug and links to pump program\n\n  OCCLUSION DETECTION:\n  Downstream occlusion: pressure rises -> alarm\n  Air-in-line detection: ultrasonic or optical air detector\n  Free-flow prevention: anti-free-flow mechanism (clamp)\n\n  FDA CLASSIFICATION: Class II (510(k))\n  FDA has issued many recall notices for infusion pump software\n  -> high-profile safety concern (insulin pump recalls)\n  Device software under IEC 62304 + 21 CFR 820",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 508,
+      "heading_context": "## Mechanical Ventilators",
+      "confidence": "candidate",
+      "text": "  MECHANICAL VENTILATORS\n  =======================\n\n  MODES OF VENTILATION:\n  +---------------------+----------------------------------------------+\n  | Volume Control (VC) | Set tidal volume VT delivered each breath    |\n  |                     | Pressure varies (risk: barotrauma)           |\n  |                     | Set: VT, RR, FiO2, PEEP                      |\n  +---------------------+----------------------------------------------+\n  | Pressure Control    | Set inspiratory pressure (PC above PEEP)     |\n  | (PC)                | Volume varies (depends on compliance)         |\n  |                     | Better for non-uniform lung disease           |\n  +---------------------+----------------------------------------------+\n  | SIMV                | Synchronized intermittent mandatory vent.    |\n  |                     | Delivers set number of mandatory breaths     |\n  |                     | Patient can breathe spontaneously between    |\n  +---------------------+----------------------------------------------+\n  | PSV (Pressure       | Patient-triggered, pressure-supported         |\n  | Support)            | Patient determines RR and VT within limits   |\n  |                     | Standard for weaning from ventilator          |\n  +---------------------+----------------------------------------------+\n\n  KEY PARAMETERS:\n  FiO2: fraction of inspired O2 (0.21 = room air to 1.0 = 100% O2)\n  PEEP (Positive End-Expiratory Pressure): maintains alveoli open\n        at end of expiration. Prevents derecruitment.\n        Normal: 5 cmH2O. ARDS: 8-20 cmH2O.\n  Tidal volume (VT): normal physiology ~7 mL/kg. ARDS: 4-6 mL/kg IBW\n  Plateau pressure (Pplat): proxy for alveolar pressure (barotrauma risk)\n        Target <30 cmH2O; ARDSNet protocol targets <30 cmH2O\n\n  LUNG-PROTECTIVE VENTILATION (ARDSNet protocol):\n  Low VT (6 mL/kg IBW) + high PEEP + permissive hypercapnia\n  Reduces volutrauma and barotrauma\n  Proven to reduce mortality in ARDS (ARMA trial 2000)\n\n  COVID-19 VENTILATOR SUPPLY CHAIN CRISIS (2020):\n  ARDS in COVID required positive pressure ventilation\n  US/global supply ~170,000 ventilators (needed: 750,000 estimate)\n  Emergency manufacturing: GM, Ford, GE partnered with Ventec, Hamilton\n  FDA issued EUA (Emergency Use Authorization) for modified/simplified vents\n  Key lesson: Class III device supply chains are as critical as software infrastructure\n  -> CAPA and post-market supply monitoring matter for national security\n\n  FDA CLASSIFICATION: Class II (510(k)) for many; Class III (PMA) for high-risk ICU vents",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 560,
+      "heading_context": "## Combination Products",
+      "confidence": "candidate",
+      "text": "  COMBINATION PRODUCTS\n  ====================\n\n  A combination product has:\n  - Drug + device (drug-eluting stent: sirolimus in polymer on metallic scaffold)\n  - Device + biologic (bone graft + collagen scaffold)\n  - Drug + biologic + device\n\n  FDA LEAD CENTER ASSIGNMENT:\n  Office of Combination Products (OCP) determines which center leads review:\n  CDRH: Center for Devices and Radiological Health\n  CDER: Center for Drug Evaluation and Research\n  CBER: Center for Biologics Evaluation and Research\n\n  LEAD CENTER = PRIMARY MODE OF ACTION:\n  Drug-eluting stent: device primary (mechanically holds lumen open)\n    -> CDRH leads, CDER consults on drug\n  Drug-device combination (e.g., drug-coated balloon):\n    -> CDRH leads typically\n  Autologous cell therapy on scaffold:\n    -> CBER leads (biological component is primary)\n\n  EXAMPLES:\n  +----------------------------+--------+-----------------------------+\n  | Product                    | Class  | Lead Center                 |\n  +----------------------------+--------+-----------------------------+\n  | Drug-eluting stent         | III PMA| CDRH leads / CDER consult  |\n  | Drug-coated balloon        | III PMA| CDRH                       |\n  | Antibiotic-eluting nail    | II/III | CDRH / CDER                |\n  | Cellular bone matrix       | ---    | CBER                       |\n  | Insulin + pump (combo app) | II/III | CDRH for device piece      |\n  +----------------------------+--------+-----------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 599,
+      "heading_context": "## UDI — Unique Device Identifier",
+      "confidence": "candidate",
+      "text": "  UDI SYSTEM (21 CFR 830)\n  =======================\n\n  Every medical device must bear a UDI label (phased in by class):\n  Class III: required since 2014\n  Class II: since 2016\n  Class I: since 2020\n\n  UDI FORMAT: two components\n  Device Identifier (DI): identifies device manufacturer + model\n  Production Identifier (PI): specific production info\n    -> lot/batch number\n    -> serial number\n    -> manufacturing date\n    -> expiration date\n    -> distinct identification code (for HCT/P)\n\n  BARCODE FORMATS:\n  GS1-128 (linear), HIBCC (linear), ISBT 128 (blood)\n  DataMatrix (2D), QR (2D)\n\n  GUDID (Global UDI Database):\n  FDA's public searchable database of all device UDI records\n  Manufacturers must register each device model in GUDID\n\n  CLINICAL USE:\n  EMR integration: scan device barcode at implantation -> auto-\n    populates implant record. Enables recall management.\n  Recall: FDA issues recall for specific DI/PI range ->\n    hospitals can quickly identify affected inventory\n\n  EU: EUDAMED serves analogous function for CE-marked devices",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

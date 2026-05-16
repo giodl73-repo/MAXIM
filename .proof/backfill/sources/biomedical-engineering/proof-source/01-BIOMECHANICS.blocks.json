@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biomedical-engineering\\01-BIOMECHANICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------+\n|              BIOMECHANICS — LANDSCAPE                               |\n+---------------------------------------------------------------------+\n|                                                                     |\n|  HARD TISSUE           SOFT TISSUE           WHOLE-BODY MOTION      |\n|  MECHANICS             MECHANICS             ANALYSIS               |\n|                                                                     |\n|  Bone: cortical,       Cartilage: biphasic   Gait analysis          |\n|  cancellous, Wolff     Tendon/ligament:       (force plates,        |\n|  Implant fixation      toe/linear/failure     motion capture,       |\n|  Stress shielding      Muscle: Hill model     inverse dynamics)     |\n|  Fatigue, fracture     Viscoelasticity        EMG                   |\n|                        (creep/relaxation)                           |\n|       |                    |                    |                   |\n|       +--------------------+--------------------+                   |\n|                            |                                        |\n|                            v                                        |\n|               COMPUTATIONAL BIOMECHANICS                            |\n|               Finite Element Analysis (FEA)                         |\n|               CT/MRI -> mesh -> material assignment                 |\n|               -> boundary conditions -> validation                  |\n+---------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "### Structure",
+      "confidence": "candidate",
+      "text": "  BONE STRUCTURAL HIERARCHY\n  =========================\n\n  Nano scale:\n  [Collagen triple helix] + [Ca10(PO4)6(OH)2 crystals]\n  -> 67nm periodic banding\n  -> fiber-reinforced composite behavior\n\n  Micro scale:\n  CORTICAL BONE                    CANCELLOUS BONE\n  +------------------+             +------------------+\n  | Osteons (Havers- |             | Trabeculae       |\n  | ian systems)     |             | (plate and rod   |\n  | Lamellae around  |             | lattice ~30%     |\n  | central canal    |             | volume fraction) |\n  | Porosity: 5-10%  |             | Porosity: 70-90% |\n  +------------------+             +------------------+\n  Location: diaphysis (shaft)      Location: metaphysis,\n  of long bones, cortex            vertebrae, femoral head\n\n  Macro scale:\n  Cortex (shell) + cancellous core + marrow cavity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 120,
+      "heading_context": "### Wolff's Law and Stress Shielding",
+      "confidence": "candidate",
+      "text": "  BONE REMODELING — WOLFF'S LAW\n  =============================\n\n  STIMULUS: strain energy density or strain rate\n     |\n     v\n  MECHANOSENSING: osteocytes (embedded in bone matrix, connected\n  via canalicular network, respond to fluid flow from strain)\n     |\n     v\n  EFFECTOR CELLS:\n  - Osteoblasts: bone formation (lay down osteoid -> mineralize)\n  - Osteoclasts: bone resorption (dissolve mineral + matrix)\n  - Osteocytes: mechanosensor and orchestrator\n     |\n     v\n  NET EFFECT:\n  High strain region -> net formation (bone added)\n  Low strain region  -> net resorption (bone removed)\n  Normal range       -> homeostasis\n\n  STRESS SHIELDING (implant complication):\n  +-----------------------------+\n  |  Rigid implant (steel/Ti)   |\n  |  carries most of the load   |\n  |  -> adjacent bone sees      |\n  |     reduced strain          |\n  |  -> bone resorbs around     |\n  |     the implant             |\n  |  -> implant loosens         |\n  +-----------------------------+\n  Solution: match implant stiffness to bone (carbon fiber PEEK),\n  or use porous implant surfaces that encourage ingrowth.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 164,
+      "heading_context": "## Cartilage Mechanics — Biphasic Theory",
+      "confidence": "candidate",
+      "text": "  CARTILAGE BIPHASIC MODEL (Mow, 1980)\n  =====================================\n\n  CARTILAGE = FLUID PHASE + SOLID PHASE\n\n  Fluid phase (~80% by weight):\n  - Water + dissolved ions\n  - Pressurizes under compressive load\n  - Carries the majority of load acutely (>90% in some models)\n  - Exudes slowly through matrix (drag resistance)\n\n  Solid phase (~20% by weight):\n  - Collagen type II (tensile stiffness)\n  - Proteoglycans (aggrecan) — negatively charged, attract Na+,\n    create osmotic swelling pressure\n  - Carries increasing proportion of load as fluid exudes\n\n  VISCOELASTIC BEHAVIORS:\n\n  CREEP:                           STRESS RELAXATION:\n  Apply constant stress            Apply constant strain\n       +------ stress constant      |\n  disp.|     /------ creep          |      stress\n       |    /  equilibrium         |     /\n       |   /                        |    /  relaxes\n       |  /                         |   /\n       | /                          |  /\n       |/                           | /\n       +----------> time            +--> time\n\n  Creep: fluid keeps exuding until equilibrium (pressure = 0)\n  Stress relaxation: fluid redistributes, solid bears more load\n  Both behaviors measured in indentation or confined compression.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 207,
+      "heading_context": "## Muscle Mechanics — Hill Model",
+      "confidence": "candidate",
+      "text": "  HILL MUSCLE MODEL\n  =================\n\n         CE          SE\n  F --[=====]---[///]--- F\n              |\n             [///]\n              PE\n\n  CE = Contractile Element (active, generates force)\n  SE = Series Elastic Element (tendon + cross-bridge compliance)\n  PE = Parallel Elastic Element (passive connective tissue)\n\n  FORCE-VELOCITY RELATIONSHIP (CE only):\n  Force\n    ^\n    |\\ Fmax (isometric)\n    | \\\n    |  \\     Shortening side:\n    |   \\    faster shortening = less force\n    |    \\   F * (v + a) = constant (Hill's equation)\n    |     \\\n    |      \\____\n    +-----------> velocity\n    eccentric  0  concentric\n\n  FORCE-LENGTH RELATIONSHIP:\n  Force\n    ^\n    |     /\\\n    |    /  \\\n    |   /    \\\n    |  /      \\\n    | /        \\\n    |/          \\____\n    +-------------------> length\n       optimal length (maximal thick-thin filament overlap)\n  Below optimal: fewer cross-bridge interactions\n  Above optimal: fewer cross-bridge interactions\n  Passive force from PE increases at long lengths\n\n  ACTIVE vs PASSIVE:\n  Total force = Active (CE+SE) + Passive (PE)\n  At rest: only passive force (if stretched beyond slack length)\n  During activation: both contribute",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 267,
+      "heading_context": "## Gait Analysis",
+      "confidence": "candidate",
+      "text": "  GAIT ANALYSIS PIPELINE\n  ======================\n\n  DATA COLLECTION\n  +--------------+    +------------------+    +---------------+\n  | Force Plates |    | Motion Capture   |    | EMG           |\n  | Ground       |    | (Vicon, Qualisys)|    | Surface or    |\n  | reaction     |    | Retroreflective  |    | fine-wire     |\n  | force (GRF)  |    | markers on skin  |    | electrodes    |\n  | 6-DOF: Fx,   |    | 3D position of   |    | Raw EMG ->    |\n  | Fy, Fz,      |    | markers at 100Hz |    | envelope ->   |\n  | Mx, My, Mz   |    |                  |    | timing        |\n  +--------------+    +------------------+    +---------------+\n        |                     |\n        v                     v\n  INVERSE KINEMATICS         SEGMENT KINEMATICS\n  Marker positions ->        Joint angles (hip, knee,\n  body segment positions ->  ankle in 3 planes):\n  joint center estimation    flexion/extension\n  (functional or predictive) abduction/adduction\n                             internal/external rotation\n        |                     |\n        +----------+----------+\n                   |\n                   v\n          INVERSE DYNAMICS\n          Newton-Euler equations applied\n          distal to proximal (foot -> ankle -> knee -> hip)\n\n          Net joint moment = I*alpha - F*d\n          (inertial term - external force contribution)\n\n          Outputs: Net joint moments (Nm) and joint powers (W)\n                   \"Net\" = combined effect of all muscles crossing joint",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "### Gait Cycle Terminology",
+      "confidence": "candidate",
+      "text": "  GAIT CYCLE (one full cycle = heel strike to heel strike, same foot)\n  ===================================================================\n\n  STANCE PHASE (60%):                SWING PHASE (40%):\n  Initial contact (heel strike)      Toe-off -> heel strike\n  Loading response                   Foot clears ground\n  Mid stance (single limb support)   Foot advances forward\n  Terminal stance\n  Pre-swing (push-off)\n\n  Ground reaction force (normal walking):\n  Force\n    ^  1.2 BW         BW = body weight\n    |  /\\    /\\\n    | /  \\  /  \\\n    |/    \\/    \\\n    +------------> % gait cycle\n    0%  IC  50%  60%  TO\n    (IC = Initial Contact, TO = Toe Off)\n  First peak: loading response (braking)\n  Valley: mid-stance (center of mass at highest point)\n  Second peak: push-off (propulsion)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 340,
+      "heading_context": "### Fracture Toughness",
+      "confidence": "candidate",
+      "text": "  FRACTURE MECHANICS IN BIOMECHANICS\n  ===================================\n\n  Stress intensity factor:\n  K = sigma * sqrt(pi * a) * F(geometry)\n\n  Where:\n  sigma = applied stress\n  a = crack half-length\n  F = geometry correction factor\n\n  Critical: when K >= KIC (fracture toughness), crack propagates\n\n  Material          KIC (MPa√m)   Notes\n  --------          -----------   -----\n  Cortical bone     2-12          Anisotropic; higher longitudinal\n  PMMA bone cement  1-2           Low -> fatigue concerns\n  Ti-6Al-4V         55-115        High -> good implant choice\n  Co-Cr alloy       ~100          Good for fatigue\n  Cortical bone     2-12          Much lower than metals",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 365,
+      "heading_context": "### Fatigue (S-N Curves)",
+      "confidence": "candidate",
+      "text": "  BONE FATIGUE (S-N CURVE)\n  ========================\n\n  Stress\n  (MPa)  |\n    200  |*\n         | *\n    150  |   *\n         |     *\n    100  |       * *\n         |           * *\n     50  |               * * *\n         +----------------------------> Cycles (N)\n         10^3  10^4  10^5  10^6  10^7\n\n  Bone endurance limit: ~60-80 MPa (vs. bone UTS ~170 MPa)\n  Note: bone REPAIRS fatigue damage during rest (remodeling)\n  When damage accumulation > repair rate: stress fracture\n\n  IMPLANT FATIGUE (clinical failure mode):\n  - Cyclic loading at stress concentrations (screw holes, notches)\n  - Ti-6Al-4V: better fatigue resistance than stainless steel\n  - CoCrMo: best fatigue resistance among common implant metals\n  - Surface finish critical: rough surfaces nucleate fatigue cracks\n  - Fretting at modular junctions: micro-motion + corrosion",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 400,
+      "heading_context": "## Computational Biomechanics — FEA",
+      "confidence": "candidate",
+      "text": "  FEA WORKFLOW FOR BONE/IMPLANT SYSTEM\n  =====================================\n\n  1. IMAGE ACQUISITION\n     CT scan (for bone geometry + density)\n     MRI (for soft tissue geometry)\n     Resolution: 0.5-1mm voxels typical\n\n  2. SEGMENTATION\n     Threshold CT by Hounsfield units:\n     Air: -1000 HU  ->  not bone\n     Fat: -100 HU   ->  not bone\n     Water: 0 HU    ->  not bone\n     Soft tissue: 20-80 HU -> not bone\n     Cortical bone: >700 HU -> bone\n     Use: ITK-SNAP, 3D Slicer, Mimics\n\n  3. MESH GENERATION\n     Surface -> tetrahedral or hexahedral volume mesh\n     Element size: 1-3mm (convergence study required)\n     Implant: CAD geometry meshed separately\n\n  4. MATERIAL ASSIGNMENT\n     Cortical bone: linear elastic, orthotropic\n     E_longitudinal ~20 GPa, E_transverse ~12 GPa\n     Cancellous: density-dependent (empirical equations)\n     E = a * rho^b (power law from Hounsfield units)\n     Implant metals: isotropic linear elastic (simpler)\n\n  5. BOUNDARY CONDITIONS\n     Applied loads (from gait analysis)\n     Constraints (periosteum, ligaments, joint contact)\n     Contact interfaces (bone-implant: bonded or frictional)\n\n  6. SOLVE\n     Linear static for stiffness/stress distribution\n     Nonlinear for large deformation, contact, plasticity\n\n  7. POST-PROCESSING\n     Von Mises stress (implant failure prediction)\n     Principal strains (bone remodeling stimulus)\n     Interface stress (fixation integrity)\n\n  8. VALIDATION\n     Compare to in vitro experiments (strain gauges,\n     photoelastic models, digital image correlation)\n     Sensitivity analysis: how much do results change\n     with +/-20% material property uncertainty?",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

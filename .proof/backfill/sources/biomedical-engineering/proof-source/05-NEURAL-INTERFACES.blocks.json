@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biomedical-engineering\\05-NEURAL-INTERFACES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------+\n|              NEURAL INTERFACE — SIGNAL HIERARCHY                    |\n+---------------------------------------------------------------------+\n|                                                                     |\n|  SINGLE UNIT (SPIKE)   LFP          ECoG          EEG             |\n|  Single neuron         Population   Subdural      Scalp            |\n|  ~100 μV               ~1 mV        ~1 mV         ~10-100 μV      |\n|  ~1 ms duration        1-300 Hz     1-300 Hz      0.1-100 Hz      |\n|  400 μm spacing        1-3 mm       1-10 mm       1-10 cm         |\n|  (Utah array)          coverage     coverage      coverage        |\n|  Intracortical         Intracortical Subdural grid Scalp           |\n|  recording             recording    (ECoG)        electrodes       |\n|       |                    |            |              |            |\n|       +--------------------+------------+--------------+            |\n|                            |                                        |\n|              RECORDING -> PROCESSING -> DECODING                    |\n|              Filtering, spike sorting, feature extraction,          |\n|              machine learning decoder, control output               |\n|                                                                     |\n|              OUTPUT: cursor, prosthetic, communication device       |\n+---------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "### Action Potentials",
+      "confidence": "candidate",
+      "text": "  ACTION POTENTIAL\n  ================\n\n  Resting potential: -70 mV (inside negative relative to outside)\n  Na+ channels closed, K+ channels slightly open.\n\n  Depolarization:\n  Stimulus -> Na+ channels open -> Na+ flows in -> membrane\n  depolarizes -> positive feedback (Hodgkin-Huxley) -> spike\n\n  +40 mV  |     /\\\n           |    /  \\\n           |   /    \\\n     0 mV  |  /      \\\n           | /        \\\n   -70 mV  |/          \\___________  (refractory period)\n           +------------------------> time (ms)\n           |<-- ~1 ms -->|\n\n  EXTRACELLULAR RECORDING:\n  Electrode near neuron sees the current sink/source dipole\n  -> negative deflection (usually) ~100 μV amplitude\n  Signal falls off as 1/r² with distance from neuron\n  Recording radius: ~50-100 μm (only nearby neurons contribute)\n  -> each electrode records 1-4 well-isolated single units typically",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 120,
+      "heading_context": "### Utah Array",
+      "confidence": "candidate",
+      "text": "  UTAH ARRAY (Blackrock Neurotech)\n  =================================\n\n  96 silicon shanks in 10x10 grid (minus 4 corners)\n  Shank length: 1.5 mm (cortical layers II-IV)\n  Electrode pitch: 400 μm\n  Tip coating: iridium oxide or sputtered iridium\n  Impedance: 200-800 kΩ at 1 kHz\n\n  PEDOT:PSS or IrOx tip coatings increase charge injection capacity:\n  IrOx: ~50-100 μC/cm²\n  PEDOT:PSS: >1000 μC/cm² (conducting polymer, compliant)\n\n  +-------+-------+-------+-------+\n  |   o   |   o   |   o   |   o   |\n  +-------+-------+-------+-------+\n  |   o   |   o   |   o   |   o   |\n  +-------+-------+-------+-------+\n  |   o   |   o   |   o   |   o   |\n  +-------+-------+-------+-------+\n  Each dot = electrode; 400 μm pitch.\n  10x10 grid (96 functional electrodes)\n\n  RECORDING QUALITY:\n  Initial implant: high yield, well-isolated units\n  Weeks: glial response begins (reactive astrogliosis, microglia)\n  Months-years: signal degradation (impedance increase, fewer units)\n  Root cause: mechanical mismatch (silicon E ~170 GPa vs brain ~1 kPa)\n              + tethering forces from cable + electrode tip trauma\n\n  Chronic recording in humans: Matthew Nagle (BrainGate 2004),\n  Jan Scheuermann (multiple years, high quality), participant S3\n  (Willett 2021: 90 char/min typing via imagined handwriting)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "### Neuropixels",
+      "confidence": "candidate",
+      "text": "  NEUROPIXELS 1.0 (IMEC)\n  =======================\n\n  960 recording sites on 9.5 mm shank\n  Site spacing: 25 μm (vertical), 16-32 μm (horizontal)\n  Site size: 12 × 12 μm\n  Impedance: ~150 kΩ at 1 kHz\n  Record 384 channels simultaneously\n\n  Key advance: record from entire cortical column simultaneously\n  + subcortical structures in single penetration\n\n  Drift correction critical: probe moves relative to brain over time\n  -> spike sorting algorithms must correct for drift\n  (Kilosort 3.0 + 4.0 handle this explicitly)\n\n  Neuropixels 2.0:\n  4-shank version, smaller footprint, better chronic recording\n  Ultra-high density (80 sites/mm on shank)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 185,
+      "heading_context": "### Flexible Polymer Probes",
+      "confidence": "candidate",
+      "text": "  FLEXIBLE PROBE APPROACH\n  =======================\n\n  Rationale: reduce mechanical mismatch with brain tissue\n  Silicon: Young's modulus ~170 GPa\n  Polyimide: ~8 GPa\n  SU-8: ~4 GPa\n  Parylene-C: ~2.8 GPa\n  Hydrogels: ~kPa range (approaching brain stiffness)\n\n  Approaches:\n  +-------------------+--------------------------------------+\n  | Flat flex probes  | Polyimide or Parylene-C shanks       |\n  | (Michigan, NeuroPixels flex)                             |\n  | Mesh electronics  | Harvard/Lieber lab: injectable mesh  |\n  | (injectable)      | becomes structurally integrated      |\n  | Syringe-injectable| Thread-like probes (Neuralink)       |\n  +-------------------+--------------------------------------+\n\n  NEURALINK N1 IMPLANT:\n  64 threads, 1024 electrodes total\n  ASIC on skull, BLE transmission\n  Autonomous robot for insertion (avoids vasculature)\n  First human implant: January 2024 (BCI for paralysis)\n\n  TRADE-OFFS:\n  Flexible probes: lower glial response (hypothesis), harder to insert\n  Rigid: easy insertion, precise placement, proven long-term in humans\n  Active ongoing area: no clear winner for chronic implants yet",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 224,
+      "heading_context": "## Electrode-Tissue Interface",
+      "confidence": "candidate",
+      "text": "  ELECTRODE-TISSUE INTERFACE PHYSICS\n  ====================================\n\n  EQUIVALENT CIRCUIT:\n        Rsol (solution resistance)\n         |\n     Cdl (double-layer capacitance) -- in parallel with Rct\n         |\n         v\n    electrode surface\n\n  Impedance at 1 kHz (measurement standard):\n  Lower impedance = better signal conduction = less thermal noise\n  Target: <200 kΩ for recording, <1 kΩ for stimulation\n\n  ELECTRODE NOISE:\n  Johnson noise: V = sqrt(4kTRΔf)\n  k = Boltzmann constant, T = temperature, R = electrode resistance, Δf = bandwidth\n  At T=37°C, R=100kΩ, BW=10kHz: ~4 μV RMS (comparable to action potential!)\n  -> reduce R (larger electrode or better coating) to improve SNR\n  But: larger electrode -> lower spatial resolution (averages more neurons)\n\n  CHARGE INJECTION:\n  Stimulation delivers charge to tissue. Exceeding limits -> irreversible\n  electrochemical reactions -> tissue damage.\n  Safe charge density: Pt/Ir ~0.05-0.3 μC/cm²\n  Safe charge per phase: limits derived from McCreery et al. damage model\n  Charge-balanced biphasic waveforms required: equal cathodic/anodic charge\n  -> no net charge accumulation on electrode or in tissue\n\n  PROTEIN FOULING:\n  Serum proteins adsorb to electrode surface -> impedance increases\n  PEG coatings reduce fouling but reduce charge injection capacity\n  Zwitterionic polymers (pCBMA): anti-fouling + conductive",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 316,
+      "heading_context": "### BrainGate",
+      "confidence": "candidate",
+      "text": "  BRAINGATE — FIRST HUMAN BCI WITH UTAH ARRAY\n  =============================================\n\n  2004: Matthew Nagle — first human with Utah array in motor cortex\n  Institution: Brown University / Massachusetts General Hospital\n  FDA IDE: investigational device (non-commercial)\n\n  Current participants:\n  - Cursor control: 2D cursor from motor cortex intent\n  - Limb control: direct robotic arm control (Hochberg 2012, Nature)\n  - Speech BCI: RNN decoder for phonemes -> text (Willett 2023: 62 words/min)\n  - Handwriting BCI: imagined handwriting -> letters (Willett 2021: 90 char/min)\n\n  Limitation: percutaneous cable through skull\n  -> infection risk, mobility limitation\n  Current work: fully implanted, wireless (BrainGate 2)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "### Neuralink",
+      "confidence": "candidate",
+      "text": "  NEURALINK N1 IMPLANT\n  ====================\n\n  Commercial-track BCI company (Elon Musk, 2016-)\n  First human: Noland Arbaugh, January 2024\n\n  HARDWARE:\n  N1 implant: 23x8mm titanium can\n  64 flexible threads (16 electrodes each = 1024 channels)\n  Robot-assisted insertion: avoiding surface vasculature\n  Bluetooth Low Energy transmission, inductive charging\n  Onboard signal processing (spike detection in implant)\n\n  INITIAL RESULTS (2024):\n  Participant with ALS: cursor control, gaming\n  Thread retraction issue (~85% of threads retracted initially)\n  -> company working on improved fixation\n  FDA cleared IDE (investigational)\n\n  vs. BrainGate:\n  Neuralink: wireless, fully implanted, more electrodes, private\n  BrainGate: academic, decades of data, proven long-term recording",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 368,
+      "heading_context": "### Deep Brain Stimulation (DBS)",
+      "confidence": "candidate",
+      "text": "  DEEP BRAIN STIMULATION\n  =======================\n\n  High-frequency electrical stimulation (~130 Hz) via implanted\n  electrode inhibits pathological activity in target nuclei.\n\n  ANATOMY (Parkinson's disease targets):\n  Subthalamic nucleus (STN): most common, both motor + psychiatric\n  Globus pallidus interna (GPi): dyskinesias, dystonia\n\n  DBS HARDWARE:\n  Lead: 4-8 electrode contacts, implanted in target nucleus\n  Extension cable: subcutaneous, skull to IPG\n  IPG (Implantable Pulse Generator): similar to pacemaker\n  ~ clavicle pocket, battery 3-5 years (rechargeable 10+ years)\n\n  MECHANISM (still debated):\n  Depolarization block? Synaptic depression? Network effects?\n  Most evidence: drives output neurons at stimulation frequency\n  -> overrides pathological oscillations (4-6 Hz tremor, 13-30 Hz beta sync)\n\n  PROGRAMMING:\n  Contact selection (which electrode, mono/bipolar)\n  Amplitude (0-10 mA or V)\n  Pulse width (60-450 μs)\n  Frequency (typically 130 Hz for Parkinson's)\n\n  CLOSED-LOOP DBS (aDBS):\n  Problem: conventional DBS is always on -> side effects at\n  continuous high stimulation (speech, gait, mood)\n  Solution: sense LFP beta power on DBS lead itself\n  -> beta elevated: increase stim; beta suppressed: decrease stim\n  -> 40-50% less total stimulation, better therapeutic window\n  Medtronic Percept PC: FDA cleared for closed-loop DBS (2023)\n\n  INDICATIONS (FDA approved):\n  Parkinson's disease (tremor, rigidity, bradykinesia)\n  Essential tremor\n  OCD (bilateral anterior limb of internal capsule)\n  Dystonia (GPi target)\n  Epilepsy (anterior thalamus — SANTE trial)\n  Under investigation: depression, Alzheimer's, chronic pain",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 415,
+      "heading_context": "### Cochlear Implants",
+      "confidence": "candidate",
+      "text": "  COCHLEAR IMPLANT\n  ================\n\n  ANATOMY:\n  Cochlea: snail-shaped, 2.5 turns, tonotopic (frequency-place mapping)\n  Base: high frequency (20 kHz)\n  Apex: low frequency (200 Hz)\n  Hair cells: mechano-electric transducers. Damaged in SNHL.\n\n  IMPLANT ARCHITECTURE:\n  Microphone -> Processor (external) -> Transmitter coil (external)\n  -> Receiver (internal, under skin) -> Electrode array (in cochlea)\n\n  Electrode array: silicone carrier, 12-22 platinum electrodes\n  Insertion via round window or cochleostomy\n  Length: 25-31 mm (partial or full cochlear insertion)\n  Each electrode stimulates different tonotopic location\n\n  SPEECH PROCESSING STRATEGIES:\n  CIS (Continuous Interleaved Sampling): dominant current strategy\n  Extract frequency bands -> apply amplitude envelope to each channel\n  -> stimulate tonotopically corresponding electrode with envelope-modulated pulses\n  Channel interaction: current spreads -> activates multiple channels\n  -> limits effective number of independent channels to ~8-10 from 22 electrodes\n\n  PERFORMANCE:\n  Mean open-set sentence recognition: ~80% (vast range, 20-100%)\n  Prelingually deaf: better outcomes with earlier implantation\n  Post-lingual adults: typically good outcome\n  Music perception: poor (limited frequency resolution)\n\n  FDA APPROVED FOR:\n  Adults: profound SNHL bilaterally, limited benefit from hearing aids\n  Children: 12 months (some bilateral, under 9 months in trials)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 454,
+      "heading_context": "### Retinal Prosthetics",
+      "confidence": "candidate",
+      "text": "  RETINAL PROSTHETICS\n  ====================\n\n  DISEASE TARGET: photoreceptor degeneration (RP, AMD)\n  Inner retinal neurons (bipolar, ganglion cells) remain viable\n  -> electrically stimulate inner retina to bypass dead photoreceptors\n\n  ARGUS II (Second Sight Medical Products):\n  Only FDA-approved retinal prosthesis (2013, voluntary recall 2023\n  when company exited business)\n  60-electrode epiretinal array (implanted on inner retina surface)\n  External camera -> video processor -> wireless transmitter\n  -> inductive link -> ASIC -> stimulate ganglion cells\n  Results: patients could detect light, large objects, some mobility\n\n  LIMITATIONS:\n  60 electrodes -> extremely coarse visual percept (phosphenes)\n  No high-acuity vision — regulatory endpoint was \"functional benefit\"\n  Company bankruptcy (2023) left existing patients without support\n  -> highlights long-term device support obligations\n\n  CURRENT RESEARCH:\n  Epiretinal (ganglion cell stimulation): larger current, less specific\n  Subretinal (bipolar cell stimulation): more anatomically correct\n  PRIMA (Pixium Vision): subretinal photovoltaic chip, no external power\n  Alpha AMS (Retina Implant AG): 1600 electrodes subretinal, Germany\n  Genetically targeted (ChR2/opsins): optogenetic approach, clinical trials",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 492,
+      "heading_context": "## Regulatory: IDE for Neural Devices",
+      "confidence": "candidate",
+      "text": "  NEURAL INTERFACE REGULATORY STATUS (2026)\n  ==========================================\n\n  BrainGate:       IDE (Investigational) — academic, Brown/MGH\n  Neuralink:       IDE cleared 2023, first human 2024\n  Synchron Stentrode: IDE cleared 2021 (endovascular, less invasive)\n  Medtronic DBS:   PMA approved (Parkinson's, essential tremor)\n  Abbott DBS:      PMA approved\n  Boston Scientific DBS: PMA approved\n  Cochlear Implants: PMA approved (multiple manufacturers)\n  Retinal: Argus II PMA approved but company exited\n\n  Key regulatory considerations:\n  - Benefit-risk: significant clinical burden + surgical risk justified\n    for severe disability (paralysis, blindness, Parkinson's)\n  - Post-market obligations: longitudinal follow-up required\n  - Software updates to algorithm: potentially a device modification\n    requiring regulatory notification or submission\n  - Closed-loop systems: stimulation based on sensed signal ->\n    additional safety considerations (feedback loop stability)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

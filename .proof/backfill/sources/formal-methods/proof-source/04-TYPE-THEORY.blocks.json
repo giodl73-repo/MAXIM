@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "formal-methods\\04-TYPE-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                          TYPE THEORY HIERARCHY                           |\n|                                                                          |\n|  SIMPLY TYPED LAMBDA CALCULUS (STLC)                                     |\n|  Base types + function types. Strong normalization. No self-application. |\n|  No polymorphism. Every term has exactly one type.                       |\n+--------------------------------------------------------------------------+\n            | add parametric polymorphism\n            v\n+--------------------------------------------------------------------------+\n|  SYSTEM F  (Girard 1971 / Reynolds 1974)                                 |\n|  Universal type: ΛX. t  /  forall X. T                                   |\n|  Haskell's forall. Rank-2 polymorphism. Parametricity / free theorems.   |\n+--------------------------------------------------------------------------+\n            | add type constructors\n            v\n+--------------------------------------------------------------------------+\n|  SYSTEM F-omega                                                          |\n|  Type-level functions (type constructors). Kind system: * -> * -> *.     |\n|  Haskell type classes, higher-kinded types, Functor, Monad.              |\n+--------------------------------------------------------------------------+\n            | add type-level computation on values\n            v\n+--------------------------------------------------------------------------+\n|  DEPENDENT TYPES (Martin-Lof Type Theory, CIC, Lean 4)                   |\n|  Pi type:   (x : A) -> B(x)    -- return type depends on VALUE of arg    |\n|  Sigma type: (x : A) × B(x)    -- second component type depends on first |\n|  Vector n: Array whose length is IN THE TYPE.                            |\n|  Propositions as types. Proofs as programs. Coq, Lean 4, Agda.           |\n+--------------------------------------------------------------------------+\n            | add paths/higher structure\n            v\n+--------------------------------------------------------------------------+\n|  HOMOTOPY TYPE THEORY (HoTT)                                             |\n|  Types as spaces. Paths as equality proofs. Univalence axiom.            |\n|  Higher inductive types. Cubical type theory (computational content).    |\n|  Agda cubical, Coq HoTT library; mainstream Lean 4 is not cubical.       |\n+--------------------------------------------------------------------------+\n\n  INDUSTRIAL IMPLEMENTATIONS:\n  STLC:     Every typed language. Java (before generics), C (structs).\n  System F: Haskell, Scala, F#, Rust generics, TypeScript generics.\n  F-omega:  Haskell (type classes), Scala (implicit parameters).\n  Dep. types: Coq, Lean 4, Agda, Idris, F* (crypto verification).\n  Affine/linear: Rust ownership + borrow checker.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 81,
+      "heading_context": "## STLC: Simply Typed Lambda Calculus",
+      "confidence": "candidate",
+      "text": "  Types: T ::= B | T1 -> T2\n  Terms: t ::= x | \\x:T.t | t1 t2\n\n  Typing rules:\n  Gamma |- x : T          [if x:T in Gamma]\n  Gamma, x:T1 |- t : T2   => Gamma |- \\x:T1.t : T1 -> T2\n  Gamma |- t1 : T1->T2\n  Gamma |- t2 : T1         => Gamma |- t1 t2 : T2\n\n  Key properties:\n  - Strong normalization: every well-typed term terminates\n  - Unique types (up to alpha-equivalence)\n  - No self-application: \\x. x x is untypable\n  - Subject reduction: if t:T and t -> t', then t':T\n\n  The strong normalization property is what makes STLC useless as a\n  general-purpose programming language — you cannot write general\n  recursion. (That's why languages add fix or mu.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "### The Type System",
+      "confidence": "candidate",
+      "text": "  Extend STLC with:\n  - Type variable: alpha, beta, ...\n  - Universal type: forall alpha. T\n  - Type abstraction: \\Alpha. t  (introduces type variable)\n  - Type application: t [T]  (instantiates type variable)\n\n  Classic example — polymorphic identity:\n  id : forall alpha. alpha -> alpha\n  id = \\Alpha. \\x:Alpha. x\n\n  id [Int] 5      -- instantiate at Int, apply to 5\n  id [Bool] true  -- instantiate at Bool, apply to true\n\n  Polymorphic composition:\n  compose : forall a b c. (b -> c) -> (a -> b) -> (a -> c)\n  compose = \\A. \\B. \\C. \\f:B->C. \\g:A->B. \\x:A. f (g x)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 130,
+      "heading_context": "### The Type System",
+      "confidence": "candidate",
+      "text": "### Parametricity and Free Theorems (Reynolds 1983)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "### Parametricity and Free Theorems (Reynolds 1983)",
+      "confidence": "candidate",
+      "text": "  Free theorem for id : forall a. a -> a:\n  For any function f : A -> B:\n    f . id[A] = id[B] . f\n  In words: \"id does nothing\" — no matter what function f you apply,\n  it commutes through the identity.\n\n  Free theorem for map : forall a b. (a -> b) -> [a] -> [b]:\n  For any function f : A -> B and g : B -> C:\n    map (g . f) = map g . map f\n  This is the functor law — it follows FOR FREE from the type.\n\n  Why this matters for verification:\n  You get theorems about code FOR FREE, just from the types.\n  No proof needed — it follows from parametricity.\n  This is \"free theorems\" (Wadler 1989).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "### Rank-n Polymorphism",
+      "confidence": "candidate",
+      "text": "  Rank-1 (HM polymorphism): type variables only at the outermost level.\n  forall a. a -> a -> a\n\n  Rank-2: type variables can appear under one ->\n  (forall a. a -> a) -> Int -> Int\n\n  Rank-n: type variables can appear under n levels of ->\n\n  Haskell default: Rank-1 (Hindley-Milner inference).\n  Haskell with RankNTypes extension: Rank-2 and higher.\n  Full System F: all ranks. Type inference is UNDECIDABLE for Rank-3+.\n\n  F# / OCaml: Rank-1 only (HM inference, decidable).\n  Coq/Lean 4: all ranks (but require explicit type annotations for rank-2+).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "### Impredicativity",
+      "confidence": "candidate",
+      "text": "  System F is IMPREDICATIVE: you can instantiate forall a. T[a]\n  with types that themselves contain forall.\n\n  forall a. a -> a -> a    can be instantiated with\n  a = (forall b. b -> b)   to get\n  (forall b. b -> b) -> (forall b. b -> b) -> (forall b. b -> b)\n\n  This is powerful but creates complications:\n  - Type inference with impredicativity is undecidable in general\n  - Rust generics: predicative (cannot instantiate with forall types directly)\n  - Haskell: controlled impredicativity (ImpredicativeTypes extension)\n  - Coq's Prop: impredicative (necessary for logic — forall X:Prop. phi[X])\n  - Coq's Set/Type: predicative (to avoid Girard's paradox)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "### Kind System",
+      "confidence": "candidate",
+      "text": "  Kinds classify types:\n  * (pronounced \"star\") = kind of proper types (Int, Bool, String -> Int)\n  * -> * = kind of type constructors (Maybe, List, IO)\n  (* -> *) -> * = kind of type constructor consumers\n  (* -> * -> *) = kind of binary type constructors (Either, Map, Arrow)\n\n  Examples:\n  Int    : *          (a proper type)\n  Maybe  : * -> *     (takes a type, gives a type)\n  Either : * -> * -> * (takes two types, gives a type)\n  Functor: (* -> *) -> Constraint  (in Haskell — a type class over * -> *)\n\n  Type-level computation (Haskell type families):\n  type family Elem (c :: * -> *) :: *\n  type instance Elem [] = a           -- Elem [a] = a\n  type instance Elem (Map k) = v      -- Elem (Map k v) = v",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 219,
+      "heading_context": "### Type Classes as F-omega Dictionaries",
+      "confidence": "candidate",
+      "text": "  Haskell type class:\n  class Functor f where\n    fmap :: (a -> b) -> f a -> f b\n\n  Compiles to:\n  data FunctorDict f = FunctorDict { fmap :: forall a b. (a->b) -> f a -> f b }\n\n  Constraint:  Functor f  ==  implicit FunctorDict f argument passed around\n  The type checker infers and inserts dictionary passing automatically.\n\n  F# equivalent: inline functions with ^T static constraints.\n  Rust equivalent: trait objects or generic bounds (monomorphization or vtable).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 242,
+      "heading_context": "### Pi Types (Dependent Function Types)",
+      "confidence": "candidate",
+      "text": "  Non-dependent: A -> B   (return type is always B, regardless of input)\n  Dependent:    (x : A) -> B(x)   (return type can VARY based on input VALUE)\n\n  Example: a function that returns a list of length n\n  replicate : (n : Nat) -> a -> Vector a n\n  replicate 3 'x'  : Vector Char 3   -- type says length is 3\n  replicate 5 'x'  : Vector Char 5   -- type says length is 5\n\n  If you call:  head (replicate 0 'x')  -- head of empty vector\n  This is a TYPE ERROR -- not a runtime error.\n  The type Vector Char 0 does not match the requirement (n+1).\n\n  Matrix multiplication:\n  matMul : Matrix m n -> Matrix n p -> Matrix m p\n  -- Dimension mismatch is a compile-time type error.\n  -- The compiler KNOWS the dimensions.\n\n  Why this matters for verification:\n  Many runtime errors become compile-time type errors.\n  Buffer overflows: impossible if the type says the vector has length n\n  and all accesses are in-bounds (provable from the type).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "### Sigma Types (Dependent Pair Types)",
+      "confidence": "candidate",
+      "text": "  Non-dependent pair: A × B   (both components have fixed types)\n  Dependent pair:    (x : A) × B(x)   (second type depends on first value)\n\n  Example: a list together with a proof it is sorted\n  SortedList = (l : List Int) × Sorted l\n\n  fst : SortedList -> List Int       -- extract the list\n  snd : (p : SortedList) -> Sorted (fst p)  -- extract the proof\n\n  Example: a natural number together with its bound\n  BoundedNat (n : Nat) = (k : Nat) × (k < n)\n\n  Sigma types represent:\n  - Existential statements: ∃x:A. B(x)   (witness + proof)\n  - Subtypes: {x : A | B(x)}  (elements of A satisfying B)\n  - Refined types: similar to F*'s refinement types",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 289,
+      "heading_context": "### Martin-Lof Type Theory (MLTT)",
+      "confidence": "candidate",
+      "text": "  MLTT (1975, Per Martin-Lof): the standard dependent type theory.\n  Four key type formers (each with formation, introduction, elimination, computation):\n\n  1. Pi types (universal):     (x : A) -> B(x)\n     Intro: lambda abstraction  \\x. t\n     Elim:  function application t u\n     Computation: beta reduction (\\x. t) u = t[u/x]\n\n  2. Sigma types (existential): (x : A) × B(x)\n     Intro: pair  (a, b)  where b : B(a)\n     Elim:  projections fst, snd (or dependent elimination)\n     Computation: fst (a,b) = a, snd (a,b) = b\n\n  3. Identity type:  Id_A(a, b)  (or a =_A b)\n     Intro: refl : Id_A(a, a)  (a is equal to itself)\n     Elim:  J rule (path induction -- if it holds for refl, it holds for all paths)\n     This is where HoTT gets interesting.\n\n  4. Inductive types (W-types in MLTT, generalized inductives in CIC):\n     Nat, List, Tree, etc.\n     Intro: constructors\n     Elim:  recursors / eliminators\n\n  Universes: Type_0 : Type_1 : Type_2 : ...  (stratified to prevent paradox)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 347,
+      "heading_context": "### Univalence Axiom (Voevodsky)",
+      "confidence": "candidate",
+      "text": "  (A ≃ B) ≃ (A = B)\n\n  \"Equivalent types are equal.\"\n\n  Equivalence: A ≃ B means there exist f : A -> B and g : B -> A\n  such that f . g = id and g . f = id (up to homotopy).\n\n  Consequence: isomorphic mathematical structures are EQUAL.\n  In Lean 4 / Coq without univalence: two isomorphic groups\n  are related but not definitionally equal. Theorems about\n  one group must be manually transferred to the other.\n  With univalence: proving A ≃ B lets you immediately reuse\n  ALL theorems about A for B.\n\n  This is why HoTT/univalent foundations care about univalence — it enables\n  massive reuse across isomorphic structures.\n\n  Computational content: classical HoTT (Lean 4, Coq + HoTT library)\n  uses univalence as an axiom (no computational reduction rule).\n  Cubical type theory (Agda cubical, Cubical Lean) gives\n  univalence computational content — you can run HoTT programs.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 377,
+      "heading_context": "## Hindley-Milner: Type Inference for Polymorphism",
+      "confidence": "candidate",
+      "text": "  Problem: Given an untyped expression, infer its most general type.\n\n  Algorithm W (Damas-Milner, 1982):\n  1. Assign fresh type variables to unknowns\n  2. Generate constraints from the expression structure\n  3. Solve constraints via unification\n  4. Generalize free type variables (let-polymorphism)\n\n  Example:\n  let id = \\x -> x\n  -- Step 1: assign x : alpha (fresh variable)\n  -- Step 2: body x has type alpha, lambda has type alpha -> alpha\n  -- Step 4: generalize alpha to get: id : forall a. a -> a\n\n  let compose = \\f -> \\g -> \\x -> f (g x)\n  -- Results in: forall a b c. (b -> c) -> (a -> b) -> (a -> c)\n\n  Key limitation: let-polymorphism\n  id = \\x -> x             -- polymorphic: forall a. a -> a\n  f = \\id -> (id 1, id 'a') -- this FAILS in HM\n  -- Because id inside f must have ONE concrete type in HM\n\n  This is why GHC needs RankNTypes for certain patterns,\n  and why you sometimes need explicit type annotations in F#/OCaml.\n\n  Completeness: Algorithm W always finds the MOST GENERAL type.\n  If a type exists, W finds it. (For rank-1 polymorphism.)\n  Decidability: inference is decidable for rank-1, undecidable for rank-3+.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 446,
+      "heading_context": "### The Lifetime System",
+      "confidence": "candidate",
+      "text": "  Lifetimes are region variables (from Tofte-Talpin region inference, 1994):\n\n  fn longest<'a>(s1: &'a str, s2: &'a str) -> &'a str {\n    if s1.len() > s2.len() { s1 } else { s2 }\n  }\n  -- 'a says: the returned reference lives as long as BOTH inputs\n\n  Lifetime subtyping: 'a: 'b means 'a outlives 'b (lifetime is at least b).\n  Variance: &'a T is covariant in 'a (longer lifetimes are subtypes).\n            &'a mut T is invariant in T (Liskov substitution breaks mutability).\n\n  Lifetime inference: the compiler infers most lifetimes via a\n  constraint-solving pass (similar to HM unification).\n  Explicit annotations needed when inference is ambiguous.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 536,
+      "heading_context": "## C# Variance: Covariance and Contravariance",
+      "confidence": "candidate",
+      "text": "  Liskov Substitution: if S <: T, then a value of S can be used where T expected.\n\n  For generic types G<T>:\n  Covariance (out):  G<S> <: G<T>  when S <: T\n                     Safe for producers (you read values out)\n                     IEnumerable<out T>, IReadOnlyList<out T>\n\n  Contravariance (in): G<T> <: G<S>  when S <: T (reversed!)\n                       Safe for consumers (you write values in)\n                       Action<in T>, IComparer<in T>\n\n  Invariance:          G<S> and G<T> are unrelated even if S <: T\n                       Safe for both read and write\n                       List<T>, IList<T>\n\n  Why it works:\n  IEnumerable<Cat> <: IEnumerable<Animal>  -- cats IS-A animals when reading\n  Action<Animal> <: Action<Cat>            -- can process Animals CAN process Cats\n\n  Why List<Cat> ≢ List<Animal>:\n  List<Cat> cats = new List<Cat>();\n  List<Animal> animals = cats;  // if this were allowed...\n  animals.Add(new Dog());       // ...you could add a Dog to a Cat list!\n  cats[0].Meow();               // type confusion: runtime crash\n\n  In type theory terms:\n  Covariance:     G<->  is covariant in T (G is a functor in T)\n  Contravariance: G<->  is contravariant in T\n  Invariance:     G<->  is invariant in T (both read and write paths)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biomedical-engineering:prosthetics
+kind: guide
+module: biomedical-engineering
+section: biomedical-engineering
+title: Prosthetics and Orthotics
+status: source-custody
+source_custody: partial
+current_path: biomedical-engineering/06-PROSTHETICS.md
+canonical_path: biomedical-engineering/06-PROSTHETICS.md
+backsource_ids: [proof-backfill:biomedical-engineering:06-prosthetics, git-history:biomedical-engineering:06-prosthetics]
+concepts: [prosthetics]
+root_concepts: [prosthetics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Prosthetics and Orthotics
 
 ## The Big Picture

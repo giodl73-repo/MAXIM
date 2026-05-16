@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:formal-methods:overview
+kind: guide
+module: formal-methods
+section: formal-methods
+title: Formal Methods - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: formal-methods/00-OVERVIEW.md
+canonical_path: formal-methods/00-OVERVIEW.md
+backsource_ids: [proof-backfill:formal-methods:00-overview, git-history:formal-methods:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Formal Methods — Landscape Overview
 
 ## The Big Picture
@@ -8,21 +27,21 @@ The spectrum is real — most industrial adoption lives in the middle, not at th
 ```
 +------------------------------------------------------------------------------+
 |                         FORMAL METHODS SPECTRUM                              |
-|                                                                                |
+|                                                                              |
 |  LIGHTWEIGHT <───────────────────────────────────────────> HEAVYWEIGHT       |
-|                                                                                |
+|                                                                              |
 |  TYPES &        MODEL           BOUNDED         DEDUCTIVE    FULL            |
 |  LINTING        CHECKING        MODEL           PROGRAM      PROOF           |
 |                                 CHECKING        ANALYSIS                     |
-|                                                                                |
+|                                                                              |
 |  TypeScript     TLA+ TLC        CBMC            Dafny        Coq             |
 |  Mypy           SPIN            KLEE            F*           Lean 4          |
 |  Eslint         NuSMV           SAT-based       Infer        Isabelle        |
 |  Rust types     Alloy                           VeriFast                     |
-|                                                                                |
+|                                                                              |
 |  Cost:  LOW <───────────────────────────────────────────> VERY HIGH          |
 |  ROI:   HIGH (just use it)       HIGH (protocols)         High (safety-crit) |
-|  Scope: shallow/scalable         finite-state systems      full correctness    |
+|  Scope: shallow/scalable         finite-state systems      full correctness  |
 +------------------------------------------------------------------------------+
 ```
 
@@ -329,12 +348,12 @@ COST FACTORS:
 |                  | mean the proof proves the wrong thing.     |
 +------------------+--------------------------------------------+
 | Proof effort     | seL4: 11 person-years for 10k LOC.         |
-|                  | Most software: not safety-critical enough   |
-|                  | to justify this ratio.                      |
+|                  | Most software: not safety-critical enough  |
+|                  | to justify this ratio.                     |
 +------------------+--------------------------------------------+
 | Tooling maturity | Lean 4 Mathlib is excellent for math.      |
 |                  | For software, library coverage is limited. |
-|                  | OS interfaces, networking stacks, databases |
+|                  | OS interfaces, networking stacks, databases|
 |                  | lack verified models.                      |
 +------------------+--------------------------------------------+
 | State explosion  | Model checkers: state space grows           |

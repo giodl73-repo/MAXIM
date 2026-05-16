@@ -1,0 +1,124 @@
+{
+  "schema_version": "1",
+  "source_markdown": "formal-methods\\02-MODEL-CHECKING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 608,
+      "heading_context": "## Tool Comparison",
+      "headers": [
+        "Tool",
+        "Input",
+        "Technique",
+        "Properties",
+        "Scale",
+        "Counterexamples"
+      ],
+      "rows": [
+        [
+          "SPIN",
+          "PROMELA",
+          "Explicit, Buchi",
+          "LTL",
+          "10^8 states",
+          "Yes, full trace"
+        ],
+        [
+          "TLC",
+          "TLA+",
+          "Explicit + symmetry",
+          "Safety, liveness",
+          "10^8-10^9",
+          "Yes, full trace"
+        ],
+        [
+          "NuSMV",
+          "SMV",
+          "BDD symbolic",
+          "CTL, LTL",
+          "10^20+ (if BDDs small)",
+          "Yes"
+        ],
+        [
+          "CBMC",
+          "C/C++",
+          "BMC (SAT)",
+          "Assertions, memory",
+          "Bounded",
+          "Yes, C-level"
+        ],
+        [
+          "SLAM/SDV",
+          "C + API spec",
+          "CEGAR",
+          "Protocol conformance",
+          "Drivers",
+          "Yes"
+        ],
+        [
+          "CPAchecker",
+          "C",
+          "CEGAR, IC3",
+          "Reachability",
+          "Software",
+          "Yes"
+        ],
+        [
+          "Alloy",
+          "Alloy",
+          "BMC (SAT)",
+          "Relational inv.",
+          "Small scopes",
+          "Yes, visual"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 622,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Tool / Technique"
+      ],
+      "rows": [
+        [
+          "Protocol has 10 processes, need to verify in < 1 hour",
+          "TLC with symmetry reduction"
+        ],
+        [
+          "Concurrent C++ data structure, need to find race conditions",
+          "SPIN or TLC with PROMELA/TLA+ model"
+        ],
+        [
+          "Need to prove C function never overflows buffer",
+          "CBMC (set unwind bound for loops)"
+        ],
+        [
+          "Windows-style driver must follow API calling protocol",
+          "SLAM/SDV-style CEGAR"
+        ],
+        [
+          "Hardware pipeline: no deadlock, no protocol violation",
+          "NuSMV (BDD-based) or IC3"
+        ],
+        [
+          "Want to find bugs quickly, don't need full proof",
+          "CBMC with small bounds"
+        ],
+        [
+          "Need to verify a Paxos implementation is correct",
+          "Write TLA+ spec, run TLC"
+        ],
+        [
+          "System has 10^25 states but simple structure",
+          "BDD-based (NuSMV)"
+        ],
+        [
+          "Property: \"this error state is unreachable\"",
+          "IC3/PDR (fastest for safety)"
+        ]
+      ]
+    }
+  ]
+}

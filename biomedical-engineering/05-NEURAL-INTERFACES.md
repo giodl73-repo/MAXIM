@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biomedical-engineering:neural-interfaces
+kind: guide
+module: biomedical-engineering
+section: biomedical-engineering
+title: Neural Interfaces - Recording and Stimulating the Nervous System
+status: source-custody
+source_custody: partial
+current_path: biomedical-engineering/05-NEURAL-INTERFACES.md
+canonical_path: biomedical-engineering/05-NEURAL-INTERFACES.md
+backsource_ids: [proof-backfill:biomedical-engineering:05-neural-interfaces, git-history:biomedical-engineering:05-neural-interfaces]
+concepts: [neural, interfaces]
+root_concepts: [neural, interfaces]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Neural Interfaces — Recording and Stimulating the Nervous System
 
 ## The Big Picture

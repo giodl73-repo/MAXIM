@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biomedical-engineering:biomechanics
+kind: guide
+module: biomedical-engineering
+section: biomedical-engineering
+title: Biomechanics - Mechanics of Biological Systems
+status: source-custody
+source_custody: partial
+current_path: biomedical-engineering/01-BIOMECHANICS.md
+canonical_path: biomedical-engineering/01-BIOMECHANICS.md
+backsource_ids: [proof-backfill:biomedical-engineering:01-biomechanics, git-history:biomedical-engineering:01-biomechanics]
+concepts: [biomechanics]
+root_concepts: [biomechanics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biomechanics — Mechanics of Biological Systems
 
 ## The Big Picture

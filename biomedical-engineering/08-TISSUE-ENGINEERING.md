@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biomedical-engineering:tissue-engineering
+kind: guide
+module: biomedical-engineering
+section: biomedical-engineering
+title: Tissue Engineering and Regenerative Medicine
+status: source-custody
+source_custody: partial
+current_path: biomedical-engineering/08-TISSUE-ENGINEERING.md
+canonical_path: biomedical-engineering/08-TISSUE-ENGINEERING.md
+backsource_ids: [proof-backfill:biomedical-engineering:08-tissue-engineering, git-history:biomedical-engineering:08-tissue-engineering]
+concepts: [tissue, engineering]
+root_concepts: [tissue, engineering]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Tissue Engineering and Regenerative Medicine
 
 ## The Big Picture

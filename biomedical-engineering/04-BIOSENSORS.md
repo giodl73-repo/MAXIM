@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biomedical-engineering:biosensors
+kind: guide
+module: biomedical-engineering
+section: biomedical-engineering
+title: Biosensors and Diagnostics
+status: source-custody
+source_custody: partial
+current_path: biomedical-engineering/04-BIOSENSORS.md
+canonical_path: biomedical-engineering/04-BIOSENSORS.md
+backsource_ids: [proof-backfill:biomedical-engineering:04-biosensors, git-history:biomedical-engineering:04-biosensors]
+concepts: [biosensors]
+root_concepts: [biosensors]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biosensors and Diagnostics
 
 ## The Big Picture

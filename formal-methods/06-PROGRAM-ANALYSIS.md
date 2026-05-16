@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:formal-methods:program-analysis
+kind: guide
+module: formal-methods
+section: formal-methods
+title: Program Analysis
+status: source-custody
+source_custody: partial
+current_path: formal-methods/06-PROGRAM-ANALYSIS.md
+canonical_path: formal-methods/06-PROGRAM-ANALYSIS.md
+backsource_ids: [proof-backfill:formal-methods:06-program-analysis, git-history:formal-methods:06-program-analysis]
+concepts: [program, analysis]
+root_concepts: [program, analysis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Program Analysis
 
 ## The Big Picture
@@ -39,7 +58,7 @@ unifying essentially all static analysis. The tools range from fast approximate 
   ┌────────────────────────────────────────────────────────────────────┐
   │  SOUNDNESS    No false negatives: if tool says "no bugs", none.    │
   │               (Conservative over-approximation.)                   │
-  │  COMPLETENESS No false positives: if tool reports a bug, it's real.│
+  │  COMPLETENESS No false positives: if tool reports a bug, real.     │
   │               (Precise under-approximation.)                       │
   │  TERMINATION  Tool always halts.                                   │
   │                                                                    │
@@ -47,7 +66,7 @@ unifying essentially all static analysis. The tools range from fast approximate 
   │                                                                    │
   │  Choose two:                                                       │
   │  Sound + Terminating    = possible false positives (Astrée, Infer) │
-  │  Complete + Terminating = possible false negatives (testing, fuzzing│
+  │  Complete + Terminating = possible false negatives (test/fuzz)     │
   │  Sound + Complete       = may not terminate (semi-decision procs.) │
   └────────────────────────────────────────────────────────────────────┘
 ```
@@ -600,29 +619,29 @@ Putting it all together — what does each analysis technique guarantee?
 
 ```
   ┌────────────────┬──────────┬────────────┬───────────┬──────────────────┐
-  | Technique       | Sound    | Complete   | Terminates | False Positives  |
+  │Technique       │Sound     │Complete    │Terminates │False Positives   │
   ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤
-  | Abs. interpret. | Yes      | No         | Yes        | Yes (tunable)    |
-  | (Astrée)        |          |            |            |                  |
+  │Abs. interpret. │Yes       │No          │Yes        │Yes (tunable)     │
+  │(Astrée)        │          │            │           │                  │
   ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤
-  | Infer           | Yes *    | No         | Yes        | Yes (low rate) |
-  | (bi-abduction)  | (* for   |            |            |                |
-  |                 |  analyzed|            |            |                |
-  |                 |  paths)  |            |            |                |
+  │Infer           │Yes *     │No          │Yes        │Yes (low rate)    │
+  │(bi-abduction)  │(* for    │            │           │                  │
+  │                │ analyzed │            │           │                  │
+  │                │ paths)   │            │           │                  │
   ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤
-  | Symbolic exec.  | Yes      | No         | No **      | No               |
-  | (KLEE)          |          |            | (path expl)|                  |
+  │Symbolic exec.  │Yes       │No          │No **      │No                │
+  │(KLEE)          │          │            │(path expl)│                  │
   ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤
-  | BMC (CBMC)      | Yes      | Yes ***    | Yes        | No             |
-  |                 |          | (within    |            |                |
-  |                 |          |  bound)    |            |                |
+  │BMC (CBMC)      │Yes       │Yes ***     │Yes        │No                │
+  │                │          │(within     │           │                  │
+  │                │          │ bound)     │           │                  │
   ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤
-  | Taint (CodeQL)  | No       | No         | Yes        | Low              |
-  |                 | (heurist.)|           |            |                  |
+  │Taint (CodeQL)  │No        │No          │Yes        │Low               │
+  │                │(heurist.)│            │           │                  │
   ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤
-  | Deductive verif.| Yes      | Yes        | Yes        | No             |
-  | (Frama-C WP)    |          | (requires  |            | (but requires  |
-  |                 |          |  annots.)  |            |  annotations)  |
+  │Deductive verif.│Yes       │Yes         │Yes        │No                │
+  │(Frama-C WP)    │          │(requires   │           │(but requires     │
+  │                │          │ annots.)   │           │ annotations)     │
   └────────────────┴──────────┴────────────┴───────────┴──────────────────┘
 ```
 

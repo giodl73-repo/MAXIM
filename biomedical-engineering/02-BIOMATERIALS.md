@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biomedical-engineering:biomaterials
+kind: guide
+module: biomedical-engineering
+section: biomedical-engineering
+title: Biomaterials - Materials for Medical Implants
+status: source-custody
+source_custody: partial
+current_path: biomedical-engineering/02-BIOMATERIALS.md
+canonical_path: biomedical-engineering/02-BIOMATERIALS.md
+backsource_ids: [proof-backfill:biomedical-engineering:02-biomaterials, git-history:biomedical-engineering:02-biomaterials]
+concepts: [biomaterials]
+root_concepts: [biomaterials]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biomaterials — Materials for Medical Implants
 
 ## The Big Picture

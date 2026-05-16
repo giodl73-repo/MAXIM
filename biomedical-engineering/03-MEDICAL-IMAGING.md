@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biomedical-engineering:medical-imaging
+kind: guide
+module: biomedical-engineering
+section: biomedical-engineering
+title: Medical Imaging Physics
+status: source-custody
+source_custody: partial
+current_path: biomedical-engineering/03-MEDICAL-IMAGING.md
+canonical_path: biomedical-engineering/03-MEDICAL-IMAGING.md
+backsource_ids: [proof-backfill:biomedical-engineering:03-medical-imaging, git-history:biomedical-engineering:03-medical-imaging]
+concepts: [medical, imaging]
+root_concepts: [medical, imaging]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Medical Imaging Physics
 
 ## The Big Picture

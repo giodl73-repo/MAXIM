@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:formal-methods:specification
+kind: guide
+module: formal-methods
+section: formal-methods
+title: Formal Specification
+status: source-custody
+source_custody: partial
+current_path: formal-methods/05-SPECIFICATION.md
+canonical_path: formal-methods/05-SPECIFICATION.md
+backsource_ids: [proof-backfill:formal-methods:05-specification, git-history:formal-methods:05-specification]
+concepts: [specification]
+root_concepts: [specification]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Formal Specification
 
 ## The Big Picture
@@ -323,9 +342,9 @@ and schemas.
   ┌─── Library ─────────────────────────────┐
   │ stock: BOOK --> N                       │
   │ issued: PATRON -->> BOOK                │
-  ├──────────────────────────────────────────┤
-  │ dom issued ⊆ dom stock                   │
-  └──────────────────────────────────────────┘
+  ├─────────────────────────────────────────┤
+  │ dom issued ⊆ dom stock                  │
+  └─────────────────────────────────────────┘
 
   Operation schema: pre and post conditions
   ┌─── Checkout ───────────────────────────────────────┐
@@ -333,8 +352,8 @@ and schemas.
   │ p?: PATRON             (* input -- ? suffix *)     │
   │ b?: BOOK               (* input *)                 │
   ├────────────────────────────────────────────────────┤
-  │ b? ∈ dom stock                    (* precondition *)│
-  │ b? ∉ ran issued                   (* book available*)│
+  │ b? ∈ dom stock                   (* precondition *) │
+  │ b? ∉ ran issued                  (* book avail. *)  │
   │ issued' = issued ∪ {p? |-> b?}    (* book issued *) │
   │ stock' = stock                    (* unchanged *)   │
   └────────────────────────────────────────────────────┘
