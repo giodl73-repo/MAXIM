@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "manufacturing\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "RAW MATERIAL ──────────────────────────────────────────────────────► FINISHED PART\n     │\n     │  SUBTRACTIVE          FORMATIVE           ADDITIVE            JOINING\n     │  (remove material)    (reshape material)  (add material)      (combine parts)\n     │\n     │  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌─────────────┐\n     │  │  Machining   │    │  Casting     │    │  FDM/SLA/    │    │  Welding    │\n     │  │  Turning     │    │  Forging     │    │  SLS/DMLS    │    │  Brazing    │\n     │  │  Milling     │    │  Rolling     │    │  Binder Jet  │    │  Adhesive   │\n     │  │  Grinding    │    │  Extrusion   │    │  DED         │    │  Fastening  │\n     │  │  EDM / ECM   │    │  Sheet Metal │    │              │    │             │\n     │  └──────────────┘    └──────────────┘    └──────────────┘    └─────────────┘\n     │        │                    │                   │                    │\n     │   CNC / CAM            Tooling-heavy       Design freedom      Process qual\n     │   Tight tolerance      High volume OK      Low volume OK       Metallurgy\n     │   All hard materials   Near-net shape      Complex geometry    Joint strength",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 49,
+      "heading_context": "## The Four Primary Process Families",
+      "confidence": "candidate",
+      "text": "### Family 1 — Subtractive Manufacturing",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "### Family 1 — Subtractive Manufacturing",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────────────┐\n│  SUBTRACTIVE PROCESSES                                             │\n│                                                                    │\n│  Turning          workpiece spins, tool feeds in                   │\n│  (lathe)          → cylindrical geometry, OD/ID features          │\n│                                                                    │\n│  Milling          cutter spins, workpiece moves on table           │\n│  (mill/machining  → 3-5 axis, prismatic and complex geometry       │\n│   center)                                                          │\n│                                                                    │\n│  Grinding         Fine abrasive wheel → surface finish, hard mat   │\n│  EDM              Spark erosion → hardened steel, complex cavities │\n│  ECM              Electrochemical dissolution → burr-free, no HAZ  │\n│  Laser Cutting    Focused beam → sheet metal, 2.5D only            │\n│  Waterjet         Abrasive jet → thick plate, no heat-affected zone│\n│  Broaching        Pulled/pushed multi-tooth tool → keyways, splines│\n└────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 73,
+      "heading_context": "### Family 1 — Subtractive Manufacturing",
+      "confidence": "candidate",
+      "text": "### Family 2 — Formative Manufacturing",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "### Family 2 — Formative Manufacturing",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────────────┐\n│  FORMATIVE PROCESSES                                               │\n│                                                                    │\n│  LIQUID-STATE (casting)                                            │\n│    Sand Casting    Low tooling cost, large parts, rough surface    │\n│    Die Casting     High tooling cost, high volume, tight tol (Al)  │\n│    Investment Cast Near-net shape, complex geometry, thin walls    │\n│    Injection Mold  Thermoplastics, high volume, excellent finish   │\n│    Lost Foam       Evaporative pattern → complex geometry, metals  │\n│                                                                    │\n│  SOLID-STATE (bulk deformation)                                    │\n│    Forging         Compressive force → aligned grain, high strength│\n│    Rolling         Mill rolls → plate, sheet, structural sections  │\n│    Extrusion       Force through die → constant cross-section      │\n│    Drawing         Pull through die → wire, tube, bar              │\n│    Sheet Metal     Stamping, bending, deep drawing, hydroforming   │\n│    Powder Metal    Press + sinter → near-net, porosity possible    │\n└────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 98,
+      "heading_context": "### Family 2 — Formative Manufacturing",
+      "confidence": "candidate",
+      "text": "### Family 3 — Additive Manufacturing",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "### Family 3 — Additive Manufacturing",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────────────┐\n│  ADDITIVE PROCESSES                                                │\n│                                                                    │\n│  POLYMER                                                           │\n│    FDM (FFF)      Fused filament → cheap, fast, anisotropic        │\n│    SLA / DLP      Photopolymer resin → fine detail, brittle        │\n│    SLS            Nylon powder, laser sintered → no supports       │\n│    MJF            Multi-Jet Fusion (HP) → functional nylon, fast   │\n│    PolyJet        Multi-material, rubber+rigid, fine features      │\n│                                                                    │\n│  METAL                                                             │\n│    DMLS / SLM     Laser powder bed fusion → Ti/Ni/SS/Al            │\n│    EBM            Electron beam powder bed → Ti, vacuum, no stress │\n│    DED / LENS     Directed energy + wire/powder → large parts      │\n│    Binder Jet     Inkjet binder + sinter → high volume, porous     │\n│    WAAM           Wire arc additive → large structural metal parts  │\n│                                                                    │\n│  CERAMIC / COMPOSITE                                               │\n│    Vat photopolymerization (ceramic slurry) → dental, implants     │\n│    Continuous Fiber (Markforged) → CFRP in desktop form factor     │\n└────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 126,
+      "heading_context": "### Family 3 — Additive Manufacturing",
+      "confidence": "candidate",
+      "text": "### Family 4 — Joining",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 130,
+      "heading_context": "### Family 4 — Joining",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────────────┐\n│  JOINING PROCESSES                                                 │\n│                                                                    │\n│  FUSION WELDING      MIG (GMAW), TIG (GTAW), Laser, EB, Plasma    │\n│  SOLID-STATE WELD    Friction Stir (FSW), Ultrasonic, Diffusion    │\n│  BRAZING / SOLDERING Filler metal, capillary flow, below melt     │\n│  ADHESIVE BONDING    Epoxy, structural acrylic, anaerobic          │\n│  MECHANICAL          Bolts, rivets, press-fit, snap-fit, staking   │\n│  PRESS/INTERFERENCE  Thermal expansion or hydraulic press          │\n└────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "## Process Selection Logic",
+      "confidence": "candidate",
+      "text": "                    PROCESS SELECTION TREE\n                            │\n            ┌───────────────┼──────────────┐\n            │               │              │\n        Volume?         Material?      Geometry?\n            │               │              │\n       Low  High     Metal Plastic    Simple Complex\n            │               │              │\n            │           Casting       ─────┘\n            │           Forging       CNC 5-axis\n            │           Injection     EDM/DMLS\n            │           Molding\n            │\n       Low-vol:         High-vol:\n       CNC machining    Die cast\n       Additive proto   Stamping\n       Investment cast  Injection mold",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "## Dimensional Accuracy Landscape",
+      "confidence": "candidate",
+      "text": "TIGHT ◄────────────────── ACHIEVABLE TOLERANCE ──────────────────► LOOSE\n\n ±0.001\"  ±0.002\"  ±0.005\"  ±0.010\"  ±0.020\"  ±0.030\"   ±0.050\"\n  25µm     50µm     125µm    250µm    500µm     750µm     1.25mm\n\n  Grind    CNC Mill  CNC Turn  Invest.   Sand     Forging   Sand\n  Hone     5-axis    Lathe     Cast      Cast     Stamping  Cast\n  EDM      Jig Bore            Die Cast           FDM       Rough\n  Wire EDM Boring              Injection          SLS",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "## The Manufacturing Enterprise Stack",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────┐\n│  BUSINESS LAYER                                                  │\n│  ERP (SAP, Oracle)  MRP  Cost Accounting  Supply Chain PLM      │\n├─────────────────────────────────────────────────────────────────┤\n│  ENGINEERING LAYER                                               │\n│  CAD (SolidWorks, CATIA, NX)     PLM (Windchill, Teamcenter)   │\n│  CAM (Mastercam, HSMWorks, NX)   FEA (ANSYS, Abaqus)           │\n│  GD&T / MBD (Model-Based Def.)   Simulation / DFM analysis     │\n├─────────────────────────────────────────────────────────────────┤\n│  PRODUCTION LAYER                                                │\n│  MES (Manufacturing Execution System)  — real-time tracking     │\n│  SCADA  ·  PLC programs  ·  Quality (CMM data, SPC charts)      │\n│  Work orders  ·  Routing  ·  Scheduling  ·  Material tracing    │\n├─────────────────────────────────────────────────────────────────┤\n│  SHOP FLOOR LAYER                                                │\n│  CNC machines  ·  Robots  ·  Inspection equipment (CMM, vision) │\n│  Fixtures  ·  Tooling  ·  Material handling  ·  Conveyors       │\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "## Surface Finish Reference",
+      "confidence": "candidate",
+      "text": "Ra (µm)  Typical Process          Application\n──────────────────────────────────────────────────────────\n0.025    Superfinish / lapping    Bearing races, gauge blocks\n0.1      Fine grinding, honing    Cylinder bores, precision slides\n0.4      Fine turning, grinding   Shaft journals, sealing surfaces\n0.8      Finish turning           General rotating parts\n1.6      Semi-finish machining    Mating surfaces, moderate seals\n3.2      Rough machining          General non-critical surfaces\n6.3      Heavy turning, milling   Clearance surfaces\n12.5     Rough milling            Non-functional surfaces\n25       As-cast (investment)     Cosmetic issues only\n50       Sand cast, forged        Requires machining if functional",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

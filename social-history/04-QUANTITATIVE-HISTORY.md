@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-history:quantitative-history
+kind: guide
+module: social-history
+section: social-history
+title: Quantitative and Cliometric History
+status: source-custody
+source_custody: partial
+current_path: social-history/04-QUANTITATIVE-HISTORY.md
+canonical_path: social-history/04-QUANTITATIVE-HISTORY.md
+backsource_ids: [proof-backfill:social-history:04-quantitative-history, git-history:social-history:04-quantitative-history]
+concepts: [quantitative, history]
+root_concepts: [quantitative, history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantitative and Cliometric History
 
 ## The Big Picture
@@ -12,31 +31,31 @@ generated major controversies, and remains an active field now transformed by di
 |              QUANTITATIVE / CLIOMETRIC HISTORY                    |
 |                                                                   |
 |  ORIGINS                                                          |
-|  +-----------------------------------------------------------+    |
-|  | French Annales (serial history, demographic data)         |    |
-|  | American economic history (Fogel, North, Conrad-Meyer)    |    |
-|  | Cambridge Group for Population History (Wrigley, Laslett) |    |
-|  +-----------------------------------------------------------+    |
-   |                                                                |
-   |  METHODS                         APPLICATIONS                  |
-|  +--------------------+          +---------------------------+    |
-|  | Regression         |          | Economic growth           |    |
-|  | Counterfactual     |          | Slavery and its economics |    |
-|  | analysis           |          | Demographic history       |    |
-|  | Time series        |          | Agricultural productivity |    |
-|  | Analysis           |          | Standards of living       |    |
-|  | Input-output       |          | Urbanization              |    |
-|  | models             |          | Income distribution       |    |
-|  | Econometrics       |          +---------------------------+    |
-|  +--------------------+                                           |
+|   -----------------------------------------------------------     |
+|    French Annales (serial history, demographic data)              |
+|    American economic history (Fogel, North, Conrad-Meyer)         |
+|    Cambridge Group for Population History (Wrigley, Laslett)      |
+|   -----------------------------------------------------------     |
+|                                                                   |
+|  METHODS                         APPLICATIONS                     |
+|   --------------------            ---------------------------     |
+|    Regression                      Economic growth                |
+|    Counterfactual                  Slavery and its economics      |
+|    analysis                        Demographic history            |
+|    Time series                     Agricultural productivity      |
+|    Analysis                        Standards of living            |
+|    Input-output                    Urbanization                   |
+|    models                          Income distribution            |
+|    Econometrics                   ---------------------------     |
+|   --------------------                                            |
 |                                                                   |
 |  KEY FIGURES                                                      |
-|  +-----------------------------------------------------------+    |
-|  | Robert Fogel (Nobel 1993)  Douglass North (Nobel 1993)    |    |
-|  | Robert Fogel + Stanley Engerman (Time on the Cross)       |    |
-|  | E.A. Wrigley + Roger Schofield (Population History)       |    |
-|  | Robert Allen (real wages, global standards of living)     |    |
-|  +-----------------------------------------------------------+    |
+|   -----------------------------------------------------------     |
+|    Robert Fogel (Nobel 1993)  Douglass North (Nobel 1993)         |
+|    Robert Fogel   Stanley Engerman (Time on the Cross)            |
+|    E.A. Wrigley   Roger Schofield (Population History)            |
+|    Robert Allen (real wages, global standards of living)          |
+|   -----------------------------------------------------------     |
 +-------------------------------------------------------------------+
 ```
 

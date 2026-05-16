@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "manufacturing\\02-MACHINING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "MACHINING PROCESS MAP\n──────────────────────────────────────────────────────────────────\nCUTTING (single/multi-point)         ABRASIVE               EROSION\n────────────────────────────         ─────────────          ───────\nTurning   → cylindrical OD/ID        Grinding → ±1–5µm Ra   EDM\nMilling   → prismatic, complex        Honing   → cylinder    ECM\nBoring    → precision holes           bores, Ra 0.1         Laser\nDrilling  → hole creation             Lapping  → ±0.25µm    Waterjet\nReaming   → hole sizing               superfinish\nTapping   → threads                   Superfinish → Ra 0.025\nBroaching → splines, keyways",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 46,
+      "heading_context": "### Process Physics",
+      "confidence": "candidate",
+      "text": "                    ┌─────────────────────┐\nWorkpiece rotates   │   CUTTING GEOMETRY  │\nat N rpm.           │                     │\nTool feeds at f     │  Rake angle α       │\nin/rev (or mm/rev)  │   ↑ positive → less │\nat depth d.         │     cutting force   │\n                    │   ↑ negative → more │\n                    │     tool strength   │\n                    │                     │\n                    │  Relief angle β     │\n                    │   prevents heel     │\n                    │   rubbing           │\n                    └─────────────────────┘\n\nChip formation:\n  Chip thickness (uncut) = f × sin(SCEA)\n  where SCEA = side cutting edge angle\n\n  Cutting speed V = π × D × N / 12  (sfm, D in inches, N in rpm)\n  or V = π × D × N / 1000           (m/min, D in mm, N in rpm)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 83,
+      "heading_context": "### Lathe Operations",
+      "confidence": "candidate",
+      "text": "TURNING OPERATIONS\n──────────────────────────────────────────────────────\nOD Turning     → reduces outer diameter, facing tool\nFacing         → creates flat end face perpendicular to axis\nBoring         → enlarges or trues up an existing hole (ID)\nParting/Cutoff → severs part from bar stock (narrow groove tool)\nThreading      → single-point thread form, matched to lead\nKnurling       → work-hardens and texturizes OD surface\nTaper turning  → tool path at angle (compound rest or taper att.)\nForm turning   → contoured insert follows curved profile",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "### Process Physics",
+      "confidence": "candidate",
+      "text": "CLIMB vs CONVENTIONAL MILLING\n──────────────────────────────────────────────────────────────────\nClimb milling          Conventional milling\n(down milling)         (up milling)\n\nCutter rotation and    Cutter rotation opposite\nfeed in same direction to feed direction\n\n  ──── Feed ────►        ◄─── Feed ────\n    ↙ ↙ ↙                ↗ ↗ ↗\n   cutter teeth          cutter teeth\n\nChip starts thick,     Chip starts thin,\nends thin → cleaner    grows → more\ncut, better surface,   rubbing, pushes\nless heat, preferred   part up (needs\nwhen machine is        good fixturing)\nrigid and backlash-\nfree (CNC)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 178,
+      "heading_context": "### Machine Configurations",
+      "confidence": "candidate",
+      "text": "MACHINING CENTER TYPES\n──────────────────────────────────────────────────────────────────\nVMC (Vertical Machining Center)\n  Spindle vertical, table horizontal\n  Gravity helps chip evacuation from workpiece\n  Best for: flat parts, plates, prismatic blocks\n\nHMC (Horizontal Machining Center)\n  Spindle horizontal, tombstone/pallet fixtures\n  Chips fall away from workpiece by gravity\n  Best for: production, multiple faces, palletized\n\n5-Axis\n  3 linear + 2 rotary axes\n  Simultaneous 5-axis or 3+2 positioning\n  Can machine undercuts, compound angles, aerospace parts\n  Reduces setups, improves accuracy (single setup)\n\nTurn-Mill (Mill-Turn)\n  Lathe with live milling spindle\n  Complete part in one setup\n  Best for: complex turned parts with off-axis features",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 211,
+      "heading_context": "### Process Physics",
+      "confidence": "candidate",
+      "text": "GRINDING WHEEL STRUCTURE\n─────────────────────────────────────────────────────────\nAbrasive grain:   Al₂O₃ (aluminum oxide) → steel/iron\n                  SiC (silicon carbide) → non-ferrous, ceramics\n                  CBN (cubic boron nitride) → hardened steel\n                  Diamond → ceramics, carbide, CFRP\n\nBond:             Vitrified (glass) → most common, rigid\n                  Resinoid → flexible, lighter cuts\n                  Metal → diamond wheels for dressing\n\nGrade (hardness): A–Z (A = softest bond, Z = hardest)\n                  Soft bond → hard materials (grain releases easily)\n                  Hard bond → soft materials (grain stays longer)\n\nStructure (spacing): 1–15 (open = more chip clearance)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 290,
+      "heading_context": "### Process Principle",
+      "confidence": "candidate",
+      "text": "SPARK EROSION MECHANISM\n─────────────────────────────────────────────────────────────────\nElectrode (tool) and workpiece separated by dielectric fluid.\nVoltage applied → spark discharge bridges gap.\nEach spark removes ~10⁻⁶ to 10⁻⁴ mm³ of material.\nSeries of millions of sparks → shape transferred.\n\nKey property: hardness of workpiece is IRRELEVANT.\nAny electrically conductive material can be EDM'd.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 304,
+      "heading_context": "### Wire EDM vs Sinker EDM",
+      "confidence": "candidate",
+      "text": "WIRE EDM                          SINKER (Die Sinking) EDM\n──────────────────────────────    ──────────────────────────────\nThin wire (0.004\"–0.012\")         Shaped electrode machines\ncuts through workpiece            cavity into workpiece\n\n  2D through-cuts                 3D cavities\n  Punch/die blanks                Injection mold cavities\n  Complex external profiles       Blind holes, pockets\n  Hardened tool steel             Deep slots, fine ribs\n                                  Any conductive material\n\n  Tolerance: ±0.0002\"             Tolerance: ±0.0005\"\n  Ra: 0.4–1.6 µm                  Ra: 0.4–3.2 µm",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 330,
+      "heading_context": "## Tool Materials and Coatings",
+      "confidence": "candidate",
+      "text": "CUTTING TOOL HIERARCHY\n────────────────────────────────────────────────────────────────\nHSS (High Speed Steel)    M2, M42     Slowest, most impact resistant\n                                       Drills, taps, form tools\n                                       Regrindable, cheap\n\nCermet                    TiC+Ni      Finishing steel at high speed\n                                       Good edge retention, brittle\n\nCarbide (uncoated)        WC+Co       10× harder than HSS\n                                       Grades: C1–C8 (roughing→finish)\n\nCarbide (coated)          CVD TiN     Standard production insert\n  TiN  → general purpose  PVD AlTiN   AlCrN, TiSiN\n  TiCN → wear resistance  coating     extended tool life\n  TiAlN → high-temp ops   CVD Al₂O₃\n  Al₂O₃ → thermal barrier\n\nCBN                       Cubic BN    Hardened steel > 45 HRC\n                                       Hard turning (replaces grinding)\n                                       Brittle, expensive\n\nPCD                       Polycrystal  Non-ferrous, composites, carbon\n  (Polycrystalline         Diamond      Cannot cut steel (reacts)\n   Diamond)                             Highest wear resistance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 362,
+      "heading_context": "## Cutting Fluids",
+      "confidence": "candidate",
+      "text": "FUNCTION: Cool, lubricate, flush chips, prevent BUE\n\nTYPE              BASE        BEST FOR           AVOID\n──────────────────────────────────────────────────────────────────\nStraight oil      Mineral oil High lubricity     Cast iron (fire)\n                              Threading, broach  High-speed\nSoluble oil       Water+oil   General machining  Aluminum (corrosion)\n(flood coolant)   emulsion    Good cooling       (add inhibitor)\nSynthetic         No oil      High-speed alum    Grinding of steel\n                  solution    and cast iron      (less lubricity)\nSemi-synthetic    Partial oil Compromise         Depends on ratio\nMQL               Micro-mist  Titanium, Inconel  High material removal\n(min. quantity    near tool   aerospace apps     rate operations\n lubrication)                 environmental\nAir blast         Compressed  Cast iron          Materials that need\n                  air         ceramics           lubrication",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

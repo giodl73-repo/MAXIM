@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:manufacturing:industry-40
+kind: guide
+module: manufacturing
+section: manufacturing
+title: Industry 4.0: Cyber-Physical Manufacturing
+status: source-custody
+source_custody: partial
+current_path: manufacturing/09-INDUSTRY-40.md
+canonical_path: manufacturing/09-INDUSTRY-40.md
+backsource_ids: [proof-backfill:manufacturing:09-industry-40, git-history:manufacturing:09-industry-40]
+concepts: [industry, 40]
+root_concepts: [industry, 40]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Industry 4.0: Cyber-Physical Manufacturing
 
 ## The Big Picture

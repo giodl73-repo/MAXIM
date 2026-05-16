@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:manufacturing:quality
+kind: guide
+module: manufacturing
+section: manufacturing
+title: Quality Systems: SPC, Six Sigma, ISO 9001
+status: source-custody
+source_custody: partial
+current_path: manufacturing/08-QUALITY.md
+canonical_path: manufacturing/08-QUALITY.md
+backsource_ids: [proof-backfill:manufacturing:08-quality, git-history:manufacturing:08-quality]
+concepts: [quality]
+root_concepts: [quality]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quality Systems: SPC, Six Sigma, ISO 9001
 
 ## The Big Picture

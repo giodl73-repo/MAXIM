@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-history:material-culture
+kind: guide
+module: social-history
+section: social-history
+title: Material Culture and the History of Things
+status: source-custody
+source_custody: partial
+current_path: social-history/07-MATERIAL-CULTURE.md
+canonical_path: social-history/07-MATERIAL-CULTURE.md
+backsource_ids: [proof-backfill:social-history:07-material-culture, git-history:social-history:07-material-culture]
+concepts: [material, culture]
+root_concepts: [material, culture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Material Culture and the History of Things
 
 ## The Big Picture
@@ -12,26 +31,26 @@ brought objects back to the center of historical analysis.
 |              MATERIAL CULTURE HISTORY LANDSCAPE                   |
 |                                                                   |
 |  THEORETICAL FOUNDATIONS                                          |
-|  +------------------+  +------------------+  +----------------+   |
-|  | ANTHROPOLOGY     |  | ARCHAEOLOGY      |  | SOCIOLOGY      |  |
-|  | Mauss: The Gift  |  | Material remains |  | Bourdieu:      |  |
-|  | Douglas/Isherwood|  | as historical    |  | habitus,       |  |
-|  | World of Goods   |  | evidence         |  | cultural cap.  |  |
-|  +------------------+  +------------------+  +----------------+  |
-|                                                                  |
-|  APPROACHES                                                      |
-|  +------------------+  +------------------+  +----------------+  |
-|  | HISTORY OF       |  | CONSUMPTION      |  | COMMODITY      |  |
-|  | TECHNOLOGY       |  | HISTORY          |  | CHAIN          |  |
-|  | Things as tech   |  | Consumer society,|  | From producer  |  |
-|  | and affordance   |  | luxury, shopping |  | to consumer    |  |
-|  +------------------+  +------------------+  +----------------+  |
-|                                                                  |
-|  KEY CONCEPTS                                                    |
-|  +-----------------------------------------------------------+   |
-|  | Social life of things  Commodity fetishism  Affordance    |    |
-|  | Provenance  Taste  Gift economy  Entanglement              |    |
-|  +-----------------------------------------------------------+    |
+|   ------------------    ------------------    ----------------    |
+|    ANTHROPOLOGY          ARCHAEOLOGY           SOCIOLOGY          |
+|    Mauss: The Gift       Material remains      Bourdieu:          |
+|    Douglas/Isherwood     as historical         habitus,           |
+|    World of Goods        evidence              cultural cap.      |
+|   ------------------    ------------------    ----------------    |
+|                                                                   |
+|  APPROACHES                                                       |
+|   ------------------    ------------------    ----------------    |
+|    HISTORY OF            CONSUMPTION           COMMODITY          |
+|    TECHNOLOGY            HISTORY               CHAIN              |
+|    Things as tech        Consumer society,     From producer      |
+|    and affordance        luxury, shopping      to consumer        |
+|   ------------------    ------------------    ----------------    |
+|                                                                   |
+|  KEY CONCEPTS                                                     |
+|   -----------------------------------------------------------     |
+|    Social life of things  Commodity fetishism  Affordance         |
+|    Provenance  Taste  Gift economy  Entanglement                  |
+|   -----------------------------------------------------------     |
 +-------------------------------------------------------------------+
 ```
 

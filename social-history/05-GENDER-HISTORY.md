@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-history:gender-history
+kind: guide
+module: social-history
+section: social-history
+title: Gender History and Feminist Historiography
+status: source-custody
+source_custody: partial
+current_path: social-history/05-GENDER-HISTORY.md
+canonical_path: social-history/05-GENDER-HISTORY.md
+backsource_ids: [proof-backfill:social-history:05-gender-history, git-history:social-history:05-gender-history]
+concepts: [gender, history]
+root_concepts: [gender, history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Gender History and Feminist Historiography
 
 ## The Big Picture
@@ -13,28 +32,28 @@ the entire discipline.
 |              GENDER HISTORY LANDSCAPE                             |
 |                                                                   |
 |  PHASES OF THE FIELD                                              |
-|  +------------------+  +------------------+  +----------------+   |
-|  | WOMEN'S HISTORY  |  | FEMINIST HISTORY |  | GENDER AS      |  |
-|  | (1970s)          |  | (late 1970s-80s) |  | CATEGORY       |  |
-|  |                  |  |                  |  | (1986-)        |  |
-|  | Add women back   |  | Gender relations;|  | Scott: gender  |  |
-|  | into history     |  | patriarchy as    |  | is a form of   |  |
-|  | Fill the gap      |  | historical system|  | power-knowledge|  |
-|  +------------------+  +------------------+  +----------------+  |
-|                                                                  |
-|  KEY APPROACHES                                                  |
-|  +------------------+  +------------------+  +----------------+  |
-|  | SOCIAL/MATERIAL  |  | CULTURAL/        |  | INTERSECTIONAL |  |
-|  | Women's work,    |  | DISCURSIVE       |  | (race, class,  |  |
-|  | family, labor    |  | Representations, |  | gender, dis-   |  |
-|  | market           |  | identities, norms|  | ability, etc.) |  |
-|  +------------------+  +------------------+  +----------------+  |
-|                                                                  |
-|  KEY THEORISTS                                                   |
-|  +-----------------------------------------------------------+   |
-|  | Joan Scott  |  Judith Butler  |  Kimberlé Crenshaw        |    |
-|  | Natalie Zemon Davis  |  Catherine Hall  |  Ann Stoler     |    |
-|  +-----------------------------------------------------------+    |
+|   ------------------    ------------------    ----------------    |
+|    WOMEN'S HISTORY       FEMINIST HISTORY      GENDER AS          |
+|    (1970s)               (late 1970s-80s)      CATEGORY           |
+|                                                (1986-)            |
+|    Add women back        Gender relations;     Scott: gender      |
+|    into history          patriarchy as         is a form of       |
+|    Fill the gap           historical system     power-knowledge   |
+|   ------------------    ------------------    ----------------    |
+|                                                                   |
+|  KEY APPROACHES                                                   |
+|   ------------------    ------------------    ----------------    |
+|    SOCIAL/MATERIAL       CULTURAL/             INTERSECTIONAL     |
+|    Women's work,         DISCURSIVE            (race, class,      |
+|    family, labor         Representations,      gender, dis-       |
+|    market                identities, norms     ability, etc.)     |
+|   ------------------    ------------------    ----------------    |
+|                                                                   |
+|  KEY THEORISTS                                                    |
+|   -----------------------------------------------------------     |
+|    Joan Scott     Judith Butler     Kimberlé Crenshaw             |
+|    Natalie Zemon Davis     Catherine Hall     Ann Stoler          |
+|   -----------------------------------------------------------     |
 +-------------------------------------------------------------------+
 ```
 

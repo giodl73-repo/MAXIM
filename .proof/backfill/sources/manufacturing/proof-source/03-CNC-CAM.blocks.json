@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "manufacturing\\03-CNC-CAM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "WORKFLOW: DESIGN TO CHIP\n──────────────────────────────────────────────────────────────────\n┌──────────┐    ┌──────────┐    ┌───────────┐    ┌──────────────┐\n│  CAD     │    │  CAM     │    │  Post     │    │  CNC         │\n│  Model   │───►│  Software│───►│ Processor │───►│  Controller  │\n│          │    │          │    │           │    │              │\n│ SolidWks │    │ Mastercam│    │ Haas.pst  │    │ G-code runs  │\n│ CATIA    │    │ HSMWorks │    │ Fanuc.pst │    │ axes move    │\n│ NX       │    │ NX CAM   │    │ Siemens   │    │ part made    │\n└──────────┘    └──────────┘    └───────────┘    └──────────────┘\n                     │\n                Toolpath = cutter center path + cutting conditions\n                (feed rate, spindle speed, depth, strategy)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 50,
+      "heading_context": "### Machine Coordinate System",
+      "confidence": "candidate",
+      "text": "STANDARD AXIS ORIENTATION (Right-Hand Rule)\n──────────────────────────────────────────────────────────────────\n\nVMC (Vertical Machining Center):\n         +Z (spindle up)\n          │\n          │\n          └────── +X (right looking at machine)\n         /\n        / +Y (toward machine column = away from operator)\n\n        Right-hand rule: curl fingers X→Y, thumb points +Z\n\nHMC (Horizontal Machining Center):\n  +Z = spindle axis (horizontal, toward table)\n  +X = left/right\n  +Y = up\n\nLathe:\n  +Z = along spindle axis (+ = toward tailstock)\n  +X = radial (+ = away from center)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "### Work Coordinate Systems (WCS)",
+      "confidence": "candidate",
+      "text": "Multiple WCS allow programming relative to part, not machine home.\n\nG54 = Work offset 1  (primary part datum)\nG55 = Work offset 2  (second part or second datum)\nG56–G59 = more offsets\n\nMachine home (G28 = reference) is fixed.\nWork offset G54 = distance from machine home to your part datum.\nAll program coordinates are relative to G54.\n\nMulti-fixture setup:\n┌────────────────────────────────────────────────────────┐\n│  Machine Table                                         │\n│  ┌────────┐         ┌────────┐         ┌────────┐      │\n│  │ Part 1 │G54      │ Part 2 │G55      │ Part 3 │G56  │\n│  │        │         │        │         │        │     │\n│  └────────┘         └────────┘         └────────┘     │\n│  Machine home ◄─────────────────────────────────────  │\n└────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "### Canned Cycles (Fixed Cycles)",
+      "confidence": "candidate",
+      "text": "G81  Drill               Simple drill cycle, no peck\nG82  Drill + dwell       Spot drill, countersink\nG83  Peck drill          Deep hole, pecks to clear chips\nG84  Tap               Rigid tapping (synchronizes spindle/feed)\nG85  Bore               Bore in, feed out\nG86  Bore + stop         Bore in, orient, rapid out (leave drag line)\nG87  Back bore           Bore going up (from underside)\nG89  Bore + dwell        Bore in, dwell, feed out\n\nFormat example (G83 peck drill):\n  G83 X1.000 Y1.000 Z-1.500 R0.100 Q0.200 F5.0\n       │      │      │       │      │      │\n       X pos  Y pos  depth   R plane peck   feed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 186,
+      "heading_context": "## CAM Strategies",
+      "confidence": "candidate",
+      "text": "### 2D Operations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 208,
+      "heading_context": "### 2D Operations",
+      "confidence": "candidate",
+      "text": "### 3D Operations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 235,
+      "heading_context": "### 3D Operations",
+      "confidence": "candidate",
+      "text": "### 5-Axis Strategies",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 333,
+      "heading_context": "## Toolholding and Setup",
+      "confidence": "candidate",
+      "text": "TOOLHOLDER TYPES (affects rigidity and accuracy)\n──────────────────────────────────────────────────────────────────\nR8 collet        Manual mills, Bridgeports\nCAT40/BT40       Standard production machining (40-taper = medium)\nCAT50/BT50       Heavy roughing, large machines\nHSK-A63          High-speed (hollow-shank taper, face contact)\n                 Better accuracy, higher RPM (>20K)\nShrink fit       Zero-runout, no moving parts, requires heater\nHydraulic chuck  Good balance between rigidity and tool change time\nER collet chuck  General purpose, wide size range\n\nRUNOUT MATTERS:\n  ±0.001\" TIR (total indicator reading) = poor\n  ±0.0005\" TIR = acceptable\n  ±0.0001\" TIR = premium holders needed for finish work\n  Runout doubles surface roughness and halves tool life",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 356,
+      "heading_context": "## Workholding",
+      "confidence": "candidate",
+      "text": "WORKHOLDING OPTIONS\n──────────────────────────────────────────────────────────────────\nMachine vise        Most common, accurate, fast setup\n                    Step jaws for thin parts\n                    Machinable soft jaws for complex profiles\n\nFixture plate       Modular, T-slots or Uniforce\n                    Multiple parts per setup\n\nVacuum chuck        Sheet/slab work, zero-mark fixturing\n                    Aluminum plate, printed circuit boards\n\nToe clamps          When vise can't reach, manual setup\n                    Always down-force, never sideways\n\nKurt vise           Industry standard, 6\" jaw width\n                    Parallels for consistent Z height\n                    Pull-down feature eliminates jaw lift",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 381,
+      "heading_context": "## Probing and Automatic Tool Setting",
+      "confidence": "candidate",
+      "text": "WORKPIECE PROBING (Renishaw RMP60 / OMP60):\n  CNC program runs probe routine\n  Probe touches part surfaces\n  Automatically sets work offsets (G54)\n  Eliminates manual edge-finding (reduces setup time)\n\nTOOL LENGTH MEASUREMENT (TLS):\n  Probe on table\n  Tool runs into probe → measures actual Z length\n  Updates H register (G43)\n  Eliminates manual tool length measurement\n\nIN-PROCESS GAUGING:\n  Measure feature after machining while in machine\n  Automatically adjust offsets for next pass\n  Closes loop between machining and inspection\n  Expensive but reduces CMM time, catches drift early",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

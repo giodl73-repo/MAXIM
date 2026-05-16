@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:manufacturing:overview
+kind: guide
+module: manufacturing
+section: manufacturing
+title: Manufacturing - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: manufacturing/00-OVERVIEW.md
+canonical_path: manufacturing/00-OVERVIEW.md
+backsource_ids: [proof-backfill:manufacturing:00-overview, git-history:manufacturing:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Manufacturing — Landscape and Taxonomy
 
 ## The Big Picture

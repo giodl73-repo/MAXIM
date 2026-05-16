@@ -1,0 +1,294 @@
+{
+  "schema_version": "1",
+  "source_markdown": "manufacturing\\04-ADDITIVE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 113,
+      "heading_context": "## FDM / FFF (Fused Deposition Modeling / Fused Filament Fabrication)",
+      "headers": [
+        "Material",
+        "Temp (°C nozzle)",
+        "Strength",
+        "Heat Resistance",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "PLA",
+          "190–220",
+          "Low",
+          "Poor (60°C)",
+          "Biodegradable, easy to print"
+        ],
+        [
+          "PETG",
+          "230–245",
+          "Med",
+          "Med (80°C)",
+          "Food safe, tougher than PLA"
+        ],
+        [
+          "ABS",
+          "230–250",
+          "Med",
+          "Good (100°C)",
+          "Warps without enclosure"
+        ],
+        [
+          "ASA",
+          "240–260",
+          "Med",
+          "Good (100°C)",
+          "UV resistant, outdoor"
+        ],
+        [
+          "TPU",
+          "220–240",
+          "—",
+          "Med",
+          "Flexible, Shore A 85–95"
+        ],
+        [
+          "Nylon PA12",
+          "250–270",
+          "High",
+          "Good (120°C)",
+          "Hygroscopic, tough"
+        ],
+        [
+          "PC",
+          "260–300",
+          "High",
+          "Excellent (130°C)",
+          "Transparent possible"
+        ],
+        [
+          "ULTEM 9085",
+          "380°C",
+          "Very High",
+          "Excellent (170°C)",
+          "FAA aircraft interiors"
+        ],
+        [
+          "CF-PA/PEI",
+          "260–380",
+          "Very High",
+          "Excellent",
+          "Short fiber reinforced"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 164,
+      "heading_context": "## SLA / DLP (Stereolithography / Digital Light Processing)",
+      "headers": [
+        "Resin Class",
+        "Properties",
+        "Applications"
+      ],
+      "rows": [
+        [
+          "Standard",
+          "Brittle, fine detail",
+          "Visual prototypes"
+        ],
+        [
+          "Tough",
+          "ABS-like, impact resistant",
+          "Functional prototypes"
+        ],
+        [
+          "Flexible",
+          "Rubber-like",
+          "Seals, gaskets"
+        ],
+        [
+          "Castable",
+          "Burns out cleanly",
+          "Jewelry, dental"
+        ],
+        [
+          "Dental",
+          "Biocompatible",
+          "Clear aligners, surgical guides"
+        ],
+        [
+          "High-temp",
+          "HDT >200°C",
+          "Under-hood, tooling"
+        ],
+        [
+          "Ceramic-filled",
+          "Very stiff, hard",
+          "Jigs, fixtures"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 246,
+      "heading_context": "## DMLS / SLM (Metal Powder Bed Fusion)",
+      "headers": [
+        "Material",
+        "Typical Application",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Ti-6Al-4V",
+          "Aerospace, medical implants",
+          "Near-wrought after HIP"
+        ],
+        [
+          "AlSi10Mg",
+          "Lightweight structures",
+          "Porosity risk, post-HT"
+        ],
+        [
+          "Inconel 625/718",
+          "Hot section aerospace, turbines",
+          "Difficult to machine"
+        ],
+        [
+          "316L Stainless",
+          "Medical, food, chemical",
+          "Corrosion-resistant"
+        ],
+        [
+          "17-4 PH SS",
+          "General structural, tooling",
+          "Age-hardenable"
+        ],
+        [
+          "Maraging Steel M300",
+          "Tool inserts with conformal cooling",
+          "Machinable after AM"
+        ],
+        [
+          "CoCrMo",
+          "Dental, orthopaedic implants",
+          "Biocompatible"
+        ],
+        [
+          "Copper",
+          "Heat exchangers, induction coils",
+          "High thermal conductivity"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 351,
+      "heading_context": "## Comparing AM Processes for Metal",
+      "headers": [
+        "",
+        "DMLS/SLM",
+        "Binder Jet",
+        "DED/WAAM"
+      ],
+      "rows": [
+        [
+          "Density",
+          "99.5%+",
+          "97–99%",
+          "99%+"
+        ],
+        [
+          "Resolution",
+          "0.1mm",
+          "0.3mm",
+          "1–3mm"
+        ],
+        [
+          "Build volume",
+          "400mm cube",
+          "800mm+",
+          "Meters"
+        ],
+        [
+          "Speed",
+          "Slow",
+          "Fast",
+          "Fast"
+        ],
+        [
+          "Support needed",
+          "Yes",
+          "No",
+          "No"
+        ],
+        [
+          "Post-process",
+          "Extensive",
+          "Sinter+machine",
+          "Machine"
+        ],
+        [
+          "Properties",
+          "Near-wrought",
+          "Good",
+          "Near-wrought"
+        ],
+        [
+          "Best for",
+          "Complex, small",
+          "High volume",
+          "Large, repair"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 366,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Process"
+      ],
+      "rows": [
+        [
+          "Fast visual prototype",
+          "FDM (PLA, 0.2mm layers)"
+        ],
+        [
+          "Accurate concept model with fine detail",
+          "SLA/DLP"
+        ],
+        [
+          "Functional polymer prototype (no supports, complex)",
+          "SLS/MJF"
+        ],
+        [
+          "High-temp polymer prototype",
+          "FDM ULTEM or SLS high-temp nylon"
+        ],
+        [
+          "Metal prototype, no tooling",
+          "DMLS/SLM"
+        ],
+        [
+          "Flight-qualified metal bracket (Ti, Ni)",
+          "DMLS/SLM + HIP + machine"
+        ],
+        [
+          "High-volume small metal parts",
+          "Binder Jetting"
+        ],
+        [
+          "Very large metal structure",
+          "DED/WAAM"
+        ],
+        [
+          "Mold insert with conformal cooling",
+          "DMLS (maraging steel M300)"
+        ],
+        [
+          "Flexible parts (grips, seals)",
+          "FDM (TPU) or SLA (flexible resin)"
+        ]
+      ]
+    }
+  ]
+}

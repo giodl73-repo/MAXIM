@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-history:annales-school
+kind: guide
+module: social-history
+section: social-history
+title: The Annales School and Total History
+status: source-custody
+source_custody: partial
+current_path: social-history/01-ANNALES-SCHOOL.md
+canonical_path: social-history/01-ANNALES-SCHOOL.md
+backsource_ids: [proof-backfill:social-history:01-annales-school, git-history:social-history:01-annales-school]
+concepts: [annales, school]
+root_concepts: [annales, school]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Annales School and Total History
 
 ## The Big Picture
@@ -12,24 +31,24 @@ Its four generations each took the project in new directions.
 |                   THE ANNALES SCHOOL                              |
 |                                                                   |
 |  GENERATION 1 (1929-1945)     GENERATION 2 (1945-1968)            |
-|  +---------------------+      +---------------------------+       |
-|  | BLOCH and FEBVRE    |      | BRAUDEL                   |       |
-|  | Founders (Strasbourg|      | Longue duree              |       |
-|  | then Paris)         |      | Med. World / Phil. II     |       |
-|  | Anti-political,     |      | Structures, conjunctures, |       |
-|  | anti-narrative      |      | events                    |       |
-|  | Geographic/social   |      |                           |       |
-|  | history             |      |                           |       |
-|  +---------------------+      +---------------------------+       |
-   |                                                                |
-   |  GENERATION 3 (1968-1989)     GENERATION 4 (1989-)             |
-|  +---------------------+      +---------------------------+       |
-|  | LE ROY LADURIE,     |      | Cultural/micro turn       |       |
-|  | DUBY, LE GOFF       |      | Chartier, Revel           |       |
-|  | Serial / quantitative      | Back toward narrative     |       |
-|  | Mentalities         |      | Microhistory              |       |
-|  | Economic & social   |      | New cultural history      |       |
-|  +---------------------+      +---------------------------+       |
+|   ---------------------        ---------------------------        |
+|    BLOCH and FEBVRE             BRAUDEL                           |
+|    Founders (Strasbourg         Longue duree                      |
+|    then Paris)                  Med. World / Phil. II             |
+|    Anti-political,              Structures, conjunctures,         |
+|    anti-narrative               events                            |
+|    Geographic/social                                              |
+|    history                                                        |
+|   ---------------------        ---------------------------        |
+|                                                                   |
+|  GENERATION 3 (1968-1989)     GENERATION 4 (1989-)                |
+|   ---------------------        ---------------------------        |
+|    LE ROY LADURIE,              Cultural/micro turn               |
+|    DUBY, LE GOFF                Chartier, Revel                   |
+|    Serial / quantitative        Back toward narrative             |
+|    Mentalities                  Microhistory                      |
+|    Economic & social            New cultural history              |
+|   ---------------------        ---------------------------        |
 +-------------------------------------------------------------------+
 ```
 

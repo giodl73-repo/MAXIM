@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "manufacturing\\01-GDT-TOLERANCING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "COORDINATE TOLERANCING          GD&T (ASME Y14.5)\n─────────────────────────────   ──────────────────────────────────────\nX = 1.000 ± 0.010               ┌──────────────────────────────────┐\nY = 1.000 ± 0.010               │ ⌀0.500 ±0.002 │⌀│0.020│A│B│C│  │\n                                 └──────────────────────────────────┘\nCreates square tolerance zone    Feature control frame = complete\n(0.020 × 0.020 = 0.0004 in²)    geometric specification\n\nActual circular zone:            Circular tolerance zone (⌀0.020):\n⌀0.028 inscribed circle          area = π(0.010)² = 0.000314 in²\narea = 0.000314 in²              57% more tolerance than square zone\n                                 Same number, more usable geometry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 47,
+      "heading_context": "## The GD&T Symbol Set",
+      "confidence": "candidate",
+      "text": "### Characteristic Symbols (ASME Y14.5-2018)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 49,
+      "heading_context": "### Characteristic Symbols (ASME Y14.5-2018)",
+      "confidence": "candidate",
+      "text": "FORM (no datum required)\n  ─────────────────────\n  ━━   Straightness          Line or axis must lie within two parallel lines/planes\n  □    Flatness              Surface must lie within two parallel planes\n  ○    Circularity           Cross-section must lie within two concentric circles\n  ⌀    Cylindricity          Full cylinder within two coaxial cylinders\n\nORIENTATION (datum required)\n  ──────────────────────────\n  ∠    Angularity            Feature at specified angle to datum\n  ⊥    Perpendicularity      Feature at 90° to datum\n  ∥    Parallelism           Feature parallel to datum\n\nLOCATION (datum required)\n  ────────────────────────\n  ⊕    True Position         Center within circular/cylindrical tolerance zone\n  ◎    Concentricity         Center points coaxial to datum axis (form-related)\n  ═    Symmetry              Feature symmetric about datum plane\n\nRUNOUT (datum required, rotational)\n  ──────────────────────────────────\n  ↗    Circular Runout       Circular element variation during one revolution\n  ↗↗   Total Runout          Full surface variation during all revolutions\n\nPROFILE (may or may not need datum)\n  ────────────────────────────────\n  ⌒    Profile of a Line     2D cross-section within bilateral zone\n  ⌓    Profile of a Surface  3D surface within bilateral zone",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "## The Feature Control Frame",
+      "confidence": "candidate",
+      "text": "┌──────┬──────────────┬────────┬────────┬────────┐\n│  ⊕   │  ⌀ 0.020 M   │   A    │   B    │   C    │\n└──────┴──────────────┴────────┴────────┴────────┘\n   │           │           │       │       │\n   │           │           └───────┴───────┘\n   │           │                   │\nCharacteristic  Tolerance       Datum references\n(True Position) value and zone  (primary, secondary,\n                 modifiers       tertiary)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "## The Datum Reference Frame",
+      "confidence": "candidate",
+      "text": "DATUM REFERENCE FRAME (DRF)\n─────────────────────────────────────────────────\nDatum A (primary)    ── constrains 3 DOF\n  Flat surface → removes 3 translational DOF\n  (plane contact)    Actually: Z translation + X rot + Y rot\n\nDatum B (secondary)  ── constrains 2 more DOF\n  Edge or surface → removes 2 more DOF\n  (line contact)\n\nDatum C (tertiary)   ── constrains 1 more DOF\n  Point or stop → removes last DOF\n  (point contact)\n\nResult: 6 DOF fully constrained.\n        Part location completely defined.\n        All measurements made from this frame.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "### Datum Setup Reality",
+      "confidence": "candidate",
+      "text": "Inspection Fixture:\n                        ┌─────────────────────────┐\n                        │         Part            │\n                        │  (rests flat on plate)  │\n                        │                         │\n                        └─────┬─────────┬─────────┘\n         Datum A: bottom face   (3-2-1 setup)\n                              │         │\n                        Datum B      Datum C\n                       (back edge)  (side stop)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "### The Fit System",
+      "confidence": "candidate",
+      "text": "HOLE-BASIS SYSTEM (most common in US)\n─────────────────────────────────────\nHole is fundamental (H = lower deviation at zero).\nShaft varies to achieve desired fit.\n\n  CLEARANCE FIT          TRANSITION FIT         INTERFERENCE FIT\n  ──────────────         ──────────────         ────────────────\n  Shaft < Hole           Shaft ≈ Hole           Shaft > Hole\n  Always a gap           May be + or –          Always press required\n\n  ┌──────┐               ┌──────┐               ┌──────┐\n  │ H7   │               │ H7   │               │ H7   │\n  │ hole │               │ hole │               │ hole │\n  └──────┘               └──────┘               └──────┘\n    │                      │                      │\n  g6 shaft              k6 shaft               p6 shaft\n  (sliding fit)         (locating fit)         (press fit)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 190,
+      "heading_context": "### Fit Calculation",
+      "confidence": "candidate",
+      "text": "Example: 25mm H7/g6\n─────────────────────────────────────────────────────────────────\nH7 hole:  ⌀25.000 +0.021 / 0.000   → 25.000 to 25.021 mm\ng6 shaft: ⌀25.000 −0.007 / −0.020  → 24.980 to 24.993 mm\n\nMaximum clearance:  25.021 − 24.980 = 0.041 mm (largest hole, smallest shaft)\nMinimum clearance:  25.000 − 24.993 = 0.007 mm (smallest hole, largest shaft)\nAlways clearance: shaft is always smaller than hole.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "## Profile Tolerances",
+      "confidence": "candidate",
+      "text": "PROFILE OF A SURFACE\n─────────────────────\nBilateral profile: tolerance zone extends equally each side of nominal\n  ┌──────────────┐\n  │  0.030 ⌓ A  │  → surface must lie within 0.015 each side of true\n  └──────────────┘    profile relative to datum A\n\nUnilateral profile (Y14.5-2018):\n  ┌──────────────────────────────────────────────────────────┐\n  │  0.030 ⌓ A  U 0.010   → 0.010 outside nominal,           │\n  │                         0.020 inside                     │\n  └──────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 374,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "**Circularity vs cylindricity**: Circularity is per cross-section (2D). Cylindricity is the whole surface (3D). Cylindricity is tighter — it includes circularity + straightness + taper.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "manufacturing\\08-QUALITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "QUALITY SYSTEM HIERARCHY\n──────────────────────────────────────────────────────────────────\n┌─────────────────────────────────────────────────────────────────┐\n│  QUALITY PHILOSOPHY / FRAMEWORK                                 │\n│  Deming (System of Profound Knowledge)                          │\n│  Juran (Quality Trilogy: planning / control / improvement)      │\n│  Crosby (Zero Defects, cost of quality)                         │\n│  Taguchi (Robust design, loss function)                         │\n├─────────────────────────────────────────────────────────────────┤\n│  STATISTICAL METHODS (what to measure, how to analyze)           │\n│  SPC (Statistical Process Control)                              │\n│  MSA (Measurement System Analysis / Gage R&R)                   │\n│  DOE (Design of Experiments — Taguchi arrays, factorial)        │\n│  FMEA (Failure Mode and Effects Analysis)                        │\n├─────────────────────────────────────────────────────────────────┤\n│  MANAGEMENT SYSTEMS (what to document, audit, certify)          │\n│  ISO 9001:2015        Generic QMS                               │\n│  IATF 16949           Automotive (extends ISO 9001)             │\n│  AS9100D              Aerospace/defense (extends ISO 9001)      │\n│  ISO 13485            Medical devices                           │\n│  GMP / 21 CFR Part 11 Pharma, FDA-regulated                     │\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "## Engineering Bridge: SPC as the Origin of Software Observability",
+      "confidence": "candidate",
+      "text": "MANUFACTURING SPC (1920s–)            SOFTWARE MONITORING (2000s–)\n──────────────────────────────────────────────────────────────────────────────\nControl chart                         Time-series dashboard (Grafana, Datadog)\n  plot measurement vs time              → plot metric vs time\n  UCL / LCL (μ ± 3σ)                   → alert thresholds (static or dynamic)\n  centerline (process mean)             → baseline / SLO target\n\nCommon cause variation                Baseline noise\n  random, inherent to the process       → normal latency jitter, GC pauses\n  reduce by redesigning the process     → reduce by architectural change\n\nSpecial cause variation               Incident / anomaly\n  assignable root cause                 → deploy gone bad, upstream failure\n  investigate immediately               → page on-call, start incident review\n\nWestern Electric rules                Anomaly detection algorithms\n  8 consecutive points same side        → sustained shift detector\n  trending 6 points up/down             → slope-based alerting\n  point beyond 3σ                       → static threshold breach\n\nCpk (process capability index)        Service-level capability\n  (USL − μ) / 3σ                       → (SLO − P99) / σ  [conceptual analog]\n  Cpk < 1.0 = defects inevitable        → error budget exhausted before period ends\n  Cpk ≥ 1.67 = automotive standard      → \"four nines\" as an equivalent capability bar\n\nGage R&R (measurement validity)       Instrumentation validation\n  is the gauge precise enough?          → is the metric pipeline dropping samples?\n  %GRR > 30% = chart plots noise        → 10% sampling + aggregation lag = noisy dashboard\n\nFMEA (failure mode analysis)          Pre-mortem / failure injection\n  enumerate failure modes, score RPN    → chaos engineering, game days\n  update after each escape              → update runbooks after each incident",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 100,
+      "heading_context": "### The Core Concept",
+      "confidence": "candidate",
+      "text": "CONTROL CHART STRUCTURE\n──────────────────────────────────────────────────────────────────\nMeasurement plotted over time:\n\n  UCL ─────────────────────────────────────────── Upper Control Limit\n        .   .                                      (μ + 3σ)\n  +2σ ───────────────────────────────────────────\n       . . . .\n  CLn ─────────────────────────────────────────── Centerline (mean)\n       . . .     .\n  -2σ ───────────────────────────────────────────\n           .   .\n  LCL ─────────────────────────────────────────── Lower Control Limit\n                                                  (μ − 3σ)\n\n  Point outside UCL/LCL = special cause, investigate immediately\n  Patterns within limits = special cause (Western Electric rules)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "### Western Electric (Nelson) Rules",
+      "confidence": "candidate",
+      "text": "Process is out of control if any rule triggers:\n──────────────────────────────────────────────────────────────────\nRule 1: One point beyond 3σ (UCL or LCL)\nRule 2: Two of three consecutive points beyond 2σ (same side)\nRule 3: Four of five consecutive points beyond 1σ (same side)\nRule 4: Eight consecutive points on same side of centerline\nRule 5: Six consecutive points steadily increasing or decreasing (trend)\nRule 6: Fifteen points in a row within ±1σ (too good — suspicious)\nRule 7: Fourteen points alternating up and down",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "### Process Capability Indices",
+      "confidence": "candidate",
+      "text": "CAPABILITY INDICES\n──────────────────────────────────────────────────────────────────\nCp = (USL − LSL) / 6σ\n  Measures spread of process relative to tolerance\n  Does NOT account for centering\n\nCpk = min[(USL − μ)/3σ, (μ − LSL)/3σ]\n  Accounts for centering\n  Takes the more restrictive limit\n\nCp = Cpk = process perfectly centered\nCp > Cpk = process off-center (Cp = potential, Cpk = actual)\n\nAcceptance levels:\n  Cpk < 1.0   Not capable (defects inevitable)\n  Cpk = 1.0   Barely capable (2700 ppm = 0.27%)\n  Cpk = 1.33  4σ — minimum for most general production\n  Cpk = 1.67  5σ — automotive standard (AIAG)\n  Cpk = 2.0   6σ — Six Sigma goal (3.4 DPMO with 1.5σ shift)\n\nPp and Ppk = preliminary (short-term sample)\nCp and Cpk = ongoing (long-term, stable process)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "### DMAIC Framework",
+      "confidence": "candidate",
+      "text": "DMAIC — the improvement methodology\n──────────────────────────────────────────────────────────────────\nD — DEFINE\n  Problem statement, project scope, goal, stakeholders\n  SIPOC diagram (Suppliers-Inputs-Process-Outputs-Customers)\n  Voice of Customer (VOC) → Critical to Quality (CTQ) tree\n\nM — MEASURE\n  Baseline current performance (DPMO, Cpk)\n  MSA: verify measurement system is capable (Gage R&R)\n  Data collection plan\n\nA — ANALYZE\n  Root cause analysis\n  Tools: 5 Why, Ishikawa (fishbone), regression, DOE\n  Validate root cause with data (not just hypothesis)\n\nI — IMPROVE\n  Propose and test countermeasures\n  DOE to find optimal settings\n  Pilot implementation\n\nC — CONTROL\n  Implement control plan\n  Update SOPs (standard operating procedures)\n  Hand off to process owner\n  Verify improvement sustained (30–90 days)\n\nDFSS (Design for Six Sigma) uses DMADV:\n  Define → Measure → Analyze → Design → Verify\n  For new products/processes, not improvement of existing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "### Statistical Tools in Six Sigma",
+      "confidence": "candidate",
+      "text": "BASIC SEVEN QUALITY TOOLS (Ishikawa's original)\n  1. Flowchart / Process map\n  2. Check sheet (tally of defect types)\n  3. Histogram (distribution of measurements)\n  4. Pareto chart (80/20 — which defects dominate?)\n  5. Cause-and-effect (Ishikawa / Fishbone) diagram\n  6. Scatter plot (correlation between variables)\n  7. Control chart (process stability over time)\n\nADVANCED TOOLS\n  FMEA            Failure mode risk prioritization\n  DOE             Factorial experiments, find interactions\n  Response Surface Optimization of multiple factors\n  Regression      Correlation → prediction models\n  Hypothesis test  t-test, ANOVA, chi-square (is difference real?)\n  Box Plot         Compare distributions across groups\n  MSA / Gage R&R   Is your measurement valid?",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 237,
+      "heading_context": "### Gage R&R (Measurement System Analysis)",
+      "confidence": "candidate",
+      "text": "GAGE R&R CONCEPT\n──────────────────────────────────────────────────────────────────\nTotal variation observed = Part variation + Measurement variation\n\nMeasurement variation has two components:\n  Repeatability (R): same operator, same gauge, same part → variation\n  Reproducibility (R): different operators, same gauge, same part → variation\n\nR&R study:\n  10 parts × 3 operators × 2 replications = 60 measurements\n  ANOVA or average/range method\n  Calculate %GRR = (measurement variation / total variation) × 100%\n\nAcceptance criteria:\n  %GRR < 10%:  Acceptable gauge system\n  %GRR 10–30%: Conditionally acceptable (use with caution)\n  %GRR > 30%:  Unacceptable — fix gauge before interpreting data\n\nndc (number of distinct categories) ≥ 5: gauge can discriminate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "### Beyond Gage R&R",
+      "confidence": "candidate",
+      "text": "FULL MSA COMPONENTS\n──────────────────────────────────────────────────────────────────\nBias          Mean measurement vs true value (accuracy)\n              Corrected by calibration\n\nStability     Bias over time (does gauge drift?)\n              Detected by control chart on reference standard\n\nLinearity     Bias consistent across measurement range?\n              Important if gauge used from small to large values\n\nRepeatability Equipment variation (EV)\nReproducibility Appraiser variation (AV)\n\n%GRR = √(EV² + AV²) / Total variation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 289,
+      "heading_context": "### High-Level Structure (HLS/Annex SL)",
+      "confidence": "candidate",
+      "text": "ISO 9001:2015 CLAUSE MAP\n──────────────────────────────────────────────────────────────────\nClause 4: Context of the Organization\n  4.1 Understanding the organization and context\n  4.2 Needs of interested parties\n  4.3 Scope of QMS\n  4.4 QMS and its processes\n\nClause 5: Leadership\n  5.1 Leadership and commitment (top management accountable)\n  5.2 Quality Policy\n  5.3 Roles, responsibilities, authorities\n\nClause 6: Planning\n  6.1 Actions to address risks and opportunities\n  6.2 Quality objectives\n  6.3 Planning changes\n\nClause 7: Support\n  7.1 Resources (people, infrastructure, environment, monitoring equip)\n  7.2 Competence\n  7.3 Awareness\n  7.4 Communication\n  7.5 Documented information\n\nClause 8: Operation (where product is made)\n  8.1 Operational planning and control\n  8.2 Customer requirements\n  8.3 Design and development\n  8.4 External providers (purchasing, subcontractors)\n  8.5 Production and service provision\n  8.6 Release of products\n  8.7 Control of nonconforming outputs\n\nClause 9: Performance Evaluation\n  9.1 Monitoring, measurement, analysis\n  9.2 Internal audit\n  9.3 Management review\n\nClause 10: Improvement\n  10.1 General\n  10.2 Nonconformity and corrective action\n  10.3 Continual improvement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 335,
+      "heading_context": "### High-Level Structure (HLS/Annex SL)",
+      "confidence": "candidate",
+      "text": "### Risk-Based Thinking (ISO 9001:2015 key change)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 343,
+      "heading_context": "## APQP and PPAP (Automotive)",
+      "confidence": "candidate",
+      "text": "APQP (Advanced Product Quality Planning)\n──────────────────────────────────────────────────────────────────\n5-phase process used in automotive supply chain (IATF 16949):\n\nPhase 1: Plan and Define Program\n  Voice of Customer, product/process benchmarking, quality goals\n\nPhase 2: Product Design and Development\n  DFMEA, design verification, design review\n\nPhase 3: Process Design and Development\n  PFMEA, floor plan, control plan, process FMEA\n\nPhase 4: Product and Process Validation\n  Production trial run, MSA, capability (Ppk > 1.67), PPAP\n\nPhase 5: Launch, Feedback, Assessment, Corrective Action\n  Production launch, lessons learned\n\nPPAP (Production Part Approval Process)\n  Documentation package submitted to customer before production:\n  - Part drawing with dimensions\n  - PFMEA\n  - Control plan\n  - MSA results\n  - Capability study (Ppk ≥ 1.67)\n  - Sample parts\n  18 elements total (levels 1–5 based on risk/newness)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 378,
+      "heading_context": "## Corrective and Preventive Action (CAPA)",
+      "confidence": "candidate",
+      "text": "8D (Eight Disciplines) — Common CAPA Format\n──────────────────────────────────────────────────────────────────\nD0: Emergency Response (if immediate containment needed)\nD1: Team Formation\nD2: Problem Description (5W2H: Who, What, Where, When, Why, How, How Many)\nD3: Interim Containment Action (ICA) — stop the bleeding\nD4: Root Cause Analysis (5 Why, fishbone, is/is-not analysis)\nD5: Permanent Corrective Action (PCA) — fix the root cause\nD6: Implement and Validate PCA\nD7: Prevent Recurrence (update FMEA, control plan, procedures, standards)\nD8: Team Recognition\n\nUsed by Ford, many automotive suppliers, defense contractors.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 398,
+      "heading_context": "## Cost of Quality (COQ)",
+      "confidence": "candidate",
+      "text": "COQ = Prevention + Appraisal + Internal Failure + External Failure\n\nPrevention costs:    Training, process design, poka-yoke, audits\n                     Cheapest per defect prevented\n\nAppraisal costs:     Inspection, test, calibration, CMM time\n                     Finds defects before leaving facility\n\nInternal failure:    Rework, scrap, reinspection\n                     More expensive than prevention\n\nExternal failure:    Customer returns, warranty, field fixes, recalls\n                     Most expensive — 5–10× internal failure cost\n\nOptimal quality cost:\n  ┌───────────────────────────────────────────────────────┐\n  │ Cost                                                  │\n  │    │   Total COQ                                      │\n  │    │     ╲                                            │\n  │    │      ╲      Internal + External failure          │\n  │    │       ╲____                                      │\n  │    │       /    ────────────────────────              │\n  │    │      / Prevention + Appraisal                    │\n  │    │     /                                            │\n  │    └──────────────────────────────── Quality level    │\n  │              Optimal                                  │\n  └───────────────────────────────────────────────────────┘\n  Old (Juran) model shows optimum; Crosby argued zero defects\n  always cheaper — debate continues in industry.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "schema_version": "1",
+  "source_markdown": "manufacturing\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 169,
+      "heading_context": "## Process Selection Logic",
+      "headers": [
+        "Process",
+        "Tooling Cost",
+        "Per-Part Cost",
+        "Volume Sweet Spot"
+      ],
+      "rows": [
+        [
+          "CNC Machining",
+          "Low ($0–$500 setup)",
+          "Medium-High",
+          "1–500"
+        ],
+        [
+          "Sand Casting",
+          "Low ($200–$5K)",
+          "Medium",
+          "1–1,000"
+        ],
+        [
+          "Investment Casting",
+          "Medium ($2K–$20K)",
+          "Medium",
+          "100–5,000"
+        ],
+        [
+          "Die Casting",
+          "High ($10K–$100K)",
+          "Very Low",
+          "10,000+"
+        ],
+        [
+          "Injection Molding",
+          "Very High ($5K–$500K)",
+          "Very Low",
+          "10,000+"
+        ],
+        [
+          "FDM/SLA",
+          "$0",
+          "Medium",
+          "1–50"
+        ],
+        [
+          "DMLS/SLM",
+          "$0 (machine time)",
+          "High",
+          "1–200"
+        ],
+        [
+          "Sheet Metal Stamping",
+          "High ($5K–$50K)",
+          "Very Low",
+          "50,000+"
+        ],
+        [
+          "Forging",
+          "High ($5K–$50K)",
+          "Low",
+          "1,000+"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 228,
+      "heading_context": "## Key Standards and Governing Bodies",
+      "headers": [
+        "Standard",
+        "Domain"
+      ],
+      "rows": [
+        [
+          "ASME Y14.5",
+          "GD&T — geometric dimensioning and tolerancing"
+        ],
+        [
+          "ISO 2768",
+          "General tolerances for machined parts (linear + angular)"
+        ],
+        [
+          "ISO 286",
+          "Fits and limits — shaft/hole tolerance systems (H7/g6 etc.)"
+        ],
+        [
+          "AWS D1.1",
+          "Structural welding code — steel"
+        ],
+        [
+          "ASTM",
+          "Material specifications (steel grades, aluminum alloys, polymers)"
+        ],
+        [
+          "ISO 9001",
+          "Quality management systems — generic"
+        ],
+        [
+          "IATF 16949",
+          "Automotive quality systems (builds on ISO 9001)"
+        ],
+        [
+          "AS9100",
+          "Aerospace quality systems (builds on ISO 9001)"
+        ],
+        [
+          "ISO 1101",
+          "Geometric tolerances (international GD&T equivalent)"
+        ],
+        [
+          "ASME Y14.41",
+          "Digital product definition / Model-Based Definition"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 264,
+      "heading_context": "## Directory Guide",
+      "headers": [
+        "File",
+        "Content"
+      ],
+      "rows": [
+        [
+          "01-GDT-TOLERANCING.md",
+          "ASME Y14.5 symbols, datum system, feature control frames"
+        ],
+        [
+          "02-MACHINING.md",
+          "Turning, milling, grinding — physics and parameters"
+        ],
+        [
+          "03-CNC-CAM.md",
+          "G-code, CAM workflow, toolpath strategies"
+        ],
+        [
+          "04-ADDITIVE.md",
+          "FDM/SLA/DMLS — process physics, material properties"
+        ],
+        [
+          "05-CASTING-FORMING.md",
+          "Casting metallurgy, forging, sheet metal"
+        ],
+        [
+          "06-JOINING.md",
+          "Welding processes, joint design, brazing, adhesives"
+        ],
+        [
+          "07-LEAN-TPS.md",
+          "Toyota Production System, waste, kanban, kaizen"
+        ],
+        [
+          "08-QUALITY.md",
+          "SPC, Six Sigma, MSA, ISO 9001, APQP"
+        ],
+        [
+          "09-INDUSTRY-40.md",
+          "IIoT, digital twin, smart manufacturing, cyber-physical"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 280,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to make...",
+        "Best process to consider"
+      ],
+      "rows": [
+        [
+          "One-off metal bracket, tight tolerance",
+          "CNC machining"
+        ],
+        [
+          "10,000 aluminum housings",
+          "Die casting"
+        ],
+        [
+          "Complex internal cooling channels",
+          "Investment casting or DMLS"
+        ],
+        [
+          "Functional prototype in 24 hours",
+          "FDM or SLA"
+        ],
+        [
+          "Metal prototype, no tooling",
+          "DMLS/SLM or CNC"
+        ],
+        [
+          "High-strength structural part",
+          "Forging + finish machining"
+        ],
+        [
+          "Thin-wall steel enclosure, high volume",
+          "Sheet metal stamping"
+        ],
+        [
+          "Plastic part, 100K+ volume",
+          "Injection molding"
+        ],
+        [
+          "Hardened steel die insert",
+          "EDM (wire or sinker)"
+        ],
+        [
+          "Large weldment (frame, structure)",
+          "MIG/TIG + machining"
+        ],
+        [
+          "Titanium aerospace bracket, complex",
+          "DMLS or 5-axis CNC"
+        ],
+        [
+          "Gear blank, high strength",
+          "Forging (then hobbing)"
+        ]
+      ]
+    }
+  ]
+}

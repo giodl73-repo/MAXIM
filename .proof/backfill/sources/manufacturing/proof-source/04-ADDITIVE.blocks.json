@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "manufacturing\\04-ADDITIVE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ADDITIVE PROCESS LANDSCAPE\n──────────────────────────────────────────────────────────────────────────\n                    POLYMER                    METAL\n                ────────────────           ────────────────────\n                                           Powder Bed Fusion\n Material       Filament  Resin  Powder    (DMLS/SLM)  Binder Jet\n ───────────    ────────  ─────  ──────    ──────────  ──────────\n Process        FDM/FFF   SLA/   SLS/MJF   Layer by    Inkjet\n                          DLP              layer laser  binder+sinter\n Resolution     Low       High   Med-High  High        Medium\n Strength       Low       Med    Med-High  Near-wrought Low-med\n Anisotropy     High      Med    Low       Low         Low\n Support        Yes       Yes    No        Yes (metal) No\n Build volume   Large     Med    Medium    Small-med   Large\n Cost           $         $$     $$$       $$$$        $$$\n Lead time      Hours     Hours  Hours     Days        Days\n Materials      PLA,ABS,  Most   Nylon,    Ti,Ni,SS,   Steel,\n                PETG,etc  resins PA12,etc  Al,Co,etc   Cu,etc",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "### Process Physics",
+      "confidence": "candidate",
+      "text": "FDM PROCESS\n──────────────────────────────────────────────────────────────────\nFilament spool → heated nozzle (180–300°C) → melted material\n→ extruded onto build platform (or previous layer)\n→ cools and solidifies → next layer\n\n           ┌─────────────────┐\n           │  Filament Spool │\n           └────────┬────────┘\n                    │ (1.75mm or 2.85mm filament)\n                    ▼\n           ┌─────────────────┐\n           │  Extruder/Motor │\n           └────────┬────────┘\n                    │     (Bowden or direct drive)\n                    ▼\n           ┌─────────────────┐\n           │  Hot End        │\n           │  0.4mm nozzle   │\n           └────────┬────────┘\n                    │     (250°C melt zone; hardened nozzle\n                    │      for abrasive filaments)\n                    │\n                    ▼\n                  Part  (layer by layer, bottom up)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 83,
+      "heading_context": "### FDM Parameters and Their Effects",
+      "confidence": "candidate",
+      "text": "Layer height:\n  0.3mm = fast, visible layers, weaker Z\n  0.2mm = standard\n  0.1mm = fine, slow, better Z strength\n  0.05mm = very fine, slow (diminishing returns)\n\nInfill:\n  15–20% = light structure, prototype\n  40–60% = functional parts\n  80–100% = solid (heavy, slow, rarely needed)\n  Patterns: gyroid (strongest/weight), rectilinear, honeycomb\n\nWall perimeters:\n  2–3 = standard\n  4–6 = structural\n  More walls → stronger than more infill for most loading\n\nPrint temperature:\n  Too low → poor layer adhesion, delamination\n  Too high → stringing, oozing, dimensional inaccuracy\n\nBed temperature:\n  ABS requires 100–110°C bed (warping prevention)\n  PLA works 60°C\n  PETG 70–80°C",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "### Process Physics",
+      "confidence": "candidate",
+      "text": "SLA PROCESS                          DLP PROCESS\n────────────────────────────────     ────────────────────────────────\nLaser scans each layer point         UV projector flashes entire\nby point (vector scan)               layer at once (raster)\n\n  UV laser → galvanometer             UV projector (DMD chip)\n  mirrors → resin surface             → resin surface via mirror\n  → polymerize → elevator             → polymerize entire layer\n  moves up/down                       → elevator moves\n\nSpeed: slower (point scan)           Speed: faster (flash each layer)\nResolution: excellent (spot size)    Resolution: projector pixel size\nBest for: large fine-detail parts    Best for: high throughput, jewelry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "### SLS Process",
+      "confidence": "candidate",
+      "text": "SLS PROCESS\n──────────────────────────────────────────────────────────────────\n1. Powder spreader deposits thin layer (~0.1mm) of PA12 nylon\n2. CO₂ laser scans cross-section → sinters (fuses) particles\n3. Build piston lowers, new layer deposited\n4. Repeat until complete\n5. Cool down (critical — rapid cooling = warpage)\n6. Excavate from powder cake\n7. Media blast to remove loose powder\n\nNO SUPPORTS NEEDED: unsintered powder supports the part\n→ complex geometry without support removal\n→ multiple parts stacked vertically (nest packing)\n\nPA12 nylon typical properties:\n  Tensile strength: 48 MPa (XY) / 42 MPa (Z)\n  Elongation: 20% (XY) / 10% (Z)\n  HDT: 170°C\n  Much less anisotropic than FDM",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 229,
+      "heading_context": "### Process Physics",
+      "confidence": "candidate",
+      "text": "DMLS (Direct Metal Laser Sintering) / SLM (Selective Laser Melting)\n──────────────────────────────────────────────────────────────────\nSame conceptual flow as SLS but:\n  - Metal powder (10–45 µm particle size)\n  - High-power fiber laser (200W–1000W, multiple lasers)\n  - Fully melted (SLM) not just sintered (DMLS)\n  - Inert atmosphere (argon or nitrogen — prevents oxidation)\n  - Layers 20–60 µm thick\n  - Build platform temperature elevated (Ti6Al4V: 200°C)\n\nResult: dense metal part (99.5–99.9% density typical)\nNear-wrought mechanical properties for Ti, Ni, SS",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "### DMLS Support Structures",
+      "confidence": "candidate",
+      "text": "Metal support structures are required because:\n  1. Overhanging geometry needs support (>45° typically)\n  2. Thermal management — supports conduct heat from part\n  3. Anchors part to build plate (prevents distortion)\n\nSupport types:\n  Block supports → easy to remove, poor surface quality\n  Lattice supports → better heat transfer, harder to remove\n  Cone/tree → minimal contact, easier removal, common for Ti\n\nPOST-PROCESSING IS MANDATORY for DMLS:\n  1. Stress relief anneal (while on build plate)\n  2. Wire EDM to remove from build plate\n  3. Support removal (manual or EDM)\n  4. HIP (Hot Isostatic Pressing) → closes subsurface pores → best for aerospace\n  5. Machining of critical surfaces (near-net only)\n  6. Heat treatment (age hardening for 17-4, Ti-64, Inconel)\n  7. Surface finishing (bead blast, shot peen, polish if needed)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 282,
+      "heading_context": "### DMLS Design Rules",
+      "confidence": "candidate",
+      "text": "DESIGN FOR ADDITIVE (DfAM):\n  - Minimum feature size: ~0.3mm for walls/pins\n  - Overhangs > 45° from horizontal → need support\n  - Self-supporting internal channels: prefer circular/teardrop cross-sections\n  - Hollow structures (lightweighting): design with powder escape holes\n  - Conformal cooling: sinuous channels possible inside mold tooling\n  - Lattice structures: replace solid with open-cell lattice for weight\n  - Topology optimization: FEA-driven organic geometry → often only via AM\n\nBuild orientation matters:\n  - Part properties are slightly anisotropic (Z weaker ≈5–10%)\n  - Critical surfaces should be oriented to minimize stairstepping\n  - Minimize support contact on functional surfaces\n  - Long parts may require tilting to fit build volume",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 303,
+      "heading_context": "## Binder Jetting (Metal)",
+      "confidence": "candidate",
+      "text": "BINDER JET PROCESS (ExOne, Desktop Metal, HP Metal Jet)\n──────────────────────────────────────────────────────────────────\n1. Powder layer spread (fine metal powder, 15–45 µm)\n2. Inkjet head deposits binder (glue) at part cross-section\n3. Repeat layers\n4. \"Green part\" — binder holds powder together\n5. Cure in oven (harden binder)\n6. Remove from powder cake\n7. Sinter in furnace → burn out binder, fuse metal particles\n8. Part shrinks ~20% during sintering (predictable → CAD compensates)\n\nResult: 97–99% density (vs 99.5%+ for SLM)\nLarger build volumes than SLM\nMore brittle than SLM (less dense)\nLower mechanical properties\nBut: faster, cheaper, no support removal, scale-able\n\nMaterials: 316L, 17-4 PH, copper, tungsten\nApplications: high volume, complex small metal parts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 329,
+      "heading_context": "## DED (Directed Energy Deposition)",
+      "confidence": "candidate",
+      "text": "DED / LENS (Laser Engineered Net Shaping)\n──────────────────────────────────────────────────────────────────\nLaser or electron beam creates melt pool on existing surface.\nPowder or wire is fed into melt pool.\nUsed for: large structures, repair, cladding, hybrid machining\n\nVariants:\n  LMD  (Laser Metal Deposition)  → aerospace repair, cladding\n  WAAM (Wire Arc Additive)       → large Ti, steel structures, ships\n  EBW  (Electron Beam Wire)      → large Ti aerospace (Sciaky)\n\nBuild volume: can be meters (unlike SLM which is ~400mm cube)\nResolution: poor (±1mm layer height for WAAM)\nPost-machining: always required for dimensional accuracy\nProperties: good — near-wrought possible with proper parameters",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:manufacturing:joining
+kind: guide
+module: manufacturing
+section: manufacturing
+title: Joining: Welding, Brazing, and Adhesives
+status: source-custody
+source_custody: partial
+current_path: manufacturing/06-JOINING.md
+canonical_path: manufacturing/06-JOINING.md
+backsource_ids: [proof-backfill:manufacturing:06-joining, git-history:manufacturing:06-joining]
+concepts: [joining]
+root_concepts: [joining]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Joining: Welding, Brazing, and Adhesives
 
 ## The Big Picture

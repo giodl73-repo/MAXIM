@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-history:memory-history
+kind: guide
+module: social-history
+section: social-history
+title: Collective Memory and Public History
+status: source-custody
+source_custody: partial
+current_path: social-history/08-MEMORY-HISTORY.md
+canonical_path: social-history/08-MEMORY-HISTORY.md
+backsource_ids: [proof-backfill:social-history:08-memory-history, git-history:social-history:08-memory-history]
+concepts: [memory, history]
+root_concepts: [memory, history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Collective Memory and Public History
 
 ## The Big Picture

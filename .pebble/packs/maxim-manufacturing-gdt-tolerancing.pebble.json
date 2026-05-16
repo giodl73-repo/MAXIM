@@ -1,0 +1,1945 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-manufacturing-gdt-tolerancing",
+  "source": "../../manufacturing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-GDT-TOLERANCING.md#000",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "# GD&T and Tolerancing (ASME Y14.5)"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#001",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#002",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "GD&T (Geometric Dimensioning and Tolerancing) replaces coordinate ± tolerancing with a formal language that specifies what geometric condition a feature must satisfy — not just where its center nominally falls."
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#003",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "```\nCOORDINATE TOLERANCING          GD&T (ASME Y14.5)\n─────────────────────────────   ──────────────────────────────────────\nX = 1.000 ± 0.010               ┌──────────────────────────────────┐\nY = 1.000 ± 0.010               │ ⌀0.500 ±0.002 │⌀│0.020│A│B│C│  │\n                                 └──────────────────────────────────┘\nCreates square tolerance zone    Feature control frame = complete\n(0.020 × 0.020 = 0.0004 in²)    geometric specification"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#004",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Actual circular zone:            Circular tolerance zone (⌀0.020):\n⌀0.028 inscribed circle          area = π(0.010)² = 0.000314 in²\narea = 0.000314 in²              57% more tolerance than square zone\n                                 Same number, more usable geometry\n```"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#005",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "**Key insight**: GD&T doesn't tighten tolerances — it accurately describes the geometry that actually matters. A hole position controls fit and function. Whether the center is at (1.009, 1.001) or (1.005, 1.005) is irrelevant to assembly as long as it's within a circle of specified diameter."
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#006",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#007",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "## The GD&T Symbol Set"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#008",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "### Characteristic Symbols (ASME Y14.5-2018)"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#009",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "```\nFORM (no datum required)\n  ─────────────────────\n  ━━   Straightness          Line or axis must lie within two parallel lines/planes\n  □    Flatness              Surface must lie within two parallel planes\n  ○    Circularity           Cross-section must lie within two concentric circles\n  ⌀    Cylindricity          Full cylinder within two coaxial cylinders"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#010",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "ORIENTATION (datum required)\n  ──────────────────────────\n  ∠    Angularity            Feature at specified angle to datum\n  ⊥    Perpendicularity      Feature at 90° to datum\n  ∥    Parallelism           Feature parallel to datum"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#011",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "LOCATION (datum required)\n  ────────────────────────\n  ⊕    True Position         Center within circular/cylindrical tolerance zone\n  ◎    Concentricity         Center points coaxial to datum axis (form-related)\n  ═    Symmetry              Feature symmetric about datum plane"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#012",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "RUNOUT (datum required, rotational)\n  ──────────────────────────────────\n  ↗    Circular Runout       Circular element variation during one revolution\n  ↗↗   Total Runout          Full surface variation during all revolutions"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#013",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "PROFILE (may or may not need datum)\n  ────────────────────────────────\n  ⌒    Profile of a Line     2D cross-section within bilateral zone\n  ⌓    Profile of a Surface  3D surface within bilateral zone\n```"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#014",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#015",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "## The Feature Control Frame"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#016",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Every GD&T callout lives in a feature control frame — read left to right:"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#017",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "```\n┌──────┬──────────────┬────────┬────────┬────────┐\n│  ⊕   │  ⌀ 0.020 M   │   A    │   B    │   C    │\n└──────┴──────────────┴────────┴────────┴────────┘\n   │           │           │       │       │\n   │           │           └───────┴───────┘\n   │           │                   │\nCharacteristic  Tolerance       Datum references\n(True Position) value and zone  (primary, secondary,\n                 modifiers       tertiary)\n```"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#018",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "### Tolerance Zone Modifiers"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#019",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "| Symbol | Name | Meaning |\n|--------|------|---------|\n| (none) | RFS — Regardless of Feature Size | Tolerance applies at any size. Default in Y14.5-2018. |\n| M | MMC — Maximum Material Condition | Bonus tolerance when feature departs from MMC. Most common for clearance holes. |\n| L | LMC — Least Material Condition | Bonus tolerance when feature departs from LMC. Used for wall thickness, structural applications. |\n| P | Projected Tolerance Zone | Zone extends into mating part space. Long studs, pins. |\n| F | Free State | Applied to non-rigid parts in free state (sheet metal, rubber). |"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#020",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#021",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "## The Datum Reference Frame"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#022",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "The datum system provides the coordinate frame from which measurements are made."
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#023",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "```\nDATUM REFERENCE FRAME (DRF)\n─────────────────────────────────────────────────\nDatum A (primary)    ── constrains 3 DOF\n  Flat surface → removes 3 translational DOF\n  (plane contact)    Actually: Z translation + X rot + Y rot"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#024",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Datum B (secondary)  ── constrains 2 more DOF\n  Edge or surface → removes 2 more DOF\n  (line contact)"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#025",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Datum C (tertiary)   ── constrains 1 more DOF\n  Point or stop → removes last DOF\n  (point contact)"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#026",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Result: 6 DOF fully constrained.\n        Part location completely defined.\n        All measurements made from this frame.\n```"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#027",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "### Datum Setup Reality"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#028",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "```\nInspection Fixture:\n                        ┌─────────────────────────┐\n                        │         Part            │\n                        │  (rests flat on plate)  │\n                        │                         │\n                        └─────┬─────────┬─────────┘\n         Datum A: bottom face   (3-2-1 setup)\n                              │         │\n                        Datum B      Datum C\n                       (back edge)  (side stop)\n```"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#029",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "The 3-2-1 method: 3 points define primary plane (A), 2 points define secondary line (B), 1 point defines tertiary (C). This eliminates all rigid body degrees of freedom."
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#030",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#031",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "## Fits and Limits (ISO 286 / ASME B4.1)"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#032",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "### The Fit System"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#033",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "```\nHOLE-BASIS SYSTEM (most common in US)\n─────────────────────────────────────\nHole is fundamental (H = lower deviation at zero).\nShaft varies to achieve desired fit."
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#034",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "CLEARANCE FIT          TRANSITION FIT         INTERFERENCE FIT\n  ──────────────         ──────────────         ────────────────\n  Shaft < Hole           Shaft ≈ Hole           Shaft > Hole\n  Always a gap           May be + or –          Always press required"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#035",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "┌──────┐               ┌──────┐               ┌──────┐\n  │ H7   │               │ H7   │               │ H7   │\n  │ hole │               │ hole │               │ hole │\n  └──────┘               └──────┘               └──────┘\n    │                      │                      │\n  g6 shaft              k6 shaft               p6 shaft\n  (sliding fit)         (locating fit)         (press fit)\n```"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#036",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "### Common Fit Designations"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#037",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "| Fit Code | Type | Application |\n|----------|------|-------------|\n| H7/g6 | Clearance — sliding | Shafts in bearings, sliding components |\n| H7/h6 | Clearance — close running | Accurate location, easy assembly |\n| H7/k6 | Transition — locating | Gears, pulleys — light press or clearance |\n| H7/n6 | Transition — push | Hubs, close-fit bushings |\n| H7/p6 | Interference — press | Standard press fit, removable by tool |\n| H7/s6 | Interference — shrink | Permanent assembly, high torque |"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#038",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "### Fit Calculation"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#039",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "```\nExample: 25mm H7/g6\n─────────────────────────────────────────────────────────────────\nH7 hole:  ⌀25.000 +0.021 / 0.000   → 25.000 to 25.021 mm\ng6 shaft: ⌀25.000 −0.007 / −0.020  → 24.980 to 24.993 mm"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#040",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Maximum clearance:  25.021 − 24.980 = 0.041 mm (largest hole, smallest shaft)\nMinimum clearance:  25.000 − 24.993 = 0.007 mm (smallest hole, largest shaft)\nAlways clearance: shaft is always smaller than hole.\n```"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#041",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#042",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "## True Position Calculation"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#043",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Position tolerance controls where a feature center can be relative to its nominal location."
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#044",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "```\nNominal hole center:  X = 1.000, Y = 1.000\nActual hole center:   X = 1.008, Y = 1.005"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#045",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Deviation: ΔX = 0.008, ΔY = 0.005"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#046",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Diametral deviation = 2 × √(ΔX² + ΔY²)\n                    = 2 × √(0.064 + 0.025)\n                    = 2 × √(0.089)\n                    = 2 × 0.0082\n                    = 0.0164\" (the diametral position error)"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#047",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "If tolerance = ⌀0.020\", this hole PASSES (0.0164 < 0.020).\nIf tolerance were ±0.010\" (square zone), it would FAIL\n(ΔX = 0.008 < 0.010, ΔY = 0.005 < 0.010 — wait, it passes)\nBut ΔX = 0.010, ΔY = 0.010 would fail circular, pass square.\nThe key: square zones accept corners that may fail functional assembly.\n```"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#048",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#049",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "## Bonus Tolerance (MMC)"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#050",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "When a hole is at MMC (smallest allowed diameter), clearance for the mating pin is minimum — so position tolerance must be tightest. As the hole grows, bonus clearance exists — more positional slop is acceptable."
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#051",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "```\nHole: ⌀0.500 +0.010/0.000\nPosition: ⌀0.020 M (at MMC)"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#052",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "MMC (smallest hole) = ⌀0.500  → position tol = ⌀0.020 (stated)\nVC  (virtual cond.) = ⌀0.500 − 0.020/2..."
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#053",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Actually simpler:\nMMC of hole = 0.500\nActual size = 0.508  → departed from MMC by 0.008\nBonus tolerance   = 0.008\nTotal position tol = 0.020 + 0.008 = 0.028 ⌀"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#054",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Actual size = 0.510 (LMC)\nBonus        = 0.010\nTotal tol    = 0.030 ⌀\n```"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#055",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "**Virtual Condition** = the worst-case mating envelope:\n- External feature (shaft) at MMC: VC = MMC + position tolerance\n- Internal feature (hole) at MMC: VC = MMC − position tolerance"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#056",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Gauges (Go/No-Go) check virtual condition."
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#057",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#058",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "## Profile Tolerances"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#059",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Profile is the most general GD&T characteristic — it can control size, form, orientation, and location simultaneously."
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#060",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "```\nPROFILE OF A SURFACE\n─────────────────────\nBilateral profile: tolerance zone extends equally each side of nominal\n  ┌──────────────┐\n  │  0.030 ⌓ A  │  → surface must lie within 0.015 each side of true\n  └──────────────┘    profile relative to datum A"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#061",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Unilateral profile (Y14.5-2018):\n  ┌──────────────────────────────────────────────────────────┐\n  │  0.030 ⌓ A  U 0.010   → 0.010 outside nominal,           │\n  │                         0.020 inside                     │\n  └──────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#062",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Profile replaces separate size + form + location callouts for complex surfaces (airfoils, cam profiles, freeform geometry). It's the right tool when coordinate tolerancing becomes unmanageable."
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#063",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#064",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "## Inspection Methods"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#065",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "| Feature | Inspection Method |\n|---------|------------------|\n| Diameter, length | Micrometer, caliper, air gauge |\n| Position, concentricity | CMM (coordinate measuring machine) |\n| Flatness | Surface plate + dial indicator or CMM |\n| Roundness / cylindricity | Roundness tester (Talyrond) or CMM |\n| Surface finish | Profilometer (contact or optical) |\n| Complex profiles | CMM with surface scanning |\n| Runout | V-blocks + dial indicator or CMM |\n| Go/No-Go | Functional gauges (check virtual condition) |"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#066",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "### CMM Process"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#067",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "```\nPart → CMM bed → Probe touches → Point cloud →\n→ Software fits geometric primitives →\n→ Compares to nominal (CAD or drawing) →\n→ Pass/fail per each GD&T callout\n```"
+    },
+    {
+      "id": "01-GDT-TOLERANCING.md#068",
+      "path": [
+        "01-GDT-TOLERANCING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]",
+        "canonical_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "concepts": "[gdt, tolerancing]",
+        "current_path": "manufacturing/01-GDT-TOLERANCING.md",
+        "id": "maxim:manufacturing:gdt-tolerancing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[gdt, tolerancing]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GDandT and Tolerancing (ASME Y14.5)",
+        "updated": "null"
+      },
+      "text": "Modern CMMs bridge directly to CAD: PMI (Product Manufacturing Information) attached to 3D models drives inspection programs automatically — this is ASME Y14.41 Model-Based Definition."
+    }
+  ],
+  "refs": [
+    "01-GDT-TOLERANCING.md"
+  ]
+}

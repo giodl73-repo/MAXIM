@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:manufacturing:additive
+kind: guide
+module: manufacturing
+section: manufacturing
+title: Additive Manufacturing: FDM, SLA, DMLS
+status: source-custody
+source_custody: partial
+current_path: manufacturing/04-ADDITIVE.md
+canonical_path: manufacturing/04-ADDITIVE.md
+backsource_ids: [proof-backfill:manufacturing:04-additive, git-history:manufacturing:04-additive]
+concepts: [additive]
+root_concepts: [additive]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Additive Manufacturing: FDM, SLA, DMLS
 
 ## The Big Picture

@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "manufacturing\\05-CASTING-FORMING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "FORMATIVE MANUFACTURING MAP\n──────────────────────────────────────────────────────────────────────\n                    ┌───────────────────────────────────────────────┐\n                    │           FORMATIVE PROCESSES                 │\n                    └──────────────┬──────────────────┬────────────┘\n                                   │                  │\n               .-------------------'                  '------------------.\n               │                                                         │\n    ┌──────────▼─────────┐                                   ┌──────────▼────────┐\n    │     CASTING        │                                   │  BULK DEFORMATION  │\n    │   (liquid→solid)   │                                   │   (solid plastic)  │\n    │                    │                                   │                    │\n    │ Sand Casting       │                                   │ Forging            │\n    │ Die Casting        │                                   │ Rolling            │\n    │ Investment (lost   │                                   │ Extrusion          │\n    │   wax) Casting     │                                   │ Drawing (wire/tube)│\n    │ Lost Foam          │                                   │ Sheet Metal        │\n    │ Centrifugal Cast   │                                   │ (bend/stamp/draw)  │\n    └────────────────────┘                                   └────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "### Process Flow",
+      "confidence": "candidate",
+      "text": "SAND CASTING PROCESS\n──────────────────────────────────────────────────────────────────\nPattern       →  Pattern is a model of the part\n(wood/metal)     plus draft angles, parting line, gating\n\nPattern placed in  →  Cope (top half) and Drag (bottom half)\nsand molding box      Green sand (clay-bonded) or no-bake resin sand\n\nPattern removed  →  Cavity = negative of part shape\n                    Core (sand) placed for internal cavities\n\nMolten metal poured  →  Into sprue, down runner, into cavity\n                        Risers (reservoirs) feed shrinkage\n\nSolidification  →  Cool time depends on mass\n                   Heavy sections cool slower (hot spots)\n\nShakeout        →  Destroy mold, remove casting\n                   Shot blast to clean sand\n                   Cut off sprues and runners\n\nFinish          →  Machine critical surfaces\n                   Heat treat if required",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "### Process",
+      "confidence": "candidate",
+      "text": "HOT CHAMBER DIE CASTING           COLD CHAMBER DIE CASTING\n(Zinc, Magnesium, low-melt)        (Aluminum, Brass, high-melt)\n──────────────────────────────     ──────────────────────────────\nInjection system submerged         Metal ladled manually or\nin molten metal (gooseneck)        automatically into cold sleeve\n→ faster cycle (2–10s)             → hydraulic plunger injects\n                                   → 15–60 second cycle\n\nBoth: High pressure injection (1,000–30,000 psi)\n      Steel dies (H13 tool steel)\n      Near-net shape, excellent surface finish\n      Tight tolerances (±0.002\" on small features)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "### Die Casting Design Rules",
+      "confidence": "candidate",
+      "text": "WALL THICKNESS:\n  Aluminum: 2–4mm uniform preferred\n  Varying wall → differential solidification → porosity, sink marks\n  Transitions: gradual fillets, not sharp steps\n\nDRAFT ANGLES:\n  Exterior walls: 1° minimum\n  Interior (cavity) walls: 2° minimum\n  Cores (through holes): 1.5° minimum\n\nPARTING LINE:\n  Where two die halves meet → flash line on part\n  Position to minimize core pulls, keep on flat surface\n\nCORES (holes perpendicular to parting):\n  Holes parallel to pull = simple core pin\n  Holes at angle → side action (lifter/slider) → more expensive\n\nRIBS:\n  Height: 2.5× wall thickness max\n  Thickness: 60% of wall at base\n  Draft: 1° minimum each side",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "### Process Flow",
+      "confidence": "candidate",
+      "text": "INVESTMENT CASTING PROCESS\n──────────────────────────────────────────────────────────────────\n1. WAX PATTERN\n   Wax injected into metal die → wax replica of part\n   Multiple wax patterns welded to wax gating tree\n\n2. SHELL BUILDING\n   Tree dipped in ceramic slurry (silica sol + zircon)\n   Stuccoed with coarse ceramic particles\n   Repeat 5–15 layers → thick ceramic shell\n   Dry between layers\n\n3. DEWAX (AUTOCLAVE)\n   Steam autoclave melts out wax\n   Wax expands before melt → cracks thin shells if not managed\n   Result: hollow ceramic shell = negative of part\n\n4. FIRING\n   Kiln at 1000°C → burns residual wax, sinters ceramic\n   Pre-heats mold for metal pour\n\n5. METAL POUR\n   Molten metal poured (by gravity, tilt, vacuum, or pressure)\n   Into hot mold (better flow, less gas porosity)\n\n6. SHELL KNOCKOUT\n   Vibration + water blasting destroys ceramic shell\n   Cut off individual parts from gating tree\n\n7. FINISH\n   Grind off gates\n   Inspect, heat treat, machine critical surfaces",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "### Process Principle",
+      "confidence": "candidate",
+      "text": "FORGING MECHANICS\n──────────────────────────────────────────────────────────────────\nHot forging: metal heated above recrystallization temp (~0.6 Tm)\n  → lower flow stress → large deformations\n  → grain refinement during recrystallization\n  → no work hardening (grains reform after deformation)\n\nCold forging: room temperature\n  → higher force required\n  → work hardening → higher yield strength\n  → better surface finish\n  → tighter tolerances (±0.001\"–0.003\")\n  → limited to relatively ductile materials (aluminum, brass, mild steel)\n\nWarm forging: between cold and hot (compromise)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 281,
+      "heading_context": "### Why Forging Gives Better Properties",
+      "confidence": "candidate",
+      "text": "CAST vs FORGED MICROSTRUCTURE\n──────────────────────────────────────────────────────────────────\nCast:                              Forged:\n  Random grain orientation           Grain flow follows part shape\n  Possible porosity, shrinkage       No porosity (worked closed)\n  Columnar grains from solidification Equiaxed, refined grains\n  Lower fatigue resistance           Higher fatigue resistance\n  Good enough for static loading     Required for dynamic loading\n\n  ┌─────────────┐                  ┌─────────────┐\n  │ Grain       │                  │  ←Grain     │\n  │ structure   │                  │   flow→     │\n  │ random      │                  │  follows    │\n  │ defects     │                  │  contour    │\n  └─────────────┘                  └─────────────┘\n\nAircraft connecting rods, crankshafts, landing gear, turbine discs\n→ always forged. Cast equivalents would fail under fatigue loading.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "## Rolling",
+      "confidence": "candidate",
+      "text": "ROLLING PROCESSES\n──────────────────────────────────────────────────────────────────\nHOT ROLLING (>0.6 Tm)\n  Large reductions in passes through roll stands\n  Structural shapes (I-beam, channel, angle, wide flange)\n  Hot-rolled plate and sheet (HR)\n  Surface: mill scale (oxide layer), rough\n\nCOLD ROLLING (ambient)\n  HR coil is pickled (acid removes scale) then cold-rolled\n  Produces cold-rolled sheet (CRS): tighter tolerances, smooth\n  Work hardened → higher yield strength than HR\n  Common: CRS 1008/1010 for stampings, enclosures\n\nBAR/ROD/WIRE ROLLING\n  Hot rolling → billets to rod (5–20mm dia)\n  Cold drawing → rod to wire (down to 0.1mm)\n  Each draw pass: 10–30% reduction, progressive dies\n\nRING ROLLING\n  Hollow preform compressed between inner/outer rolls\n  → seamless rings (bearing races, flanges, gears)\n  Excellent grain flow, very strong",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 338,
+      "heading_context": "### Bending",
+      "confidence": "candidate",
+      "text": "BENDING FUNDAMENTALS\n──────────────────────────────────────────────────────────────────\nNeutral axis: no stress in bending\nOutside of bend: tension (tensile stress)\nInside of bend: compression\n\nSpringback: elastic recovery after bend force removed\n  High-strength material = more springback\n  Over-bend by springback angle, let it spring to target\n\nMinimum bend radius (by material and thickness t):\n  Soft aluminum (1100-O): 0t  (can bend flat)\n  2024-T4 aluminum: 3t\n  Mild steel (1008): 1t\n  SS 304: 1.5t–2t\n  Titanium Grade 5: 3t–5t\n\nV-bending:       Punch forces sheet into V-die\nAir bending:     Sheet touches die sides only (partial die contact)\n                  → more springback, versatile (any angle)\nBottom bending:  Sheet bottomed into die\n                  → less springback, die-specific angle",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 365,
+      "heading_context": "### Deep Drawing",
+      "confidence": "candidate",
+      "text": "DEEP DRAWING\n──────────────────────────────────────────────────────────────────\nFlat blank → punch forces into die → cup/box form\nBlank holder controls flange wrinkle\n\nKey parameter: Draw Ratio (DR) = Blank diameter / Punch diameter\n  DR < 2.0 typical (first draw)\n  DR up to 2.2 for high-ductility materials (aluminum)\n  Multiple draws (redraw) for deeper cups\n\nFailure modes:\n  Wall fracture:   tensile failure at punch radius (too aggressive draw)\n  Wrinkling:       compressive instability in flange (blank holder too loose)\n  Earing:          non-uniform thickness strains (material anisotropy)\n\nMaterials: Low-carbon steel (AISI 1006, 1008, IF steel)\n           Aluminum (3003, 5052, 5182)\n           Stainless (needs more force, work hardens)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 388,
+      "heading_context": "### Stamping (Progressive Die)",
+      "confidence": "candidate",
+      "text": "PROGRESSIVE DIE STAMPING\n──────────────────────────────────────────────────────────────────\nStrip of metal feeds through series of stations in one die:\n  Station 1: Pilot holes\n  Station 2: Pierce holes\n  Station 3: Notch\n  Station 4: Blank / form\n  Station 5: Coin / restrike\n  Station 6: Cutoff\n\nOne stroke = one part (high speed: 100–400+ strokes/min)\nTooling: $10K–$500K\nApplication: connectors, brackets, panels (automotive, electronics)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

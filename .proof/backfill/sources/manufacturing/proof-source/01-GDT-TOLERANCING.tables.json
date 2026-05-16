@@ -1,0 +1,216 @@
+{
+  "schema_version": "1",
+  "source_markdown": "manufacturing\\01-GDT-TOLERANCING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 100,
+      "heading_context": "## The Feature Control Frame",
+      "headers": [
+        "Symbol",
+        "Name",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "(none)",
+          "RFS — Regardless of Feature Size",
+          "Tolerance applies at any size. Default in Y14.5-2018."
+        ],
+        [
+          "M",
+          "MMC — Maximum Material Condition",
+          "Bonus tolerance when feature departs from MMC. Most common for clearance holes."
+        ],
+        [
+          "L",
+          "LMC — Least Material Condition",
+          "Bonus tolerance when feature departs from LMC. Used for wall thickness, structural applications."
+        ],
+        [
+          "P",
+          "Projected Tolerance Zone",
+          "Zone extends into mating part space. Long studs, pins."
+        ],
+        [
+          "F",
+          "Free State",
+          "Applied to non-rigid parts in free state (sheet metal, rubber)."
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 179,
+      "heading_context": "## Fits and Limits (ISO 286 / ASME B4.1)",
+      "headers": [
+        "Fit Code",
+        "Type",
+        "Application"
+      ],
+      "rows": [
+        [
+          "H7/g6",
+          "Clearance — sliding",
+          "Shafts in bearings, sliding components"
+        ],
+        [
+          "H7/h6",
+          "Clearance — close running",
+          "Accurate location, easy assembly"
+        ],
+        [
+          "H7/k6",
+          "Transition — locating",
+          "Gears, pulleys — light press or clearance"
+        ],
+        [
+          "H7/n6",
+          "Transition — push",
+          "Hubs, close-fit bushings"
+        ],
+        [
+          "H7/p6",
+          "Interference — press",
+          "Standard press fit, removable by tool"
+        ],
+        [
+          "H7/s6",
+          "Interference — shrink",
+          "Permanent assembly, high torque"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 283,
+      "heading_context": "## Inspection Methods",
+      "headers": [
+        "Feature",
+        "Inspection Method"
+      ],
+      "rows": [
+        [
+          "Diameter, length",
+          "Micrometer, caliper, air gauge"
+        ],
+        [
+          "Position, concentricity",
+          "CMM (coordinate measuring machine)"
+        ],
+        [
+          "Flatness",
+          "Surface plate + dial indicator or CMM"
+        ],
+        [
+          "Roundness / cylindricity",
+          "Roundness tester (Talyrond) or CMM"
+        ],
+        [
+          "Surface finish",
+          "Profilometer (contact or optical)"
+        ],
+        [
+          "Complex profiles",
+          "CMM with surface scanning"
+        ],
+        [
+          "Runout",
+          "V-blocks + dial indicator or CMM"
+        ],
+        [
+          "Go/No-Go",
+          "Functional gauges (check virtual condition)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 343,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to control...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Hole/shaft size only",
+          "Plus/minus on diameter"
+        ],
+        [
+          "Hole center location relative to datums",
+          "True Position (⊕)"
+        ],
+        [
+          "Shaft wobble during rotation",
+          "Total Runout (↗↗)"
+        ],
+        [
+          "Flatness of a surface",
+          "Flatness (□) — no datum needed"
+        ],
+        [
+          "Two surfaces parallel to each other",
+          "Parallelism (∥)"
+        ],
+        [
+          "Two surfaces perpendicular",
+          "Perpendicularity (⊥)"
+        ],
+        [
+          "Freeform or complex surface",
+          "Profile of a Surface (⌓)"
+        ],
+        [
+          "Maximum position error (bonus OK)",
+          "Position with MMC (M) modifier"
+        ],
+        [
+          "Bearing surface — no bonus allowed",
+          "Position RFS (no modifier)"
+        ],
+        [
+          "Concentricity / coaxiality",
+          "Position or Concentricity (◎)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 360,
+      "heading_context": "## Cross-References",
+      "headers": [
+        "If you want to understand...",
+        "Go to",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Machine-process capability",
+          "`manufacturing/02-MACHINING.md`",
+          "GD&T only works if the process can hold the specified tolerance"
+        ],
+        [
+          "Materials and dimensional stability",
+          "`materials/01-CRYSTAL-STRUCTURE.md`",
+          "Thermal expansion, grain structure, and stress relief affect tolerancing"
+        ],
+        [
+          "Measurement systems and uncertainty",
+          "`statistics-applied/01-EXPERIMENTAL-DESIGN.md`",
+          "Inspection is statistical measurement under gauge repeatability and uncertainty"
+        ],
+        [
+          "Mechanical assembly function",
+          "`mechanical/01-THERMODYNAMICS.md`",
+          "Tolerances protect fits, motion, sealing, heat paths, and load-bearing geometry"
+        ],
+        [
+          "Quality systems and production control",
+          "`systems-engineering/01-SE-PROCESS.md`",
+          "GD&T is one interface between design intent, manufacturing, inspection, and lifecycle control"
+        ]
+      ]
+    }
+  ]
+}

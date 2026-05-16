@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:manufacturing:machining
+kind: guide
+module: manufacturing
+section: manufacturing
+title: Machining: Turning, Milling, and Grinding
+status: source-custody
+source_custody: partial
+current_path: manufacturing/02-MACHINING.md
+canonical_path: manufacturing/02-MACHINING.md
+backsource_ids: [proof-backfill:manufacturing:02-machining, git-history:manufacturing:02-machining]
+concepts: [machining]
+root_concepts: [machining]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Machining: Turning, Milling, and Grinding
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-history:overview
+kind: guide
+module: social-history
+section: social-history
+title: Social History - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: social-history/00-OVERVIEW.md
+canonical_path: social-history/00-OVERVIEW.md
+backsource_ids: [proof-backfill:social-history:00-overview, git-history:social-history:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Social History — Landscape and Taxonomy
 
 ## The Big Picture
@@ -13,28 +32,28 @@ making social history the dominant mode of historical practice from the 1970s on
 |                   SOCIAL HISTORY LANDSCAPE                        |
 |                                                                   |
 |  MAJOR APPROACHES (chronological emergence)                       |
-|  +------------------+  +------------------+  +----------------+  |
-|  | ANNALES SCHOOL   |  | HISTORY FROM     |  | QUANTITATIVE   |  |
-|  | (France, 1929-)  |  | BELOW            |  | (Cliometrics,  |  |
-|  | Total history,   |  | (Britain, 1960s) |  | 1958-)         |  |
-|  | structures,      |  | Workers,         |  | Economic hist, |  |
-|  | mentalites       |  | peasants,        |  | serial data,   |  |
-|  |                  |  | everyday life    |  | statistics     |  |
-|  +------------------+  +------------------+  +----------------+  |
+|   ------------------    ------------------    ----------------    |
+|    ANNALES SCHOOL        HISTORY FROM          QUANTITATIVE       |
+|    (France, 1929-)       BELOW                 (Cliometrics,      |
+|    Total history,        (Britain, 1960s)      1958-)             |
+|    structures,           Workers,              Economic hist,     |
+|    mentalites            peasants,             serial data,       |
+|                          everyday life         statistics         |
+|   ------------------    ------------------    ----------------    |
 |                                                                   |
-|  +------------------+  +------------------+  +----------------+  |
-|  | GENDER HISTORY   |  | POSTCOLONIAL     |  | MATERIAL CULT. |  |
-|  | (1970s-)         |  | (1978-)          |  | (1990s-)       |  |
-|  | Women, gender as |  | Subaltern,       |  | Things, stuff, |  |
-|  | analytical cat.  |  | empire, race     |  | consumption    |  |
-|  +------------------+  +------------------+  +----------------+  |
+|   ------------------    ------------------    ----------------    |
+|    GENDER HISTORY        POSTCOLONIAL          MATERIAL CULT.     |
+|    (1970s-)              (1978-)               (1990s-)           |
+|    Women, gender as      Subaltern,            Things, stuff,     |
+|    analytical cat.       empire, race          consumption        |
+|   ------------------    ------------------    ----------------    |
 |                                                                   |
-|  +------------------+  +------------------+  +----------------+  |
-|  | MEMORY STUDIES   |  | DIGITAL HISTORY  |  | ENVIRONMENTAL  |  |
-|  | (1980s-)         |  | (2000s-)         |  | HISTORY        |  |
-|  | Collective mem., |  | Big data, GIS,   |  | (intersection) |  |
-|  | commemoration    |  | text mining      |  |                |  |
-|  +------------------+  +------------------+  +----------------+  |
+|   ------------------    ------------------    ----------------    |
+|    MEMORY STUDIES        DIGITAL HISTORY       ENVIRONMENTAL      |
+|    (1980s-)              (2000s-)              HISTORY            |
+|    Collective mem.,      Big data, GIS,        (intersection)     |
+|    commemoration         text mining                              |
+|   ------------------    ------------------    ----------------    |
 +-------------------------------------------------------------------+
 ```
 

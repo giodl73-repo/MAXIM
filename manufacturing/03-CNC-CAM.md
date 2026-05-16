@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:manufacturing:cnc-cam
+kind: guide
+module: manufacturing
+section: manufacturing
+title: CNC Machining and CAM Programming
+status: source-custody
+source_custody: partial
+current_path: manufacturing/03-CNC-CAM.md
+canonical_path: manufacturing/03-CNC-CAM.md
+backsource_ids: [proof-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]
+concepts: [cnc, cam]
+root_concepts: [cnc, cam]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # CNC Machining and CAM Programming
 
 ## The Big Picture
