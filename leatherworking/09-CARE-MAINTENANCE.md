@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:leatherworking:care-maintenance
+kind: guide
+module: leatherworking
+section: leatherworking
+title: Care and Maintenance: Conditioning, Storage, Repair, Patina
+status: source-custody
+source_custody: partial
+current_path: leatherworking/09-CARE-MAINTENANCE.md
+canonical_path: leatherworking/09-CARE-MAINTENANCE.md
+backsource_ids: [proof-backfill:leatherworking:09-care-maintenance, git-history:leatherworking:09-care-maintenance]
+concepts: [care, maintenance]
+root_concepts: [care, maintenance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Care and Maintenance: Conditioning, Storage, Repair, Patina
 
 ## The Big Picture

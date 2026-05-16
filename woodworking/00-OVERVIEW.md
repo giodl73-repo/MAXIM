@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:woodworking:overview
+kind: guide
+module: woodworking
+section: woodworking
+title: Woodworking: Wood, Tools, Joinery, and Finishing - Landscape
+status: source-custody
+source_custody: partial
+current_path: woodworking/00-OVERVIEW.md
+canonical_path: woodworking/00-OVERVIEW.md
+backsource_ids: [proof-backfill:woodworking:00-overview, git-history:woodworking:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Woodworking: Wood, Tools, Joinery, and Finishing — Landscape
 
 ## The Big Picture

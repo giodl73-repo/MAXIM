@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:woodworking:joinery
+kind: guide
+module: woodworking
+section: woodworking
+title: Joinery: Mortise-Tenon, Dovetail, Box Joint, Floating Tenon
+status: source-custody
+source_custody: partial
+current_path: woodworking/04-JOINERY.md
+canonical_path: woodworking/04-JOINERY.md
+backsource_ids: [proof-backfill:woodworking:04-joinery, git-history:woodworking:04-joinery]
+concepts: [joinery]
+root_concepts: [joinery]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Joinery: Mortise-Tenon, Dovetail, Box Joint, Floating Tenon
 
 ## The Big Picture

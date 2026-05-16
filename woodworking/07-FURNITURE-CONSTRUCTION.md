@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:woodworking:furniture-construction
+kind: guide
+module: woodworking
+section: woodworking
+title: Furniture Construction: Casework, Frame-and-Panel, Chairs, Tables
+status: source-custody
+source_custody: partial
+current_path: woodworking/07-FURNITURE-CONSTRUCTION.md
+canonical_path: woodworking/07-FURNITURE-CONSTRUCTION.md
+backsource_ids: [proof-backfill:woodworking:07-furniture-construction, git-history:woodworking:07-furniture-construction]
+concepts: [furniture, construction]
+root_concepts: [furniture, construction]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Furniture Construction: Casework, Frame-and-Panel, Chairs, Tables
 
 ## The Big Picture

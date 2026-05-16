@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:woodworking:finishing
+kind: guide
+module: woodworking
+section: woodworking
+title: Finishing: Oils, Shellac, Lacquer, Varnish, Water-Based
+status: source-custody
+source_custody: partial
+current_path: woodworking/06-FINISHING.md
+canonical_path: woodworking/06-FINISHING.md
+backsource_ids: [proof-backfill:woodworking:06-finishing, git-history:woodworking:06-finishing]
+concepts: [finishing]
+root_concepts: [finishing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Finishing: Oils, Shellac, Lacquer, Varnish, Water-Based
 
 ## The Big Picture

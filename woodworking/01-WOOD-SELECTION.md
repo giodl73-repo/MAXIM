@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:woodworking:wood-selection
+kind: guide
+module: woodworking
+section: woodworking
+title: Wood Selection: Species, Grain, Figure, Defects, Moisture Content
+status: source-custody
+source_custody: partial
+current_path: woodworking/01-WOOD-SELECTION.md
+canonical_path: woodworking/01-WOOD-SELECTION.md
+backsource_ids: [proof-backfill:woodworking:01-wood-selection, git-history:woodworking:01-wood-selection]
+concepts: [wood, selection]
+root_concepts: [wood, selection]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Wood Selection: Species, Grain, Figure, Defects, Moisture Content
 
 ## The Big Picture

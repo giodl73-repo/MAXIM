@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:leatherworking:overview
+kind: guide
+module: leatherworking
+section: leatherworking
+title: Leatherworking: Tanning, Tooling, and Craft - Landscape
+status: source-custody
+source_custody: partial
+current_path: leatherworking/00-OVERVIEW.md
+canonical_path: leatherworking/00-OVERVIEW.md
+backsource_ids: [proof-backfill:leatherworking:00-overview, git-history:leatherworking:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Leatherworking: Tanning, Tooling, and Craft — Landscape
 
 ## The Big Picture

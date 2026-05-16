@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:leatherworking:pattern-making
+kind: guide
+module: leatherworking
+section: leatherworking
+title: Pattern Making: Templates, Seam Allowance, Layout on Hide
+status: source-custody
+source_custody: partial
+current_path: leatherworking/03-PATTERN-MAKING.md
+canonical_path: leatherworking/03-PATTERN-MAKING.md
+backsource_ids: [proof-backfill:leatherworking:03-pattern-making, git-history:leatherworking:03-pattern-making]
+concepts: [pattern, making]
+root_concepts: [pattern, making]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pattern Making: Templates, Seam Allowance, Layout on Hide
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:leatherworking:stitching-sewing
+kind: guide
+module: leatherworking
+section: leatherworking
+title: Stitching: Saddle Stitch, Machine Sewing, Thread Selection
+status: source-custody
+source_custody: partial
+current_path: leatherworking/07-STITCHING-SEWING.md
+canonical_path: leatherworking/07-STITCHING-SEWING.md
+backsource_ids: [proof-backfill:leatherworking:07-stitching-sewing, git-history:leatherworking:07-stitching-sewing]
+concepts: [stitching, sewing]
+root_concepts: [stitching, sewing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stitching: Saddle Stitch, Machine Sewing, Thread Selection
 
 ## The Big Picture

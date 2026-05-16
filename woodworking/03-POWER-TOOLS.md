@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:woodworking:power-tools
+kind: guide
+module: woodworking
+section: woodworking
+title: Power Tools: Table Saw, Band Saw, Router, Lathe - Safety and Use
+status: source-custody
+source_custody: partial
+current_path: woodworking/03-POWER-TOOLS.md
+canonical_path: woodworking/03-POWER-TOOLS.md
+backsource_ids: [proof-backfill:woodworking:03-power-tools, git-history:woodworking:03-power-tools]
+concepts: [power, tools]
+root_concepts: [power, tools]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Power Tools: Table Saw, Band Saw, Router, Lathe — Safety and Use
 
 ## The Big Picture

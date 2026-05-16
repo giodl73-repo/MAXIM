@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:woodworking:hand-tools
+kind: guide
+module: woodworking
+section: woodworking
+title: Hand Tools: Planes, Chisels, Saws, Marking Tools - Setup and Use
+status: source-custody
+source_custody: partial
+current_path: woodworking/02-HAND-TOOLS.md
+canonical_path: woodworking/02-HAND-TOOLS.md
+backsource_ids: [proof-backfill:woodworking:02-hand-tools, git-history:woodworking:02-hand-tools]
+concepts: [hand, tools]
+root_concepts: [hand, tools]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hand Tools: Planes, Chisels, Saws, Marking Tools — Setup and Use
 
 ## The Big Picture
