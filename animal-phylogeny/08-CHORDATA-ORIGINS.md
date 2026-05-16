@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:animal-phylogeny:chordata-origins
+kind: guide
+module: animal-phylogeny
+section: animal-phylogeny
+title: Chordata Origins - Tunicates, Lancelets, and the Vertebrate Spark
+status: source-custody
+source_custody: partial
+current_path: animal-phylogeny/08-CHORDATA-ORIGINS.md
+canonical_path: animal-phylogeny/08-CHORDATA-ORIGINS.md
+backsource_ids: [proof-backfill:animal-phylogeny:08-chordata-origins, git-history:animal-phylogeny:08-chordata-origins]
+concepts: [chordata, origins]
+root_concepts: [chordata, origins]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Chordata Origins — Tunicates, Lancelets, and the Vertebrate Spark
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mythology:east-asian
+kind: guide
+module: mythology
+section: mythology
+title: East Asian Mythology
+status: source-custody
+source_custody: partial
+current_path: mythology/08-EAST-ASIAN.md
+canonical_path: mythology/08-EAST-ASIAN.md
+backsource_ids: [proof-backfill:mythology:08-east-asian, git-history:mythology:08-east-asian]
+concepts: [east, asian]
+root_concepts: [east, asian]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # East Asian Mythology
 
 ## The Big Picture
@@ -190,7 +209,7 @@ HOUYI — The Divine Archer
 │                                                                  │
 │  GUAN YU — God of War, Righteousness, Business                   │
 │  — Historical figure: general during the Three Kingdoms period   │
-│    (died 220 CE); his loyalty and righteousness made him a deity│
+│    (died 220 CE); his loyalty and righteousness made him a deity │
 │  — Worshipped in temples by soldiers, police, merchants, and     │
 │    criminals (yes — both sides invoke him)                       │
 │                                                                  │
@@ -403,7 +422,7 @@ attributed to those born in each year. Sixty-year cycle (5 elements
 ## Amaterasu and Susanoo
 
 ```
-AMATERASU (天照大神) — GODDESS OF THE SUN
+AMATERASU (Amaterasu Okami) — GODDESS OF THE SUN
 
 The supreme deity of Shinto; ancestor of the imperial family.
 Her full name: Amaterasu Ōmikami — "Great Divinity Illuminating Heaven"
@@ -462,7 +481,7 @@ After banishment, Susanoo kills the eight-headed serpent Yamata no Orochi
 ## Kami: The Shinto Concept
 
 ```
-KAMI (神) — THE SHINTO UNDERSTANDING OF THE SACRED
+KAMI (kami) — THE SHINTO UNDERSTANDING OF THE SACRED
 
 Kami are NOT "gods" in the Western sense. The word resists direct
 translation. Key properties:
@@ -574,7 +593,7 @@ MUDANG — KOREAN SHAMANIC TRADITION:
   One of the oldest living shamanic traditions in East Asia
   Mudang = a shaman (usually but not exclusively female) who
     mediates between living and dead, humans and spirits
-  Primary ritual: GUT (굿) — an elaborate multi-stage ceremony
+  Primary ritual: GUT (gut) — an elaborate multi-stage ceremony
     involving music, dance, trance, spirit possession
     The mudang speaks as the spirit: delivers messages, negotiates
     grievances, performs healing
@@ -586,7 +605,7 @@ MUDANG — KOREAN SHAMANIC TRADITION:
   The spirit of the recently dead must be helped to depart properly;
     if they died with unresolved grief (han) they become troublesome
 
-  HAN (한) — a uniquely Korean cultural concept:
+  HAN (han) — a uniquely Korean cultural concept:
   A collective emotional complex: sorrow, longing, resentment,
     endurance accumulated through historical suffering
   Central to Korean art, music, the "sorrowful beauty" of Korean

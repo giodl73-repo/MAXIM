@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:animal-phylogeny:fish
+kind: guide
+module: animal-phylogeny
+section: animal-phylogeny
+title: Fish - The Vertebrate Radiation in Water
+status: source-custody
+source_custody: partial
+current_path: animal-phylogeny/09-FISH.md
+canonical_path: animal-phylogeny/09-FISH.md
+backsource_ids: [proof-backfill:animal-phylogeny:09-fish, git-history:animal-phylogeny:09-fish]
+concepts: [fish]
+root_concepts: [fish]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fish — The Vertebrate Radiation in Water
 
 ## The Big Picture

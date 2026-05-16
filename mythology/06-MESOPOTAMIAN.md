@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mythology:mesopotamian
+kind: guide
+module: mythology
+section: mythology
+title: Mesopotamian Mythology
+status: source-custody
+source_custody: partial
+current_path: mythology/06-MESOPOTAMIAN.md
+canonical_path: mythology/06-MESOPOTAMIAN.md
+backsource_ids: [proof-backfill:mythology:06-mesopotamian, git-history:mythology:06-mesopotamian]
+concepts: [mesopotamian]
+root_concepts: [mesopotamian]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mesopotamian Mythology
 
 ## The Big Picture

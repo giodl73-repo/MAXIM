@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:animal-phylogeny:deuterostomes-echinoderms
+kind: guide
+module: animal-phylogeny
+section: animal-phylogeny
+title: Deuterostomes - Echinoderms and the Bridge to Chordates
+status: source-custody
+source_custody: partial
+current_path: animal-phylogeny/07-DEUTEROSTOMES-ECHINODERMS.md
+canonical_path: animal-phylogeny/07-DEUTEROSTOMES-ECHINODERMS.md
+backsource_ids: [proof-backfill:animal-phylogeny:07-deuterostomes-echinoderms, git-history:animal-phylogeny:07-deuterostomes-echinoderms]
+concepts: [deuterostomes, echinoderms]
+root_concepts: [deuterostomes, echinoderms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Deuterostomes — Echinoderms & the Bridge to Chordates
 
 ## The Big Picture

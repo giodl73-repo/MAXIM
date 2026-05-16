@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mythology:hindu
+kind: guide
+module: mythology
+section: mythology
+title: Hindu Mythology
+status: source-custody
+source_custody: partial
+current_path: mythology/07-HINDU.md
+canonical_path: mythology/07-HINDU.md
+backsource_ids: [proof-backfill:mythology:07-hindu, git-history:mythology:07-hindu]
+concepts: [hindu]
+root_concepts: [hindu]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hindu Mythology
 
 ## The Big Picture
@@ -138,7 +157,7 @@ Avatar (avatāra) = descent; Vishnu descends in bodily form to restore dharma:
 │                  DASHAVATARA (TEN AVATARS OF VISHNU)             │
 │                                                                  │
 │  1. MATSYA (Fish)                                                │
-│     — Saves Manu (Hindu Noah) and the Vedas from the great flood│
+│     — Saves Manu (Hindu Noah) and the Vedas from the great flood │
 │     — Pulls Manu's boat to safety; destroys the demon Shankhasura│
 │                                                                  │
 │  2. KURMA (Tortoise)                                             │

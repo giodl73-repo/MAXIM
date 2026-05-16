@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:animal-phylogeny:lophotrochozoa-worms
+kind: guide
+module: animal-phylogeny
+section: animal-phylogeny
+title: Lophotrochozoa - Worms and Lophophore Feeders
+status: source-custody
+source_custody: partial
+current_path: animal-phylogeny/03-LOPHOTROCHOZOA-WORMS.md
+canonical_path: animal-phylogeny/03-LOPHOTROCHOZOA-WORMS.md
+backsource_ids: [proof-backfill:animal-phylogeny:03-lophotrochozoa-worms, git-history:animal-phylogeny:03-lophotrochozoa-worms]
+concepts: [lophotrochozoa, worms]
+root_concepts: [lophotrochozoa, worms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lophotrochozoa — Worms & Lophophore Feeders
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mythology:mesoamerican
+kind: guide
+module: mythology
+section: mythology
+title: Mesoamerican Mythology
+status: source-custody
+source_custody: partial
+current_path: mythology/09-MESOAMERICAN.md
+canonical_path: mythology/09-MESOAMERICAN.md
+backsource_ids: [proof-backfill:mythology:09-mesoamerican, git-history:mythology:09-mesoamerican]
+concepts: [mesoamerican]
+root_concepts: [mesoamerican]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mesoamerican Mythology
 
 ## The Big Picture
@@ -48,7 +67,7 @@ The central Aztec cosmological myth explains the current world as the fifth and 
 │                    THE FIVE SUNS (AZTEC)                         │
 │                                                                  │
 │  Each "Sun" = a complete world-age; each destroyed               │
-│  Current world = the Fifth Sun = the Sun of Movement (Nahui Ollin)│
+│  Current world = the Fifth Sun = the Sun of Movement (Ollin)     │
 │                                                                  │
 │  SUN 1 — Nahui Ocelotl (4-Jaguar)                                │
 │  Patron: Tezcatlipoca (Smoking Mirror; Black god; darkness)      │
@@ -59,7 +78,7 @@ The central Aztec cosmological myth explains the current world as the fifth and 
 │  SUN 2 — Nahui Ehécatl (4-Wind)                                  │
 │  Patron: Quetzalcóatl (Feathered Serpent; Wind god; sky)         │
 │  Inhabitants: Humans who ate pine nuts; turned into monkeys      │
-│  Destruction: Hurricane wind; Tezcatlipoca overthrows Quetzalcóatl│
+│  Destruction: Wind; Tezcatlipoca overthrows Quetzalcóatl         │
 │                                                                  │
 │  SUN 3 — Nahui Quiahuitl (4-Rain)                                │
 │  Patron: Tlaloc (Rain god)                                       │
@@ -75,7 +94,7 @@ The central Aztec cosmological myth explains the current world as the fifth and 
 │  SUN 5 — Nahui Ollin (4-Movement) — CURRENT SUN                  │
 │  Created at Teotihuacan:                                         │
 │  — The gods gather in darkness; two volunteer to become sun/moon │
-│  — Tecuciztecatl (proud, wealthy) and Nanahuatzin (humble, scab)│
+│  — Tecuciztecatl (proud, wealthy) and Nanahuatzin (humble, scab) │
 │  — Both must throw themselves into a great bonfire               │
 │  — Tecuciztecatl approaches four times; each time he flinches    │
 │  — Nanahuatzin approaches once; leaps without hesitation         │
@@ -342,7 +361,7 @@ NEW FIRE CEREMONY:
 │  — Sent his two sons and himself to populate the world           │
 │  — Taught humanity arts of civilization; then walked west        │
 │    across the ocean (toward the setting sun) and disappeared     │
-│  — Described as white-bearded, tall; Spanish arrival seen through │
+│  — Described as white-bearded, tall; Spanish arrival seen through│
 │    lens of this mythology (Viracocha = Spanish? — same source    │
 │    problem as Quetzalcóatl/Cortés)                               │
 │                                                                  │

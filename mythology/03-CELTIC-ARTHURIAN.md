@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mythology:celtic-arthurian
+kind: guide
+module: mythology
+section: mythology
+title: Celtic and Arthurian Mythology
+status: source-custody
+source_custody: partial
+current_path: mythology/03-CELTIC-ARTHURIAN.md
+canonical_path: mythology/03-CELTIC-ARTHURIAN.md
+backsource_ids: [proof-backfill:mythology:03-celtic-arthurian, git-history:mythology:03-celtic-arthurian]
+concepts: [celtic, arthurian]
+root_concepts: [celtic, arthurian]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Celtic & Arthurian Mythology
 
 ## The Big Picture
@@ -355,7 +374,7 @@ WHAT WE DON'T KNOW:
 │  — Lancelot's love for Guinevere destroys the Round Table        │
 │  — Mordred (Arthur's illegitimate son) betrays him               │
 │  — Battle of Camlann, Arthur mortally wounded                    │
-│  — Arthur taken to Avalon ("isle of apples" = Celtic Otherworld)│
+│  — Arthur taken to Avalon ("isle of apples" = Celtic Otherworld) │
 │  — "The once and future king" — will return in Britain's need    │
 └──────────────────────────────────────────────────────────────────┘
 ```

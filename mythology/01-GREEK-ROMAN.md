@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mythology:greek-roman
+kind: guide
+module: mythology
+section: mythology
+title: Greek and Roman Mythology
+status: source-custody
+source_custody: partial
+current_path: mythology/01-GREEK-ROMAN.md
+canonical_path: mythology/01-GREEK-ROMAN.md
+backsource_ids: [proof-backfill:mythology:01-greek-roman, git-history:mythology:01-greek-roman]
+concepts: [greek, roman]
+root_concepts: [greek, roman]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Greek & Roman Mythology
 
 ## The Big Picture

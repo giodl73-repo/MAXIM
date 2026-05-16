@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mythology:egyptian
+kind: guide
+module: mythology
+section: mythology
+title: Egyptian Mythology
+status: source-custody
+source_custody: partial
+current_path: mythology/05-EGYPTIAN.md
+canonical_path: mythology/05-EGYPTIAN.md
+backsource_ids: [proof-backfill:mythology:05-egyptian, git-history:mythology:05-egyptian]
+concepts: [egyptian]
+root_concepts: [egyptian]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Egyptian Mythology
 
 ## The Big Picture
@@ -20,7 +39,7 @@ Egyptian religion is one of the world's longest-lived: 3,000+ years from c. 3000
 │                                                                  │
 │  HERMOPOLIS:                                                     │
 │  The Ogdoad — "Eight" primordial pairs (chaos before creation)   │
-│  Nun+Naunet (water), Amun+Amaunet (hidden), Huh+Hauhet (infinity),│
+│  Nun+Naunet (water), Amun+Amaunet (hidden), Huh+Hauhet (infinity)│
 │  Kuk+Kauket (darkness) — the eight chaos forces                  │
 │  Creation: primordial mound rises from chaos waters; first light │
 │                                                                  │
@@ -96,7 +115,7 @@ The most important narrative in Egyptian religion, encoding the theology of king
 │                    THE OSIRIS MYTH                               │
 │                                                                  │
 │  GOLDEN AGE:                                                     │
-│  Osiris is the first king; teaches agriculture, laws, civilization│
+│  Osiris is first king; teaches agriculture, laws, civilization   │
 │  Isis rules while Osiris civilizes the world                     │
 │                                                                  │
 │  FIRST MURDER:                                                   │
@@ -130,7 +149,7 @@ The most important narrative in Egyptian religion, encoding the theology of king
 │  Multiple combats, trials, mutilations (Horus loses eye,         │
 │  Set loses testicles in some versions)                           │
 │  Eventually: Horus wins — becomes king of Egypt                  │
-│  Set sent to sky as god of storms (necessary power, not pure evil)│
+│  Set sent to sky as storm god (necessary power, not pure evil)   │
 │                                                                  │
 │  SIGNIFICANCE:                                                   │
 │  The living king = Horus; the dead king = Osiris                 │
@@ -279,7 +298,7 @@ LAKE OF FIRE (Amenti):
 │  Thoth: records the result                                       │
 │  Osiris: presides                                                │
 │  Ammit: "The Devourer" — waits to eat the heart if heavy         │
-│    (body of lion, head of crocodile, hindquarters of hippopotamus)│
+│    (body of lion, crocodile head, hindquarters of hippopotamus)  │
 │    → Second death: total annihilation (no afterlife)             │
 │                                                                  │
 │  THE 42 NEGATIVE CONFESSIONS:                                    │

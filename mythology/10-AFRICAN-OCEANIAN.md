@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mythology:african-oceanian
+kind: guide
+module: mythology
+section: mythology
+title: African and Oceanian Mythology
+status: source-custody
+source_custody: partial
+current_path: mythology/10-AFRICAN-OCEANIAN.md
+canonical_path: mythology/10-AFRICAN-OCEANIAN.md
+backsource_ids: [proof-backfill:mythology:10-african-oceanian, git-history:mythology:10-african-oceanian]
+concepts: [african, oceanian]
+root_concepts: [african, oceanian]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # African and Oceanian Mythology
 
 ## The Big Picture
@@ -65,7 +84,7 @@ The Yoruba (southwestern Nigeria, Benin, Togo) have one of the most sophisticate
 │                                                                  │
 │  THE CREATION MYTH:                                              │
 │  Olodumare sends Obatala to create the earth from primordial     │
-│  water. Obatala is given a snail shell of sand, a five-toed hen,│
+│  water. Obatala is given a snail shell of sand, a five-toed hen, │
 │  and a palm nut.                                                 │
 │  He pours sand from the shell; the hen scatters it; solid land   │
 │  forms (Ile-Ife, the sacred city, is the center)                 │
@@ -375,12 +394,12 @@ The Maori of Aotearoa/New Zealand represent one of the most well-documented Poly
 │     Catches a giant fish; pulls it up — it becomes the North     │
 │     Island of New Zealand (Te Ika a Māui — "the fish of Māui")   │
 │     His brothers hack at it while he is gone (he told them not   │
-│     to) → the irregular, mountainous surface of the North Island│
+│     to) → the irregular, mountainous surface of the North Island │
 │     → The South Island = his canoe (Te Waka o Māui)              │
 │                                                                  │
 │  2. SLOWING THE SUN:                                             │
 │     The sun moved too quickly; days too short                    │
-│     Māui and his brothers weave ropes of flax; wait at the sun's│
+│     Māui and his brothers weave ropes of flax; wait at the sun's │
 │     rising point; lasso the sun as it emerges                    │
 │     Beat it with his grandmother's jawbone until it promises to  │
 │     move more slowly → longer days                               │
@@ -399,7 +418,7 @@ The Maori of Aotearoa/New Zealand represent one of the most well-documented Poly
 │     He plans to enter her body (like a worm through the earth)   │
 │     and exit her mouth → humanity would gain immortality         │
 │     One of the birds (the pīwakawaka / fantail) laughs           │
-│     Hinenuitepō wakes; sees Māui; crushes him between her thighs│
+│     Hinenuitepō wakes; sees Māui; crushes him between her thighs │
 │     Māui dies — the first death of a man; mortality confirmed    │
 │     "Had it not been for that little bird, we would have won"    │
 └──────────────────────────────────────────────────────────────────┘
