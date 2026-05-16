@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:engineers-inventors:overview
+kind: guide
+module: engineers-inventors
+section: engineers-inventors
+title: Engineers and Inventors - Overview
+status: source-custody
+source_custody: partial
+current_path: engineers-inventors/00-OVERVIEW.md
+canonical_path: engineers-inventors/00-OVERVIEW.md
+backsource_ids: [proof-backfill:engineers-inventors:00-overview, git-history:engineers-inventors:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Engineers and Inventors — Overview
 
 ## The Landscape

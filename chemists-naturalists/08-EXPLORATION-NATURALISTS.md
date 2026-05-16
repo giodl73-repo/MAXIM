@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemists-naturalists:exploration-naturalists
+kind: guide
+module: chemists-naturalists
+section: chemists-naturalists
+title: Exploration Naturalists - Humboldt, Banks, Bates, Cook (Scientific), Wallace
+status: source-custody
+source_custody: partial
+current_path: chemists-naturalists/08-EXPLORATION-NATURALISTS.md
+canonical_path: chemists-naturalists/08-EXPLORATION-NATURALISTS.md
+backsource_ids: [proof-backfill:chemists-naturalists:08-exploration-naturalists, git-history:chemists-naturalists:08-exploration-naturalists]
+concepts: [exploration, naturalists]
+root_concepts: [exploration, naturalists]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Exploration Naturalists — Humboldt, Banks, Bates, Cook (Scientific), Wallace
 
 ## The Program: Science by Going There

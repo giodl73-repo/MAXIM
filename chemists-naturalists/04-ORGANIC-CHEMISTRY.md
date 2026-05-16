@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemists-naturalists:organic-chemistry
+kind: guide
+module: chemists-naturalists
+section: chemists-naturalists
+title: Organic Chemistry - Wöhler, Kekulé, Pasteur, Liebig
+status: source-custody
+source_custody: partial
+current_path: chemists-naturalists/04-ORGANIC-CHEMISTRY.md
+canonical_path: chemists-naturalists/04-ORGANIC-CHEMISTRY.md
+backsource_ids: [proof-backfill:chemists-naturalists:04-organic-chemistry, git-history:chemists-naturalists:04-organic-chemistry]
+concepts: [organic, chemistry]
+root_concepts: [organic, chemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Organic Chemistry — Wöhler, Kekulé, Pasteur, Liebig
 
 ## The Vital Force and Its Death

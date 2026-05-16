@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:engineers-inventors:modern-innovators
+kind: guide
+module: engineers-inventors
+section: engineers-inventors
+title: Modern Innovators - Shockley, Noyce, Jobs, Berners-Lee, Musk
+status: source-custody
+source_custody: partial
+current_path: engineers-inventors/09-MODERN-INNOVATORS.md
+canonical_path: engineers-inventors/09-MODERN-INNOVATORS.md
+backsource_ids: [proof-backfill:engineers-inventors:09-modern-innovators, git-history:engineers-inventors:09-modern-innovators]
+concepts: [modern, innovators]
+root_concepts: [modern, innovators]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Innovators — Shockley, Noyce, Jobs, Berners-Lee, Musk
 
 ## Cross-References

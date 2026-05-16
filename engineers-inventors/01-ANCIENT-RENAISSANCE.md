@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:engineers-inventors:ancient-renaissance
+kind: guide
+module: engineers-inventors
+section: engineers-inventors
+title: Ancient and Renaissance Engineers - Archimedes, Vitruvius, Hero, Leonardo
+status: source-custody
+source_custody: partial
+current_path: engineers-inventors/01-ANCIENT-RENAISSANCE.md
+canonical_path: engineers-inventors/01-ANCIENT-RENAISSANCE.md
+backsource_ids: [proof-backfill:engineers-inventors:01-ancient-renaissance, git-history:engineers-inventors:01-ancient-renaissance]
+concepts: [ancient, renaissance]
+root_concepts: [ancient, renaissance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient and Renaissance Engineers — Archimedes, Vitruvius, Hero, Leonardo
 
 ## Era Overview

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:engineers-inventors:aerospace
+kind: guide
+module: engineers-inventors
+section: engineers-inventors
+title: Aerospace Engineers - Tsiolkovsky, Goddard, Von Braun, Korolev, Kelly Johnson
+status: source-custody
+source_custody: partial
+current_path: engineers-inventors/08-AEROSPACE.md
+canonical_path: engineers-inventors/08-AEROSPACE.md
+backsource_ids: [proof-backfill:engineers-inventors:08-aerospace, git-history:engineers-inventors:08-aerospace]
+concepts: [aerospace]
+root_concepts: [aerospace]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Aerospace Engineers — Tsiolkovsky, Goddard, Von Braun, Korolev, Kelly Johnson
 
 ## Era Overview

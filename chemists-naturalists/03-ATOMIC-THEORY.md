@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemists-naturalists:atomic-theory
+kind: guide
+module: chemists-naturalists
+section: chemists-naturalists
+title: Atomic Theory - Dalton, Avogadro, Gay-Lussac, Berzelius
+status: source-custody
+source_custody: partial
+current_path: chemists-naturalists/03-ATOMIC-THEORY.md
+canonical_path: chemists-naturalists/03-ATOMIC-THEORY.md
+backsource_ids: [proof-backfill:chemists-naturalists:03-atomic-theory, git-history:chemists-naturalists:03-atomic-theory]
+concepts: [atomic, theory]
+root_concepts: [atomic, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Atomic Theory — Dalton, Avogadro, Gay-Lussac, Berzelius
 
 ## The Question: What Are Elements Made Of?

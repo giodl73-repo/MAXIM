@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemists-naturalists:overview
+kind: guide
+module: chemists-naturalists
+section: chemists-naturalists
+title: Chemists and Naturalists - Landscape and Roster
+status: source-custody
+source_custody: partial
+current_path: chemists-naturalists/00-OVERVIEW.md
+canonical_path: chemists-naturalists/00-OVERVIEW.md
+backsource_ids: [proof-backfill:chemists-naturalists:00-overview, git-history:chemists-naturalists:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Chemists and Naturalists — Landscape and Roster
 
 ## The Landscape

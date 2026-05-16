@@ -1,0 +1,4401 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-engineers-inventors-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.engineers-inventors.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-engineers-inventors-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-source-corpus.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-overview.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.ancient-medieval.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-ancient-medieval.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/01-ANCIENT-MEDIEVAL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-ancient-medieval.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/01-ANCIENT-MEDIEVAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.ancient-medieval.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-ancient-medieval.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.ancient-medieval.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-ancient-medieval.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-ancient-medieval.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/01-ANCIENT-MEDIEVAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.ancient-medieval.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/01-ANCIENT-MEDIEVAL.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.ancient-medieval.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/01-ANCIENT-MEDIEVAL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/01-ANCIENT-MEDIEVAL.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/01-ANCIENT-MEDIEVAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.ancient-medieval.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/01-ANCIENT-MEDIEVAL.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.ancient-medieval.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/01-ANCIENT-MEDIEVAL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/01-ANCIENT-MEDIEVAL.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/01-ANCIENT-MEDIEVAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.ancient-medieval.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/01-ANCIENT-MEDIEVAL.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.ancient-medieval.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/01-ANCIENT-MEDIEVAL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/01-ANCIENT-MEDIEVAL.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/01-ANCIENT-MEDIEVAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.ancient-renaissance.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-ancient-renaissance.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/01-ANCIENT-RENAISSANCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-ancient-renaissance.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/01-ANCIENT-RENAISSANCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.ancient-renaissance.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-ancient-renaissance.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.ancient-renaissance.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-ancient-renaissance.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-ancient-renaissance.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/01-ANCIENT-RENAISSANCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.ancient-renaissance.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/01-ANCIENT-RENAISSANCE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.ancient-renaissance.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/01-ANCIENT-RENAISSANCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/01-ANCIENT-RENAISSANCE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/01-ANCIENT-RENAISSANCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.ancient-renaissance.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/01-ANCIENT-RENAISSANCE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.ancient-renaissance.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/01-ANCIENT-RENAISSANCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/01-ANCIENT-RENAISSANCE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/01-ANCIENT-RENAISSANCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.ancient-renaissance.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/01-ANCIENT-RENAISSANCE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.ancient-renaissance.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/01-ANCIENT-RENAISSANCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/01-ANCIENT-RENAISSANCE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/01-ANCIENT-RENAISSANCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.industrial-revolution-engineers.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-industrial-revolution-engineers.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/02-INDUSTRIAL-REVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-industrial-revolution-engineers.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/02-INDUSTRIAL-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.industrial-revolution-engineers.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-industrial-revolution-engineers.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.industrial-revolution-engineers.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-industrial-revolution-engineers.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-industrial-revolution-engineers.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/02-INDUSTRIAL-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.industrial-revolution-engineers.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/02-INDUSTRIAL-REVOLUTION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.industrial-revolution-engineers.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/02-INDUSTRIAL-REVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/02-INDUSTRIAL-REVOLUTION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/02-INDUSTRIAL-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.industrial-revolution-engineers.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/02-INDUSTRIAL-REVOLUTION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.industrial-revolution-engineers.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/02-INDUSTRIAL-REVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/02-INDUSTRIAL-REVOLUTION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/02-INDUSTRIAL-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.industrial-revolution-engineers.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/02-INDUSTRIAL-REVOLUTION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.industrial-revolution-engineers.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/02-INDUSTRIAL-REVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/02-INDUSTRIAL-REVOLUTION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/02-INDUSTRIAL-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.renaissance.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-renaissance.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/02-RENAISSANCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-renaissance.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/02-RENAISSANCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.renaissance.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-renaissance.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.renaissance.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-renaissance.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-renaissance.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/02-RENAISSANCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.renaissance.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/02-RENAISSANCE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.renaissance.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/02-RENAISSANCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/02-RENAISSANCE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/02-RENAISSANCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.renaissance.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/02-RENAISSANCE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.renaissance.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/02-RENAISSANCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/02-RENAISSANCE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/02-RENAISSANCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.renaissance.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/02-RENAISSANCE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.renaissance.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/02-RENAISSANCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/02-RENAISSANCE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/02-RENAISSANCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electrical-pioneers.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-electrical-pioneers.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/03-ELECTRICAL-PIONEERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-electrical-pioneers.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/03-ELECTRICAL-PIONEERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electrical-pioneers.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-electrical-pioneers.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.electrical-pioneers.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-electrical-pioneers.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-electrical-pioneers.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/03-ELECTRICAL-PIONEERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electrical-pioneers.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/03-ELECTRICAL-PIONEERS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.electrical-pioneers.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/03-ELECTRICAL-PIONEERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/03-ELECTRICAL-PIONEERS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/03-ELECTRICAL-PIONEERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electrical-pioneers.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/03-ELECTRICAL-PIONEERS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.electrical-pioneers.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/03-ELECTRICAL-PIONEERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/03-ELECTRICAL-PIONEERS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/03-ELECTRICAL-PIONEERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electrical-pioneers.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/03-ELECTRICAL-PIONEERS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.electrical-pioneers.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/03-ELECTRICAL-PIONEERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/03-ELECTRICAL-PIONEERS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/03-ELECTRICAL-PIONEERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.industrial-revolution.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-industrial-revolution.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/03-INDUSTRIAL-REVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-industrial-revolution.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/03-INDUSTRIAL-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.industrial-revolution.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-industrial-revolution.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.industrial-revolution.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-industrial-revolution.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-industrial-revolution.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/03-INDUSTRIAL-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.industrial-revolution.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/03-INDUSTRIAL-REVOLUTION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.industrial-revolution.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/03-INDUSTRIAL-REVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/03-INDUSTRIAL-REVOLUTION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/03-INDUSTRIAL-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.industrial-revolution.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/03-INDUSTRIAL-REVOLUTION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.industrial-revolution.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/03-INDUSTRIAL-REVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/03-INDUSTRIAL-REVOLUTION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/03-INDUSTRIAL-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.industrial-revolution.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/03-INDUSTRIAL-REVOLUTION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.industrial-revolution.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/03-INDUSTRIAL-REVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/03-INDUSTRIAL-REVOLUTION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/03-INDUSTRIAL-REVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electrical-age.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-electrical-age.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/04-ELECTRICAL-AGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-electrical-age.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/04-ELECTRICAL-AGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electrical-age.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-electrical-age.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.electrical-age.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-electrical-age.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-electrical-age.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/04-ELECTRICAL-AGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electrical-age.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/04-ELECTRICAL-AGE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.electrical-age.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/04-ELECTRICAL-AGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/04-ELECTRICAL-AGE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/04-ELECTRICAL-AGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electrical-age.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/04-ELECTRICAL-AGE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.electrical-age.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/04-ELECTRICAL-AGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/04-ELECTRICAL-AGE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/04-ELECTRICAL-AGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electrical-age.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/04-ELECTRICAL-AGE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.electrical-age.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/04-ELECTRICAL-AGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/04-ELECTRICAL-AGE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/04-ELECTRICAL-AGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.transportation.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-transportation.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/04-TRANSPORTATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-transportation.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/04-TRANSPORTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.transportation.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-transportation.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.transportation.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-transportation.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-transportation.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/04-TRANSPORTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.transportation.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/04-TRANSPORTATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.transportation.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/04-TRANSPORTATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/04-TRANSPORTATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/04-TRANSPORTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.transportation.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/04-TRANSPORTATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.transportation.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/04-TRANSPORTATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/04-TRANSPORTATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/04-TRANSPORTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.transportation.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/04-TRANSPORTATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.transportation.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/04-TRANSPORTATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/04-TRANSPORTATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/04-TRANSPORTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.structures-materials.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-structures-materials.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/05-STRUCTURES-MATERIALS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-structures-materials.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/05-STRUCTURES-MATERIALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.structures-materials.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-structures-materials.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.structures-materials.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-structures-materials.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-structures-materials.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/05-STRUCTURES-MATERIALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.structures-materials.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/05-STRUCTURES-MATERIALS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.structures-materials.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/05-STRUCTURES-MATERIALS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/05-STRUCTURES-MATERIALS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/05-STRUCTURES-MATERIALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.structures-materials.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/05-STRUCTURES-MATERIALS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.structures-materials.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/05-STRUCTURES-MATERIALS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/05-STRUCTURES-MATERIALS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/05-STRUCTURES-MATERIALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.structures-materials.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/05-STRUCTURES-MATERIALS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.structures-materials.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/05-STRUCTURES-MATERIALS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/05-STRUCTURES-MATERIALS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/05-STRUCTURES-MATERIALS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.transportation-revolution.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-transportation-revolution.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/05-TRANSPORTATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-transportation-revolution.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/05-TRANSPORTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.transportation-revolution.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-transportation-revolution.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.transportation-revolution.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-transportation-revolution.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-transportation-revolution.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/05-TRANSPORTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.transportation-revolution.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/05-TRANSPORTATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.transportation-revolution.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/05-TRANSPORTATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/05-TRANSPORTATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/05-TRANSPORTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.transportation-revolution.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/05-TRANSPORTATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.transportation-revolution.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/05-TRANSPORTATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/05-TRANSPORTATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/05-TRANSPORTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.transportation-revolution.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/05-TRANSPORTATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.transportation-revolution.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/05-TRANSPORTATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/05-TRANSPORTATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/05-TRANSPORTATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.computing-hardware.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-computing-hardware.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/06-COMPUTING-HARDWARE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-computing-hardware.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/06-COMPUTING-HARDWARE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.computing-hardware.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-computing-hardware.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.computing-hardware.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-computing-hardware.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-computing-hardware.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/06-COMPUTING-HARDWARE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.computing-hardware.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/06-COMPUTING-HARDWARE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.computing-hardware.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/06-COMPUTING-HARDWARE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/06-COMPUTING-HARDWARE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/06-COMPUTING-HARDWARE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.computing-hardware.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/06-COMPUTING-HARDWARE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.computing-hardware.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/06-COMPUTING-HARDWARE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/06-COMPUTING-HARDWARE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/06-COMPUTING-HARDWARE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.computing-hardware.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/06-COMPUTING-HARDWARE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.computing-hardware.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/06-COMPUTING-HARDWARE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/06-COMPUTING-HARDWARE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/06-COMPUTING-HARDWARE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.structural.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-structural.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/06-STRUCTURAL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-structural.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/06-STRUCTURAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.structural.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-structural.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.structural.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-structural.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-structural.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/06-STRUCTURAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.structural.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/06-STRUCTURAL.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.structural.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/06-STRUCTURAL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/06-STRUCTURAL.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/06-STRUCTURAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.structural.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/06-STRUCTURAL.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.structural.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/06-STRUCTURAL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/06-STRUCTURAL.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/06-STRUCTURAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.structural.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/06-STRUCTURAL.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.structural.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/06-STRUCTURAL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/06-STRUCTURAL.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/06-STRUCTURAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.communications.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-communications.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/07-COMMUNICATIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-communications.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/07-COMMUNICATIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.communications.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-communications.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.communications.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-communications.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-communications.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/07-COMMUNICATIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.communications.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/07-COMMUNICATIONS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.communications.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/07-COMMUNICATIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/07-COMMUNICATIONS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/07-COMMUNICATIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.communications.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/07-COMMUNICATIONS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.communications.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/07-COMMUNICATIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/07-COMMUNICATIONS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/07-COMMUNICATIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.communications.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/07-COMMUNICATIONS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.communications.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/07-COMMUNICATIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/07-COMMUNICATIONS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/07-COMMUNICATIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electronics-era.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-electronics-era.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/07-ELECTRONICS-ERA.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-electronics-era.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/07-ELECTRONICS-ERA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electronics-era.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-electronics-era.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.electronics-era.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-electronics-era.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-electronics-era.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/07-ELECTRONICS-ERA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electronics-era.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/07-ELECTRONICS-ERA.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.electronics-era.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/07-ELECTRONICS-ERA.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/07-ELECTRONICS-ERA.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/07-ELECTRONICS-ERA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electronics-era.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/07-ELECTRONICS-ERA.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.electronics-era.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/07-ELECTRONICS-ERA.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/07-ELECTRONICS-ERA.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/07-ELECTRONICS-ERA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.electronics-era.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/07-ELECTRONICS-ERA.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.electronics-era.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/07-ELECTRONICS-ERA.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/07-ELECTRONICS-ERA.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/07-ELECTRONICS-ERA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.aerospace.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-aerospace.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/08-AEROSPACE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-aerospace.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/08-AEROSPACE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.aerospace.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-aerospace.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.aerospace.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-aerospace.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-aerospace.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/08-AEROSPACE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.aerospace.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/08-AEROSPACE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.aerospace.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/08-AEROSPACE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/08-AEROSPACE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/08-AEROSPACE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.aerospace.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/08-AEROSPACE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.aerospace.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/08-AEROSPACE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/08-AEROSPACE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/08-AEROSPACE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.aerospace.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/08-AEROSPACE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.aerospace.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/08-AEROSPACE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/08-AEROSPACE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/08-AEROSPACE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.systems-engineers.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-systems-engineers.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/08-SYSTEMS-ENGINEERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-systems-engineers.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/08-SYSTEMS-ENGINEERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.systems-engineers.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-systems-engineers.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.systems-engineers.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-systems-engineers.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-systems-engineers.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/08-SYSTEMS-ENGINEERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.systems-engineers.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/08-SYSTEMS-ENGINEERS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.systems-engineers.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/08-SYSTEMS-ENGINEERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/08-SYSTEMS-ENGINEERS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/08-SYSTEMS-ENGINEERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.systems-engineers.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/08-SYSTEMS-ENGINEERS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.systems-engineers.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/08-SYSTEMS-ENGINEERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/08-SYSTEMS-ENGINEERS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/08-SYSTEMS-ENGINEERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.systems-engineers.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/08-SYSTEMS-ENGINEERS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.systems-engineers.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/08-SYSTEMS-ENGINEERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/08-SYSTEMS-ENGINEERS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/08-SYSTEMS-ENGINEERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.modern-innovators.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-modern-innovators.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/09-MODERN-INNOVATORS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-modern-innovators.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/09-MODERN-INNOVATORS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.modern-innovators.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-modern-innovators.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.modern-innovators.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-modern-innovators.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-modern-innovators.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/09-MODERN-INNOVATORS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.modern-innovators.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/09-MODERN-INNOVATORS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.modern-innovators.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/09-MODERN-INNOVATORS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/09-MODERN-INNOVATORS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/09-MODERN-INNOVATORS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.modern-innovators.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/09-MODERN-INNOVATORS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.modern-innovators.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/09-MODERN-INNOVATORS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/09-MODERN-INNOVATORS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/09-MODERN-INNOVATORS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.modern-innovators.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/09-MODERN-INNOVATORS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.modern-innovators.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/09-MODERN-INNOVATORS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/09-MODERN-INNOVATORS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/09-MODERN-INNOVATORS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.modern.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-engineers-inventors-modern.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/09-MODERN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-engineers-inventors-modern.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/09-MODERN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.modern.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-engineers-inventors-modern.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.modern.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.engineers-inventors.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-engineers-inventors-modern.json",
+            "module": "engineers-inventors",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-engineers-inventors-modern.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/09-MODERN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.modern.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/09-MODERN.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.modern.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/09-MODERN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/09-MODERN.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/09-MODERN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.modern.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/09-MODERN.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.modern.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/09-MODERN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/09-MODERN.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/09-MODERN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.engineers-inventors.modern.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/engineers-inventors/proof-source/09-MODERN.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.engineers-inventors.modern.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "engineers-inventors",
+            "guide": "engineers-inventors/09-MODERN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/engineers-inventors/proof-source/09-MODERN.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "engineers-inventors",
+        "guide": "engineers-inventors/09-MODERN.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

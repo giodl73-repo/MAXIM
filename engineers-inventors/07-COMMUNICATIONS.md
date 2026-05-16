@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:engineers-inventors:communications
+kind: guide
+module: engineers-inventors
+section: engineers-inventors
+title: Communications Engineers - Morse, Bell, Armstrong, Farnsworth, Shannon
+status: source-custody
+source_custody: partial
+current_path: engineers-inventors/07-COMMUNICATIONS.md
+canonical_path: engineers-inventors/07-COMMUNICATIONS.md
+backsource_ids: [proof-backfill:engineers-inventors:07-communications, git-history:engineers-inventors:07-communications]
+concepts: [communications]
+root_concepts: [communications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Communications Engineers — Morse, Bell, Armstrong, Farnsworth, Shannon
 
 ## Era Overview

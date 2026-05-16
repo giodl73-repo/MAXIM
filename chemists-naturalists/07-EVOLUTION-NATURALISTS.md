@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemists-naturalists:evolution-naturalists
+kind: guide
+module: chemists-naturalists
+section: chemists-naturalists
+title: Evolution and the Naturalists - Darwin, Wallace, Lamarck, Haeckel, Huxley
+status: source-custody
+source_custody: partial
+current_path: chemists-naturalists/07-EVOLUTION-NATURALISTS.md
+canonical_path: chemists-naturalists/07-EVOLUTION-NATURALISTS.md
+backsource_ids: [proof-backfill:chemists-naturalists:07-evolution-naturalists, git-history:chemists-naturalists:07-evolution-naturalists]
+concepts: [evolution, naturalists]
+root_concepts: [evolution, naturalists]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Evolution and the Naturalists — Darwin, Wallace, Lamarck, Haeckel, Huxley
 
 ## The Question: Why Do Species Exist Where They Do, and How Did They Get There?

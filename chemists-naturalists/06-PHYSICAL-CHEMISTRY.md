@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemists-naturalists:physical-chemistry
+kind: guide
+module: chemists-naturalists
+section: chemists-naturalists
+title: Physical Chemistry - Van 't Hoff, Arrhenius, Nernst, Lewis, Pauling
+status: source-custody
+source_custody: partial
+current_path: chemists-naturalists/06-PHYSICAL-CHEMISTRY.md
+canonical_path: chemists-naturalists/06-PHYSICAL-CHEMISTRY.md
+backsource_ids: [proof-backfill:chemists-naturalists:06-physical-chemistry, git-history:chemists-naturalists:06-physical-chemistry]
+concepts: [physical, chemistry]
+root_concepts: [physical, chemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Physical Chemistry — Van 't Hoff, Arrhenius, Nernst, Lewis, Pauling
 
 ## The Program: Quantitative Laws for Chemical Systems
