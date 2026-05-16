@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:remote-sensing:active-sensors-sar
+kind: guide
+module: remote-sensing
+section: remote-sensing
+title: Active Sensors and SAR: Synthetic Aperture Radar
+status: source-custody
+source_custody: partial
+current_path: remote-sensing/03-ACTIVE-SENSORS-SAR.md
+canonical_path: remote-sensing/03-ACTIVE-SENSORS-SAR.md
+backsource_ids: [proof-backfill:remote-sensing:03-active-sensors-sar, git-history:remote-sensing:03-active-sensors-sar]
+concepts: [active, sensors, sar]
+root_concepts: [active, sensors]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Active Sensors and SAR: Synthetic Aperture Radar
 
 ## The Big Picture

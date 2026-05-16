@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dyeing-fiber:spinning
+kind: guide
+module: dyeing-fiber
+section: dyeing-fiber
+title: Spinning: Twist, Draft, Drop Spindle, Spinning Wheel, Yarn Structure
+status: source-custody
+source_custody: partial
+current_path: dyeing-fiber/05-SPINNING.md
+canonical_path: dyeing-fiber/05-SPINNING.md
+backsource_ids: [proof-backfill:dyeing-fiber:05-spinning, git-history:dyeing-fiber:05-spinning]
+concepts: [spinning]
+root_concepts: [spinning]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Spinning: Twist, Draft, Drop Spindle, Spinning Wheel, Yarn Structure
 
 ## The Big Picture

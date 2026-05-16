@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\04-LIDAR.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 46,
+      "heading_context": "## Physics: Time-of-Flight Ranging",
+      "confidence": "candidate",
+      "text": "LASER fires pulse at time t=0\n         |\n         | pulse travels at c = 3e8 m/s\n         v\n    TARGET (ground, tree, building, water surface)\n         |\n         | reflected pulse returns to detector\n         v\nDETECTOR records return at time t = 2R/c\n\nRange: R = c * t / 2\n\nEXAMPLE:\n  Return time: 6.67 microseconds\n  Range: (3e8 m/s * 6.67e-6 s) / 2 = 1000 m exactly\n\nRANGE RESOLUTION:\n  Timing accuracy ~ 1 nanosecond -> range precision ~ 15 cm\n  State-of-art: < 1 cm range accuracy\n  Position accuracy: limited by GPS/IMU accuracy (typically 5-15cm absolute)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "## Airborne LiDAR: System Architecture",
+      "confidence": "candidate",
+      "text": "AIRBORNE LIDAR SYSTEM (ALS / ALB)\n\n  Optical chain:\n    Laser (1064 nm) -> Scanner (rotating mirror, polygon, or MEMS)\n                    -> Optics (beam expand) -> Detector (APD: avalanche\n                    photodiode) -> Waveform digitizer (discrete return\n                    or full waveform).\n\n  Position chain:\n    GNSS (GPS / GLONASS) -> IMU (3-axis accel + gyro)\n      -> position and attitude.\n\n  Direct georeferencing combines position + attitude with the digitized\n  waveform to produce a POINT CLOUD: (x, y, z, intensity, return#).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "## Discrete Return vs. Full-Waveform",
+      "confidence": "candidate",
+      "text": "SINGLE PULSE FIRING INTO CANOPY\n\nOutgoing pulse                   Return waveform\n\n     |                              Top of canopy\n     |   |                             /\\\n     |   |  sharp                     /  \\      Mid-canopy\n     |   |  pulse      ->            /    \\/\\ /\\\n     |                              /         \\/  \\\n                                   /               \\\n                                  /                 \\_ Ground return\n                                  time -->\n\nDISCRETE RETURN: firmware detects peaks, records time+intensity of each\n  First return: top of canopy\n  Last return: ground surface (if pulse penetrates canopy)\n  Intermediate: mid-canopy layers\n\nFULL WAVEFORM: digitizes entire return at 1-2 ns sample rate\n  More information but larger data volumes\n  Enables retrieval of sub-pulse structure\n  Standard for research platforms (LVIS, G-LiHT)\n  Becoming standard for commercial systems",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 211,
+      "heading_context": "## Bathymetric LiDAR",
+      "confidence": "candidate",
+      "text": "BATHYMETRIC LIDAR PHYSICS\n\n  Infrared (1064nm) ----> surface return\n  Green (532nm) ----+---> surface return\n                    |\n                    v  refraction at water surface (Snell's law)\n                   |\\\n                   | \\  beam bends toward vertical\n                   |  \\\n                   v   \\\n              BOTTOM RETURN\n\n  Depth determination:\n    t_total = time to surface + time through water + time back\n    depth = (t_bottom - t_surface) * c_water / 2\n    c_water ~ 2.25e8 m/s (refractive index n = 1.33)\n\n  Depth limit:\n    Clear tropical water (attenuation k ~ 0.05/m): depth ~ 40-50m\n    Turbid coastal water (k ~ 0.5/m): depth ~ 5-10m\n    Rule of thumb: ~3 Secchi depths maximum\n\nSYSTEMS:\n  SHOALS / CZMIL: USACE survey workhorse\n  Chiroptera (Leica): up to 50m depth in clear water\n  EAARL (NASA): research, coral reef mapping",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

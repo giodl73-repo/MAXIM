@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\06-IMAGE-PROCESSING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Geometric Correction",
+      "confidence": "candidate",
+      "text": "DISTORTION SOURCES\n\n1. SENSOR GEOMETRY (interior orientation)\n   Lens distortion: radial and tangential\n   Focal length variation across array\n   Detector misregistration\n   -> Corrected by sensor calibration (lab + in-orbit)\n\n2. PLATFORM ATTITUDE AND POSITION (exterior orientation)\n   Satellite not perfectly nadir-pointing\n   Roll, pitch, yaw variations (IMU measurements)\n   GPS position error\n   -> Corrected by: collinearity equations from star trackers + GNSS\n\n3. EARTH'S CURVATURE AND ROTATION\n   Earth rotates during acquisition (for pushbroom sensors scanning one line at a time)\n   Curved Earth geometry\n   -> Corrected by Earth model (WGS84 ellipsoid)\n\n4. TERRAIN (relief displacement)\n   Hills cause pixel displacement proportional to height\n   Tall buildings \"lean\" away from nadir in high-res imagery\n   -> Corrected by DEM (orthorectification)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "## Co-registration",
+      "confidence": "candidate",
+      "text": "APPROACH 1: Normalized Cross-Correlation (NCC)\n  For each chip (e.g., 64x64 pixels) in reference image:\n    Slide template over search window in target image\n    Compute NCC at each offset (dx, dy):\n      NCC(dx,dy) = corr(I1_chip, I2_chip_shifted(dx,dy))\n    Peak of NCC surface = best match offset\n  Sub-pixel accuracy via parabolic interpolation near peak\n\nAPPROACH 2: Mutual Information (MI)\n  MI = H(I1) + H(I2) - H(I1, I2)\n  where H = Shannon entropy\n  Works across different sensors (Landsat -> Sentinel-2)\n  Does not require similar brightness patterns\n\nAPPROACH 3: Feature-based (SIFT, ORB)\n  Detect keypoints (corners, blobs) in each image\n  Match corresponding keypoints\n  Estimate affine or homography transformation\n  Good for large offsets; less accurate than patch-based\n\nSENTINEL-2 CO-REGISTRATION ACCURACY:\n  Band-to-band (within sensor): < 0.3 pixel\n  Between S-2A and S-2B: < 0.3 pixel (measured ~0.08 pixel)\n  Key for vegetation indices that mix bands",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "### Dark Object Subtraction (DOS)",
+      "confidence": "candidate",
+      "text": "ASSUMPTION: Some pixel in each band has zero surface reflectance.\n  Dark water, deep shadow, etc. -> measured DN in that pixel = path radiance only\n\nPROCEDURE:\n  1. Find minimum DN in each band (or use histogram percentile ~1%)\n  2. Subtract from all pixels in that band\n  3. Convert to reflectance using solar irradiance\n\nLIMITATIONS:\n  - Assumes dark object has exactly 0% reflectance\n  - Ignores wavelength-dependent absorption (treats atm as additive only)\n  - Cannot correct for atmospheric absorption (only scattering)\n  - Error: typically 5-15% in blue band, 2-5% in NIR\n\nWHEN TO USE: Quick vegetation indices analysis over large areas,\n  historical imagery where atmospheric profiles not available",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 195,
+      "heading_context": "### Dark Object Subtraction (DOS)",
+      "confidence": "candidate",
+      "text": "### MODTRAN / 6S Radiative Transfer",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 236,
+      "heading_context": "### Unsupervised: K-Means and ISODATA",
+      "confidence": "candidate",
+      "text": "K-MEANS:\n  1. Initialize k cluster centers randomly in spectral space\n  2. Assign each pixel to nearest center (Euclidean distance)\n  3. Recompute centers as mean of assigned pixels\n  4. Repeat until convergence\n\n  ISODATA extends k-means: allows clusters to split (too large) or merge (too close)\n  Output: k spectral classes -> user manually labels each class (\"water\", \"forest\", etc.)\n  Problem: spectral cluster != thematic class. Forest and shadow may share a cluster.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 250,
+      "heading_context": "### Supervised: SVM and Random Forest",
+      "confidence": "candidate",
+      "text": "SUPPORT VECTOR MACHINE (SVM)\n  Finds maximum-margin hyperplane separating classes in feature space\n  Kernel trick: maps to high-dimensional space to handle non-linear boundaries\n  Kernel choice: RBF (radial basis function) most common for EO data\n  Parameters: C (penalty), gamma (RBF width) -> require tuning\n  Strengths: works well with small training sets, handles high-dim features\n  Weaknesses: slow on large datasets, no probability output (natively)\n\nRANDOM FOREST (RF)\n  Ensemble of decision trees, each trained on bootstrap sample\n  Features randomly subsampled at each node split\n  Output: majority vote across all trees\n  Outputs class probability (fraction of trees voting for class)\n  Strengths: fast, handles class imbalance, built-in feature importance\n  Best performer for most EO classification tasks historically\n\nCNN / DEEP LEARNING\n  Feature extraction and classification jointly learned\n  Requires large labeled training sets (hundreds to thousands per class)\n  Transfer learning from ImageNet: pretrained CNNs (ResNet, EfficientNet) fine-tuned\n  U-Net: semantic segmentation architecture widely used for satellite\n  Superiority: context-aware, handles textures better than per-pixel RF",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 307,
+      "heading_context": "## Change Detection",
+      "confidence": "candidate",
+      "text": "SIMPLE IMAGE DIFFERENCING:\n  dI = I_t2 - I_t1 (after co-registration and atmospheric correction)\n  Threshold |dI| > T to detect change\n  Fast, sensitive to calibration errors\n\nCHANGE VECTOR ANALYSIS (CVA):\n  Magnitude: |dI| = sqrt(sum (Bi_t2 - Bi_t1)^2)   -> how much change\n  Direction: arctan(dB2/dB1)                         -> what type of change\n  Both magnitude and direction of spectral change vector\n\nCCDC (Continuous Change Detection and Classification):\n  Zhu and Woodcock 2014\n  Fit harmonic model (seasonal cycles) to long time series per pixel\n  Detect departures from expected seasonal pattern -> change\n  Enables monitoring of deforestation, urban growth, crop rotation\n  Works with Landsat entire archive (1984-present)\n  Also in Google Earth Engine as built-in algorithm\n\nSAR-based:\n  Ratio: sigma0_t2 / sigma0_t1 (log ratio in dB)\n  Coherence change: compare InSAR coherence before/after\n  Damage proxy map: coherence loss -> surface disruption (earthquake, landslide)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

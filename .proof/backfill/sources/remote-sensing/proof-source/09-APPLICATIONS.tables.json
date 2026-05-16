@@ -1,0 +1,78 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\09-APPLICATIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 368,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Crop type mapping",
+          "Sentinel-2 time series plus Sentinel-1",
+          "Phenology features matter more than one-date spectra."
+        ],
+        [
+          "Field-scale soil moisture",
+          "Sentinel-1 with SMAP context",
+          "Roughness and vegetation confound radar moisture."
+        ],
+        [
+          "Forest AGB",
+          "LiDAR plus Sentinel-1/Sentinel-2 fusion",
+          "High-biomass saturation limits optical/radar-only estimates."
+        ],
+        [
+          "Deforestation alerting",
+          "Sentinel-1 RADD or Landsat GLAD",
+          "SAR detects structure change; optical detects spectral clearing."
+        ],
+        [
+          "Burn severity",
+          "Landsat dNBR",
+          "Thresholds are ecosystem-specific."
+        ],
+        [
+          "Urban heat island",
+          "Landsat TIRS or ECOSTRESS LST",
+          "LST is surface temperature, not human-experienced air temperature."
+        ],
+        [
+          "Flood mapping",
+          "Sentinel-1 GRD plus Sentinel-2 validation",
+          "Dark SAR equals open water only in the right geometry/land cover."
+        ],
+        [
+          "Earthquake damage",
+          "Sentinel-1 coherence change",
+          "Coherence loss is a proxy and can reflect non-damage changes."
+        ],
+        [
+          "Sea ice type",
+          "RADARSAT/Sentinel-1 plus AMSR-2",
+          "Polarization, incidence angle, and weather affect interpretation."
+        ],
+        [
+          "Glacier velocity",
+          "Sentinel-2/Sentinel-1 feature tracking plus ICESat-2",
+          "Feature tracking fails in low-texture or fast-deforming zones."
+        ],
+        [
+          "Sea-surface temperature",
+          "MODIS, VIIRS, or GOES ABI split-window",
+          "Cloud screening dominates usable coverage."
+        ],
+        [
+          "Ocean chlorophyll",
+          "MODIS Aqua or OLCI band ratios",
+          "Coastal waters break open-ocean algorithms."
+        ]
+      ]
+    }
+  ]
+}

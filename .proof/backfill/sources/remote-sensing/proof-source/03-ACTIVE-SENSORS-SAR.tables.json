@@ -1,0 +1,143 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\03-ACTIVE-SENSORS-SAR.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 135,
+      "heading_context": "## Backscatter Coefficient Sigma-0",
+      "headers": [
+        "Surface",
+        "sigma^0 (dB)",
+        "Reason"
+      ],
+      "rows": [
+        [
+          "Calm water",
+          "-25 to -15",
+          "Specular, near-zero backscatter"
+        ],
+        [
+          "Wet soil",
+          "-15 to -5",
+          "High dielectric, rough surface"
+        ],
+        [
+          "Dry soil",
+          "-20 to -10",
+          "Low dielectric"
+        ],
+        [
+          "Forest (closed)",
+          "-10 to 0",
+          "Volume + double-bounce"
+        ],
+        [
+          "Urban grid (aligned)",
+          "-5 to +15",
+          "Double-bounce from building facades"
+        ],
+        [
+          "Corner reflectors",
+          "+20 to +30",
+          "Retroreflective geometry"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 246,
+      "heading_context": "## Sentinel-1: The Operational Standard",
+      "headers": [
+        "Parameter",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Frequency",
+          "C-band (5.405 GHz, lambda = 5.547 cm)"
+        ],
+        [
+          "Primary mode",
+          "Interferometric Wide Swath (IW)"
+        ],
+        [
+          "IW resolution",
+          "Range 5m x Azimuth 20m (single-look complex)"
+        ],
+        [
+          "IW swath",
+          "250 km (3 sub-swaths via TOPSAR burst mode)"
+        ],
+        [
+          "Polarization",
+          "Dual: VV+VH (land), HH+HV (sea ice)"
+        ],
+        [
+          "Revisit",
+          "6-day (A+B combined over Europe), 12-day (A only)"
+        ],
+        [
+          "Archive",
+          "2014-present, free via Copernicus Open Access Hub"
+        ],
+        [
+          "Data volume",
+          "~4 GB/scene (SLC), ~700 MB (GRD)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 270,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Rapid flood extent",
+          "Sentinel-1 GRD C-band VV",
+          "Dark water can be confused with radar shadow or smooth surfaces."
+        ],
+        [
+          "Earthquake deformation",
+          "Sentinel-1 SLC for InSAR",
+          "Coherence over vegetation or snow may fail."
+        ],
+        [
+          "Forest biomass",
+          "ALOS-2 or NISAR L-band",
+          "Biomass saturation still limits high-biomass forests."
+        ],
+        [
+          "Urban change",
+          "TerraSAR-X Spotlight X-band",
+          "High coherence buildings help, but layover/shadow distort geometry."
+        ],
+        [
+          "Global ice monitoring",
+          "RADARSAT-2 or Sentinel-1 EW",
+          "Polarization and incidence angle matter for ice type."
+        ],
+        [
+          "Daily broad change",
+          "Sentinel-1 ScanSAR/EW",
+          "Wide swath sacrifices resolution."
+        ],
+        [
+          "Soil moisture",
+          "NISAR L-band or SMAP",
+          "Vegetation and roughness confound soil signal."
+        ],
+        [
+          "Vegetation structure",
+          "BIOMASS P-band",
+          "Regulatory/geographic coverage and saturation limits still apply."
+        ]
+      ]
+    }
+  ]
+}

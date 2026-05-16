@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dyeing-fiber:historic-traditions
+kind: guide
+module: dyeing-fiber
+section: dyeing-fiber
+title: Historic Dyeing and Textile Traditions
+status: source-custody
+source_custody: partial
+current_path: dyeing-fiber/07-HISTORIC-TRADITIONS.md
+canonical_path: dyeing-fiber/07-HISTORIC-TRADITIONS.md
+backsource_ids: [proof-backfill:dyeing-fiber:07-historic-traditions, git-history:dyeing-fiber:07-historic-traditions]
+concepts: [historic, traditions]
+root_concepts: [historic, traditions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Historic Dyeing and Textile Traditions
 
 ## The Big Picture
@@ -175,19 +194,19 @@ Shibori is a family of resist dyeing techniques from Japan, all involving manipu
 ```
 SHIBORI TECHNIQUES
 
-  ITAJIME (板締め) -- clamp resist:
+  ITAJIME -- clamp resist:
     Fold cloth in accordion pleats (horizontal, diagonal, or complex)
     Clamp folded cloth between two shaped pieces of wood
     Dye penetrates edges; clamped interior resists
     Result: geometric, often circular or radial pattern
 
-  ARASHI / POLE-WRAP (嵐絞り) -- storm:
+  ARASHI / POLE-WRAP -- storm:
     Wrap cloth diagonally around tall post
     Bind with thread from top to bottom
     Compress cloth down the pole
     Dye: diagonal lines (resembles rain in storm, hence "arashi")
 
-  NE-MAKI (根巻き) -- bound resist:
+  NE-MAKI -- bound resist:
     Bind bundles of cloth with thread at regular intervals
     Dye: circular rings, spots (similar to tie-dye in concept)
     More controlled than random tie-dye

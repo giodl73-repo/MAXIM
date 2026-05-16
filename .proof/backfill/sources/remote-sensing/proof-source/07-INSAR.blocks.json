@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\07-INSAR.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "INSAR GEOMETRY\n\n  Pass 1                Pass 2\n  (S1)                  (S2)\n    |                    |\n    |  B = baseline      |  <- perpendicular baseline B_perp\n    |  (spatial or       |     = geometric difference\n    |   temporal diff)   |\n    |                    |\n    v                    v\n   .______________________.\n   |                      |\n   |   SURFACE / DEFORMATION MAP                |\n   |                      |\n   phi_interferogram = phi_1 - phi_2\n\n   phi contains:\n     1. Topographic phase (depends on B_perp and height z)\n     2. Deformation phase (depends on line-of-sight movement)\n     3. Atmospheric phase delay (troposphere, ionosphere)\n     4. Noise (decorrelation, thermal)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Phase and Wavelength: The Measurement Principle",
+      "confidence": "candidate",
+      "text": "phi = (4*pi / lambda) * R   (modulo 2*pi)\n\nwhere R = one-way slant range, lambda = wavelength\n\nPhase difference between two passes:\n  delta_phi = phi_1 - phi_2 = (4*pi / lambda) * (R_1 - R_2)\n\n  R_1 - R_2 = path difference due to:\n    a) slightly different geometry (baseline -> topography)\n    b) surface moved toward/away from sensor between passes (deformation)\n    c) atmosphere changed (tropospheric water vapor, ionosphere)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 72,
+      "heading_context": "### Sensitivity Numbers",
+      "confidence": "candidate",
+      "text": "DISPLACEMENT SENSITIVITY (line-of-sight)\n\n  C-band (Sentinel-1): lambda = 5.547 cm\n    One fringe (2*pi phase) = lambda/2 = 2.77 cm displacement\n    mm-level precision with many measurements (PS-InSAR)\n\n  L-band (ALOS-2): lambda = 23.6 cm\n    One fringe = lambda/2 = 11.8 cm displacement\n    Less sensitive to small deformation, but better coherence\n\nTOPOGRAPHIC SENSITIVITY\n\n  delta_phi_topo = (4*pi * B_perp * h) / (lambda * R * sin(theta))\n\n  For TanDEM-X (X-band, 3.1cm, small baseline ~250m):\n    1 fringe = ~7m height difference\n    After phase unwrapping: global 12m DEM, 2m vertical accuracy\n\n  For Sentinel-1 (C-band, large orbit tubes):\n    Baselines typically 10-150m\n    Less topographic sensitivity -> good for deformation (topo not saturated)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "## From Interferogram to Deformation Map",
+      "confidence": "candidate",
+      "text": "STEP 1: SAR IMAGE PAIR\n  SLC_1 (date 1) + SLC_2 (date 2)\n  Must be co-registered to sub-pixel accuracy (<0.01 pixel)\n  Precise orbits required (Sentinel-1: 1cm orbit accuracy)\n\nSTEP 2: INTERFEROGRAM FORMATION\n  phi_int = angle(SLC_1 * conj(SLC_2))\n  Flattened by removing topographic phase estimated from DEM\n  Result: fringes = deformation + atmosphere + noise\n\nSTEP 3: COHERENCE ESTIMATION\n  |gamma| = |<SLC_1 * conj(SLC_2)>| / sqrt(<|SLC_1|^2> * <|SLC_2|^2>)\n  Coherence map tells you where phase is trustworthy\n  Low coherence regions (forest, water): mask out\n\nSTEP 4: FILTERING\n  Goldstein filter: adaptive spectral filter in frequency domain\n  Reduces phase noise, preserves fringe structure\n  Filter strength alpha: 0=no filter, 1=maximum\n\nSTEP 5: PHASE UNWRAPPING\n  Wrapped interferogram: phase values in (-pi, +pi)\n  Must \"unwrap\" to recover continuous phase\n  Algorithms: SNAPHU (Statistical-cost, Network-flow Phase Unwrapping)\n              Region growing, Branch-cut methods\n  Ambiguity: one wavelength = one fringe -> 2.8cm/fringe C-band\n\nSTEP 6: CONVERSION TO LOS DISPLACEMENT\n  d_LOS = (lambda / 4*pi) * phi_unwrapped\n  Units: cm or mm of line-of-sight displacement\n  Not vertical displacement -- correction requires InSAR decomposition\n\nSTEP 7: GEOCODING\n  Radar coordinates (range, azimuth) -> map coordinates (lat/lon)\n  Requires DEM for precise geocoding",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "## DEM Generation: TanDEM-X",
+      "confidence": "candidate",
+      "text": "TanDEM-X CONFIGURATION\n\n  TerraSAR-X + TanDEM-X: twin X-band satellites\n  Fly in helix formation: baseline 150-500m perpendicular\n  Same-pass interferometry: both receive same pulse from TerraSAR-X\n\n  Single-pass (simultaneous): eliminates temporal decorrelation\n  Both images at exact same time -> no vegetation motion, no deformation signal\n  Pure topographic phase\n\n  GLOBAL DEM PRODUCT:\n    Coverage: global, 80N to 84S\n    Resolution: 12m (0.4 arcsec), 30m, 90m (public)\n    Vertical accuracy: 4m absolute, 2m relative (90% linear error)\n    Available: 12m via DLR, 90m free, 30m Copernicus DEM (GLO-30)\n\n  Copernicus DEM GLO-30 (30m): derived from TanDEM-X, free since 2021\n    Replaced SRTM as standard DEM for most EO applications\n    Significantly better in mountainous terrain than SRTM",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "### Volcanic Inflation/Deflation",
+      "confidence": "candidate",
+      "text": "VOLCANIC MONITORING\n  Magma intrusion into chamber -> surface inflation -> radar moves toward satellite\n  Positive deformation (toward satellite) -> negative phase shift in interferogram\n\n  EXAMPLE: Sierra Negra, Galapagos (2005 inflation)\n    2.5m of vertical inflation detected by InSAR (ENVISAT)\n    Inflation modeled as sill at 2.1km depth\n    30-day precursor inflation before eruption\n\n  L-band (ALOS-2): better coherence over rugged, vegetated volcanic terrain\n  Sentinel-1: 6-day revisit -> near-real-time monitoring",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 208,
+      "heading_context": "### Urban Subsidence",
+      "confidence": "candidate",
+      "text": "SUBSIDENCE MONITORING\n  Mexico City: built on lake bed (ancient Lake Texcoco)\n  Ground water extraction -> clay consolidation -> subsidence\n  InSAR measurement: 25-30 cm/year in some districts\n  PS-InSAR: mm-level precision on individual buildings\n\n  Other subsidence cases:\n    Jakarta, Indonesia: 25 cm/yr (groundwater + load)\n    Po Delta, Italy: natural compaction + gas extraction\n    Houston Texas: 5-10 cm/yr historical\n    Central Valley, California: drought-related, up to 60 cm/yr (2012-2016)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "## Coherence: What Decorrelates",
+      "confidence": "candidate",
+      "text": "TEMPORAL DECORRELATION BY LAND COVER (C-band, 6-day revisit)\n\n  Urban: 0.7-0.95  (stable corner reflectors, buildings)\n  Rock outcrop: 0.6-0.9 (stable, no change)\n  Bare soil (dry): 0.5-0.8 (moisture variation degrades)\n  Agriculture: 0.1-0.5 (plants grow, harvested, plowed)\n  Forest (temperate): 0.1-0.3 (leaves move in wind, canopy changes)\n  Forest (tropical): 0.0-0.15 (daily rain, fast growth -> rapid decor)\n  Water surface: ~0.0 (random scattering each pass)\n\nL-BAND ADVANTAGE (ALOS-2, NISAR):\n  Longer wavelength: penetrates through leaf canopy to stable branches/trunks\n  Coherence in tropical forest: 0.2-0.5 vs. 0.0-0.15 for C-band\n  Critical for volcano monitoring and deforestation in tropics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

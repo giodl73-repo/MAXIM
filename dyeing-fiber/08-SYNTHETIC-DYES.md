@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dyeing-fiber:synthetic-dyes
+kind: guide
+module: dyeing-fiber
+section: dyeing-fiber
+title: Synthetic Dyes: From Mauveine to the Modern Industry
+status: source-custody
+source_custody: partial
+current_path: dyeing-fiber/08-SYNTHETIC-DYES.md
+canonical_path: dyeing-fiber/08-SYNTHETIC-DYES.md
+backsource_ids: [proof-backfill:dyeing-fiber:08-synthetic-dyes, git-history:dyeing-fiber:08-synthetic-dyes]
+concepts: [synthetic, dyes]
+root_concepts: [synthetic, dyes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Synthetic Dyes: From Mauveine to the Modern Industry
 
 ## The Big Picture
