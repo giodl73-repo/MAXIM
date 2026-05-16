@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coatings:paint-composition
+kind: guide
+module: coatings
+section: coatings
+title: Paint Composition
+status: source-custody
+source_custody: partial
+current_path: coatings/02-PAINT-COMPOSITION.md
+canonical_path: coatings/02-PAINT-COMPOSITION.md
+backsource_ids: [proof-backfill:coatings:02-paint-composition, git-history:coatings:02-paint-composition]
+concepts: [paint, composition]
+root_concepts: [paint, composition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Paint Composition
 
 ## Binder, Pigment, Solvent, Additives — What's Actually in a Can

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coatings:wood-stains
+kind: guide
+module: coatings
+section: coatings
+title: Wood Stains
+status: source-custody
+source_custody: partial
+current_path: coatings/03-WOOD-STAINS.md
+canonical_path: coatings/03-WOOD-STAINS.md
+backsource_ids: [proof-backfill:coatings:03-wood-stains, git-history:coatings:03-wood-stains]
+concepts: [wood, stains]
+root_concepts: [wood, stains]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Wood Stains
 
 ## Penetrating vs Film-Forming, Dyes vs Pigments, Blotch Control
@@ -361,13 +380,13 @@ TRANSPARENT STAIN:
   KEY RULE: match solvent systems or allow complete drying
 
   SAFE SEQUENCES:
-    Oil-based stain → oil-based varnish/polyurethane ✅
-    Oil-based stain → water-based topcoat ✅ (after 24-48hr dry)
-    Water-based dye stain → water-based topcoat ✅
+    Oil-based stain → oil-based varnish/polyurethane OK
+    Oil-based stain → water-based topcoat OK (after 24-48hr dry)
+    Water-based dye stain → water-based topcoat OK
     Water-based stain → oil-based topcoat ⚠️ (oil may not penetrate
                                               over water-based film;
                                               test adhesion first)
-    Shellac → any stain or topcoat ✅ (shellac is universal sealer)
+    Shellac → any stain or topcoat OK (shellac is universal sealer)
 
   DYE BLEED RISK:
     Some alcohol-soluble dyes can bleed into oil-based topcoats

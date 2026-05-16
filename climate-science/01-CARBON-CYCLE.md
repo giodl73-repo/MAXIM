@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:climate-science:carbon-cycle
+kind: guide
+module: climate-science
+section: climate-science
+title: The Carbon Cycle
+status: source-custody
+source_custody: partial
+current_path: climate-science/01-CARBON-CYCLE.md
+canonical_path: climate-science/01-CARBON-CYCLE.md
+backsource_ids: [proof-backfill:climate-science:01-carbon-cycle, git-history:climate-science:01-carbon-cycle]
+concepts: [carbon, cycle]
+root_concepts: [carbon, cycle]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Carbon Cycle
 
 ## Reservoirs, Fluxes, Ocean Chemistry, Anthropogenic Perturbation

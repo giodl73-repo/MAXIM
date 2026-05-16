@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "climate-science\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 40,
+      "heading_context": "## Radiative Balance",
+      "confidence": "candidate",
+      "text": "SOLAR INPUT AND EARTH'S ENERGY BUDGET\n======================================\n\nSolar constant: 1,361 W/m²\nAverage over sphere: 1361/4 = 340 W/m² (spherical vs. disk factor)\n\n     INCOMING: 340 W/m²\n          ↓\n     ┌────┴─────────────────────────────────────────────────┐\n     │                  ATMOSPHERE                          │\n     │  ↑ 77 W/m² reflected by clouds/atmosphere (albedo)   │\n     │  ↑ 23 W/m² absorbed by O₃/water vapor                │\n     │         ↓ 240 W/m² reaches surface                   │\n     └──────────────────────────────────────────────────────┘\n          ↑ 30 W/m² reflected by surface (surface albedo)\n          ↓ 168 W/m² absorbed by surface\n\nOUTGOING LONGWAVE RADIATION (OLR):\n  Surface emits ~396 W/m² as thermal IR (~10 μm peak)\n  Greenhouse gases absorb most of this, re-emit in all directions\n  Only ~240 W/m² escapes to space\n\nNET (pre-industrial): IN ≈ OUT ≈ 240 W/m² → stable climate\nNET (2024):          IN > OUT by ~0.9 W/m² → ongoing warming\n\nNATURAL GREENHOUSE EFFECT:\n  Without atmosphere: Earth surface temperature = 255 K (-18°C)\n  With natural greenhouse: 288 K (+15°C)\n  Difference: +33°C — the natural greenhouse effect",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "## Greenhouse Gas Physics: Why Molecular Absorption Matters",
+      "confidence": "candidate",
+      "text": "MOLECULAR ABSORPTION — SPECTROSCOPIC BASIS\n==========================================\n\nEarth's surface emits IR peaking at ~10 μm (Wien's law: λ_max = 2898/T)\n\nGAS ABSORPTION BANDS:\n  CO₂:   15 μm (bending mode) ← directly overlaps surface emission peak\n          4.3 μm (asymmetric stretch — solar, less important for warming)\n  H₂O:   6.3 μm, 2.7 μm, + rotational bands throughout far-IR\n          Broadband \"continuum\" absorption — H₂O is #1 greenhouse gas\n  CH₄:   7.7 μm, 3.3 μm\n  N₂O:   17 μm, 7.8 μm, 4.5 μm\n  O₃:    9.6 μm — sits in the \"atmospheric window\"\n\n\"ATMOSPHERIC WINDOW\" (8–12 μm):\n  Largely transparent except O₃ at 9.6 μm\n  About 40 W/m² escapes through this window to space\n  As CO₂ increases: wings of 15μm band widen, narrowing the window\n\nWHY MORE CO₂ STILL MATTERS AT HIGH CONCENTRATIONS:\n  Center of CO₂ 15μm band is already optically thick — \"saturated\"\n  But: spectral wings are not saturated\n  Adding CO₂ widens the absorption into the wings\n  → more IR trapped, even though center was already opaque\n  This is the correct physics — \"CO₂ is saturated\" argument is wrong",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 122,
+      "heading_context": "## Radiative Forcing: Quantifying the Perturbation",
+      "confidence": "candidate",
+      "text": "RADIATIVE FORCING (RF):\n  Instantaneous perturbation to Earth's energy balance at tropopause\n  Units: W/m²\n  Positive: more energy absorbed → warming tendency\n  Negative: more energy reflected/emitted → cooling tendency\n\nFORCING FORMULA FOR CO₂ (Myhre et al. 1998, IPCC standard):\n  ΔF = 5.35 × ln(C/C₀)\n\n  Pre-industrial C₀ = 280 ppm\n  2024 C = ~422 ppm\n\n  ΔF = 5.35 × ln(422/280) = 5.35 × ln(1.507) = 5.35 × 0.410 = 2.2 W/m²\n\n  Each CO₂ doubling (280→560→1120): same additional ~3.7 W/m²\n  Logarithmic relationship = diminishing marginal forcing per ppm added\n  BUT: we're adding more ppm faster → net forcing still accelerating\n\nMAJOR FORCING AGENTS (IPCC AR6, 2021):\n  Well-mixed GHGs (CO₂ + CH₄ + N₂O + F-gases):  +3.84 W/m²\n  Land-use change (albedo):                       -0.20 W/m²\n  Aerosols (total — direct + cloud effects):      -1.01 W/m²  ← uncertain\n  Black carbon:                                   +0.27 W/m²\n  NET ANTHROPOGENIC:                              +2.72 W/m²\n\n  Aerosols are a masked \"warming in the bank\" — if we reduce air\n  pollution (good for health), we lose the cooling mask and see\n  more rapid warming from the underlying CO₂/CH₄ forcing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## Climate Sensitivity: Translating Forcing to Temperature",
+      "confidence": "candidate",
+      "text": "EQUILIBRIUM CLIMATE SENSITIVITY (ECS):\n  Definition: global mean temperature change at equilibrium\n              after a sustained CO₂ doubling\n  Forcing per doubling: ~3.7 W/m²\n  Planck (no-feedback) response: ΔT₀ = ΔF / (4σT³) ≈ 1.2°C\n  Actual response: larger, because feedbacks amplify\n\n  ECS = ΔT₀ / (1 - Σfᵢ)  where fᵢ are feedback parameters\n\n  FEEDBACK BREAKDOWN:\n  ┌────────────────┬──────────────────┬─────────────────────────┐\n  │ Feedback       │ Value (W/m²/K)   │ Notes                   │\n  ├────────────────┼──────────────────┼─────────────────────────┤\n  │ Planck         │ -3.2             │ Stabilizing; fundamental │\n  │ Water vapor    │ +1.8             │ Well-constrained, strong  │\n  │ Lapse rate     │ -0.4             │ Complex; tropical vs pole │\n  │ Surface albedo │ +0.3             │ Ice-albedo feedback       │\n  │ Cloud total    │ -0.4 to +0.4     │ PRIMARY UNCERTAINTY       │\n  └────────────────┴──────────────────┴─────────────────────────┘\n\n  IPCC AR6 (2021) best estimates:\n    ECS likely range: 2.5 – 4.0°C\n    Best estimate:    3.0°C\n    Very likely:      2.0 – 5.0°C\n\nTRANSIENT CLIMATE RESPONSE (TCR):\n  Warming at CO₂ doubling under 1%/yr increase scenario\n  Lower than ECS because ocean thermal inertia delays warming\n  TCR likely range: 1.4 – 2.2°C\n\nTCRE (Transient Climate Response to cumulative Emissions):\n  °C per 1000 GtCO₂ — most operationally useful for carbon budgets\n  TCRE ≈ 0.45°C per 1000 GtCO₂\n  Simple: every ~2,200 GtCO₂ emitted → ~1°C additional warming",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "## Historical Climate Record",
+      "confidence": "candidate",
+      "text": "PROXY METHODS FOR RECONSTRUCTING PAST CLIMATES:\n┌───────────────┬──────────────┬─────────────────────────────────────┐\n│ Proxy         │ Archive      │ Signal                              │\n├───────────────┼──────────────┼─────────────────────────────────────┤\n│ Ice cores     │ Greenland,   │ δ¹⁸O → temperature; trapped gas    │\n│               │ Antarctica   │ → paleo-CO₂, CH₄; tephra layers     │\n│               │ 800,000 yr   │                                     │\n├───────────────┼──────────────┼─────────────────────────────────────┤\n│ Tree rings    │ Wood         │ Ring width/density → temp/precip    │\n│               │ dendro-chron.│ ~10,000 yr; seasonal resolution     │\n├───────────────┼──────────────┼─────────────────────────────────────┤\n│ Ocean sediment│ Foram shells │ δ¹⁸O → SST + ice volume            │\n│               │ 65 Myr       │ Mg/Ca → SST; alkenone → SST        │\n├───────────────┼──────────────┼─────────────────────────────────────┤\n│ Speleothems   │ Cave         │ Stalagmite δ¹⁸O → precipitation     │\n│               │              │ pattern; U-Th dating                │\n├───────────────┼──────────────┼─────────────────────────────────────┤\n│ Coral         │ Reef coral   │ δ¹⁸O + Sr/Ca → SST back ~500 yr   │\n├───────────────┼──────────────┼─────────────────────────────────────┤\n│ Instrumental  │ Thermometer  │ 1850–present; ~100 yr gridded       │\n│               │ records      │ Berkeley Earth / GISTEMP / HadCRUT  │\n└───────────────┴──────────────┴─────────────────────────────────────┘\n\nTEMPERATURE MILESTONES:\n  Pre-industrial baseline:  1850–1900 average\n  1850–1900:                0.0°C (definition)\n  1980–2000:                +0.4°C\n  2023:                     +1.45°C (hottest year in instrumental record)\n  2024:                     +1.5°C first full calendar year above 1.5°C\n\n  Rate of warming: ~0.19°C/decade (1981–2024, accelerating)\n  Rate of CO₂ increase: ~2.5 ppm/year (also accelerating)\n\n  Last time this warm: Pliocene (~3 million years ago, 2–3°C warmer)\n  Last time CO₂ this high: also Pliocene (~380–420 ppm)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

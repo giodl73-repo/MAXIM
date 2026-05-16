@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coatings:industrial-coatings
+kind: guide
+module: coatings
+section: coatings
+title: Industrial Coatings
+status: source-custody
+source_custody: partial
+current_path: coatings/05-INDUSTRIAL-COATINGS.md
+canonical_path: coatings/05-INDUSTRIAL-COATINGS.md
+backsource_ids: [proof-backfill:coatings:05-industrial-coatings, git-history:coatings:05-industrial-coatings]
+concepts: [industrial, coatings]
+root_concepts: [industrial, coatings]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Industrial Coatings
 
 ## Powder Coating, Anodizing, Electroplating, Galvanizing, PVD
@@ -139,7 +158,7 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
   │    Thickness: 0.001"-0.002" (25-50 μm, up to 100 μm)       │
   │    Very hard: 60-70 Rockwell C equivalent                  │
   │    Very abrasion resistant                                 │
-  │    Requires cold electrolyte (near freezing) + higher current│
+  │    Requires cold electrolyte + high current                │
   │    Uses: piston skirts, firearms, cookware, sliding parts  │
   └────────────────────────────────────────────────────────────┘
 
@@ -183,7 +202,7 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
   ├─────────────────────────────────────────────────────────────────┤
   │  Zinc   │ Corrosion protection (galvanic)        │ Sacrificial │
   │  Chrome │ Decorative + corrosion (hex chrome)   │ Cr⁶⁺ toxic! │
-  │         │ Hard chrome: wear resistance          │ OSHA regulated│
+  │         │ Hard chrome: wear resistance          │ OSHA rules   │
   │  Nickel │ Intermediate layer under chrome       │ Hardness     │
   │         │ Corrosion resistance alone            │ Barrier coat │
   │  Gold   │ Electronics contacts (non-tarnishing) │ Expensive    │

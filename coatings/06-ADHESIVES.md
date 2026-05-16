@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coatings:adhesives
+kind: guide
+module: coatings
+section: coatings
+title: Adhesives
+status: source-custody
+source_custody: partial
+current_path: coatings/06-ADHESIVES.md
+canonical_path: coatings/06-ADHESIVES.md
+backsource_ids: [proof-backfill:coatings:06-adhesives, git-history:coatings:06-adhesives]
+concepts: [adhesives]
+root_concepts: [adhesives]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Adhesives
 
 ## CA Glue, Epoxy, Contact Cement, Hot Melt — Bond Mechanisms and Selection
@@ -38,7 +57,7 @@ ADHESIVE BOND MECHANISMS:
   │  MECHANICAL INTERLOCKING:                                    │
   │    Adhesive flows into surface micro-pores and solidifies    │
   │    Physical anchor in substrate texture                      │
-  │    Requires: wettable surface; porous enough for penetration│
+  │    Requires: wettable surface; porous enough for penetration │
   │                                                              │
   │  CHEMICAL BONDING:                                           │
   │    Covalent or ionic bonds with substrate surface atoms      │
@@ -286,7 +305,7 @@ ADHESIVE BOND MECHANISMS:
   │    Used: automotive, electronics, industrial assembly        │
   │                                                              │
   │  Polyolefin (PO): bonds to polyolefin plastics (PE, PP)      │
-  │    Specialty: bonds to notoriously difficult PE/PP substrates│
+  │    Specialty: bonds difficult PE/PP substrates               │
   │                                                              │
   │  Polyester (PET): highest temperature HMA                    │
   │    Industrial high-performance applications                  │
@@ -327,7 +346,7 @@ ADHESIVE BOND MECHANISMS:
   │  Blue (243):   medium strength; most common; hand-removable  │
   │  Red (262/271): permanent; requires 500°F+ heat to break     │
   │  Green (290):   "wicking grade"; low viscosity; penetrates   │
-  │                 assembled threads (post-assembly application)│
+  │                 assembled threads (post-assembly app.)       │
   └──────────────────────────────────────────────────────────────┘
 
   APPLICATIONS:

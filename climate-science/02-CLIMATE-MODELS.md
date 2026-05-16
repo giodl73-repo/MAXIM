@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:climate-science:climate-models
+kind: guide
+module: climate-science
+section: climate-science
+title: Climate Models
+status: source-custody
+source_custody: partial
+current_path: climate-science/02-CLIMATE-MODELS.md
+canonical_path: climate-science/02-CLIMATE-MODELS.md
+backsource_ids: [proof-backfill:climate-science:02-climate-models, git-history:climate-science:02-climate-models]
+concepts: [climate, models]
+root_concepts: [climate, models]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Climate Models
 
 ## Model Hierarchy, GCMs, Parameterization, Ensemble Methods, Uncertainty

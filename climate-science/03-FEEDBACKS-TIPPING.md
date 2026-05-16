@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:climate-science:feedbacks-tipping
+kind: guide
+module: climate-science
+section: climate-science
+title: Feedbacks and Tipping Points
+status: source-custody
+source_custody: partial
+current_path: climate-science/03-FEEDBACKS-TIPPING.md
+canonical_path: climate-science/03-FEEDBACKS-TIPPING.md
+backsource_ids: [proof-backfill:climate-science:03-feedbacks-tipping, git-history:climate-science:03-feedbacks-tipping]
+concepts: [feedbacks, tipping]
+root_concepts: [feedbacks, tipping]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Feedbacks & Tipping Points
 
 ## Climate Feedbacks, Tipping Elements, Hysteresis, Cascade Risk

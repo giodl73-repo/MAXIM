@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coatings:sealants-caulks
+kind: guide
+module: coatings
+section: coatings
+title: 07 - Sealants and Caulks
+status: source-custody
+source_custody: partial
+current_path: coatings/07-SEALANTS-CAULKS.md
+canonical_path: coatings/07-SEALANTS-CAULKS.md
+backsource_ids: [proof-backfill:coatings:07-sealants-caulks, git-history:coatings:07-sealants-caulks]
+concepts: [sealants, caulks]
+root_concepts: [sealants, caulks]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 07 — Sealants & Caulks
 
 ## Silicone, Polyurethane, Acrylic Latex — Movement, Compatibility, Durability
@@ -65,7 +84,7 @@ temperature, stable at high temperature, UV-resistant (silicon doesn't absorb UV
 ┌─────────────────────────────────────────────────────────────────────────┐
 │ ACETOXY CURE                    │  NEUTRAL CURE                         │
 │ (most common, "acidic")         │  (oxime or alkoxy)                    │
-├─────────────────────────────────┼──────────────────────────────────────┤
+├─────────────────────────────────┼───────────────────────────────────────┤
 │ Byproduct: acetic acid          │  Byproduct: oxime or alcohol         │
 │  → vinegar smell during cure    │   → mild or no odor                  │
 │ Fast cure                       │  Similar cure speed                  │

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coatings:primers
+kind: guide
+module: coatings
+section: coatings
+title: 08 - Primers
+status: source-custody
+source_custody: partial
+current_path: coatings/08-PRIMERS.md
+canonical_path: coatings/08-PRIMERS.md
+backsource_ids: [proof-backfill:coatings:08-primers, git-history:coatings:08-primers]
+concepts: [primers]
+root_concepts: [primers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 08 — Primers
 
 ## Why Primer Matters — Adhesion, Stain Blocking, pH Equalization
@@ -21,11 +40,11 @@
 │                                                                             │
 │  ┌─────────────┐  ┌─────────────┐                                         │
 │  │pH           │  │  FILL/BUILD │                                         │
-│  │NEUTRALIZATION│ │             │                                         │
-│  │ Fresh plaster│ │ High-build  │                                         │
-│  │ concrete    │  │ primers fill │                                        │
+│  │NEUTRALIZE   │  │             │                                         │
+│  │Fresh plaster│  │ High-build  │                                         │
+│  │ concrete    │  │ primers fill│                                         │
 │  │ saponifies  │  │ surface     │                                         │
-│  │ oil topcoats │ │ irregulars  │                                         │
+│  │oil topcoats │  │ irregulars  │                                         │
 │  └─────────────┘  └─────────────┘                                         │
 └─────────────────────────────────────────────────────────────────────────────┘
 

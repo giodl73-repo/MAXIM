@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coatings:overview
+kind: guide
+module: coatings
+section: coatings
+title: Coatings - Overview: Surface Science Taxonomy
+status: source-custody
+source_custody: partial
+current_path: coatings/00-OVERVIEW.md
+canonical_path: coatings/00-OVERVIEW.md
+backsource_ids: [proof-backfill:coatings:00-overview, git-history:coatings:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Coatings — Overview: Surface Science Taxonomy
 
 ## The Big Picture
@@ -22,7 +41,7 @@
 |  ADHESIVES                SEALANTS             SPECIALTY         |
 |  =========                ========             =========         |
 |  Bond substrates          Fill gaps/joints;    DWR (textiles)    |
-|  together                 exclude water/gas    Intumescent (fire)|
+|  together                 exclude water/gas    Intumescent (fire) |
 |                           accommodate movement Anti-graffiti     |
 |  Epoxy, CA glue           Silicone             Release coatings  |
 |  Contact cement           Polyurethane         Non-stick (PTFE)  |
