@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture-history:postmodernism
+kind: guide
+module: architecture-history
+section: architecture-history
+title: Postmodernism and After
+status: source-custody
+source_custody: partial
+current_path: architecture-history/07-POSTMODERNISM.md
+canonical_path: architecture-history/07-POSTMODERNISM.md
+backsource_ids: [proof-backfill:architecture-history:07-postmodernism, git-history:architecture-history:07-postmodernism]
+concepts: [postmodernism]
+root_concepts: [postmodernism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Postmodernism and After
 
 ## The Big Picture

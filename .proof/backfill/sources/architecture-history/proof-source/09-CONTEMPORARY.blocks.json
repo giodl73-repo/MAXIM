@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "architecture-history\\09-CONTEMPORARY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CONTEMPORARY ARCHITECTURE: THREE CONVERGING FORCES\n====================================================\n\nCOMPUTATIONAL TOOLS          SUSTAINABILITY           URBANIZATION SCALE\n===================          =============            ==================\nParametric design            Net-zero carbon          2.5B people in cities\n  (Grasshopper/Rhino)         targets by 2050           by 2050 (UN estimate)\nCATIA/Generative             Passivhaus physics       Adaptive reuse\n  Component Design            (15 kWh/m²·yr)            (embod. carbon)\nTopology optimization         LEED/BREEAM/DGNB        Mass timber as urban\n  (FEM-based form-finding)    Circular economy          material\nRobotic fabrication           Embodied carbon         Transit-oriented dev.\nBIM (Revit/Archicad)          Life cycle assessment   Densification\nCNC milling + 3D print        Living Building Challenge Mixed-use\n\nWHERE THEY MEET:\n  Computational tools → optimize building performance (not just form)\n  Mass timber + parametric → new building typologies\n  BIM → connect design to life-cycle carbon accounting\n  Parametric → climate-responsive form generation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "### What Parametric Design Is",
+      "confidence": "candidate",
+      "text": "PARAMETRIC DESIGN CONCEPT\n===========================\n\nTRADITIONAL DESIGN:\n  Architect makes drawing decisions directly.\n  Want to change window width: redraw windows.\n  Want to change facade rhythm: redraw facade.\n  The drawing is the final artifact.\n\nPARAMETRIC DESIGN:\n  Architect writes RULES (the parameter set).\n  The computer COMPUTES the geometry from the rules.\n  Want to change window width: change the parameter.\n  The geometry regenerates automatically.\n  The drawing is the OUTPUT of the parameter set.\n\nEXAMPLE: Parametric Facade\n  RULE SET:\n    Base grid: 1.2m × 3m panels\n    Each panel: rotation angle = f(solar angle, month, hour)\n    Each panel: opacity = g(occupant density at that floor)\n    Panel color: lerp(light, dark) based on floor level\n  RESULT:\n    3000-panel facade where each panel is uniquely positioned\n    based on performance rules, not aesthetic decisions.\n    Change the latitude → regenerate for different solar angle.\n    Change the occupancy program → regenerate for new density.\n    The design IS the parameter set. The geometry is computed.\n\nGRASSHOPPER (Rhino plug-in):\n  Visual programming language for geometry generation\n  Nodes = operations (rotate, move, scale, loft, etc.)\n  Wires = data flow between operations\n  Sliders = parameter inputs\n  Preview: 3D geometry updates in real-time as parameters change\n  No code required (but Python scripting available for complex logic)\n  Output: Rhino geometry → fabrication / BIM import",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "### What BIM Is",
+      "confidence": "candidate",
+      "text": "BIM vs. CAD: THE FUNDAMENTAL DIFFERENCE\n=========================================\n\n2D CAD (pre-BIM):\n  Drawing is lines on paper (or screen).\n  A window is drawn as four lines.\n  No information about what kind of window it is.\n  Change window type: redraw, update sections, update details,\n    update schedules — all manually.\n  Clash detection: print drawings, overlay, look.\n\n3D BIM (Revit, Archicad, Bentley):\n  Every element is a parametric OBJECT with:\n    Geometry: 3D form that appears in plan, section, 3D view\n    Data: manufacturer, model number, cost, U-value, fire rating,\n          maintenance interval, warranty expiry, etc.\n  A window is a BIM object with geometry AND data.\n  Change window type: change the object type.\n    Plan view updates. Section updates. Schedule updates.\n    Cost estimate updates. Energy model updates.\n\n  CLASH DETECTION:\n    Structural beam and HVAC duct in the same space?\n    The software flags it automatically.\n    (In traditional 2D: discovered on site → expensive fix.)\n\nBIM LEVELS (UK Government definition, now partly obsolete):\n  Level 0: 2D CAD only, paper drawings\n  Level 1: 3D CAD, no data, no collaboration\n  Level 2: 3D parametric BIM, file-based collaboration,\n           each discipline manages its own model\n           (UK Government mandate: 2016 for public projects)\n  Level 3: Single federated model, all disciplines in one\n           shared model, cloud-based, live collaboration\n           (still partially aspirational, 2026)\n\nBIM DIMENSIONS:\n  3D BIM: geometry\n  4D BIM: + construction sequence (when each element is built)\n  5D BIM: + cost (estimate regenerates as design changes)\n  6D BIM: + facilities management data (equipment maintenance,\n           energy performance records, sensor data integration)\n\nIFC (Industry Foundation Classes):\n  Open standard (BuildingSMART International) for model exchange.\n  Revit → IFC → structural analysis software → back to Revit.\n  Vendor-neutral format for collaboration between software platforms.\n  The equivalent of OOXML / PDF for BIM: not proprietary.\n\nBRIDGE TO MICROSOFT:\n  Revit is Autodesk's product — a parametric CAD application.\n  The BIM model is the \"source of truth\" the way a database\n  schema is the source of truth for a software application.\n  BIM coordination meetings are like architecture review meetings:\n  all disciplines review the model and agree on resolution.\n  Clash detection is automated regression testing for physical\n  conflicts (the architectural equivalent of a failing unit test).\n  6D BIM → digital twin: the design model populated with\n  operational data (sensor streams, maintenance logs) —\n  the building's data layer at every scale.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 221,
+      "heading_context": "## Sustainability Certifications: LEED vs BREEAM vs Passivhaus",
+      "confidence": "candidate",
+      "text": "CERTIFICATION COMPARISON\n==========================\n\nLEED (Leadership in Energy and Environmental Design)\n  Origin: US Green Building Council, 1998\n  Type: POINT-BASED (prescriptive checklist)\n  How it works:\n    Building earns points across categories:\n    Location (1–10), Sustainable Sites (1–10),\n    Water Efficiency (1–11), Energy (1–33),\n    Materials (1–13), Indoor Quality (1–15),\n    Innovation (1–6), Regional Priority (1–4)\n    Total: 100 base points possible\n  Certification levels:\n    Certified: 40–49 points\n    Silver:    50–59 points\n    Gold:      60–79 points\n    Platinum:  80+ points\n  Strengths: broad scope, established, widely recognized\n  Weaknesses: prescriptive (do this, get points) not performance-\n    based; a building can be LEED Platinum but not energy-efficient\n    if it gets points elsewhere. No guaranteed performance.\n\nBREEAM (Building Research Establishment Environmental Assessment Method)\n  Origin: UK, 1990 (oldest rating system in world)\n  Type: WEIGHTED SCORE\n  Categories: Health, Energy, Transport, Water, Materials,\n    Waste, Land Use, Pollution, Management, Innovation\n  Ratings: Pass / Good / Very Good / Excellent / Outstanding\n  More common in UK, Europe, Middle East\n  Similar prescriptive approach to LEED\n\nDGNB (German Sustainable Building Council)\n  Origin: Germany, 2007\n  Type: LIFE CYCLE based — evaluates whole-life carbon,\n    not just operational energy\n  Unique: explicitly counts EMBODIED carbon (construction, materials)\n  Most rigorous on whole-life assessment\n  Growing adoption in Europe\n\nPASSIVHAUS (Passive House Institute, Germany)\n  Origin: Feist + Adamson, 1990s, Darmstadt\n  Type: PHYSICS-BASED PERFORMANCE STANDARD\n  How it works: Not prescriptive. You must DEMONSTRATE performance:\n    Max heat demand:  15 kWh/m²·yr (approx 1–2 kW/m² peak)\n    Max cooling demand: 15 kWh/m²·yr\n    Max primary energy: 120 kWh/m²·yr (all energy use)\n    Air tightness:    ≤0.6 ACH50 (0.6 air changes/hour at 50 Pa)\n  How tested:\n    Blower door test: pressurize to 50 Pa, measure air leakage.\n    No shortcut: the building either passes or fails.\n    Energy demand modeled in PHPP (Passivhaus Planning Package).\n  Design principles (physics, not prescriptions):\n    Super-insulation (exterior envelope R-60 to R-80)\n    Triple-glazed windows\n    Thermal-bridge-free construction\n    Mechanical ventilation with heat recovery (HRV) ~80–90% efficiency\n    Airtight envelope (no draughts)\n    Passive solar (south glazing in northern climates)\n  Result: a Passivhaus in Stockholm uses 85% less heating energy\n    than a code-compliant building.\n  BRIDGE: Passivhaus is like a unit test that must pass,\n    not a code review checklist that awards partial credit.\n\nTHE CRITICAL DIFFERENCE:\n  LEED Platinum building: good process, many verified practices\n    → actual energy use may be 2–3× worse than predicted\n  Passivhaus certified: demonstrated measured performance\n    → actual energy use matches prediction within 10–20%\n  For carbon reduction targets, Passivhaus is more reliable.\n\nLIVING BUILDING CHALLENGE (LBC):\n  Most demanding: net-POSITIVE in all categories\n  Building must generate more energy than it uses on-site\n  Must harvest and treat all water on-site\n  Must avoid all \"Red List\" materials (toxic)\n  Only ~600 certified projects globally as of 2024\n  Aspirational rather than mainstream",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 308,
+      "heading_context": "### The Carbon Accounting Problem",
+      "confidence": "candidate",
+      "text": "EMBODIED vs OPERATIONAL CARBON\n================================\n\nOPERATIONAL CARBON:\n  Energy to heat, cool, light, and power the building during use.\n  Historically dominated life-cycle building carbon.\n  Passivhaus, good insulation → dramatically reduced.\n\nEMBODIED CARBON:\n  Carbon emitted to produce, transport, and construct the building:\n    Materials extraction (quarrying, mining, logging)\n    Manufacturing (cement kiln, steel furnace, glass float)\n    Transport to site\n    Construction (cranes, trucks)\n    End-of-life (demolition, landfill)\n  NOT reduced by operational efficiency improvements.\n  As operational carbon drops (better insulation + clean grid),\n  embodied carbon becomes the DOMINANT share.\n\n  Current estimate: embodied carbon is already ~40–50% of total\n  building life-cycle carbon for new well-insulated buildings.\n  By 2050 (if grids are clean): embodied could be 80%+.\n\nPORTLAND CEMENT IS A MASSIVE SOURCE:\n  Producing 1 tonne of Portland cement → ~0.8 tonne CO₂\n  Cement industry: ~8% of global CO₂ emissions\n  No easy substitution for structural concrete at present scale\n\nSTRUCTURAL STEEL:\n  1 tonne of virgin steel: ~1.8–2.5 tonne CO₂\n  1 tonne of recycled-content (EAF) steel: ~0.5–0.8 tonne CO₂\n  Structural steel is ~90% recyclable → end-of-life recovery\n\nADAPTIVE REUSE LOGIC:\n  The most carbon-efficient building is one already built.\n  Refurbish existing vs. demolish + build new:\n  Typically 60–85% carbon saving for adaptive reuse.\n\n  Example: Historic office building refurbishment\n    Demolish + new build: ~1000 kgCO₂/m² embodied\n    Deep refurbishment: ~200 kgCO₂/m² embodied\n    Difference: 800 kgCO₂/m² — the \"carbon debt\" of demolition\n    Time to \"pay back\" through operational savings: 20–50+ years\n    (often beyond useful building life)\n\n  The Factory Manchester (Factory International):\n    Original proposal: demolish former ICI offices, build new\n    Decision: retain and adapt the structure\n    Carbon saving estimated: 40,000 tonnes CO₂\n    The building as built retains the heavy concrete frame.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 367,
+      "heading_context": "### What Mass Timber Is",
+      "confidence": "candidate",
+      "text": "MASS TIMBER PRODUCTS\n=====================\n\nSOLID SAWN TIMBER:\n  Single piece cut from log. Maximum ~300mm × 300mm for large sections.\n  Span capacity limited by available log size.\n\nGLULAM (Glued Laminated Timber):\n  Many layers of sawn timber + structural adhesive → beam or column\n  Can achieve any size and shape (curved beams, tapered)\n  Span: 30–40m possible for large glulam arches\n  Same structural logic as laminated beam in steel → controlled size\n\nCLT (Cross-Laminated Timber):\n  Multiple layers of sawn timber, each PERPENDICULAR to previous\n  → flat panel with two-way structural capacity\n  Like plywood but thick (~80–360mm)\n  Acts as floor plate, wall panel, or roof deck\n  Can replace concrete slabs in multi-story construction\n\n  LAYERS:         STRUCTURAL BEHAVIOR:\n  === 0°           Two-way plate → spans in both directions\n  === 90°          Fire performance: char layer protects core\n  === 0°           (unlike steel, which loses strength suddenly)\n  === 90°          The char layer is 3–4mm/minute (predictable)\n  === 0°           Design to known char depth → structural core OK\n\nLVL (Laminated Veneer Lumber):\n  Thin veneers + structural adhesive (like plywood for beams)\n  High strength-to-weight, consistent properties\n  Used for beams and columns in timber frame systems\n\nHYBRID SYSTEMS:\n  Most tall timber buildings mix CLT + glulam + concrete/steel:\n  CLT floor plates + glulam columns/beams + concrete core (for lateral)\n  or + steel moment frames + glulam gravity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 408,
+      "heading_context": "### Tall Timber: Current Projects",
+      "confidence": "candidate",
+      "text": "TALL TIMBER BUILDINGS: STRUCTURAL APPROACHES\n============================================\n\nBROCK COMMONS TALLWOOD HOUSE (UBC Vancouver, 2017)\n  18 stories, 53m\n  CLT floor plates + steel post caps + glulam columns\n  Concrete cores for lateral load (two stair/elevator cores)\n  The hybrid: concrete for lateral stability (seismic zone),\n    timber for gravity structure (floors + columns)\n  Speed: timber structure erected in 66 days\n  Weight: 60% lighter than equivalent concrete building\n    → smaller foundations → cost offset\n\nASCENT, MILWAUKEE (2022)\n  25 stories, 86.6m — tallest timber building in USA at opening\n  Hybrid CLT + concrete podium + mass timber tower\n  Wisconsin timber economy → local material supply\n\nMJØSTÅRNET, BRUMUNDDAL NORWAY (2019)\n  18 stories, 85.4m — first glulam tower (not CLT)\n  Hotel + apartments + offices\n  Glulam columns, beams, and diagonal bracing\n  Structural challenge: glulam in lateral bracing frames\n  Vibration: tall timber buildings are lighter → more vibration-prone\n    than equivalent concrete. Dampers required (tuned mass dampers).\n\nMASS TIMBER FIRE ENGINEERING:\n  The intuition: wood burns. Don't build tall buildings of wood.\n  The reality:\n    Exposed timber chars at 3–4mm/minute in standard fire\n    The char layer is insulating → inner wood stays cold + strong\n    You can design the timber cross-section to survive the design fire\n    (char depth + structural capacity remaining after charring)\n    Steel unprotected: loses 50% strength at 550°C (typically ~20 min)\n    Glulam: much slower degradation → actually BETTER behavior in fire\n    than unprotected steel for certain scenarios\n  Code requirement: fire-rated gypsum board cladding for most tall\n    timber buildings (covers the timber for code compliance)\n  This creates a conflict: if you clad the timber, you lose the\n  biophilic visual benefit of exposed wood.\n  Some jurisdictions allow engineering-based fire design (UK, some US).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 456,
+      "heading_context": "## High-Rise Structural Systems",
+      "confidence": "candidate",
+      "text": "HIGH-RISE STRUCTURAL SYSTEMS TAXONOMY\n=======================================\n\nLATERAL LOAD IS THE DESIGN DRIVER:\n  Below ~10 stories: gravity dominates structural design\n  Above ~10 stories: lateral (wind + seismic) increasingly dominates\n  Above ~40 stories: lateral is the primary structural problem\n\nSTRUCTURAL SYSTEMS:\n\nRIGID FRAME (moment connections):\n  Columns + beams with moment connections (no hinges)\n  Used to about 25 stories\n  Problem: heavy, inefficient above 25 stories\n  The classic steel-frame office building\n\nSHEAR WALL:\n  Concrete walls in core (stairs, elevators)\n  The core acts as a vertical cantilever from the ground\n  Used universally in combination with other systems\n\nOUTRIGGER + BELT TRUSS:\n  Outrigger: structural arm from core to perimeter columns\n    at mechanical floors (typically every 10–15 stories)\n  Belt truss: connects all perimeter columns at same level\n  Effect: the perimeter columns are mobilized to resist\n    overturning from wind (core alone would need to be enormous)\n  Used: John Hancock Center (1969), Burj Khalifa (2010)\n\n  +==================+  ← BELT TRUSS at mechanical floor\n  |  CORE  [outrig]o |  ← OUTRIGGER arms to corner columns\n  |  ||||  --------|o|\n  |  ||||           |\n  |  ||||  --------|o|  ← Another outrigger level\n  +==================+  ← BELT TRUSS\n\nTUBE IN TUBE (Fazlur Khan):\n  Outer tube: closely-spaced perimeter columns + deep spandrel beams\n  Inner tube: concrete elevator/stair core\n  Outer tube acts like a hollow box beam → very efficient\n  Used: World Trade Center (1970, structural engineer Fazlur Khan)\n  John Hancock Center, Chicago uses X-bracing on exterior tube\n\nBUNDLED TUBE (Fazlur Khan):\n  Multiple tubes bundled together (like a handful of straws)\n  Each tube shares walls with adjacent tubes → high stiffness\n  Used: Willis (Sears) Tower (1973, 108 stories, Fazlur Khan)\n  The setbacks of Sears Tower are structural: the upper tubes\n    \"bundle\" only extends part-height → progressively drops tubes.\n\nDIAGRID (diagonal grid):\n  No columns — only diagonal members + ring beams\n  Diagonals carry BOTH gravity AND lateral loads (efficient)\n  Distinctive visual identity: diamond-pattern facade\n  Used: Swiss Re (\"Gherkin\"), London (Foster, 2003)\n       CCTV Headquarters, Beijing (Koolhaas/OMA, 2012)\n       30 St Mary Axe provides wind reduction via shape\n\n  +--+  +--+    Diagonal grid: each diamond cell\n  |  \\/  |      carries both gravity (compression\n  |  /\\  |      in vertical component) and lateral\n  +--+--++      (compression in horizontal component)\n  |  \\/  |      No dedicated vertical columns needed\n  |  /\\  |\n  +--+--++",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 528,
+      "heading_context": "## Digital Twin: From Design Model to Operational BIM",
+      "confidence": "candidate",
+      "text": "DIGITAL TWIN CONCEPT (BUILDING)\n================================\n\nDESIGN BIM (Revit model):\n  Geometry + specifications + schedules\n  Used during design and construction\n  Handed over to client at completion\n  Typically: static snapshot at handover date\n\nDIGITAL TWIN:\n  The BIM model populated with LIVE DATA:\n    IoT sensors: temperature, CO₂, occupancy, energy consumption,\n      vibration (structural health monitoring), water flow\n    Building Management System (BMS) feeds into BIM\n    Maintenance logs linked to BIM objects\n    Utility bills reconciled against energy model predictions\n\n  CAPABILITIES:\n    Live occupancy visualization → HVAC optimization\n    Equipment failure prediction (sensor data trends → anomaly detection)\n    Energy performance vs. design prediction (gap analysis)\n    Structural health monitoring: vibration signatures change when\n      a building has damage → early warning system\n\n  BRIDGE TO MICROSOFT:\n    This is Azure IoT + Azure Digital Twins + Power BI for buildings.\n    The \"building\" is just another set of connected things with\n    data pipelines, storage, and visualization.\n    Azure Digital Twins SDK can model any spatial/physical hierarchy\n    (building → floor → room → equipment → component).\n    The BIM model is the schema; sensor data is the instance data;\n    the digital twin is the running application.\n    Microsoft does this for its own campuses.\n    The Redmond campus uses Azure Digital Twins to monitor\n    and optimize ~15 million sqft of space.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 570,
+      "heading_context": "## Bioclimatic Design and Biomimicry",
+      "confidence": "candidate",
+      "text": "EASTGATE CENTRE, HARARE, ZIMBABWE (1996, Mick Pearce)\n=======================================================\n\nINSPIRATION: Macrotermes termite mounds in Zimbabwe\n  Termite mounds maintain internal temperature 31°C ± 1°C\n  while external temperatures range 1.5–35°C\n  No mechanical systems — passive thermal regulation only\n\n  How: the mound has a complex network of vents.\n    During day: hot exterior air heated → rises in outer channels\n    The heat drives air circulation through the mound\n    The fungal gardens inside require specific temperature:\n    the termites regulate vents to maintain it\n    The mound acts as a thermal buffer: large mass + ventilation\n\nBUILDING DESIGN:\n  Offices + shopping center, 5,600 m² floor area\n  No conventional air conditioning (Zimbabwe = unreliable power)\n  Design based on:\n    Massive concrete construction (thermal mass)\n    Internal atria (thermal chimney effect)\n    Hollow floor plenums (cool air supply from below)\n    Fan-driven nighttime cooling: fan air through mass at night,\n      mass absorbs cool; during day, mass releases cool slowly\n\n  RESULT:\n    10% of energy use of equivalent conventionally air-conditioned building\n    Comfortable interior temperature maintained year-round\n    No mechanical cooling plant (no chillers, no cooling towers)\n\n  LIMITATION:\n    Works in Harare's dry subtropical climate\n    The physics depend on large daily temperature swing (cool nights)\n    Would not work in humid tropical climates (same problem as badgir)\n    Context-specific — the \"termite mound\" strategy is not universal",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

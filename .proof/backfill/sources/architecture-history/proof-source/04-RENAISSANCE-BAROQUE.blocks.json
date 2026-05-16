@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "architecture-history\\04-RENAISSANCE-BAROQUE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "### The Problem",
+      "confidence": "candidate",
+      "text": "BRUNELLESCHI'S DOME: THE PROBLEM SPACE\n========================================\n\nMedieval dome construction:\n  Build timber centering → place stone voussoirs → remove centering\n  For 42m dome: centering would need to span 42m\n  Largest available timber: perhaps 15–18m\n  Braced trusses possible but require enormous material + very tall\n  scaffolding to support the centering\n\nBRUNELLESCHI'S INSIGHT:\n  Build the dome WITHOUT centering.\n  Each ring of bricks must be self-supporting during construction.\n  How? Use the herringbone (spina pesce) brick pattern.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 184,
+      "heading_context": "### Double Shell Construction",
+      "confidence": "candidate",
+      "text": "DOUBLE SHELL CROSS-SECTION\n============================\n\n       LANTERN\n         ||\n         \\/\n   +-----------+          ← OUTER SHELL (lighter, protective, visible)\n   |  /     \\  |\n   | / void  \\ |\n   |/         \\ |\n   +-----------+\n   |/   S    \\ |\n   |     T     |\n   |     R     |\n   +     U     +\n   |     C     |\n   |     T     |\n   +-----+-----+\n\n  Outer shell: brick + sandstone, ~50-80cm thick. Supported by ribs that\n   connect both shells.\n  Void space: man can walk in it.\n  Inner shell: structural, thicker ~1.2m. Brick in herringbone pattern.\n   Carries dome weight.\n  Drum: existing, 1.6m thick.\n\nEIGHT MAIN RIBS (marble, visible as white ribs on exterior):\n  Run from drum to lantern, visible outside\n  Two smaller ribs between each pair of main ribs (hidden)\n  Ribs tie inner and outer shells together\n  Ribs carry most of the compressive loads\n\nHOOP TENSION PROBLEM:\n  Any large dome has tendency to \"crack open\" at the base\n  (like an orange segment separating)\n  The base course of the dome tries to expand outward\n  = HOOP TENSION (circumferential tension at dome base)\n  Stone and brick can't take this tension.\n  Brunelleschi's solution: timber and iron chains at the base\n  of the dome act as tension hoops (like barrel hoops).\n  Later domes (including St. Peter's) used iron chains for this.\n\nSTRUCTURAL ACHIEVEMENT:\n  42m clear span — first done since the Pantheon (43.3m, 125 CE)\n  Built 1418–1436 — completed in Brunelleschi's lifetime\n  No centering used for the main dome\n  Still standing, essentially unrepaired, after 590 years",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 242,
+      "heading_context": "### Brunelleschi and Linear Perspective — Projective Geometry in Architecture",
+      "confidence": "candidate",
+      "text": "LINEAR PERSPECTIVE = PROJECTIVE TRANSFORMATION\n════════════════════════════════════════════════\n\n3D world coordinates (X, Y, Z)\n        │\n        ▼\n  Projection from viewpoint E through picture plane P\n        │\n        ▼\n2D image coordinates (x, y) = (fX/Z, fY/Z)\n\nThis is exactly the Model-View-Projection (MVP) matrix\nin every 3D rendering pipeline:\n\n  [x']   [fx  0  cx  0] [X]\n  [y'] = [0  fy  cy  0] [Y]\n  [z']   [0   0   a  b] [Z]\n  [w']   [0   0  -1  0] [1]\n\n  Screen coords = (x'/w', y'/w') — perspective division.\n\nBrunelleschi discovered this transform empirically.\nAlberti gave the construction algorithm.\nDesargues and Poncelet gave the mathematical theory.\nComputer graphics implemented it in hardware (GPU).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 280,
+      "heading_context": "## Bramante and the Classical Ideal: The Tempietto",
+      "confidence": "candidate",
+      "text": "TEMPIETTO COMPOSITION\n======================\n\nPLAN:\n\n  [CYLINDER CELLA]\n  [PERISTYLE]\n\n  Circular cella surrounded by Doric peristyle (16 columns).\n  Set in circular courtyard (the courtyard was never finished).\n\nELEVATION (top → bottom):\n\n   .-.        lantern\n  /   \\\n   | |        drum\n   ===\n  /   \\\n |     |      dome\n  \\   /\n   ===\n  |   |       drum with entablature\n   ===\n  | P |\n  | E |\n  | R |\n  | I |       peristyle (Doric order)\n  | S |\n  | T |\n  | Y |\n  | L |\n  | E |\n  =====\n\n   Lantern at top.\n   Drum with entablature.\n   DOME above peristyle (Doric order).\n\n   Diameter: only 4.5m\n   Bramante intended it to sit in a circular courtyard,\n   which would have made the relationship of cylinder to\n   circle explicit.\n   At this small scale, the design is proportionally perfect.\n   It could be scaled up to any size while maintaining ratios.\n   This is what Bramante proposed for St. Peter's.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 336,
+      "heading_context": "## St. Peter's Basilica: The Dome Competition",
+      "confidence": "candidate",
+      "text": "ST. PETER'S DOME: DESIGN HISTORY\n==================================\n\nBRAMANTE (1506): Greek cross plan, dome on pendentives\n  → Died 1514, little built\n\nRAPHAEL (1514): Changed to Latin cross plan\n  → Died 1520\n\nANTONIO DA SANGALLO (1520): Elongated Latin cross\n  → Died 1546\n\nMICHELANGELO (1546): Returned to Greek cross, redesigned dome\n  → Built much of the drum before his death (1564)\n  → His model shows hemispherical dome\n\nGIACOMO DELLA PORTA (1588–1590):\n  → Changed dome profile from hemispherical to MORE POINTED\n  → Reduces horizontal thrust at base (same argument as Gothic)\n  → Built the actual dome based on modified Michelangelo design\n\nCARLO MADERNO (1607–1612):\n  → Added long nave (returned to Latin cross plan)\n  → Destroyed the centralized effect Michelangelo intended\n  → The facade he added is now criticized for hiding the dome\n    from street level\n\nCURRENT CONFIGURATION:\n  Inner dome diameter: ~41.5m (just under Pantheon's 43.3m)\n  Top of cross to floor: 136.6m (interior), 132.5m (interior nave)\n  Dome shell thickness: ~2.4m (double shell with void between)\n  Iron chains at dome base: 3 iron rings added 1743 by Vanvitelli\n    after cracks appeared in the drum\n    (drum was cracking from hoop tension — same problem as Florence)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 380,
+      "heading_context": "## Palladio: The Most Influential Architect in History",
+      "confidence": "candidate",
+      "text": "### I Quattro Libri dell'Architettura (1570)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 396,
+      "heading_context": "### I Quattro Libri dell'Architettura (1570)",
+      "confidence": "candidate",
+      "text": "### The Villa Rotonda (1566–1591)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 398,
+      "heading_context": "### The Villa Rotonda (1566–1591)",
+      "confidence": "candidate",
+      "text": "VILLA ROTONDA: COMPOSITIONAL LOGIC\n=====================================\n\nPLAN:\n  +---------+---------+\n  |  /      |      \\  |\n  | / PORCH |PORCH  \\ |\n  |/        |        \\|\n  +---------+---------+\n  | PORCH   |   PORCH |  ← Four identical porticos\n  |         |         |    on all four facades\n  +---------+---------+\n  |  \\      |      /  |\n  |   \\     |     /   |\n  +----+----+----+----+\n           |\n        CENTRAL\n        CIRCULAR\n        HALL (domed)\n\nKEY FEATURES:\n  Central circular hall under low dome\n  Four identical Ionic porticos (one on each side)\n  Building sited on a hill → porticos frame views in all four\n  directions (piano nobile = piano for views, not ground floor)\n  Absolute bilateral symmetry on TWO axes\n  Piano nobile raised one story above ground\n\nPALLADIO'S INNOVATION:\n  The temple front (pedimented porch) applied to a HOUSE\n  (not a temple or church)\n  This was scandalous to strict classicists\n  It became the model for the \"Palladian villa\" that spread\n  through England (Inigo Jones), Ireland, Virginia (Jefferson's\n  Monticello uses this template), and colonial America.\n\nPROPORTIONAL SYSTEM:\n  Palladio used musical ratios (from harmonic theory):\n  Octave (1:2), Fifth (2:3), Fourth (3:4), Major Third (4:5)\n  These same ratios govern room proportions, window heights,\n  intercolumniation — the building is a frozen musical score.\n\n  The connection is not metaphorical: Palladio read Zarlino's\n  \"Le Istitutioni Harmoniche\" (1558), which mapped musical\n  consonances to spatial proportions. The ratios are identical —\n  Pythagorean tuning / Just Intonation ratios (octave 1:2,\n  fifth 2:3, fourth 3:4) are the small-integer ratios of the\n  harmonic series. See music-theory/ for the number theory.\n  Architecture and music shared a common mathematical substrate\n  for 2,000 years, from Vitruvius through the 18th century.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 508,
+      "heading_context": "### Bernini: Master of Theatrical Space",
+      "confidence": "candidate",
+      "text": "ST. PETER'S COLONNADE GEOMETRY\n================================\n\nTwo curved colonnades (each 196m long) embrace an elliptical piazza\nCenter of colonnade curves: exactly one focal point of the ellipse\n  → From the two focal-point markers on the ground, all four\n    rows of columns align optically into a single row\n\nWhy 4 rows of columns?\n  Walking into the piazza, you see an impenetrable forest.\n  As you pass the focal marker, the four rows align:\n  suddenly there is just one transparent colonnade.\n  The revelation is the experience.\n  Bernini makes geometry produce a moment of perception.\n\nMeaning: \"Welcoming embrace\" metaphor was Bernini's own description.\n  The colonnade also frames the view of the façade and dome\n  (controlling the approach sequence).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 534,
+      "heading_context": "### Borromini: Curves in Plan",
+      "confidence": "candidate",
+      "text": "SAN CARLO ALLE QUATTRO FONTANE (1638–1646)\n============================================\n\nPLAN (extremely simplified):\n  The main body is defined by a continuous curving wall\n  oscillating between convex and concave:\n\n  +====+\n (      )   ← Nave: oval plan (not rectangle)\n  +====+\n      |\n  [ENTRANCE]\n\n  The wall surface alternates:\n    CONVEX → CONCAVE → CONVEX → CONCAVE\n  As you move around the perimeter.\n  Every surface is curved. Every column is engaged in a\n  curved wall. Nothing is flat.\n\nEFFECT:\n  The space appears to breathe — expanding and contracting\n  as you move. You cannot see the whole building at once.\n  Multiple focal points pull attention in different directions.\n  Light enters from unexpected directions.\n\nSCALE: The entire church fits in the plan of one of the\n  four piers of St. Peter's crossing. Borromini achieved\n  maximum spatial complexity at minimum scale.\n\nCONTRAST WITH BRUNELLESCHI:\n  Brunelleschi: clarity, rational geometry, legible structure\n  Borromini: complexity, hidden structure, spatial drama\n  Both equally sophisticated — opposite programs.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 575,
+      "heading_context": "### Wren's St. Paul's: The Three-Dome Solution",
+      "confidence": "candidate",
+      "text": "ST. PAUL'S THREE-DOME SYSTEM\n==============================\n\nDOME 1: INNER DOME (brick shell, plastered)\n  What the congregation sees when they look up\n  Scale: appropriate to human interior — not overwhelming\n  Diameter: ~30m (visible from below)\n  Decorated with James Thornhill's illusionistic paintings\n  Not structural — it is a ceiling\n\nDOME 2: MIDDLE BRICK CONE (structural)\n  Invisible (hidden between the two visible domes)\n  Circular brick funnel ~1.0m thick rising steeply\n  Carries the weight of the stone lantern at the top\n  (Lantern weighs approximately 850 tonnes)\n  Structural logic: straight-sided cone = pure compression\n  (no bending in a thin shell if the geometry is right)\n\nDOME 3: OUTER TIMBER DOME (external appearance)\n  What you see from the street — the iconic London silhouette\n  Timber framework + lead sheathing\n  Not carrying any structural load\n  Designed for external visual impact — height, silhouette\n  The profile is more pointed than the inner dome → taller\n  visible from a distance\n\nSUMMARY:\n  Inner dome: what congregation sees (scale appropriate)\n  Cone: what carries the lantern (pure structure)\n  Outer dome: what London sees (visual composition)\n  Three separate design problems → three separate solutions\n  Each optimized for its purpose independently\n\n  This is fundamentally different from Brunelleschi (who\n  made ONE double shell do ALL three functions).\n  Wren separated the problems.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

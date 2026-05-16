@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:construction-materials:engineered-wood
+kind: guide
+module: construction-materials
+section: construction-materials
+title: Construction Materials - Engineered Wood
+status: source-custody
+source_custody: partial
+current_path: construction-materials/07-ENGINEERED-WOOD.md
+canonical_path: construction-materials/07-ENGINEERED-WOOD.md
+backsource_ids: [proof-backfill:construction-materials:07-engineered-wood, git-history:construction-materials:07-engineered-wood]
+concepts: [engineered, wood]
+root_concepts: [engineered, wood]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Construction Materials — Engineered Wood
 
 ## The Big Picture: Solid Timber → Engineered Wood Products

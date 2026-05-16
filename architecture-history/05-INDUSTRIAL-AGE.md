@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture-history:industrial-age
+kind: guide
+module: architecture-history
+section: architecture-history
+title: Industrial Age Architecture
+status: source-custody
+source_custody: partial
+current_path: architecture-history/05-INDUSTRIAL-AGE.md
+canonical_path: architecture-history/05-INDUSTRIAL-AGE.md
+backsource_ids: [proof-backfill:architecture-history:05-industrial-age, git-history:architecture-history:05-industrial-age]
+concepts: [industrial, age]
+root_concepts: [industrial, age]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Industrial Age Architecture
 
 ## The Big Picture

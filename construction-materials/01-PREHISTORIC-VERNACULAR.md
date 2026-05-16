@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:construction-materials:prehistoric-vernacular
+kind: guide
+module: construction-materials
+section: construction-materials
+title: Construction Materials - Prehistoric and Vernacular
+status: source-custody
+source_custody: partial
+current_path: construction-materials/01-PREHISTORIC-VERNACULAR.md
+canonical_path: construction-materials/01-PREHISTORIC-VERNACULAR.md
+backsource_ids: [proof-backfill:construction-materials:01-prehistoric-vernacular, git-history:construction-materials:01-prehistoric-vernacular]
+concepts: [prehistoric, vernacular]
+root_concepts: [prehistoric, vernacular]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Construction Materials — Prehistoric and Vernacular
 
 ## The Big Picture: Vernacular Materials by Climate Zone

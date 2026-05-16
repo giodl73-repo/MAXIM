@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture-history:modernism
+kind: guide
+module: architecture-history
+section: architecture-history
+title: Modernism
+status: source-custody
+source_custody: partial
+current_path: architecture-history/06-MODERNISM.md
+canonical_path: architecture-history/06-MODERNISM.md
+backsource_ids: [proof-backfill:architecture-history:06-modernism, git-history:architecture-history:06-modernism]
+concepts: [modernism]
+root_concepts: [modernism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modernism
 
 ## The Big Picture

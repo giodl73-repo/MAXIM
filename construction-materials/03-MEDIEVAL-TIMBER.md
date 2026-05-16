@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:construction-materials:medieval-timber
+kind: guide
+module: construction-materials
+section: construction-materials
+title: Construction Materials - Medieval Timber and Masonry
+status: source-custody
+source_custody: partial
+current_path: construction-materials/03-MEDIEVAL-TIMBER.md
+canonical_path: construction-materials/03-MEDIEVAL-TIMBER.md
+backsource_ids: [proof-backfill:construction-materials:03-medieval-timber, git-history:construction-materials:03-medieval-timber]
+concepts: [medieval, timber]
+root_concepts: [medieval, timber]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Construction Materials — Medieval Timber and Masonry
 
 ## The Big Picture: Medieval Structural Innovations
