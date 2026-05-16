@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-pioneers:algorithms-complexity
+kind: guide
+module: computing-pioneers
+section: computing-pioneers
+title: Algorithms and Complexity - Dijkstra, Knuth, Cook, Karp
+status: source-custody
+source_custody: partial
+current_path: computing-pioneers/06-ALGORITHMS-COMPLEXITY.md
+canonical_path: computing-pioneers/06-ALGORITHMS-COMPLEXITY.md
+backsource_ids: [proof-backfill:computing-pioneers:06-algorithms-complexity, git-history:computing-pioneers:06-algorithms-complexity]
+concepts: [algorithms, complexity]
+root_concepts: [algorithms, complexity]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Algorithms and Complexity — Dijkstra, Knuth, Cook, Karp
 
 ## Era Overview

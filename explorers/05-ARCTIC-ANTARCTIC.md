@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:explorers:arctic-antarctic
+kind: guide
+module: explorers
+section: explorers
+title: Polar Exploration - Franklin, Nansen, Amundsen, Scott, Shackleton
+status: source-custody
+source_custody: partial
+current_path: explorers/05-ARCTIC-ANTARCTIC.md
+canonical_path: explorers/05-ARCTIC-ANTARCTIC.md
+backsource_ids: [proof-backfill:explorers:05-arctic-antarctic, git-history:explorers:05-arctic-antarctic]
+concepts: [arctic, antarctic]
+root_concepts: [arctic, antarctic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Polar Exploration — Franklin, Nansen, Amundsen, Scott, Shackleton
 
 ## Era Overview

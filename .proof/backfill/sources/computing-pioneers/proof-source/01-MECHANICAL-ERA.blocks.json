@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing-pioneers\\01-MECHANICAL-ERA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "MECHANICAL COMPUTING: 1820–1900\n================================\n\n  1820 ─── Industrial Revolution at peak. Steam power. Precision machining now possible.\n           Mathematical tables full of errors (hand-computed). Navigation, insurance, census.\n\n  1822 ─── BABBAGE: Difference Engine prototype demonstrated.\n           Insight: polynomial functions can be evaluated by repeated finite differences.\n\n  1834 ─── BABBAGE: Analytical Engine conceived.\n           Separates the \"store\" (memory) from the \"mill\" (processor).\n           Conditional branching. Loops. Punched card input (borrowed from Jacquard loom).\n\n  1842 ─── LOVELACE: Translates Menabrea's article + adds Notes A–G.\n           Note G: Bernoulli number algorithm. First program.\n           Note A: Understanding that the Engine manipulates symbols, not just numbers.\n\n  1880 ─── US Census crisis: 1880 census took 8 years to tabulate. 1890 census\n           projected to exceed 10 years with population growth.\n\n  1890 ─── HOLLERITH: Punched-card tabulating machine wins Census Bureau contest.\n           1890 census tabulated in 6 weeks.\n\n  1896 ─── HOLLERITH founds Tabulating Machine Company.\n\n  1911 ─── Merges → Computing-Tabulating-Recording Company.\n\n  1924 ─── Renamed: International Business Machines (IBM).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "### The Analytical Engine",
+      "confidence": "candidate",
+      "text": "ANALYTICAL ENGINE ARCHITECTURE (1834–1871)\n==========================================\n\n  ┌─────────────────────────────────────────────────────┐\n  │                  ANALYTICAL ENGINE                  │\n  │                                                     │\n  │  ┌──────────┐   ┌──────────┐   ┌───────────────┐    │\n  │  │  INPUT   │   │   MILL   │   │    STORE      │   │\n  │  │ (Punched │──→│(Processor│←─→│  (Memory —    │   │\n  │  │  Cards)  │   │ — ALU)   │   │  ~1000 50-dig │   │\n  │  └──────────┘   └──────────┘   │   numbers)    │   │\n  │                      │         └───────────────┘   │\n  │                      ↓                             │\n  │               ┌──────────┐                         │\n  │               │  OUTPUT  │                         │\n  │               │(Printer/ │                         │\n  │               │ Plotter) │                         │\n  │               └──────────┘                         │\n  └─────────────────────────────────────────────────────┘\n\n  OPERATIONS:\n  - Punched cards for instructions (operation cards)\n  - Punched cards for data (variable cards)\n  - Conditional branching (barrel mechanism)\n  - Loops (repeating card sequences)\n  - Subroutines (card library)\n  - Four arithmetic operations + comparison",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 155,
+      "heading_context": "### The Contribution",
+      "confidence": "candidate",
+      "text": "BERNOULLI NUMBER ALGORITHM — NOTE G (1843)\n==========================================\n\n  Bernoulli numbers B_n appear in:\n    - Euler-Maclaurin formula (numerical integration)\n    - Closed-form sums of powers: 1^k + 2^k + ... + n^k\n    - Number theory\n\n  The algorithm uses a recurrence relation:\n    B_0 = 1\n    Σ_{k=0}^{n} C(n+1,k) * B_k = 0   (for n ≥ 1)\n\n  Lovelace's Note G specifies:\n  - Which variables hold which values\n  - Which operations to perform in which order\n  - How many operation cycles each step requires\n  - How variables are updated (what we would call registers)\n\n  The tabular format she used maps directly to what we would call\n  an assembly language trace or pseudocode with register tracking.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "### The Problem",
+      "confidence": "candidate",
+      "text": "US CENSUS GROWTH AND TABULATION TIME\n======================================\n\n  Year    Population    Tabulation Time\n  1870    38.5M         ~2 years\n  1880    50.2M         8 years   ← approaching next census\n  1890    62.9M         projected: 10+ years\n\n  The 1880 census results would be OBSOLETE before the 1890 census.\n  The Census Bureau held a contest for better methods.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 211,
+      "heading_context": "### The Solution",
+      "confidence": "candidate",
+      "text": "HOLLERITH TABULATING SYSTEM\n============================\n\n  PUNCHED CARD:\n  ┌─────────────────────────────────────────────────┐\n  │  . . . . . . . . . . . . . . . . . . . . . . .  │\n  │  AGE  SEX  RACE  OCCUPATION  BIRTHPLACE MARITAL │\n  │  [each field = specific hole positions]         │\n  └─────────────────────────────────────────────────┘\n\n  TABULATOR:\n  ┌──────────────────────────────────────────────────┐\n  │                                                  │\n  │  Card pressed against pin board                  │\n  │  Pins spring into holes → complete circuits      │\n  │  Each circuit drives a mechanical counter        │\n  │  Counters increment atomically                   │\n  │                                                  │\n  │  Operator sees counts accumulate in real time    │\n  │  Sorting box routes cards by category            │\n  │                                                  │\n  └──────────────────────────────────────────────────┘\n\n  RESULT: 1890 census tabulated in 6 weeks.\n  (vs. projected 10+ years manually)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

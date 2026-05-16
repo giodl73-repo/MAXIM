@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-pioneers:theory-foundations
+kind: guide
+module: computing-pioneers
+section: computing-pioneers
+title: Theory Foundations - Turing, Church, Post
+status: source-custody
+source_custody: partial
+current_path: computing-pioneers/02-THEORY-FOUNDATIONS.md
+canonical_path: computing-pioneers/02-THEORY-FOUNDATIONS.md
+backsource_ids: [proof-backfill:computing-pioneers:02-theory-foundations, git-history:computing-pioneers:02-theory-foundations]
+concepts: [theory, foundations]
+root_concepts: [theory, foundations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Theory Foundations — Turing, Church, Post
 
 ## Era Overview

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:explorers:age-of-exploration
+kind: guide
+module: explorers
+section: explorers
+title: Age of Exploration - Columbus, da Gama, Cabot, Vespucci
+status: source-custody
+source_custody: partial
+current_path: explorers/02-AGE-OF-EXPLORATION.md
+canonical_path: explorers/02-AGE-OF-EXPLORATION.md
+backsource_ids: [proof-backfill:explorers:02-age-of-exploration, git-history:explorers:02-age-of-exploration]
+concepts: [age, of, exploration]
+root_concepts: [age, of]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Age of Exploration — Columbus, da Gama, Cabot, Vespucci
 
 ## Era Overview

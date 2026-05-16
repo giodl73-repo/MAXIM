@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:explorers:pacific-exploration
+kind: guide
+module: explorers
+section: explorers
+title: Pacific Exploration - Cook, Vancouver, Tasman, La Perouse
+status: source-custody
+source_custody: partial
+current_path: explorers/04-PACIFIC-EXPLORATION.md
+canonical_path: explorers/04-PACIFIC-EXPLORATION.md
+backsource_ids: [proof-backfill:explorers:04-pacific-exploration, git-history:explorers:04-pacific-exploration]
+concepts: [pacific, exploration]
+root_concepts: [pacific, exploration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pacific Exploration — Cook, Vancouver, Tasman, La Perouse
 
 ## Era Overview

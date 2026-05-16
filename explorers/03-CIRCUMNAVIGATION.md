@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:explorers:circumnavigation
+kind: guide
+module: explorers
+section: explorers
+title: Circumnavigation - Magellan+Elcano, Drake, Anson, Bougainville
+status: source-custody
+source_custody: partial
+current_path: explorers/03-CIRCUMNAVIGATION.md
+canonical_path: explorers/03-CIRCUMNAVIGATION.md
+backsource_ids: [proof-backfill:explorers:03-circumnavigation, git-history:explorers:03-circumnavigation]
+concepts: [circumnavigation]
+root_concepts: [circumnavigation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Circumnavigation — Magellan+Elcano, Drake, Anson, Bougainville
 
 ## Era Overview

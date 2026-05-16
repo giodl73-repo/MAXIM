@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-pioneers:mechanical-era
+kind: guide
+module: computing-pioneers
+section: computing-pioneers
+title: The Mechanical Era - Babbage, Lovelace, Hollerith
+status: source-custody
+source_custody: partial
+current_path: computing-pioneers/01-MECHANICAL-ERA.md
+canonical_path: computing-pioneers/01-MECHANICAL-ERA.md
+backsource_ids: [proof-backfill:computing-pioneers:01-mechanical-era, git-history:computing-pioneers:01-mechanical-era]
+concepts: [mechanical, era]
+root_concepts: [mechanical, era]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Mechanical Era — Babbage, Lovelace, Hollerith
 
 ## The Big Picture
@@ -196,7 +215,7 @@ HOLLERITH TABULATING SYSTEM
   PUNCHED CARD:
   ┌─────────────────────────────────────────────────┐
   │  . . . . . . . . . . . . . . . . . . . . . . .  │
-  │  AGE  SEX  RACE  OCCUPATION  BIRTHPLACE  MARITAL│
+  │  AGE  SEX  RACE  OCCUPATION  BIRTHPLACE MARITAL │
   │  [each field = specific hole positions]         │
   └─────────────────────────────────────────────────┘
 

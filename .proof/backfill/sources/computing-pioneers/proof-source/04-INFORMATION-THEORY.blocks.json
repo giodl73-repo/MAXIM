@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing-pioneers\\04-INFORMATION-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Era Overview",
+      "confidence": "candidate",
+      "text": "INFORMATION THEORY: 1924–1960\n===============================\n\n  1924 ─── NYQUIST: \"Certain Factors Affecting Telegraph Speed\"\n           Sampling theorem precursor. Bandwidth limits transmission rate.\n\n  1927 ─── NYQUIST-JOHNSON noise formula (thermal noise floor).\n\n  1928 ─── HARTLEY: \"Transmission of Information\"\n           Logarithmic measure of information. Precursor to Shannon entropy.\n\n  1937 ─── SHANNON: MIT master's thesis.\n           Proves Boolean algebra maps to electrical switching circuits.\n           (Arguably the most important master's thesis in history.)\n\n  1948 ─── SHANNON: \"A Mathematical Theory of Communication\"\n           Bell System Technical Journal. Two-part paper.\n           Defines: entropy, channel capacity, source/channel coding theorems.\n           Establishes information theory as a discipline.\n\n  1949 ─── SHANNON: \"Communication in the Presence of Noise\"\n           Nyquist-Shannon sampling theorem formalized.\n\n  1950 ─── HAMMING: \"Error Detecting and Error Correcting Codes\"\n           Bell System Technical Journal.\n           Hamming codes — first systematic error-correcting codes.\n\n  1959 ─── SHANNON: \"Coding for a Noisy Channel\" — capacity bounds tightened.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 63,
+      "heading_context": "### Bio Snapshot",
+      "confidence": "candidate",
+      "text": "### The 1937 Master's Thesis",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 85,
+      "heading_context": "### The 1937 Master's Thesis",
+      "confidence": "candidate",
+      "text": "### The 1948 Paper — Information Theory",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "### The 1948 Paper — Information Theory",
+      "confidence": "candidate",
+      "text": "SHANNON ENTROPY\n================\n\n  For a discrete random variable X with outcomes x₁,...,xₙ\n  and probabilities p₁,...,pₙ:\n\n  H(X) = -Σᵢ pᵢ log₂(pᵢ)   [bits]\n\n  Properties:\n    H = 0     when one outcome has probability 1 (no uncertainty)\n    H = log₂n when all n outcomes are equally likely (maximum uncertainty)\n    H ≥ 0     always\n\n  EXAMPLES:\n    Fair coin: H = -(0.5 log₂ 0.5 + 0.5 log₂ 0.5) = 1 bit\n\n    Biased coin (p=0.9, 1-p=0.1):\n      H = -(0.9 log₂ 0.9 + 0.1 log₂ 0.1) ≈ 0.469 bits\n      (less uncertainty → less information per toss)\n\n    English text: H ≈ 1.0–1.5 bits/character\n      (high redundancy — you can often predict the next letter)\n\n    Random binary: H = 1 bit/bit\n      (maximum entropy = no compressibility)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 207,
+      "heading_context": "### The Nyquist-Shannon Sampling Theorem",
+      "confidence": "candidate",
+      "text": "NYQUIST-SHANNON SAMPLING THEOREM\n==================================\n\n  A bandlimited continuous signal with maximum frequency f_max\n  can be perfectly reconstructed from discrete samples taken\n  at a rate of at least 2·f_max samples per second.\n\n  The Nyquist rate = 2·f_max.\n\n  EXAMPLES:\n    Human hearing: 20 Hz to 20 kHz\n    CD audio sample rate: 44,100 Hz  (> 2 × 20,000 = 40,000 Hz)\n    Phone audio: 0–4 kHz → 8,000 samples/second (standard PSTN)\n    HD video: captured at 24/30/60 fps (temporal sampling)\n\n  WHY IT WORKS (intuition):\n    At 2·f_max samples/sec, you capture one sample per half-cycle\n    of the highest frequency. That is enough to characterize a\n    sinusoid (the fundamental building block of all signals).\n    Fewer samples → aliasing: high frequencies masquerade as low.\n\n  ALIASING (sampling below Nyquist rate):\n    A 5 kHz tone sampled at 8 kHz looks like a 3 kHz tone.\n    A film camera at 24 fps makes wagon wheels appear to spin backward.\n    Aliased data cannot be unaliased — information is lost.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 266,
+      "heading_context": "### Hamming Codes",
+      "confidence": "candidate",
+      "text": "HAMMING(7,4) CODE — HOW IT WORKS\n==================================\n\n  4 data bits + 3 parity bits = 7-bit codeword.\n\n  Bit positions:  1  2  3  4  5  6  7\n  Types:          p  p  d  p  d  d  d\n                  (p=parity, d=data)\n\n  Parity bit p1 (pos 1) covers: 1, 3, 5, 7\n  Parity bit p2 (pos 2) covers: 2, 3, 6, 7\n  Parity bit p4 (pos 4) covers: 4, 5, 6, 7\n\n  The \"coverage\" pattern: each position is covered by the\n  parity bits whose positions sum to it.\n  Position 5 = 4+1 → covered by p1 and p4.\n\n  ERROR CORRECTION:\n    When you receive a codeword, check each parity bit.\n    If parity bit at position 2^k fails, set bit k of syndrome.\n    The syndrome value = binary position of the flipped bit.\n\n  Example: bit 5 flipped\n    p1 covers position 5 → p1 fails → syndrome bit 0 = 1\n    p2 does not cover pos 5 → p2 passes → syndrome bit 1 = 0\n    p4 covers position 5 → p4 fails → syndrome bit 2 = 1\n    Syndrome = 101₂ = 5₁₀ → flip bit 5 → corrected.\n\n  HAMMING BOUND: minimum bits needed to correct t errors in n-bit word:\n    n - k ≥ log₂(Σᵢ₌₀ᵗ C(n,i))\n    Where k = data bits, n-k = parity/check bits.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

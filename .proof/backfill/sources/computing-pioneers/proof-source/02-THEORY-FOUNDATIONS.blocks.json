@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing-pioneers\\02-THEORY-FOUNDATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Era Overview",
+      "confidence": "candidate",
+      "text": "THE FOUNDATIONS DECADE: 1928–1941\n===================================\n\n  1928 ─── HILBERT poses Entscheidungsproblem:\n           \"Is there a mechanical procedure to decide truth of any\n           mathematical statement?\" (decision problem)\n\n  1931 ─── GÖDEL: Incompleteness theorems.\n           Some true statements are unprovable within a formal system.\n           First crack in Hilbert's program.\n\n  1934 ─── CHURCH: Lambda calculus paper draft.\n           Computation as function application and reduction.\n\n  1936 ─── TURING: \"On Computable Numbers\" — halting problem, universal machine.\n  1936 ─── CHURCH: Lambda calculus published. Church's thesis.\n  1936 ─── POST: Post correspondence problem, tag systems.\n           All three, independently, define the same class of computable functions.\n           This is not coincidence — it is convergent discovery of a real object.\n\n  1937 ─── TURING visits Princeton. Works with Church.\n           Church-Turing thesis: the intuitive notion of \"algorithm\"\n           equals lambda calculus equals Turing machine.\n\n  1941 ─── TURING at Bletchley Park. Bombe machine. Enigma broken.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "### The Turing Machine",
+      "confidence": "candidate",
+      "text": "TURING MACHINE — FORMAL DEFINITION\n====================================\n\n  A Turing Machine M = (Q, Σ, Γ, δ, q₀, q_accept, q_reject) where:\n\n  Q         = finite set of states\n  Σ         = input alphabet (does not include blank ␢)\n  Γ         = tape alphabet (includes ␢; Σ ⊆ Γ)\n  δ: Q × Γ → Q × Γ × {L, R}\n              = transition function\n              (current state, current symbol) →\n              (new state, write symbol, move direction)\n  q₀ ∈ Q   = start state\n  q_accept  = accept state\n  q_reject  = reject state (≠ q_accept)\n\n  TAPE: infinite in both directions, divided into cells.\n  HEAD: reads/writes one cell at a time, moves left or right.\n\n  COMPUTATION:\n    Start: q₀, head at leftmost input symbol, rest of tape = ␢\n    Step:  apply δ to (current state, current symbol)\n    Halt:  reach q_accept or q_reject\n    Loop:  some inputs never halt",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "### The Halting Problem",
+      "confidence": "candidate",
+      "text": "HALTING PROBLEM UNDECIDABILITY\n================================\n\n  Assume HALT exists: on input ⟨M, w⟩, accepts if M halts on w,\n                                        rejects if M loops on w.\n\n  Construct D:\n    D(⟨M⟩): run HALT(⟨M, ⟨M⟩⟩)\n              if HALT accepts (M halts on ⟨M⟩): D loops\n              if HALT rejects (M loops on ⟨M⟩): D halts\n\n  Now ask: what does D do on input ⟨D⟩?\n    HALT(⟨D, ⟨D⟩⟩) = ?\n    If D halts on ⟨D⟩ → HALT accepts → D loops on ⟨D⟩    CONTRADICTION\n    If D loops on ⟨D⟩ → HALT rejects → D halts on ⟨D⟩    CONTRADICTION\n\n  Therefore HALT cannot exist. □",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "### Lambda Calculus",
+      "confidence": "candidate",
+      "text": "LAMBDA CALCULUS — CORE SYNTAX\n===============================\n\n  Term ::= x           (variable)\n         | λx.M        (abstraction — defines a function)\n         | M N         (application — applies M to N)\n\n  RULES:\n    α-conversion: λx.M = λy.M[x:=y]   (rename bound variables)\n    β-reduction:  (λx.M) N → M[x:=N]  (substitute N for x in M)\n    η-reduction:  λx.Mx → M            (if x not free in M)\n\n  EXAMPLE: Identity function\n    λx.x\n    Applied to y: (λx.x) y → y\n\n  EXAMPLE: Constant function (K combinator)\n    λx.λy.x\n    Applied: (λx.λy.x) a b → (λy.a) b → a\n\n  Church numerals: encode natural numbers as functions\n    0 = λf.λx.x\n    1 = λf.λx.f x\n    2 = λf.λx.f (f x)\n    n = λf.λx.f^n x\n    (n applied to f and x applies f n times to x)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "### Lambda Calculus",
+      "confidence": "candidate",
+      "text": "  Lambda calculus\n       └─→ Lisp (McCarthy, 1958) — lambda as first-class function\n       └─→ ML (Milner, 1973)\n               └─→ Haskell, OCaml, F#\n       └─→ ALGOL (Backus et al, 1960) — blocks/closures\n               └─→ C, Pascal, ...\n       └─→ Modern lambda expressions in Java 8, C# LINQ, Python lambda\n               └─→ C# delegates/lambdas you use in LINQ are\n                   direct descendants of Church's 1936 formalism",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 231,
+      "heading_context": "### Post Correspondence Problem",
+      "confidence": "candidate",
+      "text": "POST CORRESPONDENCE PROBLEM\n============================\n\n  Given: finite set of pairs of strings (dominoes):\n    P = { (a₁, b₁), (a₂, b₂), ..., (aₙ, bₙ) }\n\n  Question: Is there a finite sequence of indices i₁, i₂, ..., iₖ such that:\n    a_{i₁} a_{i₂} ... a_{iₖ} = b_{i₁} b_{i₂} ... b_{iₖ}\n    (concatenating top strings = concatenating bottom strings)\n\n  Example that HAS a solution:\n    (a, ab), (b, c), (abc, c)\n    Pick: 1, 2, 3  →  top: a·b·abc = ababc\n                     bottom: ab·c·c = abcc   NO\n    Pick: 1, 2, 3, 2 → top: a·b·abc·b = ababcb\n                        bottom: ab·c·c·c = abccc  NO\n    ... (PCP requires systematic search)\n\n  PCP is UNDECIDABLE. No algorithm exists that solves all instances.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

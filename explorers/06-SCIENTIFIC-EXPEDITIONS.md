@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:explorers:scientific-expeditions
+kind: guide
+module: explorers
+section: explorers
+title: Scientific Expeditions - Humboldt, Darwin, Wallace, Challenger
+status: source-custody
+source_custody: partial
+current_path: explorers/06-SCIENTIFIC-EXPEDITIONS.md
+canonical_path: explorers/06-SCIENTIFIC-EXPEDITIONS.md
+backsource_ids: [proof-backfill:explorers:06-scientific-expeditions, git-history:explorers:06-scientific-expeditions]
+concepts: [scientific, expeditions]
+root_concepts: [scientific, expeditions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Scientific Expeditions — Humboldt, Darwin, Wallace, Challenger
 
 ## Era Overview

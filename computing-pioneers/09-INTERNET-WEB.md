@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-pioneers:internet-web-09
+kind: guide
+module: computing-pioneers
+section: computing-pioneers
+title: Internet and Web Pioneers - Cerf, Kahn, Berners-Lee, Andreessen, Page, Brin
+status: source-custody
+source_custody: partial
+current_path: computing-pioneers/09-INTERNET-WEB.md
+canonical_path: computing-pioneers/09-INTERNET-WEB.md
+backsource_ids: [proof-backfill:computing-pioneers:09-internet-web, git-history:computing-pioneers:09-internet-web]
+concepts: [internet, web]
+root_concepts: [internet, web]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Internet and Web Pioneers — Cerf, Kahn, Berners-Lee, Andreessen, Page, Brin
 
 ## Era Overview

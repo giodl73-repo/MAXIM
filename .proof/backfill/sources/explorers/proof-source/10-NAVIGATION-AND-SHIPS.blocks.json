@@ -1,0 +1,303 @@
+{
+  "schema_version": "1",
+  "source_markdown": "explorers\\10-NAVIGATION-AND-SHIPS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Landscape",
+      "confidence": "candidate",
+      "text": "THE TECHNOLOGY STACK OF EXPLORATION\n=====================================\n\n  LAYER 5: MISSION PLANNING\n  ─────────────────────────\n  Provisions, crew, objectives, sponsors, timeline.\n\n  LAYER 4: CARTOGRAPHY\n  ─────────────────────\n  Chart the known. Predict the unknown.\n  Portolan charts → Mercator projection → geodetic survey.\n\n  LAYER 3: NAVIGATION\n  ────────────────────\n  Where am I? Which direction? How far have I come?\n  Dead reckoning + celestial fix + compass + charts.\n\n  LAYER 2: SHIP DESIGN\n  ─────────────────────\n  Hull, rigging, rudder, cargo capacity, seaworthiness.\n  Can this vessel survive the route?\n\n  LAYER 1: MATERIALS & CONSTRUCTION\n  ──────────────────────────────────\n  Wood species, fastening (pegged vs nailed), caulking,\n  copper sheathing, sailcloth, rope (hemp → manila).\n\n  Each layer constrains the layers above it.\n  You cannot plan a transoceanic voyage (Layer 5) without\n  a ship that can survive it (Layer 2) navigated by instruments\n  that can find the destination (Layer 3).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "### The Core Problem",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────┐\n  │  1. WHERE AM I?       → Position (latitude, longitude)│\n  │  2. WHICH WAY?        → Heading (compass bearing)    │\n  │  3. HOW FAR?          → Distance traveled            │\n  │  4. WHERE IS THE GOAL?→ Chart (map of destinations)  │\n  ├──────────────────────────────────────────────────────┤\n  │  Solve all four → you can navigate.                   │\n  │  Fail any one  → you are lost, or you miss landfall.  │\n  └──────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "### Latitude: The Easy Coordinate",
+      "confidence": "candidate",
+      "text": "POLARIS ALTITUDE = LATITUDE\n================================\n\n    Zenith (90°)\n      │\n      │\n      │       * Polaris\n      │      /\n      │     /  altitude angle = φ (latitude)\n      │    /\n      │   /\n      │  /\n      │ /\n      │/______________ Horizon (0°)\n    Observer\n\n  At the equator (0°N):  Polaris sits on the horizon (0° altitude).\n  At London (51.5°N):    Polaris is 51.5° above the horizon.\n  At the North Pole (90°N): Polaris is directly overhead.\n\n  Measurement instruments (chronological):\n    Cross-staff  (medieval)  → hold stick at arm's length, slide crossbar\n    Astrolabe    (ancient)   → graduated disc, sight along arm (alidade)\n    Quadrant     (15th c.)   → quarter-circle, plumb line reads angle\n    Backstaff    (Davis, 1594) → face away from sun, shadow-based\n    Octant       (Hadley, 1731) → double-reflection, reads to ~1 arcminute\n    Sextant      (1757→)     → refined octant, 60° arc, micrometer drum",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "### Longitude: The Hard Coordinate",
+      "confidence": "candidate",
+      "text": "WHY LONGITUDE IS HARD\n=======================\n\n  Latitude  → angle from the equator → observable from the sky.\n  Longitude → angle from an arbitrary meridian → requires TIMING.\n\n  The Earth rotates 360° in 24 hours = 15° per hour.\n  If you know the time at your current position AND the time at\n  a reference meridian (e.g., Greenwich), the difference in hours\n  × 15° = your longitude.\n\n  EXAMPLE:\n    Local noon occurs at 14:00 GMT → you are 2 hours west of Greenwich.\n    2 hours × 15°/hour = 30°W longitude.\n\n  THE CATCH:\n    You need an accurate clock set to Greenwich time.\n    A clock that gains or loses 1 minute/day → 15 nautical miles\n    of longitude error per day.\n    On a 60-day Atlantic crossing: 900 nm of accumulated error.\n    That is the width of the Mediterranean.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "### Longitude: The Hard Coordinate",
+      "confidence": "candidate",
+      "text": "HARRISON'S CHRONOMETERS\n=========================\n\n  H1 (1735): First marine timekeeper. 34 kg. Two interconnected\n             balances (temperature-compensated). Tested 1736 on\n             HMS Centurion to Lisbon. Worked, but Harrison wasn't\n             satisfied. Never submitted for the prize.\n\n  H2 (1739): Improved H1. 39 kg. Never tested at sea. Harrison\n             identified fundamental design problems.\n\n  H3 (1757): 19 years of work. Circular balances with bimetallic\n             strip for temperature compensation. Still too large.\n             Led Harrison to a radical insight: a large watch might\n             work better than a small clock.\n\n  H4 (1759): A WATCH. 13 cm diameter. 1.45 kg.\n             Diamond pallets. Temperature-compensated balance spring.\n             Tested 1761 on HMS Deptford to Jamaica (81 days).\n             Lost only 5.1 seconds. That's 1.25 nautical miles.\n             The prize required 30 nm. Harrison exceeded it by 24×.\n\n  THE POLITICS:\n    The Board of Longitude (chaired by Maskelyne, who championed\n    the competing lunar distance method) refused to pay the full\n    prize. Harrison received partial payments. Parliament eventually\n    intervened. Harrison received his full reward in 1773, aged 80,\n    one year before his death.\n\n    The chronometer won. By 1800, every major navy carried them.\n    Maskelyne's lunar distance method survived as a backup and check.\n\n  H4 TIMELINE:\n    ┌────┬────┬────┬────┬────┬────┬────┐\n    1735 1739 1757 1759 1761 1773 1776\n     H1   H2   H3   H4  Test Prize Dies\n                              ↑\n                         5.1 seconds in 81 days",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "### Longitude: The Hard Coordinate",
+      "confidence": "candidate",
+      "text": "NAVIGATION ←→ MODERN STATE ESTIMATION\n========================================\n\n  EXPLORATION ERA               MODERN ROBOTICS / AUTONOMOUS SYSTEMS\n  ──────────────               ─────────────────────────────────────\n  Dead reckoning               Odometry (wheel encoders, IMU integration)\n    chip log + compass           accelerometer + gyroscope\n    accumulates drift            accumulates drift\n\n  Celestial fix (sextant)      GPS fix (satellite ranging)\n    absolute position reset      absolute position reset\n    requires clear sky           requires satellite visibility\n\n  Magnetic compass             IMU heading (magnetometer + gyro)\n    declination error            hard/soft iron calibration\n    deviation from ship iron     sensor bias\n\n  Nautical chart               Map (SLAM, HD map, occupancy grid)\n    prior knowledge of coast     prior knowledge of environment\n\n  Chronometer                  Atomic clock (GPS satellites carry them)\n    precise time reference       precise time reference\n    Greenwich as datum           GPS time as datum\n\n  Traverse board (DR log)      Kalman filter state vector\n    manual integration           mathematical integration\n    periodic fix corrections     sensor fusion corrections\n\n  The fundamental problem is identical: estimate your state\n  (position, heading, velocity) from noisy measurements,\n  combining predictions (dead reckoning / odometry) with\n  observations (celestial fix / GPS fix) to bound error growth.\n\n  Dead reckoning error grows as √t (random walk).\n  Fix observations reset the error.\n  Navigation = managing the interval between fixes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 315,
+      "heading_context": "### The Magnetic Compass",
+      "confidence": "candidate",
+      "text": "COMPASS ERRORS: TWO DISTINCT PROBLEMS\n========================================\n\n  MAGNETIC NORTH ≠ TRUE NORTH ≠ COMPASS NORTH\n\n  1. DECLINATION (variation):\n     Angle between TRUE NORTH and MAGNETIC NORTH.\n     Caused by: Earth's magnetic field not aligning with rotation axis.\n     Changes with: position on Earth (spatial variation) and\n                   time (secular variation — the field drifts).\n     Modern range: ±25° depending on location.\n\n     True North\n       │\n       │  ← declination angle (e.g., 10°W)\n       │ /\n       │/\n       Magnetic North\n\n     Isogonic lines: contours of equal declination on a chart.\n     Agonic line: declination = 0° (magnetic and true north align).\n\n  2. DEVIATION:\n     Angle between MAGNETIC NORTH and COMPASS NORTH.\n     Caused by: iron on the ship (cannons, engines, hull fittings).\n     Changes with: ship's heading (deviation is different on every course).\n     Corrected by: deviation card (measured for each ship by swinging ship).\n\n     Magnetic North\n       │\n       │  ← deviation angle (depends on ship heading)\n       │ /\n       │/\n       Compass North\n\n  TOTAL ERROR: Compass reads    = True bearing + Declination + Deviation\n               True bearing     = Compass reading − Declination − Deviation\n\n  Mnemonic: \"Can Dead Men Vote Twice At Elections?\"\n            Compass → Deviation → Magnetic → Variation → True\n            (Add East, subtract West, going from Compass to True)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 363,
+      "heading_context": "### The Magnetic Compass",
+      "confidence": "candidate",
+      "text": "                    N (0°/360°)\n                    │\n            NNW─────┼─────NNE\n          NW    ·   │   ·    NE\n        WNW   ·     │     ·   ENE\n          ·         │         ·\n  W ────────────────┼────────────────── E\n          ·         │         ·\n        WSW   ·     │     ·   ESE\n          SW    ·   │   ·    SE\n            SSW─────┼─────SSE\n                    │\n                    S (180°)\n\n  32 points. Each point = 11.25°.\n  \"Boxing the compass\" = reciting all 32 points in order.\n  Required of every able seaman.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 423,
+      "heading_context": "### Dead Reckoning",
+      "confidence": "candidate",
+      "text": "THE TRAVERSE BOARD\n====================\n\n  A wooden board with a compass rose painted on it and\n  a grid below. Used by the helmsman to record heading\n  and speed at each half-hour bell during a 4-hour watch.\n\n  ┌─────────────────────────────┐\n  │         COMPASS ROSE        │\n  │     (8 concentric rings     │\n  │      for 8 half-hours)      │\n  │     Peg in the ring at      │\n  │     the compass direction   │\n  │     being steered.          │\n  ├─────────────────────────────┤\n  │      SPEED GRID BELOW       │\n  │     Holes in columns for    │\n  │     speed (knots from log)  │\n  │     One peg per half-hour.  │\n  └─────────────────────────────┘\n\n  At the end of each watch:\n    Navigator reads the board → extracts average heading + speed.\n    Plots the DR position on the chart.\n    Clears the board for the next watch.\n\n  This is manual odometry. The error accumulates because:\n    - The chip log measures speed through the water, not over ground.\n      Ocean currents push the ship sideways (leeway) and forward/backward.\n    - Compass heading has declination + deviation errors.\n    - Speed varies between log measurements.\n\n  After 24 hours of DR with no fix: position uncertainty ~10–30 nm.\n  After a week with no fix: ~50–100 nm or worse.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 462,
+      "heading_context": "### Dead Reckoning",
+      "confidence": "candidate",
+      "text": "EP VS. FIX\n============\n\n  EP (Estimated Position): from dead reckoning alone.\n      Symbol on chart: a dot inside a square.\n      Growing uncertainty circle around it.\n\n  FIX: from external observation (celestial sight, landmark bearing,\n       depth sounding). Resets DR error.\n       Symbol on chart: a dot inside a circle.\n\n  Running Fix: celestial sight gives a position LINE (not a point).\n               Two sights at different times, advanced by DR,\n               give a fix where the lines cross.\n\n  ──── DR track ────EP────EP────EP───⊕FIX────EP────EP────\n                    ↑              ↑                    ↑\n               Growing error   Error reset         Growing again\n\n  Navigation quality = how often you get fixes.\n  Coastal navigation: fix every few minutes (landmarks).\n  Open ocean: fix at noon (sun) and dawn/dusk (stars).\n  Overcast: no fix → pure DR → growing uncertainty.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 492,
+      "heading_context": "## Part II: Ship Design Evolution",
+      "confidence": "candidate",
+      "text": "### Ancient Vessels (3000 BCE – 500 CE)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 494,
+      "heading_context": "### Ancient Vessels (3000 BCE – 500 CE)",
+      "confidence": "candidate",
+      "text": "HULL CONSTRUCTION: TWO TRADITIONS\n====================================\n\n  SHELL-FIRST (Mediterranean, ancient):\n    Build the outer planking first.\n    Shape the hull.\n    Add frames (ribs) inside afterward for stiffness.\n    Planks joined edge-to-edge by mortise-and-tenon joints.\n    Labor-intensive. Strong. Smooth hull.\n    Greek triremes, Roman merchant ships.\n\n  FRAME-FIRST (Northern Europe, medieval → modern):\n    Build the skeleton (keel + frames) first.\n    Nail planking to the outside.\n    Faster construction. Easier to scale up.\n    Planks can overlap (clinker) or sit flush (carvel).\n    Viking longships (clinker). Carracks onward (carvel).\n\n  ┌──────────────────┐     ┌──────────────────┐\n  │  SHELL-FIRST     │     │  FRAME-FIRST     │\n  │                  │     │                  │\n  │   ╭────────╮     │     │      │ │ │       │\n  │  ╭┤ planks ├╮    │     │   ┌──┤ ├─┤──┐    │\n  │  │╰────────╯│    │     │   │  │ │ │  │    │\n  │  │  (hull   │    │     │   │ frames  │    │\n  │  │  shape   │    │     │   │  (ribs) │    │\n  │  │  first)  │    │     │   │  (then  │    │\n  │  │          │    │     │   │ planked) │   │\n  │  ╰──────────╯    │     │   └─────────┘    │\n  │  frames added    │     │  planks nailed   │\n  │  inside later    │     │  to frames       │\n  └──────────────────┘     └──────────────────┘\n\n  THE TRANSITION:\n    Shell-first: dominant until ~7th century CE.\n    Frame-first: dominant from ~10th century onward.\n    Frame-first enabled larger ships at lower cost.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 536,
+      "heading_context": "### Ancient Vessels (3000 BCE – 500 CE)",
+      "confidence": "candidate",
+      "text": "SQUARE SAIL: THE ANCIENT DEFAULT\n===================================\n\n  Square sails hang from a horizontal yard (spar) across the mast.\n  Efficient downwind (wind directly behind the ship).\n  Can sail across the wind (beam reach) with the yard braced around.\n  CANNOT sail upwind. At best ~70° off the wind.\n\n         WIND →→→→→→→→→\n              ╱╲\n             ╱  ╲\n            ╱    ╲\n  ═════════╱══════╲═══════ yard\n           │      │\n           │ SAIL │\n           │      │\n           ╰──────╯\n              │\n        ══════╪══════ hull\n              │\n\n  CONSEQUENCE:\n    Mediterranean: east-west routes work (prevailing westerlies).\n    Going against the wind: wait for wind shift, or row.\n    Ancient galleys: oars for propulsion when wind was wrong.\n    Open ocean exploration impossible with square sail alone.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 567,
+      "heading_context": "### Ancient Vessels (3000 BCE – 500 CE)",
+      "confidence": "candidate",
+      "text": "### Medieval Innovations (500 – 1400)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 573,
+      "heading_context": "### Medieval Innovations (500 – 1400)",
+      "confidence": "candidate",
+      "text": "LATEEN SAIL\n=============\n\n  Triangular sail on a long diagonal yard (lateen yard).\n  The yard is as long as the ship itself.\n  Pivots around the mast.\n\n         WIND →→→→→→→→→\n              ╱\n             ╱\n            ╱  SAIL\n           ╱  (triangle)\n          ╱\n         ╱\n        ╱\n       ╱\n  ════╪═══════ hull\n      │\n\n  ADVANTAGE: Can point closer to the wind (tacking upwind).\n  DISADVANTAGE: Hard to handle in heavy weather. The long yard\n    must be manhandled around the mast on every tack.\n    Requires skilled crew. Dangerous in storms.\n\n  SOLUTION: The Portuguese combined both:\n    Square sails on foremast and mainmast (power downwind).\n    Lateen on mizzenmast (maneuvering, pointing upwind).\n    → The full-rigged ship. This combination dominated 1450–1850.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 608,
+      "heading_context": "### Medieval Innovations (500 – 1400)",
+      "confidence": "candidate",
+      "text": "STEERING OAR vs. STERN RUDDER\n================================\n\n  STEERING OAR (ancient → ~1200):\n    Mounted on the right side (starboard) of the stern.\n    Effective for small ships.\n    Loses effectiveness as ship size increases.\n    Vulnerable to damage (projects from the hull).\n    Helmsman stands at the stern.\n\n                    ┌──────────┐\n                    │          │\n                    │   HULL   │  ← oar\n                    │          ├──╲\n                    └──────────┘   ╲ (steering oar,\n                                    ╲  starboard side)\n\n  STERN RUDDER (1200→):\n    Hinged to the sternpost on the centerline.\n    Works at all ship sizes.\n    Protected by the hull.\n    Mechanical advantage through tiller (then whipstaff, then wheel).\n    Enables larger ships with consistent steering.\n\n                    ┌──────────┐\n                    │          │\n                    │   HULL   │\n                    │          │\n                    └─────┬────┘\n                          │ rudder (centerline)\n                          │\n                          ▼\n\n  SEQUENCE:\n    Tiller (direct lever)     → 13th century\n    Whipstaff (vertical lever)→ 15th century, reaches below deck\n    Ship's wheel (1700s)      → block-and-tackle connection to rudder",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 650,
+      "heading_context": "### Medieval Innovations (500 – 1400)",
+      "confidence": "candidate",
+      "text": "### The Ships of Exploration (1400 – 1600)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 656,
+      "heading_context": "### The Ships of Exploration (1400 – 1600)",
+      "confidence": "candidate",
+      "text": "CARAVEL (Portuguese, 15th century)\n=====================================\n\n  Length: 15–25 m.  Beam: 5–8 m.  Draft: ~2 m.\n  Displacement: 50–200 tons.  Crew: 20–30.\n\n  CHARACTERISTICS:\n    - Shallow draft → can explore rivers and coastlines.\n    - Lateen rig (caravela latina) → tacks upwind along coast.\n    - Later: square + lateen hybrid (caravela redonda).\n    - Fast: 6–8 knots. Could outrun most threats.\n    - Small: limited cargo. NOT a cargo carrier.\n\n  TWO VARIANTS:\n    Caravela latina: all lateen sails. Exploration.\n    Caravela redonda: square foresail + lateen mizzen. Ocean crossings.\n\n                 Main\n                  │\n            Fore  │  Mizzen\n              │   │   │\n              │   │   ╱  (lateen)\n    ╔═════════╪═══╪══╱═══════╗\n    ║         │   │ ╱        ║\n    ║      ┌──┴───┴─┐       ║\n    ║      │         │       ║  Caravela redonda\n    ║      │  hull   │       ║  (square fore + lateen mizzen)\n    ╚══════╧═════════╧═══════╝\n\n  Da Gama's Berrio was a caravel.\n  Columbus's Niña started as lateen, re-rigged to square for Atlantic.\n  The caravel was the Formula 1 car of the Age of Exploration.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 695,
+      "heading_context": "### The Ships of Exploration (1400 – 1600)",
+      "confidence": "candidate",
+      "text": "CARRACK (Nau) — 15th–16th century\n=====================================\n\n  Length: 25–40 m.  Beam: 8–12 m.  Draft: 3–5 m.\n  Displacement: 200–1,000+ tons.  Crew: 80–200.\n\n  CHARACTERISTICS:\n    - Full-rigged: square sails on fore + main, lateen on mizzen.\n    - High castles fore and aft (fighting platforms, accommodation).\n    - Deep hull: large cargo capacity.\n    - Slower than caravel (4–5 knots), but far more cargo.\n    - Armed: cannons mounted through gun ports.\n\n                      Mainmast\n                        │\n              Foremast  │  Mizzenmast\n                │       │      │\n              ┌─┤─┐   ┌─┤─┐   │╱ lateen\n  ╔═══════════╪═╪═╪═══╪═╪═╪═══╪╱════════╗\n  ║  Forecastle│ │ │   │ │ │   ╱ Aftercastle\n  ║  ┌────┐   └─┴─┘   └─┴─┘  ╱  ┌────┐ ║\n  ║  │high│      hull          │high│ ║\n  ║  │deck│                    │deck│ ║\n  ╚══╧════╧════════════════════╧════╧═╝\n\n  Columbus's Santa María was a carrack (~100 tons, small for type).\n  Da Gama's São Gabriel was a carrack (~178 tons).\n  Portuguese India Run carracks reached 1,000+ tons by 1550.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 758,
+      "heading_context": "### The Ships of Exploration (1400 – 1600)",
+      "confidence": "candidate",
+      "text": "### Age of Sail Evolution (1700 – 1870)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 768,
+      "heading_context": "### Age of Sail Evolution (1700 – 1870)",
+      "confidence": "candidate",
+      "text": "HULL SHAPE: BEAM-TO-LENGTH RATIO AND SPEED\n=============================================\n\n  VESSEL TYPE           L:B RATIO    TYPICAL SPEED\n  ──────────           ─────────    ─────────────\n  Carrack              ~3:1         4–5 knots\n  Galleon              ~4:1         5–7 knots\n  Frigate              ~4.5:1       8–10 knots\n  Clipper              ~6:1         14–17 knots (peak: 21)\n\n  Longer + narrower = faster (lower wave-making resistance).\n  But: less cargo space, less stability, harder to handle.\n  Clipper ships sacrificed cargo capacity for speed.\n\n  CROSS-SECTION COMPARISON:\n\n   Carrack (beamy)      Galleon          Clipper (sharp)\n    ╭────────────╮      ╭──────────╮      ╭──────╮\n   ╱              ╲    ╱            ╲    ╱        ╲\n  │                │  │              │  │        │\n  │    wide beam   │  │   moderate   │  │  narrow  │\n  │                │  │              │  │        │\n   ╲              ╱    ╲            ╱    ╲        ╱\n    ╰────────────╯      ╰──────────╯      ╰──────╯\n    ← 8–12 m →          ← 7–10 m →        ← 5–7 m →",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 863,
+      "heading_context": "### Provisioning a Ship",
+      "confidence": "candidate",
+      "text": "PROVISIONS FOR A 100-MAN CREW, 6-MONTH VOYAGE (~1700)\n=======================================================\n\n  ITEM                    QUANTITY          STORAGE\n  ────                    ────────          ───────\n  Water                   80–100 tons       Oak casks (went foul after weeks)\n  Beer/wine               15–20 tons        Replacement for spoiled water\n  Salt beef               15 tons           Packed in brine casks\n  Salt pork               10 tons           Packed in brine casks\n  Hardtack (ship biscuit) 8 tons            Dry storage (got weevils)\n  Dried peas/beans        3 tons            Dry storage\n  Flour                   3 tons            Barrels\n  Cheese                  2 tons            Wax-coated wheels\n  Butter                  1 ton             Kegs\n  Oatmeal                 1.5 tons          Sacks\n  Vinegar                 500 gallons       Cleaning and food preservation\n  Rum/spirits             1,000+ gallons    Daily ration: 1/2 pint\n\n  TOTAL: ~130–150 tons of provisions.\n  On a 200-ton ship, provisions are 65–75% of the cargo.\n  You are carrying your own fuel.\n\n  WATER:\n    The critical constraint. ~1 gallon (4L) per man per day minimum.\n    100 men × 180 days × 4L = 72,000 liters = ~72 tons.\n    Water went stagnant in wooden casks (no airtight seal).\n    Supplemented by rainwater collection (awnings, sails).\n    Beer and wine were safer to drink than stored water.\n\n  CALORIE BUDGET:\n    ~3,000–4,000 kcal/day for heavy manual labor.\n    Salt meat + hardtack + peas = ~3,200 kcal, but:\n    Vitamin C → zero after first month.\n    Vitamin A → inadequate. Night blindness common.\n    Fresh food only available at port stops.\n\n  SPOILAGE:\n    Hardtack → infested with weevils and larvae after weeks.\n    (Sailors ate it in the dark to avoid seeing what was in it.)\n    Salt beef → could last years but grew increasingly inedible.\n    Water → green, slimy, foul-tasting. Still drinkable.\n    Cheese → grew mold. Scraped and eaten.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 918,
+      "heading_context": "### From Portolan to Mercator",
+      "confidence": "candidate",
+      "text": "PORTOLAN CHART STRUCTURE\n==========================\n\n  Characteristics:\n    - Compass roses (wind roses) scattered across the chart.\n    - Rhumb lines radiating from each rose in 16 or 32 directions.\n    - Coastlines drawn from direct observation and compass bearings.\n    - Interior of landmasses: blank or decorated (no survey data).\n    - Scale bars, but no latitude/longitude grid.\n\n  ┌────────────────────────────────────────────┐\n  │                                            │\n  │            * ─── rhumb lines ───*          │\n  │           /│\\                  /│\\         │\n  │          / │ \\                / │ \\        │\n  │    ╭────╮  │  ╲         ╭────╮ │  ╲        │\n  │    │ROSE│  │   \\        │ROSE│ │   \\      │\n  │    ╰────╯  │    \\       ╰────╯ │    \\     │\n  │     ╱ ╲    │     \\      ╱ ╲    │     \\    │\n  │    ╱   ╲   │      \\    ╱   ╲   │      \\   │\n  │   coastline─────────────coastline         │\n  │   (detailed)      (detailed)              │\n  │        INTERIOR: BLANK                    │\n  └────────────────────────────────────────────┘\n\n  Good for: Mediterranean coastal navigation.\n  Bad for: ocean crossings (no latitude, no projection).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 952,
+      "heading_context": "### From Portolan to Mercator",
+      "confidence": "candidate",
+      "text": "MAP PROJECTIONS: WHAT THEY PRESERVE\n======================================\n\n  MERCATOR (conformal):\n    Preserves: angles and shapes (locally).\n    Rhumb lines: STRAIGHT (→ easy to navigate).\n    Great circles: curved (→ not shortest path).\n    Distortion: area. Greenland looks as big as Africa.\n                (Africa is 14× larger.)\n    Use: navigation charts (still standard for marine charts).\n\n  GNOMONIC:\n    Preserves: great circles as STRAIGHT LINES.\n    Use: plotting shortest ocean routes.\n    Distortion: extreme near edges. Only shows <1 hemisphere.\n    Technique: plot great-circle route on gnomonic chart,\n               then transfer waypoints to Mercator for steering.\n\n  EQUAL-AREA (e.g., Mollweide, Albers):\n    Preserves: area (correct relative sizes).\n    Distortion: shapes.\n    Use: thematic maps (population, climate, resources).\n    NOT used for navigation.\n\n  COMPARISON ON A NORTH ATLANTIC ROUTE (New York → London):\n\n    MERCATOR CHART:        GNOMONIC CHART:\n    (rhumb line straight)  (great circle straight)\n\n    ──────────────────     ╲\n         rhumb line             ╲  great circle\n    ──────────────────           ╲  (shorter)\n                                  ╲\n    Rhumb line distance:     Great circle distance:\n    ~3,459 nm                ~3,000 nm\n\n    Saving by great-circle routing: ~460 nm (~13%).\n    On longer routes the saving is proportionally larger.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "diagram_like",
+      "line": 1005,
+      "heading_context": "### Survey Methods",
+      "confidence": "candidate",
+      "text": "TRIANGULATION\n===============\n\n  Known: baseline AB (measured precisely on flat ground).\n  Unknown: position of point C (a church steeple, hilltop, etc.).\n\n        C\n       ╱ ╲\n      ╱   ╲\n     ╱     ╲\n    ╱ α     β ╲\n   A───────────B\n    ← baseline →\n    (measured)\n\n  Measure angle α at A (toward C) and angle β at B (toward C).\n  Third angle γ = 180° − α − β.\n  Law of sines: AC/sin(β) = AB/sin(γ).\n  Now AC and BC are known → position of C is determined.\n\n  THEN: use AC or BC as a new baseline → extend the triangle chain.\n  Each new triangle shares a side with a previous triangle.\n  Error propagation: controlled by redundant observations and adjustment.\n\n  SNELLIUS (1615): measured the distance from Alkmaar to Bergen op Zoom\n  (116 km) using a chain of 33 triangles, starting from a single\n  measured baseline of ~325 meters.\n\n  This method surveyed the world:\n    French meridian survey (Cassini, 1683–1744).\n    Great Trigonometric Survey of India (1802–1871).\n    Ordnance Survey of Britain (1791→).\n    \"Survey\" literally means \"see over\" — triangulation is the method.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "diagram_like",
+      "line": 1051,
+      "heading_context": "### Printing and Reproduction",
+      "confidence": "candidate",
+      "text": "CHART REPRODUCTION METHODS\n=============================\n\n  WOODCUT (15th century):\n    Image carved into a wood block. Block inked and pressed to paper.\n    Coarse detail. Lines thick. Fine coastlines impossible.\n    Used for early printed maps (Ptolemy's Geography, 1477).\n\n  COPPERPLATE ENGRAVING (16th–18th century):\n    Image incised into a copper plate with a burin (engraving tool).\n    Ink pressed into grooves. Paper pressed onto plate.\n    Fine lines, precise detail. THE standard for nautical charts.\n    Mercator's 1569 map: copperplate engraving.\n    A single plate can produce ~1,000 prints before wearing out.\n    Corrections: hammer out the back, re-engrave. Expensive.\n\n  LITHOGRAPHY (1796, Senefelder):\n    Image drawn on limestone with grease crayon.\n    Wet stone repels ink; greasy image accepts ink.\n    Faster than engraving. Easier to correct.\n    Enabled color printing (chromolithography): one stone per color.\n    Contour maps with color elevation shading become practical.\n\n  OFFSET LITHOGRAPHY (1875→):\n    Image transferred from plate → rubber blanket → paper.\n    No direct plate-to-paper contact.\n    Mass production. Modern chart printing.\n\n  TIMELINE:\n    ┌────────┬──────────────┬────────────┬──────────────┐\n    1477     1569           1796         1875\n    Woodcut  Copperplate    Lithography  Offset\n    (crude)  (precise)      (fast)       (mass)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "diagram_like",
+      "line": 1091,
+      "heading_context": "## Part V: Ship Design as System Architecture",
+      "confidence": "candidate",
+      "text": "SHIP DESIGN ←→ SYSTEM ARCHITECTURE BRIDGE\n=============================================\n\n  SHIP COMPONENT        SYSTEM ANALOG            WHY\n  ──────────────        ────────────            ───\n  Hull                  Chassis / platform       Structural foundation, everything mounts to it\n  Keel                  Backbone / bus           Central structural member, loads distributed from it\n  Rigging               Control surfaces         Converts environment (wind) to motion\n  Rudder                Steering / routing       Directional control, proportional to speed\n  Compass               IMU / heading sensor     Direction reference, systematic errors\n  Chronometer           System clock / NTP       Time reference, drift = position error\n  Sextant               GPS receiver             External fix, resets accumulated error\n  Chart                 Map / config database    Prior knowledge of the operating environment\n  Provisions            Fuel + consumables       Mission duration = provisions / consumption rate\n  Crew                  Operators                Training matters more than equipment quantity\n  Copper sheathing      Anti-corrosion / patching Preventive maintenance for hull integrity\n  Gun ports             Defensive interfaces     Hardened external boundaries\n  Ballast               Stability system         Low center of gravity, trim management\n  Bilge pump            Error recovery / drainage Keeps the system from sinking under leakage\n\n  MISSION PLANNING PARALLEL:\n    Exploration voyage                Software project\n    ──────────────────               ─────────────────\n    Provisions for 6 months          Budget for 6 sprints\n    Port stops for resupply          Milestones for scope review\n    Weather windows                  Market windows\n    Crew morale (the real limit)     Team morale (the real limit)\n    Scurvy (unknown root cause)      Tech debt (unknown root cause)\n    Lind's experiment (1747)         A/B testing (modern)\n    42 years to adopt the cure       Known fixes not adopted for \"reasons\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

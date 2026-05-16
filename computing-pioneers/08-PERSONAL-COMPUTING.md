@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-pioneers:personal-computing-08
+kind: guide
+module: computing-pioneers
+section: computing-pioneers
+title: Personal Computing - Kay, Engelbart, Jobs, Wozniak
+status: source-custody
+source_custody: partial
+current_path: computing-pioneers/08-PERSONAL-COMPUTING.md
+canonical_path: computing-pioneers/08-PERSONAL-COMPUTING.md
+backsource_ids: [proof-backfill:computing-pioneers:08-personal-computing, git-history:computing-pioneers:08-personal-computing]
+concepts: [personal, computing]
+root_concepts: [personal, computing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Personal Computing — Kay, Engelbart, Jobs, Wozniak
 
 ## Era Overview

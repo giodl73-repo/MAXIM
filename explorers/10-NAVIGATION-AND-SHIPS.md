@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:explorers:navigation-and-ships
+kind: guide
+module: explorers
+section: explorers
+title: Navigation and Ships - The Technology of Exploration
+status: source-custody
+source_custody: partial
+current_path: explorers/10-NAVIGATION-AND-SHIPS.md
+canonical_path: explorers/10-NAVIGATION-AND-SHIPS.md
+backsource_ids: [proof-backfill:explorers:10-navigation-and-ships, git-history:explorers:10-navigation-and-ships]
+concepts: [navigation, and, ships]
+root_concepts: [navigation, and]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Navigation and Ships — The Technology of Exploration
 
 ## The Landscape
