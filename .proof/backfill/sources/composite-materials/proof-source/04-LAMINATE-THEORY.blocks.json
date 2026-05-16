@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "composite-materials\\04-LAMINATE-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              CLASSICAL LAMINATE THEORY (CLT)                     |\n|                                                                  |\n|   GOAL: Predict laminate behavior from ply properties            |\n|   via linear elastic mechanics                                   |\n|                                                                  |\n|   INPUT:  Ply properties (E1, E2, G12, ν12, ply thickness)       |\n|           Stacking sequence [0/45/-45/90]s                       |\n|                                                                  |\n|   OUTPUT: [A][B][D] matrices → stiffness                         |\n|           Strains/stresses in each ply under loads               |\n|           Failure prediction when combined with criteria         |\n|                                                                  |\n|   ASSUMPTIONS:                                                   |\n|   1. Kirchhoff-Love plate theory (thin plate, plane stress)      |\n|   2. Linear elastic material behavior                            |\n|   3. Perfect bonding between plies (no delamination)             |\n|   4. Plane stress through thickness (σ3 = τ23 = τ13 = 0)         |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "### The Reduced Stiffness Matrix [Q]",
+      "confidence": "candidate",
+      "text": "   PLANE STRESS CONSTITUTIVE LAW (material axes):\n   ─────────────────────────────────────────────────\n   {σ1}   [Q11  Q12   0 ] {ε1}\n   {σ2} = [Q12  Q22   0 ] {ε2}\n   {τ12}  [0    0    Q66] {γ12}\n\n   Where:\n   Q11 = E1 / (1 - ν12·ν21)    ≈ E1 for high E1/E2 ratio\n   Q22 = E2 / (1 - ν12·ν21)\n   Q12 = ν12·E2 / (1 - ν12·ν21)\n   Q66 = G12\n   ν21 = ν12 · E2/E1  (reciprocal relation)\n\n   For CF/epoxy IM7/977: E1=165, E2=9.5, G12=5.7, ν12=0.34 [GPa]\n   Q11 = 165/(1-0.34×0.022) = 165.77 GPa\n   Q22 = 9.5/0.992 = 9.58 GPa\n   Q12 = 0.34×9.5/0.992 = 3.26 GPa\n   Q66 = 5.7 GPa",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "### Coordinate Transformation",
+      "confidence": "candidate",
+      "text": "   TRANSFORMATION (ply at θ degrees to x-axis):\n   ──────────────────────────────────────────────\n   {σx}     [T]^{-1} {σ1}\n   {σy}   =          {σ2}    (and inverse for strains)\n   {τxy}             {τ12}\n\n   [T] = [c²     s²    2cs ]\n         [s²     c²   -2cs ]\n         [-cs   cs   c²-s² ]\n   where c = cos(θ), s = sin(θ)\n\n   TRANSFORMED REDUCED STIFFNESS [Q̄]:\n   ─────────────────────────────────────\n   {σx}     [Q̄11  Q̄12  Q̄16] {εx}\n   {σy}   = [Q̄12  Q̄22  Q̄26] {εy}\n   {τxy}    [Q̄16  Q̄26  Q̄66] {γxy}\n\n   Key: Q̄16 and Q̄26 ≠ 0 for off-axis plies (bending-shear coupling)\n   For θ = 0° or 90°: Q̄16 = Q̄26 = 0 (no coupling)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "## The ABD Matrix",
+      "confidence": "candidate",
+      "text": "   {N}   [A  B] {ε⁰}\n   {M} = [B  D] {κ}\n\n   Written out:\n   [Nx]   [A11 A12 A16 | B11 B12 B16] [ε⁰x]\n   [Ny]   [A12 A22 A26 | B12 B22 B26] [ε⁰y]\n   [Nxy]  [A16 A26 A66 | B16 B26 B66] [γ⁰xy]\n   ─────  ─────────────────────────── ──────\n   [Mx]   [B11 B12 B16 | D11 D12 D16] [κx]\n   [My]   [B12 B22 B26 | D12 D22 D26] [κy]\n   [Mxy]  [B16 B26 B66 | D16 D26 D66] [κxy]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 146,
+      "heading_context": "## Stacking Sequence Effects",
+      "confidence": "candidate",
+      "text": "### Symmetric Laminates: B = 0",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "### Symmetric Laminates: B = 0",
+      "confidence": "candidate",
+      "text": "   SYMMETRIC NOTATION: [0/45/-45/90]s\n   The 's' means reflect: [0/45/-45/90/90/-45/45/0]\n   → 8 plies total\n   → B = 0 → no extension-bending coupling\n   → No curvature on cooling from cure temperature\n\n   ASYMMETRIC EXAMPLE: [0/45/-45/90]\n   4 plies, B ≠ 0\n   Flat when hot, warped when cool\n   Only use asymmetric if warped shape is desired (e.g., snap-through)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 165,
+      "heading_context": "### Symmetric Laminates: B = 0",
+      "confidence": "candidate",
+      "text": "### Balanced Laminates: A16 = A26 = 0",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 170,
+      "heading_context": "### Balanced Laminates: A16 = A26 = 0",
+      "confidence": "candidate",
+      "text": "   BALANCED: [0/+45/-45/90]s (balanced and symmetric)\n   → A16 = A26 = 0 (no shear-extension coupling)\n   → D16 ≠ 0 unless also [0/+45/-45/90/90/-45/+45/0] (mid-plane symmetry only)\n\n   QUASI-ISOTROPIC: [0/+45/-45/90]s\n   → A matrix is isotropic in-plane: A11 = A22, A16 = A26 = 0\n   → But D matrix is NOT isotropic (bending stiffness varies with direction)\n   → \"Quasi-isotropic\" means in-plane only",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 183,
+      "heading_context": "### Common Stacking Sequences",
+      "confidence": "candidate",
+      "text": "   [0]n     — Unidirectional, maximum E1, minimum E2\n              All load must be in fiber direction\n              UD test specimens only\n\n   [0/90]s  — Cross-ply, balanced symmetric\n              E = average of E1 and E2 in both directions\n              Good for biaxial loading (tanks, pressure vessels)\n\n   [0/+45/-45/90]s — Quasi-isotropic (QI)\n              In-plane: same E in any direction = E_QI\n              E_QI ≈ (E1 + E2 + 2·E1·ν21)/(2·(1-ν12·ν21)) ... (complex)\n              Approximate: E_QI ≈ 3/8·E1 + 5/8·E2 (crude)\n              For CF/epoxy: E_QI ≈ 50–55 GPa vs. E1 = 130–165 GPa\n              Aviation preference: simple analysis, no directional optimization\n\n   [0/±60]s — Quasi-isotropic 3-direction (triaxial braid equivalent)\n              Three balanced directions at 60°\n\n   [+45/-45]s — Pure shear panel, optimized for shear webs\n               High G_xy, low E_x and E_y",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 248,
+      "heading_context": "### Thermal Residual Stress",
+      "confidence": "candidate",
+      "text": "   CURING AT 180°C, COOLING TO 25°C:\n   ──────────────────────────────────\n   ΔT = -155°C\n\n   Each ply has CTE:\n   α1 ≈ 0.1×10⁻⁶/°C (carbon fiber CTE in fiber direction — very small)\n   α2 ≈ 28×10⁻⁶/°C  (transverse — epoxy dominates)\n\n   In a [0/90]s laminate:\n   0° plies want to shrink more in transverse direction\n   90° plies constrain that shrinkage\n   → Residual compressive stress in fiber direction of 0° plies\n   → Residual tensile stress perpendicular to fibers in 0° plies\n\n   Residual thermal stress can be significant fraction of failure stress\n   → This is why cure simulation and residual stress analysis matters for\n     thick sections and asymmetric laminates",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 270,
+      "heading_context": "### Hygroscopic Swelling",
+      "confidence": "candidate",
+      "text": "   MOISTURE CONCENTRATION: Mm (kg moisture / kg resin)\n   Typical saturation: 2–5% (epoxy)\n\n   Swelling coefficient:\n   β1 = 0 (no fiber direction swelling — fiber restrains)\n   β2 = 0.005–0.010 mm/mm per %MM (transverse swelling)\n\n   Effect: moisture partially cancels thermal residual stress\n   (thermal: shrinkage; moisture: expansion)\n   Engineering use: wet/hot condition often near stress-free from these\n                    competing effects\n\n   IMPORTANT: moisture reduces Tg → reduces hot/wet allowables",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 307,
+      "heading_context": "### Tsai-Wu Criterion (interaction)",
+      "confidence": "candidate",
+      "text": "   F1·σ1 + F2·σ2 + F11·σ1² + F22·σ2² + F66·τ12² + 2F12·σ1·σ2 = 1\n\n   Failure index (FI) = left side; FI ≥ 1 → failure\n   Reserve factor (RF) = 1/√FI (how far to scale loads for failure)\n\n   Coefficients:\n   F1  = 1/X1T - 1/X1C         F2  = 1/X2T - 1/X2C\n   F11 = 1/(X1T·X1C)           F22 = 1/(X2T·X2C)\n   F66 = 1/S12²                 F12 = interaction term (empirical, -½√(F11·F22))\n\n   Tsai-Wu is a good default criterion for initial design in aerospace.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 340,
+      "heading_context": "## Effective Laminate Properties",
+      "confidence": "candidate",
+      "text": "   Ex  = 1/(a11·h)          (in-plane modulus in x)\n   Ey  = 1/(a22·h)\n   Gxy = 1/(a66·h)\n   νxy = -a12/a11\n\n   For [0/+45/-45/90]s CF/epoxy IM7 (each ply 0.125 mm):\n   Total thickness: 8 × 0.125 = 1.0 mm\n   Ex ≈ Ey ≈ 55 GPa  (quasi-isotropic — equal in all directions)\n   Gxy ≈ 21 GPa\n   νxy ≈ 0.31\n\n   Bending stiffness dominated by outer plies (× z³ in D):\n   [0/+45/-45/90]s vs [90/+45/-45/0]s: same [A], different [D]\n   Outer 0° plies → higher bending stiffness in fiber direction\n   Design: put stiff plies on outside for bending-critical structures",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

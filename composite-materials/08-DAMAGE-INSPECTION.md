@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:composite-materials:damage-inspection
+kind: guide
+module: composite-materials
+section: composite-materials
+title: Damage Mechanics and NDT Inspection
+status: source-custody
+source_custody: partial
+current_path: composite-materials/08-DAMAGE-INSPECTION.md
+canonical_path: composite-materials/08-DAMAGE-INSPECTION.md
+backsource_ids: [proof-backfill:composite-materials:08-damage-inspection, git-history:composite-materials:08-damage-inspection]
+concepts: [damage, inspection]
+root_concepts: [damage, inspection]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Damage Mechanics and NDT Inspection
 
 ## The Big Picture
@@ -14,7 +33,7 @@
 |   Fiber fracture          Shearography           Remove from svc |
 |   Bond failure            X-ray (CT)                             |
 |   Disbond                 Eddy current           REPAIR TYPES:   |
-|   Moisture ingress        Acoustic emission       Resin injection |
+|   Moisture ingress        Acoustic emission      Resin injection |
 |                                                                  |
 |   BARELY VISIBLE IMPACT DAMAGE (BVID) — the critical concept     |
 |   Definition: damage not detectable in normal walk-around        |

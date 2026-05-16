@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:graphic-design:typography-design
+kind: guide
+module: graphic-design
+section: graphic-design
+title: Typography in Graphic Design
+status: source-custody
+source_custody: partial
+current_path: graphic-design/05-TYPOGRAPHY-DESIGN.md
+canonical_path: graphic-design/05-TYPOGRAPHY-DESIGN.md
+backsource_ids: [proof-backfill:graphic-design:05-typography-design, git-history:graphic-design:05-typography-design]
+concepts: [typography, design]
+root_concepts: [typography, design]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Typography in Graphic Design
 
 ## The Big Picture

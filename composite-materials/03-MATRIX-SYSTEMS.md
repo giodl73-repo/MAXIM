@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:composite-materials:matrix-systems
+kind: guide
+module: composite-materials
+section: composite-materials
+title: Matrix Systems: Thermoset and Thermoplastic
+status: source-custody
+source_custody: partial
+current_path: composite-materials/03-MATRIX-SYSTEMS.md
+canonical_path: composite-materials/03-MATRIX-SYSTEMS.md
+backsource_ids: [proof-backfill:composite-materials:03-matrix-systems, git-history:composite-materials:03-matrix-systems]
+concepts: [matrix, systems]
+root_concepts: [matrix, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Matrix Systems: Thermoset and Thermoplastic
 
 ## The Big Picture

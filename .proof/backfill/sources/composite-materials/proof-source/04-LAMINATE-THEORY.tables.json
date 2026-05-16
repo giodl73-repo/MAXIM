@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "composite-materials\\04-LAMINATE-THEORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 362,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "One-direction in-plane stiffness",
+          "Increase 0-degree ply fraction, check load path, fiber allowables, buckling, and off-axis loads.",
+          "A unidirectional solution can be brittle to unexpected load directions."
+        ],
+        [
+          "Quasi-isotropic behavior",
+          "Use balanced `[0/+45/-45/90]s` families and compare A-matrix terms.",
+          "Quasi-isotropic usually means in-plane only, not bending or damage isotropy."
+        ],
+        [
+          "Cure warpage",
+          "Check symmetry about midplane, coefficient mismatch, cure temperature, moisture, and residual stress.",
+          "Symmetry controls extension-bending coupling but not every manufacturing distortion."
+        ],
+        [
+          "Shear-extension coupling",
+          "Use balanced plus/minus angle plies and inspect `A16`, `A26`, `B`, and `D` terms.",
+          "Balance and symmetry solve different coupling problems."
+        ],
+        [
+          "Shear-dominated load",
+          "Increase plus/minus 45 plies, verify bearing/bypass, matrix shear allowables, and fatigue.",
+          "Matrix and interface properties become more important in shear-heavy laminates."
+        ],
+        [
+          "Bending stiffness",
+          "Put high-modulus plies far from the neutral axis and check compression, buckling, and impact tolerance.",
+          "Outer 0-degree plies increase bending stiffness but can be damage-sensitive."
+        ],
+        [
+          "Thermal residual stress",
+          "Combine symmetry, balance, low cure delta-T, compatible CTEs, and process control.",
+          "Laminate theory predicts trends; process defects can dominate residual stress."
+        ]
+      ]
+    }
+  ]
+}

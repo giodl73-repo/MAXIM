@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graphic-design\\04-GRID-SYSTEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    GRID SYSTEMS TAXONOMY                         |\n|                                                                  |\n|  MANUSCRIPT      COLUMN       MODULAR         HIERARCHICAL       |\n|  (single block)  (multi-col)  (rows + cols)   (custom)           |\n|                                                                  |\n|  Books           Newspapers   Magazines       Posters            |\n|  Reports         Web layouts  Catalogs        Annual reports     |\n|  Long-form text  Dashboards   Complex docs    Editorial spread   |\n|                                                                  |\n|  COMPLEXITY --------------------------------------------->       |\n|  FLEXIBILITY <---------------------------------------------      |\n|                                                                  |\n|  All grids share: margins, columns, gutters, baselines           |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 48,
+      "heading_context": "## Grid Anatomy",
+      "confidence": "candidate",
+      "text": "+--MARGIN--+--COLUMN--+--GUTTER--+--COLUMN--+--MARGIN--+\n|          |          |          |          |          |\n|          |  Content |  Space   |  Content |          |\n|          |  lives   |  between |  lives   |          |\n|          |  here    |  columns |  here    |          |\n|          |          |          |          |          |\n+----------+----------+----------+----------+----------+\n\nMARGIN     White space between content and page edge\n           Creates breathing room; protects from binding\n\nCOLUMN     Vertical zone for content\n           Width determines: text measure, image size\n\nGUTTER     Gap between columns\n           Keeps content visually separate\n           Too narrow = columns read as one\n\nBASELINE   Horizontal line on which text sits\nGRID       Repeating horizontal divisions\n           Sets vertical rhythm: all elements snap to\n           a common vertical unit\n\nFLOWLINES  Horizontal lines dividing layout into bands\n           (used in modular grids)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 82,
+      "heading_context": "## Grid Type 1: Manuscript Grid",
+      "confidence": "candidate",
+      "text": "  Single-column page layout: outer rectangle is the page,\n  with a margin frame surrounding a single TEXT BLOCK column.\n\n  +---------------------+\n  |   TEXT BLOCK        |\n  |   (One column)      |\n  |   Books, reports,   |\n  |   academic papers.  |\n  +---------------------+\n\n  The MARGIN region wraps the text block on all four sides\n  (inner, outer, top, bottom).\n\nKEY DECISIONS:\n  Margin proportions (inner/outer/top/bottom)\n  Text measure (column width in characters: 65-75 optimal)\n  Leading (line spacing: typically 120% of type size)\n\nCLASSICAL MARGIN PROPORTIONS (Van de Graaf canon):\n  Inner: 1 unit\n  Top:   1.5 units\n  Outer: 2 units\n  Bottom: 3 units\n\n  These are not arbitrary -- they derive from\n  folded-page geometry going back to medieval manuscripts.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 172,
+      "heading_context": "## Grid Type 4: Hierarchical / Organic Grid",
+      "confidence": "candidate",
+      "text": "HIERARCHICAL APPROACH:\n  Not \"here is a 4-column grid, fit content into it\"\n  But \"here is the content; what structure does it demand?\"\n\nCOMMON IN:\n  Posters (single purpose, one read path)\n  Annual reports (mixed content, prestige feel)\n  Exhibition graphics (scale and space vary)\n  Long-form editorial features\n\n  +--------------------+\n  | HEADLINE ZONE      |\n  | (dominant)         |\n  +--------------------+\n  | | Main  | Sidebar  |\n  | | text  | callout  |\n  | |       | image    |\n  +---------+----------+\n\n  The columns here are determined by the relative importance\n  of main text vs. sidebar -- not a preset unit system.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 231,
+      "heading_context": "## Constructing a Grid: Muller-Brockmann Method",
+      "confidence": "candidate",
+      "text": "STEP 1: Define format\n  Page size: 210mm x 297mm (A4)\n\nSTEP 2: Define margins\n  Top: 20mm  Bottom: 25mm  Inner: 20mm  Outer: 25mm\n  Live area: 165mm x 252mm\n\nSTEP 3: Define number of columns\n  For body text: measure should be ~65-75 characters\n  At 9pt Helvetica: ~65 chars = ~50mm column width\n  3 columns = 3 x 50mm + 2 gutters (5mm each) = 160mm (fits)\n\nSTEP 4: Define grid unit\n  Column: 50mm wide\n  Gutter: 5mm\n\nSTEP 5: Define baseline\n  Body: 9/11pt  -> baseline unit: 11pt\n  All rows in modular grid = multiple of 11pt\n\nSTEP 6: Document in a spec sheet\n  This becomes the designer's constraint and the\n  production team's instruction.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "## Grid in Web Layout",
+      "confidence": "candidate",
+      "text": "PRINT -> WEB TRANSLATION\n------------------------\n\nPrint: fixed page; absolute units (mm, pt)\nWeb:   fluid viewport; relative units (%, vw, rem)\n\nEARLY WEB (1990s-2000s): No real grid\n  Tables used for layout (hack)\n  Fixed-width (760px for 800px monitors)\n\nWEB FRAMEWORKS (2010s):\n  Bootstrap, Foundation -> 12-column fluid grid\n  960.gs -> 12/16/24 column grid systems\n\nMODERN CSS GRID (2017+):\n  grid-template-columns: repeat(12, 1fr)\n  gap: 1.5rem\n\n  .hero { grid-column: 1 / -1; }    /* full width */\n  .main { grid-column: 1 / 9; }     /* 8 of 12 cols */\n  .sidebar { grid-column: 9 / 13; } /* 4 of 12 cols */\n\nRESPONSIVE GRID:\n  Columns collapse at breakpoints:\n  Desktop: 12 cols\n  Tablet:  8 cols (or same 12 narrower)\n  Mobile:  4 cols (or stack to 1)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 299,
+      "heading_context": "## Layout Composition Principles",
+      "confidence": "candidate",
+      "text": "VISUAL HIERARCHY\n  Size + weight + color + position = reading order\n  Reader enters at largest/most prominent element\n  Moves to next in hierarchy\n  Designer controls this sequence\n\n  +----HEADLINE----+\n  |  (primary)     |\n  +----------------+\n  SUBHEAD (secondary, smaller)\n  Body text (tertiary, smallest)\n  Caption (quaternary, smallest + different weight)\n\nENTRY POINT\n  Every layout needs one dominant element.\n  Swiss posters: one large photograph or abstract form.\n  Magazine cover: one face, one dominant headline.\n  Web homepage: one value proposition headline.\n\nVISUAL FLOW\n  Z-pattern (scanning): Top-left -> top-right -> bottom-left -> bottom-right\n  F-pattern (reading): Top line -> left side scan -> bottom\n  Both observed in eye-tracking studies.\n  Design either accommodates or deliberately subverts these.\n\nPROPORTION: THE GOLDEN RATIO\n  phi = 1.618\n  Rectangle: short side x phi = long side\n  Used in margin proportions, image sizing, layout division\n  Not mandatory, not magic -- but produces pleasing proportions\n  because it appears throughout natural systems.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "## White Space as a Design Element",
+      "confidence": "candidate",
+      "text": "PASSIVE WHITE SPACE        ACTIVE WHITE SPACE\n-------------------        ------------------\nUnintentional gaps         Deliberately placed breathing room\nHappens when layout        Used to isolate elements, create\nisn't filled deliberately  emphasis, signal premium quality\n\nSIGNAL VALUE:\n  Dense layout -> lots of information, affordable, busy\n  Open layout  -> few key ideas, premium, calm\n\nMAGAZINE EXAMPLE:\n  Consumer magazine: dense columns, small margins, many ads\n  Luxury magazine (Vogue, Wallpaper): large white space,\n  single image per spread, big margins = quality signal\n\n  White space is expensive (fewer words per page =\n  more pages = more paper cost). Therefore it signals\n  the publisher values quality over information density.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

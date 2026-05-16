@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:graphic-design:bauhaus
+kind: guide
+module: graphic-design
+section: graphic-design
+title: Bauhaus: Total Design and the School
+status: source-custody
+source_custody: partial
+current_path: graphic-design/01-BAUHAUS.md
+canonical_path: graphic-design/01-BAUHAUS.md
+backsource_ids: [proof-backfill:graphic-design:01-bauhaus, git-history:graphic-design:01-bauhaus]
+concepts: [bauhaus]
+root_concepts: [bauhaus]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bauhaus: Total Design and the School
 
 ## The Big Picture

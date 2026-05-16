@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graphic-design\\08-DIGITAL-TRANSITION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              PRINT -> SCREEN: THE TRANSITION (1984-2010)         |\n|                                                                  |\n|  1984: Macintosh + LaserWriter + Aldus PageMaker                 |\n|  1987: PostScript enables screen -> print fidelity               |\n|  1991: Tim Berners-Lee: World Wide Web (HTML)                    |\n|  1993: NCSA Mosaic: images in browser                            |\n|  1996: CSS 1.0 (separation of content and presentation)          |\n|  1998: Google; web design matures as discipline                  |\n|  2004: Web 2.0 / AJAX / dynamic interfaces                       |\n|  2007: iPhone: touchscreen paradigm shift                        |\n|  2010: Responsive web design (Marcotte)                          |\n|  2010s: Figma, Sketch; design systems; design-to-code pipelines  |\n|  2020s: AI-assisted design; variable fonts; CSS Grid; OKLCH      |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 204,
+      "heading_context": "## Key Screen Design Paradigms",
+      "confidence": "candidate",
+      "text": "### Responsive Web Design (2010)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "### Flat Design and Material Design",
+      "confidence": "candidate",
+      "text": "SKEUOMORPHISM (pre-2012)\n  UI elements simulate physical objects\n  Buttons look like physical buttons (raised, lit from top-left)\n  Notebooks look like leather-bound books\n  Calendar looks like paper calendar\n\n  Apple iOS 1-6: heavy skeuomorphism\n\n  PROBLEM: Inconsistency, visual noise, cultural translation issues\n\nFLAT DESIGN (2012)\n  Windows Phone \"Metro\" (2010) was early; iOS 7 (2013) popularized\n  Remove all simulated depth, texture, gradients\n  Pure color, minimal or no shadow\n  Typography-forward\n\n  OVERCORRECTION: Icons and UI elements lost affordance cues\n  (Is this clickable? Is this a button?)\n\nMATERIAL DESIGN (Google, 2014)\n  Middle ground: flat but with elevation metaphor\n  Surfaces at different z-heights cast real (but computed) shadows\n  Motion conveys causality (tap here -> thing comes from here)\n  Systematic: 8px baseline grid, defined elevations, defined typography\n\nAPPLE HUMAN INTERFACE GUIDELINES (HIG)\n  Parallel system for iOS/macOS\n  Different philosophy: translucency, depth, organic motion\n  Both: systematic; both: visual design grounded in interaction model",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 305,
+      "heading_context": "## Design-to-Code Pipeline (Modern)",
+      "confidence": "candidate",
+      "text": "DESIGN SYSTEM AS SINGLE SOURCE OF TRUTH\n-----------------------------------------\n\nFIGMA                       CODEBASE\n------                      --------\nColor styles    ----------> CSS custom properties / Tokens\nText styles     ----------> Typography utility classes\nComponents      ----------> React/Vue/Angular components\nSpacing system  ----------> Spacing scale (Tailwind, CSS vars)\nMotion styles   ----------> CSS transitions / keyframes\n\nDESIGN TOKEN FORMATS:\n  Figma Tokens plugin -> tokens.json\n  Style Dictionary (Amazon): transforms tokens to platform outputs\n  tokens.json -> CSS vars, iOS Swift, Android XML, all from one source\n\nEXAMPLE PIPELINE:\n  Designer changes brand blue in Figma token library\n  -> Token JSON file updated (in git)\n  -> CI/CD runs Style Dictionary\n  -> New CSS variables deployed\n  -> All products update automatically\n\nTHIS IS THE SAME PATTERN as configuration-driven systems:\n  Change one source; derived outputs update automatically.\n  Same as Azure Data Factory connection strings -> all pipelines.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

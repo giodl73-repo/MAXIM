@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:graphic-design:contemporary
+kind: guide
+module: graphic-design
+section: graphic-design
+title: Contemporary Graphic Design Practice and Tools
+status: source-custody
+source_custody: partial
+current_path: graphic-design/09-CONTEMPORARY.md
+canonical_path: graphic-design/09-CONTEMPORARY.md
+backsource_ids: [proof-backfill:graphic-design:09-contemporary, git-history:graphic-design:09-contemporary]
+concepts: [contemporary]
+root_concepts: [contemporary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Contemporary Graphic Design Practice and Tools
 
 ## The Big Picture

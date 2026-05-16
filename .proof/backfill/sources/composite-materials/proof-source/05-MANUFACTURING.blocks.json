@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "composite-materials\\05-MANUFACTURING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              COMPOSITE MANUFACTURING PROCESSES                   |\n|                                                                  |\n|   OPEN MOLD (wet lay-up)    CLOSED MOLD           AUTOMATED      |\n|   ─────────────────────     ───────────           ─────────      |\n|   Hand lay-up               RTM (Resin Transfer)  AFP/ATL        |\n|   Spray-up                  HP-RTM                Filament wind  |\n|   Infusion (VARTM)          Compression mold      Braiding       |\n|                             Pultrusion             Robotic drape |\n|                                                                  |\n|   LOW COST / QUALITY ◄──────────────────────────► HIGH COST/Q    |\n|                                                                  |\n|   PREPREG + AUTOCLAVE: Aerospace gold standard                   |\n|   → Highest Vf (60%), lowest void, controlled properties         |\n|   → High cost, slow, large capital                               |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 50,
+      "heading_context": "## Hand Lay-Up and Spray-Up",
+      "confidence": "candidate",
+      "text": "   HAND LAY-UP SEQUENCE:\n   ──────────────────────\n   1. Mold preparation: release agent (PVA, wax, mold release)\n   2. Optional gel coat: surface cosmetic layer (polyester/vinyl ester)\n   3. Layer resin on mold by brush or roller\n   4. Apply fabric (woven GF/CSM) to wet resin\n   5. Roll out air bubbles → consolidation\n   6. Apply next resin layer\n   7. Repeat to desired thickness\n   8. Cure at room temperature (peroxide catalyst for UPE/VE)\n   9. Demold after 2–24 hours\n\n   Properties: Vf ~ 25–40%, void content ~ 2–5%\n   Typical: GF/UPE or GF/VE\n   Applications: boat hulls, pools, spa baths, architectural shapes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "## Vacuum Infusion (VARTM — Vacuum Assisted Resin Transfer Molding)",
+      "confidence": "candidate",
+      "text": "   SETUP:\n   ──────\n   Dry fiber preform placed in mold (or on tool)\n   Peel ply → distribution mesh → vacuum bag (sealed)\n   Vacuum port + resin inlet\n\n   PROCESS:\n   ─────────\n   1. Pull vacuum on dry preform (check for leaks)\n   2. Open resin inlet → resin drawn in by vacuum pressure differential\n   3. Flow front progresses through preform (infusion time: 30 min–8 hours)\n   4. Close inlet when fiber fully wetted\n   5. Cure at ambient or elevated temperature\n\n   TYPICAL PROPERTIES:\n   ────────────────────\n   Vf: 45–55%  (gravity drainage + vacuum consolidation)\n   Void content: 1–3%\n\n   MATERIALS: epoxy or vinyl ester (low viscosity <500 mPa·s needed)\n   PART SIZE: unlimited in principle (largest: wind blade > 100 m)\n   COST: moderate tooling, low equipment capital\n\n   APPLICATIONS:\n   ──────────────\n   Wind turbine blades: >80% of all blades by VARTM/VIP process\n   Large boat hulls (racing yacht hulls, workboats)\n   Marine and infrastructure panels\n   Aerospace secondary structures (cost-constrained)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "### Flow Modeling for Infusion",
+      "confidence": "candidate",
+      "text": "   v = (K/η) · ∇P\n\n   v = flow velocity (m/s)\n   K = permeability of fiber preform (m²) — measured property, ~10⁻¹¹–10⁻¹² m²\n   η = resin viscosity (Pa·s) — critical: must stay < 500 mPa·s during fill\n   ∇P = pressure gradient (Pa/m)\n\n   Fill time approximation for flow distance L:\n   t_fill ≈ L² · η / (2 · K · ΔP)\n\n   Large wind blade (25 m infusion distance):\n   At ΔP = 90 kPa (vacuum), K = 5×10⁻¹² m², η = 300 mPa·s\n   t ≈ 25² × 0.3 / (2 × 5×10⁻¹² × 90,000) = ~200 hours (too long!)\n   → Use distribution media (much higher K, 10⁻⁸ m²) for fast surface spread\n   → Spiral inlet lines for large parts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "### What Is a Prepreg?",
+      "confidence": "candidate",
+      "text": "   PREPREG STRUCTURE:\n   ───────────────────\n   Fiber: UD tape, fabric, or NCF\n   Resin: epoxy at B-stage (partially cured, tack-y at room T)\n   Backing paper: peel away before layup\n   Areal fiber weight (AFW): 75–600 gsm\n   Resin content: 30–42% (by weight)\n\n   B-STAGE CHEMISTRY:\n   ───────────────────\n   Epoxy partially cured with DICY (dicyandiamide) — latent hardener\n   At RT (< 25°C): effectively no cure progression for months\n   Above 120°C: DICY activates → cure begins\n   Above 160°C: fast cure → used for actual cure cycle\n   → Shelf life at -18°C: 12–18 months\n   → Out-life at 23°C: typically 3–30 days (before tack lost)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "### Prepreg Manufacturing Process",
+      "confidence": "candidate",
+      "text": "   HOT MELT PREPREGGING (dominant method):\n   ─────────────────────────────────────────\n   1. Resin film cast onto release paper from hot melt\n   2. Fiber collimated (UD tape) or from fabric\n   3. Sandwich: paper/resin film + fiber + resin film/paper\n   4. Heated calendar rolls: resin melts → impregnates fiber\n   5. Cool → B-stage solidified → roll up with backing paper\n   6. Cold storage at -18°C\n\n   SOLUTION PREPREGGING (less common today):\n   ───────────────────────────────────────────\n   Resin dissolved in solvent → fiber drawn through bath → solvent removed\n   Issues: residual solvent → voids in cure\n   Used: low-viscosity systems, fabric prepreg for phenolic",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "### Autoclave Mechanism",
+      "confidence": "candidate",
+      "text": "   AUTOCLAVE:\n   ──────────\n   Pressure vessel + internal heating + vacuum bag provisions\n   Gas: N2 (non-reactive, better safety than air for organics)\n   Pressure: 0.35–0.70 MPa (50–100 psi) typically\n   Temperature: 120°C (low-temp cure) or 180°C (standard aerospace)\n\n   CURE CYCLE (standard 180°C epoxy):\n   ────────────────────────────────────\n   1. Room temperature: lay up plies on tool, apply vacuum bag\n   2. Apply vacuum (100 mbar) — remove trapped air and volatiles\n   3. Ramp to 110–120°C at 1–3°C/min\n   4. Hold at 110°C: resin melts, flows, reduces viscosity\n      Apply autoclave pressure (0.35–0.70 MPa) → compact plies\n   5. Ramp to 180°C\n   6. Hold at 180°C for 90–120 min (cure)\n   7. Cool at 3–5°C/min under pressure\n   8. Depressurize at < 60°C → demold\n\n   WHY PRESSURE MATTERS:\n   ──────────────────────\n   External pressure + vacuum:\n   → Compresses bag → consolidates plies → removes entrapped air\n   → Maintains pressure on resin as it gels → forces out voids\n   → Net driving force for void suppression:\n     P_autoclave > P_vapor_water → water stays dissolved, not bubbles",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 217,
+      "heading_context": "### Vacuum Bag Assembly",
+      "confidence": "candidate",
+      "text": "   TOOL (aluminum, Invar, composite)\n      │\n      │ Release agent + peel ply\n      │\n   LAMINATE (prepreg plies stacked)\n      │\n      │ Peel ply\n      │ Breather cloth (absorbs excess resin + allows vacuum flow)\n      │ Vacuum bag film (Nylon 6 or 66 — resistant to epoxy)\n      │ Sealing tape around perimeter\n      │ Vacuum connector\n      ▼\n   TOOL surface (sealed bag)\n\n   MONITORING:\n   ────────────\n   Thermocouples on tool and on top of laminate\n   Vacuum gauge\n   Dielectric cure monitoring (optional — tracks resin cure state)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "### Tooling Materials",
+      "confidence": "candidate",
+      "text": "   ALUMINUM TOOLING:\n   ──────────────────\n   CTE: 23×10⁻⁶/°C (vs. CF/epoxy ≈ 2×10⁻⁶)\n   CTE mismatch: large — thermal stresses on cure, dimensional issues\n   Low cost, easy to machine\n   Limited to ~500 cure cycles\n   Use: low-volume, prototype, secondary structure\n\n   INVAR 36 (Fe-Ni alloy):\n   ────────────────────────\n   CTE: 1.5×10⁻⁶/°C (nearly matches CF/epoxy)\n   Heavy (~8,000 kg/m³ — heavy tools!)\n   Very long tool life (>10,000 cycles)\n   High cost to machine\n   Use: high-precision large structure (aircraft skins, nacelles)\n\n   COMPOSITE TOOL (CFRP):\n   ───────────────────────\n   CTE matched to composite part\n   Lightweight\n   Made from the same prepreg process (recursive!)\n   Requires master (pattern) tool to make\n   Use: large aircraft panels, wind blade molds",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "## Resin Transfer Molding (RTM)",
+      "confidence": "candidate",
+      "text": "   RTM PROCESS:\n   ─────────────\n   1. Dry fiber preform cut + placed in closed mold (matched male/female)\n   2. Mold closed, clamped (0.5–1.0 MPa clamp force)\n   3. Resin injected under pressure (0.1–1.0 MPa injection) at 60–120°C\n   4. Resin flows through preform, exits at vents (when resin appears = full)\n   5. Cure in mold at 120–180°C\n   6. Demold → post-cure\n\n   Vf: 50–60%  Void: 1–3%  Cycle: 30–120 min\n\n   ADVANTAGES:\n   ────────────\n   Both surfaces smooth (closed mold)\n   Good dimensional control\n   Moderate cost vs. autoclave (no pressure vessel, faster cycles)\n\n   HIGH-PRESSURE RTM (HP-RTM, ULTRA-RTM):\n   ────────────────────────────────────────\n   Injection at 1–10 MPa, 80–150°C\n   Cycle time: 3–15 min (fast epoxy or fast polyurethane)\n   BMW i3, i8: HP-RTM for CFRP body panels\n   Audi R8 spider: CFRP structural tub via HP-RTM",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 305,
+      "heading_context": "## Automated Fiber Placement (AFP) and ATL",
+      "confidence": "candidate",
+      "text": "   AFP (AUTOMATED FIBER PLACEMENT):\n   ──────────────────────────────────\n   Machine head: 8–32 slit-tape tows (3–12 mm wide)\n   Applies prepreg tow-by-tow to tool surface\n   Computer-controlled path planning\n   Compaction roller + heat (laser or hot gas)\n   → In-situ consolidation (for thermoplastic) or B-stage cure\n\n   CAPABILITY:\n   ────────────\n   Curved surfaces (fuselage, nacelle)\n   Complex contour following\n   Variable-angle tow (VAT) — fiber direction follows design optimization\n   Speed: up to 25 m/min effective deposition rate\n   Layer thickness: 0.125–0.250 mm/pass\n\n   ATL (AUTOMATED TAPE LAYING):\n   ──────────────────────────────\n   Wider tape (150–300 mm)\n   Best for flat or gently curved surfaces (wing skin)\n   Higher speed (50 m/min) for large panels\n   Less suited to complex geometry than AFP\n\n   USED FOR:\n   ──────────\n   Boeing 787: fuselage barrel sections (AFP on mandrel)\n   Airbus A350: fuselage + wing lower skin (AFP/ATL)\n   Wing spars, floor beams\n   Wind blade spar caps (dry fiber AFP + infusion for large blades)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 343,
+      "heading_context": "## Filament Winding",
+      "confidence": "candidate",
+      "text": "   PROCESS:\n   ─────────\n   Fiber passes through wet bath → wound onto rotating mandrel\n   Winding angle: 5–90° (determined by mandrel rotation vs. carriage speed)\n   Polar winding: ±15–30° (hoop-dominant)\n   Helical: various angles\n   Hoop: ±85–90° (pressure vessel circumferential)\n\n   NETTING ANALYSIS — OPTIMAL ANGLE:\n   ────────────────────────────────────\n   Pressure vessel: biaxial load (σ_hoop = 2 × σ_axial)\n   Optimal angle: θ = arctan(√2) = 54.7° (for equal biaxial from fiber alone)\n\n   APPLICATIONS:\n   ──────────────\n   Pressure vessels (CNG / hydrogen storage for vehicles)\n   Pipeline rehabilitation sleeves\n   Drive shafts (automotive, helicopter)\n   Launch vehicle casings (solid rocket motor)\n   Tubes, bars, golf shafts\n\n   Vf: 60–70%  (compaction by winding tension)\n   Cost: low for rotationally symmetric shapes\n   Limitation: concave shapes cannot be filament wound",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 376,
+      "heading_context": "## Pultrusion",
+      "confidence": "candidate",
+      "text": "   PROCESS:\n   ─────────\n   Roving + mat → resin bath → die (heated) → pulling mechanism → cut to length\n   Die: shaped steel (I, T, round, custom profile) at 120–180°C\n   Pull speed: 0.5–5 m/min\n\n   MATERIALS: E-glass + polyester or vinyl ester (most common)\n              CF + epoxy (structural, more expensive)\n\n   APPLICATIONS:\n   ──────────────\n   Window/door frames (GF/UPE — corrosion-free)\n   Structural profiles (I-beams, channels for walkways, gratings)\n   Utility poles, marine pilings\n   Electrical cross-arm, ladder rails\n   Bridge deck components\n\n   Vf: 45–65%  Void: 1–3%  Cost: very low per meter for simple profile\n   Limitation: constant cross-section only",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

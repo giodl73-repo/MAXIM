@@ -1,0 +1,1777 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-composite-materials-design-analysis",
+  "source": "../../composite-materials",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-DESIGN-ANALYSIS.md#000",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "# Structural Design and Analysis"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#001",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#002",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|              COMPOSITE STRUCTURAL DESIGN FRAMEWORK               |\n|                                                                  |\n|   DESIGN DRIVERS          ANALYSIS TOOLS        FAILURE MODES    |\n|   ─────────────           ──────────────        ────────────     |\n|   Stiffness/strength       CLT                  Fiber failure    |\n|   Weight                   Tsai-Wu, Max stress  Matrix cracking  |\n|   Damage tolerance         FEA (progressive)    Delamination     |\n|   Certification            Buckle analysis      Buckling         |\n|   Manufacturability        Fatigue (S-N, DFB)   Bearing/pull-out |\n|                                                                  |\n|   BUILDING BLOCK APPROACH (aerospace):                           |\n|   Coupon → Element → Detail → Component → Full-scale test        |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#003",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#004",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "## Failure Modes in Composites"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#005",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "Composites fail differently from metals — multiple interacting mechanisms."
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#006",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "### In-Plane Failure Modes"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#007",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "```\n   FIBER TENSION FAILURE:\n   ─────────────────────────\n   Individual fiber fracture, propagates across bundle\n   Failure strain: 1.2–2.0% (CF), 4–5% (GF)\n   Net section failure (like metal fracture but brittle)\n   Strain concentration: notches, holes → stress concentration factor Kt\n   Open hole tension (OHT): σ_net ≈ σ_UTS/Kt_notch\n   Typical OHT allowable ≈ 60–70% of unnotched tensile"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#008",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "FIBER COMPRESSION FAILURE (microbuckling):\n   ──────────────────────────────────────────\n   Fiber kinking at ~20–25° to fiber direction\n   Matrix shear modulus (G12) critical: σ_1C ≈ G12 / (1 + φ0/γ12)\n   Most moisture/temperature sensitive mode → drive design allowables\n   Open hole compression (OHC): typically lowest strength allowable"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#009",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "MATRIX CRACKING:\n   ─────────────────\n   Transverse tension (σ2) or shear (τ12) → matrix micro-cracks\n   Onset at ~40–70% of ultimate (first ply failure)\n   Crack density increases with load → stiffness degradation, moisture ingress\n   Not immediate structural failure but precursor to delamination"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#010",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "DELAMINATION:\n   ──────────────\n   Crack growing between plies\n   Driven by interlaminar normal stress (σ3) or shear (τ13, τ23)\n   Mode I (opening) or Mode II (sliding) — or mixed\n   Critical at ply drop-offs, free edges, holes, impact damage\n   Arrest by: interlaminar toughening (rubber particles, thermoplastic interleaves)\n```"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#011",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#012",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "## Design Allowables"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#013",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "Composites certification uses a statistical allowable system:"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#014",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "```\n   FAA AC 25.613 — MATERIAL STRENGTH PROPERTIES:\n   ──────────────────────────────────────────────\n   B-basis allowable: 90% probability of exceeding at 95% confidence\n   A-basis allowable: 99% probability of exceeding at 95% confidence\n   S-basis: specification minimum (no statistical basis)"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#015",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "TYPICAL DEVELOPMENT:\n   ─────────────────────\n   Test 30+ specimens per condition per property\n   Statistical fit (Weibull or normal distribution)\n   Compute B-basis: lower 90% confidence bound on 10th percentile\n   Common: CF/epoxy B-basis tension ≈ 85–90% of mean\n           CF/epoxy B-basis compression ≈ 80–85% of mean (more scatter)"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#016",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "ENVIRONMENTAL KNOCKDOWNS:\n   ──────────────────────────\n   ETW (elevated temperature, wet): lowest allowable\n   RTD (room temperature, dry): highest allowable\n   Apply most severe environment for each structural location"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#017",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "EXAMPLE KNOCKDOWN FACTORS FOR CF/EPOXY:\n   ──────────────────────────────────────────\n   Property          RTD    ETW (180°C wet)\n   Fiber tension     1.0    0.90\n   Fiber compression 1.0    0.75\n   Matrix tension    1.0    0.65\n   ILSS              1.0    0.50\n```"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#018",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#019",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "## Stability: Buckling of Thin Composite Plates"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#020",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "Thin composite skins are buckling-critical. Buckling not always failure if\npostbuckling reserve exists."
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#021",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "```\n   ORTHOTROPIC PLATE BUCKLING (simply supported):\n   ──────────────────────────────────────────────────\n   Nx_cr = (π²/b²) · [D11·(b/a)²·m⁴ + 2(D12+2D66)·m²·n² + D22·(a/b)²·n⁴] / m²\n   m,n = number of half-waves in x, y"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#022",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "For a square plate (a = b), minimum:\n   Nx_cr = (π²/b²) · [4·D11 + 4(D12+2D66) + D22] / 4"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#023",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "Simplified for quasi-isotropic laminate:\n   Nx_cr ≈ 3.6 · D11 / b²    (for a ≈ b, worst case)"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#024",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "KEY DESIGN IMPLICATION:\n   ─────────────────────────\n   D11 = (1/3) · Q̄11_outer_ply · (h³ - (h-2t)³) / 4  (outer ply dominates!)\n   → Outer 0° plies drive bending stiffness → critical for buckling resistance\n   → Wing skin: 0° plies on outside, ±45° in middle\n```"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#025",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "### Postbuckling Reserve"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#026",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "For plates under shear or compression, postcritical reserve can be 2–4× critical\nload before full structural failure. Use only with rigorous testing and certification."
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#027",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#028",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "## Joints in Composite Structures"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#029",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "Joints are typically the weakest point — composites are strong at the ply level\nbut joints introduce stress concentrations."
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#030",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "### Mechanical Fastening"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#031",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "```\n   BEARING / PULL-THROUGH FAILURE:\n   ─────────────────────────────────\n   Bolt bearing stress: σ_b = F / (d · t)\n   CF/epoxy allowable bearing stress: ~500–700 MPa (B-basis)\n   Vs. aluminum: ~600–900 MPa\n   → CFRP comparable to aluminum for bearing"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#032",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "HOLE DESIGN RULES (empirical):\n   ────────────────────────────────\n   Edge distance (e): e/d ≥ 3 (to prevent shear-out)\n   Pitch: p/d ≥ 4 (row of fasteners)\n   Fastener fit: interference fit → improves fatigue (like metal)\n   Bolt material: titanium or stainless preferred\n     → Galvanic corrosion: Al and CF = galvanic couple → NO Al fasteners in CFRP!"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#033",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "LAMINATES FOR BEARING (empirical optimum):\n   ────────────────────────────────────────────\n   0° content: 25–50%\n   ±45° content: ≥ 40%\n   Avoid 100% 0° or 90° at hole (very low bearing)\n   [0/±45/90]s is a good starting point\n```"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#034",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "### Adhesive Bonding"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#035",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "```\n   JOINT GEOMETRIES:\n   ──────────────────\n   SINGLE LAP: simple, asymmetric, peel moment → worst for composites\n   DOUBLE LAP: symmetric, better, but peel stress at end\n   SCARF JOINT: tapered — most efficient (uniform shear), complex to make\n   STEPPED SCARF: approximation of scarf, practical for thick section"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#036",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "STRESS DISTRIBUTION IN SINGLE LAP:\n   ─────────────────────────────────────\n   Shear stress peak at overlap ends (not uniform!)\n   Peak/average = depends on overlap length, adherend stiffness\n   → Short overlap: high peak/average → peel → failure\n   → Long overlap: peak unchanged but average low → better efficiency"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#037",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "PEEL STRESS (σ3 at end of bond):\n   ──────────────────────────────────\n   Composites cannot tolerate through-thickness tension well\n   ILSS ~ 80 MPa, GIc ~ 300 J/m²\n   Design rule: peel stress < 20 MPa in composite bondline"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#038",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "DESIGN PRINCIPLE FOR COMPOSITES:\n   ──────────────────────────────────\n   Preferred: scarf or stepped scarf\n   Minimize peel stress (chamfer ends, use rubber toughened adhesive)\n   Hybrid: bond + fasteners (belt + suspenders for primary structure)\n```"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#039",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#040",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "## Fatigue of Composites"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#041",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "Composites fail under cyclic loading differently from metals."
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#042",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "```\n   METAL FATIGUE:                    COMPOSITE FATIGUE:\n   ──────────────                    ──────────────────\n   Single crack initiates            Distributed damage\n   Crack grows → fracture            Matrix cracking → delamination\n   S-N curve: steep slope            S-N curve: shallower slope\n   Fatigue limit (some alloys)       No fatigue limit in most composites\n   R-ratio critical                  R-ratio critical (compression worse)"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#043",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "COMPOSITE FATIGUE DAMAGE:\n   ──────────────────────────\n   Stage 1: Matrix microcracking (onset at ~20–40% UTS)\n   Stage 2: Crack coupling, fiber-matrix debonding\n   Stage 3: Delamination, fiber fracture → sudden failure"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#044",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "S-N CURVES FOR CF/EPOXY (typical):\n   ────────────────────────────────────\n   Tension-tension (R=0.1): σ at 10⁷ cycles ≈ 40–50% static UTS\n   Tension-compression (R=-1): ≈ 30–40% static UTS (worst case)\n   Compression-compression (R=10): ≈ 25–35% static UTS"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#045",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "DESIGN APPROACH (FAA):\n   ───────────────────────\n   Static allowables already conservative (A or B-basis)\n   Fatigue testing (typically: DFB = damage-free design, or damage tolerance)\n   Spectrum loading (variable amplitude) — rainflow counting\n   Primary: no detectable damage should accumulate to failure\n```"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#046",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#047",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "## Impact and Damage Tolerance"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#048",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "The critical weak point of laminated CFRP."
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#049",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "```\n   IMPACT DAMAGE MECHANISMS:\n   ───────────────────────────\n   Low velocity impact (tools, runway debris, hail):\n   → Matrix cracking, delamination\n   → Barely Visible Impact Damage (BVID): ≤ 0.3 mm dent depth\n   → Visible Impact Damage (VID): > 0.3 mm, > 6.35 mm (FAA definition)"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#050",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "HIGH VELOCITY (bird strike, debris):\n   → Fiber fracture + delamination\n   → Penetration in severe cases"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#051",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "COMPRESSION AFTER IMPACT (CAI):\n   ──────────────────────────────────\n   Key certification test (FAA, EASA)\n   Impact panel, then load in compression to failure\n   CAI strength ≈ 30–50% of undamaged compression strength\n   Driven by: delamination buckling under compression"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#052",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "WHY CFRP IS BRITTLE TO IMPACT:\n   ────────────────────────────────\n   Brittle fibers → energy not absorbed by plastic deformation\n   Matrix: also brittle → cracks and delaminations absorb energy inefficiently\n   GFRP and AFRP: much better impact tolerance (glass/Kevlar more ductile)\n   Toughened epoxy (interleaved): improves CAI by 30–50% vs. brittle epoxy\n```"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#053",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#054",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "## Building Block Approach (Aerospace)"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#055",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "FAA/EASA certification requires systematic experimental evidence at multiple scales."
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#056",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "```\n   PYRAMID:\n   ─────────\n              [FULL SCALE]\n            [COMPONENTS: wing box, fuselage barrel]\n          [DETAILS: joints, cutouts, frames]\n        [ELEMENTS: stiffened panels, shear webs]\n      [COUPONS: flat plates, OHT, OHC, CAI, fatigue]"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#057",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "Each level: ~10–100× more specimens than level above\n   Coupon: 1,000–10,000 specimens (statistical basis)\n   Full scale: 1 (very expensive)"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#058",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "EACH LEVEL verifies:\n   ─────────────────────\n   Coupon: material properties, allowables, environmental effects\n   Element: stiffened panel buckling, joint efficiency\n   Detail: local geometry effects, cutout behavior\n   Component: load redistribution, combined loading\n   Full scale: structural proof, fail-safe demonstration"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#059",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "COST DISTRIBUTION:\n   ───────────────────\n   Coupon testing: ~15% of total certification test cost\n   Full-scale: ~50% (one test rig can cost > $100M for aircraft)\n```"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#060",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#061",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "06-DESIGN-ANALYSIS.md#062",
+      "path": [
+        "06-DESIGN-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]",
+        "canonical_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "concepts": "[design, analysis]",
+        "current_path": "composite-materials/06-DESIGN-ANALYSIS.md",
+        "id": "maxim:composite-materials:design-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "composite-materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[design, analysis]",
+        "section": "composite-materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Structural Design and Analysis",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| UD strength-critical laminate | Use ply-level stress, fiber direction, ROM, compression microbuckling, and tested allowables. | Maximum-stress checks miss interaction effects in multi-axial states. |\n| Off-axis or combined loading | Apply Tsai-Wu/Hashin/Puck style criteria, transformed stresses, and test calibration. | Failure criteria rank risk; they do not replace building-block validation. |\n| Thin-panel stability | Check orthotropic buckling, boundary conditions, imperfections, postbuckling allowance, and FEA. | Buckling may be allowable only with rigorous substantiation. |\n| Adhesive joint | Compare scarf, stepped, lap, peel stress, surface prep, bondline thickness, and inspection. | Single-lap joints need peel mitigation and conservative certification. |\n| Mechanical fastening | Check edge distance, pitch, bearing/bypass, galvanic isolation, clamp-up, and drilling damage. | Metallic fastener practices do not transfer directly to CFRP. |\n| Impact tolerance | Use BVID, CAI allowables, NDI probability, barely visible dent depth, and service inspection. | Internal delamination can be severe with little surface evidence. |\n| Fatigue design | Use spectrum loading, R-ratio, compression effects, damage tolerance, and inspection intervals. | Composites are not automatically fatigue-superior in every load state. |\n| Allowable basis | Choose A- or B-basis from criticality, load path redundancy, environment, geometry, and statistics. | Allowables are material/process/layup/environment facts, not generic material constants. |"
+    }
+  ],
+  "refs": [
+    "06-DESIGN-ANALYSIS.md"
+  ]
+}
