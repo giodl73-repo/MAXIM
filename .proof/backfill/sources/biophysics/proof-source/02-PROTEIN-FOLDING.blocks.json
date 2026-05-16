@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biophysics\\02-PROTEIN-FOLDING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│                   PROTEIN FOLDING LANDSCAPE                              │\n│                                                                          │\n│  SEQUENCE → STRUCTURE → FUNCTION                                         │\n│  (1D)        (3D)         (activity)                                     │\n│                                                                          │\n│  THE FOLDING PROBLEM (three distinct questions):                         │\n│  ─────────────────────────────────────────────                           │\n│  1. Prediction: Given sequence, what is the 3D structure?  ← AlphaFold2  │\n│  2. Mechanism: How does folding happen in time?     ← energy funnels     │\n│  3. Design: Given function, what sequence folds to it?  ← RFdiffusion    │\n│                                                                          │\n│  LEVINTHAL'S PARADOX                                                     │\n│  ──────────────────                                                      │\n│  100-residue protein: 3¹⁰⁰ ≈ 10⁴⁸ conformations                          │\n│  At 1 ns/conformation: 10³⁹ years to search exhaustively                 │\n│  Actual folding time: microseconds to seconds                            │\n│  Resolution: proteins do NOT do exhaustive search — they fold via        │\n│  energy funnels, biasing toward lower-energy conformations               │\n│                                                                          │\n│  MISFOLDING DISEASES                                                     │\n│  ──────────────────                                                      │\n│  Alzheimer's:  Aβ, tau fibrillization                                    │\n│  Parkinson's:  α-synuclein aggregation                                   │\n│  Prion:        PrPᶜ → PrPˢᶜ conversion                                   │\n│  Type II DM:   IAPP (islet amyloid polypeptide)                          │\n│  Huntington's: polyglutamine expansion → aggregation                     │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 63,
+      "heading_context": "### The Paradox",
+      "confidence": "candidate",
+      "text": "  100-residue protein:\n    Each residue: ~3 backbone states (φ,ψ rotamers)\n    Total conformations: 3¹⁰⁰ ≈ 5 × 10⁴⁷\n\n  If each conformation sampled in 10⁻⁹ s (nanosecond timescale):\n    Time required: 5 × 10⁴⁷ × 10⁻⁹ s = 5 × 10³⁸ s ≈ 10³¹ years\n\n  Age of universe: ~4 × 10¹⁷ s\n\n  → Exhaustive random search is physically impossible\n  → Proteins must be guided to the native state by the energy landscape",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 83,
+      "heading_context": "### The Resolution: Energy Funnels",
+      "confidence": "candidate",
+      "text": "  ROUGH LANDSCAPE (old view):        FUNNEL LANDSCAPE (correct):\n\n  E   ___   ___   ___              E  |||||||||||||||||||  ← unfolded ensemble\n      | | | | | | | |               |  \\|||||||||||||||/\n      ___| |___| |___               |   \\|||||||||||||/\n                                    |    \\|||||||||||/\n  Random walk with many traps       |     \\|||||||||/\n  → exponentially slow              |      \\|||||||/\n                                    |       \\|||||/\n                                    |        \\|||/\n                                    |         \\|/\n                                    |          ●   ← native state (global minimum)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 111,
+      "heading_context": "### The Free Energy Landscape",
+      "confidence": "candidate",
+      "text": "  G(Q) landscape for a two-state folder:\n\n      G\n      |\n      |   ___\n      |  /   \\         (unfolded basin: high entropy, high energy)\n      |  |   |   ___\n      |  |   |__/   \\  (transition state: narrow bottleneck)\n      |  |           |\n      |  |           \\___    (folded basin: low entropy, low energy)\n      │\n      └────────────────── Q (native contacts, 0 to 1)\n\n  ΔG‡ = activation free energy (determines folding rate)\n  ΔG_fold = stability (determines folded fraction at equilibrium)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "### Folding Rates: Kramers Theory and Phi-Values",
+      "confidence": "candidate",
+      "text": "  k_fold = A × exp(-ΔG‡ / k_BT)\n\n  where A = attempt frequency ≈ 10⁶-10⁸ s⁻¹ (relates to reconfiguration time)\n\n  ΔG‡ depends on topology (contact order):\n  - High contact order (long-range contacts) → slow folding\n  - Low contact order (local contacts, α-helices) → fast folding\n\n  Contact order CO = (1/NL) Σᵢⱼ |i-j|  (N = residues, L = contacts)\n  Correlation: log(k_fold) anti-correlates with CO across many proteins",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "### Major Chaperone Classes",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│  CHAPERONE     │  SUBSTRATE           │  MECHANISM                       │\n│  ──────────────│──────────────────────│───────────────────────────────── │\n│  Hsp70 (DnaK)  │  Unfolded/extended   │  Binds exposed hydrophobic       │\n│  + Hsp40 (DnaJ)│  peptides, ~7 aa     │  stretches. ATP-driven release.  │\n│                │                      │  Co-chaperone DnaJ loads clients. │\n│  ──────────────│──────────────────────│───────────────────────────────── │\n│  GroEL/GroES   │  Misfolded, sticky,  │  Barrel chamber: encapsulates    │\n│  (Hsp60/Hsp10) │  ~20-60 kDa          │  single protein. ATP-driven lid  │\n│                │                      │  (GroES) closes → forced unfolding│\n│                │                      │  and refolding in isolation.     │\n│  ──────────────│──────────────────────│───────────────────────────────── │\n│  Hsp90         │  Signaling proteins, │  Stabilizes near-native states.  │\n│                │  kinases, nuclear    │  Regulatory: many co-chaperones. │\n│                │  receptors           │  ATP-dependent conformational    │\n│                │                      │  clamp mechanism.                │\n│  ──────────────│──────────────────────│───────────────────────────────── │\n│  TRiC/CCT      │  Actin, tubulin,     │  Eukaryotic GroEL analog.        │\n│                │  WD40 domains        │  8 subunits, different pockets   │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 221,
+      "heading_context": "### Major Chaperone Classes",
+      "confidence": "candidate",
+      "text": "  Step 1: Misfolded/aggregation-prone protein binds GroEL ring\n  Step 2: ATP + GroES bind → lid closes → protein encapsulated\n  Step 3: Inside cavity: hydrophilic walls, protein diluted to 1 molecule\n  Step 4: Protein refolds in isolation (~10 s)\n  Step 5: ATP hydrolysis → GroES dissociates → protein released\n  Step 6: If still misfolded → rebind and retry (multiple cycles possible)\n\n  Key insight: GroEL doesn't fold the protein — it prevents aggregation\n  and provides an isolated environment where the protein can fold on its own.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 242,
+      "heading_context": "### Amyloid: The Misfolded Alternative",
+      "confidence": "candidate",
+      "text": "  NATIVE FOLD:              AMYLOID FIBRIL:\n\n  Globular, soluble          Long, insoluble fiber\n  Unique 3D structure        Universal cross-β architecture\n  Functional                 Toxic (especially oligomers)\n  Specific sequence          Any sequence can in principle form amyloid\n  ~1-100 nm                  μm-mm length\n\n  Cross-β structure:\n  ─── β-strand ───          Strands perpendicular to fiber axis\n  ─── β-strand ───          H-bonds parallel to fiber axis\n  ─── β-strand ───          Spacing: 4.7 Å along fiber (H-bond spacing)\n                             Spacing: 10-11 Å across fiber (side chains)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 281,
+      "heading_context": "### Disease Mechanisms",
+      "confidence": "candidate",
+      "text": "  Prion conversion mechanism:\n\n  PrPᶜ (cellular, normal)      PrPˢᶜ (scrapie, pathogenic)\n  α-helix rich                  β-sheet rich\n  Soluble                       Insoluble aggregate\n  Degradable by proteases       Protease-resistant\n\n  PrPˢᶜ + PrPᶜ  →  PrPˢᶜ + PrPˢᶜ  (templated conversion)\n\n  This is the ONLY known case of protein-based inheritance\n  (information transfer without nucleic acid)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 299,
+      "heading_context": "## Section 5 — AlphaFold: What It Solved and What It Didn't",
+      "confidence": "candidate",
+      "text": "### What AlphaFold2 Actually Solved",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 309,
+      "heading_context": "### What AlphaFold2 Actually Solved",
+      "confidence": "candidate",
+      "text": "### What AlphaFold2 Does NOT Solve",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 311,
+      "heading_context": "### What AlphaFold2 Does NOT Solve",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│  SOLVED BY ALPHAFOLD2           │  NOT SOLVED                            │\n│  ──────────────────────────────│──────────────────────────────────────   │\n│  Single-chain structure         │  Protein dynamics / conformational     │\n│  Accurate backbone + sidechain  │    ensemble (only one state predicted) │\n│  Most structured proteins       │  Intrinsically disordered proteins     │\n│  Homology-template-free         │  Large protein complexes (progress     │\n│  ~200M structures in database   │    with AlphaFold-Multimer, partial)   │\n│                                 │  Protein-small molecule interactions   │\n│                                 │  Protein-nucleic acid interactions     │\n│                                 │  Effect of mutations on stability      │\n│                                 │  Structure in membrane environment     │\n│                                 │  Function prediction                   │\n│                                 │  Drug design (indirect only)           │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 369,
+      "heading_context": "### Protein Quality Control",
+      "confidence": "candidate",
+      "text": "  Folding quality control cascade:\n\n  Newly synthesized protein\n       │\n       ↓\n  Ribosome-associated chaperones (Trigger Factor / RAC)\n       │\n       ↓ if misfolded\n  Hsp70/Hsp40 cycle (multiple rounds)\n       │\n       ↓ if still misfolded\n  GroEL/GroES (bacteria) or TRiC/CCT (eukaryotes)\n       │\n       ↓ if still misfolded\n  Hsp90 (for specific client proteins)\n       │\n       ↓ if irreversibly misfolded\n  Ubiquitin-proteasome system (UPS) → degradation\n  OR\n  Aggresomes → autophagy → lysosomes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 398,
+      "heading_context": "## CS and Optimization Bridges",
+      "confidence": "candidate",
+      "text": "  BIOLOGY                         CS / OPTIMIZATION PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Levinthal's paradox             Exponential search space: 3¹⁰⁰ ≈ 10⁴⁸\n  (exhaustive search impossible)  states. Brute-force search is Θ(3ⁿ).\n                                  This is exactly why random restarts and\n                                  heuristic search are needed for NP-hard\n                                  combinatorial problems.\n\n  Energy funnel                   Branch-and-bound / heuristic pruning:\n  (guides search to native state) each productive contact lowers free energy\n                                  → prunes the search space. The funnel IS\n                                  the heuristic. Proteins with high contact\n                                  order fold slowly — analogous to problems\n                                  with long-range dependencies being harder\n                                  to solve by local search.\n\n  Rugged energy landscape         Non-convex objective function with many\n  (local minima = kinetic traps)  local minima. The challenge in protein\n                                  folding (and training neural networks) is\n                                  escaping local minima. Thermal fluctuations\n                                  are the equivalent of stochastic gradient\n                                  noise or simulated annealing.\n\n  Chaperone quality control       Error correction and retry logic:\n  (GroEL/GroES retry cycle)       GroEL is a fault-isolation sandbox (one\n                                  molecule per chamber), detects failure\n                                  (misfolded → rebind), and retries (multiple\n                                  ATP cycles). If irrecoverably failed → send\n                                  to degradation (proteasome = garbage\n                                  collector). Functionally: circuit breaker\n                                  + retry + dead-letter queue pattern.\n\n  Phi-value analysis              Perturbation / sensitivity analysis:\n  (maps transition state)         ΔΔG‡/ΔΔG_fold measures whether a residue's\n                                  contacts are formed in the TS. This is\n                                  ablation testing on the folding pathway —\n                                  same logic as removing a component and\n                                  measuring performance impact.\n\n  Two-state vs multi-state        Two-state = simple threshold function;\n  folding                         multi-state = piecewise or sigmoid with\n                                  intermediate plateaus. DSC can distinguish\n                                  them; the test (van't Hoff vs calorimetric\n                                  ΔH) is exactly a model comparison test.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

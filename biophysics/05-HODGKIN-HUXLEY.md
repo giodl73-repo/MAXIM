@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biophysics:hodgkin-huxley
+kind: guide
+module: biophysics
+section: biophysics
+title: Hodgkin-Huxley Model - Action Potential from Gated Conductances
+status: source-custody
+source_custody: partial
+current_path: biophysics/05-HODGKIN-HUXLEY.md
+canonical_path: biophysics/05-HODGKIN-HUXLEY.md
+backsource_ids: [proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]
+concepts: [hodgkin, huxley]
+root_concepts: [hodgkin, huxley]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hodgkin-Huxley Model — Action Potential from Gated Conductances
 
 ## The Big Picture

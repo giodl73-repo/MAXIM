@@ -1,0 +1,2785 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-biophysics-protein-folding",
+  "source": "../../biophysics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-PROTEIN-FOLDING.md#000",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "# Protein Folding — Energy Landscapes, Chaperones, and the AlphaFold Boundary"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#001",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#002",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n┌──────────────────────────────────────────────────────────────────────────┐\n│                   PROTEIN FOLDING LANDSCAPE                              │\n│                                                                          │\n│  SEQUENCE → STRUCTURE → FUNCTION                                         │\n│  (1D)        (3D)         (activity)                                     │\n│                                                                          │\n│  THE FOLDING PROBLEM (three distinct questions):                         │\n│  ─────────────────────────────────────────────                           │\n│  1. Prediction: Given sequence, what is the 3D structure?  ← AlphaFold2  │\n│  2. Mechanism: How does folding happen in time?     ← energy funnels     │\n│  3. Design: Given function, what sequence folds to it?  ← RFdiffusion    │\n│                                                                          │\n│  LEVINTHAL'S PARADOX                                                     │\n│  ──────────────────                                                      │\n│  100-residue protein: 3¹⁰⁰ ≈ 10⁴⁸ conformations                          │\n│  At 1 ns/conformation: 10³⁹ years to search exhaustively                 │\n│  Actual folding time: microseconds to seconds                            │\n│  Resolution: proteins do NOT do exhaustive search — they fold via        │\n│  energy funnels, biasing toward lower-energy conformations               │\n│                                                                          │\n│  MISFOLDING DISEASES                                                     │\n│  ──────────────────                                                      │\n│  Alzheimer's:  Aβ, tau fibrillization                                    │\n│  Parkinson's:  α-synuclein aggregation                                   │\n│  Prion:        PrPᶜ → PrPˢᶜ conversion                                   │\n│  Type II DM:   IAPP (islet amyloid polypeptide)                          │\n│  Huntington's: polyglutamine expansion → aggregation                     │\n└──────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#003",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#004",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "## Section 1 — Levinthal's Paradox and Its Resolution"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#005",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "### The Paradox"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#006",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Cyrus Levinthal (1969) pointed out that exhaustive conformational search is impossible:"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#007",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n  100-residue protein:\n    Each residue: ~3 backbone states (φ,ψ rotamers)\n    Total conformations: 3¹⁰⁰ ≈ 5 × 10⁴⁷"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#008",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "If each conformation sampled in 10⁻⁹ s (nanosecond timescale):\n    Time required: 5 × 10⁴⁷ × 10⁻⁹ s = 5 × 10³⁸ s ≈ 10³¹ years"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#009",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Age of universe: ~4 × 10¹⁷ s"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#010",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "→ Exhaustive random search is physically impossible\n  → Proteins must be guided to the native state by the energy landscape\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#011",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "### The Resolution: Energy Funnels"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#012",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "The landscape is not flat. The native state sits at an energy minimum, and the\nlandscape is funnel-shaped, systematically biasing the chain toward lower energy\nas it forms correct contacts:"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#013",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n  ROUGH LANDSCAPE (old view):        FUNNEL LANDSCAPE (correct):"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#014",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "E   ___   ___   ___              E  |||||||||||||||||||  ← unfolded ensemble\n      | | | | | | | |               |  \\|||||||||||||||/\n      ___| |___| |___               |   \\|||||||||||||/\n                                    |    \\|||||||||||/\n  Random walk with many traps       |     \\|||||||||/\n  → exponentially slow              |      \\|||||||/\n                                    |       \\|||||/\n                                    |        \\|||/\n                                    |         \\|/\n                                    |          ●   ← native state (global minimum)\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#015",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "**Key insight**: the funnel has a global minimum (native state) but a rough\nlandscape with local minima (kinetic traps). The folding trajectory is not random —\neach productive contact lowers the free energy, pruning the conformational space."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#016",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#017",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "## Section 2 — Energy Landscape Theory"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#018",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "### The Free Energy Landscape"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#019",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "The conformational free energy G(q) is a function of collective coordinates q\n(e.g., fraction of native contacts Q, radius of gyration Rg):"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#020",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n  G(Q) landscape for a two-state folder:"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#021",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "G\n      |\n      |   ___\n      |  /   \\         (unfolded basin: high entropy, high energy)\n      |  |   |   ___\n      |  |   |__/   \\  (transition state: narrow bottleneck)\n      |  |           |\n      |  |           \\___    (folded basin: low entropy, low energy)\n      │\n      └────────────────── Q (native contacts, 0 to 1)"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#022",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "ΔG‡ = activation free energy (determines folding rate)\n  ΔG_fold = stability (determines folded fraction at equilibrium)\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#023",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "These are independently tunable. A protein can be:\n- Thermodynamically stable (ΔG_fold large) but kinetically slow (ΔG‡ large)\n- Kinetically fast (ΔG‡ small) but marginally stable (ΔG_fold small)\n- Both fast and stable (evolved proteins optimize this)"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#024",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "### Two-State vs. Multi-State Folding"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#025",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "**Two-state folders**: small proteins (< ~100 residues), single domain, fold without\npopulated intermediates. Rate depends only on ΔG‡."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#026",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "**Multi-state folders**: larger proteins, populated intermediates. Rate depends on\nthe landscape topology between states."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#027",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n  Diagnostics:\n  - Two-state: van't Hoff ΔH = calorimetric ΔH  (DSC test)\n  - Two-state: m-value proportional to expected buried surface area\n  - Multi-state: urea/GDnHCl denaturation curves are not single sigmoidal\n  - Multi-state: transient intermediates visible in stopped-flow kinetics\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#028",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "### Folding Rates: Kramers Theory and Phi-Values"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#029",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Rate of crossing a free energy barrier (Kramers theory, overdamped limit):"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#030",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n  k_fold = A × exp(-ΔG‡ / k_BT)"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#031",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "where A = attempt frequency ≈ 10⁶-10⁸ s⁻¹ (relates to reconfiguration time)"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#032",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "ΔG‡ depends on topology (contact order):\n  - High contact order (long-range contacts) → slow folding\n  - Low contact order (local contacts, α-helices) → fast folding"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#033",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Contact order CO = (1/NL) Σᵢⱼ |i-j|  (N = residues, L = contacts)\n  Correlation: log(k_fold) anti-correlates with CO across many proteins\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#034",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "**Phi-values** (Alan Fersht): mutation at residue i changes ΔG_fold and ΔG‡.\nΦᵢ = ΔΔΔG‡ / ΔΔG_fold measures whether residue i's contacts are formed in the\ntransition state (Φ ≈ 1) or not yet (Φ ≈ 0). Maps the folding transition state\nwithout needing an actual structure of the TS."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#035",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#036",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "## Section 3 — Chaperones"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#037",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "### Why Chaperones?"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#038",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "The cell is crowded: ~300 g/L protein. Unfolded and partially folded chains expose\nhydrophobic surfaces that tend to aggregate with other chains. Chaperones suppress\noff-pathway aggregation and enable productive folding:"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#039",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n  WITHOUT CHAPERONES:                 WITH CHAPERONES:"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#040",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Newly synthesized chain             Chain binds chaperone\n       ↓                                   ↓\n  Exposes hydrophobic patches         Hydrophobic patches shielded\n       ↓                                   ↓\n  Aggregates with other chains        Released sequentially\n       ↓                                   ↓\n  Insoluble aggregate                 Productive folding\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#041",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "### Major Chaperone Classes"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#042",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n┌──────────────────────────────────────────────────────────────────────────┐\n│  CHAPERONE     │  SUBSTRATE           │  MECHANISM                       │\n│  ──────────────│──────────────────────│───────────────────────────────── │\n│  Hsp70 (DnaK)  │  Unfolded/extended   │  Binds exposed hydrophobic       │\n│  + Hsp40 (DnaJ)│  peptides, ~7 aa     │  stretches. ATP-driven release.  │\n│                │                      │  Co-chaperone DnaJ loads clients. │\n│  ──────────────│──────────────────────│───────────────────────────────── │\n│  GroEL/GroES   │  Misfolded, sticky,  │  Barrel chamber: encapsulates    │\n│  (Hsp60/Hsp10) │  ~20-60 kDa          │  single protein. ATP-driven lid  │\n│                │                      │  (GroES) closes → forced unfolding│\n│                │                      │  and refolding in isolation.     │\n│  ──────────────│──────────────────────│───────────────────────────────── │\n│  Hsp90         │  Signaling proteins, │  Stabilizes near-native states.  │\n│                │  kinases, nuclear    │  Regulatory: many co-chaperones. │\n│                │  receptors           │  ATP-dependent conformational    │\n│                │                      │  clamp mechanism.                │\n│  ──────────────│──────────────────────│───────────────────────────────── │\n│  TRiC/CCT      │  Actin, tubulin,     │  Eukaryotic GroEL analog.        │\n│                │  WD40 domains        │  8 subunits, different pockets   │\n└──────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#043",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "**GroEL/GroES mechanism** (the \"Anfinsen cage\"):"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#044",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n  Step 1: Misfolded/aggregation-prone protein binds GroEL ring\n  Step 2: ATP + GroES bind → lid closes → protein encapsulated\n  Step 3: Inside cavity: hydrophilic walls, protein diluted to 1 molecule\n  Step 4: Protein refolds in isolation (~10 s)\n  Step 5: ATP hydrolysis → GroES dissociates → protein released\n  Step 6: If still misfolded → rebind and retry (multiple cycles possible)"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#045",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Key insight: GroEL doesn't fold the protein — it prevents aggregation\n  and provides an isolated environment where the protein can fold on its own.\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#046",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#047",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "## Section 4 — Misfolding Diseases"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#048",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "### Amyloid: The Misfolded Alternative"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#049",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Many proteins can misfold into amyloid fibrils: cross-β-sheet structures where\nβ-strands run perpendicular to the fibril axis:"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#050",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n  NATIVE FOLD:              AMYLOID FIBRIL:"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#051",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Globular, soluble          Long, insoluble fiber\n  Unique 3D structure        Universal cross-β architecture\n  Functional                 Toxic (especially oligomers)\n  Specific sequence          Any sequence can in principle form amyloid\n  ~1-100 nm                  μm-mm length"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#052",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Cross-β structure:\n  ─── β-strand ───          Strands perpendicular to fiber axis\n  ─── β-strand ───          H-bonds parallel to fiber axis\n  ─── β-strand ───          Spacing: 4.7 Å along fiber (H-bond spacing)\n                             Spacing: 10-11 Å across fiber (side chains)\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#053",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "The amyloid state is often thermodynamically more stable than the native fold.\nThe native state is kinetically trapped by the energy barrier of nucleation."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#054",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "### Disease Mechanisms"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#055",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "**Alzheimer's disease:**\n- Amyloid β (Aβ40/Aβ42): cleavage product of APP\n- Aβ42 aggregates faster, forms plaques\n- Tau: microtubule-associated protein, hyperphosphorylation → NFT\n- Current hypothesis: soluble oligomers are the toxic species, not mature plaques"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#056",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "**Parkinson's disease:**\n- α-synuclein: small presynaptic protein, function uncertain\n- SNCA mutations accelerate aggregation\n- Lewy bodies: inclusions of α-synuclein fibrils in dopaminergic neurons\n- Spreads cell-to-cell in \"prion-like\" fashion"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#057",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "**Prion diseases (CJD, BSE, scrapie):**\n- Uniquely: the amyloid form (PrPˢᶜ) catalyzes conversion of native form (PrPᶜ)\n- Templated misfolding: PrPˢᶜ + PrPᶜ → 2 PrPˢᶜ\n- Exponential amplification → fatal neurodegeneration\n- Transmissible: the misfolded protein IS the infectious agent (Prusiner, Nobel 1997)"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#058",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n  Prion conversion mechanism:"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#059",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "PrPᶜ (cellular, normal)      PrPˢᶜ (scrapie, pathogenic)\n  α-helix rich                  β-sheet rich\n  Soluble                       Insoluble aggregate\n  Degradable by proteases       Protease-resistant"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#060",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "PrPˢᶜ + PrPᶜ  →  PrPˢᶜ + PrPˢᶜ  (templated conversion)"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#061",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "This is the ONLY known case of protein-based inheritance\n  (information transfer without nucleic acid)\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#062",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#063",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "## Section 5 — AlphaFold: What It Solved and What It Didn't"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#064",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "### What AlphaFold2 Actually Solved"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#065",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Structure prediction: given amino acid sequence, predict 3D coordinates of all\natoms with ~Å accuracy for most structured proteins."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#066",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "**Before AlphaFold2 (CASP13, 2018):** median TM-score ≈ 0.5 (rough fold guess)\n**After AlphaFold2 (CASP14, 2020):** median TM-score ≈ 0.9 (near-experimental quality)"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#067",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "This ended the \"protein structure prediction problem\" as stated for 50+ years."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#068",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "### What AlphaFold2 Does NOT Solve"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#069",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n┌──────────────────────────────────────────────────────────────────────────┐\n│  SOLVED BY ALPHAFOLD2           │  NOT SOLVED                            │\n│  ──────────────────────────────│──────────────────────────────────────   │\n│  Single-chain structure         │  Protein dynamics / conformational     │\n│  Accurate backbone + sidechain  │    ensemble (only one state predicted) │\n│  Most structured proteins       │  Intrinsically disordered proteins     │\n│  Homology-template-free         │  Large protein complexes (progress     │\n│  ~200M structures in database   │    with AlphaFold-Multimer, partial)   │\n│                                 │  Protein-small molecule interactions   │\n│                                 │  Protein-nucleic acid interactions     │\n│                                 │  Effect of mutations on stability      │\n│                                 │  Structure in membrane environment     │\n│                                 │  Function prediction                   │\n│                                 │  Drug design (indirect only)           │\n└──────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#070",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "**Structure ≠ Function.** Knowing the fold does not tell you:\n- What ligands bind (requires binding site identification, docking, experimental validation)\n- How the protein is regulated (conformational changes, PTMs)\n- What the protein does in the cell (requires genetics, cell biology)\n- Whether a mutation is pathogenic (requires functional assays)"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#071",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "AlphaFold2 gives the static, ground-state structure of the dominant conformation.\nMany proteins function through their dynamics, alternative conformations, or\nintrinsically disordered regions — all invisible to AlphaFold2."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#072",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "More detail on the AlphaFold architecture and what followed → see 09-ALPHAFOLD-ERA.md."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#073",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#074",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "## Section 6 — Protein Folding In Vivo vs. In Vitro"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#075",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "### Cotranslational Folding"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#076",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "In the cell, proteins fold while being synthesized — the N-terminal domain is\nreleased from the ribosome before the C-terminal domain is even synthesized:"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#077",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n  IN VITRO (test tube):              IN VIVO (cell):"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#078",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Full sequence available             N-terminus exits ribosome first\n  Concentration effects               Surrounded by chaperones\n  No vectorial synthesis              Cotranslational folding\n  Pure protein                        Crowded environment (300 g/L)\n  Folding from fully denatured        Folding from extended, never denatured\n  Can study equilibrium               Always non-equilibrium"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#079",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Consequence: kinetic intermediates are different in vivo vs. in vitro.\n  Some proteins that aggregate in vitro fold perfectly in vivo.\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#080",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Ribosome-associated chaperones (RAC, NAC, Trigger Factor) interact with the\nemerging chain and begin folding before synthesis completes."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#081",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "### Protein Quality Control"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#082",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n  Folding quality control cascade:"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#083",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Newly synthesized protein\n       │\n       ↓\n  Ribosome-associated chaperones (Trigger Factor / RAC)\n       │\n       ↓ if misfolded\n  Hsp70/Hsp40 cycle (multiple rounds)\n       │\n       ↓ if still misfolded\n  GroEL/GroES (bacteria) or TRiC/CCT (eukaryotes)\n       │\n       ↓ if still misfolded\n  Hsp90 (for specific client proteins)\n       │\n       ↓ if irreversibly misfolded\n  Ubiquitin-proteasome system (UPS) → degradation\n  OR\n  Aggresomes → autophagy → lysosomes\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#084",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#085",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "## CS and Optimization Bridges"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#086",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Protein folding is a search and optimization problem over an astronomically large combinatorial space — with the same structural features that make NP-hard problems hard."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#087",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "```\n  BIOLOGY                         CS / OPTIMIZATION PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Levinthal's paradox             Exponential search space: 3¹⁰⁰ ≈ 10⁴⁸\n  (exhaustive search impossible)  states. Brute-force search is Θ(3ⁿ).\n                                  This is exactly why random restarts and\n                                  heuristic search are needed for NP-hard\n                                  combinatorial problems."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#088",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Energy funnel                   Branch-and-bound / heuristic pruning:\n  (guides search to native state) each productive contact lowers free energy\n                                  → prunes the search space. The funnel IS\n                                  the heuristic. Proteins with high contact\n                                  order fold slowly — analogous to problems\n                                  with long-range dependencies being harder\n                                  to solve by local search."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#089",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Rugged energy landscape         Non-convex objective function with many\n  (local minima = kinetic traps)  local minima. The challenge in protein\n                                  folding (and training neural networks) is\n                                  escaping local minima. Thermal fluctuations\n                                  are the equivalent of stochastic gradient\n                                  noise or simulated annealing."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#090",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Chaperone quality control       Error correction and retry logic:\n  (GroEL/GroES retry cycle)       GroEL is a fault-isolation sandbox (one\n                                  molecule per chamber), detects failure\n                                  (misfolded → rebind), and retries (multiple\n                                  ATP cycles). If irrecoverably failed → send\n                                  to degradation (proteasome = garbage\n                                  collector). Functionally: circuit breaker\n                                  + retry + dead-letter queue pattern."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#091",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Phi-value analysis              Perturbation / sensitivity analysis:\n  (maps transition state)         ΔΔG‡/ΔΔG_fold measures whether a residue's\n                                  contacts are formed in the TS. This is\n                                  ablation testing on the folding pathway —\n                                  same logic as removing a component and\n                                  measuring performance impact."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#092",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "Two-state vs multi-state        Two-state = simple threshold function;\n  folding                         multi-state = piecewise or sigmoid with\n                                  intermediate plateaus. DSC can distinguish\n                                  them; the test (van't Hoff vs calorimetric\n                                  ΔH) is exactly a model comparison test.\n  ──────────────────────────────────────────────────────────────────────\n```"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#093",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "**AlphaFold2 as a search oracle**: AF2 does not solve the folding mechanism — it learned a mapping from sequence to structure from the PDB, bypassing the kinetic search problem entirely. It is a compressed lookup table built from evolutionary co-variation data. Understanding this distinction matters: AF2 tells you the static ground-state structure, not how the protein folds or what conformations it visits dynamically."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#094",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#095",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#096",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "- `biophysics/01-THERMODYNAMICS-BIO.md` — free energy and entropy as folding constraints.\n- `biophysics/09-ALPHAFOLD-ERA.md` — modern prediction and structure-learning context.\n- `biology/01-MOLECULAR-MACHINERY.md` — folded proteins as cellular machines."
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#097",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "02-PROTEIN-FOLDING.md#098",
+      "path": [
+        "02-PROTEIN-FOLDING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]",
+        "canonical_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "concepts": "[protein, folding]",
+        "current_path": "biophysics/02-PROTEIN-FOLDING.md",
+        "id": "maxim:biophysics:protein-folding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[protein, folding]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Levinthal paradox | Energy-funnel search | Folding is biased, not exhaustive. |\n| Folding rate | Barrier height and contact order | Kinetics and thermodynamic stability are different. |\n| Folded fraction | Delta G of folding | Small free-energy shifts can change population strongly. |\n| Chaperonin assistance | GroEL/GroES encapsulation | Chaperones assist folding; they do not encode the final fold. |\n| Prion propagation | Template-catalyzed conformational conversion | Sequence identity and strain conformation both matter. |\n| Amyloid stability | Kinetic trapping versus thermodynamic basin | Native state can be metastable, not globally lowest energy. |\n| AlphaFold2 success | Static single-chain structure prediction | Confidence is local and context-dependent. |\n| AlphaFold2 limit | Dynamics, disorder, function, and binding | Structure prediction is not full biophysics. |"
+    }
+  ],
+  "refs": [
+    "02-PROTEIN-FOLDING.md"
+  ]
+}

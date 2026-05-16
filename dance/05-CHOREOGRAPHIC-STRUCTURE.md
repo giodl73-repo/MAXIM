@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dance:choreographic-structure
+kind: guide
+module: dance
+section: dance
+title: Choreographic Structure and Composition
+status: source-custody
+source_custody: partial
+current_path: dance/05-CHOREOGRAPHIC-STRUCTURE.md
+canonical_path: dance/05-CHOREOGRAPHIC-STRUCTURE.md
+backsource_ids: [proof-backfill:dance:05-choreographic-structure, git-history:dance:05-choreographic-structure]
+concepts: [choreographic, structure]
+root_concepts: [choreographic, structure]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Choreographic Structure and Composition
 
 ## The Big Picture

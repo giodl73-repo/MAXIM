@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biophysics:overview
+kind: guide
+module: biophysics
+section: biophysics
+title: Biophysics - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: biophysics/00-OVERVIEW.md
+canonical_path: biophysics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:biophysics:00-overview, git-history:biophysics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biophysics — Landscape and Taxonomy
 
 ## The Big Picture

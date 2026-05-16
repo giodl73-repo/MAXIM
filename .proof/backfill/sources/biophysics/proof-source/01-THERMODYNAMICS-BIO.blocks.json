@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biophysics\\01-THERMODYNAMICS-BIO.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│              BIOLOGICAL THERMODYNAMICS LANDSCAPE                         │\n│                                                                          │\n│  EQUILIBRIUM THERMO           NON-EQUILIBRIUM THERMO                     │\n│  ──────────────────           ─────────────────────                      │\n│  ΔG = ΔH - TΔS               Steady-state fluxes                         │\n│  Keq = exp(-ΔG°/RT)          Driving force: chemical potential gradient  │\n│  Boltzmann distribution       Onsager reciprocal relations               │\n│  Free energy minimization     NESS: non-equilibrium steady state         │\n│                                                                          │\n│  ATP HYDROLYSIS                                                          │\n│  ─────────────                                                           │\n│  ATP + H₂O → ADP + Pᵢ                                                    │\n│  ΔG°' = -7.3 kcal/mol    (standard, pH 7, 25°C)                          │\n│  ΔG_cell ≈ -12 kcal/mol  (in vivo, far from equilibrium)                 │\n│                                                                          │\n│  FREE ENERGY TRANSDUCTION CHAIN                                          │\n│  ─────────────────────────────                                           │\n│  Light / Food                                                            │\n│      ↓  oxidative phosphorylation / photosynthesis                       │\n│  Proton gradient (ΔμH⁺)                                                  │\n│      ↓  ATP synthase                                                     │\n│  ATP                                                                     │\n│      ↓  hydrolysis by molecular machines                                 │\n│  Mechanical work / ion pumping / biosynthesis                            │\n│                                                                          │\n│  ENERGY SCALE ANCHOR: k_BT = 0.6 kcal/mol at 310 K                       │\n│  ATP hydrolysis ΔG_cell ≈ 20 k_BT — large premium over thermal noise     │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "### The Core Equation",
+      "confidence": "candidate",
+      "text": "  ΔG = ΔH - TΔS\n\n  ΔG < 0  →  spontaneous (exergonic)\n  ΔG > 0  →  non-spontaneous (endergonic), requires energy input\n  ΔG = 0  →  equilibrium",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 74,
+      "heading_context": "### The Core Equation",
+      "confidence": "candidate",
+      "text": "  ΔG = ΔG° + RT ln([B]/[A])\n\n  At equilibrium: ΔG = 0  →  ΔG° = -RT ln(Keq)\n  Rearranging:    Keq = exp(-ΔG°/RT)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "### Free Energy Composition",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────┐\n│                ΔG = ΔH - TΔS                             │\n│                                                          │\n│  ΔH contributions (enthalpy):                            │\n│  ─────────────────────────────                           │\n│  Covalent bond formation/breaking    ±50-500 kcal/mol    │\n│  Hydrogen bonds                      ±1-5 kcal/mol       │\n│  van der Waals contacts              ±0.1-1 kcal/mol     │\n│  Electrostatic interactions          ±1-10 kcal/mol      │\n│  Hydrophobic effect (ΔH small!)      ≈0 kcal/mol         │\n│                                                          │\n│  TΔS contributions (at 310 K):                           │\n│  ─────────────────────────────                           │\n│  Hydrophobic burial (water ordering) -TΔS ≈ -3 kcal/mol  │\n│  Conformational restriction          -TΔS ≈ +2-10 kcal/mol│\n│  Translational/rotational entropy    -TΔS ≈ +5-15 kcal/mol│\n└──────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "### ATP Hydrolysis: The Numbers",
+      "confidence": "candidate",
+      "text": "  Reaction:   ATP⁴⁻ + H₂O → ADP³⁻ + HPO₄²⁻ + H⁺\n\n  Standard:   ΔG°' = -7.3 kcal/mol = -30.5 kJ/mol\n\n  In vivo (typical cytoplasmic concentrations):\n    [ATP] ≈ 5 mM\n    [ADP] ≈ 0.5 mM\n    [Pᵢ]  ≈ 5 mM\n\n  ΔG = ΔG°' + RT ln([ADP][Pᵢ] / [ATP])\n     = -7.3 + (0.6) × ln((0.5×10⁻³)(5×10⁻³) / (5×10⁻³))\n     = -7.3 + (0.6) × ln(5×10⁻⁴)\n     = -7.3 + (0.6) × (-7.6)\n     = -7.3 - 4.6\n     ≈ -11.9 kcal/mol  ≈ -50 kJ/mol\n\n  In k_BT units at 310 K:  ΔG_cell ≈ -20 k_BT per ATP hydrolysis",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 161,
+      "heading_context": "### Coupling Exergonic to Endergonic Reactions",
+      "confidence": "candidate",
+      "text": "  Example: glutamine synthesis\n\n  Glutamate + NH₃ → Glutamine + H₂O    ΔG°' = +3.4 kcal/mol  (unfavorable)\n  ATP + H₂O → ADP + Pᵢ                 ΔG°' = -7.3 kcal/mol\n\n  Coupled total:\n  Glutamate + NH₃ + ATP → Glutamine + ADP + Pᵢ\n  ΔG°' = 3.4 + (-7.3) = -3.9 kcal/mol  ← spontaneous\n\n  Mechanism: glutamine synthetase phosphorylates glutamate intermediate,\n  never releasing it, so the two reactions are mechanistically coupled.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 180,
+      "heading_context": "### ATP Accounting in Aerobic Metabolism",
+      "confidence": "candidate",
+      "text": "  Aerobic oxidation of glucose:\n  C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O    ΔG°' = -686 kcal/mol\n\n  ┌─────────────────────────────────────────────────────┐\n  │  Pathway                     │  ATP (approx.)       │\n  │  ────────────────────────────│────────────────────  │\n  │  Glycolysis (substrate-lvl)  │  2 ATP               │\n  │  Pyruvate → Acetyl-CoA       │  ~5 ATP (via NADH)   │\n  │  Krebs cycle (substrate-lvl) │  2 GTP ≈ 2 ATP       │\n  │  Krebs NADH/FADH₂ → ETC     │  ~26 ATP              │\n  │  ────────────────────────────│────────────────────  │\n  │  Total                       │  ~30-32 ATP          │\n  └─────────────────────────────────────────────────────┘\n\n  Efficiency: 30 × 7.3 / 686 ≈ 32%\n  Rest dissipated as heat → maintains body temperature",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "### Binding Affinity and Free Energy",
+      "confidence": "candidate",
+      "text": "  Association: A + B ⇌ AB\n  Kd = [A][B] / [AB]   (units: M)\n\n  ΔG°_binding = RT ln(Kd)\n\n  Kd = 1 nM   →  ΔG°_binding = -12 kcal/mol  (tight binding)\n  Kd = 1 μM   →  ΔG°_binding = -8.2 kcal/mol (moderate)\n  Kd = 1 mM   →  ΔG°_binding = -4.1 kcal/mol (weak)\n\n  Rule: each 10× reduction in Kd = 1.36 kcal/mol ≈ 2.3 k_BT in ΔG",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 278,
+      "heading_context": "### Chemical Potential and Driving Force",
+      "confidence": "candidate",
+      "text": "  ΔG_pump = ΔG_Na(3 ions) + ΔG_K(2 ions) + ΔG_membrane + ΔG_ATP\n\n  Electrochemical potential per ion: Δμᵢ = RT ln(cᵢ_in/cᵢ_out) + zᵢFΔΨ\n\n  Na⁺ inside: [Na⁺]_in ≈ 12 mM, [Na⁺]_out ≈ 145 mM, ΔΨ ≈ -70 mV\n  → pumping Na⁺ out costs: ~3.5 kcal/mol per ion × 3 = ~10.5 kcal/mol\n  ATP provides: ~12 kcal/mol  → thermodynamically feasible",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 315,
+      "heading_context": "### The Hydrophobic Effect: Detailed Thermodynamics",
+      "confidence": "candidate",
+      "text": "  Transfer of nonpolar solute from water to organic phase:\n\n  At 25°C:   ΔH ≈ 0,   ΔS > 0   →  entropy-driven\n  At 80°C:   ΔH < 0,   ΔS ≈ 0   →  enthalpy-driven (solvation changes)\n  At  0°C:   ΔH > 0,   ΔS > 0   →  entropy still drives but ΔH works against\n             → at very low T: cold denaturation\n\n  Large positive ΔCp (heat capacity increase) upon nonpolar exposure:\n    Signature in calorimetry: ΔCp = dΔH/dT > 0 for hydrophobic burial",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 333,
+      "heading_context": "### Conformational Entropy",
+      "confidence": "candidate",
+      "text": "  Flexible polypeptide: each residue has several rotamer states\n  → 100-residue protein has ~3¹⁰⁰ conformations before folding\n\n  Upon folding: ΔS_conf < 0  (unfavorable — backbone fixed)\n\n  Folding ΔG breakdown (typical globular protein):\n    ΔH_fold ≈ -100 to -200 kcal/mol  (H-bonds, van der Waals)\n    TΔS_conf ≈ +50 to +150 kcal/mol   (backbone restriction, unfavorable)\n    TΔS_water ≈ +50 to +100 kcal/mol  (hydrophobic burial, favorable)\n\n    Net: ΔG_fold = -5 to -15 kcal/mol  (small difference of large numbers)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 357,
+      "heading_context": "### Isothermal Titration Calorimetry (ITC)",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────┐\n  │  ITC: ligand titrated into protein solution at const T   │\n  │                                                          │\n  │  Measures directly:  ΔH per injection (heat signal)      │\n  │  From binding isotherm:  n (stoichiometry), Kd           │\n  │  Calculates:         ΔG = -RT ln(Kd)                     │\n  │                       TΔS = ΔH - ΔG                      │\n  │                                                          │\n  │  Complete thermodynamic profile in one experiment        │\n  │  Gold standard for binding characterization              │\n  │  Limitation: requires high protein concentration (μM-mM) │\n  │    and large sample volumes (1-2 mg protein per run)     │\n  └──────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 377,
+      "heading_context": "### Differential Scanning Calorimetry (DSC)",
+      "confidence": "candidate",
+      "text": "  At melting temperature Tm:  ΔG = 0  →  Tm = ΔH_fold / ΔS_fold\n\n  From DSC:\n    ΔH_unfold = area under peak\n    ΔS_unfold = ΔH_unfold / Tm\n    ΔCp from baseline difference → quantifies hydrophobic burial area\n    van't Hoff ΔH from peak shape vs. calorimetric ΔH → cooperativity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 397,
+      "heading_context": "## Engineering and Physics Bridges",
+      "confidence": "candidate",
+      "text": "  BIOLOGY                         CLASSICAL ENGINEERING PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Free energy transduction        Heat engine efficiency (Carnot):\n  (ATP coupling)                  ΔG_cell ≈ -12 kcal/mol per ATP is the\n                                  \"work available per fuel cycle.\" The\n                                  mitochondrion is a proton-gradient engine\n                                  with ~32% efficiency — comparable to a\n                                  steam turbine.\n\n  Proton motive force             Electrochemical potential in batteries:\n  ΔμH⁺ = FΔΨ - 2.303RT·ΔpH      ΔΨ ≈ -180 mV is a ~200 meV stored EMF.\n                                  ATP synthase is the \"load\" driven by this\n                                  potential — exactly as a motor load is\n                                  driven by voltage across a circuit.\n\n  Membrane equivalent circuit     RC circuits in electrical engineering:\n  C_m × dV/dt = -Σ G_ion(V-E_ion) Kirchhoff's current law applied to a\n                                  capacitor (bilayer) in parallel with\n                                  conductances (channels). The Nernst\n                                  potential is a battery EMF for each ion.\n\n  NESS (non-equilibrium steady    Open thermodynamic systems in chemical\n  state): [ATP]/[ADP] ≈ 10⁶×Keq  engineering — a continuous flow reactor\n                                  maintained far from equilibrium by\n                                  continuous energy input (combustion fuel\n                                  input → products out).\n\n  ΔG°' vs ΔG in vivo              Standard state vs. operating point:\n  (-7.3 vs -12 kcal/mol)          ΔG°' is the property at standard conditions;\n                                  ΔG is the operating condition. A chemical\n                                  engineer always uses operating conditions,\n                                  not standard state, to evaluate feasibility.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

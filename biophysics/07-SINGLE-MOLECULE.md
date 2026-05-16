@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biophysics:single-molecule
+kind: guide
+module: biophysics
+section: biophysics
+title: Single-Molecule Techniques - Optical Tweezers, AFM, FRET, Magnetic Tweezers
+status: source-custody
+source_custody: partial
+current_path: biophysics/07-SINGLE-MOLECULE.md
+canonical_path: biophysics/07-SINGLE-MOLECULE.md
+backsource_ids: [proof-backfill:biophysics:07-single-molecule, git-history:biophysics:07-single-molecule]
+concepts: [single, molecule]
+root_concepts: [single, molecule]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Single-Molecule Techniques — Optical Tweezers, AFM, FRET, Magnetic Tweezers
 
 ## The Big Picture

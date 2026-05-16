@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biophysics\\06-MOLECULAR-MOTORS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│                 MOLECULAR MOTORS LANDSCAPE                               │\n│                                                                          │\n│  SHARED MECHANOCHEMICAL CYCLE (all P-loop NTPases):                      │\n│  ATP bind → conformational change (power stroke) → force/torque →        │\n│  ATP hydrolysis → product release (ADP, Pi) → reset                      │\n│  Linear motors: conformational change → linear translation on track      │\n│  Rotary motors: conformational change → rotation of c-ring or γ shaft    │\n│                                                                          │\n│  LINEAR MOTORS                   ROTARY MOTORS                           │\n│  ─────────────                   ─────────────                           │\n│  Kinesin: + end directed         ATP synthase (F₀F₁)                     │\n│  Dynein: - end directed          Bacterial flagellar motor               │\n│  Myosin II: muscle contraction   DNA polymerase (rotary on helical track) │\n│  Myosin V: vesicle transport                                             │\n│                                                                          │\n│  TRACK               MOTOR           FUNCTION                            │\n│  ──────────────────────────────────────────────────────────────────────  │\n│  Microtubule (+ end)  Kinesin-1      Anterograde axonal transport        │\n│  Microtubule (- end)  Cytoplasmic dynein  Retrograde + mitosis           │\n│  Actin filament       Myosin II       Muscle contraction, cytokinesis    │\n│  Actin filament       Myosin V        Vesicle/organelle transport        │\n│  Actin filament       Myosin VI       Endocytosis (- end directed)       │\n│  None                 ATP synthase    Proton gradient → ATP              │\n│  Flagellar basal body Flagellar motor Bacterial motility                 │\n│                                                                          │\n│  ENERGY SCALE:                                                           │\n│  Kinesin stall force × step: 7 pN × 8 nm = 56 pN·nm ≈ 14 k_BT per step   │\n│  ATP hydrolysis in vivo: ~50 pN·nm ≈ 12 k_BT → efficiency ~25-50%        │\n│  Stall force:  kinesin ~7 pN, myosin II ~3-5 pN per head                 │\n│  ATP synthase: 120° rotation per ATP, ~25 k_BT free energy per ATP       │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "### The Ratchet Principle",
+      "confidence": "candidate",
+      "text": "  SYMMETRIC POTENTIAL:               FLASHING RATCHET:\n\n  V(x)  /\\/\\/\\/\\/\\              V(x) ON:   /\\/\\/\\/\\/\\\n  →  no net motion                  OFF: ___________  (flat)\n\n  Symmetric barriers: equal          Particle diffuses freely when flat,\n  probability of going left/right    then falls into asymmetric potential\n  → no net drift                     → net rightward drift\n\n  Require: asymmetric potential (different slopes on left/right)\n           energy input to \"flash\" between states\n           → breaks time-reversal symmetry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 111,
+      "heading_context": "### Structure and Track",
+      "confidence": "candidate",
+      "text": "  KINESIN STRUCTURE:\n\n  [Head 1] — coiled-coil stalk — [Head 2]\n      |                               |\n      |    neck linker (~14 aa)        |\n  MT binding site                MT binding site\n\n  Head diameter: ~5 nm\n  Step size: 8 nm (= tubulin dimer repeat)\n  Processivity: ~100 steps per run (processive motor)\n  → Kinesin walks hand-over-hand, like a person walking\n\n  Microtubule track:\n  (+end) ----α-β-α-β-α-β-α-β---- (-end)\n         ←─────── 8 nm ──────→\n  Kinesin walks toward + end (anterograde, away from nucleus)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "### Mechanochemical Cycle",
+      "confidence": "candidate",
+      "text": "  STATE 1: Both heads bound, lead head (apo/ADP state)\n  ↓\n  ATP binds to trailing head\n  ↓\n  STATE 2: ATP binding → neck linker docks (power stroke)\n    → swings unbound head forward ~16 nm\n    → unbound head finds new binding site 8 nm ahead\n  ↓\n  STATE 3: New lead head binds MT, releases ADP\n    → tight-binding ADP-free state\n  ↓\n  STATE 4: Trailing head: Pi released → weak binding\n    → trailing head detaches (ATP already hydrolyzed → ADP bound)\n  ↓\n  Back to STATE 1: one step completed, 8 nm advance\n\n  Net: 1 ATP per step, 8 nm advance, ~8 pN·nm work",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "### Force-Velocity Relationship and Stall Force",
+      "confidence": "candidate",
+      "text": "  Stall force: kinesin stall ≈ 7 pN\n\n  Force-velocity relationship (approximately linear near stall):\n    v(F) ≈ v_max × (1 - F/F_stall)\n\n  v_max (no load) ≈ 800 nm/s ≈ 100 steps/s\n  v at F_stall ≈ 0\n\n  Efficiency: W_mech / ΔG_ATP = (7 pN × 8 nm) / (50 pN·nm)\n            = 56 pN·nm / 50 pN·nm ≈ 1.1? → apparent >100%?\n\n  Resolution: stall force is maximum against a constant load.\n  In vivo, step size can vary; true efficiency ≈ 25-50% for kinesin.\n  (At maximum power output, efficiency < thermodynamic maximum.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 184,
+      "heading_context": "### Structure",
+      "confidence": "candidate",
+      "text": "  DYNEIN STRUCTURE:\n\n  Ring of 6 AAA+ domains (AAA1-AAA6) per head\n  ATP hydrolysis: primarily AAA1, AAA3\n  Stalk: projects from AAA4/5 → MT binding domain at tip\n  Linker: AAA1-N terminus — major mechanical element\n\n  Direction: minus-end directed (toward nucleus, centrosome)\n  Step size: variable, 8-32 nm (not tightly coupled to ATP)\n  Processivity: intrinsically low; requires dynactin cofactor for processive cargo\n\n  Dynein is far more complex than kinesin:\n  kinesin: simple dimer, well-characterized mechanism\n  dynein: ring motor, sidesteps possible, mechanism still debated",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "### Dynein vs. Kinesin",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────────┐\n  │  PROPERTY         │  KINESIN-1          │  DYNEIN (cytoplasmic)  │\n  │  ─────────────── │  ─────────────────  │  ────────────────────   │\n  │  Direction        │  + end              │  - end                 │\n  │  Step size        │  8 nm (constant)    │  8-32 nm (variable)    │\n  │  Stall force      │  ~7 pN              │  ~1 pN (solo)          │\n  │                   │                     │  ~7 pN (with dynactin) │\n  │  Processivity     │  ~100 steps/run     │  ~10 steps; needs      │\n  │                   │                     │  dynactin/BICD2        │\n  │  ATP coupling     │  Tight (1:1)        │  Loose, uncoupled      │\n  │  Structural family│  Kinesin superfamily│  AAA+ ATPase           │\n  │  Major function   │  ER, Golgi, mito    │  Endosomes, nucleus,   │\n  │                   │  anterograde        │  retrograde, mitosis   │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 229,
+      "heading_context": "### Myosin II: Muscle Contraction",
+      "confidence": "candidate",
+      "text": "  MYOSIN II HEAD (lever arm model):\n\n  Structure: motor domain + lever arm (3-4 IQ motifs) + tail (dimerization)\n  Lever arm length: ~10 nm\n  Power stroke: lever arm swings ~45-60° → ~5 nm displacement\n\n  CROSSBRIDGE CYCLE (Lymn-Taylor, 1971):\n\n  Step 1: Myosin-ADP-Pi (cocked state) binds actin (strong binding)\n  ↓\n  Step 2: Pi release → power stroke (lever arm swings from \"up\" to \"down\")\n          → generates ~3-5 pN force, ~5 nm displacement\n  ↓\n  Step 3: ADP released → rigor state (strong binding, no ATP)\n  ↓\n  Step 4: ATP binds → rapid detachment from actin\n  ↓\n  Step 5: ATP hydrolysis → myosin returns to cocked state (reprimes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 254,
+      "heading_context": "### Sliding Filament Model: Muscle",
+      "confidence": "candidate",
+      "text": "  Sarcomere (2.2 μm at rest):\n\n  Z──────────────────────────────────Z\n  |  thin (actin)                     |\n  |  ─────────────     ───────────── |\n  |              thick (myosin)       |\n  |         ─────────────────────── │\n  |  ─────────────     ───────────── │\n  Z──────────────────────────────────Z\n\n  Contraction: myosin heads on thick filament pull thin filament inward\n  → Z-lines approach → sarcomere shortens\n\n  Whole muscle:\n    Force: ~0.5-1 N/mm² (specific force)\n    Shortening velocity: up to 10 lengths/s (velocity ∝ g_detachment)\n    P-V curve: v = v_max × (P₀-P)/(P₀+P/a)  (Hill equation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 278,
+      "heading_context": "### Myosin V: Processive Transport",
+      "confidence": "candidate",
+      "text": "  Lever arm: 6 IQ motifs → ~24 nm → step size ≈ 36 nm (actin helical repeat)\n  Processive: hand-over-hand walking, ~100 steps per run\n  Speed: ~400-600 nm/s (slower than kinesin, longer step)\n  Stall force: ~2-3 pN\n\n  Structural symmetry between kinesin (MT) and myosin V (actin):\n    Both: hand-over-hand, processive, dimeric, one head bound at a time\n    Convergent evolution of the walking mechanism",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 299,
+      "heading_context": "### F₀F₁-ATP Synthase",
+      "confidence": "candidate",
+      "text": "  STRUCTURE:\n\n                         ┌─────────────────────────────┐\n  Matrix                 │  F₁: soluble, catalytic head │\n                         │  α₃β₃γδε: γ subunit rotates │\n                         │  inside α₃β₃ hexamer        │\n                         └──────────────┬──────────────┘\n                                        │  central stalk (γε)\n  Inner                  ┌─────────────┴──────────────┐\n  membrane               │  F₀: membrane sector        │\n                         │  a + b₂: stator (static)    │\n                         │  c-ring: 10-15 c subunits    │\n                         │          rotates with γ      │\n                         └─────────────────────────────┘\n  Intermembrane\n  space (high [H⁺])",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 318,
+      "heading_context": "### F₀F₁-ATP Synthase",
+      "confidence": "candidate",
+      "text": "### Mechanism: Binding Change Mechanism (Paul Boyer, Nobel 1997)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 320,
+      "heading_context": "### Mechanism: Binding Change Mechanism (Paul Boyer, Nobel 1997)",
+      "confidence": "candidate",
+      "text": "  Each β subunit cycles through three states:\n    L (loose): ADP + Pi bound\n    T (tight): ATP forms spontaneously (binding energy drives synthesis!)\n    O (open):  ATP released\n\n  The γ subunit rotation interconverts states:\n    120° rotation → all three β subunits advance one state\n\n  Proton flow drives γ rotation:\n    c-ring + γ rotate together\n    H⁺ enters from periplasm → binds c subunit → ring rotates\n    H⁺ exits to matrix after traversing c-ring\n\n  Stoichiometry:\n    c-ring has 8-15 c subunits (species-dependent)\n    Each H⁺ rotates ring by 360°/c\n    Three β subunits → 3 ATPs per full 360° rotation\n    H⁺/ATP = c/3 subunits\n\n    For c = 10 (E. coli): 10/3 = 3.3 H⁺ per ATP\n    For c = 8 (bovine): 8/3 = 2.7 H⁺ per ATP\n\n  Torque: ~40 pN·nm per step (largest torque of any molecular motor)\n  Rotation speed: ~100 rev/s = 6000 RPM under physiological load",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 362,
+      "heading_context": "## Section 6 — Flagellar Motor",
+      "confidence": "candidate",
+      "text": "  STRUCTURE:\n\n  External filament: hollow helical propeller\n  Hook: flexible joint\n  Basal body: 20+ proteins, MS ring, C ring, stators\n\n  MECHANISM:\n    Stator units (MotAB): fixed to cell wall, span membrane\n    H⁺ enters through stator → electrochemical force on C-ring\n    C-ring + M/S-ring rotate → hook + filament rotate\n    Switch protein (FliM in C-ring) switches CW ↔ CCW rotation\n\n  PERFORMANCE:\n    Speed: up to 1000 RPM (E. coli); some species >100,000 RPM\n    Torque: ~1000-4000 pN·nm per motor\n    Stall force: ~600 pN (measured with optical tweezers)\n    H⁺ per revolution: ~1200 H⁺\n    Efficiency: near-100% near stall (thermodynamic limit)\n\n  CHEMOTAXIS:\n    CW rotation: flagellar bundle unbundles → \"tumble\"\n    CCW rotation: flagellar bundle → \"run\" (swimming)\n    CheA/CheY cascade: [attractant] → less tumbling → runs toward gradient",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 395,
+      "heading_context": "## Section 7 — Single-Molecule Force Measurements",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────────┐\n  │  MOTOR         │  STALL FORCE  │  SPEED (no load) │  STEP SIZE   │\n  │  ─────────────  │  ───────────  │  ────────────────  │  ─────────  │\n  │  Kinesin-1      │  ~7 pN        │  800 nm/s         │  8 nm      │\n  │  Cytoplasmic    │  ~1 pN solo   │  variably          │  8-32 nm  │\n  │  dynein         │  ~7 pN w/dyn  │  variable         │  variable  │\n  │  Myosin II      │  ~3-5 pN/head │  ~800 nm/s (max)  │  5 nm      │\n  │  Myosin V       │  ~2-3 pN      │  400-600 nm/s     │  36 nm     │\n  │  RNA polymerase │  ~25-30 pN    │  ~10-50 nt/s      │  0.34 nm   │\n  │  DNA polymerase │  ~34 pN       │  ~200-500 bp/s    │  0.34 nm   │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 415,
+      "heading_context": "## CS, Mechanics, and Thermodynamics Bridges",
+      "confidence": "candidate",
+      "text": "  MOLECULAR MOTORS              CS / ENGINEERING PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Mechanochemical cycle         Finite state machine / Markov chain:\n  (ATP bind → hydrolyze →       each biochemical state (ATP-bound,\n  release → reset)              ADP·Pi-bound, apo) is a graph node.\n                                Transition rates are edge weights.\n                                The cycle drives a probability flux\n                                around the loop — detailed balance\n                                violation is the signal that the motor\n                                is doing work, not just diffusing.\n\n  Brownian ratchet              Feynman's ratchet revisited: at equilibrium,\n  (asymmetric potential         a classical ratchet does zero net work\n  + energy input)               (thermal fluctuations drive it both ways).\n                                Directed motion requires a nonequilibrium\n                                drive — ATP hydrolysis breaks detailed\n                                balance, creating a rectified random walk.\n                                Exactly analogous to a stochastic resonance\n                                rectifier.\n\n  Force-velocity curve          P-V operating curve of a heat engine:\n  v(F) ≈ v_max·(1 - F/F_stall) maximum power at F_stall/2 (same as\n                                matching load to source impedance for\n                                maximum power transfer). At stall:\n                                maximum force, zero velocity, zero power.\n\n  Kinesin processivity          Coordinated two-thread execution:\n  (hand-over-hand, 100 steps)   one head always bound (mutex held) before\n                                the other releases. Mechanical coordination\n                                prevents simultaneous detachment — analogous\n                                to two-phase commit with one lock always held.\n\n  ATP synthase γ rotation       Torque-generating motor with state machine:\n  120° per ATP, 3-fold symmetry the three β subunits cycle L→T→O in phase,\n                                like a 3-cylinder engine with offset timing.\n                                Boyer's binding change mechanism: synthesis\n                                requires no ATP energy directly — binding\n                                energy at the T site IS the synthetic\n                                mechanism.\n\n  Flagellar motor chemotaxis    Feedback control loop with hysteresis:\n  (CheA/CheY → CW/CCW switch)  attractant → phosphorylation cascade →\n                                switch probability change → run/tumble ratio.\n                                The bistable CW/CCW switch is a Schmitt\n                                trigger with noise-driven transitions.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

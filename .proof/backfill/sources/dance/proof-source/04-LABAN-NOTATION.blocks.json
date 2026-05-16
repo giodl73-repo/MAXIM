@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dance\\04-LABAN-NOTATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------+\n|                LABAN'S TWO SYSTEMS                                |\n|                                                                   |\n|  LABANOTATION              LABAN MOVEMENT ANALYSIS (LMA)          |\n|  (Kinetography Laban)                                             |\n|                                                                   |\n|  PURPOSE: Write down a           PURPOSE: Analyze movement quality |\n|  specific dance sequence         regardless of specific sequence  |\n|                                                                   |\n|  WHAT IT RECORDS:                WHAT IT DESCRIBES:               |\n|  -- Which body part              -- Effort (dynamic quality)      |\n|  -- Which direction              -- Space (spatial intent)        |\n|  -- At what level                -- Shape (body form change)      |\n|  -- For how long                 -- Body (body organization)      |\n|  -- With what path                                                |\n|                                                                   |\n|  OUTPUT: A score you can         OUTPUT: A description of HOW     |\n|  reproduce exactly               movement feels and functions     |\n|                                                                   |\n|  ANALOG: Musical notation        ANALOG: Music theory terminology |\n|  (write what notes/when)         (describe timbre, tension, arc)  |\n+-------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "### The Staff Structure",
+      "confidence": "candidate",
+      "text": "LABANOTATION STAFF (vertical reading, bottom to top = forward in time)\n\n  |    |    |    |    |    |    |    |\n  | LS | LA | LT | RL | RT | RA | RS |\n\n  LS = Left support (weight-bearing)      RS = Right support\n  LA = Left arm                           RA = Right arm\n  LT = Left torso                         RT = Right torso\n  RL = Right leg / Left leg (center)\n\n  COLUMN POSITIONS from center out:\n  CENTER:  body center, whole body actions\n  INNER:   leg gesture\n  MIDDLE:  torso actions\n  OUTER:   arm actions\n  OUTER+:  head actions (sometimes)\n\nTIME reads bottom to top: what's at the bottom happens first.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 104,
+      "heading_context": "### Duration Encoding",
+      "confidence": "candidate",
+      "text": "SHORT SYMBOL = SHORT DURATION\n\n  |----| = quarter note equivalent\n  |--------| = half note equivalent\n  |---------|\n  |         | = whole note equivalent (4x as long)\n  |---------|\n\nThe staff has a TIME SIGNATURE equivalent: measure bars drawn\nacross the full width of the staff.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 148,
+      "heading_context": "### Reading a Score: Practical Example",
+      "confidence": "candidate",
+      "text": "READING A PLIE IN LABANOTATION (simplified)\n\nTIME: Measure 1\n                 |    |    |    |    |    |    |    |\n  (2 counts)    |    |    |    | SS |    |    |    |\n                |    |    |    |    |    |    |    |\n  (1 count)     |    |    |    |    |    |    |    |\n                 ================================\n                (START POSITION shown below bar)\n\nSS in center = support symbol with both feet\nDirection: Place (not moving horizontally)\nLevel: Low (bend indicator over support symbol)\n\nCombined with a time signature and key at bottom of score,\na notation reader can reconstruct the exact movement.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 196,
+      "heading_context": "### The Four Components: BESS",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                          LMA FRAMEWORK                           |\n|                                                                  |\n|  BODY              EFFORT              SPACE             SHAPE   |\n|  (What moves)      (How it feels)      (Where it goes)   (Form)  |\n|                                                                  |\n|  Body organization  Motion factors:    Spatial intent:   Shape   |\n|  Body part          Weight             Near reach        modes:  |\n|  relationships      Space              Kinesphere        Modes   |\n|  Connectivity       Time               Directions        of      |\n|  patterns           Flow               Diagonals         change  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 345,
+      "heading_context": "## LMA in Motion Capture and Digital Applications",
+      "confidence": "candidate",
+      "text": "MOCAP + LMA PIPELINE\n\n  Performer with markers -->  3D position data per marker\n  captured at 60-120fps         (x, y, z over time)\n             |\n             v\n  RAW DATA: joint positions, velocities, accelerations\n\n  LMA MAPPING:\n    Effort/Weight:   Acceleration magnitude + path quality\n    Effort/Time:     Velocity change rate (sudden vs sustained)\n    Effort/Space:    Path directness (DTW metric)\n    Effort/Flow:     Jerk (rate of acceleration change) -- high jerk = bound\n    Shape:           Body outline convex hull changes\n    Space/Kinesphere: Reach space envelope over time\n\n  OUTPUT: Movement annotated with LMA qualities\n  USE CASES:\n    -- Choreographic analysis (which Effort qualities dominate?)\n    -- Animation parameter control (make robot move with \"punch\" quality)\n    -- Dance therapy assessment (how does patient's movement change?)\n    -- Performance comparison (how different are two Giselle performances?)\n\nSPECIFIC TOOLS:\n  -- Choreographic Language Agent (CLA) -- Forsythe/MIT Media Lab\n  -- Movementlab tools (CIRMMT Montreal)\n  -- OpenLaban (open-source score editor)\n  -- MotionBank project (Forsythe Company) -- digital scores",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

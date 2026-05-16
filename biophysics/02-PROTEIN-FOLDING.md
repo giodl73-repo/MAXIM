@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biophysics:protein-folding
+kind: guide
+module: biophysics
+section: biophysics
+title: Protein Folding - Energy Landscapes, Chaperones, and the AlphaFold Boundary
+status: source-custody
+source_custody: partial
+current_path: biophysics/02-PROTEIN-FOLDING.md
+canonical_path: biophysics/02-PROTEIN-FOLDING.md
+backsource_ids: [proof-backfill:biophysics:02-protein-folding, git-history:biophysics:02-protein-folding]
+concepts: [protein, folding]
+root_concepts: [protein, folding]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Protein Folding — Energy Landscapes, Chaperones, and the AlphaFold Boundary
 
 ## The Big Picture

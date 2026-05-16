@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dance:laban-notation
+kind: guide
+module: dance
+section: dance
+title: Labanotation and Movement Analysis
+status: source-custody
+source_custody: partial
+current_path: dance/04-LABAN-NOTATION.md
+canonical_path: dance/04-LABAN-NOTATION.md
+backsource_ids: [proof-backfill:dance:04-laban-notation, git-history:dance:04-laban-notation]
+concepts: [laban, notation]
+root_concepts: [laban, notation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Labanotation and Movement Analysis
 
 ## The Big Picture

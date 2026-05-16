@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dance:overview
+kind: guide
+module: dance
+section: dance
+title: Dance - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: dance/00-OVERVIEW.md
+canonical_path: dance/00-OVERVIEW.md
+backsource_ids: [proof-backfill:dance:00-overview, git-history:dance:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Dance — Landscape and Taxonomy
 
 ## The Big Picture

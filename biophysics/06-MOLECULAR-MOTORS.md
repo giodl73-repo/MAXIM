@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biophysics:molecular-motors
+kind: guide
+module: biophysics
+section: biophysics
+title: Molecular Motors - Brownian Ratchets, Force Generation, and Energy Transduction
+status: source-custody
+source_custody: partial
+current_path: biophysics/06-MOLECULAR-MOTORS.md
+canonical_path: biophysics/06-MOLECULAR-MOTORS.md
+backsource_ids: [proof-backfill:biophysics:06-molecular-motors, git-history:biophysics:06-molecular-motors]
+concepts: [molecular, motors]
+root_concepts: [molecular, motors]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Molecular Motors — Brownian Ratchets, Force Generation, and Energy Transduction
 
 ## The Big Picture

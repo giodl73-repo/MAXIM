@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biophysics\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                    BIOPHYSICS LANDSCAPE                          │\n│                                                                    │\n│  STRUCTURAL  ──────────►  DYNAMICAL  ──────────►  FUNCTIONAL     │\n│  (what atoms  feeds        (how it     informs      (what it     │\n│   are where)              moves)                   does)         │\n│  ──────────               ─────────                ──────────    │\n│  X-ray crystallography    Molecular motors         Ion channels  │\n│  NMR spectroscopy         Cytoskeletal dynamics    Membrane pot. │\n│  Cryo-EM                  Protein folding/unfolding Signaling    │\n│  SAXS                     Diffusion in membranes   Gene networks │\n│                                                                    │\n│  SCALE:                                                          │\n│  ───────                                                         │\n│  Å:       Bond lengths, small molecule binding                   │\n│  nm:      Proteins, DNA/RNA, molecular motors                    │\n│  100 nm:  Viruses, organelle membranes                           │\n│  μm:      Cells, cytoskeleton, vesicles                          │\n│  10-100μm: Cell aggregates, tissues                              │\n│                                                                    │\n│  METHODS:                                                        │\n│  ─────────                                                       │\n│  Structural:  X-ray, NMR, cryo-EM, SAXS, AFM                     │\n│  Single mol.: optical tweezers, magnetic tweezers, FRET, TIRF    │\n│  Electrophys.: patch clamp, MEA, voltage clamp                   │\n│  Computational: MD simulation, coarse-grained models, AlphaFold  │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "## Field Taxonomy",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────┐\n│                      BIOPHYSICS                                 │\n├──────────────────┬──────────────────┬────────────────────────── ┤\n│  STRUCTURAL       │  SINGLE MOLECULE  │  CELLULAR                 │\n│  BIOPHYSICS       │  BIOPHYSICS       │  BIOPHYSICS               │\n│                  │                   │                           │\n│  Protein folding  │  Optical tweezers │  Membrane biophysics      │\n│  Cryo-EM         │  Magnetic tweezers│  Ion channel gating       │\n│  X-ray crystal.  │  AFM              │  Hodgkin-Huxley            │\n│  NMR             │  FRET             │  Action potentials         │\n│  AlphaFold       │  TIRF microscopy  │  Cytoskeletal mechanics   │\n├──────────────────┼──────────────────┼───────────────────────────┤\n│  STATISTICAL      │  MOLECULAR        │  COMPUTATIONAL            │\n│  BIOPHYSICS       │  MOTORS           │  BIOPHYSICS               │\n│                  │                   │                          │\n│  Fluctuation-     │  Kinesin          │  MD simulation            │\n│  dissipation      │  Myosin           │  Coarse-grained           │\n│  Jarzynski eq.   │  ATP synthase     │  Stochastic modeling     │\n│  Langevin eq.    │  Polymerases      │  Neural network models   │\n│  Free energy calc │  Brownian ratchet │  Systems biology          │\n└──────────────────┴──────────────────┴───────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 106,
+      "heading_context": "## Unifying Physical Concepts",
+      "confidence": "candidate",
+      "text": "### 1. Thermal Energy",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 114,
+      "heading_context": "### 1. Thermal Energy",
+      "confidence": "candidate",
+      "text": "### 2. Electrostatics in Water",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 118,
+      "heading_context": "### 2. Electrostatics in Water",
+      "confidence": "candidate",
+      "text": "  Electrostatic potential: V(r) = q / (4πε₀εr) × exp(-r/λ_D)\n\n  Debye length λ_D = sqrt(ε₀ε k_B T / (2 × e² × I))\n\n  I = ionic strength = Σ(cᵢ × zᵢ²) / 2\n\n  Physiological salt (150 mM NaCl, I = 150 mM):  λ_D ≈ 0.8 nm\n  → Electrostatic interactions are screened beyond ~1 nm in cells\n  → Long-range electrostatics matter for charged surfaces (membranes)\n    but not for soluble protein-protein interactions (which are mostly short-range)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 131,
+      "heading_context": "### 2. Electrostatics in Water",
+      "confidence": "candidate",
+      "text": "### 3. Stochastic Dynamics",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "## Engineering Bridges Across the Catalog",
+      "confidence": "candidate",
+      "text": "  BIOPHYSICS TOPIC          CLASSICAL ENGINEERING PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Ion channels + membrane   RC circuit, Kirchhoff's current law, cable\n  potential (Modules 04-05) theory (Kelvin, 1855) — the HH equations are\n                            a nonlinear circuit ODE. Membrane capacitance\n                            (1 μF/cm²) and conductances are literal\n                            circuit elements.\n\n  Molecular motors          Thermodynamic heat engines (Carnot efficiency,\n  (Module 06)               work-heat conversion) + Markov chain state\n                            machines. Stall force, velocity, power output\n                            are the motor's operating curve — identical\n                            in form to a P-V diagram.\n\n  Protein folding energy    Combinatorial optimization over rugged\n  landscapes (Module 02)    landscapes (NP-hard analog) — funnel-guided\n                            search is branch-and-bound pruning. The\n                            free energy function is an objective function.\n\n  Structural methods        Signal processing: crystallography is Fourier\n  (Module 03)               inversion with a missing-phase problem (phase\n                            retrieval). Cryo-EM reconstruction is\n                            Bayesian inference on noisy projections.\n                            NMR is spectroscopy in frequency space.\n\n  Single-molecule           Control systems: force clamp / position clamp\n  experiments (Module 07)   are PID feedback controllers. Trap stiffness\n                            calibration is metrology. SNR analysis is\n                            identical to signal detection theory.\n\n  Stochastic biology        Markov chains, queuing theory (master\n  (Module 08)               equations), Wiener process / Langevin\n                            dynamics — directly from probability and\n                            stochastic process theory. Shannon entropy\n                            maps to noise in gene expression.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
