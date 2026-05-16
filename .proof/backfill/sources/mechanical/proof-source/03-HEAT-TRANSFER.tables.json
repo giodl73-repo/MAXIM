@@ -1,0 +1,164 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mechanical\\03-HEAT-TRANSFER.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 47,
+      "heading_context": "## Thermal Conductivity Reference",
+      "headers": [
+        "Material",
+        "k [W/(m·K)]",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Diamond",
+          "2000",
+          "Highest known solid"
+        ],
+        [
+          "Copper",
+          "401",
+          "Best common metal for cooling"
+        ],
+        [
+          "Aluminum",
+          "237",
+          "Standard heat sink material"
+        ],
+        [
+          "Steel (carbon)",
+          "50",
+          "Lower — structural use"
+        ],
+        [
+          "Stainless steel",
+          "15",
+          "Much lower — poor conductor"
+        ],
+        [
+          "Glass",
+          "1.4",
+          "Insulating compared to metals"
+        ],
+        [
+          "Water (liquid)",
+          "0.6",
+          "Surprisingly good for a liquid"
+        ],
+        [
+          "Polyurethane foam",
+          "0.03",
+          "Building insulation"
+        ],
+        [
+          "Air (still)",
+          "0.026",
+          "Why cavities insulate"
+        ],
+        [
+          "Aerogel",
+          "0.015",
+          "Best practical insulator"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 298,
+      "heading_context": "## Radiation",
+      "headers": [
+        "Surface",
+        "ε"
+      ],
+      "rows": [
+        [
+          "Blackbody",
+          "1.0"
+        ],
+        [
+          "Polished copper",
+          "0.03"
+        ],
+        [
+          "Polished aluminum",
+          "0.05"
+        ],
+        [
+          "White paint",
+          "0.90–0.98"
+        ],
+        [
+          "Black paint",
+          "0.96–0.98"
+        ],
+        [
+          "Brick",
+          "0.90–0.93"
+        ],
+        [
+          "Human skin",
+          "0.95"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 433,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem type",
+        "Method",
+        "Key formula"
+      ],
+      "rows": [
+        [
+          "Conduction, composite wall",
+          "Thermal resistance network",
+          "ΔT = q × R_total"
+        ],
+        [
+          "Thin object cooled rapidly",
+          "Lumped capacitance",
+          "Check Bi < 0.1 first"
+        ],
+        [
+          "Forced convection in pipe",
+          "Dittus-Boelter (turbulent)",
+          "Nu = 0.023 Re^0.8 Pr^n"
+        ],
+        [
+          "Natural convection, vertical plate",
+          "Churchill-Chu",
+          "Nu from Ra = Gr×Pr"
+        ],
+        [
+          "HX design with known T's",
+          "LMTD method",
+          "q = UA × ΔT_lm"
+        ],
+        [
+          "HX design with unknown outlet T's",
+          "NTU-effectiveness",
+          "ε = f(NTU, C_min/C_max)"
+        ],
+        [
+          "Radiation between grey surfaces",
+          "Network method",
+          "q = σ(T₁⁴−T₂⁴)/Σ_resistances"
+        ],
+        [
+          "Electronics thermal budget",
+          "Series resistance",
+          "T_junction = T_ambient + q×R_total"
+        ],
+        [
+          "Boiling / CHF",
+          "Nukiyama curve",
+          "Know critical heat flux regime"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mechanical\\05-MANUFACTURING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Machining, Forming, Casting, Joining, Additive Manufacturing",
+      "confidence": "candidate",
+      "text": "MANUFACTURING PROCESS TAXONOMY\n\n                  MANUFACTURING\n                       │\n        ┌──────────────┼──────────────┐\n        │              │              │\n   SUBTRACTIVE    FORMING         ADDITIVE\n   (material      (shape by       (build layer\n    removed)       deformation)    by layer)\n        │              │              │\n   Machining     Forging/Rolling  FDM/SLA/SLS\n   Grinding       Sheet metal      DMLS/EBM\n   EDM/Laser      Extrusion        DED/binder\n   Waterjet       Drawing          jet/ink jet\n                       │\n              NET SHAPE / NEAR-NET-SHAPE\n                       │\n              Casting (liquid metal → mold)\n              Powder metallurgy\n              Injection molding (polymers)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "### Solidification",
+      "confidence": "candidate",
+      "text": "Nucleation: Requires undercooling ΔT; heterogeneous (on foreign particles) >> homogeneous\n  Grain refiners (TiB₂ in Al) add nucleation sites → finer equiaxed grains\n\nDendrite growth: Tree-like crystals grow toward cold regions\n  SDAS (secondary dendrite arm spacing) ∝ (cooling rate)^(-1/3)\n  Faster cooling → finer SDAS → better mechanical properties\n\nShrinkage:\n  Liquid shrinkage: ~4% (volume) as T drops before solidification\n  Solidification shrinkage: steel ~3%, Al ~7%, grey iron ~0% (graphite expansion)\n  Solid shrinkage: linear ~1–2% after solidification\n\nPorosity types:\n  Shrinkage: centerline or hot spots → fix with risers/chills\n  Gas: dissolved gas evolved on solidification → degas melt (degassing tablets, vacuum)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 270,
+      "heading_context": "### Weld Metallurgy",
+      "confidence": "candidate",
+      "text": "Heat affected zone (HAZ):\n  Fusion zone → solidification microstructure (dendrites)\n  HAZ: heated above A₁ but below T_melt → grain growth, property changes\n  Base metal: unaffected\n\nHAZ problems:\n  Sensitization (stainless): Cr carbides at grain boundaries → intergranular corrosion\n  Hydrogen cracking (high-strength steel): H diffuses to HAZ → cold cracking\n  Lamellar tearing: rolling inclusions perpendicular to weld → use through-thickness ductility grades\n\nResidual stresses: weld shrinks as it cools → tension in weld, compression in base metal\n  → Stress relief annealing (600–650°C for steel) or shot peening for fatigue",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 289,
+      "heading_context": "## Additive Manufacturing",
+      "confidence": "candidate",
+      "text": "Process        Material        Mechanism           Characteristics\n──────────────────────────────────────────────────────────────────\nFDM/FFF        Thermoplastics  Extruded filament   Cheap, anisotropic, rough\n               (PLA, ABS, PEEK)\n\nSLA/DLP        Photopolymer    UV curing           Smooth, brittle, limited materials\n               resin\n\nSLS (powder    Nylon, PC,      Laser sintering     No support needed, porous\nbed, polymer)  glass-filled    of powder           unless infiltrated\n\nDMLS/SLM       Metal powder    Laser melting       Near-full density, support needed\n(powder bed,   (Ti, IN718,     of metal bed        for overhangs, residual stress\nmetal)         SS, AlSi10Mg)\n\nEBM            Ti, Co-Cr       Electron beam melt  In vacuum, less residual stress\n               metal powder    in vacuum           than SLM\n\nDED (directed  Metal powder    Blown powder or     Repair, cladding, large parts\nenergy dep.)   or wire         wire melted by\n                               laser/arc",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 335,
+      "heading_context": "### ISO Tolerance System",
+      "confidence": "candidate",
+      "text": "IT grades (International Tolerance):\n  IT01–IT2: precision gauges\n  IT3–IT7:  precision fits, bearings\n  IT7–IT11: general machining\n  IT12–IT16: rough machining, casting\n\nFundamental deviation: position of tolerance zone relative to zero line\n  Lowercase letter → shaft: a through z\n  Uppercase letter → hole: A through Z\n\nCommon fits:\n  H7/h6: Clearance fit (running fit, easy assembly)\n  H7/k6: Transition fit (could be clearance or interference)\n  H7/p6: Press fit (interference, require pressing in)\n  H7/s6: Force fit (heavy press, or shrink fit)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 357,
+      "heading_context": "### GD&T (Geometric Dimensioning and Tolerancing)",
+      "confidence": "candidate",
+      "text": "Feature control frame: ┤ symbol │ tolerance │ datum(s) ├\n\nKey symbols:\n  ─┤⊙├─ Circularity (roundness): deviation from perfect circle\n  ─┤⌭├─ Cylindricity: combined roundness + straightness\n  ─┤//├─ Parallelism: relative to datum\n  ─┤⊥├─ Perpendicularity: 90° to datum\n  ─┤∠├─ Angularity: at specified angle to datum\n  ─┤◎├─ Position: true position (replaces ± for holes)\n  ─┤⌖├─ Concentricity / Runout\n  ─┤↗├─ Profile of a line/surface\n\nMaximum Material Condition (MMC): feature at largest material (smallest hole, largest shaft)\nLeast Material Condition (LMC): feature at smallest material\nRegardless of Feature Size (RFS): tolerance applies regardless of actual size",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

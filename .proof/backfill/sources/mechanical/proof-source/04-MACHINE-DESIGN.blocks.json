@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mechanical\\04-MACHINE-DESIGN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 33,
+      "heading_context": "## Stress, Failure Theories, Fatigue, Machine Elements",
+      "confidence": "candidate",
+      "text": "DESIGN PROCESS\n        │\n        ▼\n┌───────────────────────────────────────────────────┐\n│  Define loads + environment                       │\n│  (forces, torques, temperatures, corrosion, ...)  │\n├───────────────────────────────────────────────────┤\n│  Compute stresses (σ, τ) and strains              │\n│  Mohr's circle, principal stresses                │\n├───────────────────────────────────────────────────┤\n│  Select failure criterion (ductile vs brittle)    │\n│  von Mises, Tresca, max normal stress             │\n├───────────────────────────────────────────────────┤\n│  Check fatigue life (if cyclic)                   │\n│  Goodman diagram, S-N curve, Miner's rule         │\n├───────────────────────────────────────────────────┤\n│  Size the element with factor of safety n         │\n│  Select materials, tolerances, surface finish     │\n└───────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "### Stress State",
+      "confidence": "candidate",
+      "text": "3D stress tensor (symmetric, 6 independent components):\n     ┌ σx  τxy τxz ┐\nσ =  │ τxy σy  τyz │\n     └ τxz τyz σz  ┘\n\nPrincipal stresses σ₁ ≥ σ₂ ≥ σ₃: eigenvalues (zero shear on principal planes)\n\n2D plane stress (thin plates, surfaces): σz = τxz = τyz = 0\n\nPrincipal stresses (2D):\n  σ₁,₂ = (σx+σy)/2 ± √[((σx−σy)/2)² + τxy²]\n\nMax shear stress (2D):\n  τ_max = √[((σx−σy)/2)² + τxy²]  (in-plane)\n  τ_abs_max = max of {τ₁₂, τ₂₃, τ₁₃}/2 where τᵢⱼ = (σᵢ−σⱼ)/2  (must check out-of-plane)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 83,
+      "heading_context": "### Mohr's Circle",
+      "confidence": "candidate",
+      "text": "tau\n|      .-------.\n|    .'         '.\n|   |      C      |\n|    '.         .'\n|      '-------'\n|   (sigma axis horizontal ->)\n|\n+-------------------> sigma\n     σ₂    C    σ₁\n     (min) (avg) (max)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "## Stress Concentration",
+      "confidence": "candidate",
+      "text": "σ_max = Kt × σ_nom\n\nwhere:\n  σ_nom = nominal stress (based on net cross-section)\n  Kt = stress concentration factor (geometric, from charts/FEA)\n\nExample values of Kt:\n  Round hole in infinite plate, tension: Kt = 3.0\n  Deep U-notch: Kt = 4–6\n  Sharp V-notch: Kt → ∞ (fracture mechanics regime)\n  Fillet radius r/d = 0.1: Kt ≈ 1.6–2.5 (depends on geometry)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "### S-N (Wöhler) Curve",
+      "confidence": "candidate",
+      "text": "S (stress amplitude)\n│  ╲\n│   ╲\n│    ╲  High cycle fatigue\n│     ╲\n│      ──────────────────  Se (endurance limit, steels only)\n│                          (No endurance limit for Al, Ti, polymers)\n└──────────────────────────────► N (cycles to failure, log scale)\n   10³  10⁴  10⁵  10⁶  10⁷  10⁸",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "### Goodman Diagram (Most-Used Fatigue Design Tool)",
+      "confidence": "candidate",
+      "text": "σ_a\n│  S_e ─ ─ ─ ╲\n│              ╲  (Goodman line, conservative)\n│               ╲\n│                ╲\n│             ────╲──── (Gerber parabola, less conservative)\n│                  ╲\n└─────────────────────► σ_m\n                  S_ut",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "### Fracture Mechanics (LEFM)",
+      "confidence": "candidate",
+      "text": "Stress intensity factor:\n  K = σ√(πa) F    (F = geometry correction factor, tabulated)\n\nFracture when K ≥ K_IC  (critical stress intensity, material property)\n→ critical crack size: a_c = (K_IC/(σF))²/π\n\nFatigue crack growth (Paris Law):\n  da/dN = C(ΔK)^m   where ΔK = ΔσF√(πa)\n  Integrate from a_initial to a_critical → total life\n\nInspection interval = life / safety factor",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 391,
+      "heading_context": "## Springs",
+      "confidence": "candidate",
+      "text": "**Vibration note:** The SDOF equation m*x'' + c*x' + kx = F(t) has natural frequency omega_n = sqrt(k/m) — the eigenvalue of the mass-stiffness system. The frequency response function H(omega) = 1/(k - m*omega^2 + j*c*omega) is the mechanical transfer function (same Laplace/Fourier-domain analysis from signals & systems). For rotating machinery, the Campbell diagram plots natural frequencies vs rotational speed — critical speeds occur where excitation harmonics cross natural frequency lines, causing resonance. This is the most important practical application of vibration analysis in machine design. Full treatment would merit its own section.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}
