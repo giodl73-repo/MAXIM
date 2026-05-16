@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:information-theory
+kind: guide
+module: data-science
+section: data-science
+title: Information Theory for Machine Learning
+status: source-custody
+source_custody: partial
+current_path: data-science/09-INFORMATION-THEORY.md
+canonical_path: data-science/09-INFORMATION-THEORY.md
+backsource_ids: [proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]
+concepts: [information, theory]
+root_concepts: [information, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Information Theory for Machine Learning
 ## Shannon's Framework — Uncertainty, Compression, Communication, and Learning
 

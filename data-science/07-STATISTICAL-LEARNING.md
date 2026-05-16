@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:statistical-learning
+kind: guide
+module: data-science
+section: data-science
+title: Statistical Learning Theory
+status: source-custody
+source_custody: partial
+current_path: data-science/07-STATISTICAL-LEARNING.md
+canonical_path: data-science/07-STATISTICAL-LEARNING.md
+backsource_ids: [proof-backfill:data-science:07-statistical-learning, git-history:data-science:07-statistical-learning]
+concepts: [statistical, learning]
+root_concepts: [statistical, learning]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Statistical Learning Theory
 ## Why Finite Data Generalizes — and When It Doesn't
 

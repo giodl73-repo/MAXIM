@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\11-DEEP-LEARNING-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 23,
+      "heading_context": "## Why Deep Nets Work — Universal Approximation, NTK, Scaling Laws, and More",
+      "confidence": "candidate",
+      "text": "THE DEEP LEARNING THEORY MAP\n\n  Why can they represent?    Why can they be trained?   Why do they generalize?\n  ────────────────────────   ───────────────────────    ───────────────────────\n  Universal approximation    Loss landscape             Double descent\n  Expressivity vs depth      NTK (infinite-width)       Implicit bias of GD\n  Attention as sparse lookup Lazy training regime       Flat minima (SAM)\n\n  Why do they get better with scale?\n  ───────────────────────────────────\n  Scaling laws (Kaplan, Chinchilla)\n  Emergent abilities\n  Phase transitions",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## 1. Universal Approximation",
+      "confidence": "candidate",
+      "text": "  Width: 1 hidden layer needs exponentially many units to represent some functions\n  Depth: O(poly(d)) units suffice with logarithmic depth (for piecewise linear functions)\n\n  Formal result (Eldan & Shamir 2016): there exist functions representable by\n  depth-3 networks of poly(d) width that require exponential width for depth-2.\n\n  Intuition: depth ≡ composition of simple functions → exponential expressivity growth",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "## 1. Universal Approximation",
+      "confidence": "candidate",
+      "text": "  ReLU: σ(x) = max(0,x)\n    Creates piecewise linear functions\n    N neurons, depth L → at most 2^{NL} linear regions (but exponential in depth)\n\n  Smooth activations (sigmoid, tanh, GELU):\n    Universal in the function space sense, smoother optimization landscape\n    GELU (Gaussian Error Linear Unit): x·Φ(x) — preferred for transformers",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "## 2. Depth and Expressivity",
+      "confidence": "candidate",
+      "text": "  Circuit complexity analogy (MIT TCS connection):\n\n  ┌────────────────────────────────────────────────────────┐\n  │  Shallow circuit  ≡  wide shallow network              │\n  │  Deep circuit     ≡  deep narrow network               │\n  │                                                        │\n  │  NC¹ ⊂ NC² ⊂ ... ⊂ P  (likely strict, unproven)        │\n  │   ↕                                                    │\n  │  depth-1 ⊂ depth-2 ⊂ ... (strict separation in size)   │\n  └────────────────────────────────────────────────────────┘\n\n  Depth separation theorems tell us that depth is computationally necessary.\n  In practice: depth enables hierarchical feature reuse.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 116,
+      "heading_context": "## 3. Attention — The Mathematics",
+      "confidence": "candidate",
+      "text": "  Inputs:\n    Q ∈ ℝ^{n×d_k}  (queries)\n    K ∈ ℝ^{m×d_k}  (keys)\n    V ∈ ℝ^{m×d_v}  (values)\n\n  Attention(Q, K, V) = softmax(QKᵀ / √d_k) · V\n\n  QKᵀ ∈ ℝ^{n×m}:  raw attention scores (query-key compatibility)\n  /√d_k:           scale to prevent softmax saturation\n  softmax:         row-wise normalization → attention weights ∈ Δ^m\n  · V:             weighted combination of values",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## 3. Attention — The Mathematics",
+      "confidence": "candidate",
+      "text": "  If Q, K have entries ~N(0,1), then (Q·K^T)_{ij} = Σ_{l=1}^{d_k} q_l k_l\n  E[(qᵢ·kⱼ)²] = d_k  (sum of d_k unit-variance terms)\n  Std dev ≈ √d_k\n\n  Without scaling: softmax input has std ≈ √d_k\n  For large d_k (e.g., 64): logits in range ±8 → softmax ≈ one-hot → vanishing gradients\n  With √d_k scaling: std ≈ 1 → gradients flow normally",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "## 3. Attention — The Mathematics",
+      "confidence": "candidate",
+      "text": "  Keys K = \"database entries\"\n  Query Q = \"search query\"\n  Values V = \"contents to retrieve\"\n\n  Hard retrieval (argmax → one-hot attention): nearest neighbor lookup\n  Soft retrieval (softmax): continuous interpolation across all entries\n  Transformer: differentiable, end-to-end trainable key-value memory",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "## 4. Batch Normalization",
+      "confidence": "candidate",
+      "text": "  LN(x) = γ · (x - μ_x)/σ_x + β   where statistics computed over feature dim\n\n  Works at batch size 1 → preferred for:\n    - Transformers (variable length sequences)\n    - RNNs (sequential processing)\n    - Inference scenarios",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## 5. Neural Tangent Kernel (NTK)",
+      "confidence": "candidate",
+      "text": "  In the infinite-width limit:\n  1. NTK Θ stays approximately constant during training (lazy training regime)\n  2. Training with gradient descent on MSE → kernel regression with kernel Θ\n\n  f(x; θ_T) ≈ y_train · (K + λI)^{-1} K(·, x_train)   ← kernel regression solution\n\n  Where K_{ij} = Θ(x_i, x_j)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 254,
+      "heading_context": "## 5. Neural Tangent Kernel (NTK)",
+      "confidence": "candidate",
+      "text": "  Lazy (NTK) regime:  large initialization, small LR\n    → parameters barely move, function changes linearly\n    → equivalent to kernel regression\n\n  Feature learning regime: small initialization, large LR\n    → parameters move substantially, kernel changes\n    → network learns representations, not just fitting\n    → this is where neural nets beat fixed kernels\n\n  μP (maximal update parameterization, Yang et al.): scaling that maintains\n  feature learning at all widths → better LR transfer across scale",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 274,
+      "heading_context": "## 6. Double Descent in Deep Learning",
+      "confidence": "candidate",
+      "text": "  Test error\n    │\n    │  ╲     /───────  Epoch-wise double descent\n    │   ╲___/\n    │    ↑\n    └────┴──────────────→ Training epochs / model size\n\n  Also occurs as a function of model size (param count).\n  Interpolation threshold: exactly when model can fit training set.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 345,
+      "heading_context": "## 8. Emergent Abilities",
+      "confidence": "candidate",
+      "text": "  Benchmark performance\n    │\n    │                    ╱\n    │___________________╱\n    │                   ↑\n    └───────────────────┴──→ Model scale (FLOP or params)\n                         emergent threshold\n\n  Examples:\n    Chain-of-thought reasoning:  ~62B params threshold\n    Few-shot arithmetic:         ~1B params\n    In-context learning:         ~100M params\n    BIG-Bench tasks:             vary widely",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 408,
+      "heading_context": "### Training Objective",
+      "confidence": "candidate",
+      "text": "Simple noise prediction loss (Ho et al. simplified ELBO):\n\n  L = E_{t, x₀, ε}[ ‖ε - ε_θ(√ᾱₜ x₀ + √(1-ᾱₜ)ε, t)‖² ]\n\n  ← predict the added noise from the noisy sample at timestep t\n\nEquivalent to minimizing a reweighted ELBO over the Markov chain.\nIn practice: uniform sampling of t ∈ {1,...,T}, single ε sample per x₀.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 434,
+      "heading_context": "### Score Function Connection (Song & Ermon)",
+      "confidence": "candidate",
+      "text": "### SDE Framework (Song et al. 2021)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 436,
+      "heading_context": "### SDE Framework (Song et al. 2021)",
+      "confidence": "candidate",
+      "text": "Continuous-time generalization. Forward process:\n\n  dx = f(x, t)dt + g(t)dW   ← SDE (stochastic differential equation)\n                                f = drift, g = diffusion, W = Wiener process\n\nReverse SDE (Anderson 1982):\n\n  dx = [f(x,t) - g(t)² ∇_x log p_t(x)] dt + g(t)dW̄\n\nThe reverse process has the same SDE form — requires the score s(x,t) = ∇_x log p_t(x).\n\nDeterministic ODE version (probability flow ODE):\n  dx = [f(x,t) - ½ g(t)² ∇_x log p_t(x)] dt\n  Same marginals; faster sampling; enables exact likelihood computation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 455,
+      "heading_context": "### Sampling — DDIM and Beyond",
+      "confidence": "candidate",
+      "text": "DDPM sampling: T=1000 steps — slow (1 second per image on A100)\n\nDDIM (Song et al. 2020): non-Markovian process, same training objective:\n  Invert xₜ → x_{t-Δ} in larger steps → T=50 steps with same quality\n\nDPM-Solver, PLMS: higher-order ODE solvers → T=10-20 steps\n\nConsistency models: single-step distillation → T=1 step\n\nLatent Diffusion (LDM / Stable Diffusion):\n  Encode x₀ → z₀ via VAE encoder\n  Run diffusion in latent space z (much smaller than pixel space)\n  Decode z₀ → x̂₀ via VAE decoder\n  → 4-8× cheaper than pixel diffusion; quality competitive",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 489,
+      "heading_context": "### Connections to Other Generative Frameworks",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────────┐\n│  Framework      │  Explicit density  │  Sampling     │  Training objective   │\n├─────────────────┼────────────────────┼───────────────┼──────────────────────┤\n│  VAE            │  Lower bound (ELBO)│  1 step       │  ELBO                │\n│  Normalizing    │  Exact (change of  │  1 step       │  Exact NLL           │\n│  Flows          │    variables)      │               │                      │\n│  GAN            │  None (implicit)   │  1 step       │  Adversarial (unstable)│\n│  Diffusion      │  Lower bound (ELBO)│  T steps      │  Noise prediction L₂ │\n│  (DDPM)         │  exact via ODE     │  (10-1000)    │  (simple, stable)    │\n└─────────────────┴────────────────────┴───────────────┴──────────────────────┘\n\nDiffusion advantage: simple training objective (just MSE), stable, no mode collapse,\nno adversarial game. Quality: best among all generative frameworks for images.\nCost: slow sampling (mitigated by DDIM/consistency models).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

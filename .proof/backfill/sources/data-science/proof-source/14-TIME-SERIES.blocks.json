@@ -1,0 +1,270 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\14-TIME-SERIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 23,
+      "heading_context": "## Stationarity, ARIMA, State Space Models, Kalman Filter, and Modern Neural Methods",
+      "confidence": "candidate",
+      "text": "TIME SERIES TAXONOMY\n\n  ┌────────────────────────────────────────────────────────────────┐\n  │  Univariate              Multivariate                          │\n  │  ─────────────           ──────────────────                    │\n  │  AR, MA, ARIMA           VAR, VECM, multivariate SSM           │\n  │  GARCH (variance)        DCC-GARCH                             │\n  │                                                                │\n  │  Stationary              Non-stationary                        │\n  │  ─────────────           ──────────────────                    │\n  │  ARMA                    ARIMA (difference to stationarity)    │\n  │  spectral analysis       VECM (cointegration)                  │\n  │                                                                │\n  │  Linear                  Non-linear                            │\n  │  ─────────────           ──────────────────                    │\n  │  ARIMA, Kalman           GARCH, TAR, Prophet, NNs              │\n  └────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "## 1. Stationarity",
+      "confidence": "candidate",
+      "text": "  Trend:       E[x_t] = f(t) (growing/declining mean)\n  Unit root:   x_t = x_{t-1} + ε_t  (random walk — variance grows with t)\n  Heteroskedasticity: Var(x_t) changes over time (→ GARCH)\n  Seasonality: periodic structure (→ SARIMA, STL decomposition)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 79,
+      "heading_context": "### Unit Root Tests",
+      "confidence": "candidate",
+      "text": "  H₀: unit root (x_t is I(1))  — non-stationary\n  H₁: no unit root              — stationary\n\n  Regression: Δx_t = α + βt + γx_{t-1} + Σ δⱼΔx_{t-j} + εₜ\n  Test statistic: t-ratio of γ\n  Critical values from Dickey-Fuller distribution (left tail)\n\n  Derived from characteristic polynomial: AR(p) has unit root iff characteristic\n  polynomial has a root on the unit circle.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "### Unit Root Tests",
+      "confidence": "candidate",
+      "text": "  H₀: stationary (reversal of ADF)\n  H₁: unit root\n\n  Use both ADF and KPSS: if ADF rejects + KPSS fails to reject → stationary\n                          if both reject → likely non-stationary",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 105,
+      "heading_context": "## 2. ACF, PACF, and Model Identification",
+      "confidence": "candidate",
+      "text": "  γ(k) = Cov(x_t, x_{t+k}) = E[(x_t - μ)(x_{t+k} - μ)]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 114,
+      "heading_context": "## 2. ACF, PACF, and Model Identification",
+      "confidence": "candidate",
+      "text": "**Partial autocorrelation function (PACF)**: correlation between x_t and x_{t+k} after removing the linear effect of x_{t+1},...,x_{t+k-1}.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "## 2. ACF, PACF, and Model Identification",
+      "confidence": "candidate",
+      "text": "  Process      ACF pattern          PACF pattern\n  ──────────   ────────────────     ──────────────────────\n  AR(p)        Tails off (exp decay) Cuts off after lag p\n  MA(q)        Cuts off after lag q  Tails off\n  ARMA(p,q)    Tails off             Tails off\n  White noise  No significant lags   No significant lags\n\n  \"Cuts off\" = drops abruptly to zero\n  \"Tails off\" = geometric/sinusoidal decay",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "## SQL Window Functions ↔ Time Series Operations",
+      "confidence": "candidate",
+      "text": "SQL (window function syntax)                  Time series / ARIMA notation\n──────────────────────────────────────────    ──────────────────────────────────────────\nLAG(x, 1) OVER (ORDER BY t)                  x_{t-1}  ← 1-period lag, B¹ x_t\nLAG(x, k) OVER (ORDER BY t)                  x_{t-k}  ← k-period lag, Bᵏ x_t\n\nx - LAG(x,1) OVER (ORDER BY t)               Δx_t = x_t - x_{t-1}  ← first difference\n                                               (1-B) x_t  ← removes unit root\n\nAVG(x) OVER (ORDER BY t ROWS BETWEEN         q-period centered moving average\n  (q-1)/2 PRECEDING AND (q-1)/2 FOLLOWING)   ← MA(q) smoothing of the level\n\nSUM(x) OVER (ORDER BY t ROWS UNBOUNDED       ← integration (inverse of differencing)\n  PRECEDING)                                   If Δx_t = ε_t, then x_t = Σ_{s≤t} ε_s\n                                               ARIMA d=1 reverses this\n\nx - AVG(x) OVER (PARTITION BY month)         ← seasonal adjustment\n                                               Remove additive seasonal component s(t)\n                                               SARIMA's seasonal differencing (1-B^12)x_t\n\nCORR(x, LAG(x,k))                           ← sample ACF at lag k: ρ̂(k)\nOVER (ORDER BY t)\n\nAVG(x * LAG(x,k))                           ← sample ACVF at lag k: γ̂(k)\nOVER (ORDER BY t)\n\nSUM(x * LAG(x,k)) / SUM(x * x)              ← OLS coefficient in AR(k) regression",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 181,
+      "heading_context": "## 3. ARIMA",
+      "confidence": "candidate",
+      "text": "  x_t = φ₁x_{t-1} + ... + φₚx_{t-p} + ε_t\n\n  Stationarity: characteristic polynomial Φ(z) = 1 - φ₁z - ... - φₚzᵖ\n  must have all roots outside the unit circle |z| > 1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 189,
+      "heading_context": "## 3. ARIMA",
+      "confidence": "candidate",
+      "text": "  x_t = ε_t + θ₁ε_{t-1} + ... + θqε_{t-q}\n\n  Always stationary. Invertibility: roots of Θ(z) = 1 + θ₁z + ... + θqzq outside unit circle.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 224,
+      "heading_context": "## 3. ARIMA",
+      "confidence": "candidate",
+      "text": "  AIC = -2 log L̂ + 2(p+q+d+1)      ← penalizes complexity (prediction)\n  BIC = -2 log L̂ + log(n)(p+q+d+1)  ← heavier penalty (model selection)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 261,
+      "heading_context": "## 4. Vector Autoregression (VAR)",
+      "confidence": "candidate",
+      "text": "  Δxₜ = Π xₜ₋₁ + Σ_{j=1}^{p-1} Γⱼ Δxₜ₋ⱼ + εₜ\n\n  Π = αβᵀ,  rank(Π) = r = # cointegrating relations\n  α = adjustment speeds, β = cointegrating vectors\n\n  Johansen test for cointegrating rank r.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "## 5. GARCH — Modeling Conditional Variance",
+      "confidence": "candidate",
+      "text": "  εₜ = σₜ zₜ,  zₜ ~iid N(0,1)\n  σ²ₜ = ω + Σ_{i=1}^q αᵢ ε²ₜ₋ᵢ\n\n  Variance depends on past squared residuals.\n  Large |εₜ₋₁| → large σ²ₜ → volatility clustering",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 300,
+      "heading_context": "## 5. GARCH — Modeling Conditional Variance",
+      "confidence": "candidate",
+      "text": "  GARCH(1,1): σ²ₜ = ω/(1-β) + α Σ_{k=0}^∞ βᵏ ε²ₜ₋₁₋ₖ\n\n  → σ² is exponentially weighted average of past squared residuals\n  → reduces to EWMA (RiskMetrics) when ω=0, α+β=1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 308,
+      "heading_context": "## 5. GARCH — Modeling Conditional Variance",
+      "confidence": "candidate",
+      "text": "  EGARCH (Nelson):  log σ²ₜ = ω + β log σ²ₜ₋₁ + α|zₜ₋₁| + γ zₜ₋₁\n    γ < 0 = leverage effect (negative returns → higher volatility)\n\n  GJR-GARCH:  σ²ₜ = ω + (α + γ 1{εₜ₋₁<0}) ε²ₜ₋₁ + β σ²ₜ₋₁\n    Asymmetric: different response to positive vs negative shocks\n\n  DCC-GARCH: Dynamic Conditional Correlation — multivariate extension",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 367,
+      "heading_context": "### Kalman Filter Derivation",
+      "confidence": "candidate",
+      "text": "  p(xₜ | y₁:ₜ) ∝ p(yₜ | xₜ) p(xₜ | y₁:ₜ₋₁)\n\n  Both Gaussian:\n    p(yₜ|xₜ) = N(Hxₜ, R)\n    p(xₜ|y₁:ₜ₋₁) = N(μₜ|ₜ₋₁, Σₜ|ₜ₋₁)\n\n  Product of Gaussians in xₜ → complete the square → Kalman update formulas",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 400,
+      "heading_context": "## 7. Spectral Analysis",
+      "confidence": "candidate",
+      "text": "  f(ω) = Σ_{k=-∞}^∞ γ(k) e^{-iωk}   for ω ∈ [-π, π]\n  γ(k) = (1/2π) ∫ f(ω) e^{iωk} dω\n\n  Total variance: Var(xₜ) = γ(0) = (1/2π) ∫ f(ω) dω\n  → f(ω)dω is the variance contribution from frequency ω",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 409,
+      "heading_context": "## 7. Spectral Analysis",
+      "confidence": "candidate",
+      "text": "  Î(ω) = (1/n)|Σₜ xₜ e^{-iωt}|²   ← DFT magnitude squared\n\n  Not a consistent estimator of f(ω) (variance doesn't decrease with n)\n  Smooth it: Welch's method (average over overlapping windowed periodograms)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 417,
+      "heading_context": "## 7. Spectral Analysis",
+      "confidence": "candidate",
+      "text": "  min_{τₜ} [Σₜ(xₜ - τₜ)² + λ Σₜ(Δ²τₜ)²]\n  ← goodness of fit       ← smoothness of trend\n\n  λ=1600 (quarterly), λ=100 (annual), λ=129600 (monthly)\n  Frequency domain: HP filter passes low frequencies (trend), blocks high (cycle)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 429,
+      "heading_context": "## 8. Modern Methods",
+      "confidence": "candidate",
+      "text": "### Prophet (Taylor & Letham, Facebook 2017)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "chart_like",
+      "line": 443,
+      "heading_context": "### Prophet (Taylor & Letham, Facebook 2017)",
+      "confidence": "candidate",
+      "text": "### N-BEATS (Neural Basis Expansion, Oreshkin et al. 2019)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "chart_like",
+      "line": 454,
+      "heading_context": "### N-BEATS (Neural Basis Expansion, Oreshkin et al. 2019)",
+      "confidence": "candidate",
+      "text": "### TFT (Temporal Fusion Transformer, Lim et al. 2019)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "chart_like",
+      "line": 466,
+      "heading_context": "### TFT (Temporal Fusion Transformer, Lim et al. 2019)",
+      "confidence": "candidate",
+      "text": "### DeepAR (Amazon, 2017)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 479,
+      "heading_context": "## Python Tooling Stack",
+      "confidence": "candidate",
+      "text": "Theory concept               Python library / class                  Notes\n──────────────────────────   ─────────────────────────────────────   ────────────────────\nARIMA, SARIMA                statsmodels.tsa.arima.model.ARIMA       Standard; auto_arima\nSARIMAX (with exog.)         statsmodels.tsa.statespace.SARIMAX      Exogenous regressors\nVAR                          statsmodels.tsa.vector_ar.var_model.VAR\nVECM                         statsmodels.tsa.vector_ar.vecm.VECM\nKalman filter / SSM          statsmodels.tsa.statespace.MLEModel      Base class + EM\n                             PyKalman (simple), FilterPy              Numpy-based\n                             Dynamax (JAX-based)                     GPU, autodiff\nGARCH, EGARCH, DCC           arch.arch_model (arch library)          Bollerslev models\n                             arch.univariate / arch.multivariate\nADF, KPSS tests              statsmodels.tsa.stattools.adfuller       Unit root tests\n                             statsmodels.tsa.stattools.kpss\nLjung-Box Q-test             statsmodels.stats.diagnostic.acorr_ljungbox\nACF / PACF plots             statsmodels.graphics.tsaplots.plot_acf\n                             statsmodels.graphics.tsaplots.plot_pacf\n\nProphet                      prophet.Prophet (Facebook/Meta)         Decomposition model\n                             neuralprophet (Neural Prophet)          PyTorch backend\n\nsktime                       sktime.forecasting.*                    sklearn-compatible\n                             ARIMA, ETS, Theta, naive, ensemble      fit/predict API\n                             sktime.transformations.series.*         preprocessing\n                             sktime.classification / regression      time series as feature\n\ndarts                        darts.models.*                          TorchForecastingModel\n                             TCN, NBEATS, TFT, DeepAR, N-HiTS       deep learning focus\n                             darts.datasets                          benchmark datasets\n\ntslearn                      tslearn.clustering.*                    Dynamic Time Warping\n                             tslearn.metrics.dtw                     time series similarity\n                             TimeSeriesKMeans, TimeSeriesKNN\n\nGluonTS                      gluonts.model.*                         Amazon probabilistic\n                             DeepAR, Transformer, Wavenet            forecasting framework\n\nStatsmodels vs pandas:\n  pandas resample(\"W\").mean()       ← quick aggregation (not a model)\n  statsmodels SARIMAX               ← full likelihood estimation, tests, confidence intervals\n  Use pandas for feature engineering; statsmodels/arch for model estimation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

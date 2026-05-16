@@ -1,0 +1,3121 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-data-science-reinforcement-learning",
+  "source": "../../data-science",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#000",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "# Reinforcement Learning\n## MDPs, Bellman Equations, Policy Gradients, and Modern Deep RL"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#001",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "```\nTHE RL FRAMEWORK"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#002",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "┌───────────────────────────────────────────────────────┐\n  │                                                       │\n  │   Agent ──action aₜ──► Environment                    │\n  │      ▲                      │                         │\n  │      │ state sₜ₊₁           │                         │\n  │      │ reward rₜ₊₁          │                         │\n  │      └──────────────────────┘                         │\n  │                                                         │\n  │  Goal: maximize E[Σ γᵗ rₜ]                             │\n  │                                                         │\n  │  Three classes:                                         │\n  │    Value-based:   learn V* or Q*, derive policy        │\n  │    Policy-based:  directly optimize policy π           │\n  │    Actor-Critic:  both simultaneously                  │\n  └───────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#003",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#004",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "## 1. Markov Decision Process — Formal Definition"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#005",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**MDP**: (S, A, P, R, γ)\n```\n  S:      state space\n  A:      action space\n  P(s'|s,a): transition dynamics\n  R(s,a,s'): reward function\n  γ ∈ [0,1): discount factor"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#006",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Markov property: P(sₜ₊₁ | sₜ, aₜ, sₜ₋₁, ...) = P(sₜ₊₁ | sₜ, aₜ)\n  The future depends only on the current state, not history.\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#007",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Policy**: π(a|s) — probability distribution over actions given state.\n- Deterministic: π: S → A\n- Stochastic: π: S → Δ(A)"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#008",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Return**: `G_t = Σ_{k=0}^∞ γᵏ rₜ₊ₖ₊₁` — discounted sum of future rewards."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#009",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Why discount?**\n- Financial: future rewards worth less (time preference)\n- Mathematical: ensures G_t is finite for infinite-horizon problems\n- γ → 1: longer-horizon planning; γ → 0: myopic (greedy)"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#010",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#011",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "## Operations Research / Control Theory Bridge"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#012",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Anyone with an OR, control theory, or quantitative finance background already knows\nthe Bellman framework under different names:"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#013",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "```\nOperations Research / Control Theory            RL / ML vocabulary\n───────────────────────────────────────────     ────────────────────────────────────────\nStochastic dynamic program (Bellman 1952)       Markov Decision Process (MDP)\n  State variable s_t                              State s ∈ S\n  Decision variable u_t                           Action a ∈ A\n  System dynamics f(s,u,w) (w = noise)            Transition P(s'|s,a)\n  Stage reward g_t(s,u)                           Reward R(s,a)"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#014",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Backward induction (finite horizon DP)          Value iteration (infinite horizon)\n  Vₙ(s) = max_u [ g(s,u) + E[V_{n+1}(f(s,u,w)) ]  V(s) = max_a Σ P(s'|s,a)[R + γV(s')]"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#015",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Contraction mapping (Banach fixed point)        Bellman operator is γ-contraction\n  T is contraction ⟹ unique fixed point V*       → guaranteed convergence to V*\n  Geometric convergence rate                      Same proof, same rate"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#016",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Hamilton-Jacobi-Bellman (HJB) equation         Continuous-time Bellman equation\n  ∂V/∂t + max_u[ f(x,u)·∇V + L(x,u) ] = 0     (Bellman in continuous time)\n  Used in: LQR, stochastic control (Itô)         Connects RL to control theory"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#017",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Discount factor in NPV analysis                 Discount factor γ in RL\n  V = Σₜ (1/(1+r))^t · CF_t                     G_t = Σₖ γᵏ r_{t+k}\n  r = discount rate = time value of money        γ ∈ [0,1) = time preference parameter\n  r small → long horizon; r large → myopic       γ→1 long horizon; γ→0 myopic"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#018",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Linear Quadratic Regulator (LQR)                Model-based RL with linear dynamics\n  Minimize Σ (xᵀQx + uᵀRu)                      Quadratic cost ↔ quadratic reward\n  Solved by Riccati equation                     Exact solution exists; rare in practice"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#019",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Policy evaluation (solve V for fixed π)         Policy evaluation = linear system\n  V^π = (I - γPπ)^{-1} r_π                      Same equation: iterate or solve directly\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#020",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "The core contribution of the RL literature is scaling these ideas to large/continuous\nstate spaces using function approximation (neural networks) and handling the case\nwhere the model P is unknown (model-free learning)."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#021",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#022",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "## 2. Value Functions and Bellman Equations"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#023",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**State-value function**: `V^π(s) = E_π[G_t | sₜ = s]`"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#024",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Action-value function**: `Q^π(s,a) = E_π[G_t | sₜ = s, aₜ = a]`"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#025",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Bellman expectation equations**:\n```\nV^π(s)   = Σ_a π(a|s) Σ_{s'} P(s'|s,a) [R(s,a,s') + γ V^π(s')]"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#026",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Q^π(s,a) = Σ_{s'} P(s'|s,a) [R(s,a,s') + γ Σ_{a'} π(a'|s') Q^π(s',a')]\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#027",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Bellman optimality equations** (for optimal policy π*):\n```\nV*(s)   = max_a Σ_{s'} P(s'|s,a) [R(s,a,s') + γ V*(s')]"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#028",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Q*(s,a) = Σ_{s'} P(s'|s,a) [R(s,a,s') + γ max_{a'} Q*(s',a')]"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#029",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Optimal policy: π*(s) = argmax_a Q*(s,a)\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#030",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Key insight**: Bellman optimality equations are a system of n equations in n unknowns (one per state). Can be solved by dynamic programming."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#031",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Contraction mapping**: the Bellman optimality operator T is a γ-contraction:\n```\n‖TV - TV'‖_∞ ≤ γ‖V - V'‖_∞"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#032",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "→ unique fixed point V* (Banach fixed point theorem)\n→ iterating T converges geometrically to V*\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#033",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#034",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "## 3. Dynamic Programming"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#035",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Exact solutions when model P is known."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#036",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "### Value Iteration\n```\n  Initialize V(s) = 0 ∀s\n  Repeat until convergence:\n    V(s) ← max_a Σ_{s'} P(s'|s,a) [R(s,a,s') + γ V(s')]"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#037",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Complexity per sweep: O(|S|² |A|)\n  Convergence: ‖V_k - V*‖_∞ ≤ γᵏ ‖V_0 - V*‖_∞\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#038",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "### Policy Iteration\n```\n  1. Policy evaluation: solve V^π (linear system or repeated application)\n  2. Policy improvement: π'(s) = argmax_a Q^π(s,a)\n  3. Repeat until π' = π"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#039",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Convergence: finite (|S|^|A| policies, each step strictly improves)\n  In practice: faster convergence than value iteration for same accuracy\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#040",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Policy gradient theorem** foreshadowing: if |S| is too large or continuous, you can't enumerate all states. Need function approximation."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#041",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#042",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "## 4. Temporal Difference Learning"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#043",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**TD(0)** — online, model-free V learning:\n```\n  V(sₜ) ← V(sₜ) + α [rₜ₊₁ + γ V(sₜ₊₁) - V(sₜ)]\n                     └────────────────────────────┘\n                               TD target - current estimate = TD error δₜ\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#044",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**TD error** δₜ = rₜ₊₁ + γ V(sₜ₊₁) - V(sₜ):\n- Positive: transition was better than expected → increase V(sₜ)\n- Negative: worse than expected → decrease V(sₜ)\n- δₜ = 0: value estimates are consistent (Bellman equation holds)"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#045",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Bootstrap vs Monte Carlo**:\n```\n  Monte Carlo: G_t = rₜ₊₁ + γrₜ₊₂ + ... (wait for episode end)\n    - Unbiased estimate of V^π(s)\n    - High variance (long sum of random variables)"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#046",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "TD: use rₜ₊₁ + γ V(sₜ₊₁) (one-step bootstrap)\n    - Biased (V is approximate)\n    - Lower variance (one step)"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#047",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "TD(λ): interpolate with eligibility traces\n    G_t^λ = (1-λ) Σ_{n=1}^∞ λ^{n-1} G_t^{(n)}\n    λ=0 → TD(0), λ=1 → Monte Carlo\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#048",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#049",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "## 5. Q-Learning and DQN"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#050",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Q-learning** (Watkins 1989) — off-policy TD for Q*:\n```\n  Q(sₜ, aₜ) ← Q(sₜ, aₜ) + α [rₜ₊₁ + γ max_{a'} Q(sₜ₊₁, a') - Q(sₜ, aₜ)]\n                                └────────────────────────────────────────────┘\n                                                  TD target (using greedy policy)\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#051",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Off-policy**: the target uses `max_{a'} Q(sₜ₊₁, a')` regardless of the behavior policy. Learn Q* while following any exploration policy."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#052",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Convergence**: Q-learning converges to Q* under tabular setting with:\n- All (s,a) visited infinitely often\n- Step sizes satisfying Robbins-Monro: Σαₜ = ∞, Σαₜ² < ∞"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#053",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Deep Q-Network (DQN)** (Mnih et al. 2015):\n```\n  Q(s, a; θ) ← neural network approximating Q*"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#054",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Two critical tricks for stability:\n  1. Experience Replay:\n       Store (sₜ, aₜ, rₜ₊₁, sₜ₊₁) in replay buffer D\n       Sample random mini-batch for updates\n       Breaks temporal correlations → stable training"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#055",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "2. Target Network:\n       Use separate network Q(·; θ⁻) for TD targets\n       θ⁻ updated slowly (copy every C steps)\n       Prevents \"chasing a moving target\" → stable targets"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#056",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Loss: L(θ) = E_{(s,a,r,s')~D}[(r + γ max_{a'} Q(s',a'; θ⁻) - Q(s,a; θ))²]\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#057",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Double DQN**: `max_{a'} Q(s',a'; θ)` can overestimate. Fix:\n```\n  a* = argmax_{a'} Q(s',a'; θ)          ← select with online network\n  target = r + γ Q(s', a*; θ⁻)         ← evaluate with target network\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#058",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#059",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "## 6. Policy Gradient Methods"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#060",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Direct optimization**: instead of learning V/Q and deriving π, directly optimize `J(θ) = E_{τ~π_θ}[G(τ)]`."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#061",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Policy gradient theorem** (Sutton et al. 1999):\n```\n  ∇_θ J(θ) = E_{τ~π_θ}[ Σₜ ∇_θ log π_θ(aₜ|sₜ) · G_t ]"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#062",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Proof sketch:\n    J(θ) = Σ_τ p(τ; θ) R(τ)\n    ∇J = Σ_τ ∇p(τ;θ) R(τ)\n       = Σ_τ p(τ;θ) ∇log p(τ;θ) R(τ)    (log-derivative trick)\n       = E_τ[ ∇log p(τ;θ) R(τ) ]\n       = E_τ[ Σₜ ∇log π_θ(aₜ|sₜ) · R(τ) ]   (only π depends on θ)\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#063",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**REINFORCE** (Monte Carlo policy gradient):\n```\n  Collect trajectory τ, compute G_t\n  θ ← θ + α Σₜ ∇_θ log π_θ(aₜ|sₜ) G_t\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#064",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Baseline**: subtract a state-dependent baseline b(s) to reduce variance:\n```\n  ∇J = E[ Σₜ ∇log π_θ(aₜ|sₜ) (G_t - b(sₜ)) ]\n  Unbiased: E[∇log π · b(s)] = 0 (b independent of a)\n  Optimal baseline: b(s) = V^π(s) → advantage A(s,a) = Q(s,a) - V(s)\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#065",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Advantage function**: A^π(s,a) = Q^π(s,a) - V^π(s)\n- A > 0: action a is better than average for state s\n- A < 0: action a is worse than average"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#066",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#067",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "## 7. Actor-Critic Methods"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#068",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Combine policy (actor) and value function (critic):"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#069",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "```\n  Actor:  π_θ(a|s)     ← policy, updated by policy gradient\n  Critic: V_φ(s) or Q_φ(s,a)  ← value function, updated by TD"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#070",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Actor update:  θ ← θ + α ∇_θ log π_θ(aₜ|sₜ) δₜ\n  Critic update: φ ← φ - α ∇_φ (δₜ)²     where δₜ = rₜ + γV_φ(sₜ₊₁) - V_φ(sₜ)\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#071",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**A3C** (Asynchronous Advantage Actor-Critic): multiple parallel actors, each interacting with a copy of the environment. Asynchronous gradient updates to shared network. Variance reduced via advantage estimation."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#072",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**GAE (Generalized Advantage Estimation)**:\n```\n  δₜ = rₜ + γ V(sₜ₊₁) - V(sₜ)    1-step TD error"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#073",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Â_t^{GAE(γ,λ)} = Σ_{l=0}^∞ (γλ)^l δₜ₊ₗ"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#074",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "λ=0 → 1-step TD estimate (low variance, high bias)\n  λ=1 → Monte Carlo (high variance, low bias)\n  λ≈0.95 in practice (PPO default)\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#075",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#076",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "## 8. PPO — Proximal Policy Optimization"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#077",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Problem with vanilla policy gradients**: too large an update can collapse performance, and you can't reuse data (on-policy requirement)."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#078",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**TRPO** (Trust Region Policy Optimization): constrain KL divergence:\n```\n  max_θ E[r_t(θ) Â_t]   subject to  E[D_KL(π_old ‖ π_θ)] ≤ δ"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#079",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "where r_t(θ) = π_θ(aₜ|sₜ) / π_old(aₜ|sₜ)  (importance sampling ratio)\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#080",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**PPO** (Schulman et al. 2017): approximation of TRPO without constraint solver:\n```\n  L^{CLIP}(θ) = E_t[ min(r_t(θ) Â_t,  clip(r_t(θ), 1-ε, 1+ε) Â_t) ]"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#081",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "If Â_t > 0 (good action):  don't let r_t grow too far beyond 1+ε\n  If Â_t < 0 (bad action):   don't let r_t shrink too far below 1-ε"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#082",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "ε ≈ 0.2 in practice."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#083",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Full objective:\n  L(θ) = L^{CLIP}(θ) - c₁ L^{VF}(θ) + c₂ H[π_θ](sₜ)\n              ↑               ↑                 ↑\n         policy loss    value loss        entropy bonus (exploration)\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#084",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Why PPO dominates**:\n- Simple to implement, no constraint solver\n- Stable: clipping prevents catastrophic updates\n- Sample efficient: can take multiple gradient steps on same batch (within trust region)\n- Default RL algorithm for most applications"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#085",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#086",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "## 9. SAC — Soft Actor-Critic (Maximum Entropy RL)"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#087",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Maximum entropy objective**:\n```\n  J(π) = Σₜ E_{(sₜ,aₜ)~π}[ R(sₜ,aₜ) + α H(π(·|sₜ)) ]\n                                              ↑\n                                      entropy bonus: prefer uncertain policies"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#088",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Temperature α: tradeoff between reward maximization and entropy\n  α → 0: standard RL; α → ∞: uniform random policy\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#089",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Soft Bellman equations**:\n```\n  V_soft(s)   = E_a[ Q_soft(s,a) - α log π(a|s) ]\n  Q_soft(s,a) = R(s,a) + γ E_{s'}[ V_soft(s') ]\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#090",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**SAC algorithm**:\n```\n  Off-policy actor-critic with:\n  - Replay buffer (like DQN)\n  - Two Q-networks (min of both to reduce overestimation)\n  - Soft policy update: π_θ(·|s) = argmin_π D_KL(π ‖ exp(Q/α))\n  - Automatic temperature tuning: minimize -α(log π(aₜ|sₜ) + H_target)\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#091",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**SAC vs PPO**:\n| | PPO | SAC |\n|--|-----|-----|\n| On/off-policy | On-policy | Off-policy |\n| Sample efficiency | Moderate | High |\n| Stability | Very stable | Stable |\n| Continuous actions | ✅ | ✅ (designed for) |\n| Discrete actions | ✅ | More complex |\n| Hyperparameter sensitivity | Low | Moderate |"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#092",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#093",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "## 10. RLHF — RL from Human Feedback"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#094",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "The bridge from RL to LLMs:"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#095",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "```\n  Phase 1: Supervised Fine-Tuning (SFT)\n    Train base LLM on high-quality demonstrations\n    → SFT model π_SFT"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#096",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Phase 2: Reward Model Training\n    Collect human preference data: (prompt, response A, response B, preference)\n    Train reward model r_φ(s, a) to predict human preference\n    Bradley-Terry model: P(A > B) = σ(r(A) - r(B))\n    Loss: -E[log σ(r(yw) - r(yl))]   (yw=winner, yl=loser)"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#097",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Phase 3: RL Fine-Tuning (PPO)\n    max_θ E_{s~prompts, a~π_θ}[ r_φ(s,a) - β D_KL(π_θ ‖ π_SFT) ]\n                                    ↑                    ↑\n                            reward model              KL penalty (stay near SFT)\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#098",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**Why KL penalty**: without it, policy exploits reward model (reward hacking). Keep policy near the reference model to prevent degenerate outputs."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#099",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "**DPO (Direct Preference Optimization)**: eliminates RL entirely. Closed-form optimal policy given preference data:\n```\n  L_{DPO}(θ) = -E[ log σ( β log (π_θ(yw)/π_ref(yw)) - β log (π_θ(yl)/π_ref(yl)) ) ]\n```"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#100",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "Equivalent to RLHF but more stable, no reward model needed."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#101",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#102",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "## 11. Decision Cheat Sheet"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#103",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "| Method | Model-free? | On/off-policy | Continuous actions | When to use |\n|--------|------------|---------------|-------------------|-------------|\n| Value iteration / PI | No (model needed) | — | ❌ | Known tabular MDP |\n| Q-learning / DQN | Yes | Off | ❌ (discrete) | Discrete action games |\n| REINFORCE | Yes | On | ✅ | Simple, low-dim |\n| A2C/A3C | Yes | On | ✅ | Parallelizable envs |\n| PPO | Yes | On | ✅ | General default |\n| SAC | Yes | Off | ✅ (designed for) | Continuous robotics |\n| RLHF/DPO | Yes | Both | ✅ (language) | LLM alignment |"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#104",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#105",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "## 12. Common Confusion Points"
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#106",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "1. **\"Q-learning is off-policy because it uses a replay buffer\"** — Q-learning is off-policy because its target uses `max_a Q(s',a)` regardless of the behavior policy. Replay buffer enables off-policy learning but isn't the definition."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#107",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "2. **\"Policy gradients are on-policy, so they're less efficient\"** — On-policy methods can only use data from the current policy. PPO's clipped objective allows multiple mini-batches from one rollout, improving efficiency. SAC (off-policy) can reuse all past data."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#108",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "3. **\"High entropy = exploration\"** — Maximum entropy RL seeks a policy that is stochastic (high entropy) while also getting high reward. This isn't the same as random exploration. The entropy bonus prevents premature commitment to suboptimal deterministic policies."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#109",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "4. **\"RLHF trains the model to please humans\"** — RLHF trains the model to score well on the reward model, which itself was trained to predict human preferences. Reward hacking (getting high scores via reward model flaws) is a real failure mode."
+    },
+    {
+      "id": "12-REINFORCEMENT-LEARNING.md#110",
+      "path": [
+        "12-REINFORCEMENT-LEARNING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]",
+        "canonical_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "concepts": "[reinforcement, learning]",
+        "current_path": "data-science/12-REINFORCEMENT-LEARNING.md",
+        "id": "maxim:data-science:reinforcement-learning",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[reinforcement, learning]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Reinforcement Learning",
+        "updated": "null"
+      },
+      "text": "5. **\"The Bellman equation is always the right framework\"** — Bellman assumes the Markov property. If your state is incomplete (partial observability), you need POMDPs. Transformers use full context as state, partly working around this."
+    }
+  ],
+  "refs": [
+    "12-REINFORCEMENT-LEARNING.md"
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:optimization-theory
+kind: guide
+module: data-science
+section: data-science
+title: Optimization Theory for Machine Learning
+status: source-custody
+source_custody: partial
+current_path: data-science/10-OPTIMIZATION-THEORY.md
+canonical_path: data-science/10-OPTIMIZATION-THEORY.md
+backsource_ids: [proof-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]
+concepts: [optimization, theory]
+root_concepts: [optimization, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Optimization Theory for Machine Learning
 ## From Convex Analysis to SGD, Adam, and Non-Convex Deep Learning
 

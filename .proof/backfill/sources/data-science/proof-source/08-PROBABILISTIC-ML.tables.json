@@ -1,0 +1,139 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\08-PROBABILISTIC-ML.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 134,
+      "heading_context": "## 2. Conjugate Priors",
+      "headers": [
+        "Likelihood",
+        "Conjugate prior",
+        "Posterior"
+      ],
+      "rows": [
+        [
+          "Bernoulli(θ)",
+          "Beta(α, β)",
+          "Beta(α + #heads, β + #tails)"
+        ],
+        [
+          "Categorical(θ)",
+          "Dirichlet(α)",
+          "Dirichlet(α + counts)"
+        ],
+        [
+          "Normal(μ, σ²) known σ²",
+          "Normal(μ₀, τ²)",
+          "Normal (closed form)"
+        ],
+        [
+          "Normal(μ, σ²) known μ",
+          "Inverse-Gamma(a, b)",
+          "Inverse-Gamma(a + n/2, ...)"
+        ],
+        [
+          "Poisson(λ)",
+          "Gamma(α, β)",
+          "Gamma(α + Σxᵢ, β + n)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 393,
+      "heading_context": "## 9. Gaussian Processes",
+      "headers": [
+        "Kernel",
+        "Inductive bias"
+      ],
+      "rows": [
+        [
+          "RBF / SE",
+          "Smooth, infinitely differentiable"
+        ],
+        [
+          "Matérn 3/2",
+          "Once differentiable"
+        ],
+        [
+          "Matérn 1/2",
+          "Continuous but not differentiable"
+        ],
+        [
+          "Periodic",
+          "Exactly periodic"
+        ],
+        [
+          "Linear",
+          "Linear functions"
+        ],
+        [
+          "Deep kernel (DKL)",
+          "Learned feature + GP"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 406,
+      "heading_context": "## 10. Decision Cheat Sheet",
+      "headers": [
+        "Method",
+        "When to use",
+        "Tractable?",
+        "Gives samples?"
+      ],
+      "rows": [
+        [
+          "Conjugate Bayes",
+          "Simple likelihood + matching prior",
+          "✅ Exact",
+          "✅"
+        ],
+        [
+          "MAP",
+          "Point estimate, large scale",
+          "✅ Optimization",
+          "❌"
+        ],
+        [
+          "MCMC (HMC/NUTS)",
+          "Gold standard, moderate dim",
+          "Slow",
+          "✅"
+        ],
+        [
+          "Mean-field VI",
+          "Large scale, approximate OK",
+          "✅ Fast",
+          "✅"
+        ],
+        [
+          "VAE",
+          "Generative model with latent structure",
+          "✅ + neural",
+          "✅"
+        ],
+        [
+          "Normalizing flow",
+          "Exact density needed",
+          "✅ + neural",
+          "✅"
+        ],
+        [
+          "GP",
+          "Small-medium data, uncertainty needed, Bayesian opt",
+          "O(n³) exact",
+          "✅"
+        ],
+        [
+          "Diffusion",
+          "High-quality generation",
+          "Training cost",
+          "✅"
+        ]
+      ]
+    }
+  ]
+}

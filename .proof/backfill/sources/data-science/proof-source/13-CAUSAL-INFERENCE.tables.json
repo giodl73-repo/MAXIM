@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\13-CAUSAL-INFERENCE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 455,
+      "heading_context": "## 10. Decision Cheat Sheet",
+      "headers": [
+        "Method",
+        "When applicable",
+        "Identifies"
+      ],
+      "rows": [
+        [
+          "RCT",
+          "Can randomize",
+          "ATE (population)"
+        ],
+        [
+          "Backdoor adjustment",
+          "Observed confounders sufficient",
+          "ATE via adjustment"
+        ],
+        [
+          "Frontdoor",
+          "Measured mediator, unmeasured confounder",
+          "ATE via mediation"
+        ],
+        [
+          "IV (2SLS)",
+          "Valid instrument exists",
+          "LATE (compliers)"
+        ],
+        [
+          "DiD",
+          "Parallel trends plausible, panel data",
+          "ATT (post-pre)"
+        ],
+        [
+          "RD",
+          "Assignment by threshold",
+          "LATE near cutoff"
+        ],
+        [
+          "PSM / IPW",
+          "Conditional independence plausible",
+          "ATE / ATT"
+        ],
+        [
+          "DML",
+          "Semi-parametric, ML nuisance",
+          "ATE (efficient)"
+        ],
+        [
+          "Causal forest",
+          "Heterogeneous effects wanted",
+          "CATE(x)"
+        ]
+      ]
+    }
+  ]
+}

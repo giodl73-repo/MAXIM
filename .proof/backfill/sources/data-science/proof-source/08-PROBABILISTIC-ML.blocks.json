@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\08-PROBABILISTIC-ML.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 23,
+      "heading_context": "## Uncertainty as a First-Class Citizen",
+      "confidence": "candidate",
+      "text": "PROBABILISTIC ML LANDSCAPE\n                                                 tractable?\n                              ┌──────────────────────────────────────────────┐\n                              │  EXACT                     APPROXIMATE       │\n                              ├──────────────────────────────────────────────┤\n         parametric  ─────►  │  Conjugate Bayes  │  MAP (point)             │\n         (fixed H)            │  (closed-form     │  Variational Inference   │\n                              │   posterior)      │  (ELBO optimization)     │\n                              │                   │  VAE (amortized VI)      │\n                              │                   │  Normalizing Flows       │\n                              ├───────────────────┼──────────────────────────┤\n        non-parametric ────►  │  GP (exact for    │  MCMC / HMC / NUTS       │\n        (H grows w/ data)     │   small n)        │  (sampling approx.)      │\n                              │                   │  Sparse GP (inducing pts)│\n                              └───────────────────┴──────────────────────────┘\n                                    ↑ O(n³)           ↑ O(cost per sample)\n\n  Generation quality axis:  Diffusion models (DDPM/DDIM) — score-based, SOTA quality\n  Explicit density:         VAE (lower bound) · Flow (exact) · Diffusion (tractable score)\n  Implicit density:         GAN (no density, just samples)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## Frequentist ↔ Bayesian Bridge",
+      "confidence": "candidate",
+      "text": "Frequentist                                 Bayesian\n──────────────────────────────────────────  ────────────────────────────────────────────\nθ is fixed and unknown                      θ is random with prior distribution p(θ)\n\nMLE: θ̂ = argmax p(D | θ)                   MAP: θ̂ = argmax p(θ|D) = argmax[log p(D|θ)+log p(θ)]\n→ maximizes data likelihood                 → MLE with a regularization term (log prior)\n→ MLE = MAP with flat (uniform) prior\n\n95% confidence interval [a, b]:             95% credible interval [a, b]:\n\"If we repeated the experiment many times,  \"Given the data, there is 95% probability\n95% of such intervals would contain θ.\"     that θ ∈ [a, b].\"\nθ is fixed; the interval is random.         θ is random; the interval is fixed.\n→ Same formula (CLT), different semantics.\n\np-value: P(data as extreme | H₀)           Posterior probability: P(H₀ | data)\n→ probability of the data given the null    → probability of the null given the data\n→ small p ≠ P(H₀ true) is small            → what most people think p-values mean\n\nHypothesis test (reject H₀ if p < α):      Posterior predictive check:\n→ binary decision rule                      → compare observed data to samples from\n→ no probability statement about H₀          p(x̃ | x_obs) = ∫ p(x̃|θ)p(θ|D)dθ\n                                            → continuous discrepancy assessment\n\nSampling distribution of θ̂:               Posterior distribution of θ:\n→ distribution over hypothetical repeats   → actual distribution of uncertainty\n→ requires asymptotic approximation        → exact (if prior + likelihood are right)\n   (CLT, bootstrap)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "## 1. Bayesian Inference — Core Mechanics",
+      "confidence": "candidate",
+      "text": "θ_MAP = argmax p(θ | D) = argmax [ log p(D|θ) + log p(θ) ]\n                                        ↑              ↑\n                                  log-likelihood    log-prior\n\n  Gaussian prior p(θ) = N(0, σ²I)  →  log p(θ) = -‖θ‖²/2σ²  →  L2 regularization\n  Laplace prior  p(θ) ∝ exp(-λ‖θ‖₁) →  L1 regularization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "### Directed Graphical Models (Bayesian Networks)",
+      "confidence": "candidate",
+      "text": "  Chain:   A → B → C      A ⊥ C | B   (B blocks)\n  Fork:    A ← B → C      A ⊥ C | B   (B blocks)\n  Collider: A → B ← C     A ⊥ C       (B unblocks when conditioned on!)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "### Undirected Graphical Models (Markov Random Fields)",
+      "confidence": "candidate",
+      "text": "  No edge between X and Y  →  X ⊥ Y | all other nodes\n\n  Joint: p(x) = (1/Z) Π_c ψ_c(x_c)    where ψ_c are potential functions\n                  ↑\n           partition function — intractable in general",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "## 4. Exact Inference — Belief Propagation",
+      "confidence": "candidate",
+      "text": "  Messages from variable to factor:\n    μ_{x→f}(x) = Π_{g ∈ ne(x)\\f} μ_{g→x}(x)\n\n  Messages from factor to variable:\n    μ_{f→x}(x) = Σ_{x_f\\x} [ f(x_f) Π_{y ∈ ne(f)\\x} μ_{y→f}(y) ]\n\n  Marginal: p(x) ∝ Π_{f ∈ ne(x)} μ_{f→x}(x)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 214,
+      "heading_context": "### Metropolis-Hastings",
+      "confidence": "candidate",
+      "text": "  Given current state θ_t, propose θ' ~ q(θ' | θ_t)\n\n  Accept with probability:\n    α = min(1, p(θ'|D) q(θ_t|θ') / p(θ_t|D) q(θ'|θ_t))\n\n  If q is symmetric: α = min(1, p(θ'|D) / p(θ_t|D))  ← Metropolis\n\n  Result: Markov chain with stationary distribution = target posterior",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "## 6. Variational Inference",
+      "confidence": "candidate",
+      "text": "  True posterior: p(θ | D)   ← intractable\n\n  Approximate with: q(θ; φ) from a tractable family Q (e.g., mean-field Gaussians)\n\n  Objective: minimize KL(q ‖ p(θ|D)) over φ\n\n  KL(q ‖ p) = E_q[log q(θ)] - E_q[log p(θ|D)]\n             = E_q[log q(θ)] - E_q[log p(D,θ)] + log p(D)\n             ≥ 0\n\n  Since KL ≥ 0:  log p(D) ≥ E_q[log p(D,θ)] - E_q[log q(θ)]\n                                     ↑\n                              ELBO (Evidence Lower BOund)\n\n  Maximizing ELBO  ≡  minimizing KL(q ‖ p(·|D))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 281,
+      "heading_context": "## 6. Variational Inference",
+      "confidence": "candidate",
+      "text": "  θ = g(ε; φ),  ε ~ p(ε)     (reparameterize sampling step)\n\n  ∇_φ E_q[f(θ)] = E_{p(ε)}[∇_φ f(g(ε;φ))]   ← differentiable through sampling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 295,
+      "heading_context": "## 7. Variational Autoencoders (VAE)",
+      "confidence": "candidate",
+      "text": "  Generative model:   z ~ p(z) = N(0,I),  x|z ~ p_θ(x|z) = N(f_θ(z), σ²I)\n  Inference model:    q_φ(z|x) = N(μ_φ(x), diag(σ²_φ(x)))   ← encoder\n\n  Pipeline:\n    x  ->  Encoder q_phi  ->  mu, sigma  ->  z  ->  Decoder p_theta  ->  x_hat\n  Reparameterize the bottleneck so gradients flow through:\n    z = mu + sigma .* epsilon,   epsilon ~ N(0, I).\n\n  ELBO = E_{q_φ(z|x)}[log p_θ(x|z)] - KL(q_φ(z|x) ‖ p(z))\n              ↑ reconstruction loss           ↑ KL regularization (closed form for Gaussians)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 342,
+      "heading_context": "## 8. Normalizing Flows",
+      "confidence": "candidate",
+      "text": "  RealNVP (affine coupling layers):\n    Split x into (x_A, x_B)\n    y_A = x_A,  y_B = x_B ⊙ exp(s(x_A)) + t(x_A)\n    Triangular Jacobian → det = exp(Σ s(x_A))  ← cheap\n\n  Autoregressive flows (MAF/IAF):\n    x_i = f(x_{<i}; θ)\n    Triangular Jacobian → det is product of diagonal\n\n  Neural ODE / Continuous NF:\n    dx/dt = f_θ(x, t)   ← flow defined by ODE\n    log p via instantaneous change of variables",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 371,
+      "heading_context": "## 9. Gaussian Processes",
+      "confidence": "candidate",
+      "text": "  f ~ GP(m, k)   means:\n\n  For any finite set of inputs X = {x_1,...,x_n}:\n    f(X) ~ N(m(X), K(X,X))\n\n  where K_ij = k(x_i, x_j)  ← kernel / covariance function",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 421,
+      "heading_context": "## 11. Where This Surfaces in Practice",
+      "confidence": "candidate",
+      "text": "  MAP ↔ regularized loss minimization (L2 = Gaussian prior, L1 = Laplace)\n  VI / ELBO ↔ VAE training objective in PyTorch\n  NUTS/HMC ↔ PyMC, Stan, NumPyro for Bayesian models\n  GP ↔ GPyTorch, scikit-learn GaussianProcessRegressor\n  Bayesian optimization ↔ Ax, BoTorch (GP posterior → acquisition function)\n  Normalizing flows ↔ nflows, zuko, PyTorch distributions transforms\n\n  LLM connection:\n    RLHF reward model → Bayesian update on human preferences\n    KL penalty in PPO → keep policy near prior (reference model)\n    Uncertainty in generation → temperature, beam search as VI approximations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

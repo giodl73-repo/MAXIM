@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\02-PANDAS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                         PANDAS DATA MODEL                                   │\n│                                                                             │\n│  DataFrame = dict of Series sharing an Index                                │\n│                                                                             │\n│  ┌─────────────────────────────────────────────────────────────────────┐    │\n│  │  Index    │  col_A  │  col_B  │  col_C  │  ...                     │   │\n│  │  ─────────┼─────────┼─────────┼─────────┼──────────────────────    │   │\n│  │  \"a\"      │  1.0    │  \"foo\"  │  True   │                          │   │\n│  │  \"b\"      │  2.0    │  \"bar\"  │  False  │                          │   │\n│  │  \"c\"      │  3.0    │  \"baz\"  │  True   │                          │   │\n│  └─────────────────────────────────────────────────────────────────────┘  │\n│       │           │          │         │                                   │\n│     Index      Series     Series    Series  ← each column is a Series     │\n│   (labels)   (float64) (object_)  (bool_)    with the same Index          │\n│                                                                             │\n│  EXECUTION LAYERS                                                           │\n│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐                     │\n│  │   Pandas     │  │    NumPy     │  │    Arrow     │                     │\n│  │  (labeled    │  │  (homogeneous│  │  (columnar   │                     │\n│  │   ops, SQL-  │  │   C arrays)  │  │   format,    │                     │\n│  │   style API) │  │              │  │   Pandas 2+) │                     │\n│  └──────────────┘  └──────────────┘  └──────────────┘                     │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "## Indexing: `.loc`, `.iloc`, `[]`",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────────────┐\n│  INDEXER   │  ROWS           │  COLUMNS        │  RETURNS          │\n├────────────┼─────────────────┼─────────────────┼──────────────────┤\n│  df[col]   │  —              │  label only     │  Series          │\n│  df[cols]  │  —              │  list of labels │  DataFrame       │\n│  df[slice] │  integer slice  │  —              │  DataFrame (rows)│\n│            │  (DEPRECATED)   │                 │                  │\n│  .loc[]    │  label-based    │  label-based    │  Series/DataFrame│\n│  .iloc[]   │  integer-based  │  integer-based  │  Series/DataFrame│\n│  .at[]     │  single label   │  single label   │  scalar (fast)   │\n│  .iat[]    │  single integer │  single integer │  scalar (fast)   │\n└────────────┴─────────────────┴─────────────────┴──────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "## SQL ↔ Pandas Bridge",
+      "confidence": "candidate",
+      "text": "SQL                                          Pandas equivalent\n───────────────────────────────────────────  ──────────────────────────────────────────\nSELECT region, SUM(revenue)                  df.groupby(\"region\")[\"revenue\"].sum()\nFROM sales GROUP BY region\n\nSELECT region, SUM(rev), AVG(units)          df.groupby(\"region\").agg(\nFROM sales GROUP BY region                       total_rev=(\"revenue\",\"sum\"),\n                                                 avg_units=(\"units\",\"mean\"))\n\nSELECT *, AVG(revenue) OVER                  df[\"region_avg\"] = df.groupby(\"region\")\n  (PARTITION BY region)                          [\"revenue\"].transform(\"mean\")\nFROM sales\n\nSELECT *, ROW_NUMBER() OVER                  df[\"rn\"] = df.groupby(\"region\")\n  (PARTITION BY region ORDER BY revenue)         [\"revenue\"].rank(method=\"first\",\nFROM sales                                       ascending=False)\n\nSELECT *, SUM(revenue) OVER                  df[\"cumsum\"] = df.groupby(\"region\")\n  (PARTITION BY region                           [\"revenue\"].cumsum()\n   ORDER BY date ROWS UNBOUNDED\n   PRECEDING)\n\nSELECT p.name, o.total FROM products p       pd.merge(products, orders,\nLEFT JOIN orders o ON p.id = o.product_id        left_on=\"id\", right_on=\"product_id\",\n                                                 how=\"left\")\n\nSELECT region, product,                      df.pivot_table(index=\"region\",\n  AVG(revenue) AS avg_rev                        columns=\"product\",\nFROM sales                                       values=\"revenue\",\nGROUP BY region, product                         aggfunc=\"mean\")\n(displayed as a cross-tab)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 525,
+      "heading_context": "## Performance",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  FAST  ← ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ►  SLOW  │\n│                                                                     │\n│  Vectorized   eval()    apply()   itertuples()  iterrows()  loop    │\n│  numpy ops    (numexpr)  (Python   (named        (Series     over   │\n│                          func)     tuples)        per row)   rows   │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 577,
+      "heading_context": "### When to Move Off Pandas",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  SITUATION                    │  ALTERNATIVE                        │\n├───────────────────────────────┼────────────────────────────────────┤\n│  > 1GB data, single machine   │  Polars (Rust, lazy eval, faster)  │\n│  > memory data, distributed   │  Dask, Spark, Modin                │\n│  Columnar analytics SQL-style │  DuckDB (in-process, very fast)    │\n│  Need true SQL semantics      │  DuckDB or SQLite                  │\n│  NumPy operations on arrays   │  NumPy directly (skip Pandas)      │\n│  Streaming / incremental      │  Polars streaming mode             │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

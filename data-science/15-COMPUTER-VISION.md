@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:computer-vision
+kind: guide
+module: data-science
+section: data-science
+title: Computer Vision
+status: source-custody
+source_custody: partial
+current_path: data-science/15-COMPUTER-VISION.md
+canonical_path: data-science/15-COMPUTER-VISION.md
+backsource_ids: [proof-backfill:data-science:15-computer-vision, git-history:data-science:15-computer-vision]
+concepts: [computer, vision]
+root_concepts: [computer, vision]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Computer Vision
 ## CNN Theory, Architectures, Detection, Segmentation, ViT, and Self-Supervised Learning
 

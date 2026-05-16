@@ -1,0 +1,248 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\16-NLP-FOUNDATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 23,
+      "heading_context": "## From N-Grams to Transformers — The Mathematical Path to LLMs",
+      "confidence": "candidate",
+      "text": "NLP ARCHITECTURE EVOLUTION\n\n  N-grams         Word2Vec / GloVe      LSTM / Seq2Seq       Transformer\n  (1990s)         (2013–2014)           (2014–2017)          (2017–present)\n  ────────────    ─────────────────     ────────────────     ─────────────────\n  Sparse counts   Dense embeddings      Sequence modeling    Attention is all\n  Smoothing       PMI factorization     Attention (additive) Scaled dot product\n  Perplexity      PPMI → SVD → skip     Encoder-Decoder      BERT / GPT / T5\n  Fixed vocab     Subword (FastText)    Bottleneck problem   Scaling laws",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## 1. Statistical Language Models",
+      "confidence": "candidate",
+      "text": "  P_{KN}(w|context) = max(C(context, w) - d, 0) / C(context)\n                     + λ(context) · P_{KN-lower}(w | shorter context)\n\n  d ≈ 0.75 (discount)\n  λ: normalizing constant\n  P_{KN-lower}: recursively smoothed lower-order model\n\n  Innovation: continuation probability — P_continuation(w) ∝ # contexts w completes\n  \"San Francisco\" → Francisco has high continuation (many contexts precede it)\n  Better than uniform backoff.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "## Information Retrieval Bridge — TF-IDF → Distributional Semantics",
+      "confidence": "candidate",
+      "text": "Information retrieval (search)              Distributional semantics (NLP)\n──────────────────────────────────────      ──────────────────────────────────────────\nTerm-document matrix M ∈ ℝ^{|V|×|D|}       Word-context matrix M ∈ ℝ^{|V|×|V|}\n  Mᵢⱼ = frequency of term i in doc j         Mᵢⱼ = count(word i near word j in corpus)\n\nTF-IDF(i, j) = tf(i,j) · idf(i)            PPMI(w, c) = max(log P(w,c)/P(w)P(c), 0)\n  tf = local term frequency                   Both re-weight raw counts to reduce\n  idf = -log(df_i / N) (rare terms↑)          domination by high-frequency terms\n  → both suppress common words               → idf and PMI serve the same role:\n  → both boost rare, distinctive terms         penalize high-frequency co-occurrence\n\nBM25 (Okapi BM25): better than TF-IDF       PPMI with context distribution smoothing\n  Saturates tf beyond a threshold k₁          Analogous saturation of raw counts\n  Normalizes for doc length (param b)          Context window size plays similar role\n  → more robust to long documents            → both are parameterized re-weightings\n\nCosine similarity of TF-IDF vectors:        Cosine similarity of word vectors:\n  sim(doc_i, doc_j) = u·v / (‖u‖‖v‖)         sim(word_i, word_j) = u·v / (‖u‖‖v‖)\n  Documents with similar vocabulary           Words appearing in similar contexts\n  are considered similar                      are considered semantically similar\n\nSVD on TF-IDF matrix (LSA):                 SVD on PPMI matrix:\n  Latent Semantic Analysis (Deerwester 1990)   Word2Vec = specific PPMI factorization\n  Reduces |D|-dimensional doc vectors          Reduces |V|-dimensional word vectors\n  to k-dimensional topic vectors              to d-dimensional semantic vectors\n  → same mathematical operation              → Word2Vec = fast LSA (Levy & Goldberg 2014)\n\nQuery expansion via semantic similarity:     Synonym detection via word vectors:\n  Use LSA similarity to expand queries        cos(vec(car), vec(automobile)) ≈ 0.9\n  with related terms → better recall         → structurally identical task",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "## 3. Word2Vec",
+      "confidence": "candidate",
+      "text": "  Predict context words from center word:\n    Maximize: Σ_t Σ_{-c≤j≤c, j≠0} log P(wₜ₊ⱼ | wₜ)\n\n    P(o | c) = exp(uₒᵀ vᵢ) / Σ_{w∈V} exp(uₙᵀ vᵢ)   ← softmax\n\n  Two matrices: input embeddings V (word as center) and output embeddings U (word as context)\n  Full softmax over |V|=10⁵⁻⁶ words → too expensive",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 203,
+      "heading_context": "## 4. GloVe",
+      "confidence": "candidate",
+      "text": "  Let Xᵢⱼ = count(word i appears in context of word j)\n  Pᵢⱼ = Xᵢⱼ / Xᵢ  (conditional probability)\n\n  Observation: ratios of probabilities encode meaning:\n    P(ice|k) / P(steam|k) is large for k=\"solid\", small for k=\"gas\"\n\n  Model: wᵢᵀ w̃ⱼ + bᵢ + b̃ⱼ = log Xᵢⱼ\n\n  Loss: J = Σᵢⱼ f(Xᵢⱼ) (wᵢᵀ w̃ⱼ + bᵢ + b̃ⱼ - log Xᵢⱼ)²\n          ↑\n     weighting function: f(X) = (X/x_max)^α for X < x_max, else 1\n     Caps contribution of frequent pairs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "## 5. RNNs and the Vanishing Gradient Problem",
+      "confidence": "candidate",
+      "text": "  ∂L/∂h₁ = ∂L/∂hT · Π_{t=2}^T ∂hₜ/∂hₜ₋₁\n                    ↑\n          product of T-1 Jacobians\n\n  Each ∂hₜ/∂hₜ₋₁ = diag(tanh'(·)) · Whh\n\n  If ‖Whh‖ < 1 and tanh'(·) < 1: product → 0 exponentially (vanish)\n  If ‖Whh‖ > 1: product → ∞ exponentially (explode)\n\n  Gradient clipping: ‖g‖ > threshold → g ← g · threshold/‖g‖  (fixes explosion)\n  Vanishing: harder to fix — LSTM is the solution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "## 6. LSTM",
+      "confidence": "candidate",
+      "text": "  Cell state cₜ:  long-term memory (slow-changing, linear dynamics)\n  Hidden state hₜ: short-term memory / output (fast-changing)\n\n  Gates (all sigmoid → output in [0,1]):\n    fₜ = σ(Wf[hₜ₋₁, xₜ] + bf)      forget gate: how much of cₜ₋₁ to keep\n    iₜ = σ(Wi[hₜ₋₁, xₜ] + bi)      input gate: how much to write to cell\n    oₜ = σ(Wo[hₜ₋₁, xₜ] + bo)      output gate: how much of cell to expose\n\n  Cell candidate: c̃ₜ = tanh(Wc[hₜ₋₁, xₜ] + bc)\n\n  Cell update:  cₜ = fₜ ⊙ cₜ₋₁ + iₜ ⊙ c̃ₜ\n                     ↑                ↑\n                 keep old cell     write new info\n\n  Hidden state: hₜ = oₜ ⊙ tanh(cₜ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 287,
+      "heading_context": "## 6. LSTM",
+      "confidence": "candidate",
+      "text": "  ∂cₜ/∂cₜ₋₁ = fₜ   ← forget gate controls gradient flow\n\n  If fₜ ≈ 1 (remember): gradient flows through unchanged (additive update path)\n  The additive update cₜ = fₜ⊙cₜ₋₁ + ... creates a \"constant error carousel\"\n  No repeated matrix multiplication on the cell state path → no exponential vanishing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 310,
+      "heading_context": "## 7. Seq2Seq and Attention",
+      "confidence": "candidate",
+      "text": "  Encoder: RNN processes source sequence → final hidden state c (context vector)\n  Decoder: RNN generates target sequence using c as initial state\n\n  Bottleneck problem: entire source compressed into fixed-size vector c\n  Long sequences → c forgets early tokens → poor performance on long sentences",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 319,
+      "heading_context": "## 7. Seq2Seq and Attention",
+      "confidence": "candidate",
+      "text": "  At each decoder step t, compute attention over all encoder hidden states:\n\n  Score function (additive):\n    eₜⱼ = vᵀ tanh(Wa sₜ₋₁ + Ua hⱼ)    ← compatibility of decoder state sₜ₋₁ with encoder state hⱼ\n\n  Attention weights:\n    αₜⱼ = exp(eₜⱼ) / Σₖ exp(eₜₖ)        softmax over source positions\n\n  Context vector:\n    cₜ = Σⱼ αₜⱼ hⱼ                       weighted sum of encoder states\n\n  Decoder: sₜ = RNN(sₜ₋₁, yₜ₋₁, cₜ)     use per-step context\n\n  Key: αₜⱼ is a soft alignment — interpretable attention matrix",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 347,
+      "heading_context": "### The Vocabulary Tradeoff",
+      "confidence": "candidate",
+      "text": "Small vocabulary (word-level):\n  V = 50k distinct words\n  Out-of-vocabulary (OOV) problem: \"unrecognized\" → [UNK] → no gradient\n  Morphological blindness: \"running\" and \"run\" are unrelated tokens\n  Rare words: poorly trained (few examples), or UNK'd\n\nLarge vocabulary (character-level):\n  V = ~256 bytes (or ~1000 Unicode chars)\n  No OOV problem: any byte sequence is valid\n  Long sequences: \"university\" = 10 chars = 10 tokens → 10× more compute\n  Hard to learn: model must compose meaning across many positions\n\nSubword (Goldilocks zone):\n  V = 30k–50k subword units\n  Frequent words: treated as single tokens (\"the\", \"university\")\n  Rare words: split into known pieces (\"univer\" + \"sity\")\n  UNK rate: near-zero with byte fallback\n  Used by: GPT-2/3/4 (BPE), BERT (WordPiece), LLaMA (SentencePiece BPE)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 372,
+      "heading_context": "### BPE — Byte Pair Encoding",
+      "confidence": "candidate",
+      "text": "Algorithm:\n  1. Initialize vocabulary: all individual bytes (256 entries)\n     Represent corpus as sequence of bytes, e.g.: \"low\" → ['l','o','w']\n\n  2. Repeat V_target - 256 times:\n     a. Count all adjacent byte-pair frequencies in corpus\n     b. Find most frequent pair (e.g., 'e','s')\n     c. Merge: replace every occurrence of ('e','s') with 'es' in corpus\n     d. Add 'es' to vocabulary\n     e. Update pair counts\n\n  3. Result: V_target subword tokens covering the corpus\n\nExample iterations:\n  Start: l o w , l o w e r , n e w e s t , w i d e s t\n  Merge 'e','s' → l o w , l o w e r , n e w es t , w i d es t\n  Merge 'es','t' → l o w , l o w e r , n e w est , w i d est\n  ...\n\nAt inference: greedily apply merges in learned order to input text.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 402,
+      "heading_context": "### WordPiece",
+      "confidence": "candidate",
+      "text": "Same as BPE but different merge criterion:\n  BPE: merge most frequent pair\n  WordPiece: merge pair that maximizes likelihood of corpus under unigram LM\n             score(A, B) = P(AB) / (P(A) · P(B))\n\nResulting vocabulary:\n  Whole words: \"university\"\n  Continuations: \"##ity\" (## prefix = continuation of a word)\n\nTokenization:\n  \"universities\" → [\"university\", \"##s\"]  (if \"universitys\" unknown)\n              OR → [\"uni\", \"##vers\", \"##ities\"]\n\nBERT vocabulary: 30522 tokens (English), 119547 (multilingual)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 438,
+      "heading_context": "### Vocabulary Size Effects",
+      "confidence": "candidate",
+      "text": "Model             Tokenizer        Vocab size    Notes\n──────────────    ──────────────   ──────────    ──────────────────────────────────\nGPT-2             BPE (tiktoken)   50,257        OpenAI baseline\nGPT-3/4           BPE (tiktoken)   100,277       cl100k_base; larger vocab\nBERT              WordPiece        30,522        [unused] entries for new tokens\nRoBERTa           BPE              50,265        GPT-2 style\nT5                SentencePiece    32,100        Unigram LM\nLLaMA 1/2         SentencePiece    32,000        BPE on SP\nLLaMA 3           BPE (tiktoken)   128,256       Large vocab for multilingual\n\nLarger vocab → fewer tokens per text → faster inference\n             → more embedding parameters (vocab_size × d_model)\n             → rare tokens poorly trained (need large corpus to fill vocab)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 456,
+      "heading_context": "### Tokenization Gotchas",
+      "confidence": "candidate",
+      "text": "1. Token boundary ≠ word boundary:\n   \"don't\" → [\"don\", \"'\", \"t\"] in GPT-2 BPE\n   \"unhappy\" → [\"un\", \"happy\"] in WordPiece\n   Arithmetic: \"42\" might be one token, \"100\" might be two — explains LLM math failures\n\n2. Prefix/continuation distinction:\n   \"big\" (start of word) ≠ \"Ġbig\" (GPT-2 BPE, Ġ = leading space)\n   Same characters, different tokens — context of space matters\n\n3. Case sensitivity:\n   Most modern tokenizers are case-sensitive\n   \"The\" and \"the\" are different tokens in GPT-2\n\n4. Morphologically rich languages:\n   Finnish \"juoksennellaan\" (they run around) → many tokens vs one word\n   BPE degrades gracefully; character models handle this better in theory\n\n5. Tokenization leaks into prompting:\n   \"Write a word that rhymes with orange\" — LLM sees \"o\",\"ran\",\"ge\" not a single unit\n   Spelling/rhyming tasks hard because the token != the character sequence",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 496,
+      "heading_context": "## 9. Transformer (Architecture)",
+      "confidence": "candidate",
+      "text": "  Q, K entries ~ N(0,1) independently\n  (Q·K^T)_{ij} = Σ_{l=1}^{d_k} q_{il} k_{jl}\n  E[(q_il k_jl)²] = 1  (product of two unit Gaussian vars)\n  Var(q_i · k_j) = d_k  →  std(q_i · k_j) = √d_k\n\n  Without scaling: softmax input std grows as √d_k\n  For d_k=64: std≈8 → extreme softmax → near one-hot → vanishing gradient on non-max\n  With /√d_k: normalize to unit std → well-conditioned softmax",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 508,
+      "heading_context": "## 9. Transformer (Architecture)",
+      "confidence": "candidate",
+      "text": "  PE(pos, 2i)   = sin(pos / 10000^{2i/d_model})\n  PE(pos, 2i+1) = cos(pos / 10000^{2i/d_model})\n\n  Linear attention property: PE(pos+k) can be expressed as linear function of PE(pos)\n  Proof: sin(a+b) = sin(a)cos(b) + cos(a)sin(b) — each frequency dimension rotates\n  The rotation matrix Mₖ exists such that PE(pos+k) = Mₖ PE(pos)\n  → Relative position can be computed from absolute encodings\n\n  Why not learned? Generalize to sequence lengths longer than training.\n  Modern: RoPE (rotary position embedding) — directly bakes rotation into Q,K matrices",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 522,
+      "heading_context": "## 9. Transformer (Architecture)",
+      "confidence": "candidate",
+      "text": "  x → LayerNorm → MultiHeadSelfAttention → (+) → x'\n  x' → LayerNorm → FFN(2-layer MLP, d_ff=4d_model, GELU) → (+) → output\n\n  Pre-norm (modern): LayerNorm before sublayer, not after (stable training)\n  Post-norm (original): LayerNorm after residual connection",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 537,
+      "heading_context": "## 10. BERT and Bidirectional Pretraining",
+      "confidence": "candidate",
+      "text": "  Architecture: Transformer encoder (no decoder)\n\n  Two pretraining tasks:\n\n  1. Masked Language Model (MLM):\n     15% of tokens replaced:\n       80% → [MASK]\n       10% → random word\n       10% → unchanged\n     Predict original token at masked positions\n     Loss: CE on masked positions only\n\n  2. Next Sentence Prediction (NSP):\n     Input: [CLS] Sentence A [SEP] Sentence B [SEP]\n     Binary classification: is B the next sentence after A?\n     (Later work: NSP is not helpful; dropped in RoBERTa)\n\n  Input representation:\n    Token embedding + Segment embedding (A vs B) + Position embedding\n    [CLS] token: classification representation (attended over all tokens)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 561,
+      "heading_context": "## 10. BERT and Bidirectional Pretraining",
+      "confidence": "candidate",
+      "text": "  BERT (encoder):  bidirectional — attends to all positions in both directions\n    → strong representations for classification, NER, QA (understanding)\n    → can't generate left-to-right (masked positions in training)\n\n  GPT (decoder):   causal/autoregressive — attends only to past positions\n    → natural for text generation\n    → left-to-right language model: P(w_t | w_1,...,w_{t-1})\n\n  T5 (encoder-decoder): encoder sees full input, decoder generates output\n    → general-purpose: translation, summarization, QA all as text-to-text",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 575,
+      "heading_context": "## 10. BERT and Bidirectional Pretraining",
+      "confidence": "candidate",
+      "text": "  Classification: [CLS] → dense → softmax\n  Sequence labeling (NER): each token → dense → softmax\n  Span extraction (QA): start/end head over all positions\n  ≤ 10K labeled examples typically sufficient (BERT features are powerful)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 596,
+      "heading_context": "## 11. Scaling Laws and LLMs",
+      "confidence": "candidate",
+      "text": "  L(N, D) = E + A/N^α + B/D^β\n\n  Optimal for fixed compute C ≈ 6ND:\n    N_opt ∝ C^{0.5}\n    D_opt ∝ C^{0.5}\n    → N ≈ 20D  (train for 20 tokens per parameter)\n\n  GPT-3 (175B, 300B tokens): undertrained — should have used ~3.5T tokens\n  Chinchilla (70B, 1.4T tokens): better than GPT-3 with less compute",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

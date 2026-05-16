@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:reinforcement-learning
+kind: guide
+module: data-science
+section: data-science
+title: Reinforcement Learning
+status: source-custody
+source_custody: partial
+current_path: data-science/12-REINFORCEMENT-LEARNING.md
+canonical_path: data-science/12-REINFORCEMENT-LEARNING.md
+backsource_ids: [proof-backfill:data-science:12-reinforcement-learning, git-history:data-science:12-reinforcement-learning]
+concepts: [reinforcement, learning]
+root_concepts: [reinforcement, learning]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Reinforcement Learning
 ## MDPs, Bellman Equations, Policy Gradients, and Modern Deep RL
 

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:causal-inference
+kind: guide
+module: data-science
+section: data-science
+title: Causal Inference
+status: source-custody
+source_custody: partial
+current_path: data-science/13-CAUSAL-INFERENCE.md
+canonical_path: data-science/13-CAUSAL-INFERENCE.md
+backsource_ids: [proof-backfill:data-science:13-causal-inference, git-history:data-science:13-causal-inference]
+concepts: [causal, inference]
+root_concepts: [causal, inference]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Causal Inference
 ## Beyond Correlation — DAGs, Do-Calculus, and Causal ML
 

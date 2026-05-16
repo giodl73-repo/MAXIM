@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:azure-ml
+kind: guide
+module: data-science
+section: data-science
+title: Azure Machine Learning - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: data-science/06-AZURE-ML.md
+canonical_path: data-science/06-AZURE-ML.md
+backsource_ids: [proof-backfill:data-science:06-azure-ml, git-history:data-science:06-azure-ml]
+concepts: [azure, ml]
+root_concepts: [azure, ml]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Azure Machine Learning — Complete Reference
 
 ## The Big Picture

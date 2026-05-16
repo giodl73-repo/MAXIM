@@ -1,0 +1,48 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\04-PYTORCH.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 920,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether PyTorch is the right tool",
+          "Compare tabular, image, text, sequence, custom architecture, and differentiable-programming needs.",
+          "For ordinary tabular ML, scikit-learn/XGBoost/LightGBM often beat neural networks."
+        ],
+        [
+          "A tensor-shape failure",
+          "Track batch, channel, sequence, feature, device, dtype, and contiguous/non-contiguous layout.",
+          "Most PyTorch bugs are shape/device/dtype bugs before they are model-theory bugs."
+        ],
+        [
+          "A gradient problem",
+          "Check `requires_grad`, graph construction, `.detach()`, `no_grad`, accumulated `.grad`, and optimizer zeroing.",
+          "Gradients accumulate by default; forgetting `zero_grad()` changes the optimization problem."
+        ],
+        [
+          "A training-loop issue",
+          "Separate model mode, loss, optimizer, scheduler, validation, checkpoint, and mixed precision.",
+          "`model.train()` and `model.eval()` change dropout/batchnorm behavior."
+        ],
+        [
+          "A scaling problem",
+          "Decide between single GPU, DDP single-node, DDP multi-node, gradient accumulation, AMP, and checkpointing.",
+          "Distributed training adds data-sharding and synchronization failure modes."
+        ],
+        [
+          "An inference/deployment path",
+          "Compare `state_dict`, TorchScript/ONNX export, batch size, latency, quantization, and serving runtime.",
+          "Save weights plus code for long-term reproducibility; pickled whole models are brittle."
+        ]
+      ]
+    }
+  ]
+}

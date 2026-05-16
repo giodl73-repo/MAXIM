@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:numpy
+kind: guide
+module: data-science
+section: data-science
+title: 01 - NumPy
+status: source-custody
+source_custody: partial
+current_path: data-science/01-NUMPY.md
+canonical_path: data-science/01-NUMPY.md
+backsource_ids: [proof-backfill:data-science:01-numpy, git-history:data-science:01-numpy]
+concepts: [numpy]
+root_concepts: [numpy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 01 — NumPy
 
 > NumPy is not a math library. It is a memory layout manager with a C execution engine

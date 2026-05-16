@@ -1,0 +1,2057 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-data-science-pandas",
+  "source": "../../data-science",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-PANDAS.md#000",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# 02 — Pandas"
+    },
+    {
+      "id": "02-PANDAS.md#001",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "> Pandas is a labeled ndarray with a query engine bolted on.\n> Once you see it that way, the API stops being arbitrary."
+    },
+    {
+      "id": "02-PANDAS.md#002",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PANDAS.md#003",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-PANDAS.md#004",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────────────┐\n│                         PANDAS DATA MODEL                                   │\n│                                                                             │\n│  DataFrame = dict of Series sharing an Index                                │\n│                                                                             │\n│  ┌─────────────────────────────────────────────────────────────────────┐    │\n│  │  Index    │  col_A  │  col_B  │  col_C  │  ...                     │   │\n│  │  ─────────┼─────────┼─────────┼─────────┼──────────────────────    │   │\n│  │  \"a\"      │  1.0    │  \"foo\"  │  True   │                          │   │\n│  │  \"b\"      │  2.0    │  \"bar\"  │  False  │                          │   │\n│  │  \"c\"      │  3.0    │  \"baz\"  │  True   │                          │   │\n│  └─────────────────────────────────────────────────────────────────────┘  │\n│       │           │          │         │                                   │\n│     Index      Series     Series    Series  ← each column is a Series     │\n│   (labels)   (float64) (object_)  (bool_)    with the same Index          │\n│                                                                             │\n│  EXECUTION LAYERS                                                           │\n│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐                     │\n│  │   Pandas     │  │    NumPy     │  │    Arrow     │                     │\n│  │  (labeled    │  │  (homogeneous│  │  (columnar   │                     │\n│  │   ops, SQL-  │  │   C arrays)  │  │   format,    │                     │\n│  │   style API) │  │              │  │   Pandas 2+) │                     │\n│  └──────────────┘  └──────────────┘  └──────────────┘                     │\n└─────────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "02-PANDAS.md#005",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "Pandas 2.0 (2023) switched the default backend from NumPy to Apache Arrow for\nmany dtypes. Arrow uses a columnar memory format that is more efficient for\nstring columns, nullable integers, and large datasets. The API is unchanged."
+    },
+    {
+      "id": "02-PANDAS.md#006",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PANDAS.md#007",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "## Series"
+    },
+    {
+      "id": "02-PANDAS.md#008",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "A Series is a 1-D labeled array. Think of it as a NumPy array with an index."
+    },
+    {
+      "id": "02-PANDAS.md#009",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "```python\nimport pandas as pd\nimport numpy as np"
+    },
+    {
+      "id": "02-PANDAS.md#010",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Creation\ns = pd.Series([10, 20, 30], index=[\"a\", \"b\", \"c\"], name=\"values\")\ns2 = pd.Series({\"a\": 10, \"b\": 20, \"c\": 30})  # dict → Series"
+    },
+    {
+      "id": "02-PANDAS.md#011",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Access\ns[\"b\"]          # 20 — label-based\ns[1]            # 20 — positional (deprecated for non-integer index)\ns.iloc[1]       # 20 — always positional\ns.loc[\"b\"]      # 20 — always label-based"
+    },
+    {
+      "id": "02-PANDAS.md#012",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Operations are automatically aligned by index\ns3 = pd.Series([1, 2, 3], index=[\"b\", \"c\", \"d\"])\ns + s3\n# a    NaN   ← \"a\" only in s\n# b    22.0  ← 20 + 2\n# c    32.0  ← 30 + 3 (wait: s[\"c\"]=30, s3[\"c\"]=3... s[\"c\"]=30, s3[\"b\"]=2, s3[\"c\"]=3\n# d    NaN   ← \"d\" only in s3"
+    },
+    {
+      "id": "02-PANDAS.md#013",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Index alignment is the killer feature and the surprise behavior\n```"
+    },
+    {
+      "id": "02-PANDAS.md#014",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PANDAS.md#015",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "## DataFrame Construction"
+    },
+    {
+      "id": "02-PANDAS.md#016",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "```python\n# From dict of lists (most common)\ndf = pd.DataFrame({\n    \"name\":   [\"Alice\", \"Bob\", \"Carol\"],\n    \"score\":  [95.0, 82.0, 88.0],\n    \"passed\": [True, True, True],\n})"
+    },
+    {
+      "id": "02-PANDAS.md#017",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# From list of dicts\ndf2 = pd.DataFrame([\n    {\"name\": \"Alice\", \"score\": 95.0},\n    {\"name\": \"Bob\",   \"score\": 82.0},\n])"
+    },
+    {
+      "id": "02-PANDAS.md#018",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# From NumPy array\narr = np.random.rand(5, 3)\ndf3 = pd.DataFrame(arr, columns=[\"x\", \"y\", \"z\"])"
+    },
+    {
+      "id": "02-PANDAS.md#019",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# From CSV / Parquet / JSON / SQL\ndf = pd.read_csv(\"data.csv\", dtype={\"id\": \"int32\", \"score\": \"float32\"})\ndf = pd.read_parquet(\"data.parquet\")\ndf = pd.read_sql(\"SELECT * FROM users\", con=engine)  # SQLAlchemy engine"
+    },
+    {
+      "id": "02-PANDAS.md#020",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Inspection\ndf.shape          # (3, 3)\ndf.dtypes         # dtype per column\ndf.info()         # dtypes + null counts + memory usage\ndf.describe()     # count/mean/std/min/quartiles/max for numeric cols\ndf.head(5)        # first 5 rows\ndf.tail(5)        # last 5 rows\ndf.sample(5)      # 5 random rows\n```"
+    },
+    {
+      "id": "02-PANDAS.md#021",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PANDAS.md#022",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "## Indexing: `.loc`, `.iloc`, `[]`"
+    },
+    {
+      "id": "02-PANDAS.md#023",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "This is the most confusing part of Pandas. Three indexers with overlapping behavior:"
+    },
+    {
+      "id": "02-PANDAS.md#024",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "```\n┌────────────────────────────────────────────────────────────────────┐\n│  INDEXER   │  ROWS           │  COLUMNS        │  RETURNS          │\n├────────────┼─────────────────┼─────────────────┼──────────────────┤\n│  df[col]   │  —              │  label only     │  Series          │\n│  df[cols]  │  —              │  list of labels │  DataFrame       │\n│  df[slice] │  integer slice  │  —              │  DataFrame (rows)│\n│            │  (DEPRECATED)   │                 │                  │\n│  .loc[]    │  label-based    │  label-based    │  Series/DataFrame│\n│  .iloc[]   │  integer-based  │  integer-based  │  Series/DataFrame│\n│  .at[]     │  single label   │  single label   │  scalar (fast)   │\n│  .iat[]    │  single integer │  single integer │  scalar (fast)   │\n└────────────┴─────────────────┴─────────────────┴──────────────────┘\n```"
+    },
+    {
+      "id": "02-PANDAS.md#025",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "```python\ndf = pd.DataFrame({\"A\": [1,2,3], \"B\": [4,5,6], \"C\": [7,8,9]},\n                   index=[\"x\", \"y\", \"z\"])"
+    },
+    {
+      "id": "02-PANDAS.md#026",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Column access\ndf[\"A\"]           # Series\ndf[[\"A\", \"C\"]]    # DataFrame with two columns"
+    },
+    {
+      "id": "02-PANDAS.md#027",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# .loc — label-based, INCLUSIVE on both ends\ndf.loc[\"x\"]            # row \"x\" as Series\ndf.loc[\"x\":\"y\"]        # rows x and y (inclusive end!)\ndf.loc[\"x\":\"y\", \"A\":\"B\"]   # rows x-y, cols A-B"
+    },
+    {
+      "id": "02-PANDAS.md#028",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# .iloc — integer-based, exclusive end (like Python slicing)\ndf.iloc[0]             # first row\ndf.iloc[0:2]           # rows 0 and 1 (not 2)\ndf.iloc[0:2, 0:2]      # top-left 2×2 subgrid"
+    },
+    {
+      "id": "02-PANDAS.md#029",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Boolean mask with .loc\nmask = df[\"A\"] > 1\ndf.loc[mask]           # rows where A > 1\ndf.loc[mask, \"B\"]      # just column B for those rows"
+    },
+    {
+      "id": "02-PANDAS.md#030",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Assignment — always use .loc/.iloc to avoid SettingWithCopyWarning\ndf.loc[mask, \"A\"] = 0  # correct\ndf[mask][\"A\"] = 0      # WRONG — may write to a copy (chained indexing)\n```"
+    },
+    {
+      "id": "02-PANDAS.md#031",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "The `SettingWithCopyWarning` is Pandas' way of saying: chained indexing\n(`df[condition][\"col\"] = value`) may or may not modify the original, depending\non whether the first selection returned a view or a copy. Always use `.loc`."
+    },
+    {
+      "id": "02-PANDAS.md#032",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PANDAS.md#033",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "## Data Types and Casting"
+    },
+    {
+      "id": "02-PANDAS.md#034",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "```python\ndf.dtypes             # shows dtype of each column"
+    },
+    {
+      "id": "02-PANDAS.md#035",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Cast\ndf[\"score\"] = df[\"score\"].astype(\"float32\")\ndf[\"id\"] = df[\"id\"].astype(\"int32\")\ndf[\"category\"] = df[\"category\"].astype(\"category\")  # CategoricalDtype → memory savings"
+    },
+    {
+      "id": "02-PANDAS.md#036",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Pandas 2 nullable types (vs NumPy types)\n# NumPy int64 cannot represent NaN — NaN forces float64\n# Pandas Int64 (capital I) = nullable integer\ndf[\"count\"] = df[\"count\"].astype(\"Int64\")   # nullable, can hold NA\ndf[\"flag\"] = df[\"flag\"].astype(\"boolean\")   # nullable bool"
+    },
+    {
+      "id": "02-PANDAS.md#037",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# String types\ndf[\"name\"].dtype      # object_ in Pandas 1; ArrowDtype in Pandas 2\ndf[\"name\"] = df[\"name\"].astype(\"string\")    # StringDtype — better performance"
+    },
+    {
+      "id": "02-PANDAS.md#038",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Check memory usage\ndf.memory_usage(deep=True).sum()   # bytes including string content\n```"
+    },
+    {
+      "id": "02-PANDAS.md#039",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PANDAS.md#040",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "## Missing Data"
+    },
+    {
+      "id": "02-PANDAS.md#041",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "```python\ndf.isna()              # boolean DataFrame of NaN locations\ndf.isna().sum()        # count of NaNs per column\ndf.notna()"
+    },
+    {
+      "id": "02-PANDAS.md#042",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Drop\ndf.dropna()                      # drop rows with any NaN\ndf.dropna(subset=[\"score\"])      # only where score is NaN\ndf.dropna(axis=1)                # drop columns with any NaN"
+    },
+    {
+      "id": "02-PANDAS.md#043",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Fill\ndf.fillna(0)                     # replace all NaN with 0\ndf[\"score\"].fillna(df[\"score\"].mean())   # fill with column mean\ndf.ffill()                       # forward fill (propagate last valid)\ndf.bfill()                       # backward fill"
+    },
+    {
+      "id": "02-PANDAS.md#044",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# Interpolate (numeric columns)\ndf[\"score\"].interpolate(method=\"linear\")\n```"
+    },
+    {
+      "id": "02-PANDAS.md#045",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PANDAS.md#046",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "## Filtering and Querying"
+    },
+    {
+      "id": "02-PANDAS.md#047",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "```python\n# Boolean indexing\ndf[df[\"score\"] >= 90]\ndf[(df[\"score\"] >= 80) & (df[\"passed\"] == True)]   # use & | ~ not and/or/not\ndf[df[\"name\"].isin([\"Alice\", \"Carol\"])]\ndf[~df[\"name\"].isin([\"Bob\"])]                       # ~ = NOT"
+    },
+    {
+      "id": "02-PANDAS.md#048",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# .query() — string expression (eval'd, slightly faster for large DataFrames)\ndf.query(\"score >= 80 and passed == True\")\ndf.query(\"name in @names_list\")   # @ references Python variable"
+    },
+    {
+      "id": "02-PANDAS.md#049",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# str accessor — vectorized string operations\ndf[df[\"name\"].str.startswith(\"A\")]\ndf[df[\"name\"].str.contains(\"li\", case=False)]\ndf[\"name\"].str.upper()\ndf[\"name\"].str.split(\" \", expand=True)  # split into multiple columns\ndf[\"name\"].str.len()\n```"
+    },
+    {
+      "id": "02-PANDAS.md#050",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PANDAS.md#051",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "## Operations and Apply"
+    },
+    {
+      "id": "02-PANDAS.md#052",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "```python\n# Column-wise arithmetic (vectorized)\ndf[\"adjusted\"] = df[\"score\"] * 1.1\ndf[\"z_score\"] = (df[\"score\"] - df[\"score\"].mean()) / df[\"score\"].std()"
+    },
+    {
+      "id": "02-PANDAS.md#053",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# apply — row-wise or column-wise Python function (slow; avoid if possible)\ndf[\"grade\"] = df[\"score\"].apply(lambda x: \"A\" if x >= 90 else \"B\")\ndf[\"combined\"] = df.apply(lambda row: f\"{row['name']}:{row['score']}\", axis=1)"
+    },
+    {
+      "id": "02-PANDAS.md#054",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# map — element-wise on Series\ngrade_map = {\"A\": 4.0, \"B\": 3.0, \"C\": 2.0}\ndf[\"gpa\"] = df[\"grade\"].map(grade_map)"
+    },
+    {
+      "id": "02-PANDAS.md#055",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "# assign — method-chaining friendly (returns new DataFrame)\ndf = (df\n    .assign(adjusted=df[\"score\"] * 1.1)\n    .assign(z_score=lambda x: (x[\"score\"] - x[\"score\"].mean()) / x[\"score\"].std())\n    .rename(columns={\"name\": \"student_name\"})\n)\n```"
+    },
+    {
+      "id": "02-PANDAS.md#056",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "### Method Chaining Pattern"
+    },
+    {
+      "id": "02-PANDAS.md#057",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "```python\nresult = (\n    pd.read_csv(\"grades.csv\")\n    .rename(columns=str.lower)\n    .dropna(subset=[\"score\"])\n    .query(\"score >= 60\")\n    .assign(grade=lambda df: pd.cut(df[\"score\"],\n                                     bins=[0, 60, 70, 80, 90, 100],\n                                     labels=[\"F\",\"D\",\"C\",\"B\",\"A\"]))\n    .groupby(\"grade\")[\"score\"]\n    .agg([\"count\", \"mean\"])\n    .round(2)\n)\n```"
+    },
+    {
+      "id": "02-PANDAS.md#058",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "Method chaining reads as a data pipeline — the same mental model as ADF pipelines\nor LINQ chains. Each step produces a new DataFrame; nothing mutates in place."
+    },
+    {
+      "id": "02-PANDAS.md#059",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PANDAS.md#060",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "## SQL ↔ Pandas Bridge"
+    },
+    {
+      "id": "02-PANDAS.md#061",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "The GroupBy + pivot operations have direct SQL equivalents. Understanding the\ncorrespondence eliminates the conceptual overhead of learning the pandas API:"
+    },
+    {
+      "id": "02-PANDAS.md#062",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "```\nSQL                                          Pandas equivalent\n───────────────────────────────────────────  ──────────────────────────────────────────\nSELECT region, SUM(revenue)                  df.groupby(\"region\")[\"revenue\"].sum()\nFROM sales GROUP BY region"
+    },
+    {
+      "id": "02-PANDAS.md#063",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "SELECT region, SUM(rev), AVG(units)          df.groupby(\"region\").agg(\nFROM sales GROUP BY region                       total_rev=(\"revenue\",\"sum\"),\n                                                 avg_units=(\"units\",\"mean\"))"
+    },
+    {
+      "id": "02-PANDAS.md#064",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "SELECT *, AVG(revenue) OVER                  df[\"region_avg\"] = df.groupby(\"region\")\n  (PARTITION BY region)                          [\"revenue\"].transform(\"mean\")\nFROM sales"
+    },
+    {
+      "id": "02-PANDAS.md#065",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "SELECT *, ROW_NUMBER() OVER                  df[\"rn\"] = df.groupby(\"region\")\n  (PARTITION BY region ORDER BY revenue)         [\"revenue\"].rank(method=\"first\",\nFROM sales                                       ascending=False)"
+    },
+    {
+      "id": "02-PANDAS.md#066",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "SELECT *, SUM(revenue) OVER                  df[\"cumsum\"] = df.groupby(\"region\")\n  (PARTITION BY region                           [\"revenue\"].cumsum()\n   ORDER BY date ROWS UNBOUNDED\n   PRECEDING)"
+    },
+    {
+      "id": "02-PANDAS.md#067",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "SELECT p.name, o.total FROM products p       pd.merge(products, orders,\nLEFT JOIN orders o ON p.id = o.product_id        left_on=\"id\", right_on=\"product_id\",\n                                                 how=\"left\")"
+    },
+    {
+      "id": "02-PANDAS.md#068",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "SELECT region, product,                      df.pivot_table(index=\"region\",\n  AVG(revenue) AS avg_rev                        columns=\"product\",\nFROM sales                                       values=\"revenue\",\nGROUP BY region, product                         aggfunc=\"mean\")\n(displayed as a cross-tab)\n```"
+    },
+    {
+      "id": "02-PANDAS.md#069",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "**Excel pivot table ↔ `pivot_table()`**: An Excel pivot table where you drag\n`region` to Rows, `product` to Columns, and `revenue` to Values (Sum) is exactly\n`df.pivot_table(index=\"region\", columns=\"product\", values=\"revenue\", aggfunc=\"sum\")`.\nThe `aggfunc` parameter corresponds to the Value Field Settings aggregation type.\nSlicers in Excel correspond to pre-filtering the DataFrame before pivoting."
+    },
+    {
+      "id": "02-PANDAS.md#070",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "**SSAS measures ↔ named aggregations**: In SSAS, a calculated measure like\n`[Total Revenue] = SUM([Sales].[Revenue])` applied over a dimension slice corresponds\nto a named aggregation in pandas:"
+    },
+    {
+      "id": "02-PANDAS.md#071",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "```python\n# SSAS: SUM(Revenue) partitioned by Region dimension\n# Pandas equivalent:\ndf.groupby(\"region\").agg(\n    total_rev=(\"revenue\", \"sum\"),            # simple SUM measure\n    distinct_customers=(\"customer_id\", \"nunique\"),  # DISTINCT COUNT measure\n    p90_revenue=(\"revenue\", lambda x: x.quantile(0.9)),  # custom expression\n)\n```"
+    },
+    {
+      "id": "02-PANDAS.md#072",
+      "path": [
+        "02-PANDAS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]",
+        "canonical_path": "data-science/02-PANDAS.md",
+        "concepts": "[pandas]",
+        "current_path": "data-science/02-PANDAS.md",
+        "id": "maxim:data-science:pandas",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pandas]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Pandas",
+        "updated": "null"
+      },
+      "text": "The named aggregation syntax (`alias=(column, function)`) maps cleanly to\nSSAS measure definitions — one named measure per line, with explicit aggregation\nfunction and source column."
+    }
+  ],
+  "refs": [
+    "02-PANDAS.md"
+  ]
+}

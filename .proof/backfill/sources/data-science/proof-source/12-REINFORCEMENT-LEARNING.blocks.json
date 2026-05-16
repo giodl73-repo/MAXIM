@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\12-REINFORCEMENT-LEARNING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 23,
+      "heading_context": "## MDPs, Bellman Equations, Policy Gradients, and Modern Deep RL",
+      "confidence": "candidate",
+      "text": "THE RL FRAMEWORK\n\n  ┌───────────────────────────────────────────────────────┐\n  │                                                       │\n  │   Agent ──action aₜ──► Environment                    │\n  │      ▲                      │                         │\n  │      │ state sₜ₊₁           │                         │\n  │      │ reward rₜ₊₁          │                         │\n  │      └──────────────────────┘                         │\n  │                                                         │\n  │  Goal: maximize E[Σ γᵗ rₜ]                             │\n  │                                                         │\n  │  Three classes:                                         │\n  │    Value-based:   learn V* or Q*, derive policy        │\n  │    Policy-based:  directly optimize policy π           │\n  │    Actor-Critic:  both simultaneously                  │\n  └───────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "## Operations Research / Control Theory Bridge",
+      "confidence": "candidate",
+      "text": "Operations Research / Control Theory            RL / ML vocabulary\n───────────────────────────────────────────     ────────────────────────────────────────\nStochastic dynamic program (Bellman 1952)       Markov Decision Process (MDP)\n  State variable s_t                              State s ∈ S\n  Decision variable u_t                           Action a ∈ A\n  System dynamics f(s,u,w) (w = noise)            Transition P(s'|s,a)\n  Stage reward g_t(s,u)                           Reward R(s,a)\n\nBackward induction (finite horizon DP)          Value iteration (infinite horizon)\n  Vₙ(s) = max_u [ g(s,u) + E[V_{n+1}(f(s,u,w)) ]  V(s) = max_a Σ P(s'|s,a)[R + γV(s')]\n\nContraction mapping (Banach fixed point)        Bellman operator is γ-contraction\n  T is contraction ⟹ unique fixed point V*       → guaranteed convergence to V*\n  Geometric convergence rate                      Same proof, same rate\n\nHamilton-Jacobi-Bellman (HJB) equation         Continuous-time Bellman equation\n  ∂V/∂t + max_u[ f(x,u)·∇V + L(x,u) ] = 0     (Bellman in continuous time)\n  Used in: LQR, stochastic control (Itô)         Connects RL to control theory\n\nDiscount factor in NPV analysis                 Discount factor γ in RL\n  V = Σₜ (1/(1+r))^t · CF_t                     G_t = Σₖ γᵏ r_{t+k}\n  r = discount rate = time value of money        γ ∈ [0,1) = time preference parameter\n  r small → long horizon; r large → myopic       γ→1 long horizon; γ→0 myopic\n\nLinear Quadratic Regulator (LQR)                Model-based RL with linear dynamics\n  Minimize Σ (xᵀQx + uᵀRu)                      Quadratic cost ↔ quadratic reward\n  Solved by Riccati equation                     Exact solution exists; rare in practice\n\nPolicy evaluation (solve V for fixed π)         Policy evaluation = linear system\n  V^π = (I - γPπ)^{-1} r_π                      Same equation: iterate or solve directly",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "### Value Iteration",
+      "confidence": "candidate",
+      "text": "  Initialize V(s) = 0 ∀s\n  Repeat until convergence:\n    V(s) ← max_a Σ_{s'} P(s'|s,a) [R(s,a,s') + γ V(s')]\n\n  Complexity per sweep: O(|S|² |A|)\n  Convergence: ‖V_k - V*‖_∞ ≤ γᵏ ‖V_0 - V*‖_∞",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 181,
+      "heading_context": "## 4. Temporal Difference Learning",
+      "confidence": "candidate",
+      "text": "  V(sₜ) ← V(sₜ) + α [rₜ₊₁ + γ V(sₜ₊₁) - V(sₜ)]\n                     └────────────────────────────┘\n                               TD target - current estimate = TD error δₜ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 193,
+      "heading_context": "## 4. Temporal Difference Learning",
+      "confidence": "candidate",
+      "text": "  Monte Carlo: G_t = rₜ₊₁ + γrₜ₊₂ + ... (wait for episode end)\n    - Unbiased estimate of V^π(s)\n    - High variance (long sum of random variables)\n\n  TD: use rₜ₊₁ + γ V(sₜ₊₁) (one-step bootstrap)\n    - Biased (V is approximate)\n    - Lower variance (one step)\n\n  TD(λ): interpolate with eligibility traces\n    G_t^λ = (1-λ) Σ_{n=1}^∞ λ^{n-1} G_t^{(n)}\n    λ=0 → TD(0), λ=1 → Monte Carlo",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 212,
+      "heading_context": "## 5. Q-Learning and DQN",
+      "confidence": "candidate",
+      "text": "  Q(sₜ, aₜ) ← Q(sₜ, aₜ) + α [rₜ₊₁ + γ max_{a'} Q(sₜ₊₁, a') - Q(sₜ, aₜ)]\n                                └────────────────────────────────────────────┘\n                                                  TD target (using greedy policy)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "## 5. Q-Learning and DQN",
+      "confidence": "candidate",
+      "text": "  Q(s, a; θ) ← neural network approximating Q*\n\n  Two critical tricks for stability:\n  1. Experience Replay:\n       Store (sₜ, aₜ, rₜ₊₁, sₜ₊₁) in replay buffer D\n       Sample random mini-batch for updates\n       Breaks temporal correlations → stable training\n\n  2. Target Network:\n       Use separate network Q(·; θ⁻) for TD targets\n       θ⁻ updated slowly (copy every C steps)\n       Prevents \"chasing a moving target\" → stable targets\n\n  Loss: L(θ) = E_{(s,a,r,s')~D}[(r + γ max_{a'} Q(s',a'; θ⁻) - Q(s,a; θ))²]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "## 5. Q-Learning and DQN",
+      "confidence": "candidate",
+      "text": "  a* = argmax_{a'} Q(s',a'; θ)          ← select with online network\n  target = r + γ Q(s', a*; θ⁻)         ← evaluate with target network",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 267,
+      "heading_context": "## 6. Policy Gradient Methods",
+      "confidence": "candidate",
+      "text": "  Collect trajectory τ, compute G_t\n  θ ← θ + α Σₜ ∇_θ log π_θ(aₜ|sₜ) G_t",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "## 6. Policy Gradient Methods",
+      "confidence": "candidate",
+      "text": "  ∇J = E[ Σₜ ∇log π_θ(aₜ|sₜ) (G_t - b(sₜ)) ]\n  Unbiased: E[∇log π · b(s)] = 0 (b independent of a)\n  Optimal baseline: b(s) = V^π(s) → advantage A(s,a) = Q(s,a) - V(s)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 289,
+      "heading_context": "## 7. Actor-Critic Methods",
+      "confidence": "candidate",
+      "text": "  Actor:  π_θ(a|s)     ← policy, updated by policy gradient\n  Critic: V_φ(s) or Q_φ(s,a)  ← value function, updated by TD\n\n  Actor update:  θ ← θ + α ∇_θ log π_θ(aₜ|sₜ) δₜ\n  Critic update: φ ← φ - α ∇_φ (δₜ)²     where δₜ = rₜ + γV_φ(sₜ₊₁) - V_φ(sₜ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 300,
+      "heading_context": "## 7. Actor-Critic Methods",
+      "confidence": "candidate",
+      "text": "  δₜ = rₜ + γ V(sₜ₊₁) - V(sₜ)    1-step TD error\n\n  Â_t^{GAE(γ,λ)} = Σ_{l=0}^∞ (γλ)^l δₜ₊ₗ\n\n  λ=0 → 1-step TD estimate (low variance, high bias)\n  λ=1 → Monte Carlo (high variance, low bias)\n  λ≈0.95 in practice (PPO default)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 349,
+      "heading_context": "## 9. SAC — Soft Actor-Critic (Maximum Entropy RL)",
+      "confidence": "candidate",
+      "text": "  J(π) = Σₜ E_{(sₜ,aₜ)~π}[ R(sₜ,aₜ) + α H(π(·|sₜ)) ]\n                                              ↑\n                                      entropy bonus: prefer uncertain policies\n\n  Temperature α: tradeoff between reward maximization and entropy\n  α → 0: standard RL; α → ∞: uniform random policy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 389,
+      "heading_context": "## 10. RLHF — RL from Human Feedback",
+      "confidence": "candidate",
+      "text": "  Phase 1: Supervised Fine-Tuning (SFT)\n    Train base LLM on high-quality demonstrations\n    → SFT model π_SFT\n\n  Phase 2: Reward Model Training\n    Collect human preference data: (prompt, response A, response B, preference)\n    Train reward model r_φ(s, a) to predict human preference\n    Bradley-Terry model: P(A > B) = σ(r(A) - r(B))\n    Loss: -E[log σ(r(yw) - r(yl))]   (yw=winner, yl=loser)\n\n  Phase 3: RL Fine-Tuning (PPO)\n    max_θ E_{s~prompts, a~π_θ}[ r_φ(s,a) - β D_KL(π_θ ‖ π_SFT) ]\n                                    ↑                    ↑\n                            reward model              KL penalty (stay near SFT)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

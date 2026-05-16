@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:time-series
+kind: guide
+module: data-science
+section: data-science
+title: Time Series Analysis
+status: source-custody
+source_custody: partial
+current_path: data-science/14-TIME-SERIES.md
+canonical_path: data-science/14-TIME-SERIES.md
+backsource_ids: [proof-backfill:data-science:14-time-series, git-history:data-science:14-time-series]
+concepts: [time, series]
+root_concepts: [time, series]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Time Series Analysis
 ## Stationarity, ARIMA, State Space Models, Kalman Filter, and Modern Neural Methods
 

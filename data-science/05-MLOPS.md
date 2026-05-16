@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:mlops
+kind: guide
+module: data-science
+section: data-science
+title: 05 - MLOps
+status: source-custody
+source_custody: partial
+current_path: data-science/05-MLOPS.md
+canonical_path: data-science/05-MLOPS.md
+backsource_ids: [proof-backfill:data-science:05-mlops, git-history:data-science:05-mlops]
+concepts: [mlops]
+root_concepts: [mlops]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05 — MLOps
 
 > MLOps is DevOps applied to ML systems, with one extra dimension:

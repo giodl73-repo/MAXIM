@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\10-OPTIMIZATION-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 23,
+      "heading_context": "## From Convex Analysis to SGD, Adam, and Non-Convex Deep Learning",
+      "confidence": "candidate",
+      "text": "THE OPTIMIZATION LANDSCAPE\n\n  Convex region                     Non-convex region (deep learning)\n  ┌──────────────────┐              ┌──────────────────────────────────┐\n  │  Global min = local min         │  Many local minima, saddle points │\n  │  GD converges (with LR tuning)  │  SGD finds flat minima           │\n  │  Strong theory, guarantees      │  Theory: NTK, loss landscape     │\n  │  Logistic regression, SVM, LR   │  Neural networks                 │\n  └──────────────────┘              └──────────────────────────────────┘\n\n  Key parameters:\n    L = Lipschitz constant of gradient  (L-smooth)\n    μ = strong convexity constant       (μ-strongly convex)\n    κ = L/μ = condition number          (determines convergence rate)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 47,
+      "heading_context": "## Numerical Analysis / Operations Research Bridge",
+      "confidence": "candidate",
+      "text": "Numerical linear algebra / OR                  Optimization theory (this file)\n────────────────────────────────────────────   ──────────────────────────────────────────\nCondition number κ(A) = ‖A‖·‖A⁻¹‖             Condition number κ = L/μ\n  → determines round-off amplification in        → same ratio: L = largest curvature\n    Gaussian elimination                              μ = smallest curvature\n  → determines convergence rate of CG on Ax=b  → ill-conditioned loss ↔ elongated ellipse\n  → well-conditioned (κ≈1): fast, stable        → CG on Ax=b converges in O(√κ) iterations\n  → ill-conditioned (κ≫1): slow, numerically       same rate as Nesterov GD: O(1/T²)\n    fragile\n\nConjugate gradient (Ax=b):                    Nesterov accelerated gradient:\n  Converges in O(√κ) iterations                Converges in O(1/√κ) per step\n  Optimal for quadratic objectives             Optimal for smooth convex objectives\n  Uses Krylov subspace Span{r₀,...,r_{t-1}}   Uses \"lookahead\" momentum\n  → Both achieve the same √κ improvement       Both are lower bound-achieving\n\nPreconditioning Ax=b → P⁻¹Ax = P⁻¹b:         Adaptive gradient methods (Adam, Adagrad):\n  Choose P to make κ(P⁻¹A) ≈ 1                 Approximate diagonal preconditioning\n  → same number of CG iterations as            → per-parameter LR ≈ 1/√accumulated_grad²\n    perfectly conditioned system               K-FAC: full Kronecker-factored preconditioner\n\nQuasi-Newton (Nocedal & Wright, \"Numerical     L-BFGS:\n  Optimization\"):                               Same algorithm — same textbook\n  BFGS: O(d²) memory, superlinear convergence  L-BFGS: O(md) memory via limited history\n  L-BFGS: limited-memory variant               Standard in scipy.optimize.minimize\n\nTrust region methods (OR):                     SAM (Sharpness-Aware Minimization):\n  Constrain step to ball ‖δ‖ ≤ Δ               Maximize loss in ε-ball, then step\n  → solve subproblem, update trust radius      → same geometry: local worst-case over\n  Used in SQP, TRPO (RL)                         a norm ball\n\nLinear programming duality (OR):              Convex duality (Lagrangian):\n  Primal/dual gap → KKT conditions             Strong duality for convex problems\n  → same theory, same conditions               SVMs are LP duals in disguise\n\nSimplex (OR, linear programs):                 Coordinate descent (LASSO, GLMs):\n  Move along vertex of feasible polytope        Move along one coordinate at a time\n  → both exploit sparse structure              → both effective when coordinates\n  → both convergence guarantees known            are (approximately) uncorrelated",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 101,
+      "heading_context": "## 1. Convex Analysis — The Foundations",
+      "confidence": "candidate",
+      "text": "f(λx + (1-λ)y) ≤ λf(x) + (1-λ)f(y)   ∀ x,y, λ ∈ [0,1]\n\nEquivalently (first-order):  f(y) ≥ f(x) + ∇f(x)ᵀ(y-x)\n  ← tangent plane is a global lower bound\n\nEquivalently (second-order): ∇²f(x) ≽ 0  (PSD Hessian)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 111,
+      "heading_context": "## 1. Convex Analysis — The Foundations",
+      "confidence": "candidate",
+      "text": "‖∇f(x) - ∇f(y)‖ ≤ L‖x-y‖   ∀ x,y\n\nEquivalently: f(y) ≤ f(x) + ∇f(x)ᵀ(y-x) + (L/2)‖y-x‖²\n← gradient is the upper bound, L is the curvature cap",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 119,
+      "heading_context": "## 1. Convex Analysis — The Foundations",
+      "confidence": "candidate",
+      "text": "f(y) ≥ f(x) + ∇f(x)ᵀ(y-x) + (μ/2)‖y-x‖²   μ > 0\n\n← tangent plane + quadratic lower bound\n← unique global minimum\n← eigenvalues of Hessian ≥ μ everywhere",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "### μ-strongly convex + L-smooth",
+      "confidence": "candidate",
+      "text": "  κ = 1   (perfectly conditioned): converge in 1 step\n  κ = 10:  ~10 steps\n  κ = 1000: ~1000 steps  ← typical in poorly scaled ML problems\n\n  Preconditioning: transform problem so effective κ ≈ 1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 223,
+      "heading_context": "### Nesterov Accelerated Gradient (NAG)",
+      "confidence": "candidate",
+      "text": "  y_{t+1} = x_t + β(x_t - x_{t-1})           ← lookahead step\n  x_{t+1} = y_{t+1} - α ∇f(y_{t+1})          ← gradient at lookahead\n\n  Rate: O(1/T²) for convex, O((1-1/√κ)^T) for strongly convex\n  Optimal for first-order methods — matches lower bound (Nesterov 1983)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 240,
+      "heading_context": "### AdaGrad",
+      "confidence": "candidate",
+      "text": "  G_t = Σ_{s=1}^t g_s g_sᵀ   (sum of outer products, diagonal approximation: G_t = Σ g_s²)\n  x_{t+1} = x_t - α · g_t / √(G_t + ε)\n\n  Effective LR per parameter: α / √(accumulated squared gradients)\n  Sparse features: rarely updated → small G → large effective LR → catches up\n  Problem: G_t grows monotonically → LR → 0, training stops",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 250,
+      "heading_context": "### RMSProp",
+      "confidence": "candidate",
+      "text": "  v_t = ρ v_{t-1} + (1-ρ) g_t²    ← exponential moving average of squared grad\n  x_{t+1} = x_t - α · g_t / √(v_t + ε)\n\n  Fixes AdaGrad's dying LR by using EMA instead of sum",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 257,
+      "heading_context": "### RMSProp",
+      "confidence": "candidate",
+      "text": "### Adam (Kingma & Ba, 2014)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 258,
+      "heading_context": "### Adam (Kingma & Ba, 2014)",
+      "confidence": "candidate",
+      "text": "  m_t = β₁ m_{t-1} + (1-β₁) g_t          ← 1st moment (momentum)\n  v_t = β₂ v_{t-1} + (1-β₂) g_t²         ← 2nd moment (uncentered variance)\n\n  Bias correction (crucial at start when m₀=v₀=0):\n    m̂_t = m_t / (1 - β₁ᵗ)\n    v̂_t = v_t / (1 - β₂ᵗ)\n\n  x_{t+1} = x_t - α · m̂_t / (√v̂_t + ε)\n\n  Default hyperparameters: β₁=0.9, β₂=0.999, ε=1e-8, α=1e-3",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 290,
+      "heading_context": "## 6. Second-Order Methods",
+      "confidence": "candidate",
+      "text": "  Approximate H^{-1} using curvature from recent (s_k, y_k) pairs:\n    s_k = x_{k+1} - x_k,  y_k = ∇f(x_{k+1}) - ∇f(x_k)\n\n  Limited memory: keep last m=10-20 pairs → O(md) memory\n  Used for: small-scale ML, fine-tuning, scientific computing\n  Not used for: stochastic settings (gradient noise breaks curvature estimates)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 305,
+      "heading_context": "## 7. Learning Rate Schedules",
+      "confidence": "candidate",
+      "text": "  Constant LR:         α_t = α                    ← simple, needs tuning\n  Step decay:          α_t = α · γ^{floor(t/T)}   ← discrete drops\n  Cosine annealing:    α_t = α_min + ½(α_max-α_min)(1 + cos(πt/T))\n  Cosine with warmup:  linear warmup for W steps, then cosine\n  1-cycle:             warmup + decay in 1 cycle (Smith, superconvergence)\n  Warmup (transformers): α_t = d_model^{-0.5} · min(t^{-0.5}, t · warmup^{-1.5})",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 321,
+      "heading_context": "### Saddle Points vs Local Minima",
+      "confidence": "candidate",
+      "text": "  Classical fear: gradient descent gets stuck in local minima\n  Modern understanding: in high dimensions, local minima are rare\n\n  At a critical point ∇f(x*) = 0:\n    If Hessian has all positive eigenvalues → local minimum\n    If Hessian has all negative eigenvalues → local maximum\n    If Hessian has mixed signs → saddle point\n\n  Random matrix theory: for large networks, saddle points dominate.\n  Probability of all eigenvalues positive → 0 exponentially in depth/width.\n\n  GD escapes saddle points in poly time (perturbed GD, Jin et al. 2017)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 337,
+      "heading_context": "### Sharp vs Flat Minima",
+      "confidence": "candidate",
+      "text": "  Sharp minimum:  high curvature (large Hessian eigenvalues)\n                  small basin → small perturbation → large loss increase\n                  generalizes poorly\n\n  Flat minimum:   low curvature (small Hessian eigenvalues)\n                  large basin → robust to perturbation → good generalization\n                  SGD noise preferentially finds flat basins\n\n  Sharpness-Aware Minimization (SAM):\n    x_t+1 = x_t - α ∇f(x_t + ε ∇f(x_t) / ‖∇f(x_t)‖)\n    Explicitly seeks flat minima by maximizing sharpness before gradient step",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 352,
+      "heading_context": "### The Role of Overparameterization",
+      "confidence": "candidate",
+      "text": "  Classical (convex): more parameters → more capacity → potentially worse\n  Modern (neural nets): overparameterization makes optimization easier\n\n  Loss landscape of overparameterized nets:\n    - Many equivalent global minima (symmetry, permutation)\n    - Connected manifold of global minima (mode connectivity)\n    - SGD finds and stays near global minimum manifold\n    - Implicit bias of GD: min-norm solution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

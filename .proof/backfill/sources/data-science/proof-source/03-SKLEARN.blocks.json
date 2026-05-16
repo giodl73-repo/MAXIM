@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\03-SKLEARN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    MACHINE LEARNING PROBLEM MAP                             │\n│                                                                             │\n│  INPUT DATA                                                                 │\n│  ┌───────────────────────────────────────────────────────────────────────┐  │\n│  │  X: feature matrix  (n_samples × n_features)  — always NumPy/Pandas  │ │\n│  │  y: target vector   (n_samples,)   — supervised only                 │ │\n│  └───────────────────────────────────────────────────────────────────────┘ │\n│              │                                                              │\n│       Has labels (y)?                                                       │\n│       ┌──────┴──────────────────────────────────────┐                      │\n│      Yes                                            No                     │\n│       │                                             │                      │\n│  SUPERVISED                                   UNSUPERVISED                 │\n│  ┌────┴───────────────────┐             ┌─────┴─────────────────────┐      │\n│  │  y is continuous?      │             │  Clustering               │     │\n│  │  ┌───────────────────┐ │             │  KMeans, DBSCAN, Agglom.  │     │\n│  │  │ YES → Regression  │ │             │                           │     │\n│  │  │   LinearRegression│ │             │  Dimensionality Reduction │     │\n│  │  │   Ridge, Lasso    │ │             │  PCA, t-SNE, UMAP         │     │\n│  │  │   SVR, GBM, RF    │ │             │                           │     │\n│  │  └───────────────────┘ │             │  Density Estimation       │     │\n│  │  ┌───────────────────┐ │             │  GaussianMixture          │     │\n│  │  │ NO → Classification│ │             └───────────────────────────┘     │\n│  │  │   LogisticReg.    │ │                                                │\n│  │  │   SVC, KNN        │ │                                                │\n│  │  │   RandomForest    │ │                                                │\n│  │  │   GradientBoost   │ │                                                │\n│  │  └───────────────────┘ │                                                │\n│  └────────────────────────┘                                                │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 70,
+      "heading_context": "## Cross-Framework Bridge",
+      "confidence": "candidate",
+      "text": "Framework         Preprocessing object          Pipeline composition\n──────────────    ──────────────────────────    ──────────────────────────────────\nsklearn           StandardScaler, OneHotEncoder  Pipeline([(\"pre\", prep),(\"clf\",clf)])\nR tidymodels      recipe() + step_*()            workflow() = recipe + model spec\nR caret           preProcess()                   train(x, y, preProcess=c(\"scale\"))\nSpark MLlib       StandardScaler, StringIndexer  Pipeline(stages=[pre, clf])\nH2O               H2OFrame ops                  pipeline via H2OAutoML",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 83,
+      "heading_context": "## Cross-Framework Bridge",
+      "confidence": "candidate",
+      "text": "tidymodels                                sklearn\n──────────────────────────────────────    ──────────────────────────────────────────\nrecipe(outcome ~ ., data = train)         (no formula — specify explicitly)\n  step_normalize(all_numeric())           StandardScaler() on numeric columns\n  step_dummy(all_nominal(), one_hot=TRUE) OneHotEncoder() on categorical columns\n  step_impute_median(all_numeric())       SimpleImputer(strategy=\"median\")\n\nworkflow() %>%                            Pipeline(steps=[\n  add_recipe(rec) %>%                         (\"preprocessor\", ColumnTransformer([...])),\n  add_model(rand_forest())                    (\"classifier\", RandomForestClassifier()),\n                                          ])\n\nfit(wf, data = train)                     pipeline.fit(X_train, y_train)\npredict(wf, new_data = test)              pipeline.predict(X_test)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "## The Estimator API",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  ESTIMATOR INTERFACE                                                │\n│                                                                     │\n│  .fit(X, y=None)          → self        learns from training data   │\n│  .predict(X)              → array       supervised output           │\n│  .predict_proba(X)        → array       class probabilities         │\n│  .transform(X)            → array       unsupervised transformation│\n│  .fit_transform(X, y=None)→ array       fit then transform          │\n│  .score(X, y)             → float       default metric (R² or acc)  │\n│  .get_params() / .set_params(**p)        hyperparameter access      │\n└─────────────────────────────────────────────────────────────────────┘\n\nEstimators with .transform():  Transformers  (scalers, encoders, PCA)\nEstimators with .predict():    Predictors    (regressors, classifiers)\nBoth:                          Pipelines     (compose any sequence)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "### Numeric",
+      "confidence": "candidate",
+      "text": "from sklearn.preprocessing import (\n    StandardScaler,       # z-score: (x - mean) / std\n    MinMaxScaler,         # scale to [0, 1]\n    RobustScaler,         # median + IQR — robust to outliers\n    PowerTransformer,     # Box-Cox / Yeo-Johnson → Gaussian shape\n    QuantileTransformer,  # maps to uniform or normal distribution\n    Normalizer,           # L2-normalize each sample (not each feature)\n    PolynomialFeatures,   # add x², x*y, etc.\n    SplineTransformer,    # B-spline basis expansion\n    FunctionTransformer,  # apply any function: np.log, np.sqrt, etc.\n)\n\n# Which scaler when?\n# StandardScaler   → model assumes Gaussian (LinearRegression, SVC, LogReg, PCA)\n# MinMaxScaler     → model assumes bounded input (neural nets, KNN)\n# RobustScaler     → data has outliers you want to keep\n# PowerTransformer → right-skewed distributions (income, counts)\n# Normalizer       → cosine similarity models (text, embeddings)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "### Categorical",
+      "confidence": "candidate",
+      "text": "from sklearn.preprocessing import (\n    OrdinalEncoder,    # category → integer (preserves order)\n    OneHotEncoder,     # category → binary vector (no order assumed)\n    TargetEncoder,     # category → mean(y) per category (leakage-prone — use in pipeline)\n    LabelEncoder,      # encode y labels (not features)\n    LabelBinarizer,    # binary indicator matrix from y labels\n)\n\n# OneHotEncoder gotchas\nenc = OneHotEncoder(\n    handle_unknown=\"ignore\",  # unknown categories → all zeros at test time\n    sparse_output=False,      # return dense array (default is sparse matrix)\n    drop=\"first\",             # drop first category (avoids multicollinearity)\n)\n\n# High-cardinality categories: TargetEncoder > OneHotEncoder\n# OneHotEncoder with 10k cities → 10k columns\n# TargetEncoder → 1 column (replace with mean(y) per city — use in pipeline!)\nfrom sklearn.preprocessing import TargetEncoder\nenc = TargetEncoder(target_type=\"continuous\", cv=5)  # cross-validated to prevent leakage",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 367,
+      "heading_context": "### Linear Models",
+      "confidence": "candidate",
+      "text": "from sklearn.linear_model import (\n    LinearRegression,   # OLS: minimize ||y - Xβ||²\n    Ridge,              # L2 regularization: + α||β||²\n    Lasso,              # L1 regularization: + α||β||₁  → sparse coefficients\n    ElasticNet,         # L1 + L2 mix\n    LogisticRegression, # classification; C = 1/α (inverse regularization)\n    SGDClassifier,      # stochastic gradient descent; scales to large data\n    SGDRegressor,\n)\n\n# Ridge vs Lasso\n# Ridge:  shrinks all coefficients toward 0; never exactly 0\n# Lasso:  zeros out unimportant features; automatic feature selection\n# ElasticNet: when you have groups of correlated features (Lasso picks one arbitrarily)\n\n# When to use linear models\n# - Baseline (always start here)\n# - n_features >> n_samples (high-dimensional, sparse text)\n# - Interpretability required (coefficients are the model)\n# - Very fast; scales to billions of samples with SGD",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 466,
+      "heading_context": "### Clustering",
+      "confidence": "candidate",
+      "text": "from sklearn.cluster import (\n    KMeans,            # centroid-based; requires k; assumes spherical clusters\n    MiniBatchKMeans,   # faster KMeans for large datasets\n    DBSCAN,            # density-based; finds arbitrary shapes; detects outliers\n    AgglomerativeClustering,  # hierarchical; no need to specify k upfront\n    GaussianMixture,   # probabilistic; soft cluster assignments\n)\n\n# KMeans\nkmeans = KMeans(n_clusters=5, init=\"k-means++\", n_init=10, random_state=42)\nlabels = kmeans.fit_predict(X)\ncenters = kmeans.cluster_centers_\n\n# Elbow method — find optimal k\ninertias = [KMeans(n_clusters=k).fit(X).inertia_ for k in range(2, 11)]\n\n# DBSCAN — no k required; label -1 = outlier\ndbscan = DBSCAN(eps=0.5, min_samples=5)\nlabels = dbscan.fit_predict(X)\nn_clusters = len(set(labels)) - (1 if -1 in labels else 0)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 641,
+      "heading_context": "### SHAP vs. Permutation Importance vs. MDI",
+      "confidence": "candidate",
+      "text": "┌─────────────────────┬──────────────────────────────────────────────────────┐\n│  Method             │  What it measures + caveats                          │\n├─────────────────────┼──────────────────────────────────────────────────────┤\n│  SHAP               │  Per-sample, per-feature contribution. Handles       │\n│                     │  correlated features. Exact for trees.              │\n│  Permutation        │  Drop in score when feature is shuffled.            │\n│  Importance         │  Biased toward correlated features (shuffling one   │\n│                     │  of two correlated features still leaks the other). │\n│  MDI (tree splits)  │  model.feature_importances_ — fast, biased toward  │\n│                     │  high-cardinality features. Never use alone.        │\n└─────────────────────┴──────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 683,
+      "heading_context": "## The ML Workflow",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  STANDARD ML WORKFLOW                                               │\n│                                                                     │\n│  1. Explore (EDA)                                                   │\n│     df.describe(), df.corr(), distribution plots                    │\n│     Find: missing values, outliers, class imbalance, data types     │\n│                                                                     │\n│  2. Split FIRST                                                     │\n│     train_test_split before any analysis on test set                │\n│     Test set = unseen until final evaluation                        │\n│                                                                     │\n│  3. Build baseline                                                  │\n│     DummyClassifier(strategy=\"most_frequent\") — floor score         │\n│     LinearRegression / LogisticRegression — interpretable baseline  │\n│                                                                     │\n│  4. Preprocess in Pipeline                                          │\n│     Scaler + encoder + imputer all inside Pipeline                  │\n│     Never fit preprocessors outside the cross-validation loop       │\n│                                                                     │\n│  5. Cross-validate (not test set yet)                               │\n│     5-fold StratifiedKFold for classification                       │\n│     Score: validation folds only                                    │\n│                                                                     │\n│  6. Tune hyperparameters                                            │\n│     RandomizedSearchCV first (find the ballpark)                    │\n│     GridSearchCV to refine around best region                       │\n│                                                                     │\n│  7. Evaluate on test set — ONCE                                     │\n│     Final evaluation on held-out test set                           │\n│     No tuning after seeing test results                             │\n│                                                                     │\n│  8. Analyze errors                                                  │\n│     confusion_matrix, classification_report                         │\n│     What types of errors? Is the cost asymmetric?                   │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 725,
+      "heading_context": "## Algorithm Selection Guide",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────┐\n│  SITUATION                      │  START WITH                        │\n├─────────────────────────────────┼───────────────────────────────────┤\n│  Any problem                    │  LinearRegression / LogisticReg   │\n│                                 │  (always build a baseline)        │\n│  Tabular, medium size           │  HistGradientBoosting / XGBoost  │\n│  Tabular, need interpretability │  LogisticRegression + SHAP        │\n│  High-dimensional text/sparse   │  LogisticRegression (L1/L2) or   │\n│                                 │  LinearSVC                        │\n│  Complex boundaries, medium n   │  SVC (RBF) or RandomForest        │\n│  Very large n (>1M)             │  SGDClassifier / LightGBM        │\n│  Many irrelevant features       │  Lasso or tree-based (auto select)│\n│  Strongly correlated features   │  Ridge or ElasticNet              │\n│  Clustering (know k)            │  KMeans                           │\n│  Clustering (unknown k/noise)   │  DBSCAN                           │\n│  Visualization only             │  t-SNE or UMAP                    │\n│  Dimensionality reduction       │  PCA (linear) or UMAP (nonlinear) │\n├─────────────────────────────────┼───────────────────────────────────┤\n│  COMMON GOTCHAS                 │                                   │\n│  Imbalanced classes             │  class_weight=\"balanced\" first    │\n│  Features not scaled for SVM    │  StandardScaler in Pipeline       │\n│  Data leakage                   │  Scaler inside Pipeline, not before│\n│  Overfitting                    │  Reduce depth / increase alpha    │\n│  Underfitting                   │  More features / reduce alpha     │\n└──────────────────────────────────┴───────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

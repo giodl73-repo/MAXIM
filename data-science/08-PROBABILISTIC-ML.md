@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:probabilistic-ml
+kind: guide
+module: data-science
+section: data-science
+title: Probabilistic Machine Learning
+status: source-custody
+source_custody: partial
+current_path: data-science/08-PROBABILISTIC-ML.md
+canonical_path: data-science/08-PROBABILISTIC-ML.md
+backsource_ids: [proof-backfill:data-science:08-probabilistic-ml, git-history:data-science:08-probabilistic-ml]
+concepts: [probabilistic, ml]
+root_concepts: [probabilistic, ml]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Probabilistic Machine Learning
 ## Uncertainty as a First-Class Citizen
 

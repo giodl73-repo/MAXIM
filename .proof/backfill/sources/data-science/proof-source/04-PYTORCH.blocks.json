@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\04-PYTORCH.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                           PYTORCH STACK                                     │\n│                                                                             │\n│  ┌──────────────────────────────────────────────────────────────────────┐   │\n│  │                     YOUR TRAINING CODE                               │   │\n│  │   Dataset / DataLoader → nn.Module → Loss → Optimizer → .backward() │   │\n│  └──────────────────────────────────────────────────────────────────────┘   │\n│                                                                              │\n│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────────────────┐    │\n│  │   torch.nn      │  │  torch.optim    │  │  torch.utils.data        │    │\n│  │  (layers, loss) │  │  (SGD/Adam/...) │  │  (Dataset, DataLoader)   │    │\n│  └─────────────────┘  └─────────────────┘  └──────────────────────────┘    │\n│                                                                              │\n│  ┌──────────────────────────────────────────────────────────────────────┐   │\n│  │                      torch.autograd                                  │   │\n│  │    Dynamic computational graph — builds forward, differentiates      │   │\n│  │    backward, accumulates gradients                                   │   │\n│  └──────────────────────────────────────────────────────────────────────┘   │\n│                                                                              │\n│  ┌──────────────────────────────────────────────────────────────────────┐   │\n│  │              torch.Tensor  (CPU / CUDA / MPS / XPU)                  │   │\n│  │              C++ core: LibTorch — ATen tensor library                │   │\n│  └──────────────────────────────────────────────────────────────────────┘   │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 246,
+      "heading_context": "### Key Layers",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────┐\n│  LAYER               │  USE CASE                                     │\n├──────────────────────┼───────────────────────────────────────────────┤\n│  nn.Linear(in, out)  │  Fully connected                              │\n│  nn.Embedding(n, d)  │  Lookup table for token IDs                   │\n│  nn.Conv2d(c_in,     │  Spatial convolution (images)                 │\n│    c_out, k, stride) │                                               │\n│  nn.ConvTranspose2d  │  Upsampling (decoder / generator)             │\n│  nn.LSTM / GRU       │  Sequential (largely replaced by Transformer) │\n│  nn.MultiheadAttn    │  Self-attention block                         │\n│  nn.TransformerEncoder│  Full encoder stack                          │\n│  nn.LayerNorm        │  Normalizes features (Transformer standard)   │\n│  nn.BatchNorm2d      │  Normalizes batch (CNN standard)              │\n│  nn.Dropout(p)       │  Regularization (train only)                  │\n│  nn.MaxPool2d        │  Spatial downsampling                         │\n│  nn.AdaptiveAvgPool2d│  Pool to fixed output size                    │\n│  nn.Flatten()        │  Reshape conv output → 1D for linear layers   │\n└──────────────────────┴───────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 436,
+      "heading_context": "## Dataset and DataLoader",
+      "confidence": "candidate",
+      "text": "from torch.utils.data import Dataset, DataLoader\n\nclass MyDataset(Dataset):\n    def __init__(self, features, labels, transform=None):\n        self.X = torch.tensor(features, dtype=torch.float32)\n        self.y = torch.tensor(labels, dtype=torch.long)\n        self.transform = transform\n\n    def __len__(self):\n        return len(self.X)\n\n    def __getitem__(self, idx):\n        x, y = self.X[idx], self.y[idx]\n        if self.transform:\n            x = self.transform(x)\n        return x, y\n\n\ntrain_ds = MyDataset(X_train, y_train)\nval_ds   = MyDataset(X_val,   y_val)\n\ntrain_loader = DataLoader(\n    train_ds,\n    batch_size=64,\n    shuffle=True,\n    num_workers=4,           # parallel data loading processes\n    pin_memory=True,         # locks pages → faster CPU→GPU transfer\n    drop_last=True,          # drop last incomplete batch (avoids BatchNorm issues)\n    persistent_workers=True, # keep workers alive between epochs\n)\nval_loader = DataLoader(val_ds, batch_size=256, shuffle=False, num_workers=4)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 472,
+      "heading_context": "### torchvision.transforms for Images",
+      "confidence": "candidate",
+      "text": "from torchvision import transforms\n\ntrain_transform = transforms.Compose([\n    transforms.RandomResizedCrop(224),\n    transforms.RandomHorizontalFlip(),\n    transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2),\n    transforms.ToTensor(),                         # HWC uint8 → CHW float32, [0,1]\n    transforms.Normalize(mean=[0.485, 0.456, 0.406],   # ImageNet stats\n                         std=[0.229, 0.224, 0.225]),\n])\n\nval_transform = transforms.Compose([\n    transforms.Resize(256),\n    transforms.CenterCrop(224),\n    transforms.ToTensor(),\n    transforms.Normalize(mean=[0.485, 0.456, 0.406],\n                         std=[0.229, 0.224, 0.225]),\n])",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 806,
+      "heading_context": "### Computation graph ↔ Compiler IR",
+      "confidence": "candidate",
+      "text": "Compiler analogy:\n  AOT compilation  (define-then-run) ← TensorFlow 1.x, XLA, JAX jit\n    Build the full AST/IR at \"compile time\", optimize statically, execute.\n    Pros: whole-graph optimizations, portable artifact.\n    Cons: no Python control flow in the graph; debugging is graph inspection.\n\n  JIT interpretation (define-by-run)  ← PyTorch eager mode\n    Execute operations as they are written; the graph emerges from the execution trace.\n    Pros: Python control flow works natively (if/for inside forward()); natural debugger.\n    Cons: no ahead-of-time optimization (mitigated by torch.compile).\n\ntorch.compile(): PyTorch 2.x bridges the gap — eager semantics, compiled execution.\n  Analogous to a tracing JIT (like .NET RyuJIT or V8's TurboFan):\n    - First execution: trace the graph (slow)\n    - Subsequent executions: run compiled kernel (fast)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 828,
+      "heading_context": "### Autograd DAG ↔ Reverse-mode AD",
+      "confidence": "candidate",
+      "text": "Forward pass (any framework, any language):\n  Build a DAG of operations. Each node stores:\n    - The operation f_k\n    - The intermediate values needed for the backward gradient\n\nBackward pass:\n  Traverse the DAG in reverse topological order.\n  At each node, apply: ∂L/∂x = (∂L/∂y) · (∂y/∂x)   ← chain rule\n  This is the VJP (Vector-Jacobian Product) — the core of reverse AD.\n\n  dL/dx accumulates by summing contributions from all forward uses of x.\n  This is why: optimizer.zero_grad() must clear .grad before each backward.\n\nPyTorch:         loss.backward()  → traverses the DAG, fills .grad\nJAX:             jax.grad(loss)(params)\nTensorFlow 2:    tape.gradient(loss, params)  (via GradientTape)\nTheano (orig.):  T.grad(loss, params)\nAll four are the same algorithm — reverse-mode AD on a computation graph.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 854,
+      "heading_context": "### nn.Module ↔ Parameterized function object",
+      "confidence": "candidate",
+      "text": "General CS concept:             PyTorch\n─────────────────────────────   ──────────────────────────────────────────\nCallable class / functor        nn.Module subclass\n__call__ → runs computation     forward(x) → defines computation\nMutable state (fields)          nn.Parameter (registered, tracked by autograd)\nComposed callables              nn.Sequential or nested nn.Module attributes\nSerializable state              model.state_dict()  — dict of parameter tensors\n\nHaskell/FP parallel:\n  nn.Module ≈ a function with environment (parameters = closed-over values)\n  nn.Sequential ≈ function composition  f ∘ g ∘ h\n  .parameters() ≈ extracting free variables from a closure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 902,
+      "heading_context": "## Old World Flavor — .NET / C# Parallels",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────────┐\n│  CONCEPT              │  .NET / C# World          │  PyTorch World           │\n├───────────────────────┼───────────────────────────┼──────────────────────────┤\n│  Compute graph        │  LINQ expression trees    │  autograd DAG            │\n│  Layer / transform    │  LINQ operator / EF query │  nn.Module               │\n│  Model params         │  class fields             │  nn.Parameter (tracked)  │\n│  Training step        │  for loop + delegate      │  forward() + backward()  │\n│  GPU execution        │  CUDA via ML.NET/TorchSharp│ .to(device)             │\n│  Serialization        │  BinaryFormatter / JSON   │  state_dict + torch.save │\n│  Parallel batches     │  PLINQ / Parallel.For     │  DataLoader num_workers  │\n└──────────────────────┴───────────────────────────┴──────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

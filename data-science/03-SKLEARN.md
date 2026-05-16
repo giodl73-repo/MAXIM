@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:sklearn
+kind: guide
+module: data-science
+section: data-science
+title: 03 - scikit-learn and Classical Machine Learning
+status: source-custody
+source_custody: partial
+current_path: data-science/03-SKLEARN.md
+canonical_path: data-science/03-SKLEARN.md
+backsource_ids: [proof-backfill:data-science:03-sklearn, git-history:data-science:03-sklearn]
+concepts: [sklearn]
+root_concepts: [sklearn]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03 — scikit-learn & Classical Machine Learning
 
 > scikit-learn's genius is not the algorithms. It is the Estimator API —

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\07-STATISTICAL-LEARNING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 23,
+      "heading_context": "## Why Finite Data Generalizes — and When It Doesn't",
+      "confidence": "candidate",
+      "text": "THE GENERALIZATION QUESTION\n\n  Training data D = {(x_i, y_i)}  →  learn h: X→Y  →  predict on unseen x\n       n samples from P(X,Y)             from H             drawn from same P\n\n  Risk R(h)      = E_{(x,y)~P}[ℓ(h(x), y)]       ← true, unknowable\n  Emp. risk R̂(h) = (1/n) Σ ℓ(h(x_i), y_i)        ← measurable\n\n  Generalization gap: R(h) - R̂(h)  ← how much does training loss underestimate test loss?",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 65,
+      "heading_context": "## 2. Bias-Variance Decomposition",
+      "confidence": "candidate",
+      "text": "E_D[(h_D(x) - y)²] = Bias²(x) + Var(x) + σ²_noise\n\n  Bias(x)  = E_D[h_D(x)] - f*(x)              ← systematic error: H is wrong\n  Var(x)   = E_D[(h_D(x) - E_D[h_D(x)])²]     ← sensitivity to which D you got\n  σ²_noise = E[(y - f*(x))²]                  ← irreducible, from label noise",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 74,
+      "heading_context": "## 2. Bias-Variance Decomposition",
+      "confidence": "candidate",
+      "text": "  Small H (linear)                 Large H (deep net)\n  ────────────────────────────     ──────────────────────────────────\n  High bias — underfits            Low bias — can fit anything\n  Low variance — stable output     High variance — sensitive to D\n  R(h) ≈ R̂(h) + large const       R(h) >> R̂(h) typically",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "## 4. VC Dimension",
+      "confidence": "candidate",
+      "text": "  H = halfplanes in ℝ²:\n\n    ·   ·          Any 3 points in general position: shattered (YES)\n       ·            Any 4 points: XOR configuration fails  (NO)\n\n  → VC(halfplanes in ℝ²) = 3",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 190,
+      "heading_context": "## 6. Rademacher Complexity",
+      "confidence": "candidate",
+      "text": "R̂_n(F) = E_σ[ sup_{f∈F} (1/n) Σ_i σ_i f(x_i) ]\n\n  where σ_i ~iid Uniform({±1})   ← Rademacher variables = pure noise labels",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 220,
+      "heading_context": "## 7. Double Descent",
+      "confidence": "candidate",
+      "text": "Test error\n  │\n  │\\         classical regime\n  │ \\       /\n  │  \\_____/          ← classical minimum\n  │        \\   /─────   ← modern interpolating regime (descends again)\n  │         \\_/\n  │          ↑\n  └──────────┴──────────────────────→  Model complexity (params / n)\n        interpolation threshold\n        (params ≈ n: variance spike)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 270,
+      "heading_context": "## 8. No Free Lunch",
+      "confidence": "candidate",
+      "text": "  CNNs      → assume translation equivariance (strong bias for vision)\n  Transformers → assume permutation equivariance + attention structure\n  GNNs      → assume local message passing on graphs\n  Linear    → assume linear separability\n\n  The bias that crushes ImageNet helps nothing on random Boolean functions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 323,
+      "heading_context": "## Classical Statistics → ML Theory Bridge",
+      "confidence": "candidate",
+      "text": "Classical statistics / econometrics        Statistical learning theory\n──────────────────────────────────────     ────────────────────────────────────────────\nMLE: maximize Σ log p(xᵢ; θ)              ERM: minimize Σ ℓ(h(xᵢ), yᵢ)\n  (same algorithm, different vocabulary)    ERM = MLE when ℓ = -log p and H\n  MLE implicitly minimizes KL to            is defined by a parametric model\n  empirical distribution\n\nPower analysis: choose n such that         PAC sample complexity: m(ε, δ)\n  P(reject H₀ | H₁ true) ≥ 1-β at          = how many samples needed to guarantee\n  significance level α                       R(h) ≤ R(h*) + ε with probability ≥ 1-δ\n  Same structure: two error rates (α, β)     Same structure: two slack params (ε, δ)\n  and a required sample size n               and a required sample size m\n\nAIC / BIC model selection:                 SRM (Structural Risk Minimization):\n  choose model minimizing -2 log L̂ + k·c   choose H_k minimizing R̂(h) + complexity(k)\n  (penalize parameter count to prevent      (penalize hypothesis class size to prevent\n  overfitting)                              overfitting — same idea, different penalty)\n  BIC penalizes more severely (log n vs 2)  VC / Rademacher bounds provide the penalty\n\nConfidence interval for θ̂:               Generalization bound for h:\n  θ ∈ [θ̂ ± z_{α/2} · SE(θ̂)]              R(h) ≤ R̂(h) + √(log(2|H|/δ) / 2n)\n  \"θ is in this interval w.p. ≥ 1-α\"       \"R(h) ≤ this bound w.p. ≥ 1-δ\"\n  Same frequentist coverage guarantee       Same probabilistic guarantee structure\n\nHypothesis testing:                        VC / Rademacher bounds:\n  p-value = P(data | H₀)                   Bound P(|R - R̂| > ε) ≤ 2|H|exp(-nε²)\n  Reject when data is unlikely under H₀    Reject \"model generalizes\" when\n                                            sample size makes the bound vacuous (> 1)\n\nDegrees of freedom:                        Effective complexity / VC dimension:\n  k parameters consume k df from n         VCdim(H) = d \"consumes\" d from n\n  Residual df = n - k                      Effective sample: n - d analogy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 367,
+      "heading_context": "## 11. Where This Surfaces in Practice",
+      "confidence": "candidate",
+      "text": "  PAC theory          →  cross_val_score(), GridSearchCV (empirical SRM)\n  Bias-variance       →  learning_curve() in sklearn\n  VC / Rademacher     →  weight decay (L2) = Frobenius norm regularization\n  Double descent      →  why LLMs trained past convergence keep improving\n  NFL                 →  why no single model wins every benchmark\n\n  Deep learning:\n    Implicit regularization of SGD ↔ minimum norm interpolant theory\n    Flat minima ↔ PAC-Bayes generalization bounds\n    NTK (neural tangent kernel) ↔ linearized infinite-width limit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

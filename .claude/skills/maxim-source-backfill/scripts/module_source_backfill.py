@@ -291,6 +291,34 @@ def main() -> None:
         file_report = by_original[guide["file"]]
         table_count = sum(1 for item in file_report.get("extractions", []) if item.get("kind") == "markdown_table")
         block_count = sum(1 for item in file_report.get("extractions", []) if item.get("kind") != "markdown_table")
+        if not Path(guide["tables"]).exists():
+            write_text(
+                Path(guide["tables"]),
+                json.dumps(
+                    {
+                        "schema_version": "1",
+                        "source_markdown": guide["path"].replace("/", "\\"),
+                        "tables": [],
+                    },
+                    indent=2,
+                    ensure_ascii=False,
+                )
+                + "\n",
+            )
+        if not Path(guide["blocks"]).exists():
+            write_text(
+                Path(guide["blocks"]),
+                json.dumps(
+                    {
+                        "schema_version": "1",
+                        "source_markdown": guide["path"].replace("/", "\\"),
+                        "blocks": [],
+                    },
+                    indent=2,
+                    ensure_ascii=False,
+                )
+                + "\n",
+            )
         record = f"""---
 maxim_schema: maxim.frontmatter.v1
 id: {guide['source_id']}

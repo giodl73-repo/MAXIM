@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\13-CAUSAL-INFERENCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 23,
+      "heading_context": "## Beyond Correlation — DAGs, Do-Calculus, and Causal ML",
+      "confidence": "candidate",
+      "text": "THE CAUSAL INFERENCE HIERARCHY (Pearl's Ladder of Causation)\n\n  Level 3: Counterfactual     \"What if I had done X instead of Y?\"\n           Imagining worlds   PNS, attribution, blame, necessity/sufficiency\n                              ↑ Requires structural causal model\n\n  Level 2: Intervention       \"What happens if I do X?\"\n           Doing              do-calculus, randomized trials, treatment effect\n                              ↑ Observational data + identifiability conditions\n\n  Level 1: Association        \"What happens when I observe X?\"\n           Seeing             Correlation, regression, conditional probability\n                              ← All classical statistics lives here",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "## 1. The Fundamental Problem of Causal Inference",
+      "confidence": "candidate",
+      "text": "  E[Y|D=1] - E[Y|D=0] = ATE + Selection bias\n\n  Selection bias: treated and control differ on confounders\n  E.g., healthier people choose to exercise → exercise seems more beneficial than it is",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "## 2. Directed Acyclic Graphs (DAGs)",
+      "confidence": "candidate",
+      "text": "  Each variable Xᵢ has an assignment equation:\n    Xᵢ = fᵢ(Pa(Xᵢ), Uᵢ)\n\n  Pa(Xᵢ) = parents (direct causes)\n  Uᵢ = exogenous noise (independent across variables)\n\n  Joint distribution: p(x) = Π_i p(xᵢ | pa(xᵢ))  ← Markov factorization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "## 2. Directed Acyclic Graphs (DAGs)",
+      "confidence": "candidate",
+      "text": "  Chain:     X → Z → Y     (mediation)\n  Fork:      X ← Z → Y     (common cause / confounder)\n  Collider:  X → Z ← Y     (common effect)\n\n  d-separation: X ⊥ Y | C if all paths between X and Y are blocked by C\n\n  Chain:    blocked by conditioning on Z  (mediation blocked)\n  Fork:     blocked by conditioning on Z  (confounder removed)\n  Collider: OPENED by conditioning on Z   (Berkson's paradox — selection bias)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "## 3. Interventions and the Do-Operator",
+      "confidence": "candidate",
+      "text": "  Graphically: do(X=x) removes all arrows into X in the DAG\n\n  Original graph:  Z → X → Y     P(Y|X=x) ≠ P(Y|do(X=x)) if Z also affects Y\n  After do(X=x):   Z   X → Y     Z no longer confounds X→Y",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "### Backdoor Criterion",
+      "confidence": "candidate",
+      "text": "  If Z satisfies backdoor criterion:\n  P(Y | do(X=x)) = Σ_z P(Y | X=x, Z=z) P(Z=z)\n\n  ← Adjustment formula: control for Z to identify causal effect\n\n  Example:\n    Confounder Z → X and Z → Y:\n    Backdoor: control for Z\n    ATE = E_Z[E[Y | X=1, Z]] - E_Z[E[Y | X=0, Z]]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "### Frontdoor Criterion",
+      "confidence": "candidate",
+      "text": "  U → X → M → Y,  U → Y (but U unmeasured)\n\n  Frontdoor adjustment:\n  P(Y|do(X=x)) = Σ_m P(M=m|X=x) Σ_{x'} P(Y|X=x', M=m) P(X=x')\n\n  Works because:\n    X → M is unconfounded (U doesn't affect M directly)\n    M → Y conditional on X is unconfounded",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "## 5. Randomized Controlled Trials (RCTs)",
+      "confidence": "candidate",
+      "text": "  D ⊥⊥ (Y(0), Y(1))   ← treatment independent of potential outcomes\n\n  → E[Y|D=1] - E[Y|D=0] = E[Y(1) - Y(0)] = ATE\n  No confounding possible.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "## 6. Observational Methods — Provenance and Context",
+      "confidence": "candidate",
+      "text": "Method          Origin discipline    Key papers / provenance\n──────────────  ───────────────────  ─────────────────────────────────────────────\nPSM / IPW       Epidemiology /        Rosenbaum & Rubin (1983): propensity scores\n                clinical statistics   Robins (1994): marginal structural models\n                                      Standard in: drug/device trials, observational\n                                      health studies, comparative effectiveness\n\nDoubly robust   Semiparametric        Scharfstein et al. (1999); Robins & Rotnitzky\n                statistics            Consistent if *either* model is correct\n                                      → standard in modern epidemiology\n\nDiD             Labor economics /     Card & Krueger (1994): minimum wage study\n                policy evaluation     Classic \"natural experiment\" design\n                                      Standard in: policy analysis, program eval\n\nSynthetic       Comparative case      Abadie et al. (2003): California tobacco policy\ncontrol         studies               For single treated unit (country, state, firm)\n                                      Common in: macroeconomics, political economy\n\nIV (2SLS)       Economics /           Card (1995): returns to schooling, distance to college\n                econometrics          Wright (1928): original supply/demand identification\n                                      Standard in: labor, health, development economics\n\nRD              Political economy /   Lee (2008): electoral RD\n                economics             Thistlethwaite & Campbell (1960): original concept\n                                      Standard in: education policy, political science\n\nDML             Semiparametric        Chernozhukov et al. (2018): econometrics + ML\n                econometrics + ML     Cross-fitting for valid inference post-ML\n                                      Now standard in academic economics papers\n\nCausal forests  ML × econometrics     Wager & Athey (2018): Stanford\n                                      Honest forests for heterogeneous effects",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 271,
+      "heading_context": "### Instrumental Variables (IV)",
+      "confidence": "candidate",
+      "text": "  Setting: X → Y but X ← U → Y  (unmeasured confounder U)\n\n  Instrument Z: affects X but not Y directly, unrelated to U\n\n  Validity assumptions:\n    Relevance: Cov(Z, X) ≠ 0  (Z predicts treatment)\n    Exclusion restriction: Z → Y only through X (Z has no direct effect on Y)\n    Independence: Z ⊥⊥ U  (Z is exogenous)\n\n  2SLS (Two Stage Least Squares):\n    Stage 1: X̂ = α + βZ + ... (project X onto Z)\n    Stage 2: Y = γ X̂ + δ + ...\n\n  IV estimate: τ_IV = Cov(Y,Z) / Cov(X,Z)  ← ratio of reduced forms",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 306,
+      "heading_context": "## 7. Causal ML",
+      "confidence": "candidate",
+      "text": "### Double Machine Learning (DML) — Chernozhukov et al. 2018",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 307,
+      "heading_context": "### Double Machine Learning (DML) — Chernozhukov et al. 2018",
+      "confidence": "candidate",
+      "text": "  Semi-parametric setup: Y = τD + g(X) + ε,  D = m(X) + v\n\n  Naive ML: fit Y~D+X directly → regularization biases τ̂\n\n  DML (Orthogonalization):\n    1. Fit Ỹ = Y - Ê[Y|X] (residualize outcome on controls)\n    2. Fit D̃ = D - Ê[D|X] (residualize treatment on controls)\n    3. τ̂ = Cov(Ỹ, D̃) / Var(D̃)\n\n    → √n-consistent and asymptotically normal under mild ML assumptions\n    → Any ML method can be used in steps 1-2 (neural net, forest, etc.)\n    → Cross-fitting required (train on one half, predict on other) to avoid overfitting bias",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 322,
+      "heading_context": "### Double Machine Learning (DML) — Chernozhukov et al. 2018",
+      "confidence": "candidate",
+      "text": "### Causal Forests (Wager & Athey 2018)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 323,
+      "heading_context": "### Causal Forests (Wager & Athey 2018)",
+      "confidence": "candidate",
+      "text": "  Goal: estimate heterogeneous treatment effects τ(x) = E[Y(1)-Y(0)|X=x]\n\n  Causal forest: random forest variant where splits maximize variance of τ̂(x)\n\n  Local CATE: for test point x₀, weight training obs by proximity:\n  τ̂(x₀) = Σᵢ αᵢ(x₀) Ỹᵢ / Σᵢ αᵢ(x₀) D̃ᵢ\n\n  Properties:\n    Asymptotically normal → confidence intervals\n    Honest (uses sample splitting for inference)\n    Variable importance: which X explain heterogeneity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 358,
+      "heading_context": "### Rosenbaum Sensitivity Analysis (PSM / Observational Studies)",
+      "confidence": "candidate",
+      "text": "Setup: in a matched study, how strong must unmeasured confounding be to invalidate\nthe conclusion?\n\nΓ (gamma) = odds ratio of exposure between matched units due to unmeasured confounder U\n\n  Γ = 1:  no unmeasured confounding (standard analysis)\n  Γ = 2:  units matched on X can still differ by factor 2 in odds of treatment due to U\n  Γ = k:  maximum plausible unmeasured effect is factor k\n\nProcedure:\n  For each Γ, compute worst-case p-value (assume U acts maximally to produce false positive)\n  Report: \"The conclusion holds for Γ up to k; requires Γ > k to overturn.\"\n\nExample: smoking → lung cancer study\n  Rosenbaum (1993): conclusion holds for Γ up to 6\n  → An unmeasured confounder must increase odds of smoking 6× to explain away the effect\n  → Such a confounder is implausible → conclusion is robust",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "ascii_table_candidate",
+      "line": 398,
+      "heading_context": "### DiD Parallel Trends Falsification (Pre-Trend Tests)",
+      "confidence": "candidate",
+      "text": "Core idea: if parallel trends holds, the treated/control groups should have had\nthe same time trend *before* treatment. Test this directly with pre-treatment data.\n\nEvent study specification:\n  Yᵢₜ = αᵢ + λₜ + Σ_{k≠-1} βₖ · 1{t - Tᵢ = k} · Dᵢ + εᵢₜ\n\n  k < 0: pre-treatment periods — βₖ should be ≈ 0 (pre-trends test)\n  k ≥ 0: post-treatment periods — βₖ are the dynamic treatment effects\n\n  Plot βₖ with confidence intervals:\n    Flat pre-trends (βₖ ≈ 0 for k < 0) → parallel trends plausible\n    Diverging pre-trends (βₖ ≠ 0 for k < 0) → parallel trends violated → DiD invalid\n\nLimitations:\n  Passing the pre-trends test does not prove parallel trends holds post-treatment.\n  It is a necessary, not sufficient, condition.\n  (The treatment itself may have changed the trend — then DiD captures the combined effect.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 437,
+      "heading_context": "## 9. Identifiability — What Can Be Identified?",
+      "confidence": "candidate",
+      "text": "  Identifiable: P(Y|do(X)) can be computed from P(V) = observational distribution\n\n  Non-identifiable: hidden confounders that can't be blocked\n\n  Example (non-identifiable):\n    U → X, U → Y, X → Y  (U unmeasured)\n    Cannot identify X→Y effect from observational data alone.\n    Need an instrument or RCT.\n\n  Completeness of do-calculus: an effect is identifiable iff derivable via do-calculus.\n  ID algorithm (Shpitser & Pearl): systematic procedure for identifiability.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

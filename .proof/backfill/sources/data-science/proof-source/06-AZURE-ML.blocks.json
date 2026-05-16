@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\06-AZURE-ML.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                        AZURE MACHINE LEARNING                               │\n│                    ML Platform-as-a-Service on Azure                        │\n├─────────────────────────────────────────────────────────────────────────────┤\n│                                                                             │\n│  ┌──────────────────────────────────────────────────────────────────────┐  │\n│  │                        STUDIO UI / CLI v2 / SDK v2                   │  │\n│  │           (all three surface the same underlying API)                │  │\n│  └──────────────┬───────────────────────────────────────────────────────┘  │\n│                 │                                                           │\n│  ┌──────────────▼───────────────────────────────────────────────────────┐  │\n│  │                         WORKSPACE                                    │  │\n│  │  ┌───────────┐  ┌───────────┐  ┌────────────┐  ┌─────────────────┐  │   │\n│  │  │  Assets   │  │  Compute  │  │  Data      │  │  Connections     │  │  │\n│  │  │           │  │           │  │            │  │                  │  │  │\n│  │  │ • Models  │  │ • Cluster │  │ • Datastores│  │ • Storage acct  │  │  │\n│  │  │ • Envs    │  │ • Instance│  │ • Datasets │  │ • Key Vault     │  │  │\n│  │  │ • Comps   │  │ • Serverls│  │            │  │ • ACR           │  │  │\n│  │  └───────────┘  └───────────┘  └────────────┘  └─────────────────┘  │  │\n│  └──────────────────────────────────────────────────────────────────────┘  │\n│                                                                             │\n│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │\n│  │  TRAINING    │  │  PIPELINES   │  │  REGISTRY    │  │  ENDPOINTS   │  │\n│  │              │  │              │  │              │  │              │  │\n│  │ • Jobs       │  │ • Components │  │ • Versioned  │  │ • Real-time  │  │\n│  │ • Sweeps     │  │ • DAG graph  │  │   models     │  │ • Batch      │  │\n│  │ • AutoML     │  │ • Reuse/cache│  │ • Stages     │  │              │  │\n│  └──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘  │\n│                                                                             │\n│  Azure backbone: RBAC, Private Link, Managed Identity, Key Vault, ACR      │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## Workspace Architecture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────┐\n│                         WORKSPACE                               │\n│  Azure resource group anchor — everything lives inside          │\n│                                                                 │\n│  ┌─────────────────┐  Created automatically at workspace        │\n│  │  Storage Acct   │  creation. Stores:                         │\n│  │  (default)      │  • Training artifacts / outputs            │\n│  │                 │  • Dataset profiles                        │\n│  └─────────────────┘  • Logs                                    │\n│                                                                 │\n│  ┌─────────────────┐  Stores all Docker images for              │\n│  │  Container Reg  │  environments + custom base images         │\n│  │  (ACR)          │                                            │\n│  └─────────────────┘                                            │\n│                                                                 │\n│  ┌─────────────────┐  Secrets: storage keys, connection         │\n│  │  Key Vault      │  strings. Never hardcoded.                  │\n│  └─────────────────┘                                            │\n│                                                                 │\n│  ┌─────────────────┐  Training telemetry, custom metrics,       │\n│  │  App Insights   │  endpoint latency                          │\n│  └─────────────────┘                                            │\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "### Workspaces: Hub-and-Spoke (Enterprise Pattern)",
+      "confidence": "candidate",
+      "text": "Hub Workspace\n├── Shared compute clusters\n├── Shared registries (curated models)\n└── Spoke Workspace A  (team A)\n    Spoke Workspace B  (team B)  — isolated experiments, same shared infra\n    Spoke Workspace C  (team C)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "## Compute",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────┐\n│                         COMPUTE TYPES                                │\n│                                                                      │\n│  ┌─────────────────────────────┐  ┌─────────────────────────────┐    │\n│  │     COMPUTE INSTANCE         │  │     COMPUTE CLUSTER          │   │\n│  │  (Interactive dev)           │  │  (Training at scale)         │   │\n│  │                              │  │                              │   │\n│  │  • Single VM (1 person)      │  │  • Min/max nodes (0 → N)     │   │\n│  │  • Pre-configured: Jupyter,  │  │  • Autoscales up + idles     │   │\n│  │    VS Code, terminals        │  │    down to 0                 │   │\n│  │  • Persistent (billed when   │  │  • Multi-node distributed    │   │\n│  │    running)                  │  │    training                  │   │\n│  │  • Stop when not in use!     │  │  • Best for batch jobs       │   │\n│  └─────────────────────────────┘  └─────────────────────────────┘   │\n│                                                                      │\n│  ┌─────────────────────────────┐  ┌─────────────────────────────┐   │\n│  │     SERVERLESS COMPUTE       │  │     ATTACHED COMPUTE         │ │\n│  │  (No cluster to manage)      │  │  (Bring your own)            │ │\n│  │                              │  │                              │ │\n│  │  • AzureML allocates VM      │  │  • Attach existing AKS       │ │\n│  │    on demand                 │  │  • Attach Arc-enabled K8s    │ │\n│  │  • Pay per second            │  │  • Synapse Spark pool        │ │\n│  │  • Cold-start latency        │  │  • HDInsight                 │ │\n│  │  • Best for: infrequent jobs │  │  • Best: existing infra      │ │\n│  └─────────────────────────────┘  └─────────────────────────────┘   │\n└──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "## Data: Datastores and Data Assets",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│  DATA LAYER                                                  │\n│                                                              │\n│  Datastore (connection)                                      │\n│  ┌──────────────────┐  ┌──────────────────┐                  │\n│  │  Azure Blob /    │  │  ADLS Gen2       │                 │\n│  │  Storage         │  │  (hierarchical)  │                 │\n│  └────────┬─────────┘  └────────┬─────────┘                 │\n│           │                     │                           │\n│           └──────────┬──────────┘                           │\n│                      │                                      │\n│  Data Asset (versioned reference)                           │\n│  ┌──────────────────────────────────────┐                   │\n│  │  URI File  │  URI Folder  │  Table   │                   │\n│  │  (single)  │  (directory) │  (MLTable│                   │\n│  │            │              │   format)│                   │\n│  └──────────────────────────────────────┘                   │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "## Environments",
+      "confidence": "candidate",
+      "text": "Curated Environments (Microsoft-managed, ready to use)\n├── AzureML-sklearn-1.5-ubuntu22.04-py38-cpu\n├── AzureML-pytorch-2.2-ubuntu22.04-py38-cuda11.8-gpu\n├── AzureML-tensorflow-2.16-ubuntu22.04-py38-cuda11.8-gpu\n└── ... (full list in Studio UI)\n\nCustom Environment\n├── From Dockerfile (full control)\n└── From conda YAML + base image (faster builds)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 361,
+      "heading_context": "### Distributed Training — PyTorch DDP",
+      "confidence": "candidate",
+      "text": "from azure.ai.ml import TorchDistribution\n\njob = command(\n    command=\"python train_ddp.py --epochs 50\",\n    environment=\"AzureML-pytorch-2.2-ubuntu22.04-py38-cuda11.8-gpu@latest\",\n    compute=\"gpu-cluster\",\n    distribution=TorchDistribution(process_count_per_instance=4),  # 4 GPUs/node\n    resources=ResourceConfiguration(instance_count=2),             # 2 nodes → 8 GPUs\n    # AzureML sets: MASTER_ADDR, MASTER_PORT, RANK, LOCAL_RANK, WORLD_SIZE\n)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 462,
+      "heading_context": "## Pipelines",
+      "confidence": "candidate",
+      "text": "`code + command + inputs/outputs + environment`. Same as Kubeflow, but Azure-native.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 464,
+      "heading_context": "## Pipelines",
+      "confidence": "candidate",
+      "text": "Pipeline DAG example:\n\n  [data_prep]  ──► [feature_eng] ──► [train_model] ──► [evaluate]\n       │                                    │\n  outputs:                            outputs:\n  train_data                          model artifact\n  val_data                                  │\n                                       [register_model] (conditional)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 583,
+      "heading_context": "## Model Registry",
+      "confidence": "candidate",
+      "text": "Model lifecycle in AzureML registry:\n\n  [Job output]\n      │\n      ▼\n  [Register]  ──► stage: Development\n      │\n      ▼ (pass evals)\n  [Promote]   ──► stage: Staging\n      │\n      ▼ (integration tests pass)\n  [Promote]   ──► stage: Production   ──► [Deploy to endpoint]\n      │\n      ▼ (superseded)\n  [Archive]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 646,
+      "heading_context": "## Online Endpoints (Real-Time Inference)",
+      "confidence": "candidate",
+      "text": "┌───────────────────────────────────────────────────────────────────┐\n│                    MANAGED ONLINE ENDPOINT                        │\n│                                                                   │\n│  https://<endpoint-name>.<region>.inference.ml.azure.com/score    │\n│                                                                   │\n│         traffic split (100% blue / 0% green)                      │\n│              │                  │                                 │\n│    ┌─────────▼──────┐  ┌────────▼────────┐                        │\n│    │  Deployment A  │  │  Deployment B   │                       │\n│    │  (blue)        │  │  (green)        │                       │\n│    │  model v5      │  │  model v6       │                       │\n│    │  DS3_v2 × 2    │  │  DS3_v2 × 1    │                       │\n│    └────────────────┘  └─────────────────┘                       │\n│                                                                   │\n│  Traffic split → canary / blue-green deployments                 │\n└───────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 789,
+      "heading_context": "## Batch Endpoints",
+      "confidence": "candidate",
+      "text": "from azure.ai.ml.entities import (\n    BatchEndpoint, BatchDeployment, BatchRetrySettings,\n    BatchDeploymentSettings,\n)\n\n# Endpoint\nbatch_endpoint = BatchEndpoint(name=\"churn-batch-endpoint\")\nml_client.batch_endpoints.begin_create_or_update(batch_endpoint).result()\n\n# Deployment\nbatch_deployment = BatchDeployment(\n    name=\"batch-v1\",\n    endpoint_name=\"churn-batch-endpoint\",\n    model=\"azureml:churn-classifier:5\",\n    code_configuration=CodeConfiguration(code=\"./batch_score\", scoring_script=\"score.py\"),\n    environment=\"azureml:my-training-env:3\",\n    compute=\"cpu-cluster\",\n    instance_count=4,\n    max_concurrency_per_instance=2,\n    mini_batch_size=10,                 # files per mini-batch\n    output_action=\"append_row\",         # all outputs → single file\n    retry_settings=BatchRetrySettings(max_retries=3, timeout=300),\n)\nml_client.batch_deployments.begin_create_or_update(batch_deployment).result()\n\n# Invoke\nfrom azure.ai.ml import Input\njob = ml_client.batch_endpoints.invoke(\n    endpoint_name=\"churn-batch-endpoint\",\n    input=Input(type=\"uri_folder\", path=\"azureml:scoring-data:1\"),\n)\nml_client.jobs.stream(job.name)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 1004,
+      "heading_context": "## Azure AI Studio vs AzureML Studio",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  Two portals — different focus, converging                          │\n│                                                                     │\n│  AzureML Studio (ml.azure.com)                                      │\n│  ┌───────────────────────────────────────────────────────────┐      │\n│  │  • Classic ML: training, pipeline, model registry         │     │\n│  │  • Compute management, datastores                         │     │\n│  │  • AutoML, sweep jobs                                     │     │\n│  │  • Responsible AI dashboard                               │     │\n│  └───────────────────────────────────────────────────────────┘     │\n│                                                                     │\n│  Azure AI Studio (ai.azure.com)                                     │\n│  ┌───────────────────────────────────────────────────────────┐     │\n│  │  • Generative AI: Azure OpenAI, Phi, Llama fine-tuning    │     │\n│  │  • Prompt Flow — LLM orchestration                        │     │\n│  │  • AI Search integration                                  │     │\n│  │  • Safety evaluations (content safety, groundedness)      │     │\n│  │  • Model catalog (400+ models from Hugging Face/OpenAI)   │     │\n│  └───────────────────────────────────────────────────────────┘     │\n│                                                                     │\n│  Use AzureML Studio for classical ML + custom training             │\n│  Use Azure AI Studio for LLM/GenAI workloads                       │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 1090,
+      "heading_context": "## Security and Governance",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  SECURITY LAYERS                                                    │\n│                                                                     │\n│  Identity & Access                                                  │\n│  ├── Managed Identity (workspace → ACR/Storage, no secrets)         │\n│  ├── RBAC (Owner/Contributor/Reader + 5 AzureML-specific roles)     │\n│  └── Entra ID integration (SSO, conditional access)                 │\n│                                                                     │\n│  Network                                                            │\n│  ├── Private Endpoint (workspace accessible only from VNet)         │\n│  ├── No public internet from training compute                       │\n│  └── Egress → Azure Firewall or NAT Gateway                         │\n│                                                                     │\n│  Data                                                               │\n│  ├── Encryption at rest (ADE + CMK via Key Vault)                   │\n│  ├── Encryption in transit (TLS everywhere)                         │\n│  └── Data exfiltration prevention (outbound rules)                  │\n│                                                                     │\n│  Compliance                                                         │\n│  ├── Audit logs → Azure Monitor (every API call)                    │\n│  ├── Policy (deny non-compliant VM SKUs, enforce tags)              │\n│  └── Private link workspace + no public access = FedRAMP-ready      │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

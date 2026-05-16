@@ -1,0 +1,1049 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-data-science-nlp-foundations",
+  "source": "../../data-science",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "16-NLP-FOUNDATIONS.md#000",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "# NLP Foundations\n## From N-Grams to Transformers — The Mathematical Path to LLMs"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#001",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "```\nNLP ARCHITECTURE EVOLUTION"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#002",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "N-grams         Word2Vec / GloVe      LSTM / Seq2Seq       Transformer\n  (1990s)         (2013–2014)           (2014–2017)          (2017–present)\n  ────────────    ─────────────────     ────────────────     ─────────────────\n  Sparse counts   Dense embeddings      Sequence modeling    Attention is all\n  Smoothing       PMI factorization     Attention (additive) Scaled dot product\n  Perplexity      PPMI → SVD → skip     Encoder-Decoder      BERT / GPT / T5\n  Fixed vocab     Subword (FastText)    Bottleneck problem   Scaling laws\n```"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#003",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#004",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "## 1. Statistical Language Models"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#005",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "**Language model**: assigns probability to sequences of words. Core task: compute P(w₁, w₂, ..., wT)."
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#006",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "**Chain rule**:\n```\n  P(w₁,...,wT) = Π_{t=1}^T P(wₜ | w₁,...,wₜ₋₁)\n```"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#007",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "**n-gram model**: Markov assumption — only last (n-1) words matter:\n```\n  P(wₜ | w₁,...,wₜ₋₁) ≈ P(wₜ | wₜ₋ₙ₊₁,...,wₜ₋₁) = C(wₜ₋ₙ₊₁,...,wₜ) / C(wₜ₋ₙ₊₁,...,wₜ₋₁)"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#008",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "Unigram (n=1): P(w) = C(w)/N\n  Bigram  (n=2): P(wₜ | wₜ₋₁) = C(wₜ₋₁wₜ) / C(wₜ₋₁)\n```"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#009",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "**Data sparsity problem**: C(unseen n-gram) = 0 → P = 0 → product = 0. Need smoothing."
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#010",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "**Kneser-Ney smoothing** (best practical n-gram):\n```\n  P_{KN}(w|context) = max(C(context, w) - d, 0) / C(context)\n                     + λ(context) · P_{KN-lower}(w | shorter context)"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#011",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "d ≈ 0.75 (discount)\n  λ: normalizing constant\n  P_{KN-lower}: recursively smoothed lower-order model"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#012",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "Innovation: continuation probability — P_continuation(w) ∝ # contexts w completes\n  \"San Francisco\" → Francisco has high continuation (many contexts precede it)\n  Better than uniform backoff.\n```"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#013",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "**Perplexity**: standard metric for language models:\n```\n  PP(W) = P(w₁,...,wT)^{-1/T} = exp(-(1/T) Σ log P(wₜ | w₁:ₜ₋₁))\n  = exp(cross-entropy of model on test set)"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#014",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "Lower PP = better model. PP=k means model is \"k-way confused\" at each step.\n  Intuition: branching factor — if all words equally likely at each step, PP = vocab size.\n```"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#015",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#016",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "## Information Retrieval Bridge — TF-IDF → Distributional Semantics"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#017",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "Any practitioner who has built search knows TF-IDF and cosine similarity. Distributional\nsemantics is the same mathematical idea applied to word co-occurrence rather than\ndocument-term co-occurrence:"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#018",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "```\nInformation retrieval (search)              Distributional semantics (NLP)\n──────────────────────────────────────      ──────────────────────────────────────────\nTerm-document matrix M ∈ ℝ^{|V|×|D|}       Word-context matrix M ∈ ℝ^{|V|×|V|}\n  Mᵢⱼ = frequency of term i in doc j         Mᵢⱼ = count(word i near word j in corpus)"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#019",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "TF-IDF(i, j) = tf(i,j) · idf(i)            PPMI(w, c) = max(log P(w,c)/P(w)P(c), 0)\n  tf = local term frequency                   Both re-weight raw counts to reduce\n  idf = -log(df_i / N) (rare terms↑)          domination by high-frequency terms\n  → both suppress common words               → idf and PMI serve the same role:\n  → both boost rare, distinctive terms         penalize high-frequency co-occurrence"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#020",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "BM25 (Okapi BM25): better than TF-IDF       PPMI with context distribution smoothing\n  Saturates tf beyond a threshold k₁          Analogous saturation of raw counts\n  Normalizes for doc length (param b)          Context window size plays similar role\n  → more robust to long documents            → both are parameterized re-weightings"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#021",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "Cosine similarity of TF-IDF vectors:        Cosine similarity of word vectors:\n  sim(doc_i, doc_j) = u·v / (‖u‖‖v‖)         sim(word_i, word_j) = u·v / (‖u‖‖v‖)\n  Documents with similar vocabulary           Words appearing in similar contexts\n  are considered similar                      are considered semantically similar"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#022",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "SVD on TF-IDF matrix (LSA):                 SVD on PPMI matrix:\n  Latent Semantic Analysis (Deerwester 1990)   Word2Vec = specific PPMI factorization\n  Reduces |D|-dimensional doc vectors          Reduces |V|-dimensional word vectors\n  to k-dimensional topic vectors              to d-dimensional semantic vectors\n  → same mathematical operation              → Word2Vec = fast LSA (Levy & Goldberg 2014)"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#023",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "Query expansion via semantic similarity:     Synonym detection via word vectors:\n  Use LSA similarity to expand queries        cos(vec(car), vec(automobile)) ≈ 0.9\n  with related terms → better recall         → structurally identical task\n```"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#024",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "**The unified view**: TF-IDF, PPMI, BM25, and Word2Vec are all weighted co-occurrence\nstatistics processed with dimensionality reduction. The IR community discovered\nthe mathematical framework; NLP adapted it to word-word co-occurrence and then\nreplaced the matrix factorization with neural prediction (Word2Vec) for efficiency."
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#025",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#026",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "## 2. Distributional Semantics"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#027",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "**Distributional hypothesis** (Harris 1954, Firth 1957): \"You shall know a word by the company it keeps.\" Words that appear in similar contexts have similar meanings."
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#028",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "**Word-context matrix**: count co-occurrences within a window:\n```\n  M ∈ ℝ^{|V| × |V|}:  M_{ij} = count(wordᵢ appears in context of wordⱼ)"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#029",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "Problem: raw counts dominated by function words (the, a, of...)\n```"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#030",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "**PMI (Pointwise Mutual Information)**:\n```\n  PMI(w, c) = log( P(w,c) / P(w)P(c) ) = log( C(w,c)·N / C(w)·C(c) )"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#031",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "PPMI (Positive PMI): max(PMI, 0)  — zeroes out negative associations\n```"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#032",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "**SVD dimensionality reduction**:\n```\n  M ≈ U Σ Vᵀ,  keep top d singular vectors"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#033",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "Word vectors: rows of U·Σ^{0.5}  (or just U)\n  This gives dense, low-dimensional word representations.\n  Captures semantic similarity: cosine(vec(king), vec(queen)) is high.\n```"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#034",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#035",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "## 3. Word2Vec"
+    },
+    {
+      "id": "16-NLP-FOUNDATIONS.md#036",
+      "path": [
+        "16-NLP-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]",
+        "canonical_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "concepts": "[nlp, foundations]",
+        "current_path": "data-science/16-NLP-FOUNDATIONS.md",
+        "id": "maxim:data-science:nlp-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nlp, foundations]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NLP Foundations",
+        "updated": "null"
+      },
+      "text": "**Skip-gram model** (Mikolov et al. 2013):\n```\n  Predict context words from center word:\n    Maximize: Σ_t Σ_{-c≤j≤c, j≠0} log P(wₜ₊ⱼ | wₜ)"
+    }
+  ],
+  "refs": [
+    "16-NLP-FOUNDATIONS.md"
+  ]
+}

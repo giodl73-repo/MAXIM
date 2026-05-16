@@ -1,0 +1,48 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\02-PANDAS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 673,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "A selection or assignment bug",
+          "Distinguish label selection (`.loc`), positional selection (`.iloc`), column selection, and chained indexing.",
+          "Use `.loc`/`.iloc` for writes; chained indexing can be ambiguous under copy/view behavior."
+        ],
+        [
+          "A groupby problem",
+          "Decide whether the result should shrink (`agg`), preserve shape (`transform`), or run arbitrary per-group logic (`apply`).",
+          "`apply` is flexible but often slow and harder to reason about than vectorized aggregation."
+        ],
+        [
+          "A reshape problem",
+          "Identify wide vs long form, uniqueness of index/column pairs, duplicate handling, and whether aggregation is needed.",
+          "`pivot` requires uniqueness; `pivot_table` aggregates duplicates."
+        ],
+        [
+          "A join problem",
+          "Check key cardinality, null keys, join type, duplicate keys, index-vs-column joins, and expected row count.",
+          "Most surprising Pandas joins are cardinality explosions, not syntax mistakes."
+        ],
+        [
+          "A performance problem",
+          "Inspect row count, dtype choices, object columns, vectorization, file format, memory footprint, and whether Polars/DuckDB fits better.",
+          "Parquet is usually better for analytics, but CSV may still be right for human exchange or interoperability."
+        ],
+        [
+          "A time-series problem",
+          "Verify datetime parsing, timezone, index frequency, resampling interval, rolling window semantics, and missing periods.",
+          "Timezone and closed/open interval defaults can silently shift results."
+        ]
+      ]
+    }
+  ]
+}

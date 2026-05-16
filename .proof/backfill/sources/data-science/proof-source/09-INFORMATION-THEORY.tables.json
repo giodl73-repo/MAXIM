@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\09-INFORMATION-THEORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 350,
+      "heading_context": "## 9. Decision Cheat Sheet",
+      "headers": [
+        "Quantity",
+        "Formula",
+        "Use it for"
+      ],
+      "rows": [
+        [
+          "Entropy H(X)",
+          "-E[log p(X)]",
+          "Measuring uncertainty; compression bound"
+        ],
+        [
+          "Cross-entropy H(P,Q)",
+          "-E_P[log Q]",
+          "Classification loss function"
+        ],
+        [
+          "KL divergence D(P‖Q)",
+          "E_P[log P/Q]",
+          "VAE, distillation, measuring distribution shift"
+        ],
+        [
+          "Mutual info I(X;Y)",
+          "H(X) - H(X\\|Y)",
+          "Feature selection, representation quality"
+        ],
+        [
+          "Channel capacity C",
+          "max_p I(X;Y)",
+          "Theoretical communication/compression limit"
+        ],
+        [
+          "Fisher info I(θ)",
+          "E[(∂ log p/∂θ)²]",
+          "Cramér-Rao, natural gradient, TRPO"
+        ],
+        [
+          "MDL",
+          "L(H) + L(D\\|H)",
+          "Model selection, learning as compression"
+        ]
+      ]
+    }
+  ]
+}

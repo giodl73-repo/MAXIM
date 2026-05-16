@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\05-MLOPS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                         MLOPS LIFECYCLE                                     │\n│                                                                             │\n│  DATA        TRAINING         EVALUATION      DEPLOYMENT      MONITORING    │\n│                                                                             │\n│  ┌────────┐  ┌────────────┐  ┌────────────┐  ┌──────────┐  ┌──────────┐     │\n│  │ ingest │→ │ experiment │→ │   eval /   │→ │  model   │→ │  drift   │  │\n│  │ validate│  │  track    │  │  register  │  │  serve   │  │  monitor │  │\n│  │ version│  │            │  │            │  │          │  │  retrain │  │\n│  └────────┘  └────────────┘  └────────────┘  └──────────┘  └──────────┘  │\n│       │             │               │               │              │        │\n│  DVC/       MLflow/W&B         MLflow            BentoML/       Evidently  │\n│  Great       Experiment        Model             Seldon/        / Arize    │\n│  Expectations  Tracking        Registry          FastAPI        / WhyLabs  │\n│                                                  + K8s                     │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "### MLflow vs W&B",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────────────┐\n│                  │  MLflow            │  Weights & Biases          │\n├──────────────────┼────────────────────┼───────────────────────────┤\n│  Hosting         │  Self or Azure ML  │  Cloud (SaaS)             │\n│  Open source     │  Yes               │  Client SDK only          │\n│  DL integration  │  Good              │  Excellent                │\n│  Hyperparameter  │  Basic             │  Sweeps (Bayesian)        │\n│  sweep           │                    │                           │\n│  Data versioning │  Via DVC           │  W&B Artifacts            │\n│  Collaboration   │  Basic             │  Team-oriented            │\n│  Azure ML native │  Yes (built-in)    │  No                       │\n│  Best for        │  Sklearn/XGBoost/  │  Deep learning, research, │\n│                  │  enterprise Azure  │  long GPU runs            │\n└────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 205,
+      "heading_context": "## Model Registry",
+      "confidence": "candidate",
+      "text": "Software release lifecycle       MLflow model registry equivalent\n─────────────────────────────    ──────────────────────────────────────────────\nDev / Feature branch             None (experimental run, not yet registered)\nQA / Staging environment         Staging  (validated on holdout; ready for test)\nProduction                       Production  (serving live traffic)\nDeprecated / EOL                 Archived  (superseded; kept for reproducibility)\n\nQuality gate (CI/CD):\n  PR passes tests → merge to main     ERM run passes eval suite → promote Staging\n  Integration test passes → deploy    Integration test passes → promote Production\n  New version released → old retires  New model in Prod → old model archived\n\nVersion pinning:\n  package.json \"1.2.3\" (exact)        models:/churn-predictor/5 (version number)\n  package.json \"^1.2\"  (compatible)   models:/churn-predictor/Production (alias)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 230,
+      "heading_context": "### MLflow Model Registry",
+      "confidence": "candidate",
+      "text": "import mlflow\nfrom mlflow.tracking import MlflowClient\n\nclient = MlflowClient()\n\n# Register a model (also done in log_model above)\nmodel_uri = f\"runs:/{run_id}/model\"\nmv = mlflow.register_model(model_uri, \"churn-predictor\")\n\n# Transition through lifecycle stages\nclient.transition_model_version_stage(\n    name=\"churn-predictor\",\n    version=mv.version,\n    stage=\"Staging\",           # None → Staging → Production → Archived\n    archive_existing_versions=False,\n)\n\n# Add annotations\nclient.update_model_version(\n    name=\"churn-predictor\",\n    version=mv.version,\n    description=\"GBM with feature set v3. AUC=0.91 on Q4 holdout.\"\n)\n\n# Load a specific version for inference\nmodel = mlflow.sklearn.load_model(\"models:/churn-predictor/Production\")\npredictions = model.predict(X_new)\n\n# Load by version number\nmodel = mlflow.sklearn.load_model(\"models:/churn-predictor/5\")",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "### Lifecycle State Machine",
+      "confidence": "candidate",
+      "text": "None (experimental)\n  │\n  ▼\nStaging (validated, ready for integration testing)\n  │\n  ▼\nProduction (serving live traffic)\n  │\n  ▼\nArchived (superseded, kept for reproducibility)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 396,
+      "heading_context": "### Patterns",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  SERVING PATTERN       │  LATENCY │  THROUGHPUT │  USE CASE         │\n├────────────────────────┼──────────┼─────────────┼──────────────────┤\n│  REST API (sync)       │  Low     │  Medium     │  Interactive UX  │\n│  Batch inference       │  High    │  Very high  │  Nightly scoring │\n│  Streaming (Kafka)     │  Medium  │  High       │  Event-driven    │\n│  Edge / embedded       │  Ultra   │  Variable   │  Mobile, IoT     │\n└────────────────────────┴──────────┴─────────────┴──────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 509,
+      "heading_context": "### What to Monitor",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  SIGNAL                │  MEASURES              │  TOOL             │\n├────────────────────────┼────────────────────────┼──────────────────┤\n│  Prediction drift      │  Output distribution   │  Evidently       │\n│                        │  shifts over time      │  Arize / WhyLabs │\n│  Data drift            │  Input features shift  │  Evidently       │\n│  (covariate shift)     │  from training dist.   │  Alibi Detect    │\n│  Concept drift         │  P(y|X) changes        │  Requires labels │\n│  Model performance     │  Accuracy / AUC on     │  MLflow / W&B    │\n│  (with labels)         │  labeled prod sample   │                  │\n│  Infrastructure        │  Latency, error rate,  │  Prometheus /    │\n│                        │  throughput, OOM       │  OTel            │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 557,
+      "heading_context": "### Statistical Tests for Drift",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  TEST               │  FOR               │  WHEN               │\n├─────────────────────┼────────────────────┼─────────────────────┤\n│  Kolmogorov-Smirnov │  Continuous feat.  │  Enough samples     │\n│  PSI (Pop. Stab.)   │  Continuous        │  Credit/risk models │\n│  Chi-squared        │  Categorical       │  Standard           │\n│  MMD                │  High-dimensional  │  Embeddings         │\n│  CUSUM / Page-Hinkley│ Online detection  │  Streaming          │\n└─────────────────────┴────────────────────┴─────────────────────┘\n\nPSI < 0.1:  no significant shift\nPSI 0.1–0.2:  moderate shift — monitor closely\nPSI > 0.2:  significant shift — consider retraining",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 577,
+      "heading_context": "## Retraining Pipelines",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  RETRAINING TRIGGER                │  PATTERN                       │\n├────────────────────────────────────┼───────────────────────────────┤\n│  Scheduled (e.g., weekly)          │  Simple, predictable          │\n│  Data volume threshold             │  Retrain when N new samples   │\n│  Drift detected (automated)        │  Evidently → trigger CI       │\n│  Performance degradation           │  Requires ground truth labels │\n│  Manual (team decision)            │  Major distribution change    │\n└────────────────────────────────────┴───────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 675,
+      "heading_context": "## Feature Stores",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  FEATURE STORE ARCHITECTURE                                         │\n│                                                                     │\n│  ┌──────────────────────────────┐                                   │\n│  │  OFFLINE STORE               │  ← training, batch inference      │\n│  │  (S3/Parquet/Snowflake)      │    point-in-time correct joins    │\n│  └──────────────────────────────┘                                   │\n│  ┌──────────────────────────────┐                                   │\n│  │  ONLINE STORE                │  ← real-time inference            │\n│  │  (Redis / DynamoDB)          │    low-latency feature lookup     │\n│  └──────────────────────────────┘                                   │\n│                                                                     │\n│  TOOLS: Feast (open source), Tecton, Vertex AI Feature Store,      │\n│         Azure ML Feature Store                                      │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:pandas
+kind: guide
+module: data-science
+section: data-science
+title: 02 - Pandas
+status: source-custody
+source_custody: partial
+current_path: data-science/02-PANDAS.md
+canonical_path: data-science/02-PANDAS.md
+backsource_ids: [proof-backfill:data-science:02-pandas, git-history:data-science:02-pandas]
+concepts: [pandas]
+root_concepts: [pandas]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 02 — Pandas
 
 > Pandas is a labeled ndarray with a query engine bolted on.

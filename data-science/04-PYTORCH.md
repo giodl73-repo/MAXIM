@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:pytorch
+kind: guide
+module: data-science
+section: data-science
+title: 04 - PyTorch
+status: source-custody
+source_custody: partial
+current_path: data-science/04-PYTORCH.md
+canonical_path: data-science/04-PYTORCH.md
+backsource_ids: [proof-backfill:data-science:04-pytorch, git-history:data-science:04-pytorch]
+concepts: [pytorch]
+root_concepts: [pytorch]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — PyTorch
 
 > NumPy gives you n-dimensional arrays. PyTorch gives you n-dimensional arrays that

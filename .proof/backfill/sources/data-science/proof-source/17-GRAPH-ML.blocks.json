@@ -1,0 +1,226 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\17-GRAPH-ML.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 23,
+      "heading_context": "## Spectral Theory, Message Passing, GNNs, and Applications",
+      "confidence": "candidate",
+      "text": "GRAPH ML LANDSCAPE\n\n  Classical graph theory          Spectral GNNs              Spatial GNNs\n  ─────────────────────────       ────────────────────       ─────────────────────\n  Laplacian, eigenvectors         ChebNet (2016)             GraphSAGE (2017)\n  Graph Fourier transform         GCN (Kipf & Welling, 2017) GAT (2018)\n  Spectral clustering             Signal processing view     Message passing view\n  Random walks                    Convolve in spectral dom   Aggregate neighborhoods\n\n  Modern GNNs                    Applications\n  ─────────────────────────       ────────────────────────────────────────────\n  MPNN framework (Gilmer 2017)   Molecules, proteins (chemistry)\n  Graph Transformer              Social networks, knowledge graphs\n  Graph diffusion, scattering    Recommendation systems\n  Oversmoothing problem          Traffic, ETA prediction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 47,
+      "heading_context": "## SQL Relational → Graph Bridge",
+      "confidence": "candidate",
+      "text": "Graph concept                 SQL / relational equivalent\n──────────────────────────    ──────────────────────────────────────────────────────────\nAdjacency matrix A[i,j]       Edges table: CREATE TABLE edges (src_id, dst_id, weight)\n  A sparse matrix with           A row per edge — same information, different form.\n  one entry per edge             Sparse matrix (COO format) IS an edge table.\n\nNode features X[v, :]         Nodes table: CREATE TABLE nodes (node_id, feat1, feat2, ...)\n  Node feature matrix            Joined to the edge table: edges JOIN nodes ON src_id = node_id\n\nNeighborhood N(v)             Self-join on edge table:\n  {u : (u,v) ∈ E}               SELECT dst_id FROM edges WHERE src_id = v\n                                 Recursive CTE for multi-hop: WITH RECURSIVE bfs ...\n\nGNN message passing:          GROUP BY src_id + aggregate:\n  h_v ← AGG({h_u | u∈N(v)})    SELECT src_id,\n                                       AVG(n.feat1) AS avg_neighbor_feat1,\n                                       MAX(n.feat2) AS max_neighbor_feat2\n                                 FROM edges e JOIN nodes n ON e.dst_id = n.node_id\n                                 GROUP BY e.src_id\n                                 → this IS a single GNN message passing step\n\nK-hop neighborhood            K-level recursive CTE or K lateral joins\n  2-hop: N²(v) = {w : ∃u, (u,v)∈E, (w,u)∈E}  = JOIN edges on edges twice\n\nGraph database (Neo4j):       Cypher query language\n  MATCH (u:User)-[:BOUGHT]->(p:Product)     ← pattern matching on edge types\n  RETURN u.name, p.title\n  ≡ SELECT u.name, p.title FROM users u\n    JOIN purchases e ON u.id = e.user_id\n    JOIN products p ON e.product_id = p.id\n\nPageRank / label propagation  Iterative SQL (recursive CTEs, or iterative batch jobs)\n  Iterative aggregation over  Each PageRank iteration is a GROUP BY aggregation\n  the graph until convergence  run until convergence = iterative batch processing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 85,
+      "heading_context": "## SQL Relational → Graph Bridge",
+      "confidence": "candidate",
+      "text": "Relational (SQL)                         Graph database (Neo4j, TigerGraph, ArangoDB)\n──────────────────────────────────────   ──────────────────────────────────────────────\nSchema: tables with fixed columns        Schema-optional: nodes + labeled edges\nQuery: JOINs for relationships           Query: pattern matching (Cypher / Gremlin / GQL)\nPerformance: JOINs degrade O(n²) past    Performance: index-free adjacency → O(1) hop\n  3-4 hops (indexes don't help for        regardless of graph size\n  multi-hop traversal)\nStrength: aggregates, analytics          Strength: connected traversals, path queries\nStandard: SQL                            Standard: emerging (ISO GQL 2024)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 124,
+      "heading_context": "## 1. Graph Fundamentals",
+      "confidence": "candidate",
+      "text": "  For signal f ∈ ℝⁿ (one value per node):\n\n  fᵀLf = Σ_{(i,j)∈E} wᵢⱼ(fᵢ - fⱼ)²   (sum of squared differences across edges)\n\n  ← Measures the \"roughness\" of f on the graph\n  ← Smooth signal (neighbors have similar values): small fᵀLf\n  ← This is the graph analog of ∫‖∇f‖² dx",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "## 4. Graph Convolutional Network (GCN)",
+      "confidence": "candidate",
+      "text": "  Setting K=1 and λmax≈2:\n    g_θ * f ≈ θ₀ f + θ₁ (L̃) f = θ₀ f - θ₁ D^{-1/2} A D^{-1/2} f\n\n  Constraint θ = θ₀ = -θ₁ (reduce to one parameter):\n    g_θ * f = θ (I + D^{-1/2} A D^{-1/2}) f\n\n  Renormalization: Ã = A + I (add self-loops), D̃ᵢᵢ = Σⱼ Ãᵢⱼ\n\n  GCN layer:\n    H^{(l+1)} = σ( D̃^{-1/2} Ã D̃^{-1/2} H^{(l)} W^{(l)} )\n                ↑                               ↑         ↑\n           normalized adjacency          features    weights\n\n  For node i: h^{(l+1)}_i = σ( W^{(l)} Σ_{j∈N(i)∪{i}} h^{(l)}_j / √(d̃ᵢd̃ⱼ) )\n              ← normalized mean aggregation over neighbors + self",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "## 4. Graph Convolutional Network (GCN)",
+      "confidence": "candidate",
+      "text": "  D̃^{-1/2} Ã D̃^{-1/2} = I - L̃_sym   ← smoothing operator\n  Applying k times → progressively smoother features\n  This is spectral graph convolution with a specific filter (1 - λ̃)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "## 4. Graph Convolutional Network (GCN)",
+      "confidence": "candidate",
+      "text": "  L GCN layers → features are (D̃^{-1/2}Ã D̃^{-1/2})^L x → principal eigenvector of Ã\n\n  Practical: 2-3 GCN layers typically optimal. Deeper = worse.\n  Solutions: skip connections (residual), JK-Net (jumping knowledge), PairNorm, DropEdge",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 236,
+      "heading_context": "## 5. Message Passing Neural Networks (MPNN)",
+      "confidence": "candidate",
+      "text": "  For each node v, at each layer:\n\n  1. MESSAGE:   mᵛₜ = Σ_{u∈N(v)} M_t(hᵛₜ, hᵘₜ, eᵛᵘ)\n\n  2. AGGREGATE: aᵛₜ = AGG({mᵛₜ for u ∈ N(v)})\n\n  3. UPDATE:    hᵛₜ₊₁ = U_t(hᵛₜ, aᵛₜ)\n\n  M: message function (can use edge features eᵛᵘ)\n  AGG: aggregation — must be permutation invariant (sum, mean, max)\n  U: update function (often GRU or MLP)\n\n  4. READOUT (for graph-level tasks):\n     ŷ = R({hᵛT | v ∈ G})   ← permutation invariant aggregation over all nodes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "## 6. Graph Attention Networks (GAT)",
+      "confidence": "candidate",
+      "text": "  Unnormalized attention (additive):\n    eᵢⱼ = LeakyReLU( aᵀ [W hᵢ ‖ W hⱼ] )    ← shared attention vector a, weight matrix W\n\n  Normalized:\n    αᵢⱼ = exp(eᵢⱼ) / Σ_{k∈N(i)} exp(eᵢₖ)    ← softmax over neighbors of i\n\n  Aggregation:\n    h'ᵢ = σ( Σ_{j∈N(i)} αᵢⱼ W hⱼ )\n\n  Multi-head: K heads, concatenate (intermediate layers) or average (final layer):\n    h'ᵢ = ‖_{k=1}^K σ( Σ_{j∈N(i)} αᵏᵢⱼ Wᵏ hⱼ )",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 283,
+      "heading_context": "## 6. Graph Attention Networks (GAT)",
+      "confidence": "candidate",
+      "text": "  eᵢⱼ = aᵀ LeakyReLU( W [hᵢ ‖ hⱼ] )    ← attention is truly dynamic (joint function)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 294,
+      "heading_context": "## 7. GraphSAGE — Inductive Learning",
+      "confidence": "candidate",
+      "text": "  SAMPLE: for each node, sample fixed-size neighborhood (not all neighbors)\n  AGGREGATE: aggregate sampled neighbors' features\n  COMBINE: concatenate node's own features with aggregated representation\n\n  h^k_v = UPDATE^k( h^{k-1}_v, AGG^k({h^{k-1}_u | u ∈ N_k(v)}) )\n\n  Three aggregators:\n    Mean:  h_N(v) = mean({h^{k-1}_u | u ∈ N(v)})     ← cheap, isotropic\n    LSTM:  apply LSTM on shuffled neighbors            ← more expressive, order matters\n    Max:   h_N(v) = max({σ(W h^{k-1}_u) | u ∈ N(v)}) ← selects most salient",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 327,
+      "heading_context": "## 8. Expressive Power of GNNs",
+      "confidence": "candidate",
+      "text": "  Any GNN with mean/max aggregation ≤ 1-WL in power.\n  GIN (Graph Isomorphism Network) achieves 1-WL:\n\n  h^k_v = MLP^k( (1 + ε^k) h^{k-1}_v + Σ_{u∈N(v)} h^{k-1}_u )\n                  ↑\n          learned or fixed; injective aggregation\n\n  Key: SUM aggregation is injective (unlike MEAN which conflates cardinality)\n  GIN with SUM is as powerful as 1-WL.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 348,
+      "heading_context": "## 9. Graph Transformers",
+      "confidence": "candidate",
+      "text": "  Attention with graph structure:\n    Aᵢⱼ = softmax( (QᵢKⱼᵀ/√d) + bias(eᵢⱼ) )    ← edge features as attention bias\n    If (i,j) ∉ E: bias = -∞ (or learned absence embedding)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 371,
+      "heading_context": "## 10. Graph Construction from Tabular Data",
+      "confidence": "candidate",
+      "text": "### Strategy 1 — Explicit Relational Edges",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 405,
+      "heading_context": "# SQL edge table → NetworkX or PyG",
+      "confidence": "candidate",
+      "text": "### Strategy 2 — k-NN Graph (Feature Similarity)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 429,
+      "heading_context": "# metric = 'euclidean' (continuous features), 'cosine' (text/embeddings), 'jaccard' (binary)",
+      "confidence": "candidate",
+      "text": "### Strategy 3 — Threshold Graph (ε-Radius)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 447,
+      "heading_context": "### Strategy 3 — Threshold Graph (ε-Radius)",
+      "confidence": "candidate",
+      "text": "### Strategy 4 — Co-occurrence / Entity Projection",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 468,
+      "heading_context": "# PyG has built-in bipartite support via heterogeneous graphs (HeteroData)",
+      "confidence": "candidate",
+      "text": "### Strategy 5 — Domain-Specific Graphs",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 470,
+      "heading_context": "### Strategy 5 — Domain-Specific Graphs",
+      "confidence": "candidate",
+      "text": "Domain          Graph construction\n─────────────   ────────────────────────────────────────────────────────\nMolecular       Atoms = nodes, bonds = edges; 3D coordinates as features\nTime series     Sliding window → lag graph; or DTW distance → k-NN graph\nText            Sentence co-occurrence; or semantic similarity (embeddings k-NN)\nImages          Superpixels → k-NN on spatial features (SLIC + k-NN)\nCode            AST nodes + edges; call graphs; dependency graphs\nTabular (fraud) Transactions → bipartite (accounts × transactions)\n                Accounts share IP → edge; accounts share card → edge",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 503,
+      "heading_context": "### Molecular Property Prediction",
+      "confidence": "candidate",
+      "text": "  Atoms = nodes, bonds = edges\n  Node features: atom type, charge, hybridization\n  Edge features: bond type, bond order\n\n  Task: predict drug properties (toxicity, solubility, binding affinity)\n  MPNN → QM9 quantum chemistry, ZINC drug discovery\n  GNN trained on molecules generalizes across chemical space\n\n  AlphaFold 2 (protein structure): not a GNN per se, but uses pair representation\n  and triangle updates that are structurally similar to message passing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\10-OPTIMIZATION-THEORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 163,
+      "heading_context": "## 2. Gradient Descent Convergence",
+      "headers": [
+        "Method",
+        "Convex",
+        "Strongly convex"
+      ],
+      "rows": [
+        [
+          "GD",
+          "O(1/T)",
+          "O((1-1/κ)^T)"
+        ],
+        [
+          "Nesterov accelerated",
+          "O(1/T²)",
+          "O((1-1/√κ)^T)"
+        ],
+        [
+          "Newton's method",
+          "O(log log 1/ε)",
+          "quadratic (local)"
+        ],
+        [
+          "Conjugate gradient",
+          "—",
+          "O((1-1/√κ)^T) + exact for quadratics"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 367,
+      "heading_context": "## 9. Decision Cheat Sheet",
+      "headers": [
+        "Scenario",
+        "Method",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Convex, small data",
+          "L-BFGS",
+          "Superlinear convergence, no LR tuning"
+        ],
+        [
+          "Convex, large n",
+          "SGD with schedule",
+          "Per-sample cost, variance OK"
+        ],
+        [
+          "Convex, ill-conditioned",
+          "Nesterov / conjugate gradient",
+          "Optimal first-order rate"
+        ],
+        [
+          "Neural net, general",
+          "AdamW + cosine+warmup",
+          "Adaptive LR, decoupled decay"
+        ],
+        [
+          "Vision models",
+          "SGD + momentum + cosine",
+          "Better generalization than Adam"
+        ],
+        [
+          "Transformers / LLMs",
+          "AdamW + warmup + cosine",
+          "Standard, well-validated"
+        ],
+        [
+          "RL policy",
+          "Adam or SGD",
+          "PPO uses Adam; value net sometimes SGD"
+        ],
+        [
+          "Generalization matters most",
+          "SAM + base optimizer",
+          "Explicit flat minimum seeking"
+        ]
+      ]
+    }
+  ]
+}

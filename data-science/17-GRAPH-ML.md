@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:graph-ml
+kind: guide
+module: data-science
+section: data-science
+title: Graph Machine Learning
+status: source-custody
+source_custody: partial
+current_path: data-science/17-GRAPH-ML.md
+canonical_path: data-science/17-GRAPH-ML.md
+backsource_ids: [proof-backfill:data-science:17-graph-ml, git-history:data-science:17-graph-ml]
+concepts: [graph, ml]
+root_concepts: [graph, ml]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Graph Machine Learning
 ## Spectral Theory, Message Passing, GNNs, and Applications
 

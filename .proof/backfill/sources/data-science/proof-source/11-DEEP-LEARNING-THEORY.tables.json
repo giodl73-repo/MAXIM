@@ -1,0 +1,93 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\11-DEEP-LEARNING-THEORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 199,
+      "heading_context": "## 4. Batch Normalization",
+      "headers": [
+        "",
+        "BatchNorm",
+        "LayerNorm",
+        "GroupNorm",
+        "InstanceNorm"
+      ],
+      "rows": [
+        [
+          "Normalize over",
+          "batch",
+          "features",
+          "feature groups",
+          "spatial"
+        ],
+        [
+          "Works with batch=1",
+          "❌",
+          "✅",
+          "✅",
+          "✅"
+        ],
+        [
+          "Used in",
+          "CNNs",
+          "Transformers",
+          "Detection",
+          "Style transfer"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 510,
+      "heading_context": "## 10. Decision Cheat Sheet",
+      "headers": [
+        "Concept",
+        "Key result",
+        "Practical implication"
+      ],
+      "rows": [
+        [
+          "UAT",
+          "∃ shallow net for any f",
+          "Existence, not trainability"
+        ],
+        [
+          "Depth separation",
+          "Depth exponentially more efficient",
+          "Don't use shallow wide nets"
+        ],
+        [
+          "NTK",
+          "Infinite width → kernel regression",
+          "Wide nets are smoothly trainable"
+        ],
+        [
+          "Lazy vs feature learning",
+          "Small init → feature learning",
+          "Use standard init, not huge init"
+        ],
+        [
+          "BatchNorm",
+          "Smooths loss landscape",
+          "Use BN in CNNs; LN in transformers"
+        ],
+        [
+          "Scaling laws",
+          "L ∝ N^{-α}, optimal N∝D",
+          "Chinchilla allocation for training"
+        ],
+        [
+          "Double descent",
+          "Overparameterize + long train",
+          "Don't early-stop at the hump"
+        ],
+        [
+          "Emergent abilities",
+          "Threshold capabilities",
+          "Expect qualitative jumps at scale"
+        ]
+      ]
+    }
+  ]
+}

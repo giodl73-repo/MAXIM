@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\05-MLOPS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 734,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "An experiment-tracking problem",
+          "Decide what must be reproducible: code version, data version, parameters, metrics, artifacts, environment, and random seeds.",
+          "Tracking metrics without data/environment lineage is not reproducibility."
+        ],
+        [
+          "A model-promotion decision",
+          "Compare candidate vs current model on held-out data, slice metrics, latency, cost, drift risk, and rollback plan.",
+          "\"Best validation score\" is not enough for production promotion."
+        ],
+        [
+          "A data-versioning need",
+          "Check dataset size, change frequency, storage backend, lineage DAG, privacy, and whether raw data can leave the platform.",
+          "Git tracks pointers well; object storage holds the data."
+        ],
+        [
+          "A serving choice",
+          "Separate online latency, batch throughput, hardware target, framework dependency, autoscaling, and operational ownership.",
+          "FastAPI is fine for simple service boundaries; production ML serving also needs monitoring and rollback."
+        ],
+        [
+          "A drift alert",
+          "Distinguish data drift, concept drift, label delay, seasonality, instrumentation change, and population shift.",
+          "Drift is a triage signal, not automatic proof that retraining will help."
+        ],
+        [
+          "A feature-store decision",
+          "Look for online/offline consistency, point-in-time correctness, feature ownership, freshness, and reuse.",
+          "Feature stores solve training/serving skew only if teams adopt the same definitions."
+        ],
+        [
+          "A retraining trigger",
+          "Tie trigger to drift, performance decay, data arrival, regulatory schedule, or product change.",
+          "Automatic retraining without evaluation gates can automate regressions."
+        ]
+      ]
+    }
+  ]
+}

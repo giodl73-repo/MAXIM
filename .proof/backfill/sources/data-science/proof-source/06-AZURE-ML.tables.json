@@ -1,0 +1,232 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\06-AZURE-ML.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 67,
+      "heading_context": "## SDK v2 vs CLI v2 vs Studio",
+      "headers": [
+        "Surface",
+        "When to use",
+        "Format"
+      ],
+      "rows": [
+        [
+          "**SDK v2** (`azure-ai-ml`)",
+          "Python scripts, notebooks, pipelines-as-code",
+          "Python objects"
+        ],
+        [
+          "**CLI v2** (`az ml`)",
+          "CI/CD, DevOps scripts, imperative automation",
+          "YAML files"
+        ],
+        [
+          "**Studio UI**",
+          "Exploration, debugging, reviewing runs, drag-n-drop pipelines",
+          "Browser"
+        ],
+        [
+          "**ARM / Bicep**",
+          "Workspace provisioning (infra-level)",
+          "Bicep/ARM"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 171,
+      "heading_context": "## Compute",
+      "headers": [
+        "Workload",
+        "Recommended SKU"
+      ],
+      "rows": [
+        [
+          "Development / small experiments",
+          "`Standard_DS3_v2` (4 vCPU, 14 GB)"
+        ],
+        [
+          "GPU training (single)",
+          "`Standard_NC6s_v3` (V100, 112 GB RAM)"
+        ],
+        [
+          "GPU training (high-end)",
+          "`Standard_ND96asr_A100_v4` (8× A100)"
+        ],
+        [
+          "Distributed training",
+          "Cluster of `Standard_NC*` with InfiniBand"
+        ],
+        [
+          "CPU inference (batch)",
+          "`Standard_F16s_v2` (compute-optimized)"
+        ],
+        [
+          "Memory-heavy (large models)",
+          "`Standard_M*` series"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 1137,
+      "heading_context": "## Cost Management",
+      "headers": [
+        "Resource",
+        "Cost driver",
+        "Optimization"
+      ],
+      "rows": [
+        [
+          "Compute Cluster",
+          "VM hours (billed per second)",
+          "`min_instances=0` always; use LowPriority for non-critical jobs"
+        ],
+        [
+          "Compute Instance",
+          "Running VM (even idle)",
+          "**Stop when not in use** — auto-shutdown schedules"
+        ],
+        [
+          "Managed Online Endpoint",
+          "Per-hour per-instance",
+          "Scale to 0 not supported for ManagedOnline; use ACA or K8s attach for scale-to-zero"
+        ],
+        [
+          "Batch Endpoint",
+          "Only billed during job execution",
+          "Natural scale-to-zero — no cost between runs"
+        ],
+        [
+          "Storage (artifacts)",
+          "GB stored + transactions",
+          "Set lifecycle policies to tier old artifacts to Cool/Archive"
+        ],
+        [
+          "ACR (environments)",
+          "Image storage",
+          "Share base images; curated envs = no ACR cost"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 1161,
+      "heading_context": "## AzureML vs Alternatives",
+      "headers": [
+        "Dimension",
+        "AzureML",
+        "SageMaker",
+        "Vertex AI",
+        "Databricks"
+      ],
+      "rows": [
+        [
+          "**Cloud**",
+          "Azure",
+          "AWS",
+          "GCP",
+          "Multi-cloud"
+        ],
+        [
+          "**ML framework**",
+          "Any",
+          "Any",
+          "Any",
+          "Spark-first"
+        ],
+        [
+          "**LLM/GenAI**",
+          "Azure AI Studio",
+          "Bedrock",
+          "Vertex Generative AI",
+          "MLflow + DBRX"
+        ],
+        [
+          "**Pipeline**",
+          "AzureML Pipelines / Prompt Flow",
+          "Pipelines / SageMaker Studio",
+          "Vertex Pipelines (Kubeflow)",
+          "Delta + Job clusters"
+        ],
+        [
+          "**Model Registry**",
+          "AzureML Registry",
+          "SageMaker Model Registry",
+          "Vertex Model Registry",
+          "MLflow Registry"
+        ],
+        [
+          "**AutoML**",
+          "Native",
+          "Autopilot",
+          "AutoML",
+          "AutoML (via sklearn)"
+        ],
+        [
+          "**Pricing model**",
+          "VM hours + endpoint hours",
+          "Instance hours + inference",
+          "Node hours + prediction",
+          "DBU-based"
+        ],
+        [
+          "**Azure integration**",
+          "Native (ADX, Synapse, Fabric)",
+          "—",
+          "—",
+          "Native ADF integration"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 1179,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Which Azure ML compute to use",
+          "Separate interactive exploration, scheduled training, GPU scale-out, low-priority tolerance, and existing Kubernetes needs.",
+          "Compute Instance is for humans; Compute Cluster is for jobs."
+        ],
+        [
+          "How to package a training job",
+          "Check code asset, environment, command, inputs/outputs, identity, datastore, and experiment tracking.",
+          "A job is reproducible only if code, data, environment, and parameters are versioned together."
+        ],
+        [
+          "Whether AutoML fits",
+          "Confirm the task is standard tabular/image/NLP forecasting/classification/regression and that interpretability/runtime constraints are acceptable.",
+          "AutoML is not a substitute for problem framing or leakage checks."
+        ],
+        [
+          "Whether to use pipelines/components",
+          "Look for reusable stages, cached outputs, independent compute needs, and promotion from experimentation to CI/CD.",
+          "Pipelines add overhead unless the workflow has stable boundaries."
+        ],
+        [
+          "Online vs batch endpoint",
+          "Compare latency SLA, traffic pattern, payload size, cost idle time, scoring volume, and rollback needs.",
+          "Online endpoints incur standing cost; batch endpoints trade latency for scale-to-zero economics."
+        ],
+        [
+          "Governance and network access",
+          "Check managed identity, RBAC, private endpoints, datastore permissions, Key Vault, and audit requirements.",
+          "Secrets and data access should be assigned to identities, not embedded in code."
+        ],
+        [
+          "Cost control",
+          "Inspect min instances, idle shutdown, VM SKU, low-priority suitability, endpoint replicas, and schedule.",
+          "The main cost bug is leaving always-on compute or endpoints running for sporadic workloads."
+        ]
+      ]
+    }
+  ]
+}

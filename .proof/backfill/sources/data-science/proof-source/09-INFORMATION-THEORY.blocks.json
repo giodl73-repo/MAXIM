@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "data-science\\09-INFORMATION-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 23,
+      "heading_context": "## Shannon's Framework — Uncertainty, Compression, Communication, and Learning",
+      "confidence": "candidate",
+      "text": "THE INFORMATION THEORY MAP\n\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  ENTROPY H(X)          JOINT H(X,Y)         CONDITIONAL H(X|Y)          │\n  │  uncertainty in X      total uncertainty     uncertainty in X given Y   │\n  │                                                                         │\n  │  KL DIVERGENCE D(P‖Q)  MUTUAL INFO I(X;Y)   CHANNEL CAPACITY C          │\n  │  \"distance\" P from Q   shared information    max info through channel   │\n  │                                                                         │\n  │  FISHER INFORMATION     CROSS-ENTROPY         MINIMUM DESCRIPTION LENGTH│\n  │  curvature of log-lik   loss function for ML  compression = learning    │\n  └─────────────────────────────────────────────────────────────────────────┘\n\n  All of ML optimization is information theory in disguise.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 53,
+      "heading_context": "## 1. Shannon Entropy",
+      "confidence": "candidate",
+      "text": "- Concavity: H(λp + (1-λ)q) ≥ λH(p) + (1-λ)H(q)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "## 2. KL Divergence",
+      "confidence": "candidate",
+      "text": "  D_KL(P ‖ Q):  \"forward\" — minimize over Q\n    → zero-forcing: Q goes to zero wherever P is small\n    → mode-seeking: Q concentrates on major mode of P\n    → used in variational inference\n\n  D_KL(Q ‖ P):  \"reverse\" — minimize over Q\n    → zero-avoiding: Q stays positive wherever P is positive\n    → mean-seeking: Q spreads to cover all modes\n    → used in expectation propagation, MLE (minimize D_KL(P_data ‖ P_model))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "## 4. Source Coding — Compression Bounds",
+      "confidence": "candidate",
+      "text": "For i.i.d. X_1,...,X_n ~ p:\n  -(1/n) log p(X_1,...,X_n) → H(X)  in probability\n\nThe \"typical set\" A_ε^n has:\n  P(A_ε^n) → 1\n  |A_ε^n| ≈ 2^{nH(X)}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "## 5. Channel Capacity — Communication Limits",
+      "confidence": "candidate",
+      "text": "Y = X + Z,  Z ~ N(0, N₀),  E[X²] ≤ P (power constraint)\n\nC = ½ log₂(1 + P/N₀)  = ½ log₂(1 + SNR)   [bits per channel use]\n\n  ← Shannon limit: the maximum SNR efficiency of any coding scheme",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 271,
+      "heading_context": "## 7. Minimum Description Length (MDL)",
+      "confidence": "candidate",
+      "text": "  BIC ≈ Two-part MDL for exponential families:\n  BIC = -2 log L̂ + k log n  ↔  L(D|H) + L(H)\n                                  ↑            ↑\n                              log-likelihood  k params × log n bits each\n\n  AIC ≈ MDL for prediction (different complexity term):\n  AIC = -2 log L̂ + 2k",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 288,
+      "heading_context": "## Practitioner Bridge — Known Concepts, Information Theory Names",
+      "confidence": "candidate",
+      "text": "What you already know                         Information theory name\n──────────────────────────────────────────    ──────────────────────────────────────────\nDecision tree \"information gain\":             Mutual information I(feature; class label)\n  \"split on feature X that reduces label        = H(Y) - H(Y | X)\n  uncertainty the most\"                         = expected reduction in label entropy\n  ID3/C4.5 use exactly I(X;Y) as the           when feature X is revealed\n  splitting criterion.\n\nDecision tree \"Gini impurity\":                ≈ (1 - H²(p)) / 2  — approximates entropy\n  1 - Σ pᵢ²                                   Both measure class mixture.\n  Faster to compute than entropy; used by      Entropy is the information-theoretic ideal;\n  sklearn by default.                          Gini is a fast approximation.\n\nLanguage model \"perplexity\":                  2^{cross-entropy loss}\n  \"perplexity of 50 means the model is          = 2^{H(P_data, P_model)}\n  as uncertain as a uniform 50-way choice\"    Lower perplexity = lower cross-entropy\n  Reported on test sets; lower is better.     = model distribution closer to data dist.\n                                              P = 2^H ↔ typical set size ≈ 2^{nH}\n\nSQL column: \"high cardinality\"                High entropy H(X)\n  A city column with 10k unique values has     H(Uniform[10000]) = log₂(10000) ≈ 13 bits\n  \"high cardinality\" — many distinct values    H(Bernoulli[0.01]) ≈ 0.08 bits (rare class)\n  → more bits to encode → harder to           → cardinality is the informal entropy proxy\n  represent in a model without embedding        used in data engineering\n\nKL divergence used in monitoring:             D_KL(P_train ‖ P_prod) or PSI\n  Population Stability Index (PSI) in           PSI ≈ D_KL(P_train ‖ P_prod)\n  credit risk models measures distribution      + D_KL(P_prod ‖ P_train)\n  shift — same underlying concept as KL       → PSI > 0.2 ≈ significant KL → retrain\n\nFeature selection: mutual information         sklearn: mutual_info_classif()\n  sklearn's mutual_info_classif computes        = I(X_j; Y) for each feature j\n  I(feature; label) for each feature.         Higher MI = feature shares more info\n  Nonlinear relationships captured (unlike       with the target.\n  correlation or ANOVA F-test).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 330,
+      "heading_context": "## 8. Information Theory in ML — The Big Map",
+      "confidence": "candidate",
+      "text": "  ML concept                   Information theory connection\n  ──────────────────────────   ─────────────────────────────────────────\n  Cross-entropy loss           H(P_data, P_model) = D_KL(P_data‖P_model) + H(P_data)\n  MLE                          Minimize D_KL(P_data ‖ P_θ)\n  ELBO (VAE)                   log p(x) ≥ E_q[log p(x|z)] - D_KL(q‖p)\n  KL penalty in RL (PPO)       Keep policy near reference; D_KL(π‖π_ref) ≤ ε\n  Maximum entropy RL (SAC)     Maximize E[R] + α H(π) — prefer uncertain policies\n  Mutual info objectives       Representation learning (InfoNCE, MINE)\n  Knowledge distillation       Minimize H(p_teacher, p_student) via soft labels\n  Calibration (ECE)            Reliability: H(Y|confidence) should be low\n  Model selection              MDL / BIC / AIC — compression tradeoff\n  Natural gradient             Fisher metric on distribution manifold\n  Attention entropy            H(attention weights) — spread vs concentration",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

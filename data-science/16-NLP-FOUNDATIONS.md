@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:nlp-foundations
+kind: guide
+module: data-science
+section: data-science
+title: NLP Foundations
+status: source-custody
+source_custody: partial
+current_path: data-science/16-NLP-FOUNDATIONS.md
+canonical_path: data-science/16-NLP-FOUNDATIONS.md
+backsource_ids: [proof-backfill:data-science:16-nlp-foundations, git-history:data-science:16-nlp-foundations]
+concepts: [nlp, foundations]
+root_concepts: [nlp, foundations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # NLP Foundations
 ## From N-Grams to Transformers — The Mathematical Path to LLMs
 

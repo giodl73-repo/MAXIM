@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:data-science:deep-learning-theory
+kind: guide
+module: data-science
+section: data-science
+title: Deep Learning Theory
+status: source-custody
+source_custody: partial
+current_path: data-science/11-DEEP-LEARNING-THEORY.md
+canonical_path: data-science/11-DEEP-LEARNING-THEORY.md
+backsource_ids: [proof-backfill:data-science:11-deep-learning-theory, git-history:data-science:11-deep-learning-theory]
+concepts: [deep, learning, theory]
+root_concepts: [deep, learning]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Deep Learning Theory
 ## Why Deep Nets Work — Universal Approximation, NTK, Scaling Laws, and More
 

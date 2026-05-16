@@ -1,0 +1,2309 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-data-science-information-theory",
+  "source": "../../data-science",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-INFORMATION-THEORY.md#000",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "# Information Theory for Machine Learning\n## Shannon's Framework — Uncertainty, Compression, Communication, and Learning"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#001",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "```\nTHE INFORMATION THEORY MAP"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#002",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "┌─────────────────────────────────────────────────────────────────────────┐\n  │  ENTROPY H(X)          JOINT H(X,Y)         CONDITIONAL H(X|Y)          │\n  │  uncertainty in X      total uncertainty     uncertainty in X given Y   │\n  │                                                                         │\n  │  KL DIVERGENCE D(P‖Q)  MUTUAL INFO I(X;Y)   CHANNEL CAPACITY C          │\n  │  \"distance\" P from Q   shared information    max info through channel   │\n  │                                                                         │\n  │  FISHER INFORMATION     CROSS-ENTROPY         MINIMUM DESCRIPTION LENGTH│\n  │  curvature of log-lik   loss function for ML  compression = learning    │\n  └─────────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#003",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "All of ML optimization is information theory in disguise.\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#004",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#005",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "## 1. Shannon Entropy"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#006",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Definition**: expected surprise (in bits if log₂, nats if ln):\n```\nH(X) = -Σ_x p(x) log p(x) = E_p[-log p(X)]\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#007",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Properties**:\n- H(X) ≥ 0 always\n- H(X) = 0 iff X is deterministic\n- H(X) ≤ log|X| with equality iff X is uniform (maximum uncertainty)\n- Concavity: H(λp + (1-λ)q) ≥ λH(p) + (1-λ)H(q)"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#008",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Intuition**: H(X) is the minimum average number of bits needed to describe X. Shannon's source coding theorem makes this precise."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#009",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Joint and conditional**:\n```\nH(X, Y) = -Σ_{x,y} p(x,y) log p(x,y)"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#010",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "H(X | Y) = -Σ_{x,y} p(x,y) log p(x|y) = E_{p(y)}[H(X|Y=y)]"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#011",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Chain rule: H(X, Y) = H(X) + H(Y|X) = H(Y) + H(X|Y)\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#012",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Conditioning reduces entropy**: H(X|Y) ≤ H(X) — knowing Y can only decrease (or not change) uncertainty about X. Equality iff X ⊥ Y."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#013",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#014",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "## 2. KL Divergence"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#015",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Definition**: relative entropy from P to Q:\n```\nD_KL(P ‖ Q) = Σ_x p(x) log (p(x) / q(x)) = E_P[log P/Q]\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#016",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Properties**:\n- D_KL(P‖Q) ≥ 0 always (Gibbs inequality, follows from log ≤ x-1)\n- D_KL(P‖Q) = 0 iff P = Q a.e.\n- **Not symmetric**: D_KL(P‖Q) ≠ D_KL(Q‖P) in general\n- **Not a metric**: triangle inequality fails\n- D_KL(P‖Q) = ∞ if Q(x) = 0 where P(x) > 0 — Q must cover P's support"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#017",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Proof of non-negativity** (Gibbs inequality):\n```\n-D_KL(P‖Q) = E_P[log Q/P] ≤ log E_P[Q/P]   (Jensen, log is concave)\n            = log Σ_x p(x)(q(x)/p(x))\n            = log Σ_x q(x) ≤ log 1 = 0\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#018",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Forward vs reverse KL**:\n```\n  D_KL(P ‖ Q):  \"forward\" — minimize over Q\n    → zero-forcing: Q goes to zero wherever P is small\n    → mode-seeking: Q concentrates on major mode of P\n    → used in variational inference"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#019",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "D_KL(Q ‖ P):  \"reverse\" — minimize over Q\n    → zero-avoiding: Q stays positive wherever P is positive\n    → mean-seeking: Q spreads to cover all modes\n    → used in expectation propagation, MLE (minimize D_KL(P_data ‖ P_model))\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#020",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**KL and cross-entropy**:\n```\nD_KL(P ‖ Q) = H(P, Q) - H(P)"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#021",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "where H(P, Q) = -E_P[log Q]  is cross-entropy"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#022",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "MLE = minimize D_KL(P_data ‖ P_θ)\n    = minimize H(P_data, P_θ)    (H(P_data) is constant w.r.t. θ)\n    = maximize E_{x~data}[log p_θ(x)]\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#023",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "So **cross-entropy loss is KL divergence from data to model** — MLE minimizes it."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#024",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#025",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "## 3. Mutual Information"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#026",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "```\nI(X; Y) = D_KL(p(x,y) ‖ p(x)p(y))\n         = H(X) - H(X|Y)\n         = H(Y) - H(Y|X)\n         = H(X) + H(Y) - H(X,Y)\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#027",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Intuition**: how much does knowing Y reduce uncertainty about X? Symmetric — I(X;Y) = I(Y;X)."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#028",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Key properties**:\n- I(X;Y) ≥ 0 with equality iff X ⊥ Y\n- Data processing inequality: X → Y → Z ⟹ I(X;Z) ≤ I(X;Y)\n  - You can't gain information by processing\n  - Markov chain: Z is sufficient for X iff I(X;Y) = I(X;Z)"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#029",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Conditional mutual information**:\n```\nI(X; Y | Z) = H(X|Z) - H(X|Y,Z)\n            = E_Z[I(X;Y|Z=z)]\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#030",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Chain rule for MI**:\n```\nI(X₁,...,Xn; Y) = Σ_i I(Xᵢ; Y | X₁,...,X_{i-1})\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#031",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Information bottleneck** (Tishby et al.):\n```\n  Compress X into T (representation) while preserving information about Y:\n  max I(T; Y) - β·I(T; X)"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#032",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Deep nets as bottleneck: each layer compresses input while retaining task-relevant info\n  Debate: whether layers actually perform IB compression in practice\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#033",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#034",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "## 4. Source Coding — Compression Bounds"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#035",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Shannon's source coding theorem**: the minimum average code length for source X is H(X) bits. You cannot do better; entropy is the fundamental limit."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#036",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Huffman coding**: optimal prefix-free code. Expected length L satisfies:\n```\nH(X) ≤ L < H(X) + 1\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#037",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Arithmetic coding**: approaches H(X) arbitrarily closely."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#038",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Asymptotic Equipartition Property (AEP)**:\n```\nFor i.i.d. X_1,...,X_n ~ p:\n  -(1/n) log p(X_1,...,X_n) → H(X)  in probability"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#039",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "The \"typical set\" A_ε^n has:\n  P(A_ε^n) → 1\n  |A_ε^n| ≈ 2^{nH(X)}\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#040",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Most probability mass concentrates on ~2^{nH} equally likely sequences. Everything else is negligible. This is why entropy bounds compression."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#041",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#042",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "## 5. Channel Capacity — Communication Limits"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#043",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Noisy channel**: input X transmitted through channel p(y|x), received as Y."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#044",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Channel capacity**:\n```\nC = max_{p(x)} I(X; Y)   bits per channel use\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#045",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Shannon's channel coding theorem**: you can transmit at rate R < C with arbitrarily small error probability (with long block codes). At R > C, error probability → 1."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#046",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**AWGN channel** (additive white Gaussian noise):\n```\nY = X + Z,  Z ~ N(0, N₀),  E[X²] ≤ P (power constraint)"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#047",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "C = ½ log₂(1 + P/N₀)  = ½ log₂(1 + SNR)   [bits per channel use]"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#048",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "← Shannon limit: the maximum SNR efficiency of any coding scheme\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#049",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "This appears in wireless communication, but also in:\n- Rate-distortion theory (lossy compression)\n- Capacity of neural networks as information processors"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#050",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#051",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "## 6. Fisher Information"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#052",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Definition**: expected squared score, or negative expected Hessian of log-likelihood:\n```\nI(θ) = E_{x~p(x;θ)}[ (∂ log p(x;θ)/∂θ)² ]\n      = -E_{x~p(x;θ)}[ ∂² log p(x;θ)/∂θ² ]    (under regularity)\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#053",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Cramér-Rao Lower Bound**: for any unbiased estimator θ̂(X):\n```\nVar(θ̂) ≥ 1/I(θ)"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#054",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Multivariate: Cov(θ̂) ≥ I(θ)^{-1}  (matrix inequality)\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#055",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "No unbiased estimator can have lower variance than the inverse Fisher information. MLE achieves this asymptotically (efficiency)."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#056",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Natural gradient**:\n```\nStandard gradient descent ignores geometry of parameter space.\nFisher information matrix = Riemannian metric on the manifold of distributions."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#057",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Natural gradient: θ ← θ - α I(θ)^{-1} ∇L(θ)"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#058",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Amari's information geometry: steepest descent in distribution space,\nnot parameter space. Invariant to reparameterization."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#059",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "In practice: approximated by K-FAC (Kronecker-Factored Approximate Curvature)\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#060",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Fisher and KL**:\n```\nD_KL(p(·;θ) ‖ p(·;θ+δ)) ≈ ½ δᵀ I(θ) δ   for small δ"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#061",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Fisher is the local curvature of KL divergence.\nTrust region policy optimization (TRPO) uses this: constrain policy updates\nby KL ≤ ε ↔ δ stays inside Fisher ellipsoid.\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#062",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#063",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "## 7. Minimum Description Length (MDL)"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#064",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Core idea**: learning = compression. The best model is the one that compresses the data most."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#065",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "```\nMDL principle:\n  Prefer the hypothesis H that minimizes:\n    L(D | H) + L(H)\n    ↑             ↑\n  description   description\n  of data       of hypothesis\n  given H"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#066",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "↔ Bayesian MAP with -log prior as code length\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#067",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Two-part vs refined MDL**:\n- Two-part (crude): L(H) + L(D|H) — pick model then encode data\n- Normalized Maximum Likelihood (NML): minimax optimal single-part code"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#068",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "**Connection to model selection**:\n```\n  BIC ≈ Two-part MDL for exponential families:\n  BIC = -2 log L̂ + k log n  ↔  L(D|H) + L(H)\n                                  ↑            ↑\n                              log-likelihood  k params × log n bits each"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#069",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "AIC ≈ MDL for prediction (different complexity term):\n  AIC = -2 log L̂ + 2k\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#070",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#071",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "## Practitioner Bridge — Known Concepts, Information Theory Names"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#072",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Most practitioners already use information theory quantities without the vocabulary.\nThe re-labeling unlocks the underlying theory:"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#073",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "```\nWhat you already know                         Information theory name\n──────────────────────────────────────────    ──────────────────────────────────────────\nDecision tree \"information gain\":             Mutual information I(feature; class label)\n  \"split on feature X that reduces label        = H(Y) - H(Y | X)\n  uncertainty the most\"                         = expected reduction in label entropy\n  ID3/C4.5 use exactly I(X;Y) as the           when feature X is revealed\n  splitting criterion."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#074",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Decision tree \"Gini impurity\":                ≈ (1 - H²(p)) / 2  — approximates entropy\n  1 - Σ pᵢ²                                   Both measure class mixture.\n  Faster to compute than entropy; used by      Entropy is the information-theoretic ideal;\n  sklearn by default.                          Gini is a fast approximation."
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#075",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Language model \"perplexity\":                  2^{cross-entropy loss}\n  \"perplexity of 50 means the model is          = 2^{H(P_data, P_model)}\n  as uncertain as a uniform 50-way choice\"    Lower perplexity = lower cross-entropy\n  Reported on test sets; lower is better.     = model distribution closer to data dist.\n                                              P = 2^H ↔ typical set size ≈ 2^{nH}"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#076",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "SQL column: \"high cardinality\"                High entropy H(X)\n  A city column with 10k unique values has     H(Uniform[10000]) = log₂(10000) ≈ 13 bits\n  \"high cardinality\" — many distinct values    H(Bernoulli[0.01]) ≈ 0.08 bits (rare class)\n  → more bits to encode → harder to           → cardinality is the informal entropy proxy\n  represent in a model without embedding        used in data engineering"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#077",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "KL divergence used in monitoring:             D_KL(P_train ‖ P_prod) or PSI\n  Population Stability Index (PSI) in           PSI ≈ D_KL(P_train ‖ P_prod)\n  credit risk models measures distribution      + D_KL(P_prod ‖ P_train)\n  shift — same underlying concept as KL       → PSI > 0.2 ≈ significant KL → retrain"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#078",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Feature selection: mutual information         sklearn: mutual_info_classif()\n  sklearn's mutual_info_classif computes        = I(X_j; Y) for each feature j\n  I(feature; label) for each feature.         Higher MI = feature shares more info\n  Nonlinear relationships captured (unlike       with the target.\n  correlation or ANOVA F-test).\n```"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#079",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#080",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "## 8. Information Theory in ML — The Big Map"
+    },
+    {
+      "id": "09-INFORMATION-THEORY.md#081",
+      "path": [
+        "09-INFORMATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:data-science:09-information-theory, git-history:data-science:09-information-theory]",
+        "canonical_path": "data-science/09-INFORMATION-THEORY.md",
+        "concepts": "[information, theory]",
+        "current_path": "data-science/09-INFORMATION-THEORY.md",
+        "id": "maxim:data-science:information-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "```\n  ML concept                   Information theory connection\n  ──────────────────────────   ─────────────────────────────────────────\n  Cross-entropy loss           H(P_data, P_model) = D_KL(P_data‖P_model) + H(P_data)\n  MLE                          Minimize D_KL(P_data ‖ P_θ)\n  ELBO (VAE)                   log p(x) ≥ E_q[log p(x|z)] - D_KL(q‖p)\n  KL penalty in RL (PPO)       Keep policy near reference; D_KL(π‖π_ref) ≤ ε\n  Maximum entropy RL (SAC)     Maximize E[R] + α H(π) — prefer uncertain policies\n  Mutual info objectives       Representation learning (InfoNCE, MINE)\n  Knowledge distillation       Minimize H(p_teacher, p_student) via soft labels\n  Calibration (ECE)            Reliability: H(Y|confidence) should be low\n  Model selection              MDL / BIC / AIC — compression tradeoff\n  Natural gradient             Fisher metric on distribution manifold\n  Attention entropy            H(attention weights) — spread vs concentration\n```"
+    }
+  ],
+  "refs": [
+    "09-INFORMATION-THEORY.md"
+  ]
+}
