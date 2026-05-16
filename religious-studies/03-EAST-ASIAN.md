@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:religious-studies:east-asian
+kind: guide
+module: religious-studies
+section: religious-studies
+title: East Asian Religions - Daoism, Confucianism, Shinto
+status: source-custody
+source_custody: partial
+current_path: religious-studies/03-EAST-ASIAN.md
+canonical_path: religious-studies/03-EAST-ASIAN.md
+backsource_ids: [proof-backfill:religious-studies:03-east-asian, git-history:religious-studies:03-east-asian]
+concepts: [east, asian]
+root_concepts: [east, asian]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # East Asian Religions — Daoism, Confucianism, Shinto
 
 ## The Big Picture
@@ -42,14 +61,9 @@ domains of life.
 |  All four layers operate simultaneously without contradiction.       |
 |                                                                      |
 |  JAPAN:                                                              |
-|  +-------------------+-------------------+                           |
-|  |      SHINTO       |     BUDDHISM      |                           |
-|  +-------------------+-------------------+                           |
-|  | Kami, purity,     | Death, afterlife, |                           |
-|  | festivals, shrines.| merit, funerals. |                           |
-|  | This world.       | Transcendence.    |                           |
-|  +-------------------+-------------------+                           |
-   |  (+ Confucian ethical framework in both)                          |
+|    Shinto: kami, purity, festivals, shrines; this world.             |
+|    Buddhism: death, afterlife, merit, funerals; transcendence.       |
+|    Confucian ethical frameworks operate in both.                     |
 +----------------------------------------------------------------------+
 ```
 

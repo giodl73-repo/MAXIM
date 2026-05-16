@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:religious-studies:sociology-religion
+kind: guide
+module: religious-studies
+section: religious-studies
+title: Sociology of Religion
+status: source-custody
+source_custody: partial
+current_path: religious-studies/06-SOCIOLOGY-RELIGION.md
+canonical_path: religious-studies/06-SOCIOLOGY-RELIGION.md
+backsource_ids: [proof-backfill:religious-studies:06-sociology-religion, git-history:religious-studies:06-sociology-religion]
+concepts: [sociology, religion]
+root_concepts: [sociology, religion]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sociology of Religion
 
 ## The Big Picture
@@ -18,7 +37,7 @@ a different social function and generated different research programs.
 |  Function: solidarity.   Function: theodicy,     relations.          |
 |  Sacred/profane.         legitimation,           Opiate of the       |
 |  Collective effervescence rationalization.        masses.            |
-|  Ritual = solidarity     Protestant Ethic.       False consciousness.|
+|  Ritual = solidarity    Protestant Ethic.       False consciousness. |
 |  production engine.      Three authority types.  Gramsci: hegemony.  |
 |                                                                      |
 |  CONTEMPORARY BRANCHES:                                              |

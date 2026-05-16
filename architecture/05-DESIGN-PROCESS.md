@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture:design-process
+kind: guide
+module: architecture
+section: architecture
+title: Architecture Design Process
+status: source-custody
+source_custody: partial
+current_path: architecture/05-DESIGN-PROCESS.md
+canonical_path: architecture/05-DESIGN-PROCESS.md
+backsource_ids: [proof-backfill:architecture:05-design-process, git-history:architecture:05-design-process]
+concepts: [design, process]
+root_concepts: [design, process]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Architecture Design Process
 
 ## The Big Picture

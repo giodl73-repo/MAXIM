@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture:spatial-design
+kind: guide
+module: architecture
+section: architecture
+title: Spatial Design Principles
+status: source-custody
+source_custody: partial
+current_path: architecture/01-SPATIAL-DESIGN.md
+canonical_path: architecture/01-SPATIAL-DESIGN.md
+backsource_ids: [proof-backfill:architecture:01-spatial-design, git-history:architecture:01-spatial-design]
+concepts: [spatial, design]
+root_concepts: [spatial, design]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Spatial Design Principles
 
 ## The Big Picture

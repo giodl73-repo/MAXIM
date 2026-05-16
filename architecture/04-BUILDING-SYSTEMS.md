@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture:building-systems
+kind: guide
+module: architecture
+section: architecture
+title: Building Systems Integration
+status: source-custody
+source_custody: partial
+current_path: architecture/04-BUILDING-SYSTEMS.md
+canonical_path: architecture/04-BUILDING-SYSTEMS.md
+backsource_ids: [proof-backfill:architecture:04-building-systems, git-history:architecture:04-building-systems]
+concepts: [building, systems]
+root_concepts: [building, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Building Systems Integration
 
 ## The Big Picture

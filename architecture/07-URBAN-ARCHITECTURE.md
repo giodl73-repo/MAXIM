@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture:urban-architecture
+kind: guide
+module: architecture
+section: architecture
+title: Architecture in the Urban Context
+status: source-custody
+source_custody: partial
+current_path: architecture/07-URBAN-ARCHITECTURE.md
+canonical_path: architecture/07-URBAN-ARCHITECTURE.md
+backsource_ids: [proof-backfill:architecture:07-urban-architecture, git-history:architecture:07-urban-architecture]
+concepts: [urban, architecture]
+root_concepts: [urban, architecture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Architecture in the Urban Context
 
 ## The Big Picture

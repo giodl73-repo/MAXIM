@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "architecture\\02-STRUCTURAL-LOGIC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------+\n|                    STRUCTURAL LOGIC MAP                            |\n|                                                                    |\n|  LOADS                  SPANNING SYSTEMS            RESISTANCE     |\n|  ─────                  ────────────────            ─────────      |\n|  Gravity (dead)         Beam (bending)              Compression    |\n|  Gravity (live)         Arch (compression)          Tension        |\n|  Wind (lateral)         Truss (triangulated)        Bending        |\n|  Seismic (lateral)      Rigid frame                 Shear          |\n|  Snow                   Shell / vault               Torsion        |\n|  Thermal / movement     Cable / suspension                         |\n|                         Tensegrity                                 |\n|                                                                    |\n|  MATERIALS                          LATERAL SYSTEMS                |\n|  ─────────                          ──────────────                 |\n|  Concrete (strong in compression)   Moment frame (ductile)         |\n|  Steel (strong in both)             Shear wall (stiff)             |\n|  Timber (moderate both)             Braced frame                   |\n|  Masonry (compression only)         Core + outrigger (tall)        |\n|                                                                    |\n|  EXPRESSION                                                        |\n|  ─────────                                                         |\n|  Exposed (structure = aesthetic element)                           |\n|  Concealed (structure hidden, architecture independent)            |\n+--------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "### Types of Loads",
+      "confidence": "candidate",
+      "text": "  LOAD CLASSIFICATION\n  ===================\n\n  DEAD LOADS (DL)              LIVE LOADS (LL)\n  ───────────────              ───────────────\n  Self-weight of structure     Occupancy loads (people, furniture)\n  Permanent finishes           Snow loads (roof)\n  Fixed mechanical equipment   Movable equipment\n  Soil pressure (basements)    Construction loads\n  Hydrostatic pressure\n                               DATA CENTER LIVE LOADS:\n  ENVIRONMENTAL LOADS          Office floor:        50 psf (2.4 kPa)\n  ──────────────────           Computer room floor: 100–200 psf\n  Wind (lateral + uplift)      Server room (raised): 250–2,000 psf\n  Seismic (lateral + vertical) Transformer room:    400+ psf\n  Thermal expansion\n  Settlement / creep",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "### The Gravity Load Path",
+      "confidence": "candidate",
+      "text": "  GRAVITY LOAD PATH (typical multi-story)\n  =========================================\n\n  ROOF LOADS\n      │ (dead: roofing, structure; live: snow, maintenance)\n      ▼\n  ROOF STRUCTURE (decking / slab)\n      │ (loads collected, span to beams)\n      ▼\n  BEAMS / GIRDERS\n      │ (transfer to columns)\n      ▼\n  COLUMNS\n      │ (accumulate floor-by-floor)\n      ▼\n  TRANSFER STRUCTURE (if needed — podium, parking)\n      │\n      ▼\n  FOUNDATION (spread footings, mat, piles)\n      │\n      ▼\n  SOIL / BEDROCK\n  ════════════════════════════════════════\n\n  RULE: Every load must have a continuous path to the ground.\n  Columns must land on beams or other columns, not in space.\n  Beams must land on columns or walls, not in space.\n  \"Floating\" structure is always supported by something — find it.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "### Lateral Load Path",
+      "confidence": "candidate",
+      "text": "  LATERAL LOAD PATH\n  =================\n\n  WIND / SEISMIC FORCE\n  (acts on facade, enters at each floor level)\n      │\n      ▼\n  FLOOR DIAPHRAGM\n  (floor slab or decking acts as a rigid plate\n   collecting lateral force from all columns)\n      │\n      ▼\n  LATERAL FORCE RESISTING SYSTEM (LFRS)\n  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐\n  │ MOMENT FRAME│  │ SHEAR WALL  │  │BRACED FRAME │\n  │             │  │             │  │             │\n  │ Rigid beam- │  │ Concrete or │  │ Diagonal    │\n  │ column      │  │ masonry     │  │ members in  │\n  │ connections │  │ plane. Very │  │ triangulated│\n  │ resist      │  │ stiff.      │  │ frame.      │\n  │ rotation.   │  │ Concentrates│  │ Stiffer     │\n  │ Flexible,   │  │ force in    │  │ than moment │\n  │ ductile.    │  │ wall plane. │  │ frame.      │\n  └─────────────┘  └─────────────┘  └─────────────┘\n      │                  │                 │\n      ▼                  ▼                 ▼\n  FOUNDATION — transfers all lateral force to ground\n  (grade beams, piles, caissons)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "### Beam (Bending)",
+      "confidence": "candidate",
+      "text": "  BEAM BENDING\n  ============\n\n  Load applied:    ↓   ↓   ↓   ↓   ↓\n                   ┌───────────────────┐\n                   │   BEAM            │\n                   └───────────────────┘\n                   ↑                   ↑\n               Support             Support\n\n  Internal stress distribution:\n\n  TOP FIBER:    C   C   C   C   C    ← COMPRESSION (beam bows)\n  NEUTRAL AXIS: 0   0   0   0   0    ← zero stress\n  BOTTOM FIBER: T   T   T   T   T    ← TENSION\n\n  WHY I-BEAMS WORK:\n  Most bending stress is at extreme fibers (top/bottom).\n  The web (middle) carries shear, not much bending.\n  I-shape puts most material where stress is highest.\n\n        ══════════   ← top flange (compression)\n           │\n           │         ← web (shear)\n           │\n        ══════════   ← bottom flange (tension)\n\n  Steel is strong in both compression and tension → efficient I-beam\n  Concrete is weak in tension → bottom flange fails without reinforcing\n\n  ECONOMIC SPANS:\n  Steel W-shape beam:   20–50 ft (6–15m)\n  Concrete beam:        15–35 ft (5–10m)\n  Timber glulam:        20–60 ft (6–18m)\n  Prestressed concrete: 30–80 ft (9–25m)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "### Arch",
+      "confidence": "candidate",
+      "text": "  ARCH ACTION\n  ===========\n\n                   ↓ load\n           ┌───────────────────┐\n          /                     \\\n         /    COMPRESSION        \\\n        /       (axial only)      \\\n       /                           \\\n      /                             \\\n  ───/─────────────────────────────/───\n  ↑                                 ↑\n  reaction (vertical + horizontal)  reaction (vertical + horizontal)\n  THRUST                            THRUST\n\n  KEY: The arch develops horizontal thrust at the supports.\n  This thrust must be resisted by buttresses, tie rods, or the ground.\n  If you remove the buttress, the arch collapses sideways.\n\n  GOTHIC CATHEDRAL LOGIC:\n  ┌─────┐         ┌─────┐\n  │Nave │         │Aisle│\n  └─────┘         └─────┘\n    Nave -> THRUST -> Aisle -> THRUST -> Flying Buttress -> Pier -> Ground\n  The flying buttress is the arch thrust management system.\n\n  ARCH EFFICIENCY: pure axial compression, no bending.\n  All masonry arches, Roman vaults, Baroque domes work this way.\n  The structure is purely in compression — masonry's only strong mode.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "### Truss",
+      "confidence": "candidate",
+      "text": "  PRATT TRUSS (common in bridges and long-span roofs)\n  ════════════════════════════════════════════════════\n\n  ┌─────────────────────────────────────────────────┐\n  │  ─────────────────────────────────────────────  │\n  │   \\    |    /    |    \\    |    /    |    \\  /  │\n  │    \\   |   /     |     \\   |   /     |     X    │\n  │     \\  |  /      |      \\  |  /      |    / \\   │\n  │  ────────────────────────────────────────────   │\n  └─────────────────────────────────────────────────┘\n    Top horizontal line = top chord (in compression).\n    Bottom horizontal line = bottom chord (in tension).\n\n  C = compression members (diagonals slope toward center)\n  T = tension members (verticals, bottom chord)\n  | = vertical web members\n\n  EFFICIENCY: very light relative to span\n  DEPTH REQUIRED: typically span/8 to span/12 (deep but light)\n  SPACE REQUIREMENT: structural depth is wasted floor-to-floor\n  SOLUTION: put mechanical runs through the truss openings\n\n  ECONOMIC SPANS: 50–200 ft (15–60m) common; longer possible",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 264,
+      "heading_context": "### Shell and Vault",
+      "confidence": "candidate",
+      "text": "  SHELL LOGIC\n  ===========\n\n  SINGLE CURVATURE (barrel vault):\n  Curved in one direction only.\n  Cylindrical surface.\n  Thrust at both ends (like a flattened arch).\n\n  DOUBLE CURVATURE (dome, hyperbolic paraboloid):\n  Curved in two directions.\n  Membrane action in biaxial compression.\n  Much more efficient than single curvature.\n\n                    (dome)\n               _______________\n             /                 \\\n            /   COMPRESSION     \\\n           /  everywhere in the  \\\n          |       surface         |\n           \\                     /\n            \\___________________/\n             ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑\n             HOOP TENSION at base\n             (rings want to burst outward)\n             → managed by steel hoop ring\n\n  WHY THIN SHELLS WORK:\n  A 3mm concrete shell 20m in diameter is structurally comparable\n  to an eggshell — the curvature does the work, not the thickness.\n  The genius of Candela, Nervi, and Saarinen's work.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "### Cable and Suspension",
+      "confidence": "candidate",
+      "text": "  CABLE LOGIC\n  ===========\n\n  SUSPENSION BRIDGE / TENSILE ROOF:\n\n  ╔═════════════════════════════════════╗\n  ║          CABLE (pure tension)        ║\n  ╚═════════════════════════════════════╝\n   \\                                   /\n    \\     ─────────────────────       /\n     \\   / COMPRESSION MAST          /\n      \\ /                           /\n       X                           X\n      / \\                         / \\\n   anchor                       anchor\n\n  CABLE: 100% tension, no bending, extremely efficient\n  MAST: 100% compression (the only compression element)\n  DECK: hangs in catenary, transfers live loads to cable\n\n  KEY ISSUE: cables are flexible → large deflections under load\n  Need secondary stiffening (orthogonal cables, fabric pretension)\n  or accept that the structure moves.\n\n  EXAMPLES: Brooklyn Bridge, Raleigh Arena (Nowicki, 1953 — first\n  major cable roof), Frei Otto's Munich Olympic Stadium (1972),\n  tensile fabric structures.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 335,
+      "heading_context": "### Tensegrity",
+      "confidence": "candidate",
+      "text": "  TENSEGRITY LOGIC\n  ================\n\n                        [T]──────[T]\n                       /             \\\n                      [T]    [C]     [T]\n                       \\    /   \\   /\n                        [T]       [T]\n                       /             \\\n                      [T]    [C]     [T]\n\n  C = compression members (disconnected from each other)\n  T = tension cables (continuous network)\n\n  No compression member touches another directly.\n  All compression is transmitted via the tension network.\n\n  IN ARCHITECTURE: rare as primary structure (too flexible for\n  most programs). Used aesthetically: Calatrava's cable-stayed\n  structures approximate tensegrity logic. Engineering curiosity\n  more than mainstream structural system.\n\n  IN BIOLOGY: cells, fascia, and bone microstructure are tensegrity\n  systems — another example of optimal natural form appearing in\n  both nature and engineering.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 398,
+      "heading_context": "### Steel",
+      "confidence": "candidate",
+      "text": "  STEEL STRUCTURAL BEHAVIOR\n  ==========================\n\n  PROPERTIES:\n  - Yield strength: 36–50 ksi (Grade 36, Grade 50 common)\n  - Equal strength in tension and compression\n  - Ductile — deforms before fracturing (critical for seismic)\n  - Slender → buckling governs for columns\n\n  BUCKLING:\n  - Steel columns are slender; crushing not the governing failure\n  - Euler buckling: P_cr = π²EI / (kL)²\n  - Solution: lateral bracing, larger sections, moment frames\n\n  MOMENT FRAME:\n  - Rigid beam-column connections\n  - Frame deforms elastically (and plastically) under lateral loads\n  - Ductile — absorbs seismic energy\n  - Allows column-free space (no shear walls needed)\n  - Common in tall buildings in seismic zones\n\n  LONG SPAN:\n  - Steel W-shapes span 40–80 ft economically\n  - Trusses to 200+ ft\n  - Cable to any span (structural efficiency at its maximum)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 428,
+      "heading_context": "### Timber",
+      "confidence": "candidate",
+      "text": "  TIMBER STRUCTURAL BEHAVIOR\n  ===========================\n\n  TRADITIONAL (sawn lumber):\n  - Spans: 12–20 ft typical\n  - Moderate strength-to-weight ratio\n  - Strong along grain, weak across grain\n  - Fire: chars at ~0.5 mm/min; predictable failure behavior\n\n  MASS TIMBER (the revolution):\n  ┌─────────────────────────────────────────────────────┐\n  │ CLT (Cross-Laminated Timber)                        │\n  │ Layers of lumber at 90° angles, glued.              │\n  │ Behaves like a concrete slab (two-way spanning).    │\n  │ Panels up to 20m long, 3.5m wide.                   │\n  │ 5–7 layer panels for floors, 3 layers for walls.    │\n  │                                                     │\n  │ DLT (Dowel-Laminated Timber)                        │\n  │ Dowels instead of glue — more sustainable.          │\n  │                                                     │\n  │ GLT/Glulam (Glue-Laminated Timber)                  │\n  │ Horizontal laminations — for beams and columns.     │\n  │ Spans to 40m economically.                          │\n  │                                                     │\n  │ LVL (Laminated Veneer Lumber)                       │\n  │ Thin veneers, all parallel — engineered for         │\n  │ consistent strength. Headers, beams.                │\n  └─────────────────────────────────────────────────────┘\n\n  FIRE PERFORMANCE REALITY:\n  Mass timber chars predictably at ~0.6 mm/min (CLT).\n  A 175mm CLT floor panel has a 60-min fire rating.\n  The char layer INSULATES the remaining wood.\n  Structural failure occurs when remaining cross-section\n  falls below required strength — calculable.\n\n  This is counterintuitive but true: mass timber is more\n  predictable in fire than unprotected steel, which loses\n  50% strength at 550°C (often within 15–20 min of fire).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 499,
+      "heading_context": "## Lateral Force Resistance Systems",
+      "confidence": "candidate",
+      "text": "  LATERAL SYSTEM COMPARISON\n  ==========================\n\n  MOMENT FRAME              SHEAR WALL / CORE        BRACED FRAME\n  ─────────────             ─────────────────        ─────────────\n  Rigid connections         Reinforced concrete       Diagonal members\n  between beams             wall or masonry.          in triangulated\n  and columns.              Very stiff.               pattern.\n\n  Moment frame: rigid beam-column joints at every grid intersection;\n                each joint resists rotation.\n\n  Shear wall:   solid concrete or masonry wall acts as deep beam;\n                very high in-plane stiffness.\n\n  Braced frame: diagonal X- or K-bracing in selected bays converts\n                lateral load to axial force in the diagonal members.\n\n  Ductile (seismic       Stiff (minimal drift)     Stiffer than MF,\n  energy absorption)     Concentrates force         but less ductile\n  Large plan flexibility High overturning moment   than MF\n  Larger beam/column     Forces plan layout         Works in steel\n  sections required      (walls consume floor)      and concrete\n\n  TALL BUILDING SYSTEMS:\n  ──────────────────────\n  Core + outrigger: central concrete core (elevator/stair)\n  connected to perimeter columns via outrigger trusses at\n  mechanical floors. Very efficient for 30–60 story range.\n\n  Tube: perimeter closely spaced columns acting as a hollow\n  tube. Framed tube (WTC), bundled tube (Sears Tower).\n  Efficient for 40–100+ stories.\n\n  Diagrid: diagonal grid on exterior — combines gravity and\n  lateral resistance. Hearst Tower (Foster), CCTV (Koolhaas/\n  Cecil Balmond). Eliminates interior columns.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 545,
+      "heading_context": "## Structural Expression vs Concealment",
+      "confidence": "candidate",
+      "text": "  STRUCTURAL EXPRESSION SPECTRUM\n  ================================\n\n  EXPRESSED                              CONCEALED\n  ─────────────────────────────────────────────────\n  Structure IS the architecture.         Structure is hidden behind\n  Joints, sections, connections          finishes, ceilings, cladding.\n  are carefully detailed as              Architecture independent of\n  visual elements.                       structural geometry.\n\n  EXAMPLES:                              EXAMPLES:\n  - Eames House (steel frame)            - Neoclassical architecture\n  - Kahn's Richards Labs                 - Most commercial office\n  - Piano's Pompidou (color-coded        - Cladded skyscrapers\n    structure = architecture)            - Traditional masonry\n  - Foster's HSBC HK (external          - Drywall over structure\n    structure)\n  - Nervi's concrete vaults\n\n  NEITHER IS \"BETTER\" —\n  Expression demands structural precision (tolerances tighten).\n  Concealment allows structural pragmatism (bolt + cover).\n\n  CRITICAL DECISION POINT:\n  In design development, the architect and SE must agree on\n  tolerance standards. Exposed steel connections require\n  fabrication tolerances 3–5× tighter than covered work.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 581,
+      "heading_context": "## Data Center Structural Context",
+      "confidence": "candidate",
+      "text": "  DATA CENTER STRUCTURAL REQUIREMENTS\n  =====================================\n\n  FLOOR LOADS:\n  Office space:          50 psf live load (2.4 kPa)\n  Computer room floor:   100–250 psf (4.8–12 kPa)\n  Server row (heavy):    500–2,000 psf (24–96 kPa) — point loads\n  UPS room:              300–500 psf\n  Transformer vault:     600–1,000 psf\n  Raised floor dead:     10–15 psf (tiles + pedestals)\n\n  COLUMN GRID DRIVES LAYOUT:\n  40' × 40' grid = standard for white space (matches 2 data rows)\n  30' × 60' = better for raised floor lanes (60' direction = aisle)\n  Column-free space for raised floor = structural requirement driving\n  post-tensioned slab vs. flat-plate design.\n\n  SEISMIC:\n  Servers are not structural — but equipment anchorage is critical.\n  Zone 2D/3+ requires rack anchorage, raised floor hold-down.\n  Structural engineer reviews non-structural equipment anchorage.\n\n  VIBRATION:\n  Diesel generators → floor vibration → must be isolated from\n  white space structure.\n  Solution: spring isolators, separate structural slabs.\n\n  RAISED FLOOR:\n  Typical height: 18\"–24\" (450–600mm)\n  Structural connection: pedestal base plate, not structural slab\n  Raised floor not rated for seismic unless specifically designed.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

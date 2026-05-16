@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "architecture\\04-BUILDING-SYSTEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "BUILDING SYSTEMS MAP\n\n  STRUCTURAL GRID\n  (column spacing drives everything else)\n                    |\n    +---------------+---------------+\n    v               v               v\n\n  MECHANICAL:        ELECTRICAL:      PLUMBING / FIRE PROT.:\n  - HVAC ducts        - Panels         - Drain stacks\n  - AHUs              - Risers         - Supply risers\n  - Chilled water     - UPS rooms      - Sprinkler\n  - Lighting          - BAS/DDC        - Gas service\n  - Boilers\n\n    All three converge at:\n                    |\n                    v\n\n  CEILING PLENUM (the battleground):\n    Ducts + conduit + pipes + sprinklers\n    + structure ALL compete for the same space.\n                    |\n                    v\n\n  BIM CLASH DETECTION\n    (resolves conflicts in design, not field)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "### The Coordination Challenge",
+      "confidence": "candidate",
+      "text": "  TYPICAL CEILING PLENUM SECTION\n  ================================\n\n  STRUCTURAL SLAB (top)\n  ─────────────────────\n        beam         beam\n  ─────────────────────\n                              ← beam depth: 18\"–36\"\n  ─────────────────────\n  HVAC DUCT MAIN           → 18\"–36\" deep × 24\"–48\" wide\n  ─────────────────────\n  HVAC BRANCH DUCT         → 10\"–18\" deep × 12\"–24\" wide\n  ─────────────────────\n  SPRINKLER MAIN           → 4\"–6\" pipe + hanger space\n  ─────────────────────\n  ELECTRICAL CONDUIT       → 2\"–4\" diameter, horizontal runs\n  ─────────────────────\n  TELECOM / DATA CABLE     → 2\"–4\" cable trays\n  ─────────────────────\n  CEILING GRID             → 1\"–2\" support structure\n  ─────────────────────  ← suspended ceiling\n  OCCUPIED SPACE\n\n  ALL OF THE ABOVE must fit between structural slab and\n  finished ceiling height.\n\n  If architectural floor-to-floor = 14'-0\" and program requires\n  9'-0\" finished ceiling, the plenum is only 5'-0\" = 60\".\n  Subtract 12\" of structure = 48\" of plenum.\n  Does it all fit? This is the MEP coordination problem.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 97,
+      "heading_context": "### Mechanical Room Sizing",
+      "confidence": "candidate",
+      "text": "  MECHANICAL ROOM AREA RULES OF THUMB\n  =====================================\n\n  Building type            Mechanical room % of GFA\n  ──────────────────────────────────────────────────\n  Office (VAV system)      3–5%\n  Hospital                 6–12% (high mechanical intensity)\n  Laboratory               10–20% (fume hoods + exhaust)\n  Data center              15–30% (cooling plant, UPS, generators)\n  Hotel / residential      2–4%\n\n  VERTICAL DISTRIBUTION:\n  Main mechanical room:   Basement or rooftop\n  Branch distribution:    Each floor (fan coil units in ceiling)\n  or\n  Mechanical floors:      Every 10–15 stories in tall buildings\n                         (sky lobbies, mechanical floors alternate\n                          with occupied floors)\n\n  CRITICAL DIMENSION: Air shaft / duct risers must be\n  stacked vertically floor-to-floor. Coordinate with\n  structural frame from day one.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 130,
+      "heading_context": "### Why the Grid Matters",
+      "confidence": "candidate",
+      "text": "  GRID SELECTION BY BUILDING TYPE\n  =================================\n\n  OFFICE (typical):\n  30' × 30' or 30' × 40'\n  - 30' spans span economically in both concrete and steel\n  - 60-person floor plate: ~21,000 sqft → 7×10 bay grid\n  - Each 30'×30' bay = ~2 open-plan workstations × 8 rows\n\n  PARKING STRUCTURE:\n  60' × 60' preferred (fits 3 parking stalls × 2 rows per bay)\n  or 60' × 18' (perpendicular to aisle direction)\n  - 8.5' stall + 9' stall = 27' parking bay\n  - 24' drive aisle (minimum for 90° parking)\n  - 60' bay = 27' + 24' + 9' stall edge\n\n  WAREHOUSE / DISTRIBUTION CENTER:\n  40' × 40' to 40' × 60'\n  - Clear height 28'–40' (fork truck + racking)\n  - Grid driven by rack layout, not structural efficiency\n\n  DATA CENTER WHITE SPACE:\n  40' × 40' minimum (2 rows of racks + hot/cold aisle)\n  or 40' × 60' (better for aisle containment)\n  - Standard server rack: 24\"–30\" wide × 48\"–60\" deep\n  - Hot aisle: 4' minimum (2 rack rows back-to-back)\n  - Cold aisle: 3' minimum (2 rack fronts facing)\n  - Row of 20 racks: 20 × 30\" wide = 50' long\n  - 2-row module + aisles = ~40' depth minimum\n\n  HOSPITAL:\n  30' × 30' module (patient room = 14'×28' typical)\n  or 32' × 32'\n  - ICU bay: 200-250 sqft each\n  - OR suite: 600-800 sqft floor area + 400 sqft support\n  - Nursing unit: 8-16 beds per floor zone",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "### Elevator Sizing",
+      "confidence": "candidate",
+      "text": "  ELEVATOR SYSTEMS\n  =================\n\n  TRACTION (cable) ELEVATOR:\n  - Standard for buildings over 5 stories\n  - Machine room required (traditionally above shaft)\n  - Machine-Room-Less (MRL): motor in shaft, no overhead room\n  - Gearless traction: premium speed/comfort, 4+ stories\n  - Variable-speed drives: current standard\n\n  HYDRAULIC ELEVATOR:\n  - For low-rise (2–5 stories)\n  - Slower, lower capacity\n  - Cylinder requires boring into ground below pit\n  - Oil hydraulic fluid = environmental concern\n  - Rarely specified for new commercial\n\n  LINEAR MOTOR (MULTI):\n  - Thyssen/KONE MULTI: multiple cabins per shaft\n  - Horizontal + vertical movement (building loop concept)\n  - Not yet mainstream; buildings designed around single-shaft concept\n\n  SIZING RULES OF THUMB:\n  ──────────────────────\n  Elevator count:    1 elevator per 40,000–50,000 sqft of office\n  Cab capacity:      2,000–4,500 lbs (common: 3,500 lb = ~20 persons)\n  Speed:             200–800 fpm (floors × 30 fpm rule of thumb)\n  Wait time target:  ≤ 30 seconds average during 5-minute peak\n  Lobby depth:       Minimum 8'–10' in front of elevator doors\n  Shaft core:        Allow 60–70 sqft per cab for shaft + structure\n\n  5-MINUTE PEAK CAPACITY:\n  Elevators should handle 12–15% of population in 5 minutes.\n  Office building (1,000 people, 8 floors, 200 fpm):\n  → 3–4 elevators typically required\n  This is the traffic analysis that drives elevator count.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "### Stair Design",
+      "confidence": "candidate",
+      "text": "  STAIR GEOMETRY (IBC and common standards)\n  ===========================================\n\n  RISER HEIGHT:     7\" maximum (residential: 8.25\")\n  TREAD DEPTH:      11\" minimum (residential: 9\")\n  RULE OF THUMB:    2r + t = 24\" to 25\"\n                    (2 × 7\" + 11\" = 25\" — exactly right)\n\n  EXIT STAIR WIDTH: 44\" minimum (commercial), per IBC\n  EGRESS WIDTH:     0.3\" per occupant per floor served\n  (at 300 occ per floor, 6 floors = 1,800 → 540\" = 45\"\n   → two 44\" stairs = 88\" → adequate)\n\n  ADA REQUIREMENTS:\n  Riser height:     4\" min, 7\" max\n  Tread depth:      11\" minimum\n  Handrail height:  34\"–38\" above tread nosing\n  Handrail return:  12\" beyond top riser, 1 tread depth at bottom\n\n  FIRE STAIR (exit enclosure):\n  - 2-hour fire-rated enclosure\n  - Pressurized in high-rise (positive pressure vs smoke)\n  - Direct exit to exterior or exit discharge\n  - Maximum travel distance to stair: 200' (unsprinklered), 250' (spr)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 251,
+      "heading_context": "### Curtain Wall",
+      "confidence": "candidate",
+      "text": "  CURTAIN WALL SYSTEM\n  ====================\n\n  PRINCIPLE: Facade is suspended from structure, not load-bearing.\n  The skin is independent of the floor slabs.\n\n  UNITIZED CURTAIN WALL:\n  ┌────────────────────────────────────────────────┐\n  │ Floor slab n+1                                 │\n  │         │                                      │\n  │         ▼ bracket attachment                   │\n  │  ┌──────┴───────────────────────────────────┐  │\n  │  │       PRE-ASSEMBLED UNIT (factory)        │  │\n  │  │  spandrel glass   vision glass            │  │\n  │  └───────────────────────────────────────────┘  │\n  │         │                                      │\n  │         ▼ bracket attachment                   │\n  │ Floor slab n                                   │\n  └────────────────────────────────────────────────┘\n\n  Units fabricated in factory, shipped, installed in 1-2 day/floor.\n  Fastest installation; tight quality control.\n  Dominant system for commercial high-rise.\n\n  STICK-BUILT CURTAIN WALL:\n  Mullions installed first in field, glass filled in.\n  More flexible for complex geometry.\n  Slower, more field quality risk.\n  Used for smaller projects, complex facades.\n\n  THERMAL PERFORMANCE:\n  Aluminum frame (thermally broken):   U ≈ 0.30–0.40 W/m²K\n  Triple-glazed unit:                  U ≈ 0.50–0.80 W/m²K\n  Overall wall assembly:               U ≈ 0.70–1.20 W/m²K\n  (worse than insulated opaque wall — unavoidable physics of glass)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 291,
+      "heading_context": "### Rainscreen Principle",
+      "confidence": "candidate",
+      "text": "  RAINSCREEN PRINCIPLE\n  ======================\n\n  The key insight: you cannot keep ALL rain off a wall.\n  Instead, manage it: drain, dry, and protect.\n\n  WRONG (face-sealed):\n  ┌──────────────────┐\n  │ CLADDING         │\n  │ (sealant at      │\n  │  every joint —   │\n  │  any failure     │\n  │  = water         │\n  │  intrusion)      │\n  └──────────────────┘\n\n  RIGHT (rainscreen) — layered from outside in:\n\n    1. CLADDING (open joints ok) — primary rain deflector,\n       doesn't need to be perfect.\n    2. DRAINAGE CAVITY (25–50mm air gap) — water drains\n       (not sealed).\n    3. AIR BARRIER (airtight) — the real weather line.\n    4. INSULATION\n    5. STRUCTURE\n\n  AIR BARRIER controls: air infiltration (dominant heat loss)\n  WATER-RESISTIVE BARRIER beneath cladding controls: bulk water\n  DRAINAGE CAVITY: allows any intrusion to drain harmlessly\n  CLADDING: primary rain deflector (doesn't need to be perfect)\n\n  WHY IT WORKS:\n  Pressure-equalized cavity: inner air barrier equalizes\n  pressure across the cladding. No pressure differential\n  to drive water inward. Water cannot travel upward or\n  inward against neutral pressure.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 332,
+      "heading_context": "### Double-Skin Facade",
+      "confidence": "candidate",
+      "text": "  DOUBLE-SKIN FACADE\n  ===================\n\n  OUTER SKIN                    INNER SKIN\n  (single glass)  GAP           (double glass)\n  ─────────────  ─────────────  ─────────────\n  Weather skin   Air cavity     Thermal skin\n                 0.5m – 2m+     Operable windows\n                 ↕ ventilated    possible\n\n  HOW IT WORKS:\n  - In summer: cavity ventilated (hot air exhausted at top)\n    Solar-heated air exits before reaching inner skin\n  - In winter: cavity closed (thermal buffer)\n    Air in cavity warmer than exterior (reduces heat loss)\n  - Year-round: external blinds in cavity → no wind load\n    on blinds, no maintenance access required\n\n  THE CONTROVERSY:\n  Pros: External shading in cavity, natural ventilation possible,\n        noise attenuation, reduced facade U-value in winter\n  Cons: Double the glass cost, cleaning access issues,\n        overheating risk if ventilation fails,\n        mixed energy performance evidence in practice\n\n  Common in: high-profile European commercial (Commerzbank Frankfurt,\n             RWE Tower Essen), some East Asian commercial.\n  Less common in US (cost premium hard to justify in analysis).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 371,
+      "heading_context": "### Compartmentation",
+      "confidence": "candidate",
+      "text": "  FIRE COMPARTMENTATION STRATEGY\n  ================================\n\n  The primary fire protection strategy is containment:\n  prevent fire from spreading, not just put it out.\n\n  FIRE-RATED CONSTRUCTION:\n  Ratings: 1-hour, 2-hour, 3-hour, 4-hour\n  (time before structural failure under standard fire test)\n\n  WHAT REQUIRES FIRE RATING:\n  ──────────────────────────\n  Exit stairs:          1–2 hour enclosure (IBC Table 1006.3)\n  Exit corridors:       1 hour (sprinklered), 1 hour (unsprinklered)\n  Occupancy separation: 1–2 hours (varies by use group)\n  High-rise floors:     2-hour floor/ceiling assemblies\n  Vertical shafts:      1–2 hour (mechanical, plumbing risers)\n\n  UL LISTINGS:\n  Fire-rated assemblies are tested by UL (Underwriters Laboratory)\n  and listed in UL's Fire Resistance Directory.\n  Architects specify by UL Design Number (e.g., \"UL Design U305\").\n  The contractor must build EXACTLY the listed assembly.\n  Substituting materials voids the rating.\n\n  OPENINGS IN FIRE-RATED ASSEMBLIES:\n  Every opening (door, duct, pipe) breaches the rating.\n  Solution: fire-rated doors (UL-labeled), fire dampers in HVAC\n  ducts, intumescent pipe sleeves, fire-stopping sealant.\n  Each penetration must be detailed and listed separately.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 406,
+      "heading_context": "### Sprinkler Systems",
+      "confidence": "candidate",
+      "text": "  SPRINKLER SYSTEM TYPES\n  =======================\n\n  WET PIPE:                    DRY PIPE:\n  ───────────                  ─────────\n  Pipes filled with            Pipes filled with\n  water at all times.          pressurized air/nitrogen.\n  Fastest response.            Water held back by dry\n  Most common type.            pipe valve.\n  PROBLEM: freezing            Trips on sprinkler head\n  in unheated spaces.          activation → water flows.\n                               Used: parking garages,\n                               loading docks, cold storage.\n\n  PRE-ACTION:                  DELUGE:\n  ──────────                   ───────\n  Two-signal required:         All heads open, no fusible\n  1. Fire detection            link. Single valve control.\n  2. Sprinkler head activation Used: aircraft hangars,\n  Prevents accidental          transformers, open-hazard.\n  discharge.\n  Used: DATA CENTERS,\n  museums, libraries,\n  computer rooms.\n\n  DATA CENTER SPRINKLER:\n  Standard: NFPA 75 (IT Equipment Protection)\n  Pre-action required (no water unless fire confirmed)\n  Concern: accidental discharge = catastrophic equipment loss\n  Alternative: clean agent (FM-200, Novec 1230, CO2)\n  - Suppresses fire chemically without water\n  - Gas floods space, displaces O2 or interrupts chain reaction\n  - Extremely expensive, single-use discharge\n  - Used for most critical spaces (UPS rooms, server rooms)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 445,
+      "heading_context": "### Means of Egress",
+      "confidence": "candidate",
+      "text": "  EGRESS DESIGN REQUIREMENTS (IBC)\n  ==================================\n\n  TRAVEL DISTANCE TO EXIT:\n  ──────────────────────────────────────────────────────────────\n  Use Group         Unsprinklered    Sprinklered\n  Business (B)      200 ft           300 ft\n  Assembly (A)      200 ft           250 ft\n  Hospital (I-2)    150 ft           200 ft\n  High-hazard (H)    75 ft            75 ft\n\n  COMMON AREA FACTOR (exit access corridor):\n  For most assemblies: 0.2\" per occupant per floor served\n  For high-rise: 0.3\" per occupant\n\n  NUMBER OF EXITS (minimum):\n  Occupant load > 50: 2 exits required\n  Occupant load > 500: 3 exits required\n  Occupant load > 1,000: 4 exits required\n\n  EXIT DISCHARGE:\n  All exit stairs must discharge to exterior OR\n  exit passageway to exterior.\n  50% of exits can discharge through first floor (sprinklered).\n\n  HIGH-RISE EGRESS:\n  Pressurized exit stairs (prevent smoke entry)\n  Areas of refuge (wheelchair-accessible stair landings)\n  Occupant notification system (voice + tone)\n  Phase I/II elevator recall",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 484,
+      "heading_context": "## Building Automation Systems",
+      "confidence": "candidate",
+      "text": "  BAS / BMS ARCHITECTURE\n  =======================\n\n  FIELD DEVICES (sensors + actuators)\n  ────────────────────────────────────\n  Temperature sensors, CO2 sensors, occupancy sensors\n  VAV box actuators, AHU damper actuators\n  Chiller/boiler enable signals\n  Lighting dimmers, occupancy relays\n  Energy meters (BTU, kW)\n       │\n       ▼ (field bus: BACnet/IP, BACnet MS/TP, Modbus)\n  CONTROLLERS (DDC — Direct Digital Control)\n  ──────────────────────────────────────────\n  Zone controllers (VAV boxes, FCUs)\n  AHU controllers\n  Chiller plant controllers\n  Lighting controllers\n  One controller per 4–20 points typically\n       │\n       ▼ (BACnet/IP, LAN)\n  SUPERVISORY (Building Controller / Head End)\n  ─────────────────────────────────────────────\n  Tridium Niagara (dominant platform — \"the JVM of BAS\")\n  Trend IQ, Johnson Controls Metasys, Siemens Desigo\n  Aggregates all DDC data\n  Schedules, global setpoints, alarms, trending\n       │\n       ▼ (IP network / cloud)\n  ENTERPRISE / ANALYTICS\n  ───────────────────────\n  Fault detection and diagnostics (FDD)\n  Energy dashboards (Energy Star Portfolio Manager)\n  CMMS integration (Maximo, ServiceNow Facilities)\n  IoT platforms (Azure IoT Hub, AWS IoT)\n\n  PROTOCOLS:\n  BACnet   = the building industry standard (ANSI/ASHRAE 135)\n  Modbus   = older, simpler, serial or TCP\n  LonWorks = older, now legacy in most new builds\n  KNX      = European standard, residential + light commercial\n  MQTT     = IoT protocol, cloud-side aggregation\n  REST/API = modern integration to enterprise systems",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 538,
+      "heading_context": "### Clash Detection Workflow",
+      "confidence": "candidate",
+      "text": "  BIM CLASH DETECTION WORKFLOW\n  ==============================\n\n  AUTHORING (parallel)\n  ─────────────────────\n  Architect → Revit model (walls, floors, ceilings)\n  Structural → Revit model (beams, columns, slabs)\n  Mechanical → Revit MEP (ducts, AHUs, piping)\n  Electrical → Revit MEP (conduit, panels, cable trays)\n  Plumbing → Revit MEP (pipes, fixtures, drains)\n       │\n       ▼ (federated model — Navisworks or Revit Worksets)\n  CLASH DETECTION\n  ────────────────\n  Navisworks Manage:\n  - Hard clash: elements physically intersect\n  - Soft clash: elements within specified clearance\n  - Workflow clash: work sequence conflicts\n       │\n       ▼\n  CLASH REPORT\n  ─────────────\n  Exported as BCF (BIM Collaboration Format)\n  Or Excel/HTML report\n  Tagged by: discipline A vs discipline B, location, severity\n       │\n       ▼\n  COORDINATION MEETING\n  ─────────────────────\n  MEP, structural, architectural in same room (or model)\n  Assign resolution: who moves? structural or duct?\n  Typically: structure wins; duct routes around\n  Sometimes: structural beam gets relocated by SE\n  Rule: resolve in design, not RFI\n\n  COST OF FIELD vs DESIGN CLASH RESOLUTION:\n  Design: costs 1–2 engineer hours per clash\n  Field: costs $500–$5,000+ per clash (RFI + rework + delay)\n  A 1,000-clash project: $500K savings from BIM coordination",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture:overview
+kind: guide
+module: architecture
+section: architecture
+title: Architecture as Discipline - Overview
+status: source-custody
+source_custody: partial
+current_path: architecture/00-OVERVIEW.md
+canonical_path: architecture/00-OVERVIEW.md
+backsource_ids: [proof-backfill:architecture:00-overview, git-history:architecture:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Architecture as Discipline — Overview
 
 ## The Big Picture

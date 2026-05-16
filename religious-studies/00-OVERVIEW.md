@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:religious-studies:overview
+kind: guide
+module: religious-studies
+section: religious-studies
+title: Comparative Religion - Field Overview
+status: source-custody
+source_custody: partial
+current_path: religious-studies/00-OVERVIEW.md
+canonical_path: religious-studies/00-OVERVIEW.md
+backsource_ids: [proof-backfill:religious-studies:00-overview, git-history:religious-studies:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Comparative Religion — Field Overview
 
 ## The Big Picture
@@ -235,7 +254,7 @@ Every taxonomy of religion has problems. The question is which problems you can 
 |  BY DEITY CONCEPT           BY STRUCTURE        BY SCOPE             |
 |  ----------------           ------------        --------             |
 |  Animism (spirits           Revealed            Universal/missionary |
-|    everywhere)              (scripture-based)   (Islam, Christianity,|
+|   everywhere)              (scripture-based)   (Islam, Christianity, |
 |  Polytheism (many gods)     Philosophical       Buddhism)            |
 |  Henotheism (one god        (no scripture,      Ethnic/national      |
 |    but others exist)        rational)           (Hinduism, Judaism,  |

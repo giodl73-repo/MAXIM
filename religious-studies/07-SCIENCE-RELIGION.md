@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:religious-studies:science-religion
+kind: guide
+module: religious-studies
+section: religious-studies
+title: Science and Religion
+status: source-custody
+source_custody: partial
+current_path: religious-studies/07-SCIENCE-RELIGION.md
+canonical_path: religious-studies/07-SCIENCE-RELIGION.md
+backsource_ids: [proof-backfill:religious-studies:07-science-religion, git-history:religious-studies:07-science-religion]
+concepts: [science, religion]
+root_concepts: [science, religion]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Science and Religion
 
 ## The Big Picture
@@ -362,10 +381,11 @@ about truth claims while explaining why religion is universal.
 |  Explains why religion comes in two basic social forms.              |
 |                                                                      |
 |  McCauley (Why Religion is Natural, 2011):                           |
-|  Cognitive naturalness as a spectrum: religion exploits "maturationally|
-|  natural" cognitive systems (intuitive psychology, teleology, agency) |
-|  while science violates them (requiring counterintuitive concepts    |
-|  like selection without foresight, quantum superposition, relativity).|
+|  Cognitive naturalness as a spectrum: religion exploits              |
+|  "maturationally natural" cognitive systems (intuitive psychology,   |
+|  teleology, agency), while science violates them (requiring          |
+|  counterintuitive concepts like selection without foresight,         |
+|  quantum superposition, relativity).                                 |
 |  Religion is cognitively easy; science is hard.                      |
 +----------------------------------------------------------------------+
 ```

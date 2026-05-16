@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "architecture\\05-DESIGN-PROCESS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------+\n|                    AIA PHASE STRUCTURE (US)                        |\n|                                                                    |\n|  PRE-DESIGN        SD         DD            CDs         CA         |\n|  ─────────       ──────     ──────        ──────      ──────       |\n|  Programming     15%        35%            65%        construction |\n|  Site analysis   design     design         design     admin        |\n|  Feasibility     complete   complete       complete                |\n|                                                                    |\n|  ~5% of fee    ~15%       ~20%           ~40%       ~20% of fee    |\n|                                                                    |\n|  DECISIONS MADE vs COST TO CHANGE:                                 |\n|  ────────────────────────────────────────────────────────────      |\n|  SD: 15% decisions → determine 80% of project cost                 |\n|      1x cost to change                                             |\n|  DD: 35% decisions locked                                          |\n|      10–50x cost to change                                         |\n|  CDs: 65% decisions locked                                         |\n|      100–200x cost to change                                       |\n|  Field: 5% undecided surprises                                     |\n|      500–1,000x cost to change                                     |\n|                                                                    |\n|  This is the Boehm curve applied to buildings.                     |\n+--------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "### Schematic Design (SD)",
+      "confidence": "candidate",
+      "text": "  SD DELIVERABLES\n  ================\n\n  Site plan (scale: 1\"=20' to 1\"=50')\n  Floor plans (1\"=20' to 1\"=10')\n  Building sections (1\"=20' to 1\"=10')\n  Exterior elevations\n  Concept structural system description\n  Concept MEP strategy (not sized)\n  Outline specifications (major materials/systems)\n  SD cost estimate (±20–30% accuracy)\n  Preliminary LEED scorecard\n\n  WHAT GETS RESOLVED IN SD:\n  ─────────────────────────\n  - Building massing and orientation on site\n  - Structural grid and system type\n  - Circulation hierarchy (primary paths, vertical cores)\n  - Major program spaces located and dimensioned\n  - Facade strategy (curtain wall vs masonry vs rainscreen)\n  - Site access, parking, utilities entry\n  - Mechanical strategy (central plant, distributed, natural ventilation)\n\n  SD IS THE CREATIVE PHASE.\n  DD and CDs are engineering and documentation phases.\n  If the design is weak at SD, the project never recovers.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 119,
+      "heading_context": "### Design Development (DD)",
+      "confidence": "candidate",
+      "text": "  DD DELIVERABLES\n  ================\n\n  All drawings at 1\"=8' or 1\"=4' (larger scale than SD)\n  Architectural: all rooms dimensioned, materials specified,\n                 key details resolved\n  Structural: foundation type, all member sizes, connection types\n  Mechanical: equipment selected, duct layout coordinated,\n              terminal units sized\n  Electrical: panel locations, riser diagram, lighting strategy\n  Plumbing: fixture count, riser locations, equipment rooms\n  BIM coordination: first round clash detection complete\n  DD cost estimate (±15–20% accuracy)\n  Updated LEED scorecard\n\n  THE CLASH DETECTION IMPERATIVE:\n  ─────────────────────────────────\n  BIM coordination must happen in DD, not CDs.\n  If ducts fight beams in DD → resolve in design (cheap).\n  If ducts fight beams in CDs → resolve by RFI (expensive).\n  If ducts fight beams in field → crisis (very expensive).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "### Construction Documents (CDs)",
+      "confidence": "candidate",
+      "text": "  CD DELIVERABLES\n  ================\n\n  DRAWINGS:\n  Site plan, grading, utilities (civil)\n  Floor plans (1\"=8' and 1\"=4' scale)\n  Reflected ceiling plans\n  Elevations (all four sides)\n  Building sections\n  Wall sections (1\"=1' scale)\n  Details (1\"=1' to full scale)\n  Door, window, hardware schedules\n  Finish schedule (every room, every surface)\n  Equipment schedules\n  Structural: all plan / section / detail / schedule drawings\n  Mechanical: equipment, duct, pipe, equipment schedules\n  Electrical: power, lighting, fire alarm plans + schedules\n  Plumbing: plans, riser diagrams, fixture schedules\n  Fire protection: sprinkler layout, hydraulic calcs\n\n  TYPICAL DRAWING COUNT:\n  ────────────────────────────────────────────────────────────────\n  Small commercial (5,000 sqft):        20–50 sheets\n  Medium commercial (50,000 sqft):      100–300 sheets\n  Large hospital (500,000 sqft):        1,000–3,000 sheets\n  Major data center campus:             500–2,000 sheets",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 300,
+      "heading_context": "### What BIM Is",
+      "confidence": "candidate",
+      "text": "  BIM vs CAD\n  ===========\n\n  CAD                            BIM\n  ───────                        ─────\n  Lines, arcs, circles           Objects with properties\n  No meaning                     Wall = fire rating + U-value + cost\n  No coordination                Model coordinates automatically\n  Drawings are the product       Drawings extracted from model\n  2D primary                     3D primary\n  No clash detection             Hard + soft clash detection\n  No quantity take-off           Automatic QTO\n  No lifecycle data              COBie data handoff to FM\n\n  ANALOGY TO SOFTWARE:\n  CAD = plain text files\n  BIM = typed object model with a schema\n  BIM coordination = static type checking applied to geometry\n  BIM clash detection = runtime assertion on spatial conflicts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 356,
+      "heading_context": "### Revit and IFC",
+      "confidence": "candidate",
+      "text": "  REVIT ECOSYSTEM\n  ================\n\n  Autodesk Revit: dominant authoring tool (~70% market share)\n  Revit Architecture: walls, floors, roofs, casework\n  Revit Structure: beams, columns, foundations\n  Revit MEP: ducts, pipes, conduit, equipment\n\n  REVIT FEATURES:\n  - Families: parametric objects (a window with adjustable width)\n  - Schedules: automatic from model (door schedule, room schedule)\n  - Phases: construction phases, demolition, new work\n  - Worksets: collaborative editing by team on same model\n  - Dynamo: visual programming / automation plugin\n\n  IFC (Industry Foundation Classes):\n  ─────────────────────────────────────\n  Open standard (buildingSMART International)\n  Format: .ifc (text-based STEP format) or .ifcZIP\n  Analogy: IFC is to BIM what STEP is to mechanical CAD\n  Purpose: vendor-neutral exchange between Revit, ArchiCAD,\n           CATIA, Tekla, etc.\n\n  IFC LIMITATIONS:\n  Round-trip fidelity: poor\n  Export to IFC → import to another tool → data loss\n  Proprietary tools retain their native formats for\n  production; IFC is used for handoff, not authoring.\n\n  COBie (Construction Operations Building Information Exchange):\n  ──────────────────────────────────────────────────────────────\n  Spreadsheet (Excel/CSV) containing asset data:\n  Space names, equipment list, manufacturer data,\n  warranty data, maintenance schedules, spare parts.\n  Delivered to FM (facilities management) at handover.\n  UK Government requires COBie on public projects.\n  Analogy: COBie is the API documentation for the building's\n  maintenance interface. The FM team inherits the building\n  and needs to know what everything is and how to maintain it.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 404,
+      "heading_context": "### Grasshopper + Rhino",
+      "confidence": "candidate",
+      "text": "  PARAMETRIC DESIGN WORKFLOW\n  ============================\n\n  RHINO (McNeel):\n  - NURBS-based 3D geometry\n  - Industry standard for complex freeform geometry\n  - Used by: Zaha Hadid, Gehry, BIG, Snøhetta\n  - Grasshopper: visual programming plugin\n\n  GRASSHOPPER MENTAL MODEL:\n  Input Parameters → Algorithm → Geometry Output\n\n  [slider: column count]    →  [divide curve]\n  [number: height]          →  [extrude]\n  [material: glass/metal]   →  [evaluate geometry]\n                               [export to fabrication]\n\n  This is visual programming. The \"code\" is a network\n  of connected nodes (components), not text.\n  Analogy: Azure Data Factory pipeline = Grasshopper canvas.\n  Both are dataflow programming environments.\n\n  USES:\n  - Facade panel rationalization (optimize complex curves to\n    flat / developable / ruled surfaces for fabrication)\n  - Structural form-finding (optimize geometry for stress)\n  - Parametric planning (vary unit mix, density, setbacks)\n  - Acoustic geometry (optimize concert hall shape for RT60)\n\n  DYNAMO (Autodesk):\n  - Visual programming plugin for Revit (like Grasshopper for Revit)\n  - Python / C# scripting in Revit\n  - Used for: automated model checking, parameter population,\n    schedule processing, geometry generation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 445,
+      "heading_context": "## Delivery Methods",
+      "confidence": "candidate",
+      "text": "  PROJECT DELIVERY COMPARISON\n  =============================\n\n  DESIGN-BID-BUILD (DBB)          DESIGN-BUILD (DB)\n  ────────────────────────        ──────────────────\n  Owner → Architect → CDs         Owner → DB Entity\n                ↓                         │\n           Competitive bid          ┌─────┴─────┐\n                ↓                   │ Architect │ Contractor │\n           GC selected              └─────┬─────┘\n                ↓                         │\n           Construction                   Build\n                                          │\n  Owner controls design.          Owner surrenders\n  Architect is owner's rep.       design authority.\n  Competitive pricing.            Single accountability.\n  GC cannot influence design.     Speed to market.\n  Most adversarial model.         Less architect independence.\n  Disputes: GC claims not in CDs  Used in: data centers,\n                                  warehouses, hospitals,\n                                  fast-track commercial\n\n  CONSTRUCTION MANAGER AT RISK (CMAR):  INTEGRATED PROJECT DELIVERY (IPD)\n  ─────────────────────────────────     ─────────────────────────────────\n  CM brought in at SD/DD.               Multi-party agreement:\n  CM provides pre-construction          Owner + Architect + GC.\n  services (pricing, schedule).         Shared risk and reward.\n  CM holds all subcontracts.            Target cost contract.\n  Architect retains design authority.   BIM-intensive.\n  GMP (Guaranteed Maximum Price)        Early contractor involvement.\n  provided at GMP milestone.            Collaborative culture required.\n  Very common for complex               Rare; requires trust and\n  institutional projects.               cultural alignment.\n\n  DATA CENTER DELIVERY (typical):\n  Owner/developer → Design-Build entity\n  (usually major data center contractor: Turner, Whiting-Turner)\n  Architect works for contractor.\n  Speed is the primary driver (time to power = revenue).\n  Standard prototypical designs repeated across campuses.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

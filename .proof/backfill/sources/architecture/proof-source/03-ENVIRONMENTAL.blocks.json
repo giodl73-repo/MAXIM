@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "architecture\\03-ENVIRONMENTAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------+\n|                  ENVIRONMENTAL DESIGN HIERARCHY                    |\n|                                                                    |\n|  1. PASSIVE STRATEGIES (free — use sun, wind, mass, earth)         |\n|     - Orientation (reduce solar gain / maximize winter sun)        |\n|     - Shading devices (overhang, fins, trees)                      |\n|     - Thermal mass (phase shift, dampen swings)                    |\n|     - Natural ventilation (cross-ventilation, stack effect)        |\n|     - Earth sheltering, green roofs                                |\n|                          |                                         |\n|  2. HIGH-PERFORMANCE ENVELOPE                                      |\n|     - Insulation (R-value / U-value)                               |\n|     - Air barrier (airtightness)                                   |\n|     - Glazing (g-value, U-value)                                   |\n|     - Thermal bridging elimination                                 |\n|                          |                                         |\n|  3. DAYLIGHTING                                                    |\n|     - Window placement (orientation, size, glare control)          |\n|     - Top-lighting (skylights — 3× more efficient)                 |\n|     - Light shelves, diffuse glazing                               |\n|                          |                                         |\n|  4. ACTIVE SYSTEMS (minimize — see hvac/ directory)                |\n|     - Sized to the reduced load from steps 1–3                     |\n|     - High-efficiency equipment (heat pumps, ERV)                  |\n|                          |                                         |\n|  5. RATING / VERIFICATION                                          |\n|     - LEED, BREEAM, WELL, Passivhaus, Living Building              |\n|     - Energy modeling (EnergyPlus, OpenStudio)                     |\n+--------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "### Solar Geometry",
+      "confidence": "candidate",
+      "text": "  SUN ANGLES (Northern Hemisphere)\n  ==================================\n\n  SUMMER SOLSTICE (June 21):        WINTER SOLSTICE (Dec 21):\n  High sun angle                    Low sun angle\n  Solar altitude at noon:           Solar altitude at noon:\n    40°N latitude: ~73°               40°N latitude: ~26°\n    50°N latitude: ~63°               50°N latitude: ~16°\n\n  IMPLICATIONS:\n  ─────────────\n  South-facing walls:\n  - Get LOW-angle winter sun (desirable — heat gain, daylight)\n  - Get HIGH-angle summer sun (easy to shade with horizontal overhang)\n  - BEST orientation for temperate climates\n\n  East/West-facing walls:\n  - Morning (east) and afternoon (west) sun is LOW-angle\n  - Impossible to shade with horizontal overhang\n  - Maximum summer heat gain (afternoon west is worst)\n  - Minimize east/west glazing in hot climates\n\n  North-facing walls (Northern Hemisphere):\n  - Never direct sun (below Arctic Circle)\n  - Diffuse sky light only — even, glare-free\n  - Best for studio/gallery/office tasks requiring consistent light\n  - No solar gain → good in hot climates, needs insulation in cold\n\n  OVERHANG DESIGN:\n  ─────────────────\n                ├─── d ───┤\n  ──────────────┐\n  OVERHANG      │\n  ──────────────┘         Shadow angle at noon = sun altitude\n                |         Summer: shade window fully (high sun)\n           WINDOW         Winter: admit sun fully (low sun)\n                |\n                           Overhang depth d = window height h × (1/tan α_summer)\n                           where α_summer = noon solar altitude in summer\n\n  For 40°N latitude:\n  d ≈ h × (1/tan 73°) ≈ h × 0.30  (overhang 30% of window height)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "### Thermal Mass",
+      "confidence": "candidate",
+      "text": "  THERMAL MASS BEHAVIOR\n  ======================\n\n  WITHOUT MASS:                    WITH MASS:\n\n  Temp                             Temp\n   |   /\\                           |      ___\n   |  /  \\  interior                |     /   \\  interior\n   | /    \\ follows                 |    /     \\ (phase shifted,\n   |/      \\ outdoor                |   /       \\  damped)\n   |        \\___                    |  /         \\___\n   +──────────────  time            +──────────────────  time\n   6am    noon   6pm               6am    noon    midnight\n\n  Mass materials (thermal capacitance):\n  Concrete (150 mm):    lag ≈ 4–6 hours, damping factor 0.4–0.6\n  Brick (220 mm):       lag ≈ 6–8 hours, damping factor 0.3–0.5\n  Stone (300 mm):       lag ≈ 8–12 hours\n\n  EFFECTIVE CONDITIONS:\n  Works best where diurnal temperature swing ≥ 10°C (18°F)\n  and nights are cool (Mediterranean, high-altitude climates)\n  Less effective in humid tropical climates (warm nights = no discharge)\n\n  DATA CENTER ANALOGY:\n  Thermal mass is a thermal capacitor — same as a heat sink.\n  Time constant = mass × specific heat / (surface × h-coefficient)\n  The architect is designing thermal RC circuits.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "### Natural Ventilation",
+      "confidence": "candidate",
+      "text": "  NATURAL VENTILATION MECHANISMS\n  ================================\n\n  CROSS-VENTILATION:\n  ┌─────────────────────────────────────────┐\n  │                                         │\n  │ INLET    →→→ wind-driven air →→→  OUTLET│\n  │ (low     →→→ cross the floor →→→  (high │\n  │  pressure)                     pressure)│\n  └─────────────────────────────────────────┘\n\n  Requirements:\n  - Openings on opposite (or at least two) walls\n  - Building depth ≤ 5× story height for single-sided\n  - Building depth ≤ 15m (50ft) for cross-ventilation to work\n\n  STACK EFFECT (thermal buoyancy):\n  Hot air rises — use this:\n\n           [EXHAUST OPENINGS AT TOP]\n                    ↑ ↑ ↑\n               warm air rises\n  ┌─────────────────────────────────────┐\n  │                         heated      │\n  │                         air         │\n  │                                     │\n  │    cool air enters at base          │\n  └─────────────────────────────────────┘\n           [INLET OPENINGS AT BASE]\n\n  Stack height determines pressure: ΔP = ρ g H (ΔT/T)\n  Greater height difference → more pressure → more flow\n  Works year-round in hot climates; works in summer in temperate\n\n  HYBRID (mixed-mode):\n  Natural ventilation when conditions allow.\n  Mechanical backup when conditions require.\n  Best of both — common in high-performance institutional buildings.\n  BMS (building management system) manages the mode transitions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "### Key Metrics",
+      "confidence": "candidate",
+      "text": "  ENVELOPE PERFORMANCE VOCABULARY\n  ==================================\n\n  U-VALUE (W/m²K or BTU/hr·ft²·°F):\n  Thermal transmittance — rate of heat transfer per unit area\n  per degree temperature difference.\n  LOWER IS BETTER (less heat flows through).\n  U = 1/R (reciprocal of R-value)\n\n  R-VALUE (m²K/W or hr·ft²·°F/BTU):\n  Thermal resistance — reciprocal of U-value.\n  HIGHER IS BETTER (more resistance to heat flow).\n  Add R-values in series (layers of insulation sum).\n\n  g-VALUE (SHGC — Solar Heat Gain Coefficient):\n  Fraction of incident solar radiation transmitted through glazing.\n  Range: 0.2 (very low SHGC, solar-rejecting) to 0.7 (clear glass)\n  HOT CLIMATE: low g-value (reject solar gain)\n  COLD CLIMATE: higher g-value on south (admit solar gain)\n\n  AIR LEAKAGE (ACH or m³/hr·m²):\n  Air changes per hour through infiltration at 50 Pa.\n  Standard building: 3–10 ACH50\n  Good building: 1–3 ACH50\n  Passivhaus: 0.6 ACH50 (test requirement)\n\n  TYPICAL VALUES (2024 good practice, US):\n  ──────────────────────────────────────────\n  Wall assembly:        R-20 to R-30 (U-0.05 to 0.033)\n  Roof/ceiling:         R-30 to R-60 (U-0.033 to 0.017)\n  Window (triple glaz): U-0.15 to 0.20, g ≈ 0.30–0.50\n  Window (dbl glaz LE): U-0.25 to 0.35, g ≈ 0.25–0.45\n\n  THERMAL BRIDGING:\n  Continuous insulation (ci) vs cavity insulation:\n  - Steel studs: R-21 cavity but only R-7 effective (70% penalty)\n  - Steel conducts heat through the studs, bridging the insulation\n  - Passivhaus requires: all insulation continuous, no steel through",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 241,
+      "heading_context": "### Passivhaus Standard",
+      "confidence": "candidate",
+      "text": "  PASSIVHAUS PERFORMANCE REQUIREMENTS\n  ======================================\n\n  HEATING DEMAND:       ≤ 15 kWh/m²·yr\n                        (typical new building: 60–120 kWh/m²·yr)\n  COOLING DEMAND:       ≤ 15 kWh/m²·yr (or ≤ 10 W/m² peak)\n  TOTAL PRIMARY ENERGY: ≤ 120 kWh/m²·yr (all energy uses)\n  AIRTIGHTNESS:         ≤ 0.6 ACH at 50 Pa pressure test\n  THERMAL COMFORT:      ≤ 10% of hours with uncomfortable temps\n\n  THE FIVE PILLARS:\n  ─────────────────\n  1. INSULATION         Superinsulation (R-30+ walls, R-50+ roofs)\n                        Continuous — no thermal bridges\n\n  2. WINDOWS            Triple glazing, U ≤ 0.8 W/m²K\n                        Insulated frames, low-e coatings\n\n  3. AIRTIGHTNESS       0.6 ACH50 — blower door verified\n                        Taped membranes at all penetrations\n\n  4. THERMAL BRIDGE     Zero tolerance: all junctions modeled,\n     FREE               detailed, and verified\n\n  5. MECHANICAL         MVHR (mechanical ventilation with heat\n     VENTILATION        recovery) — 75–90% heat recovery\n     WITH HEAT          Provides fresh air without losing heat\n     RECOVERY (MVHR)\n\n  PHPP (Passivhaus Planning Package):\n  Excel-based energy balance tool. Extremely detailed.\n  Models climate, solar gains, internal gains, infiltration,\n  thermal bridges, occupancy. The specification tool for PH.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "### Room Acoustics",
+      "confidence": "candidate",
+      "text": "  ACOUSTIC DESIGN VOCABULARY\n  ============================\n\n  REVERBERATION TIME (RT60):\n  Time for sound to decay 60 dB after source stops.\n  LONGER = more reverberant (cathedrals, concert halls)\n  SHORTER = more anechoic (recording studios, open offices)\n\n  RECOMMENDED RT60 BY SPACE TYPE:\n  ──────────────────────────────────\n  Music performance hall:   1.8–2.2 seconds\n  Opera house:              1.4–1.7 seconds\n  Chamber music:            1.4–1.7 seconds\n  Lecture / speech:         0.6–1.0 seconds\n  Open plan office:         0.3–0.5 seconds\n  Recording studio:         0.2–0.4 seconds\n  HVAC hum reference:       RT60 < 0.3 creates discomfort\n\n  RT60 (Sabine formula): T = 0.161 V / A\n  V = room volume (m³)\n  A = total absorption (m² Sabin = area × NRC)\n\n  NRC (Noise Reduction Coefficient):\n  0 = perfect reflector (glass, concrete)\n  0.5 = 50% absorption\n  1.0 = perfect absorber (special acoustic foam)\n\n  SOUND TRANSMISSION CLASS (STC):\n  Single-number rating for sound isolation between spaces.\n  HIGHER = better isolation.\n\n  STC PERFORMANCE:\n  ──────────────────────────────────────────────────\n  STC 25: normal speech clearly understood through wall\n  STC 30: loud speech understood\n  STC 40: loud speech heard but not intelligible\n  STC 50: loud speech barely audible\n  STC 60: excellent isolation (recording studio, court)\n\n  TYPICAL ASSEMBLIES:\n  Single drywall stud wall: STC 34\n  Double drywall stud wall: STC 45–50\n  Concrete masonry 8\" CMU: STC 50–52\n  Concrete 8\" solid:        STC 56–58\n\n  FLANKING PATHS:\n  The weakest link determines the STC.\n  A STC-60 wall is irrelevant if sound travels through:\n  - The ceiling plenum\n  - The ductwork\n  - Electrical outlets (back-to-back)\n  - Structural floor/ceiling assembly\n\n  OPEN OFFICE ACOUSTICS:\n  Three variables: absorption (RT60), blocking (partitions),\n  and masking (background noise).\n  The ABCs of open office acoustics (Ecophon/Aurelius framework).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 395,
+      "heading_context": "### EnergyPlus",
+      "confidence": "candidate",
+      "text": "  ENERGY MODELING TOOL STACK\n  ============================\n\n  DATA INPUT                   ENGINE                 OUTPUT\n  ─────────                    ──────                 ──────\n  IDF / IDD                    EnergyPlus             EnergyUse (kWh/yr)\n  (text format)                (DOE, C++)             Load profiles\n  or                           │                      HVAC sizing\n  OpenStudio                   ├─ Hourly simulation   Fuel bills\n  (Revit plugin,               │  (8,760 hrs/yr)      CO2 emissions\n  visual interface)            │                      Peak loads\n  or                           └─ Weather file input\n  DesignBuilder                  (EnergyPlus .epw)\n  (commercial GUI)\n\n  USES IN DESIGN:\n  - Compare passive design alternatives (orientation, shading)\n  - Size HVAC systems (calculate peak and annual loads)\n  - Predict LEED energy points (EA Prerequisite 2)\n  - Compliance with ASHRAE 90.1 (US energy code)\n  - Operational energy certificates (EPC in UK)\n\n  LIMITATIONS:\n  - Only as good as the input assumptions\n  - Occupant behavior is the wildest variable\n  - Construction quality affects actual vs modeled performance\n    (the \"performance gap\" — modeled vs measured is typically 20–50%)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 431,
+      "heading_context": "### Comparison Matrix",
+      "confidence": "candidate",
+      "text": "  RATING SYSTEM COMPARISON\n  ==========================\n\n  LEED v4          BREEAM            WELL v2         LIVING BUILDING\n  (US-dominant)    (UK-dominant)     (Health focus)  CHALLENGE\n  ──────────────   ──────────────    ──────────────  ──────────────────\n  Points-based     Points-based      Performance-    Net positive\n  Certified /      Pass/Good/Very    based           (regenerative)\n  Silver/Gold/     Good/Excellent/   Preconditions\n  Platinum         Outstanding       + Optimizations\n\n  8 categories:    9 categories:     10 concepts:    7 petals:\n  Sustainable      Management        Air             Place\n  Sites            Health &          Water           Water\n  Water            Wellbeing         Nourishment     Energy\n  Energy           Energy            Light           Health + Happiness\n  Materials        Transport         Movement        Materials\n  Indoor Env.      Water             Thermal         Equity\n  Innovation       Materials         Sound           Beauty\n  Regional         Waste             Mind\n                   Land Use\n                   Pollution\n\n  Widely adopted.  More holistic     Employer        Most ambitious.\n  Criticized for   than LEED.        market: WeWork, Actual performance\n  \"checkbox\"       Strong in         etc.            required.\n  gaming.          commercial UK.    WELL AP cert.   Very few buildings.\n\n  FOCUS:           FOCUS:            FOCUS:          FOCUS:\n  Buildings.       Buildings.        Human health.   Regeneration.\n  Mostly design.   Design +          Certifies       Annual measured\n  Some measured    management.       buildings AND   data required.\n  performance.     More ops weight.  company interiors.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 469,
+      "heading_context": "### The Embodied Carbon Frontier",
+      "confidence": "candidate",
+      "text": "  OPERATIONAL vs EMBODIED CARBON\n  ================================\n\n  OPERATIONAL CARBON:\n  Carbon emitted from running the building (heating, cooling,\n  lighting, plug loads).\n  Targeted by LEED/BREEAM energy credits, Passivhaus.\n  CAN be driven to zero with renewables + heat pumps.\n\n  EMBODIED CARBON:\n  Carbon emitted from materials manufacturing + construction.\n  Upfront carbon = concrete (cement production) + steel\n  (blast furnace) + glass + insulation manufacturing.\n  CANNOT be offset — it has already been emitted before\n  the building opens.\n\n  THE SHIFT:\n  2000s thinking: optimize operational energy (LEED Era 1)\n  2024 thinking: operational is nearly zeroed out for high-\n                 performance buildings. Embodied is now the\n                 dominant lifetime contribution.\n\n  AS BUILDINGS GET MORE EFFICIENT OPERATIONALLY,\n  EMBODIED CARBON BECOMES THE LARGER FRACTION.\n\n  Typical new commercial building (60-year life):\n  Embodied: 40–60% of lifetime carbon (upfront)\n  Operational: 40–60% (accumulated over 60 years)\n\n  IMPLICATIONS FOR MATERIAL CHOICE:\n  ────────────────────────────────────\n  Concrete (cement):  ~800 kg CO2/tonne — high embodied\n  Steel (BF):         ~1,800 kg CO2/tonne — very high\n  Steel (EAF, scrap): ~400 kg CO2/tonne — better\n  Timber (CLT):       negative carbon (sequesters while growing)\n                      ~(-500) to +200 kg CO2/m³ (depending on grid)\n  Brick:              ~200–250 kg CO2/tonne\n  Aluminum:           ~8,000–11,000 kg CO2/tonne — extremely high\n\n  WHY MASS TIMBER EXPLODED:\n  CLT sequesters carbon during tree growth.\n  Carbon stored in the timber for building lifetime.\n  Factory fabrication reduces construction waste.\n  The full lifecycle carbon is strongly favorable vs concrete.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

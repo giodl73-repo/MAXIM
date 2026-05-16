@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:religious-studies:indigenous
+kind: guide
+module: religious-studies
+section: religious-studies
+title: Indigenous and Folk Religions
+status: source-custody
+source_custody: partial
+current_path: religious-studies/04-INDIGENOUS.md
+canonical_path: religious-studies/04-INDIGENOUS.md
+backsource_ids: [proof-backfill:religious-studies:04-indigenous, git-history:religious-studies:04-indigenous]
+concepts: [indigenous]
+root_concepts: [indigenous]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Indigenous and Folk Religions
 
 ## The Big Picture
