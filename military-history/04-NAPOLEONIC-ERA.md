@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:military-history:napoleonic-era
+kind: guide
+module: military-history
+section: military-history
+title: The Napoleonic Era: Corps System, Operational Art, and Mass Armies
+status: source-custody
+source_custody: partial
+current_path: military-history/04-NAPOLEONIC-ERA.md
+canonical_path: military-history/04-NAPOLEONIC-ERA.md
+backsource_ids: [proof-backfill:military-history:04-napoleonic-era, git-history:military-history:04-napoleonic-era]
+concepts: [napoleonic, era]
+root_concepts: [napoleonic, era]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Napoleonic Era: Corps System, Operational Art, and Mass Armies
 
 ## The Big Picture: The Napoleonic Military Revolution
@@ -70,7 +89,7 @@ Napoleon's corps system (refined 1800-1804, fully developed by Austerlitz 1805):
 |    \          |          |          /                            |
 |     \         |          |         /                            |
 |      \        |          |        /                             |
-|       +-------+----------+-------+                             |
+|       o-------o----------o-------o                             |
 |              TARGET AREA                                       |
 |                                                                |
 |  Each corps marches on SEPARATE ROADS, 30-40 km apart          |

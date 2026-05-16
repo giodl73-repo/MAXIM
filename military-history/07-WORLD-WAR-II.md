@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:military-history:world-war-ii
+kind: guide
+module: military-history
+section: military-history
+title: World War II: Blitzkrieg, Carrier War, Strategic Bombing, and Nuclear Ending
+status: source-custody
+source_custody: partial
+current_path: military-history/07-WORLD-WAR-II.md
+canonical_path: military-history/07-WORLD-WAR-II.md
+backsource_ids: [proof-backfill:military-history:07-world-war-ii, git-history:military-history:07-world-war-ii]
+concepts: [world, war, ii]
+root_concepts: [world, war]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # World War II: Blitzkrieg, Carrier War, Strategic Bombing, and Nuclear Ending
 
 ## The Big Picture: WWII Military Innovation Map

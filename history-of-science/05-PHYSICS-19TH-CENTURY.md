@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:history-of-science:physics-19th-century
+kind: guide
+module: history-of-science
+section: history-of-science
+title: 19th-Century Physics - Thermodynamics, Electromagnetism, and the Coming Crisis
+status: source-custody
+source_custody: partial
+current_path: history-of-science/05-PHYSICS-19TH-CENTURY.md
+canonical_path: history-of-science/05-PHYSICS-19TH-CENTURY.md
+backsource_ids: [proof-backfill:history-of-science:05-physics-19th-century, git-history:history-of-science:05-physics-19th-century]
+concepts: [physics, 19th, century]
+root_concepts: [physics, 19th]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 19th-Century Physics — Thermodynamics, Electromagnetism, and the Coming Crisis
 
 ## The Big Picture

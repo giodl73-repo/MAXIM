@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "history-of-science\\09-CONTEMPORARY-SCIENCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|         CONTEMPORARY SCIENCE -- KEY TENSIONS                     |\n+------------------------------------------------------------------+\n|                                                                   |\n|  STRUCTURAL PROBLEM                REFORM RESPONSE               |\n|                                                                   |\n|  p-hacking + HARKing               Preregistration               |\n|  Publication bias (+results only)  Registered Reports            |\n|  Small samples + low power         Power calculations required    |\n|  Researcher degrees of freedom     Pre-analysis plans             |\n|  Replication not rewarded          Dedicated replication journals |\n|  Data not shared                   Open Data requirements        |\n|  Peer review: slow/biased/secret   Preprints + open review       |\n|                                                                   |\n|  AI TRANSFORMATION                                                |\n|  AlphaFold2: protein structure solved                             |\n|  LLM-assisted hypothesis generation                              |\n|  AI-driven materials discovery                                    |\n|  Automated literature synthesis                                  |\n|  AI-assisted theorem proving                                      |\n|                                                                   |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 55,
+      "heading_context": "## Layer 1: The Statistical Foundation of the Problem",
+      "confidence": "candidate",
+      "text": "### Ioannidis (2005) — The Mathematical Argument",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "### Ioannidis (2005) — The Mathematical Argument",
+      "confidence": "candidate",
+      "text": "IOANNIDIS'S ARGUMENT:\n\nKey variables:\n  R = prior probability that a tested relationship is true\n       (odds ratio of true to false hypotheses in a field)\n  alpha = Type I error rate (false positive rate), typically 0.05\n  beta = Type II error rate (false negative rate), typically 0.2\n         (statistical power = 1 - beta = 0.8)\n  u = bias factor (researcher degrees of freedom, HARKing, etc.)\n\nPOSITIVE PREDICTIVE VALUE (PPV):\nProbability that a published significant finding is true:\n\nPPV = (1-beta)*R + u*beta*R / (alpha + R*(1-beta-alpha) + u*alpha)\n        [true positives]         [false positives]\n\nSimple version (no bias):\nPPV = (1-beta)*R / ((1-beta)*R + alpha)\n\nFor R=0.1 (10% prior), alpha=0.05, power=0.8:\nPPV = 0.8*0.1 / (0.8*0.1 + 0.05*(1-0.1)) = 0.08 / (0.08 + 0.045) = 64%\n\nFor R=0.01 (exploratory), alpha=0.05, power=0.5:\nPPV = 0.5*0.01 / (0.5*0.01 + 0.05*0.99) = 0.005 / (0.0545) = 9%\n\nINTERPRETATION:\nIn exploratory fields with many tested hypotheses and low power:\nmost positive results are false.\n\nTHE BIAS TERM:\nResearcher degrees of freedom inflate the effective alpha rate.\nIf alpha_effective = 0.20 instead of 0.05 (due to undisclosed flexibility):\nPPV drops substantially.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 171,
+      "heading_context": "### The Garden of Forking Paths",
+      "confidence": "candidate",
+      "text": "FORKING PATHS EXAMPLE:\n\nStudy: does power pose affect cortisol? (Carney et al. 2010)\n\nDecision tree:\nStart\n  |\n  +-- Which cortisol measure? (before-after, % change, absolute)\n  |     |\n  |     +-- When to exclude outliers?\n  |           |\n  |           +-- Which covariates? (gender, BMI, time of day, ...)\n  |                 |\n  |                 +-- One-tail or two-tail test?\n\nEach path produces a different p-value.\nThe researcher follows the path that \"looks interesting.\"\nThe reported path is not the only one tried -- just the best.\n\nWHAT WAS ACTUALLY DONE:\nThe researcher may have genuinely not tried all paths.\nBut unconscious hypothesis-confirming choices guide the path.\nThe resulting p-value is not from a single pre-specified test --\nit is the best of many implicit comparisons.\n\nThis is like testing a coin 100 times, selecting the 5 runs\nwhere it came up heads 7 times in a row, and reporting\n\"significant evidence of bias.\" Technically each run was\na real experiment. The selection invalidates the inference.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 438,
+      "heading_context": "### Open Science as Institutional Policy",
+      "confidence": "candidate",
+      "text": "OPEN SCIENCE GOVERNANCE LAYER\n================================\n\nFAIR DATA PRINCIPLES (Wilkinson et al., 2016):\n  Published in Scientific Data; now adopted by most major funders\n  FINDABLE:    data has a persistent identifier (DOI, URL); indexed\n  ACCESSIBLE:  data retrievable via standard protocol; long-term stable\n  INTEROPERABLE: standard vocabularies; machine-readable formats\n  REUSABLE:    clear license; rich metadata; domain-relevant standards\n\n  Why this matters:\n  ~80% of scientific data is \"dark\" — exists only on the researcher's\n  hard drive; inaccessible after paper publication; unusable for\n  meta-analysis or replication\n  FAIR targets the data infrastructure layer; complements\n  preregistration (which targets the analysis layer)\n  Analogy: FAIR is to research data as open APIs + documentation\n  are to software — necessary but not sufficient for reuse\n\nPLAN S (cOAlition S, 2018):\n  Coalition of major European research funders (UKRI, NWO, Wellcome, etc.)\n  Mandate: any research funded by cOAlition S members must be\n  immediately and freely available open access (no embargo period)\n  Covers: journal articles, conference papers\n  Challenge: subscription journals (Nature, Science, Cell) still\n  dominate prestige; researchers face career incentives vs funder mandates\n  Result (2019–2024): accelerated shift to open access, but\n  \"transformative agreements\" (read-and-publish deals) created a\n  new APC (article processing charge) revenue model for publishers\n  — open access but now authors or institutions pay rather than readers\n\nPREPRINT CULTURE (arXiv, bioRxiv, medRxiv, SSRN):\n  arXiv (physics/math/CS): launched 1991; now ~2M papers; preprints\n  posted before (or instead of) formal peer review\n  bioRxiv: launched 2013; accelerated by COVID-19 (papers posted\n  days after results, not 12–18 months after submission)\n  COVID policy use case: most consequential COVID research (vaccine\n  mechanisms, transmission dynamics) was read as preprints before\n  peer review; policy decisions made on preprint evidence\n  Tradeoff: speed + access vs peer review quality gate\n\nOPEN SOURCE IN SCIENCE:\n  Computational biology/genomics: virtually all major tools are open\n  source (BLAST, Bowtie, GATK → GitHub)\n  Jupyter notebooks as reproducible analysis: executable documentation\n  that bundles code + narrative + results\n  Contrast: proprietary statistical software (SPSS, SAS) → reproducibility\n  requires the same software version; open source tools (R, Python)\n  → anyone can reproduce with free tools\n  The open-source norm in computing is being imported into science:\n  \"methods should be as open as results\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 494,
+      "heading_context": "## Layer 6: AI in Science",
+      "confidence": "candidate",
+      "text": "### AlphaFold2 — A Genuine Paradigm Shift",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 526,
+      "heading_context": "### AlphaFold2 — A Genuine Paradigm Shift",
+      "confidence": "candidate",
+      "text": "### Why AlphaFold2 is Kuhnian",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

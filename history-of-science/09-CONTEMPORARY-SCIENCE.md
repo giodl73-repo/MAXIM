@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:history-of-science:contemporary-science
+kind: guide
+module: history-of-science
+section: history-of-science
+title: Contemporary Science - Replication Crisis, AI, and the Metascience Turn
+status: source-custody
+source_custody: partial
+current_path: history-of-science/09-CONTEMPORARY-SCIENCE.md
+canonical_path: history-of-science/09-CONTEMPORARY-SCIENCE.md
+backsource_ids: [proof-backfill:history-of-science:09-contemporary-science, git-history:history-of-science:09-contemporary-science]
+concepts: [contemporary, science]
+root_concepts: [contemporary, science]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Contemporary Science — Replication Crisis, AI, and the Metascience Turn
 
 ## The Big Picture

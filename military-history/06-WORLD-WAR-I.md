@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:military-history:world-war-i
+kind: guide
+module: military-history
+section: military-history
+title: World War I: Stalemate, Attrition, and the Search for Breakthrough
+status: source-custody
+source_custody: partial
+current_path: military-history/06-WORLD-WAR-I.md
+canonical_path: military-history/06-WORLD-WAR-I.md
+backsource_ids: [proof-backfill:military-history:06-world-war-i, git-history:military-history:06-world-war-i]
+concepts: [world, war, i]
+root_concepts: [world, war]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # World War I: Stalemate, Attrition, and the Search for Breakthrough
 
 ## The Big Picture: Why WWI Became a Stalemate

@@ -1,10 +1,29 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:military-history:overview
+kind: guide
+module: military-history
+section: military-history
+title: Military History - Overview: War as Technology Driver and Social Organizer
+status: source-custody
+source_custody: partial
+current_path: military-history/00-OVERVIEW.md
+canonical_path: military-history/00-OVERVIEW.md
+backsource_ids: [proof-backfill:military-history:00-overview, git-history:military-history:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Military History — Overview: War as Technology Driver and Social Organizer
 
 ## The Big Picture: Revolution in Military Affairs Timeline
 
 ```
 +------------------------------------------------------------------+
-|              REVOLUTION IN MILITARY AFFAIRS (RMA) CYCLE         |
+|              REVOLUTION IN MILITARY AFFAIRS (RMA) CYCLE          |
 |                                                                  |
 |  Technology       Dominant System     Vulnerability Created      |
 |  Disruption       Enabled             Counter Doctrine           |
@@ -56,25 +75,19 @@ Carl von Clausewitz, *On War* (posthumous 1832, written 1816-1830). The foundati
 +-------------------------------------------------------------+
 |                    CLAUSEWITZ'S TRINITY                     |
 |                                                             |
-|              +---------------------------+                  |
-|              |       THE STATE           |                  |
-|              |  Government / Reason /    |                  |
-|              |  Policy aims              |                  |
-|              +---------------------------+                  |
-|                     /            \                          |
-|                    /              \                         |
-|     +------------------+    +------------------+           |
-|     |   THE PEOPLE     |    |   THE MILITARY   |           |
-|     | Passion / Hatred |    | Chance / Skill / |           |
-|     | Primordial       |    | Friction / Fog   |           |
-|     | violence         |    | of war           |           |
-|     +------------------+    +------------------+           |
+|                 [ THE STATE ]                               |
+|                 Government / Reason / Policy aims           |
+|                        /              \                     |
+|                       /                \                    |
+|        [ THE PEOPLE ]              [ THE MILITARY ]         |
+|        Passion / Hatred             Chance / Skill /        |
+|        Primordial violence          Friction / Fog of war   |
 |                                                             |
-|  All three must remain in tension. Break any leg:          |
-|  - State loses popular support -> political collapse       |
-|  - Military operates without policy aims -> strategic      |
-|    drift (MacArthur, Korea 1950-51)                        |
-|  - Passion without state control -> genocide / atrocity    |
+|  All three must remain in tension. Break any leg:           |
+|  - State loses popular support -> political collapse        |
+|  - Military operates without policy aims -> strategic       |
+|    drift (MacArthur, Korea 1950-51)                         |
+|  - Passion without state control -> genocide / atrocity     |
 +-------------------------------------------------------------+
 
 Core thesis: "War is the continuation of politics by other means."
@@ -109,10 +122,10 @@ objectives becomes purposeless violence.
 |   state, CJCS)   | Time horizon: months to years              |
 |                   | Currency: national power, alliances,       |
 |                   |   political will, economic resources       |
-+-------------------+--------------------------------------------+
+|-------------------|--------------------------------------------|
 |                                |                                |
 |                                v                                |
-+-------------------+--------------------------------------------+
+|-------------------|--------------------------------------------|
 |  OPERATIONAL      HOW do we orchestrate military force to      |
 |  (theater         | achieve strategic goals?                   |
 |   commanders,     | "Encircle Army Group South, cut supply     |
@@ -120,16 +133,16 @@ objectives becomes purposeless violence.
 |                   | Time horizon: weeks to months              |
 |                   | Currency: logistics, operational maneuver, |
 |                   |   campaign design, lines of operation      |
-+-------------------+--------------------------------------------+
+|-------------------|--------------------------------------------|
 |                                |                                |
 |                                v                                |
-+-------------------+--------------------------------------------+
+|-------------------|--------------------------------------------|
 |  TACTICAL         HOW do we win individual engagements?        |
 |  (battalion and   | "Take that ridge before nightfall"         |
 |   below)          | Time horizon: hours to days                |
 |                   | Currency: firepower, maneuver, terrain,    |
 |                   |   unit cohesion, initiative                |
-+-------------------+--------------------------------------------+
+|-------------------|--------------------------------------------|
 
 KEY INSIGHT: You can win every tactical engagement and still lose
 the war. The US military won essentially every significant tactical
