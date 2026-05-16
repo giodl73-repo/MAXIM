@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:artists-architects:modern-art
+kind: guide
+module: artists-architects
+section: artists-architects
+title: Modern Art - Picasso, Matisse, Duchamp, Kandinsky, Mondrian
+status: source-custody
+source_custody: partial
+current_path: artists-architects/06-MODERN-ART.md
+canonical_path: artists-architects/06-MODERN-ART.md
+backsource_ids: [proof-backfill:artists-architects:06-modern-art, git-history:artists-architects:06-modern-art]
+concepts: [modern, art]
+root_concepts: [modern, art]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Art — Picasso, Matisse, Duchamp, Kandinsky, Mondrian
 
 ## The Modern Art Revolution (1905–1940)

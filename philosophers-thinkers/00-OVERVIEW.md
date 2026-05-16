@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophers-thinkers:overview
+kind: guide
+module: philosophers-thinkers
+section: philosophers-thinkers
+title: Philosophers and Thinkers - Overview
+status: source-custody
+source_custody: partial
+current_path: philosophers-thinkers/00-OVERVIEW.md
+canonical_path: philosophers-thinkers/00-OVERVIEW.md
+backsource_ids: [proof-backfill:philosophers-thinkers:00-overview, git-history:philosophers-thinkers:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Philosophers & Thinkers — Overview
 
 ## The Big Picture

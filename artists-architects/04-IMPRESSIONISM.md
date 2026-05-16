@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:artists-architects:04-impressionism
+kind: guide
+module: artists-architects
+section: artists-architects
+title: Impressionism - Monet, Manet, Degas, Renoir, Cassatt, Pissarro
+status: source-custody
+source_custody: partial
+current_path: artists-architects/04-IMPRESSIONISM.md
+canonical_path: artists-architects/04-IMPRESSIONISM.md
+backsource_ids: [proof-backfill:artists-architects:04-impressionism, git-history:artists-architects:04-impressionism]
+concepts: [impressionism]
+root_concepts: [impressionism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Impressionism — Monet, Manet, Degas, Renoir, Cassatt, Pissarro
 
 ## What Impressionism Actually Was

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:artists-architects:post-impressionism
+kind: guide
+module: artists-architects
+section: artists-architects
+title: Post-Impressionism - Cezanne, Van Gogh, Gauguin, Seurat
+status: source-custody
+source_custody: partial
+current_path: artists-architects/05-POST-IMPRESSIONISM.md
+canonical_path: artists-architects/05-POST-IMPRESSIONISM.md
+backsource_ids: [proof-backfill:artists-architects:05-post-impressionism, git-history:artists-architects:05-post-impressionism]
+concepts: [post, impressionism]
+root_concepts: [post, impressionism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Post-Impressionism — Cezanne, Van Gogh, Gauguin, Seurat
 
 ## What Post-Impressionism Is

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophers-thinkers:kant-german-idealism
+kind: guide
+module: philosophers-thinkers
+section: philosophers-thinkers
+title: Kant and German Idealism - Kant, Fichte, Schelling, Hegel
+status: source-custody
+source_custody: partial
+current_path: philosophers-thinkers/06-KANT-GERMAN-IDEALISM.md
+canonical_path: philosophers-thinkers/06-KANT-GERMAN-IDEALISM.md
+backsource_ids: [proof-backfill:philosophers-thinkers:06-kant-german-idealism, git-history:philosophers-thinkers:06-kant-german-idealism]
+concepts: [kant, german, idealism]
+root_concepts: [kant, german]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Kant and German Idealism — Kant, Fichte, Schelling, Hegel
 
 ## The Big Picture

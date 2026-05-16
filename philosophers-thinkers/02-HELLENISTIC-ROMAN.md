@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophers-thinkers:hellenistic-roman
+kind: guide
+module: philosophers-thinkers
+section: philosophers-thinkers
+title: Hellenistic and Roman Philosophy - Epicureans, Stoics, Skeptics, Neoplatonists
+status: source-custody
+source_custody: partial
+current_path: philosophers-thinkers/02-HELLENISTIC-ROMAN.md
+canonical_path: philosophers-thinkers/02-HELLENISTIC-ROMAN.md
+backsource_ids: [proof-backfill:philosophers-thinkers:02-hellenistic-roman, git-history:philosophers-thinkers:02-hellenistic-roman]
+concepts: [hellenistic, roman]
+root_concepts: [hellenistic, roman]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hellenistic and Roman Philosophy — Epicureans, Stoics, Skeptics, Neoplatonists
 
 ## The Shift After Alexander

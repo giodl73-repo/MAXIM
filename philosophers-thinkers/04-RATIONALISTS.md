@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophers-thinkers:rationalists
+kind: guide
+module: philosophers-thinkers
+section: philosophers-thinkers
+title: The Rationalists - Descartes, Spinoza, Leibniz
+status: source-custody
+source_custody: partial
+current_path: philosophers-thinkers/04-RATIONALISTS.md
+canonical_path: philosophers-thinkers/04-RATIONALISTS.md
+backsource_ids: [proof-backfill:philosophers-thinkers:04-rationalists, git-history:philosophers-thinkers:04-rationalists]
+concepts: [rationalists]
+root_concepts: [rationalists]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Rationalists — Descartes, Spinoza, Leibniz
 
 ## The Big Picture

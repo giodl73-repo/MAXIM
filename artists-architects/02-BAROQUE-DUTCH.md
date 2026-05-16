@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:artists-architects:baroque-dutch
+kind: guide
+module: artists-architects
+section: artists-architects
+title: Baroque and Dutch Masters - Caravaggio, Rubens, Rembrandt, Vermeer, Velazquez
+status: source-custody
+source_custody: partial
+current_path: artists-architects/02-BAROQUE-DUTCH.md
+canonical_path: artists-architects/02-BAROQUE-DUTCH.md
+backsource_ids: [proof-backfill:artists-architects:02-baroque-dutch, git-history:artists-architects:02-baroque-dutch]
+concepts: [baroque, dutch]
+root_concepts: [baroque, dutch]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Baroque and Dutch Masters — Caravaggio, Rubens, Rembrandt, Vermeer, Velazquez
 
 ## The Baroque Context

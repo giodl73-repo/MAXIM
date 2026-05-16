@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophers-thinkers:empiricists-enlightenment
+kind: guide
+module: philosophers-thinkers
+section: philosophers-thinkers
+title: The Empiricists and the Enlightenment - Locke, Berkeley, Hume, Rousseau
+status: source-custody
+source_custody: partial
+current_path: philosophers-thinkers/05-EMPIRICISTS-ENLIGHTENMENT.md
+canonical_path: philosophers-thinkers/05-EMPIRICISTS-ENLIGHTENMENT.md
+backsource_ids: [proof-backfill:philosophers-thinkers:05-empiricists-enlightenment, git-history:philosophers-thinkers:05-empiricists-enlightenment]
+concepts: [empiricists, enlightenment]
+root_concepts: [empiricists, enlightenment]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Empiricists and the Enlightenment — Locke, Berkeley, Hume, Rousseau
 
 ## The Big Picture

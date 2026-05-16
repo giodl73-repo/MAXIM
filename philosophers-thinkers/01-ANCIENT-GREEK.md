@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophers-thinkers:ancient-greek
+kind: guide
+module: philosophers-thinkers
+section: philosophers-thinkers
+title: Ancient Greek Philosophy - Pre-Socratics, Socrates, Plato, Aristotle
+status: source-custody
+source_custody: partial
+current_path: philosophers-thinkers/01-ANCIENT-GREEK.md
+canonical_path: philosophers-thinkers/01-ANCIENT-GREEK.md
+backsource_ids: [proof-backfill:philosophers-thinkers:01-ancient-greek, git-history:philosophers-thinkers:01-ancient-greek]
+concepts: [ancient, greek]
+root_concepts: [ancient, greek]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient Greek Philosophy — Pre-Socratics, Socrates, Plato, Aristotle
 
 ## Intellectual Lineage
@@ -127,7 +146,7 @@ This is essentially Platonic realism about universals — the position that type
   INSIDE CAVE                          OUTSIDE CAVE
   ┌────────────────────────────┐       ┌─────────────────────┐
   │ Prisoners chained, facing  │       │ Actual objects      │
-  │ wall. See only shadows     │  ──>  │ The Sun (= The Good) │
+  │ wall. See only shadows     │  ──>  │ Sun (= The Good)    │
   │ of objects carried past    │       │ Direct knowledge    │
   │ the fire. Take shadows     │       └─────────────────────┘
   │ for reality.               │
@@ -211,7 +230,7 @@ Aristotle rejects Plato's separate Forms. Universals don't exist independently �
   ┌──────────────┐      ┌────────────────────────────────┐
   │ Form of Dog  │      │ Each individual dog has:       │
   │ (separate,   │      │  Form (dogness) — in the dog   │
-  │  eternal)    │      │  Matter (flesh, bone) — in the dog
+  │  eternal)    │      │  Matter — in the dog           │
   └──────────────┘      │                                │
   Dogs participate in   │ Universal "dog" exists because  │
   the Form.             │ many individuals share a form.  │

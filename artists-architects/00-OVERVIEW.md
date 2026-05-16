@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:artists-architects:overview
+kind: guide
+module: artists-architects
+section: artists-architects
+title: Artists and Architects - Overview
+status: source-custody
+source_custody: partial
+current_path: artists-architects/00-OVERVIEW.md
+canonical_path: artists-architects/00-OVERVIEW.md
+backsource_ids: [proof-backfill:artists-architects:00-overview, git-history:artists-architects:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Artists & Architects — Overview
 
 ## The Big Picture
