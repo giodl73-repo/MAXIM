@@ -4,9 +4,9 @@ Frontmatter is source-corpus metadata introduced during PROOF backfill, one
 module at a time. It exists to make MAXIM queryable without breaking the
 human-readable library layout.
 
-PROOF output should not include frontmatter by default. If PROOF later adds an
-explicit option to preserve or emit frontmatter, use that only for metadata-rich
-views and generated source-corpus artifacts.
+PROOF rendered output should not include frontmatter by default. PEBBLE output
+should carry frontmatter as machine-readable metadata so CROP/FLETCH consumers
+can build source-corpus views without scraping rendered prose.
 
 ## Required fields
 
@@ -89,7 +89,11 @@ The frontmatter supports these first views:
 | Default rendered docs | Strip or omit frontmatter. |
 | Validation reports | Read frontmatter, report issues, do not copy it into rendered docs. |
 | Metadata-rich source views | Include frontmatter only with an explicit option. |
-| PEBBLE/FLETCH artifacts | Convert selected frontmatter fields into artifact metadata. |
+| PEBBLE/FLETCH artifacts | Preserve frontmatter fields as PEBBLE metadata and FLETCH-facing artifact metadata. |
+
+CROP `664b44f` and PEBBLE `d87afe6` provide the first concrete path: Markdown
+frontmatter is stripped from packed text and copied into each emitted PEBBLE
+section's metadata map.
 
 ## Backfill rule
 
