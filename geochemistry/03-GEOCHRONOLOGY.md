@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geochemistry:geochronology
+kind: guide
+module: geochemistry
+section: geochemistry
+title: Geochronology: U-Pb, Ar-Ar, and Other Systems
+status: source-custody
+source_custody: partial
+current_path: geochemistry/03-GEOCHRONOLOGY.md
+canonical_path: geochemistry/03-GEOCHRONOLOGY.md
+backsource_ids: [proof-backfill:geochemistry:03-geochronology, git-history:geochemistry:03-geochronology]
+concepts: [geochronology]
+root_concepts: [geochronology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Geochronology: U-Pb, Ar-Ar, and Other Systems
 
 ## The Big Picture

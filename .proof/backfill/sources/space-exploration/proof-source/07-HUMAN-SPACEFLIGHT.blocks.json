@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "space-exploration\\07-HUMAN-SPACEFLIGHT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|        HUMAN SPACEFLIGHT: CONSTRAINT DEPENDENCY CHAIN            |\n+------------------------------------------------------------------+\n|                                                                  |\n|  RADIATION (hard constraint — sets mission duration ceiling)     |\n|  GCRs ~1.8 mSv/day → ~700-1200 mSv Mars round trip             |\n|  Exceeds NASA 400-800 mSv career limit → caps mission duration  |\n|       |                                                          |\n|       v (duration cap drives everything below)                  |\n|  BONE LOSS (2%/month without countermeasures)                   |\n|  Requires 2+ hr/day vigorous exercise to mitigate               |\n|       |                                                          |\n|       v (exercise drives resource consumption)                  |\n|  ECLSS SIZING (closed-loop life support)                         |\n|  O₂ demand  + CO₂ scrubbing + water recovery + food calories    |\n|  Exercise ↑ → O₂ consumption ↑, CO₂ production ↑, water ↑      |\n|  Water recovery efficiency: 93% (goal 98%+)                      |\n|       |                                                          |\n|       v (resource mass → rocket equation → mission feasibility)  |\n|  MASS / LAUNCH CONSTRAINT                                        |\n|  ~2 kg/person/day (food) + consumables + spares + medical       |\n|  Mars 3-year mission: unfeasible without closed-loop + ISRU      |\n|                                                                  |\n|  VIIP (vision impairment) — orthogonal unresolved constraint     |\n|  70% of ISS astronauts show eye changes; no countermeasure yet  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "### Bone and Muscle",
+      "confidence": "candidate",
+      "text": "MUSCULOSKELETAL EFFECTS\n========================\n\n  BONE LOSS:\n    Rate: ~1-2% bone density per month (without countermeasures)\n    Mechanism: without weight-bearing, bone remodeling shifts to resorption\n    Primarily: lower limbs, lumbar spine, pelvis\n    Calcium: excreted in urine; elevated urinary Ca²⁺ (kidney stone risk)\n    Countermeasure: ~2 hrs/day vigorous exercise (ARED on ISS: Advanced Resistive Exercise Device)\n    Recovery: months after return; some permanent loss after long durations\n\n  MUSCLE ATROPHY:\n    Rate: ~20% loss in lower limbs within 5-11 days without exercise\n    Type I (slow-twitch endurance) fibers affected first\n    Shift to less fatigue-resistant fiber types\n    Countermeasure: combined aerobic + resistive exercise\n    ISS protocol: 6 days/week exercise, 2+ hours/day including T2 (treadmill),\n                  CEVIS (bike), ARED (weights)\n\n  FLUID SHIFT:\n    Earth: 70% of body fluid in legs (hydrostatic pressure)\n    Microgravity: fluid redistributes toward upper body\n    Facial puffiness + sinus congestion (common complaint, day 1)\n    Leg circumference decreases (\"bird legs\")\n    Cardiac output initially decreases → blood pressure adaptations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 91,
+      "heading_context": "### Vision and VIIP",
+      "confidence": "candidate",
+      "text": "VISUAL IMPAIRMENT INTRACRANIAL PRESSURE (VIIP)\n===============================================\n\n  DISCOVERY: ~70% of long-duration astronauts show structural eye changes\n  FIRST RECOGNIZED: ~2006-2010; now considered major concern for Mars\n\n  MECHANISM:\n    Fluid shift → increased intracranial pressure (ICP)\n    → Optic disc swelling (papilledema)\n    → Choroidal folds (retinal deformations)\n    → Globe flattening (eyeball shape changes)\n    → Hyperopic shift (farsightedness increases)\n    → In some: permanent visual impairment on return\n\n  SEVERITY SPECTRUM:\n    Grade 1: Cotton wool spots on retina; minimal symptoms\n    Grade 2: Optic disc edema, some visual field loss\n    Grade 3-4: Significant visual impairment (rare but documented)\n\n  MONITORING: Regular ophthalmologic exams; Optical Coherence Tomography (OCT)\n  COUNTERMEASURES: None definitively effective yet; lower-body negative pressure\n                   (LBNP) draws fluid down; under study\n\n  MARS CONCERN:\n    ~3-year mission; 6 months transit + 18 months surface + 6 months return\n    VIIP could accumulate to disabling levels\n    No return possible if vision deteriorates in transit\n    Critical unresolved problem for Mars human mission safety",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "## Life Support Systems (ECLSS)",
+      "confidence": "candidate",
+      "text": "ENVIRONMENTAL CONTROL AND LIFE SUPPORT SYSTEM (ECLSS)\n=======================================================\n\n  ATMOSPHERE MANAGEMENT:\n    O₂ generation: Oxygen Generation Assembly (OGA) — electrolysis of water\n    H₂O → H₂ + ½O₂; O₂ into cabin; H₂ to Sabatier system or vented\n    Pressure control: N₂ supply; maintain 14.7 psi (101 kPa) total; 21% O₂\n    (Or: 100% O₂ at 34.5 kPa — early Apollo; fire risk)\n\n    CO₂ removal: Carbon Dioxide Removal Assembly (CDRA)\n    Zeolite beds (adsorbent); alternating beds to regenerate\n    Target: < 5 mmHg CO₂ partial pressure (above this: headaches, impairment)\n    Problematic at high crew levels: CO₂ buildup on ISS occasionally exceeds limits\n\n    Sabatier Reactor:\n    CO₂ + 4H₂ → CH₄ + 2H₂O\n    Recovers water from H₂ waste stream; methane vented\n    Closes the water loop partially\n\n  WATER RECOVERY:\n    Urine Processor Assembly (UPA): distills urine → brine\n    Water Recovery System (WRS): processes brine + condensate → potable water\n    Current efficiency: ~85-93% (some water still lost in brine)\n    Future goal: 98%+ (closed loop)\n    Without recovery: need ~3 kg/person/day resupply (for drinking, hygiene, food)\n    With recovery: significantly reduced resupply mass\n\n  FOOD:\n    ISS: ~3000 kcal/person/day from packaged food (irradiated, thermostabilized)\n    Shelf life: 1-3 years\n    Currently: all food brought from Earth; no in-flight production\n    Mass: ~2 kg/person/day (food + packaging)\n    Taste: reported as blander; fluid shift reduces sense of smell/taste\n    XROOTS experiment: growing plants on ISS; romaine lettuce eaten on ISS (2015)\n\n  WASTE MANAGEMENT:\n    Solid waste: sealed in bags; stored; returned or burned on reentry (cargo vehicle)\n    Urine: collected; processed to water\n    Microbial control: constant HEPA filtration; surface wipe-downs with biocides\n    Atmosphere: continuous filtration; VOC removal; CO₂ primary concern",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 213,
+      "heading_context": "## Spacecraft Vehicle Systems",
+      "confidence": "candidate",
+      "text": "### Soyuz (1967-present)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "## EVA (Extravehicular Activity)",
+      "confidence": "candidate",
+      "text": "SPACEWALK (EVA) SYSTEMS\n========================\n\n  PURPOSE:\n    Repair/maintenance (Hubble servicing, ISS maintenance)\n    Construction assembly (ISS built by 200+ EVAs)\n    Science (JAXA experiments outside ISS)\n    Exploration (Moon surface operations)\n\n  EMU (Extravehicular Mobility Unit) — ISS spacesuit:\n    Upper Torso + Lower Torso + Gloves + Helmet + PLSS (backpack)\n    PLSS: Primary Life Support System\n      O₂ supply: 8+ hrs operational; 30 min consumable O₂ emergency\n      CO₂ removal: lithium hydroxide canisters\n      Water cooling: 1 liter/hr to undergarment cooling system\n      Pressure: 29.6 kPa (4.3 psi) pure O₂ (much lower than cabin)\n      Communications, displays, biosensors\n\n  PREBREATHE PROTOCOL:\n    Cabin: 14.7 psi, 21% O₂ → 2.1 psi partial O₂\n    Suit: 4.3 psi pure O₂\n    Problem: nitrogen dissolved in blood at 14.7 psi → if suddenly at 4.3 psi,\n             nitrogen comes out of solution → decompression sickness (bends)\n    Protocol: breathe 100% O₂ for 4 hours before EVA to purge N₂ from tissues\n    Alternative: campout at 10.2 psi for 24 hours first\n    ISS typically: 4-hour pre-breathe in suit\n\n  LUNAR SURFACE SUIT (Artemis xEMU / Axiom suit):\n    Designed for 1/6 G on lunar surface; mobility for sampling, climbing\n    Dusty regolith: critical challenge; suits must seal against lunar dust\n    Lunar dust: sharp, electrostatically charged, sub-micron particles\n                Sticks to everything; abrasive; potential health hazard\n    New suit features: hip and waist mobility; improved glove dexterity\n\n  DURATION: Typically 6-8 hours; record is 8hr 56min",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 315,
+      "heading_context": "## Long-Duration Mission Challenges",
+      "confidence": "candidate",
+      "text": "MARS MISSION REQUIREMENTS\n===========================\n\n  TIMELINE:\n    Transit Earth → Mars: 6-9 months (minimum energy)\n    Mars surface stay: 14-20 months (conjunction class) or 30-90 days (opposition)\n    Transit Mars → Earth: 6-9 months\n    Total: ~2.5-3 years (conjunction class preferred for crew health)\n\n  CUMULATIVE PHYSIOLOGICAL CHALLENGES:\n    Bone loss: mitigation critical; resistive exercise but limited gravity on Mars\n    VIIP: 3 years of ICP elevation; unknown outcome at mission end\n    Radiation: ~700-1200 mSv (exceeds current career limits)\n    Muscle: Mars 1/3 G partially helps vs full microgravity transit\n    Psychological: isolation, 3-22 minute delay (no real-time communication), confinement\n\n  COMMUNICATION DELAY:\n    Mars: 3-22 minute one-way (6-44 min round trip)\n    No real-time mission control support for emergencies on Mars\n    Crew must be fully autonomous for medical, engineering, operations\n    Mental health: loss of instant communication with family/friends; critical\n\n  AUTONOMOUS MEDICAL CARE:\n    No evacuation possible from Mars surface\n    All medical situations (surgery, diagnosis) must be handled on-board\n    Telemedicine with 22-min delay; remote guidance possible but not real-time\n    Crew medical training: much more extensive than ISS crews\n    Stock: surgical tools, medications, diagnostic equipment; mass-constrained\n\n  FOOD FOR MARS:\n    Not feasible to carry 3 years of food (mass)\n    Bioregenerative life support: grow food on Mars / in transit\n    VEGGIE/AstroGarden (ISS): lettuce, radishes, peppers grown; eaten on ISS\n    Required for Mars: caloric closure (not just supplements from plants)\n    Estimated: ~10-50 m² growing area for caloric supplement; more for full diet",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

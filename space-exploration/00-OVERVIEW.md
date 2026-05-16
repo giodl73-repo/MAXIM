@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:space-exploration:overview
+kind: guide
+module: space-exploration
+section: space-exploration
+title: Space Exploration - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: space-exploration/00-OVERVIEW.md
+canonical_path: space-exploration/00-OVERVIEW.md
+backsource_ids: [proof-backfill:space-exploration:00-overview, git-history:space-exploration:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Space Exploration — Landscape and Taxonomy
 
 ## The Big Picture

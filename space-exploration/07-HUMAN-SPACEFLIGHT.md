@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:space-exploration:human-spaceflight
+kind: guide
+module: space-exploration
+section: space-exploration
+title: Human Spaceflight: Physiology and Life Support
+status: source-custody
+source_custody: partial
+current_path: space-exploration/07-HUMAN-SPACEFLIGHT.md
+canonical_path: space-exploration/07-HUMAN-SPACEFLIGHT.md
+backsource_ids: [proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]
+concepts: [human, spaceflight]
+root_concepts: [human, spaceflight]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Human Spaceflight: Physiology and Life Support
 
 ## The Big Picture

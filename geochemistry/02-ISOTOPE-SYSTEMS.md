@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geochemistry:isotope-systems
+kind: guide
+module: geochemistry
+section: geochemistry
+title: Isotope Systems: Radiogenic and Stable
+status: source-custody
+source_custody: partial
+current_path: geochemistry/02-ISOTOPE-SYSTEMS.md
+canonical_path: geochemistry/02-ISOTOPE-SYSTEMS.md
+backsource_ids: [proof-backfill:geochemistry:02-isotope-systems, git-history:geochemistry:02-isotope-systems]
+concepts: [isotope, systems]
+root_concepts: [isotope, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Isotope Systems: Radiogenic and Stable
 
 ## The Big Picture

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "space-exploration\\02-PROPULSION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|           PROPULSION LANDSCAPE: Isp vs. Thrust Tradeoff          |\n+------------------------------------------------------------------+\n|                                                                  |\n|  HIGH                                                            |\n|  THRUST  |  Solid SRBs  Liquid biprop.                          |\n|  (can    |  (230-300s)  (300-460s)     Nuclear thermal           |\n|  lift    |    [Launch, strap-ons]      (800-1000s) [Future Mars]|\n|  off)    |                                                        |\n|          |                                                        |\n|  MED     |              Monoprop/Hybrid                          |\n|  THRUST  |              (150-350s)                               |\n|          |              [ACS, suborbital]                         |\n|          |                                                        |\n|  LOW     |                         Hall/Ion elec.  Nuclear elec.|\n|  THRUST  |                         (1000-3000s)   (3000-10000s) |\n|  (TWR<1; |                         [GEO stn-keep]  [Outer solar]|\n|  no      |                              |               |        |\n|  liftoff)|                         Solar sail (∞, ultra-low)     |\n|          +--------------------------------------------------      |\n|               LOW Isp                        HIGH Isp            |\n|              (less efficient)            (more efficient)        |\n|                                                                  |\n|  MISSION REGIME MAP:                                             |\n|  Launch to orbit    → High thrust required  (chemical only)      |\n|  Orbit transfers    → Chemical (fast) or electric (slow/cheap)   |\n|  Deep space science → Electric (high Δv, no hurry)              |\n|  Station-keeping    → Electric (continuous, low thrust)          |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "## Fundamentals: Thrust and Isp",
+      "confidence": "candidate",
+      "text": "ROCKET PROPULSION FUNDAMENTALS\n================================\n\n  THRUST (F):\n    F = ṁ × v_e + (P_e - P_amb) × A_e\n    where:\n    ṁ   = mass flow rate (kg/s)\n    v_e  = exhaust velocity (m/s)\n    P_e  = exit pressure (Pa)\n    P_amb = ambient pressure (Pa)\n    A_e  = nozzle exit area (m²)\n    Second term = pressure thrust (usually smaller)\n\n  SPECIFIC IMPULSE (Isp):\n    Isp = F / (ṁ × g₀)  [in seconds]\n       = v_e / g₀\n    The units \"seconds\" are a historical artifact — it was thrust per weight flow\n    Physical meaning: engine efficiency (how much thrust per unit propellant weight)\n    Higher Isp → less propellant for same Δv (Tsiolkovsky equation)\n\n  THRUST-TO-WEIGHT RATIO (TWR):\n    TWR = F / (m × g)\n    TWR > 1 needed for liftoff from a planetary surface\n    SpaceX Merlin (sea level): TWR ≈ 180 (per engine)\n    Saturn V F-1: TWR ≈ 83\n    Ion engine: TWR ≈ 0.0001 (cannot lift itself!)\n\n  THE FUNDAMENTAL TRADEOFF:\n    Chemical: high energy density → high thrust → low Isp\n    Ion: low energy density (just electrical) → low thrust → high Isp\n    Nuclear thermal: reactor heat → higher Isp than chemical + useful thrust",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 100,
+      "heading_context": "## Chemical Propulsion: Liquid",
+      "confidence": "candidate",
+      "text": "LIQUID PROPELLANT ENGINES\n==========================\n\n  TYPES OF LIQUID PROPELLANT COMBINATIONS:\n  LOX/RP-1 (kerosene): Isp ~ 311-360 s\n    Earth-storable; high density (good for first stages)\n    SpaceX Merlin: 311 s vac; Falcon 9 first stage\n    Turbopump-fed; high chamber pressure possible\n    Combustion: 2C₁₂H₂₃ + 37O₂ → 24CO₂ + 23H₂O\n    (simplified; kerosene is a complex mixture)\n\n  LOX/LH₂ (liquid hydrogen): Isp ~ 420-460 s\n    Highest Isp of chemical; very low density (large tanks)\n    RL-10 (Centaur): 444-465 s; most efficient US engine\n    RS-25 (Space Shuttle Main Engine): 452 s (vac)\n    Cryogenic: LOX = -183°C; LH₂ = -253°C\n    Storage challenge: boil-off; cryogenic insulation\n\n  LOX/CH₄ (methane): Isp ~ 355-382 s\n    Intermediate: between RP-1 and LH₂ efficiency\n    Denser than LH₂; cleaner than RP-1 (no coking)\n    SpaceX Raptor: ~380 s vac; 3300 psi chamber pressure (record 2022)\n    Advantage: producible on Mars from CO₂ + H₂O → ISRU\n    Future standard for Mars-capable engines\n\n  NTO/UDMH (storable hypergolic): Isp ~ 310-315 s\n    Self-igniting (hypergolic); storable at room temperature\n    Shuttle OMS, Soyuz second stage, most spacecraft thrusters\n    Toxic; corrosive; careful handling required\n    Used for spacecraft where reliability > performance\n\n  MONOPROPELLANT (hydrazine): Isp ~ 220-230 s\n    Single propellant; catalytic decomposition (no oxidizer)\n    Simple, reliable; standard for attitude control thrusters\n    Electrolytic hydrazine: MR-103, MONARC\n    \"Green\" alternatives: AF-M315E, LMP-103S (higher Isp ~250 s)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "### Engine Cycle Architecture",
+      "confidence": "candidate",
+      "text": "ENGINE CYCLES\n=============\n\n  GAS GENERATOR (GG) CYCLE:\n    Small amount of propellant burned in gas generator\n    Hot gas drives turbopump → powers main propellant pumps\n    Turbine exhaust: dumped overboard (wasted!)\n    Isp penalty: ~1-3% loss; simple; reliable\n    Used: SpaceX Merlin (Falcon 9), F-1 (Saturn V), RL-10A\n\n  STAGED COMBUSTION (SC) CYCLE:\n    ALL propellant passes through turbopump\n    Oxidizer-rich (ORSC) or fuel-rich (FRSC) preburner\n    Full combustion in main chamber = no exhaust dump\n    Higher chamber pressure → higher Isp; more complex\n    ORSC: RD-170/180/191 (Russian); extremely high performance\n    FRSC: RS-25 (SSME); SpaceX Raptor\n    Raptor: full-flow SC (both propellants fully preburned)\n\n  EXPANDER CYCLE:\n    Propellant heated by chamber/nozzle cooling channels\n    → Vapor drives turbopump → no separate combustion\n    Clean; no gas generator; limited power → small engines\n    Used: RL-10 (Centaur upper stage); LE-5 (Japan H-II)\n\n  PRESSURE-FED:\n    Tank pressure pushes propellant directly to injector\n    No turbopump; simple; low chamber pressure; lower Isp\n    Used: small spacecraft engines, most attitude control",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 214,
+      "heading_context": "## Electric Propulsion",
+      "confidence": "candidate",
+      "text": "ELECTRIC PROPULSION SYSTEMS\n=============================\n\n  COMMON PRINCIPLE: Electrically accelerate ions or ionized gas\n  Power source: Solar panels (near Sun) or RTG/nuclear (deep space)\n\n  ION THRUSTER (gridded ion engine):\n    Ionize propellant (Xenon, Krypton) with electron bombardment\n    Accelerate ions through electric field between grids\n    Isp: 3000-12,000 s\n    Thrust: 0.05-0.3 N per thruster (millinewtons to a fraction of a Newton)\n    Examples: Dawn spacecraft (3 ion engines), Deep Space 1, Hayabusa\n    Used for: science missions with large Δv; no time pressure\n\n  HALL EFFECT THRUSTER:\n    Magnetic field traps electrons → ionize propellant\n    Electric field accelerates ions; electrons provide neutralization\n    Isp: 1000-3000 s; Thrust: 0.05-0.5 N\n    Examples: Starlink satellites (krypton Hall), GEO station-keeping\n    Most commercially widespread electric propulsion type\n    Higher thrust than gridded ion; simpler; slightly lower Isp\n\n  RESISTOJET/ARCJET:\n    Heat propellant electrically (resistojet: element; arcjet: arc discharge)\n    Isp: 150-600 s; low power; low thrust\n    Used: attitude control, small maneuvers\n\n  ELECTROSPRAY / FEEP:\n    Field Emission Electric Propulsion: liquid metal/ionic liquid emitter\n    Isp: 2000-8000 s; thrust: micronewtons\n    Used: drag-free CubeSats, LISA Pathfinder, precision pointing\n\n  POWER vs THRUST:\n    Electric propulsion requires power: P = F × v_e / (2η)\n    Isp = 3000 s, η = 65%, F = 0.1 N → P = 1.4 kW\n    At 1 AU: solar panel = ~1 kW/m² (before losses)\n    Deep space: solar panels impractical → nuclear needed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 258,
+      "heading_context": "## Nuclear Propulsion",
+      "confidence": "candidate",
+      "text": "NUCLEAR THERMAL PROPULSION (NTP)\n==================================\n\n  PRINCIPLE:\n    Nuclear fission heats propellant (hydrogen) in reactor\n    Hydrogen expelled through nozzle\n    Isp: ~800-1000 s (2-3× chemical for same thrust)\n    Thrust: 25-100+ kN (useful for Mars missions)\n\n  WHY HYDROGEN:\n    Lowest molecular weight → highest exhaust velocity\n    v_e ∝ √(T/M) → minimize M → maximize v_e\n    Hydrogen: M = 2 → Isp ≈ 2× with same T as kerosene\n\n  NERVA PROGRAM (1955-1972):\n    US nuclear rocket program; 20 test firings\n    Phoebus 2A (1968): 1.1 GW, 867 kN thrust, Isp = 825 s\n    Cancelled 1972 when Mars mission cancelled\n    Required safety certification before flight (never achieved)\n\n  MODERN NTP:\n    Ultra Safe Nuclear Corporation (USNC); BWX Technologies\n    NASA Demonstration Rocket for Agile Cislunar Operations (DRACO): 2027?\n    Bimodal NTP: reactor provides both thrust AND electrical power\n\n  NUCLEAR ELECTRIC PROPULSION (NEP):\n    Reactor provides power for electric thrusters (ion/Hall)\n    Isp: 5000-10,000 s; thrust: low; power: high (100 kW+)\n    Mars manned mission concept: VASIMR (Variable Specific Impulse Magneto-plasma Rocket)\n    VASIMR: Isp 3000-30,000 s (variable); 200 kW power\n    Claims 39-day Mars trip (vs 7-9 months chemical) with 200 MW reactor\n    No flight hardware yet; significant engineering challenges\n\n  SAFETY CONSTRAINTS:\n    Cannot test fire in atmosphere (radiation + debris)\n    Must not accidentally reach criticality during launch\n    Requires shielding (adds mass)\n    Political/public acceptance challenge",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 303,
+      "heading_context": "## Solar Sails and Photonic Propulsion",
+      "confidence": "candidate",
+      "text": "SOLAR SAIL\n===========\n\n  PRINCIPLE:\n    Solar photons carry momentum: p = E/c = hν/c\n    Reflecting photons → 2× momentum transfer\n    Pressure at 1 AU: ~9 μN/m²\n\n  ACCELERATION:\n    a = 2 × P_solar × A × (1 + reflectivity) / m\n    For 1 kg sail, 10 m × 10 m, reflectivity 0.9:\n    a ≈ 2 × 9μN/m² × 100 m² × 1.9 / 1 kg ≈ 3.4 mm/s²\n    → Tiny but continuous → can build up significant Δv over months/years\n\n  IKAROS (JAXA, 2010): first demonstrated solar sail in deep space\n  LightSail 2 (Planetary Society, 2019): raised orbit using photons\n  NEA Scout (NASA, 2022): CubeSat solar sail to near-Earth asteroid (lost contact)\n\n  BEAM PROPULSION:\n    Laser from Earth pushes a reflective sail\n    Starshot concept: 100 GW laser array → 0.2c velocity → Alpha Centauri in 20 yr\n    Engineering: mirror must be ~1 g; laser coherence over 10,000 km aperture\n    Power requirement enormous; still theoretical\n\n  MAGNETOSAIL / M2P2:\n    Magnetic field inflated by plasma → sweeps solar wind\n    Larger effective area than physical sail\n    Theoretical; no flight demonstration",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

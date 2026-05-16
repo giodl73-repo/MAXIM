@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "space-exploration\\04-REUSABILITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|             REUSABILITY SYSTEM: HOW ECONOMICS EMERGE             |\n+------------------------------------------------------------------+\n|                                                                  |\n|  LANDING TECHNOLOGY                                              |\n|  Entry burn → Grid fins → Landing burn → Legs/arms              |\n|  (propulsive; no wings; precision GNC)                           |\n|       |                                                          |\n|       v                                                          |\n|  REFURBISHMENT PROCESS                                           |\n|  Inspect every Merlin → grid fins → structure → avionics        |\n|  Turnaround target: <30 days (achieved; fastest: <2 weeks)       |\n|  Cost: ~$1-5M per flight (vs ~$30M to build new)                 |\n|       |                                                          |\n|       v                                                          |\n|  FLIGHT RATE (the multiplier)                                    |\n|  Amortized hardware cost = $30M / N flights                      |\n|  N=1: $30M   N=5: $6M   N=10: $3M   N=20: $1.5M                |\n|  Refurb cost is the new floor — not manufacture cost             |\n|       |                                                          |\n|       v                                                          |\n|  ECONOMICS (what emerges from the system)                        |\n|  Launch cost: ~$50-67M (2024 list); actual cost to SpaceX lower  |\n|  Payload penalty for reuse: 22.8 t → ~17 t (-25%)               |\n|  $/kg to LEO: ~$2,900/kg (list); fell from ~$15,000/kg pre-SpX  |\n|                                                                  |\n|  PLAYER LANDSCAPE (2025):                                        |\n|  SpaceX: Falcon 9 (orbital; 20+ flights/booster); Starship (dev)|\n|  Blue Origin: New Shepard (suborbital); New Glenn (orbital, 2025)|\n|  Rocket Lab: Electron (helicopter stage catch; partial)          |\n|  ULA Vulcan: engine section recovery (SMART; not yet demoed)     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "### Technical Architecture",
+      "confidence": "candidate",
+      "text": "FALCON 9 FIRST STAGE RECOVERY\n================================\n\n  PROBLEM: Stage 1 has 9 engines + full tank structure + avionics\n  VALUE: ~$30M in hardware\n  CHALLENGE: Stage 1 during launch is moving at ~5 km/s, 60 km altitude\n\n  LANDING SEQUENCE:\n  1. ENTRY BURN (~3 km/s):\n     3 Merlin engines reignite to slow entry (reduce thermal loading)\n     Stage 1 is falling backward (engines-first)\n\n  2. GRID FIN DEPLOYMENT:\n     4 grid fins (titanium) extend at top of first stage\n     Aerodynamic steering during high-speed descent\n     Hypersonic + supersonic flight control\n\n  3. LANDING BURN (final ~1 km):\n     1 or 3 Merlin engines reignite for final deceleration\n     Landing legs deploy (aluminum honeycomb + carbon fiber)\n     Touch down at ~2 m/s (gentle!)\n\n  LANDING TARGETS:\n    RTLS (Return to Launch Site): barge stays at launch site; stage flies back\n    → Less payload (~10% penalty) but no drone ship required\n    → Short missions, less demanding orbits\n    ASDS (Autonomous Spaceport Drone Ship):\n    → Drone ship positioned ~700 km downrange\n    → Stage lands at sea; transported back\n    → Used for high-performance missions (deep GTO, ISS)\n    → Two ships: \"Just Read the Instructions\" + \"Of Course I Still Love You\"\n\n  KEY INNOVATIONS:\n    Propellant management for multiple re-ignitions (restart reliability)\n    Grid fins: aerodynamic control without deployable wings\n    Landing legs: structural + compact storage\n    Autonomous guidance: GNC algorithm for precision landing\n    Reusable Merlin: engine inspection + refurb protocol",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 110,
+      "heading_context": "### Flight History and Reliability",
+      "confidence": "candidate",
+      "text": "FALCON 9 REUSE STATISTICS (through 2024)\n==========================================\n\n  First successful booster landing: December 21, 2015 (Cape Canaveral, LZ-1; OG-2 mission from SLC-40)\n  First drone ship landing: April 8, 2016\n\n  REUSE MILESTONES:\n    2016: first mission reflown booster\n    2019: first 5th flight of a booster\n    2020: first 10th flight\n    2022: first 15th flight\n    2023: first 20th+ flights (record-setting)\n    2024: boosters regularly flying 20+ times; some 24+ flights\n\n  LANDING SUCCESS RATE: ~95%+ (failures mostly early program)\n    Early failures: engine shutdown during landing burn; propellant issues\n    Mature program: very high reliability for landing\n\n  FLEET MANAGEMENT:\n    Boosters tracked by serial number: B1058, B1060, etc.\n    Refurbishment: inspection of every Merlin, grid fins, structure\n    Turnaround target: <30 days (achieved routinely since ~2020)\n    Fastest turnaround: <2 weeks demonstrated\n\n  FAIRING RECOVERY:\n    Nose cone fairings recovered from ocean (initially) → net catch (Ms. Tree)\n    Current: dedicated recovery ships (\"Doug\" and \"Shenna\"); caught in net\n    ~$6M per fairing set; reused routinely since 2019",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "## Starship: Full Reusability",
+      "confidence": "candidate",
+      "text": "STARSHIP SYSTEM ARCHITECTURE\n==============================\n\n  OBJECTIVE: Fully and rapidly reusable; both stages return\n\n  SUPER HEAVY (Stage 1):\n    Height: ~71 m; diameter: 9 m\n    Propellants: LOX/CH₄ (Methalox)\n    Engines: 33 × Raptor 2 (2.26 MN each sea level)\n    Total thrust: ~74.5 MN (most powerful rocket stage ever built)\n    GLOW (fully fueled): ~3400 t\n    Return: boostback burn + grid fins + landing burn → caught by \"Mechazilla\"\n\n  STARSHIP (Stage 2 / upper stage):\n    Height: ~50 m; diameter: 9 m\n    Propellants: LOX/CH₄\n    Engines: 6 × Raptor (3 vacuum-optimized + 3 sea level)\n    Thermal protection: stainless steel + ceramic tiles on windward side\n    Return: \"belly flop\" atmospheric entry + flip + landing burn\n\n  \"CHOPSTICK\" CATCH (Mechazilla):\n    Two mechanical arms on the launch tower\n    Catch Super Heavy by its grid fins during landing\n    Eliminates landing legs (reduces mass on booster)\n    First successful catch: October 13, 2024 (IFT-5)\n    Starship: soft water landing initially; land catch planned\n\n  PAYLOAD CAPACITY:\n    To LEO (expendable): 150+ t\n    To LEO (reusable): ~100 t (estimated after landing propellant reserve)\n    Key capability: refueling in LEO for deep space missions\n    Lunar lander variant: HLS (Human Landing System) for Artemis\n\n  STARSHIP PROPELLANT:\n    CH₄ (methane): producible on Mars from CO₂ + H₂O via Sabatier\n    CO₂ + 4H₂ → CH₄ + 2H₂O (Sabatier reaction)\n    Water electrolysis: H₂O → H₂ + ½O₂\n    → Full ISRU (In Situ Resource Utilization) for return flight from Mars\n    This is a KEY design choice: not just an Earth-optimized rocket",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "## Reusability Economics Deep Dive",
+      "confidence": "candidate",
+      "text": "LAUNCH COST ANALYSIS\n=====================\n\n  EXPENDABLE BASELINE (before SpaceX):\n    Atlas V: ~$200M-300M per launch (government-contracted)\n    Delta IV Heavy: ~$400-500M\n    Ariane 5: ~$180-200M\n\n  FALCON 9 EFFECT:\n    2010 (Falcon 9 debut): ~$60-70M list price (expendable)\n    2015+ (with reuse): ~$50-67M list; actual cost to SpaceX ~$40-50M\n    2020+ (mature reuse): ~$50-60M commercial; ~$67M list\n    $/kg to LEO: ~$2700 (expendable list) → ~$3200/kg (reuse adjusted)\n    $/kg to LEO was ~$10,000-20,000 pre-SpaceX\n\n  STARSHIP ASPIRATION:\n    SpaceX public target: ~$10M per flight (amortized)\n    ~$100/kg to LEO (revolutionary; currently ~$2700-10000)\n    Would enable Mars missions, mega-constellations, space stations\n    Status: cost targets not yet validated in operations\n\n  LAUNCH COST COMPONENTS:\n    Propellant: ~$200K-$500K (tiny fraction)\n    Refurbishment: ~$1-5M (varies by flight count)\n    Operations/labor: ~$5-10M\n    Amortized vehicle cost: depends on flight count\n    Insurance: ~$2-5M\n    Range fees: ~$500K-1M\n\n  BOEING STARLINER vs SPACEX DRAGON:\n    Starliner: cost-plus contract → ~$90M/flight (to NASA)\n    Crew Dragon: fixed-price contract → ~$55M/flight (to NASA)\n    → \"Commercial crew\" model demonstrably cheaper\n    → Same model being applied to cargo, lunar landing (HLS)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 275,
+      "heading_context": "## Thermal Protection: Re-entry Engineering",
+      "confidence": "candidate",
+      "text": "RE-ENTRY THERMAL PROTECTION\n=============================\n\n  PROBLEM: Orbital velocity ~7.8 km/s + Earth atmosphere → kinetic energy\n  dissipated as heat; ~400× energy of equivalent weight of TNT\n\n  OPTIONS:\n    ABLATIVE: Material ablates (burns off) absorbing heat\n      Used: Apollo CM, Mercury, Gemini; SpaceX Dragon\n      Advantage: simple; no temperature limit from material strength\n      Disadvantage: single-use; must be replaced\n\n    REUSABLE TILES: Ceramic tiles + reinforced carbon-carbon (RCC)\n      Used: Space Shuttle (LI-900 silica tiles + RCC on leading edges)\n      Advantage: reusable (25 flights design life per tile)\n      Disadvantage: extremely labor-intensive inspection and repair\n      Failure mode: Challenger/Columbia; Columbia tile impact → loss of crew\n\n    STARSHIP APPROACH:\n      Stainless steel withstands ~800°C (reradiates heat into space)\n      Ceramic hexagonal tiles on windward side\n      Active cooling through transpiration (hot gas through surface) explored\n      \"Belly flop\" maximizes drag → spreads heating over larger area + longer time\n      Each tile independently mounted → one failure doesn't cascade\n\n    RIGID AEROSHELL:\n      Mars entry vehicles: MSL Curiosity, Perseverance use ablative aeroshell\n      Viking: ~45° half-angle blunt aeroshell → high L/D in thin Mars atm.\n      Heat shields: PICA (phenolic impregnated carbon ablator) — MSL\n\n  HEATING RATE vs TOTAL HEAT LOAD:\n    Steeper entry: higher peak heat rate; lower total heat load\n    Shallower entry: lower peak; higher total (longer in atmosphere)\n    Trade-off depending on thermal protection system characteristics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

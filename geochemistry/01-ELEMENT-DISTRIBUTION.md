@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geochemistry:element-distribution
+kind: guide
+module: geochemistry
+section: geochemistry
+title: Element Distribution and Geochemical Reservoirs
+status: source-custody
+source_custody: partial
+current_path: geochemistry/01-ELEMENT-DISTRIBUTION.md
+canonical_path: geochemistry/01-ELEMENT-DISTRIBUTION.md
+backsource_ids: [proof-backfill:geochemistry:01-element-distribution, git-history:geochemistry:01-element-distribution]
+concepts: [element, distribution]
+root_concepts: [element, distribution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Element Distribution and Geochemical Reservoirs
 
 ## The Big Picture
@@ -10,7 +29,7 @@ ELEMENT DISTRIBUTION: HIERARCHY + FEEDBACKS
 |                                                                  |
 |  NUCLEOSYNTHESIS → SOLAR SYSTEM COMPOSITION → PLANET FORMATION   |
 |  (Big Bang + stars   (CI chondrites ≈ solar    (differentiation: |
-|   set cosmic abund.)  photosphere composition)   core/mantle/crust)|
+|   set cosmic abund.)  photosphere composition) core/mantle/crust)|
 |                                                        |         |
 |       ←————————————————————————————————————————————————          |
 |       RECYCLING LOOPS (cyclic, not one-way):                     |

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geochemistry:hydrothermal
+kind: guide
+module: geochemistry
+section: geochemistry
+title: Hydrothermal Systems and Ore Formation
+status: source-custody
+source_custody: partial
+current_path: geochemistry/06-HYDROTHERMAL.md
+canonical_path: geochemistry/06-HYDROTHERMAL.md
+backsource_ids: [proof-backfill:geochemistry:06-hydrothermal, git-history:geochemistry:06-hydrothermal]
+concepts: [hydrothermal]
+root_concepts: [hydrothermal]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hydrothermal Systems and Ore Formation
 
 ## The Big Picture
@@ -19,7 +38,7 @@ HYDROTHERMAL SYSTEMS: SCHEMATIC CROSS-SECTION (continental arc)
 |           Propylitic: chlorite + epidote + calcite (distal)      |
 |           Argillic: kaolinite + alunite                          |
 |           Phyllic: quartz + sericite + pyrite                    |
-|           Potassic: K-feldspar + biotite (proximal to intrusion)|
+|           Potassic: K-feldspar + biotite (proximal to intrusion) |
 |                ↑ concentric shells like heat diffusion           |
 |                  contours around a cooling point source          |
 |  4-8 km   Porphyritic granite intrusion (exsolves fluid)         |
@@ -164,9 +183,7 @@ PORPHYRY COPPER-MOLYBDENUM-GOLD SYSTEM
   ZONATION MAP (plan view):
     +-----------+
     |  Potassic |
-    | +-------+ |
-    | |Phyllic| |
-    | +-------+ |
+    |  Phyllic  |
     |  Argillic |
     +-----------+
     | Propylitic|

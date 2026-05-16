@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geochemistry:overview
+kind: guide
+module: geochemistry
+section: geochemistry
+title: Geochemistry - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: geochemistry/00-OVERVIEW.md
+canonical_path: geochemistry/00-OVERVIEW.md
+backsource_ids: [proof-backfill:geochemistry:00-overview, git-history:geochemistry:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Geochemistry — Landscape and Taxonomy
 
 ## The Big Picture
@@ -8,20 +27,20 @@ Geochemistry applies chemistry to understand the Earth and solar system: where e
 GEOCHEMISTRY: THREE PILLARS WITH FEEDBACKS
 +------------------------------------------------------------------+
 |                                                                  |
-|  ELEMENT DISTRIBUTION          feeds into ——→  ISOTOPE SYSTEMS  |
+|  ELEMENT DISTRIBUTION          feeds into ——→  ISOTOPE SYSTEMS   |
 |  (Goldschmidt classification;                  (parent/daughter  |
-|   reservoirs; partition coeff.;                ratios encode age  |
-|   incompatible element cycling)  ←———————     + source tracing) |
+|   reservoirs; partition coeff.;                ratios encode age |
+|   incompatible element cycling)  ←———————     + source tracing)  |
 |       |                              |                           |
-|       |  (element abundances in     (isotopes record            |
-|       |   each reservoir set the     conditions of process)     |
-|       v   initial conditions for v)                             |
-|  PROCESS GEOCHEMISTRY ←—————————————————————————               |
-|  (weathering, hydrothermal, ocean chemistry, diagenesis)        |
-|   ↑ processes redistribute elements between reservoirs ↑        |
+|       |  (element abundances in     (isotopes record             |
+|       |   each reservoir set the     conditions of process)      |
+|       v   initial conditions for v)                              |
+|  PROCESS GEOCHEMISTRY ←—————————————————————————                 |
+|  (weathering, hydrothermal, ocean chemistry, diagenesis)         |
+|   ↑ processes redistribute elements between reservoirs ↑         |
 |   ↑ subduction returns crust to mantle; volcanism returns        |
-|     mantle material to surface — system is cyclic, not          |
-|     a one-way pipeline                                          |
+|     mantle material to surface — system is cyclic, not           |
+|     a one-way pipeline                                           |
 |                                                                  |
 +------------------------------------------------------------------+
 

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "space-exploration\\03-LAUNCH-VEHICLES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|            LAUNCH VEHICLE LANDSCAPE (2025)                       |\n|   Physics constraints → Architecture choices → Capability tiers  |\n+------------------------------------------------------------------+\n|                                                                  |\n|  PHYSICS CONSTRAINTS                                             |\n|  Δv to LEO ~9.4 km/s  →  exponential mass ratio  →  staging     |\n|  Isp ceiling (chem)   →  propellant choice shapes upper stages   |\n|  TWR > 1 required     →  engine count/thrust scales with GLOW    |\n|       |                                                          |\n|       v                                                          |\n|  ARCHITECTURE CHOICES                                            |\n|  Propellant   Engine cycle    Stages    Reusability              |\n|  LOX/RP-1     Gas generator   2-stage   Expendable → low cost/kg |\n|  LOX/LH₂      Expander        3-stage   Reusable → economics     |\n|  LOX/CH₄      Full-flow SC    +boosters ISRU-compatible          |\n|       |                                                          |\n|       v                                                          |\n|  CAPABILITY TIERS                                                |\n|  SMALL (<2 t LEO)   MEDIUM (2-45 t LEO)   HEAVY (45-150+ t LEO) |\n|  Electron, Alpha    Falcon 9, New Glenn    Falcon Hvy, SLS       |\n|  ~$25K/kg           ~$2-5K/kg              ~$1.5-42K/kg          |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 58,
+      "heading_context": "### Multi-Stage Rocket",
+      "confidence": "candidate",
+      "text": "WHY STAGING?\n============\n\n  PROBLEM: Tsiolkovsky tyranny\n    To reach LEO (Δv ~9.4 km/s), you need a large mass ratio\n    Single stage: must carry empty first-stage tanks all the way to orbit\n    Those empty tanks are dead mass reducing efficiency\n\n  SOLUTION: STAGING\n    Drop the empty first stage; lighter second stage achieves remaining Δv\n    Each stage has its own engines + tanks; discarded when empty\n    Δv_total = Δv₁ + Δv₂ + Δv₃  (additive from each stage)\n\n  EXAMPLE: FALCON 9 (2 stages + payload)\n    +------------------------+\n    |        Payload         |\n    | (fairing or Dragon)    |\n    +------------------------+\n    |    STAGE 2 (upper)     |\n    |    LOX/RP-1            |\n    |    ~113 kN thrust      |\n    +------------------------+\n    |    STAGE 1 (booster)   |\n    |    LOX/RP-1            |\n    |    Landing legs + fins |\n    +------------------------+\n      Payload:  ~22.8 t to LEO capacity.\n      Stage 2:  single Merlin Vacuum (MVac);\n                Δv ~ 5–6 km/s (varies).\n      Stage 1:  9 × Merlin (890 kN each); total ~8 MN sea level.\n\n  STAGING MASS FRACTIONS (approximate for two-stage):\n    Propellant mass: 85-90% of total stage mass\n    Structure + engines: 5-10%\n    Payload (final stage only): 1-5%\n    → For Falcon 9: ~500 t GLOW; 22.8 t to LEO = ~4.5% to LEO\n\n  MASS FRACTION RULE:\n    Good rocket: propellant mass / total mass > 0.85-0.90\n    This leaves 10-15% for structure + engines — engineering challenge\n    Lightweight tanks (Al-Li alloys, carbon fiber composites) are critical",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 106,
+      "heading_context": "## Key Launch Vehicles: History",
+      "confidence": "candidate",
+      "text": "HISTORICAL MILESTONES\n======================\n\n  EARLY MISSILES (1940s-1950s):\n    V-2 (Germany, 1944): first liquid rocket to reach space (80+ km altitude)\n    R-7 (USSR, 1957): Sputnik launch vehicle; first ICBM; basis for Soyuz\n    Atlas (USA, 1957): first American ICBM; still evolved in Atlas V\n\n  HUMAN SPACEFLIGHT ERA (1960s-1970s):\n    SATURN V (1967-1973):\n      3 stages; LOX/RP-1 (S-IC) + LOX/LH₂ (S-II) + LOX/LH₂ (S-IVB)\n      LEO capacity: 140 t; TLI: 48.6 t\n      GLOW: 2970 t; Height: 110 m\n      5 × F-1 engines (first stage): each 6.7 MN; total 33.5 MN\n      13 missions (1967-1973); no failures (no Saturn V launch ever failed)\n\n    SOYUZ (1966-present):\n      Continuous operation; 1900+ launches\n      Most reliable launch vehicle ever; based on R-7 ICBM\n      Still operational in 2025 for crewed missions (Soyuz MS)\n\n  SHUTTLE ERA (1981-2011):\n    SPACE SHUTTLE SYSTEM:\n      Partially reusable: Orbiter + SRBs reused; External Tank discarded\n      3 × RS-25 main engines (LOX/LH₂): 2279 kN each\n      2 × SRBs: 12.5 MN each (solid propellant)\n      LEO payload: ~24 t (to ISS inclination)\n      Costly: ~$1.5B/flight; 135 missions; 2 losses (Challenger, Columbia)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "## Current Major Launch Vehicles",
+      "confidence": "candidate",
+      "text": "ACTIVE HEAVY LAUNCH VEHICLES (2025)\n======================================\n\n  FALCON 9 (SpaceX):\n    Type: 2-stage; reusable (1st stage)\n    Propellants: LOX/RP-1 (both stages)\n    Engines: 9 × Merlin (S1) + 1 × Merlin Vac (S2)\n    LEO: 22.8 t (expendable); ~17 t (reuse)\n    GTO: 8.3 t; GEO direct: ~4.3 t\n    GLOW: ~549 t; Height: 70 m\n    Launch cost: ~$67M (list); actual ~$50-60M with reuse\n    Reliability: 99.3% success rate (as of 2024)\n    Launch frequency: ~90/year (2024); most in history\n\n  FALCON HEAVY (SpaceX):\n    Type: 3 × Falcon 9 cores; all reusable\n    LEO: 63.8 t; GTO: 26.7 t; Mars: ~16.8 t\n    3 × 9 Merlin engines = 27 engines total\n    Cross-feed center core to side boosters (can)\n    Notable: Tesla Roadster launch (2018); Arabsat-6A, AFSPC-44\n\n  SLS BLOCK 1 (NASA):\n    Type: Expendable; 2 stages + SRBs\n    Core stage: LOX/LH₂; 4 × RS-25 (SSME heritage)\n    SRBs: 2 × Northrop Grumman solid boosters (evolved shuttle SRBs)\n    Upper stage: Interim Cryogenic Propulsion Stage (Centaur-based) → in Block 2: Exploration Upper Stage\n    LEO: 95 t; TLI: 27 t\n    Cost per launch: ~$4B (FY2022); extremely expensive\n    Artemis 1 (2022): unmanned; Artemis 2 (2025): crewed lunar flyby\n\n  STARSHIP (SpaceX):\n    Type: 2 stages; both fully reusable\n    Super Heavy (S1): ~33 × Raptor; LOX/CH₄\n    Starship (S2/upper): 6 × Raptor (3 vac + 3 SL); LOX/CH₄\n    LEO: 150+ t (expendable); potentially 100 t reusable\n    GLOW: ~5000 t (fully fueled); Height: 121 m\n    Key: refueling in LEO for deep space; full reusability goal\n    Status (2025): extensive test program underway; integrated flights in 2023-2024\n\n  NEW GLENN (Blue Origin):\n    Type: 2-stage; reusable (1st stage)\n    Propellants: Stage 1: LOX/LNG (methane-like, BE-4 engines)\n                 Stage 2: LOX/LH₂ (BE-3U engine)\n    Engines: 7 × BE-4 (S1, LOX/LNG, 2.4 MN each); 2 × BE-3U (S2, LOX/LH₂)\n    LEO: 45 t; GTO: 13 t\n    First launch: January 2025 (commercial payload)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "## Small Launch Vehicles",
+      "confidence": "candidate",
+      "text": "SMALL AND MICRO LAUNCH VEHICLES\n=================================\n\n  DRIVER: CubeSat revolution + smallsat constellations\n  Challenge: rideshare (cheap) vs dedicated (flexibility)\n\n  ROCKET LAB ELECTRON:\n    Two stages; LOX/RP-1; Rutherford engines (electric pump-fed!)\n    LEO: 300 kg; GTO: 200 kg\n    Launch cost: ~$7.5M per launch\n    Battery-powered turbopump: unique; no gas generator\n    Recovering fairing and first stage (helicopter catch) → partial reuse\n    30+ flights; high reliability for class\n\n  RELATIVITY SPACE TERRAN:\n    3D-printed rocket (85% by mass); Aeon R engine\n    Terran 1: flew once (2023), reached space but failed to orbit\n    Terran R: reusable; 23.5 t to LEO; under development\n\n  FIREFLY ALPHA:\n    2-stage; LOX/RP-1; 4 × Lightning engines (aerospike-like)\n    LEO: 1 t; GTO: 630 kg; ~$15M\n    First successful launch Oct 2022 (after anomaly in first attempt)\n\n  VEGA-C (ESA/Arianespace):\n    4-stage (3 solid + liquid fourth stage)\n    SSO: 2.2 t; good for small science + Earth obs\n    P120C solid first stage: also used on Ariane 6 strap-ons\n\n  RIDE-SHARE REVOLUTION:\n    SpaceX Transporter missions: hundreds of payloads per launch\n    ~$5,500/kg to SSO (2024) — commoditizing small launch\n    Drove small dedicated launchers to cost-competitiveness challenge",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "## Fairing and Payload Accommodation",
+      "confidence": "candidate",
+      "text": "PAYLOAD INTEGRATION\n====================\n\n  LAUNCH VEHICLE INTERFACE:\n    Payload sits atop upper stage; separated after orbit insertion\n    Separation systems: marmon clamp, split nuts, hot gas systems\n    Loads: axial/lateral acceleration during launch (up to 6G)\n    Vibro-acoustic environment: 140+ dB during ascent (structural/acoustic)\n\n  PAYLOAD FAIRING:\n    Aerodynamic nose cone protecting payload during ascent\n    Jettisoned at ~110 km altitude (atmosphere negligible)\n    Falcon 9 fairing: 5.2 m diameter; 13.9 m length\n    SpaceX recovers fairings by boat catch (Shenna/Doug) → save ~$6M each\n    Clean room maintained inside fairing during integration\n\n  INTERFACE DIMENSIONS (standard sizes):\n    Small: 937 mm ISD (Electron); 1.0 m diameter\n    Medium: 3.75 m fairing ID (Atlas V 4m)\n    Large: 4.6 m ID (Falcon 9); 5 m ID (Falcon Heavy, SLS)\n    Super heavy: 8+ m planned (Starship payload bay)\n\n  PAYLOAD SEPARATION:\n    Marmon clamp: ring held by explosive bolts; releases\n    Lightband: spring-loaded deployer for CubeSats\n    Star-48: kick stage for high-energy destinations (GEO, planetary)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 267,
+      "heading_context": "## Launch Site Infrastructure",
+      "confidence": "candidate",
+      "text": "LAUNCH SITE CONSIDERATIONS\n============================\n\n  LATITUDE ADVANTAGE:\n    Lower latitude → more Earth rotational velocity contribution\n    Equatorial: 465 m/s eastward free ΔV (vs polar: 0)\n    Kennedy Space Center (28.5°N): 408 m/s\n    Vandenberg SFB (34.7°N): 397 m/s; SSO polar preferred\n    JAXA Tanegashima (30.4°N): 430 m/s\n\n  LAUNCH DIRECTION CONSTRAINTS:\n    Cannot overfly populated areas (range safety)\n    Kennedy: can't go north (US mainland); east/northeast open\n    Vandenberg: south or northwest (Pacific); polar/retrograde\n\n  LAUNCH FACILITIES:\n    LC-39A (Kennedy): Apollo, Shuttle, Falcon 9/Heavy, Starship (planned)\n    LC-40 (CCSFS): Falcon 9 primary\n    SLC-4E (Vandenberg): Falcon 9 West Coast polar/SSO\n    SLC-40 / SLC-41: Atlas V; Vulcan (ULA)\n    Boca Chica (Starbase): SpaceX Starship launch/landing facility\n\n  LAUNCH SCRUB CRITERIA:\n    Weather: clouds, lightning, high altitude winds, anvil clouds\n    Range safety: aircraft/ship exclusion zones\n    Vehicle health: telemetry, countdown go/no-go criteria\n    Weather hold: aircraft abort + lighting hold → common delays",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 316,
+      "heading_context": "## Engineering Parallels",
+      "confidence": "candidate",
+      "text": "**Expendable vs. reusable as capex/opex model transition.** The shift from expendable launch vehicles (buy hardware, use once, expense entirely to one launch) to reusable vehicles (amortize hardware cost over N flights) is structurally identical to the on-premises-to-cloud transition. An expendable rocket is a dedicated server: full hardware cost allocated to a single use, written off immediately. A reusable rocket with 20+ flights is infrastructure amortized over a fleet. The marginal cost of the 20th flight is close to propellant + labor — equivalent to the marginal cost of an additional cloud tenant. SpaceX's vertical integration creates the same structural advantage as owning the datacenter: no external margin, faster iteration, full-stack optimization.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}
