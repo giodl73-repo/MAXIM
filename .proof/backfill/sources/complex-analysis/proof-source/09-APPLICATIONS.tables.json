@@ -1,0 +1,157 @@
+{
+  "schema_version": "1",
+  "source_markdown": "complex-analysis\\09-APPLICATIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 76,
+      "heading_context": "## 2D Fluid Dynamics: Complex Potential",
+      "headers": [
+        "Flow",
+        "Complex Potential W(z)",
+        "Velocity f=dW/dz"
+      ],
+      "rows": [
+        [
+          "Uniform flow in x-direction",
+          "U∞z",
+          "U∞"
+        ],
+        [
+          "Source/sink at origin",
+          "(m/2π)log z",
+          "m/(2πz)"
+        ],
+        [
+          "Vortex at origin",
+          "−(iΓ/2π)log z",
+          "−iΓ/(2πz)"
+        ],
+        [
+          "Doublet at origin",
+          "μ/(2πz)",
+          "−μ/(2πz²)"
+        ],
+        [
+          "Flow around cylinder",
+          "U∞(z + R²/z)",
+          "U∞(1 − R²/z²)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 152,
+      "heading_context": "## Laplace Transform and Complex Analysis",
+      "headers": [
+        "Pole location",
+        "Time-domain behavior",
+        "Stable?"
+      ],
+      "rows": [
+        [
+          "Re(sₖ) < 0",
+          "Decaying exponential e^{Re(sₖ)t}",
+          "Yes"
+        ],
+        [
+          "Re(sₖ) = 0",
+          "Oscillatory (on jω axis)",
+          "Marginal"
+        ],
+        [
+          "Re(sₖ) > 0",
+          "Growing exponential",
+          "No"
+        ],
+        [
+          "Complex pair s = −a ± jω",
+          "e^{−at} cos(ωt + φ)",
+          "Yes if a > 0"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 217,
+      "heading_context": "## Z-Transform and Poles",
+      "headers": [
+        "Pole location",
+        "Time behavior",
+        "Stable?"
+      ],
+      "rows": [
+        [
+          "\\|zₖ\\| < 1  (inside unit circle)",
+          "Decays",
+          "Yes"
+        ],
+        [
+          "\\|zₖ\\| = 1  (on unit circle)",
+          "Oscillatory",
+          "Marginal"
+        ],
+        [
+          "\\|zₖ\\| > 1  (outside unit circle)",
+          "Grows",
+          "No"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 322,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Application",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "2D ideal flow around object",
+          "Complex potential W(z) = φ + iψ"
+        ],
+        [
+          "Lift on airfoil",
+          "Kutta-Joukowski: L = ρU∞Γ; Γ from Kutta condition"
+        ],
+        [
+          "Stability of linear system",
+          "Poles of transfer function in s-plane"
+        ],
+        [
+          "Closed-loop stability",
+          "Nyquist criterion = winding number around −1"
+        ],
+        [
+          "Inverse Laplace transform",
+          "Bromwich contour + residue theorem"
+        ],
+        [
+          "Inverse Z-transform",
+          "Circle contour + residue theorem"
+        ],
+        [
+          "Spectral projection",
+          "Contour integral of resolvent around eigenvalue"
+        ],
+        [
+          "Eigenvalue perturbation",
+          "Laurent/Puiseux series of resolvent"
+        ],
+        [
+          "Evaluate ∫_{-∞}^{∞} rational f(x)",
+          "Close contour in UHP, sum residues"
+        ],
+        [
+          "Evaluate Fourier integral",
+          "Jordan's lemma + close in UHP or LHP"
+        ],
+        [
+          "Evaluate ∫_0^∞ x^α f(x) dx",
+          "Keyhole contour around positive real axis"
+        ]
+      ]
+    }
+  ]
+}

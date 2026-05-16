@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fluid-dynamics:aerodynamics
+kind: guide
+module: fluid-dynamics
+section: fluid-dynamics
+title: Aerodynamics: Lift, Drag, and Wings
+status: source-custody
+source_custody: partial
+current_path: fluid-dynamics/07-AERODYNAMICS.md
+canonical_path: fluid-dynamics/07-AERODYNAMICS.md
+backsource_ids: [proof-backfill:fluid-dynamics:07-aerodynamics, git-history:fluid-dynamics:07-aerodynamics]
+concepts: [aerodynamics]
+root_concepts: [aerodynamics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Aerodynamics: Lift, Drag, and Wings
 
 ## The Big Picture
@@ -16,7 +35,7 @@ AERODYNAMIC FORCES — CLASSIFICATION
 
   DRAG SOURCES:
   ┌───────────────────┬────────────────────────────────────────────────┐
-  │ Skin friction     │ Viscous shear at wall; C_Df ~ Re^{-1/5} (turb)│
+  │ Skin friction     │ Viscous shear at wall; C_Df ~ Re^{-1/5} (turb) │
   │ Pressure drag     │ Separation → wake; depends on body shape       │
   │ Induced drag      │ 3D wing tip vortices; C_Di = C_L²/(πeAR)       │
   │ Wave drag         │ Shocks at M > 0.8; rises rapidly near M = 1    │

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fluid-dynamics\\06-COMPRESSIBLE-FLOW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "COMPRESSIBLE FLOW — REGIMES BY MACH NUMBER\n═══════════════════════════════════════════════════════════════════════════════\n\n  M = U/c,  c = √(γRT) = speed of sound\n\n  M < 0.3     INCOMPRESSIBLE (density changes < 5%)\n              All previous incompressible theory applies\n\n  0.3 < M < 0.8  SUBSONIC COMPRESSIBLE\n              Density corrections needed; no shocks\n              Prandtl-Glauert correction: C_L → C_L/√(1-M²)\n\n  0.8 < M < 1.2  TRANSONIC (mixed subsonic + supersonic + shocks)\n              Most difficult regime; strong shock-boundary layer interaction\n\n  M > 1.2     SUPERSONIC\n              Oblique shocks; expansion fans; supersonic boundary layers\n              Zone of silence: no information from sources downstream\n\n  M > 5       HYPERSONIC\n              Aerodynamic heating dominates; chemical dissociation,\n              ionization; shock layer merges with boundary layer\n\n  ┌────────────────────────────────────────────────────────────────┐\n  │  KEY FACT: At M > 1, disturbances cannot propagate upstream    │\n  │  (they are swept downstream at U > c).                         │\n  │  ⟹  Supersonic flow \"doesn't know\" what's coming next.         │\n  │  ⟹  Shocks form suddenly when flow must adjust to boundaries.  │\n  └────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "## De Laval Nozzle and Throat Conditions",
+      "confidence": "candidate",
+      "text": "DE LAVAL NOZZLE:\n\n  RESERVOIR     CONVERGING  THROAT  DIVERGING   SUPERSONIC\n  (p₀, T₀,M=0) ──────────── M=1 ──────────────  JET\n    ────────────────────────────────────────────────────────\n    high p,T              A*           low p,T\n    low v                 (minimum area)  high v, M > 1\n\n  AREA-MACH RELATION (from continuity + isentropic):\n  A/A* = (1/M) × [(2/(γ+1))(1 + (γ−1)/2 M²)]^{(γ+1)/(2(γ−1))}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 173,
+      "heading_context": "### Oblique Shocks",
+      "confidence": "candidate",
+      "text": "OBLIQUE SHOCK:\n  M₁ > 1\n  ──────────────────────────────────────────────────────\n  →→→→→→→→→→ shock angle β\n                   ╲\n  →→→→→→→→→→       ╲  deflection angle δ\n              M₂<M₁  ╲\n               →→→→→→→ ╲\n  ──────────────────────────────────────────────────────\n                     WALL (turns flow by δ)\n\n  Θ-β-M relation: tan δ = 2 cot β [(M₁² sin²β − 1)/(M₁²(γ + cos 2β) + 2)]\n  Two solutions for β given M₁ and δ: weak shock (β small) and strong shock\n  In practice: weak shock occurs naturally",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "### Prandtl-Meyer Expansion Fan",
+      "confidence": "candidate",
+      "text": "EXPANSION FAN (Prandtl-Meyer):\n  M₁ > 1\n  ────────────────────────────────\n              ╭╭╭╭╭ fan of Mach waves (isentropic)\n  →→→→→→ ╭╭╭╭╭╭\n         M₁      M₂ > M₁\n  ────────────────────────────────\n                 CORNER (outward turn)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "## Shock Tube — The Canonical Experimental Setup",
+      "confidence": "candidate",
+      "text": "SHOCK TUBE:\n  HIGH PRESSURE  |  LOW PRESSURE\n      4           |       1\n  ─────────────── DIAPHRAGM ──────────────────\n  p₄, ρ₄, T₄    |  p₁, ρ₁, T₁\n\n  DIAPHRAGM BURSTS:\n  ←← RAREFACTION         CONTACT SURFACE  →→ SHOCK\n      (p decreases)           │            (p jumps)\n  ─────────── 4/3 ────────── 3/2 ───────── 2/1 ──\n\n  Region 2: compressed, shocked gas\n  Region 3: contact surface (density jump, no pressure jump)\n  Rarefaction: isentropic expansion fan",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 264,
+      "heading_context": "## Aerodynamic Heating",
+      "confidence": "candidate",
+      "text": "    T₀ = T(1 + (γ−1)/2 M²) → T₀ ≈ 0.2 TM²  (for large M, γ=1.4)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    }
+  ]
+}

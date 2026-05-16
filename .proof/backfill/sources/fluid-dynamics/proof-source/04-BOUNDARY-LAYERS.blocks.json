@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fluid-dynamics\\04-BOUNDARY-LAYERS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "BOUNDARY LAYER STRUCTURE\n═══════════════════════════════════════════════════════════════════════════════\n\n  HIGH Re FLOW OVER A FLAT PLATE:\n\n  ────────────────────────────────────────────────────────────────── ← U∞ (outer flow, ≈ inviscid)\n                              edge of boundary layer (δ)\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n  ╔══════════════════════════════════════════════════╗ ← δ(x) growing\n  ║  viscous boundary layer  u: 0 → U∞ over δ       ║\n  ╚══════════════════════════════════════════════════╝\n  ───────────────────────────────────── wall (u = 0)\n\n  PARAMETER SCALES:\n  x: streamwise, 0 to L              (long)\n  y: wall-normal, 0 to δ             (short)\n  δ/L ~ 1/√Re    (boundary layer is thin at high Re)\n  Re_L = U∞L/ν",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 73,
+      "heading_context": "## Prandtl's Boundary Layer Equations",
+      "confidence": "candidate",
+      "text": "    u → U_e(x) as y → ∞  (matching outer flow)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 137,
+      "heading_context": "## Pressure Gradient Effects",
+      "confidence": "candidate",
+      "text": "### Favorable Pressure Gradient (dU_e/dx > 0, dp/dx < 0)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 142,
+      "heading_context": "### Favorable Pressure Gradient (dU_e/dx > 0, dp/dx < 0)",
+      "confidence": "candidate",
+      "text": "### Adverse Pressure Gradient (dU_e/dx < 0, dp/dx > 0)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "### Adverse Pressure Gradient (dU_e/dx < 0, dp/dx > 0)",
+      "confidence": "candidate",
+      "text": "VELOCITY PROFILES WITH PRESSURE GRADIENT:\n\n  No pressure gradient (flat plate):\n    u/U_e →→→→→→→→→→→→  smooth S-curve\n\n  Favorable:\n    u/U_e →→→→→→→→  fuller, thinner layer\n\n  Adverse:\n    u/U_e →→→     inflection point in profile\n                  S-shape less full\n\n  Separation:\n    u/U_e → (∂u/∂y)_wall = 0  at some x  →  SEPARATION POINT\n             reverse flow downstream",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "## Boundary Layer Separation",
+      "confidence": "candidate",
+      "text": "SEPARATION SEQUENCE:\n\n  Attached BL:\n  Wall → ↗↗↗↗↗↗↗↗↗ attached streamlines\n         smooth flow\n\n  At separation point (τ_w = 0):\n  Wall → ↗↗↗↗↗↗→ horizontal at wall\n\n  Separated:\n  Wall → ↗↗↗↗↘↙↙↙ reversed flow (backflow near wall)\n              ↑\n           separation bubble",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "## Turbulent Boundary Layers",
+      "confidence": "candidate",
+      "text": "LAMINAR vs TURBULENT BL:\n  Feature               Laminar (Blasius)       Turbulent\n  ────────────────────────────────────────────────────────\n  Velocity profile      Smooth, S-shaped        Flatter, fuller\n  BL thickness δ        ~5x/√Re_x               ~0.37x/Re_x^{1/5}\n  Wall friction C_f     0.664/√Re_x             0.0592/Re_x^{1/5}\n  Separation resistance Poor (adverse dp/dx)    Better\n  Drag                  Lower                   Higher (more friction)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 272,
+      "heading_context": "## Kármán Vortex Street",
+      "confidence": "candidate",
+      "text": "KÁRMÁN VORTEX STREET:\n\n  →→ CYLINDER →→\n         → vortex formed top, sheds clockwise\n         → then vortex formed bottom, sheds counterclockwise\n         → alternating pattern downstream\n  ○○○○○  ⊙ ○ ⊙ ○ ⊙ ← periodic shedding\n\n  Shedding frequency: St = fD/U∞ ≈ 0.2  (Strouhal number)\n\n  Famous failure: Tacoma Narrows Bridge (1940) — resonance with K.V.S.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

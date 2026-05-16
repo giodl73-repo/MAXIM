@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fluid-dynamics:viscous-flow
+kind: guide
+module: fluid-dynamics
+section: fluid-dynamics
+title: Viscous Flow and Navier-Stokes
+status: source-custody
+source_custody: partial
+current_path: fluid-dynamics/03-VISCOUS-FLOW.md
+canonical_path: fluid-dynamics/03-VISCOUS-FLOW.md
+backsource_ids: [proof-backfill:fluid-dynamics:03-viscous-flow, git-history:fluid-dynamics:03-viscous-flow]
+concepts: [viscous, flow]
+root_concepts: [viscous, flow]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Viscous Flow and Navier-Stokes
 
 ## The Big Picture

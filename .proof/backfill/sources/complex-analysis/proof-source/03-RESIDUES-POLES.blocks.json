@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "complex-analysis\\03-RESIDUES-POLES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "RESIDUE THEOREM — CENTRAL RESULT\n═══════════════════════════════════════════════════════════════════════════════\n\n  f meromorphic in Ω (holomorphic except at isolated singularities a₁,...,aₙ)\n  C a simple closed CCW curve in Ω not passing through any aₖ\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │                                                                     │\n  │   ∮_C f(z) dz = 2πi × Σ_{aₖ inside C} Res(f, aₖ)                    │\n  │                                                                     │\n  │   where  Res(f, a) = coefficient of (z−a)^{-1} in Laurent series    │\n  │           of f at a                                                 │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  SINGULARITY TAXONOMY:\n  ┌──────────────┬───────────────────────────────────────────────────────┐\n  │ Type         │ Laurent series at a                  │ Residue        │\n  ├──────────────┼──────────────────────────────────────┼────────────────┤\n  │ Removable    │ no negative powers                   │ 0              │\n  │ Pole order n │ finite negative powers (down to      │ coeff of       │\n  │              │ (z−a)^{-n})                          │ (z−a)^{-1}    │\n  │ Essential    │ infinitely many negative powers      │ coeff of       │\n  │              │                                      │ (z−a)^{-1}    │\n  │ Branch point │ not isolated — NOT covered here      │ N/A            │\n  └──────────────┴──────────────────────────────────────┴────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 62,
+      "heading_context": "## Laurent Series",
+      "confidence": "candidate",
+      "text": "    = ... + c_{-2}/(z−a)² + c_{-1}/(z−a) + c₀ + c₁(z−a) + c₂(z−a)² + ...",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 82,
+      "heading_context": "### Removable Singularity",
+      "confidence": "candidate",
+      "text": "- Laurent series has no negative powers: f(z) = c₀ + c₁(z−a) + ...",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 94,
+      "heading_context": "### Pole of Order n",
+      "confidence": "candidate",
+      "text": "- Laurent series: c_{-n}/(z−a)^n + ... + c_{-1}/(z−a) + c₀ + ...  (c_{-n} ≠ 0)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 97,
+      "heading_context": "### Pole of Order n",
+      "confidence": "candidate",
+      "text": "Special case n=1: **simple pole**. Laurent series: c_{-1}/(z−a) + c₀ + ...",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 125,
+      "heading_context": "## Computing Residues",
+      "confidence": "candidate",
+      "text": "### At a Simple Pole (order 1)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "### At a Simple Pole (order 1)",
+      "confidence": "candidate",
+      "text": "    Res(f, a) = lim_{z→a} (z − a) f(z)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "### At a Pole of Order n",
+      "confidence": "candidate",
+      "text": "    Res(f, a) = (1/(n−1)!) lim_{z→a} d^{n-1}/dz^{n-1} [(z−a)^n f(z)]",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "### Summary Table",
+      "confidence": "candidate",
+      "text": "SINGULARITY TYPE    RESIDUE FORMULA\n─────────────────────────────────────────────────────────\nSimple pole         lim_{z→a} (z−a)f(z)\nf = g/h, h'(a)≠0   g(a)/h'(a)\nPole of order n     (1/(n−1)!) lim_{z→a} d^{n-1}/dz^{n-1}[(z−a)ⁿf(z)]\nEssential           Compute Laurent series, read off c_{-1}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 171,
+      "heading_context": "## Evaluating Real Integrals — Main Techniques",
+      "confidence": "candidate",
+      "text": "### Type 1: ∫_{-∞}^{∞} R(x) dx, R rational",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 178,
+      "heading_context": "### Type 1: ∫_{-∞}^{∞} R(x) dx, R rational",
+      "confidence": "candidate",
+      "text": "    ∫_{-∞}^{∞} dx/(1+x²) = 2πi · Res(1/(1+z²), z=i) = 2πi · 1/(2i) = π",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 182,
+      "heading_context": "### Type 1: ∫_{-∞}^{∞} R(x) dx, R rational",
+      "confidence": "candidate",
+      "text": "### Type 2: ∫_{-∞}^{∞} R(x)e^{iax} dx, a > 0 real",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 190,
+      "heading_context": "### Type 2: ∫_{-∞}^{∞} R(x)e^{iax} dx, a > 0 real",
+      "confidence": "candidate",
+      "text": "### Type 3: ∫_0^{2π} R(cos θ, sin θ) dθ (rational in trig)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 198,
+      "heading_context": "### Type 3: ∫_0^{2π} R(cos θ, sin θ) dθ (rational in trig)",
+      "confidence": "candidate",
+      "text": "### Type 4: ∫_0^∞ x^{α-1} R(x) dx (Mellin-type)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "### Type 4: ∫_0^∞ x^{α-1} R(x) dx (Mellin-type)",
+      "confidence": "candidate",
+      "text": "KEYHOLE CONTOUR\n        Im\n         │\n         │   large circle (radius R)\n    ─────│──╭────────────────────────────╮\n         │ ╭╯  × (pole)                  ╰╮\n         │─┼──────────────────────────────── Re\n    ─────│ ╰╮                            ╭╯\n         │   ╰────────────────────────────╯\n                 (small circle, radius ε)\n                 ↑\n         branch cut along positive real axis",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

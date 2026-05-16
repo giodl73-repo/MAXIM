@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "complex-analysis\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "COMPLEX ANALYSIS — FULL LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\nFOUNDATIONS\n┌─────────────────────────────────────────────────────────────────────────┐\n│  Complex Numbers: z = x + iy,  |z| = √(x²+y²),  arg(z) = arctan(y/x)    │\n│  Euler: e^(iθ) = cos θ + i sin θ   ←  ties algebra to geometry          │\n│  Riemann Sphere: ℂ ∪ {∞}  (compactification, adds a point at ∞)         │\n└─────────────────────────────────────────────────────────────────────────┘\n                              │\n                    ┌─────────┴─────────┐\n                    │                   │\n             HOLOMORPHIC          NON-ANALYTIC\n             FUNCTIONS              FUNCTIONS\n         (complex-differentiable)  (just continuous,\n              ↓                     or real-diff but\n         AUTOMATICALLY              not complex-diff)\n         ─ Analytic (= power series)\n         ─ Conformal (angle-preserving)\n         ─ Harmonic (Laplace on real/imag)\n         ─ Determined by boundary values\n\nCORE THEOREMS (ordered by depth)\n┌─────────────────────────────────────────────────────────────────────────┐\n│  Cauchy-Riemann         ∂u/∂x = ∂v/∂y,  ∂u/∂y = −∂v/∂x                  │\n│  Cauchy's Theorem       ∮_C f(z)dz = 0  for holomorphic f in region     │\n│  Cauchy Integral Formula  f(z₀) = (1/2πi) ∮ f(z)/(z−z₀) dz              │\n│  Residue Theorem        ∮_C f dz = 2πi × Σ Res(f, aₖ)                   │\n│  Liouville's Theorem    bounded entire function → constant              │\n│  Maximum Modulus        |f| achieves max on boundary, not interior      │\n│  Riemann Mapping        simply-connected ≠ ℂ → conformally ≅ disk       │\n│  Schwarz-Pick           conformal self-maps of disk are contractions    │\n│  Weierstrass, Hadamard  products for entire functions with prescribed   │\n│                         zeros                                           │\n│  Riemann Hypothesis     zeros of ζ(s) on Re(s) = 1/2? (unsolved)        │\n└─────────────────────────────────────────────────────────────────────────┘\n\nSINGULARITY TAXONOMY\n┌──────────────┬───────────────────────────────────────────────────────────┐\n│ Removable    │  lim f(z) exists  (e.g., sin(z)/z at z=0)                 │\n│ Pole order n │  Laurent series: finitely many negative-power terms       │\n│ Essential    │  Laurent: infinitely many negative-power terms            │\n│              │  Picard: f takes every value ∞ times near essential sg.   │\n│ Branch point │  f multi-valued: need a branch cut (e.g., log, √)         │\n└──────────────┴───────────────────────────────────────────────────────────┘\n\nMAJOR APPLICATIONS\n┌─────────────────────────────────────────────────────────────────────────┐\n│  Contour integration    evaluate real integrals resistant to real meth. │\n│  Conformal mapping      solve Laplace's equation on irregular domains   │\n│  Signal processing      Z-transform = Laurent series; Laplace = contour │\n│  Fluid dynamics         potential flow = holomorphic functions          │\n│  Number theory          Riemann ζ, L-functions, prime distribution      │\n│  Quantum mechanics      scattering amplitudes, Green's functions        │\n│  Control theory         poles in s-plane → stability analysis           │\n└─────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## Why Complex Differentiability Is So Much Stronger Than Real",
+      "confidence": "candidate",
+      "text": "    f'(z₀) = lim_{h→0} [f(z₀+h) − f(z₀)] / h",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "## The Ten Files at a Glance",
+      "confidence": "candidate",
+      "text": "FILE                      CORE CONTENT\n─────────────────────────────────────────────────────────────────────────\n00-OVERVIEW               This file — landscape, taxonomy, field map\n01-ANALYTIC-FUNCTIONS     Holomorphic, Cauchy-Riemann, power series, examples\n02-COMPLEX-INTEGRATION    Contour integrals, Cauchy's theorem, integral formula\n03-RESIDUES-POLES         Laurent series, poles, residue theorem, evaluating integrals\n04-CONFORMAL-MAPS         Angle-preserving maps, Möbius, Joukowski, Riemann map\n05-RIEMANN-SURFACES       Multi-valued functions, branch cuts, surfaces as manifolds\n06-ENTIRE-MEROMORPHIC     Functions on all of ℂ, growth rates, Weierstrass products\n07-ANALYTIC-CONTINUATION  Extending domains, monodromy, functional equations, ζ(s)\n08-HARMONIC-FUNCTIONS     Real/imag parts, Dirichlet problem, Poisson formula\n09-APPLICATIONS           Physics/engineering: potential flow, signals, stability, QM",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "### Complex Analysis ↔ Signal Processing and Control",
+      "confidence": "candidate",
+      "text": "Z-TRANSFORM:   X(z) = Σ x[n] z^{-n}      ← Laurent series in z^{-1}\nLAPLACE:       F(s) = ∫₀^∞ f(t)e^{-st}dt  ← s-plane integral\nINVERSE:       f(t) = (1/2πi) ∫_{Br} F(s)e^{st}ds   ← Bromwich contour\n\nPoles of F(s) → time-domain behavior\n  Pole at s = −a (Re<0) → e^{−at} decaying      → stable\n  Pole at s = +a (Re>0) → e^{+at} growing       → unstable\n  Pole on jω axis       → oscillatory            → marginally stable\n\nNYQUIST STABILITY CRITERION:\n  Count encirclements of −1 by Nyquist plot G(jω)H(jω)\n  = winding number of G(jω)H(jω) around −1\n  = residue-theorem counting of RHP poles of closed-loop system",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "## The Fundamental Chain of Theorems",
+      "confidence": "candidate",
+      "text": "HOLOMORPHIC ON DOMAIN D  (complex-differentiable at every point)\n        │\n        ▼\nCAUCHY-RIEMANN EQUATIONS HOLD\n∂u/∂x = ∂v/∂y,  ∂u/∂y = −∂v/∂x\n        │\n        ▼\nPATH INTEGRAL IS PATH-INDEPENDENT (in simply connected domain)\n        │\n        ├──────────────────────────────────────┐\n        ▼                                      ▼\nCAUCHY'S THEOREM                     CAUCHY INTEGRAL FORMULA\n∮_C f dz = 0                         f(z₀) = (1/2πi) ∮ f(z)/(z−z₀) dz\nfor any closed contour C                       │\nin simply connected domain                     ▼\n        │                            ALL DERIVATIVES EXIST\n        ▼                            f^(n)(z₀) = (n!/2πi) ∮ f(z)/(z−z₀)^{n+1} dz\nf IS ANALYTIC                                  │\n(= its own power series)                       ▼\n        │                            ONCE DIFFERENTIABLE\n        ▼                            → INFINITELY DIFFERENTIABLE\nIDENTITY THEOREM\n(f = g on a set with                   ▼\n accumulation point               LIOUVILLE'S THEOREM\n → f = g everywhere)          (bounded entire → constant)\n        │                                  │\n        ▼                                  ▼\nANALYTIC CONTINUATION            FUNDAMENTAL THEOREM OF ALGEBRA\n(extend f to larger domain)      (every nonconstant poly has a root in ℂ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 242,
+      "heading_context": "## The Riemann Zeta Function — Overview",
+      "confidence": "candidate",
+      "text": "**Riemann surfaces → elliptic curves → cryptography**: A genus-1 Riemann surface (complex torus ℂ/Λ) is exactly an elliptic curve via the Weierstrass ℘-function embedding. The group law on the torus (z₁ + z₂ mod Λ) is the chord-and-tangent group law on the cubic Y² = X³ + aX + b — the same group law used in ECC (ECDH, ECDSA) over finite fields. See 05-RIEMANN-SURFACES.md.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

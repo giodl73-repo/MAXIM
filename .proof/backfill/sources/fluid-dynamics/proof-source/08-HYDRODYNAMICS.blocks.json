@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fluid-dynamics\\08-HYDRODYNAMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "FREE-SURFACE FLOWS — LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  FROUDE NUMBER: Fr = U/√(gL) = inertia/gravity\n\n  Fr < 1  SUBCRITICAL (tranquil, deep)\n  ─────────────────────────────────────────────────────────────────────\n  │ Gravity waves propagate upstream and downstream                    │\n  │ Information can travel upstream (like subsonic flow)              │\n  │ Deep water: wave speed c = √(gλ/2π) for surface gravity waves    │\n  └─────────────────────────────────────────────────────────────────────\n\n  Fr = 1  CRITICAL (standing waves, hydraulic jump transition)\n  ─────────────────────────────────────────────────────────────────────\n  │ Wave speed = flow speed                                           │\n  └─────────────────────────────────────────────────────────────────────\n\n  Fr > 1  SUPERCRITICAL (shooting, rapid)\n  ─────────────────────────────────────────────────────────────────────\n  │ Flow faster than wave speed                                       │\n  │ Information cannot propagate upstream (like supersonic flow)      │\n  │ Hydraulic jump = analogue of normal shock                        │\n  └─────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 66,
+      "heading_context": "## Surface Gravity Waves",
+      "confidence": "candidate",
+      "text": "### Deep Water (kh >> 1): tanh(kh) → 1",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 72,
+      "heading_context": "### Deep Water (kh >> 1): tanh(kh) → 1",
+      "confidence": "candidate",
+      "text": "DEEP WATER WAVE PROPERTIES:\n  Wavelength  100 m:  c_p = √(9.8 × 100/2π) ≈ 12.5 m/s = 45 km/h\n  Wavelength  1 km:   c_p ≈ 40 m/s = 144 km/h\n  Wavelength  100 km: c_p ≈ 400 m/s = 1440 km/h  (ocean swell)\n  Wavelength  200 km: c_p ≈ 560 m/s (tsunami wavelength → shallow water)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 82,
+      "heading_context": "### Deep Water (kh >> 1): tanh(kh) → 1",
+      "confidence": "candidate",
+      "text": "### Shallow Water (kh << 1): tanh(kh) → kh",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "## Hydraulic Jump",
+      "confidence": "candidate",
+      "text": "HYDRAULIC JUMP:\n\n  SUPERCRITICAL          JUMP        SUBCRITICAL\n  (Fr > 1, shallow, fast)  │  (Fr < 1, deep, slow)\n                            │\n  ────────────────────── ╔══╝══╗ ──────────────────────\n  →→→→→→→→→→→→→→→→→→→→  ║FOAM ║  ──────────────────→→\n  (fast, shallow)         ║ZONE ║  (slow, deep)\n  ──────────────────────  ╚══╗══╝ ──────────────────────\n                            │\n                        JUMP OCCURS HERE",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "## Waves at Interfaces — Kelvin-Helmholtz Instability",
+      "confidence": "candidate",
+      "text": "KELVIN-HELMHOLTZ INSTABILITY:\n\n  Stable:    ──────────────────────────────────── ρ₂\n             ──────────────────────────────────── ρ₁ > ρ₂\n\n  Perturbed: ───────────────────────────────────\n                     ∿∿∿∿∿∿∿∿∿∿∿∿∿∿              → growing waves\n\n  Rolled up: ───────────────────────────────────\n                    ○ ○ ○ ○ ○ ○ ○               → vortex rolls\n\n  Seen in: clouds (Kelvin-Helmholtz clouds = billowing undulations),\n           ocean thermocline, atmosphere, solar corona, Saturn's bands",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

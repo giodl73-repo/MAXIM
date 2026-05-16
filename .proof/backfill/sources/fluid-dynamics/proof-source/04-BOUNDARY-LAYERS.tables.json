@@ -1,0 +1,76 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fluid-dynamics\\04-BOUNDARY-LAYERS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 292,
+      "heading_context": "## Cross-References",
+      "headers": [
+        "To deepen...",
+        "See"
+      ],
+      "rows": [
+        [
+          "No-slip origin and Reynolds-number scaling",
+          "`fluid-dynamics/01-CONTINUUM-MECHANICS.md`"
+        ],
+        [
+          "Inviscid outer-flow coupling",
+          "`fluid-dynamics/02-INVISCID-FLOW.md`"
+        ],
+        [
+          "Turbulent boundary-layer structure",
+          "`fluid-dynamics/05-TURBULENCE.md`"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 302,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Boundary-layer thickness",
+          "Blasius flat-plate estimate `delta approx 5x/sqrt(Re_x)`",
+          "`delta_99` is conventional; there is no sharp physical edge."
+        ],
+        [
+          "Skin friction",
+          "Laminar and turbulent `C_f` correlations",
+          "Turbulent skin friction is higher but can reduce pressure drag by delaying separation."
+        ],
+        [
+          "Separation onset",
+          "Adverse pressure gradient driving wall shear `tau_w` to zero",
+          "Small laminar bubbles can reattach; not all separation is catastrophic."
+        ],
+        [
+          "Integrated drag",
+          "Von Karman momentum integral and momentum thickness",
+          "Depends on external velocity distribution and closure assumptions."
+        ],
+        [
+          "Turbulent boundary-layer structure",
+          "Viscous sublayer, buffer layer, log layer",
+          "Wall units `y+`, not meters, define the universal near-wall coordinate."
+        ],
+        [
+          "Transition location",
+          "Natural flat-plate estimate `Re_x approx 5e5`",
+          "Roughness, freestream turbulence, pressure gradient, and noise move transition."
+        ],
+        [
+          "Vortex shedding frequency",
+          "Strouhal number `St = fD/U approx 0.2` for circular cylinders",
+          "Applies over common cylinder regimes, not all bluff-body geometries."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fluid-dynamics:overview
+kind: guide
+module: fluid-dynamics
+section: fluid-dynamics
+title: Fluid Dynamics - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: fluid-dynamics/00-OVERVIEW.md
+canonical_path: fluid-dynamics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:fluid-dynamics:00-overview, git-history:fluid-dynamics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fluid Dynamics — Landscape and Taxonomy
 
 ## The Big Picture
@@ -10,9 +29,9 @@ FLUID DYNAMICS — FULL LANDSCAPE
 
   GOVERNING PRINCIPLE: Conservation laws + constitutive relations
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Conservation of mass:      ∂ρ/∂t + ∇·(ρ**v**) = 0                │
-  │  Conservation of momentum:  ρ D**v**/Dt = −∇p + μ∇²**v** + ρ**g** │
-  │  Conservation of energy:    ρ D(e)/Dt = −p∇·**v** + ∇·(k∇T) + Φ  │
+  │  Conservation of mass:      ∂ρ/∂t + ∇·(ρ**v**) = 0                   │
+  │  Conservation of momentum:  ρ D**v**/Dt = −∇p + μ∇²**v** + ρ**g**    │
+  │  Conservation of energy:    ρ D(e)/Dt = −p∇·**v** + ∇·(k∇T) + Φ      │
   └──────────────────────────────────────────────────────────────────────┘
 
   FLOW REGIMES (by Reynolds number Re = ρUL/μ = UL/ν)
@@ -21,16 +40,16 @@ FLUID DYNAMICS — FULL LANDSCAPE
   │  Re ~ 1     Transitional (viscosity and inertia comparable)        │
   │  Re ~ 10³   Laminar boundary layer; steady organized flow          │
   │  Re ~ 10⁵   Transition to turbulence in boundary layers            │
-  │  Re >> 10⁶  Fully turbulent; Kolmogorov cascade; chaotic          │
+  │  Re >> 10⁶  Fully turbulent; Kolmogorov cascade; chaotic           │
   └────────────────────────────────────────────────────────────────────┘
 
   COMPRESSIBILITY (by Mach number M = U/c)
   ┌───────────────┬──────────────────────────────────────────────────┐
   │  M < 0.3      │ Incompressible (density changes < 5%)            │
-  │  0.3 < M < 1  │ Subsonic compressible                           │
+  │  0.3 < M < 1  │ Subsonic compressible                            │
   │  M = 1        │ Transonic (shock formation)                      │
   │  M > 1        │ Supersonic; oblique shocks                       │
-  │  M >> 1       │ Hypersonic; chemical dissociation, ionization     │
+  │  M >> 1       │ Hypersonic; chemical dissociation, ionization    │
   └───────────────┴──────────────────────────────────────────────────┘
 
   VISCOSITY (ideal vs real)
@@ -38,7 +57,7 @@ FLUID DYNAMICS — FULL LANDSCAPE
   │  Inviscid     │ μ = 0; Euler equations; no boundary layers       │
   │               │ Holomorphic complex potential; exact solutions   │
   │  Newtonian    │ μ = const; Navier-Stokes; most common fluids     │
-  │  Non-Newtonian│ μ = μ(strain rate); polymers, blood, paints      │
+  │ Non-Newtonian │ μ = μ(strain rate); polymers, blood, paints      │
   └───────────────┴──────────────────────────────────────────────────┘
 ```
 

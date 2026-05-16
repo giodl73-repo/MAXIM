@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fluid-dynamics\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "FLUID DYNAMICS — FULL LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  GOVERNING PRINCIPLE: Conservation laws + constitutive relations\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Conservation of mass:      ∂ρ/∂t + ∇·(ρ**v**) = 0                   │\n  │  Conservation of momentum:  ρ D**v**/Dt = −∇p + μ∇²**v** + ρ**g**    │\n  │  Conservation of energy:    ρ D(e)/Dt = −p∇·**v** + ∇·(k∇T) + Φ      │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  FLOW REGIMES (by Reynolds number Re = ρUL/μ = UL/ν)\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  Re << 1    Stokes flow (viscosity dominates, reversible)          │\n  │  Re ~ 1     Transitional (viscosity and inertia comparable)        │\n  │  Re ~ 10³   Laminar boundary layer; steady organized flow          │\n  │  Re ~ 10⁵   Transition to turbulence in boundary layers            │\n  │  Re >> 10⁶  Fully turbulent; Kolmogorov cascade; chaotic           │\n  └────────────────────────────────────────────────────────────────────┘\n\n  COMPRESSIBILITY (by Mach number M = U/c)\n  ┌───────────────┬──────────────────────────────────────────────────┐\n  │  M < 0.3      │ Incompressible (density changes < 5%)            │\n  │  0.3 < M < 1  │ Subsonic compressible                            │\n  │  M = 1        │ Transonic (shock formation)                      │\n  │  M > 1        │ Supersonic; oblique shocks                       │\n  │  M >> 1       │ Hypersonic; chemical dissociation, ionization    │\n  └───────────────┴──────────────────────────────────────────────────┘\n\n  VISCOSITY (ideal vs real)\n  ┌───────────────┬──────────────────────────────────────────────────┐\n  │  Inviscid     │ μ = 0; Euler equations; no boundary layers       │\n  │               │ Holomorphic complex potential; exact solutions   │\n  │  Newtonian    │ μ = const; Navier-Stokes; most common fluids     │\n  │ Non-Newtonian │ μ = μ(strain rate); polymers, blood, paints      │\n  └───────────────┴──────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "## The Ten Files at a Glance",
+      "confidence": "candidate",
+      "text": "FILE                      CORE CONTENT\n─────────────────────────────────────────────────────────────────────────\n00-OVERVIEW               This file — landscape, taxonomy, key parameters\n01-CONTINUUM-MECHANICS    Strain, stress, material derivative, conservation laws\n02-INVISCID-FLOW          Euler equations, Bernoulli, potential flow, circulation\n03-VISCOUS-FLOW           Navier-Stokes, Stokes flow, pipe flow, exact solutions\n04-BOUNDARY-LAYERS        Prandtl theory, Blasius, separation, transition\n05-TURBULENCE             Reynolds averaging, Kolmogorov cascade, models, spectra\n06-COMPRESSIBLE-FLOW      Shocks, expansion fans, normal/oblique shocks, de Laval\n07-AERODYNAMICS           Airfoil theory, lift, drag, wing theory, Prandtl's LLT\n08-HYDRODYNAMICS          Free surfaces, waves, hydraulics, geophysical flows\n09-CFD                    Discretization, FVM, FEM, spectral; turbulence models",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "## The Navier-Stokes Equations — The Central Object",
+      "confidence": "candidate",
+      "text": "NAVIER-STOKES:\n  ∂**v**/∂t + (**v**·∇)**v** = −(1/ρ)∇p + ν∇²**v** + **g**\n  ∇·**v** = 0  (incompressibility)\n\n  ──────────────────────────────────────────\n  ∂**v**/∂t    = local acceleration (∂/∂t holding position fixed)\n  (**v**·∇)**v** = convective acceleration (inertia: v carries itself)\n  −(1/ρ)∇p    = pressure gradient force\n  ν∇²**v**    = viscous diffusion (viscosity smooths velocity gradients)\n  **g**        = body force (gravity, Coriolis, electromagnetic...)\n  ──────────────────────────────────────────\n  The hard term: (**v**·∇)**v** — nonlinear, couples all components\n                 This is why turbulence is hard",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "## Fluid Types and Constitutive Relations",
+      "confidence": "candidate",
+      "text": "FLUID TAXONOMY:\n  Newtonian fluids:      τ = μ (∂u/∂y)    (shear stress ∝ shear rate)\n  Examples: air, water, oils, most simple fluids\n\n  Non-Newtonian fluids:  τ = μ(γ̇) · γ̇   (viscosity depends on strain rate)\n  ─ Shear-thinning (pseudoplastic): μ↓ as γ̇↑   (ketchup, blood)\n  ─ Shear-thickening (dilatant):   μ↑ as γ̇↑   (cornstarch/water)\n  ─ Bingham plastic: needs yield stress τ₀ before flowing (toothpaste)\n  ─ Viscoelastic: both viscous and elastic behavior (polymers)\n\n  Gas vs Liquid:\n  ─ Gas: compressible (ρ varies), low μ, Mach number matters\n  ─ Liquid: nearly incompressible, higher μ, Mach ~ 0",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "### Engineering Bridge: Dimensionless Numbers as Similarity Laws",
+      "confidence": "candidate",
+      "text": "FLUID DYNAMICS SIMILARITY         CS / ENGINEERING SIMILARITY\n──────────────────────────────────────────────────────────────────────────────\nReynolds number Re = ρUL/μ        Normalized load metric (demand/capacity)\n  Same Re → dynamically similar   → Same utilization ratio → same queueing\n  flows (model → full scale)         behavior regardless of absolute scale\n\nFroude number Fr = U/√(gL)        Amdahl's Law: speedup = 1/(s + p/N)\n  Wave propagation vs flow speed   → A single dimensionless ratio (serial\n  → subcritical/supercritical       fraction s) governs all parallel scaling\n\nDimensional analysis (Buckingham  Little's Law: L = λW\n  Pi): n vars, k dims → n−k        Scale-free relationship between\n  dimensionless groups govern       throughput, latency, concurrency —\n  entire physics                    holds regardless of system details",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

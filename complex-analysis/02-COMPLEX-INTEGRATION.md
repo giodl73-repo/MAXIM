@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:complex-analysis:complex-integration
+kind: guide
+module: complex-analysis
+section: complex-analysis
+title: Complex Integration and Cauchy's Theorem
+status: source-custody
+source_custody: partial
+current_path: complex-analysis/02-COMPLEX-INTEGRATION.md
+canonical_path: complex-analysis/02-COMPLEX-INTEGRATION.md
+backsource_ids: [proof-backfill:complex-analysis:02-complex-integration, git-history:complex-analysis:02-complex-integration]
+concepts: [complex, integration]
+root_concepts: [complex, integration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Complex Integration and Cauchy's Theorem
 
 ## The Big Picture
@@ -203,7 +222,7 @@ SIMPLY CONNECTED (no holes)          MULTIPLY CONNECTED (has holes)
 │                    │                │   ┌──┐      ┌──┐   │
 │   any closed curve │                │   │h₁│      │h₂│  │
 │   bounds a disk    │                │   └──┘      └──┘  │
-│   inside the domain│                │  holes = topological │
+│   inside the domain │                │  holes = topological │
 │                    │                │  obstacles to shrinking│
 └────────────────────┘                └────────────────────┘
   ∮_C f dz = 0 always                ∮_C f dz depends on which
@@ -282,7 +301,7 @@ To evaluate ∫_{-∞}^{∞} f(x) dx:
 | ∮_C f dz, f holomorphic inside C | = 0 (Cauchy) |
 | ∮_C f(z)/(z−z₀) dz, z₀ inside, f holomorphic | = 2πi f(z₀) |
 | ∮_C f(z)/(z−z₀)^{n+1} dz | = 2πi f^(n)(z₀)/n! |
-| Show integral → 0 | ML inequality: bound max|f| × length |
+| Show integral → 0 | ML inequality: bound max\|f\| × length |
 | f entire and bounded | Constant (Liouville) |
 | Prove f holomorphic (given continuity) | Morera: show ∮_T f = 0 for triangles |
 | Real integral ∫_{-∞}^{∞} | Close contour in ℂ; residue theorem |

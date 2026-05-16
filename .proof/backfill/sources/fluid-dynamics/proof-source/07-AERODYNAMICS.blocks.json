@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fluid-dynamics\\07-AERODYNAMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "AERODYNAMIC FORCES — CLASSIFICATION\n═══════════════════════════════════════════════════════════════════════════════\n\n  LIFT L = ½ρV²SC_L    (perpendicular to velocity)\n  DRAG D = ½ρV²SC_D    (parallel to velocity, opposing motion)\n  MOMENT M = ½ρV²ScC_M  (about some reference point)\n\n  q = ½ρV² = dynamic pressure,  S = reference area (usually planform area)\n\n  DRAG SOURCES:\n  ┌───────────────────┬────────────────────────────────────────────────┐\n  │ Skin friction     │ Viscous shear at wall; C_Df ~ Re^{-1/5} (turb) │\n  │ Pressure drag     │ Separation → wake; depends on body shape       │\n  │ Induced drag      │ 3D wing tip vortices; C_Di = C_L²/(πeAR)       │\n  │ Wave drag         │ Shocks at M > 0.8; rises rapidly near M = 1    │\n  └───────────────────┴────────────────────────────────────────────────┘\n\n  LIFT MECHANISM (thin airfoil):\n  Upper surface: faster flow → lower pressure (Bernoulli)\n  Lower surface: slower flow → higher pressure\n  Net upward force = ∫ (p_lower - p_upper) dA = ΔpA",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Airfoil Geometry and Notation",
+      "confidence": "candidate",
+      "text": "AIRFOIL GEOMETRY:\n     chord line ──────────────────────────────────────────\n             LE (leading edge)    TE (trailing edge)\n     camber line (mean camber line: midpoint between surfaces)\n     thickness t(x) = distance between upper/lower surface\n\n  KEY PARAMETERS:\n  c = chord length (LE to TE)\n  t/c = thickness ratio (e.g., 0.12 for NACA 0012)\n  max camber / chord position (NACA 4-digit code encodes these)\n  α = angle of attack (angle between chord line and freestream velocity)\n\n  NACA AIRFOIL NAMING:\n  NACA 2412:\n    2  = max camber 2% of chord\n    4  = max camber at 40% chord\n    12 = max thickness 12% of chord\n  NACA 0012: symmetric (no camber), 12% thick",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "## Thin Airfoil Theory",
+      "confidence": "candidate",
+      "text": "KUTTA CONDITION MECHANISM:\n  At sharp TE, two possibilities:\n  1) Flow rounds the TE: velocity → ∞  (unphysical)\n  2) Flow leaves smoothly from TE: finite velocity (Kutta condition)\n\n  The Kutta condition selects the physical solution.\n  Mathematically: it determines the circulation Γ.\n\n  From Kutta-Joukowski: L = ρV∞Γ\n  From thin airfoil theory: Γ = πcV∞(α + β)\n  ⟹ C_L = 2πα (for symmetric airfoil)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 109,
+      "heading_context": "## Lift Generation — Multiple Perspectives",
+      "confidence": "candidate",
+      "text": "### Perspective 1: Bernoulli (pressure difference)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 118,
+      "heading_context": "### Perspective 1: Bernoulli (pressure difference)",
+      "confidence": "candidate",
+      "text": "### Perspective 2: Circulation (Kutta-Joukowski)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 126,
+      "heading_context": "### Perspective 2: Circulation (Kutta-Joukowski)",
+      "confidence": "candidate",
+      "text": "### Perspective 3: Momentum (Newton's 3rd Law)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "## Pressure Distribution and Center of Pressure",
+      "confidence": "candidate",
+      "text": "C_p\n  1  ─────────────────────────────  stagnation (C_p = 1 at LE)\n  0  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─\n     ─ upper surface (negative C_p = suction)\n-1\n-2  ─ peak suction (max lift; near LE)\n     ─ lower surface (positive C_p = pressure)\n  0  ─────────────────────────────  at TE both surfaces meet",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

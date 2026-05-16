@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "complex-analysis\\01-ANALYTIC-FUNCTIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ANALYTIC FUNCTIONS — CONCEPTUAL MAP\n═══════════════════════════════════════════════════════════════════════════════\n\n  COMPLEX FUNCTION  f: Ω ⊂ ℂ → ℂ\n  Write z = x + iy,  f(z) = u(x,y) + iv(x,y)\n  u, v are real-valued functions of two real variables\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  HOLOMORPHIC AT z₀                                                  │\n  │  lim_{h→0} [f(z₀+h) − f(z₀)] / h  exists  (h ∈ ℂ, any direction)    │\n  │                                                                     │\n  │  EQUIVALENT CONDITIONS (Goursat: no continuity hypothesis needed):  │\n  │  (1) f'(z₀) exists as complex limit                                 │\n  │  (2) C-R: ∂u/∂x = ∂v/∂y,  ∂u/∂y = −∂v/∂x   (and partials exist)     │\n  │  (3) f has a convergent power series near z₀                        │\n  │  (4) f is conformal at z₀ (if f'(z₀) ≠ 0)                           │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  HOLOMORPHIC ON Ω  →  ANALYTIC ON Ω  (classical equivalence)\n         │\n         ├── real part u satisfies Laplace: ∇²u = 0   (harmonic)\n         ├── imag part v satisfies Laplace: ∇²v = 0   (harmonic)\n         ├── u and v are C^∞ (infinitely differentiable)\n         └── Taylor series at z₀ converges in largest disk in Ω",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## Cauchy-Riemann Equations — Derivation",
+      "confidence": "candidate",
+      "text": "Write f(z) = u(x,y) + iv(x,y). For f to be complex-differentiable at z₀ = x₀ + iy₀, the limit",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "## Cauchy-Riemann Equations — Derivation",
+      "confidence": "candidate",
+      "text": "    f'(z₀) = lim_{h→0} [f(z₀+h) − f(z₀)] / h",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 71,
+      "heading_context": "## Cauchy-Riemann Equations — Derivation",
+      "confidence": "candidate",
+      "text": "    f'(z₀) = lim_{Δx→0} [u(x₀+Δx, y₀) − u(x₀,y₀) + i(v(x₀+Δx,y₀) − v(x₀,y₀))] / Δx",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "## Cauchy-Riemann Equations — Derivation",
+      "confidence": "candidate",
+      "text": "    f'(z₀) = lim_{Δy→0} [u(x₀, y₀+Δy) − u(x₀,y₀) + i(v(x₀,y₀+Δy) − v(x₀,y₀))] / (iΔy)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "## Cauchy-Riemann Equations — Derivation",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────┐\n│   CAUCHY-RIEMANN EQUATIONS                  │\n│                                             │\n│   ∂u/∂x = ∂v/∂y                             │\n│   ∂u/∂y = −∂v/∂x                            │\n│                                             │\n│   (necessary condition for holomorphicity)  │\n└─────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "## Power Series Representation",
+      "confidence": "candidate",
+      "text": "CONVERGENCE OF POWER SERIES\n                                          singularity\n                                              ×\n    z₀ ×              convergent            ×\n         ╰──────────────────────────────────╯\n                       ↑\n               radius R = dist(z₀, nearest singularity)\n\nInside |z − z₀| < R:  absolute and uniform convergence\nOn |z − z₀| = R:      can converge or diverge (case by case)\nOutside:               diverges",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "## Power Series Representation",
+      "confidence": "candidate",
+      "text": "    1/R = limsup_{n→∞} |aₙ|^{1/n}",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "## Conformal Maps at Non-Critical Points",
+      "confidence": "candidate",
+      "text": "CONFORMAL PROPERTY\n\n    Two curves γ₁, γ₂ meeting at z₀ with angle α\n         │\n         ▼\n    f(γ₁), f(γ₂) meet at f(z₀) with the same angle α\n    (and same orientation)\n\nReason: f'(z₀) = |f'(z₀)| e^{iφ} acts on tangent vectors by\n         rotation by φ and scaling by |f'(z₀)|\n         Same rotation applied to both tangent vectors → angle preserved",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 266,
+      "heading_context": "## Examples — Working Through CR",
+      "confidence": "candidate",
+      "text": "    ∂u/∂x = 1,   ∂v/∂y = −1    → 1 ≠ −1: CR fails everywhere",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 271,
+      "heading_context": "## Examples — Working Through CR",
+      "confidence": "candidate",
+      "text": "    ∂u/∂x = 2x,   ∂v/∂y = 0    → 2x ≠ 0 except at origin",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 290,
+      "heading_context": "## The Goursat Theorem",
+      "confidence": "candidate",
+      "text": "    lim_{h→0} [f(z+h) − f(z)] / h",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    }
+  ]
+}

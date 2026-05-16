@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fluid-dynamics:hydrodynamics
+kind: guide
+module: fluid-dynamics
+section: fluid-dynamics
+title: Hydrodynamics and Free-Surface Flows
+status: source-custody
+source_custody: partial
+current_path: fluid-dynamics/08-HYDRODYNAMICS.md
+canonical_path: fluid-dynamics/08-HYDRODYNAMICS.md
+backsource_ids: [proof-backfill:fluid-dynamics:08-hydrodynamics, git-history:fluid-dynamics:08-hydrodynamics]
+concepts: [hydrodynamics]
+root_concepts: [hydrodynamics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hydrodynamics and Free-Surface Flows
 
 ## The Big Picture

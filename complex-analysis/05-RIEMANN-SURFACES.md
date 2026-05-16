@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:complex-analysis:riemann-surfaces
+kind: guide
+module: complex-analysis
+section: complex-analysis
+title: Riemann Surfaces
+status: source-custody
+source_custody: partial
+current_path: complex-analysis/05-RIEMANN-SURFACES.md
+canonical_path: complex-analysis/05-RIEMANN-SURFACES.md
+backsource_ids: [proof-backfill:complex-analysis:05-riemann-surfaces, git-history:complex-analysis:05-riemann-surfaces]
+concepts: [riemann, surfaces]
+root_concepts: [riemann, surfaces]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Riemann Surfaces
 
 ## The Big Picture

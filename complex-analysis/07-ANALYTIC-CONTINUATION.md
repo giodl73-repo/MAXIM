@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:complex-analysis:analytic-continuation
+kind: guide
+module: complex-analysis
+section: complex-analysis
+title: Analytic Continuation
+status: source-custody
+source_custody: partial
+current_path: complex-analysis/07-ANALYTIC-CONTINUATION.md
+canonical_path: complex-analysis/07-ANALYTIC-CONTINUATION.md
+backsource_ids: [proof-backfill:complex-analysis:07-analytic-continuation, git-history:complex-analysis:07-analytic-continuation]
+concepts: [analytic, continuation]
+root_concepts: [analytic, continuation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Analytic Continuation
 
 ## The Big Picture
@@ -264,9 +283,9 @@ Many "special functions" are defined by analytic continuation:
 | ζ(s) | Σ n^{-s}, Re(s) > 1 | ℂ \ {1} |
 | Γ(s) | ∫ t^{s-1}e^{-t}dt, Re(s) > 0 | ℂ \ {0,−1,−2,...} |
 | L(s, χ) | Σ χ(n) n^{-s}, Re(s) > 1 | Entire (for non-trivial χ) |
-| ₂F₁(a,b;c;z) | Power series, |z| < 1 | ℂ \ [1,∞) via integral |
+| ₂F₁(a,b;c;z) | Power series, \|z\| < 1 | ℂ \ [1,∞) via integral |
 | Bessel Jν(z) | Power series, all z | Entire in z |
-| Polylogarithm Lin(z) | Σ z^k/k^n, |z| < 1 | ℂ \ [1,∞) |
+| Polylogarithm Lin(z) | Σ z^k/k^n, \|z\| < 1 | ℂ \ [1,∞) |
 
 ---
 

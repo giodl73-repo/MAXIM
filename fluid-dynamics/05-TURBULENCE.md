@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fluid-dynamics:turbulence
+kind: guide
+module: fluid-dynamics
+section: fluid-dynamics
+title: Turbulence: Models and Structure
+status: source-custody
+source_custody: partial
+current_path: fluid-dynamics/05-TURBULENCE.md
+canonical_path: fluid-dynamics/05-TURBULENCE.md
+backsource_ids: [proof-backfill:fluid-dynamics:05-turbulence, git-history:fluid-dynamics:05-turbulence]
+concepts: [turbulence]
+root_concepts: [turbulence]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Turbulence: Models and Structure
 
 ## The Big Picture

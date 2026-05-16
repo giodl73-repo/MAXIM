@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "complex-analysis\\03-RESIDUES-POLES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 303,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "A contour integral",
+          "Identify singularities inside the contour, residue at each, orientation, and contour hypotheses.",
+          "Only the `c_-1` Laurent coefficient contributes to the closed contour integral."
+        ],
+        [
+          "A simple pole",
+          "Use `lim_{z->a} (z-a)f(z)` and verify the singularity is actually simple.",
+          "A removable singularity can make the same limit finite but not a pole."
+        ],
+        [
+          "A quotient pole",
+          "If `f=g/h`, check `h(a)=0`, `h'(a) != 0`, and `g` holomorphic; then use `g(a)/h'(a)`.",
+          "Multiple zeros of `h` require higher-order analysis."
+        ],
+        [
+          "A higher-order pole",
+          "Multiply by `(z-a)^n`, differentiate `n-1` times, and divide by `(n-1)!`.",
+          "First confirm the pole order; overestimating order can add unnecessary work."
+        ],
+        [
+          "A real integral by residues",
+          "Choose upper/lower contour, decay estimate, branch cuts if needed, and included poles.",
+          "The arc contribution must vanish or be accounted for."
+        ],
+        [
+          "A trigonometric integral",
+          "Substitute `z=e^{i theta}`, convert sine/cosine, include `dz/(iz)`, and use unit-circle poles.",
+          "Poles on the unit circle need indentation or principal-value handling."
+        ],
+        [
+          "Zero counting",
+          "Compare argument principle vs Rouché, check contour nonvanishing and strict inequalities.",
+          "Rouché requires strict inequality on the entire contour."
+        ],
+        [
+          "Singularity classification",
+          "Inspect Laurent principal part: none, finite, or infinite negative terms.",
+          "Residue zero does not imply removable."
+        ]
+      ]
+    }
+  ]
+}

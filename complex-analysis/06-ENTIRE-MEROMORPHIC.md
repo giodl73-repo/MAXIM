@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:complex-analysis:entire-meromorphic
+kind: guide
+module: complex-analysis
+section: complex-analysis
+title: Entire and Meromorphic Functions
+status: source-custody
+source_custody: partial
+current_path: complex-analysis/06-ENTIRE-MEROMORPHIC.md
+canonical_path: complex-analysis/06-ENTIRE-MEROMORPHIC.md
+backsource_ids: [proof-backfill:complex-analysis:06-entire-meromorphic, git-history:complex-analysis:06-entire-meromorphic]
+concepts: [entire, meromorphic]
+root_concepts: [entire, meromorphic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Entire and Meromorphic Functions
 
 ## The Big Picture
@@ -57,9 +76,9 @@ For f = e^z: ρ = 1, τ = 1. For f = e^{az}: ρ = 1, τ = |a|. For f = e^{z²}: 
 | Function | Order ρ | Type τ |
 |---------|---------|--------|
 | Polynomial of degree n | 0 | 0 |
-| e^{az} | 1 | |a| |
-| sin(az) | 1 | |a| |
-| cos(az) | 1 | |a| |
+| e^{az} | 1 | \|a\| |
+| sin(az) | 1 | \|a\| |
+| cos(az) | 1 | \|a\| |
 | e^{z²} | 2 | 1 |
 | e^{z^n} | n | 1 |
 | Σ z^n/n^n | 0 | 0 |
@@ -253,7 +272,7 @@ So zeros become more densely spaced at height T, with average gap 2π/log T.
 |-----------|------|
 | Construct entire function with prescribed zeros | Weierstrass factorization |
 | Factor entire function of finite order | Hadamard factorization |
-| Count zeros of f in |z| ≤ r | Jensen's formula, argument principle |
+| Count zeros of f in \|z\| ≤ r | Jensen's formula, argument principle |
 | Show f takes every value | Picard's theorem (if f is entire, non-polynomial) |
 | Determine growth rate of entire f | Compute order ρ = limsup log log M(r) / log r |
 | Express meromorphic f in partial fractions | Decompose into poles + polynomial part |

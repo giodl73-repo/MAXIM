@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fluid-dynamics\\01-CONTINUUM-MECHANICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CONTINUUM MECHANICS — STRUCTURE\n═══════════════════════════════════════════════════════════════════════════════\n\n  KINEMATICS  (geometry of deformation — no forces yet)\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Velocity field:  **v**(x, t)   Eulerian description                 │\n  │  Material derivative: D/Dt = ∂/∂t + **v**·∇                          │\n  │  Strain rate tensor: e_{ij} = (1/2)(∂vᵢ/∂xⱼ + ∂vⱼ/∂xᵢ)               │\n  │  Vorticity: **ω** = ∇ × **v**    (local rotation rate, 2ω)           │\n  └──────────────────────────────────────────────────────────────────────┘\n                              ↓\n  CONSERVATION LAWS (continuum versions of F = ma)\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Mass:       ∂ρ/∂t + ∇·(ρ**v**) = 0                                  │\n  │  Momentum:   ρ D**v**/Dt = ∇·σ + ρ**g**                              │\n  │  Energy:     ρ De/Dt = σ:∇**v** − ∇·**q** + ρr                       │\n  └──────────────────────────────────────────────────────────────────────┘\n                              ↓\n  CONSTITUTIVE RELATIONS (material-specific: what σ looks like)\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Ideal fluid:    σ = −pI  (pressure only, no viscosity)              │\n  │  Newtonian:      σ = −pI + μ(∇**v** + ∇**v**ᵀ) + λ(∇·**v**)I         │\n  │  Non-Newtonian:  σ = σ(strain rate tensor) — various models          │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

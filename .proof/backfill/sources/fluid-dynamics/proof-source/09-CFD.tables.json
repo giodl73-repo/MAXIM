@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fluid-dynamics\\09-CFD.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 335,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need to...",
+        "Method"
+      ],
+      "rows": [
+        [
+          "Simple geometry, high accuracy",
+          "FDM (structured, high-order)"
+        ],
+        [
+          "Complex geometry, conservation",
+          "FVM (unstructured)"
+        ],
+        [
+          "Solid mechanics compatibility, incompressible",
+          "FEM"
+        ],
+        [
+          "Very high accuracy, smooth flow",
+          "Spectral / Spectral element"
+        ],
+        [
+          "Industrial turbulent flow",
+          "RANS (k-ω SST) with FVM"
+        ],
+        [
+          "Time-accurate turbulence",
+          "LES or hybrid DES"
+        ],
+        [
+          "Incompressible time advance",
+          "Projection method (Poisson for pressure)"
+        ],
+        [
+          "Steady-state incompressible",
+          "SIMPLE algorithm"
+        ],
+        [
+          "Assess solution accuracy",
+          "Grid convergence study + Richardson extrapolation"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:complex-analysis:harmonic-functions
+kind: guide
+module: complex-analysis
+section: complex-analysis
+title: Harmonic Functions and the Dirichlet Problem
+status: source-custody
+source_custody: partial
+current_path: complex-analysis/08-HARMONIC-FUNCTIONS.md
+canonical_path: complex-analysis/08-HARMONIC-FUNCTIONS.md
+backsource_ids: [proof-backfill:complex-analysis:08-harmonic-functions, git-history:complex-analysis:08-harmonic-functions]
+concepts: [harmonic, functions]
+root_concepts: [harmonic, functions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Harmonic Functions and the Dirichlet Problem
 
 ## The Big Picture

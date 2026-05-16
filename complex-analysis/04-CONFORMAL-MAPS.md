@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:complex-analysis:conformal-maps
+kind: guide
+module: complex-analysis
+section: complex-analysis
+title: Conformal Mappings and Applications
+status: source-custody
+source_custody: partial
+current_path: complex-analysis/04-CONFORMAL-MAPS.md
+canonical_path: complex-analysis/04-CONFORMAL-MAPS.md
+backsource_ids: [proof-backfill:complex-analysis:04-conformal-maps, git-history:complex-analysis:04-conformal-maps]
+concepts: [conformal, maps]
+root_concepts: [conformal, maps]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Conformal Mappings and Applications
 
 ## The Big Picture
@@ -34,7 +53,7 @@ CONFORMAL MAPS — LANDSCAPE
   │ Laplace PDE  │ Map complex domain to disk; solve; map back        │
   │ Fluid flow   │ Map airfoil to disk; solve potential flow          │
   │ Airfoil      │ Joukowski transform: circle → wing profile         │
-  │ Electrostatics│ Potential on Ω = real part of holomorphic f on Ω  │
+  │ Electrostatic│ Potential on Ω = real part of holomorphic f on Ω   │
   └──────────────┴────────────────────────────────────────────────────┘
 ```
 

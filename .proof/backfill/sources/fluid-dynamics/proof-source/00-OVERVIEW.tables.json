@@ -1,0 +1,183 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fluid-dynamics\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 109,
+      "heading_context": "## The Most Important Parameters",
+      "headers": [
+        "Number",
+        "Formula",
+        "Physical Meaning"
+      ],
+      "rows": [
+        [
+          "Re (Reynolds)",
+          "ρUL/μ",
+          "Inertia/viscosity"
+        ],
+        [
+          "Ma (Mach)",
+          "U/c",
+          "Flow speed/sound speed"
+        ],
+        [
+          "Fr (Froude)",
+          "U/√(gL)",
+          "Inertia/gravity (free surfaces)"
+        ],
+        [
+          "Ro (Rossby)",
+          "U/(fL)",
+          "Inertia/Coriolis (geophysical)"
+        ],
+        [
+          "We (Weber)",
+          "ρU²L/σ",
+          "Inertia/surface tension"
+        ],
+        [
+          "Pr (Prandtl)",
+          "ν/κ",
+          "Momentum/thermal diffusivity"
+        ],
+        [
+          "Pe (Péclet)",
+          "UL/κ",
+          "Advection/diffusion"
+        ],
+        [
+          "Gr (Grashof)",
+          "gβΔTL³/ν²",
+          "Buoyancy-driven convection"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 170,
+      "heading_context": "## Field Connections",
+      "headers": [
+        "Fluid Concept",
+        "Mathematical Tool"
+      ],
+      "rows": [
+        [
+          "Incompressible inviscid 2D",
+          "Complex analysis (holomorphic W(z))"
+        ],
+        [
+          "Navier-Stokes weak form",
+          "Functional analysis, Sobolev spaces"
+        ],
+        [
+          "Turbulence statistics",
+          "Stochastic PDEs, Fourier analysis"
+        ],
+        [
+          "Vortex dynamics",
+          "Geometric mechanics, symplectic structure"
+        ],
+        [
+          "Shock waves",
+          "Hyperbolic conservation laws"
+        ],
+        [
+          "Boundary layers",
+          "Asymptotic methods, matched asymptotics"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 208,
+      "heading_context": "## Historical Perspective",
+      "headers": [
+        "Era",
+        "Key Advance"
+      ],
+      "rows": [
+        [
+          "1738",
+          "Bernoulli: energy conservation in flows"
+        ],
+        [
+          "1757",
+          "Euler: inviscid equations"
+        ],
+        [
+          "1822",
+          "Navier: viscosity added to Euler equations"
+        ],
+        [
+          "1845",
+          "Stokes: rigorous derivation of N-S"
+        ],
+        [
+          "1883",
+          "Osborne Reynolds: turbulence criterion (Re), dye experiment"
+        ],
+        [
+          "1904",
+          "Prandtl: boundary layer theory"
+        ],
+        [
+          "1941",
+          "Kolmogorov: turbulence cascade and K41 scaling"
+        ],
+        [
+          "1963",
+          "Lorenz: chaotic ODEs (related to convection)"
+        ],
+        [
+          "1965+",
+          "CFD develops as numerical field (FVM, FEM)"
+        ],
+        [
+          "2000",
+          "N-S Clay Millennium Problem posed"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 225,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "First step"
+      ],
+      "rows": [
+        [
+          "Is viscosity important?",
+          "Compute Re. If Re >> 1, boundary layers thin; bulk ≈ inviscid"
+        ],
+        [
+          "Is compressibility important?",
+          "Compute Ma. If Ma < 0.3, treat as incompressible"
+        ],
+        [
+          "Is the flow turbulent?",
+          "Re > 4000 (pipe), > 5×10⁵ (flat plate), > ~10⁵ (free shear)"
+        ],
+        [
+          "Can I solve it analytically?",
+          "Inviscid (complex potential) or Stokes (Re<<1) or fully symmetric"
+        ],
+        [
+          "Need to model it numerically?",
+          "Choose CFD: FVM for conservation, LES/DNS for turbulence"
+        ],
+        [
+          "Gravity waves? Surface effects?",
+          "Froude number Fr = U/√(gL)"
+        ],
+        [
+          "Rotating frame?",
+          "Rossby number Ro = U/(fL); small Ro → strong Coriolis"
+        ]
+      ]
+    }
+  ]
+}
