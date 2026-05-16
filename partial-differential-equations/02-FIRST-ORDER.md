@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:partial-differential-equations:first-order
+kind: guide
+module: partial-differential-equations
+section: partial-differential-equations
+title: First-Order PDEs and Method of Characteristics
+status: source-custody
+source_custody: partial
+current_path: partial-differential-equations/02-FIRST-ORDER.md
+canonical_path: partial-differential-equations/02-FIRST-ORDER.md
+backsource_ids: [proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]
+concepts: [first, order]
+root_concepts: [first, order]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # First-Order PDEs and Method of Characteristics
 
 ## The Big Picture

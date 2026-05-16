@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistical-mechanics\\06-RENORMALIZATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "RENORMALIZATION GROUP — CONCEPTUAL FLOW\n═══════════════════════════════════════════════════════════════════════════════\n\n  COUPLING CONSTANT SPACE (J, h, r, u, ...):\n\n  Many different microscopic Hamiltonians H(s; J, h, r, u)\n  describing the same physics at different length scales.\n\n  COARSE-GRAINING (block spin):\n  Integrate out short-distance degrees of freedom.\n  Replace block of spins by single effective spin.\n  This maps H → H' (same form, different couplings).\n\n  RG TRANSFORMATION:  (J, h, ...) → (J', h', ...)\n                                    ↓\n  FIXED POINT:  H* maps to itself.  J*' = J*,  h*' = h*.\n  Critical point IS the fixed point.\n                                    ↓\n  LINEARIZE around fixed point:  eigenvalues → critical exponents.\n\n  UNIVERSALITY:  Many different starting Hamiltonians flow to the SAME\n  fixed point H* → same critical exponents.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "## RG Flow and Fixed Points",
+      "confidence": "candidate",
+      "text": "    g_i → R_b(g_i)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 106,
+      "heading_context": "## RG Flow and Fixed Points",
+      "confidence": "candidate",
+      "text": "    δg_i → Σ_j M_{ij} δg_j    where M_{ij} = ∂R_i/∂g_j|_{g*}",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "## From Scaling to Critical Exponents",
+      "confidence": "candidate",
+      "text": "    C_V ~ |t|^{d/y_t − 2}     → α = 2 − d/y_t\n    m ~ |t|^{(d − y_h)/y_t}   → β = (d − y_h)/y_t\n    χ ~ |t|^{(2y_h − d)/y_t}  → γ = (2y_h − d)/y_t\n    ξ ~ |t|^{-1/y_t}          → ν = 1/y_t",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 192,
+      "heading_context": "## Wilson's Epsilon Expansion",
+      "confidence": "candidate",
+      "text": "    ν = 1/2 + ε/12 + O(ε²)     (mean-field: 1/2)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 195,
+      "heading_context": "## Wilson's Epsilon Expansion",
+      "confidence": "candidate",
+      "text": "    γ = 1 + ε/6 + O(ε²)        (mean-field: 1)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "## Universality Explained",
+      "confidence": "candidate",
+      "text": "WHY UNIVERSALITY?\n\n  Consider two different ferromagnets:\n  Model A: Ising on cubic lattice, J₁ (nearest-neighbor)\n  Model B: Ising on FCC lattice, J₁, J₂ (next-nearest-neighbor)\n\n  DIFFERENT microscopic Hamiltonians.\n  SAME critical exponents.\n\n  RG EXPLANATION:\n  Both models flow under RG to the SAME fixed point H*.\n  The difference (model A vs B) corresponds to different starting\n  points in coupling-constant space — but different IRRELEVANT\n  perturbations of the fixed point.\n  Irrelevant perturbations vanish under RG → both models approach H*.\n  Critical behavior = universal properties of H*.\n\n  UNIVERSALITY CLASS = BASIN OF ATTRACTION of the fixed point.\n\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  What determines the universality class:                        │\n  │  1. Spatial dimension d                                         │\n  │  2. Symmetry of the order parameter (Z₂, O(n), etc.)            │\n  │  3. Range of interactions (short vs. long-range)                │\n  │                                                                 │\n  │  What does NOT matter:                                          │\n  │  Lattice structure, nearest-neighbor vs. next-nearest,          │\n  │  specific values of coupling constants, microscopic details     │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "## Real-Space RG — 1D Ising Exact",
+      "confidence": "candidate",
+      "text": "1D ISING RG FLOW:\n\n  K' = (1/2) ln cosh(2K)\n\n  FIXED POINTS:\n  K* = 0:     T = ∞ (trivial, disordered)    STABLE (attractive)\n  K* = ∞:     T = 0 (ordered)                UNSTABLE (repulsive from both sides)\n\n  For any 0 < K < ∞: K flows toward 0 under RG.\n  → NO phase transition at finite T in 1D Ising. ✓\n\n  K* = ∞ is a zero-temperature fixed point, not a physical critical point.\n  In 1D, you need T = 0 to order — consistent with Peierls argument.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "## Connection to Quantum Field Theory",
+      "confidence": "candidate",
+      "text": "STAT MECH ↔ QFT DICTIONARY:\n\n  Classical stat mech (d dims)    Quantum field theory (d-1 dims)\n  ─────────────────────────────────────────────────────────────────\n  Partition function Z             Path integral Z = ∫Dφ e^{iS/ℏ}\n  Temperature β = 1/kT            Imaginary time extent β = ℏ/kT\n  Correlation length ξ             Inverse mass m ~ 1/ξ\n  Critical point ξ → ∞             Massless field theory\n  Universality class               Renormalizable QFT\n  RG flow in coupling space        Running of coupling constants\n  UV fixed point (high energy)     Same fixed point structure\n\n  Wilson's RG, developed for critical phenomena in the 1970s,\n  became the foundational tool for understanding renormalization\n  in quantum field theory — regularizing divergences by identifying\n  which operators are relevant, irrelevant, or marginal.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 300,
+      "heading_context": "## Engineering Bridge: RG as Multiscale Coarse-Graining",
+      "confidence": "candidate",
+      "text": "RG CONCEPT                         CS / ML EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nBlock-spin transformation           CNN pooling layer\n  integrate out fine-grained        → aggregate local features into\n  degrees of freedom within block     coarser representation\n\nHierarchical coarse-graining        Wavelet transform / hierarchical clustering\n  structure at every length scale   → multiresolution analysis of signals\n\nScale invariance at fixed point     \"Edge of chaos\" initialization\n  correlations at all scales        → gradient signal neither vanishes nor\n                                      explodes through depth\n\nRelevant/irrelevant operators       Feature importance in deep networks\n  relevant: survives coarsening     → features that persist through pooling\n  irrelevant: washed out            → fine-grained noise discarded by layers\n\nRG flow: many UV theories           Transfer learning\n  → same IR fixed point             → different pretraining → same fine-tuned\n                                      representation (universality)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

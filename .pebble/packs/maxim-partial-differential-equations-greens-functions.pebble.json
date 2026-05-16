@@ -1,0 +1,2785 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-partial-differential-equations-greens-functions",
+  "source": "../../partial-differential-equations",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-GREENS-FUNCTIONS.md#000",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "# Green's Functions and Distributions"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#001",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#002",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "Green's functions encode the complete response of a linear PDE to any source, expressed\nas the response to a point source. They are the PDE generalization of matrix inversion,\nand are exactly the **impulse response** / **convolution kernel** from signal processing."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#003",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|              GREEN'S FUNCTION CONCEPT                                 |\n|                                                                       |\n|  SIGNAL PROCESSING:          PDE ANALOG:                              |\n|  Linear system with          Linear PDE with                          |\n|  impulse response h(t):      Green's function G(x,y):                 |\n|                                                                       |\n|  INPUT: δ(t)                 SOURCE: δ(x−y)                           |\n|  OUTPUT: h(t)                RESPONSE: G(x,y)                         |\n|                                                                       |\n|  GENERAL INPUT f(t):         GENERAL SOURCE f(y):                     |\n|  OUTPUT = h * f              u(x) = ∫ G(x,y) f(y) dy                  |\n|         = ∫h(t−s)f(s)ds     (same: convolution)                       |\n|                                                                       |\n|  INVERSION:                  INVERSION:                               |\n|  Y(ω) = H(ω)·F(ω)           û(k) = Ĝ(k)·f̂(k)                          |\n|  H(ω) = 1 / (transfer fn)   Ĝ(k) = 1 / (symbol)                       |\n|                                                                       |\n|  KEY: once you have G, you can solve for ANY source f                 |\n|  by quadrature. G encodes the operator inverse.                       |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#004",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#005",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "## Distributions: Mathematical Foundation"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#006",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "To work rigorously with Green's functions requires the theory of distributions\n(generalized functions), developed by Laurent Schwartz in the 1940s."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#007",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  MOTIVATION: The Dirac delta δ(x) is not a function in any classical sense.\n  We need a framework where δ(x) = 0 for x ≠ 0, but ∫ δ(x) dx = 1."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#008",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "TEST FUNCTIONS: φ ∈ D(R^n) = C_c^∞(R^n) (smooth, compactly supported)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#009",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "DISTRIBUTION: A continuous linear functional T: D → R.\n  Written T[φ] or ⟨T, φ⟩."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#010",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "REGULAR DISTRIBUTION: T_f[φ] = ∫ f(x)φ(x) dx  for some locally integrable f.\n  Identifies \"ordinary functions\" with distributions."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#011",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "DIRAC DELTA: δ_y[φ] = φ(y)\n  Not a regular distribution — there is no function f with ∫ f(x)φ(x)dx = φ(0)."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#012",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "DERIVATIVE OF A DISTRIBUTION: T'[φ] = −T[φ']\n  This is integration by parts pushed to all functions, including singular ones.\n  Even discontinuous functions and delta functions have distributional derivatives.\n```"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#013",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "### Key Distributions"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#014",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  ┌────────────────────────────────────────────────────────────────┐\n  │ δ(x):      ⟨δ, φ⟩ = φ(0)           (point mass at 0)           │\n  │ δ(x−y):    ⟨δ_y, φ⟩ = φ(y)         (point mass at y)           │\n  │ H(x):      ⟨H, φ⟩ = ∫₀^∞ φ(x) dx  (Heaviside step function)    │\n  │ H'(x) = δ(x) in distribution sense                             │\n  │                                                                │\n  │ P.V.(1/x): ⟨P.V.(1/x), φ⟩ = lim_{ε→0} ∫_{|x|>ε} φ(x)/x dx      │\n  │ (principal value, arises in Hilbert transform)                 │\n  │                                                                │\n  │ ∂δ/∂x_i: ⟨∂δ/∂x_i, φ⟩ = −∂φ/∂x_i(0)  (dipole source)           │\n  └────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#015",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "FUNDAMENTAL IDENTITY:\n  f(x)·δ(x−y) = f(y)·δ(x−y)\n  ∫ f(x)·δ(x−y) dx = f(y)\n```"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#016",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#017",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "## Green's Function: Formal Definition"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#018",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  For a linear PDE operator L acting on functions u(x) in domain Ω:"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#019",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "Lu = f  in Ω,  with homogeneous BCs"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#020",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "GREEN'S FUNCTION G(x,y) satisfies:\n  ┌──────────────────────────────────────────────────────────────┐\n  │  L_x G(x,y) = δ(x−y)   in Ω  (for each fixed y)              │\n  │  G(x,y) satisfies the homogeneous BCs in x                   │\n  └──────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#021",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "SOLUTION:  u(x) = ∫_Ω G(x,y) f(y) dy"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#022",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "PHYSICAL MEANING:\n  G(x,y) = response at x to a unit point source at y.\n  The solution is a superposition (integral) of responses to\n  each infinitesimal bit of source."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#023",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "SYMMETRY:  G(x,y) = G(y,x)\n  (consequence of self-adjointness of L — true for L = −∇²)\n```"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#024",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#025",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "## Green's Function for Laplace Operator"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#026",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "### Free Space"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#027",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  L = −∇²,  Ω = R^n"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#028",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "LG = δ(x−y):  −∇²_x G(x,y) = δ(x−y)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#029",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "SOLUTION (fundamental solution):\n  G(x,y) = Φ(x−y)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#030",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "n=1:  G(x,y) = −½|x−y|\n  n=2:  G(x,y) = −1/(2π) log|x−y|\n  n=3:  G(x,y) = 1/(4π|x−y|)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#031",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "Note: in 3D, G = 1/(4π|x−y|) is the Coulomb potential.\n  This is the electric potential at x due to a unit charge at y.\n```"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#032",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "### Half-Space (Method of Images)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#033",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  L = −∇²,  Ω = {x : x_n > 0},  G=0 on ∂Ω"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#034",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "IDEA: place a negative \"image\" source at the reflection y* of y\n  across the boundary. This cancels the boundary value."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#035",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "y = (y', y_n) → y* = (y', −y_n)  (reflection across x_n=0)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#036",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "G(x,y) = Φ(x−y) − Φ(x−y*)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#037",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "3D:  G(x,y) = 1/(4π) [1/|x−y| − 1/|x−y*|]"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#038",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "POISSON KERNEL (response on boundary → interior):\n  ∂G/∂n_y(x,y)|_{y_n=0} = −x_n / [2π(|x'−y'|² + x_n²)^{3/2}]"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#039",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "Dirichlet solution:\n  u(x) = −∫_{y_n=0} ∂G/∂n_y (x,y) g(y') dA(y')\n        = x_n/(2π) ∫_{R^2} g(y')/(|x'−y'|²+x_n²)^{3/2} dA(y')\n```"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#040",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "### Ball (Kelvin Inversion)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#041",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  L = −∇²,  Ω = B_R = {|x| < R},  G=0 on ∂Ω"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#042",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "For source at y ∈ B_R:\n  Reflected point: y* = (R/|y|)² y  (Kelvin inversion through sphere)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#043",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "3D:  G(x,y) = 1/(4π) [1/|x−y| − R/(|y||x−y*|)]"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#044",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "POISSON INTEGRAL FORMULA:\n  For u harmonic in B_R with u=g on ∂B_R:"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#045",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "u(x) = (R² − |x|²)/(nω_n R) ∫_{|y|=R} g(y)/|x−y|^n dσ(y)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#046",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "At center x=0:\n  u(0) = 1/(nω_n R^{n-1}) ∫_{|y|=R} g(y) dσ(y) = average of g on sphere"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#047",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "This is the MEAN VALUE THEOREM.\n```"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#048",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#049",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "## Green's Function for the Heat Equation"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#050",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  L = ∂_t − α∇²,  Ω = R^n × (0,∞)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#051",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "G(x,t; y,s) = response at (x,t) to point source at (y,s), s < t:"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#052",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "G(x,t; y,s) = K(x−y, t−s)\n              = (4πα(t−s))^{−n/2} exp(−|x−y|²/4α(t−s))  for t > s\n              = 0  for t < s  (causality)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#053",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "SOLUTION:\n  u(x,t) = ∫_{R^n} G(x,t;y,0) u₀(y) dy\n           + ∫₀ᵗ ∫_{R^n} G(x,t;y,s) f(y,s) dy ds"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#054",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "= (heat kernel * IC) + (spacetime convolution with source)\n```"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#055",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#056",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "## Green's Function for the Wave Equation"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#057",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  L = ∂_t² − c²∇²,  3D case"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#058",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "RETARDED GREEN'S FUNCTION (causal):\n  G(x,t; y,s) = δ(t−s − |x−y|/c) / (4πc|x−y|)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#059",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "SUPPORT: only on the light cone |x−y| = c(t−s).\n  Zero inside and outside the cone (Huygens' principle in 3D)."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#060",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "SOLUTION:\n  u(x,t) = ∫₀ᵗ ∫_{R³} G(x,t;y,s) f(y,s) dy ds"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#061",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "For point source at origin:\n  u(x,t) = f(t − |x|/c) / (4πc|x|)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#062",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "This is the RETARDED POTENTIAL — the source's effect arrives\n  at x at time |x|/c after the source fires (at the speed of light).\n```"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#063",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#064",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "## Duhamel's Principle"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#065",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "A general method for converting inhomogeneous problems to homogeneous ones:"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#066",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  PROBLEM: u_tt − c²∇²u = f(x,t),  u(x,0) = u_t(x,0) = 0"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#067",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "DUHAMEL'S PRINCIPLE:\n  Let v(x,t;s) = solution to:\n      v_tt − c²∇²v = 0,  v(x,s;s) = 0,  v_t(x,s;s) = f(x,s)\n  (homogeneous wave equation, \"fired\" at time s with \"velocity\" f(x,s))"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#068",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "Then:  u(x,t) = ∫₀ᵗ v(x,t;s) ds"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#069",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "PHYSICAL MEANING:\n  Break the source into impulsive contributions δ(t−s)·f(x,s).\n  Each impulse fires at time s, generating response v(x,t;s).\n  Sum (integrate) all the responses."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#070",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "ALSO WORKS for:\n  • Heat equation: u_t − α∇²u = f  →  v satisfies homogeneous heat\n  • Schrödinger: iℏψ_t − Ĥψ = f\n  • Any linear evolution PDE\n```"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#071",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#072",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "## Spectral Representation of Green's Functions"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#073",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "For self-adjoint operators on bounded domains:"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#074",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  L = −∇²  with Dirichlet BCs on Ω.\n  Spectral decomposition: L = Σ_n λ_n |φ_n⟩⟨φ_n|"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#075",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "where λ_n, φ_n are eigenvalues and eigenfunctions:\n  −∇²φ_n = λ_n φ_n,  φ_n = 0 on ∂Ω,  ∫ φ_n φ_m = δ_{nm}"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#076",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "GREEN'S FUNCTION:\n  G(x,y) = Σ_n φ_n(x)φ_n(y) / λ_n"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#077",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "HEAT KERNEL:\n  K(x,y,t) = Σ_n φ_n(x)φ_n(y) · e^{−λ_n t}"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#078",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "WAVE KERNEL:\n  W(x,y,t) = Σ_n φ_n(x)φ_n(y) · cos(√λ_n · t)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#079",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "RESOLVENTS:\n  (L − z)⁻¹(x,y) = G_z(x,y) = Σ_n φ_n(x)φ_n(y) / (λ_n − z)"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#080",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "This is the bridge between Green's functions and spectral theory.\n  The poles of the resolvent are the eigenvalues.\n```"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#081",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#082",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "## Connections to Signal Processing and Machine Learning"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#083",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  SIGNAL PROCESSING PARALLELS:"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#084",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "Convolution with Green's function     = Convolution with impulse response\n  Fourier transform of G                = Transfer function H(ω)\n  Poles of G(z) = eigenvalues of L      = Poles of H(ω) = resonant frequencies"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#085",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "KERNEL METHODS IN ML:"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#086",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "A \"kernel\" k(x,y) in ML (Gaussian process, SVM, kernel regression)\n  is exactly a Green's function. The reproducing kernel Hilbert space\n  (RKHS) associated with a kernel k is the Sobolev space H^s where\n  k = Green's function of (I + (−∇²))^s or similar operator."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#087",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "Gaussian kernel k(x,y) = e^{−|x−y|²/2σ²}\n  = (up to scaling) Green's function of a heat operator."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#088",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "NEURAL NETWORK ANALOGY:\n  A neural ODE dx/dt = f(x,t) with continuous depth → Lagrangian\n  formulation where the optimal path satisfies a variational principle.\n  The backward pass (adjoint method) computes the \"time-reversed Green's\n  function\" of the linearized dynamics.\n```"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#089",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#090",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "## Numerical Computation of Green's Functions"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#091",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  DIRECT METHODS (small problems):\n  • Invert the discretized operator matrix: G ≈ A⁻¹\n    where A = stiffness matrix from FEM/FD.\n  • Expensive: O(n³) for n degrees of freedom.\n  • Only feasible for n up to ~10⁴-10⁵."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#092",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "BOUNDARY ELEMENT METHOD (BEM):\n  • Use the free-space Green's function analytically.\n  • Reduce volume problem to surface integral equation.\n  • Discretize only the boundary, not the volume.\n  • n_boundary << n_volume → much cheaper.\n  • But produces a DENSE matrix (not sparse like FEM).\n  • Accelerated by FMM (Fast Multipole Method): O(n log n)."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#093",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "FAST ALGORITHMS:\n  • Fast Multipole Method (FMM): O(n) Green's function evaluations.\n  • H-matrices / HSS matrices: hierarchical low-rank compression.\n  • Panel clustering: adaptive accuracy for far-field interactions.\n```"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#094",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#095",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#096",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "- `signal-processing/04-CONVOLUTION-CORRELATION.md` — impulse-response and convolution analogy.\n- `partial-differential-equations/05-LAPLACE-POISSON.md` — Green's functions for elliptic boundary-value problems.\n- `partial-differential-equations/06-FOURIER-METHODS.md` — Fourier-domain inversion of linear operators."
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#097",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "07-GREENS-FUNCTIONS.md#098",
+      "path": [
+        "07-GREENS-FUNCTIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]",
+        "canonical_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "concepts": "[greens, functions]",
+        "current_path": "partial-differential-equations/07-GREENS-FUNCTIONS.md",
+        "id": "maxim:partial-differential-equations:greens-functions",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greens, functions]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Green's Functions and Distributions",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Whether Poisson in free 3D space is Coulomb-like | Fundamental solution `1/(4*pi*|x-y|)` | Free-space kernels ignore boundary conditions |\n| Whether a half-space boundary can be enforced by symmetry | Image charge/source construction | Images rely on flat boundaries and simple BCs |\n| Whether a ball has an explicit Green's function | Kelvin inversion | The reflected source and prefactor depend on dimension and radius |\n| Whether heat forcing propagates causally | Gaussian heat kernel with `t > s` | Parabolic propagation is instantly nonzero but still time-causal |\n| Whether wave forcing has sharp retarded support | Retarded 3D wave Green's function | Huygens behavior is dimension- and operator-dependent |\n| Whether a bounded domain is best treated spectrally | Eigenfunction expansion of the inverse operator | Convergence and zero modes depend on BCs and spectrum |\n| Whether inhomogeneous forcing can be accumulated over time | Duhamel's principle | Linearity is essential; nonlinear problems need different machinery |"
+    }
+  ],
+  "refs": [
+    "07-GREENS-FUNCTIONS.md"
+  ]
+}

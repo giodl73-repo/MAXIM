@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "partial-differential-equations\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                    THE PDE LANDSCAPE                                          |\n|                                                                              |\n|   TYPE          CANONICAL EQUATION               PHYSICS                     |\n|   ----          ------------------               -------                     |\n|                                                                              |\n|   ELLIPTIC      ∇²u = 0   (Laplace)              Electrostatics,             |\n|   (steady)      ∇²u = f   (Poisson)              steady heat,                |\n|                                                  Newtonian gravity            |\n|                                                                              |\n|   PARABOLIC     ∂u/∂t = α∇²u                     Heat diffusion,             |\n|   (evolution,   (Heat / diffusion)               Brownian motion,            |\n|    irreversible)                                  Schrödinger (imag t)       |\n|                                                                              |\n|   HYPERBOLIC    ∂²u/∂t² = c²∇²u                  Sound, light,               |\n|   (wave         (Wave equation)                  seismic waves,              |\n|    propagation)                                  electromagnetism            |\n|                                                                              |\n|   MIXED / NONLINEAR                                                          |\n|   Navier-Stokes  ∂u/∂t + (u·∇)u = −∇p + ν∇²u   Fluid mechanics             |\n|   KdV            u_t + 6u·u_x + u_xxx = 0        Solitons                   |\n|   Schrödinger    iℏ∂ψ/∂t = Ĥψ                   Quantum mechanics           |\n|   Einstein       G_μν = 8πT_μν                   General relativity          |\n|   Black-Scholes  V_t + ½σ²S²V_SS + rSV_S − rV=0 Financial derivatives       |\n|                                                                              |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 66,
+      "heading_context": "### Order and Linearity",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------+\n|  ORDER = highest derivative appearing                     |\n|                                                          |\n|  1st order:   u_x + u_y = 0             (transport)     |\n|  2nd order:   u_xx + u_yy = 0           (Laplace)       |\n|  4th order:   u_xxxx + 2u_xxyy + u_yyyy = 0  (biharmonic)|\n|                                                          |\n|  LINEARITY                                               |\n|                                                          |\n|  Linear:       L[u] = 0  where L is a linear operator   |\n|                L[αu + βv] = αL[u] + βL[v]               |\n|                → superposition holds                     |\n|                → powerful analytical toolkit             |\n|                                                          |\n|  Semilinear:   linear in highest derivatives,            |\n|                nonlinear in lower:                       |\n|                u_xx + u_yy = f(x, y, u, u_x)            |\n|                                                          |\n|  Quasilinear:  coefficients depend on u and lower        |\n|                derivatives but not highest:              |\n|                A(u)u_xx + B(u)u_yy = 0                  |\n|                                                          |\n|  Fully nonlinear: nonlinear in highest derivatives:      |\n|                u_xx · u_yy − u_xy² = f  (Monge-Ampère)  |\n|                                                          |\n+----------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 95,
+      "heading_context": "### Order and Linearity",
+      "confidence": "candidate",
+      "text": "### The Discriminant (2nd-Order, 2 Variables)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "### The Discriminant (2nd-Order, 2 Variables)",
+      "confidence": "candidate",
+      "text": "  Au_xx + 2Bu_xy + Cu_yy + Du_x + Eu_y + Fu = G\n\n  DISCRIMINANT:  Δ = B² − AC\n\n    Δ < 0   →   ELLIPTIC\n    Δ = 0   →   PARABOLIC\n    Δ > 0   →   HYPERBOLIC\n\n  CANONICAL EXAMPLES:\n    Laplace   u_xx + u_yy = 0:     A=1, B=0, C=1   → Δ = −1 < 0   ELLIPTIC\n    Heat      u_t − u_xx = 0:      A=−1,B=0, C=0   → Δ =  0 = 0   PARABOLIC\n    Wave      u_tt − u_xx = 0:     A=1, B=0, C=−1  → Δ =  1 > 0   HYPERBOLIC",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 122,
+      "heading_context": "## Solution Strategy Map",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                    HOW TO APPROACH A PDE                               |\n|                                                                       |\n|   Step 1: Classify type                                               |\n|   +-----------+   +-----------+   +-----------+                       |\n|   | ELLIPTIC  |   | PARABOLIC |   | HYPERBOLIC|                       |\n|   +-----------+   +-----------+   +-----------+                       |\n|        |               |               |                              |\n|   Step 2: Choose analytical method                                    |\n|        |               |               |                              |\n|   Separation    Separation +    Separation +                          |\n|   of variables  Fourier series  d'Alembert                            |\n|   Green's fn    Heat kernel     Characteristics                       |\n|   Potential     Fourier/Laplace Fourier transform                     |\n|   theory        transform       Riemann method                        |\n|        |               |               |                              |\n|   Step 3: Numerical (when analytic fails)                             |\n|   FEM (dominant)  FD implicit   FD explicit + CFL                     |\n|   BEM             Crank-Nicolson Godunov / upwind                     |\n|   Spectral        Spectral      Spectral                              |\n|        |               |               |                              |\n|   Step 4: Specify boundary / initial conditions                       |\n|   +-----------------+  +--------------------+                         |\n|   | Dirichlet: u=g  |  | Neumann: ∂u/∂n = h |                        |\n|   | (value given)   |  | (flux given)        |                        |\n|   +-----------------+  +--------------------+                         |\n|   +-------------------+  +-----------------------+                    |\n|   | Robin: ∂u/∂n+αu=g |  | Cauchy: u and ∂u/∂n   |                   |\n|   | (mixed)            |  | both given            |                   |\n|   +-------------------+  | (ok for hyperbolic;    |                   |\n|                           |  ill-posed for ellip!) |                   |\n|                           +-----------------------+                    |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 162,
+      "heading_context": "## The Core Equations: Reference Table",
+      "confidence": "candidate",
+      "text": "+-------------+-------------------------------------------+---------------------+\n| EQUATION    | FORM                                      | MODELS              |\n+-------------+-------------------------------------------+---------------------+\n| Laplace     | ∇²u = 0                                   | Electrostatic pot., |\n|             | u_xx + u_yy + u_zz = 0                    | steady-state heat,  |\n|             |                                           | irrotational flow   |\n+-------------+-------------------------------------------+---------------------+\n| Poisson     | ∇²u = f(x)                                | Gravity potential,  |\n|             |                                           | charge distribution |\n+-------------+-------------------------------------------+---------------------+\n| Heat        | u_t = α∇²u                                | Diffusion,          |\n|             | (α = thermal diffusivity > 0)             | Brownian motion,    |\n|             |                                           | chemical diffusion  |\n+-------------+-------------------------------------------+---------------------+\n| Wave        | u_tt = c²∇²u                              | Acoustics, EM,      |\n|             | (c = wave speed)                          | seismics, strings   |\n+-------------+-------------------------------------------+---------------------+\n| Helmholtz   | ∇²u + k²u = 0                             | Time-harmonic       |\n|             | (wave eq. with u ~ e^{iωt} ansatz)        | wave scattering     |\n+-------------+-------------------------------------------+---------------------+\n| Schrödinger | iℏ ψ_t = −(ℏ²/2m)∇²ψ + Vψ               | Quantum mechanics   |\n|             | (parabolic in imaginary time)             | electron dynamics   |\n+-------------+-------------------------------------------+---------------------+\n| Navier-Stokes| u_t + (u·∇)u = −∇p/ρ + ν∇²u            | Viscous fluid flow  |\n|             | ∇·u = 0 (incompressible)                  | (existence/smooth.  |\n|             |                                           |  in 3D: open!)      |\n+-------------+-------------------------------------------+---------------------+\n| Burgers     | u_t + u·u_x = ν·u_xx                      | Shock formation,    |\n|             | (ν=0: inviscid Burgers)                   | turbulence model    |\n+-------------+-------------------------------------------+---------------------+\n| KdV         | u_t + 6u·u_x + u_xxx = 0                  | Solitons, shallow   |\n|             |                                           | water waves         |\n+-------------+-------------------------------------------+---------------------+\n| Biharmonic  | ∇⁴u = ∇²(∇²u) = 0                        | Elasticity, Stokes  |\n|             |                                           | slow viscous flow   |\n+-------------+-------------------------------------------+---------------------+\n| Eikonal     | |∇u|² = n(x)²  (n = refractive index)    | Geometric optics,   |\n|             | (nonlinear 1st order)                     | ray tracing         |\n+-------------+-------------------------------------------+---------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 208,
+      "heading_context": "## Solution Methods: Full Landscape",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│                    PDE SOLUTION METHODS — THREE ERAS                 │\n│                                                                     │\n│  CLASSICAL ANALYTICAL (18th–20th c.)                                │\n│  ┌──────────────┐ ┌──────────────┐ ┌─────────────┐ ┌────────────┐  │\n│  │ Separation   │ │ Fourier      │ │ Green's     │ │ Method of  │  │\n│  │ of Variables │ │ Transform    │ │ Functions   │ │ Charact's  │  │\n│  └──────┬───────┘ └──────┬───────┘ └──────┬──────┘ └─────┬──────┘  │\n│         │                │                │              │          │\n│         └───── exact solutions on separable/symmetric domains ─────┘│\n│                              │                                      │\n│  MODERN THEORY (20th c.)     │                                      │\n│  ┌──────────────┐ ┌──────────┴──────┐ ┌─────────────────────┐      │\n│  │ Sobolev      │ │ Weak/variational│ │ Elliptic regularity │      │\n│  │ spaces H^k   │ │ formulations    │ │ Calderón-Zygmund    │      │\n│  └──────┬───────┘ └──────┬──────────┘ └──────────┬──────────┘      │\n│         │                │                       │                  │\n│         └──── existence/uniqueness/regularity theory ───────────────┘│\n│                              │                                      │\n│  NUMERICAL METHODS           │      ML-BASED METHODS                │\n│  ┌────────┐ ┌────────┐ ┌────┴───┐  ┌────────┐ ┌──────┐ ┌───────┐  │\n│  │  FD    │ │  FV    │ │  FEM   │  │ PINNs  │ │ FNO  │ │DeepO- │  │\n│  │stencil │ │flux    │ │weak+   │  │residual│ │Fourier│ │Net    │  │\n│  │approx  │ │balance │ │basis   │  │as loss │ │space  │ │branch/│  │\n│  └────────┘ └────────┘ └────────┘  │mesh-   │ │oper.  │ │trunk  │  │\n│  Mesh-based, proven error bounds   │free    │ │learn  │ │decomp │  │\n│                                    └────────┘ └──────┘ └───────┘  │\n│                                    Mesh-free, amortized, no        │\n│                                    rigorous error bounds (yet)     │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 243,
+      "heading_context": "## Key Analytical Tools",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                   ANALYTICAL TOOLKIT                              |\n|                                                                  |\n|  SEPARATION OF VARIABLES                                         |\n|  Assumes u(x,t) = X(x)·T(t)  (or X(x)·Y(y) etc.)                 |\n|  Reduces PDE → coupled system of ODEs                            |\n|  Works on: rectangular, cylindrical, spherical domains           |\n|  Produces: eigenfunction expansions                              |\n|                                                                  |\n|  FOURIER SERIES / TRANSFORM                                      |\n|  Represent solution as superposition of modes                    |\n|  Finite domain  → Fourier series (discrete spectrum)            |\n|  Infinite domain → Fourier transform (continuous spectrum)      |\n|  Turns ∂/∂x into multiplication by ik                           |\n|  Turns ∂²/∂x² into multiplication by −k²                       |\n|                                                                  |\n|  GREEN'S FUNCTIONS                                               |\n|  G(x,y) = response at x to point source at y                    |\n|  Solution: u(x) = ∫ G(x,y) f(y) dy                              |\n|  Think: impulse response / convolution kernel                    |\n|  (Same concept as transfer function in systems/controls)         |\n|                                                                  |\n|  METHOD OF CHARACTERISTICS                                       |\n|  First-order PDEs: follow characteristic curves                  |\n|  PDE becomes ODE along characteristics                           |\n|  Reveals shock formation (when characteristics cross)            |\n|                                                                  |\n|  TRANSFORM METHODS                                               |\n|  Laplace: converts t-derivative to algebraic in s               |\n|  Fourier: converts x-derivative to algebraic in k               |\n|  Reduces PDE → ODE or algebraic equation                         |\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 303,
+      "heading_context": "## Well-Posedness (Hadamard, 1902)",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------+\n|  BOUNDARY CONDITIONS AND WELL-POSEDNESS           |\n|                                                  |\n|  ELLIPTIC (Laplace, Poisson):                    |\n|   Appropriate: boundary of entire domain Ω       |\n|   ✓ Dirichlet:  u = g on ∂Ω                     |\n|   ✓ Neumann:    ∂u/∂n = h on ∂Ω                 |\n|   ✓ Robin:      ∂u/∂n + αu = g on ∂Ω            |\n|   ✗ Cauchy:     both u and ∂u/∂n → ill-posed     |\n|                                                  |\n|  PARABOLIC (Heat):                               |\n|   ✓ IC: u(x,0) = u₀(x)  (initial data)          |\n|   ✓ BC: Dirichlet or Neumann on spatial ∂Ω      |\n|   ✗ Final-time data: ill-posed (backward heat)   |\n|                                                  |\n|  HYPERBOLIC (Wave):                              |\n|   ✓ Cauchy IVP: u(x,0) = u₀, u_t(x,0) = v₀     |\n|   ✓ Mixed: Cauchy IC + spatial boundary for Ω   |\n|   ✓ Characteristic BCs for outflow boundaries   |\n|                                                  |\n+--------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 331,
+      "heading_context": "## Information Propagation: The Core Physical Intuition",
+      "confidence": "candidate",
+      "text": "  ELLIPTIC: Information propagates INSTANTLY everywhere.\n\n  +---------+    Change a boundary value → entire interior adjusts\n  |         |    immediately. No preferred direction. No \"time\".\n  |    ·    |    Solution at any point depends on ALL boundary data.\n  |         |    Think: soap film on a wire frame. Equilibrium.\n  +---------+\n\n\n  PARABOLIC: Information propagates at INFINITE speed but decays.\n\n  t=0:   ─────────────────[spike]────────────────── x\n  t=ε:   ──────────────[Gaussian]────────────────── x\n  t=T:   ─────────────────[flat]──────────────────── x\n\n  Every point is immediately influenced by the spike.\n  But influence diminishes exponentially with distance.\n  Irreversible: running time backward is ill-posed.\n\n\n  HYPERBOLIC: Information propagates at FINITE speed c.\n\n  t=0:   ──────────────[spike at x=0]───────────── x\n  t=1:   ────────────────────X──────────────────── x (nothing outside)\n                           [−c,+c]\n  t=2:   ─────────────────X─────X──────────────── x\n                         [−2c] [+2c]\n\n  Domain of influence: forward light cone.\n  Domain of dependence: backward light cone.\n  Outside the cone: EXACTLY zero effect (causality).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

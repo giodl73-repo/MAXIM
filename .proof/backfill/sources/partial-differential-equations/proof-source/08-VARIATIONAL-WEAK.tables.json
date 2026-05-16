@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "partial-differential-equations\\08-VARIATIONAL-WEAK.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 355,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether classical differentiability is too strong",
+          "Weak formulation by multiplying test functions and integrating by parts",
+          "Weak solutions still need the right function space and boundary trace"
+        ],
+        [
+          "Whether Dirichlet data should be built into the space",
+          "`H_0^1(Omega)`",
+          "Zero trace is boundary behavior, not pointwise zero at every boundary point"
+        ],
+        [
+          "Whether the discrete matrix is the stiffness matrix",
+          "`A_ij = integral grad phi_i dot grad phi_j`",
+          "Assembly order and basis convention can transpose notation"
+        ],
+        [
+          "Whether symmetry should hold",
+          "Symmetric bilinear form `a(u,v)=a(v,u)`",
+          "Advection or nonsymmetric operators break symmetry"
+        ],
+        [
+          "Whether positive definiteness is guaranteed",
+          "Coercivity of the bilinear form",
+          "Pure Neumann problems have constant nullspaces"
+        ],
+        [
+          "Whether P1 FEM error rates are plausible",
+          "`O(h)` in `H^1`, `O(h^2)` in `L^2`",
+          "Rates require regularity; corners and singularities degrade them"
+        ],
+        [
+          "Whether a conservation-law weak solution is unique",
+          "Integral weak form plus entropy condition",
+          "Weak form alone admits nonphysical shocks"
+        ],
+        [
+          "Whether `L^2` norm is controlled by gradient norm",
+          "Poincare inequality on bounded domains",
+          "Constants depend on domain geometry and boundary conditions"
+        ],
+        [
+          "Whether existence/uniqueness follows abstractly",
+          "Lax-Milgram theorem",
+          "Requires continuity and coercivity of the bilinear form"
+        ]
+      ]
+    }
+  ]
+}

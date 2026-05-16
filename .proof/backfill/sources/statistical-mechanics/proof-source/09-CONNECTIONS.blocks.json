@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistical-mechanics\\09-CONNECTIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 33,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THREE-WAY EQUIVALENCE\n═══════════════════════════════════════════════════════════════════════════════\n\n  STATISTICAL MECHANICS          INFORMATION THEORY          MACHINE LEARNING\n  ──────────────────────         ──────────────────          ────────────────────\n  Boltzmann entropy              Shannon entropy             Categorical cross-entropy\n  S = −k Σ pᵢ ln pᵢ             H = −Σ pᵢ log₂ pᵢ          H = −Σ pᵢ log qᵢ\n\n  Partition function Z           Normalizing constant        Model evidence (marginal)\n  Z = Σ e^{-βE_i}                                            Z = ∫ p(x|θ) p(θ) dθ\n\n  Helmholtz free energy F        Negative log-evidence       ELBO / Variational bound\n  F = −kT ln Z = U − TS          F = −log Z                  F = ⟨log p/q⟩ = KL − log Z\n\n  Boltzmann distribution         Maximum entropy dist.       Energy-based model (EBM)\n  P(x) = e^{-E(x)/kT}/Z         P(x) = e^{-λᵢ fᵢ(x)}/Z     P(x) = e^{-E_θ(x)}/Z\n\n  Temperature T                  Lagrange multiplier         Inverse temperature β (noise)\n\n  Gibbs sampling                 MCMC                        Stochastic inference\n  Phase transition               Model selection threshold   Generalization transition",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 200,
+      "heading_context": "## Boltzmann Machine",
+      "confidence": "candidate",
+      "text": "    P(hⱼ = 1 | v) = σ(Wⱼ·v + cⱼ)    (sigmoid = Fermi-Dirac at β=1, μ = Wⱼ·v + cⱼ)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "## Free Energy in ML — Variational Inference",
+      "confidence": "candidate",
+      "text": "STATISTICAL MECHANICS           VARIATIONAL INFERENCE (ELBO)\n─────────────────────────────  ────────────────────────────────────\nFree energy F = U − TS         Variational free energy F[q] = ⟨E⟩_q − H(q)\nU = ⟨E⟩_P (internal energy)    ⟨E⟩_q (expected energy under q)\nS = H(P) (entropy)             H(q) = −Σ q log q (entropy of q)\nBoltzmann distribution P*      True posterior P(z|x)\nApproximate distribution       Variational family q(z; φ)\nMinimize F over distributions  Maximize ELBO over φ\nBoth are convex optimization   Both are convex optimization\n\nF is minimized by the true P (at T=1).\nELBO is tight when q = P(z|x).\nIn both cases: the gap is the KL divergence KL(q||P).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 264,
+      "heading_context": "## Connections to Finance — Stochastic Processes",
+      "confidence": "candidate",
+      "text": "PHYSICS ↔ FINANCE DICTIONARY:\n\n  Langevin equation:  dX = μ dt + σ dW_t  (geometric Brownian motion)\n  μ = drift (expected return),  σ = volatility (noise amplitude)\n\n  Fokker-Planck equation ↔ Black-Scholes PDE for option pricing\n  P(x,t) = prob. density of position → V(S,t) = option value\n\n  Black-Scholes equation:\n  ∂V/∂t + (1/2)σ²S² ∂²V/∂S² + rS ∂V/∂S − rV = 0\n\n  This IS a Fokker-Planck equation for the option value.\n  \"Diffusion coefficient\" = (1/2)σ²S²,  \"drift\" = rS.\n\n  Free energy minimization ↔ Risk-neutral pricing (arbitrage-free)\n  Temperature T ↔ Volatility σ (measures uncertainty/fluctuations)\n  Partition function Z ↔ Moment generating function of returns\n  Ising phase transition ↔ Market crash (collective herding behavior)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 384,
+      "heading_context": "## Diffusion Generative Models — Score Matching as Stat Mech",
+      "confidence": "candidate",
+      "text": "DIFFUSION MODELS IN THE STAT MECH / ML UNIFIED FRAMEWORK:\n\n  Stat Mech Concept         Diffusion Model Equivalent\n  ────────────────────────────────────────────────────────────────\n  Forward Langevin SDE      Forward noising process (destroy signal)\n  Fokker-Planck equation    Evolution of data density p(x,t)\n  Score ∇_x log p(x,t)     Force field = −∇U/(kT) from free energy\n  Reverse-time SDE          Generative process (noise → data)\n  Anderson (1982)           Theoretical foundation for reverse SDE\n  Free energy gradient      Learned score function s_θ(x,t)\n  Simulated annealing       Multi-scale denoising (high → low noise)\n\n  Unlike EBMs:  no partition function Z required.\n  Unlike VAEs:  no ELBO — train by score matching on noise levels.\n  Like Langevin MCMC: sampling IS running the reverse SDE.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 408,
+      "heading_context": "## Spin Glasses and Computational Complexity",
+      "confidence": "candidate",
+      "text": "CSP PROBLEM                  SPIN GLASS ANALOG                   KEY RESULT\n─────────────────────────────────────────────────────────────────────────────\nRandom k-SAT                 Diluted random spin glass            Satisfiability threshold\n  N variables, αN clauses    k-body interactions on random graph  α_s(3) ≈ 4.267 (cavity method)\n\nRandom MAX-CUT               ±J SK model on random graph          Parisi value ≈ 0.763√N\n  Partition vertices          Frustration = unsatisfied edges      (replica symmetric)\n\nGraph q-coloring             q-state Potts glass                  Clustering transition before\n  c edges per vertex          Random interactions                  uncolorability (1-RSB)\n\nNumber partitioning          1D random-field Ising                Phase transition at\n  Subset sums                 Spins = ±1, random fields = aᵢ      M ~ N log N bits precision\n\nRandom linear programming    Spherical spin glass                 Gardner transition\n  Constraints = patterns      Perceptron energy function           (capacity α_c ≈ 2)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

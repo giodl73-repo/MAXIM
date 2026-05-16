@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistical-mechanics:non-equilibrium
+kind: guide
+module: statistical-mechanics
+section: statistical-mechanics
+title: Non-Equilibrium Statistical Mechanics
+status: source-custody
+source_custody: partial
+current_path: statistical-mechanics/08-NON-EQUILIBRIUM.md
+canonical_path: statistical-mechanics/08-NON-EQUILIBRIUM.md
+backsource_ids: [proof-backfill:statistical-mechanics:08-non-equilibrium, git-history:statistical-mechanics:08-non-equilibrium]
+concepts: [non, equilibrium]
+root_concepts: [non, equilibrium]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Non-Equilibrium Statistical Mechanics
 
 ## The Big Picture

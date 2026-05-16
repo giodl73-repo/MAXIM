@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "partial-differential-equations\\04-HEAT-EQUATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 353,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether a heat problem is free-space diffusion",
+          "Gaussian fundamental solution",
+          "Boundaries, variable coefficients, and sources alter the kernel"
+        ],
+        [
+          "Whether a length scale should grow diffusively",
+          "`L ~ sqrt(alpha t)`",
+          "Advection, reaction, or anomalous diffusion changes the scaling"
+        ],
+        [
+          "Whether separation of variables is appropriate",
+          "Exponentially decaying eigenmodes",
+          "Geometry and boundary conditions determine the eigenbasis"
+        ],
+        [
+          "What controls long-time behavior",
+          "Lowest eigenmode and decay rate `exp(-alpha lambda_1 t)`",
+          "Conserved mass or nonhomogeneous forcing can change the asymptotic state"
+        ],
+        [
+          "Whether backward heat is stable",
+          "Reverse the Fourier-mode decay",
+          "High-frequency modes grow like `exp(alpha k^2 T)` and amplify noise"
+        ],
+        [
+          "Whether maxima can form inside the domain",
+          "Parabolic maximum principle",
+          "The boundary is parabolic: initial slice plus spatial boundary"
+        ],
+        [
+          "Whether positivity should be preserved",
+          "Positivity-preserving heat semigroup",
+          "Sources, reactions, or sign-changing boundary data can break it"
+        ],
+        [
+          "Whether Black-Scholes is a heat equation in disguise",
+          "Log/discount change of variables",
+          "Financial boundary/payoff conditions carry the modeling assumptions"
+        ],
+        [
+          "Whether diffusion can create patterns",
+          "Turing instability in reaction-diffusion systems",
+          "It requires at least coupled species and differential diffusion rates"
+        ]
+      ]
+    }
+  ]
+}

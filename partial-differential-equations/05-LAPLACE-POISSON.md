@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:partial-differential-equations:laplace-poisson
+kind: guide
+module: partial-differential-equations
+section: partial-differential-equations
+title: Laplace and Poisson Equations
+status: source-custody
+source_custody: partial
+current_path: partial-differential-equations/05-LAPLACE-POISSON.md
+canonical_path: partial-differential-equations/05-LAPLACE-POISSON.md
+backsource_ids: [proof-backfill:partial-differential-equations:05-laplace-poisson, git-history:partial-differential-equations:05-laplace-poisson]
+concepts: [laplace, poisson]
+root_concepts: [laplace, poisson]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Laplace and Poisson Equations
 
 ## The Big Picture

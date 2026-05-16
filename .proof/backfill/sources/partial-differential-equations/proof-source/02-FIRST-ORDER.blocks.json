@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "partial-differential-equations\\02-FIRST-ORDER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              FIRST-ORDER PDE TAXONOMY                                 |\n|                                                                       |\n|  LINEAR:         a(x,y)u_x + b(x,y)u_y = c(x,y)                       |\n|                  Characteristics: ODEs dx/a = dy/b = du/c             |\n|                                                                       |\n|  SEMILINEAR:     a(x,y)u_x + b(x,y)u_y = c(x,y,u)                     |\n|                  Characteristics: same curves, but u evolves          |\n|                  nonlinearly along them                               |\n|                                                                       |\n|  QUASILINEAR:    a(x,y,u)u_x + b(x,y,u)u_y = c(x,y,u)                 |\n|                  Characteristics DEPEND ON SOLUTION u                 |\n|                  → characteristics can cross → SHOCKS                 |\n|                                                                       |\n|  FULLY NONLINEAR: F(x,y,u,u_x,u_y) = 0                                |\n|                  More complex geometry; Monge cones; Hamilton-Jacobi  |\n|                                                                       |\n|  KEY RESULTS:                                                         |\n|  • Every first-order PDE is hyperbolic (info propagates along chars)  |\n|  • Characteristics can cross → solution becomes multi-valued → shocks |\n|  • Entropy condition selects the \"physical\" weak solution             |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "## Quasilinear PDEs and Shock Formation",
+      "confidence": "candidate",
+      "text": "  u_t + u·u_x = 0,   u(x,0) = u₀(x)\n\n  Physical meaning: each \"parcel\" of fluid moves at speed u.\n  Fast parts overtake slow parts → compression → shock.\n\n  CHARACTERISTIC EQUATIONS:\n      dx/dt = u,   x(0) = x₀\n      dt/dt = 1\n      du/dt = 0,   u(0) = u₀(x₀)\n\n  Solution along characteristics:  u = u₀(x₀) = const\n  Characteristics:  x = x₀ + u₀(x₀)·t  (straight lines in x-t plane)\n\n  SHOCK FORMATION:\n  Characteristics cross when a faster one (higher u₀) catches a\n  slower one (lower u₀).\n\n  Two characteristics x₀ and x₀+δ cross when:\n  x₀ + u₀(x₀)t = x₀+δ + u₀(x₀+δ)t\n  → t = −δ/(u₀(x₀+δ) − u₀(x₀)) → −1/u₀'(x₀)  as δ→0\n\n  BREAKING TIME:  t_b = min_{x₀} { 1/(−u₀'(x₀)) : u₀'(x₀) < 0 }\n\n  Shock forms at the minimum of 1/(−u₀') where u₀' < 0.\n  (Wherever the initial profile has a downward slope.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 182,
+      "heading_context": "### Shock Diagram",
+      "confidence": "candidate",
+      "text": "  Initial data: u₀(x) = 1 for x<0, 0 for x>0 (step function — a shock)\n\n  x-t DIAGRAM:\n  t\n  ^   /  /  /  /  |\\ \\ \\ \\\n  |  / fast /  |   \\ slow\\\n  | / chars/   |    \\chars\\\n  |/      /    |     \\     \\\n  +-------+----+-----------+---> x\n                |\n            x = shock position (moves right at speed ½)\n\n  Characteristics from x<0 all have speed u₀=1 (slope 1 in t-x).\n  Characteristics from x>0 all have speed u₀=0 (vertical).\n  → Initial shock is a shock for all time.\n\n  RANKINE-HUGONIOT CONDITION:\n  Shock speed s = [f(u_R) − f(u_L)] / (u_R − u_L)\n  where f(u) = u²/2 (flux for Burgers).\n  Here: s = (0 − ½)/(0 − 1) = ½.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 242,
+      "heading_context": "## Rarefaction Waves",
+      "confidence": "candidate",
+      "text": "  Initial data: u₀(x) = 0 for x<0, 1 for x>0 (step up)\n\n  Characteristics from x<0: speed u₀=0 (vertical).\n  Characteristics from x>0: speed u₀=1 (slope 1).\n  GAP between them (0 < x/t < 1): fill with rarefaction.\n\n  Rarefaction solution: u(x,t) = x/t  for 0 < x/t < 1.\n\n  x-t DIAGRAM:\n  t\n  ^  |      /\n     |  rf /\n     | fan/\n     |   /\n     |  /\n     | /\n     +---------> x\n     0\n\n  The fan fills in self-similar: u = x/t along rays x/t = const.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 366,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "Yes. For a(x,y,z,u)u_x + b(·)u_y + c(·)u_z = d(·) you get a 4-component ODE system",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

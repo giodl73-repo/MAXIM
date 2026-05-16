@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "partial-differential-equations\\09-NUMERICAL-PDES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              NUMERICAL PDE METHODS LANDSCAPE                          |\n|                                                                       |\n|  FINITE DIFFERENCES (FD):                                             |\n|  Replace derivatives by difference quotients on a regular grid.       |\n|  Simple to implement. Works best on rectangular domains.              |\n|  O(h^p) accuracy from Taylor expansion.                               |\n|                                                                       |\n|  FINITE ELEMENTS (FEM):                                               |\n|  Discretize the WEAK FORMULATION on a mesh.                           |\n|  Handles complex geometries. Rigorous error theory (Céa's lemma).     |\n|  Sparse linear system; exploits local support of basis functions.     |\n|                                                                       |\n|  FINITE VOLUMES (FV):                                                 |\n|  Conservative discretization: integrate PDE over control volumes.     |\n|  Automatically preserves conservation laws.                           |\n|  Standard in CFD (fluid dynamics), hyperbolic conservation laws.      |\n|                                                                       |\n|  SPECTRAL METHODS:                                                    |\n|  Expand in global basis (Fourier, Chebyshev, spherical harmonics).    |\n|  Exponential convergence for smooth problems.                         |\n|  Dense operations; poor for discontinuities.                          |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 61,
+      "heading_context": "### Deriving Difference Formulas",
+      "confidence": "candidate",
+      "text": "  TAYLOR EXPANSION:\n  u(x+h) = u(x) + h u'(x) + h²/2 u''(x) + h³/6 u'''(x) + ...\n  u(x−h) = u(x) − h u'(x) + h²/2 u''(x) − h³/6 u'''(x) + ...\n\n  FIRST DERIVATIVES:\n  Forward:   [u(x+h) − u(x)]/h = u'(x) + h/2·u''  + O(h²)   [1st order]\n  Backward:  [u(x) − u(x−h)]/h = u'(x) − h/2·u''  + O(h²)   [1st order]\n  Centered:  [u(x+h) − u(x−h)]/(2h) = u'(x) + h²/6·u''' + O(h²) [2nd order]\n\n  SECOND DERIVATIVE:\n  [u(x+h) − 2u(x) + u(x−h)]/h² = u''(x) + h²/12·u'''' + O(h⁴)  [2nd order]\n\n  HIGHER ORDER:\n  [−u(x+2h) + 16u(x+h) − 30u(x) + 16u(x−h) − u(x−2h)] / (12h²)\n  = u''(x) + O(h⁴)  [4th order central]\n\n  STENCIL NOTATION:\n  Δ²_h u_i = (u_{i-1} − 2u_i + u_{i+1}) / h²    (1D Laplacian)\n\n  2D LAPLACIAN (5-point stencil):\n  ∇²_h u_{ij} = [u_{i-1,j} + u_{i+1,j} + u_{i,j-1} + u_{i,j+1} − 4u_{ij}] / h²",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 89,
+      "heading_context": "## Elliptic Equations: Finite Difference",
+      "confidence": "candidate",
+      "text": "  POISSON ON SQUARE GRID:\n  −∇²u = f in Ω = [0,1]², u=g on ∂Ω\n\n  GRID: x_i = ih, y_j = jh, i,j = 0,...,N+1, h = 1/(N+1)\n  UNKNOWNS: u_{ij} for interior nodes i,j = 1,...,N\n\n  DISCRETE SYSTEM:\n  −(u_{i-1,j} + u_{i+1,j} + u_{i,j-1} + u_{i,j+1} − 4u_{ij}) = h²f_{ij}\n\n  MATRIX FORM: AU = b  (A is sparse, N²×N² system)\n\n  A = sparse block-tridiagonal matrix\n  Bandwidth = O(N) = O(1/h)\n\n  SOLVERS:\n  • Direct: Gaussian elimination → O(N⁴) ops (too slow for large N)\n  • Banded: exploits bandwidth → O(N³) = O(h⁻³)\n  • Multigrid: O(N²) = O(h⁻²) = OPTIMAL\n  • PCG with good preconditioner: O(N² log N)\n\n  ACCURACY:\n  ‖u − u_h‖_∞ ≤ C h²  (for smooth u and f)\n  Derived by: truncation error is O(h²), discrete maximum principle.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 121,
+      "heading_context": "### Explicit vs. Implicit",
+      "confidence": "candidate",
+      "text": "  HEAT EQUATION:  u_t = α u_xx  on [0,L]\n\n  SEMI-DISCRETE: replace x-derivative by FD, keep t continuous:\n  du_i/dt = α (u_{i-1} − 2u_i + u_{i+1}) / h²  = −α/h² A_h u\n\n  This is an ODE system: u_t = −M·u  where M = α/h² A_h.\n  Eigenvalues of M: μ_n = 4α/h² sin²(nπh/2L)   (all real, positive)\n  Max eigenvalue: μ_max ≈ 4α/h² = O(α/h²)\n\n  EULER EXPLICIT (Forward Euler in time):\n  (u_i^{n+1} − u_i^n)/Δt = α (u_{i-1}^n − 2u_i^n + u_{i+1}^n)/h²\n\n  STABILITY ANALYSIS (Von Neumann):\n  Substitute u_i^n = ξ^n e^{ikx_i}:\n  ξ = 1 − 4r sin²(kh/2)  where r = αΔt/h²\n  |ξ| ≤ 1 ↔ r ≤ 1/2\n\n  CFL CONDITION:  Δt ≤ h²/(2α)\n  Parabolic stability: Δt = O(h²) — very restrictive!\n  Halve h → time step must be 4x smaller.\n\n  EULER IMPLICIT (Backward Euler):\n  (u_i^{n+1} − u_i^n)/Δt = α (u_{i-1}^{n+1} − 2u_i^{n+1} + u_{i+1}^{n+1})/h²\n\n  Solve linear system each step: (I + r A_h) U^{n+1} = U^n\n  UNCONDITIONALLY STABLE (any Δt). First order in time.\n\n  CRANK-NICOLSON (θ-method with θ=½):\n  (u^{n+1}−u^n)/Δt = α/2 [(u^{n+1}_{xx} + u^n_{xx})]\n  Solve: (I + r/2 A_h) U^{n+1} = (I − r/2 A_h) U^n\n  UNCONDITIONALLY STABLE. SECOND order in time. THE STANDARD.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "### CFL Condition Summary",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────┐\n  │  EQUATION     METHOD      STABILITY         ORDER           │\n  │  ─────────    ──────      ─────────         ─────           │\n  │  Heat         Explicit    Δt ≤ h²/2α        O(Δt + h²)      │\n  │  Heat         Implicit    Unconditional     O(Δt + h²)      │\n  │  Heat         C-N         Unconditional     O(Δt² + h²)     │\n  │  Wave         Explicit    Δt ≤ h/c (CFL!)   O(Δt² + h²)     │\n  │  Wave         Implicit    Unconditional*    O(Δt² + h²)     │\n  │  Conv. u_t+cu_x=0  Upwind  Δt ≤ h/c        O(Δt + h)        │\n  │                                                             │\n  │  *Wave implicit: unconditionally stable but dispersive      │\n  └─────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 178,
+      "heading_context": "### Advection Equation",
+      "confidence": "candidate",
+      "text": "  u_t + c·u_x = 0  (c > 0: rightward advection)\n\n  NAIVE CENTERED SCHEME (unstable for all Δt):\n  (u_i^{n+1} − u_i^n)/Δt + c(u_{i+1}^n − u_{i-1}^n)/(2h) = 0\n  → UNSTABLE for all Δt > 0 (von Neumann: |ξ| > 1 for all modes)\n\n  UPWIND SCHEME (c > 0: backward difference — \"upwind\" = upstream):\n  (u_i^{n+1} − u_i^n)/Δt + c(u_i^n − u_{i-1}^n)/h = 0\n  → STABLE if CFL: cΔt/h ≤ 1.\n\n  CFL NUMBER: ν = cΔt/h  (dimensionless)\n  Must satisfy ν ≤ 1 for upwind stability.\n\n  PHYSICAL MEANING:\n  CFL condition: in one time step, information moves at most one cell.\n  If ν > 1: information \"jumps\" cells, scheme can't track it → instability.\n\n  VON NEUMANN ANALYSIS of upwind:\n  u_i^n = ξ^n e^{ikx_i}\n  ξ = 1 − ν(1 − e^{−ikh}) = 1 − ν + νe^{−ikh}\n  |ξ|² = 1 − 2ν(1−ν)(1 − cos(kh)) ≤ 1  iff 0 ≤ ν ≤ 1.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 204,
+      "heading_context": "### Godunov's Method: Conservation Laws",
+      "confidence": "candidate",
+      "text": "  CONSERVATION LAW: u_t + f(u)_x = 0\n\n  FINITE VOLUME PHILOSOPHY:\n  Integrate over cell [x_{i-1/2}, x_{i+1/2}] × [t^n, t^{n+1}]:\n  U_i^{n+1} = U_i^n − Δt/Δx [F_{i+1/2} − F_{i-1/2}]\n\n  NUMERICAL FLUX F_{i+1/2}: approximation of ∫ f(u) dt at interface.\n  KEY: must be CONSISTENT and CONSERVATIVE (no spurious sources/sinks).\n\n  GODUNOV (1959): F_{i+1/2} = f(u*) where u* solves the RIEMANN PROBLEM\n  between left state U_i and right state U_{i+1}.\n\n  RIEMANN PROBLEM: u_t + f(u)_x = 0 with piecewise constant IC\n    u(x,0) = U_L  for x < 0\n              U_R  for x > 0\n  Solution is a similarity solution (waves: shocks, rarefactions, contacts).\n\n  UPWIND GODUNOV for scalar (f = cu):\n    F_{i+1/2} = f(U_i)  if c > 0  (left state if wave moves right)\n    F_{i+1/2} = f(U_{i+1})  if c < 0\n\n  HIGHER-ORDER:\n  Godunov is only 1st order (piecewise constant reconstruction).\n  MUSCL (2nd order): piecewise linear reconstruction with limiters.\n  WENO (5th+ order): weighted essentially non-oscillatory — smooth\n                    near smooth regions, non-oscillatory near shocks.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "## Von Neumann Stability Analysis",
+      "confidence": "candidate",
+      "text": "  PROCEDURE:\n  1. Write scheme as u_j^{n+1} = Σ_k a_k u_{j+k}^n (linear scheme)\n\n  2. Substitute u_j^n = ξ^n e^{ijkh} (complex Fourier mode)\n     k = wave number ∈ [−π/h, π/h]\n\n  3. Compute amplification factor ξ(k):\n     ξ = ξ(k) from the scheme\n\n  4. STABLE iff |ξ(k)| ≤ 1 for ALL wave numbers k.\n\n  EXAMPLE: Explicit heat equation:\n  ξ(k) = 1 − 4r sin²(kh/2)   where r = αΔt/h²\n  |ξ| ≤ 1 iff −2 ≤ −4r sin²(kh/2) ≤ 0\n  → 0 ≤ r ≤ 1/2 ← CFL condition for heat equation\n\n  CONDITIONAL STABILITY: only stable for small Δt.\n  UNCONDITIONAL STABILITY: stable for all Δt > 0.\n\n  For nonlinear schemes: linearize around mean state, apply analysis.\n  This is necessary but not always sufficient for nonlinear stability.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 267,
+      "heading_context": "## Multigrid: Optimal Elliptic Solvers",
+      "confidence": "candidate",
+      "text": "  WHY ITERATIVE SOLVERS ALONE ARE SLOW:\n  Gauss-Seidel, Jacobi: good at reducing HIGH-frequency errors.\n  Low-frequency errors (\"smooth errors\") converge very slowly.\n  On a 1D problem with N unknowns: O(N²) iterations for full convergence.\n\n  KEY INSIGHT (multigrid):\n  What's smooth on the fine grid looks OSCILLATORY on a coarse grid.\n  Apply smoother on coarse grid to kill those errors cheaply!\n\n  V-CYCLE:\n  ┌──────────────────────────────────────────────────────────────┐\n  │ 1. PRE-SMOOTH: ν₁ smoothing steps (Gauss-Seidel) on fine grid│\n  │ 2. RESTRICT: compute residual r = b − Au, restrict to coarse │\n  │              grid: r^H = I_h^H r^h                           │\n  │ 3. COARSE SOLVE: solve A^H e^H = r^H (direct if small enough) │\n  │    or RECURSE: apply V-cycle on coarse grid                  │\n  │ 4. PROLONGATE: interpolate correction e^h = I_H^h e^H        │\n  │ 5. CORRECT: u ← u + e^h                                      │\n  │ 6. POST-SMOOTH: ν₂ smoothing steps                           │\n  └──────────────────────────────────────────────────────────────┘\n\n  COMPLEXITY: O(N) per V-cycle, O(N) total for full convergence.\n  This is OPTIMAL — you can't do better than linear time for N unknowns.\n\n  APPLICATIONS: Poisson equation, linear elasticity, anything elliptic.\n  ALGEBRAIC MULTIGRID (AMG): doesn't need geometry; infers grid hierarchy\n  from the matrix structure. Works for unstructured FEM meshes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "## Spectral Methods",
+      "confidence": "candidate",
+      "text": "  PERIODIC DOMAINS: FOURIER SPECTRAL\n\n  Represent: u(x) ≈ u_N(x) = Σ_{k=−N/2}^{N/2} û_k e^{ikx}\n\n  DIFFERENTIATION: ∂u_N/∂x → ik·û_k  (exact in frequency space)\n  EVALUATION: use FFT for O(N log N) transforms\n\n  PSEUDOSPECTRAL METHOD:\n  Compute u in physical space at collocation points.\n  Differentiate via FFT (spectral accuracy for smooth u).\n  Evaluate nonlinear terms pointwise in physical space.\n  → Handles nonlinear PDEs efficiently.\n\n  ACCURACY: For u ∈ C^∞ (periodic), convergence is SPECTRAL:\n  ‖u − u_N‖ = O(N^{−k}) for all k.\n  Faster than any polynomial rate.\n  But: Gibbs phenomenon at discontinuities; dense matrix structure.\n\n  NON-PERIODIC: CHEBYSHEV SPECTRAL\n  Collocation at Chebyshev points: x_j = cos(jπ/N)\n  Represent: u(x) ≈ Σ a_k T_k(x)  (Chebyshev polynomials)\n  Uses DCT (discrete cosine transform) for O(N log N) computation.\n  Handles non-periodic BCs naturally; exponential convergence.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 361,
+      "heading_context": "## Method Comparison",
+      "confidence": "candidate",
+      "text": "  +──────────────+──────────────+──────────────+──────────────+\n  |              |   FINITE     |   FINITE     |   SPECTRAL   |\n  |              | DIFFERENCES  |  ELEMENTS    |              |\n  +──────────────+──────────────+──────────────+──────────────+\n  | Geometry     | Rect/tensor  | Arbitrary    | Rect/sphere  |\n  | handling     | product only | (meshed)     |              |\n  +──────────────+──────────────+──────────────+──────────────+\n  | Accuracy     | O(h^p)       | O(h^p)       | Exponential  |\n  |              | Taylor order | by p-order   | for smooth u |\n  +──────────────+──────────────+──────────────+──────────────+\n  | Discontinuit | Upwind ok    | OK w/ care   | Gibbs phenom |\n  | ies/shocks   |              |              |              |\n  +──────────────+──────────────+──────────────+──────────────+\n  | Implementation| Very simple | Moderate     | Moderate     |\n  | complexity   |              |              |              |\n  +──────────────+──────────────+──────────────+──────────────+\n  | Dominant use | CFD (FV),    | Structural,  | Weather,     |\n  |              | wave prop.   | elasto, heat | geophysics   |\n  +──────────────+──────────────+──────────────+──────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 389,
+      "heading_context": "## ML-Based Numerical Methods",
+      "confidence": "candidate",
+      "text": "ML-BASED PDE SOLVERS — LANDSCAPE\n═══════════════════════════════════════════════════════════════════════\n\n             CLASSICAL METHODS              ML-BASED METHODS\n             ─────────────────              ────────────────\n             Discretize domain first        Parameterize solution first\n             (mesh → matrix → solve)        (network → optimize loss)\n\n  ┌─────────────────────────┐     ┌──────────────────────────────┐\n  │  FD / FV / FEM          │     │  PINNs (Physics-Informed NN) │\n  │  Fixed grid/mesh        │     │  Mesh-free, point-sampled    │\n  │  Sparse linear system   │     │  Minimize PDE residual       │\n  │  Proven error bounds    │     │  No mesh generation needed   │\n  │  Cost: O(N^α), α=1..3   │     │  Cost: training iterations   │\n  └─────────────────────────┘     └──────────────────────────────┘\n                                  ┌──────────────────────────────┐\n                                  │  Neural Operators (FNO, etc.)│\n                                  │  Learn G: f ↦ u (operator)   │\n                                  │  Amortized: one training,    │\n                                  │  many evaluations at O(N)    │\n                                  │  Generalize across params    │\n                                  └──────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 438,
+      "heading_context": "### Fourier Neural Operator (FNO)",
+      "confidence": "candidate",
+      "text": "  FNO ARCHITECTURE:\n  Input: f(x) on grid  →  lift to high-dim channel space\n       ↓\n  ┌────────────────────────────────────┐\n  │  FOURIER LAYER (repeat L times):   │\n  │  v_{l+1}(x) = σ( W·v_l(x)          │\n  │              + F⁻¹[R_l · F[v_l]] ) │\n  └────────────────────────────────────┘\n       (W·v_l = local linear transform;\n        F⁻¹[R_l · F[v_l]] = global: FFT → multiply R_l → IFFT)\n       ↓\n  Project to output space  →  u(x)\n\n  Cost per forward pass: O(N log N) per Fourier layer (FFT-dominated).\n  Training: pairs {f_i, u_i} from classical solvers or experimental data.\n  Inference: O(N log N) — orders of magnitude faster than re-solving.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 463,
+      "heading_context": "### DeepONet",
+      "confidence": "candidate",
+      "text": "  DeepONet:  G(f)(x) ≈ Σ_k b_k(f) · t_k(x)\n\n  Branch network: f(x₁), f(x₂), ..., f(x_m) → [b₁, b₂, ..., b_p]\n  Trunk network:  x → [t₁(x), t₂(x), ..., t_p(x)]\n  Output: dot product of branch and trunk vectors.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 475,
+      "heading_context": "### Classical vs. ML: When to Use What",
+      "confidence": "candidate",
+      "text": "┌────────────────────┬──────────────────────┬──────────────────────┐\n│ Criterion          │ Classical (FD/FEM/FV)│ ML (PINN/FNO)        │\n├────────────────────┼──────────────────────┼──────────────────────┤\n│ Error guarantees   │ Rigorous a priori    │ Empirical only        │\n│ Single solve       │ Efficient            │ Training overhead     │\n│ Many-query (param  │ Must re-solve each   │ Amortized: one train, │\n│   sweep, UQ, opt.) │                      │ instant evaluation    │\n│ Inverse problems   │ Adjoint methods      │ Natural (add to loss) │\n│ Irregular geometry │ Meshing required     │ Mesh-free (PINNs)     │\n│ High-dimensional   │ Curse of dimension   │ Scalable (no grid)    │\n│ Stiff / multiscale │ Well-understood      │ Spectral bias issues  │\n│ Safety-critical    │ Preferred (provable) │ Not yet trustworthy   │\n└────────────────────┴──────────────────────┴──────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

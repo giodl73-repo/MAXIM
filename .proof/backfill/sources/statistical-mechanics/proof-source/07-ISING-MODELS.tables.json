@@ -1,0 +1,147 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistical-mechanics\\07-ISING-MODELS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 142,
+      "heading_context": "## 2D Ising — Onsager's Exact Solution",
+      "headers": [
+        "Exponent",
+        "2D Ising (exact)",
+        "Mean-field"
+      ],
+      "rows": [
+        [
+          "α",
+          "0 (log)",
+          "0 (jump)"
+        ],
+        [
+          "β",
+          "1/8",
+          "1/2"
+        ],
+        [
+          "γ",
+          "7/4",
+          "1"
+        ],
+        [
+          "ν",
+          "1",
+          "1/2"
+        ],
+        [
+          "η",
+          "1/4",
+          "0"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 313,
+      "heading_context": "## Spin Glasses",
+      "headers": [
+        "CSP Problem",
+        "Spin Glass Analog",
+        "Critical Threshold"
+      ],
+      "rows": [
+        [
+          "Random k-SAT",
+          "Diluted spin glass, k-body interactions",
+          "α_s(k) clauses/variable"
+        ],
+        [
+          "Random MAX-CUT",
+          "±J Ising on random graph",
+          "~ 0.763N"
+        ],
+        [
+          "Number partitioning",
+          "1D random-field Ising",
+          "Phase transition at N ~ 2^{c·M}"
+        ],
+        [
+          "Graph coloring",
+          "Potts glass",
+          "q colors, c edges/vertex threshold"
+        ],
+        [
+          "TSP",
+          "Continuous spin glass",
+          "Parisi-type RSB in random instances"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 359,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "1D Ising behavior",
+          "Transfer matrix; no finite-temperature transition",
+          "Domain walls destroy long-range order at any `T > 0`."
+        ],
+        [
+          "2D Ising criticality",
+          "Onsager exact solution; `T_c = 2.269 J/k_B`, `beta = 1/8`",
+          "Exact square-lattice result is not mean-field."
+        ],
+        [
+          "3D Ising criticality",
+          "Monte Carlo and RG estimates; `beta approx 0.326`",
+          "No closed-form Onsager-style solution exists."
+        ],
+        [
+          "Mean-field Curie-Weiss",
+          "Saddle-point approximation; `beta = 1/2`",
+          "Mean-field overestimates `T_c` by ignoring fluctuations."
+        ],
+        [
+          "Hopfield retrieval",
+          "Energy minimization below capacity around `0.14N` patterns",
+          "Memories are local minima; spurious states compete."
+        ],
+        [
+          "Hopfield overload",
+          "Spin-glass behavior above capacity",
+          "Retrieval failure is a phase-structure issue, not just bad optimization."
+        ],
+        [
+          "2D XY transition",
+          "BKT vortex-antivortex unbinding",
+          "Topological transition has no local Landau order parameter."
+        ],
+        [
+          "Metropolis simulation",
+          "Acceptance `min(1, exp(-beta * DeltaE))`",
+          "Detailed balance also needs ergodicity."
+        ],
+        [
+          "Single-spin flip energy",
+          "`DeltaE = 2J s_i sum_neighbors s_j + 2h s_i`",
+          "Boundary conditions and lattice geometry enter the neighbor sum."
+        ],
+        [
+          "Critical slowing down",
+          "`tau ~ xi^z`, often `z approx 2` for local updates",
+          "Cluster algorithms change the dynamic exponent."
+        ],
+        [
+          "Wolff cluster updates",
+          "Add aligned neighbors with `P_add = 1 - exp(-2 beta J)`",
+          "Designed for ferromagnetic Ising-like cases; not universal."
+        ]
+      ]
+    }
+  ]
+}

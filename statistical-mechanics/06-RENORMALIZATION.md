@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistical-mechanics:renormalization
+kind: guide
+module: statistical-mechanics
+section: statistical-mechanics
+title: Renormalization Group
+status: source-custody
+source_custody: partial
+current_path: statistical-mechanics/06-RENORMALIZATION.md
+canonical_path: statistical-mechanics/06-RENORMALIZATION.md
+backsource_ids: [proof-backfill:statistical-mechanics:06-renormalization, git-history:statistical-mechanics:06-renormalization]
+concepts: [renormalization]
+root_concepts: [renormalization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Renormalization Group
 
 ## The Big Picture

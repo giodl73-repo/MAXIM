@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:partial-differential-equations:classification
+kind: guide
+module: partial-differential-equations
+section: partial-differential-equations
+title: Classification and Well-Posedness
+status: source-custody
+source_custody: partial
+current_path: partial-differential-equations/01-CLASSIFICATION.md
+canonical_path: partial-differential-equations/01-CLASSIFICATION.md
+backsource_ids: [proof-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]
+concepts: [classification]
+root_concepts: [classification]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Classification and Well-Posedness
 
 ## The Big Picture

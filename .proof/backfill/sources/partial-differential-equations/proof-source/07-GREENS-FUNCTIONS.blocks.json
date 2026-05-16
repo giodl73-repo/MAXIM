@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "partial-differential-equations\\07-GREENS-FUNCTIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              GREEN'S FUNCTION CONCEPT                                 |\n|                                                                       |\n|  SIGNAL PROCESSING:          PDE ANALOG:                              |\n|  Linear system with          Linear PDE with                          |\n|  impulse response h(t):      Green's function G(x,y):                 |\n|                                                                       |\n|  INPUT: δ(t)                 SOURCE: δ(x−y)                           |\n|  OUTPUT: h(t)                RESPONSE: G(x,y)                         |\n|                                                                       |\n|  GENERAL INPUT f(t):         GENERAL SOURCE f(y):                     |\n|  OUTPUT = h * f              u(x) = ∫ G(x,y) f(y) dy                  |\n|         = ∫h(t−s)f(s)ds     (same: convolution)                       |\n|                                                                       |\n|  INVERSION:                  INVERSION:                               |\n|  Y(ω) = H(ω)·F(ω)           û(k) = Ĝ(k)·f̂(k)                          |\n|  H(ω) = 1 / (transfer fn)   Ĝ(k) = 1 / (symbol)                       |\n|                                                                       |\n|  KEY: once you have G, you can solve for ANY source f                 |\n|  by quadrature. G encodes the operator inverse.                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 81,
+      "heading_context": "### Key Distributions",
+      "confidence": "candidate",
+      "text": "  ┌────────────────────────────────────────────────────────────────┐\n  │ δ(x):      ⟨δ, φ⟩ = φ(0)           (point mass at 0)           │\n  │ δ(x−y):    ⟨δ_y, φ⟩ = φ(y)         (point mass at y)           │\n  │ H(x):      ⟨H, φ⟩ = ∫₀^∞ φ(x) dx  (Heaviside step function)    │\n  │ H'(x) = δ(x) in distribution sense                             │\n  │                                                                │\n  │ P.V.(1/x): ⟨P.V.(1/x), φ⟩ = lim_{ε→0} ∫_{|x|>ε} φ(x)/x dx      │\n  │ (principal value, arises in Hilbert transform)                 │\n  │                                                                │\n  │ ∂δ/∂x_i: ⟨∂δ/∂x_i, φ⟩ = −∂φ/∂x_i(0)  (dipole source)           │\n  └────────────────────────────────────────────────────────────────┘\n\n  FUNDAMENTAL IDENTITY:\n  f(x)·δ(x−y) = f(y)·δ(x−y)\n  ∫ f(x)·δ(x−y) dx = f(y)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 103,
+      "heading_context": "## Green's Function: Formal Definition",
+      "confidence": "candidate",
+      "text": "  For a linear PDE operator L acting on functions u(x) in domain Ω:\n\n  Lu = f  in Ω,  with homogeneous BCs\n\n  GREEN'S FUNCTION G(x,y) satisfies:\n  ┌──────────────────────────────────────────────────────────────┐\n  │  L_x G(x,y) = δ(x−y)   in Ω  (for each fixed y)              │\n  │  G(x,y) satisfies the homogeneous BCs in x                   │\n  └──────────────────────────────────────────────────────────────┘\n\n  SOLUTION:  u(x) = ∫_Ω G(x,y) f(y) dy\n\n  PHYSICAL MEANING:\n  G(x,y) = response at x to a unit point source at y.\n  The solution is a superposition (integral) of responses to\n  each infinitesimal bit of source.\n\n  SYMMETRY:  G(x,y) = G(y,x)\n  (consequence of self-adjointness of L — true for L = −∇²)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 149,
+      "heading_context": "### Half-Space (Method of Images)",
+      "confidence": "candidate",
+      "text": "  L = −∇²,  Ω = {x : x_n > 0},  G=0 on ∂Ω\n\n  IDEA: place a negative \"image\" source at the reflection y* of y\n  across the boundary. This cancels the boundary value.\n\n  y = (y', y_n) → y* = (y', −y_n)  (reflection across x_n=0)\n\n  G(x,y) = Φ(x−y) − Φ(x−y*)\n\n  3D:  G(x,y) = 1/(4π) [1/|x−y| − 1/|x−y*|]\n\n  POISSON KERNEL (response on boundary → interior):\n  ∂G/∂n_y(x,y)|_{y_n=0} = −x_n / [2π(|x'−y'|² + x_n²)^{3/2}]\n\n  Dirichlet solution:\n  u(x) = −∫_{y_n=0} ∂G/∂n_y (x,y) g(y') dA(y')\n        = x_n/(2π) ∫_{R^2} g(y')/(|x'−y'|²+x_n²)^{3/2} dA(y')",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "## Duhamel's Principle",
+      "confidence": "candidate",
+      "text": "  PROBLEM: u_tt − c²∇²u = f(x,t),  u(x,0) = u_t(x,0) = 0\n\n  DUHAMEL'S PRINCIPLE:\n  Let v(x,t;s) = solution to:\n      v_tt − c²∇²v = 0,  v(x,s;s) = 0,  v_t(x,s;s) = f(x,s)\n  (homogeneous wave equation, \"fired\" at time s with \"velocity\" f(x,s))\n\n  Then:  u(x,t) = ∫₀ᵗ v(x,t;s) ds\n\n  PHYSICAL MEANING:\n  Break the source into impulsive contributions δ(t−s)·f(x,s).\n  Each impulse fires at time s, generating response v(x,t;s).\n  Sum (integrate) all the responses.\n\n  ALSO WORKS for:\n  • Heat equation: u_t − α∇²u = f  →  v satisfies homogeneous heat\n  • Schrödinger: iℏψ_t − Ĥψ = f\n  • Any linear evolution PDE",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 293,
+      "heading_context": "## Connections to Signal Processing and Machine Learning",
+      "confidence": "candidate",
+      "text": "  SIGNAL PROCESSING PARALLELS:\n\n  Convolution with Green's function     = Convolution with impulse response\n  Fourier transform of G                = Transfer function H(ω)\n  Poles of G(z) = eigenvalues of L      = Poles of H(ω) = resonant frequencies\n\n  KERNEL METHODS IN ML:\n\n  A \"kernel\" k(x,y) in ML (Gaussian process, SVM, kernel regression)\n  is exactly a Green's function. The reproducing kernel Hilbert space\n  (RKHS) associated with a kernel k is the Sobolev space H^s where\n  k = Green's function of (I + (−∇²))^s or similar operator.\n\n  Gaussian kernel k(x,y) = e^{−|x−y|²/2σ²}\n  = (up to scaling) Green's function of a heat operator.\n\n  NEURAL NETWORK ANALOGY:\n  A neural ODE dx/dt = f(x,t) with continuous depth → Lagrangian\n  formulation where the optimal path satisfies a variational principle.\n  The backward pass (adjoint method) computes the \"time-reversed Green's\n  function\" of the linearized dynamics.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

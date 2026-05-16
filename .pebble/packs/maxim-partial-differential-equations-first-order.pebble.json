@@ -1,0 +1,2505 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-partial-differential-equations-first-order",
+  "source": "../../partial-differential-equations",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-FIRST-ORDER.md#000",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "# First-Order PDEs and Method of Characteristics"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#001",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#002",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "First-order PDEs are the entry point to PDE theory and reveal the deepest geometric ideas.\nThe method of characteristics turns a PDE into a system of ODEs — reducing a harder problem\nto a solved one."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#003",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|              FIRST-ORDER PDE TAXONOMY                                 |\n|                                                                       |\n|  LINEAR:         a(x,y)u_x + b(x,y)u_y = c(x,y)                       |\n|                  Characteristics: ODEs dx/a = dy/b = du/c             |\n|                                                                       |\n|  SEMILINEAR:     a(x,y)u_x + b(x,y)u_y = c(x,y,u)                     |\n|                  Characteristics: same curves, but u evolves          |\n|                  nonlinearly along them                               |\n|                                                                       |\n|  QUASILINEAR:    a(x,y,u)u_x + b(x,y,u)u_y = c(x,y,u)                 |\n|                  Characteristics DEPEND ON SOLUTION u                 |\n|                  → characteristics can cross → SHOCKS                 |\n|                                                                       |\n|  FULLY NONLINEAR: F(x,y,u,u_x,u_y) = 0                                |\n|                  More complex geometry; Monge cones; Hamilton-Jacobi  |\n|                                                                       |\n|  KEY RESULTS:                                                         |\n|  • Every first-order PDE is hyperbolic (info propagates along chars)  |\n|  • Characteristics can cross → solution becomes multi-valued → shocks |\n|  • Entropy condition selects the \"physical\" weak solution             |\n|                                                                       |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#004",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#005",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "## Linear First-Order PDEs: Transport Equation"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#006",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "The simplest first-order PDE:"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#007",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "```\n  u_t + c·u_x = 0,   u(x,0) = u₀(x)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#008",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Physical meaning: u is transported rigidly at speed c."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#009",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Solution:  u(x,t) = u₀(x − ct)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#010",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Proof: Set ξ = x − ct. Then u(x,t) = u₀(ξ).\n  Check: u_t = u₀'(ξ)·(−c),  u_x = u₀'(ξ)·(1)\n         u_t + c·u_x = u₀'(ξ)·(−c + c) = 0.  ✓"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#011",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "CHARACTERISTICS:  lines x − ct = const (slope 1/c in x-t plane)\n                    Solution is CONSTANT along each characteristic.\n```"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#012",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#013",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "## Method of Characteristics: The General Theory"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#014",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "For a quasilinear first-order PDE in two variables:"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#015",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "```\n  a(x,y,u) u_x + b(x,y,u) u_y = c(x,y,u)     (*)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#016",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "GEOMETRIC VIEW:\n  Think of the solution u(x,y) as a surface z = u(x,y) in (x,y,z)-space.\n  The PDE says the normal to the surface (u_x, u_y, −1) is perpendicular\n  to the vector field V = (a, b, c):\n      V · (u_x, u_y, −1) = a·u_x + b·u_y − c = 0"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#017",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "So the vector field V is TANGENT to the solution surface."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#018",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "CHARACTERISTIC EQUATIONS:\n  The curves (x(t), y(t), z(t)) tangent to V satisfy:\n      dx/dt = a(x,y,z)\n      dy/dt = b(x,y,z)\n      dz/dt = c(x,y,z)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#019",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "These are ODESS — solve them to find the solution surface.\n```"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#020",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "### Algorithm: Method of Characteristics"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#021",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "```\n  GIVEN: PDE  a(x,y,u) u_x + b(x,y,u) u_y = c(x,y,u)\n         IC:  u(x,0) = u₀(x)  (data on y=0 curve)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#022",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "STEP 1: Parameterize initial data.\n          At y=0: x = x₀, z = u₀(x₀)  (parameter: x₀)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#023",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "STEP 2: Solve the characteristic ODEs.\n          For each starting point (x₀, 0, u₀(x₀)):\n          dx/dt = a(x,y,z),  x(0) = x₀\n          dy/dt = b(x,y,z),  y(0) = 0\n          dz/dt = c(x,y,z),  z(0) = u₀(x₀)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#024",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "STEP 3: The solution curves (x(t;x₀), y(t;x₀), z(t;x₀))\n          sweep out the solution surface z = u(x,y)."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#025",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "STEP 4: Invert: given (x,y), find (t,x₀) such that\n          x(t;x₀) = x, y(t;x₀) = y.\n          Then u(x,y) = z(t;x₀).\n```"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#026",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#027",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "## Worked Example: Variable-Coefficient Transport"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#028",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "```\n  PDE:   u_t + x·u_x = 0,  u(x,0) = u₀(x)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#029",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Characteristic equations:\n      dx/dt = x,   x(0) = x₀\n      dt/dt = 1,   t(0) = 0\n      dz/dt = 0,   z(0) = u₀(x₀)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#030",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Solve:  x(t) = x₀·e^t,  t(t) = t,  z(t) = u₀(x₀)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#031",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Invert: x₀ = x·e^{−t}"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#032",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Solution:  u(x,t) = u₀(x·e^{−t})"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#033",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "The characteristics are x = x₀·e^t (exponential expansion).\n  Information from x₀ at t=0 arrives at x = x₀·e^t at time t.\n```"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#034",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#035",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "## Quasilinear PDEs and Shock Formation"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#036",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "The inviscid Burgers equation is the prototype:"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#037",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "```\n  u_t + u·u_x = 0,   u(x,0) = u₀(x)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#038",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Physical meaning: each \"parcel\" of fluid moves at speed u.\n  Fast parts overtake slow parts → compression → shock."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#039",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "CHARACTERISTIC EQUATIONS:\n      dx/dt = u,   x(0) = x₀\n      dt/dt = 1\n      du/dt = 0,   u(0) = u₀(x₀)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#040",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Solution along characteristics:  u = u₀(x₀) = const\n  Characteristics:  x = x₀ + u₀(x₀)·t  (straight lines in x-t plane)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#041",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "SHOCK FORMATION:\n  Characteristics cross when a faster one (higher u₀) catches a\n  slower one (lower u₀)."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#042",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Two characteristics x₀ and x₀+δ cross when:\n  x₀ + u₀(x₀)t = x₀+δ + u₀(x₀+δ)t\n  → t = −δ/(u₀(x₀+δ) − u₀(x₀)) → −1/u₀'(x₀)  as δ→0"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#043",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "BREAKING TIME:  t_b = min_{x₀} { 1/(−u₀'(x₀)) : u₀'(x₀) < 0 }"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#044",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Shock forms at the minimum of 1/(−u₀') where u₀' < 0.\n  (Wherever the initial profile has a downward slope.)\n```"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#045",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "### Shock Diagram"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#046",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "```\n  Initial data: u₀(x) = 1 for x<0, 0 for x>0 (step function — a shock)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#047",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "x-t DIAGRAM:\n  t\n  ^   /  /  /  /  |\\ \\ \\ \\\n  |  / fast /  |   \\ slow\\\n  | / chars/   |    \\chars\\\n  |/      /    |     \\     \\\n  +-------+----+-----------+---> x\n                |\n            x = shock position (moves right at speed ½)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#048",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Characteristics from x<0 all have speed u₀=1 (slope 1 in t-x).\n  Characteristics from x>0 all have speed u₀=0 (vertical).\n  → Initial shock is a shock for all time."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#049",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "RANKINE-HUGONIOT CONDITION:\n  Shock speed s = [f(u_R) − f(u_L)] / (u_R − u_L)\n  where f(u) = u²/2 (flux for Burgers).\n  Here: s = (0 − ½)/(0 − 1) = ½.\n```"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#050",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#051",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "## Weak Solutions and the Entropy Condition"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#052",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "When characteristics cross, classical (smooth) solutions break down.\nThe PDE must be interpreted in the **weak** (integral) sense."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#053",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "```\n  WEAK FORMULATION of u_t + f(u)_x = 0:"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#054",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "∫∫ [u·φ_t + f(u)·φ_x] dx dt = 0  for all test functions φ ∈ C_c^∞"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#055",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Allows discontinuous solutions (shocks)."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#056",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "BUT: weak solutions are not unique in general."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#057",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "ENTROPY CONDITION (Oleinik / Lax):\n  Physical shocks must satisfy: characteristics impinge on the shock."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#058",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "For scalar conservation law u_t + f(u)_x = 0,\n  across a shock with speed s:\n      f'(u_L) > s > f'(u_R)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#059",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "(Characteristics from both sides run into the shock, not away.)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#060",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "ALTERNATIVE (Entropy pairs):\n  The physical solution satisfies ∂_t η(u) + ∂_x q(u) ≤ 0\n  for all convex entropy functions η (with entropy flux q = η'f').\n```"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#061",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#062",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "## Rarefaction Waves"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#063",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Not all initial data leads to shocks. Where characteristics spread apart,\nyou get a **rarefaction wave** (smooth expansion fan):"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#064",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "```\n  Initial data: u₀(x) = 0 for x<0, 1 for x>0 (step up)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#065",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Characteristics from x<0: speed u₀=0 (vertical).\n  Characteristics from x>0: speed u₀=1 (slope 1).\n  GAP between them (0 < x/t < 1): fill with rarefaction."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#066",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "Rarefaction solution: u(x,t) = x/t  for 0 < x/t < 1."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#067",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "x-t DIAGRAM:\n  t\n  ^  |      /\n     |  rf /\n     | fan/\n     |   /\n     |  /\n     | /\n     +---------> x\n     0"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#068",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "The fan fills in self-similar: u = x/t along rays x/t = const.\n```"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#069",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#070",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "## General First-Order Systems: Cauchy-Kovalevskaya"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#071",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "```\n  CAUCHY-KOVALEVSKAYA THEOREM:"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#072",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "For a PDE F(x,u,∂u/∂x_i,...) = 0 analytic near a point,\n  with analytic initial data on a non-characteristic surface:\n  → A unique analytic solution exists near that surface."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#073",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "This is the PDE analogue of the ODE existence theorem."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#074",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "LIMITATIONS:\n  • Requires ANALYTICITY (real analytic functions — very restrictive)\n  • Non-characteristic surface (solution can be specified there)\n  • Local result only\n  • Fails for ill-posed problems (backward heat equation is analytic\n    but the Cauchy problem is still ill-posed in the Hadamard sense)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#075",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "The Holmgren uniqueness theorem complements it:\n  If an analytic PDE has two C∞ solutions with the same analytic\n  Cauchy data, they must agree locally.\n```"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#076",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#077",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "## Hamilton-Jacobi Equation"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#078",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "The fully nonlinear first-order PDE connecting characteristics to optimal control:"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#079",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "```\n  H(x, ∇S) = E   (time-independent Hamilton-Jacobi)\n  or:\n  S_t + H(x, ∇S) = 0   (time-dependent Hamilton-Jacobi)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#080",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "where H is the Hamiltonian, S is the \"action\" function."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#081",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "CHARACTERISTICS = HAMILTONIAN RAYS:\n      dx_i/dt = ∂H/∂p_i\n      dp_i/dt = −∂H/∂x_i\n  where p = ∇S."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#082",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "These are exactly Hamilton's equations from mechanics!"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#083",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "CONNECTION TO OPTICS:\n  The eikonal equation |∇S|² = n(x)² is H-J with H = |p|²/n².\n  Characteristics = light rays (Fermat's principle)."
+    },
+    {
+      "id": "02-FIRST-ORDER.md#084",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "CONNECTION TO OPTIMAL CONTROL:\n  The Bellman value function V(x,t) = min-cost-to-go satisfies\n  the HJB equation: V_t + min_u [f(x,u)·∇V + L(x,u)] = 0.\n  (See variational-calculus/08-OPTIMAL-CONTROL.md)"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#085",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "VISCOSITY SOLUTIONS (Crandall-Lions, 1983):\n  H-J equations need a notion of weak solution — viscosity solutions —\n  because classical solutions generically develop singularities.\n```"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#086",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#087",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "02-FIRST-ORDER.md#088",
+      "path": [
+        "02-FIRST-ORDER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:partial-differential-equations:02-first-order, git-history:partial-differential-equations:02-first-order]",
+        "canonical_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "concepts": "[first, order]",
+        "current_path": "partial-differential-equations/02-FIRST-ORDER.md",
+        "id": "maxim:partial-differential-equations:first-order",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[first, order]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "First-Order PDEs and Method of Characteristics",
+        "updated": "null"
+      },
+      "text": "- `partial-differential-equations/01-CLASSIFICATION.md` — PDE type and well-posedness context.\n- `variational-calculus/02-EULER-LAGRANGE.md` — Hamilton-Jacobi and characteristic methods connect PDEs to variational mechanics.\n- `fluid-dynamics/02-INVISCID-FLOW.md` — shocks and characteristic crossing in conservation-law systems."
+    }
+  ],
+  "refs": [
+    "02-FIRST-ORDER.md"
+  ]
+}

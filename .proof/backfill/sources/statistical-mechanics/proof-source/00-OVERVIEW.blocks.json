@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistical-mechanics\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "STATISTICAL MECHANICS — CONCEPTUAL STRUCTURE\n═══════════════════════════════════════════════════════════════════════════════\n\n  MICROSCOPIC                     STATISTICAL                  MACROSCOPIC\n  (quantum or classical)          (probability)                (thermodynamics)\n\n  Hamiltonian H(q,p)             Partition function Z         Free energy F = −kT ln Z\n  Quantum states {|n⟩}           Boltzmann weights e^{-βEₙ}  Entropy S = −∂F/∂T\n  Energy levels Eₙ               Ensemble averages ⟨A⟩        Internal energy U = ⟨H⟩\n  Symmetry (B-E vs F-D)          Distribution functions       Equation of state p(V,T)\n                                  ──────────────────────────   ──────────────────\n                                  Connects atomic physics      What we measure\n                                  to observations              in the lab\n\n  THREE ENSEMBLES:\n  ┌────────────────┬─────────────────────────┬────────────────────────┐\n  │ Microcanonical │  fixed N, V, E          │  Z = Omega(E) density  │\n  │                │  isolated system        │  states; S = k ln Om   │\n  ├────────────────┼─────────────────────────┼────────────────────────┤\n  │ Canonical      │  fixed N, V, T           │  Z = Σ e^{-βEₙ}       │\n  │                │  heat bath at T          │  F = −kT ln Z         │\n  ├────────────────┼─────────────────────────┼────────────────────────┤\n  │ Grand canonical│  fixed mu, V, T         │  Z_G = sum exp[-bE']   │\n  │                │  heat+particle bath     │  Om = -kT ln Z_G       │\n  └────────────────┴─────────────────────────┴────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## The Ten Files at a Glance",
+      "confidence": "candidate",
+      "text": "GUIDE MAP — CONCEPTUAL CLUSTERS\n═════════════════════════════════════════════════════════════════════════\n\n  FOUNDATIONS (start here)\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  01-FOUNDATIONS        Entropy, microstates, Boltzmann wght      │\n  │  02-MICROCANONICAL     Isolated systems, density of states       │\n  │  03-CANONICAL          Partition function Z, Legendre structure  │\n  │  04-QUANTUM-STATS      Fermi-Dirac, Bose-Einstein, quantum gases │\n  └──────────────────────────────────────────────────────────────────┘\n            │\n            ▼\n  DEEP PHYSICS (phase transitions → RG → exactly-solvable models)\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  05-PHASE-TRANSITIONS  Critical phenomena, universality, Landau  │\n  │  06-RENORMALIZATION    Wilson RG, fixed points, epsilon expan.   │\n  │  07-ISING-MODELS       Exact solutions, Monte Carlo, spin gls    │\n  └──────────────────────────────────────────────────────────────────┘\n            │\n            ▼\n  BRIDGES TO CS / ML / FINANCE\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  08-NON-EQUILIBRIUM    Langevin, Fokker-Planck, fluctuation thms │\n  │  09-CONNECTIONS        Shannon↔Boltzmann, EBMs, variational inf. │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "## The Partition Function — Everything Follows from Z",
+      "confidence": "candidate",
+      "text": "FROM THE PARTITION FUNCTION Z:\n\n  Helmholtz free energy:   F = −k_B T ln Z           ← fundamental relation\n  Internal energy:         U = −∂(ln Z)/∂β = k_BT²∂(ln Z)/∂T\n  Entropy:                 S = −∂F/∂T = k_B(ln Z + βU)\n  Pressure:                P = −∂F/∂V = k_BT ∂(ln Z)/∂V\n  Heat capacity:           Cv = ∂U/∂T\n  Chemical potential:      μ = ∂F/∂N\n\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  ONCE YOU HAVE Z, ALL THERMODYNAMIC QUANTITIES FOLLOW           │\n  │  BY DIFFERENTIATION. No need to compute them independently.     │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

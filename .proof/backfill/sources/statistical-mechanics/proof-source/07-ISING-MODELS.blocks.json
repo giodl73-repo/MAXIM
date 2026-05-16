@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistical-mechanics\\07-ISING-MODELS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ISING MODEL LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  HAMILTONIAN:  H = −J Σ_{⟨ij⟩} sᵢ sⱼ − h Σᵢ sᵢ    (sᵢ = ±1)\n\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  1D: exact solution (transfer matrix) — no phase transition T > 0    │\n  │  2D: exact solution (Onsager 1944) — T_c = 2.27 J/k_B, β = 1/8       │\n  │  3D: no exact solution — Monte Carlo, ε-expansion, conformal field   │\n  │  Mean-field: T_c = zJ/k_B, β = 1/2 (always overestimates order)      │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  MAPPINGS:\n  Ising ↔ Binary alloy (A/B atoms ↔ ±1 spins)\n  Ising ↔ Lattice gas (particle/hole ↔ ±1 spins)\n  Ising ↔ Hopfield network (stored patterns ↔ couplings Jᵢⱼ)\n  Ising ↔ MAX-CUT in graphs (graph partition ↔ spin configuration)\n  Ising ↔ Boltzmann machine in ML",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 70,
+      "heading_context": "## 1D Ising — Transfer Matrix Solution",
+      "confidence": "candidate",
+      "text": "        | e^{-K}    e^{K-h}  |",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 74,
+      "heading_context": "## 1D Ising — Transfer Matrix Solution",
+      "confidence": "candidate",
+      "text": "    Z = Tr(T^N) = λ₊^N + λ₋^N ≈ λ₊^N    (N → ∞, λ₊ > λ₋)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "## 1D Ising — Transfer Matrix Solution",
+      "confidence": "candidate",
+      "text": "1D ISING — WHY NO PHASE TRANSITION:\n\n  Peierls argument: A single domain wall (two neighboring spins flipped\n  relative to each other) costs energy 2J but gains entropy k_B ln N\n  (N possible positions for the wall). For N → ∞ and any T > 0,\n  entropy wins → domain walls proliferate → long-range order destroyed.\n\n  Only at T = 0 can you have order.\n  This is a general argument: in 1D with short-range interactions,\n  there is no phase transition at T > 0 (Landau, 1937;\n  Mermin-Wagner for continuous symmetry in 2D, 1966).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "## Transfer Matrix — General Structure",
+      "confidence": "candidate",
+      "text": "TRANSFER MATRIX METHOD:\n\n  For a 1D chain or a quasi-1D system (2D lattice = chain of rows):\n\n  Z = Tr(T^N)    where T is the transfer matrix between adjacent layers\n\n  THERMODYNAMIC PROPERTIES (N → ∞):\n  f = −k_BT ln λ_max    (free energy from largest eigenvalue)\n  ξ = −1/ln(λ₂/λ₁)     (correlation length from ratio of two largest eigenvalues)\n\n  FOR 2D ISING (M columns, N rows):\n  T is a 2^M × 2^M matrix (exponentially large — why 2D is hard).\n  Onsager diagonalized this matrix exactly using Clifford algebras.\n\n  QUANTUM ANALOGY:\n  Transfer matrix T ↔ Boltzmann operator e^{-βH_quantum}\n  2D classical stat mech ↔ 1D quantum mechanics\n  More precisely: T = e^{-H_quantum δτ} where δτ = 1/(k_BT per row)\n  This maps d-dimensional classical systems to (d-1)-dimensional quantum systems.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 188,
+      "heading_context": "## Monte Carlo Methods",
+      "confidence": "candidate",
+      "text": "METROPOLIS ALGORITHM FOR ISING:\n\n  Initialize: random spin configuration {s}\n  Repeat:\n    1. Pick a spin sᵢ at random\n    2. Compute ΔE = energy change if sᵢ → −sᵢ\n       ΔE = 2J sᵢ Σ_{j∈nbrs} sⱼ + 2h sᵢ\n    3. Accept flip with probability:\n       P_accept = min(1, e^{-βΔE})\n       If ΔE ≤ 0: always accept (lower energy)\n       If ΔE > 0: accept with probability e^{-βΔE}\n    4. Measure observables periodically\n\n  This satisfies DETAILED BALANCE:\n  P(s→s') W(s') = P(s'→s) W(s)  where W(s) ∝ e^{-βH(s)}\n  → ergodic chain converges to Boltzmann distribution.\n\n  CRITICAL SLOWING DOWN near T_c:\n  Correlation time τ ~ ξ^z where z ≈ 2 (dynamic exponent).\n  ξ → ∞ at T_c → exponentially slow equilibration.\n  Fix: Cluster algorithms (Wolff, Swendsen-Wang) update entire clusters\n  at once, reducing z to near 0.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 290,
+      "heading_context": "## Spin Glasses",
+      "confidence": "candidate",
+      "text": "SPIN GLASS ENERGY LANDSCAPE — ULTRAMETRIC STRUCTURE:\n\n  Energy\n    │     ╱╲           ╱╲               ╱╲\n    │    ╱  ╲         ╱  ╲             ╱  ╲\n    │   ╱ ╱╲ ╲       ╱ ╱╲ ╲           ╱ ╱╲ ╲\n    │  ╱ ╱  ╲ ╲     ╱ ╱  ╲ ╲         ╱ ╱  ╲ ╲\n    │ ·  ·  ·  ·   ·  ·  ·  ·       ·  ·  ·  ·\n    └──────────────────────────────────────────── configuration\n\n  The landscape is a hierarchy of metastable states:\n  - Many \"pure states\" (valleys), each with overlap q between them\n  - Overlap q(x) is the Parisi order parameter, 0 ≤ x ≤ 1\n  - States within the same valley have q close to 1\n  - States in distant valleys have small q\n  - The hierarchy is ULTRAMETRIC: d(A,C) ≤ max(d(A,B), d(B,C))\n    (like a taxonomy tree — all distances are determined by the\n    most recent common ancestor)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "## Lattice Models Beyond Ising",
+      "confidence": "candidate",
+      "text": "GENERALIZATIONS:\n\n  Potts model: sᵢ ∈ {1,...,q}  (q=2 is Ising)\n  H = −J Σ_{⟨ij⟩} δ(sᵢ, sⱼ)\n  q=1: connected clusters (random bond percolation)\n  q → 0: spanning trees\n  q=2: Ising  |  q=3,4: exact in 2D; first-order for q>4 in 2D\n\n  XY model: sᵢ ∈ U(1), θᵢ ∈ [0,2π)\n  H = −J Σ_{⟨ij⟩} cos(θᵢ − θⱼ)\n  2D XY: Berezinskii-Kosterlitz-Thouless transition (topological!)\n         No symmetry breaking; but superfluid stiffness jumps.\n         Vortex-antivortex unbinding transition.\n         KTH Prize 2016.\n\n  Heisenberg model: sᵢ ∈ S² (3D unit vector)\n  H = −J Σ_{⟨ij⟩} sᵢ·sⱼ\n  2D Heisenberg: NO phase transition at T>0 (Mermin-Wagner)\n  3D Heisenberg: transition at T_c, O(3) universality class",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

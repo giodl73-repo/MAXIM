@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistical-mechanics:ising-models
+kind: guide
+module: statistical-mechanics
+section: statistical-mechanics
+title: Ising Model and Lattice Systems
+status: source-custody
+source_custody: partial
+current_path: statistical-mechanics/07-ISING-MODELS.md
+canonical_path: statistical-mechanics/07-ISING-MODELS.md
+backsource_ids: [proof-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]
+concepts: [ising, models]
+root_concepts: [ising, models]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ising Model and Lattice Systems
 
 ## The Big Picture

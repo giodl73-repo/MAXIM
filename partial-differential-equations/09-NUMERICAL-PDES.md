@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:partial-differential-equations:numerical-pdes
+kind: guide
+module: partial-differential-equations
+section: partial-differential-equations
+title: Numerical Methods for PDEs
+status: source-custody
+source_custody: partial
+current_path: partial-differential-equations/09-NUMERICAL-PDES.md
+canonical_path: partial-differential-equations/09-NUMERICAL-PDES.md
+backsource_ids: [proof-backfill:partial-differential-equations:09-numerical-pdes, git-history:partial-differential-equations:09-numerical-pdes]
+concepts: [numerical, pdes]
+root_concepts: [numerical, pdes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Numerical Methods for PDEs
 
 ## The Big Picture

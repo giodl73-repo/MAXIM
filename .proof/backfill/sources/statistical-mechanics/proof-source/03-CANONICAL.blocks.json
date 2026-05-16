@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistical-mechanics\\03-CANONICAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CANONICAL ENSEMBLE — MASTER STRUCTURE\n═══════════════════════════════════════════════════════════════════════════════\n\n  SYSTEM at fixed (N, V, T):\n  Energy can fluctuate; T fixed by heat reservoir\n\n  ┌──────────────────────────────────┐     ┌──────────────────────────────┐\n  │         SYSTEM                   │<--->│     HEAT RESERVOIR at T      │\n  │    (small; we care about this)   │     │  (huge; β = 1/kT is fixed)   │\n  └──────────────────────────────────┘     └──────────────────────────────┘\n\n  PARTITION FUNCTION:   Z(β, N, V) = Σ_n e^{-β E_n}\n                                    (sum over all quantum states)\n\n  PROBABILITY of microstate n:   P_n = e^{-βE_n} / Z\n\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  ALL THERMODYNAMICS FROM Z:                                          │\n  │                                                                      │\n  │  F = −k_BT ln Z              (Helmholtz free energy)                 │\n  │  U = −∂(ln Z)/∂β = ⟨E⟩      (internal energy = ⟨H⟩)                  │\n  │  S = −∂F/∂T = k_B(ln Z + βU) (entropy)                               │\n  │  P = −∂F/∂V = k_BT ∂(ln Z)/∂V (pressure)                             │\n  │  C_V = ∂U/∂T = k_Bβ² ∂²(ln Z)/∂β² (heat capacity)                    │\n  │  μ = ∂F/∂N                   (chemical potential)                    │\n  │                                                                      │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "## Thermodynamics from Z — The Systematic Procedure",
+      "confidence": "candidate",
+      "text": "F(T, V, N) = −k_BT ln Z\n\ndF = −S dT − P dV + μ dN    ← fundamental relation\n\n  S = −(∂F/∂T)_{V,N}\n  P = −(∂F/∂V)_{T,N}\n  μ = +(∂F/∂N)_{T,V}\n\n  Internal energy: U = F + TS = −∂(βF)/∂β = −∂(ln Z)/∂β = ⟨E⟩\n\n  Heat capacity:   C_V = (∂U/∂T)_{V,N} = k_B β² (∂²ln Z/∂β²)\n                       = k_B β² (⟨E²⟩ − ⟨E⟩²)\n                       = ⟨(ΔE)²⟩ / k_BT²\n\n  ENERGY FLUCTUATIONS = HEAT CAPACITY:\n  ┌──────────────────────────────────────────────────────────┐\n  │  Var(E) = k_BT² C_V                                      │\n  │                                                          │\n  │  Relative fluctuation: √Var(E)/⟨E⟩ ~ 1/√N → 0 for N→∞    │\n  │  For large N, canonical ≡ microcanonical (sharp peak)    │\n  └──────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 178,
+      "heading_context": "## Worked Example — Quantum Harmonic Oscillator",
+      "confidence": "candidate",
+      "text": "LIMITS:\n  High T (k_BT >> ℏω):\n  ⟨n⟩ ≈ k_BT/ℏω  ⟹  U ≈ k_BT  (equipartition)\n  C_V → k_B\n\n  Low T (k_BT << ℏω):\n  U ≈ ℏω/2 + ℏω e^{-βℏω}   (zero-point energy + exponentially frozen)\n  C_V ≈ k_B (βℏω)² e^{-βℏω} → 0 (quantum freeze-out)\n\n  Crossover at T* = ℏω/k_B (characteristic temperature of oscillator)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 207,
+      "heading_context": "## Two-State System — Schottky Anomaly",
+      "confidence": "candidate",
+      "text": "SCHOTTKY PEAK:\n  C_V peaks at T* ≈ 0.42 ε/k_B.\n\n  High T: both states equally likely → C_V → 0 (no energy gradient)\n  Low T: only ground state → C_V → 0 (no thermal excitation)\n  At T*: maximum contrast between populations → maximum heat capacity\n\n  Appears in: magnetic impurities, tunneling systems in glasses,\n  nuclear spins, any two-level system.\n  Fingerprint: C_V ~ T^{-2} e^{-ε/kT} at low T.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 261,
+      "heading_context": "## The Legendre Transform Connection",
+      "confidence": "candidate",
+      "text": "ENSEMBLE ↔ LEGENDRE TRANSFORM:\n\n  MICROCANONICAL: S(E, V, N) — entropy as function of energy\n  ┌──────────────────────────────────────────────────────┐\n  │  Legendre transform S → T:  F = E − TS               │\n  │  (or equivalently: β = 1/kT = ∂S/∂E, F = −kT ln Z)   │\n  └──────────────────────────────────────────────────────┘\n\n  CANONICAL → GRAND CANONICAL:\n  ┌──────────────────────────────────────────────────────┐\n  │  Legendre transform N → μ:  Ω = F − μN = −kT ln Z_G  │\n  └──────────────────────────────────────────────────────┘\n\n  THERMODYNAMIC POTENTIALS — full structure:\n\n  U(S,V,N)               fundamental relation\n  F(T,V,N) = U − TS      Helmholtz (canonical ensemble)\n  H(S,P,N) = U + PV      Enthalpy (fixed pressure processes)\n  G(T,P,N) = U−TS+PV     Gibbs (chemistry at fixed T, P)\n  Ω(T,V,μ) = F − μN      Grand potential (open systems)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

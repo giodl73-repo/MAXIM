@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "partial-differential-equations\\06-FOURIER-METHODS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              FOURIER METHODS LANDSCAPE                                |\n|                                                                       |\n|  SEPARATION OF VARIABLES:                                             |\n|  u(x,t) = X(x)·T(t)  →  each factor solves an ODE                     |\n|  Eigenvalue problem determines the basis functions                    |\n|  Works on: rectangles, cylinders, spheres (separable geometries)      |\n|                                                                       |\n|  FOURIER SERIES (finite domain):                                      |\n|  u(x) = Σ c_n φ_n(x)  where φ_n are the eigenfunctions                |\n|  Inner product: (f,g) = ∫ f·g dx                                      |\n|  Coefficients: c_n = (u, φ_n) / (φ_n, φ_n)                            |\n|                                                                       |\n|  FOURIER TRANSFORM (infinite domain):                                 |\n|  û(k) = ∫_{-∞}^{∞} u(x) e^{−ikx} dx   (spatial → frequency)           |\n|  u(x) = 1/(2π) ∫ û(k) e^{ikx} dk      (inverse)                       |\n|  Turns ∂/∂x → ×ik;  ∂²/∂x² → ×(−k²)                                   |\n|                                                                       |\n|  LAPLACE TRANSFORM (temporal):                                        |\n|  Û(x,s) = ∫₀^∞ u(x,t) e^{−st} dt                                      |\n|  Turns ∂/∂t → ×s (after handling IC)                                  |\n|  Converts time-evolution PDE → ODE in x                               |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 63,
+      "heading_context": "## Sturm-Liouville Theory: The Universal Framework",
+      "confidence": "candidate",
+      "text": "  STURM-LIOUVILLE PROBLEM:\n  − d/dx [p(x) dy/dx] + q(x)y = λ w(x) y   on [a,b]\n  with separated BCs at x=a and x=b.\n\n  Examples:\n  • y'' + λy = 0 on [0,L]:  p=1, q=0, w=1  →  λ_n=(nπ/L)², y_n=sin,cos\n  • Legendre:  −[(1−x²)y']' = λy on [−1,1]  →  λ_n=n(n+1), y_n=P_n(x)\n  • Bessel:    −[xy']' + m²/x·y = λxy on [0,1]  →  y_n=J_m(α_{mn}x)\n  • Chebyshev: −[(1−x²)^{1/2}y']' = λ(1−x²)^{−1/2}y  →  T_n, U_n\n\n  SPECTRAL THEOREM (S-L):\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ If p,q,w are smooth and p,w > 0:                                │\n  │ • Eigenvalues λ₁ ≤ λ₂ ≤ λ₃ ≤ ... → +∞ (discrete, real)          │\n  │ • Eigenfunctions φ_n are orthogonal: ∫ φ_n φ_m w dx = 0 (n≠m)   │\n  │ • Completeness: {φ_n} forms a basis for L²_w([a,b])             │\n  │ • nth eigenfunction has exactly n−1 zeros in (a,b)              │\n  └─────────────────────────────────────────────────────────────────┘\n\n  This guarantees the eigenfunction expansion converges.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 118,
+      "heading_context": "## Fourier Transform: Properties and Formulas",
+      "confidence": "candidate",
+      "text": "  DEFINITION:\n  û(k) = F[u](k) = ∫_{−∞}^∞ u(x) e^{−ikx} dx\n\n  INVERSE:\n  u(x) = F⁻¹[û](x) = 1/(2π) ∫_{−∞}^∞ û(k) e^{ikx} dk\n\n  KEY PROPERTIES:\n  ┌────────────────────────────────────────────────────────────┐\n  │  F[u']         = ik · û(k)                                 │\n  │  F[u'']        = (ik)² û(k) = −k² û(k)                     │\n  │  F[u^{(n)}]    = (ik)ⁿ û(k)                                │\n  │  F[xu]         = i (d/dk) û(k)                             │\n  │  F[e^{iax}u]   = û(k−a)     (modulation → frequency shift)│\n  │  F[u(x−a)]     = e^{−ika} û(k)  (translation → phase shift)│\n  │  F[u * v]      = û(k) · v̂(k)   (convolution → product)     │\n  │  F[u · v]      = 1/(2π) û * v̂  (product → convolution)     │\n  └────────────────────────────────────────────────────────────┘\n\n  PARSEVAL'S THEOREM:\n  ∫_{−∞}^∞ |u(x)|² dx = 1/(2π) ∫_{−∞}^∞ |û(k)|² dk\n\n  IMPORTANT TRANSFORMS:\n  F[e^{−ax²}] = √(π/a) · e^{−k²/4a}       (Gaussian → Gaussian)\n  F[δ(x)]     = 1                           (delta → constant)\n  F[1]        = 2π·δ(k)                     (constant → delta)\n  F[H(x)e^{−ax}] = 1/(a+ik)  (a>0)         (exponential decay)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "### Heat Equation on the Whole Line",
+      "confidence": "candidate",
+      "text": "  u_t = α·u_xx,   u(x,0) = u₀(x)\n\n  Apply F in x:    û_t = α(ik)²û = −αk²û\n  This is an ODE in t:  û(k,t) = û₀(k)·e^{−αk²t}\n\n  Invert:  u(x,t) = F⁻¹[û₀(k)·e^{−αk²t}]\n         = u₀ * F⁻¹[e^{−αk²t}]\n         = u₀ * [1/√(4παt) e^{−x²/4αt}]    (heat kernel K)\n         = ∫ u₀(y) K(x−y,t) dy\n\n  Note: e^{−αk²t} → 0 as t→∞ for k≠0 (all modes decay)\n        e^{+αk²t} → ∞ (backward heat: Fourier modes blow up)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "### Wave Equation on the Whole Line",
+      "confidence": "candidate",
+      "text": "  u_tt = c²u_xx,   u(x,0) = u₀, u_t(x,0) = v₀\n\n  Apply F:  û_tt = c²(ik)²û = −c²k²û\n  ODE:   û(k,t) = A(k)cos(ckt) + B(k)sin(ckt)\n  ICs:   A(k) = û₀(k),  B(k) = v̂₀(k)/(ck)\n\n  û(k,t) = û₀(k)cos(ckt) + v̂₀(k) sin(ckt)/(ck)\n\n  Invert using F[cos(ckt)]→π[δ(x+ct)+δ(x−ct)]:\n  u(x,t) = ½[u₀(x+ct)+u₀(x−ct)] + 1/(2c)∫_{x−ct}^{x+ct} v₀(s)ds\n\n  This reproduces d'Alembert's formula — consistent.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "### Laplace Equation in the Half-Plane",
+      "confidence": "candidate",
+      "text": "  ∇²u = 0 for y > 0,   u(x,0) = g(x)\n\n  Apply F in x:  û_yy − k²û = 0\n  ODE solution:  û(k,y) = A(k)e^{ky} + B(k)e^{−ky}\n\n  Boundedness as y→∞: require û→0, so A(k)=0 (if k>0) or B(k)=0 (k<0)\n  → û(k,y) = ĝ(k)·e^{−|k|y}\n\n  Invert:  u(x,y) = ∫ g(x') P(x−x',y) dx'\n           P(x,y) = F⁻¹[e^{−|k|y}] = y/π(x²+y²)   (Poisson kernel)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 231,
+      "heading_context": "## Separation of Variables: Algorithmic Guide",
+      "confidence": "candidate",
+      "text": "### Rectangular: Laplace on a 2D Rectangle",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "### Rectangular: Laplace on a 2D Rectangle",
+      "confidence": "candidate",
+      "text": "  ∇²u = 0 on [0,a]×[0,b], u=0 on three sides, u=g(x) on y=b\n\n  Separation: u = X(x)·Y(y)\n    X'' + λX = 0,  X(0)=X(a)=0  →  X_n = sin(nπx/a), λ_n=(nπ/a)²\n    Y'' − λY = 0,  Y(0)=0       →  Y_n = sinh(nπy/a)\n\n  Solution: u = Σ cₙ sin(nπx/a) sinh(nπy/a)\n  At y=b:   g(x) = Σ cₙ sin(nπx/a) sinh(nπb/a)\n            cₙ = 2/(a sinh(nπb/a)) ∫₀ᵃ g(x) sin(nπx/a) dx",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "### Cylindrical: Bessel Functions",
+      "confidence": "candidate",
+      "text": "  LAPLACE IN 2D CYLINDER (Bessel's equation):\n  ∇²u = u_rr + 1/r u_r + 1/r² u_θθ = 0\n\n  Separation: u = R(r)·Θ(θ)\n    Θ'' + m²Θ = 0  →  Θ_m = cos(mθ), sin(mθ)  (m=0,1,2,...)\n    r²R'' + rR' − m²R = 0  →  Bessel's equation for √λ·r\n\n  BESSEL'S EQUATION: r²R'' + rR' + (λr²−m²)R = 0\n  Solutions: J_m(√λ r) and Y_m(√λ r)\n\n  J_m = BESSEL FUNCTION OF FIRST KIND (regular at 0)\n  Y_m = Bessel of second kind (singular at 0, usually rejected)\n\n  On disk r ≤ a: u finite at r=0 → use J_m only\n  Eigenvalues from J_m(√λ a) = 0:  √λ_{mn} = α_{mn}/a\n  where α_{mn} = nth zero of J_m\n\n  SOLUTION:\n  u(r,θ) = Σ_{m,n} [A_{mn} cos(mθ) + B_{mn} sin(mθ)] J_m(α_{mn}r/a)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 325,
+      "heading_context": "## Pseudospectral and Collocation Methods",
+      "confidence": "candidate",
+      "text": "PSEUDOSPECTRAL METHOD:\n  Evaluate u_N at collocation points {x_j}, compute derivatives\n  in spectral space, then transform back.\n\n  FOURIER COLLOCATION (periodic, N points):\n  1. Given values u(x_j) at N equi-spaced points\n  2. FFT → Fourier coefficients ĉ_n           O(N log N)\n  3. Differentiate: ĉ'_n = in·ĉ_n             O(N)\n  4. IFFT → derivative values u'(x_j)           O(N log N)\n  Total: O(N log N) per derivative evaluation.\n\n  CHEBYSHEV COLLOCATION (non-periodic):\n  Points: x_j = cos(jπ/N)  (Chebyshev-Gauss-Lobatto)\n  Derivative via differentiation matrix D_{ij} (dense, N×N).\n  Fast Chebyshev transform via DCT: O(N log N).\n\n  SPECTRAL ELEMENT METHODS:\n  Divide domain into elements, use high-order polynomial basis\n  (Gauss-Lobatto-Legendre) within each element.\n  Combines: spectral accuracy within elements + geometric flexibility\n  of FEM. Used in Nek5000, Nektar++, deal.II.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

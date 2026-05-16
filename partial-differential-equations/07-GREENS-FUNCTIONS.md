@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:partial-differential-equations:greens-functions
+kind: guide
+module: partial-differential-equations
+section: partial-differential-equations
+title: Green's Functions and Distributions
+status: source-custody
+source_custody: partial
+current_path: partial-differential-equations/07-GREENS-FUNCTIONS.md
+canonical_path: partial-differential-equations/07-GREENS-FUNCTIONS.md
+backsource_ids: [proof-backfill:partial-differential-equations:07-greens-functions, git-history:partial-differential-equations:07-greens-functions]
+concepts: [greens, functions]
+root_concepts: [greens, functions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Green's Functions and Distributions
 
 ## The Big Picture

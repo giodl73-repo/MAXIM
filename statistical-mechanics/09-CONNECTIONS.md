@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistical-mechanics:connections
+kind: guide
+module: statistical-mechanics
+section: statistical-mechanics
+title: Connections: Statistical Mechanics, Information Theory, and Machine Learning
+status: source-custody
+source_custody: partial
+current_path: statistical-mechanics/09-CONNECTIONS.md
+canonical_path: statistical-mechanics/09-CONNECTIONS.md
+backsource_ids: [proof-backfill:statistical-mechanics:09-connections, git-history:statistical-mechanics:09-connections]
+concepts: [connections]
+root_concepts: [connections]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Connections: Statistical Mechanics, Information Theory, and Machine Learning
 
 ## The Big Picture
@@ -341,7 +360,7 @@ SGD ↔ LANGEVIN EQUATION:
 | EBM = Boltzmann distribution | P_θ(x) = e^{-E_θ(x)}/Z at β=1 |
 | Train EBM by gradient | ∂ℓ/∂θ = −E_data[∇_θE] + E_model[∇_θE] |
 | Variational inference ↔ free energy | ELBO = −F[q] = ⟨log P⟩_q + H(q) |
-| VAE ELBO decomposition | reconstruction − KL(posterior||prior) |
+| VAE ELBO decomposition | reconstruction − KL(posterior\|\|prior) |
 | Black-Scholes ↔ Fokker-Planck | Same PDE structure, σ = volatility |
 | SGD noise ↔ temperature | kT ~ η/B (learning rate / batch size) |
 | Simulated annealing | Langevin dynamics with cooling schedule |

@@ -1,0 +1,151 @@
+{
+  "schema_version": "1",
+  "source_markdown": "partial-differential-equations\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 283,
+      "heading_context": "## ML-Based PDE Methods at a Glance",
+      "headers": [
+        "Method",
+        "Core Idea",
+        "Strengths",
+        "Limitations"
+      ],
+      "rows": [
+        [
+          "**PINNs**",
+          "Parameterize u as neural net; minimize PDE residual as loss",
+          "Mesh-free; handles inverse problems naturally",
+          "Spectral bias; no rigorous error bounds; training instability"
+        ],
+        [
+          "**FNO**",
+          "Learn solution operator G: f → u in Fourier space",
+          "Amortized: one training, instant evaluation; O(N log N)",
+          "Requires training data from classical solvers; periodic domains preferred"
+        ],
+        [
+          "**DeepONet**",
+          "Branch (input function) + trunk (eval point) → inner product",
+          "Handles variable domains; flexible architecture",
+          "More training data needed; less spectral structure"
+        ],
+        [
+          "**Diffusion models**",
+          "Forward noising = heat equation on probability density; reverse = learned score-driven SDE",
+          "State-of-the-art generative models",
+          "Not PDE solvers per se — the PDE is the mechanism, not the target"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 369,
+      "heading_context": "## This Directory",
+      "headers": [
+        "File",
+        "Topic"
+      ],
+      "rows": [
+        [
+          "00-OVERVIEW.md",
+          "This file — landscape and taxonomy"
+        ],
+        [
+          "01-CLASSIFICATION.md",
+          "Classification and well-posedness in depth"
+        ],
+        [
+          "02-FIRST-ORDER.md",
+          "First-order PDEs, method of characteristics"
+        ],
+        [
+          "03-WAVE-EQUATION.md",
+          "Wave equation and hyperbolic systems"
+        ],
+        [
+          "04-HEAT-EQUATION.md",
+          "Heat equation and parabolic systems"
+        ],
+        [
+          "05-LAPLACE-POISSON.md",
+          "Laplace and Poisson equations"
+        ],
+        [
+          "06-FOURIER-METHODS.md",
+          "Fourier methods and separation of variables"
+        ],
+        [
+          "07-GREENS-FUNCTIONS.md",
+          "Green's functions and distributions"
+        ],
+        [
+          "08-VARIATIONAL-WEAK.md",
+          "Weak formulations, Sobolev spaces, FEM foundation"
+        ],
+        [
+          "09-NUMERICAL-PDES.md",
+          "Numerical methods for PDEs"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 386,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to model...",
+        "Equation",
+        "Boundary conditions"
+      ],
+      "rows": [
+        [
+          "Steady-state temperature / electrostatics",
+          "Laplace / Poisson (elliptic)",
+          "Boundary values or fluxes on ∂Ω"
+        ],
+        [
+          "Diffusion over time",
+          "Heat equation (parabolic)",
+          "IC + spatial BCs"
+        ],
+        [
+          "Wave propagation, acoustics",
+          "Wave equation (hyperbolic)",
+          "IC (position + velocity)"
+        ],
+        [
+          "Time-harmonic waves / resonance modes",
+          "Helmholtz ∇²u + k²u = 0",
+          "Radiation or Dirichlet"
+        ],
+        [
+          "Quantum particle dynamics",
+          "Schrödinger (parabolic)",
+          "IC (wavefunction)"
+        ],
+        [
+          "Viscous fluid flow",
+          "Navier-Stokes (nonlinear parabolic)",
+          "No-slip + IC"
+        ],
+        [
+          "Shock waves, traffic flow",
+          "Inviscid Burgers (nonlinear hyperbolic)",
+          "Characteristics + entropy"
+        ],
+        [
+          "Soliton / nonlinear waves",
+          "KdV",
+          "Periodic or decaying IC"
+        ],
+        [
+          "Elasticity / plate bending",
+          "Biharmonic",
+          "Clamped or free BCs"
+        ]
+      ]
+    }
+  ]
+}
