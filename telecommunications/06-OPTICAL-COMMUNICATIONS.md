@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:telecommunications:optical-communications
+kind: guide
+module: telecommunications
+section: telecommunications
+title: Optical Communications - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: telecommunications/06-OPTICAL-COMMUNICATIONS.md
+canonical_path: telecommunications/06-OPTICAL-COMMUNICATIONS.md
+backsource_ids: [proof-backfill:telecommunications:06-optical-communications, git-history:telecommunications:06-optical-communications]
+concepts: [optical, communications]
+root_concepts: [optical, communications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Optical Communications — A Layered Guide
 
 ## The Big Picture

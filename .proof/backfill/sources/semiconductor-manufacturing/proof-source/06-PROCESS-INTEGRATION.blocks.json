@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "semiconductor-manufacturing\\06-PROCESS-INTEGRATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "PROCESS INTEGRATION OVERVIEW\n════════════════════════════════════════════════════════════════════\n\nFEOL — Front End of Line\n  Objective: Fabricate transistors and their immediate contacts\n  Materials: Si, SiGe, SiO₂, Si₃N₄, HfO₂, TiN, TaC, W\n  Temperature budget: up to 1050°C (dopant activation)\n  ─────────────────────────────────────────────────────────────\n  STI → Well implants → Gate stack (HKMG) → S/D epitaxy\n  → Spacers → S/D implant → Silicide → Contacts (W) → Pre-Metal Dielectric\n\nMIDDLE END (MEOL) — Contacts to M1\n  Objective: Land vertical connections to transistor terminals\n  Key: W (tungsten) plugs or Ru contacts at 2 nm node\n  Height: ~100-200 nm of dielectric + via\n\nBEOL — Back End of Line\n  Objective: Route signals, power, clock across chip\n  Materials: Cu, low-k SiCOH, TaN/Ta barrier, ULK dielectric\n  Temperature budget: <400°C (Cu flows at higher T; low-k degradation)\n  ─────────────────────────────────────────────────────────────\n  Metal 1 → Via 1 → Metal 2 → ... → Metal 15+ → Pad metal (Al/thick Cu)\n  Each level: dielectric deposition → litho → etch → barrier → Cu → CMP\n\nBACK-SIDE POWER DELIVERY (BSPDN) — emerging at 2 nm:\n  Power rails moved to back side of wafer (via nano-TSVs)\n  Front side freed for signal-only routing → density improvement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 63,
+      "heading_context": "## FEOL: Building Transistors",
+      "confidence": "candidate",
+      "text": "FEOL PROCESS SEQUENCE (CMOS, gate-last HKMG, FinFET example)\n\n1. SHALLOW TRENCH ISOLATION (STI):\n   - LPCVD Si₃N₄ hard mask\n   - Litho + RIE: etch Si ~300 nm deep trenches\n   - HDP-CVD SiO₂ fill (void-free)\n   - CMP planarize to Si₃N₄ surface\n   - Wet strip Si₃N₄ → exposed Si between STI blocks\n\n2. WELL FORMATION:\n   - Triple-well implants: deep n-well, p-well, n-well\n   - Photoresist mask for each well type\n   - Dopant activation anneal: 900-1000°C, 30 min in furnace\n   - Well depth: 0.5-2 µm; well doping: 10¹⁶-10¹⁷ cm⁻³\n\n3. FIN FORMATION (FinFET specific):\n   - SADP to define fin pitch → Si fin etch via RIE (HBr/Cl₂)\n   - Fin width: 5-7 nm (at 7 nm node)\n   - STI recess: wet HF to expose fin sides → gate can wrap fin\n\n4. DUMMY GATE (gate-last approach):\n   - LPCVD poly-Si + SiO₂ hard mask\n   - Gate litho + etch → dummy gate at target CD\n   - Offset spacer: thin SiO₂ ALD → spacer etch (controls S/D proximity)\n\n5. SOURCE/DRAIN FORMATION:\n   - Halo implant (tilted, same type as body) → reduce DIBL\n   - Main spacer deposition: ALD Si₃N₄ (~10-15 nm wide)\n   - Source/drain etch: remove Si in S/D regions\n   - Epitaxial SiGe (PMOS) or SiP (NMOS): selective CVD growth\n     → Creates strain in channel + raised S/D (lower resistance)\n   - S/D doping: in-situ doped epitaxy (boron in SiGe for PMOS)\n\n6. SILICIDE (Ohmic contact to S/D and poly gate):\n   - PVD Ni or NiPt deposition (~8 nm)\n   - Anneal: NiSi forms at ~450°C\n   - Selective wet etch: remove unreacted Ni (not silicide)\n   - Result: low-resistance NiSi contacts\n\n7. PMD (Pre-Metal Dielectric) and REPLACEMENT METAL GATE:\n   - PECVD/CVD SiO₂ blanket deposition → planarization (CMP)\n   - Open gate area: CMP + selective etch to expose dummy poly-Si gate\n   - HF strip dummy oxide\n   - ALD HfO₂ (2 nm): gate dielectric\n   - ALD TiN: work function metal layer (NMOS or PMOS tuned)\n   - CVD W or ALD Ru: gate fill\n   - Gate metal CMP → completed replacement metal gate\n\n8. CONTACTS (MEOL):\n   - PMD etch: open contact holes to S/D and gate (stopping on silicide)\n   - ALD Ti/TiN liner + CVD W fill → W plug\n   - CMP planarize → flat surface with W plug tops exposed\n   - At 2 nm: Ru contacts (Ru has lower resistivity than W at sub-10 nm dimensions)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "## BEOL: Copper Damascene Interconnects",
+      "confidence": "candidate",
+      "text": "COPPER DAMASCENE PROCESS\n\nWHY COPPER?\n  Al (original BEOL metal): ρ_Al = 2.7 µΩ·cm, prone to electromigration at high J\n  Cu (since ~1998, IBM 180 nm): ρ_Cu = 1.68 µΩ·cm (37% lower), 5× better EM resistance\n  Couldn't be dry-etched (CuClₓ not volatile at room temp) → invented Damascene\n\nSINGLE DAMASCENE (metal layer only):\n  1. Deposit low-k dielectric (ILD): PECVD SiCOH or CVD SiO₂\n  2. Litho + RIE: etch trenches for metal lines (not through dielectric)\n  3. ALD TaN barrier (0.5-2 nm) + ALD/PVD Ta liner (~2-5 nm)\n  4. PVD Cu seed layer (~20-50 nm)\n  5. Electrochemical deposition (ECD): Cu fills trench from seed up\n     (Bottom-up fill: additives suppress top growth, accelerate bottom → void-free)\n  6. CMP: remove Cu above dielectric level → planar surface\n\nDUAL DAMASCENE (metal + via in one fill):\n  1. Deposit etch stop (SiCN) + ILD dielectric\n  2. Via first: etch via holes through all ILD\n     OR trench first: etch trenches; vias aligned to trench bottoms\n  3. Both trench and via open → single barrier/seed/fill step\n  4. Single Cu ECD fills both vias and trenches simultaneously\n  5. CMP planarizes\n  Advantage: one less Cu deposition + CMP cycle per via/trench pair\n\nELECTROCHEMICAL DEPOSITION (ECD):\n  Cu²⁺ + 2e⁻ → Cu   (reduction at wafer cathode)\n  Additive chemistry (from IBM/ATMI research):\n    Suppressors (PEG): slow deposition on top → push Cu bottom-up\n    Accelerators (SPS): accumulate at via bottom → accelerate bottom fill\n    Levelers: prevent overfill / superfilling on top\n  Result: void-free superfilling of 10:1 aspect ratio vias\n\nCMP (CHEMICAL MECHANICAL POLISHING):\n  Abrasive slurry (SiO₂ or Al₂O₃ particles in H₂O₂ chemistry)\n  Rotating pad + wafer → mechanical + chemical removal\n  Planarize: removes Cu from high points, stops at ILD\n  Within-wafer uniformity: <1% CMP key spec (non-uniform → resistance variation)\n  Post-CMP clean: remove particles + Cu contamination\n\nBARRIER LAYERS:\n  TaN/Ta or CoWP or Ru are barrier to Cu diffusion into dielectric\n  Cu diffuses into SiO₂ in hours at room temperature → killer contamination\n  TaN (ALD, 0.5-2 nm) is the primary diffusion barrier\n  As dimensions shrink: barrier takes larger fraction of via → resistance increases\n  At 3 nm: Ru or Co barriers being adopted (thinner effective barrier possible)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "## RC Delay and Low-k Dielectrics",
+      "confidence": "candidate",
+      "text": "INTERCONNECT RC DELAY\n\nTHE PROBLEM:\n  Interconnect RC delay dominated performance at <0.25 µm (1998+)\n  Before Cu switch: polysilicon local interconnect, Al for global\n  RC time constant: τ = R × C = (ρ·L/A) × (ε·A/d)\n    = ρ·ε·L²/d²  (scales with L² at fixed aspect ratio)\n  → As chips got larger + wires longer → RC delay dominated transistor delay\n\nRESISTANCE:\n  R = ρ·L/(W·H)  where W×H = cross-sectional area\n  Reducing Cu resistivity: limit grain scattering, line-edge roughness\n  At 10 nm wire width: ρ_effective ≈ 5-10 µΩ·cm (vs bulk 1.68) due to size effects\n  Surface + grain boundary scattering increases resistivity severely at nm scale\n\nCAPACITANCE:\n  ILD capacitance C = ε₀·k·A/d\n  Reduce k → reduce C → reduce RC\n\nLOW-k DIELECTRIC EVOLUTION:\n  SiO₂:        k = 3.9   (1970s-1998, original gate + ILD)\n  FSG:          k = 3.5   (fluorinated silicate glass, late 1990s)\n  SiCOH (CDO): k = 2.7-3.0  (carbon-doped oxide, PECVD, post-2000)\n  Porous SiCOH: k = 2.3-2.5  (nanoporous, voids lower k; CVD post-2006)\n  ULK (ultra-low-k): k = 2.0-2.3 (more porous, more fragile)\n  Air gap:      k = 1.0   (literally air between lines; hard to fill later, selective)\n\nAIR GAP INTEGRATION:\n  Etch away ILD between metal lines selectively → air gap (k=1)\n  Cap with PECVD conformal dielectric that bridges over air gap but doesn't fill it\n  Intel used air gaps at 14 nm; industry adopts more broadly at 5 nm+\n\nMECHANICAL FRAGILITY ISSUE:\n  Lower k = more porous = mechanically weaker\n  CMP shear stress can crack ULK dielectric → integration challenge\n  Requires careful CMP optimization, hardmask stacks, deposition control\n\nRESISTANCE × CAPACITANCE CROSSOVER:\n  Modern timing: 50% gate delay + 50% interconnect delay (even in best flows)\n  At 2 nm node: interconnect RC often dominates → BSPDN (backside power delivery)\n    removes power rail resistance from critical signal path",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 224,
+      "heading_context": "## Metal Layer Stack",
+      "confidence": "candidate",
+      "text": "METAL LAYER ARCHITECTURE (3 nm node example)\n\nLAYER        PURPOSE                      PITCH (nm)   METAL\n─────────────────────────────────────────────────────────────\nContact (Co) Transistor to M0            24 nm        W or Ru\nM0 (local)   Power straps, standard cell  20-24 nm    Ru or Co\nV0           Contact to M1               20-24 nm     Ru or Co\nM1 (semi-local) Signal routing           20-24 nm    Cu (thin)\nV1           M1 to M2                    20-24 nm    Cu\nM2           Signal routing              24-30 nm    Cu\nV2           M2 to M3                    24-30 nm    Cu\nM3-M8        Intermediate routing        40-80 nm    Cu\nVx           Vias between Mx             40-80 nm    Cu\nM9-M13       Regional routing            100-200 nm  Cu (thicker)\nM14-M15      Global routing (clock/power) 400+ nm    Thick Cu or Al\nAP (top Al)  Bond pads or RDL start       5-10 µm    Al or thick Cu\n\nNOTE: Total BEOL stack height at 3 nm: ~10-12 µm of Cu/dielectric layers\nTOTAL PROCESS STEPS including FEOL+BEOL+litho: 600-1,000\n\nCONTACT METAL EVOLUTION:\n  W tungsten (legacy contact): high resistivity at nm scale\n  Co (cobalt) or Ru (ruthenium): lower resistivity at nm scale, better fill\n  M0/V0 with Ru: Samsung 3GAE, Intel 4\n  Goal: minimize interface resistance between contact → transistor",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 256,
+      "heading_context": "## Chemical Mechanical Polishing (CMP)",
+      "confidence": "candidate",
+      "text": "CMP — CHEMICAL MECHANICAL POLISHING\n\nAPPLICATIONS:\n  STI CMP (SiO₂ over Si₃N₄ stop)\n  PMD CMP (oxide over contacts)\n  Copper CMP (remove overburden, stop at ILD)\n  Tungsten CMP (plug planarization)\n  High-k gate CMP (gate metal planarize)\n\nMECHANISM:\n  Preston's equation: MRR = kP × P × V\n    MRR = material removal rate\n    kP = Preston coefficient (chemical + mechanical)\n    P = applied pressure\n    V = relative velocity\n\n  Chemical: slurry chemistry reacts with surface → forms softer compound\n    Cu: H₂O₂ + BTA (benzotriazole) → form Cu-BTA complex\n  Mechanical: abrasive particles (SiO₂, CeO₂) remove softened material\n  Net: high spots polished faster (more contact pressure) → global planarization\n\nSELECTIVITY IN CU CMP:\n  Cu removal rate: fast\n  Barrier (TaN/Ta) removal rate: moderate\n  ILD removal rate: slow (need to stop here)\n  Selectivity Cu:barrier:ILD ≈ 50:10:1 (endpoint when barrier exposed)\n  Dishing: Cu surface below ILD level (too much pressure) → resistance increase\n  Erosion: ILD over dense Cu features erodes faster → uniformity issue\n\nWITHIN-WAFER UNIFORMITY:\n  Spec: <1% within-wafer range for leading-edge\n  Achieved by: zonal pressure heads on polishing head, pad conditioning, endpoint\n  Multi-head systems: 4-5 independent pressure zones on 300 mm wafer",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

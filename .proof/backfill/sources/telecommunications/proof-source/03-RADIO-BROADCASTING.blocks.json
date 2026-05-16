@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "telecommunications\\03-RADIO-BROADCASTING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "RADIO LINK COMPLETE PICTURE\n════════════════════════════════════════════════════════════════════\n\nTransmitter         Transmission    Antenna     Free Space        Rx Antenna\n   │                   Line         (Tx)          Path            (Rx)    Receiver\n   │                      │           │              │               │        │\n[Power     ──► [Coax/   ──► [Dipole/ ──► [FSPL +  ──► [Dipole/ ──►  [LNA + ─► [Demod]\n Amp]           Waveguide]   Yagi/     atm. loss    Yagi/           Filter]\n                             Parabolic + fading +   Parabolic]\n                             dish]     multipath]\n   │               │           │              │               │\n   Pt            cable loss   Gt           path loss          Gr\n  (dBm)          (dB)         (dBi)          (dB)           (dBi)\n\nReceived power: Pr = Pt + Gt - cable_loss - L_path + Gr  (all in dB)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## Antenna Fundamentals",
+      "confidence": "candidate",
+      "text": "DIPOLE ANTENNA (half-wave λ/2):\n\n         │ Current maximum at center\n─────────┼─────────────────────────\n         │ Length = λ/2\n─────────┼─────────────────────────\n         │ End: current minimum\n\nRadiation pattern (donut shape):\n         Top view:    circular (omnidirectional in horizontal plane)\n         Side view:   figure-8 (null at tips of dipole)\n\nGain: 2.15 dBi (slightly more than isotropic, concentrated in horizontal plane)\nFeed impedance: ~73 Ω resistive (matched to 75 Ω coax)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 130,
+      "heading_context": "## AM/FM/Shortwave Broadcasting",
+      "confidence": "candidate",
+      "text": "AM BROADCASTING (Medium Wave, 530-1700 kHz):\n\nStandard: ITU Region 1 (Europe/Africa): 9 kHz spacing\n          ITU Region 2 (Americas): 10 kHz spacing\nTransmit power: 5 kW (local) to 500 kW (clear channel, night)\nModulation: DSB-AM with full carrier (simple receivers)\nCoverage:\n  Daytime: ground wave ~200-400 km radius\n  Nighttime: D layer disappears → F layer reflection → 1000+ km\n  \"Clear channel\" stations: 50 kW, protected frequency, 1000+ km range\n\nFM BROADCASTING (87.5-108 MHz):\nStandard: channel spacing 200 kHz (EU), 100 kHz (US)\nTransmit power: 0.1 W (local) to 50+ kW ERP (regional)\nModulation: Stereo multiplex (pilot 19 kHz, stereo diff 23-53 kHz, RDS 57 kHz)\n  Left/right channels: (L+R) at baseband + (L-R) DSB-SC at 38 kHz carrier\n  Receiver demodulates both, recovers L and R\nCoverage: LoS + diffraction, typically 30-100 km radius\nAudio bandwidth: 30 Hz – 15 kHz (broadcast quality)\n\nDIGITAL RADIO:\nHD Radio (USA): in-band on-channel (IBOC) — digital signal alongside analog\nDAB/DAB+ (Europe): dedicated digital bands (174-240 MHz), OFDM, AAC+ codec\nDigital Audio Broadcasting gives CD-quality audio, additional data services",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 163,
+      "heading_context": "## Propagation Models",
+      "confidence": "candidate",
+      "text": "OKUMURA-HATA MODEL (urban macrocell, 150-1500 MHz):\n\nL_u = 69.55 + 26.16·log(f) - 13.82·log(h_b) - a(h_m) + (44.9 - 6.55·log(h_b))·log(d)\n\nf = frequency (MHz), h_b = base station height (m), h_m = mobile height (m), d = distance (km)\na(h_m) = mobile antenna correction factor\n\nLarge city (f > 300 MHz): a(h_m) = 3.2·(log(11.75·h_m))² - 4.97  dB\n\nEXAMPLE: f=900MHz, h_b=30m, h_m=1.5m, d=3km, large city:\nL_u ≈ 69.55 + 26.16×2.954 - 13.82×1.477 - 3.2 + 35.29×0.477 ≈ 130 dB\n(FSPL alone would be ~104 dB — extra 26 dB from buildings/terrain)\n\nCOST 231 HATA (1800-2000 MHz): extends Okumura-Hata\n\nINDOOR PROPAGATION MODELS:\nMulti-wall model: L = FSPL + n_walls · L_wall + n_floors · L_floor\nL_wall ≈ 3-15 dB (interior wall: 3 dB; exterior wall: 10-15 dB)\nL_floor ≈ 15-25 dB per floor\n\nRAY TRACING: More accurate but computationally expensive. Uses 3D geometry databases.\nUsed for: indoor planning, campus environments, 5G dense deployment.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "## Link Budget Example (FM Broadcasting)",
+      "confidence": "candidate",
+      "text": "FM BROADCASTING LINK BUDGET\n\nTransmitter:\n  Transmit power:          +77 dBm  (50 kW)\n  TX line + combiner loss:  -3 dB\n  TX antenna gain (3×λ/2):  +8 dBi\n  ──────────────────────────────────\n  Effective Radiated Power: +82 dBm (ERP = 158 kW equivalent)\n\nPath:\n  FSPL at 100 MHz, 30 km: -104 dB\n  Ground clutter:           -10 dB\n  ──────────────────────────\n  Total path loss:          -114 dB\n\nReceiver:\n  Rx antenna (simple dipole): +2 dBi\n  ──────────────────────────────────\n  Received power: 82 - 114 + 2 = -30 dBm\n\nThreshold:\n  FM receiver threshold: -100 dBm (20 dB SINAD)\n  ──────────────────────────────────\n  Link margin: -30 - (-100) = +70 dB  (plenty!)\n\nFM has huge excess margin — that's why portable radios work in cars and buildings.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

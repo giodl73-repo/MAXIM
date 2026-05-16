@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "telecommunications\\09-CHANNEL-CODING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CHANNEL CODING IN THE COMMUNICATION CHAIN\n════════════════════════════════════════════════════════════════════\n\nSource ──► Source   ──► Channel ──► Modulate ──► [Channel] ──► Demod ──► Channel ──► Source ──► User\n           Compress     Encoder     (BPSK/QAM)    + Noise       (soft      Decoder     Decomp\n           (ZIP, MP3)   (add         carry          added       outputs)   (correct\n                         redundancy)  bits over              FEC)        errors)\n                         FEC code     air\n                         ▲\n                         │\n                    THIS MODULE\n                    (Forward Error Correction: FEC)\n\nKEY INSIGHT: Add controlled redundancy → can correct errors.\n  No redundancy: BER at threshold → reliability limited\n  With FEC: operate at lower SNR for same reliability, OR achieve lower BER at same SNR\n  Coding gain: SNR reduction (dB) for same BER performance\n  Typical coding gain: 4–10 dB (allows operating 4–10 dB closer to noise floor)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 52,
+      "heading_context": "## Shannon Capacity — The Bound",
+      "confidence": "candidate",
+      "text": "SHANNON-HARTLEY THEOREM:\n\nC = B · log₂(1 + S/N)   bits/second\n\nC = channel capacity (maximum achievable error-free rate)\nB = bandwidth (Hz)\nS/N = signal-to-noise ratio (linear, not dB)\n\nThis is the hard upper bound. ANY code operating below capacity can achieve\narbitrarily low BER given sufficient code length. No code exceeds capacity.\n\nSHANNON LIMIT FOR BPSK (1 bit/symbol):\n  Capacity = 1 bit/symbol at Eb/N₀ → required minimum Eb/N₀ for code rate R\n  Shannon limit for rate R = 1: Eb/N₀ ≥ ln(2) = -1.59 dB\n\nMEANING: With a rate-1 BPSK channel code:\n  Without coding: need ~6.8 dB Eb/N₀ for BER 10⁻³\n  Shannon limit: -1.59 dB\n  Gap: 8.4 dB — this is the \"Shannon gap\" that 70 years of coding theory tried to close\n\nCODING RATE R: fraction of bits that carry information (rest is redundancy)\n  R = k/n  where k = information bits, n = codeword bits\n  R = 1/2: half the bits are redundancy → Eb/N₀ limit = 0 dB\n  R = 3/4: more efficient but less error correction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 83,
+      "heading_context": "## Fundamental Coding Concepts",
+      "confidence": "candidate",
+      "text": "HAMMING DISTANCE AND ERROR CORRECTION\n\nHamming distance d(x,y): number of bit positions where x and y differ\n  x = 101100\n  y = 100110\n  d = 2      (positions 3 and 5 differ)\n\nFor a code with minimum Hamming distance d_min:\n  Error DETECTION: up to d_min - 1 errors can be detected\n  Error CORRECTION: up to ⌊(d_min-1)/2⌋ errors can be corrected\n\nEXAMPLE: Hamming (7,4) code\n  k=4 information bits, n=7 codeword bits, R=4/7≈0.57\n  d_min = 3 → can correct 1 bit error per 7-bit block\n\nSYSTEMATIC CODE: first k bits are the original data, last n-k are parity/redundancy\n  Makes encoding/decoding simpler; original data immediately visible in codeword\n\nPARITY CHECK MATRIX H (n-k × n):\n  H · cᵀ = 0 for any valid codeword c\n  Syndrome s = H · rᵀ: if s ≠ 0, errors occurred; syndrome pattern → error location\n\nGENERATOR MATRIX G (k × n):\n  codeword c = m · G  where m is message\n  For systematic: G = [I_k | P]  where P = parity portion",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "## Convolutional Codes",
+      "confidence": "candidate",
+      "text": "CONVOLUTIONAL CODES\n\nProcess input as a stream, not blocks.\nOutput depends on current input AND previous K-1 inputs (K = constraint length).\n\nExample: Rate 1/2, K=3, generators G₁=111, G₂=101\n\nInput shift register:   [m_n] [m_{n-1}] [m_{n-2}]\n                          │         │          │\n               G₁:  ──────●─────────●──────────●──► XOR → c₁\n               G₂:  ──────●─────────────────────●──► XOR → c₂\n\nFor each input bit: 2 output bits (rate 1/2)\n\nTRELLIS REPRESENTATION:\n  State = contents of shift register (K-1 bits)\n  Transition: input bit → new state + output bits\n  Valid codewords = valid paths through trellis\n\nVITERBI ALGORITHM (1967):\n  Maximum likelihood decoding of convolutional codes\n  Finds path through trellis with minimum Hamming distance to received sequence\n  Complexity: O(2^K × L) where L = sequence length\n  Optimal for AWGN channel\n  Used in: 2G/3G cellular, satellite, DSL, storage\n\nPUNCTURING: Remove some output bits → higher rate code\n  Rate 1/2 → rate 2/3 by removing every other bit from one stream\n  Standard approach for variable-rate convolutional codes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "## Turbo Codes (1993)",
+      "confidence": "candidate",
+      "text": "TURBO CODES — THE FIRST NEAR-SHANNON CODES\n\nBerrou, Glavieux, Thitimajshima, 1993: \"Near Shannon Limit Error-Correcting Coding\"\n  Rate 1/2 turbo code at BER 10⁻⁵: Eb/N₀ = 0.7 dB\n  Shannon limit for R=1/2: Eb/N₀ = 0 dB\n  Gap: 0.7 dB — practically at the Shannon limit!\n\nTURBO ENCODER:\n         input m ──────────────────────────────────────────► (systematic bits)\n                  │                                                   │\n                  └──► [RSC encoder 1] ──► c₁ bits ─────────────────►│\n                                                                       │\n                  └──► [Interleaver] ──► m' ──► [RSC encoder 2] ──► c₂ bits\n\nRSC: Recursive Systematic Convolutional code\nInterleaver: permutes the input bits pseudo-randomly\n\nOutput: [m, c₁, c₂] = rate 1/3 or punctured to higher rate\n\nTURBO DECODER (iterative):\n  Two BCJR (MAP) soft decoders, exchange soft information (extrinsic LLRs)\n  Iterate 8-16 times → approach optimal MAP decoding\n\n  Decoder 1 ──── L-values (LLRs) ────► Decoder 2\n             ◄── Updated LLRs ─────────\n             → Iterate → converge to near-optimal decision\n\nAPPLICATIONS: 3G UMTS/CDMA2000, 4G LTE (data), deep space (CCSDS)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 188,
+      "heading_context": "## LDPC Codes (1960 / 1996)",
+      "confidence": "candidate",
+      "text": "LDPC (Low-Density Parity-Check) CODES\n\nGallager (1960): invented LDPC, largely forgotten\nMacKay & Neal (1996): rediscovered, shown to approach Shannon limit\n\nSTRUCTURE: Parity check matrix H is sparse (low density of 1s)\n  n = 1000 bits, k = 500 bits: H is 500×1000 with ~3-5 ones per column\n\nFACTOR GRAPH / TANNER GRAPH:\n  Variable nodes (n): one per coded bit\n  Check nodes (n-k): one per parity check equation\n  Edges connect variable to check nodes\n\nBELIEF PROPAGATION DECODING:\n  Message passing on Tanner graph\n  Variable nodes send probability estimates to check nodes\n  Check nodes update and send back revised probabilities\n  Iterate 10-100 times → converge to codeword\n\nPERFORMANCE: Approaches Shannon limit within 0.3-0.5 dB for long codes\n\nAPPLICATIONS:\n  IEEE 802.11n/ac/ax (WiFi): 3 code rates × 3 block sizes\n  DVB-S2 (satellite TV): 5 code rates, 2 block sizes\n  10GBase-T Ethernet: 2048-bit blocks\n  5G NR data channel (PDSCH): length-flexible LDPC codes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 221,
+      "heading_context": "## Polar Codes (2008) — The 5G Standard",
+      "confidence": "candidate",
+      "text": "POLAR CODES — Arıkan (2008)\n\nTHEORETICAL BASIS:\n  Channel polarization: given N = 2^n copies of a BSC channel\n  Apply a butterfly transform (similar to FFT)\n  → Channels split into \"polarized\" channels: some very reliable (capacity →1), some very noisy (capacity →0)\n  → Send information on good channels, freeze bad channels to known values\n\nENCODING:\n  G_N = F^{⊗n}  where F = [1 0; 1 1]  (Kronecker product)\n  x = u · G_N   (u = information bits + frozen zeros)\n  Linear complexity encoding: O(N log N)\n\nDECODING:\n  Successive Cancellation (SC): O(N log N), suboptimal\n  SC-List (SCL): L paths maintained → near-optimal, O(L × N log N)\n  CRC-Aided SCL: use CRC to select among list → best performance\n\nPERFORMANCE:\n  First code proven to achieve Shannon capacity for BEC (Binary Erasure Channel)\n  For AWGN: slightly inferior to LDPC at finite lengths, competitive at N>10,000\n\n5G NR ADOPTION:\n  Control channel (PDCCH, PUCCH): polar codes (short blocks, 100-512 bits)\n  Data channel (PDSCH, PUSCH): LDPC codes (long blocks, 1000s of bits)\n  Reason: polar codes excel at short blocks; LDPC at long blocks\n\nAPPLICATIONS: 5G NR control, IoT links, satellite control",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 256,
+      "heading_context": "## HARQ (Hybrid ARQ)",
+      "confidence": "candidate",
+      "text": "HARQ: Combines FEC (forward error correction) with ARQ (automatic repeat request)\n\nTYPE I HARQ: Send coded packet → receiver tries to decode\n  Success → ACK → discard\n  Failure → NACK → retransmit same packet, receiver discards old copy\n\nTYPE II (Chase Combining): Same as Type I but receiver COMBINES retransmissions\n  Soft bits from 1st and 2nd transmission summed (MRC combining)\n  → SNR gain: +3 dB per additional copy (coherent combining)\n  → Effective rate decreases with retransmissions\n\nTYPE III (Incremental Redundancy, IR-HARQ):\n  1st transmission: systematic bits + some parity (e.g., rate 3/4)\n  If NACK: send additional parity bits (different ones)\n  2nd transmission: combine → effective rate = 1/2 (more error correction)\n  3rd: combine → effective rate = 1/3\n  → Rate adapts automatically to channel quality\n\nBENEFIT: Acts as adaptive modulation coding (AMC) fallback\n  When channel is good: no retransmissions needed → high throughput\n  When channel is bad: retransmissions → lower effective rate but reliable delivery\n\nHARQ ROUND TRIP TIME: 4 subframes in LTE (4 × 1 ms) → 8 HARQ processes running in parallel\n5G NR: flexible scheduling, mini-slots allow faster HARQ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

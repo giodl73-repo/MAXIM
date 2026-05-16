@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "semiconductor-manufacturing\\07-PACKAGING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "PACKAGING HIERARCHY\n════════════════════════════════════════════════════════════════════\n\nDIE LEVEL (bare silicon chip)\n  │\n  ▼ First-level interconnect (connects die to package)\nPACKAGE (IC package)\n  Wire bond / Flip-chip / Embedded / Fan-out WLP\n  │\n  ▼ Second-level interconnect (connects package to PCB)\nPCB (Printed Circuit Board)\n  BGA solder balls / LGA pads / QFP leads\n  │\n  ▼ System-level\nSYSTEM (server, phone, car module)\n\nADVANCED PACKAGING (2.5D / 3D):\n  Interposer or bridge connects multiple dies in same package\n  → \"System in Package\" (SiP): near-die integration of memory + logic\n  → Near-chiplet performance with mix-and-match fabrication",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Wire Bonding",
+      "confidence": "candidate",
+      "text": "WIRE BONDING — LEGACY, STILL DOMINANT FOR COST SEGMENTS\n\nMECHANISM:\n  Gold (Au) or copper (Cu) or aluminum (Al) wire (15-75 µm diameter)\n  Thermosonic bonding (heat + ultrasonic + pressure):\n    Ball bond: wire melts → gold ball → bonded to die pad (Al bond pad)\n    Stitch bond: wedge bond to package substrate or leadframe\n    Result: electrical connection from die pad to package terminal\n\nPROCESS:\n  Die flip face-up → attach to substrate (epoxy or solder)\n  Capillary tool: form ball → position over die pad → press + ultrasonic\n  → Pull wire arc → form stitch on substrate pad → clip wire\n  High-speed: 10-20 bonds/second per machine head\n\nPITCH LIMITATION:\n  Bond pad pitch: 40-60 µm (fine pitch) down to ~25 µm (ultra-fine)\n  Wire span: up to 5 mm (longer → sagging, cross-shorting risk)\n\nADVANTAGES:\n  Simple, low cost, mature, robust\n  Suitable for: commodity DRAM, mobile processors in cost-sensitive designs,\n               microcontrollers, power ICs, analog, automotive\n\nDISADVANTAGES:\n  Long wire = inductance (bad for RF, high-speed)\n  Pad area on die = wasted silicon\n  Not suitable for >1000 I/O at fine pitch\n  Single-sided (die face up → wire out)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "## Flip-Chip (C4 Bumps)",
+      "confidence": "candidate",
+      "text": "FLIP-CHIP — THE DOMINANT HIGH-PERFORMANCE PACKAGE INTERCONNECT\n\nCONCEPT:\n  Die flipped face-down → solder bumps directly on die surface → attach to substrate\n  No wire: solder bump = shortest possible electrical path\n\nC4 BUMPS (Controlled Collapse Chip Connection — IBM, 1964):\n  Solder bumps on die: SnPb (old) → lead-free SnAgCu (SAC) solder\n  Bump diameter: 50-250 µm (area-array across full die surface)\n  Pitch: 100-200 µm (peripheral) or 150-250 µm (area array) for traditional FC\n  Micro-bumps (advanced): 20-50 µm diameter at 40-100 µm pitch\n\nPROCESS:\n  Wafer-level: deposit UBM (Under-Bump Metallurgy: Ti/NiV/Cu) → electro-plate SnAg\n  Reflow: solder wets to substrate pads → self-aligns (surface tension)\n  Underfill: capillary-fill epoxy between die and substrate → CTE mismatch relief\n\nUNDERFILL:\n  Die: Si, CTE = 3 ppm/°C\n  Organic substrate: CTE = 14-18 ppm/°C\n  Temperature cycles (−40 to +125°C): 100+ ppm strain differential → solder fatigue\n  Underfill epoxy distributes stress across entire die-substrate interface → reliability\n\nADVANTAGES OVER WIRE BOND:\n  Much higher I/O count (area array, not perimeter only) → 10,000+ I/O on large die\n  Lower inductance (shorter path)\n  Better electrical performance (signal integrity, power delivery)\n  Smaller package footprint\n\nSUBSTRATE (flip-chip BGA):\n  Organic laminate: FR4 or ABF (Ajinomoto Build-up Film)\n  Fine lines: 8/8 µm (line/space) → 2/2 µm (advanced ABF)\n  RDL (redistribution layer): routes from bump pitch to BGA ball pitch",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "## Fan-Out Wafer-Level Packaging (FOWLP)",
+      "confidence": "candidate",
+      "text": "FAN-OUT WLP (FOWLP) — THIN, SUBSTRATE-FREE PACKAGING\n\nCONCEPT:\n  No traditional substrate — RDL built directly around die\n  \"Fan-out\": I/O extends beyond die footprint using embedded routing\n\nPROCESS:\n  1. Pick dies → embed in molding compound (reconstituted wafer)\n  2. CMP flatten to expose die back + mold compound surface\n  3. Build RDL (redistribution layers) directly on top of die + mold\n  4. Solder balls on RDL\n  5. Dice into individual packages\n\nInFO (Integrated Fan-Out, TSMC):\n  Apple A12-A17 iPhones: logic die + memory in same mold compound\n  No PCB substrate: ultra-thin package (good for phone form factor)\n  Advanced InFO: 2-4 RDL layers, sub-10 µm line/space on top RDL\n\nADVANTAGES:\n  Very thin (phone-friendly)\n  Lower parasitics than BGA substrate\n  Integrates multiple dies without silicon interposer cost\n\nEWLB (Embedded Wafer Level Ball Grid Array, Infineon/STM):\n  Similar concept, widely used for RF chips, sensors, analog",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "## 2.5D: Interposer and CoWoS",
+      "confidence": "candidate",
+      "text": "2.5D INTEGRATION (INTERPOSER-BASED)\n\nCONCEPT:\n  Multiple dies placed side-by-side on an interposer (intermediate substrate)\n  Short high-bandwidth connections between dies on the interposer\n  → Logic die + HBM (High Bandwidth Memory) in same package\n\nSILICON INTERPOSER:\n  Passive Si die with through-silicon vias (TSVs) and fine RDL routing\n  TSVs: 10 µm diameter × 100 µm deep → connect front RDL to solder bumps below\n  Top RDL: 0.4-1 µm line/space (vs ABF substrate: 2-8 µm) → much finer pitch\n  Enables: micro-bumps at 40-55 µm pitch between logic die and HBM stack\n\nCoWoS (Chip-on-Wafer-on-Substrate, TSMC):\n  Process:\n    1. Build silicon interposer wafer with TSVs\n    2. Flip-chip attach multiple dies onto interposer wafer\n    3. Dice interposer into individual multi-die units\n    4. Mount on organic BGA substrate\n\nCoWoS-S (Silicon interposer): NVIDIA A100, H100, H200 → largest logic + 6× HBM2e/HBM3\nCoWoS-R (RDL interposer): organic or glass RDL, lower cost, moderate fine-pitch\nCoWoS-L (Chip-last): chips mounted on pre-built silicon bridge\n\nHBM MEMORY STACK:\n  8-12 DRAM dies stacked using TSVs → very high I/O count (~1024-bit wide bus)\n  HBM3: 1024-bit bus, 3.2 Gbps/pin → 409 GB/s per stack\n  4-6 HBM stacks on A100: 2+ TB/s total bandwidth (vs 1× DDR5: 51 GB/s)\n\nCURRENT CUSTOMERS:\n  NVIDIA A100/H100/H200/B200: CoWoS-S with 6-8 HBM3 stacks\n  AMD MI300X: 3D HBM + logic over interposer\n  Google TPUv5: custom interposer packaging",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "## 3D IC Stacking: TSV and Hybrid Bonding",
+      "confidence": "candidate",
+      "text": "3D IC — THROUGH-SILICON VIA (TSV) STACKING\n\nTSV PROCESS:\n  Via etching: DRIE Bosch process through partial or full wafer\n    TSV diameter: 5-10 µm; depth: 50-100 µm for backside TSV\n  Insulation: ALD SiO₂ liner (prevents Cu diffusion to Si)\n  Barrier: ALD TaN\n  Fill: Cu electroplating\n  Reveal: thin wafer to 50-100 µm → expose TSV tips on backside\n  Micro-bump: Cu pillar or µ-solder on both die surfaces\n\nMEMORY STACKING (HBM):\n  DRAM die thinned to 50-70 µm\n  TSVs through each DRAM die: ~Ø10 µm × 70 µm deep\n  TC (thermocompression) bonding: heat + pressure bonds Cu-Cu pillars\n  Stack: base logic die + 4-12 DRAM dies\n  Benefits: massive bandwidth (1024-bit wide), low power vs DDR (shorter path)\n\nHYBRID BONDING (DIRECT BOND INTERCONNECT, DBI):\n  No bumps at all — direct Cu-to-Cu atomic bonding\n  Process:\n    1. CMP polish Cu pad surface to <0.5 nm roughness\n    2. Align die/wafer using sub-µm vision systems\n    3. Low-temperature (200-350°C) anneal → Cu diffuses across interface\n    4. Result: continuous Cu joint (no bump, no solder)\n  Pitch: 1-10 µm (vs 40-100 µm for micro-bumps)\n  → 100-1000× more connections per mm² than flip-chip micro-bumps\n\nHYBRID BONDING PRODUCTS:\n  Sony IMX image sensors: stacked pixel + logic using hybrid bonding (since 2012)\n  Apple A17 Pro: SRAM stacked on top of SoC using hybrid bonding\n  AMD 3D V-Cache: L3 SRAM chiplet stacked on CPU using hybrid bonding (2022)\n  SK Hynix HBM4: hybrid bonding for chip-to-chip in stack (2025+)\n  Bandwidth density: hybrid bonding → 1 TB/s+ per mm² feasible",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "## Chiplet Architecture",
+      "confidence": "candidate",
+      "text": "CHIPLET DISAGGREGATION\n\nMOTIVATION:\n  Monolithic die: as die area increases, yield falls exponentially\n  10 cm² monolithic die at 90% yield/cm² → overall yield ≈ 1%\n  Split into 2×5 cm² chiplets at 95% yield/cm² → 90% system yield\n  → Yield economics drive chiplet adoption at leading edge\n\n  Different functions benefit from different nodes:\n  Logic: needs 3 nm for performance/power\n  I/O: works fine at 7 nm (simpler, cheaper)\n  SRAM: optimized at 5 nm\n  → Mix and match chiplets from optimal nodes per function\n\nCHIPLET EXAMPLES:\n  AMD EPYC Genoa (2022):\n    12 × Zen 4 CCD (Core Complex Die): 5 nm TSMC, 8 cores each\n    1 × IOD (I/O Die): 6 nm TSMC (PCIe, memory controller)\n    Assembled on organic substrate\n\n  Intel Meteor Lake (2023):\n    CPU Tile: Intel 4 (EUV)\n    GPU Tile: TSMC N5\n    I/O Tile: TSMC N6\n    SoC Tile: TSMC N6\n    Connected by Intel Foveros 3D stacking + die-to-die interconnects\n\n  AMD MI300X:\n    4 × GPU dies (5 nm TSMC) + 4 × HBM stacks + 1 × CDNA3 base logic\n    Interposer-based + 3D stacking\n\nCHIPLET INTERCONNECT STANDARDS:\n\nUCIe (Universal Chiplet Interconnect Express — 2022):\n  Open standard for die-to-die interconnect\n  Backed by: Intel, AMD, Arm, Qualcomm, Google, Samsung, TSMC, ASML\n  Standard Package (organic substrate): 2 Tbps/mm width, <0.5 pJ/bit\n  Advanced Package (silicon bridge): 16 Tbps/mm width, <0.2 pJ/bit\n  Goal: mix chiplets from different vendors/foundries → ecosystem\n\nAIB (Advanced Interface Bus, Intel): proprietary, Intel ecosystem\nBoW (Bunch of Wires, OIF): optical interconnect oriented\nXSR (Short Reach SerDes): TSMC/Broadcom standard",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

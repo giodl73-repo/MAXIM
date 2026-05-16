@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:telecommunications:radio-broadcasting
+kind: guide
+module: telecommunications
+section: telecommunications
+title: Radio Broadcasting - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: telecommunications/03-RADIO-BROADCASTING.md
+canonical_path: telecommunications/03-RADIO-BROADCASTING.md
+backsource_ids: [proof-backfill:telecommunications:03-radio-broadcasting, git-history:telecommunications:03-radio-broadcasting]
+concepts: [radio, broadcasting]
+root_concepts: [radio, broadcasting]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Radio Broadcasting — A Layered Guide
 
 ## The Big Picture

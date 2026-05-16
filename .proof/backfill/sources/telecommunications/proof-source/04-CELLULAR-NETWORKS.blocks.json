@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "telecommunications\\04-CELLULAR-NETWORKS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CELLULAR GENERATIONS OVERVIEW\n════════════════════════════════════════════════════════════════════\n\nGen  Year  Standard      Radio Access     Core           Peak Rate\n──────────────────────────────────────────────────────────────────\n1G   1981  AMPS, NMT     FDMA analog      Circuit        14.4 kbps\n2G   1991  GSM           TDMA digital     Circuit + GPRS  384 kbps\n     1993  IS-95 (cdmaOne) CDMA           Circuit        14.4 kbps\n2.5G 2000  GPRS (GSM+)   TDMA + packet   Packet (partial) 384 kbps\n2.75G 2003 EDGE          8-PSK TDMA      Packet          384 kbps\n3G   2001  UMTS/WCDMA    CDMA 5MHz       All-IP (partial) 7.2 Mbps\n3.5G 2006  HSDPA         CDMA adaptive   All-IP          14.4 Mbps\n4G   2009  LTE Release 8 OFDMA/SC-FDMA  All-IP (EPC)   300 Mbps\n4G+  2013  LTE-A (R10)   Carrier agg.   EPC             1 Gbps\n5G   2019  NR Release 15 OFDM/Massive    5GC (slicing)   20 Gbps\n           3GPP          MIMO + mmWave\n\nKEY EVOLUTIONARY TREND:\nFDMA (divide by frequency) → TDMA (divide by time) → CDMA (divide by code) →\nOFDMA (divide by subcarrier) → Massive MIMO (divide by spatial beam)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "## The Cellular Concept",
+      "confidence": "candidate",
+      "text": "FREQUENCY REUSE\n\nProblem: RF spectrum is finite. One transmitter per area = can't serve many users.\nSolution: Reuse the same frequency in cells far enough apart that interference is acceptable.\n\nCLUSTER SIZE (N = 1, 3, 4, 7, 12, 19...):\nN = 7 (hexagonal cells):\n  ┌──────┬──────┬──────┐\n  │      │      │      │\n  │  1   │  2   │  3   │\n  │      │      │      │\n  ├──────┼──────┼──────┤\n  │      │      │      │\n  │  4   │  5   │  6   │\n  │      │      │      │\n  ├──────┼──────┼──────┤\n  │      │  7   │  1   │\n  │      │      │      │\n  └──────┴──────┴──────┘\n  (frequency 1 reused in the bottom-right cell)\n\nCo-channel reuse ratio: D/R = √(3N)  (D = distance to nearest co-channel cell, R = cell radius)\nFor N=7: D/R = 4.58 → interference well-controlled\n\nSMALL CELLS: Reduce cell radius R → more cells → more frequency reuse → more capacity.\nCoverage: macro (R=1-35 km) → micro (100m-1km) → pico (10-200m) → femto (indoor, 10-50m)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "## 2G: GSM",
+      "confidence": "candidate",
+      "text": "GSM (Global System for Mobile Communications)\n\nRADIO ACCESS: FDMA + TDMA\n  FDMA: 200 kHz channel bandwidth\n  TDMA: 8 time slots per carrier frame\n  → Each call gets 1 time slot in every 8-frame cycle (12.5% duty cycle)\n  → One carrier serves 8 simultaneous users\n\nFREQUENCY BANDS:\n  GSM-900: 890-915 MHz uplink, 935-960 MHz downlink (25 MHz each = 124 channels)\n  GSM-1800 (DCS-1800): 1710-1785 MHz uplink, 1805-1880 MHz downlink\n  GSM-850 (US): similar to 900\n\nVOICE CODEC:\n  GSM Full Rate: 13 kbps\n  Enhanced Full Rate (EFR): 12.2 kbps (better quality)\n  Half Rate: 5.6 kbps (doubles capacity at lower quality)\n\nSIM (Subscriber Identity Module):\n  Smart card with IMSI, encryption keys, authentication data\n  Authentication: challenge-response (A3 algorithm), not used elsewhere\n  Key innovation: SIM made carrier identity separate from handset\n\nSECURITY NOTE: GSM A5/1 stream cipher is known to be broken.\n  Downgrade attacks possible. No mutual authentication (base station to phone).\n  Exploitable by IMSI catchers (\"Stingrays\").",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "## 3G: WCDMA/UMTS",
+      "confidence": "candidate",
+      "text": "UMTS/WCDMA (Wideband CDMA)\n\nRADIO ACCESS: CDMA with 5 MHz wideband channels\n  FDMA distinction eliminated: all users share the same 5 MHz channel simultaneously\n  Each user assigned a unique spreading code (Walsh/Hadamard + PN codes)\n\nCDMA SPREADING:\n  User data at R bps spread to chip rate W = 3.84 Mcps (chips per second)\n  Processing gain: PG = W/R = 3,840,000/12,200 = 315 = 25 dB (for voice)\n  Each user's signal appears as noise to others; despreading recovers original data\n  Capacity: determined by total interference, not channel slots\n\nRAKE RECEIVER:\n  Multipath arrivals (from reflections) are treated as additional signal\n  Multiple correlators (\"fingers\") each aligned to a path → combine coherently\n  → CDMA exploits multipath rather than fighting it\n\nSOFT HANDOFF:\n  Mobile can be connected to multiple base stations simultaneously\n  \"Make before break\" (vs. GSM hard handoff: break then make)\n  → Eliminates coverage gaps in handoff zone, reduces call drops\n\nPEAK RATE:\n  HSDPA (3.5G): 14.4 Mbps downlink (64-QAM, fast scheduling, HARQ)\n  HSUPA: 5.76 Mbps uplink",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## 4G: LTE",
+      "confidence": "candidate",
+      "text": "LTE (Long Term Evolution) — the dominant mobile technology from 2010s\n\nFUNDAMENTAL CHANGE: All-IP from the beginning. No circuit-switched voice.\n  Voice over LTE (VoLTE): voice is just another IP application (IMS)\n\nRADIO ACCESS: OFDMA downlink, SC-FDMA uplink\n  OFDMA: multiple users each assigned different subcarriers in same OFDM symbol\n  SC-FDMA: single carrier with frequency domain equalization (lower PAPR than OFDMA)\n\nOFDM PARAMETERS (20 MHz bandwidth):\n  Subcarrier spacing: 15 kHz\n  FFT size: 2048\n  Active subcarriers: 1200 (100 resource blocks × 12 subcarriers/RB)\n  Symbol duration: 71.4 µs (66.7µs useful + 4.7µs CP)\n\nMIMO (Multiple Input Multiple Output):\n  2×2 MIMO: 2 Tx antennas, 2 Rx antennas → 2 spatial streams → 2× throughput (theoretically)\n  4×4 MIMO (LTE-A): 4 spatial streams at high SNR\n  Physical basis: multipath creates independent spatial channels\n\nLTE PEAK RATES:\n  Category 4: 150 Mbps DL, 50 Mbps UL (2×2 MIMO, 64-QAM)\n  Cat 9/10 (LTE-A): 600 Mbps+ (carrier aggregation, 4×4 MIMO)\n  Cat 20: 2 Gbps (256-QAM, 4 carrier aggregation)\n\nEPC (Evolved Packet Core):\n  eNB (base station) → S-GW (Serving Gateway) → P-GW (PDN Gateway) → Internet\n  MME: Mobility Management Entity (authentication, location, paging)\n  HSS: Home Subscriber Server (subscriber database, authentication)\n  Completely flat IP architecture — no circuit switching\n\nLTE SECURITY (compared to GSM):\n  Mutual authentication (network authenticates to UE and vice versa)\n  AES-128 encryption for data and signaling\n  Integrity protection on control plane (prevents man-in-middle)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "## 5G NR (New Radio)",
+      "confidence": "candidate",
+      "text": "5G ARCHITECTURE — THREE USE CASES:\n\neMBB (Enhanced Mobile Broadband):  → Video streaming, AR/VR, hotspot\n  Goal: 20 Gbps peak, 100 Mbps experienced\n  Technology: mmWave + massive MIMO + carrier aggregation\n\nuRLLC (Ultra-Reliable Low Latency):  → Autonomous vehicles, industrial control\n  Goal: 1 ms OTA latency, 99.999% reliability\n  Technology: short slots (μ = 3,4 numerology), HARQ retransmission, mini-slots\n\nmMTC (Massive Machine Type):  → IoT, smart city sensors\n  Goal: 1 million devices per km²\n  Technology: NB-IoT, eMTC (LTE-M)\n\n5G NR NUMEROLOGIES:\n  μ = 0: 15 kHz subcarrier spacing, 71.4 µs symbol, sub-3 GHz\n  μ = 1: 30 kHz, sub-3 GHz and 3-7 GHz\n  μ = 2: 60 kHz, sub-6 GHz and mmWave\n  μ = 3: 120 kHz, mmWave (24-100 GHz)\n\nmmWave (FR2: 24-40 GHz):\n  Available: 400 MHz – 800 MHz bandwidth per operator → 10-20× LTE bandwidth\n  Problem: very high path loss, no building penetration, short range (200-400m)\n  Solution: massive MIMO beamforming, dense small cells\n  Status: mainly outdoor dense urban, stadiums, fixed wireless access (FWA)\n\nSub-6 GHz (FR1: 450 MHz – 6 GHz):\n  Reuses existing cellular bands + new spectrum (n77/n78 3.5 GHz C-band)\n  Better coverage, moderate bandwidth gain over LTE\n  3.5 GHz C-band: 100 MHz bandwidth, main 5G deployment worldwide\n\nMASSIVE MIMO:\n  64, 128, 192, 256 antenna elements at base station\n  Beam-steering in 3D (azimuth + elevation) to each UE\n  MU-MIMO: serve multiple users in same time/frequency resource, different beams\n  Beamforming gain: log₂(M_antennas) ≈ 7-8 dB for 192 elements",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

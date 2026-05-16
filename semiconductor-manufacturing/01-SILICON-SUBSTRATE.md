@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiconductor-manufacturing:silicon-substrate
+kind: guide
+module: semiconductor-manufacturing
+section: semiconductor-manufacturing
+title: Silicon Substrate - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: semiconductor-manufacturing/01-SILICON-SUBSTRATE.md
+canonical_path: semiconductor-manufacturing/01-SILICON-SUBSTRATE.md
+backsource_ids: [proof-backfill:semiconductor-manufacturing:01-silicon-substrate, git-history:semiconductor-manufacturing:01-silicon-substrate]
+concepts: [silicon, substrate]
+root_concepts: [silicon, substrate]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Silicon Substrate — A Layered Guide
 
 ## The Big Picture

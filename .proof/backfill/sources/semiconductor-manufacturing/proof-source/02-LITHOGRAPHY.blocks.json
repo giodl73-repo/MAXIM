@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "semiconductor-manufacturing\\02-LITHOGRAPHY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "LITHOGRAPHY IN THE FAB FLOW\n════════════════════════════════════════════════════════════════════\n\nWafer enters clean room (ISO Class 1 — <10 particles/m³ ≥0.1 µm)\n    │\n    ▼\nCoat photoresist (spin-coat: ~30-100 nm thick polymer film)\n    │\n    ▼\nExpose: light through mask/reticle → photoresist records pattern\n    │\n    ▼\nPost-exposure bake (PEB) — acid diffusion (chemically amplified resist)\n    │\n    ▼\nDevelop: dissolve exposed (positive) or unexposed (negative) resist\n    │\n    ▼\nInspect: CD-SEM measures critical dimensions, defect inspection\n    │\n    ▼\nEtch or implant using resist as mask → pattern transferred to film below\n    │\n    ▼\nStrip resist (O₂ plasma + wet clean)\n    │\n    ▼ Repeat ~100× for all layers of a 3 nm chip",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## The Rayleigh Criterion",
+      "confidence": "candidate",
+      "text": "OPTICAL RESOLUTION LIMIT\n\nRayleigh criterion (for minimum resolvable feature):\n  R = k₁ · λ / NA\n\n  R  = minimum feature size (half-pitch)\n  k₁ = process factor (0.25 minimum, practical ~0.28-0.35)\n  λ  = light wavelength\n  NA = numerical aperture of lens (NA = n·sin θ, n = refractive index)\n\nDEPTH OF FOCUS (also critical):\n  DoF = k₂ · λ / NA²   (DoF shrinks faster than resolution as NA increases)\n\nIMPROVEMENT LEVERS:\n  1. Reduce λ (wavelength)\n  2. Increase NA\n  3. Reduce k₁ via resolution enhancement techniques (OPC, PSM, SMO)\n  4. Immersion: fill space between lens and wafer with water (n=1.44) → NA > 1\n\nHISTORICAL WAVELENGTHS:\n  g-line   436 nm  (1970s-80s, mercury lamp)\n  i-line   365 nm  (1980s-90s, mercury lamp)\n  KrF DUV  248 nm  (1990s-2000s, excimer laser)\n  ArF DUV  193 nm  (2000s → present, excimer laser) ← STILL USED\n  ArF imm  193 nm  but in water: effective λ/1.44 = 134 nm equivalent\n  EUV      13.5 nm (2019+ high volume, ASML only)\n\nRESOLUTION EXAMPLES (ArF immersion, NA=1.35, k₁=0.28):\n  R = 0.28 × 134 nm / 1.35 ≈ 28 nm  single patterning\n  With SADP: 14 nm half-pitch effectively\n  With SAQP: 7 nm half-pitch effectively",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "## DUV Lithography: 248 nm and 193 nm",
+      "confidence": "candidate",
+      "text": "DUV (DEEP ULTRAVIOLET) LITHOGRAPHY\n\nKrF EXCIMER LASER (248 nm):\n  Used: 250 nm → 130 nm generation (1990s-2000s)\n  Pulse energy: ~10 mJ, repetition rate 2-4 kHz\n  Now used for non-critical layers at 10 nm nodes (field, pad layers)\n\nArF EXCIMER LASER (193 nm):\n  Introduced ~2000 for 130 nm, extended far beyond expectation\n  Dry ArF: 193 nm in air, NA up to ~0.93\n    Used to pattern: 90 nm node (2004), 65 nm, 45 nm\n  ArF IMMERSION (193i) — the key breakthrough:\n    Demineralized water between final lens element and wafer (n=1.44)\n    Effective wavelength: 193/1.44 ≈ 134 nm\n    Max NA achievable: 1.35 (Zeiss lenses in ASML, Nikon tools)\n    Single patterning limit: ~38 nm (k₁=0.28, NA=1.35)\n    Extended via multi-patterning to 10 nm and below\n\nArF IMMERSION TOOL SPECS (ASML TWINSCAN NXT:1980i):\n  Throughput: ~275 wafers/hour (26 mm × 33 mm field)\n  Overlay: <2 nm (3σ)\n  CD uniformity: <1 nm (3σ)\n  Cost: ~$60-80M per tool\n\nCHEMICALLY AMPLIFIED RESIST (CAR):\n  KrF/ArF use CAR: acid catalyst amplifies sensitivity 100-1000×\n  Each photon creates acid → diffuses during PEB → deprotects many polymer sites\n  Resolution limit determined by acid diffusion length (blur) + resist roughness\n  193i resist: acrylic polymer, tailored for 193 nm absorption",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "## Multi-Patterning: Extending 193i Beyond Its Limit",
+      "confidence": "candidate",
+      "text": "MULTI-PATTERNING (MPT) — extending 193i to 10 nm and below\n\nSADP (Self-Aligned Double Patterning):\n  Create features at half the litho pitch\n\n  Step 1: Pattern \"core\" features by 193i litho at pitch P\n          (cores at spacing = P)\n  Step 2: Deposit conformal spacer material (ALD)\n          (each core gets a thin spacer wrapped around it)\n  Step 3: Etch spacer anisotropically — leaves spacers on core sidewalls\n          (spacers now at pitch P/2)\n  Step 4: Remove core (etch selective to spacer)\n          (only spacers remain — final pitch = P/2)\n  Step 5: Etch underlying film using spacers as mask\n\n  Net effect: half the pitch from one litho step\n  Used for: metal pitches at 14 nm → 10 nm → 7 nm\n\nSAQP (Self-Aligned Quadruple Patterning):\n  Apply SADP twice → 1/4 pitch\n  Used for: metal pitches at 5 nm, 3 nm\n  TSMC N3: SAQP for metal layers at ~18-24 nm pitch (originally printed at ~72 nm)\n\nLELE (Litho-Etch-Litho-Etch) Double Patterning:\n  Two separate litho + etch cycles, features interdigitated\n  Problem: overlay between exposures must be <5 nm for adjacent features at 20 nm pitch\n  CDR (Cut Define and Remove) and coloring: EDA tools partition patterns across masks\n\nCOST IMPACT:\n  Each multi-patterning step adds 1-3 litho exposures + extra process steps\n  10 nm logic: 30-40 patterning steps (some layers need 3-4 exposures)\n  Major contributor to 3 nm wafer costing $20K (vs $3K for 28 nm)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "## EUV Lithography",
+      "confidence": "candidate",
+      "text": "EUV (EXTREME ULTRAVIOLET) LITHOGRAPHY — 13.5 nm\n\nTHE ASML NXE PLATFORM (ASML has ~100% market share for EUV):\n  NXE:3400C: production since 2019, ~170 wph throughput\n  NXE:3600D: production since 2022, ~220 wph\n  High-NA EUV (NXE:5000): NA=0.55 (vs 0.33 for current EUV), first delivery 2024\n\nHOW EUV WORKS:\n  1. Tin (Sn) droplets fall at 70,000 drops/sec\n  2. 1st CO₂ laser pulse shapes droplet into thin disk\n  3. 2nd high-power CO₂ laser pulse vaporizes → Sn plasma at 500,000°C\n  4. Plasma emits EUV photons at 13.5 nm\n  5. Multilayer mirrors (Mo/Si, 40 layers) collect ~2% of photons\n     (EUV absorbed by everything — no transmissive optics, all reflective)\n  6. EUV bounces through reflective mask → 6 mirror reduction optics → wafer\n  7. Resist captures pattern\n\nEUV SOURCE POWER:\n  EUV source power: 250+ W at wafer (NXE:3400C)\n  600 W target for NXE:5000 (High-NA)\n  CO₂ laser: 50-100 kW infrared input → 250 W EUV → huge energy waste\n  A fab running 20 EUV tools consumes significant MW\n\nREFLECTIVE MASK:\n  EUV masks: quartz substrate + Mo/Si multilayer + absorber pattern\n  Defect-free: a single buried multilayer defect ruins the mask\n  Mask inspection: actinic (at-wavelength) inspection using ASML AIMS EUV\n  Mask pellicle: polysilicon membrane to protect mask from particles\n    (long delayed; now available but reduces source power)\n\nEUV vs 193i+MPT TRADE-OFF:\n  EUV single patterning: fewer masks, fewer process steps, better overlay\n  EUV cost per wafer higher (tool $150-380M, low throughput, expensive masks)\n  Break-even: typically >3-4 mask layers → EUV wins on total cost\n  TSMC N7 (2018): first EUV in HVM, only a few non-critical layers\n  TSMC N5 (2020): EUV for 14 layers; N3: ~20 EUV layers; N2: 25+ EUV layers\n\nHIGH-NA EUV (NXE:5000):\n  NA = 0.55 (current EUV: 0.33)\n  Resolution: ~8 nm half-pitch (vs 13 nm current EUV single patterning)\n  Problem: reduced depth of focus → requires ultra-flat wafers\n  Problem: half-field exposure → must stitch fields (die size impact)\n  Intel 14A target: first high-volume High-NA EUV user (~2026-2027)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 229,
+      "heading_context": "## E-Beam Lithography",
+      "confidence": "candidate",
+      "text": "E-BEAM (ELECTRON BEAM) LITHOGRAPHY\n\nPRINCIPLE:\n  Focused electron beam writes directly on resist — no mask needed\n  Resolution: sub-5 nm (electrons have much shorter de Broglie wavelength)\n  No diffraction limit: wavelength λ = h/p ≈ 0.01-0.1 nm at typical energies\n\nTHROUGHPUT PROBLEM:\n  Serial writing: one pixel at a time\n  Throughput: ~0.1-1 wafer/hour (vs 275 wph for 193i scanner)\n  → Not practical for high-volume production\n\nE-BEAM USES:\n  Mask making: all optical + EUV masks are written by e-beam (single write per mask)\n  R&D/prototyping: academic, government, specialty chips where volume is tiny\n  Multi-beam e-beam (MAPPER, IMS): 1000-10,000 parallel beams → 10 wph target\n    Not yet HVM competitive, but ongoing development\n\nVARIABLE SHAPED BEAM (VSB) vs GAUSSIAN BEAM:\n  VSB: shapes beam to complex patterns → faster mask writing\n  Gaussian: smallest spot, highest resolution, very slow\n  Multi-beam: many parallel Gaussian beams → compromise\n\nE-BEAM + EUV SYNERGY:\n  E-beam inspection of EUV masks (HERMES, Nuflare tools)\n  EUV mask pattern defined by e-beam writers → all leading-edge masks",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "## Resolution Enhancement Techniques (RET)",
+      "confidence": "candidate",
+      "text": "RESOLUTION ENHANCEMENT TECHNIQUES (RETs)\n\nOPC (Optical Proximity Correction):\n  Problem: optical diffraction distorts printed features from mask design\n  Solution: pre-distort mask pattern computationally so printed result = design\n  Modern OPC: inverse lithography technology (ILT) — pixel-by-pixel optimization\n  Computation: $50-200M in EDA licenses per process node; weeks of CPU time\n\nPSM (Phase Shift Mask):\n  Standard binary mask: chrome opaque / quartz clear\n  PSM: regions shifted 180° in phase → destructive interference sharpens edges\n  Attenuated PSM (AttPSM): 6% transmission shifter layer (standard for ArF)\n  Alternating PSM (AltPSM): highest resolution, most complex, expensive\n\nSMO (Source-Mask Optimization):\n  Co-optimize illumination shape + mask pattern simultaneously\n  Flexible illumination (freeform pixelated source): ASML Flexray\n  Result: optimal combination of source + mask for target pattern\n\nOff-axis Illumination:\n  Annular, dipole, quadrupole illumination → enhances contrast for specific pitches\n  ASML: source pupil shapes optimized per layer\n\nFULL-CHIP RET FLOW:\n  Design (GDS) → OPC/SMO → Mask tape-out → Mask write (e-beam) → Etch/inspect\n  → Qualification on silicon → Sign-off\n  Cycle time: 6-12 weeks per mask layer for leading edge",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

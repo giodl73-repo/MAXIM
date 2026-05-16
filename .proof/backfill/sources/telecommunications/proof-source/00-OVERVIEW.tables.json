@@ -1,0 +1,115 @@
+{
+  "schema_version": "1",
+  "source_markdown": "telecommunications\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 184,
+      "heading_context": "## Bridges to Prior Knowledge",
+      "headers": [
+        "Universal CS Concept",
+        "Telecom Equivalent"
+      ],
+      "rows": [
+        [
+          "**Complexity bound** (hard limit no algorithm beats)",
+          "Shannon capacity C = B*log2(1+SNR) — provable upper limit on data rate for any code"
+        ],
+        [
+          "**Hardware abstraction layer** (OS hides hardware)",
+          "OSI physical layer abstracts EM propagation from protocols above"
+        ],
+        [
+          "**Resource scheduling under scarcity** (CPU/memory)",
+          "Spectrum allocation = scheduling a shared, finite resource among competing users"
+        ],
+        [
+          "**Multiplexing** (time-sharing, threads)",
+          "TDM, FDM, CDM, OFDMA — same concept, different physical resources"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 191,
+      "heading_context": "## Bridges to Prior Knowledge",
+      "headers": [
+        "Azure/Infrastructure Background",
+        "Telecom Equivalent"
+      ],
+      "rows": [
+        [
+          "Azure networking (VNets, gateways)",
+          "Physical layer that carries IP packets"
+        ],
+        [
+          "TCP/IP protocols",
+          "Built on top of physical + data link telecom layers"
+        ],
+        [
+          "Azure CDN",
+          "Content distribution network (physical layer = fiber/cable/wireless)"
+        ],
+        [
+          "Azure regions / datacenters",
+          "Connected by backbone fiber and submarine cables"
+        ],
+        [
+          "Azure ExpressRoute",
+          "Dedicated fiber connection bypassing public internet"
+        ],
+        [
+          "Network bandwidth in cloud",
+          "Physical: fiber capacity (Tbps), user sees slice of it"
+        ],
+        [
+          "Signal processing background",
+          "Modulation, channel coding, demodulation"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 205,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Technology"
+      ],
+      "rows": [
+        [
+          "Highest data rate, fixed location",
+          "Optical fiber (SMF + DWDM)"
+        ],
+        [
+          "Wide-area mobile data",
+          "4G LTE / 5G NR"
+        ],
+        [
+          "Low-power IoT sensor",
+          "LoRa / NB-IoT / Zigbee"
+        ],
+        [
+          "Short-range, low-power personal devices",
+          "Bluetooth LE (BLE)"
+        ],
+        [
+          "Direct broadband to remote location",
+          "Starlink (LEO) or VSAT (GEO)"
+        ],
+        [
+          "Timing reference (nanosecond)",
+          "GPS/GNSS (uses satellite ranging signals)"
+        ],
+        [
+          "Secure links over fiber",
+          "QKD (quantum key distribution, near-term) or AES-GCM (standard)"
+        ],
+        [
+          "Global broadcast (one to many)",
+          "Geostationary satellite"
+        ]
+      ]
+    }
+  ]
+}

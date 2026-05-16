@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:telecommunications:wireless-standards
+kind: guide
+module: telecommunications
+section: telecommunications
+title: Wireless Standards - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: telecommunications/08-WIRELESS-STANDARDS.md
+canonical_path: telecommunications/08-WIRELESS-STANDARDS.md
+backsource_ids: [proof-backfill:telecommunications:08-wireless-standards, git-history:telecommunications:08-wireless-standards]
+concepts: [wireless, standards]
+root_concepts: [wireless, standards]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Wireless Standards — A Layered Guide
 
 ## The Big Picture

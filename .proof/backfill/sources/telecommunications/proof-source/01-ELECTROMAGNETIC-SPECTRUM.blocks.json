@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "telecommunications\\01-ELECTROMAGNETIC-SPECTRUM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "EM SPECTRUM — TELECOMMUNICATIONS BANDS\n════════════════════════════════════════════════════════════════════\n\nITU  Freq      Wavelength  Propagation          Primary Uses\nBand Range                 Mechanism\n─────────────────────────────────────────────────────────────────────\nELF  3-30 Hz   100Mm-10Mm  Ground wave          Submarine comm (USN ELF)\nSLF  30-300Hz  10Mm-1Mm    Ground wave          Submarine comm (Russia)\nULF  300Hz-3kHz 1Mm-100km  Ground wave          Mine comm, natural sources\nVLF  3-30 kHz  100km-10km  Ground wave          OMEGA nav (retired), military\nLF   30-300kHz 10km-1km    Ground wave          AM long wave, LORAN-C, DECCA\nMF   0.3-3MHz  1km-100m    Ground + Sky wave    AM broadcast (530-1700 kHz)\nHF   3-30MHz   100m-10m    Sky wave (ionosphere) Shortwave, amateur, military\nVHF  30-300MHz 10m-1m      Line-of-sight (LoS)  FM radio (88-108 MHz), VHF TV\nUHF  0.3-3GHz  1m-10cm     LoS + diffraction    Cellular, WiFi, GPS, UHF TV\nSHF  3-30GHz   10cm-1cm    LoS, rain sensitive  5G, satellite, point-to-point\nEHF  30-300GHz 1cm-1mm     LoS, strong attn     5G mmWave, 60 GHz, automotive radar\nTHF  300GHz+   <1mm        Experimental         THz imaging, spectroscopy\n─────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## Propagation Mechanisms",
+      "confidence": "candidate",
+      "text": "THREE MAIN PROPAGATION MODES\n\n1. GROUND WAVE (LF/MF):\n   Wave follows earth's curvature via diffraction\n   Range: hundreds of km for LF, tens of km for MF\n   Attenuation: increases with frequency and distance\n   Penetrates well into sea water (why submarines use ELF/VLF)\n\n2. SKY WAVE (HF ionospheric):\n   Wave bounces off ionosphere → beyond-horizon propagation\n   Range: 100–3000 km (F-layer refraction)\n   Ionosphere layers: D (60-90 km), E (90-140 km), F1/F2 (140-300+ km)\n   Varies with: solar activity, time of day, season, sunspot cycle\n   Maximum usable frequency (MUF): highest HF freq that can reach target via sky wave\n   Critical frequency: highest freq reflected back at vertical incidence\n\n3. LINE-OF-SIGHT (VHF/UHF/SHF/EHF):\n   Direct path; blocked by obstacles\n   Range: limited by earth's curvature + antenna height\n   LoS range: d ≈ 4.12·(√h_T + √h_R) km  (h in meters, \"radio horizon\")\n   For h_T = h_R = 100m: d ≈ 82 km\n   Augmented by slight refraction (effective earth radius factor k ≈ 4/3)\n\nMULTIPATH FADING (UHF/SHF):\nMultiple reflections arrive with different delays → constructive or destructive interference\n→ rapid amplitude fluctuations as mobile moves (Rayleigh fading at high Doppler)\n→ frequency-selective fading when delay spread > symbol period\nOFDM is designed specifically to handle frequency-selective fading",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 116,
+      "heading_context": "## Atmospheric Absorption",
+      "confidence": "candidate",
+      "text": "ATMOSPHERIC ABSORPTION vs FREQUENCY\n\nAttenuation\n(dB/km)\n│\n10  ─────────────────────────────────────────────── 60 GHz O₂ peak (~15 dB/km)\n    │\n 1  ─                                            ╱ 183 GHz H₂O\n    │                              ╱                 22 GHz H₂O peak\n    │                          ╱\n0.1 ─               ╱─────────                  30 GHz: ~0.1 dB/km\n    │           ╱─╱\n    │         ╱\n0.01 ─  ╱─────\n    │ ╱  < 10 GHz: < 0.01 dB/km\n    └──────────────────────────────────────────────────────► frequency\n    1     10    30  60   100  183  300 GHz\n\nABSORPTION PEAKS:\n22 GHz: Water vapor resonance (0.2 dB/km at sea level)\n60 GHz: Oxygen absorption (13–15 dB/km) — prevents eavesdropping → 802.11ad/WiGig uses this\n183 GHz: Strong water vapor resonance\n\nRAIN FADE (> 10 GHz):\nRain attenuation ≈ k · R^α  dB/km  (R = rain rate mm/hr)\nAt 12 GHz: 0.01 dB/km per mm/hr rain (moderate impact)\nAt 30 GHz: ~0.1 dB/km per mm/hr (significant for satellite links)\nAt 60 GHz: ~0.5 dB/km per mm/hr (rain fade is major concern)\n\nRAIN MARGIN: satellite links at Ka-band (26.5-40 GHz) must budget 3-10+ dB rain margin\nSite diversity (two earth stations, geographically separated) helps",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "## Band-by-Band Propagation Characteristics",
+      "confidence": "candidate",
+      "text": "HF (3-30 MHz): Sky Wave Details\n\nIONOSPHERIC LAYERS:\n  D layer (day): 60-90 km, absorbs MF/lower HF, disappears at night\n  E layer: 90-140 km, reflects some HF, sporadic E unpredictable\n  F1/F2 (daytime): merge to F layer at night, 200-400 km\n  F layer: primary HF reflection, usable for 1000s of km\n\nMUF (Maximum Usable Frequency):\n  Depends on ionospheric electron density (varies with solar cycle)\n  Solar max → higher MUF (~30 MHz); solar min → lower MUF\n  MUF for 3000 km path: typically 8-20 MHz (day), 5-12 MHz (night)\n\nHF SKIP ZONE:\n  Ground wave dies beyond ~500 km; sky wave \"skip distance\" (first hop) is 500-1500 km\n  Between: radio blackout (no coverage)\n  Long range: multiple hops (two bounces: 6000 km)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "## Band-by-Band Propagation Characteristics",
+      "confidence": "candidate",
+      "text": "VHF/UHF (30 MHz – 3 GHz): Line-of-Sight and Beyond\n\nKNIFE-EDGE DIFFRACTION:\n  Sound diffracts around hills/buildings (VHF: partial coverage beyond obstacles)\n  Attenuation = 6 dB for tangential path over ridge → augments LoS range\n\nTROPOSCATTER:\n  Turbulent troposphere scatters energy (40-4000 MHz)\n  Extends range to 100-1000 km with high transmit power\n  Used for: military communications over horizon, pipeline monitoring\n\nDUCTING (temperature inversion):\n  Normally: temperature decreases with altitude\n  Inversion: creates duct that traps and guides VHF/UHF signals\n  Effect: can extend range to 1000+ km (interference problem for broadcasters)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 198,
+      "heading_context": "## Link Budget",
+      "confidence": "candidate",
+      "text": "LINK BUDGET COMPONENTS\n\nTransmitted power:     Pt  = +33 dBm (2W typical cellular)\nTx antenna gain:       Gt  = +15 dBi (sector antenna)\nFree-space path loss:  FSPL = -120 dB (900 MHz, 5 km)\nBuilding penetration:  L_b  = -15 dB (indoor)\nRx antenna gain:       Gr   = +0 dBi (phone)\n────────────────────────────────────────────────────────\nReceived power:        Pr  = 33 + 15 - 120 - 15 + 0 = -87 dBm\n\nNoise floor:\n  Thermal noise density: N₀ = -174 dBm/Hz (kT at 300K)\n  Bandwidth: B = 20 MHz → noise power = -174 + 10·log₁₀(20×10⁶) = -101 dBm\n  Receiver noise figure: NF = 7 dB\n  Noise floor = -101 + 7 = -94 dBm\n\nSNR = Pr - Noise_floor = -87 - (-94) = 7 dB\nRequired SNR for QPSK at BER 10⁻³: ~7 dB ✓ (just barely works)\nRequired SNR for 64-QAM: ~22 dB ✗ (need to be closer to tower)\n\nLINK MARGIN: Extra SNR above minimum required.\nTypically design for 10-20 dB margin to handle fading, shadowing.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

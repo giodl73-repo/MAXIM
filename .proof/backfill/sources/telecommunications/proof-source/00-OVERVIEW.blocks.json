@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "telecommunications\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE SHANNON CHANNEL MODEL (Shannon 1948)\n════════════════════════════════════════════════════════════════════\n\nInformation     Source       Channel         Destination\nSource          Encoder      (noisy)         Decoder\n   │               │            │               │\n[Text/     ──► [Compress] ──► [Modulate] ──► [Demodulate] ──► [Decode] ──► [Reconstruct]\n Voice/        [Encrypt]      [Transmit]     [Filter]          [Correct\n Video]        [Channel-      over medium    [Amplify]          errors]\n                code]\n  Noise N is added in the channel between modulator and demodulator.\n  Information rate <= Channel capacity C bounds the entire pipeline.\n                         Information rate ≤ Channel capacity C\n\nSHANNON CAPACITY:\nC = B · log₂(1 + S/N)   bits/second\n\nB = bandwidth (Hz)\nS = signal power (W)\nN = noise power (W)\nS/N = signal-to-noise ratio (dimensionless)\n\nThis is a HARD UPPER BOUND — no coding scheme, no matter how clever, can exceed it.\nBut with the right channel codes, you can get arbitrarily close.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "## The Spectrum as Finite Resource",
+      "confidence": "candidate",
+      "text": "SPECTRUM ALLOCATION OVERVIEW\n\nFrequency    Band    Wavelength    Dominant Use\n─────────────────────────────────────────────────────────────────────────\n3–30 Hz      ELF     100,000 km   Submarine communication\n30–300 Hz    SLF     10,000 km    Submarine communication\n300–3000 Hz  ULF     1000 km      Natural noise\n3–30 kHz     VLF     100 km       Navigation (OMEGA), military\n30–300 kHz   LF      10 km        AM broadcast (long wave), LORAN\n300–3000 kHz MF      1 km         AM broadcast (medium wave)\n3–30 MHz     HF      100 m        Shortwave, amateur, military\n30–300 MHz   VHF     10 m         FM radio, TV, aircraft comms\n300–3000 MHz UHF     1 m          TV, mobile phones, WiFi, GPS\n3–30 GHz     SHF     10 cm        Satellite, radar, 5G mmWave, WiFi\n30–300 GHz   EHF     1 mm         5G mmWave, satellite, millimeter radar\n300 GHz+     THF     1 mm+        Experimental THz\n\nREGULATORY BODIES:\nITU: International Telecommunication Union — global spectrum allocation (Radio Regulations)\nFCC: Federal Communications Commission — US domestic spectrum\nETSI: European Telecommunications Standards Institute — European standards\n3GPP: 3rd Generation Partnership Project — cellular standards (LTE/5G)\nIEEE: 802.11 (WiFi), 802.15 (Bluetooth/Zigbee), 802.3 (Ethernet)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "## Wired vs Wireless Taxonomy",
+      "confidence": "candidate",
+      "text": "TELECOMMUNICATIONS MEDIA\n\nGUIDED (wired):\n  Twisted pair (UTP/STP):\n    Telephone (POTS): 4 kHz bandwidth → 33 kbps\n    VDSL2: 30 MHz → 100 Mbps at short distance\n    Cat6A/8: 500 MHz–2 GHz → 10–40 Gbps (ethernet)\n\n  Coaxial cable:\n    CATV (cable TV): 5–1000 MHz → multi-Gbps DOCSIS 3.1\n    RG-6, RG-11: for distribution\n\n  Optical fiber:\n    SMF (single-mode): 1310/1550 nm → Tbps per fiber with DWDM\n    MMF (multimode): 850/1300 nm → 40-400G for datacenter\n    Submarine cables: up to 400 Tbps per cable (2020s)\n\nUNGUIDED (wireless):\n  Radio: ground wave, sky wave, line-of-sight\n  Microwave: point-to-point (LOS), satellite\n  Infrared: short range (TV remotes, IrDA)\n  Optical FSO: laser through air\n  Acoustic (underwater): sonar, OFDM modems",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "## Module Map",
+      "confidence": "candidate",
+      "text": "telecommunications/\n│\n├── 01-ELECTROMAGNETIC-SPECTRUM    EM spectrum: VLF to EHF, propagation per band\n│\n├── 02-MODULATION                  How information encodes onto carriers\n│       AM/FM/PM; ASK/BPSK/QAM; OFDM\n│\n├── 03-RADIO-BROADCASTING          AM/FM, antennas, link budgets, propagation\n│\n├── 04-CELLULAR-NETWORKS           2G GSM → 3G WCDMA → 4G LTE → 5G NR\n│\n├── 05-SATELLITE-COMMUNICATIONS    GEO/MEO/LEO, latency, Starlink, GPS\n│\n├── 06-OPTICAL-COMMUNICATIONS      Fiber types, WDM/DWDM, EDFA, coherent, submarine\n│\n├── 07-INTERNET-BACKBONE           Tier 1/2/3, peering/transit, IXPs, BGP, CDN\n│\n├── 08-WIRELESS-STANDARDS          WiFi 802.11, Bluetooth, Zigbee, LoRa, NFC\n│\n├── 09-CHANNEL-CODING              Shannon, Hamming, turbo, LDPC, polar, HARQ\n│\n└── 10-SECURITY-SPECTRUM           Cognitive radio, jamming, frequency hopping, QKD",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

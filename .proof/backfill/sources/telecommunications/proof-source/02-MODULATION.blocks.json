@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "telecommunications\\02-MODULATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "### Constellation Diagrams",
+      "confidence": "candidate",
+      "text": "COMMON CONSTELLATIONS\n\nBPSK (2 symbols = 1 bit/symbol):\n  Q\n  │    ●           ●\n  │   -1           +1 → I\n  │   (1)          (0)\n  Simple, most robust, used when channel is terrible\n\nQPSK (4 symbols = 2 bits/symbol):\n  Q\n  ●│●    Symbols at 45°, 135°, 225°, 315°\n  ─┤─\n  ●│●\n    I\n  2 bits/symbol with same BW as BPSK → 2× spectral efficiency\n\n16-QAM (16 symbols = 4 bits/symbol):\n  Q  ●●●●\n     ●●●●\n     ●●●●\n     ●●●●  I\n  4 bits/symbol, 4× BPSK — needs higher SNR\n\n64-QAM (6 bits/symbol):\n  8×8 grid\n  6 bits/symbol — even higher SNR needed\n\n256-QAM (8 bits/symbol), 1024-QAM (10 bits/symbol): used in 4G/5G downlink",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "### BER vs SNR",
+      "confidence": "candidate",
+      "text": "PROBABILITY OF BIT ERROR vs Eb/N₀\n\n             10⁻¹\nBER          │──────────────────────── random guessing\n             │\n             10⁻² ─ ● BPSK/QPSK\n             │         ●\n             10⁻³ ─      ●\n             │\n             10⁻⁴ ─       ● 16-QAM needs ~5 dB more SNR than QPSK\n             │              ●\n             10⁻⁵ ─            ● 64-QAM another ~5 dB more\n             │\n             10⁻⁶ ─\n             └──────────────────────────────────────────►\n             0      5      10     15     20     25  Eb/N₀ (dB)\n\nQPSK BER: Q(√(2·Eb/N₀)) ≈ (1/2)·erfc(√(Eb/N₀))\nAt BER = 10⁻³: Eb/N₀ ≈ 6.8 dB for QPSK; ~11 dB for 16-QAM",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "## OFDM: Orthogonal Frequency Division Multiplexing",
+      "confidence": "candidate",
+      "text": "OFDM CONCEPT:\n\nPROBLEM: Broadband channel has frequency-selective fading.\n  Different frequencies have different path losses due to multipath.\n  A single wideband QAM signal gets distorted differently across its bandwidth.\n\nOFDM SOLUTION:\n  Divide the bandwidth into N narrow subcarriers.\n  Each subcarrier has bandwidth << coherence bandwidth of channel.\n  On each narrow subcarrier: channel is flat (non-selective).\n  Modulate each subcarrier independently (BPSK, QPSK, 16/64/256-QAM).\n  All subcarriers transmitted simultaneously.\n\nORTHOGONALITY:\n  Subcarrier spacing: Δf = 1/T (where T = OFDM symbol duration)\n  Subcarriers are orthogonal: ∫₀ᵀ sin(2πf_k t)·sin(2πf_l t)dt = 0 for k≠l\n  No interference between subcarriers — even though they overlap in frequency!\n\nIFFT/FFT IMPLEMENTATION:\n  Synthesis: IFFT{[X[0], X[1], ..., X[N-1]]} → x[n] (time-domain OFDM symbol)\n  Analysis:  FFT{x[n]} → [Y[0], Y[1], ..., Y[N-1]] (demodulated symbols)\n  OFDM is implemented with IFFT at transmitter, FFT at receiver. O(N log N).\n\n  OFDM TRANSMITTER:\n    Bits -> QAM map -> S/P -> N-point IFFT -> P/S -> Add CP -> channel\n\n  OFDM RECEIVER:\n    channel -> Remove CP -> S/P -> N-point FFT -> 1-tap equalizer per SC\n            -> QAM demod -> Bits\n\nCYCLIC PREFIX (CP):\n  Prepend last L samples of OFDM symbol to front.\n  Purpose: converts linear convolution with channel → circular convolution.\n  If CP length > channel delay spread: no ISI (inter-symbol interference).\n  Cost: reduces spectral efficiency by factor T/(T+CP) = N/(N+L).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "## OFDM: Orthogonal Frequency Division Multiplexing",
+      "confidence": "candidate",
+      "text": "LTE (4G) OFDM PARAMETERS:\n  Subcarrier spacing: Δf = 15 kHz\n  FFT size: 2048 (for 20 MHz BW)\n  Useful symbol duration: T = 1/15kHz = 66.7 µs\n  Cyclic prefix: 4.7 µs (normal CP) → 160 + 144 × 6 samples\n  Number of resource blocks (RBs): 100 (for 20 MHz, 12 subcarriers/RB)\n\n5G NR NUMEROLOGY:\n  Multiple subcarrier spacings: μ = 0 (15 kHz) to μ = 4 (240 kHz)\n  Higher μ: shorter symbol time → less latency, handles higher Doppler\n  Sub-6 GHz: μ=0,1,2; mmWave: μ=2,3,4",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 227,
+      "heading_context": "## Spectral Efficiency Comparison",
+      "confidence": "candidate",
+      "text": "MODULATION SPECTRAL EFFICIENCY LADDER\n\nModulation    Bits/symbol   Required SNR    Applications\n───────────────────────────────────────────────────────────────\nBPSK           1           ~6.8 dB @BER 10⁻³  Low-SNR links, GPS\nQPSK           2           ~6.8 dB @BER 10⁻³  3G CDMA, satellite\n8-PSK          3           ~10 dB              DVB-S2\n16-QAM         4           ~11.5 dB            LTE, WiFi\n64-QAM         6           ~17.5 dB            Cable, LTE good coverage\n256-QAM        8           ~24 dB              LTE high SNR, WiFi 802.11ac\n1024-QAM      10           ~29 dB              Cable DOCSIS 3.1, WiFi 6\n4096-QAM      12           ~35 dB              WiFi 7 (802.11be)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

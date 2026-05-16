@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiconductor-manufacturing:process-integration
+kind: guide
+module: semiconductor-manufacturing
+section: semiconductor-manufacturing
+title: Process Integration - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: semiconductor-manufacturing/06-PROCESS-INTEGRATION.md
+canonical_path: semiconductor-manufacturing/06-PROCESS-INTEGRATION.md
+backsource_ids: [proof-backfill:semiconductor-manufacturing:06-process-integration, git-history:semiconductor-manufacturing:06-process-integration]
+concepts: [process, integration]
+root_concepts: [process, integration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Process Integration — A Layered Guide
 
 ## The Big Picture

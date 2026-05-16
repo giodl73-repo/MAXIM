@@ -1,0 +1,41 @@
+{
+  "schema_version": "1",
+  "source_markdown": "telecommunications\\07-INTERNET-BACKBONE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 263,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Scenario",
+        "Network Engineering Response"
+      ],
+      "rows": [
+        [
+          "Minimize latency to customers globally",
+          "CDN + multiple PoPs + anycast"
+        ],
+        [
+          "Reduce transit costs",
+          "Peer at IXPs, especially DE-CIX/AMS-IX"
+        ],
+        [
+          "Route traffic via preferred path",
+          "BGP LOCAL-PREF policy manipulation"
+        ],
+        [
+          "Prevent BGP route hijacking",
+          "RPKI/ROA validation + BGPSEC (where supported)"
+        ],
+        [
+          "Bypass public internet for Azure",
+          "Azure ExpressRoute (dedicated fiber)"
+        ],
+        [
+          "Resilient connectivity (no single PoP failure)",
+          "Multi-homed BGP with multiple upstreams"
+        ]
+      ]
+    }
+  ]
+}

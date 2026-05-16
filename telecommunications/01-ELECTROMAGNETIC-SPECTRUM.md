@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:telecommunications:electromagnetic-spectrum
+kind: guide
+module: telecommunications
+section: telecommunications
+title: Electromagnetic Spectrum - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: telecommunications/01-ELECTROMAGNETIC-SPECTRUM.md
+canonical_path: telecommunications/01-ELECTROMAGNETIC-SPECTRUM.md
+backsource_ids: [proof-backfill:telecommunications:01-electromagnetic-spectrum, git-history:telecommunications:01-electromagnetic-spectrum]
+concepts: [electromagnetic, spectrum]
+root_concepts: [electromagnetic, spectrum]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electromagnetic Spectrum — A Layered Guide
 
 ## The Big Picture

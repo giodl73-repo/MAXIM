@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:telecommunications:satellite-communications
+kind: guide
+module: telecommunications
+section: telecommunications
+title: Satellite Communications - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: telecommunications/05-SATELLITE-COMMUNICATIONS.md
+canonical_path: telecommunications/05-SATELLITE-COMMUNICATIONS.md
+backsource_ids: [proof-backfill:telecommunications:05-satellite-communications, git-history:telecommunications:05-satellite-communications]
+concepts: [satellite, communications]
+root_concepts: [satellite, communications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Satellite Communications — A Layered Guide
 
 ## The Big Picture

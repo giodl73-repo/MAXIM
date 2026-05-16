@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:telecommunications:channel-coding
+kind: guide
+module: telecommunications
+section: telecommunications
+title: Channel Coding - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: telecommunications/09-CHANNEL-CODING.md
+canonical_path: telecommunications/09-CHANNEL-CODING.md
+backsource_ids: [proof-backfill:telecommunications:09-channel-coding, git-history:telecommunications:09-channel-coding]
+concepts: [channel, coding]
+root_concepts: [channel, coding]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Channel Coding — A Layered Guide
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiconductor-manufacturing:overview
+kind: guide
+module: semiconductor-manufacturing
+section: semiconductor-manufacturing
+title: Semiconductor Manufacturing - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: semiconductor-manufacturing/00-OVERVIEW.md
+canonical_path: semiconductor-manufacturing/00-OVERVIEW.md
+backsource_ids: [proof-backfill:semiconductor-manufacturing:00-overview, git-history:semiconductor-manufacturing:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Semiconductor Manufacturing — A Layered Guide
 
 ## The Big Picture
