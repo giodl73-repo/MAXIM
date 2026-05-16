@@ -1,0 +1,215 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials\\04-METALS-ALLOYS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "    METALS & ALLOYS LANDSCAPE\n    ══════════════════════════════════════════════════════════\n\n    THERMODYNAMICS                   KINETICS\n    ┌──────────────────────┐        ┌────────────────────────┐\n    │ Gibbs phase rule     │        │ Nucleation rate J(T)   │\n    │ Phase diagrams       │───────▶│ Growth rate G(T)       │\n    │ (what CAN form)      │        │ TTT / CCT diagrams     │\n    │ Lever rule           │        │ (what DOES form)       │\n    └──────────────────────┘        └────────────────────────┘\n               │                               │\n               └──────────────┬────────────────┘\n                              ▼\n              MICROSTRUCTURE (grain size, phases, precipitates)\n                              │\n                              ▼\n              MECHANICAL PROPERTIES (σ_y, UTS, K_IC, fatigue)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Gibbs Phase Rule",
+      "confidence": "candidate",
+      "text": "    At constant pressure (materials processing): F = C - P + 1\n\n    Binary alloy (C=2):\n    One phase:   F = 2-1+1 = 2 → can vary T and composition independently\n    Two phases:  F = 2-2+1 = 1 → fixing T fixes compositions of both phases\n    Three phases: F = 2-3+1 = 0 → invariant point (eutectic, eutectoid)\n\n    Pure substance (C=1):\n    One phase: F = 1 → varies with T\n    Two phases: F = 0 → invariant (melting point)\n    Triple point: three phases → F = -1 + 2 = 1 → invariant in (T,P) space",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "### Isomorphous System: Cu-Ni (Complete Solid Solubility)",
+      "confidence": "candidate",
+      "text": "    T(°C)\n    1500 │         ●────────────────────────● Ni\n         │        / LIQUID                  /\n    1300 │       /────────────────────────/\n         │      /  LIQUIDUS               /\n    1200 │     / ────────────────────────/\n         │    │   TWO PHASE REGION       │\n    1100 │     \\  SOLIDUS               /\n         │      \\────────────────────────\\\n    1085 │       ● Cu──────────────────  \\\n         │\n         0%Ni   25   50    75   100%Ni\n                     composition\n\n    KEY: Two-phase region between liquidus and solidus curves.\n    At temperature T in two-phase region:\n    Liquid composition = intersection with liquidus\n    Solid composition  = intersection with solidus\n    (these are different compositions!)\n\n    Lever Rule (mass fraction of each phase):\n    If alloy overall composition C₀, temperature in two-phase L+S region:\n    C_L = liquid composition (from liquidus)\n    C_S = solid composition  (from solidus)\n\n    f_L = (C₀ - C_S)/(C_L - C_S)  (fraction liquid)\n    f_S = (C_L - C₀)/(C_L - C_S)  (fraction solid)\n    f_L + f_S = 1\n\n    Example: 50% Ni alloy at 1300°C\n    C_L = 45% Ni (read from liquidus at 1300°C)\n    C_S = 58% Ni (read from solidus at 1300°C)\n    f_S = (45-50)/(45-58) = 5/13 = 0.38 (38% solid)\n    f_L = (58-50)/(58-45) = 8/13 = 0.62 (62% liquid)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "### Eutectic System: Pb-Sn (Soldering Alloy)",
+      "confidence": "candidate",
+      "text": "    T(°C)\n    350 │  ●Pb                          ●Sn\n        │   \\                          /\n    300 │    \\  LIQUID               /\n        │     \\                    /\n    250 │      \\    LIQUIDUS      /\n        │  (Pb) \\ ──────────── / (Sn)\n    200 │  α     \\────────────/   β\n        │         \\          /\n    183 │──────────●────────●──────── EUTECTIC (183°C, 61.9% Sn)\n        │  α+β (two-phase solid region)\n        └────────────────────────────── %Sn\n        0%Sn   20    40    62    80    100%Sn\n\n    Eutectic composition (61.9% Sn): melts/solidifies at single temperature 183°C\n    On cooling through eutectic: simultaneous formation of α (rich Pb) + β (rich Sn)\n    Eutectic microstructure: fine alternating lamellae of α and β\n    → Lamellar spacing λ ∝ 1/ΔT_undercooling\n\n    α (Pb-rich): up to 18.3% Sn max solubility at eutectic T\n    β (Sn-rich): up to 2.2% Pb max solubility at eutectic T\n\n    Applications:\n    Eutectic: Pb-Sn 63/37 = classic electronics solder (melts 183°C)\n    Hypoeutectic (< 61.9% Sn): plumber's solder (range of melt temperatures)\n    Hypereutectic (> 61.9% Sn): bearing alloys\n\n    Lead-free solders: Sn-Ag-Cu (SAC 305: 3% Ag, 0.5% Cu) — melts ~217°C\n    Higher reflow T required → more stress on PCB components",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "## The Iron-Carbon Phase Diagram",
+      "confidence": "candidate",
+      "text": "    T(°C)\n    1600 │●───────────────────────────────\n         │  LIQUID (L)\n    1500 │          ●───L+γ───●\n         │         (0.09%)   (0.51%)\n         │   L+δ          (4.3%)\n    1400 │     ●──L+γ──────────────────●  EUTECTIC: 1147°C, 4.3%C\n         │  (2.01%)   LIQUID           │  Liquid → γ-austenite + Fe₃C\n    1300 │             +γ              │\n         │                             │\n    1200 │  γ (austenite, FCC)         │\n         │                             │\n    1100 │                          Fe₃C + L\n    1000 │                             │\n         │        γ + Fe₃C           ─┤─────── 1147°C eutectic line\n         │                            │\n     900 │                            │\n         │ γ        EUTECTOID: 727°C, 0.76%C\n     800 │    ─────●─────────●────── γ+Fe₃C\n         │   /     (0.022%C) (0.76%C) \\\n     727 │──●──────────────────────────●── EUTECTOID LINE\n         │  │                          │\n     600 │  α+Fe₃C (PEARLITE)         Fe₃C\n         │\n     400 │  α-ferrite (BCC)\n         │\n         └────────────────────────────── %C\n         0%   0.5  1.0  1.5  2.0  4.3  6.67%\n         ←── STEEL ───────→← CAST IRON →│Fe₃C\n\n    Phase boundaries:\n    A₁ = eutectoid temperature 727°C\n    A₃ = γ → α+γ boundary (for hypoeutectoid)\n    A_cm = γ → γ+Fe₃C boundary (for hypereutectoid)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "### Microstructures in Fe-C System",
+      "confidence": "candidate",
+      "text": "    EUTECTOID STEEL (0.76% C), cooling through 727°C:\n    γ (0.76%C) → α(0.022%C) + Fe₃C(6.67%C) simultaneously\n    = PEARLITE: fine alternating lamellae of α and Fe₃C\n    Lamellar spacing: 0.1-0.5 μm (depends on undercooling)\n    Properties: σ_UTS ≈ 720 MPa, ductile, machinable\n\n    HYPOEUTECTOID STEEL (< 0.76% C), e.g., 0.4%C:\n    γ → pro-eutectoid α at grain boundaries (white areas) + pearlite\n    More %C → more pearlite fraction:\n    f_pearlite = (C₀ - 0.022)/(0.76 - 0.022)\n\n    HYPEREUTECTOID STEEL (0.76-2.14% C), e.g., 1.0%C:\n    γ → pro-eutectoid Fe₃C at grain boundaries (network) + pearlite\n    Embrittlement from Fe₃C network → spheroidize annealing needed\n\n    LEDEBURITE (4.3% C eutectic):\n    Liquid → γ + Fe₃C (at 1147°C)\n    On further cooling, γ transforms too → complex microstructure\n    Cast irons: white (hard, brittle) vs gray (graphite flakes, better machining)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 231,
+      "heading_context": "## Martensite Transformation",
+      "confidence": "candidate",
+      "text": "    FCC austenite (γ, carbon in octahedral sites)\n              ↓ rapid quench (no C diffusion time)\n    BCT martensite (α', carbon trapped in interstitial sites)\n\n    Tetragonality: c/a - 1 ≈ 0.046 × (%C)\n    At 0.6%C: c/a = 1 + 0.046×0.6 = 1.028\n\n    Martensite start temperature: M_s = 539 - 423(%C) - 30.4(%Mn)\n                                         - 17.7(%Ni) - 12.1(%Cr) - 7.5(%Mo) (°C)\n    For 0.4%C steel: M_s ≈ 539 - 423×0.4 = 370°C\n    Complete martensite when T reaches M_f (often -50 to -150°C)\n\n    Why is martensite hard?\n    1. Carbon in interstitial sites causes tetragonal distortion → lattice strain\n    2. High dislocation density from the transformation shear strain\n    3. Fine martensite plates/laths → effective small \"grain size\"\n    Hardness: HRC ≈ 30 + 50×(%C) for %C < 0.6 (then saturates ~HRC 65)\n\n    Problems with martensite:\n    → Very hard but brittle (no mechanism for plastic relaxation)\n    → High residual stress → quench cracking risk\n    → Must temper to recover toughness",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "## TTT and CCT Diagrams",
+      "confidence": "candidate",
+      "text": "    TTT diagram for eutectoid steel (0.76%C):\n\n    T(°C)\n     800 │─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ A₁ (727°C)\n         │\n     700 │           ╭─── Ps (pearlite start)\n         │          ╱\n     600 │     ╭───╯         ╭── Pf (pearlite finish)\n         │    ╱ NOSE ←──╮   ╱\n     550 │───╯ (fastest)│──╯      ← \"C-curve\" — transformation\n         │    ╲         │  ╲        rate peaks at the nose\n     500 │     ╰───╮    ╰── Bf (bainite finish)\n         │          ╲\n     400 │           ╰─── Bs (bainite start)\n         │\n     300 │─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ Ms (martensite start, ~220°C)\n     200 │─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ Mf (martensite finish)\n         └──────────────────────────────────────────────\n              0.1   1    10   100  1000  10000  time (s)\n         │                 ──────────────────\n     500 │    Bainite lower ────────────────\n         │                   ────────────\n     400 │\n         │             M_s = 220°C──────────────────\n     300 │                         Martensite\n         │             M_90 = 50°C\n     200 │             (Ms, 50%, 90% lines)\n         │\n         └─────────────────────────────── log time (s)\n         0.1   1    10   100  1000  10000\n\n    Pearlite nose: ~550°C, ~1 second (fastest transformation)\n    To avoid pearlite: must cool faster than CCR (critical cooling rate)\n    CCR for 0.76%C steel: ~140°C/s at pearlite nose\n\n    BAINITE: intermediate transformation product (250-550°C)\n    Upper bainite (400-550°C): feathery arrangement of α + elongated Fe₃C\n    Lower bainite (250-400°C): similar to tempered martensite, better toughness\n    Bainite has better toughness-strength combination than pearlite or martensite\n\n    Adding alloying elements shifts TTT curves RIGHT (more time):\n    Mn, Cr, Mo, Ni → increase hardenability (can quench thicker sections)\n    → Used in Jominy end-quench test to measure hardenability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 313,
+      "heading_context": "## Steel Heat Treatment",
+      "confidence": "candidate",
+      "text": "    ANNEALING:\n    Heat to above A₃ (full anneal) or A₁ (process anneal)\n    Slow cool (furnace cool)\n    → Equilibrium microstructure: coarse pearlite\n    → Purpose: soften for machining, relieve residual stress\n\n    NORMALIZING:\n    Heat above A₃, air cool\n    → Fine pearlite (faster than furnace cool)\n    → Purpose: refine grain size, improve toughness vs annealing\n\n    QUENCHING:\n    Heat above A₃ → austenitize → rapid quench (water, oil, air)\n    → Martensite (if above CCR)\n    → Hard but brittle, high residual stress\n\n    TEMPERING (after quenching):\n    Heat to 150-700°C, hold, then air cool\n    → Martensite → tempered martensite → transition carbides → cementite\n    Sequence: ε-carbide (Fe₂.₄C) at 100-200°C → θ-cementite (Fe₃C) at 250-450°C\n    → coarsen carbides + recovery of dislocation structure at 450-700°C\n    σ_y and hardness decrease, K_IC and ductility increase with T_temper\n\n    QUENCH AND TEMPER schedule for 4340 steel (Ni-Cr-Mo alloy steel):\n    Austenitize: 820°C, 1h → Oil quench → Temper 200°C, 2h\n    Result: σ_y ≈ 1600 MPa, UTS ≈ 1800 MPa, K_IC ≈ 50 MPa√m\n\n    AUSTEMPERING (bainite formation):\n    Austenitize → quench to bainite nose temperature (say 300°C) → hold → air cool\n    → Lower bainite: better toughness-strength than tempered martensite at same hardness\n    Used for: springs, high-strength fasteners, ADI (austempered ductile iron)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 351,
+      "heading_context": "## Strengthening Mechanisms",
+      "confidence": "candidate",
+      "text": "### 1. Solid Solution Strengthening (Vegard's Law)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 359,
+      "heading_context": "### 1. Solid Solution Strengthening (Vegard's Law)",
+      "confidence": "candidate",
+      "text": "    Misfit parameter δ = (1/a)(da/dc) = relative size difference\n    Strengthening scales with δ and shear modulus G:\n    Δτ = Aδ^{4/3}Gc^{2/3}  (Labusch model for random obstacles)\n\n    Interstitial (C, N in Fe): very effective\n    C in α-Fe: Δσ ≈ 5600 MPa per wt% C → but solubility limited to 0.022%C\n    N in austenitic stainless: Δσ ≈ 600 MPa per wt%\n\n    Substitutional (Cu in Al):\n    Δσ ≈ 13 MPa per wt% Cu (significant for aerospace alloys)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 372,
+      "heading_context": "### 1. Solid Solution Strengthening (Vegard's Law)",
+      "confidence": "candidate",
+      "text": "### 2. Work Hardening (Strain Hardening)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 379,
+      "heading_context": "### 2. Work Hardening (Strain Hardening)",
+      "confidence": "candidate",
+      "text": "    τ₀ = friction stress (Peierls-Nabarro), α ≈ 0.3–0.5\n    G = shear modulus, b = Burgers vector magnitude\n\n    At large strains (Voce equation):\n    σ = σ_∞ - (σ_∞ - σ_0)exp(-ε/ε_0)\n    → Stress saturates at σ_∞ (dynamic recovery / dynamic recrystallization)\n\n    Bauschinger effect: if you work harden in tension, easier to deform in compression\n    → Cause: pile-up stress at obstacles reversed when loading reversed\n    → Important for springback prediction in sheet forming\n\n    Annealing to restore ductility:\n    Recovery (T < 0.5T_m): rearrangement of dislocations into lower-energy configurations\n    Recrystallization (T > 0.3-0.5T_m): nucleation and growth of new strain-free grains\n    Grain growth (T > T_recryst): grain coarsening driven by boundary energy reduction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 397,
+      "heading_context": "### 2. Work Hardening (Strain Hardening)",
+      "confidence": "candidate",
+      "text": "### 3. Precipitation Hardening (Age Hardening)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 401,
+      "heading_context": "### 3. Precipitation Hardening (Age Hardening)",
+      "confidence": "candidate",
+      "text": "    Mechanism: fine coherent precipitates block dislocation glide\n    Three stages:\n    1. Solution treatment: dissolve all solute in single phase (T > solvus)\n    2. Quench: trap solute in supersaturated solid solution (SSSS)\n    3. Aging: heat to intermediate T → controlled precipitation\n\n    Al-4%Cu (2024 alloy) precipitation sequence:\n    SSSS → GP zones (Cu monolayers on {100}, coherent) → θ'' (coherent disc)\n         → θ' (semi-coherent) → θ (Al₂Cu, incoherent) → OVERAGING\n\n    Peak hardness at θ'' (semi-coherent, maximum coherency strain + Orowan spacing)\n    Overaging: θ becomes coarse incoherent → easy Orowan bypass → softer\n\n    Coherency strengthening (small, coherent precipitate):\n    Δτ = εGb(√(rN))^(1/2)  (cutting mechanism: dislocations cut through particle)\n\n    Orowan bypassing (large, incoherent precipitate):\n    Δτ_Orowan = Gb/L  where L = inter-precipitate spacing\n    → Dislocations leave loops around particles\n\n    Peak aging condition: where Δτ(cutting) = Δτ(Orowan)\n    → Optimize: precipitate size r* and number density N\n\n    Commercial example: 7075-T6 aluminum:\n    Age at 120°C for 24h → σ_y = 503 MPa, σ_UTS = 572 MPa\n    (compare annealed 7075: σ_y = 103 MPa)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 430,
+      "heading_context": "### 3. Precipitation Hardening (Age Hardening)",
+      "confidence": "candidate",
+      "text": "### 4. Grain Refinement: Hall-Petch",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 464,
+      "heading_context": "## Fracture Mechanics: Griffith Criterion",
+      "confidence": "candidate",
+      "text": "    For a center crack of length 2a in infinite plate:\n    K_I = σ√(πa)    (mode I, opening)\n    K_II = τ√(πa)   (mode II, sliding)\n    K_III = τ√(πa)  (mode III, tearing)\n\n    Failure when: σ = K_IC/√(πa)\n    → Critical flaw size: a_c = (K_IC/σ_y)²/π  (at yield stress level)\n\n    Example: 4340 steel σ_y = 1600 MPa, K_IC = 50 MPa√m\n    a_c = (50/1600)²/π = (0.03125)²/π = 0.00098/3.14 = 0.31 mm\n    → Any flaw > 0.3 mm can cause brittle fracture at yield stress\n    → Inspect by NDT (ultrasonic, eddy current, magnetic particle)\n\n    High-strength Al (7075-T6): σ_y = 500 MPa, K_IC = 24 MPa√m\n    a_c = (24/500)²/π = (0.048)²/π = 0.00230/π = 0.73 mm\n    → Less sensitive to flaws than steel (larger a_c despite lower K_IC)\n\n    J-integral (elastic-plastic): J = G = K_IC²/E' (plane stress or strain)\n    For ductile fracture: use J_IC, CTOD (crack tip opening displacement)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 492,
+      "heading_context": "## Nickel Superalloys",
+      "confidence": "candidate",
+      "text": "    STRENGTHENING: γ/γ' microstructure\n    γ  = FCC Ni-rich matrix (disordered solid solution)\n    γ' = Ni₃(Al,Ti) L1₂ ordered precipitate (coherent with matrix)\n\n    The γ' precipitates resist dislocation motion because cutting\n    them creates anti-phase boundaries (APB) — energetically costly.\n    γ' volume fraction: 40-70% in modern turbine blade alloys.\n\n    KEY ALLOYS:\n    Inconel 718:  Ni-19Cr-18Fe-5Nb-3Mo — workhorse wrought alloy\n                  σ_y ≈ 1100 MPa at 20°C; service to 650°C\n                  Strengthened by γ'' (Ni₃Nb, BCT D0₂₂) + γ'\n\n    René N6, CMSX-4: single-crystal turbine blade alloys\n                  No grain boundaries → no creep cavitation at GB\n                  Operate at 1050-1100°C (with TBC + film cooling)\n                  Yield by γ' raft formation under creep\n\n    DIRECTIONAL SOLIDIFICATION (DS) / SINGLE CRYSTAL (SC):\n    Bridgman process: controlled withdrawal from hot zone\n    DS: columnar grains aligned with blade axis → no transverse GB\n    SC: seed crystal → one grain, one orientation, no GB at all\n    Motivation: creep rupture life at high T limited by GB sliding\n               → eliminate GB → 10x improvement in creep life\n\n    COATINGS (thermal barrier system):\n    Bond coat: MCrAlY (M = Ni, Co) or Pt-modified aluminide\n      → forms protective Al₂O₃ oxide scale (thermally grown oxide, TGO)\n    Top coat: yttria-stabilized zirconia (YSZ), 100-300 μm\n      → low thermal conductivity (κ ≈ 2 W/m·K vs 30 for alloy)\n      → reduces metal temperature by 100-150°C",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "ascii_table_candidate",
+      "line": 530,
+      "heading_context": "## Aluminum Alloys",
+      "confidence": "candidate",
+      "text": "    Designation system:\n    1xxx: pure Al (≥99%) — electrical conductors, packaging\n    2xxx: Al-Cu (+ Mg): age-hardenable → high strength, poor corrosion\n          2024-T3: σ_y=345 MPa, K_IC=26 MPa√m — fuselage skins\n    3xxx: Al-Mn: moderate strength, good corrosion — beverage cans\n    4xxx: Al-Si: low melting point → welding wire, casting alloys\n    5xxx: Al-Mg: work-hardenable, excellent corrosion — marine, hulls\n          5083-H116: σ_y=228 MPa — boats, cryogenic tanks (-196°C OK)\n    6xxx: Al-Mg-Si: age-hardenable → medium strength, extrudable, weldable\n          6061-T6: σ_y=276 MPa — structural, bicycle frames\n    7xxx: Al-Zn-Mg-Cu: highest strength, poor corrosion, weldability issues\n          7075-T6: σ_y=503 MPa — aircraft structure (wings, spars)\n          7068-T6511: σ_y=634 MPa — record Al alloy\n\n    Temper designations:\n    -O  = annealed (soft, maximum ductility)\n    -H  = strain-hardened (1xxx, 3xxx, 5xxx)\n    -T3 = solution treated + cold worked + naturally aged\n    -T6 = solution treated + artificially aged (peak hardness)\n    -T73 = overaged (reduced strength but improved stress corrosion)\n    -T7351 = overaged, stress-relieved, straightened\n\n    New developments:\n    Al-Li alloys (2195, 2099): E + 10%, ρ - 8% vs 2024 → fuselage\n    ALCLAD: pure Al clad over high-strength alloy → galvanic protection\n    Scandium additions (0.2-0.3% Sc): pin grain boundaries at high T\n    Additive manufacturing: AlSi10Mg for complex aerospace brackets",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

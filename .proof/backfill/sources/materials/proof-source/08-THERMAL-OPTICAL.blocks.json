@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials\\08-THERMAL-OPTICAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THERMAL & OPTICAL PROPERTIES LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  ATOMIC CARRIERS\n  ┌─────────────────────┐    ┌──────────────────────────┐\n  │ PHONONS             │    │ ELECTRONS                │\n  │ (lattice vibrations)│    │ (electronic excitations) │\n  └────────┬──────┬─────┘    └──────┬──────┬────────────┘\n           │      │                  │      │\n    [THERMAL]     [IR PHONON]     [THERMAL]     [OPTICAL]\n    [CONDUCT.]    [ABSORPTION]    [CONDUCT.]    [ABSORPTION]\n    [κ_ph]        [(Reststrahl)]  [κ_el]        [(interband)]\n         │             │            │              │\n         └──────┬──────┘            └──────┬───────┘\n                │                          │\n    ┌───────────▼──────────┐   ┌───────────▼──────────────┐\n    │ EMISSIVITY / PLANCK  │   │ REFRACTIVE INDEX         │\n    │ (Kirchhoff: ε = α)   │   │ ñ = n + iκ               │\n    │ Hot surfaces emit    │   │ Controls reflection,     │\n    │ photons via phonon   │   │ refraction, absorption   │\n    │ + electron coupling  │   │ Kramers-Kronig links n,κ │\n    └──────────┬───────────┘   └───────────┬──────────────┘\n               │                           │\n    ┌──────────▼───────────────────────────▼──────────────┐\n    │  DEVICE APPLICATIONS                                │\n    │  CPU cooling (κ_th) · Telecom fiber (low α, 1550nm) │\n    │  Photovoltaics (bandgap absorption) · TBC coatings  │\n    │  Thermal imaging (emissivity) · LED phosphors       │\n    └─────────────────────────────────────────────────────┘\n\n  Heat capacity: C_v = ∂U/∂T            Refractive index: ñ = n + iκ\n  Thermal conductivity: κ = J·L/ΔT      Absorption: α = 4πκ/λ\n  Thermal expansion: ΔL/L = α·ΔT        Reflection: R = |(ñ-1)/(ñ+1)|²\n\n  Carrier of heat:                        Carrier of light interaction:\n    Phonons (insulators, semiconductors)    Free electrons (metals — Drude)\n    Electrons (metals — Wiedemann-Franz)    Bound electrons (semiconductors, insulators)\n    Photons (transparent at high T)         Phonons (IR absorption, Raman)\n\n  BRIDGE TO COMPUTING:\n  Thermal: CPU junction temp, PCB trace heating, solder joint fatigue,\n           heat spreaders (copper vs diamond vs graphene), TIM selection\n  Optical: fiber optic communication (1550nm minimum loss), CMOS image\n           sensors, LED/laser diodes, photovoltaics, LiDAR for autonomy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "### Heat Capacity — From Einstein to Debye",
+      "confidence": "candidate",
+      "text": "  CLASSICAL LIMIT (Dulong-Petit, 1819):\n  C_v = 3Nk_B = 3R per mole ≈ 25 J/(mol·K) for all solids\n\n  Works at high temperature. Fails below Debye temperature θ_D.\n\n  EINSTEIN MODEL (1907):\n  All atoms vibrate at same frequency ω_E\n\n  C_v = 3Nk_B · (ℏω_E/k_BT)² · [e^(ℏω_E/k_BT) / (e^(ℏω_E/k_BT) - 1)²]\n\n  Better than classical but: C_v ∝ e^(-θ_E/T) at low T (too fast a drop)\n  Real solids show C_v ∝ T³ at low T — needs density of states model\n\n  DEBYE MODEL (1912):\n  Phonons treated as elastic waves; density of states g(ω) ∝ ω² up to cutoff ω_D\n\n  C_v = 9Nk_B·(T/θ_D)³ · ∫₀^(θ_D/T) x⁴eˣ/(eˣ-1)² dx\n\n  Limits:\n    High T (T >> θ_D): C_v → 3Nk_B = 3R  (recovers Dulong-Petit) ✓\n    Low T (T << θ_D):  C_v → (12π⁴/5)Nk_B(T/θ_D)³  (T³ law) ✓\n\n  DEBYE TEMPERATURES:\n  Material    θ_D (K)    Implication\n  Diamond      2230       Still quantum at room temperature (T << θ_D)\n  Si            640       Partially quantum at RT\n  Al            428       Near Dulong-Petit at RT\n  Cu            315       Classical at RT\n  Pb             88       Fully classical well below RT",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "### Thermal Conductivity",
+      "confidence": "candidate",
+      "text": "  KINETIC THEORY EXPRESSION:\n  κ = (1/3) · C_v · v_s · λ\n\n  where: C_v = volumetric heat capacity (J/m³·K)\n         v_s = speed of sound (phonon group velocity, m/s)\n         λ   = mean free path (m) — limited by scattering\n\n  PHONON SCATTERING MECHANISMS (limit λ and thus κ):\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  Umklapp (U) processes:    phonon-phonon; dominant at high T             │\n  │    κ_phonon ∝ 1/T at high T  (Umklapp increases with T)                  │\n  │  Impurity/alloy scattering: κ drops with alloying (stainless < pure Fe)  │\n  │  Grain boundary scattering: significant in nanostructures (κ of bulk     │\n  │    Si = 150 W/mK; nanowire Si = 5 W/mK)                                  │\n  │  Isotope scattering:       natural Si has 3 isotopes; isotopically pure  │\n  │    Si-28: κ ≈ 11,000 W/mK at low T (current record)                      │\n  └──────────────────────────────────────────────────────────────────────────┘\n\n  ELECTRON CONTRIBUTION IN METALS — Wiedemann-Franz Law:\n  κ_e / (σ · T) = L₀ = π²k_B² / 3e² = 2.44 × 10⁻⁸ W·Ω/K²  (Lorenz number)\n\n  In pure metals: κ_e dominates (electrons are much better heat carriers\n  than phonons in metals, because they're fast and have long mean free paths)\n\n  THERMAL CONDUCTIVITY VALUES:\n  Material           κ (W/mK)    Dominant carrier   Note\n  ─────────────────────────────────────────────────────────────────────────\n  Diamond            1000–2300   Phonons            Highest known solid\n  Graphene (2D)      ~5000       Phonons            In-plane only\n  Carbon nanotube    3000+       Phonons            Axial only\n  Silver             429         Electrons          Best electrical + thermal\n  Copper             401         Electrons          PCB traces, heat spreaders\n  Gold               318         Electrons          Bonding wire, contacts\n  Aluminum           237         Electrons          Heatsinks, conductors\n  Silicon            150         Phonons            CPU substrate concern\n  Tungsten           174         Electrons          Filaments, contacts\n  Stainless steel    14–16       Electrons          Poor (alloying kills κ)\n  SiC                120–490     Phonons            Power device substrates\n  AlN                180–320     Phonons            LED/RF module substrates\n  Glass              1.0–1.4     Phonons            Insulator\n  HDPE polymer       0.46        Phonons            Insulator\n  Aerogel            0.015       Gas (mostly)       Best insulator\n  Air                0.026       Gas molecules      Reference",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "### Thermal Expansion",
+      "confidence": "candidate",
+      "text": "  LINEAR THERMAL EXPANSION:\n  α = (1/L) · dL/dT   (K⁻¹)\n\n  Volumetric: β ≈ 3α  (isotropic materials)\n\n  GRÜNEISEN PARAMETER γ links thermal expansion to phonon behavior:\n  α = γ · C_v / (3 · B · V)\n  where B = bulk modulus, V = molar volume\n  γ ≈ 1-2 for most solids; larger γ = larger mismatch between\n  acoustic and optical phonon frequencies → more anharmonicity\n\n  THERMAL EXPANSION VALUES:\n  Material        α (10⁻⁶/K)   Note\n  ────────────────────────────────────────────────────────────────────────\n  Invar (Fe-36Ni)     1.2       Near-zero CTE (cancelation mechanism)\n  Zerodur glass-cer   0.05      Telescope mirrors, lithography stages\n  Si                  2.6       CPU substrate\n  SiC                 4.0       Close to Si → low interfacial stress\n  Al₂O₃ (alumina)    6.5–8     IC substrate, ceramic package\n  AlN                 4.5       Good Si match + high κ\n  GaAs                5.7       III-V semiconductor\n  Silicon             2.6       —\n  Copper             17.0       PCB traces; large mismatch to Si\n  Solder (63Sn37Pb)  24.7       BGA solder balls; fatigue in ΔT cycling\n  Aluminum           23.1       Heatsinks\n  Steel              11.7       Structural\n  CFRP (0°)        −0.5 to +2  Anisotropic; can engineer near-zero\n  CFRP (quasi-iso)    2–4       In-plane; more isotropic than UD\n\n  MISMATCH IMPLICATIONS (computing context):\n  Cu trace (17 ppm/K) on FR-4 PCB (16–18 ppm/K): good match\n  Cu pad (17 ppm/K) bonded to Si die (2.6 ppm/K): 6.5× mismatch\n  → Solder joint fatigue from repeated thermal cycling (power-on/off)\n  → Coffin-Manson: N_f ∝ (Δγ)^(-c) — fatigue life scales with strain range\n  → Underfill epoxy reduces differential displacement; extends BGA life",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "### Thermoelectrics",
+      "confidence": "candidate",
+      "text": "  THREE THERMOELECTRIC EFFECTS:\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  SEEBECK: ΔV = S · ΔT         (thermocouple, temperature sensor, TEG)   │\n  │    S = Seebeck coefficient (µV/K)                                       │\n  │    Metals: S ≈ 1–10 µV/K                                                │\n  │    Semiconductors: S ≈ 100–300 µV/K  (better thermoelectrics)           │\n  │                                                                         │\n  │  PELTIER: Q = Π · I            (active heat pump, TEC cooler)           │\n  │    Π = Peltier coefficient = S·T                                        │\n  │    Heat pumped proportional to current — NOT temperature difference     │\n  │                                                                         │\n  │  THOMSON: q = β · I · ∇T       (reversible heat in current-carrying     │\n  │    conductor in temperature gradient; small correction to above)        │\n  └─────────────────────────────────────────────────────────────────────────┘\n\n  FIGURE OF MERIT ZT:\n  ZT = S²σT / κ    (dimensionless)\n\n  S² σ = \"power factor\" (maximize for good thermoelectric)\n  κ    = thermal conductivity (minimize — hard: good TE = good electrical conductor\n         = good thermal conductor)\n\n  This is the fundamental tension in thermoelectrics: Wiedemann-Franz means\n  σ↑ → κ_e↑, so reducing κ while keeping σ high requires reducing κ_phonon only.\n\n  Strategy: \"phonon glass, electron crystal\"\n    • Rattler atoms (Zn₄Sb₃, skutterudites): loosely bonded atoms scatter phonons\n    • Nanostructuring: grain boundaries scatter phonons more than electrons\n    • Complex unit cells: many phonon branches, slow group velocity\n\n  ZT VALUES:\n  Material                ZT    T (°C)   Note\n  ─────────────────────────────────────────────────────────────────────────\n  Bi₂Te₃ (bulk)           1.0   25       Best near RT; commercial TEC modules\n  Bi₂Te₃ (nanostructured) 1.4   25       Research — IBM/RTI record\n  PbTe alloys              2.2   500      Mid-T range; power generation\n  GeTe/AgSbTe₂ (TAGS)     1.7   400      Efficiency ~10% at ΔT = 300°C\n  SnSe (single crystal)    2.6   650      Record 2014; anisotropic crystal\n  Half-Heusler alloys       1    700      High-T; mechanically robust\n  Skutterudites            1.7   600      CoSb₃-based; auto exhaust recovery\n\n  ZT > 1 required for commercial viability at ~10% efficiency\n  ZT > 3 needed for solid-state refrigeration to compete with compressor cycles\n  Applications: space (RTG — Pu-238 decay → 5% efficiency), industrial waste heat,\n  automotive (BMW turbocharger exhaust → 1 kW), CPU spot cooling (TEC)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "### Refractive Index and Absorption",
+      "confidence": "candidate",
+      "text": "  COMPLEX REFRACTIVE INDEX:  ñ = n + iκ\n\n  n  = real part → determines phase velocity v = c/n\n                   → determines reflection angle (Snell's Law: n₁sinθ₁ = n₂sinθ₂)\n  iκ = imaginary part → determines absorption\n\n  INTENSITY ATTENUATION (Beer-Lambert):\n  I(z) = I₀ · e^(-αz)\n  α = 4πκ/λ  (absorption coefficient, m⁻¹)\n  1/α = absorption depth (distance at which intensity falls to 1/e)\n\n  REFLECTANCE at normal incidence:\n  R = |(ñ - 1) / (ñ + 1)|²\n\n  For metals (large κ): R ≈ 1 − 2/√(ωτ·σ/ε₀ω) → metals are highly reflective\n  For glass (κ = 0): R = (n-1)²/(n+1)²; glass with n=1.5: R = 4% per surface\n\n  n VALUES AT VISIBLE WAVELENGTHS (λ ≈ 500 nm):\n  Material              n       κ        Application\n  ─────────────────────────────────────────────────────────────────────────\n  Vacuum               1.000   0         Reference\n  Air                  1.0003  0         Essentially vacuum\n  Water                1.33    0         Optics, biology\n  SiO₂ (fused silica) 1.46    0         Optical fiber cladding\n  Optical fiber core   1.47–1.5 0        Single-mode (Δn ≈ 0.3%)\n  Borosilicate glass   1.52    0         Microscope optics\n  Crown glass          1.52    0         Camera lenses\n  Flint glass          1.62    0         High-dispersion lens elements\n  Sapphire (Al₂O₃)    1.77    0         Watch crystals, LED windows\n  Diamond              2.42    0         Gem optics, high-n windows\n  Silicon              3.5     small     Near-IR detector, photonics\n  GaAs                 3.6     small     III-V optoelectronics\n  Gold (at 500nm)      0.27    3.0       Reflective (mirror, nanoparticles)\n  Silver (at 500nm)    0.13    3.1       Best visible mirror (~98% R)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 292,
+      "heading_context": "### Drude Model for Metals",
+      "confidence": "candidate",
+      "text": "  FREE ELECTRON MODEL:\n  Electrons respond to E-field: m·dv/dt = -eE - mv/τ (damping term)\n\n  AC response → complex permittivity:\n  ε(ω) = 1 - ωp² / (ω² + iω/τ)\n  where ωp = √(ne²/ε₀m) = plasma frequency\n\n  AT HIGH FREQUENCY (ω >> 1/τ):\n  ε(ω) ≈ 1 - ωp²/ω²\n\n  PLASMA FREQUENCY consequences:\n  ω < ωp: ε < 0 → purely imaginary ñ → evanescent field → REFLECTION\n  ω > ωp: ε > 0 → real ñ → propagating wave → TRANSMISSION\n\n  Aluminum: ωp = 2.24×10¹⁶ rad/s → λp ≈ 84 nm (deep UV)\n  → Al reflects visible, UV-A, UV-B but transmits vacuum UV → Al foil IS transparent\n     in X-ray range (very low α at high frequency)\n\n  VISIBLE COLORS OF METALS — why gold is yellow, copper is orange, silver is white:\n  Silver: ωp at ~UV boundary → reflects all visible uniformly → white/grey\n  Gold:   d-band transitions at ~2.5 eV (blue/green) → absorption of blue/green\n          → reflects yellow/red → yellow color\n  Copper: d-band at ~2.1 eV → absorbs blue → reflects red/orange → copper color",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 320,
+      "heading_context": "### Semiconductors: Optical Transitions",
+      "confidence": "candidate",
+      "text": "  DIRECT vs INDIRECT BANDGAP:\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  DIRECT (GaAs, InP, GaN, InGaAs, CdTe):                                 │\n  │    Conduction band min directly above valence band max in k-space       │\n  │    E-k: both extrema at k=0 (Γ point)                                   │\n  │    Photon absorption/emission: momentum conserved with k_photon ≈ 0     │\n  │    → efficient light emission; high absorption coefficient near E_g     │\n  │    → used for LEDs, laser diodes, solar cells, photodetectors           │\n  │                                                                         │\n  │  INDIRECT (Si, Ge, GaP, AlAs):                                          │\n  │    CB minimum at different k than VB maximum (k ≠ 0)                    │\n  │    Photon + phonon required to conserve momentum                        │\n  │    → two-particle process → low probability → poor light emitter        │\n  │    → high optical absorption depth (mm for Si at 1µm vs nm for GaAs)    │\n  │    → Si solar cells need 200 µm thickness vs 1 µm for GaAs              │\n  │    → Si cannot make practical laser diode (but CAN detect with thick    │\n  │       absorption layer)                                                 │\n  └─────────────────────────────────────────────────────────────────────────┘\n\n  ABSORPTION EDGE:\n  Photon energy hν < E_g: material transparent (low α)\n  Photon energy hν > E_g: strong absorption (α rises steeply)\n\n  At T > 0: Urbach tail (exponential sub-gap absorption from phonon broadening)\n\n  BURSTEIN-MOSS SHIFT (heavily doped semiconductors):\n  n-type doping fills CB states → optical gap appears LARGER than E_g\n  (electrons block transitions near CB edge)\n  Effect matters in heavily doped ITO (transparent conducting oxide):\n  ITO: E_g ≈ 2.9 eV (visible), but BM shift pushes effective edge toward UV\n\n  SEMICONDUCTOR OPTICAL PROPERTIES:\n  Material   E_g (eV)  Gap type   λ_edge (nm)  Application\n  ──────────────────────────────────────────────────────────────────\n  GaN         3.4      Direct      365           UV-A LED, blue LED pump\n  GaP         2.3      Indirect    540           Yellow-green LED (indirect; low eff)\n  AlGaAs   1.4–2.2    Direct      562–886       Heterojunction laser, HBT\n  GaAs        1.42     Direct      873           Near-IR laser, solar cell\n  InP         1.35     Direct      920           Telecom laser (1.3µm with strain)\n  Si          1.12     Indirect   1107           Photodetector, image sensor\n  Ge          0.67     Indirect   1850           IR detector, germanium-on-Si\n  InGaAs(P)   0.73–1.35 Direct   920–1700       Telecom (1310/1550 nm) lasers\n  InAs        0.36     Direct     3400           Mid-IR detector\n  HgCdTe   0.0–1.5    Direct     variable       MWIR/LWIR FPA (tunable)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 369,
+      "heading_context": "### Photovoltaics",
+      "confidence": "candidate",
+      "text": "  P-N JUNCTION UNDER ILLUMINATION:\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  Dark (equilibrium): depletion region, built-in field E_bi              │\n  │  Light: photons create electron-hole pairs                              │\n  │  Minority carriers diffuse to junction → separated by E_bi              │\n  │  → photocurrent I_ph flows opposite to diode forward current            │\n  │                                                                         │\n  │  I-V under illumination:  I = I_0·(e^(qV/nkT) - 1) - I_ph               │\n  │                                                                         │\n  │  Short-circuit current: I_sc = I_ph  (at V=0)                           │\n  │  Open-circuit voltage:   V_oc = (nkT/q)·ln(I_ph/I_0 + 1)                │\n  │  Fill factor:            FF = P_max / (V_oc · I_sc) ≈ 0.7–0.85          │\n  │  Efficiency:             η = FF · V_oc · I_sc / P_incident              │\n  └─────────────────────────────────────────────────────────────────────────┘\n\n  SHOCKLEY-QUEISSER LIMIT:\n  Single junction: η_max ≈ 33% (at E_g ≈ 1.1–1.4 eV, AM1.5 spectrum)\n  Si (1.12 eV): theoretical max ~32%; best lab Si cell: ~26%\n  Losses:\n    Sub-bandgap photons not absorbed\n    Above-bandgap photons: excess energy thermalized as heat\n    Recombination losses\n    Reflection, series resistance (practical)\n\n  EXCEEDING SHOCKLEY-QUEISSER:\n  Multi-junction (tandem): series-connected cells, each absorbs different E range\n    III-V 3J: GaInP (1.9 eV) / GaAs (1.4 eV) / Ge (0.7 eV)\n    Lab record: ~47.1% (concentrated, 6-junction III-V)\n    Commercial: 30–40% under concentration; expensive → space + concentrating PV\n  Perovskite/Si tandem: Si bottom cell + perovskite (1.7 eV) top\n    → >33% lab record (2023); lower cost potential than III-V",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 405,
+      "heading_context": "### LEDs and Lasers",
+      "confidence": "candidate",
+      "text": "  LED vs LASER DIODE:\n  LED: spontaneous emission — random phase, broad spectrum, Lambertian\n  Laser: stimulated emission — coherent, narrow linewidth, directional\n\n  LASER THRESHOLD:\n  Below threshold: only spontaneous emission (like LED)\n  Above threshold: stimulated emission dominates → lasing\n    Threshold current density J_th: gain = loss (cavity losses + absorption)\n\n  QUANTUM WELL ACTIVE REGION:\n  Single QW or MQW (multiple quantum wells) confines carriers in 2D\n  → density of states → higher gain per carrier → lower J_th\n  → now standard in all semiconductor lasers\n\n  VERTICAL-CAVITY SURFACE-EMITTING LASER (VCSEL):\n  Emits perpendicular to chip surface; array-able → data center transceivers\n  GaAs VCSEL at 850 nm: 10–25 Gbps/lane; low threshold (~1 mA)\n  InP VCSEL at 1310/1550 nm: emerging for telecom\n\n  EDGE-EMITTING LASER (FP, DFB):\n  Emits from cleaved facet; DFB (distributed feedback) has grating → single mode\n  DFB laser at 1550 nm: standard for fiber-optic long-haul; linewidth < 1 MHz",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 432,
+      "heading_context": "### Optical Fiber",
+      "confidence": "candidate",
+      "text": "  WAVEGUIDING PRINCIPLE: total internal reflection\n  n_core > n_cladding → TIR for rays within acceptance cone\n\n  NUMERICAL APERTURE:  NA = √(n_core² - n_clad²) = n·sin(θ_max)\n  Typical SM fiber: NA ≈ 0.12 (tight acceptance angle)\n\n  FIBER TYPES:\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  Multimode (MM):  core 50–62.5 µm; many modes travel different paths     │\n  │    → modal dispersion limits bandwidth-distance product                  │\n  │    → 10 GbE: max 300m at 850 nm on OM4 fiber                             │\n  │    → cheap (LED source); data center campus backbones                    │\n  │                                                                          │\n  │  Single-mode (SM): core 8–10 µm; only HE₁₁ mode propagates               │\n  │    → no modal dispersion; bandwidth limit from chromatic dispersion only │\n  │    → 100+ km without amplification (EDFA every 80 km in long-haul)       │\n  │    → requires laser source; all metro/long-haul fiber                    │\n  └──────────────────────────────────────────────────────────────────────────┘\n\n  DISPERSION TYPES:\n  Material dispersion: n(λ) varies with wavelength → different λ → different v\n  Waveguide dispersion: mode shape changes with λ; opposite sign to material\n  Total chromatic = material + waveguide\n  Zero-dispersion wavelength λ_ZD ≈ 1310 nm for standard SM fiber (ITU G.652)\n  Dispersion-shifted fiber: moves λ_ZD to 1550 nm (minimum loss)\n\n  ATTENUATION:\n  Loss mechanisms: Rayleigh scattering ∝ λ⁻⁴ (dominant at short λ)\n                   OH absorption (water peak at 1385 nm)\n                   IR absorption (phonon absorption > 1700 nm)\n  Minimum: 0.154 dB/km at 1550 nm (SSMF Corning SMF-28)\n  → telecom uses 1310 nm (low dispersion) and 1550 nm (low loss) windows\n  Dense WDM (DWDM): 80–100 channels in C-band (1530–1565 nm) @ 50 GHz spacing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

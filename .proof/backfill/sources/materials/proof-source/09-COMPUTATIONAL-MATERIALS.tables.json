@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials\\09-COMPUTATIONAL-MATERIALS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 391,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Electronic structure or bandgap",
+          "DFT with functional choice by material class",
+          "Functional error can dominate the result."
+        ],
+        [
+          "Thousands of atoms over ns-us",
+          "Classical MD with EAM, AMBER, or ReaxFF",
+          "Force field validity is the model."
+        ],
+        [
+          "Chemical-accuracy large dynamics",
+          "Machine-learned potentials such as MACE or NequIP",
+          "Training domain controls extrapolation risk."
+        ],
+        [
+          "Grain growth or phase separation",
+          "Phase-field Allen-Cahn/Cahn-Hilliard models",
+          "Parameters and boundary conditions drive realism."
+        ],
+        [
+          "Multicomponent phase diagram",
+          "CALPHAD and Thermo-Calc",
+          "Database assessment quality limits predictions."
+        ],
+        [
+          "Property from structure",
+          "Graph neural networks such as SchNet, DimeNet, CGCNN",
+          "Training set bias can look like physical insight."
+        ],
+        [
+          "10k+ candidate screening",
+          "ML surrogate, active learning, then DFT validation",
+          "Surrogates need high-fidelity confirmation."
+        ],
+        [
+          "Strongly correlated electrons",
+          "DFT+U, DMFT, or quantum chemistry",
+          "Standard DFT often fails for this class."
+        ]
+      ]
+    }
+  ]
+}

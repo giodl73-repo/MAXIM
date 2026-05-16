@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "materials\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Four Families and the Tetrahedron",
+      "confidence": "candidate",
+      "text": "                    MATERIALS SCIENCE LANDSCAPE\n    ═══════════════════════════════════════════════════════════\n\n                         PERFORMANCE\n                             /\\\n                            /  \\\n                           /    \\\n                          /      \\\n                         /        \\\n                        /          \\\n             STRUCTURE ────────────── PROPERTIES\n                        \\          /\n                         \\        /\n                          \\      /\n                           \\    /\n                            \\  /\n                             \\/\n                         PROCESSING\n\n    The tetrahedron: every node affects every other node.\n    No face is independent.\n\n    STRUCTURE:    atomic bonding, crystal lattice, microstructure,\n                  defects, grain size, phase distribution\n\n    PROPERTIES:   mechanical (E, σ_y, K_IC), thermal (α, k, T_m),\n                  electrical (σ, ε_r), optical (n, α_abs), magnetic\n\n    PROCESSING:   casting, rolling, forging, heat treatment,\n                  powder processing, vapor deposition, polymerization\n\n    PERFORMANCE:  fatigue life, corrosion resistance, wear,\n                  specific strength, thermal efficiency",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "## The Four Material Families",
+      "confidence": "candidate",
+      "text": "    MATERIALS\n    │\n    ├── METALS & ALLOYS\n    │   ├── Ferrous: plain carbon steels (1xxx), alloy steels,\n    │   │            stainless (304, 316, 17-4PH), tool steels\n    │   ├── Aluminum: 1xxx (pure), 2xxx (Cu), 6xxx (Mg-Si), 7xxx (Zn)\n    │   ├── Titanium: Ti-6Al-4V (α+β), Ti-6Al-2Sn-4Zr-2Mo (near-α)\n    │   ├── Nickel superalloys: Inconel 718, René N6, CMSX-4 (DS/SC)\n    │   ├── Copper alloys: brasses (Cu-Zn), bronzes (Cu-Sn), beryllium Cu\n    │   └── Refractory: W (T_m=3422°C), Mo, Ta, Re, Nb\n    │\n    ├── CERAMICS & GLASSES\n    │   ├── Oxide: Al₂O₃ (corundum), ZrO₂ (cubic/tetragonal/monoclinic),\n    │   │          MgO, SiO₂ (quartz, cristobalite, fused silica)\n    │   ├── Non-oxide: SiC (3C/4H/6H polytypes), Si₃N₄, BN, WC, TiN\n    │   ├── Glasses: soda-lime (window), borosilicate (Pyrex), fused silica,\n    │   │           metallic glasses (Zr-Cu-Al-Ni, amorphous = no grain boundaries)\n    │   └── Piezoelectric/ferroelectric: PZT (Pb(Zr,Ti)O₃), BaTiO₃, LiNbO₃\n    │\n    ├── POLYMERS\n    │   ├── Thermoplastics: PE, PP, PS, PVC, PMMA, Nylon 6/66, PET, PC\n    │   ├── High-performance: PEEK, PTFE (Teflon), PEI (Ultem), PI (Kapton)\n    │   ├── Thermosets: epoxy (DGEBA + amine), vinyl ester, phenolic (Bakelite)\n    │   └── Elastomers: NR (natural rubber cis-1,4-PI), SBR, EPDM, silicone (PDMS)\n    │\n    └── COMPOSITES\n        ├── Polymer matrix (PMC): CFRP (C fiber/epoxy), GFRP (glass/polyester)\n        ├── Metal matrix (MMC): SiC/Al, TiB₂/Al, W/Cu (heat sinks)\n        ├── Ceramic matrix (CMC): SiC/SiC (jet engine hot section, 2000°C capable)\n        ├── Natural: bone (30% collagen + 70% hydroxyapatite), wood, nacre\n        └── Structural: reinforced concrete (concrete + rebar), plywood",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 128,
+      "heading_context": "### E vs Density (Stiffness Chart)",
+      "confidence": "candidate",
+      "text": "    E (GPa)\n    1000 ┤  Diamond●   ●SiC ●Al₂O₃ ●Si₃N₄\n         │                   ●W\n     300 ┤          ●steels ●Ti alloys\n         │    ●Ni alloys\n     100 ┤         ●Al alloys    ●CFRP (axial)\n         │    ●Mg alloys\n      30 ┤               ●GFRP\n         │  ●concrete\n      10 ┤  ●woods (grain)\n         │       ●Nylon\n       3 ┤  ●HDPE\n         │     ●PP\n       1 ┤  ●elastomers\n         │\n     0.1 ┤──────────────────────────────────── ρ (g/cm³)\n         0.1      0.3     1      3      10   30\n\n    Performance indices (slope on log-log plot):\n      Stiff tie (tension):        E/ρ       slope 1\n      Stiff beam (bending):       E^(1/2)/ρ slope 2\n      Stiff panel (plate):        E^(1/3)/ρ slope 3\n    Higher index = lighter component for same stiffness.\n    CFRP (axial) and ceramics outperform metals.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "### Strength vs Toughness (Damage Tolerance)",
+      "confidence": "candidate",
+      "text": "    σ_y (MPa)\n    3000 ┤   ●maraging steel  ●UHSS (steel cord)\n    2000 ┤   ●spring steel    ●Ti-6Al-4V\n    1000 ┤   ●Al 7075-T6      ●Ni superalloys\n     500 ┤   ●Al 2024         ●Cu alloys       ●CFRP\n     200 ┤   ●1020 steel\n     100 ┤   ●Nylon ●PP                        ●GFRP\n      50 ┤   ●epoxy\n      20 ┤   ●ZrO₂(TZP)\n      10 ┤   ●Al₂O₃  ●SiC  ●Si₃N₄\n       5 ┤   ●soda-lime glass   ●PMMA\n         │\n       1 ┤──────────────────────────────────── K_IC (MPa√m)\n         0.1      1      3     10     30    100   300\n\n    Upper-right quadrant = both strong AND tough.\n    Ceramics: high σ_y, low K_IC → catastrophic brittle failure.\n    Metals: ductile flow blunts crack tip → high K_IC.\n    Toughened ceramics: ZrO₂ transformation toughening → better K_IC.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 183,
+      "heading_context": "## The Physics → Chemistry → Engineering Bridge",
+      "confidence": "candidate",
+      "text": "    ┌──────────────────────────────────────────────────┐\n    │  QUANTUM MECHANICS (Schrödinger, Hilbert space)  │\n    │  ψ, Ĥ, eigenvalues → atomic orbital shapes, E    │\n    └──────────────────────┬───────────────────────────┘\n                           │\n                           ▼\n    ┌──────────────────────────────────────────────────┐\n    │  ATOMIC BONDING                                  │\n    │  • Ionic:    Madelung energy, Coulomb            │\n    │  • Covalent: MO theory, hybridization, σ/π bonds │\n    │  • Metallic: free electrons, Fermi sea           │\n    │  • van der Waals: London dispersion              │\n    │                                                  │\n    │  Mie potential: U(r) = A/r^n - B/r^m             │\n    │  Bond energy E_b, equilibrium r₀, curvature      │\n    │  → E_elastic ∝ d²U/dr² at r0 / r0                │\n    │  → T_m ∝ E_b                                     │\n    │  → α_thermal ∝ asymmetry of U(r) potential well  │\n    └──────────────────────┬───────────────────────────┘\n                           │\n                           ▼\n    ┌──────────────────────────────────────────────────┐\n    │  CRYSTAL STRUCTURE                               │\n    │  14 Bravais lattices, space groups               │\n    │  FCC (Cu, Al, Ni): CN=12, APF=0.74               │\n    │  BCC (Fe, W, Cr):  CN=8,  APF=0.68               │\n    │  HCP (Ti, Mg, Zn): CN=12, APF=0.74               │\n    │  → density = nA/(V_c·N_A)                        │\n    │  → slip systems determine ductility              │\n    └──────────────────────┬───────────────────────────┘\n                           │\n                           ▼\n    ┌──────────────────────────────────────────────────┐\n    │  DEFECTS                                         │\n    │  • Point: vacancies, interstitials, solute atom  │\n    │  • Line: edge/screw dislocations                 │\n    │  • Planar: grain boundaries, stacking faults     │\n    │  → Dislocations enable plastic flow              │\n    │  → Blocking dislocations = hardening mechanisms  │\n    └──────────────────────┬───────────────────────────┘\n                           │\n                           ▼\n    ┌──────────────────────────────────────────────────┐\n    │  MICROSTRUCTURE                                  │\n    │  Grain size d, phase fractions f_α/f_β           │\n    │  Precipitate size r, spacing λ                   │\n    │  Controlled by: T, t, ε during processing        │\n    └──────────────────────┬───────────────────────────┘\n                           │\n                           ▼\n    ┌──────────────────────────────────────────────────┐\n    │  PROPERTIES                                      │\n    │  σ_y = f(d, ρ_disloc, r_precipitate, c_solute)   │\n    │  E = essentially independent of microstructure   │\n    │  K_IC = f(crack tip plasticity, grain size)      │\n    └──────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 244,
+      "heading_context": "### Band Theory Chain (for Electrical Properties)",
+      "confidence": "candidate",
+      "text": "    Schrödinger in periodic potential V(r+R) = V(r):\n    [−ℏ²/2m ∇² + V(r)] ψ_k(r) = E_k ψ_k(r)\n\n    Bloch theorem: ψ_k(r) = u_k(r) · e^{ik·r}\n    where u_k has lattice periodicity.\n\n    → Energy bands E_n(k) for each band n\n    → Band gaps where no allowed E_k states exist\n\n    Fermi level E_F placement determines class:\n    ┌─────────────────────────────────────────────────────┐\n    │                                                     │\n    │  E_F in partially filled band → METAL               │\n    │  (Fe, Cu, Al: high σ_e, free electrons)             │\n    │                                                     │\n    │  E_F in gap, small gap (< 2 eV) → SEMICONDUCTOR     │\n    │  (Si: 1.1 eV, Ge: 0.67 eV, GaAs: 1.43 eV)           │\n    │  Thermally excited carriers, doping shifts E_F      │\n    │                                                     │\n    │  E_F in large gap (> 3 eV) → INSULATOR              │\n    │  (SiO₂: 9 eV, Al₂O₃: 7 eV, diamond: 5.5 eV)         │\n    │                                                     │\n    └─────────────────────────────────────────────────────┘\n\n    Conductivity: σ = n·e·μ = n·e²·τ/m*\n      n = carrier density (from Fermi-Dirac + DOS)\n      μ = drift mobility (limited by scattering: phonon, impurity)\n      τ = mean free time between scattering events\n      m* = effective mass = ℏ²/(d²E/dk²) at band extremum",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 280,
+      "heading_context": "## Materials Selection Methodology (Ashby Method)",
+      "confidence": "candidate",
+      "text": "### Step 1: Define Function, Constraints, Objectives, Free Variables",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 282,
+      "heading_context": "### Step 1: Define Function, Constraints, Objectives, Free Variables",
+      "confidence": "candidate",
+      "text": "    FUNCTION:     What does the component do?\n                  → \"bear tensile load\", \"act as thermal insulator\",\n                    \"transmit electromagnetic radiation\"\n\n    CONSTRAINTS:  Non-negotiable limits:\n                  → must survive T > 800°C\n                  → must be sterilizable (autoclave at 134°C)\n                  → must be optically transparent at λ = 532 nm\n                  → cost < $50/kg\n\n    OBJECTIVES:   What to optimize:\n                  → minimize mass, minimize cost, maximize lifetime,\n                    maximize thermal efficiency\n\n    FREE VARS:    What you can choose:\n                  → material family and grade\n                  → geometry (shape factor φ incorporates I-beam, etc.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 302,
+      "heading_context": "### Step 1: Define Function, Constraints, Objectives, Free Variables",
+      "confidence": "candidate",
+      "text": "### Step 2: Derive Performance Index",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "### Step 2: Derive Performance Index",
+      "confidence": "candidate",
+      "text": "    Stiffness requirement: F/δ = EA/L ≥ S_required  → A ≥ SL/E\n    Mass:                  m = ρAL ≥ ρSL²/E\n    Minimize mass          → maximize E/ρ\n\n    Performance index M_I = E/ρ\n\n    In Ashby E-ρ chart: draw line E/ρ = const (slope 1 on log-log)\n    All materials on or above this line meet stiffness at same or less mass.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 319,
+      "heading_context": "### Step 2: Derive Performance Index",
+      "confidence": "candidate",
+      "text": "    EI/L³ ≥ C for stiffness, I = bh³/12, m = ρbhL\n    Solve: minimize ρ/E^(1/2) → maximize E^(1/2)/ρ  (slope 2 on log-log)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 326,
+      "heading_context": "### Step 2: Derive Performance Index",
+      "confidence": "candidate",
+      "text": "    maximize E^(1/3)/ρ  (slope 3 on log-log)\n    → CFRP and foams can beat metals for panels",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 331,
+      "heading_context": "### Step 2: Derive Performance Index",
+      "confidence": "candidate",
+      "text": "### Step 3: Screen for Constraints",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 338,
+      "heading_context": "### Step 3: Screen for Constraints",
+      "confidence": "candidate",
+      "text": "### Step 4: Rank Survivors by Objective",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 461,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "- You can have hard+brittle (glass: high HV, low K_IC), tough+soft (annealed copper), stiff+brittle (SiC: high E, low K_IC).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

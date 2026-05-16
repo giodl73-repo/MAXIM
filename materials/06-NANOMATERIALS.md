@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials:nanomaterials
+kind: guide
+module: materials
+section: materials
+title: Nanomaterials and Quantum Confinement
+status: source-custody
+source_custody: partial
+current_path: materials/06-NANOMATERIALS.md
+canonical_path: materials/06-NANOMATERIALS.md
+backsource_ids: [proof-backfill:materials:06-nanomaterials, git-history:materials:06-nanomaterials]
+concepts: [nanomaterials]
+root_concepts: [nanomaterials]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nanomaterials and Quantum Confinement
 
 ## The Big Picture

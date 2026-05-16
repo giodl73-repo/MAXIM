@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:neuroscience:neurons-signals
+kind: guide
+module: neuroscience
+section: neuroscience
+title: Neurons and Signals - Biophysics of Neural Signaling
+status: source-custody
+source_custody: partial
+current_path: neuroscience/01-NEURONS-SIGNALS.md
+canonical_path: neuroscience/01-NEURONS-SIGNALS.md
+backsource_ids: [proof-backfill:neuroscience:01-neurons-signals, git-history:neuroscience:01-neurons-signals]
+concepts: [neurons, signals]
+root_concepts: [neurons, signals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Neurons and Signals — Biophysics of Neural Signaling
 
 ## The Big Picture

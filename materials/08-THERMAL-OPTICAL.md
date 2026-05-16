@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:materials:thermal-optical
+kind: guide
+module: materials
+section: materials
+title: Thermal and Optical Properties of Materials
+status: source-custody
+source_custody: partial
+current_path: materials/08-THERMAL-OPTICAL.md
+canonical_path: materials/08-THERMAL-OPTICAL.md
+backsource_ids: [proof-backfill:materials:08-thermal-optical, git-history:materials:08-thermal-optical]
+concepts: [thermal, optical]
+root_concepts: [thermal, optical]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Thermal and Optical Properties of Materials
 
 ## The Big Picture
@@ -12,11 +31,9 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
   │ (lattice vibrations)│    │ (electronic excitations) │
   └────────┬──────┬─────┘    └──────┬──────┬────────────┘
            │      │                  │      │
-    ┌──────▼──┐ ┌─▼──────────┐ ┌────▼───┐ ┌▼─────────────┐
-    │ THERMAL │ │ IR PHONON   │ │THERMAL │ │ OPTICAL     │
-    │ CONDUCT.│ │ ABSORPTION  │ │CONDUCT.│ │ ABSORPTION  │
-    │ κ_ph    │ │ (Reststrahl)│ │ κ_el   │ │ (interband) │
-    └────┬────┘ └──────┬──────┘ └───┬────┘ └──────┬────────┘
+    [THERMAL]     [IR PHONON]     [THERMAL]     [OPTICAL]
+    [CONDUCT.]    [ABSORPTION]    [CONDUCT.]    [ABSORPTION]
+    [κ_ph]        [(Reststrahl)]  [κ_el]        [(interband)]
          │             │            │              │
          └──────┬──────┘            └──────┬───────┘
                 │                          │
@@ -30,7 +47,7 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
                │                           │
     ┌──────────▼───────────────────────────▼──────────────┐
     │  DEVICE APPLICATIONS                                │
-    │  CPU cooling (κ_th) · Telecom fiber (low α at 1550nm)│
+    │  CPU cooling (κ_th) · Telecom fiber (low α, 1550nm) │
     │  Photovoltaics (bandgap absorption) · TBC coatings  │
     │  Thermal imaging (emissivity) · LED phosphors       │
     └─────────────────────────────────────────────────────┘
@@ -304,7 +321,7 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
   DIRECT vs INDIRECT BANDGAP:
   ┌─────────────────────────────────────────────────────────────────────────┐
   │  DIRECT (GaAs, InP, GaN, InGaAs, CdTe):                                 │
-  │    Conduction band minimum directly above valence band maximum in k-space│
+  │    Conduction band min directly above valence band max in k-space       │
   │    E-k: both extrema at k=0 (Γ point)                                   │
   │    Photon absorption/emission: momentum conserved with k_photon ≈ 0     │
   │    → efficient light emission; high absorption coefficient near E_g     │

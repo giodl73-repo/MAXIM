@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "neuroscience\\03-COGNITION-COMPUTATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "    COGNITIVE NEUROSCIENCE LANDSCAPE\n    ══════════════════════════════════════════════════════════\n\n    COMPUTATIONAL APPROACHES TO MIND:\n    ┌──────────────────────────────────────────────────────┐\n    │ Attractor networks (Hopfield, Hopfield→Kanerva)      │\n    │ Statistical physics approach to memory               │\n    ├──────────────────────────────────────────────────────┤\n    │ Predictive coding / Free Energy Principle (Friston)  │\n    │ Perception = Bayesian inference                      │\n    ├──────────────────────────────────────────────────────┤\n    │ Decision theory: drift-diffusion model               │\n    │ Speed-accuracy tradeoff quantified                   │\n    ├──────────────────────────────────────────────────────┤\n    │ Reinforcement learning in brain:                     │\n    │ Dopamine = temporal difference error                 │\n    ├──────────────────────────────────────────────────────┤\n    │ Working memory: persistent activity in PFC           │\n    │ Limited by ~4 chunks, active maintenance             │\n    ├──────────────────────────────────────────────────────┤\n    │ Attention: spotlight modulation, FEF/IPS control     │\n    │ → transformer self-attention analogy                 │\n    ├──────────────────────────────────────────────────────┤\n    │ Consciousness: GWT, IIT, predictive processing       │\n    └──────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "### Hebbian Weight Storage",
+      "confidence": "candidate",
+      "text": "    Connection to Ising model (statistical physics):\n    Ising Hamiltonian: H = -Σ_{i<j} J_ij σ_i σ_j - h Σ_i σ_i\n    Hopfield E = -½Σ w_ij s_i s_j  (same form, h=0, J=w/2, σ=s)\n\n    TAP (Thouless-Anderson-Palmer) equations:\n    Connection to spin glass mean-field theory\n    Hopfield = spin glass with structured J_ij (not random)\n\n    CAPACITY:\n    For random patterns, reliable retrieval when M < α_c N\n    α_c ≈ 0.138 (from statistical physics / replica method)\n    → Can store ~0.14N patterns in N-neuron network\n    Above capacity: \"retrieval\" states merge, lose pattern specificity\n\n    Example: N = 10,000 neurons → can store ~1400 patterns\n    Human visual cortex (16×10⁹ neurons): ~2×10⁹ \"patterns\" (oversimplified!)\n\n    Overlap measure: m^μ = (1/N)Σ_i ξ_i^μ s_i\n    At attractor for pattern μ: m^μ ≈ 1 (fully retrieved)\n    During retrieval: m^μ grows from initial noisy value to ≈1\n    Spurious states: mixtures of patterns (spin glass \"metastable states\")",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 102,
+      "heading_context": "### Hebbian Weight Storage",
+      "confidence": "candidate",
+      "text": "### CA3 as Attractor Memory",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "### CA3 as Attractor Memory",
+      "confidence": "candidate",
+      "text": "    Hippocampal CA3 properties match Hopfield model:\n    Recurrent collaterals (large): ~3M recurrent synapses per CA3 cell (in rat)\n    Sparse activity (~3%): consistent with optimal Hopfield capacity scaling\n    Pattern completion: partial input → full memory retrieved\n    Experimental: lesion CA3 → impairs completion of fragmented memory cues\n    Computational: O'Reilly & McClelland model CA3 as auto-associative Hopfield net\n\n    Extension: Kanerva's sparse distributed memory (SDM)\n    Address space is large and random patterns → sparse read/write\n    Better model of hippocampus + neocortex interaction?\n    → Connect to: modern transformer attention is related to SDM (Ramsauer et al. 2020)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 129,
+      "heading_context": "### The Helmholtz Inference Machine",
+      "confidence": "candidate",
+      "text": "    Higher cortex generates predictions about lower-level activity:\n    High level:  r₃ = hidden state of world\n    Predictions: ↓ (descending: what we EXPECT to see)\n    Prediction errors: ↑ (ascending: what SURPRISES us)\n\n    Level 3 (e.g., PFC):   representation r₃, predicts r₂\n         ↓ predictions\n    Level 2 (e.g., V5/MT):  r₂, predicts r₁\n         ↓ predictions\n    Level 1 (e.g., V1):    r₁, predicts sensory input s\n         ↓ predictions\n    Sensory input (retina): s\n\n    Prediction error computation:\n    ε_i = s_i - Σ_j w_ij r_j  (error = data - prediction)\n    Errors propagate UP, predictions propagate DOWN\n\n    Learning: update representations and weights to minimize prediction errors\n    → This IS the brain's goal: reduce surprise, optimize predictions",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 151,
+      "heading_context": "### The Helmholtz Inference Machine",
+      "confidence": "candidate",
+      "text": "### Rao-Ballard Predictive Coding Model (1999)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "### Rao-Ballard Predictive Coding Model (1999)",
+      "confidence": "candidate",
+      "text": "    Biological implementation:\n    Prediction neurons (deep layers 2/3, layer 6): send top-down predictions\n    Error neurons (superficial layers 2/3): encode prediction error, send up\n    This matches the layer-specific connectivity of cortex!\n    Layer 6 → layer 4 (top-down feedback)\n    Layer 2/3 → higher areas (feedforward)\n\n    Experimental support:\n    Repetition suppression: repeated stimuli → reduced V1 response\n    (prediction perfectly formed → small error → less activity)\n    Mismatch negativity (MMN): EEG component to unexpected deviant tone\n    (prediction error propagates to auditory cortex)\n    Predictive code in V1: surround suppression = spatial prediction\n    (center response reduced by surround = predicted context)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "### Variational Free Energy",
+      "confidence": "candidate",
+      "text": "    FREE ENERGY = SURPRISE bound ≥ actual surprise\n    Minimizing F = minimizing expected surprise\n                 = maintaining homeostasis (same thing!)\n\n    Two ways to minimize F:\n    1. Update internal model q(z) to match sensory input (PERCEPTION/LEARNING)\n    2. Change sensory input by acting (ACTION)\n\n    Reflex: spinal cord minimizes F locally (proprioceptive prediction errors → muscle action)\n    Voluntary movement: high-level predictions generate proprioceptive predictions → motor action\n    No separate motor commands: action IS prediction error minimization\n\n    Variational Bayes interpretation:\n    F = KL[q(z)||p(z|x)] - log p(x)\n      = -ELBO (Evidence Lower BOund from VAEs!)\n    → Connect to ai-engineering/VAE: same math, same structure\n    FEP says brain does approximate Bayesian inference via ELBO optimization\n    → Not just a metaphor — exact same mathematical framework",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "## Bayesian Brain",
+      "confidence": "candidate",
+      "text": "    Prior p(world): what the brain EXPECTS based on past experience\n    Likelihood p(data|world): what sensory data is consistent with that world state\n    Posterior p(world|data): belief about world state AFTER seeing data\n\n    Cue combination (Ernst & Banks 2002, vision + touch):\n    Two independent estimates, ẑ₁ (visual, σ₁²) and ẑ₂ (haptic, σ₂²)\n    Optimal combination: ẑ = (ẑ₁/σ₁² + ẑ₂/σ₂²) / (1/σ₁² + 1/σ₂²)\n    Variance: σ² = 1/(1/σ₁² + 1/σ₂²)\n    Human behavior matches this prediction → brain computes optimal Bayesian estimate\n\n    Visual illusions = prior dominating:\n    Hollow face illusion: prior (faces are convex) overrides actual depth cues\n    Brightness illusions: prior (uniform illumination) affects perceived lightness\n    Size-weight illusion: heavy priors from visual size → misestimate weight\n    Motion in pictures: prior (retinal motion = object motion, not eye motion)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 261,
+      "heading_context": "## Drift-Diffusion Model (DDM) for Decision Making",
+      "confidence": "candidate",
+      "text": "    First passage time T to reach ±θ → reaction time distribution.\n\n    Key results:\n    Mean RT = θ/μ × tanh(μθ/σ²)   (for 0 start)\n    Error rate = 1/(1 + exp(2μθ/σ²))  (logistic function of signal/noise)\n\n    Speed-accuracy tradeoff:\n    Wide boundaries (large θ): slower, more accurate\n    Narrow boundaries (small θ): faster, more errors\n    → \"Response caution\" or \"urgency\" is a single parameter θ\n\n    Neural evidence:\n    LIP (lateral intraparietal cortex) neurons in monkey:\n    Firing rate builds during motion discrimination task\n    Rate increases approximately linearly until threshold → decision\n    Rate = accumulated sensory evidence (matches X in DDM)\n    Threshold crossing → saccadic eye movement decision\n\n    Urgency signal: μ can vary during trial (start low, increase as deadline approaches)\n    Non-stationary DDM needed for time-pressure paradigms",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 292,
+      "heading_context": "### Dopamine as Temporal Difference Error",
+      "confidence": "candidate",
+      "text": "    Initial: Reward delivered unexpectedly\n    DA neurons: fire at time of REWARD (unexpected = large positive error)\n\n    After training: conditioned stimulus (CS) predicts reward reliably\n    CS onset:  DA neurons FIRE (now CS is the surprise, predicts reward)\n    Reward time: DA neurons UNCHANGED (expected reward = no error)\n\n    Omission of expected reward:\n    CS onset: DA neurons fire (as before)\n    Reward time: DA neurons PAUSE (below baseline = negative prediction error)\n\n    This is exactly the TD error:\n    δ_t = r_t + γV(s_{t+1}) - V(s_t)\n    Unexpected reward:   δ > 0 → DA fires\n    Expected reward:     δ ≈ 0 → DA baseline\n    Omitted reward:      δ < 0 → DA pauses\n\n    Exact mathematical connection to TD learning:\n    DA neurons compute δ_t = r_t + γV(s') - V(s)\n    V(s) = value function (expected future reward from state s)\n    Striatum = V(s) (value function implemented by striatal neurons)\n    OFC = model-based V(s) (Daw et al. 2005: dual system)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 319,
+      "heading_context": "### Model-Free vs Model-Based RL in the Brain",
+      "confidence": "candidate",
+      "text": "    MODEL-FREE (habit system, striatum):\n    TD learning: update V(s) after each transition\n    Slow to adapt to reward changes\n    Computationally cheap: no model required\n    Striatal lesions: disrupt reward-based learning\n\n    MODEL-BASED (goal-directed system, PFC + hippocampus):\n    Maintain model of environment: P(s'|s,a) and R(s,a)\n    Plan using mental simulation (forward model)\n    Adapt quickly to reward changes\n    OFC + DLPFC: track outcome identities and values\n\n    ARBITRATION (Daw et al. 2005):\n    Brain uses reliability to switch between systems\n    High model uncertainty → use model-free\n    Low uncertainty → use model-based\n    Prefrontal cortex arbitrates based on uncertainty\n\n    Implications for addiction:\n    Drugs override both systems: hijack DA reward signal\n    → Over-value drug-associated states\n    → Habits shift control to model-free striatum\n    → Impaired inhibitory control from PFC\n    → Three-stage model: impulsivity → compulsivity → habit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 354,
+      "heading_context": "### Fuster-Goldman-Rakic Paradigm",
+      "confidence": "candidate",
+      "text": "    PFC neuron activity during delayed match-to-sample:\n    Sample on:   neurons fire selectively (preferred object/direction)\n    Delay:       SAME neurons continue firing at elevated rate\n    Test on:     response if match; no response if non-match\n    → Activity \"bridges the temporal gap\" = short-term memory buffer\n\n    Mechanisms of persistent activity:\n    1. Recurrent excitation: attractor state (bump attractor in ring model)\n       Self-sustaining activity via excitatory recurrent connections\n       Network → stable \"memory\" state after input removed\n       Destabilized by distractors → memory loss\n\n    2. Intrinsic bistability: single neurons with two stable states\n       Persistent activity maintained by Ca²⁺-activated conductances\n       Plateau potentials (in some PFC neurons)\n\n    3. Synaptic facilitation: short-term enhancement\n       Activity leaves \"trace\" in enhanced synaptic weights\n       Works for seconds; no spike required during all of delay\n\n    Capacity (~4 chunks):\n    Miller (1956): \"magic number 7 ± 2\" (short-term memory spans)\n    Cowan (2001): true working memory capacity ≈ 4 chunks\n    Explanation from attractor model: multiple bumps of activity in PFC\n    Bump = one item; maximum stable bumps = ~4 (due to competition)\n\n    Individual differences in WM capacity correlate with:\n    PFC volume, dopamine D1/D2 balance, COMT genotype (Val158Met)\n    → WM capacity predicts fluid intelligence, academic performance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 392,
+      "heading_context": "### Spatial Attention: Posner and Feature-Based Attention",
+      "confidence": "candidate",
+      "text": "    POSNER CUEING PARADIGM (1980):\n    Valid cue (80%): cue → target at cued location → fast RT\n    Invalid cue (20%): cue → target opposite location → slow RT\n\n    Neural correlates:\n    FEF (frontal eye field) + IPS (intraparietal sulcus): voluntary attention control\n    SC (superior colliculus): reflexive attention to sudden onset\n    Pulvinar (thalamus): attentional gating between cortical areas\n\n    GAIN MODULATION:\n    Attention doesn't add a constant to response, it MULTIPLIES baseline\n    Attended location → V1/V2/V4 neurons fire more to same stimulus\n    Unattended → same neuron fires less\n    Δ = attention gain × contrast response function (Moran & Desimone 1985)\n\n    FEATURE-BASED ATTENTION:\n    Attend to color red → V4 neurons preferring red fire more everywhere in visual field\n    Attend to vertical orientation → V1 neurons preferring vertical enhanced\n    Top-down biasing: search representation in IT/PFC → bias matching features globally\n\n    Connection to self-attention in transformers:\n    Q (query) = top-down attention representation\n    K (key) = feature representations in sensory areas\n    V (value) = actual neural response to be weighted\n    Similarity(Q,K) → attention weight → weighted sum of V\n    Both biological and transformer attention = selecting relevant content from stored representations\n    But biological attention is gain modulation (multiplicative), not pure softmax",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 428,
+      "heading_context": "### Global Workspace Theory (Dehaene)",
+      "confidence": "candidate",
+      "text": "    TWO CLASSES OF NEURAL PROCESSES:\n    1. Unconscious: local, modular, automatic (most visual processing, motor habits)\n    2. Conscious: global, integrated, flexible (language, reasoning, working memory)\n\n    GLOBAL WORKSPACE ARCHITECTURE:\n    Sensory modules (V1, auditory, etc.) → compete for access to global workspace\n    Winner broadcasts to all of cortex via long-range neurons (especially L2/3)\n    Global broadcast = conscious awareness\n\n    NEURAL IGNITION:\n    When stimulus crosses threshold: local activation (unconscious)\n    + late (>300ms) ignition of frontoparietal network → P3b ERP → conscious report\n    Visible vs invisible stimuli: same early V1 response, different ignition\n\n    Predictions:\n    Consciousness requires frontoparietal network (not just local area)\n    Content of consciousness = what's in global workspace\n    Attention + working memory = gates to workspace\n\n    GWT in AI terms:\n    Global workspace ≈ KV cache + attention mechanism\n    Modules broadcasting = different retrieval heads\n    The \"ignition\" has no clear transformer analog",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 456,
+      "heading_context": "### Integrated Information Theory (Tononi)",
+      "confidence": "candidate",
+      "text": "    CORE MEASURE: Φ (phi) = amount of integrated information\n    Φ = irreducibility of a system's causal structure\n    High Φ = system that generates more information as a whole than sum of parts\n\n    Formal (IIT 3.0):\n    Φ = D_KL(current system state || product of parts' states)\n    Must minimize over all bipartitions MIP (minimum information partition)\n    Φ > 0 iff system cannot be cut without information loss\n\n    AXIOMS (intrinsic causation, composition, information, integration, exclusion)\n    → Imply: Φ > 0 for every conscious experience\n    Consciousness = Φ (not just \"correlates with\" Φ)\n    Panel of experts 2023: awarded $500K, found IIT unlikely correct (adversarial collaboration)\n\n    Controversial predictions:\n    Feedforward networks: Φ = 0 (no integration) → NOT conscious\n    Cerebellum (many parallel fibers, little integration): low Φ\n    This is consistent with: cerebellar lesions don't affect consciousness\n    But: calculating Φ is NP-hard → can't actually compute for real systems",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

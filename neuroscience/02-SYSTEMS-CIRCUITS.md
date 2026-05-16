@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:neuroscience:systems-circuits
+kind: guide
+module: neuroscience
+section: neuroscience
+title: Neural Systems and Circuits
+status: source-custody
+source_custody: partial
+current_path: neuroscience/02-SYSTEMS-CIRCUITS.md
+canonical_path: neuroscience/02-SYSTEMS-CIRCUITS.md
+backsource_ids: [proof-backfill:neuroscience:02-systems-circuits, git-history:neuroscience:02-systems-circuits]
+concepts: [systems, circuits]
+root_concepts: [systems, circuits]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Neural Systems and Circuits
 
 ## The Big Picture
@@ -311,22 +330,25 @@ This maps to: N runnable processes → scheduler selects highest-priority → ot
 ### Circuit Anatomy
 
 ```
-    ┌─────────────────────────────────────────────────────────────┐
-    │  HIPPOCAMPAL CIRCUIT                                        │
-    │                                                             │
-    │  ENTORHINAL CORTEX (EC) ─────────────────────────────┐      │
-    │  (Layer II → DG, CA3)  ┌─────────────────┐          │       │
-    │  (Layer III → CA1)     │                 │          │       │
-    │                        ▼                 ▼          │       │
-    │  DG (Dentate Gyrus)→ CA3 ──[Schaffer]→ CA1 ──→ Subiculum ──┤ │
-    │  (granule cells)  (mossy)   collaterals    │                │ │
-    │       │           (CA3                     ▼                │ │
-    │       │           recurrent)          EC Layer V            │ │
-    │       ▼                                    │                │ │
-    │  High expansion:                     Neocortex ←────────────┘ │
-    │  ~200,000 → 1M GCs                   (memory consolidation) │
-    └─────────────────────────────────────────────────────────────┘
+    HIPPOCAMPAL CIRCUIT
 
+    Entorhinal cortex (EC)
+      Layer II → dentate gyrus (DG) and CA3
+      Layer III → CA1
+
+    DG (dentate gyrus; granule cells)
+      → CA3 via mossy fibers
+      → high expansion: ~200,000 inputs to ~1M granule cells
+
+    CA3
+      → CA3 recurrent collaterals
+      → CA1 via Schaffer collaterals
+
+    CA1
+      → Subiculum
+      → EC Layer V
+      → Neocortex (memory consolidation)
+```
     DG: pattern separation (orthogonalize similar inputs → distinct representations)
     ~95% sparsity: most cells silent most of time
     Adult neurogenesis in DG (mice confirmed; humans controversial)
