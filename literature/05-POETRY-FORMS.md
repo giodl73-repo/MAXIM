@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:literature:poetry-forms
+kind: guide
+module: literature
+section: literature
+title: Poetry Forms and Prosody
+status: source-custody
+source_custody: partial
+current_path: literature/05-POETRY-FORMS.md
+canonical_path: literature/05-POETRY-FORMS.md
+backsource_ids: [proof-backfill:literature:05-poetry-forms, git-history:literature:05-poetry-forms]
+concepts: [poetry, forms]
+root_concepts: [poetry, forms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Poetry Forms and Prosody
 
 ## The Big Picture
@@ -36,7 +55,6 @@ Prosody is the formal study of poetic meter, rhythm, and sound. Poetry is langua
 |                 prosodic        tradition         Ginsberg        |
 |                 constraints                                      |
 +------------------------------------------------------------------+
-```
 
 ---
 

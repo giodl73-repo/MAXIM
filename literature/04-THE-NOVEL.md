@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:literature:the-novel
+kind: guide
+module: literature
+section: literature
+title: The Novel
+status: source-custody
+source_custody: partial
+current_path: literature/04-THE-NOVEL.md
+canonical_path: literature/04-THE-NOVEL.md
+backsource_ids: [proof-backfill:literature:04-the-novel, git-history:literature:04-the-novel]
+concepts: [the, novel]
+root_concepts: [the, novel]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Novel
 
 ## The Big Picture

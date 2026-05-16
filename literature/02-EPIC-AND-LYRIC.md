@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:literature:epic-and-lyric
+kind: guide
+module: literature
+section: literature
+title: Epic and Lyric
+status: source-custody
+source_custody: partial
+current_path: literature/02-EPIC-AND-LYRIC.md
+canonical_path: literature/02-EPIC-AND-LYRIC.md
+backsource_ids: [proof-backfill:literature:02-epic-and-lyric, git-history:literature:02-epic-and-lyric]
+concepts: [epic, and, lyric]
+root_concepts: [epic, and]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Epic and Lyric
 
 ## The Big Picture

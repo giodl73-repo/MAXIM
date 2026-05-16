@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:literature:drama
+kind: guide
+module: literature
+section: literature
+title: Drama
+status: source-custody
+source_custody: partial
+current_path: literature/03-DRAMA.md
+canonical_path: literature/03-DRAMA.md
+backsource_ids: [proof-backfill:literature:03-drama, git-history:literature:03-drama]
+concepts: [drama]
+root_concepts: [drama]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Drama
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:theater-performance:greek-origins
+kind: guide
+module: theater-performance
+section: theater-performance
+title: Greek Origins of Theater
+status: source-custody
+source_custody: partial
+current_path: theater-performance/01-GREEK-ORIGINS.md
+canonical_path: theater-performance/01-GREEK-ORIGINS.md
+backsource_ids: [proof-backfill:theater-performance:01-greek-origins, git-history:theater-performance:01-greek-origins]
+concepts: [greek, origins]
+root_concepts: [greek, origins]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Greek Origins of Theater
 
 ## The Big Picture
@@ -131,7 +150,7 @@ THEATER OF DIONYSUS — PHYSICAL LAYOUT
               |       SKENE       |
               |  (stage building) |
               |   3 doors; used   |
-              | for exits/entrances|
+              |for exits/entrances|
               +-------------------+
 
 WHAT HAPPENED WHERE:

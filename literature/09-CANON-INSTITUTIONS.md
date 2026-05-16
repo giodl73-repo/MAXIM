@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:literature:canon-institutions
+kind: guide
+module: literature
+section: literature
+title: Canon Formation and Literary Institutions
+status: source-custody
+source_custody: partial
+current_path: literature/09-CANON-INSTITUTIONS.md
+canonical_path: literature/09-CANON-INSTITUTIONS.md
+backsource_ids: [proof-backfill:literature:09-canon-institutions, git-history:literature:09-canon-institutions]
+concepts: [canon, institutions]
+root_concepts: [canon, institutions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Canon Formation and Literary Institutions
 
 ## The Big Picture

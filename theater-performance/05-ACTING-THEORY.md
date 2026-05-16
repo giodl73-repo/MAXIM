@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:theater-performance:acting-theory
+kind: guide
+module: theater-performance
+section: theater-performance
+title: Acting Theory and Training
+status: source-custody
+source_custody: partial
+current_path: theater-performance/05-ACTING-THEORY.md
+canonical_path: theater-performance/05-ACTING-THEORY.md
+backsource_ids: [proof-backfill:theater-performance:05-acting-theory, git-history:theater-performance:05-acting-theory]
+concepts: [acting, theory]
+root_concepts: [acting, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Acting Theory and Training
 
 ## The Big Picture

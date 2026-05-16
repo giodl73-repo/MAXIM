@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:theater-performance:modern-drama
+kind: guide
+module: theater-performance
+section: theater-performance
+title: Modern Drama
+status: source-custody
+source_custody: partial
+current_path: theater-performance/04-MODERN-DRAMA.md
+canonical_path: theater-performance/04-MODERN-DRAMA.md
+backsource_ids: [proof-backfill:theater-performance:04-modern-drama, git-history:theater-performance:04-modern-drama]
+concepts: [modern, drama]
+root_concepts: [modern, drama]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Drama
 
 ## The Big Picture

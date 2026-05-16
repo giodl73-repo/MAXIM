@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:theater-performance:dance
+kind: guide
+module: theater-performance
+section: theater-performance
+title: Dance
+status: source-custody
+source_custody: partial
+current_path: theater-performance/08-DANCE.md
+canonical_path: theater-performance/08-DANCE.md
+backsource_ids: [proof-backfill:theater-performance:08-dance, git-history:theater-performance:08-dance]
+concepts: [dance]
+root_concepts: [dance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Dance
 
 ## The Big Picture

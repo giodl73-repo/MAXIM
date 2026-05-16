@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:literature:world-literature
+kind: guide
+module: literature
+section: literature
+title: World Literature
+status: source-custody
+source_custody: partial
+current_path: literature/06-WORLD-LITERATURE.md
+canonical_path: literature/06-WORLD-LITERATURE.md
+backsource_ids: [proof-backfill:literature:06-world-literature, git-history:literature:06-world-literature]
+concepts: [world, literature]
+root_concepts: [world, literature]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # World Literature
 
 ## The Big Picture
@@ -505,7 +524,7 @@ MURASAKI SHIKIBU: Genji Monogatari (c. 1000-1010 CE)
     - Social world as the medium of the narrative
     - Free indirect discourse (the narrator slides into character POV)
   54 chapters; ~1,000 named characters.
-  Mono no aware (物の哀れ): "the pathos of things" — the melancholy
+  Mono no aware: "the pathos of things" — the melancholy
   beauty of impermanence. The aesthetic is structurally Buddhist:
   beauty intensified by its transience.
   Formal innovation: the narrative has no clear climax and
@@ -528,25 +547,25 @@ HAIKU — THE FORMAL STRUCTURE
 
   FORMAL CONSTRAINTS:
     5 / 7 / 5 on (Japanese sound units, ≠ English syllables)
-    Kigo (季語): seasonal reference word (spring = cherry blossoms;
+    Kigo: seasonal reference word (spring = cherry blossoms;
       autumn = harvest moon; winter = snow; etc.)
       Every haiku is indexed to a season.
-    Kireji (切れ字): "cutting word" — a syntactic break that
+    Kireji: "cutting word" — a syntactic break that
       juxtaposes two images or perceptions.
       In English translation: often rendered as em-dash or line break.
 
   FORMAL ANALYSIS:
     The kireji is a discontinuity operator. The haiku is not
     a unified image but a juxtaposition: image A | image B.
-    Meaning arises in the gap (ma, 間 — interval/pause).
+    Meaning arises in the gap (ma — interval/pause).
     The reader performs the semantic connection.
     This is not ellipsis (missing content) but a formal feature:
     the poem IS the gap.
 
   BASHO'S FROG HAIKU (the canonical example):
-    古池や (furuike ya)     — old pond / [kireji]
-    蛙飛び込む (kawazu tobikomu) — frog jumps in
-    水の音 (mizu no oto)   — sound of water
+    furuike ya           — old pond / [kireji]
+    kawazu tobikomu      — frog jumps in
+    mizu no oto          — sound of water
     The kireji after "old pond" creates the juxtaposition.
     The sound follows the silence of the old pond.
     The meaning is the relationship between stillness and

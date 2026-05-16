@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:literature:narrative-theory
+kind: guide
+module: literature
+section: literature
+title: Narrative Theory
+status: source-custody
+source_custody: partial
+current_path: literature/01-NARRATIVE-THEORY.md
+canonical_path: literature/01-NARRATIVE-THEORY.md
+backsource_ids: [proof-backfill:literature:01-narrative-theory, git-history:literature:01-narrative-theory]
+concepts: [narrative, theory]
+root_concepts: [narrative, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Narrative Theory
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:theater-performance:roman-medieval
+kind: guide
+module: theater-performance
+section: theater-performance
+title: Roman and Medieval Theater
+status: source-custody
+source_custody: partial
+current_path: theater-performance/02-ROMAN-MEDIEVAL.md
+canonical_path: theater-performance/02-ROMAN-MEDIEVAL.md
+backsource_ids: [proof-backfill:theater-performance:02-roman-medieval, git-history:theater-performance:02-roman-medieval]
+concepts: [roman, medieval]
+root_concepts: [roman, medieval]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Roman and Medieval Theater
 
 ## The Big Picture

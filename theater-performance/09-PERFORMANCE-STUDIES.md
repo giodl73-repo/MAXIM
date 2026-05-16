@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:theater-performance:performance-studies
+kind: guide
+module: theater-performance
+section: theater-performance
+title: Performance Studies
+status: source-custody
+source_custody: partial
+current_path: theater-performance/09-PERFORMANCE-STUDIES.md
+canonical_path: theater-performance/09-PERFORMANCE-STUDIES.md
+backsource_ids: [proof-backfill:theater-performance:09-performance-studies, git-history:theater-performance:09-performance-studies]
+concepts: [performance, studies]
+root_concepts: [performance, studies]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Performance Studies
 
 ## The Big Picture

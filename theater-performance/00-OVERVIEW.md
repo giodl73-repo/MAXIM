@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:theater-performance:overview
+kind: guide
+module: theater-performance
+section: theater-performance
+title: Theater and Performance - Overview and Landscape
+status: source-custody
+source_custody: partial
+current_path: theater-performance/00-OVERVIEW.md
+canonical_path: theater-performance/00-OVERVIEW.md
+backsource_ids: [proof-backfill:theater-performance:00-overview, git-history:theater-performance:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Theater and Performance — Overview and Landscape
 
 ## The Big Picture
