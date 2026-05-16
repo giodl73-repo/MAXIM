@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:paleontology:vertebrate-evolution
+kind: guide
+module: paleontology
+section: paleontology
+title: Vertebrate Evolution - Fish to Tetrapod, Amniote Diversification, Mammal-Like Reptiles, Bird Origins
+status: source-custody
+source_custody: partial
+current_path: paleontology/08-VERTEBRATE-EVOLUTION.md
+canonical_path: paleontology/08-VERTEBRATE-EVOLUTION.md
+backsource_ids: [proof-backfill:paleontology:08-vertebrate-evolution, git-history:paleontology:08-vertebrate-evolution]
+concepts: [vertebrate, evolution]
+root_concepts: [vertebrate, evolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Vertebrate Evolution — Fish to Tetrapod, Amniote Diversification, Mammal-Like Reptiles, Bird Origins
 
 ## The Big Picture
@@ -155,7 +174,7 @@ SARCOPTERYGII (lobe-finned fish) — OUR LINEAGE:
 ANATOMICAL CHANGES REQUIRED:
   ┌─────────────────────────────────────────────────────────┐
   │ FISH (aquatic)        →    TETRAPOD (terrestrial)       │
-  ├──────────────────────────────────────────────────────────┤
+  ├─────────────────────────────────────────────────────────┤
   │ Paired fins           →    Four limbs with digits        │
   │ Notochord             →    Vertebral column with sacrum  │
   │ Gill respiration      →    Lung respiration              │

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\02-MODULAR-ARITHMETIC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|              MODULAR ARITHMETIC — THE RING Z/nZ                    |\n+====================================================================+\n|                                                                    |\n|  Z/nZ = {0, 1, 2, ..., n-1} with + and × defined mod n           |\n|                                                                    |\n|  STRUCTURE DEPENDS ON n:                                          |\n|                                                                    |\n|  n = p (prime)           n = p^k              n composite         |\n|  +-----------------+    +------------------+ +------------------+ |\n|  |Z/pZ is a FIELD  |    |Z/p^kZ is a ring  | |Z/nZ is a ring    | |\n|  |every nonzero    |    |not a field       | |may have zero     | |\n|  |element has      |    |(p is a zero      | |divisors          | |\n|  |multiplicative   |    |divisor mod p^k   | |e.g. 2·3≡0(mod 6) | |\n|  |inverse          |    |but not a unit)   | |                  | |\n|  +-----------------+    +------------------+ +------------------+ |\n|          |                                           |            |\n|          v                                           v            |\n|  (Z/pZ)* is cyclic               CRT: Z/mnZ ≅ Z/mZ × Z/nZ       |\n|  order p-1                       when gcd(m,n)=1                  |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Congruences",
+      "confidence": "candidate",
+      "text": "a ≡ b (mod n)  ⟺  n | (a - b)  ⟺  a = b + kn for some k ∈ Z\n\nEquivalence relation:\n  Reflexive:   a ≡ a (mod n)\n  Symmetric:   a ≡ b → b ≡ a\n  Transitive:  a ≡ b, b ≡ c → a ≡ c\n\nCongruences respect + and ×:\n  If a ≡ b (mod n) and c ≡ d (mod n), then:\n  a + c ≡ b + d (mod n)\n  a · c ≡ b · d (mod n)\n\nThis is the ring homomorphism Z → Z/nZ.\n\nDivision is NOT always valid:\n  6 ≡ 2 (mod 4)  but  3 ≡ 1 (mod 2)  (divide by 2, halve modulus)\n  ac ≡ bc (mod n) does NOT imply a ≡ b (mod n) in general.\n  It implies a ≡ b (mod n/gcd(c,n)).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 81,
+      "heading_context": "## Linear Congruences",
+      "confidence": "candidate",
+      "text": "Solve: ax ≡ b (mod n)\n\nStep 1: d = gcd(a, n)\nStep 2: If d ∤ b → NO solution\nStep 3: If d | b → exactly d solutions mod n\n        Divide through by d: (a/d)x ≡ (b/d) (mod n/d)\n        Solve using extended Euclidean (now gcd(a/d, n/d) = 1)\n        Solutions: x₀, x₀ + n/d, x₀ + 2n/d, ..., x₀ + (d-1)n/d\n\nSpecial case: a·x ≡ 1 (mod n) — the modular inverse\n  Exists iff gcd(a,n) = 1\n  Unique mod n\n  Computed by Extended Euclidean",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "### CRT Applications",
+      "confidence": "candidate",
+      "text": "RSA speedup:\n  Decryption: m = c^d mod n (n = pq)\n  Without CRT: one big exponentiation mod n\n  With CRT:\n    m_p = c^{d mod (p-1)} mod p  ← small modulus\n    m_q = c^{d mod (q-1)} mod q  ← small modulus\n    Combine via CRT\n  Speedup: ~4× (two quarter-size exponentiations vs one full-size)\n  This is how all real RSA implementations work.\n\nInteger arithmetic in multi-precision:\n  Represent big integer as residues mod several small primes.\n  Arithmetic is parallel, no carries.\n  Recover result via CRT.\n  Used in: NTT-based polynomial multiplication (cryptography).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "## Euler's Phi Function",
+      "confidence": "candidate",
+      "text": "φ(n) = |{k : 1 ≤ k ≤ n, gcd(k,n) = 1}|\n\nMultiplicative: φ(mn) = φ(m)φ(n) when gcd(m,n) = 1\nFormula: φ(n) = n · ∏_{p|n} (1 - 1/p)\n\nExamples:\n  φ(1) = 1\n  φ(p) = p-1  (for prime p)\n  φ(p^k) = p^k - p^{k-1} = p^{k-1}(p-1)\n  φ(12) = φ(4)·φ(3) = 2·2 = 4  → {1,5,7,11}\n  φ(pq) = (p-1)(q-1)  for distinct primes p,q  ← RSA key formula\n\nSum formula: Σ_{d|n} φ(d) = n\n  (Proof: partition {1,...,n} by gcd(k,n))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

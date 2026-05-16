@@ -1,0 +1,68 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\09-COMPUTATIONAL-NUMBER-THEORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 378,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether a gcd is the primitive operation",
+          "Euclidean algorithm",
+          "Bit complexity depends on integer size, not just step count"
+        ],
+        [
+          "Whether a modular inverse exists",
+          "Extended Euclidean algorithm",
+          "Inverse exists only when `gcd(a,n)=1`"
+        ],
+        [
+          "Whether modular powers dominate runtime",
+          "Square-and-multiply",
+          "Constant-time variants matter in cryptographic code"
+        ],
+        [
+          "Whether probable primality is enough",
+          "Miller-Rabin",
+          "Error probability depends on bases and compositeness assumptions"
+        ],
+        [
+          "Whether deterministic primality is needed theoretically",
+          "AKS",
+          "Polynomial does not mean fastest in practice"
+        ],
+        [
+          "Whether a factor is relatively small",
+          "Pollard rho",
+          "Runtime is probabilistic and depends on factor size"
+        ],
+        [
+          "Whether `p-1` is smooth",
+          "Pollard `p-1`",
+          "Fails when factor group order lacks smoothness"
+        ],
+        [
+          "Whether mid-size factors are the target",
+          "Lenstra ECM",
+          "Complexity depends on the smaller factor, not `n` alone"
+        ],
+        [
+          "Whether a large general integer must be factored",
+          "Number Field Sieve",
+          "Setup and polynomial selection dominate engineering cost"
+        ],
+        [
+          "Whether all primes up to `N` are needed",
+          "Sieve of Eratosthenes",
+          "Memory layout matters at large `N`"
+        ]
+      ]
+    }
+  ]
+}

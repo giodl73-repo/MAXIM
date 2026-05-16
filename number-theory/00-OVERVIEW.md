@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:number-theory:overview
+kind: guide
+module: number-theory
+section: number-theory
+title: Number Theory - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: number-theory/00-OVERVIEW.md
+canonical_path: number-theory/00-OVERVIEW.md
+backsource_ids: [proof-backfill:number-theory:00-overview, git-history:number-theory:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Number Theory — Landscape Overview
 
 ## The Big Picture
@@ -16,9 +35,9 @@
 |  |Prim. roots |    |series      |        |group       |  |Sieving     |  |
 |  |Quad. recip.|    |Sieves      |        |Class field |  |NFS/Pollard |  |
 |  +------------+    +------------+        +------------+  +------------+  |
-|        |                 |                     |                |        |
-|        +--------+--------+------+--------------+                |        |
-|                 |               |                               |        |
+|        Branches feed into shared connections and applications             |
+|                                                                           |
+|                                                                           |
 |          CONNECTIONS       CONNECTIONS                    APPLICATIONS    |
 |          TO GEOMETRY       TO PHYSICS                                     |
 |          Elliptic curves   RMT ↔ ζ zeros                 RSA, ECC        |
@@ -112,38 +131,38 @@ DIRICHLET CHARACTERS χ:
 ## The Major Open Problems
 
 ```
-+----------------------------------------------------------------+
++---------------------------------------------------------------+
 | PROBLEM               | STATEMENT                  | STATUS   |
-+----------------------------------------------------------------+
++---------------------------------------------------------------+
 | Riemann Hypothesis    | All nontrivial zeros of    | OPEN     |
 |                       | ζ(s) have Re(s) = 1/2      | (1859–)  |
-+----------------------------------------------------------------+
++---------------------------------------------------------------+
 | Goldbach              | Every even n>2 = sum of    | OPEN     |
 |                       | two primes                 | (1742–)  |
-+----------------------------------------------------------------+
++---------------------------------------------------------------+
 | Twin Prime            | Infinitely many p, p+2     | OPEN     |
 |                       | both prime                 | Zhang    |
 |                       |                            | 2013:    |
 |                       |                            | gap<246  |
-+----------------------------------------------------------------+
-| Birch-Swinnerton-Dyer | L(E,1)=0 ⟺ |E(Q)|=∞        | OPEN     |
++---------------------------------------------------------------+
+| Birch-Swinnerton-Dyer | L(E,1)=0 iff E(Q)∞         | OPEN     |
 |                       | (Millennium problem)       |          |
-+----------------------------------------------------------------+
++---------------------------------------------------------------+
 | abc conjecture        | For a+b=c coprime, c has   | Claimed  |
-|                       | few large prime factors    | by Mochi-|
+|                       | few large prime factors    | Mochi-   |
 |                       |                            | zuki     |
 |                       |                            | (2012,   |
-|                       |                            | disputed)|
-+----------------------------------------------------------------+
+|                       |                            | disputed |
++---------------------------------------------------------------+
 | Landau problems       | Primes p²+1, Legendre,     | OPEN     |
-|                       | Opperman, Brocard           |          |
-+----------------------------------------------------------------+
+|                       | Opperman, Brocard          |          |
++---------------------------------------------------------------+
 | Integer Factoring     | Is FACTOR in P?            | OPEN     |
 |                       |                            | (crypto  |
 |                       |                            | security |
 |                       |                            | depends  |
 |                       |                            | on this) |
-+----------------------------------------------------------------+
++---------------------------------------------------------------+
 ```
 
 ---

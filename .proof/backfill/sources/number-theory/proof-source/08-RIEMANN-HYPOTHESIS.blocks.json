@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\08-RIEMANN-HYPOTHESIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|              THE RIEMANN HYPOTHESIS (1859–)                        |\n+====================================================================+\n|                                                                    |\n|  STATEMENT: All non-trivial zeros of ζ(s) lie on Re(s) = 1/2.    |\n|                                                                    |\n|  The critical strip:    0 < Re(s) < 1                             |\n|                                                                    |\n|        σ=0      σ=1/2 (critical line)      σ=1                   |\n|         |           |                        |                    |\n|         |    zeros? |  ← RH says all zeros   |                   |\n|         |    here   |     are on this line   |                    |\n|         |      ·    |                        |                    |\n|         |      ·    |   14.134...i           |                    |\n|         |      ·    |   21.022...i           |                    |\n|         |      ·    |   25.010...i           |                    |\n|         |      ·    |   30.424...i           |                    |\n|         |      ·    |   32.935...i           |                    |\n|         |           |   (all known zeros)    |                    |\n|         |           |                        |                    |\n|  Trivial zeros: -2, -4, -6, ... (off to left, real axis)         |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "### For Prime Distribution",
+      "confidence": "candidate",
+      "text": "EXPLICIT FORMULA (Riemann, 1859):\n  ψ(x) = Σ_{n≤x} Λ(n) = x - Σ_ρ x^ρ/ρ - ln(2π) + small\n\nwhere ρ ranges over non-trivial zeros.\n\nIF RH (all ρ = 1/2 + it):\n  Each x^ρ = x^{1/2+it} = x^{1/2} · e^{it ln x}\n  Amplitude: |x^ρ/ρ| = x^{1/2}/|ρ|\n\n  Error bound: |ψ(x) - x| ≤ (1/8π) x^{1/2} (ln x)²  for x ≥ 2.657\n  → |π(x) - Li(x)| < (1/8π) √x · ln x  for x ≥ 2.657\n\nIF RH FAILS (some ρ = σ₀ + it with σ₀ > 1/2):\n  That zero contributes x^{σ₀+it}/ρ — amplitude x^{σ₀} >> √x.\n  Prime counting error is much larger, oscillations are larger.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "## The Critical Strip Structure",
+      "confidence": "candidate",
+      "text": "SYMMETRIES:\n  Functional equation: ξ(s) = ξ(1-s) → zeros symmetric about Re(s)=1/2\n  Complex conjugation: ζ(s̄) = ζ̄(s) → zeros symmetric about Re(s)=0 line\n  Combined: zeros come in quadruples {ρ, 1-ρ, ρ̄, 1-ρ̄}\n  On critical line: ρ and ρ̄ (same real part = 1/2)\n\nTHE CRITICAL LINE THEOREM (Hardy, 1914):\n  Infinitely many zeros lie on Re(s) = 1/2.\n  [Does not say ALL zeros are there — just infinitely many]\n\nSELBERG'S THEOREM (1942):\n  A positive proportion of all zeros lie on Re(s) = 1/2.\n  At least 1/3 (later improved to 40.7% by Conrey, 1989).\n\nKNOWN:\n  All zeros with |Im(s)| < T satisfy Re(s) = 1/2 for T ≤ T₀ (T₀ ~ 10^{22}).\n  This is verified numerically, not proved.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 223,
+      "heading_context": "## Equivalent Formulations",
+      "confidence": "candidate",
+      "text": "RH is equivalent to each of these:\n\n1. (von Koch, 1901):\n   |π(x) - Li(x)| = O(√x · ln x)\n\n2. (Schoenfeld, 1976):\n   |π(x) - Li(x)| < (1/8π)√x·ln x  for all x ≥ 2657.\n\n3. Robin's criterion (1984):\n   σ(n) < eᵞ · n · ln(ln(n))  for all n > 5040\n   (where σ(n) = sum of divisors, γ = Euler-Mascheroni constant ≈ 0.5772...)\n\n4. Lagarias's criterion (2002):\n   σ(n) ≤ Hₙ + eᴴⁿ · ln(Hₙ)  for all n ≥ 1\n   (where Hₙ = 1+1/2+...+1/n is the n-th harmonic number)\n\n5. Li's criterion (1997):\n   RH ⟺ all Li coefficients λₙ = 1/(n-1)! dⁿ/dsⁿ[sⁿ⁻¹ ln ξ(s)]|_{s=1} are positive.\n\n6. Weil's explicit formula positivity:\n   A certain distribution related to zeros is positive semi-definite.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

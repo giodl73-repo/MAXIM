@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\10-CRYPTOGRAPHY-CONNECTIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|       NUMBER THEORY → CRYPTOGRAPHIC HARDNESS                       |\n+====================================================================+\n|                                                                    |\n|  PROBLEM        CRYPTO USE               HARD BECAUSE              |\n|  +-----------+  +--------------------+  +---------------------+   |\n|  |Factoring  |  |RSA: factor n=pq    |  |NFS: sub-exp, best   |   |\n|  |IFP        |  |to break private key|  |classical alg.       |   |\n|  +-----------+  +--------------------+  +---------------------+   |\n|  +-----------+  +--------------------+  +---------------------+   |\n|  |DLP        |  |Diffie-Hellman      |  |Index calculus:      |   |\n|  |(Z/pZ)*    |  |DSKG key exchange   |  |sub-exp, worse bits  |   |\n|  +-----------+  +--------------------+  +---------------------+   |\n|  +-----------+  +--------------------+  +---------------------+   |\n|  |ECDLP      |  |ECDH, ECDSA, EdDSA  |  |Generic attacks only:|   |\n|  |E(F_p)     |  |                    |  |O(√p) — no sub-exp   |   |\n|  +-----------+  +--------------------+  +---------------------+   |\n|  +-----------+  +--------------------+  +---------------------+   |\n|  |SVP/CVP    |  |NTRU, Kyber, Falcon |  |NP-hard worst-case;  |   |\n|  |lattices   |  |POST-QUANTUM        |  |no quantum speedup   |   |\n|  +-----------+  +--------------------+  +---------------------+   |\n|                                                                    |\n|  ALL of the first three: BROKEN by Shor's quantum algorithm       |\n|  SVP/CVP: no known quantum speedup → post-quantum                  |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 81,
+      "heading_context": "### Security Reductions",
+      "confidence": "candidate",
+      "text": "BREAKING RSA (standard assumption):\n  Given (n, e, c), find m such that m^e ≡ c (mod n).\n  \"RSA problem\" (RSAP).\n\nRELATIONSHIPS:\n  FACTOR(n) → RSAP: if you can factor n=pq, compute φ(n)=(p-1)(q-1),\n    then d = e^{-1} mod φ(n), then m = c^d mod n.\n  RSAP → FACTOR(n): NOT KNOWN. No reduction proves this.\n    RSAP might be easier than factoring. (Believed equivalent, not proved.)\n\nINTEGER FACTORING PROBLEM (IFP):\n  Given n = pq, find p (and q).\n  Best known: NFS — L_n[1/3, 1.923] ≈ exp(1.923 · (ln n)^{1/3}(ln ln n)^{2/3})\n  Status: not in P, not NP-complete, not known quantum-efficient on classical.\n  Shor's: O(log³ n) on quantum computer.\n\nPRACTICAL RSA REQUIREMENTS:\n  - n = pq, both primes large (~1024 bits each for RSA-2048)\n  - p ≠ q (obviously), |p-q| large (prevent Fermat factoring)\n  - p-1, q-1 must each have a large prime factor (prevent Pollard p-1)\n  - p ≢ 1 (mod small e) and q ≢ 1 (mod small e) (prevent small exponent attack)\n  - Use OAEP padding (RSA-OAEP) — textbook RSA is deterministic and insecure\n    without padding; same message always gives same ciphertext → chosen-plaintext\n    distinguishability attack",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 136,
+      "heading_context": "## Diffie-Hellman",
+      "confidence": "candidate",
+      "text": "### Classic DH (1976)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 191,
+      "heading_context": "### Elliptic Curves over Finite Fields",
+      "confidence": "candidate",
+      "text": "E over F_p: y² = x³ + ax + b (mod p), discriminant 4a³+27b² ≢ 0 (mod p).\n\nE(F_p): points (x,y) satisfying the equation, plus the \"point at infinity\" O.\n\nGROUP LAW (chord-tangent):\n  P + Q: draw line through P and Q (or tangent if P=Q).\n  It hits E at a third point R. Then P+Q = -R (reflect over x-axis).\n  O is the identity.\n  -P: reflection of P.\n\nHASSE'S THEOREM: |#E(F_p) - (p+1)| ≤ 2√p\n  The curve has between p+1-2√p and p+1+2√p points.\n\nELLIPTIC CURVE DLP (ECDLP):\n  Given curve E/F_p, point P of prime order n, and Q = kP, find k.\n\nECDLP ATTACKS:\n  Baby-step giant-step: O(√n) time and space.\n  Pohlig-Hellman: fast if n is smooth (→ choose n prime).\n  Index calculus: Does NOT apply to general elliptic curves.\n    (No efficient factorization analogues in E(F_p).)\n\nCONSEQUENCE: Need only ~256-bit curves for 128-bit security.\n  vs. ~3072-bit modulus for DH/RSA at same security level.\n  Smaller keys → faster operations → preferred for modern systems.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 221,
+      "heading_context": "### Standard Curves",
+      "confidence": "candidate",
+      "text": "P-256 (NIST secp256r1):\n  y² = x³ - 3x + b over F_p (256-bit prime p)\n  Widely used: TLS 1.3, ECDSA in certificates, JWT signing.\n\nsecp256k1:\n  y² = x³ + 7 over F_p (Koblitz curve, no random b)\n  Used by Bitcoin and Ethereum.\n  Slightly faster than P-256 for specific implementations.\n\nCurve25519 (Bernstein 2006):\n  Montgomery form: y² = x³ + 486662x² + x over F_p, p = 2^{255}-19\n  Designed for constant-time implementation; no known weaknesses.\n  x25519: ECDH using Curve25519. Used in TLS 1.3, Signal, WireGuard.\n\nEd25519:\n  Edwards form: -x²+y² = 1 + dx²y² over F_p (isomorphic to Curve25519)\n  EdDSA signature scheme. Faster, simpler constant-time implementation.\n  Used in: OpenSSH, DNSSEC, Signal.\n\nMALICIOUS CURVES:\n  Some NIST curves have seeds that are opaque (\"nothing up my sleeve\"\n  but unexplained). Dual_EC_DRBG was a backdoored PRNG using EC points.\n  Curve25519 and Ed25519 are designed with transparent parameters.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 253,
+      "heading_context": "### The Geometric Setup",
+      "confidence": "candidate",
+      "text": "LATTICE: A discrete subgroup L of R^n of the form\n  L = {a₁v₁ + a₂v₂ + ... + aₙvₙ : aᵢ ∈ Z}\n  where v₁,...,vₙ are linearly independent vectors (the lattice basis).\n\nHARD LATTICE PROBLEMS:\n  SVP (Shortest Vector Problem):\n    Find the shortest nonzero vector in L.\n    |best classical: LLL approximation; exact: NP-hard in worst case|\n    |No known quantum speedup for exact or good approximation|\n\n  CVP (Closest Vector Problem):\n    Given a target t ∈ R^n, find the closest lattice point.\n    NP-hard. Used in decryption for lattice cryptosystems.\n\n  LWE (Learning With Errors — Regev 2005):\n    Distinguish: (a, b = ⟨a,s⟩ + e mod q) from (a, uniform b)\n    where s is a secret vector, e is a small error vector.\n    Reduction: LWE is at least as hard as worst-case lattice problems.\n    This worst-case to average-case reduction is unique to lattices.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 298,
+      "heading_context": "### NTRU",
+      "confidence": "candidate",
+      "text": "NTRU (Hoffstein-Pipher-Silverman 1998):\n  Ring: Z_q[x]/(x^N - 1).\n  Private key: f(x), g(x) short polynomials.\n  Public key: h(x) = g(x) · f(x)^{-1} mod q.\n\nEncryption of m:\n  c(x) = r(x)·h(x) + m(x) mod q  (r random, small)\n\nDecryption:\n  f(x)·c(x) = f(x)·r(x)·h(x) + f(x)·m(x)\n             = r(x)·g(x) + f(x)·m(x) mod q\n  (Both terms are \"small\" → can recover m by reducing mod p < q.)\n\nSecurity: Reduces to finding shortest vector in a 2D block-circulant lattice.\nNTRU Prime / NTRU (NIST Alt): Finalists in NIST PQC competition.\n\nConnection to algebraic number theory:\n  Z[x]/(x^N-1) is the ring of integers of a cyclotomic field (when N is prime).\n  Class number of this field affects the security of NTRU variants.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 322,
+      "heading_context": "### Comparison: Classical vs Post-Quantum",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------+\n| SCHEME       | HARD PROBLEM     | QUANTUM  | KEY SIZE | SPEED     |\n+-------------------------------------------------------------------+\n| RSA-2048     | Factoring IFP    | BROKEN   | 256 B    | Medium    |\n| DH-2048      | DLP (Z/pZ)*      | BROKEN   | 256 B    | Medium    |\n| ECDH P-256   | ECDLP            | BROKEN   | 32 B     | Fast      |\n| Kyber-768    | Module-LWE       | SAFE     | ~1.2 KB  | Fast(NTT) |\n| Dilithium-3  | Module-LWE/SIS   | SAFE     | ~2.7 KB  | Fast(NTT) |\n| FALCON-512   | NTRU, SIS on HD  | SAFE     | ~1.3 KB  | Fast      |\n| SPHINCS+     | Hash function    | SAFE     | ~8-50 KB | Slower    |\n+-------------------------------------------------------------------+\n\n\"BROKEN\" by Shor means: quantum computer with ~4000 logical qubits.\nCurrent quantum computers (2024): ~1000 physical qubits, not fault-tolerant.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 363,
+      "heading_context": "## Number Theory in Symmetric Cryptography",
+      "confidence": "candidate",
+      "text": "AES FINITE FIELD:\n  S-box = inversion in GF(2^8) = GF(2)[x]/(x^8+x^4+x^3+x+1)\n  MixColumns = multiplication in GF(2^8)^4 as a module over GF(2^8)[x]/(x^4+1)\n\nCRC CHECKSUMS:\n  CRC-32: remainder of polynomial division by 0x04C11DB7 over GF(2).\n  Used in Ethernet, ZIP, PNG, ZLib — billions of CRC checks per second.\n  Detects: all single-bit errors, all 2-bit errors, all odd # bit errors,\n           all burst errors of length ≤ 32 bits.\n\nREED-SOLOMON CODES:\n  Over GF(2^8) or GF(2^m).\n  Message = polynomial f(x) of degree < k.\n  Codeword = (f(α⁰), f(α¹), ..., f(α^{n-1})) where α is a primitive element.\n  Can correct up to (n-k)/2 symbol errors.\n  Used in: CDs (2 RS codes), DVDs, QR codes, RAID-6 (XOR + RS), .NET storage,\n           deep space communications (Voyager, Cassini).\n\nHASH FUNCTIONS:\n  SHA-256 uses: modular addition mod 2^32, bitwise ops — not subtle NT.\n  Multiplicative hashing: h(k) = ⌊m·(kA mod 1)⌋ where A is irrational.\n  MurmurHash, xxHash: fast, avalanche properties from number-theoretic mixing.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

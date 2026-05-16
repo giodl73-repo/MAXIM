@@ -1,0 +1,68 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\10-CRYPTOGRAPHY-CONNECTIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 398,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether RSA security is number-theoretic",
+          "Integer factorization hardness",
+          "Padding, key generation, and side channels are separate security layers"
+        ],
+        [
+          "Whether RSA decryption is correct and fast",
+          "Euler theorem plus CRT",
+          "CRT speeds decryption but increases fault-attack sensitivity"
+        ],
+        [
+          "Whether OAEP is number theory",
+          "Hash-based masking construction",
+          "Padding security is not implied by RSA arithmetic alone"
+        ],
+        [
+          "Whether finite-field DH is safe",
+          "Discrete log in `(Z/pZ)*` with safe parameters",
+          "Small subgroups and weak primes break assumptions"
+        ],
+        [
+          "Whether elliptic-curve protocols rely on arithmetic geometry",
+          "ECDLP over `E(F_p)`",
+          "Curve choice, subgroup order, and implementation are security-critical"
+        ],
+        [
+          "Whether a KEM is post-quantum lattice-based",
+          "LWE or Ring-LWE hardness",
+          "Concrete parameter choices and ring structure matter"
+        ],
+        [
+          "Whether signatures use lattice relations",
+          "SIS-style hardness",
+          "Variants have different leakage and norm constraints"
+        ],
+        [
+          "Whether coding theory enters crypto",
+          "Polynomial arithmetic over finite fields",
+          "Code choice determines both efficiency and attack surface"
+        ],
+        [
+          "Whether AES uses number theory internally",
+          "`GF(2^8)` arithmetic",
+          "AES security is not reducible to finite-field arithmetic alone"
+        ],
+        [
+          "Whether quantum algorithms break classical assumptions",
+          "Shor period-finding",
+          "Shor breaks IFP/DLP, not symmetric crypto at the same scale"
+        ]
+      ]
+    }
+  ]
+}

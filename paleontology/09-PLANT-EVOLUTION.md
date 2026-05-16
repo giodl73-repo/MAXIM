@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:paleontology:plant-evolution
+kind: guide
+module: paleontology
+section: paleontology
+title: Plant Evolution - Algae Through Angiosperms: Radiations, Transitions, Extinctions
+status: source-custody
+source_custody: partial
+current_path: paleontology/09-PLANT-EVOLUTION.md
+canonical_path: paleontology/09-PLANT-EVOLUTION.md
+backsource_ids: [proof-backfill:paleontology:09-plant-evolution, git-history:paleontology:09-plant-evolution]
+concepts: [plant, evolution]
+root_concepts: [plant, evolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Plant Evolution — Algae Through Angiosperms: Radiations, Transitions, Extinctions
 
 ## The Big Picture

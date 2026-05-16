@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\04-QUADRATIC-RECIPROCITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 316,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether `a` is a quadratic residue mod prime `p`",
+          "Euler's criterion",
+          "Only works directly for odd prime moduli"
+        ],
+        [
+          "Whether a symbol can be computed without factoring",
+          "Jacobi-symbol algorithm",
+          "Jacobi `1` does not imply residue for composite modulus"
+        ],
+        [
+          "Whether square roots are easy for `p = 3 mod 4`",
+          "Exponent `a^((p+1)/4)`",
+          "The congruence class of `p` is essential"
+        ],
+        [
+          "Whether modular square roots need the general method",
+          "Tonelli-Shanks algorithm",
+          "Requires prime modulus and residue input"
+        ],
+        [
+          "Whether compositeness hides quadratic residuosity",
+          "Factor the modulus or invoke QR hardness",
+          "This hardness underlies cryptographic assumptions"
+        ],
+        [
+          "Whether a Jacobi-based primality test is enough",
+          "Solovay-Strassen",
+          "Miller-Rabin is usually stronger in practice"
+        ],
+        [
+          "Whether `-1` is a residue",
+          "Supplement `(-1/p)`",
+          "Depends on `p mod 4`"
+        ],
+        [
+          "Whether `2` is a residue",
+          "Supplement `(2/p)`",
+          "Depends on `p mod 8`"
+        ]
+      ]
+    }
+  ]
+}

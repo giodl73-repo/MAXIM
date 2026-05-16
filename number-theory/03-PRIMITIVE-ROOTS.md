@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:number-theory:primitive-roots
+kind: guide
+module: number-theory
+section: number-theory
+title: Primitive Roots and the Discrete Logarithm
+status: source-custody
+source_custody: partial
+current_path: number-theory/03-PRIMITIVE-ROOTS.md
+canonical_path: number-theory/03-PRIMITIVE-ROOTS.md
+backsource_ids: [proof-backfill:number-theory:03-primitive-roots, git-history:number-theory:03-primitive-roots]
+concepts: [primitive, roots]
+root_concepts: [primitive, roots]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Primitive Roots and the Discrete Logarithm
 
 ## The Big Picture
@@ -92,8 +111,8 @@ Algorithm (for prime p):
        If any equals 1: g is NOT a primitive root, try next g
      If none equal 1: g IS a primitive root
 
-Why this works: g has order p-1 iff g^{(p-1)/q} ≢ 1 (mod p) for all prime q|p-1.
-  (If ord(g) < p-1, then ord(g) divides (p-1)/q for some prime q|p-1.)
+Why this works: g has order p-1 iff g^{(p-1)/q} ≢ 1 (mod p) for all prime q\|p-1.
+  (If ord(g) < p-1, then ord(g) divides (p-1)/q for some prime q\|p-1.)
 
 Expected number of candidates to test: O(log log p) (primitive roots are dense).
 ```
@@ -269,7 +288,7 @@ The choice of group is the key cryptographic design decision.
 
 | Task | Method |
 |------|--------|
-| Check if g is primitive root mod p | Verify g^{(p-1)/q} ≢ 1 for all prime q|p-1 |
+| Check if g is primitive root mod p | Verify g^{(p-1)/q} ≢ 1 for all prime q\|p-1 |
 | Find primitive root mod p | Test candidates; expected O(log log p) trials |
 | Compute discrete log (small p) | Baby-step giant-step: O(√p) |
 | Compute discrete log (p-1 smooth) | Pohlig-Hellman: fast |

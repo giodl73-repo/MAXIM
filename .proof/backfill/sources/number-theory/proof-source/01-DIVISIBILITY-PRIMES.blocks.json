@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\01-DIVISIBILITY-PRIMES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+================================================================+\n|              DIVISIBILITY — THE LATTICE OF DIVISORS            |\n+================================================================+\n|                                                                |\n|  DIVISION ALGORITHM:  a = qb + r,  0 ≤ r < b                  |\n|         |                                                      |\n|         v                                                      |\n|  GCD via EUCLIDEAN ALGORITHM                                   |\n|  gcd(a,b) = gcd(b, a mod b) = ... = gcd(d, 0) = d            |\n|         |                                                      |\n|         v                                                      |\n|  BEZOUT'S IDENTITY:  ∃s,t ∈ Z: sa + tb = gcd(a,b)            |\n|  (Extended Euclidean — constructive)                           |\n|         |                                                      |\n|         v                                                      |\n|  UNIQUE FACTORIZATION THEOREM (UFT):                          |\n|  n = p₁^a₁ · p₂^a₂ · ... · pₖ^aₖ  uniquely                   |\n|         |                                                      |\n|         v                                                      |\n|  PRIME DISTRIBUTION:                                          |\n|  π(x) ~ x/ln x  (Prime Number Theorem)                       |\n|  Primes thin out but never stop                               |\n+================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 70,
+      "heading_context": "## The Division Algorithm",
+      "confidence": "candidate",
+      "text": "gcd(a, b):\n  while b ≠ 0:\n    a, b = b, a mod b\n  return a\n\nExample: gcd(1071, 462)\n  1071 = 2·462 + 147   → gcd(462, 147)\n   462 = 3·147 + 21    → gcd(147, 21)\n   147 = 7·21 + 0      → return 21\n\ngcd(1071, 462) = 21",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 138,
+      "heading_context": "### Euclid's Lemma (the key tool)",
+      "confidence": "candidate",
+      "text": "If p is prime and p | ab, then p | a or p | b.\n\nProof: If p ∤ a, then gcd(p,a) = 1 (p has no divisors between 1 and p).\n       Bezout: sp + ta = 1\n       Multiply by b: spb + tab = b\n       p | spb and p | pab, so p | b.  □\n\nThis is EXACTLY what fails in Z[√-5]:\n  2 | (1+√-5)(1-√-5) = 6, but 2 ∤ (1+√-5) and 2 ∤ (1-√-5).\n  \"2\" is not prime in Z[√-5] in the sense of Euclid's lemma.\n  (It's irreducible but not prime — these coincide in PIDs, not in general.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 391,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "  (s + kb/d)a + (t - ka/d)b = gcd(a,b) for any k ∈ Z.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

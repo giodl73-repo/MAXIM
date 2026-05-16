@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:paleontology:cenozoic
+kind: guide
+module: paleontology
+section: paleontology
+title: Cenozoic Era - Paleogene Mammal Radiation, Oligocene Climate Shift, Miocene Apes, Pleistocene Megafauna
+status: source-custody
+source_custody: partial
+current_path: paleontology/06-CENOZOIC.md
+canonical_path: paleontology/06-CENOZOIC.md
+backsource_ids: [proof-backfill:paleontology:06-cenozoic, git-history:paleontology:06-cenozoic]
+concepts: [cenozoic]
+root_concepts: [cenozoic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cenozoic Era — Paleogene Mammal Radiation, Oligocene Climate Shift, Miocene Apes, Pleistocene Megafauna
 
 ## The Big Picture

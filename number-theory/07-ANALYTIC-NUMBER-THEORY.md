@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:number-theory:analytic-number-theory
+kind: guide
+module: number-theory
+section: number-theory
+title: Analytic Number Theory
+status: source-custody
+source_custody: partial
+current_path: number-theory/07-ANALYTIC-NUMBER-THEORY.md
+canonical_path: number-theory/07-ANALYTIC-NUMBER-THEORY.md
+backsource_ids: [proof-backfill:number-theory:07-analytic-number-theory, git-history:number-theory:07-analytic-number-theory]
+concepts: [analytic, number, theory]
+root_concepts: [analytic, number]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Analytic Number Theory
 
 ## The Big Picture
@@ -18,7 +37,7 @@
 |  Key results:                                                      |
 |  +-----------------------+    +------------------------------+     |
 |  |  Prime Number Theorem |    |  Primes in APs               |     |
-|  |  π(x) ~ x / ln x     |    |  Dirichlet: ∞ primes in     |       |
+|  |  pi(x) ~ x / ln x     |    |  Dirichlet: primes in        |     |
 |  |  Proof: ζ has no zeros|    |  {a, a+q, a+2q,...}          |     |
 |  |  on Re(s)=1 line      |    |  Proof: L(1,χ) ≠ 0           |     |
 |  +-----------------------+    +------------------------------+     |
@@ -26,7 +45,7 @@
 |           v                              v                        |
 |  +---------------------------------------------------+            |
 |  |   GENERAL FRAMEWORK: AUTOMORPHIC L-FUNCTIONS      |            |
-|  |   Langlands program (open), Weil conjectures        |          |
+|  |   Langlands program (open), Weil conjectures      |            |
 |  |   (proved), BSD conjecture (open)                 |            |
 |  +---------------------------------------------------+            |
 +====================================================================+

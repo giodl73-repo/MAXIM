@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\04-QUADRATIC-RECIPROCITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|           QUADRATIC RESIDUES AND RECIPROCITY                       |\n+====================================================================+\n|                                                                    |\n|  QUESTION: Is a a perfect square mod p?                           |\n|  i.e., does x² ≡ a (mod p) have a solution?                      |\n|                                                                    |\n|  LEGENDRE SYMBOL:                                                  |\n|     (a/p) = { 1  if a is QR mod p (and p∤a)                      |\n|             { -1 if a is QNR mod p                                |\n|             { 0  if p | a                                         |\n|                                                                    |\n|  EULER'S CRITERION:  (a/p) ≡ a^{(p-1)/2} (mod p)                 |\n|                                                                    |\n|  GAUSS'S GOLDEN THEOREM (Quadratic Reciprocity):                  |\n|  For distinct odd primes p, q:                                     |\n|     (p/q)(q/p) = (-1)^{(p-1)/2 · (q-1)/2}                        |\n|                                                                    |\n|  SUPPLEMENTS:                                                      |\n|     (-1/p) = (-1)^{(p-1)/2}  →  QR iff p ≡ 1 (mod 4)            |\n|     ( 2/p) = (-1)^{(p²-1)/8} →  QR iff p ≡ ±1 (mod 8)           |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 78,
+      "heading_context": "### Finding Square Roots mod p",
+      "confidence": "candidate",
+      "text": "TONELLI-SHANKS ALGORITHM: Given a QR a mod p, find √a.\n\nCase 1: p ≡ 3 (mod 4)  [simplest]\n  √a ≡ a^{(p+1)/4} (mod p)\n  (Because (a^{(p+1)/4})² = a^{(p+1)/2} = a · a^{(p-1)/2} = a · 1 = a)\n\nCase 2: p ≡ 1 (mod 4)  [requires Tonelli-Shanks]\n  Write p-1 = 2^s · q with q odd.\n  Find a non-residue n (random search, 50% chance each try).\n  Use lifting algorithm to compute √a.\n  O(log² p) expected.\n\nApplication: ECDSA signature verification requires square roots in F_p.\n  Point decompression (recover y from x on elliptic curve): needs √(x³+ax+b) mod p.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## The Legendre Symbol",
+      "confidence": "candidate",
+      "text": "(a/p) — pronounced \"a over p\" or \"the Legendre symbol of a with respect to p\"\n\nDEFINITION:\n  (a/p) = 0     if p | a\n  (a/p) = 1     if a is QR mod p (a ≢ 0)\n  (a/p) = -1    if a is QNR mod p\n\nCOMPUTATION — Euler's criterion:\n  (a/p) ≡ a^{(p-1)/2} (mod p)\n  This is +1 or -1 (or 0), so the congruence gives exact equality.\n\nPROPERTIES:\n  Completely multiplicative: (ab/p) = (a/p)(b/p)\n  (a²/p) = 1 for all a with p∤a  (squares are always QRs)\n  (a/p) = (b/p) if a ≡ b (mod p)  (well-defined on Z/pZ)\n  Σ_{a=0}^{p-1} (a/p) = 0  (equal QRs and QNRs cancel)\n\nEXAMPLES:\n  Is 6 a QR mod 13?\n  (6/13) = (2/13)(3/13)\n  (2/13): 13 ≡ 5 (mod 8) → (-1)^{(169-1)/8} = (-1)^{21} = -1 → 2 is QNR mod 13\n  (3/13): by QR: (3/13)(13/3) = (-1)^{1·6} = 1, so (3/13) = (13/3) = (1/3) = 1\n  (6/13) = (-1)(1) = -1 → 6 is QNR mod 13. Verify: 6^6 ≡ ? (mod 13)\n  6² = 36 ≡ 10, 6³ ≡ 60 ≡ 8, 6^6 ≡ 64 ≡ 12 ≡ -1 (mod 13) ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

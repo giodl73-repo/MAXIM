@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                    NUMBER THEORY — FOUR BRANCHES                          |\n+===========================================================================+\n|                                                                           |\n|  ELEMENTARY          ANALYTIC              ALGEBRAIC       COMPUTATIONAL  |\n|  +------------+    +------------+        +------------+  +------------+  |\n|  |Divisibility|    |Riemann ζ(s)|        |Number      |  |Primality   |  |\n|  |GCD/LCM/UFT |    |L-functions |        |fields K    |  |testing     |  |\n|  |Congruences |    |PNT         |        |Rings O_K   |  |Factoring   |  |\n|  |CRT         |    |Dirichlet   |        |Ideal class |  |DLP         |  |\n|  |Prim. roots |    |series      |        |group       |  |Sieving     |  |\n|  |Quad. recip.|    |Sieves      |        |Class field |  |NFS/Pollard |  |\n|  +------------+    +------------+        +------------+  +------------+  |\n|        Branches feed into shared connections and applications             |\n|                                                                           |\n|                                                                           |\n|          CONNECTIONS       CONNECTIONS                    APPLICATIONS    |\n|          TO GEOMETRY       TO PHYSICS                                     |\n|          Elliptic curves   RMT ↔ ζ zeros                 RSA, ECC        |\n|          Algebraic geom.   Quantum chaos                  Reed-Solomon    |\n|          Modular forms      GUE spacing                   Lattice crypto  |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 103,
+      "heading_context": "## The Central Objects",
+      "confidence": "candidate",
+      "text": "THE INTEGERS Z:\n  n > 1 has unique factorization:  n = p₁^a₁ · p₂^a₂ · ... · pₖ^aₖ\n  This FAILS in Z[√-5]:  6 = 2·3 = (1+√-5)(1-√-5)\n  → drives algebraic number theory\n\nTHE RIEMANN ZETA FUNCTION:\n  ζ(s) = Σ_{n≥1} n^{-s}  (Re s > 1)\n       = ∏_p (1 - p^{-s})^{-1}   ← Euler product over all primes\n  Extends meromorphically to C, pole at s=1, functional equation ξ(s)=ξ(1-s)\n  Non-trivial zeros → prime distribution\n\nTHE EULER PHI FUNCTION φ(n):\n  φ(n) = |{k : 1 ≤ k ≤ n, gcd(k,n) = 1}|\n  = n · ∏_{p|n} (1 - 1/p)\n  Fermat-Euler: a^{φ(n)} ≡ 1 (mod n) when gcd(a,n) = 1\n  RSA correctness depends entirely on this.\n\nDIRICHLET CHARACTERS χ:\n  Completely multiplicative: χ(mn) = χ(m)χ(n)\n  Periodic mod q: χ(n+q) = χ(n)\n  L(s,χ) = Σ χ(n) n^{-s}  ← L-function, generalizes ζ\n  Dirichlet's theorem: infinitely many primes in each {a, a+q, a+2q,...}\n                        when gcd(a,q) = 1. Proved using L(1,χ) ≠ 0.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 133,
+      "heading_context": "## The Major Open Problems",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n| PROBLEM               | STATEMENT                  | STATUS   |\n+---------------------------------------------------------------+\n| Riemann Hypothesis    | All nontrivial zeros of    | OPEN     |\n|                       | ζ(s) have Re(s) = 1/2      | (1859–)  |\n+---------------------------------------------------------------+\n| Goldbach              | Every even n>2 = sum of    | OPEN     |\n|                       | two primes                 | (1742–)  |\n+---------------------------------------------------------------+\n| Twin Prime            | Infinitely many p, p+2     | OPEN     |\n|                       | both prime                 | Zhang    |\n|                       |                            | 2013:    |\n|                       |                            | gap<246  |\n+---------------------------------------------------------------+\n| Birch-Swinnerton-Dyer | L(E,1)=0 iff E(Q)∞         | OPEN     |\n|                       | (Millennium problem)       |          |\n+---------------------------------------------------------------+\n| abc conjecture        | For a+b=c coprime, c has   | Claimed  |\n|                       | few large prime factors    | Mochi-   |\n|                       |                            | zuki     |\n|                       |                            | (2012,   |\n|                       |                            | disputed |\n+---------------------------------------------------------------+\n| Landau problems       | Primes p²+1, Legendre,     | OPEN     |\n|                       | Opperman, Brocard          |          |\n+---------------------------------------------------------------+\n| Integer Factoring     | Is FACTOR in P?            | OPEN     |\n|                       |                            | (crypto  |\n|                       |                            | security |\n|                       |                            | depends  |\n|                       |                            | on this) |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 172,
+      "heading_context": "## Why This Matters to CS",
+      "confidence": "candidate",
+      "text": "SECURITY:\n  RSA              ← IFP: factor n = pq given only n\n  Diffie-Hellman   ← DLP: find x given g^x mod p\n  Elliptic Curve   ← ECDLP: harder per bit than DLP for RSA\n  NTRU/Kyber       ← SVP/CVP in ideal lattices (post-quantum)\n  AES (GF(2^8))    ← Finite field arithmetic (irreducible poly mod 2)\n\nRELIABILITY:\n  CRC codes           ← Polynomial arithmetic over GF(2)\n  Reed-Solomon        ← Polynomial eval over finite fields (used in CDs,\n                         DVDs, QR codes, RAID-6, cloud storage)\n  LDPC codes          ← Sparse parity-check matrices over GF(2)\n  BCH codes           ← Cyclic codes over finite fields\n\nEFFICIENCY:\n  FFT              ← Roots of unity; NTT over Z/pZ (used in crypto)\n  Multiplicative   ← Hash: h(k) = ⌊m·(k·A mod 1)⌋, A irrational\n  hashing\n  LCG PRNGs        ← x_{n+1} = ax_n + b (mod m); period = m iff\n                      gcd(b,m)=1, a≡1 mod every prime factor of m,\n                      a≡1 mod 4 if 4|m (Hull-Dobell)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 200,
+      "heading_context": "## Complexity Landscape",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------+\n| PROBLEM         | BEST CLASSICAL         | Quantum class  |\n+-----------------------------------------------------------+\n| PRIMES          | AKS: O(log^6 n)        | Also poly      |\n| (is n prime?)   | Miller-Rabin: O(k·log³n|                |\n|                 | prob., k = rounds)     |                |\n+-----------------------------------------------------------+\n| FACTORING       | NFS: L_n[1/3, 1.923]   | Shor: O(log³n) |\n| (factor n)      | (sub-exp, super-poly)  |                |\n|                 | Not NP-complete (known)|                |\n+-----------------------------------------------------------+\n| DLP             | Index calculus, NFS    | Shor handles   |\n| (g^x ≡ a mod p) | variants: sub-exp      | DLP too        |\n+-----------------------------------------------------------+\n| ECDLP           | BSGS: O(√p), Pohlig-   | Shor handles   |\n|                 | Hellman for smooth ord | ECDLP too      |\n+-----------------------------------------------------------+\n| SVP             | LLL: poly-time, 2^n    | No known       |\n| (shortest vec)  | approx; exact: NP-hard | quantum speedup|\n|                 | in worst case          | (post-quantum) |\n+-----------------------------------------------------------+\n\nL_n[α,c] = exp((c+o(1)) · (ln n)^α · (ln ln n)^{1-α})\n  α=0: polynomial  α=1: exponential  α=1/3: NFS",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

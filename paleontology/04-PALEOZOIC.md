@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:paleontology:paleozoic
+kind: guide
+module: paleontology
+section: paleontology
+title: Paleozoic Era - Cambrian Explosion, Ordovician Radiation, Fish Evolution, Carboniferous Coal Forests, Permian
+status: source-custody
+source_custody: partial
+current_path: paleontology/04-PALEOZOIC.md
+canonical_path: paleontology/04-PALEOZOIC.md
+backsource_ids: [proof-backfill:paleontology:04-paleozoic, git-history:paleontology:04-paleozoic]
+concepts: [paleozoic]
+root_concepts: [paleozoic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Paleozoic Era — Cambrian Explosion, Ordovician Radiation, Fish Evolution, Carboniferous Coal Forests, Permian
 
 ## The Big Picture

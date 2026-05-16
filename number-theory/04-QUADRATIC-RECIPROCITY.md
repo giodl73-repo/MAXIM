@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:number-theory:quadratic-reciprocity
+kind: guide
+module: number-theory
+section: number-theory
+title: Quadratic Reciprocity
+status: source-custody
+source_custody: partial
+current_path: number-theory/04-QUADRATIC-RECIPROCITY.md
+canonical_path: number-theory/04-QUADRATIC-RECIPROCITY.md
+backsource_ids: [proof-backfill:number-theory:04-quadratic-reciprocity, git-history:number-theory:04-quadratic-reciprocity]
+concepts: [quadratic, reciprocity]
+root_concepts: [quadratic, reciprocity]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quadratic Reciprocity
 
 ## The Big Picture

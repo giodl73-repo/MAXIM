@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:paleontology:stratigraphy
+kind: guide
+module: paleontology
+section: paleontology
+title: Stratigraphy - Rock Strata, Relative Dating, Index Fossils, Unconformities, GSSP Boundary Markers
+status: source-custody
+source_custody: partial
+current_path: paleontology/01-STRATIGRAPHY.md
+canonical_path: paleontology/01-STRATIGRAPHY.md
+backsource_ids: [proof-backfill:paleontology:01-stratigraphy, git-history:paleontology:01-stratigraphy]
+concepts: [stratigraphy]
+root_concepts: [stratigraphy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stratigraphy — Rock Strata, Relative Dating, Index Fossils, Unconformities, GSSP Boundary Markers
 
 ## The Big Picture

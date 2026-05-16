@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:paleontology:precambrian
+kind: guide
+module: paleontology
+section: paleontology
+title: Precambrian Life - Hadean/Archean/Proterozoic, Stromatolites, BIF, Ediacaran Fauna, Snowball Earth
+status: source-custody
+source_custody: partial
+current_path: paleontology/03-PRECAMBRIAN.md
+canonical_path: paleontology/03-PRECAMBRIAN.md
+backsource_ids: [proof-backfill:paleontology:03-precambrian, git-history:paleontology:03-precambrian]
+concepts: [precambrian]
+root_concepts: [precambrian]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Precambrian Life — Hadean/Archean/Proterozoic, Stromatolites, BIF, Ediacaran Fauna, Snowball Earth
 
 ## The Big Picture

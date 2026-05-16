@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:paleontology:fossilization
+kind: guide
+module: paleontology
+section: paleontology
+title: Fossilization - Taphonomy, Permineralization, Amber, Compression, Lagerstätten
+status: source-custody
+source_custody: partial
+current_path: paleontology/02-FOSSILIZATION.md
+canonical_path: paleontology/02-FOSSILIZATION.md
+backsource_ids: [proof-backfill:paleontology:02-fossilization, git-history:paleontology:02-fossilization]
+concepts: [fossilization]
+root_concepts: [fossilization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fossilization — Taphonomy, Permineralization, Amber, Compression, Lagerstätten
 
 ## The Big Picture

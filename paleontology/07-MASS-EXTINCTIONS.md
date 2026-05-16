@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:paleontology:mass-extinctions
+kind: guide
+module: paleontology
+section: paleontology
+title: Mass Extinctions - The Big Five, Causes, Selectivity, Recovery Patterns
+status: source-custody
+source_custody: partial
+current_path: paleontology/07-MASS-EXTINCTIONS.md
+canonical_path: paleontology/07-MASS-EXTINCTIONS.md
+backsource_ids: [proof-backfill:paleontology:07-mass-extinctions, git-history:paleontology:07-mass-extinctions]
+concepts: [mass, extinctions]
+root_concepts: [mass, extinctions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mass Extinctions — The Big Five, Causes, Selectivity, Recovery Patterns
 
 ## The Big Picture

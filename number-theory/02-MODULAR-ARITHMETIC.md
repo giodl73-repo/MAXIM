@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:number-theory:modular-arithmetic
+kind: guide
+module: number-theory
+section: number-theory
+title: Modular Arithmetic
+status: source-custody
+source_custody: partial
+current_path: number-theory/02-MODULAR-ARITHMETIC.md
+canonical_path: number-theory/02-MODULAR-ARITHMETIC.md
+backsource_ids: [proof-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]
+concepts: [modular, arithmetic]
+root_concepts: [modular, arithmetic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modular Arithmetic
 
 ## The Big Picture
@@ -302,7 +321,7 @@ quadratic reciprocity — see 04-QUADRATIC-RECIPROCITY.md.
 
 | Need to... | Method |
 |-----------|--------|
-| Solve ax ≡ b (mod n) | Extended Euclidean, check d=gcd(a,n)|b |
+| Solve ax ≡ b (mod n) | Extended Euclidean, check d=gcd(a,n)\|b |
 | Find a⁻¹ mod n | Extended Euclidean |
 | Solve system of congruences | CRT (pairwise coprime moduli) |
 | Compute a^e mod n | Square-and-multiply |

@@ -1,0 +1,965 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-number-theory-diophantine-equations",
+  "source": "../../number-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#000",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "# Diophantine Equations"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#001",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#002",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "```\n+====================================================================+\n|           DIOPHANTINE EQUATIONS — CLASSES AND METHODS              |\n+====================================================================+\n|                                                                    |\n|  LINEAR           QUADRATIC          CUBIC / ELLIPTIC  GENERAL    |\n|  ax + by = c      x² - Dy² = 1       y² = x³ + ax + b  xⁿ+yⁿ=zⁿ |\n|  +-----------+    +-----------+       +---------------+ +-------+ |\n|  |Bezout     |    |Pell eq.   |       |Elliptic curves| |Fermat | |\n|  |condition  |    |continued  |       |finite/infinite| |Last   | |\n|  |gcd(a,b)|c |    |fractions  |       |rational pts   | |Theorem| |\n|  |           |    |fund. sol. |       |Mordell-Weil   | |(1994) | |\n|  +-----------+    +-----------+       +---------------+ +-------+ |\n|                                                                    |\n|  PYTHAGOREAN      SUMS OF SQUARES     WARING'S PROBLEM            |\n|  a²+b²=c²        x₁²+...+xₖ²=n       every n = sum of k kth pows |\n|  +----------+    +-------------+      +-----------------+         |\n|  |param.    |    |Fermat-Euler |      |g(k): min k works|         |\n|  |solution  |    |2 squares iff|      |g(2)=4, g(3)=9   |         |\n|  |family    |    |no p≡3(mod 4)|      |all g(k) known   |         |\n|  +----------+    +-------------+      +-----------------+         |\n+====================================================================+\n```"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#003",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#004",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "## Linear Diophantine Equations"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#005",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "```\nPROBLEM: Find integer solutions to ax + by = c."
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#006",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "EXISTENCE: Solutions exist ⟺ gcd(a,b) | c."
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#007",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "GENERAL SOLUTION: If (x₀, y₀) is one solution:\n  x = x₀ + (b/d)t\n  y = y₀ - (a/d)t\n  for any t ∈ Z, where d = gcd(a,b)."
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#008",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "FINDING x₀, y₀:\n  Extended Euclidean gives sa + tb = d.\n  Multiply by c/d: s(c/d)·a + t(c/d)·b = c.\n  So x₀ = sc/d, y₀ = tc/d."
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#009",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "Example: 6x + 10y = 14\n  d = gcd(6,10) = 2. Does 2|14? Yes (14/2=7). ✓\n  Extended Euclidean: 6(-1) + 10(1) = 4... wait, gcd(6,10):\n  10 = 1·6 + 4  →  gcd(6,4)\n   6 = 1·4 + 2  →  gcd(4,2)\n   4 = 2·2 + 0  →  gcd = 2\n  Back-substitute: 2 = 6 - 1·4 = 6 - 1·(10-1·6) = 2·6 - 1·10\n  So s=2, t=-1, d=2.\n  x₀ = 2·7 = 14, y₀ = -1·7 = -7.\n  Check: 6·14 + 10·(-7) = 84 - 70 = 14 ✓\n  General: x = 14 + 5t, y = -7 - 3t.\n```"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#010",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "### Multiple Variables"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#011",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "```\na₁x₁ + a₂x₂ + ... + aₙxₙ = c"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#012",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "Existence: gcd(a₁, ..., aₙ) | c.\nSolve recursively: reduce to 2-variable problem using gcd of first two, etc.\n```"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#013",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#014",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "## The Pell Equation"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#015",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "```\nPROBLEM: Find positive integer solutions to x² - Dy² = 1 (D > 0, not a perfect square)."
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#016",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "Named after John Pell, but actually studied by Brahmagupta (628 AD) and solved by\nFermat, then formalized by Lagrange."
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#017",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "FUNDAMENTAL THEOREM:\n  For any non-square D > 0, x² - Dy² = 1 has infinitely many positive solutions.\n  The smallest positive solution (x₁, y₁) is the FUNDAMENTAL SOLUTION.\n  All solutions are:\n    xₙ + yₙ√D = (x₁ + y₁√D)ⁿ  for n = 1, 2, 3, ..."
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#018",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "Example: D=2.  x² - 2y² = 1.\n  Fundamental: (x₁,y₁) = (3,2). Check: 9 - 8 = 1 ✓\n  (3+2√2)² = 17+12√2 → (17,12). Check: 289 - 288 = 1 ✓\n  (3+2√2)³ = 99+70√2 → (99,70). Check: 9801 - 9800 = 1 ✓\n```"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#019",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "### Continued Fractions Method"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#020",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "```\nThe fundamental solution is found via the continued fraction expansion of √D."
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#021",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "√D = a₀ + 1/(a₁ + 1/(a₂ + 1/(a₃ + ...)))\n  = [a₀; a₁, a₂, a₃, ...]  (periodic for irrational √D)"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#022",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "Convergents: pₙ/qₙ → √D\n  The fundamental solution appears among the convergents.\n  Specifically: x₁ = pₖ₋₁, y₁ = qₖ₋₁ where k is the period length."
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#023",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "Example: √2 = [1; 2, 2, 2, ...]\n  Convergents: 1/1, 3/2, 7/5, 17/12, ...\n  Period = 1 (a₁ = 2). Fundamental solution: p₀/q₀ = 1/1? No. p₁/q₁ = 3/2. ✓\n  x₁=3, y₁=2: 3² - 2·2² = 9-8=1 ✓"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#024",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "Example: √61 = [7; 1,4,3,1,2,2,1,3,4,1,14,...]  period=11\n  Fundamental solution: (x₁,y₁) = (1766319049, 226153980) — enormous!\n  The size of fundamental solutions can be exponential in √D.\n```"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#025",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "### Connection to Algebraic Number Theory"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#026",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "```\nZ[√D] = {a + b√D : a,b ∈ Z}  (ring of integers for D ≡ 2,3 mod 4)"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#027",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "x² - Dy² = 1 ⟺ N(x + y√D) = 1  (the NORM map: a+b√D ↦ a²-Db²)\nUnits of Z[√D] = {±1} × {fundamental unit}^Z"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#028",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "Pell equation = finding units in real quadratic fields.\nDirichlet's unit theorem: O_K has finitely generated unit group\n  of rank r₁ + r₂ - 1 (r₁ = real embeddings, r₂ = complex embedding pairs).\nFor Q(√D), D>0: r₁=2, r₂=0 → rank 1. One fundamental unit generates all.\n```"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#029",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#030",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "## Pythagorean Triples"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#031",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "```\nPROBLEM: Find all positive integer solutions to a² + b² = c²."
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#032",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "COMPLETE PARAMETERIZATION:\n  Every primitive Pythagorean triple (gcd(a,b,c)=1) is:\n    a = m² - n²,  b = 2mn,  c = m² + n²\n  for integers m > n > 0 with gcd(m,n) = 1 and m-n odd.\n  (Swap a,b for the other orientation.)"
+    },
+    {
+      "id": "05-DIOPHANTINE-EQUATIONS.md#033",
+      "path": [
+        "05-DIOPHANTINE-EQUATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:number-theory:05-diophantine-equations, git-history:number-theory:05-diophantine-equations]",
+        "canonical_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "concepts": "[diophantine, equations]",
+        "current_path": "number-theory/05-DIOPHANTINE-EQUATIONS.md",
+        "id": "maxim:number-theory:diophantine-equations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[diophantine, equations]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Diophantine Equations",
+        "updated": "null"
+      },
+      "text": "All triples: multiply any primitive triple by a common factor k."
+    }
+  ],
+  "refs": [
+    "05-DIOPHANTINE-EQUATIONS.md"
+  ]
+}
