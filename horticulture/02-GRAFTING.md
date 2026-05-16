@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:horticulture:grafting
+kind: guide
+module: horticulture
+section: horticulture
+title: Grafting and Budding Techniques
+status: source-custody
+source_custody: partial
+current_path: horticulture/02-GRAFTING.md
+canonical_path: horticulture/02-GRAFTING.md
+backsource_ids: [proof-backfill:horticulture:02-grafting, git-history:horticulture:02-grafting]
+concepts: [grafting]
+root_concepts: [grafting]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Grafting and Budding Techniques
 
 ## The Big Picture

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "horticulture\\05-NUTRITION-IRRIGATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "NUTRIENT DELIVERY SYSTEM:\n\n  ATMOSPHERE: CO₂ (carbon source for photosynthesis)\n       |\n       v\n  LEAF (stomata): CO₂ in; H₂O, O₂ out\n       |             (transpiration stream drives nutrient delivery)\n       |\n  XYLEM (transport): water + dissolved ions move up from roots\n       |\n  ROOT (uptake): active (membrane transport proteins) and passive\n       |         (mass flow with water)\n       |\n  SOIL SOLUTION: nutrients dissolved in soil water\n       |\n       |    <-- (fertigation adds nutrients directly here)\n  SOIL SOLID: nutrients held on CEC surfaces; released by cation exchange\n\nKEY INSIGHT:\n  Most nutrient uptake is driven by mass flow (water moving through roots).\n  Increase transpiration → increase nutrient delivery.\n  Under-irrigation → reduced transpiration → nutrient deficiency possible\n  even when nutrients are present in soil.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "## Micronutrients",
+      "confidence": "candidate",
+      "text": "MICRONUTRIENT  FUNCTION              DEFICIENCY SYMPTOM         NOTES\n─────────────────────────────────────────────────────────────────────────────\nFe (iron)      Chlorophyll synthesis  Interveinal chlorosis on  Common in high pH soils;\n               (in Mg center too)     young leaves; worst in    chelated forms (EDDHA,\n               Electron transport     calcareous soils          DTPA) most effective\n\nMn (manganese) Photosystem II        Interveinal chlorosis;     pH >7.0: rapid\n               Enzyme activation      gray speck in oats        deficiency; pH <5.5:\n                                      Poor shoot tips            toxicity\n\nZn (zinc)      Auxin synthesis,      Little leaf; rosette;      Tight pH range; deficiency\n               enzyme activation      shortened internodes       common in corn (pH 6+)\n\nCu (copper)    Photosystem I,        Wilting; blue-green;       Peat soils low in Cu;\n               enzyme activity        die-back                   toxic at low concentrations\n\nB (boron)      Cell wall, pollen,    Hollow stem (broccoli,     Narrow sufficiency range;\n               sugar translocation    cauliflower), hollow       deficiency and toxicity\n                                      heart (beet), fruit crack  close together\n\nMo (molybdenum) Nitrate reductase,   Whiptail (cauliflower);    Required in tiny amounts;\n                nitrogen fixation     cup-shaped leaves          deficiency at low pH\n\nCl (chlorine)   Stomatal regulation, Wilting; chlorosis         Usually adequate;\n                photosystem II        Bronze leaves              toxicity more common\n─────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "### The N-P₂O₅-K₂O Label",
+      "confidence": "candidate",
+      "text": "FERTILIZER LABEL CONVENTION:\n  Always listed as: N - P₂O₅ - K₂O\n  Example: 10-5-8 means:\n    10% N by weight\n    5% P₂O₅ by weight → × 0.437 = 2.2% P elemental\n    8% K₂O by weight → × 0.83 = 6.6% K elemental\n\n  WHY OXIDES? Historical chemistry convention.\n  P₂O₅ is how P was originally analyzed.\n  Nobody actually has P₂O₅ — it's a calculated value.\n  The convention persists despite being confusing.\n\nCALCULATION EXAMPLE:\n  You want to apply 100 lb N/acre.\n  You have 46-0-0 urea (46% N).\n  Required: 100 lb N ÷ 0.46 = 217 lb urea/acre.\n\n  In SI:\n  You want to apply 100 kg N/ha.\n  Using 46-0-0 urea:\n  Required: 100 ÷ 0.46 = 217 kg urea/ha.\n\n  Application rate per 1,000 sq ft (US home use):\n  1 lb N per 1,000 sq ft using 10-10-10:\n  Required: 1 ÷ 0.10 = 10 lbs of 10-10-10 per 1,000 sq ft.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 254,
+      "heading_context": "### Comparison",
+      "confidence": "candidate",
+      "text": "METHOD           WUE*    Disease Risk   Capital   Labor    Best For\n─────────────────────────────────────────────────────────────────────────────\nFlood (border)   30–50%  Low (no leaves)  Low      Low    Field crops; flat land\nFurrow           50–65%  Low             Low      Medium  Row crops; orchards\nOverhead sprinkler 60–75% High (wet foliage) Medium Low  Field veg; germination\nDrip             85–95%  Low             High     Low    Vegetables, orchards,\n                                                          vine crops\nSubsurface drip  90–95%  Very low        Very high Low   High-value crops,\n                                                          water-limited areas\nMicro-sprinkler  75–85%  Medium          Medium   Low    Orchards; tree fruits\nAeroponics       95%+    Low             Very high High  CEA; research\n─────────────────────────────────────────────────────────────────────────────\n*WUE = Water Use Efficiency (application vs. plant uptake)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 298,
+      "heading_context": "### Penman-Monteith Equation",
+      "confidence": "candidate",
+      "text": "PENMAN-MONTEITH (FAO-56 version):\n  ET₀ = [0.408Δ(Rn - G) + γ(900/(T+273))u₂(es - ea)] / [Δ + γ(1 + 0.34u₂)]\n\n  Where:\n  ET₀  = reference evapotranspiration (mm/day) for short clipped grass\n  Rn   = net radiation (MJ/m²/day)\n  G    = soil heat flux (MJ/m²/day) — small, often ~0 for daily calc\n  T    = mean air temperature (°C)\n  u₂   = wind speed at 2m height (m/s)\n  es   = saturation vapor pressure (kPa) — from T\n  ea   = actual vapor pressure (kPa) — from dewpoint or RH\n  Δ    = slope of saturation vapor pressure-temperature curve (kPa/°C)\n  γ    = psychrometric constant (kPa/°C)\n\nIN PRACTICE:\n  Weather stations (CIMIS in California, Mesonet in Oklahoma, etc.)\n  calculate ET₀ automatically from measured weather variables.\n  Growers subscribe to the data service.\n  ET₀ is the reference for a standardized grass surface.\n\nWORKED EXAMPLE (Central Valley, California, July):\n  Inputs from CIMIS station data:\n    Rn  = 18.0 MJ/m²/day  (net radiation, high summer sun)\n    G   = 0.0 MJ/m²/day   (soil heat flux ≈ 0 for daily calc)\n    T   = 30°C             (mean air temperature)\n    u₂  = 3.0 m/s          (wind at 2m height)\n    RH  = 35%              (low relative humidity, hot dry day)\n\n  Derived:\n    es = 0.6108 × exp(17.27 × 30 / (30 + 237.3)) = 4.243 kPa\n    ea = es × (RH/100) = 4.243 × 0.35 = 1.485 kPa\n    Δ  = 4098 × es / (T + 237.3)² = 0.243 kPa/°C\n    γ  = 0.067 kPa/°C (at sea level)\n\n  Numerator:\n    0.408 × 0.243 × (18.0 - 0) + 0.067 × (900/303) × 3.0 × (4.243 - 1.485)\n    = 0.408 × 0.243 × 18.0  +  0.067 × 2.970 × 2.758\n    = 1.786 + 0.549\n    = 2.335\n\n  Denominator:\n    0.243 + 0.067 × (1 + 0.34 × 3.0)\n    = 0.243 + 0.067 × 2.02\n    = 0.243 + 0.135\n    = 0.378\n\n  ET₀ = 2.335 / 0.378 = 6.2 mm/day\n\n  RUNTIME CALCULATION for mature tomato crop (Kc = 1.15), drip efficiency 90%:\n    ETc  = 6.2 × 1.15 = 7.1 mm/day water demand\n    Apply = 7.1 / 0.90 = 7.9 mm/day through the system\n    Drip tape: 1.2 L/hr emitters at 30cm spacing = 4.0 mm/hr application rate\n    Runtime = 7.9 mm ÷ 4.0 mm/hr = 1.98 hr → run 2 hours",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 356,
+      "heading_context": "### Crop Coefficients (Kc)",
+      "confidence": "candidate",
+      "text": "ACTUAL CROP ET:\n  ETc = ET₀ × Kc\n\n  Kc = crop coefficient. Specific to crop + growth stage.\n\n  Example (tomato):\n  Stage         Duration   Kc\n  Initial       30 days    0.60\n  Rapid growth  40 days    (0.60 → 1.15, linear)\n  Mid-season    40 days    1.15\n  Late season   25 days    (1.15 → 0.70, linear)\n\n  A day with ET₀ = 6mm/day, tomato at mid-season:\n  ETc = 6.0 × 1.15 = 6.9 mm/day water required.\n\n  FIELD APPLICATION:\n  Drip system efficiency 90% → apply 6.9/0.90 = 7.7mm/day.\n  Convert to runtime based on emitter output and spacing.\n  This is the rational basis for irrigation scheduling.\n\nDEFICIT IRRIGATION:\n  Apply less than full ETc — deliberately stress the crop.\n  Regulated deficit irrigation (RDI): stress at specific growth stages\n  that improve quality without yield loss.\n  Example: tomato at flowering — slight water stress increases lycopene;\n           excessive water dilutes sugars and flavor.\n  Example: wine grapes — moderate water stress from fruit set to veraison\n           improves flavor concentration.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 444,
+      "heading_context": "### Control Systems Framing",
+      "confidence": "candidate",
+      "text": "IRRIGATION CONTROL LOOP\n\n  FEEDFORWARD PATH:\n  Weather data (Rn, T, u₂, RH)\n       |\n       v\n  Penman-Monteith model\n       |\n       v\n  ET₀ × Kc = ETc (demand prediction)\n       |\n       v\n  Irrigation controller -> Valve open/close -> Water to soil\n\n  FEEDBACK PATH (adds correction):\n  Soil moisture sensor -> measured VWC or matric potential\n       |\n       v\n  Compare to setpoint (e.g., -30 kPa tensiometer)\n       |\n  Error signal (above/below setpoint)\n       |\n       v\n  Adjust irrigation timing (extend or skip next cycle)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

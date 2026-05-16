@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:furniture:wood-joinery
+kind: guide
+module: furniture
+section: furniture
+title: Wood and Joinery: Applied Geometry
+status: source-custody
+source_custody: partial
+current_path: furniture/01-WOOD-JOINERY.md
+canonical_path: furniture/01-WOOD-JOINERY.md
+backsource_ids: [proof-backfill:furniture:01-wood-joinery, git-history:furniture:01-wood-joinery]
+concepts: [wood, joinery]
+root_concepts: [wood, joinery]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Wood and Joinery: Applied Geometry
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:horticulture:landscape-design
+kind: guide
+module: horticulture
+section: horticulture
+title: Landscape Design Principles
+status: source-custody
+source_custody: partial
+current_path: horticulture/09-LANDSCAPE-DESIGN.md
+canonical_path: horticulture/09-LANDSCAPE-DESIGN.md
+backsource_ids: [proof-backfill:horticulture:09-landscape-design, git-history:horticulture:09-landscape-design]
+concepts: [landscape, design]
+root_concepts: [landscape, design]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Landscape Design Principles
 
 ## The Big Picture

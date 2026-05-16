@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:horticulture:ipm
+kind: guide
+module: horticulture
+section: horticulture
+title: Integrated Pest Management (IPM)
+status: source-custody
+source_custody: partial
+current_path: horticulture/06-IPM.md
+canonical_path: horticulture/06-IPM.md
+backsource_ids: [proof-backfill:horticulture:06-ipm, git-history:horticulture:06-ipm]
+concepts: [ipm]
+root_concepts: [ipm]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Integrated Pest Management (IPM)
 
 ## The Big Picture

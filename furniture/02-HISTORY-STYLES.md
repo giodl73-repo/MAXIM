@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:furniture:history-styles
+kind: guide
+module: furniture
+section: furniture
+title: Furniture History: Period Styles to Modernism
+status: source-custody
+source_custody: partial
+current_path: furniture/02-HISTORY-STYLES.md
+canonical_path: furniture/02-HISTORY-STYLES.md
+backsource_ids: [proof-backfill:furniture:02-history-styles, git-history:furniture:02-history-styles]
+concepts: [history, styles]
+root_concepts: [history, styles]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Furniture History: Period Styles to Modernism
 
 ## The Big Picture

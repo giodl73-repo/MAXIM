@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:horticulture:soil-science
+kind: guide
+module: horticulture
+section: horticulture
+title: Soil Science for Horticulture
+status: source-custody
+source_custody: partial
+current_path: horticulture/04-SOIL-SCIENCE.md
+canonical_path: horticulture/04-SOIL-SCIENCE.md
+backsource_ids: [proof-backfill:horticulture:04-soil-science, git-history:horticulture:04-soil-science]
+concepts: [soil, science]
+root_concepts: [soil, science]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Soil Science for Horticulture
 
 ## The Big Picture

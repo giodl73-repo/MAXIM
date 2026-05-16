@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:furniture:eames-engineering
+kind: guide
+module: furniture
+section: furniture
+title: Eames: Furniture as Engineering Problem
+status: source-custody
+source_custody: partial
+current_path: furniture/04-EAMES-ENGINEERING.md
+canonical_path: furniture/04-EAMES-ENGINEERING.md
+backsource_ids: [proof-backfill:furniture:04-eames-engineering, git-history:furniture:04-eames-engineering]
+concepts: [eames, engineering]
+root_concepts: [eames, engineering]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Eames: Furniture as Engineering Problem
 
 ## The Big Picture

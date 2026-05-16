@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:furniture:ikea-model
+kind: guide
+module: furniture
+section: furniture
+title: IKEA and Flat-Pack as Industrial Design
+status: source-custody
+source_custody: partial
+current_path: furniture/07-IKEA-MODEL.md
+canonical_path: furniture/07-IKEA-MODEL.md
+backsource_ids: [proof-backfill:furniture:07-ikea-model, git-history:furniture:07-ikea-model]
+concepts: [ikea, model]
+root_concepts: [ikea, model]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # IKEA and Flat-Pack as Industrial Design
 
 ## The Big Picture

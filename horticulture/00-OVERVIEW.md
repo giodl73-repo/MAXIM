@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:horticulture:overview
+kind: guide
+module: horticulture
+section: horticulture
+title: Horticulture - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: horticulture/00-OVERVIEW.md
+canonical_path: horticulture/00-OVERVIEW.md
+backsource_ids: [proof-backfill:horticulture:00-overview, git-history:horticulture:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Horticulture — Landscape and Taxonomy
 
 ## The Big Picture

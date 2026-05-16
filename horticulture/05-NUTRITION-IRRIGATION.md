@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:horticulture:nutrition-irrigation
+kind: guide
+module: horticulture
+section: horticulture
+title: Plant Nutrition and Irrigation
+status: source-custody
+source_custody: partial
+current_path: horticulture/05-NUTRITION-IRRIGATION.md
+canonical_path: horticulture/05-NUTRITION-IRRIGATION.md
+backsource_ids: [proof-backfill:horticulture:05-nutrition-irrigation, git-history:horticulture:05-nutrition-irrigation]
+concepts: [nutrition, irrigation]
+root_concepts: [nutrition, irrigation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Plant Nutrition and Irrigation
 
 ## The Big Picture

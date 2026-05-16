@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:horticulture:plant-propagation
+kind: guide
+module: horticulture
+section: horticulture
+title: Plant Propagation: Seeds, Cuttings, Division
+status: source-custody
+source_custody: partial
+current_path: horticulture/01-PLANT-PROPAGATION.md
+canonical_path: horticulture/01-PLANT-PROPAGATION.md
+backsource_ids: [proof-backfill:horticulture:01-plant-propagation, git-history:horticulture:01-plant-propagation]
+concepts: [plant, propagation]
+root_concepts: [plant, propagation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Plant Propagation: Seeds, Cuttings, Division
 
 ## The Big Picture

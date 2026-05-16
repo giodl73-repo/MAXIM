@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:furniture:overview
+kind: guide
+module: furniture
+section: furniture
+title: Furniture - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: furniture/00-OVERVIEW.md
+canonical_path: furniture/00-OVERVIEW.md
+backsource_ids: [proof-backfill:furniture:00-overview, git-history:furniture:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Furniture — Landscape and Taxonomy
 
 ## The Big Picture

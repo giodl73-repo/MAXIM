@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:furniture:ergonomics-seating
+kind: guide
+module: furniture
+section: furniture
+title: Ergonomics of Seating
+status: source-custody
+source_custody: partial
+current_path: furniture/08-ERGONOMICS-SEATING.md
+canonical_path: furniture/08-ERGONOMICS-SEATING.md
+backsource_ids: [proof-backfill:furniture:08-ergonomics-seating, git-history:furniture:08-ergonomics-seating]
+concepts: [ergonomics, seating]
+root_concepts: [ergonomics, seating]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ergonomics of Seating
 
 ## The Big Picture

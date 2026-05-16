@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:furniture:contemporary
+kind: guide
+module: furniture
+section: furniture
+title: Contemporary Furniture Design and Digital Fabrication
+status: source-custody
+source_custody: partial
+current_path: furniture/09-CONTEMPORARY.md
+canonical_path: furniture/09-CONTEMPORARY.md
+backsource_ids: [proof-backfill:furniture:09-contemporary, git-history:furniture:09-contemporary]
+concepts: [contemporary]
+root_concepts: [contemporary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Contemporary Furniture Design and Digital Fabrication
 
 ## The Big Picture
