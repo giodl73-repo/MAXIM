@@ -6,6 +6,10 @@
 
 Built for the reader who wants enough structure to navigate a field they didn't study, and enough depth to stay useful after they have.
 
+**Review roles:** This repo uses
+[ROLES](https://github.com/giodl73-repo/ROLES), the `.roles` convention for
+repository-local review panels.
+
 ---
 
 ## Start Here
