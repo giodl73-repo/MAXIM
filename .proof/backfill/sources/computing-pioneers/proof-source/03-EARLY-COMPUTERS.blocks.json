@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing-pioneers\\03-EARLY-COMPUTERS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Era Overview",
+      "confidence": "candidate",
+      "text": "FIRST MACHINES: 1937–1952\n===========================\n\n  1937 ─── ATANASOFF conceives ABC (electronic, special-purpose, Iowa)\n  1941 ─── ZUSE: Z3 — first programmable computer (relay-based, Berlin)\n  1943 ─── COLOSSUS (Bletchley Park) — electronic, somewhat programmable, secret\n  1944 ─── HARVARD MARK I (Aiken + IBM) — relay-based, programmed by punched tape\n  1945 ─── ENIAC completed (Eckert+Mauchly, Penn) — electronic, general-purpose\n  1945 ─── VON NEUMANN: \"First Draft of a Report on EDVAC\"\n           — the stored-program architecture document\n  1946 ─── ENIAC publicly demonstrated\n  1948 ─── MANCHESTER BABY (Small-Scale Experimental Machine)\n           — first stored-program computer to run a program\n  1949 ─── EDSAC (Cambridge, UK) — first practical stored-program computer\n  1951 ─── UNIVAC I — first commercial computer sold (to US Census Bureau)\n  1952 ─── IAS machine (Princeton) — Von Neumann's own implementation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "### The Architecture",
+      "confidence": "candidate",
+      "text": "VON NEUMANN ARCHITECTURE (1945)\n================================\n\n  ┌─────────────────────────────────────────────────────────────────┐\n  │                    VON NEUMANN MACHINE                          │\n  │                                                                 │\n  │  ┌────────────────────────────────────────────────────────┐     │\n  │  │                    CENTRAL PROCESSING UNIT             │     │\n  │  │                                                        │     │\n  │  │   ┌──────────────────┐     ┌────────────────────────┐ │     │\n  │  │   │   CONTROL UNIT   │     │     ARITHMETIC LOGIC   │ │     │\n  │  │   │                  │←───→│         UNIT           │ │     │\n  │  │   │ Fetches, decodes │     │                        │ │     │\n  │  │   │ sequences instrs │     │ ADD, SUB, MUL, DIV     │ │     │\n  │  │   │                  │     │ AND, OR, NOT, XOR      │ │     │\n  │  │   │ PC (program ctr) │     │ Comparison, shifts     │ │     │\n  │  │   │ IR (instr reg)   │     │ Registers (fast store) │ │     │\n  │  │   └──────────────────┘     └────────────────────────┘ │     │\n  │  └────────────────────────────────────────────────────────┘     │\n  │                    ↑                                            │\n  │                    │ Memory Bus                                  │\n  │                    ↓                                            │\n  │  ┌────────────────────────────────────────────────────────┐     │\n  │  │                      MEMORY                            │     │\n  │  │                                                        │     │\n  │  │    DATA and INSTRUCTIONS stored together               │     │\n  │  │    Addressed linearly: cell 0, cell 1, ...             │     │\n  │  │    CPU cannot distinguish data cell from code cell     │     │\n  │  │    (this is the key insight AND the key vulnerability) │     │\n  │  └────────────────────────────────────────────────────────┘     │\n  │                    ↑                   ↓                        │\n  │              ┌─────────┐         ┌──────────┐                   │\n  │              │  INPUT  │         │  OUTPUT  │                   │\n  │              └─────────┘         └──────────┘                   │\n  └─────────────────────────────────────────────────────────────────┘\n\n  THE FETCH-DECODE-EXECUTE CYCLE:\n    1. FETCH:   Read instruction at address in PC → load into IR\n    2. DECODE:  Interpret opcode and operands\n    3. EXECUTE: ALU performs operation or memory access\n    4. UPDATE:  PC incremented (or set by branch instruction)\n    Repeat forever.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "### ENIAC",
+      "confidence": "candidate",
+      "text": "PROGRAMMING ENIAC\n==================\n\n  BEFORE: (plugboard programming)\n  ─────────────────────────────────\n  Operator physically cables accumulators together.\n  Sets decade ring switches to establish constants.\n  Routes signals from accumulator to accumulator.\n  One problem type = one wiring configuration.\n  Reprogramming: days.\n\n  AFTER: (1948 \"Read Only Storage\" conversion)\n  ──────────────────────────────────────────────\n  Eckert and others added a function table modification:\n  programs could be stored in function tables (read-only).\n  Loading a new program: hours instead of days.\n  Not quite stored-program, but a step toward it.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 214,
+      "heading_context": "### The Z Series",
+      "confidence": "candidate",
+      "text": "ZUSE Z-SERIES: MILESTONES\n==========================\n\n  Z1 (1936–38): Mechanical. Binary floating-point. Programmable via\n                punched holes in discarded 35mm film. Never worked\n                reliably (mechanical tolerances).\n\n  Z2 (1939):    Hybrid: relay arithmetic unit, mechanical memory.\n                Proof-of-concept for relay approach.\n\n  Z3 (1941):    All-relay. Binary. Floating-point. Programmable from\n                punched film tape. 2,600 relays.\n                ─── FIRST WORKING PROGRAMMABLE COMPUTER ───\n                Destroyed in Berlin bombing, 1944.\n                Replica at Deutsches Museum, Munich.\n\n  Z4 (1944–45): Relay-based. Survived war in Bavarian Alps.\n                Rented to ETH Zurich 1950–1955.\n                Only computer in continental Europe for years.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

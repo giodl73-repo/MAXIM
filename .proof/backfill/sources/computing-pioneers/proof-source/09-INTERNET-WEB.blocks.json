@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing-pioneers\\09-INTERNET-WEB.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Era Overview",
+      "confidence": "candidate",
+      "text": "FROM ARPANET TO THE MODERN WEB: 1969–2000\n===========================================\n\n  1969 ─── ARPANET: first packet-switched network.\n           4 nodes: UCLA, Stanford, UCSB, Utah.\n           First message: \"lo\" (trying to send \"login\", crashed after \"lo\").\n\n  1972 ─── EMAIL invented (Ray Tomlinson — @ sign). First killer app.\n           ARPANET demonstrated publicly at ICCC.\n\n  1973 ─── CERF + KAHN: begin designing TCP/IP (Transmission Control Protocol\n           / Internet Protocol). Problem: how to connect heterogeneous networks.\n\n  1974 ─── CERF + KAHN: \"A Protocol for Packet Network Intercommunication\"\n           The TCP/IP paper. Defines the internet architecture.\n\n  1983 ─── ARPANET switches from NCP to TCP/IP. \"Flag Day\" January 1.\n           The internet officially begins.\n\n  1989 ─── BERNERS-LEE: \"Information Management: A Proposal\" — WWW concept.\n  1991 ─── BERNERS-LEE: First web server, HTTP, HTML, browser running at CERN.\n  1993 ─── ANDREESSEN: Mosaic browser released (NCSA, University of Illinois).\n           First browser with inline images. Web goes mainstream.\n\n  1994 ─── BERNERS-LEE founds W3C.\n           ANDREESSEN co-founds Netscape.\n\n  1995 ─── Netscape Navigator. IPO. \"Netscape moment\" — web era begins.\n           Java (Sun), JavaScript (Netscape/Brendan Eich).\n           Amazon, eBay, Yahoo founded.\n\n  1998 ─── PAGE + BRIN: Google founded. PageRank algorithm.\n\n  1999 ─── Napster. Peer-to-peer. Wifi 802.11b.\n  2000 ─── Dot-com crash.\n\n  2004 ─── Facebook. Web 2.0. User-generated content era.\n  2004 ─── Firefox (Mozilla) — open source browser challenge.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 79,
+      "heading_context": "### The Problem: Internetworking",
+      "confidence": "candidate",
+      "text": "THE INTERNETWORKING PROBLEM (1973)\n====================================\n\n  Network A (ARPANET): NCP protocol\n  Network B (PRNET): Packet Radio Network\n  Network C (SATNET): Satellite network\n\n  Problem: a packet from Network A cannot pass to Network C.\n           Each network has its own packet format, addressing, error handling.\n\n  Previous approach: design one perfect network.\n  Cerf+Kahn's insight: design a protocol that works ACROSS networks,\n                       without requiring any network to change.\n\n  DESIGN PRINCIPLES:\n  ──────────────────\n  1. No central control. Any network can join.\n  2. Each network operates independently (no internal changes required).\n  3. Best-effort delivery. Routers don't remember packets.\n  4. \"Black boxes\" (later called routers/gateways) connect networks.\n  5. Endpoints handle reliability (not the network).\n  6. No global addressing — a single address space.\n  7. No assumptions about the underlying network type.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "### TCP/IP Architecture",
+      "confidence": "candidate",
+      "text": "TCP/IP PROTOCOL STACK\n========================\n\n  APPLICATION LAYER\n  ─────────────────\n  HTTP, FTP, SMTP, DNS, SSH, TLS\n  Application defines message format.\n  TCP/IP is transport — it doesn't care what's in the payload.\n\n  TRANSPORT LAYER\n  ───────────────\n  TCP: Transmission Control Protocol\n    - Reliable, ordered byte stream\n    - Connection-oriented (3-way handshake: SYN, SYN-ACK, ACK)\n    - Error detection + retransmission\n    - Flow control (receiver advertises window size)\n    - Congestion control (slow start, AIMD)\n\n  UDP: User Datagram Protocol (added later)\n    - Unreliable, unordered\n    - No handshake, no retransmission\n    - Low overhead (games, video streaming, DNS)\n\n  INTERNET LAYER\n  ──────────────\n  IP: Internet Protocol\n    - Best-effort packet delivery\n    - 32-bit addresses (IPv4) / 128-bit addresses (IPv6)\n    - Fragmentation and reassembly\n    - TTL (Time to Live — prevents infinite loops)\n    - Routing: each router forwards based on destination IP\n\n  LINK LAYER\n  ──────────\n  Ethernet, WiFi, fiber, etc.\n  IP doesn't care — \"any packet network\" was the design goal.\n  IP packets are carried inside whatever the physical network uses.\n\n  THE KEY INSIGHT: end-to-end principle\n  ──────────────────────────────────────\n  Put complexity at the endpoints, not in the network.\n  The network delivers packets. Period.\n  Reliability, ordering, encryption — the application's problem.\n  This is why TCP/IP supports VoIP, HTTP, BitTorrent, WebRTC\n  without any changes to the network infrastructure.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "### The Web Proposal",
+      "confidence": "candidate",
+      "text": "THE WEB'S THREE COMPONENTS (Berners-Lee, 1989–1991)\n=====================================================\n\n  URI / URL — Uniform Resource Identifier / Locator\n  ──────────────────────────────────────────────────\n  A universal naming scheme for any resource.\n  http://info.cern.ch/hypertext/WWW/TheProject.html\n\n  scheme://host[:port]/path?query#fragment\n  http://     — protocol\n  info.cern.ch — hostname (resolved via DNS)\n  /hypertext/WWW/TheProject.html — path to resource\n\n  Critical: the namespace is globally distributed.\n  No central registry controls what URLs exist under a domain.\n\n  HTTP — HyperText Transfer Protocol\n  ────────────────────────────────────\n  Request-response protocol.\n  Stateless: each request independent.\n  Verbs: GET, POST (originally); later PUT, DELETE, PATCH.\n\n  GET /hypertext/WWW/TheProject.html HTTP/1.0\n  Host: info.cern.ch\n\n  HTTP/1.0 200 OK\n  Content-Type: text/html\n  [body follows]\n\n  Statelessness is a design choice (not a limitation):\n  Scales horizontally — any server can handle any request.\n  Session state managed by cookies (Netscape, 1994) or tokens.\n\n  HTML — HyperText Markup Language\n  ──────────────────────────────────\n  Markup language for documents with links.\n  Derived from SGML.\n\n  <a href=\"http://other-site.com/document\">link text</a>\n  The href attribute is the hypertext — the link to another document.\n\n  HTML was intentionally simple: easy to parse, easy to write,\n  graceful degradation (unknown tags ignored).\n  This permissiveness led to decades of browser quirks.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 231,
+      "heading_context": "### The Gift to the World",
+      "confidence": "candidate",
+      "text": "COUNTERFACTUAL: PATENTED WEB\n==============================\n\n  Every web server → license fee\n  Every browser → license fee\n  Every web page → potentially licensed content\n\n  The web would likely have developed as fragmented\n  proprietary systems, similar to CompuServe, AOL, MSN\n  — walled gardens with incompatible protocols.\n\n  The open web's economic value:\n    Estimated at $1–2 trillion/year globally (Deloitte, 2012).\n    All of e-commerce, all of search advertising, all of SaaS.\n    Berners-Lee captured essentially none of this.\n\n  Compare: Qualcomm's CDMA patents earn ~$7 billion/year.\n           Berners-Lee's HTTP patents: $0.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

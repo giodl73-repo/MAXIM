@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing-pioneers\\07-SYSTEMS-OS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Era Overview",
+      "confidence": "candidate",
+      "text": "UNIX AND ITS DESCENDANTS: 1965–2000\n=====================================\n\n  1965 ─── MULTICS: Bell Labs + MIT + GE. Too ambitious. Cancelled 1969.\n           Thompson and Ritchie wanted something simpler.\n\n  1969 ─── THOMPSON: First Unix on a PDP-7. Written to play Space Travel.\n           Key insight: one small team, one machine, clean design.\n\n  1970 ─── Unix named (\"Unics\" → \"Unix\" — a pun on Multics).\n\n  1971 ─── Unix Version 1. PDP-11. Written in assembly.\n\n  1972 ─── RITCHIE: C language developed (from Thompson's B).\n\n  1973 ─── Unix rewritten in C. First OS written in a high-level language.\n           Portability suddenly possible: same OS, different hardware.\n\n  1974 ─── \"The Unix Time-Sharing System\" paper (CACM).\n           Marks the beginning of Unix spreading outside Bell Labs.\n\n  1975–78: Unix licensed to universities. BSD born at Berkeley.\n\n  1983 ─── STALLMAN: GNU project announced. Free software movement.\n  1984 ─── GNU begins producing Unix-compatible tools (gcc, emacs, etc.)\n\n  1987 ─── TANENBAUM: MINIX for education. Inspires Torvalds.\n\n  1991 ─── TORVALDS: Linux kernel announced on comp.os.minix.\n\n  1992 ─── Linux + GNU tools = working free OS. GNU/Linux.\n\n  1993 ─── FreeBSD, NetBSD released (BSD Unix fully free).\n\n  2000s ─── Linux dominates servers, embedded systems.\n           macOS (Darwin) is BSD Unix under the hood.\n           Android is Linux kernel.\n           Windows NT's design influenced by Unix (Dave Cutler,\n           who also designed VMS for DEC).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "### Why Unix",
+      "confidence": "candidate",
+      "text": "UNIX DESIGN PRINCIPLES (as they emerged)\n==========================================\n\n  1. Write programs that do ONE thing and do it well.\n  2. Write programs to work together (pipes).\n  3. Write programs to handle text streams (universal interface).\n  4. Everything is a file.\n  5. The kernel does as little as possible.\n  6. Policy separate from mechanism.\n\n  EVERYTHING IS A FILE:\n  ┌────────────────────────────────────────────────────────┐\n  │  Regular file     /home/user/doc.txt                   │\n  │  Directory        /usr/bin/                            │\n  │  Block device     /dev/sda1  (hard disk partition)     │\n  │  Character device /dev/tty   (terminal)                │\n  │  Network socket   (file descriptor after accept())     │\n  │  Pipe             (file descriptor pair)               │\n  │  /proc entry      /proc/1234/status  (process state)   │\n  └────────────────────────────────────────────────────────┘\n  Same read()/write()/close() API for all of them.\n  A program doesn't need to know what it's reading from.\n\n  PIPES (Thompson's invention, 1972):\n  program1 | program2 | program3\n  Each program reads stdin, writes stdout.\n  Pipe connects stdout of one to stdin of next.\n  Compose complex behavior from simple programs.\n\n  ls -l | grep \"^d\" | sort -k5 -n | tail -10\n  (list dirs sorted by size, largest 10)\n  No program knows about the others.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "### Unix Rewritten in C",
+      "confidence": "candidate",
+      "text": "BEFORE: Unix in assembly (PDP-11)\n  - Runs only on PDP-11\n  - Change hardware → rewrite OS from scratch\n  - Maintenance: requires assembly expertise\n\nAFTER: Unix in C\n  - Port the C compiler to new hardware\n  - Recompile Unix\n  - New hardware has Unix\n\n  UNIX PORTABILITY IN PRACTICE:\n  PDP-11 → VAX → 68000 → SPARC → MIPS → x86 → ARM → ...\n  The same OS, recompiled, on each new architecture.\n\n  This is still the model: Linux runs on x86, ARM, MIPS, RISC-V,\n  PowerPC, S/390 — same source code, recompiled.\n  Windows NT: same source code built for x86, ARM.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "### C Language",
+      "confidence": "candidate",
+      "text": "C'S DESIGN PRINCIPLES\n=======================\n\n  Thin abstraction over hardware:\n    No runtime (no GC, no exceptions, no bounds checking)\n    Pointers = machine addresses\n    sizeof() returns bytes\n    Undefined behavior = trust the programmer\n\n  Direct hardware access:\n    Bitwise operations (& | ^ << >>)\n    Pointer arithmetic\n    Explicit memory management (malloc/free)\n    volatile for hardware registers\n\n  Portability through abstraction:\n    int, long, char — size defined relative to platform\n    (a design flaw, addressed by stdint.h later: int32_t, etc.)\n    #include <stdio.h> — standard library, implemented per platform\n\n  THE LINEAGE:\n  C (1972)\n  ├── C++ (Stroustrup, 1983) — adds OOP, templates, RAII\n  │     └── Java (Gosling, 1995) — GC, no pointers, JVM\n  │           └── C# (Hejlsberg, 2000) — Java++, CLR\n  │                 └── everything you write at Microsoft\n  └── Objective-C (Cox, 1983) — C + Smalltalk OOP\n        └── Swift (Lattner, 2014) — modern iOS/macOS language\n  C (1972)\n  └── Go (Pike, Griesemer, Thompson, 2007) — C philosophy, modern",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

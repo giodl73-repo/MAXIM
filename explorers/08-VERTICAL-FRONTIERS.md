@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:explorers:vertical-frontiers
+kind: guide
+module: explorers
+section: explorers
+title: Vertical Frontiers - Hillary+Tenzing, Herzog, Messner, Cousteau
+status: source-custody
+source_custody: partial
+current_path: explorers/08-VERTICAL-FRONTIERS.md
+canonical_path: explorers/08-VERTICAL-FRONTIERS.md
+backsource_ids: [proof-backfill:explorers:08-vertical-frontiers, git-history:explorers:08-vertical-frontiers]
+concepts: [vertical, frontiers]
+root_concepts: [vertical, frontiers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Vertical Frontiers — Hillary+Tenzing, Herzog, Messner, Cousteau
 
 ## Era Overview

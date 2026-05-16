@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-pioneers:early-computers
+kind: guide
+module: computing-pioneers
+section: computing-pioneers
+title: Early Computers - Von Neumann, Atanasoff, Eckert+Mauchly, Zuse
+status: source-custody
+source_custody: partial
+current_path: computing-pioneers/03-EARLY-COMPUTERS.md
+canonical_path: computing-pioneers/03-EARLY-COMPUTERS.md
+backsource_ids: [proof-backfill:computing-pioneers:03-early-computers, git-history:computing-pioneers:03-early-computers]
+concepts: [early, computers]
+root_concepts: [early, computers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Early Computers — Von Neumann, Atanasoff, Eckert+Mauchly, Zuse
 
 ## Era Overview
@@ -46,11 +65,11 @@ VON NEUMANN ARCHITECTURE (1945)
   │  │   ┌──────────────────┐     ┌────────────────────────┐ │     │
   │  │   │   CONTROL UNIT   │     │     ARITHMETIC LOGIC   │ │     │
   │  │   │                  │←───→│         UNIT           │ │     │
-  │  │   │ Fetches, decodes, │     │                        │ │    │
+  │  │   │ Fetches, decodes │     │                        │ │     │
   │  │   │ sequences instrs │     │ ADD, SUB, MUL, DIV     │ │     │
   │  │   │                  │     │ AND, OR, NOT, XOR      │ │     │
   │  │   │ PC (program ctr) │     │ Comparison, shifts     │ │     │
-  │  │   │ IR (instr reg)   │     │ Registers (fast storage)│ │    │
+  │  │   │ IR (instr reg)   │     │ Registers (fast store) │ │     │
   │  │   └──────────────────┘     └────────────────────────┘ │     │
   │  └────────────────────────────────────────────────────────┘     │
   │                    ↑                                            │

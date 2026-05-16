@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:explorers:silk-road-medieval
+kind: guide
+module: explorers
+section: explorers
+title: Silk Road and Medieval Explorers - Marco Polo, Ibn Battuta, Zheng He, Rabban Sauma
+status: source-custody
+source_custody: partial
+current_path: explorers/01-SILK-ROAD-MEDIEVAL.md
+canonical_path: explorers/01-SILK-ROAD-MEDIEVAL.md
+backsource_ids: [proof-backfill:explorers:01-silk-road-medieval, git-history:explorers:01-silk-road-medieval]
+concepts: [silk, road, medieval]
+root_concepts: [silk, road]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Silk Road and Medieval Explorers — Marco Polo, Ibn Battuta, Zheng He, Rabban Sauma
 
 ## Era Overview

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-pioneers:information-theory
+kind: guide
+module: computing-pioneers
+section: computing-pioneers
+title: Information Theory - Shannon, Nyquist, Hamming
+status: source-custody
+source_custody: partial
+current_path: computing-pioneers/04-INFORMATION-THEORY.md
+canonical_path: computing-pioneers/04-INFORMATION-THEORY.md
+backsource_ids: [proof-backfill:computing-pioneers:04-information-theory, git-history:computing-pioneers:04-information-theory]
+concepts: [information, theory]
+root_concepts: [information, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Information Theory — Shannon, Nyquist, Hamming
 
 ## Era Overview

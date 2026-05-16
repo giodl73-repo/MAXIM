@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:explorers:modern-frontiers
+kind: guide
+module: explorers
+section: explorers
+title: Modern Frontiers - Gagarin, Glenn, Armstrong+Aldrin, Piccard, Ballard
+status: source-custody
+source_custody: partial
+current_path: explorers/09-MODERN-FRONTIERS.md
+canonical_path: explorers/09-MODERN-FRONTIERS.md
+backsource_ids: [proof-backfill:explorers:09-modern-frontiers, git-history:explorers:09-modern-frontiers]
+concepts: [modern, frontiers]
+root_concepts: [modern, frontiers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Frontiers — Gagarin, Glenn, Armstrong+Aldrin, Piccard, Ballard
 
 ## Era Overview

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:explorers:continental-interiors
+kind: guide
+module: explorers
+section: explorers
+title: Continental Interiors - Lewis+Clark, Livingstone+Stanley, Burke+Wills, Younghusband
+status: source-custody
+source_custody: partial
+current_path: explorers/07-CONTINENTAL-INTERIORS.md
+canonical_path: explorers/07-CONTINENTAL-INTERIORS.md
+backsource_ids: [proof-backfill:explorers:07-continental-interiors, git-history:explorers:07-continental-interiors]
+concepts: [continental, interiors]
+root_concepts: [continental, interiors]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Continental Interiors — Lewis+Clark, Livingstone+Stanley, Burke+Wills, Younghusband
 
 ## Era Overview
