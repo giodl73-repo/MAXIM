@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:transportation:aviation-infra
+kind: guide
+module: transportation
+section: transportation
+title: Aviation Infrastructure
+status: source-custody
+source_custody: partial
+current_path: transportation/04-AVIATION-INFRA.md
+canonical_path: transportation/04-AVIATION-INFRA.md
+backsource_ids: [proof-backfill:transportation:04-aviation-infra, git-history:transportation:04-aviation-infra]
+concepts: [aviation, infra]
+root_concepts: [aviation, infra]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Aviation Infrastructure
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:game-theory:cooperative
+kind: guide
+module: game-theory
+section: game-theory
+title: Cooperative Game Theory - Coalitions, Fair Division, and Bargaining
+status: source-custody
+source_custody: partial
+current_path: game-theory/04-COOPERATIVE.md
+canonical_path: game-theory/04-COOPERATIVE.md
+backsource_ids: [proof-backfill:game-theory:04-cooperative, git-history:game-theory:04-cooperative]
+concepts: [cooperative]
+root_concepts: [cooperative]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cooperative Game Theory — Coalitions, Fair Division, and Bargaining
 
 ## The Big Picture

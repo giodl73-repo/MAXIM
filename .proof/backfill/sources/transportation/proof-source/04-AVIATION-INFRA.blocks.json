@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "transportation\\04-AVIATION-INFRA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 52,
+      "heading_context": "### Runway Geometry and Declared Distances",
+      "confidence": "candidate",
+      "text": "  DECLARED DISTANCES (ICAO terminology):\n\n  THRESHOLD                                    THRESHOLD\n  |                                                    |\n  +----------------------------------------------------+\n  |            TORA (Take-Off Run Available)           |\n  +----------------------------------------------------+\n  |       TODA (Take-Off Distance Available)      -----|-----\n                                                 Clearway (not\n                                                 hard surface)\n  |     ASDA (Accelerate-Stop Distance Avail.)   +------+\n                                                 Stopway (paved,\n                                                 cannot be used\n                                                 for takeoff roll)\n  LDA (Landing Distance Available):\n  From displaced threshold (if applicable) to end of runway.\n\n  KEY POINTS:\n  - TODA >= TORA (clearway extends beyond runway end)\n  - ASDA >= TORA (stopway can slow a rejected takeoff)\n  - LDA can be less than TORA (displaced threshold)\n\n  RUNWAY LENGTH DETERMINATION:\n  Reference field length from aircraft performance manual\n  Corrections for: airport elevation (less dense air)\n                   temperature (ISA + correction)\n                   slope (uphill increases requirement)\n                   surface (wet runway factor)\n\n  A Boeing 777-300ER at MTOW (352t):\n    Sea level, ISA, dry: ~3,200m\n    Denver (1,655m elev), hot day (35°C): ~4,000m+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "### Runway Configuration and Capacity",
+      "confidence": "candidate",
+      "text": "  RUNWAY CONFIGURATIONS AND THEORETICAL CAPACITY:\n\n  Single runway:\n  ==============================\n  Capacity: 45-60 operations/hr (mixed arrivals/departures)\n  Typical: 25-30 arrivals/hr + 25-30 departures/hr\n\n  Close parallel (< 760m separation):\n  ==============================\n  ==============================\n  Must use dependent operations (staggered)\n  Capacity: 60-75 operations/hr (shared instrument approaches)\n\n  Far parallel (> 1,300m separation):\n  ==============================\n                     (1300m+ separation)\n  ==============================\n  Independent operations (simultaneous ILS)\n  Capacity: 90-120 operations/hr (dual independent runways)\n\n  Open-V (converging):\n  =========>\n          <=========\n  Independent departures; arrivals must alternate\n  Atlanta (ATL): 5 runways = world's highest capacity airport\n\n  ORIENTATION:\n  Runway oriented to align with prevailing wind (crosswind limit).\n  Design criterion: wind rose analysis — achieve 95% coverage\n  (aircraft can operate in 95% of observed wind conditions).\n  ILS/GLS approaches: headwind preferred; crosswind limit ~30-40 knots.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "### Pavement Classification",
+      "confidence": "candidate",
+      "text": "  PCN/ACN REPORT FORMAT:\n  PCN 80 / F / B / W / T\n\n  80  = numerical PCN value\n  F   = pavement type: F (flexible/asphalt) or R (rigid/concrete)\n  B   = subgrade strength category: A (high) B (medium) C (low) D (ultra-low)\n  W   = tire pressure category: W (high, no limit) X Y Z (decreasing)\n  T   = evaluation method: T (technical) or U (using aircraft experience)\n\n  Example: 747-400 at MTOW has ACN ~60-80 depending on tire pressure.\n  Runway PCN must be >= ACN for unrestricted operations.\n\n  NEW SYSTEM (ICAO Annex 14, 2024): ACN/PCN -> ACR/PCR\n  ACR = Aircraft Classification Rating (replaces ACN)\n  PCR = Pavement Classification Rating (replaces PCN)\n  Uses energy approach; more physically accurate.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 176,
+      "heading_context": "### Surveillance Architecture",
+      "confidence": "candidate",
+      "text": "  ATC SURVEILLANCE LAYERS:\n\n  1. PSR (Primary Surveillance Radar):\n  +----------------------------------+\n  | Transmits pulses; receives       |\n  | reflections from aircraft hull   |\n  | No transponder needed on aircraft|\n  | Range: 80-100nm (terminal)       |\n  |        200-250nm (en-route)      |\n  | Shows: position, track, speed    |\n  | Does NOT show: altitude, ID      |\n  +----------------------------------+\n  Useful for: birds, weather, aircraft with failed transponder\n\n  2. SSR (Secondary Surveillance Radar):\n  +----------------------------------+\n  | Interrogates Mode A/C/S          |\n  | transponder on aircraft          |\n  | Mode A: 4-digit squawk code      |\n  | Mode C: pressure altitude        |\n  | Mode S: individual aircraft addr |\n  |         + downlinked data        |\n  | Range: 250-300nm                 |\n  +----------------------------------+\n  Key advantage over PSR: altitude, identity, better target definition\n\n  3. ADS-B (Automatic Dependent Surveillance - Broadcast):\n  +----------------------------------+\n  | Aircraft broadcasts its own      |\n  | GPS position, altitude, ID,      |\n  | velocity every 0.5 seconds       |\n  | on 1090MHz (Mode S Extended      |\n  | Squitter)                        |\n  | No interrogation needed          |\n  | Range: line-of-sight (~250nm)    |\n  | Space-based: Aireon satellites   |\n  |              (Iridium Next)      |\n  +----------------------------------+\n  ADS-B Out mandate: US (2020), EU (2020), most regions by 2025\n  First time oceanic aircraft position known in real-time (Aireon, 2019)\n\n  COMPARISON:\n  PSR: always works; no info; expensive to maintain\n  SSR: needs transponder; altitude + ID; existing infrastructure\n  ADS-B: needs GPS + transponder; full data; cheap to receive; GPS denied = failure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 228,
+      "heading_context": "### TCAS II — Traffic Collision Avoidance System",
+      "confidence": "candidate",
+      "text": "  TCAS II OPERATION:\n\n  Own aircraft TCAS interrogates nearby transponders.\n  Tracks relative position and altitude of other aircraft.\n\n  Two levels of alert:\n\n  TA (Traffic Advisory):\n  \"Traffic, traffic\" - other aircraft within ~25-40 seconds\n  Action: search visually, prepare for potential RA\n  NO mandatory action; situational awareness only\n\n  RA (Resolution Advisory):\n  \"Climb, climb\" or \"Descend, descend\" (typically)\n  Issued at ~15-35 seconds to collision\n  TCAS coordinates with other aircraft's TCAS via Mode S\n    -> If both have TCAS, they get complementary RAs\n    -> One climbs, one descends; never both same direction\n\n  MANDATE:\n  ICAO: All transport aircraft >5,700kg -> TCAS II required\n  Resolution Advisory MUST be followed even if contradicts ATC\n  This is the ONLY case where a pilot must disobey ATC\n  Reason: TCAS has better situational awareness at 15-second horizon\n  than a controller managing hundreds of targets\n\n  UBERLINGEN (2002):\n  DHL 757 and Bashkirian Tu-154 mid-air collision.\n  TCAS said descend (757) and climb (Tu-154).\n  ATC said Tu-154 descend (same direction as TCAS).\n  Tu-154 crew followed ATC, ignored TCAS RA.\n  Result: 71 fatalities.\n  LESSON: TCAS RA takes priority over ATC. Always.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 306,
+      "heading_context": "## ICAO Airspace Classification",
+      "confidence": "candidate",
+      "text": "  ICAO AIRSPACE CLASSES:\n\n  Class | IFR | VFR | ATC   | Sep IFR-IFR | Sep IFR-VFR | Sep VFR-VFR\n  ------+-----+-----+-------+-------------+-------------+------------\n  A     | Yes |  No | Full  | Provided    | N/A         | N/A\n  B     | Yes | Yes | Full  | Provided    | Provided    | Provided\n  C     | Yes | Yes | Full  | Provided    | Provided    | Info only\n  D     | Yes | Yes | Full  | Provided    | Info only   | Info only\n  E     | Yes | Yes | Partial| Provided   | No          | No\n  F     | Yes | Yes | Advisory| Advisory  | No          | No\n  G     | Yes | Yes | None  | None        | None        | None\n\n  TYPICAL US USAGE:\n  Class A: FL180-FL600 (above 18,000ft MSL) — IFR only\n  Class B: Major airports (LAX, ORD, JFK) — busy terminal\n  Class C: Mid-size airports (Sacramento, Tucson)\n  Class D: Smaller controlled airports\n  Class E: Most controlled airspace not in B/C/D\n  Class G: Low-altitude uncontrolled airspace (below ~700-1,200ft AGL)\n\n  RVSM (Reduced Vertical Separation Minima):\n  FL290-FL410: 1,000ft vertical separation (vs old 2,000ft above FL290)\n  Implemented globally 2000-2005.\n  Doubled capacity in upper airspace.\n  Requires: approved avionics, altitude-keeping accuracy <65ft rms.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 342,
+      "heading_context": "### Cost Structure",
+      "confidence": "candidate",
+      "text": "  AIRLINE COST BREAKDOWN (approximate, US major carrier):\n\n  +------------------------------------------+\n  | Labor                       28-35%       |\n  | Fuel                        20-30%       |\n  | Aircraft ownership/leasing  10-15%       |\n  | Maintenance                 10-15%       |\n  | Distribution/sales           5-10%       |\n  | Airport/navigation fees      8-12%       |\n  | Other                        5-10%       |\n  +------------------------------------------+\n\n  KEY METRICS:\n\n  CASM (Cost per Available Seat-Mile):\n  CASM = Total operating cost / (seats * miles flown)\n  LCC: 6-9¢/ASM (Southwest, Spirit, Ryanair)\n  Legacy: 12-18¢/ASM (American, Delta, United, BA)\n  The CASM gap is the structural competitive challenge for legacies.\n\n  RASM (Revenue per Available Seat-Mile):\n  RASM = Total revenue / (seats * miles flown)\n  Profitable if RASM > CASM.\n\n  LOAD FACTOR:\n  = Revenue Passenger Miles / Available Seat Miles\n  Industry average: 83-87% (long-run trend upward)\n  Break-even load factor: ~75-80% for most carriers\n  At 85%+: airline profitable; at 70%-: airlines bleed cash\n\n  AIRCRAFT UTILIZATION:\n  Hours per aircraft per day.\n  LCC target: 12-14 hours/day\n  Legacy long-haul: 14-16 hours/day (overnight long-haul)\n  High utilization spreads ownership cost over more ASMs.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 382,
+      "heading_context": "### Hub-and-Spoke vs Point-to-Point",
+      "confidence": "candidate",
+      "text": "  HUB-AND-SPOKE (legacy carrier model):\n                    +-------+\n         /--------| CHICAGO|--------\\\n        /          |  Hub  |         \\\n  Boston          +-------+         LA\n  NY                  |             Seattle\n  DC              Denver            Portland\n                  Phoenix\n                  Dallas\n\n  ECONOMIES:\n  N spokes -> N*(N-1)/2 markets served via hub\n  15 spokes -> 105 city pairs with 15 routes\n  Load consolidation: each spoke feeds multiple connecting banks\n  Frequency on thin routes: possible because demand combines\n\n  DISECONOMIES:\n  Hub congestion: schedule banks -> peaks -> delays\n  Connection time: passengers lose 90-180min at hub\n  CASM penalty: hub operations expensive\n\n  POINT-TO-POINT (LCC model):\n  Direct city pairs only. No connections.\n  Southwest: point-to-point, no interlining, no bags-checked through.\n  Ryanair: secondary airports, fast turns (25 min), no connections.\n\n  LCC COST ADVANTAGES:\n  - Single aircraft type (no mixed fleet training/maintenance)\n  - Higher seat density (30cm pitch vs 33-35cm)\n  - No premium cabin (all seats similar cost to operate)\n  - Secondary airports (lower fees, faster slot access)\n  - Shorter check-in/boarding times\n  - Higher utilization (turn around in 25-30 min vs 45-60 min)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 422,
+      "heading_context": "### Revenue Management (Yield Management)",
+      "confidence": "candidate",
+      "text": "  FARE CLASS STRUCTURE:\n\n  Booking       Business  Premium  Economy  Economy  Discount\n  Class Code:   J/C       W        Y        B/H/M    T/Q/V\n                ^                                    ^\n                |                                    |\n                Highest fare                        Lowest fare\n                (full flexibility)                  (restricted)\n\n  NESTED FARE CLASSES:\n  Available seats per class set by RM system.\n  EMSR-b (Expected Marginal Seat Revenue - bid price):\n  Optimal nesting: open class j if E[revenue from future high-class]\n                               < current class j revenue\n\n  OVERBOOKING:\n  Airline sells more seats than the aircraft has.\n  No-show model: historically 5-15% of passengers no-show.\n  Overbooking level = f(fare class mix, route, season, day of week)\n  Expected oversales = Poisson(show-up rate) - capacity\n  Denied boarding cost < oversale revenue → rational to overbook.\n  Voluntary denied boarding: compensation + later flight = happy.\n  Involuntary denied boarding: involuntary bump rules (EU261, US DOT).\n\n  O&D vs LEG-BASED RM:\n  Leg-based: optimize each flight leg independently\n  O&D: optimize across entire itinerary (passenger from BOS->CHI->LAX\n       competes with BOS->CHI-only passenger for the BOS->CHI seat)\n  O&D is harder (4B+ itinerary-fare combinations at a major airline)\n  but materially improves revenue (5-10%).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 493,
+      "heading_context": "## The SABRE Bridge — Aviation as Distributed Systems Pioneer",
+      "confidence": "candidate",
+      "text": "  SABRE (1960) ->          Modern relevance:\n  Real-time reservations    Same problem: distributed state\n  across 2,000 terminals    across thousands of nodes\n  18 million fares          Billions of records\n  Conflict resolution       Eventual consistency / MVCC\n  Inventory management      Available-seat tracking\n  IBM 7090 mainframe        Cloud-native microservices\n\n  Lineage:\n  SABRE (1960) -> PARS/BARS -> Amadeus/Sabre GDS (1990s)\n  -> Modern PSS (Passenger Service System)\n  -> Google Flights (ITA Software, acquired 2011)\n\n  The airline industry invented distributed real-time transaction\n  systems in 1960. Every lesson in CAP theorem, eventual consistency,\n  and distributed locking was learned first in airline reservations.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

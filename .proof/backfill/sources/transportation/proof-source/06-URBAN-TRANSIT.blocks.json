@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "transportation\\06-URBAN-TRANSIT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 102,
+      "heading_context": "### Random Utility Theory",
+      "confidence": "candidate",
+      "text": "  UTILITY OF MODE j FOR TRAVELER i:\n\n  U_ij = V_ij + epsilon_ij\n\n  V_ij = \"systematic\" (observable) utility\n  epsilon_ij = unobserved random component\n\n  TYPICAL UTILITY FUNCTION:\n\n  V_ij = beta_IVT * IVT_ij    (in-vehicle travel time)\n       + beta_OVT * OVT_ij    (out-of-vehicle: wait + walk)\n       + beta_FAR * fare_ij   (fare/cost)\n       + beta_REL * REL_ij    (reliability)\n       + ASC_j                (mode-specific constant)\n       + beta_INC * income_i * ASC_j   (income interaction)\n\n  RULE OF THUMB COEFFICIENTS (derived from value-of-time studies):\n  Wait time disutility: ~2x in-vehicle time (people hate waiting)\n  Walk time disutility: ~2-2.5x in-vehicle time\n  Transfer penalty: equivalent to 8-15 minutes of IVT\n\n  US average value of time (commute): $15-20/hour (2024)\n  High-income workers: $30-50/hour\n  This is why park-and-ride lots capture suburban riders who\n  value their time too highly to walk 15 minutes to a bus.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 138,
+      "heading_context": "### Multinomial Logit (MNL)",
+      "confidence": "candidate",
+      "text": "  MULTINOMIAL LOGIT EXAMPLE:\n\n  3 modes: Car (C), Transit (T), Walk (W)\n  V_C = -2.5   (traffic, parking cost)\n  V_T = -1.8   (moderate frequency, some wait)\n  V_W = -1.2   (direct, no wait, short trip)\n\n  exp(V_C) = 0.082\n  exp(V_T) = 0.165\n  exp(V_W) = 0.301\n  Sum      = 0.548\n\n  P(Car)     = 0.082/0.548 = 15%\n  P(Transit) = 0.165/0.548 = 30%\n  P(Walk)    = 0.301/0.548 = 55%\n\n  IMPROVE TRANSIT (reduce wait by 5 min -> delta_V_T = +0.5):\n  V_T -> -1.3, exp(-1.3) = 0.272\n  New sum = 0.655\n  P(Transit) = 0.272/0.655 = 42% (was 30%)\n  P(Car) = 0.082/0.655 = 13% (was 15%)\n\n  Frequency improvement attracts riders primarily from walking\n  (the most sensitive mode for short trips).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "### Coverage vs Ridership",
+      "confidence": "candidate",
+      "text": "  COVERAGE OBJECTIVE:                 RIDERSHIP OBJECTIVE:\n  Maximize geographic coverage.       Maximize riders per cost dollar.\n\n  COVERAGE OBJECTIVE:\n    SERVE LOW-DENSITY AREAS\n    Many routes, low frequency\n    30-60min headways\n    2-3 riders per bus\n    High subsidy per trip\n    Social equity argument\n    Serves transit-dependent (no car) populations\n\n  RIDERSHIP OBJECTIVE:\n    CONCENTRATE ON HIGH-DEMAND CORRIDORS\n    Few routes, high frequency\n    5-10 min headways\n    50+ riders per bus\n    Lower subsidy per trip\n    Maximizes overall system ridership and farebox\n\n  THE TENSION:\n  Limited budget. You can't do both.\n  Political pressure: cover all neighborhoods (equity)\n  Operational logic: concentrate for ridership (efficiency)\n\n  COMMON MISTAKE: trying to do both -> low frequency everywhere\n                  = system nobody uses (even transit-dependent)\n  OPTIMAL: Decide the goal explicitly, then design accordingly.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 232,
+      "heading_context": "### Transfers vs One-Seat Rides",
+      "confidence": "candidate",
+      "text": "  ONE-SEAT RIDE (direct route):       TRANSFER-BASED NETWORK:\n  +--A----B----C----D--+              +--A----hub--D--+\n  |                    |              |               |\n  | Passengers going   |              +--B----hub--E--+\n  | A->D: comfortable  |              |               |\n  | No transfer penalty|              +--C----hub--F--+\n  |                    |\n  | Passengers going   |              BENEFITS:\n  | A->B: infrequent   |              Higher frequency on each segment\n  | service (route     |              More combinations served\n  | covers all OD)     |              Lower cost per route\n\n  TRADEOFF:\n  Customers pay 8-15 min transfer penalty.\n  But service is more frequent (cost is spread across more OD pairs).\n  Net benefit: positive if frequency gain > transfer penalty.\n  Empirically: 15-minute frequency with transfers beats 30-minute\n               without transfers for most trip purposes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "## Bus Rapid Transit",
+      "confidence": "candidate",
+      "text": "  BRT SPECTRUM: LITE vs FULL\n\n  Feature           BRT-lite          Full BRT\n  -------           --------          --------\n  Dedicated lanes   No or partial     100% dedicated ROW\n  Off-board fare    No (pay on bus)   Fare paid before boarding\n  Level boarding    No (steps)        Platform = floor level\n  Station quality   Bus stop          Enclosed station\n  Signal priority   No                Transit Signal Priority (TSP)\n  Branding/identity Generic bus       Branded vehicle + stop\n  Frequency         30-60 min         5-10 min (high frequency)\n  Network effect    None              Integrated with other modes\n\n  CAPACITY WITH FULL BRT:\n  Bogota TransMilenio: 45,000 pphpd\n  (comparable to metro, built for ~5% of metro cost)\n  Curitiba, Brazil: 15,000-20,000 pphpd\n\n  WHAT MAKES BRT FAIL:\n  - Mixing with general traffic (no dedicated lanes)\n  - On-board fare payment (slow boarding -> slow frequency)\n  - Inconsistent implementation (TSP implemented on 60% of intersections)\n  - Political compromise: bus lanes removed under driver pressure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 291,
+      "heading_context": "## Transit-Oriented Development (TOD)",
+      "confidence": "candidate",
+      "text": "  LAND VALUE UPLIFT:\n\n  Station area                     Non-transit area\n  +------------------+             +------------------+\n  |  Property value  |             |  Property value  |\n  |  PREMIUM due to  |             |  BASE: car-      |\n  |  transit access: |             |  dependent land  |\n  |  +10-30% within  |             |  value           |\n  |  800m of station |             |                  |\n  +------------------+             +------------------+\n\n  The value is created by public investment (transit).\n  Land owners who did nothing to create the transit\n  capture the uplift through higher property values.\n  VALUE CAPTURE: mechanisms to return some of this\n  value to the transit system that created it.\n\n  VALUE CAPTURE MECHANISMS:\n\n  1. Property tax increment financing (TIF):\n     Tax the increment above pre-transit value.\n     Used for many US rail extensions.\n\n  2. Developer contributions/impact fees:\n     Require developers near stations to contribute\n     to station infrastructure or transit fund.\n\n  3. Land sale/ground lease by transit authority:\n     Agency owns land at stations; sells or leases\n     at premium; uses proceeds for transit.\n\n  THE HONG KONG MTR MODEL:\n  MTR Corporation acquires land BEFORE announcing station locations.\n  Develops property at stations (residential, commercial).\n  Property profits subsidize transit operations.\n  MTR is one of few transit systems that does not require\n  government operating subsidy.\n  2022 operating profit: ~HKD 15B from property + transport combined.\n  Net result: Fares do not cover costs, but property does.\n  World's most financially sustainable metro model.\n\n  CATCHMENT AREA:\n  Primary: 400-800m walk (5-10 minutes): highest ridership generation\n  Secondary: 800-1,600m (bike, shuttle, feeder bus): meaningful\n  Beyond: limited walk-up ridership; requires park-and-ride",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 391,
+      "heading_context": "### Equity Analysis",
+      "confidence": "candidate",
+      "text": "  TRANSIT EQUITY DIMENSIONS:\n\n  HORIZONTAL EQUITY: Equal access for equal need.\n  Low-income households have lower car ownership rates.\n  Transit-dependent = relies on transit, no viable car option.\n  US: ~9% of households with zero cars; concentrated in low-income areas.\n  Equity argument: transit is essential infrastructure, not optional.\n\n  VERTICAL EQUITY: Benefit relative to need.\n  Do those who need transit most get the most service?\n  Often: no. Higher-income urban areas have better transit\n  (faster, more frequent) than low-income suburban/exurban areas.\n  Transit deserts: areas with insufficient transit service\n  given transit-dependent population density.\n\n  GENTRIFICATION-TRANSIT INTERACTION:\n  Transit investment raises property values near stations.\n  Rising rents can displace low-income residents from transit-rich areas.\n  Net result: transit-dependent people move farther from transit.\n  Mitigation: community land trusts, inclusionary zoning near stations,\n  anti-displacement protections.\n\n  DEMAND ELASTICITY:\n  Fare elasticity: ~-0.3 to -0.5 (10% fare increase -> 3-5% ridership loss)\n  Service frequency elasticity: ~+0.5 to +0.7\n  (service improvement more powerful than fare reduction, per rider gained)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 424,
+      "heading_context": "## Urban Transit Planning Tools",
+      "confidence": "candidate",
+      "text": "  FOUR-STEP DEMAND MODEL (classical):\n\n  1. TRIP GENERATION:\n     How many trips originate from each zone?\n     Function of: households, income, car ownership, employment.\n     ITE rates (e.g., 10 trips/day per household).\n\n  2. TRIP DISTRIBUTION:\n     Where do those trips go?\n     Gravity model: T_ij = A_i * P_i * B_j * A_j * f(c_ij)\n     Where c_ij = cost/time between zones i and j\n     Calibrated to observed OD matrices.\n\n  3. MODE SPLIT:\n     How do people travel?\n     Logit model (see above).\n\n  4. TRAFFIC ASSIGNMENT:\n     Which routes do travelers use?\n     User equilibrium (Wardrop): no user can reduce travel time\n     by unilaterally changing routes.\n     Same as Nash equilibrium.\n\n  BPR VOLUME-DELAY FUNCTION (assignment):\n  t = t0 * [1 + alpha * (v/c)^beta]\n  Typical: alpha=0.15, beta=4\n  v/c = volume to capacity ratio\n  As volume approaches capacity, delay grows rapidly (v^4 term).\n  Same mathematical structure as queueing M/D/1: delay -> infinity\n  as utilization -> 1.\n\n  MODERN ALTERNATIVES:\n  Activity-based models: simulate individual person decisions across full day.\n  More accurate than 4-step for understanding behavioral responses.\n  Computational cost: high; used for major investment decisions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

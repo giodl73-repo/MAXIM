@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "game-theory\\01-NORMAL-FORM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                  NORMAL FORM GAME STRUCTURE                      |\n|                                                                  |\n|  PRIMITIVES                  DERIVED OBJECTS                     |\n|  ----------                  ---------------                     |\n|                                                                  |\n|  N = {1,...,n}  players      Δ(Sᵢ) = mixed strategy space        |\n|  Sᵢ  finite pure strats      uᵢ: Δ(S₁)×...×Δ(Sₙ) → ℝ             |\n|  uᵢ: S₁×...×Sₙ → ℝ payoff   (extended multilinearly)             |\n|                                                                  |\n|  SOLUTION LADDER (most selective → least)                        |\n|  ----------------------------------------                        |\n|                                                                  |\n|  Dominant Strategy Equilibrium                                   |\n|          |  (sᵢ* dominates all others for all opponents)         |\n|          v                                                       |\n|  IESDS / Rationalizability                                       |\n|          |  (iterated elimination of strictly dominated strats)  |\n|          v                                                       |\n|  Nash Equilibrium (pure)                                         |\n|          |  (σᵢ* ∈ BR(σ*₋ᵢ) for all i)                           |\n|          v                                                       |\n|  Nash Equilibrium (mixed)   <-- always exists (Kakutani)         |\n|          |                                                       |\n|          v                                                       |\n|  Correlated Equilibrium     <-- convex polytope, contains NE     |\n|          |                      computable in poly time (LP)     |\n|          v                                                       |\n|  Rationalizability                                               |\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 81,
+      "heading_context": "### Mixed Strategies",
+      "confidence": "candidate",
+      "text": "    Δ(Sᵢ) = { σᵢ : Sᵢ → [0,1]  |  Σₛ σᵢ(s) = 1 }",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 172,
+      "heading_context": "## Best Response",
+      "confidence": "candidate",
+      "text": "  COMPUTING BEST RESPONSES IN 2×2 GAMES:\n\n  If column plays (q, 1-q):\n    Row's expected payoff from strategy 1: u₁(1,q) = q·a + (1-q)·b\n    Row's expected payoff from strategy 2: u₁(2,q) = q·c + (1-q)·d\n\n  Row is indifferent when: q·a + (1-q)·b = q·c + (1-q)·d\n                           q(a-b-c+d) = d-b\n                           q* = (d-b)/(a-b-c+d)\n\n  Mixed NE: find q* that makes Row indifferent, find p* that makes\n  Column indifferent. The opponent's mixing enforces your indifference.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "### Nash Existence Theorem",
+      "confidence": "candidate",
+      "text": "  Define: Δ(S) = Δ(S₁) × ... × Δ(Sₙ)  (compact, convex subset of ℝᴹ)\n\n  Define: BR: Δ(S) → 2^{Δ(S)}, σ ↦ ×ᵢ BRᵢ(σ₋ᵢ)\n\n  Verify Kakutani conditions:\n  1. Δ(S) is compact and convex.          ✓ (product of simplices)\n  2. BR(σ) is nonempty for all σ.         ✓ (max of continuous function\n                                              on compact set)\n  3. BR(σ) is convex for all σ.           ✓ (BR is a face of simplex;\n                                              convex combinations of\n                                              best responses are BR)\n  4. BR has a closed graph.               ✓ (uᵢ continuous, argmax is\n                                              upper hemicontinuous)\n\n  Kakutani: ∃ σ* ∈ BR(σ*)  ⟹  Nash equilibrium exists.    □",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 286,
+      "heading_context": "### Battle of the Sexes",
+      "confidence": "candidate",
+      "text": "    Equate: 2p = 1-p → p = 1/3",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 289,
+      "heading_context": "### Battle of the Sexes",
+      "confidence": "candidate",
+      "text": "    Equate: q = 2(1-q) → q = 2/3",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 298,
+      "heading_context": "### Matching Pennies (Zero-Sum)",
+      "confidence": "candidate",
+      "text": "           Heads (H)    Tails (T)\n  Heads     (+1, -1)     (-1, +1)\n  Tails     (-1, +1)     (+1, -1)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

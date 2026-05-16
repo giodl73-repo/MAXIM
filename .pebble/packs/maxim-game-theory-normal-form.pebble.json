@@ -1,0 +1,3569 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-game-theory-normal-form",
+  "source": "../../game-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-NORMAL-FORM.md#000",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "# Normal Form Games — Strategy, Dominance, and Nash Equilibrium"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#001",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#002",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "A normal form game captures simultaneous-move strategic interaction. Every player chooses\na strategy once, without observing others' choices. The payoff to each player depends on\nthe full joint strategy profile."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#003",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                  NORMAL FORM GAME STRUCTURE                      |\n|                                                                  |\n|  PRIMITIVES                  DERIVED OBJECTS                     |\n|  ----------                  ---------------                     |\n|                                                                  |\n|  N = {1,...,n}  players      Δ(Sᵢ) = mixed strategy space        |\n|  Sᵢ  finite pure strats      uᵢ: Δ(S₁)×...×Δ(Sₙ) → ℝ             |\n|  uᵢ: S₁×...×Sₙ → ℝ payoff   (extended multilinearly)             |\n|                                                                  |\n|  SOLUTION LADDER (most selective → least)                        |\n|  ----------------------------------------                        |\n|                                                                  |\n|  Dominant Strategy Equilibrium                                   |\n|          |  (sᵢ* dominates all others for all opponents)         |\n|          v                                                       |\n|  IESDS / Rationalizability                                       |\n|          |  (iterated elimination of strictly dominated strats)  |\n|          v                                                       |\n|  Nash Equilibrium (pure)                                         |\n|          |  (σᵢ* ∈ BR(σ*₋ᵢ) for all i)                           |\n|          v                                                       |\n|  Nash Equilibrium (mixed)   <-- always exists (Kakutani)         |\n|          |                                                       |\n|          v                                                       |\n|  Correlated Equilibrium     <-- convex polytope, contains NE     |\n|          |                      computable in poly time (LP)     |\n|          v                                                       |\n|  Rationalizability                                               |\n|                                                                  |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#004",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#005",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "## Formal Definitions"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#006",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "### The Game"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#007",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "A finite n-player **normal form game** is a tuple G = (N, {Sᵢ}ᵢ∈N, {uᵢ}ᵢ∈N) where:"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#008",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "- N = {1, 2, ..., n} — finite set of players\n- Sᵢ — finite set of **pure strategies** for player i (|Sᵢ| = mᵢ)\n- S = S₁ × ... × Sₙ — joint strategy space\n- uᵢ: S → ℝ — **payoff function** for player i"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#009",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Notation: s₋ᵢ = (s₁, ..., sᵢ₋₁, sᵢ₊₁, ..., sₙ) denotes all strategies except i's."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#010",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "### Mixed Strategies"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#011",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "A **mixed strategy** for player i is σᵢ ∈ Δ(Sᵢ), the probability simplex over Sᵢ:"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#012",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Δ(Sᵢ) = { σᵢ : Sᵢ → [0,1]  |  Σₛ σᵢ(s) = 1 }"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#013",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Geometrically: Δ(Sᵢ) is the (mᵢ - 1)-dimensional simplex. Pure strategies are vertices."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#014",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Expected payoff** under mixed strategies (using independence):"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#015",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "uᵢ(σ) = Σ_{s ∈ S} [Πⱼ σⱼ(sⱼ)] · uᵢ(s)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#016",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "This is multilinear in each σⱼ — linear in σᵢ holding others fixed. That linearity is\ncrucial: it means a player is indifferent over their support in equilibrium."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#017",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Support**: supp(σᵢ) = { sᵢ ∈ Sᵢ  |  σᵢ(sᵢ) > 0 }"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#018",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "### Two-Player Matrix Representation"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#019",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "```\n  Two players: Row player (1) chooses rows, Column player (2) chooses columns.\n  Entry (i,j): payoff pair (u₁(i,j), u₂(i,j))"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#020",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Prisoner's Dilemma:\n               C (cooperate)    D (defect)\n  C (cooperate)   (3, 3)          (0, 4)\n  D (defect)      (4, 0)          (1, 1)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#021",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Row player payoffs form matrix A; column player payoffs form matrix B.\n  Zero-sum: B = -A.\n```"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#022",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#023",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "## Dominance"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#024",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "### Strict Dominance"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#025",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Strategy sᵢ is **strictly dominated** by σᵢ ∈ Δ(Sᵢ) if:"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#026",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "uᵢ(σᵢ, s₋ᵢ) > uᵢ(sᵢ, s₋ᵢ)  for all  s₋ᵢ ∈ S₋ᵢ"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#027",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Key: sᵢ may be dominated by a mixed strategy even if no pure strategy dominates it."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#028",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "```\n  Example: Rock-Paper-Scissors — no pure strategy dominates, but in\n  the 4x4 game with a \"Bomb\" strategy (loses to everything), Bomb\n  is strictly dominated by any pure strategy.\n```"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#029",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "### Weak Dominance"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#030",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "σᵢ **weakly dominates** sᵢ if it does at least as well in all cases and strictly better\nin some. Iterated elimination of weakly dominated strategies (IEWDS) is order-dependent\nand can eliminate Nash equilibria — use IESDS instead."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#031",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "### IESDS and Rationalizability"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#032",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Iterated Elimination of Strictly Dominated Strategies (IESDS)**:"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#033",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "R⁰ᵢ = Sᵢ\n    Rᵏ⁺¹ᵢ = { sᵢ ∈ Rᵏᵢ | sᵢ is not strictly dominated in (N, {Rᵏⱼ}, {uⱼ}) }\n    R∞ᵢ = ∩ₖ Rᵏᵢ"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#034",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Properties**:\n- **Order-independent**: the set R∞ᵢ does not depend on elimination order\n- **Epistemic foundation**: R∞ᵢ = set of strategies consistent with **common knowledge\n  of rationality** (each player is rational, knows others are rational, knows others know\n  this, ad infinitum)\n- If IESDS eliminates all but one profile, that profile is the **unique rationalizable**\n  outcome and is the unique NE"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#035",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Rationalizable strategies** (Bernheim / Pearce 1984): strategy sᵢ is rationalizable\nif it survives IESDS. Equivalently, sᵢ is a best response to some belief over R∞₋ᵢ."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#036",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "In two-player games: rationalizable = survives IESDS. In n-player (n > 2): rationalizability\nis slightly weaker (allows correlated beliefs over opponents). The distinction rarely matters."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#037",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#038",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "## Best Response"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#039",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Best response correspondence**:"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#040",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "BRᵢ(σ₋ᵢ) = argmax_{σᵢ ∈ Δ(Sᵢ)} uᵢ(σᵢ, σ₋ᵢ)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#041",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Since uᵢ is linear in σᵢ, BRᵢ(σ₋ᵢ) is always a face of the simplex Δ(Sᵢ). In particular,\nif there is a unique best pure strategy, BRᵢ(σ₋ᵢ) = that pure strategy (a vertex)."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#042",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Key property**: σᵢ ∈ BRᵢ(σ₋ᵢ) iff σᵢ assigns positive probability only to strategies\nin:  argmax_{sᵢ} uᵢ(sᵢ, σ₋ᵢ)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#043",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "This gives the **support characterization of NE**: in any NE σ*, every strategy in\nsupp(σᵢ*) is a pure best response to σ*₋ᵢ."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#044",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "```\n  COMPUTING BEST RESPONSES IN 2×2 GAMES:"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#045",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "If column plays (q, 1-q):\n    Row's expected payoff from strategy 1: u₁(1,q) = q·a + (1-q)·b\n    Row's expected payoff from strategy 2: u₁(2,q) = q·c + (1-q)·d"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#046",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Row is indifferent when: q·a + (1-q)·b = q·c + (1-q)·d\n                           q(a-b-c+d) = d-b\n                           q* = (d-b)/(a-b-c+d)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#047",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Mixed NE: find q* that makes Row indifferent, find p* that makes\n  Column indifferent. The opponent's mixing enforces your indifference.\n```"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#048",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#049",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "## Nash Equilibrium"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#050",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "### Definition"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#051",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "A **Nash Equilibrium** is a strategy profile σ* ∈ Δ(S₁) × ... × Δ(Sₙ) such that:"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#052",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "∀i ∈ N: σᵢ* ∈ BRᵢ(σ*₋ᵢ)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#053",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Equivalently: no player can strictly increase their expected payoff by unilateral deviation."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#054",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "This is a fixed point of the best response correspondence:\nBR: Δ(S) → 2^{Δ(S)}, σ ↦ BR₁(σ₋₁) × ... × BRₙ(σ₋ₙ)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#055",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "### Nash Existence Theorem"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#056",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Theorem (Nash 1950/1951)**: Every finite game has at least one Nash equilibrium\n(in mixed strategies)."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#057",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Proof sketch via Kakutani**:"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#058",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "```\n  Define: Δ(S) = Δ(S₁) × ... × Δ(Sₙ)  (compact, convex subset of ℝᴹ)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#059",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Define: BR: Δ(S) → 2^{Δ(S)}, σ ↦ ×ᵢ BRᵢ(σ₋ᵢ)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#060",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Verify Kakutani conditions:\n  1. Δ(S) is compact and convex.          ✓ (product of simplices)\n  2. BR(σ) is nonempty for all σ.         ✓ (max of continuous function\n                                              on compact set)\n  3. BR(σ) is convex for all σ.           ✓ (BR is a face of simplex;\n                                              convex combinations of\n                                              best responses are BR)\n  4. BR has a closed graph.               ✓ (uᵢ continuous, argmax is\n                                              upper hemicontinuous)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#061",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Kakutani: ∃ σ* ∈ BR(σ*)  ⟹  Nash equilibrium exists.    □\n```"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#062",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "The 1951 proof via Brouwer: define a continuous function f: Δ(S) → Δ(S) that \"pushes\"\neach player toward their best response, then apply Brouwer. Kakutani's version is cleaner\nconceptually since BR is naturally set-valued."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#063",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Key nuances**:\n- Existence guarantees at least one NE; there may be many\n- Generically (for random payoff matrices), NE in the interior of the simplex are isolated\n- Odd number theorem (Wilson 1971): generically, finite games have an odd number of NE"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#064",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#065",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "## Canonical 2×2 Games"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#066",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "### Prisoner's Dilemma"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#067",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "```\n               Cooperate (C)    Defect (D)\n  Cooperate       (3, 3)          (0, 4)\n  Defect          (4, 0)          (1, 1)\n```"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#068",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Analysis**:\n- D strictly dominates C for both players (regardless of opponent's play: 4 > 3, 1 > 0)\n- Unique NE: (D, D) with payoff (1, 1)\n- Pareto-dominated by (C, C) with payoff (3, 3)\n- **Social dilemma**: individual rationality ⟹ collective irrationality\n- No escape in one-shot game; repetition and reputation can sustain (C, C)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#069",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "### Coordination Game and Stag Hunt"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#070",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "```\n  Pure coordination:          Stag Hunt:\n       A      B                    Stag    Hare\n  A  (2,2)  (0,0)           Stag  (4,4)  (0,3)\n  B  (0,0)  (1,1)           Hare  (3,0)  (3,3)\n```"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#071",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Stag Hunt analysis**:\n- Two pure NE: (Stag, Stag) and (Hare, Hare)\n- (Stag, Stag) is **payoff-dominant** (Pareto-superior)\n- (Hare, Hare) is **risk-dominant** (best response under uncertainty; Harsanyi-Selten)\n- Mixed NE: Row mixes with p(Stag) = 3/4 to make Column indifferent\n- **Equilibrium selection problem**: multiple NE, no dominant strategy\n- Risk dominance criterion: NE σ* risk-dominates σ** iff each player prefers σ* when\n  opponent randomizes uniformly between the two NE"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#072",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "### Battle of the Sexes"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#073",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "```\n           Opera (O)    Football (F)\n  Opera     (2, 1)         (0, 0)\n  Football  (0, 0)         (1, 2)\n```"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#074",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Analysis**:\n- Two pure NE: (O, O) and (F, F) — coordination with conflicting preferences\n- Mixed NE: Column plays O with prob p = 1/3, Row plays O with prob q = 2/3\n  - Row indifference condition (Row mixes iff Column's mixing makes Row indifferent):\n    Column plays O with prob p: Row payoff from O = 2p, from F = (1-p)\n    Equate: 2p = 1-p → p = 1/3\n  - Column indifference condition (Column mixes iff Row's mixing makes Column indifferent):\n    Row plays O with prob q: Column payoff from O = q, from F = 2(1-q)\n    Equate: q = 2(1-q) → q = 2/3\n  - Mixed NE payoffs:\n    Row:    2 × (1/3) = 2/3\n    Column: (2/3) × 1 + (1/3) × 0 = 2/3   [Column gets 1 from O,O and 0 from F,O]\n    Both receive 2/3 — strictly worse than either pure NE (which gives 2 to one player, 1 to the other)\n- Mixed NE is less efficient than either pure NE — a classic illustration"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#075",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "### Matching Pennies (Zero-Sum)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#076",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "```\n           Heads (H)    Tails (T)\n  Heads     (+1, -1)     (-1, +1)\n  Tails     (-1, +1)     (+1, -1)\n```"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#077",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Analysis**:\n- Zero-sum: B = -A, so payoffs sum to 0\n- No pure NE (each player wants to react to the other)\n- Unique NE: both mix (1/2, 1/2) — the minimax solution\n- Von Neumann minimax: max_σ₁ min_σ₂ u₁(σ₁, σ₂) = min_σ₂ max_σ₁ u₁(σ₁, σ₂) = 0"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#078",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#079",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "## Zero-Sum Games and the Minimax Theorem"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#080",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "For two-player zero-sum games (B = -A), NE reduces to the minimax problem."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#081",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**von Neumann Minimax Theorem (1928)**:"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#082",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "max_{x ∈ Δ(m)} min_{y ∈ Δ(n)} xᵀAy = min_{y ∈ Δ(n)} max_{x ∈ Δ(m)} xᵀAy"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#083",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "The value V of the game exists; both players have minimax strategies achieving V."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#084",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "### LP Duality Connection"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#085",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "```\n  Row player's problem:              Column player's problem:\n  max V                              min W\n  subject to:                        subject to:\n    Aᵀx ≥ V · 1   (each col ≥ V)     Ay ≤ W · 1  (each row ≤ W)\n    Σxᵢ = 1                           Σyⱼ = 1\n    x ≥ 0                             y ≥ 0"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#086",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "These are LP duals. LP strong duality ⟺ minimax theorem.\n  V = W at optimality. Nash 1950 used this; von Neumann 1928 proved it\n  via Brouwer before LP duality was formalized.\n```"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#087",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Connection to Farkas' lemma**: The minimax theorem follows from the fact that two convex\nsets (the column player's min-payoff envelope and the row player's max-payoff envelope)\ncannot be strictly separated if they overlap at V. Farkas gives the certificate."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#088",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#089",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "## Correlated Equilibrium"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#090",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Aumann (1974, 1987)**: A **correlated equilibrium** is a joint distribution μ ∈ Δ(S)\nsuch that for each player i, every recommended strategy sᵢ, and every deviation s'ᵢ:"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#091",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Σ_{s₋ᵢ} μ(sᵢ, s₋ᵢ) · uᵢ(sᵢ, s₋ᵢ) ≥ Σ_{s₋ᵢ} μ(sᵢ, s₋ᵢ) · uᵢ(s'ᵢ, s₋ᵢ)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#092",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Interpretation: a mediator samples a profile s from μ and tells each player i their\nrecommendation sᵢ (not the others'). Given my recommendation, I don't want to deviate."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#093",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "```\n  NE vs CE:"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#094",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Nash Equilibrium:          σᵢ* are independent distributions\n                             μ = σ₁* ⊗ σ₂* ⊗ ... ⊗ σₙ*  (product measure)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#095",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Correlated Equilibrium:    μ can be any joint distribution on S\n                             (not necessarily a product measure)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#096",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Set containment:\n    conv(NE) ⊆ CE     (convex hull of all NE is contained in CE)\n    CE ⊇ NE           (every NE is a CE — use independent mixing)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#097",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Battle of the Sexes correlated equilibrium:\n  μ(O,O) = 1/2, μ(F,F) = 1/2 achieves expected payoff (3/2, 3/2) for both\n  — better than the mixed NE (2/3, 2/3) and fair unlike either pure NE!\n  (A \"traffic light\" correlated device: flip coin, coordinate on the outcome.)\n```"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#098",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Why CE matters**:\n- The set of CE is a **convex polytope** (the constraints are linear in μ) — computable\n  in polynomial time via LP\n- Nash computation is PPAD-complete; CE computation is in P\n- No-regret learning converges to CE (not NE) — practically important\n- Cheap talk (pre-game communication without commitment) can implement CE"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#099",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#100",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "## PPAD-Completeness of Nash"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#101",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Theorem (Daskalakis, Goldberg, Papadimitriou 2006; Chen, Deng, Teng 2009)**:\nComputing a Nash equilibrium of a two-player game (given as a bimatrix) is PPAD-complete."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#102",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**What is PPAD?**"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#103",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "```\n  PPAD = Polynomial Parity Argument on Directed graphs"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#104",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "The foundational PPAD problem (EOPL or END-OF-LINE):\n  Given a directed graph where every node has in-degree ≤ 1 and\n  out-degree ≤ 1, given a source vertex (in-degree 0, out-degree 1),\n  find another source or sink."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#105",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "By a parity argument: the number of sources and sinks must have\n  the same parity. Given one source, another source or sink MUST exist.\n  But finding it may require traversing an exponentially long path."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#106",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "PPAD ⊆ TFNP ⊆ FNP"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#107",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "TFNP = Total Function NP = problems where a solution always exists\n         (Nash always exists by Kakutani, so it's in TFNP)"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#108",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "If PPAD = P, then many cryptographic hardness assumptions fail.\n  Widely believed PPAD ≠ P.\n```"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#109",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Why isn't Nash NP-hard?** NP-hardness is for decision problems where a solution may not\nexist. \"Does this game have a Nash equilibrium?\" is trivially YES (always). You can't\nreduce 3-SAT to it because a NO instance of 3-SAT would need a game with no NE — impossible.\nPPAD captures a different form of hardness: finding a solution that is guaranteed to exist."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#110",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**The reduction**: Nash can be encoded as an END-OF-LINE instance. The path from source\nto sink traces the Lemke-Howson algorithm's pivoting steps through a polytope. Each pivot\nis locally computable; the path may be exponentially long."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#111",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "**Implications**:\n- No polynomial-time algorithm for Nash is known (or expected)\n- Lemke-Howson runs in exponential worst case\n- For specific game classes (zero-sum = LP; potential games = simple dynamics), efficient\n  algorithms exist\n- Practical approach: heuristics, support enumeration for small games, Lemke-Howson for\n  moderate sizes"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#112",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#113",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "## Multiplicity and Equilibrium Selection"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#114",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Most interesting games have **multiple Nash equilibria**. How to pick one?"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#115",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "```\n  EQUILIBRIUM SELECTION CRITERIA:\n  ================================"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#116",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Payoff dominance (Pareto):\n    σ* payoff-dominates σ** if uᵢ(σ*) ≥ uᵢ(σ**) ∀i with strict ≥ for some i\n    Intuition: choose the NE everyone prefers.\n    Problem: doesn't account for risk."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#117",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Risk dominance (Harsanyi-Selten 1988):\n    In 2×2 games: σ* risk-dominates σ** if it is the best response when\n    the opponent randomizes uniformly between the two NE.\n    Captures \"safety\" under uncertainty about opponents."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#118",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Trembling-hand perfect (Selten 1975):\n    NE σ* is THP if it is a limit of NE of ε-perturbed games\n    (all strategies played with ε > 0 probability).\n    Eliminates weakly dominated strategies."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#119",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Proper equilibrium (Myerson 1978):\n    Refinement of THP where more costly mistakes are made with smaller prob."
+    },
+    {
+      "id": "01-NORMAL-FORM.md#120",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "Focal point / Schelling point:\n    Salience and pre-game communication; not captured by equilibrium theory.\n    \"Meet in NYC without coordinating\" — Grand Central at noon.\n```"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#121",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#122",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#123",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "| Situation | Tool | Notes |\n|-----------|------|-------|\n| One strategy beats all regardless of opponents | Dominant strategy equilibrium | Check first — rarest but cleanest |\n| Can eliminate some strategies | IESDS | Order-independent for strict dom |\n| Need all equilibria of a 2-player game | Support enumeration / Lemke-Howson | Exponential worst case |\n| Zero-sum 2-player | LP (minimax) | Polynomial, equivalent to NE |\n| Want cheap coordination with mediator | Correlated equilibrium | LP polytope, poly-time |\n| Need NE for large game efficiently | Not generally possible (PPAD) | Use approximations or special structure |\n| Repeated game, want cooperation | Folk theorem conditions | Check δ ≥ δ* threshold |\n| Population dynamics | Replicator dynamics (see 05-EVOLUTIONARY) | ESS ⊆ Nash |"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#124",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#125",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "01-NORMAL-FORM.md#126",
+      "path": [
+        "01-NORMAL-FORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]",
+        "canonical_path": "game-theory/01-NORMAL-FORM.md",
+        "concepts": "[normal, form]",
+        "current_path": "game-theory/01-NORMAL-FORM.md",
+        "id": "maxim:game-theory:normal-form",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[normal, form]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Normal Form Games - Strategy, Dominance, and Nash Equilibrium",
+        "updated": "null"
+      },
+      "text": "| If you want to understand... | Go to | Why |\n|---|---|---|\n| Market equilibrium as decentralized strategy | `economics/01-MICROECONOMICS.md` | Nash equilibrium generalizes price-taking and strategic market behavior |\n| Contract negotiation and breach incentives | `law/01-CONTRACTS.md` | Legal commitments change payoffs, available strategies, and equilibrium outcomes |\n| Social-choice and institutional design | `political-science/01-IR-THEORY.md` | Institutions are game forms that reshape incentives and credible commitments |\n| Mixed strategies and probability foundations | `probability-statistics/01-PROBABILITY-FOUNDATIONS.md` | Mixed equilibrium relies on distributions, expected payoff, and indifference |\n| Algorithmic solution concepts | `computing/01-PACKAGE.md` | Equilibrium computation is an algorithmic problem with representation and complexity tradeoffs |"
+    }
+  ],
+  "refs": [
+    "01-NORMAL-FORM.md"
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:transportation:maritime
+kind: guide
+module: transportation
+section: transportation
+title: Maritime Transportation
+status: source-custody
+source_custody: partial
+current_path: transportation/03-MARITIME.md
+canonical_path: transportation/03-MARITIME.md
+backsource_ids: [proof-backfill:transportation:03-maritime, git-history:transportation:03-maritime]
+concepts: [maritime]
+root_concepts: [maritime]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Maritime Transportation
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:transportation:autonomous-vehicles
+kind: guide
+module: transportation
+section: transportation
+title: Autonomous Vehicles
+status: source-custody
+source_custody: partial
+current_path: transportation/07-AUTONOMOUS-VEHICLES.md
+canonical_path: transportation/07-AUTONOMOUS-VEHICLES.md
+backsource_ids: [proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]
+concepts: [autonomous, vehicles]
+root_concepts: [autonomous, vehicles]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Autonomous Vehicles
 
 ## The Big Picture

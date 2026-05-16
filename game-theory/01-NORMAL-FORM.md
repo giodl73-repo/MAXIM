@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:game-theory:normal-form
+kind: guide
+module: game-theory
+section: game-theory
+title: Normal Form Games - Strategy, Dominance, and Nash Equilibrium
+status: source-custody
+source_custody: partial
+current_path: game-theory/01-NORMAL-FORM.md
+canonical_path: game-theory/01-NORMAL-FORM.md
+backsource_ids: [proof-backfill:game-theory:01-normal-form, git-history:game-theory:01-normal-form]
+concepts: [normal, form]
+root_concepts: [normal, form]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Normal Form Games — Strategy, Dominance, and Nash Equilibrium
 
 ## The Big Picture

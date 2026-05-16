@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "game-theory\\02-EXTENSIVE-FORM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                 EXTENSIVE FORM GAME STRUCTURE                    |\n|                                                                  |\n|  GAME TREE                    INFORMATION STRUCTURE              |\n|  ----------                   ---------------------              |\n|  Nodes (histories)            Perfect info: singleton info sets  |\n|  Actions (edges)              Imperfect info: non-singleton sets |\n|  Information sets             Incomplete info: private types     |\n|  (partition of nodes)         (Harsanyi: convert to imperfect)   |\n|  Terminal nodes + payoffs                                        |\n|  Player assignment per node                                      |\n|                                                                  |\n|  SOLUTION CONCEPTS BY SETTING                                    |\n|  ----------------------------                                    |\n|                                                                  |\n|  Perfect info, finite     -->  Backward induction (Zermelo)      |\n|                           -->  Subgame perfect equilibrium (SPE) |\n|                                                                  |\n|  Imperfect info (general) -->  Subgame perfect equilibrium       |\n|                           -->  Perfect Bayesian Eq. (PBE)        |\n|                           -->  Sequential Equilibrium            |\n|                                                                  |\n|  Incomplete info          -->  Bayesian Nash Equilibrium (BNE)   |\n|  (private types)          -->  PBE (with beliefs over types)     |\n|                                                                  |\n|  Infinitely repeated      -->  Folk Theorem (SPE can sustain     |\n|                                any feasible individually         |\n|                                rational payoff)                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 150,
+      "heading_context": "### Backward Induction Algorithm",
+      "confidence": "candidate",
+      "text": "### Zermelo's Theorem (1913)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 201,
+      "heading_context": "### The Centipede Game",
+      "confidence": "candidate",
+      "text": "  Two players alternate for T rounds.\n  At each node: TAKE terminates the game.\n                PASS continues.\n  Payoffs grow if play continues; but taking now beats waiting.\n\n  Round:     1        2        3        4      ...    T\n  Move:   [P1]     [P2]     [P1]     [P2]          [P1/P2]\n           |         |        |        |               |\n          Pass     Pass     Pass     Pass           Take\n           |         |        |        |               |\n  payoffs:          (1,5)   (5,1)   (25,5)...\n\n  Backward induction: at round T, current player takes (strictly better).\n  At round T-1, current player anticipates opponent takes at T, so takes now.\n  Induction collapses: take at round 1.\n\n  Theoretical prediction: Player 1 takes immediately, payoff ≈ (1, 0).\n  Experimental result:    Players cooperate for many rounds, earning much more.\n\n  Implications:\n  - SPE/backward induction may not predict actual behavior\n  - Finite game unraveling is sensitive to last-period rationality\n  - Common knowledge of rationality is strong — even ε-irrationality changes things\n  - Behavioral game theory: players may have non-standard utility (altruism, signaling)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 256,
+      "heading_context": "### Infinitely Repeated Games",
+      "confidence": "candidate",
+      "text": "  Play C in period 0.\n  Play C in period t if all prior periods had (C,C).\n  Play D forever if any deviation occurred.\n\n  Is (Grim Trigger, Grim Trigger) an SPE?\n\n  Cooperation payoff: (1-δ)·3 + (1-δ)δ·3 + ... = 3\n\n  Defect-now payoff: (1-δ)·4 + (1-δ)δ·1 + (1-δ)δ²·1 + ...\n                   = (1-δ)·4 + δ·1\n                   = 4 - 3δ\n\n  Cooperation preferred iff:\n  3 ≥ 4 - 3δ  ⟺  δ ≥ 1/3\n\n  For δ ≥ 1/3, grim trigger sustains cooperation as SPE.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 279,
+      "heading_context": "### Infinitely Repeated Games",
+      "confidence": "candidate",
+      "text": "### Folk Theorem (Fudenberg-Maskin 1986)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 292,
+      "heading_context": "### Folk Theorem (Fudenberg-Maskin 1986)",
+      "confidence": "candidate",
+      "text": "  FOLK THEOREM PICTURE (Prisoner's Dilemma):\n\n  Payoff to Player 2\n  4 |         *\n    |       / |\n  3 | *---*   |\n    | |   |   |\n  1 | *   |   |\n    |     |   |\n    +-----+---+---> Payoff to Player 1\n    1     3   4\n\n  * = pure strategy payoffs\n  Shaded region above minimax values (1,1): all these payoffs\n  achievable as SPE for sufficiently patient players.\n  Minimax value = (1,1) = the NE payoff in the stage game.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 330,
+      "heading_context": "### The Setup",
+      "confidence": "candidate",
+      "text": "  INCOMPLETE INFO → IMPERFECT INFO CONVERSION\n\n  Before:\n    Player 1 knows their cost c₁ ∈ {low, high}\n    Player 2 doesn't know c₁\n\n  Harsanyi:\n    Nature draws (c₁, c₂) ~ F at start of game (before player moves)\n    Player i observes cᵢ but not c₋ᵢ\n    Now: both players have private info, game is imperfect information\n\n  Common prior assumption: both players know F (the joint distribution).\n  This is the standard modeling assumption.\n  Its relaxation leads to \"non-common priors\" models (much harder).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 386,
+      "heading_context": "### Structure",
+      "confidence": "candidate",
+      "text": "  SIGNALING GAME TREE\n\n  Nature\n  /       \\\n θ₁        θ₂    (with probs μ₀(θ₁), μ₀(θ₂))\n |          |\n Sender     Sender    <- Sender knows type\n  |  \\       |  \\\n m₁  m₂    m₁  m₂   <- Sender chooses message\n\n  [R observing m₁]        [R observing m₂]\n  Receiver doesn't know which type sent m₁\n  Information set: {(θ₁, m₁), (θ₂, m₁)} after observing m₁\n\n  Receiver\n  a₁  a₂            <- Receiver responds to observed message",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 468,
+      "heading_context": "### The Paradox",
+      "confidence": "candidate",
+      "text": "### Intuitive Criterion (Cho-Kreps D1 Refinement)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

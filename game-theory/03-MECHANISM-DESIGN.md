@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:game-theory:mechanism-design
+kind: guide
+module: game-theory
+section: game-theory
+title: Mechanism Design - Engineering Games for Desired Outcomes
+status: source-custody
+source_custody: partial
+current_path: game-theory/03-MECHANISM-DESIGN.md
+canonical_path: game-theory/03-MECHANISM-DESIGN.md
+backsource_ids: [proof-backfill:game-theory:03-mechanism-design, git-history:game-theory:03-mechanism-design]
+concepts: [mechanism, design]
+root_concepts: [mechanism, design]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mechanism Design — Engineering Games for Desired Outcomes
 
 ## The Big Picture

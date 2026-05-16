@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:game-theory:overview
+kind: guide
+module: game-theory
+section: game-theory
+title: Game Theory - The Mathematics of Strategic Interaction
+status: source-custody
+source_custody: partial
+current_path: game-theory/00-OVERVIEW.md
+canonical_path: game-theory/00-OVERVIEW.md
+backsource_ids: [proof-backfill:game-theory:00-overview, git-history:game-theory:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Game Theory — The Mathematics of Strategic Interaction
 
 ## The Big Picture
@@ -6,7 +25,7 @@ Game theory is the mathematical study of decision-making when outcomes depend on
 
 ```
 +------------------------------------------------------------------+
-|                    GAME THEORY LANDSCAPE                          |
+|                    GAME THEORY LANDSCAPE                         |
 |                                                                  |
 |  BY FORM              BY INFORMATION       BY COOPERATION        |
 |  --------             ----------------     ---------------       |
@@ -133,7 +152,7 @@ aligns with social optimality?
 | Represented by:    | Represented by:    | Represented by:    |
 | Payoff matrix /    | Game tree:         | Characteristic     |
 | payoff functions   | nodes, actions,    | function:          |
-| uᵢ: S₁×...×Sₙ→ℝ  | info sets,         | v: 2^N → ℝ        |
+| uᵢ: S₁×...×Sₙ→ℝ     | info sets,         | v: 2^N → ℝ        |
 |                    | terminal payoffs   |                    |
 +--------------------+--------------------+--------------------+
 | Solution concepts: | Solution concepts: | Solution concepts: |
@@ -208,14 +227,14 @@ Game theory was built on machinery you know from MIT. Here are the key bridges:
 
 ```
 +------------------------------+------------------------------------+
-|  MIT MATH/TCS CONCEPT        |  WHERE IT APPEARS IN GAME THEORY  |
+|  MIT MATH/TCS CONCEPT        |  WHERE IT APPEARS IN GAME THEORY   |
 +------------------------------+------------------------------------+
 | Brouwer Fixed Point Theorem  | Nash 1951 existence proof          |
 | f: D^n → D^n continuous      | BR: Δ(S) → Δ(S) has fixed point   |
 | has a fixed point            | where Δ(S) = probability simplex   |
 +------------------------------+------------------------------------+
 | Kakutani Fixed Point Theorem | Nash 1950 existence proof          |
-| Set-valued generalization    | BR correspondence: Δ(S) → 2^Δ(S)  |
+| Set-valued generalization    | BR correspondence: Δ(S) → 2^Δ(S)   |
 | of Brouwer (upper hemi-      | is upper hemicontinuous with       |
 | continuous, convex values)   | nonempty convex values             |
 +------------------------------+------------------------------------+
@@ -225,7 +244,7 @@ Game theory was built on machinery you know from MIT. Here are the key bridges:
 |                              | (Bondareva-Shapley theorem)        |
 +------------------------------+------------------------------------+
 | Probability Simplex Δ(S)     | Mixed strategy spaces              |
-| Prob distributions over      | Nash: fixed point on Δ(S₁)×...×Δ(Sₙ)|
+| Prob distributions over      | Nash fixed point on product Δ(S)   |
 | finite sets                  | Support of NE = indifference sets  |
 +------------------------------+------------------------------------+
 | PPAD Complexity Class        | Nash computation hardness (2006-09)|
@@ -268,12 +287,12 @@ Game theory was built on machinery you know from MIT. Here are the key bridges:
 |   ad markets, procurement)    |  Multi-agent RL / AI planning  |
 |  Contract theory / insurance  |  Cryptographic protocol design |
 |  Trade negotiations           |  Network formation games       |
-|                               |  Distributed systems incentives|
+|                               |  Distributed system incentives |
 +-------------------------------+--------------------------------+
 |  POLITICAL SCIENCE            |  BIOLOGY                       |
 |  -----------------            |  -------                       |
-|  Voting power indices         |  Evolutionary stable strategies|
-|  Arms races (MAD deterrence)  |  Kin selection (Hamilton's rb>c|
+|  Voting power indices         |  Evolutionary stable strategies |
+|  Arms races (MAD deterrence)  |  Kin selection (Hamilton's rb>c |
 |  Legislative bargaining       |  Signaling (honest vs cheap)   |
 |  International negotiations   |  Animal conflict (Hawk-Dove)   |
 |  Constitutional design        |  Cooperation (reciprocal alt.) |

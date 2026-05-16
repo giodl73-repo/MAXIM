@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:transportation:logistics
+kind: guide
+module: transportation
+section: transportation
+title: Logistics and Supply Chain
+status: source-custody
+source_custody: partial
+current_path: transportation/05-LOGISTICS.md
+canonical_path: transportation/05-LOGISTICS.md
+backsource_ids: [proof-backfill:transportation:05-logistics, git-history:transportation:05-logistics]
+concepts: [logistics]
+root_concepts: [logistics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Logistics and Supply Chain
 
 ## The Big Picture

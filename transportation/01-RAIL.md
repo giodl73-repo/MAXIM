@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:transportation:rail
+kind: guide
+module: transportation
+section: transportation
+title: Rail Systems
+status: source-custody
+source_custody: partial
+current_path: transportation/01-RAIL.md
+canonical_path: transportation/01-RAIL.md
+backsource_ids: [proof-backfill:transportation:01-rail, git-history:transportation:01-rail]
+concepts: [rail]
+root_concepts: [rail]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rail Systems
 
 ## The Big Picture

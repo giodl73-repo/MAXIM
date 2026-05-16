@@ -1,0 +1,1861 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-transportation-autonomous-vehicles",
+  "source": "../../transportation",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#000",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "# Autonomous Vehicles"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#001",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#002",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Autonomous vehicles are a real-time embedded systems problem at the intersection of robotics, machine learning, and safety-critical software engineering. The perception-prediction-planning pipeline is well understood; the unsolved problem is long-tail edge cases and the statistical validation challenge of proving safety in a world where rare events matter most."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#003",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "```\n                  AV SYSTEM ARCHITECTURE"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#004",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "PERCEPTION:\n    LiDAR (point cloud)\n    Camera (RGB, semantic)\n    Radar (Doppler, velocity)\n    Ultrasonic (parking, close range)\n        ↓\n  SENSOR FUSION (Kalman filter, deep fusion)\n        ↓\n  PREDICTION:\n    Object detection + tracking + prediction\n    \"That car will turn left in 2 seconds\"\n        ↓\n  PLANNING:\n    Route planning → Behavioral → Motion → Control (actuators)"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#005",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "LOCALIZATION (runs in parallel):\n    HD Map + LiDAR/camera matching + GPS/IMU\n    \"I am at this exact position on the map\"\n```"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#006",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#007",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "## SAE J3016 Autonomy Levels"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#008",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "SAE International defines 6 levels of driving automation. The naming is often misused commercially."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#009",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "```\n  LEVEL | NAME                | Monitors | Who drives?  | ODD\n  ------+---------------------+-----------+--------------+--------\n  L0    | No Automation       | Human     | Human always | Any\n        | (warnings ok)       |           |              |\n  ------+---------------------+-----------+--------------+--------\n  L1    | Driver Assistance   | Human     | Human (+1    | Limited\n        | (AEB, ACC, or       |           | system)      |\n        | lane-keep, not both)|           |              |\n  ------+---------------------+-----------+--------------+--------\n  L2    | Partial Automation  | Human     | Human (must  | Limited\n        | (ACC + lane-keep    | MUST watch| supervise    |\n        | combined)           |           | continuously)|\n  ------+---------------------+-----------+--------------+--------\n  L3    | Conditional         | SYSTEM    | System (in   | Specific\n        | Automation          | (driver   | ODD); driver | (highway,\n        |                     | on-standby| on standby   | traffic jam)\n  ------+---------------------+-----------+--------------+--------\n  L4    | High Automation     | SYSTEM    | System       | Specific\n        |                     |           | (no driver   | (geofenced)\n        |                     |           | needed)      |\n  ------+---------------------+-----------+--------------+--------\n  L5    | Full Automation     | SYSTEM    | System       | ANY\n        |                     |           | everywhere   |"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#010",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "ODD = Operational Design Domain: the specific conditions (geography,\n  weather, speed, road type) in which the system is designed to operate."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#011",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "KEY INSIGHT: L5 does not exist in any commercial deployment.\n  All deployed systems are L2 or L4 in limited ODD.\n  There is no L5 vehicle for sale or in commercial service.\n```"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#012",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "### The L3 Trap"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#013",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Level 3 (\"conditional automation\") has been largely abandoned by the industry. The reason is cognitive science, not engineering:"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#014",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "```\n  THE L3 COGNITIVE TRAP:"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#015",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "L3 promise: \"System drives; driver monitors but can look away.\"\n  When system fails: \"Driver, take over immediately.\""
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#016",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "PROBLEM: Out-of-the-loop syndrome.\n  Humans cannot maintain vigilant monitoring for hours while doing nothing.\n  Reaction time after extended passive monitoring: 3-25 seconds.\n  At 120 km/h: car travels 100-833m before driver is in control.\n  This exceeds almost any reasonable takeover distance."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#017",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "EVIDENCE:\n  Stanford simulation studies: drivers disengaged (phone, sleep) within minutes.\n  Volvo autonomous driving study: drivers asleep within 10 minutes.\n  NTSB analysis of Tesla Autopilot (L2) crashes: drivers treat L2 as L3."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#018",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "RESULT: Most manufacturers skipped L3.\n  Mercedes Level 3 (DRIVE PILOT): approved Germany/Nevada at <=60 km/h only.\n  Honda Legend: L3 approved Japan at <=50 km/h, limited production.\n  Nearly everyone else: L2 -> L4 (skip L3 for high-speed operation).\n  Tesla: remains L2 (SAE), despite \"Full Self-Driving\" marketing name.\n```"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#019",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#020",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "## Sensor Modalities"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#021",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "### LiDAR (Light Detection and Ranging)"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#022",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "LiDAR produces a 3D point cloud of the environment by measuring time-of-flight of laser pulses."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#023",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "```\n  LIDAR OPERATION:"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#024",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Spinning/mechanical (Velodyne HDL-64E, Ouster OS1):\n  +----------+\n  | 64 laser |\n  | channels |\n  | 100m     |\n  | range    |\n  +----------+\n   → Rotates 360 degrees, 10-20 Hz\n   → 1.3M points/second\n   → Range: 0.1m to 120m (typical), accuracy ±2cm\n  Advantage: full 360-degree coverage\n  Disadvantage: large, expensive ($75K in 2017), moving parts fail"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#025",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Solid-state (MEMS, OPA, Flash):\n  +----------+\n  | No       |\n  | moving   |\n  | parts    |\n  +----------+\n   → Fixed field of view (120°x25° typical)\n   → Lower cost ($500-5000)\n   → More reliable\n  Advantage: cost, reliability, compact\n  Disadvantage: limited FOV; need multiple units for 360°\n  Examples: Luminar Iris, Mobileye EyeQ, Cepton MEMS"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#026",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "POINT CLOUD OUTPUT:\n  Each point: (x, y, z, intensity, return_number)\n  64-channel spinning: ~128,000 points per rotation\n  Dense enough to: detect pedestrians at 50m, vehicles at 100m+,\n  lane lines, traffic cones, debris in road."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#027",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "LIDAR LIMITATIONS:\n  - Fog/heavy rain: scatters laser -> range degraded\n  - Snow: accumulates on housing -> blind spots\n  - Dark objects (black car): lower return intensity\n  - Bright retro-reflective surfaces: saturation\n  - Cost: still $500-5000+ for automotive grade\n```"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#028",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "### Camera"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#029",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Cameras provide rich semantic information but require learned models for depth estimation."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#030",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "```\n  CAMERA TYPES IN AV:"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#031",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Forward-facing (1-3 cameras):   Fisheye surround (4-8 cameras):\n  +------------------+            +------------------+\n  | 60° FOV          |            | 180-195° FOV     |\n  | 1280x960 @ 30fps |            | Wide, low-res    |\n  | Long range main  |            | Parking, close   |\n  | object detection |            | object detection |\n  +------------------+            +------------------+"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#032",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "MONOCULAR DEPTH AMBIGUITY:\n  A single camera cannot measure distance directly.\n  A 2m object at 10m and a 4m object at 20m look identical.\n  Solutions:\n  1. Stereo camera: geometric triangulation (precise but only ~50m)\n  2. Monocular depth estimation (CNN): learned from training data\n     Accurate if training distribution covers the scenario.\n  3. Camera + LiDAR fusion: LiDAR provides sparse but accurate depth."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#033",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "TESLA FSD PHILOSOPHY:\n  Camera-only (no LiDAR). Uses:\n  - 8 cameras (forward, lateral, surround)\n  - Neural network depth estimation\n  - Occupancy networks (3D voxel occupancy, not object detection)\n  Argument: humans drive with just eyes; cameras are cheaper; LiDAR\n            false positive issues in some conditions.\n  Counter-argument: human visual cortex is far more capable than\n                    current cameras + networks; LiDAR provides range\n                    directly without requiring depth estimation.\n  Industry consensus (2024): most full L4 programs use LiDAR.\n```"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#034",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "### Radar"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#035",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Radar works in all weather conditions and provides direct velocity measurements via Doppler effect."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#036",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "```\n  AUTOMOTIVE RADAR TYPES:"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#037",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Short-range (SRR): 0.15m to 30m, 150° FOV\n  Corner radars (4): used for blind spot, parking, cross-traffic"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#038",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Long-range (LRR): 0.5m to 250m, 18° FOV\n  Front-facing: ACC (adaptive cruise), highway AEB"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#039",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "UNIQUE CAPABILITIES:\n  - Measures relative velocity directly (Doppler)\n  - Works in: fog, rain, snow, darkness, dust\n  - Sees through visual obstructions (limited)"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#040",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "LIMITATIONS:\n  - Low angular resolution (difficult to distinguish two close objects)\n  - Ghosts/multipath (reflections from guardrails, bridges)\n  - No height measurement (traditional)\n  - Imaging radar (4D) improves resolution significantly"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#041",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "4D IMAGING RADAR (2022+):\n  ZF, Arbe, AEye, Aptiv smart radar.\n  Resolution: x, y, z, velocity (4 dimensions).\n  Approaching LiDAR quality in some scenarios.\n  Advantage: all-weather, established supply chain, lower cost.\n```"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#042",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#043",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "## Sensor Fusion"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#044",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "No single sensor is sufficient. Fusion combines their complementary strengths."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#045",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "```\n  SENSOR FUSION LEVELS:"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#046",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "EARLY FUSION (raw data):\n    LiDAR  → raw points\n    Camera → raw pixels   → FUSE HERE\n    Radar  → raw signals"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#047",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "LATE FUSION (detections):\n    LiDAR  → objects\n    Camera → objects      → FUSE HERE\n    Radar  → objects"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#048",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Early: richer representation, harder to train, larger compute\n  Late: modular, easier to test, loses cross-modal features"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#049",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "DEEP FUSION (intermediate):\n  Middle ground: fuse at feature level after some processing.\n  Most production systems use deep or late fusion in practice."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#050",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "KALMAN FILTER (tracking):\n  Extended Kalman Filter (EKF) tracks object state over time.\n  State: (x, y, z, vx, vy, vz, heading)\n  Predict: extrapolate state forward using motion model\n  Update: incorporate new sensor measurement, weighted by confidence"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#051",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "OBJECT TRACKING OUTPUT:\n  For each tracked object:\n  - ID (persistent across frames)\n  - Bounding box (3D)\n  - Velocity vector\n  - Classification (car, truck, pedestrian, cyclist, unknown)\n  - Confidence score\n  - Prediction horizon (next 3-5 seconds)\n```"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#052",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#053",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "## HD Maps and Localization"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#054",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "### Why HD Maps"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#055",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Standard GPS accuracy is 3-10m (95% confidence). Lane-level driving requires <0.3m. HD maps provide the prior information that enables centimeter-level localization."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#056",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "```\n  HD MAP LAYERS:"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#057",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Layer 1: Lane geometry\n  +---------------------------+\n  | Lane centerlines          |\n  | Lane widths               |\n  | Lane connectivity graph   |\n  | Speed limits              |\n  | Lane markings type        |\n  +---------------------------+"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#058",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Layer 2: Regulatory information\n  +---------------------------+\n  | Stop lines                |\n  | Traffic light positions   |\n  | Turn restrictions         |\n  | Crosswalk locations       |\n  | School zone boundaries    |\n  +---------------------------+"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#059",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "Layer 3: 3D features (for localization)\n  +---------------------------+\n  | Road surface intensity    |\n  | Static landmarks          |\n  | Building faces            |\n  | Overhead structures       |\n  | Feature descriptors       |\n  +---------------------------+"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#060",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "PROVIDERS: HERE HD Live Map, TomTom AMS, Baidu Apollo Maps,\n             Waymo private maps, Mobileye Road Experience"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#061",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "MAP UPDATE PIPELINE:\n  Mapping vehicles collect data.\n  Processing: extract features, detect changes.\n  Diff update: send only changed tiles to vehicles.\n  Frequency: safety-critical changes (road closure, new barrier) < 1 hour.\n  Normal updates: daily.\n  Challenge: every construction zone is a potential map error.\n```"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#062",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "### Online Localization"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#063",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "```\n  LIDAR-TO-MAP LOCALIZATION:"
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#064",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "ICP (Iterative Closest Point):\n  Align current LiDAR scan to HD map feature layer.\n  Iteratively minimize distance between corresponding points.\n  Converges to <0.1m accuracy if initialization is good.\n  Fragile if environment changed significantly (construction)."
+    },
+    {
+      "id": "07-AUTONOMOUS-VEHICLES.md#065",
+      "path": [
+        "07-AUTONOMOUS-VEHICLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:transportation:07-autonomous-vehicles, git-history:transportation:07-autonomous-vehicles]",
+        "canonical_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "concepts": "[autonomous, vehicles]",
+        "current_path": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "id": "maxim:transportation:autonomous-vehicles",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "transportation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[autonomous, vehicles]",
+        "section": "transportation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Autonomous Vehicles",
+        "updated": "null"
+      },
+      "text": "NDT (Normal Distributions Transform):\n  Divide map into voxels; fit normal distribution to points in each.\n  Align scan to map by maximizing likelihood.\n  More robust than ICP to sparse scans and dynamic objects.\n  Used by: Autoware (open source AV stack)."
+    }
+  ],
+  "refs": [
+    "07-AUTONOMOUS-VEHICLES.md"
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:game-theory:evolutionary
+kind: guide
+module: game-theory
+section: game-theory
+title: Evolutionary Game Theory and Algorithmic Game Theory
+status: source-custody
+source_custody: partial
+current_path: game-theory/05-EVOLUTIONARY.md
+canonical_path: game-theory/05-EVOLUTIONARY.md
+backsource_ids: [proof-backfill:game-theory:05-evolutionary, git-history:game-theory:05-evolutionary]
+concepts: [evolutionary]
+root_concepts: [evolutionary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Evolutionary Game Theory and Algorithmic Game Theory
 
 ## The Big Picture
@@ -302,7 +321,7 @@ the resulting equilibrium may be inefficient. How much does selfishness cost?
   │  A ──50────► C ──x/100──► D    │
   │                                │
   │  x = number of drivers on edge │
-  │  Cost = latency (time to travel)│
+  │  Cost = latency                │
   └────────────────────────────────┘
 
   Standard Braess setup (Braess 1968): 4000 drivers, source A, destination D.

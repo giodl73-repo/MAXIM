@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "transportation\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "chart_like",
+      "line": 53,
+      "heading_context": "## Modal Share — Where the Traffic Actually Goes",
+      "confidence": "candidate",
+      "text": "### Global Freight (tonne-kilometres, ~2022)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 65,
+      "heading_context": "### Global Freight (tonne-kilometres, ~2022)",
+      "confidence": "candidate",
+      "text": "### Global Passenger (passenger-kilometres, ~2022)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 82,
+      "heading_context": "## Network Economics — Why Transportation is Different",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------+\n|         NETWORK INDUSTRY ECONOMICS          |\n|                                             |\n|  1. ECONOMIES OF SCALE                      |\n|     Fixed costs >> Variable costs           |\n|     Build the track once; run trains cheap  |\n|     Average cost falls as output rises      |\n|                                             |\n|  2. ECONOMIES OF DENSITY                    |\n|     More traffic on same route = lower cost |\n|     A 70%-full train is far less efficient  |\n|     per passenger than the same at 95%      |\n|                                             |\n|  3. ECONOMIES OF SCOPE                      |\n|     Networks of routes share terminals,     |\n|     equipment, management                   |\n|     Airlines: hub-and-spoke exploits this   |\n|                                             |\n|  IMPLICATION: Natural monopoly on thin      |\n|  routes. Regulation or public ownership     |\n|  required. Competition works only where     |\n|  demand density is high enough.             |\n+---------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "## The Four Components of Any Transport System",
+      "confidence": "candidate",
+      "text": "  INFRASTRUCTURE          VEHICLES              OPERATIONS           DEMAND\n  ──────────────          ────────              ──────────           ──────\n  Fixed, sunk cost        Mobile assets         Real-time mgmt       Derived demand\n  Political process       Asset management      Scheduling           Inelastic short-term\n  to build/change         Fleet planning        Dispatch             Elastic long-term\n                          Maintenance           Control systems\n\n  Examples:               Examples:             Examples:            Examples:\n  Track, runway,          Locomotives,          ATC, signaling,      Commuters,\n  highway pavement,       aircraft,             GPS tracking,        freight shippers,\n  port berths,            trucks, ships         SCADA pipelines      tourists\n  pipeline right-of-way",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 143,
+      "heading_context": "## Transportation Geography — Why Mode Depends on Location",
+      "confidence": "candidate",
+      "text": "  DISTANCE x GEOGRAPHY => MODAL CHOICE\n\n  Short distance, dense city\n  +------+     +------+     +-----------+\n  | <5km |     | Urban|     | Walk/Bike |\n  |      | --> |      | --> | Bus/Metro |\n  +------+     +------+     +-----------+\n\n  Medium distance, 50-500km corridor\n  +-------+    +----------+    +-------------------+\n  | 50-   |    | Corridor |    | Rail (if dense)   |\n  | 500km | -> | density? | -> | Road (default)    |\n  +-------+    +----------+    | Air (if >300km?)  |\n                               +-------------------+\n               High density: rail competitive\n               Low density: road wins\n\n  Long distance, 500-5,000km\n  +--------+    +---------+    +--------------------+\n  | 500-   |    | Water   |    | Air (passengers)   |\n  | 5000km | -> | cross?  | -> | Maritime (freight) |\n  +--------+    +---------+    | HSR (<1,500km pax) |\n                               +--------------------+\n\n  Very long distance, >8,000km\n  +--------+    +---------------------------+\n  | 8000+  | -> | Air (passengers)          |\n  | km     |    | Maritime (freight, ~97%)  |\n  +--------+    +---------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 188,
+      "heading_context": "## Braess's Paradox — The Distributed Systems Analogy",
+      "confidence": "candidate",
+      "text": "  ORIGINAL NETWORK (two parallel routes, equilibrium = 65 min each):\n\n      t=45+x          t=45+x\n  S ----[A]------- T\n  |                |\n  +------[B]-------+\n      t=45+x\n\n  Where x = fraction of drivers on that route (0 to 1).\n  At equilibrium: all routes have equal travel time.\n\n  ADD A ZERO-COST SHORTCUT from A to B:\n\n  S ----[A]------- T\n  |      |         |\n  |    [0 min]     |\n  |      |         |\n  +------[B]-------+\n\n  NOW: Every rational driver takes S->A->shortcut->B->T\n  Everyone's time: 45+1 + 0 + 45+1 = 92 minutes.\n  Worse than the original 65 minutes for everyone.\n\n  WHY: Nash equilibrium != social optimum.\n       Each driver optimizes individually.\n       No global coordinator exists.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 227,
+      "heading_context": "## The Decarbonization Imperative",
+      "confidence": "candidate",
+      "text": "  TRANSPORT GHG BY MODE (approximate)\n  +-----------------------------------------+\n  |  Road (cars + trucks)  ████████████  72%|\n  |  Aviation              ████          12%|\n  |  Maritime              ████          11%|\n  |  Pipeline (fugitive)   ██             4%|\n  |  Rail                  █              1%|\n  +-----------------------------------------+\n\n  DECARBONIZATION PATHWAYS BY MODE:\n\n  MODE        PATHWAY                     STATUS          TIMELINE\n  ----        -------                     ------          --------\n  Road        Battery electric (BEV)      Scaling now     2030-2040\n              Hydrogen fuel cell (heavy)  Commercial      2030-2035\n  Rail        Electrification (overhead)  ~50% done       2030-2040\n              Battery/hydrogen hybrids    Early deploy    2025-2035\n  Aviation    Sustainable Aviation Fuel   <5% supply      2030-2050\n              Hydrogen aircraft           Pre-commercial  2040-2050\n              Battery-electric (<500 km)  Early           2030-2035\n  Maritime    Methanol (Maersk pathway)   First ships     2025-2035\n              Ammonia (zero-carbon)       Pilot stage     2030-2045\n              Wind assist (Flettner)      Deploying       2025-2030\n              LNG (bridge fuel)           Mainstream      Now-2035\n  Pipeline    Hydrogen repurposing        Planning        2030-2040",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 261,
+      "heading_context": "## Historical Arc — The Five Waves of Transportation",
+      "confidence": "candidate",
+      "text": "  1760s-1840s: CANALS\n  +---------+\n  | Canal   | Enabled industrial revolution bulk freight\n  | Network | Horse towpaths, 3-4 mph, 30 tonnes/boat\n  +---------+ Obsoleted by railways within 30 years\n\n  1830s-1900s: RAILWAYS\n  +-----------+\n  | Rail      | First mass intercity mobility for people\n  | Network   | Steam then electric; 20-100 mph\n  +-----------+ Created first national markets; vertical monopolies\n\n  1900s-1960s: ROADS\n  +----------+\n  | Highway  | Automobiles + interstate highway systems\n  | Network  | Flexible door-to-door; federally subsidized\n  +----------+ Hollowed out rail passenger in US/Canada\n\n  1950s-1970s: AVIATION\n  +-----------+\n  | Air       | Jet age: Boeing 707 (1958), 747 (1969)\n  | Network   | Replaced ocean liners for passenger travel\n  +-----------+ Hub-and-spoke restructuring after deregulation (1978 US)\n\n  1956: CONTAINERIZATION — The McLean Revolution\n  +---------------+\n  | Intermodal    | Malcolm McLean's first container ship (Ideal-X)\n  | Containers    | ISO standard container adopted 1961\n  +---------------+ Slashed port labor costs ~90%\n                   Enabled global supply chains at scale\n                   The internet of physical goods movement\n\n  Modern: INTERMODAL INTEGRATION\n  All five modes linked by standardized containers,\n  EDI/APIs, real-time tracking, global logistics platforms",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 325,
+      "heading_context": "## The Microsoft Data Center Supply Chain Bridge",
+      "confidence": "candidate",
+      "text": "  SERVERS FOR AZURE DATA CENTERS — FULL SUPPLY CHAIN\n\n  Taiwan/South Korea              Singapore/Malaysia\n  (chip fab: TSMC, Samsung)       (assembly: Foxconn, Flextronics)\n        |                                |\n        | MARITIME (container)           | MARITIME\n        | Taiwan->Seattle: ~14 days      | Singapore->Rotterdam: ~20 days\n        v                                v\n  US West Coast Ports            Rotterdam/Hamburg ports\n  (Long Beach, Seattle)                  |\n        |                                | ROAD (truck)\n        | RAIL (intermodal)              | Last mile to DC\n        | Double-stack to Midwest        v\n        v                          Azure DC Frankfurt/Dublin\n  Distribution Centers\n  (Chicago, Dallas hub)\n        |\n        | ROAD (truck)\n        | Last mile to DC location\n        v\n  Azure US Central/West DC\n\n  AIR: used for urgent replacement parts under SLA\n       and for time-critical equipment where sea transit\n       would blow delivery commitments",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

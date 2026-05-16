@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "transportation\\03-MARITIME.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 85,
+      "heading_context": "### Dry Bulk Carriers",
+      "confidence": "candidate",
+      "text": "  BULK CARRIER SIZE CLASSES:\n\n  Class       DWT range    Key cargo         Key routes\n  -----       ---------    ---------         ----------\n  Handysize   10-40k DWT   Grain, fertilizer  Short sea, minor ports\n  Handymax    40-60k DWT   Coal, grain        Flexible routing\n  Supramax    50-65k DWT   Minor bulk         Global\n  Panamax     65-80k DWT   Coal, grain        Any with Panama access\n  Capesize    100-200k DWT Iron ore, coal     Cannot transit Panama/Suez;\n                                              routes via Cape of Good Hope\n                                              or Cape Horn\n  VLBC        200-400k DWT Iron ore           Brazil-China, Australia-China\n  (Vale class 400k DWT)\n\n  DWT = deadweight tonnes (total payload capacity)\n\n  KEY ROUTES:\n  Iron ore: Australia -> China; Brazil -> China; South Africa -> China\n  Coal:     Australia -> Japan/Korea/India; US -> Europe\n  Grain:    US Gulf -> China; Brazil -> China/Middle East",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "### Tankers",
+      "confidence": "candidate",
+      "text": "  TANKER CLASSIFICATION:\n\n  Type        Size (DWT)    Product       Example route\n  ----        ----------    -------       -------------\n  General     5-25k         Clean (petrol, Singapore -> Thailand\n  Purpose                   jet fuel)\n  MR          25-55k        Clean product US Gulf -> Europe\n  LR1         55-80k        Dirty/clean   Middle East -> Europe\n  LR2         80-160k       Dirty crude   Middle East -> Asia\n  Aframax     80-120k       Crude         Caribbean, Mediterranean\n  Suezmax     120-200k      Crude         Max size for Suez Canal\n  VLCC        200-320k      Crude         Middle East -> Asia/Europe\n  ULCC        320k+         Crude         Few ports can handle\n\n  Double hull: MARPOL 73/78 mandated double-hull construction\n  after Exxon Valdez (1989). No single-hull tankers allowed since 2010.\n  Double hull = inner hull + outer hull with void space between.\n  Accidental grounding: outer hull breached, inner hull intact.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 137,
+      "heading_context": "### LNG Carriers",
+      "confidence": "candidate",
+      "text": "  LNG CARRIER DESIGN:\n\n  Two main tank types:\n\n  MOSS (Spherical):           MEMBRANE (GTT):\n  +--+--+--+--+               +-----------------------+\n  |  O  O  O  O|              |  ~~~~~~~~~~~~~~~~~~~  |\n  | (4 spheres)|              | Thin stainless steel  |\n  +------------+              | 1.2mm thick, corrugated|\n  Self-supporting             +-----------------------+\n  Visible above deck          Insulation box: 200mm\n  Simpler insulation          Supported by ship hull\n                              Lower center of gravity\n                              More cargo space\n\n  Tank pressure: ~0.025 bar gauge (near atmospheric)\n  Temperature: -163°C\n  Boil-off: ~0.1-0.15%/day (small amount vaporizes; used as fuel or reliquified)\n\n  FSRU (Floating Storage and Regasification Unit):\n  A converted or purpose-built LNG carrier that also regasifies.\n  Used to rapidly deploy LNG import terminals without fixed infrastructure.\n  Germany deployed 5 FSRUs in 2022-2023 to replace Russian pipeline gas.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 171,
+      "heading_context": "### Hull Form and Resistance",
+      "confidence": "candidate",
+      "text": "  BLOCK COEFFICIENT (Cb):\n  Cb = Displacement volume / (L * B * T)\n  Where L = length, B = beam, T = draft\n\n  Cb = 1.0: perfect rectangular block\n  Cb = 0.5: fine ship (sailboat)\n  Cb = 0.85: typical bulk carrier\n  Cb = 0.65-0.70: typical container ship (fine ends for speed)\n\n  HIGH Cb: more cargo per metre of length; harder to push (more resistance)\n  LOW Cb: faster for given power; less cargo volume\n\n  RESISTANCE COMPONENTS:\n  +--------------------------------------------+\n  | Total resistance = Rf + Rw + Ra            |\n  |                                            |\n  | Rf = Frictional resistance                 |\n  |    = Dominated at low speeds               |\n  |    = Scales with wetted surface area       |\n  |    = Reduced by anti-fouling paint         |\n  |      (hull fouling adds 10-15% fuel/yr)    |\n  |                                            |\n  | Rw = Wave-making resistance                |\n  |    = Dominates at high speeds              |\n  |    = Scales approximately with Fr^4        |\n  |    = Froude number Fr = v / sqrt(g*L)      |\n  |    = Hard limit ~Fr 0.3-0.35 for           |\n  |      displacement vessels                  |\n  |                                            |\n  | Ra = Air resistance, appendage drag        |\n  |    = Smaller, sometimes significant        |\n  +--------------------------------------------+\n\n  FROUDE NUMBER LIMIT:\n  At Fr ~0.3-0.35, wave-making resistance rises steeply.\n  Container ships: ~22 knots, Fr = 0.24 (well below limit)\n  High-speed ferries: 35-45 knots, must use planing or hydrofoil hulls",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "### Stability",
+      "confidence": "candidate",
+      "text": "  METACENTRIC HEIGHT (GM):\n\n  G = Centre of gravity (where ship's weight acts downward)\n  B = Centre of buoyancy (centre of displaced water volume)\n  M = Metacentre (pivot point)\n\n  GM = BM - BG\n\n  GM > 0: ship is stable (M above G) -> rights itself when heeled\n  GM < 0: ship is unstable -> capsizes if heeled beyond certain angle\n  GM too large (>1.5-2m): \"stiff\" ship, violent rolling, cargo damage\n\n  GZ CURVE (righting lever):\n  At any heel angle theta, righting moment = displacement * GZ\n  GZ > 0 for theta < angle of vanishing stability -> stable range\n\n  IMO Intact Stability Code requirements:\n  - Area under GZ to 30 degrees > 0.055 m-rad\n  - Area 30-40 degrees > 0.030 m-rad\n  - GZ peak >= 0.2m at >=30 degrees heel\n  - GM initial >= 0.15m",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "### Diesel Engine Dominance",
+      "confidence": "candidate",
+      "text": "  2-STROKE SLOW-SPEED MARINE DIESEL:\n\n  Cylinder bore:  650-980mm (enormous)\n  Stroke:         2,000-3,500mm (2-3.5 metre piston stroke)\n  RPM:            80-120 RPM (direct drive to propeller)\n  Power:          5-100 MW per engine\n  Thermal efficiency: 50-55% (best heat engine in commercial use)\n  SFOC (Specific Fuel Oil Consumption): ~160-175 g/kWh\n\n  WHY 2-STROKE:\n  2-stroke = one power stroke per revolution (vs 4-stroke: every other)\n  At 100 RPM, 100 power strokes per minute\n  Very high torque, low RPM = ideal for large propellers\n  Direct drive: no gearbox needed (huge advantage for reliability)\n\n  PROPELLER:\n  Typically: Fixed Pitch Propeller (FPP) or Controllable Pitch (CPP)\n  Diameter: 5-10 metres on large vessels\n  Optimal advance ratio: J = Va / (n*D)  where Va = advance speed\n  Cavitation limit: if local pressure drops below vapor pressure -> erosion\n  Tip speed typically limited to 40 m/s to avoid cavitation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 288,
+      "heading_context": "### Container Terminal Anatomy",
+      "confidence": "candidate",
+      "text": "  CONTAINER TERMINAL LAYOUT:\n\n  SEA SIDE:\n    Berth | Berth        (STS Cranes)\n       |       |\n       v       v\n  YARD (Stack storage):\n    RTG (rubber-tyred gantry cranes)\n    or ASC (automated stacking cranes)\n    4-6 containers high\n    Yard tractors + chassis\n\n  LAND SIDE:\n    Gate (truck entry/exit)\n    Rail Terminal (intermodal rail)\n\n  STS (Ship-to-Shore) gantry crane:\n  - Outreach: 60-70m (spans width of ULCS)\n  - Height: 50-60m above quay\n  - Lift capacity: 65+ tonnes\n  - Productivity target: 30-40 moves/crane/hour\n  - \"Move\" = one container lift (on or off ship)\n\n  TERMINAL THROUGHPUT METRICS:\n  TEU/hectare/year: yard density\n  High-density: 1,000-2,500 TEU/ha/yr (automated terminals)\n  Low-density: 300-600 TEU/ha/yr (conventional RTG)\n  Ship turn time: critical for berth utilization\n  Port State Control (PSC) inspections: flag state/port state authority",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 340,
+      "heading_context": "## Strategic Chokepoints",
+      "confidence": "candidate",
+      "text": "  GLOBAL MARITIME CHOKEPOINTS:\n\n  +---------------------+--------+------------------+------------------+\n  | Chokepoint          | Width  | Annual transits  | If blocked...    |\n  +---------------------+--------+------------------+------------------+\n  | Strait of Malacca   | 2.7km  | 100,000+ ships   | Alt: Sunda/      |\n  | (Malaysia-Indonesia)| min    | 40% global trade  | Lombok strait    |\n  |                     |        |                  | +1,200km; costly  |\n  +---------------------+--------+------------------+------------------+\n  | Suez Canal (Egypt)  | 313m   | ~20,000 ships/yr | Alt: Cape of     |\n  |                     | (new   | 12% global trade | Good Hope        |\n  |                     | canal) | 30% container    | +10 days; +$300k |\n  |                     |        | traffic Europe-  | per voyage       |\n  |                     |        | Asia             |                  |\n  +---------------------+--------+------------------+------------------+\n  | Panama Canal        | N/A    | ~14,000 ships/yr | Alt: Cape Horn   |\n  |                     |        | 5% global trade   | +14 days;        |\n  |                     |        |                  | or US intermodal |\n  +---------------------+--------+------------------+------------------+\n  | Strait of Hormuz    | 55km   | ~20 tankers/day  | Alt: IPSA        |\n  | (Iran-Oman)         |        | ~20% global oil  | pipeline (Saudi) |\n  |                     |        | ~30% global LNG  | most oil has     |\n  |                     |        |                  | no viable alt    |\n  +---------------------+--------+------------------+------------------+\n  | Bab el-Mandeb       | 26km   | ~20,000 ships/yr | Alt: Suez bypass |\n  | (Yemen-Djibouti)    |        | Red Sea access   | or Cape Horn     |\n  |                     |        | to Suez          |                  |\n  +---------------------+--------+------------------+------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1",
+  "source_markdown": "transportation\\05-LOGISTICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 553,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Logistics decision",
+        "Approach"
+      ],
+      "rows": [
+        [
+          "Where to locate a DC",
+          "Center of gravity heuristic; then MILP for exact optimization"
+        ],
+        [
+          "How many DCs to operate",
+          "Model total cost (fixed + transport) vs service time vs risk"
+        ],
+        [
+          "Choose between modes",
+          "Total Landed Cost analysis; not just freight rate"
+        ],
+        [
+          "Set safety stock levels",
+          "z * sigma_LT formula; calibrate z to service level target"
+        ],
+        [
+          "Determine order quantity",
+          "EOQ model; adjust for transportation minimums (full container loads)"
+        ],
+        [
+          "Plan last-mile delivery routes",
+          "VRP with TW; Clarke-Wright or OR-Tools for implementation"
+        ],
+        [
+          "Decide 3PL vs 1PL",
+          "Fixed cost vs variable cost; scale and predictability of volume"
+        ],
+        [
+          "Assess cold chain compliance",
+          "MKT analysis; validate temperature loggers at each handoff"
+        ]
+      ]
+    }
+  ]
+}
