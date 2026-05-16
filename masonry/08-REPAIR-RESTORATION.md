@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:masonry:repair-restoration
+kind: guide
+module: masonry
+section: masonry
+title: Masonry Repair and Restoration
+status: source-custody
+source_custody: partial
+current_path: masonry/08-REPAIR-RESTORATION.md
+canonical_path: masonry/08-REPAIR-RESTORATION.md
+backsource_ids: [proof-backfill:masonry:08-repair-restoration, git-history:masonry:08-repair-restoration]
+concepts: [repair, restoration]
+root_concepts: [repair, restoration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Masonry Repair and Restoration
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rope-cordage:fiber-materials
+kind: guide
+module: rope-cordage
+section: rope-cordage
+title: Fiber Materials: Natural and Synthetic Rope Fibers
+status: source-custody
+source_custody: partial
+current_path: rope-cordage/01-FIBER-MATERIALS.md
+canonical_path: rope-cordage/01-FIBER-MATERIALS.md
+backsource_ids: [proof-backfill:rope-cordage:01-fiber-materials, git-history:rope-cordage:01-fiber-materials]
+concepts: [fiber, materials]
+root_concepts: [fiber, materials]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fiber Materials: Natural and Synthetic Rope Fibers
 
 ## The Fiber Landscape

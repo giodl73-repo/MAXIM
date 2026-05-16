@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rope-cordage:modern-synthetics
+kind: guide
+module: rope-cordage
+section: rope-cordage
+title: Modern Synthetic Rope: UHMWPE, Aramid, Vectran, PBO
+status: source-custody
+source_custody: partial
+current_path: rope-cordage/09-MODERN-SYNTHETICS.md
+canonical_path: rope-cordage/09-MODERN-SYNTHETICS.md
+backsource_ids: [proof-backfill:rope-cordage:09-modern-synthetics, git-history:rope-cordage:09-modern-synthetics]
+concepts: [modern, synthetics]
+root_concepts: [modern, synthetics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Synthetic Rope: UHMWPE, Aramid, Vectran, PBO
 
 ## The High-Performance Landscape

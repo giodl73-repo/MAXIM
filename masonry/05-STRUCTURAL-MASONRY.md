@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:masonry:structural-masonry
+kind: guide
+module: masonry
+section: masonry
+title: Structural Masonry: Load Paths, Slenderness, Reinforcement, and Codes
+status: source-custody
+source_custody: partial
+current_path: masonry/05-STRUCTURAL-MASONRY.md
+canonical_path: masonry/05-STRUCTURAL-MASONRY.md
+backsource_ids: [proof-backfill:masonry:05-structural-masonry, git-history:masonry:05-structural-masonry]
+concepts: [structural, masonry]
+root_concepts: [structural, masonry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Structural Masonry: Load Paths, Slenderness, Reinforcement, and Codes
 
 ## The Big Picture

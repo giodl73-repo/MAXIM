@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:masonry:stonework
+kind: guide
+module: masonry
+section: masonry
+title: Stonework: Ashlar, Rubble, Dry-Stone, and Quarrying
+status: source-custody
+source_custody: partial
+current_path: masonry/04-STONEWORK.md
+canonical_path: masonry/04-STONEWORK.md
+backsource_ids: [proof-backfill:masonry:04-stonework, git-history:masonry:04-stonework]
+concepts: [stonework]
+root_concepts: [stonework]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stonework: Ashlar, Rubble, Dry-Stone, and Quarrying
 
 ## The Big Picture

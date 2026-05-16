@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:masonry:masonry-units
+kind: guide
+module: masonry
+section: masonry
+title: Masonry Units: Brick, CMU, Stone, Adobe, Tile
+status: source-custody
+source_custody: partial
+current_path: masonry/01-MASONRY-UNITS.md
+canonical_path: masonry/01-MASONRY-UNITS.md
+backsource_ids: [proof-backfill:masonry:01-masonry-units, git-history:masonry:01-masonry-units]
+concepts: [masonry, units]
+root_concepts: [masonry, units]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Masonry Units: Brick, CMU, Stone, Adobe, Tile
 
 ## The Big Picture

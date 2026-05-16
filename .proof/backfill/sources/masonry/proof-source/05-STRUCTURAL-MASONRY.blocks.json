@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "masonry\\05-STRUCTURAL-MASONRY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "STRUCTURAL MASONRY DESIGN DECISION TREE\n========================================\n\n  Is this a load-bearing masonry wall?\n  ├── NO → Veneer or partition rules (see 09-MODERN-APPLICATIONS.md)\n  └── YES\n      ├── Is it in seismic design category (SDC) D, E, or F?\n      │   ├── YES → SPECIAL REINFORCED MASONRY required (TMS 402 §7.4.6)\n      │   │         Cannot use URM; must have rebar + grouted cores\n      │   └── NO → Continue\n      │\n      ├── Is the slenderness ratio h/t within empirical limits?\n      │   h = effective height, t = wall thickness\n      │   ├── h/t ≤ 18 for URM → Empirical design possible\n      │   └── h/t > 18       → Engineered design required\n      │\n      ├── Does the wall have eccentric loads or significant lateral loads?\n      │   ├── YES → Engineered design (moment + axial)\n      │   └── NO → Empirical may suffice (low-rise, simple geometry)\n      │\n      └── Select design method:\n          ├── Allowable Stress Design (ASD) — TMS 402 Chapter 8\n          └── Strength Design (SD)         — TMS 402 Chapter 9",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Load Paths in Masonry",
+      "confidence": "candidate",
+      "text": "VERTICAL LOAD PATH\n==================\n\n  ROOF LOAD\n  ↓\n  ROOF BEAM / JOIST → transfers to bearing wall\n  ↓\n  TOP BOND BEAM (reinforced CMU) — distributes concentrated loads\n  ↓\n  MASONRY WALL (compression in face shells and mortar joints)\n  ↓\n  FOOTING / FOUNDATION WALL\n  ↓\n  SOIL\n\n  LATERAL LOAD PATH (wind / seismic)\n  ===================================\n\n  WIND PRESSURE on wall face\n  ↓\n  WALL (flexes out-of-plane like a vertical beam)\n  ↓\n  FLOOR/ROOF DIAPHRAGM (horizontal plate — distributes lateral load)\n  ↓\n  SHEAR WALLS (masonry walls parallel to load direction)\n  ↓\n  FOUNDATION\n\n  KEY POINT: Masonry walls act as BOTH vertical load carriers AND\n  shear walls (in-plane lateral resistance). Out-of-plane resistance\n  requires either: (a) very thick wall, (b) reinforcement, or (c)\n  limiting slenderness ratio (h/t).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## Compressive Strength: f'm",
+      "confidence": "candidate",
+      "text": "UNIT STRENGTH METHOD (simplified table)\n=========================================\n\n  Clay Masonry f'm (psi) by mortar type:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Unit Strength (psi)  │  Type M or S  │  Type N                  │\n  │  ─────────────────────┼───────────────┼──────────────────────    │\n  │  ≥14,000              │  5,300        │  4,400                 │\n  │  ≥12,000              │  4,700        │  3,900                 │\n  │  ≥10,000              │  4,000        │  3,300                 │\n  │  ≥ 8,000              │  3,350        │  2,700                 │\n  │  ≥ 6,000              │  2,700        │  2,200                 │\n  │  ≥ 4,000              │  2,000        │  1,600                 │\n  └──────────────────────────────────────────────────────────────────┘\n\n  Concrete Masonry f'm (psi) by mortar type:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Unit Net Strength (psi)  │  Type M or S  │  Type N              │\n  │  ─────────────────────────┼───────────────┼────────────────────  │\n  │  ≥4,800                   │  3,000        │  2,500              │\n  │  ≥3,750                   │  2,500        │  2,000              │\n  │  ≥2,800                   │  2,000        │  1,500              │\n  │  ≥1,900                   │  1,500        │  1,200              │\n  └──────────────────────────────────────────────────────────────────┘\n\n  Note: f'm for masonry is MUCH LOWER than unit alone — the assembly\n  (including mortar joints and testing configuration) reduces strength\n  by 40–70% compared to the individual unit.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "## Slenderness Ratio (h/t)",
+      "confidence": "candidate",
+      "text": "SLENDERNESS LIMITS (TMS 402 Empirical Design)\n===============================================\n\n  UNREINFORCED MASONRY BEARING WALLS:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  h/t ≤ 18  for solid masonry                                     │\n  │  h/t ≤ 18  for hollow masonry                                    │\n  │  h/t ≤ 12  for walls with d/t > 25 (cavity/composite walls)      │\n  └──────────────────────────────────────────────────────────────────┘\n\n  h = effective height\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Both ends fixed   → h_eff = 0.5 × clear height                  │\n  │  One end pinned    → h_eff = 0.7 × clear height                  │\n  │  Both ends pinned  → h_eff = 1.0 × clear height                  │\n  │  One end free      → h_eff = 2.0 × clear height (cantilever)     │\n  └──────────────────────────────────────────────────────────────────┘\n\n  EXAMPLE:\n  8\" CMU wall, floor-to-floor height 12 ft, top pinned to diaphragm:\n  h_eff = 0.7 × 144\" = 101\"\n  t = 7.625\" actual\n  h/t = 101 / 7.625 = 13.2 ≤ 18 → OK for empirical URM",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "## Unreinforced vs. Reinforced Masonry",
+      "confidence": "candidate",
+      "text": "URM vs. RM COMPARISON\n======================\n\n  UNREINFORCED MASONRY (URM)\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Cross-section: solid or hollow (ungrouted)                      │\n  │  Tension: masonry mortar only (very low)                         │\n  │  Seismic: permitted SDC A, B, C only                             │\n  │  Failure mode: brittle cracking at mortar joints                 │\n  │  h/t limit: ≤ 18 for bearing walls                               │\n  │  Advantage: simple, low cost                                     │\n  └──────────────────────────────────────────────────────────────────┘\n\n  REINFORCED MASONRY (RM)\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Cross-section: CMU with grout in reinforced cells               │\n  │                                                                  │\n  │  ┌────────────────────────────────────────────────────┐          │\n  │  │  [FACE][CORE w/rebar+grout][WEB][CORE ungrouted]   │         │\n  │  └────────────────────────────────────────────────────┘         │\n  │                                                                   │\n  │  Tension: Steel rebar in grout core takes all tensile stress   │\n  │  Seismic: All SDC permitted with proper detailing               │\n  │  h/t limit: higher — up to 24–30 with special RM               │\n  │  Ductility: Rebar develops flexural ductility (SDC D/E/F)      │\n  └──────────────────────────────────────────────────────────────────┘\n\n  HORIZONTAL REINFORCEMENT:\n  Bond beams (reinforced CMU with horizontal rebar in grout) at:\n  • 48\" O.C. (or closer) — TMS 402 minimum for ordinary RM\n  • Top of wall, over openings, at floor/roof connections\n  • Ladder or truss-type joint wire reinforcement also used",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 205,
+      "heading_context": "## Reinforced Masonry Design Concepts",
+      "confidence": "candidate",
+      "text": "REINFORCED CMU WALL SECTION (ASD approach)\n===========================================\n\n  CROSS-SECTION AT REINFORCED CORE:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │                  ← t = 7.625\" →                                  │\n  │  ┌──────┬────────────────────────┬──────┐                        │\n  │  │FACE  │ GROUT                  │FACE  │ ← full grouted core   │\n  │  │SHELL │   ─────  ← rebar (A_s)│SHELL │                       │\n  │  │ 1.25\"│         CENTERED       │ 1.25\"│                       │\n  │  └──────┴────────────────────────┴──────┘                       │\n  └──────────────────────────────────────────────────────────────────┘\n\n  STRESS DISTRIBUTION (ASD under combined axial + bending):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  fa = P / An  (axial compressive stress)                         │\n  │  fb = M / Sn  (flexural stress)                                  │\n  │                                                                  │\n  │  Combined: fa/Fa + fb/Fb ≤ 1.0 (ASD interaction equation)        │\n  │  where: Fa = 0.25 f'm × [1 - (h/140r)²]  for h/r ≤ 99            │\n  │         Fb = 0.33 f'm  (flexural compression allowable)          │\n  │         r  = radius of gyration of net section                   │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "## Post-Tensioned Masonry (PTM)",
+      "confidence": "candidate",
+      "text": "POST-TENSIONED MASONRY CONCEPT\n================================\n\n  BEFORE PT:           UNDER LATERAL LOAD:    AFTER PT APPLIED:\n  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐\n  │  Wall weight P  │  │  P + Moment M   │  │  P + PT + M     │\n  │  (compression)  │  │  Tension on     │  │  PT force adds  │\n  │                 │  │  windward face  │  │  compression;   │\n  │                 │  │  CRACKING RISK  │  │  net = compress.│\n  └─────────────────┘  └─────────────────┘  └─────────────────┘\n                                              No net tension!\n\n  PT HARDWARE:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Anchor plate at top of wall                                     │\n  │  ↑                                                               │\n  │  High-strength threaded rod or cable in CMU core (ungrouted      │\n  │    or debonded sleeve)                                           │\n  │  ↓                                                               │\n  │  Anchor plate at foundation                                      │\n  │                                                                  │\n  │  Tensioning: hollow ram jack stretches rod against top plate     │\n  │  Locking: nut or wedge anchor locks rod at target force          │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 282,
+      "heading_context": "## Out-of-Plane Bending",
+      "confidence": "candidate",
+      "text": "OUT-OF-PLANE BENDING MODEL\n===========================\n\n  Wall supported top and bottom (pin-pin):\n  ┌───────────────────────────────────────────────────────────────────┐\n  │  FLOOR/ROOF DIAPHRAGM  ← lateral support (pin)                    │\n  │         │                                                         │\n  │         │   ← wind pressure w (uniform)                           │\n  │         │   →→→→→→→→→→→→→→→                                       │\n  │    WALL │                                                         │\n  │         │   →→→→→→→→→→→→→→→                                       │\n  │         │                                                         │\n  │  FLOOR/FOUNDATION  ← lateral support (pin)                        │\n  └───────────────────────────────────────────────────────────────────┘\n\n  Maximum moment: M_max = w × h² / 8  (pin-pin, uniform load)\n\n  For URM (no rebar):\n    Tensile stress at max moment < f_r (modulus of rupture of masonry)\n    TMS 402 f_r = 50–100 psi (varies by direction and mortar type)\n\n  For RM (rebar in grouted core):\n    Section behaves like singly-reinforced concrete flexural element\n    Tension taken entirely by rebar",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 313,
+      "heading_context": "## Seismic Provisions (ASCE 7 / TMS 402)",
+      "confidence": "candidate",
+      "text": "SEISMIC DESIGN CATEGORY vs. MASONRY REQUIREMENTS\n==================================================\n\n  SDC   Seismic Risk    Masonry Requirement\n  ────────────────────────────────────────────────────────────────\n  A     Very low        Empirical design permitted; URM OK\n  B     Low             Ordinary plain (URM) permitted\n  C     Moderate        Detailed plain (limited URM) or\n                        Ordinary RM required\n  D     High            Intermediate RM or Special RM required\n  E/F   Very high       SPECIAL REINFORCED MASONRY only (TMS 402 §7.4.6)\n\n  SPECIAL REINFORCED MASONRY REQUIREMENTS (SDC D/E/F):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Vertical rebar: max spacing 48\" in shear walls                  │\n  │  Horizontal rebar: max spacing 48\" in shear walls                │\n  │  Minimum reinforcement: 0.0007 in each direction                 │\n  │  Maximum reinforcement: complex formula (ductility limit)        │\n  │  Full grouting: all cores in shear wall zones                    │\n  │  Lap splice length: governed by development length in grout      │\n  │  Inspection: Level C (continuous special inspection) required    │\n  └──────────────────────────────────────────────────────────────────┘\n\n  WHY MASONRY FAILS IN EARTHQUAKES:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  URM fails in shear → diagonal X-cracking in wall panels         │\n  │  URM fails in flexure → bed joint sliding at base                │\n  │  URM fails out-of-plane → wall overturns from its own inertia    │\n  │                                                                  │\n  │  RM resists all three IF: rebar properly placed + fully grouted  │\n  │    + walls properly connected to diaphragm                       │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 352,
+      "heading_context": "## Engineered vs. Empirical Design",
+      "confidence": "candidate",
+      "text": "DESIGN METHOD COMPARISON\n=========================\n\n  EMPIRICAL DESIGN (TMS 402 Chapter 5):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Rules of thumb based on historical practice                     │\n  │  No stress calculations required                                 │\n  │  Limits: ≤3 stories OR ≤35 ft height, low seismic only           │\n  │  Wall thickness minimums, h/t limits, bearing width requirements │\n  │  Adequate for small, simple, low-seismic buildings               │\n  └──────────────────────────────────────────────────────────────────┘\n\n  ENGINEERED DESIGN — ASD (TMS 402 Chapter 8):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Working stress design                                           │\n  │  Allowable stresses = fraction of f'm (safety factor embedded)   │\n  │  Interaction equation: fa/Fa + fb/Fb ≤ 1.0                       │\n  │  Simple to apply; conservative                                   │\n  │  Industry standard for mid-20th century through today            │\n  └──────────────────────────────────────────────────────────────────┘\n\n  ENGINEERED DESIGN — Strength (TMS 402 Chapter 9):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Factored loads × load factors (matches LRFD philosophy)         │\n  │  φ factors on nominal strength                                   │\n  │  More complex; allows more economical designs                    │\n  │  Required for some high-seismic applications                     │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

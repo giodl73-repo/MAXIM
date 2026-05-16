@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:masonry:historic-masonry
+kind: guide
+module: masonry
+section: masonry
+title: Historic Masonry: Roman Concrete, Medieval Cathedrals, Islamic Geometry
+status: source-custody
+source_custody: partial
+current_path: masonry/07-HISTORIC-MASONRY.md
+canonical_path: masonry/07-HISTORIC-MASONRY.md
+backsource_ids: [proof-backfill:masonry:07-historic-masonry, git-history:masonry:07-historic-masonry]
+concepts: [historic, masonry]
+root_concepts: [historic, masonry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Historic Masonry: Roman Concrete, Medieval Cathedrals, Islamic Geometry
 
 ## The Historic Arc

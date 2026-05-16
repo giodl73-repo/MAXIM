@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:masonry:bricklaying
+kind: guide
+module: masonry
+section: masonry
+title: Bricklaying: Bond Patterns, Leads, Corners, and Field Methodology
+status: source-custody
+source_custody: partial
+current_path: masonry/03-BRICKLAYING.md
+canonical_path: masonry/03-BRICKLAYING.md
+backsource_ids: [proof-backfill:masonry:03-bricklaying, git-history:masonry:03-bricklaying]
+concepts: [bricklaying]
+root_concepts: [bricklaying]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bricklaying: Bond Patterns, Leads, Corners, and Field Methodology
 
 ## The Big Picture

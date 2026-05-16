@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "masonry\\06-ARCHES-VAULTS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE ARCH LOGIC\n==============\n\n  BEAM (conventional spanning):          ARCH (masonry spanning):\n  ┌────────────────────────────┐         ┌────────────────────────────┐\n  │  P      P      P           │         │  P      P      P           │\n  │  ↓      ↓      ↓           │         │  ↓      ↓      ↓           │\n  │  ════════════════════      │         │      ╭─────────╮           │\n  │  Tension in bottom fiber   │         │  ╭──╯           ╰──╮       │\n  │  → masonry cannot do this  │         │  │   COMPRESSION   │       │\n  │                            │         │  ←──────────────────→      │\n  │  RESULT: Not possible in   │         │  Horizontal thrust at base │\n  │  unreinforced masonry for  │         │  → must be resisted by     │\n  │  any significant span      │         │    buttress, wall mass,    │\n  └────────────────────────────┘         │    or adjacent arch        │\n                                          └────────────────────────────┘\n\n  KEY INSIGHT: The arch converts the bending problem into pure\n  compression PLUS horizontal thrust at the supports.\n  Managing that horizontal thrust is the central challenge of\n  arch-and-vault structural engineering.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Thrust Line Theory (Hooke 1675)",
+      "confidence": "candidate",
+      "text": "CATENARY AND ARCH RELATIONSHIP\n================================\n\n  A flexible chain hanging under its own weight takes a catenary shape:\n  y = a × cosh(x/a)    (where a = parameter related to chain length/tension)\n\n  Under uniform load per horizontal unit (e.g., uniform horizontal distributed):\n  y = a × x²  (parabola — not catenary)\n\n  CRITICAL RULE: For a masonry arch to stand in pure compression, the\n  THRUST LINE (line of pressure) must lie entirely within the arch thickness.\n\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │                  ARCH CROSS-SECTION                                  │\n  │                                                                      │\n  │  ╔════════════════════════════════════════════╗  ← extrados (top)    │\n  │  ║                                            ║                      │\n  │  ║  ─ ─ ─ ─ ─ THRUST LINE ─ ─ ─ ─ ─ ─ ─ ─  ║  ← stays inside         │\n  │  ║                                            ║                      │\n  │  ╚════════════════════════════════════════════╝  ← intrados (bottom) │\n  │                                                                      │\n  │  THREE HINGE MECHANISM (collapse state):                             │\n  │  ╔══╗                              ╔══╗                              │\n  │  ║  ╚═══╗  hinge              ╔═══╝  ║                               │\n  │  ║      ╚═══════[HINGE]═════╝      ║   ← thrust line exits;          │\n  │  ╚═════[H]═══════════════════[H]═══╝     arch becomes mechanism      │\n  │                                                                      │\n  │  3 hinges = statically determinate mechanism = COLLAPSE              │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "## Arch Geometries",
+      "confidence": "candidate",
+      "text": "SEMICIRCULAR ARCH (Roman)\n==========================\n  • Rise = span/2\n  • Generates high horizontal thrust (H ≈ V × cot(α))\n  • Requires massive abutments or buttresses\n  • Strong, simple to set out (compass from single center point)\n  • Typical in Roman bridges, Romanesque buildings\n\n  Profile:  ╭─────────╮  (full half-circle)\n\nPOINTED ARCH (Gothic)\n======================\n  • Two circular arcs intersecting at crown — angle adjustable\n  • Lower rise-to-span ratio reduces horizontal thrust\n  • HOW: Increasing the rise with same span steepens the force\n    vectors → horizontal component decreases\n  • Allows thinner walls, larger windows\n  • Key Gothic structural innovation\n\n  Profile:  ╱‾‾‾╲  (two arcs, pointed crown)\n\nCOMPARISON: THRUST AT SAME SPAN\n================================\n  ┌────────────────────────────────────────────────────────────────┐\n  │  Semicircular: H = V / 2 (rise/span = 0.5)                     │\n  │  Pointed 2-centered: H = V × (depends on rise)                 │\n  │  Pointed (steep): H significantly < semicircular               │\n  │                                                                │\n  │  Higher rise → lower horizontal thrust                         │\n  │  This is why Gothic cathedrals could build TALLER with LESS    │\n  │  wall material than Romanesque predecessors                    │\n  └────────────────────────────────────────────────────────────────┘\n\nSEGMENTAL ARCH\n==============\n  • Less than semicircle (rise < span/2)\n  • Higher horizontal thrust than semicircular\n  • Used where headroom clearance limited\n  • Requires substantial abutment\n\n  Profile:  ╭───────────╮  (shallow arc)\n\nJACK ARCH (flat arch)\n=====================\n  • Nearly horizontal — very shallow segmental\n  • Very high horizontal thrust\n  • Used for shallow floor arch between steel beams (19th century)\n  • Requires steel tie rods or heavy abutments\n\n  Profile:  ━━━━━━━━━━━━  (near flat, slight camber)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "## Vault Types",
+      "confidence": "candidate",
+      "text": "VAULT TAXONOMY\n==============\n\n  BARREL VAULT (simplest)\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  A semicircular arch extruded along its length                   │\n  │                                                                  │\n  │  ╭─────────────────────────────────────────────────╮             │\n  │  │  continuous vault surface                        │            │\n  │  ╰─────────────────────────────────────────────────╯            │\n  │                                                                   │\n  │  Problem: generates continuous lateral thrust along full length  │\n  │  → requires continuous thick walls or buttresses                │\n  │  Use: Roman halls, Romanesque naves, tunnels                    │\n  └──────────────────────────────────────────────────────────────────┘\n\n  GROIN VAULT (2 barrel vaults intersecting at right angles)\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Two barrel vaults crossing → diagonal groins (lines of          │\n  │  intersection) concentrate load at 4 corner piers                │\n  │                                                                  │\n  │     ╱───────╲                                                    │\n  │    ╱  GROIN  ╲   ← diagonal groins (lines of intersection)       │\n  │   ╱  vault    ╲                                                  │\n  │  ╱─────────────╲                                                 │\n  │                                                                  │\n  │  Advantage: load concentrates at 4 points → walls between        │\n  │  piers freed from thrust → can have openings (windows)           │\n  │  Use: Roman baths, Romanesque crossing vaults                    │\n  └──────────────────────────────────────────────────────────────────┘\n\n  RIB VAULT (Gothic revolution)\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Diagonal ribs built first → guide infill panels (webs)          │\n  │  Ribs are structural arch ribs in stone                          │\n  │  Thin masonry webs (infill) between ribs                         │\n  │                                                                  │\n  │  Construction advantage:                                         │\n  │  • Ribs built on light centering (temporary wooden formwork)     │\n  │  • Webs infilled after ribs set                                  │\n  │  • Centering removed rib by rib — never entire vault at once     │\n  │                                                                  │\n  │  Structural advantage:                                           │\n  │  • Concentrated point loads at piers (not distributed wall)      │\n  │  • Thin webs = lighter vault = less thrust                       │\n  └──────────────────────────────────────────────────────────────────┘\n\n  FAN VAULT (Late Gothic / Tudor)\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Each support sprouts fan-shaped ribs of equal curvature         │\n  │  Highly complex geometry; requires precision stone cutting       │\n  │  Use: King's College Chapel (Cambridge), Henry VII Chapel        │\n  │  Structure: more of a rigid shell than true rib-and-web system   │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 246,
+      "heading_context": "## Gothic Structural System: The Complete Picture",
+      "confidence": "candidate",
+      "text": "GOTHIC CATHEDRAL STRUCTURAL SYSTEM\n=====================================\n\n  PLAN:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  [BUTTRESS] [FLYING BUTTRESS]  [PIER]  [FLYING] [BUTTRESS]       │\n  │                                                                  │\n  │  OUTER AISLE    │    NAVE    │    OUTER AISLE                    │\n  │                 │           │                                    │\n  │  SIDE AISLE     │   (HIGH)  │    SIDE AISLE                      │\n  │                 │   VAULT   │                                    │\n  └──────────────────────────────────────────────────────────────────┘\n\n  SECTION:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │         RIB VAULT                                                │\n  │       ╭───────────╮                                              │\n  │      /             \\   ← thrust vector at haunch                │\n  │     /               \\                                            │\n  │  ──/──               ──\\──  CLERESTORY WALL (large windows)    │\n  │  │←FLYING BUTTRESS→     │                                       │\n  │  │  (carries thrust     │                                       │\n  │  │   over side aisle)   │                                       │\n  │  │                      │                                       │\n  │  BUTTRESS PIER           BUTTRESS PIER                          │\n  │  (anchored by            (heavy masonry, sometimes with         │\n  │   pinnacle weight)        decorative pinnacle as extra load     │\n  │                           to keep thrust within base)           │\n  └──────────────────────────────────────────────────────────────────┘\n\n  HOW IT WORKS:\n  1. Rib vault at nave generates outward thrust at haunch\n  2. Flying buttress (half-arch) picks up thrust at haunch height\n  3. Flying buttress carries thrust over side aisle roof\n  4. Main buttress pier absorbs thrust and directs to ground\n  5. Pinnacle adds vertical load → steepens resultant vector\n     → keeps thrust line within buttress kern → no tension",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 292,
+      "heading_context": "## Domes: The Third Dimension",
+      "confidence": "candidate",
+      "text": "DOME GEOMETRY AND STRUCTURAL BEHAVIOR\n======================================\n\n  A dome = arch rotated 360° about vertical axis.\n  Meridional stress (longitude lines): COMPRESSION throughout\n  Hoop stress (latitude lines):\n    Upper portion: COMPRESSION\n    Lower portion: TENSION (at latitude > ~52° from crown)\n\n  ┌──────────────────────────────────────────────────────────────────┐\n  │     CROWN                                                        │\n  │      │                                                           │\n  │   ╔══╧══╗   ← meridional compression (arch behavior)             │\n  │  ╔╝     ╚╗                                                       │\n  │ ╔╝  COMP  ╚╗  hoop compression in upper dome                   │\n  │╔╝──────────╚╗  ← transition zone (~52° from crown)             │\n  │╚╗  TENSION  ╔╝  hoop tension in lower dome                     │\n  │ ╚╗         ╔╝                                                    │\n  │  ╚╗       ╔╝                                                     │\n  │   ╚═══════╝   ← base: maximum hoop tension (cracks here!)      │\n  │  [DRUM/RING BEAM]  ← resists hoop tension                      │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 334,
+      "heading_context": "## Centering and Construction",
+      "confidence": "candidate",
+      "text": "ARCH CENTERING\n==============\n\n  Centering = temporary wooden framework supporting masonry\n  during construction (before arch is self-supporting)\n\n  PROCEDURE:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  1. Erect wooden centering to arch profile                       │\n  │  2. Lay voussoirs from both sides toward crown simultaneously    │\n  │     (balanced loading — prevents centering from tipping)         │\n  │  3. Place keystone last                                          │\n  │  4. Allow mortar to cure (or allow dry arch to consolidate)      │\n  │  5. STRIKING THE CENTERING: lower gradually on wedges or         │\n  │     sand jacks → arch springs into self-supporting action        │\n  │  6. Monitor for cracking — small cracks at crown and             │\n  │     haunches normal as thrust line readjusts                     │\n  └──────────────────────────────────────────────────────────────────┘\n\n  Gothic rib vault centering:\n  • Light centering built for each rib individually\n  • Web infill done between ribs after ribs set\n  • Far less timber required than barrel vault (which needs\n    centering for entire vault surface simultaneously)\n  • This explains why Gothic building progressed faster —\n    less centering timber to move, less scaffolding needed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
