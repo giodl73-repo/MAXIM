@@ -379,6 +379,12 @@ HONEST FRAMING:
 
 ---
 
+## Cross-References
+
+- [Brand Identity Systems](07-BRAND-IDENTITY.md) shows color as a durable recognition asset.
+- [Typography in Graphic Design](05-TYPOGRAPHY-DESIGN.md) connects color to hierarchy, contrast, and readability.
+- [Contemporary Graphic Design](09-CONTEMPORARY.md) follows color systems into digital products, tokens, and platform branding.
+
 ## Common Confusion Points
 
 **"Design in RGB, print in CMYK"** -- True for conversion workflow, but the

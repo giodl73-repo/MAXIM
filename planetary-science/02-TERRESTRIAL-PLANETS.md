@@ -288,18 +288,24 @@ WATER HISTORY ON TERRESTRIAL PLANETS
 
 ---
 
+## Cross-References
+
+- `planetary-science/01-SOLAR-SYSTEM-FORMATION.md` — accretion and differentiation origins.
+- `planetary-science/03-VENUS.md` — runaway greenhouse endmember.
+- `planetary-science/04-MARS.md` — small terrestrial-planet evolution endmember.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| Why is Mercury so dense? | Giant impact stripped much of its silicate mantle; large iron core remains |
-| Why doesn't Venus have a magnetic field? | Slow rotation (243-day day) → weak Coriolis effect → convection doesn't sustain dynamo; also possibly fully solidified core |
-| Why is Mars's southern hemisphere so different from northern? | The hemispheric dichotomy is 4 Ga old; leading hypothesis: single oblique giant impact that excavated the northern lowlands |
-| What does moment of inertia tell you? | Mass concentration toward center; lower C/MR² = denser core fraction |
-| How do we know Venus had water? | D/H ratio ~150× Earth's; deuterium was left behind as hydrogen escaped photochemically |
-| Why so few craters on Venus? | Young surface from global resurfacing ~500-800 Ma; also atmospheric filtering destroys small impactors |
-| What is the stagnant lid? | Single-plate mode of planetary tectonics; no subduction; heat escapes via volcanism rather than plate recycling |
-| How does Mars compare to Earth in moment of inertia? | Mars: 0.365 vs Earth: 0.331 — Mars is less centrally concentrated, consistent with smaller core fraction |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Mercury's high density | Large iron core and mantle-loss hypothesis | Giant impact is plausible, not uniquely proven. |
+| Venus dynamo absence | Slow rotation and core-state uncertainty | Dynamo failure can have multiple causes. |
+| Mars hemispheric dichotomy | Ancient northern lowlands and impact hypothesis | Tectonic/convective alternatives remain discussed. |
+| Interior concentration | Moment-of-inertia factor | Inference depends on gravity/topography models. |
+| Venus water loss | High atmospheric D/H ratio | D/H records cumulative escape, not exact initial ocean volume. |
+| Venus crater scarcity | Young resurfaced surface plus atmospheric filtering | Resurfacing may be episodic, not necessarily global instant reset. |
+| Stagnant-lid tectonics | Single-plate heat loss by volcanism | No subduction does not mean geologically dead. |
+| Mars versus Earth interior | Higher Mars moment-of-inertia factor | Smaller core fraction is an interpretation, not direct view. |
 
 ---
 

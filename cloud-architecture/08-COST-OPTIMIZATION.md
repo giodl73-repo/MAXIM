@@ -337,15 +337,21 @@ Retrofitting tags onto 10,000 resources is painful and error-prone. Enforce tags
 
 ---
 
+## Cross-References
+
+- `cloud-architecture/02-COMPUTE-PATTERNS.md` — compute choices as cost drivers.
+- `cloud-architecture/07-DATA-PLATFORMS.md` — storage and query costs in data systems.
+- `finance/01-PORTFOLIO-THEORY.md` — optimization and tradeoff thinking across risk/cost.
+
 ## Decision Cheat Sheet
 
-| Situation | Action |
-|-----------|--------|
-| Stable workload running 24/7 | Reserved Instance (1 or 3 year) + Hybrid Benefit |
-| Batch job that can restart | Spot VM/AKS spot node pool |
-| Dev/test environments | Auto-shutdown schedule, scale to zero |
-| Synapse Dedicated SQL Pool idle | Configure auto-pause |
-| Cannot answer "what does product X cost?" | Tag governance + Azure Policy enforcement |
-| Cloud bill spike without explanation | Cost Management anomaly detection + alert |
-| VM showing <5% CPU utilization | Azure Advisor right-size recommendation |
-| Preparing for 3-year budget planning | Azure Savings Plans + TCO Calculator |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether stable 24/7 spend should be committed | Reserved Instances plus Hybrid Benefit | Commit only after utilization is proven; commitments lock in mistakes. |
+| Whether batch work can use spare capacity | Spot VM or AKS spot node pool | Restartability and checkpointing are prerequisites, not afterthoughts. |
+| Whether dev/test spend is idle waste | Auto-shutdown and scale-to-zero | Automation must be policy-backed or exceptions become the norm. |
+| Whether Synapse dedicated capacity sits idle | Auto-pause | Pause saves compute, but resume latency and workload schedules matter. |
+| Why product/team cost is unknown | Tag governance plus Azure Policy enforcement | Tags work only when ownership and chargeback rules are enforced at creation time. |
+| Why a bill spike appeared | Cost Management anomaly detection and alerts | Alerts need accountable responders and expected baselines. |
+| Whether a VM is oversized | Azure Advisor right-size recommendation | CPU alone is insufficient; check memory, I/O, latency, and burst patterns. |
+| Whether budget planning needs commitment instruments | Savings Plans plus TCO Calculator | Three-year planning should model workload change, not just today's run rate. |

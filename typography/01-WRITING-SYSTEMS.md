@@ -428,6 +428,18 @@ CODE POINT → GLYPH (the gap most engineers miss):
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Language structure below writing | `linguistics/01-PHONETICS-PHONOLOGY.md` | Scripts encode sounds, syllables, morphemes, or words depending on language structure |
+| Translation across scripts and cultures | `translation/01-EQUIVALENCE-PROBLEM.md` | Writing systems constrain what can be preserved across languages |
+| Printing technology and type history | `printing-publishing/01-ANCIENT-WRITING-MATERIALS.md` | Script forms coevolve with clay, papyrus, parchment, paper, movable type, and screens |
+| Semiotic theory of signs | `semiotics/01-SAUSSURE.md` | Writing is a sign system layered over spoken language and visual convention |
+| Digital text representation | `computing/01-PACKAGE.md` | Modern typography depends on Unicode, shaping engines, fonts, and rendering stacks |
+
+---
+
 ## Common Confusion Points
 
 **Alphabet vs Abjad vs Abugida vs Syllabary**

@@ -487,19 +487,25 @@ HAMMER BEAM TRUSS (spans 10–20 m)  — Westminster Hall 20.7 m, 1399 CE
 
 ---
 
+## Cross-References
+
+- `construction-materials/02-ANCIENT-MASONRY.md` — masonry contrast class.
+- `architecture-history/03-MEDIEVAL-GOTHIC.md` — medieval structural and craft context.
+- `woodworking/01-WOOD-ANATOMY.md` — wood structure and workability.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| Which lime for hydraulic setting (underwater)? | Natural hydraulic lime (NHL 3.5, NHL 5) |
-| Repointing historic brick — which mortar? | Weaker than the brick: usually NHL 2 or NHL 3.5 with sharp sand |
-| Gothic wall thin between piers — why? | Flying buttress carries vault thrust outside; wall between piers is non-structural screen |
-| King post carries compression or tension? | TENSION always — it hangs the tie beam; do not confuse with a strut |
-| Hammer beam truss — does it eliminate wall thrust? | No — reduces it but walls still need significant thickness or buttresses |
-| Fan vault vs ribbed vault — structurally? | Equivalent — both channel loads to pier springers; fan is more complex geometry |
-| Green oak vs seasoned — which for new build? | Green oak for traditional joinery (seasons in place); seasoned for glulam/engineered |
-| Wattle infill cracking around timber — why? | Differential movement; lime mortar needed, not rigid OPC render |
-| What joints for timber frame rafter to wall plate? | Bird's mouth: bearing notch cut in rafter resting on plate; simple, reliable in compression |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether lime must set in damp or underwater conditions | Natural hydraulic lime, typically NHL 3.5 or NHL 5 | More hydraulic strength means less flexibility and breathability. |
+| Which mortar belongs in historic brick repointing | Mortar weaker than the brick, often NHL 2 or NHL 3.5 with sharp sand | The joint should fail before the brick face; OPC reverses that hierarchy. |
+| Why Gothic walls can be thin between piers | Flying buttress routes vault thrust outside | The wall panel is screen-like only if the pier-buttress load path is intact. |
+| Whether a king post is compression or tension | Treat the normal roof case as tension | It hangs the tie beam; unusual load cases can change force state, so read the whole truss. |
+| Whether a hammer beam truss removes wall thrust | It reduces thrust but does not eliminate it | Walls, buttresses, or tie systems still need to close the horizontal force path. |
+| Whether fan vaults and ribbed vaults differ structurally | Both channel loads to pier springers | Fan vaults add geometric complexity; they do not abolish thrust. |
+| Whether new traditional joinery should use green oak | Green oak for pegged traditional frames | Engineered/glulam systems usually require seasoned, controlled stock. |
+| Why wattle infill cracks around timber | Differential movement; use lime-compatible infill/render | Rigid OPC render transfers movement into cracks and trapped moisture. |
+| Which rafter-to-wall-plate joint fits simple compression bearing | Bird's mouth notch | It works when bearing is clean and notches do not overcut the rafter. |
 
 ---
 

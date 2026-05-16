@@ -465,20 +465,26 @@ LIME MORTAR CHEMISTRY
 
 ---
 
+## Cross-References
+
+- `construction-materials/01-PREHISTORIC-VERNACULAR.md` — pre-masonry construction context.
+- `architecture-history/01-ANCIENT.md` — ancient structural evolution.
+- `structural/01-STATICS.md` — load-path logic behind masonry.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| Masonry arch — what limits span? | Abutment capacity to resist horizontal thrust (H = wL²/8f) |
-| Why pointed arch better than semicircular? | Greater rise → lower horizontal thrust → thinner walls |
-| Roman concrete still standing 2,000 yrs — why? | Al-tobermorite/phillipsite growth from seawater reaction continues |
-| Pantheon oculus — structural weakness? | No — reduces tensile hoop stress at crown; structurally beneficial |
-| Best stone for compression (columns)? | Granite (150–250 MPa comp.) but difficult to work |
-| Best stone for workability? | Limestone (50–170 MPa; easy to dress with iron tools) |
-| Repairing historic masonry — which mortar? | Lime putty mortar (NHL or air lime); NEVER Portland cement |
-| What makes engineering brick frost-resistant? | Water absorption < 7%; less saturation → less freeze-thaw spalling |
-| Barrel vault side walls — why no windows? | Continuous lateral thrust along entire wall length → wall is structural |
-| Cross vault vs barrel vault — structural advantage? | Cross vault concentrates thrust at four corner piers → side walls freed |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| What limits a masonry arch span | Abutment capacity for horizontal thrust (`H = wL^2/8f`) | Arch stones work in compression; the failure usually starts at the supports. |
+| Why a pointed arch changes wall demand | Greater rise lowers horizontal thrust | Geometry helps, but buttress/load path still has to close the thrust line. |
+| Why Roman marine concrete survived | Continued al-tobermorite/phillipsite growth from seawater reaction | This is long-term mineral evolution, not generic "ancient cement was better." |
+| Whether the Pantheon oculus weakens the dome | Treat it as a crown stress relief | Removing mass can reduce hoop stress; the surrounding ring still needs compression continuity. |
+| Which stone works for compression members | Granite for high compressive strength | High strength comes with difficult quarrying, dressing, transport, and jointing. |
+| Which stone works when dressing matters | Limestone | Workability often beats raw strength in ashlar systems. |
+| Which mortar belongs in historic masonry repair | Lime putty mortar, NHL, or air lime | Mortar should be weaker and more vapor-open than the masonry unit. |
+| Why engineering brick resists frost | Water absorption below about 7 percent | Low absorption reduces saturation; detailing still has to shed water. |
+| Why barrel-vault side walls resist windows | Continuous lateral thrust along wall length | Openings interrupt the load path unless buttressing or relieving arches compensate. |
+| Why cross vaulting frees side walls | Concentrates thrust at four corner piers | Point-load concentration helps walls, but pier/foundation capacity becomes critical. |
 
 ---
 

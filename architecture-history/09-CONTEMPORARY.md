@@ -590,19 +590,25 @@ BUILDING DESIGN:
 
 ## Decision Cheat Sheet: Contemporary Architecture
 
-| Question | Answer |
-|----------|--------|
-| What is parametric design? | Writing rules (parameter sets) that generate geometry; computer computes form from rules |
-| What is topology optimization? | FEM-based iterative material removal → finds optimal structural form for given loads |
-| What is BIM Level 2 vs Level 3? | Level 2: file-based, discipline-separate models. Level 3: single federated shared model (still partly aspirational) |
-| Passivhaus vs LEED: which is more rigorous? | Passivhaus: physics-based measured performance (0.6 ACH50 + 15 kWh/m²yr). LEED: prescriptive points checklist. |
-| What is embodied carbon? | Carbon emitted to produce, transport, and construct the building — not operational energy use |
-| Why is adaptive reuse carbon-favorable? | Avoids the embodied carbon of demolition + new construction (~800 kgCO₂/m² saving) |
-| What is CLT and why matters for tall buildings? | Cross-laminated timber panel — two-way structural plate, fire-resistant char layer, enables mass timber towers |
-| What is a diagrid structure? | Diagonal grid of structural members carrying both gravity and lateral loads — no dedicated columns |
-| What is a bundled tube? | Multiple hollow-tube structures sharing walls (Willis Tower) — very efficient for tall buildings |
-| What is an outrigger? | Structural arm from core to perimeter columns at mechanical floors — mobilizes perimeter columns for lateral resistance |
-| What is a digital twin? | Live BIM model populated with real-time sensor data → operational monitoring, predictive maintenance |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Parametric design claim | Identify the parameters, constraints, objective function, fabrication limits, and who controls the rule set. | Parametric geometry is not automatically good design; it can just automate arbitrary formalism. |
+| Topology optimization result | Check load cases, boundary conditions, material model, manufacturability, and code approval path. | The optimized shape is only valid for the assumptions embedded in the finite-element problem. |
+| BIM maturity | Separate file exchange, federated coordination, common data environment, live model governance, and contractual authority. | "Digital model" does not mean shared source of truth. |
+| Passivhaus vs LEED claim | Compare measured energy targets, airtightness, commissioning, point systems, and post-occupancy verification. | Certification rigor depends on what is measured, not the label alone. |
+| Embodied-carbon argument | Separate structure, envelope, MEP, transport, construction, replacement cycles, and end-of-life assumptions. | Operational savings can take decades to repay high upfront carbon. |
+| Adaptive reuse case | Check retained structure, seismic/fire upgrades, program fit, hazardous materials, and avoided demolition. | Reuse is carbon-favorable only if the adapted building still performs its new job. |
+| Mass-timber tower proposal | Examine CLT/glulam system, fire char design, connections, acoustics, moisture control, and code path. | Timber carbon claims depend on forestry, replacement, and end-of-life accounting. |
+| Tall-building lateral system | Compare diagrid, tube, bundled tube, outrigger, core, damping, wind comfort, and constructability. | Efficient lateral systems are architectural, structural, and construction decisions together. |
+| Digital twin promise | Ask what sensor data, update frequency, operations workflow, failure model, and maintenance decision it supports. | A live dashboard is not a twin unless it changes operational decisions. |
+
+---
+
+## Cross-References
+
+- `06-MODERNISM.md` supplies the modernist baseline contemporary architecture keeps revising.
+- `07-POSTMODERNISM.md` explains the critique of universal modernism that shapes later pluralism.
+- `../architecture/00-OVERVIEW.md` connects contemporary movements to practice, delivery, carbon, and user constraints.
 
 ---
 

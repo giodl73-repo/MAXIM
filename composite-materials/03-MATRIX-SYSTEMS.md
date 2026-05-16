@@ -306,17 +306,24 @@ Dominant thermoplastic composite matrix for high-performance applications.
 
 ## Decision Cheat Sheet
 
-| Application | Matrix choice |
-|-------------|--------------|
-| Aerospace primary structure | Epoxy (toughened, interleaved) — Hexcel 8552, Toray 3900 |
-| Wind turbine blade infusion | Epoxy (low-viscosity) or vinyl ester |
-| Marine hull / boat | Vinyl ester (better than UPE for water immersion) |
-| Aircraft interior (fire) | Phenolic or BMI (FAR 25.853) |
-| High-T aircraft structure | BMI |
-| Spacecraft thermal stability | Cyanate ester |
-| Recyclable aerospace part | CF/PEEK (APC-2) or CF/PPS |
-| Automotive mass-production | GF/PP stampable, or CF/epoxy RTM |
-| Low cost structural (civil) | E-glass/UPE |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Aerospace primary structure | Evaluate toughened epoxy, hot/wet `Tg`, damage tolerance, prepreg process, certification, and allowables. | Resin choice is inseparable from certified process and environment. |
+| Wind-blade infusion | Compare low-viscosity epoxy, vinyl ester, infusion distance, pot life, exotherm, and cost. | A great cured resin can fail manufacturing if viscosity/window are wrong. |
+| Marine immersion | Check vinyl ester vs UPE, hydrolysis resistance, osmotic blistering, glass compatibility, and repair. | Below-waterline exposure makes water resistance a primary design requirement. |
+| Fire-critical interiors | Compare phenolic, BMI, smoke/toxicity, flame spread, processability, and mechanical tradeoffs. | Fire performance often trades against toughness and processing ease. |
+| High-temperature service | Use BMI, cyanate ester, thermoplastic options, dry/wet `Tg`, oxidation, and thermal cycling. | Quote dry and wet `Tg`; moisture plasticization changes design margin. |
+| Recyclable or weldable structure | Consider PEEK/PPS thermoplastics, melt processing, welding, impact toughness, and temperature. | Thermoplastics improve recyclability but raise processing temperature and equipment demands. |
+| Automotive production | Compare GF/PP stamping, CF/epoxy RTM, cycle time, tooling, cost, and crash requirements. | Mass production rewards cycle time as much as material performance. |
+| Low-cost civil composite | Use E-glass/UPE or vinyl ester, durability, UV/water exposure, inspection, and installation labor. | Cheapest resin is not cheapest lifecycle choice if durability fails. |
+
+---
+
+## Cross-References
+
+- `01-FUNDAMENTALS.md` frames matrix systems as the load-transfer and environmental-protection phase.
+- `05-MANUFACTURING.md` shows how matrix viscosity, cure, and processing window constrain fabrication.
+- `09-END-OF-LIFE.md` follows thermoset and thermoplastic choices into repair, recycling, and disposal.
 
 ---
 

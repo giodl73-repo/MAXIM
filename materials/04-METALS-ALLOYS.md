@@ -540,19 +540,25 @@ The primary structural material for jet engine hot sections (turbine blades, com
 
 ---
 
+## Cross-References
+
+- `materials-processing/02-HEAT-TREATMENT.md` - processing route for alloy properties.
+- `materials-processing/04-DEFORMATION.md` - plasticity and work hardening in metals.
+- `materials-processing/05-FRACTURE-MECHANICS.md` - failure behavior of alloys.
+
 ## Decision Cheat Sheet
 
-| Need                                  | Steel Choice              | Why                              |
-|---------------------------------------|--------------------------|----------------------------------|
-| General purpose structural            | A36 / ASTM A572 Gr50     | Cheap, weldable, adequate σ_y    |
-| High-strength structural              | HSLA (A514, HY-100)      | σ_y = 690 MPa, good toughness    |
-| High-hardness, wear-resistant         | 4340 Q&T, H13 tool steel | Martensite + carbides            |
-| Stainless (corrosion)                 | 304, 316 (austenitic)    | Cr₂O₃ passive film               |
-| High-T service (600°C+)              | Cr-Mo alloy (P91, P92)   | Tempered martensite, creep res.  |
-| Spring                                | 9260 (Si-Mn)             | Elastic energy density σ_y²/E   |
-| Bearing race, gear                    | 52100 (Cr-C)             | Contact fatigue resistance       |
-| Ultra-high strength                   | 300M, M200, maraging     | σ_y = 2000 MPa, aerospace        |
-| Best toughness-strength combination   | 4340 Q&T at 300°C temper | K_IC = 60-80 MPa√m               |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| General structural steel | A36 or ASTM A572 Gr50 | Cost, weldability, and adequate yield dominate. |
+| High-strength structure | HSLA such as A514 or HY-100 | Toughness and welding procedure become critical. |
+| Wear-resistant hardness | 4340 Q&T or H13 tool steel | Martensite/carbides require heat-treatment control. |
+| Corrosion resistance | 304 or 316 austenitic stainless | Passive Cr2O3 film fails in some chloride environments. |
+| High-temperature service | Cr-Mo alloys such as P91/P92 | Creep resistance depends on tempered martensite stability. |
+| Spring behavior | 9260 Si-Mn steel | Elastic energy density scales with yield strength and modulus. |
+| Bearing or gear race | 52100 Cr-C steel | Contact fatigue and cleanliness dominate life. |
+| Ultra-high aerospace strength | 300M, M200, or maraging steel | Strength trades against toughness and corrosion/SCC risk. |
+| Strength/toughness balance | 4340 Q&T with controlled temper | Temper temperature controls the compromise. |
 
 ---
 

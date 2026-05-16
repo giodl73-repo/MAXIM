@@ -8,8 +8,8 @@
 |                                                                  |
 |  PROBLEM DIMENSIONS                                              |
 |  Volume: 100B+ garments/year; most in landfill in 3 years        |
-|  Carbon: ~10% of global emissions                                |
-|  Water: cotton 3,000L/shirt; dyeing = 20% industrial pollution   |
+|  Carbon: impact share varies; boundary-sensitive                 |
+|  Water: cotton-intensive; dyeing wastewater significant          |
 |  Labor: poverty wages; unsafe conditions                         |
 |  Microplastics: 500,000 tons/year into ocean from washing        |
 |                                                                  |
@@ -35,12 +35,14 @@
 ```
 COTTON (natural, plant-based)
   Good: biodegradable; comfortable; durable
-  Bad: water-intensive (3,000L per T-shirt)
-       heavy pesticide use (~24% of insecticides globally)
+  Bad: water-intensive (thousands of liters per T-shirt, depending
+       on irrigation and LCA boundary)
+       pesticide/insecticide burden disproportionate to land area,
+       though headline percentages vary by source and year
        land use intensive
 
   ORGANIC COTTON: no synthetic pesticides; no GMO
-  Better: ~90% less water in some studies
+  Better: much lower blue-water use in some rain-fed LCAs
   Problem: lower yield per acre; more land required
   Market: ~1% of all cotton production (GOTS certified)
 
@@ -96,8 +98,8 @@ DOWN (natural, bird feather)
 | Pinatex          | Pineapple leaf | Commercial       | Leather alternative;      |
 |                  |                | (Ananas Anam)    | agricultural byproduct    |
 +------------------+----------------+------------------+---------------------------+
-| Mylo (Bolt Threads| Mycelium       | Very limited     | Mushroom leather;         |
-| / Stella McCartney| (fungus)       | Luxury only      | biodegradable             |
+| Mylo (Bolt Threads| Mycelium       | Paused / pilot   | Mushroom leather concept; |
+| / Stella McCartney| (fungus)       | after limited    | commercial scale unproven |
 +------------------+----------------+------------------+---------------------------+
 | Qmonos (Spiber)  | Spider silk    | Limited          | Bioengineered; extreme    |
 | Brewed Protein   | (bacterial)    | pilot            | performance potential     |
@@ -114,7 +116,7 @@ DOWN (natural, bird feather)
 ### Dyeing and Chemical Use
 
 ```
-TEXTILE DYEING (largest industrial water polluter after oil and gas)
+TEXTILE DYEING (major industrial wastewater and chemical burden)
   Conventional process:
   1. Fiber pre-treatment (scour, bleach)
   2. Dyebath (fiber + water + dye + chemicals + heat)
@@ -277,9 +279,9 @@ CURRENT STATE OF TEXTILE RECYCLING (2024)
   5. Economics: virgin polyester often cheaper than recycled
 
 PROMISING TECHNOLOGIES:
-  Worn Again Technologies: solvent-based; separates polyester from cotton
-    (licensing to H&M Group, Prada)
-  Renewlane (Lenzing): cotton recycling back to lyocell fiber
+  Worn Again Technologies: solvent-based; targets polyester/cotton separation
+    (commercialization remains difficult)
+  REFIBRA / Lenzing: cotton textile waste blended into lyocell production
   Evrnu: chemical recycling; cotton -> new cotton-like fiber
     (used by Levi's, Target in pilot programs)
   Carbios: enzymatic PET depolymerization; Michelin backing
@@ -296,7 +298,7 @@ PROMISING TECHNOLOGIES:
 ```
 CERTIFICATION    WHAT IT COVERS                 LIMITATION
 -----------      ----------------               ----------
-GOTS             Organic fiber + social critera  Farm to finished product
+GOTS             Organic fiber + social criteria Farm to finished product
                                                  (strong but narrow)
 Fair Trade       Worker wages + conditions       Not environmental
                  minimum prices at farm level
@@ -321,6 +323,12 @@ Cradle (C2C)                                     not supply chain
 ```
 
 ---
+
+## Cross-References
+
+- [Rana Plaza](06-RANA-PLAZA.md) anchors sustainability in labor safety and accountability, not only materials.
+- [Fashion Industry](04-FASHION-INDUSTRY.md) shows where sourcing, inventory, and retail incentives constrain reform.
+- [Digital Fashion](09-DIGITAL-FASHION.md) explores dematerialized fashion systems and their own infrastructure costs.
 
 ## Common Confusion Points
 
@@ -351,18 +359,13 @@ The data throughout this module follows the **Life Cycle Assessment (LCA)** fram
 
 ## Decision Cheat Sheet
 
-| I want to understand...                        | Key point                         |
-|------------------------------------------------|-----------------------------------|
-| Best natural fiber choice                      | Linen/hemp > organic cotton > cotton|
-| Best synthetic fiber choice                    | rPET/recycled nylon >> virgin     |
-| Which certification is most rigorous            | GOTS (fiber to garment) + bluesign|
-|                                                | (chemical process)                |
-| Whether resale helps or hurts sustainability   | Helps if it displaces new purchases|
-| Whether rental is sustainable                  | Yes for low-use items; unclear for|
-|                                                | high-frequency subscription       |
-| When fiber recycling will be commercial scale  | 2027-2032 (leading tech)          |
-| What "circular fashion" actually means         | Close loops: use longer; recycle  |
-|                                                | back to fiber at end of life      |
-| The honest verdict on fashion's sustainability | Volume reduction necessary; all   |
-|                                                | materials fixes are insufficient  |
-|                                                | at current production volumes     |
+| If you need to evaluate... | Ask First | Gold-Standard Evidence |
+|----------------------------|-----------|------------------------|
+| A "sustainable fiber" claim | Which impact dimension: carbon, water, land, toxicity, microplastics, animal welfare, or end-of-life? | LCA boundary, geography, yield, and use-phase assumptions are stated |
+| Organic cotton | Is the claim about pesticides, water, land, or labor? | GOTS or equivalent certification plus water/land caveat |
+| Recycled polyester | Does it reduce virgin plastic or enable circular textiles? | Recycled content is verified; microplastic and bottle-to-textile downcycling are acknowledged |
+| A new bio-based material | Is it commercially scaled or only a pilot/luxury capsule? | Production volume, durability, chemistry, and disposal path are named |
+| Resale | Does secondhand purchase displace a new purchase? | Displacement rate and logistics are included, not just resale growth |
+| Rental | Is the item low-use and high-impact, or a high-frequency subscription? | Cleaning, shipping, utilization, and wear-life assumptions are explicit |
+| Recycling | Is it fiber-to-fiber or downcycling? | Blend separation, dye/trim removal, economics, and output quality are addressed |
+| Brand sustainability program | Is total production volume falling? | Absolute volume and impact decline, not only a "sustainable line" growing |

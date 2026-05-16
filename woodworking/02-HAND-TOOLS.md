@@ -280,20 +280,26 @@ SHARPNESS TEST:
 
 ---
 
+## Cross-References
+
+- `01-WOOD-SELECTION.md` explains why different woods cut differently.
+- `04-JOINERY.md` applies planes, chisels, and saws to structural joints.
+- `05-SURFACE-PREPARATION.md` uses hand tools for final flatness and texture.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Which plane for final surface? | No.4 smoother (narrow mouth, fine cut) |
-| Which plane for fast stock removal? | No.5 jack with cambered (curved) iron |
-| Which plane for flattening/jointing? | No.7 jointer (length bridges low spots) |
-| Chip breaker distance for difficult grain? | 0.5mm or less from cutting edge |
-| What angle to sharpen bench chisels? | 25° primary, 30° micro-bevel (secondary) |
-| Western vs. Japanese saw for joinery? | Either works; Japanese (dozuki) has thinner kerf and cuts on pull |
-| What is a mortise gauge? | Two adjustable pins set to mortise width simultaneously |
-| Why use a marking knife instead of pencil? | Severs fibers for a precise line; registers chisel directly |
-| What is a paring chisel used for? | Light, controlled trimming; push only, no mallet |
-| How do you test sharpness? | Shaves arm hair cleanly; slices newspaper; no light reflection on edge |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Final planed surface | No.4 smoother with narrow mouth and fine cut | Thick/choppy shavings usually diagnose sharpness or chip-breaker setup first. |
+| Fast stock removal | No.5 jack plane with cambered iron | Speed comes from controlled coarse cuts, not careless depth. |
+| Flattening or jointing | No.7 jointer bridging low spots | Plane length helps only after the blade and sole are properly set. |
+| Tear-out in difficult grain | Chip breaker within about 0.5 mm of edge | Tight setup demands a sharp, well-seated iron. |
+| Bench chisel edge | 25 degree primary bevel and 30 degree micro-bevel | A flat back is as important as the bevel. |
+| Joinery sawing | Western backsaw or Japanese dozuki by workflow | Japanese pull saws cut well but disposable impulse-hardened teeth change maintenance economics. |
+| Mortise layout | Mortise gauge with two pins set to chisel width | Layout tool accuracy matters only if you keep the knife line intact. |
+| Precision line | Marking knife instead of pencil | The knife line is also a chisel registration surface. |
+| Controlled trimming | Paring chisel pushed by hand | Do not mallet a paring cut; switch tool or technique. |
+| Sharpness check | Hair/newsprint/no-edge-glint tests | Test results diagnose the edge, not the user's planing technique. |
 
 ---
 

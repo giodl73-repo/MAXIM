@@ -345,20 +345,26 @@ Glue only              Maximum        None          Long grain to long
 
 ---
 
+## Cross-References
+
+- `01-WOOD-SELECTION.md` determines movement, strength, and joint suitability.
+- `02-HAND-TOOLS.md` covers the layout and cutting tools for fine joints.
+- `07-FURNITURE-CONSTRUCTION.md` applies joinery to casework, chairs, tables, and drawers.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the tenon thickness rule? | 1/3 of the rail thickness |
-| What is the tenon length rule? | 2/3 to 3/4 of the mortise-member thickness |
-| What angle for dovetails in hardwood? | 1:8 ratio (~7.1°); 1:6 for softwood |
-| What is a half-blind dovetail? | Tails visible from inside, pins concealed from outside (drawer front) |
-| What is a haunched tenon? | Tenon with a stepped shoulder to fill groove in frame-and-panel stile |
-| What is draw-boring? | Offset hole through M&T; peg draws joint tight mechanically |
-| Biscuit vs. Domino — what's the difference? | Biscuit = alignment only; Domino = structural floating tenon |
-| What is the box joint's strength mode? | Glue surface area (shear); no mechanical interlock |
-| When is glue-only the strongest joint? | Long-grain to long-grain with flat, mating surfaces |
-| What is a bridle joint? | Open mortise: fork-shaped slot receives a tenon; fast to cut |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Mortise-and-tenon proportions | Tenon about 1/3 rail thickness and 2/3-3/4 mortise depth | Too thick weakens the mortised member; too long bottoms out. |
+| Dovetail slope | 1:8 for hardwood, 1:6 for softwood | Dovetails resist withdrawal, not racking or compression. |
+| Drawer-front joint | Half-blind dovetail geometry | The concealed face is aesthetic; the mechanical role is tension resistance. |
+| Frame-and-panel groove problem | Haunched tenon filling the stile groove | The haunch controls twist and fills the visual/mechanical gap. |
+| Mechanical tightening | Draw-bored mortise-and-tenon peg offset | Offset must be slight; too much splits or prevents seating. |
+| Loose-tenon options | Biscuit for alignment, Domino for structural floating tenon | Similar workflow hides very different strength assumptions. |
+| Box-joint strength | Glue surface in shear | Box joints lack dovetail mechanical interlock. |
+| Glue-only edge joint | Long-grain to long-grain flat mating surfaces | End grain needs joinery because it absorbs glue rather than bridging. |
+| Fast open mortise joint | Bridle joint with fork-shaped slot and tenon | Fast to cut but exposed geometry requires accurate layout. |
+| Sawing to layout | Leave the knife line and pare to final fit | Cutting through the line creates visible gaps. |
 
 ---
 

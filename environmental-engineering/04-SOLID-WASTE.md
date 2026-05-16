@@ -452,18 +452,24 @@ Electronic waste is the fastest-growing waste stream globally.
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What makes a waste hazardous? | RCRA listed (F/K/P/U) OR characteristic (TCLP for toxicity, ignitability, corrosivity, reactivity) |
-| Generator produces 500 kg/mo hazardous waste — what rules apply? | SQG — 270-day on-site storage limit, basic contingency plan, licensed transporter required |
-| Can I mix hazardous and non-hazardous waste to reduce concentration? | No — dilution is not treatment; mixing may make entire volume hazardous (mixture rule) |
-| Landfill leachate contains PFAS — discharge to POTW? | Check POTW permit limits and pretreatment requirements; PFAS pass-through is a regulatory concern |
-| Recycling program keeps losing money on glass | Glass is near-zero or negative value; consider glass-to-aggregate pathway or market as beneficiation rather than recycling |
-| Closed landfill site — what's the liability? | 30-year post-closure monitoring and maintenance obligation; LFG collection continues; groundwater monitoring wells |
-| Server battery disposal — hazardous waste? | Lithium batteries: D003 (reactive) characteristic; must manifest as hazardous unless below VSQG threshold (<100 kg/mo) |
-| How do I increase recycling rate? | Single-stream collection increases participation but decreases purity; dual-stream or source separation increases purity |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Hazardous-waste status | Listed waste, characteristic test, generator category, and mixture/derived-from rules | Dilution is not treatment and can expand liability |
+| MSW landfill claim | Subtitle D liner, leachate, gas, closure, and post-closure care | "Sanitary landfill" is engineered containment, not disappearance |
+| Recycling economics | Commodity value, contamination, sortation cost, and end-market demand | Recycling rate can rise while material quality falls |
+| Organics diversion | Compost vs anaerobic digestion vs landfill gas avoided | Feedstock contamination controls product quality |
+| PFAS in leachate | Source, POTW limits, pretreatment, and residuals handling | Many pathways transfer PFAS rather than destroy it |
+| Battery/e-waste claim | Chemistry, fire/reactivity risk, universal-waste rules, and export controls | RCRA and transport rules can diverge by jurisdiction |
+| Zero-waste claim | Diversion definition, WTE treatment, residuals, and measurement boundary | "Zero landfill" often means >90% diversion, not literal zero |
+| Closed-site liability | Monitoring wells, gas collection, cap maintenance, and financial assurance | Post-closure obligations outlive active disposal revenue |
 
 ---
+
+## Cross-References
+
+- `02-WASTEWATER.md` covers liquid waste streams and sludge residuals.
+- `05-REMEDIATION.md` explains what happens when waste contaminates soil or groundwater.
+- `06-SUSTAINABILITY.md` frames waste reduction through circular-economy and lifecycle tools.
 
 ## Common Confusion Points
 

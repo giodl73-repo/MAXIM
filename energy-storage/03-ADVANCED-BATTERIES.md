@@ -40,7 +40,9 @@ LIQUID ELECTROLYTE PROBLEMS -> SOLID ELECTROLYTE SOLUTIONS
 PROBLEM 1: FLAMMABILITY
   Liquid electrolyte (EC/DMC): flash point 25 C, flammable
   -> Thermal runaway -> fire / explosion
-  Solid electrolyte: nonflammable ceramic or sulfide -> eliminates fire risk
+  Solid electrolyte: ceramic, polymer, oxide, or sulfide formulations can reduce
+  flammable-liquid-electrolyte risk, but pack-level safety still depends on
+  lithium metal, dendrites, interfaces, abuse tolerance, and manufacturing quality.
 
 PROBLEM 2: ELECTROCHEMICAL STABILITY WINDOW
   Liquid: unstable vs. lithium metal anode (forms SEI, consumes Li)
@@ -170,7 +172,9 @@ Na vs. Li:
   Theoretical specific capacity: Na/g = 23.4 mAh/g lower than Li/g = 26.2 mAh/g
     (by mole, similar; by mass, Na is 23/7 = 3.3x heavier)
 
-Bottom line: Na-ion will always have lower energy density than Li-ion
+Bottom line: Na-ion is structurally disadvantaged on gravimetric energy density
+relative to Li-ion because sodium is heavier and larger, but the trade can still
+win where cost, abundance, cold-weather behavior, or stationary footprint matter.
   BUT: at grid storage scale, $/kWh matters far more than Wh/kg
 ```
 
@@ -386,16 +390,22 @@ The challenges are fundamental chemistry, not just engineering.
 
 ## Decision Cheat Sheet
 
-| You need... | Technology |
-|-------------|-----------|
-| Highest energy density NOW | NMC811 / NCA (commercial Li-ion) |
-| Cheaper, abundant materials, grid storage | Na-ion (PBA or layered oxide) |
-| Non-flammable battery for EVs | Solid-state (2028+ realistic) |
-| 5x energy density (theoretical) | Li-S (but cycle life limited) |
-| Weight-critical aerospace | Li-S (HAPS drones) |
-| Research, understand fundamentals | Li-air (purely scientific now) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether solid-state is a real advantage | Check electrolyte type, interface resistance, dendrite suppression, manufacturability, pressure requirement, and abuse testing. | "Solid" reduces one failure mode; it does not automatically make a pack non-flammable or commercially ready. |
+| Whether sodium-ion fits | Compare material cost, supply chain, cycle life, cold-temperature performance, voltage, gravimetric density, and footprint tolerance. | Lower energy density is a problem for long-range EVs; it may be acceptable or attractive for grid and low-cost mobility. |
+| Whether Li-S is credible | Examine sulfur loading, electrolyte mass, polysulfide shuttle, lithium-metal anode, cycle life, and pouch-level Wh/kg. | Cathode-theory numbers do not translate directly to full-cell or pack energy density. |
+| Whether Li-air is practical | Check oxygen management, cathode clogging, electrolyte stability, lithium protection, round-trip efficiency, and cycle count. | Li-air is mainly a research frontier; the theoretical energy density hides severe system engineering burdens. |
+| Which chemistry is "best" | Define objective: Wh/kg, $/kWh, cycle life, safety, fast charge, temperature range, supply risk, or bankability. | Battery choice is multi-objective; a chemistry can win one metric and fail the deployment. |
+| Whether a roadmap date is believable | Look for pilot volume, yield, warranty data, safety certification, capital equipment, and customer qualification. | Lab cells, prototype pouches, automotive qualification, and mass production are different maturity levels. |
 
 ---
+
+## Cross-References
+
+- `01-ELECTROCHEMICAL.md` gives the cell-level baseline for comparing advanced chemistries.
+- `08-GRID-ECONOMICS.md` explains where battery performance becomes project economics.
+- `09-FUTURE.md` surveys the longer-horizon storage technology landscape.
 
 ## Common Confusion Points
 

@@ -541,20 +541,24 @@ NERC CIP (Critical Infrastructure Protection) is the mandatory cybersecurity sta
 
 ## Decision Cheat Sheet
 
-| Question | Short Answer |
-|----------|-------------|
-| What is SCADA? | Supervisory Control and Data Acquisition — real-time monitoring and control of grid equipment via RTUs at substations, 4-second scan rate |
-| EMS vs ADMS? | EMS manages transmission (generation dispatch, stability analysis); ADMS manages distribution (feeders, DERs, outage management) |
-| What does AMI enable that AMR doesn't? | Two-way communication, 15-min data, remote connect/disconnect, outage detection, demand response, time-of-use pricing |
-| What is a VPP? | Virtual Power Plant — aggregated DERs (home batteries, EV chargers, thermostats) controlled as single dispatchable resource in wholesale market |
-| What is a microgrid? | Local energy system with generation/storage and ability to island (operate disconnected from main grid) |
-| What is FDIR? | Fault Detection, Isolation, Restoration — automated switching that isolates faulted feeder section and restores unfaulted customers in seconds |
-| What did the Ukraine 2016 attack demonstrate? | Malware can directly attack protection relay protocols (IEC 61850 GOOSE, IEC 60870) — IT/OT convergence creates physical-consequence cyber risk |
-| What is IEC 61850? | Substation communication standard — GOOSE (< 4ms protection messages), Sampled Values (digitized CT/PT outputs), MMS (SCADA communications) |
-| What is Volt/VAR Optimization? | Coordinated control of voltage and reactive power across distribution feeder to minimize losses and maintain acceptable voltages |
-| What does IEEE 1547-2018 require? | DERs must ride through voltage/frequency disturbances and provide grid support (reactive power, voltage regulation) — major update from 2003 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether SCADA is sufficient | Check scan rate, control latency, observability, field-device coverage, communications path, and operator workflow. | SCADA gives supervisory visibility; protection still acts locally and faster than human/SCADA loops. |
+| Whether EMS, ADMS, or DERMS is the system of record | Separate transmission dispatch/stability, distribution switching/outage management, DER visibility/control, and market aggregation. | Vendor boundaries overlap; architecture must define authority, telemetry quality, and fallback modes. |
+| Whether AMI creates grid value | Look for two-way communications, interval granularity, outage detection, remote switching, customer program design, and privacy controls. | Meter data is useful only when analytics and operational processes can act on it. |
+| Whether a VPP is dispatchable | Verify device fleet, telemetry, aggregation control, customer opt-out, baseline method, wholesale-market qualification, and rebound risk. | Aggregated DERs can act like a resource, but availability is statistical and contract-dependent. |
+| Whether a microgrid can island | Check grid-forming source, protection, grounding, load shedding, black start, fuel/storage duration, and PCC resynchronization. | A grid-following-only DER fleet cannot form an island without an external voltage/frequency reference. |
+| Whether FDIR will improve outages | Map fault indicators, remote switches, tie capacity, communications, protection coordination, and feeder model accuracy. | FDIR restores unfaulted sections; the faulted segment still needs repair. |
+| A smart-grid cyber risk | Identify IT/OT boundary, remote access, substation protocols, relay settings, authentication, logging, and manual fallback. | Cyber risk is physical-consequence risk when digital commands can trip, block, or misconfigure equipment. |
+| Whether IEEE 1547 solves DER integration | Review ride-through, voltage support, anti-islanding, frequency response, settings management, and local hosting capacity. | Standards establish behavior envelopes; feeder-specific studies still determine safe penetration. |
 
 ---
+
+## Cross-References
+
+- `04-DISTRIBUTION.md` gives the physical network smart-grid systems instrument and automate.
+- `09-RESILIENCE.md` connects sensing and automation to outage response.
+- `../security-engineering/01-THREAT-MODELING.md` supplies the cyber-risk framing for connected grid devices.
 
 ## Common Confusion Points
 

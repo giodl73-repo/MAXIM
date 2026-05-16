@@ -406,17 +406,27 @@ HTE IN PRACTICE:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Experimental-design assumptions beneath A/B tests | `statistics-applied/01-EXPERIMENTAL-DESIGN.md` |
+| Bayesian decision rules for experiments | `statistics-applied/04-BAYESIAN-PRACTICE.md` |
+| Product nudges as experiment targets | `behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is SRM and what do you do? | Sample Ratio Mismatch: observed treatment/control ratio ≠ intended ratio. Indicates logging bug, bot traffic, or survivorship bias. NEVER analyze; investigate and fix first. |
-| How does CUPED reduce experiment duration? | Pre-experiment covariate reduces outcome variance by (1-ρ²). For ρ=0.7: 51% variance reduction → 51% fewer users needed → same power at half the sample. |
-| What is novelty effect vs primacy effect? | Novelty: users click/engage more because experience is new; inflates treatment. Primacy: users are habituated to old experience; initial disruption deflates treatment. Opposite biases, both time-decaying. |
-| When should I use Thompson sampling? | When you have many variants, high throughput, and the goal is to minimize regret (opportunity cost) during exploration. Not when you need a clean causal estimate — bandits bias effect estimates. |
-| Why does multiple testing require correction? | Testing N independent hypotheses at α=0.05 each: E[false positives] = 0.05N. FWER methods (Bonferroni, Holm) control P(any false positive). FDR methods (BH) control expected false discovery proportion. |
-| What is the mSPRT? | Mixture Sequential Probability Ratio Test: anytime-valid p-value that doesn't inflate with continuous monitoring. Allows stopping when significance reached without pre-specifying interim count. |
-| How does cluster randomization affect power? | Reduces effective N by design effect = 1 + (cluster_size - 1) × ICC. For typical cluster sizes and ICC, may require 2-5× more raw observations. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Sample Ratio Mismatch | Assignment-count invariant failure: logging, bots, survivorship, or bucketing bug | Do not analyze through SRM; fix the pipeline first. |
+| CUPED opportunity | Pre-experiment covariate correlation and variance reduction `1 - rho^2` | CUPED improves precision but does not create causal identification. |
+| Novelty versus primacy | Time-decaying engagement inflation versus disruption penalty | Both can coexist; duration and ramp design determine detectability. |
+| Bandit suitability | Thompson sampling for regret minimization with many variants and high throughput | Bandits bias effect estimates; use A/B tests for clean causal knowledge. |
+| Multiple testing risk | Expected false positives across metrics, variants, and segments | Post-hoc subgroup discoveries need fresh validation. |
+| Continuous monitoring | mSPRT or other anytime-valid inference | Plain `p < 0.05` peeking is not anytime-valid. |
+| Cluster randomization | Design effect from cluster size and ICC | Raw observation count can be misleading by 2-5x or worse. |
 
 ---
 

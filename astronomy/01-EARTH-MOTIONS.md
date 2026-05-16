@@ -3,7 +3,7 @@
 
 ---
 
-## 1. The Full Hierarchy — All Earth Motions at a Glance
+## The Big Picture: Full Hierarchy of Earth Motions
 
 ```
 TIMESCALE          MOTION                      TYPE          CAUSE
@@ -597,6 +597,18 @@ The above is Newtonian. GR adds two corrections worth knowing:
   │                                  │ boundary definition (~2597 CE)        │
   └──────────────────────────────────┴───────────────────────────────────────┘
 ```
+
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Orbital mechanics behind reference frames | `space-exploration/01-ORBITAL-MECHANICS.md` | Precession, obliquity, and eccentricity are mechanics of rotating/orbiting bodies |
+| Climate effects of orbital cycles | `climate-science/01-CARBON-CYCLE.md` | Milankovitch forcing modulates insolation and glacial pacing |
+| Planetary-scale dynamics | `planetary-science/01-SOLAR-SYSTEM-FORMATION.md` | Earth's motions are one case of angular momentum, perturbation, and resonance |
+| Navigation and map reference systems | `cartography/01-ANCIENT-MAPS.md` | Coordinate frames, pole motion, and precession matter for long-baseline reference systems |
+| General relativity corrections | `physics/01-ELECTROSTATICS.md` | Classical mechanics dominates, but relativistic precession is the high-precision correction |
 
 ---
 

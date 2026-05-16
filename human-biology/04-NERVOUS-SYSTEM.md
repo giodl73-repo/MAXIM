@@ -1,6 +1,6 @@
 # Nervous System
 
-## The Big Picture: Organization
+## The Big Picture
 
 ```
 NERVOUS SYSTEM
@@ -368,16 +368,22 @@ The cerebellum implements a forward model: given a motor command, predict the se
 **Basal ganglia as action selection scheduler**
 The direct pathway (Go: cortex → striatum D1 → inhibit GPi → disinhibit thalamus → cortex) releases a selected action. The indirect pathway (NoGo: cortex → striatum D2 → less inhibit GPe → STN → activate GPi → inhibit thalamus) suppresses competing actions. The net architecture is a winner-take-all selector: one action is gated through while others are suppressed — exactly the function of a scheduler that must choose one runnable process from a ready queue. Dopamine from the SNc modulates both pathways: DA release biases toward action (D1 enhanced, D2 suppressed). Parkinson's = insufficient DA = scheduler stuck in suppression mode.
 
+## Cross-References
+
+- `neuroscience/01-NEURONS-SIGNALS.md` - neuron-level signaling substrate.
+- `medicine/04-CNS-DRUGS.md` - pharmacologic modulation of neural systems.
+- `disease/08-NEUROLOGICAL-PSYCHIATRIC.md` - nervous-system disease map.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Where do spinal reflexes integrate? | Spinal cord — monosynaptic stretch reflex entirely in cord, no brain needed |
-| Why is cerebellar ataxia ipsilateral? | Cerebellum controls same-side body (ipsilateral pathways, unlike corticospinal) |
-| What does the hypothalamus NOT control? | Voluntary movement, language, perception — it's for homeostasis/autonomic/endocrine |
-| Sympathetic: one ganglion or many? | Sympathetic has short preganglionic to paravertebral chain → diverges widely ("mass" response); parasympathetic has long preganglionic to local ganglia → targeted |
-| BBB drug design rule? | Lipophilic, low molecular weight, not P-gp substrate → crosses. CNS drugs need this. |
-| Which sense doesn't relay through thalamus? | Olfaction — goes directly to olfactory cortex (piriform) and amygdala |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Spinal reflex integration | Monosynaptic stretch reflex in spinal cord | Brain modulates reflexes but is not required for arc. |
+| Ipsilateral cerebellar ataxia | Cerebellar output maps to same-side body | Corticospinal lesions behave differently. |
+| Hypothalamic function boundary | Homeostatic, autonomic, endocrine control | Voluntary movement/language/perception are not hypothalamic. |
+| Sympathetic versus parasympathetic spread | Short preganglionic sympathetic chain divergence | Parasympathetic output is more local and targeted. |
+| BBB drug crossing | Lipophilic, low MW, not P-gp substrate | Transporters and protein binding complicate the rule. |
+| Non-thalamic sensory route | Olfaction to piriform/amygdala | Later olfactory processing still interacts with thalamocortical systems. |
 
 ---
 

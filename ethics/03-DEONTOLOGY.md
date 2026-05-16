@@ -388,20 +388,29 @@ DUTY TO TRUTHFULNESS IN AI:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Consequentialist contrast | `ethics/02-CONSEQUENTIALISM.md` |
+| Rawlsian justice as Kantian descendant | `ethics/05-RAWLS.md` |
+| Applied-ethics duty conflicts | `ethics/06-APPLIED-ETHICS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Concept | Definition | Key figure |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Good will | Only unconditionally good thing; acting from duty | Kant |
-| Hypothetical vs. categorical imperative | Conditional vs. unconditional command | Kant |
-| FUL (Universal Law) | Universalize your maxim; check for contradiction | Kant Groundwork |
-| FH (Humanity Formula) | Never treat rational nature as means only | Kant Groundwork |
-| KOE (Kingdom of Ends) | Act as legislator for community of rational ends | Kant Groundwork |
-| Perfect vs. imperfect duty | Absolute vs. discretionary (in timing/method) | Kant |
-| Prima facie duties | Multiple duties that can be outweighed | Ross |
-| Side constraints | Rights cannot be violated even for good outcomes | Nozick |
-| Threshold deontology | Constraints hold below some catastrophic threshold | Many contemporary |
-| Separateness of persons | Can't trade off across persons like across time | Rawls, Nozick |
+| Kantian motivation | Good will: acting from duty because principle is rationally required | Kant does not require hating inclination; duty must govern when it conflicts. |
+| Imperative type | Hypothetical commands depend on ends; categorical commands bind unconditionally | The categorical imperative is not just the Golden Rule. |
+| Universal-law testing | Universalize the maxim and test for contradiction | The hard work is specifying the maxim at the right level of abstraction. |
+| Humanity Formula | Never treat rational nature merely as a means | Using someone instrumentally is allowed when their agency is respected. |
+| Kingdom of Ends | Act as a legislator in a community of rational agents | This is a public-legislation test, not private preference aggregation. |
+| Duty conflicts | Ross's prima facie duties and Kantian perfect/imperfect duties | Ross allows outweighing; strict Kantian duties resist tradeoff. |
+| Rights as side constraints | Nozick-style constraints against welfare aggregation | Side constraints differ from libertarian political conclusions. |
+| Threshold deontology | Constraints hold below catastrophic thresholds | The threshold can look ad hoc unless independently justified. |
+| Separateness of persons | Rawls/Nozick: no cross-person welfare bookkeeping | Blocks utilitarian aggregation but does not settle distribution by itself. |
 
 ---
 

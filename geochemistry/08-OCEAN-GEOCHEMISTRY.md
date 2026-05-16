@@ -318,18 +318,24 @@ MARINE NUTRIENT DYNAMICS
 
 ---
 
+## Cross-References
+
+- `oceanography/01-OCEAN-PHYSICS.md` - physical ocean structure.
+- `ecology/07-AQUATIC-ECOSYSTEMS.md` - marine ecological systems.
+- `geochemistry/04-STABLE-ISOTOPE-PALEO.md` - marine isotope archives.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| What does residence time tell you? | How long an element stays in the ocean; long τ → well-mixed → conservative; short τ → variable → biological or scavenging-controlled |
-| What is the Redfield ratio? | C:N:P = 106:16:1 in marine organic matter; governs nutrient cycling; seawater N:P ≈ 16:1 reflects biological control |
-| What drives the biological pump? | Photosynthesis in surface waters fixes CO₂ into organic matter; sinking of particles exports C to the deep; organic C burial is the long-term CO₂ sink |
-| Why is deep Pacific depleted in O₂ and enriched in nutrients vs. Atlantic? | Pacific deep water is older (longer transit time from formation); more remineralization of organic C has occurred → more O₂ consumed, more nutrients released |
-| What is the ²³⁰Th normalization method? | ²³⁰Th is produced at constant rate from U in seawater and scavenged onto sinking particles; sediment ²³⁰Th content normalizes other flux estimates for varying accumulation rate |
-| What controls seawater ⁸⁷Sr/⁸⁶Sr? | Balance between river input (continental weathering; high ⁸⁷Sr/⁸⁶Sr ~0.712) and hydrothermal input (mantle Sr; ~0.703); Himalayan uplift drives the Cenozoic rise |
-| What makes the HNLC regions paradoxical? | High nitrate + phosphate, but low productivity → iron is the limiting nutrient; adding Fe causes blooms (verified by experiments) |
-| How does Cd/Ca record ocean circulation? | Cd in seawater co-varies with PO₄; benthic foram Cd/Ca records bottom water Cd (∝ PO₄) → reconstructs past nutrient distributions = past circulation patterns |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Conservative versus reactive element | Residence time relative to ocean mixing | Major ions obey Dittmar; trace metals often do not. |
+| Nutrient stoichiometry | Redfield C:N:P ratio | Redfield is a marine average, not a universal law. |
+| Biological pump strength | Surface fixation, sinking, remineralization, burial | Only a small fraction is buried permanently. |
+| Deep Pacific nutrient/O2 pattern | Older water mass and remineralization | Transit-time interpretation depends on circulation context. |
+| Sediment flux normalization | 230Th constant production and scavenging | Assumes appropriate scavenging behavior and sediment focusing correction. |
+| Seawater Sr isotope trend | River versus hydrothermal Sr balance | Continental weathering and hydrothermal fluxes both shift ratio. |
+| HNLC paradox | Iron limitation despite nitrate/phosphate | Iron-addition blooms do not imply easy carbon sequestration. |
+| Past circulation proxy | Benthic foram Cd/Ca as nutrient tracer | Cd/Ca needs species and diagenesis controls. |
 
 ---
 

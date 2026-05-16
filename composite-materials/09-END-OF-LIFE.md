@@ -347,15 +347,23 @@ Wind blade disposal has driven regulatory attention:
 
 ## Decision Cheat Sheet
 
-| End-of-life question | Answer |
-|----------------------|--------|
-| Best thermoset recycling for fiber quality | Pyrolysis or solvolysis |
-| Best thermoset recycling for volume | Cement co-processing (especially GFRP) |
-| What can rCF do today commercially? | Nonwoven mats, injection compounds, non-primary structure |
-| Why not recycle all CFRP? | Economics: rCF at $8–15/kg vs. processing cost $3–8/kg — marginal |
-| Wind blade disposal solution today | Cement kiln co-processing (Germany), landfill (USA) |
-| Best sustainable composite choice? | CF/PEEK or CF/PPS thermoplastic (recyclable, repairable) |
-| Is CFRP CO2-positive for aircraft? | Yes — fuel savings >> production CO2 within months of service |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Thermoset fiber recovery | Compare pyrolysis, solvolysis, fiber length, sizing loss, energy use, and downstream market. | Recovered fiber quality is only valuable if the value chain can reuse it. |
+| High-volume GFRP disposal | Evaluate cement co-processing, landfill rules, logistics, glass value, resin energy, and regional regulation. | Cement co-processing is volume management more than high-value recycling. |
+| Recycled carbon fiber use | Look at nonwovens, chopped compounds, alignment, re-sizing, prepreg conversion, and certification limits. | rCF rarely returns to primary aerospace structure today. |
+| CFRP recycling economics | Compare virgin fiber price, recovery cost, sorting, contamination, fiber form, and buyer demand. | Technical recyclability does not guarantee economic recyclability. |
+| Wind blade end of life | Check blade material, transport, cutting, cement kiln access, landfill policy, and local recycling capacity. | National policy differences can dominate material choice. |
+| Thermoplastic sustainability | Compare PEEK/PPS recyclability, weldability, repair, processing energy, cost, and service temperature. | Thermoplastics improve end-of-life options but are not automatically low-impact. |
+| Aircraft lifecycle carbon | Balance embodied composite emissions, weight savings, fuel burn, lifetime utilization, and recycling. | Operational fuel savings can dominate production CO2, but assumptions matter. |
+
+---
+
+## Cross-References
+
+- `03-MATRIX-SYSTEMS.md` explains why thermosets and thermoplastics differ so sharply at end of life.
+- `05-MANUFACTURING.md` connects production scrap to recycling and reuse pathways.
+- `../environmental-engineering/00-OVERVIEW.md` provides the broader waste, lifecycle, and pollution-control context.
 
 ---
 

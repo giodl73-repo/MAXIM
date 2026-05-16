@@ -13,8 +13,8 @@
 |  fermentation; up to 20% ABV         distillation; versatile     |
 |                                                                  |
 |  Tapai (SEA)                          Soju (Korea)               |
-|  Wild fermented rice; sweet           ~25% ABV; #1 world spirit  |
-|                                       by volume                  |
+|  Wild fermented rice; sweet           ~12-25% ABV; huge global   |
+|                                       brand volume               |
 |  Makgeolli (Korea)                                               |
 |  Unfiltered milky rice beer           Baijiu (China)             |
 |                                       World's largest spirits    |
@@ -308,7 +308,7 @@ COMMERCIAL SOJU (dominant in global volume):
   Multi-column distilled neutral spirit (from tapioca/sweet potato/rice)
   Diluted to 12-25% ABV (standard "green bottle" ~25%)
   Some brands add flavorings/sweeteners
-  Jinro Soju: #1 selling spirit in world by volume for decades
+  Jinro Soju: one of the world's highest-volume spirit brands for decades
 
 ARTISAN SOJU (distilled):
   Traditional method: grain base + nuruk (fermentation starter -- Korean koji analog)
@@ -317,9 +317,8 @@ ARTISAN SOJU (distilled):
   Andong soju (GI): 45% ABV traditional soju from Andong region
 
 VOLUME CONTEXT:
-  Jinro alone: ~800+ million bottles/year
-  Entire Scotch whisky industry: ~200 million bottles/year
-  Soju dominates global spirits volume statistics (mostly consumed in Korea)
+  Jinro alone: extraordinary bottle volume by global brand standards
+  Soju is a major volume category, mostly consumed in Korea and diaspora markets
   Korean drinking culture: soju as universal social lubricant; beer+soju (somaek)
 
 TREND: Global expansion
@@ -335,9 +334,9 @@ TREND: Global expansion
 BAIJIU -- Chinese Distilled Spirit
 
 SCALE:
-  ~40% of all spirits consumed globally (by volume)
+  One of the world's largest spirits categories by volume
   Nearly entirely consumed within China
-  Kweichow Moutai: world's most valuable spirits company by market cap (peaked ~$500B 2021; fluctuated significantly with Chinese equity markets through 2022-2025; verify current figure)
+  Kweichow Moutai: among the world's most valuable spirits companies by market cap
   Global distribution minimal outside Chinese diaspora
 
 PRODUCTION FUNDAMENTALS:
@@ -422,6 +421,12 @@ PALM WINE (West/Central Africa, India, SEA):
 
 ---
 
+## Cross-References
+
+- [Beer](01-BEER.md) gives the closest Western comparison for starch conversion before fermentation.
+- [Distillation](03-DISTILLATION.md) explains how rice ferments become distilled spirits in shochu and related traditions.
+- [Cocktail Culture](09-COCKTAIL-CULTURE.md) shows how sake and rice spirits enter modern service and mixing.
+
 ## Common Confusion Points
 
 **"Sake is rice wine."**
@@ -459,14 +464,13 @@ Imo-jochu from quality producers (Kannoko 8yr, Kura The Whisky) commands serious
 
 ## Decision Cheat Sheet
 
-| I want... | Category | Examples |
-|---|---|---|
-| Premium sake, delicate, aromatic | Junmai Daiginjo | Dassai 39, Hakkaisan Yukimuro |
-| Rich, earthy, traditional sake | Junmai (less polished) | Gassan, Watari Bune |
-| Everyday sake, food-pairing | Tokubetsu Junmai or Ginjo | Gekkeikan, Hakushika |
-| Traditional lactic complexity | Kimoto/Yamahai | Tamagawa (Kinoshita), Moto no Shizuku |
-| Japanese spirit, earthy/robust | Imo shochu (potato) | Satsuma Shiranami, Nishi Satsuma |
-| Japanese spirit, lighter | Mugi shochu (barley) | Iichiko Silhouette, Hakutake Shiro |
-| Korean social drinking | Commercial soju | Jinro, Chum Churum |
-| China's prestige spirit | Jiangxiang baijiu | Kweichow Moutai, Langjiu |
-| Most accessible baijiu | Nongxiang | Wuliangye, Luzhou Laojiao |
+| If you need to diagnose... | Start With | Typical Signal |
+|----------------------------|------------|----------------|
+| Premium delicate sake | Polishing ratio, ginjo fermentation, aromatic yeast | Junmai Daiginjo / Daiginjo floral lift and clean texture |
+| Rich traditional sake | Junmai, kimoto/yamahai, rice umami, acidity | Earthier, lactic, savory, food-friendly structure |
+| Everyday food sake | Balance, serving temperature, acidity, not just grade | Tokubetsu Junmai/Ginjo/Honjozo can outperform prestige labels at table |
+| Shochu vs sake | Distilled vs brewed; koji shared but category different | Imo/mugi/kome base material and single distillation |
+| Commercial soju | Diluted neutral spirit plus sweetening/flavoring | Low-ABV green-bottle social-drinking format |
+| Artisan soju | Nuruk, grain base, pot still, higher ABV | Andong-style structure rather than vodka-like neutrality |
+| Baijiu prestige | Aroma category, qu, pit age, sorghum, aging, banquet role | Jiangxiang/Moutai-style complexity and status |
+| Accessible baijiu | Aroma category and palate familiarity | Nongxiang fruit/ester profile may be easier than sauce aroma |

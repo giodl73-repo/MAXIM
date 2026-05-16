@@ -404,33 +404,26 @@ Ecdysozoa never have trochophores — they have molting larvae.
 
 ---
 
+## Cross-References
+
+- `animal-phylogeny/02-EARLY-ANIMALS.md` — basal animal body plans.
+- `animal-phylogeny/04-NEMATODA-ECDYSOZOA.md` — the other major protostome branch.
+- `evolutionary-biology/05-PHYLOGENETICS.md` — molecular phylogenies that reshaped worm relationships.
+
 ## Decision Cheat Sheet
 
-```
-Flat body, no anus, no coelom?
-  → Platyhelminthes
-  Free-living, large brain? → Turbellaria (planarian)
-  Has suckers, parasitic?   → Trematoda (flukes) or Cestoda (tapeworms)
-  Tapeworm: proglottids (repeating units)? → Cestoda
-
-Elongated, has proboscis, has anus?
-  → Nemertea (ribbon worm)
-
-Has segments, setae, true coelom?
-  → Annelida
-  Parapodia (paddle feet), marine? → Polychaeta
-  No parapodia, few setae, terrestrial? → Oligochaeta (earthworm)
-  Suckers front + rear, no setae? → Hirudinea (leech)
-
-Microscopic, ciliary crown that looks like spinning wheel?
-  → Rotifera
-
-Colonial, tiny zooecia, lophophore in U-shaped gut?
-  → Bryozoa
-
-Two shells (dorsal/ventral), attached by pedicle?
-  → Brachiopoda
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a flat worm is platyhelminth | Flat body, no anus, no coelom | Free-living and parasitic forms share body plan but differ radically in ecology. |
+| Whether a tapeworm is cestode | Proglottids and absorptive tegument | Tapeworms lack a gut because they live inside one. |
+| Whether an elongated worm is nemertean | Eversible proboscis plus anus | The rhynchocoel complicates simple acoelomate/coelomate labels. |
+| Whether segmentation marks an annelid | Segments, setae, and true coelom | External rings may not map one-to-one to true internal segments. |
+| Whether a marine segmented worm is polychaete | Parapodia and marine habitat | Polychaeta is a form-rich grade, not just "many bristles." |
+| Whether an earthworm is oligochaete | Few setae, terrestrial burrowing, no parapodia | Earthworms are lophotrochozoans, not close relatives of roundworms. |
+| Whether a leech is hirudinean | Front/rear suckers and no setae | Blood feeding is not the default for all leeches. |
+| Whether a tiny ciliated animal is rotifer | Ciliary corona that looks like a spinning wheel | Size and feeding apparatus matter; do not classify by "microscopic worm" alone. |
+| Whether colonial zooids are bryozoans | Zooecia plus lophophore and U-shaped gut | Colonies can mimic algae or corals macroscopically. |
+| Whether two shells mean brachiopod or bivalve | Dorsal/ventral valves and pedicle | Brachiopod shell orientation differs from left/right bivalve shells. |
 
 ---
 

@@ -298,17 +298,24 @@ BRONZE AGE COLLAPSE (~1200 BC):
 
 ---
 
+## Cross-References
+
+- `archaeology/02-DATING-METHODS.md` — chronological scaffolding for prehistory.
+- `anthropology/04-EVOLUTIONARY-ANTHROPOLOGY.md` — hominin evolution and behavior context.
+- `pigments/01-PREHISTORIC-EARTH.md` — prehistoric material culture through color.
+
 ## Decision Cheat Sheet
 
-| Use this when... | Method / concept | Notes |
-|-----------------|-----------------|-------|
-| Dating pre-ceramic sites (no pottery, no carbon in useful contexts) | Lithic typology + OSL/TL dating | Typological sequences (Oldowan → Acheulean → Levallois) establish relative chronology; OSL dates sediment deposition directly |
-| Tracking population movements across continents | Ancient DNA (aDNA) | Haplogroup distribution + admixture modeling; can separate migration from cultural diffusion |
-| Reconstructing diet across individual lifetimes | Stable isotopes (δ¹³C, δ¹⁵N) from bone collagen | Bone collagen records ~10-year dietary average; tooth enamel records childhood; hair/nail record months |
-| Distinguishing independent invention from diffusion | Comparative typology + chronological distribution maps | Simultaneous appearance in distant regions with no plausible contact = independent invention; sequential spread along routes = diffusion |
-| Dating a site with abundant charcoal or short-lived organic material | Radiocarbon (AMS) | Precision ~±20–50 years for Holocene; becomes imprecise beyond ~50 Ka |
-| Establishing that humans caused megafauna extinction vs. climate | Chronological overlap testing | Compare extinction date to first human arrival date and to climate event date; if extinction tracks human arrival more tightly than climate shifts, human causation is implicated |
-| Understanding Bronze Age exchange networks | Tin and copper isotope provenancing | Tin isotopes fingerprint ore sources; matching finished bronze to ore region maps trade routes |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Pre-ceramic chronology | Lithic typology plus OSL/TL where direct dating is possible | Typology gives relative sequence; luminescence dates sediment or heating events. |
+| Continental population movement | aDNA haplogroups, admixture, and dated samples | Genetics can separate migration from diffusion only with adequate sampling and chronology. |
+| Diet over different life windows | Bone collagen, enamel, hair, or nail isotope archives | Each tissue records a different timescale and dietary fraction. |
+| Independent invention versus diffusion | Comparative typology plus chronological distribution maps | Simultaneity and isolation support convergence; sequential dated spread supports diffusion. |
+| Short-lived organic chronology | AMS radiocarbon | Holocene precision does not extend cleanly past the C14 effective range. |
+| Human versus climate role in extinction | Chronological overlap testing | Correlation is not mechanism; taphonomic and regional sampling gaps matter. |
+| Bronze Age exchange networks | Tin/copper isotope provenancing and artifact distributions | Recycling, alloy mixing, and elite redistribution can blur ore-to-object routes. |
+| Technological stage labels | Local subsistence and tool-system evidence | "Neolithic" is a stage label, not a global calendar period. |
 
 ---
 

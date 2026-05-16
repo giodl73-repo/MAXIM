@@ -117,14 +117,16 @@ MUCK PITS (Jamaican tradition):
   Large pits of decomposing organic matter (animal bones, fruit waste, stillage)
   Allowed to sit for years, developing complex microbial communities
   Small quantities added to ferment -> extraordinary ester levels
-  Distilleries with muck pits: Hampden, Worthy Park, Long Pond
-  Secret: the specific microbial flora of each pit is a distillery's genetic resource
+  Muck-pit traditions are associated especially with old Jamaican heavy-rum
+  marks; they are not universal across all Jamaican distilleries.
+  Secret: the specific microbial flora is part of a distillery's resource base
 
 ESTER FORMATION:
   Esters = organic acid + alcohol -> ester + water (Fischer esterification)
   Yeast-produced: ester synthase (Atf1, Atf2) + alcohols + organic acids
   -> Ethyl acetate (solvent, overpower), isoamyl acetate (banana), ethyl butyrate (pineapple)
-  Temperature: lower fermentation temp -> more esters (like beer)
+  Temperature, yeast strain, bacteria, pH, and time interact; heavy-rum
+  ester production is a managed ecology, not a simple "cooler = more" rule.
   Fermentation time: longer fermentation (5-20 days) -> more ester development
 ```
 
@@ -193,7 +195,7 @@ VERY HIGH:              1,600-4,000+ g/hlpa
 |                                                                  |
 |  CUBA                                                            |
 |  Cuban style: light, clean, column distilled                     |
-|  5-year minimum aging standard                                   |
+|  Light, clean, column-distilled style                            |
 |  Havana Club (state-owned in Cuba; disputed brand in US)         |
 |  Bacardi (Cuban in origin; fled Cuba after 1959 revolution)      |
 |                                                                  |
@@ -224,7 +226,7 @@ RHUM AGRICOLE vs INDUSTRIAL RUM
 |              RHUM AGRICOLE        INDUSTRIAL RUM          |
 |              (Fresh cane juice)   (Molasses)              |
 |              ---------------      -------------------     |
-| Base         Fresh cane vesou     Blackstrap molasses     |
+| Base         Fresh cane vesou     Molasses blend          |
 | Sugar        Naturally present    Residual from refining  |
 | Sugar type   Sucrose/glucose      Sucrose + minerals      |
 | Ferment time 24-36 hrs (fast)     3-7 days typical        |
@@ -345,6 +347,12 @@ AGE STATEMENT DEBATE:
 
 ---
 
+## Cross-References
+
+- [Distillation](03-DISTILLATION.md) explains the still and cut decisions behind rum styles.
+- [Brandy and Cognac](05-BRANDY-COGNAC.md) provides a fruit-spirit contrast to sugarcane distillates.
+- [Cocktail Culture](09-COCKTAIL-CULTURE.md) follows rum into punch, tiki, daiquiri, and colonial trade systems.
+
 ## Common Confusion Points
 
 **"Rum is just sweet because it comes from sugarcane."**
@@ -373,13 +381,13 @@ eventually, massive marketing to American tourists and military during Prohibiti
 
 ## Decision Cheat Sheet
 
-| I want... | Style | Examples |
-|---|---|---|
-| Light, mixing rum (Daiquiri, Mojito) | Light column | Bacardi Silver, Havana Club 3yr |
-| Medium-bodied, versatile aged | Barbados aged | Foursquare 10yr, Mount Gay XO |
-| Heavy, funky Jamaican pot still | High-ester Jamaica | Hampden Estate, Worthy Park 2015, Rum Fire |
-| Agricultural, fresh-cane terroir | Rhum agricole | Clement VSOP, Neisson Blanc |
-| Brazilian identity cocktail | Cachaca | Leblon, Avua Amburana, Novo Fogo |
-| Dark rum cocktail (Mai Tai, Dark & Stormy) | Dark aged blend | Gosling's Black Seal, Hamilton 151 |
-| Rare vintage rum | Single mark or cask | Velier bottlings, Foursquare Detached |
-| Understand the colonial context | This file + culinary-history | Sugar triangle + slavery context |
+| If you need to diagnose... | Start With | Typical Signal |
+|----------------------------|------------|----------------|
+| Light mixing rum | Column distillation, short fermentation, molasses base | Bacardi/Havana Club-style clean daiquiri/Mojito platform |
+| Barbados aged rum | Pot+column blending, ex-bourbon casks, dry balance | Foursquare/Mount Gay-style structure without heavy dosage |
+| Jamaican funk | Long fermentation, pot stills, dunder/muck ecology, ester marks | Hampden/Worthy Park/Long Pond-style overripe fruit and hogo |
+| Agricole | Fresh cane juice, Martinique AOC or similar cane-terroir logic | Grassy, vegetal, mineral cane character |
+| Cachaca | Brazilian fresh-cane rules and local woods | Caipirinha identity; amburana/balsam/oak aging differences |
+| Dark cocktail rum | Blend, color, proof, and dosage disclosure | Gosling's/Hamilton-style weight for tiki and highballs |
+| Vintage/single-mark rum | Distillery, still, mark, cask, tropical vs continental aging | Velier/Foursquare-style transparent provenance |
+| Colonial context | Sugar, molasses, slavery, naval ration, and New England trade | Rum is a labor/economics story as much as a flavor category |

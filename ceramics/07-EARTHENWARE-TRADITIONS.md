@@ -418,17 +418,23 @@ Wedgwood's jasperware is technically a fine stoneware (fires denser, slightly hi
 
 ---
 
+## Cross-References
+
+- `ceramics/02-FORMING.md` — forming methods behind vernacular pottery.
+- `ceramics/05-DECORATION.md` — slip, pigment, and surface traditions.
+- `anthropology/06-ARCHAEOLOGY.md` — pottery traditions as cultural evidence.
+
 ## Decision Cheat Sheet
 
-| Tradition | Key Characteristics |
-|-----------|-------------------|
-| Greek black-figure | Incised lines on painted black slip; orange body |
-| Greek red-figure | Orange figures on black background; painted lines |
-| Terra sigillata | Mold-relief; glossy red slip; Roman mass production |
-| Egyptian faience | Turquoise; silica (not clay); ~3,500 BCE |
-| Italian maiolica | Tin glaze; painted with metal oxides; lead-based historically |
-| Hispano-Moresque | Tin glaze + metallic luster; Moorish Spain |
-| Delftware | Blue-and-white cobalt; imitates Chinese; Dutch 17th c. |
-| Wedgwood creamware | Lead-glazed; cream color; Queen's Ware |
-| Wedgwood jasperware | Unglazed stoneware; blue + white relief |
-| Iznik | White body; vivid red/blue/green; 16th c. Turkey |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a Greek vessel is black-figure | Incised lines through black slip on orange body | Technique, subject, and shape all matter for date and workshop. |
+| Whether a Greek vessel is red-figure | Reserved orange figures with painted detail on black ground | Red-figure is a technique, not a guarantee of period or origin. |
+| Whether red glossy relief ware is terra sigillata | Mold relief plus glossy red slip | Roman mass production created regional variants and maker stamps. |
+| Whether turquoise "ceramic" is Egyptian faience | Silica body with alkaline glaze | Faience is not clay pottery; calling it earthenware can mislead. |
+| Whether tin-glazed painted ware is Italian maiolica | Opaque tin glaze plus metal-oxide painting | Historical glazes may include lead; modern food-safety assumptions do not apply. |
+| Whether metallic luster points to Hispano-Moresque | Tin glaze plus reduced metallic luster | Luster technique migrated widely; style and provenance matter. |
+| Whether blue-and-white is Delftware | Cobalt on tin glaze imitating Chinese porcelain | Delft is earthenware imitation, not porcelain. |
+| Whether cream-colored lead-glazed ware is Wedgwood creamware | Cream body and Queen's Ware context | Lead glaze and industrial production are part of the identification. |
+| Whether blue-and-white relief is jasperware | Unglazed stoneware with applied relief | Jasperware is stoneware, not painted earthenware. |
+| Whether vivid red/blue/green white-body ware is Iznik | Ottoman palette and quartz-rich body | Iznik identification needs body, palette, motif, and period context. |

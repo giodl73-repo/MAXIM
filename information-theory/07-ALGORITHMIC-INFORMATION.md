@@ -1,5 +1,7 @@
 # Algorithmic Information Theory
 
+## The Big Picture
+
 ```
 KOLMOGOROV COMPLEXITY: INFORMATION WITHOUT PROBABILITY
 
@@ -308,18 +310,24 @@ They agree in expectation, diverge for individual cases
 
 ---
 
+## Cross-References
+
+- `information-theory/02-SOURCE-CODING.md` — compression as operational code length rather than uncomputable shortest program.
+- `computer-architecture/01-ISA-FUNDAMENTALS.md` — machine descriptions and universality bridge to program-length complexity.
+- `machine-learning-theory/01-PAC-LEARNING.md` — complexity and generalization connect through compression-style intuitions.
+
 ## Decision Cheat Sheet
 
-| Question | Tool | Notes |
-|----------|------|-------|
-| Minimum average code length | Shannon entropy H(X) | Distribution must be known |
-| Description of individual string | Kolmogorov complexity K(x) | Not computable |
-| Model selection criterion | MDL / NML | Computable approximation to K |
-| Proving combinatorial lower bound | Incompressibility method | Assume K(x) ≥ n − c |
-| Measuring "organized complexity" | Logical depth | Captures computation not just info |
-| Thermodynamic cost of computation | Landauer's principle | kT ln 2 per bit erased |
-| Prior for universal prediction | Solomonoff prior | Sum over all programs outputting x |
-| Algorithmic randomness | Martin-Löf test | Passes all effective statistical tests |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a distribution gives average code length | Shannon entropy `H(X)` | Entropy describes a source distribution, not one string |
+| Whether an individual string is compressible | Kolmogorov complexity `K(x)` | `K(x)` is uncomputable up to exact values |
+| Whether model selection is description-length minimization | MDL or normalized maximum likelihood | Practical MDL is a computable proxy, not literal `K` |
+| Whether a combinatorial lower bound can use randomness | Incompressibility method | The argument proves most objects, not necessarily a named instance |
+| Whether complexity should include computation time | Logical depth | Random strings can be shallow despite high `K` |
+| Whether erasure has physical cost | Landauer's principle | The bound applies to irreversible bit erasure |
+| Whether universal prediction has a formal prior | Solomonoff prior | It is uncomputable and depends on a universal machine up to constants |
+| Whether a sequence is algorithmically random | Martin-Lof tests | Randomness is relative to effective tests, not patternlessness by eye |
 
 ---
 

@@ -273,6 +273,12 @@ STONES AND INCLUSIONS:
 
 ---
 
+## Cross-References
+
+- [Glass Science](01-GLASS-SCIENCE.md) explains why silica, fluxes, and stabilizers form a useful network.
+- [Float Glass](04-FLOAT-GLASS.md) shows how raw-material chemistry scales into flat-glass production.
+- [Specialty Glass](05-SPECIALTY-GLASS.md) follows compositional changes into borosilicate, optical, and glass-ceramic families.
+
 ## Common Confusion Points
 
 **Cullet % ≠ glass quality reduction**:
@@ -291,15 +297,14 @@ Complementary decolorization cancels the net hue visually but the glass still ab
 
 ## Decision Cheat Sheet
 
-| Material Question | Answer |
-|-------------------|--------|
-| Primary flux for most glass | Soda ash (Na₂CO₃) |
-| Stabilizer preventing water dissolution | CaO from limestone |
-| Why wine bottles are green | Controlled Fe + S → green chromophore |
-| Why beer bottles are amber | Fe-sulfide chromophore; UV protection |
-| Deep blue glass colorant | Cobalt oxide (very small %; very powerful) |
-| Ruby red glass mechanism | Cu⁰ or Au⁰ nanoparticles (striking required) |
-| Energy savings from cullet | ~2.5% per 10% cullet substitution |
-| Why ceramic in cullet is dangerous | Doesn't melt; creates stones in glass product |
-| Flat glass iron spec | <0.015% Fe₂O₃ |
-| Natural soda ash source (US) | Trona, Green River Basin, Wyoming |
+| Batch / Quality Question | Use This Diagnostic | Practical Consequence |
+|---|---|---|
+| Why is the melt too viscous or energy-intensive? | Flux balance, especially Na2O from soda ash | Flux lowers melting temperature but too much hurts durability |
+| Why does glass survive water exposure? | Stabilizer level, mainly CaO/MgO from limestone/dolomite | Unstabilized sodium silicate becomes water glass |
+| Why is "clear" glass green at the edge? | Fe2+/Fe3+ level in silica sand and cullet | Ultra-clear flat/display glass needs very low iron feedstock |
+| Why are wine/beer bottles green or amber? | Iron-sulfur redox chemistry and UV protection target | Color is a controlled absorption system, not decorative accident |
+| Why did a high-cullet batch fail? | CSP, metal, color, or composition contamination | Cullet saves energy only if the stream is clean and compatible |
+| Why do bubbles remain? | Carbonate decomposition, sulfate refining, viscosity, residence time | Refining agents sweep seeds only if furnace temperature/time are right |
+| Why does a color appear only after reheating? | Striking of Cu/Au/Ag nanoparticles | Thermal history controls nucleation and final color |
+| Why can't container cullet feed float glass freely? | Composition and quality-spec mismatch | Recycling streams are product-family constrained |
+| Why is cobalt risky? | Extremely high tinting strength | Parts-per-thousand errors can make glass too dark |

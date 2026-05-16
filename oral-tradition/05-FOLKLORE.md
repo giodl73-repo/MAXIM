@@ -355,16 +355,23 @@ Key distinction from Ong's "secondary orality":
 
 ---
 
+## Cross-References
+
+- `06-TRANSMISSION.md` explains version, variant, and drift.
+- `07-PERFORMANCE.md` shows how telling context changes meaning.
+- `08-ORAL-HISTORY.md` contrasts folklore with testimony and memory archives.
+
 ## Decision Cheat Sheet
 
-| Framework | Author | What it explains |
-|-----------|--------|----------------|
-| Propp's 31 functions | Propp (1928) | Invariant sequence structure of fairy tales |
-| ATU tale type index | Aarne, Thompson, Uther | Cross-cultural classification of narrative types |
-| Myth/Legend/Folktale distinction | Bascom (1954) | Sacred vs. secular vs. believed |
-| Urban legend analysis | Brunvand (1981+) | Contemporary oral narrative, FOAF structure |
-| Structuralist myth analysis | Lévi-Strauss | Binary oppositions resolved by mediation |
-| Meme as folklore | Shifman (2014) | Digital media as continuation of oral tradition |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Fairy-tale sequence | Propp's 31 functions and Russian Afanasiev corpus | The grammar travels unevenly beyond European Marchen. |
+| Tale-type classification | ATU index for cross-cultural narrative comparison | ATU carries European/West Asian category bias. |
+| Sacred/secular/believed status | Bascom's myth, legend, folktale distinction | Myth means sacred narrative believed true, not "false story." |
+| Contemporary legend | Brunvand-style urban legend and FOAF circulation | Urban legend predates the internet; digital media is a carrier. |
+| Myth structure | Levi-Strauss and binary oppositions mediated by narrative | Structuralist analysis is spatial, unlike Propp's temporal sequence. |
+| Digital folklore | Shifman-style meme variation and participation | Meme replication is cultural performance, not just image copying. |
+| Marginalized tradition classification | Compare ATU with broader databases such as Berezkin | Classification can impose outside categories on living traditions. |
 
 ---
 

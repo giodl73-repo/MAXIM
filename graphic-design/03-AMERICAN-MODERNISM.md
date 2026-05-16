@@ -345,6 +345,12 @@ INDUSTRY:
 
 ---
 
+## Cross-References
+
+- [Swiss Style](02-SWISS-STYLE.md) provides the European modernist baseline American designers adapted.
+- [Brand Identity Systems](07-BRAND-IDENTITY.md) follows Rand, Bass, and Glaser into systematic corporate identity.
+- [Color Theory and Brand](06-COLOR-IN-DESIGN.md) explains how modernist marks use color as recognition infrastructure.
+
 ## Common Confusion Points
 
 **"Rand = Swiss Style"** -- Rand was influenced by European modernism but was

@@ -32,9 +32,10 @@ WORLD CHAMPIONS (select):
   1927: Capablanca (positional purity)
   1927–1946: Alekhine (combinational genius)
   1948–1963: Botvinnik (Soviet system founder)
-  1972: Fischer (Cold War match, 12.5 vs 12.5 vs Spassky)
+  1972: Fischer (Cold War match, beats Spassky 12.5-8.5)
   1985–2000: Kasparov (peak 2851 Elo, lost to Deep Blue 1997)
-  2013–present: Carlsen (peak 2882 Elo, world record)
+  2013–2023: Carlsen (peak 2882 Elo, world record)
+  2024–present: Gukesh Dommaraju (youngest undisputed champion)
 ```
 
 ---
@@ -378,9 +379,9 @@ CHESS AI TIMELINE
 2006: Deep Fritz 10 defeats Kramnik (then World Champion)
       4-2 in a formal match. Computers now clearly superhuman.
 
-2017: ALPHAZERO — trained from scratch (tabula rasa), no human
-      games used. Self-play only. Learned chess in 4 hours.
-      Defeated Stockfish 8 (best engine at time): 28W-0L-72D.
+  2017: ALPHAZERO — trained from scratch (tabula rasa), no human
+      games used. Self-play only. Reported short training run for
+      chess before the Stockfish 8 match: 28W-0L-72D.
 ```
 
 ### Deep Blue vs Kasparov: The Landmark
@@ -622,7 +623,7 @@ ONLINE CHESS IMPACT (2000–present)
 
 PLATFORMS:
   Chess.com: 100M+ registered users (2023)
-              Acquired Twitch chess channel Chess24 (2022)
+              Acquired Play Magnus Group, including Chess24 (2022)
   Lichess: open source, free, no ads. ~4M games/day.
 
 FORMATS:
@@ -637,7 +638,7 @@ FORMATS:
   a major event — testing different cognitive skills.
 
 THE MAGNUS EFFECT:
-  Magnus Carlsen consistently ranked #1 from ~2010 to 2023.
+  Magnus Carlsen consistently ranked #1 through the 2010s and early 2020s.
   His 2013 victory over Anand was anticipated for years.
   In 2023, Carlsen DECLINED to defend his Classical title —
   citing the format as too drawish and slow to demonstrate
@@ -648,7 +649,7 @@ HANS NIEMANN CHEATING SCANDAL (2022):
   losing to Hans Niemann (a relatively unknown 19-year-old).
   Carlsen strongly implied cheating without stating it directly.
   Chess.com analysis: Niemann's statistical results in online
-  play suggested AI assistance in hundreds of games.
+  play suggested AI assistance in many prior games.
   Impact: cheating detection, engine assistance, OTB cheating
   (over-the-board) all became major topics.
   Niemann sued Carlsen, Chess.com, and others for defamation.
@@ -659,20 +660,24 @@ HANS NIEMANN CHEATING SCANDAL (2022):
 
 ## Decision Cheat Sheet
 
-| You want to know... | Answer |
-|---------------------|--------|
-| When was modern chess created? | 1475, Spain/Italy — queen and bishop got modern movement |
-| Why queen is most powerful | 1475 change: firz (1-diagonal) → unlimited any direction |
-| First official world champion | Wilhelm Steinitz, 1886 |
-| Cold War chess match | Fischer vs Spassky, 1972, Reykjavik (Fischer wins 12.5-8.5) |
-| First computer to beat reigning champion | Deep Blue beats Kasparov, 1997 (3.5-2.5) |
-| AlphaZero significance | Tabula rasa, 4 hours training, defeated Stockfish — revealed human theory biases |
-| Elo formula for expected score | E_A = 1/(1 + 10^((R_B - R_A)/400)) |
-| Magnus Carlsen peak rating | 2882 (2014), all-time record |
-| Fischer Random purpose | Eliminate opening preparation memorization, 960 starting positions |
-| Soviet chess dominance dates | 1948–1972, then 1975–1993 (Fischer interruption) |
+| If you need to explain... | Start With | Caveat / Diagnostic |
+|---------------------------|------------|---------------------|
+| Why modern chess is not simply chaturanga | 1475 queen/bishop revolution | Indian/Persian foundations remain, but European rule changes transformed tempo and tactics |
+| Why a chess era changed | Dominant theory of value | Romantic tactics, Steinitz positional theory, hypermodern center control, Soviet preparation, engine evaluation |
+| Why Fischer vs Spassky mattered | 1972 Reykjavik match | Cold War symbolism plus a real break in Soviet title control |
+| Why Deep Blue mattered | 1997 Kasparov rematch | Brute-force search plus evaluation defeated the reigning champion, but did not solve chess |
+| Why AlphaZero mattered | Self-play neural evaluation + MCTS | It challenged human/engine priors under debated match conditions, not a proof of optimal play |
+| How to interpret Elo | Logistic expected-score model | Measures performance relative to a pool, not absolute chess truth |
+| Why Chess960 exists | Opening-preparation arms race | Randomized legal starts force over-the-board problem solving earlier |
+| What is actually solved | 7-piece tablebases | Full chess remains unsolved; tablebases solve bounded endgame state spaces |
 
 ---
+
+## Cross-References
+
+- [Ancient Games](01-ANCIENT-GAMES.md) supplies the broader premodern game landscape around chess's origins.
+- [Card Games](03-CARD-GAMES.md) contrasts perfect-information strategy with hidden information and social gambling.
+- [Video Games](08-VIDEO-GAMES.md) extends chess's AI lineage into digital game computation and search.
 
 ## Common Confusion Points
 
@@ -688,4 +693,4 @@ HANS NIEMANN CHEATING SCANDAL (2022):
 
 **"Stalemate is the same in all chess variants"**: In Shatranj, stalemate was a WIN for the player who achieved it. In modern chess, it's a draw. This is a known historical change that new players sometimes don't realize was a deliberate rule modification.
 
-**"Magnus Carlsen is world champion"**: As of 2023-2024, Carlsen declined to defend his title. The current classical chess World Champion is Ding Liren (China), who won the 2023 championship match against Ian Nepomniachtchi after Carlsen withdrew.
+**"Magnus Carlsen is world champion"**: Carlsen declined to defend his classical title in 2023. Ding Liren won the vacant championship match in 2023; Gukesh Dommaraju became classical World Champion in 2024. Carlsen remains one of the strongest players and continued to dominate many rating and rapid/blitz contexts, but "world champion" depends on format and title cycle.

@@ -32,7 +32,7 @@ GRID STABILITY TAXONOMY:
 
 ## Frequency: The Grid's Universal Consensus Variable
 
-Every synchronous generator in the Eastern Interconnection must rotate at precisely the same electrical frequency. This is not a protocol choice — it's physics. If two generators are at different frequencies, the resulting voltage difference would drive enormous current flows that would destroy both machines.
+Every synchronized generator in the Eastern Interconnection operates around the same electrical frequency and phase relationship. This is not a protocol choice -- it is physics. If machines drift too far apart, synchronizing torque and protection systems determine whether they remain stable or trip.
 
 **The consensus emerges from electromagnetic coupling:** When generator A speeds up slightly, it generates a slightly higher voltage at that instant → pushes current into the system → exerts a retarding torque on A and an accelerating torque on every other synchronized generator. The whole system naturally resists divergence. This is synchronizing torque — the electrical spring that holds all generators together.
 
@@ -521,20 +521,23 @@ RECLOSER-FUSE COORDINATION:
 
 ## Decision Cheat Sheet
 
-| Question | Short Answer |
-|----------|-------------|
-| What does grid frequency measure? | Rotational speed of synchronous generators — the universal consensus variable of the interconnection |
-| What happens to frequency if a big generator trips? | Frequency drops; spinning inertia buys time for governors to respond |
-| What is ROCOF? | Rate of Change of Frequency (Hz/s) — determines how fast operators/relays must respond |
-| What is the swing equation? | M × d²δ/dt² = P_m - P_e; Newton's 2nd law for generator rotation |
-| What is AGC? | Automatic Generation Control — secondary frequency response that restores exactly 60.000 Hz |
-| What is UFLS? | Under-Frequency Load Shedding — automatic relay action that disconnects load blocks at threshold frequencies to prevent collapse |
-| Differential vs distance relay? | Differential (87): compares currents entering/leaving protected zone; Distance (21): measures V/I impedance, protects line zones |
-| Why is inertia declining? | Coal/nuclear retirement removes heavy rotating mass; wind/solar inverters contribute zero synchronous inertia |
-| What is a synchronous condenser? | Motor/generator spinning without prime mover — provides inertia and reactive power support, no active power |
-| What caused the 2003 blackout? | Vegetation contact + line trips + software bug in EMS alarm system → operators blind for 90 minutes while system degraded → cascade became irreversible |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A frequency-stability event | Identify lost generation/load, inertia, ROCOF, governor response, fast frequency response, reserves, and UFLS thresholds. | Inertia buys time; response arrests the decline. They are related but not interchangeable. |
+| Whether a disturbance is transient-stability limited | Check fault clearing time, generator angle separation, transfer level, protection action, and post-fault network topology. | A line can be thermally acceptable but transient-stability constrained. |
+| A voltage-collapse risk | Locate reactive-power demand, weak buses, long transfers, capacitor/reactor settings, load behavior, and voltage-support devices. | Voltage is local; system-wide MW surplus does not guarantee local VAR adequacy. |
+| Whether AGC or primary response is relevant | Separate governor/fast response seconds, AGC minutes, economic dispatch intervals, and manual operator action. | AGC restores setpoint after the arresting response; it is not the first line of defense. |
+| A protection-system trip | Identify relay type, protected zone, pickup settings, time curve, communication channel, breaker duty, and coordination with upstream/downstream devices. | Protection is designed for selectivity and speed, but hidden failures and bad coordination can enlarge an event. |
+| A low-inertia claim | Measure synchronous online inertia, inverter controls, grid-forming capability, contingency size, and ROCOF withstand settings. | Wind/solar do not provide synchronous inertia by default, but inverter controls can provide fast active-power response. |
+| A blackout narrative | Reconstruct initiating events, alarm/operator visibility, vegetation or equipment condition, relay trips, power redistribution, and time window. | Cascades are not single-cause stories; they are interactions between physics, protection, software, and operations. |
 
 ---
+
+## Cross-References
+
+- `02-RENEWABLES.md` explains why inverter-based resources change stability assumptions.
+- `06-ENERGY-STORAGE.md` covers fast-response resources for frequency and flexibility.
+- `../control-theory/00-OVERVIEW.md` supplies the feedback-control vocabulary behind grid operation.
 
 ## Common Confusion Points
 

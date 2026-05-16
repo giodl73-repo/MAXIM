@@ -344,16 +344,22 @@ CPS vs. ANF TRADEOFF:
 
 ---
 
+## Cross-References
+
+- `01-LAMBDA-CALCULUS.md` supplies the reduction model.
+- `04-DENOTATIONAL-SEM.md` contrasts execution rules with mathematical meaning.
+- `08-COMPILER-SEMANTICS.md` carries operational meaning into verified compilation.
+
 ## Decision Cheat Sheet
 
-| Machine/Style | Evaluation | First-class continuations | Sharing | Use |
-|---------------|-----------|--------------------------|---------|-----|
-| SECD | CBV | No (dump is implicit) | No | Historical; pedagogical |
-| CEK | CBV | Yes (κ is first-class) | No | Implementing call/cc |
-| Krivine | CBN | No | No | CBN semantics |
-| STG | CBNeed (lazy) | Via stack | Yes (thunks) | GHC production |
-| CPS transform | CBV (transformed) | Yes | No | Compiler IR |
-| ANF | CBV | No | No | LLVM/compiler IR |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Historical evaluator structure | SECD machine | The dump is implicit continuation machinery, not first-class control. |
+| First-class continuation semantics | CEK machine | Exposing kappa makes control explicit but not automatically efficient. |
+| Call-by-name reduction | Krivine machine | No sharing means repeated work unless transformed to call-by-need. |
+| Production laziness | STG with thunks and update frames | Sharing requires black-hole and update semantics. |
+| Continuation-heavy compiler IR | CPS transform | CPS is a program transform, not necessarily a runtime calling convention. |
+| Human-readable compiler IR | ANF | ANF and SSA express similar naming structure in different operational styles. |
 
 ---
 

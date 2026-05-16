@@ -1,5 +1,7 @@
 # Classification and Well-Posedness
 
+## The Big Picture
+
 ## Why Classification Matters
 
 Classification is not taxonomy — it determines everything downstream:
@@ -362,19 +364,23 @@ For elliptic and parabolic problems:
 
 ---
 
+## Cross-References
+
+- `partial-differential-equations/03-WAVE-EQUATION.md` — hyperbolic prototype with finite-speed propagation.
+- `partial-differential-equations/04-HEAT-EQUATION.md` — parabolic prototype with smoothing and irreversible evolution.
+- `partial-differential-equations/05-LAPLACE-POISSON.md` — elliptic prototype for equilibrium boundary-value problems.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What BCs for Laplace / Poisson? | Dirichlet, Neumann, or Robin on entire ∂Ω |
-| Can I give both u and ∂u/∂n for Laplace on a curve? | No — ill-posed (Hadamard example) |
-| What BCs for heat equation? | IC u(x,0)=u₀ + spatial BCs for all t>0 |
-| Why is backward heat equation ill-posed? | High-freq modes grow as e^{n²T} |
-| Why does wave equation need two ICs? | Second-order in t → two free constants per mode |
-| What is a characteristic? | Curve along which PDE reduces order; info travels along them |
-| What is domain of dependence? | Set of ICs that determine u(x₀,t₀) — a cone for hyperbolic |
-| How to prove uniqueness for a PDE? | Assume two solutions, subtract, prove difference is zero by energy estimate |
-| What is Lax-Milgram used for? | Proving existence and uniqueness of weak (FEM) solutions |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Which boundary data an elliptic PDE needs | Dirichlet, Neumann, or Robin data on the boundary | Cauchy data for Laplace/Poisson is typically ill-posed |
+| Whether a parabolic problem is well-posed | Initial data plus spatial boundary data for `t > 0` | Backward heat amplifies high-frequency modes catastrophically |
+| Whether a hyperbolic problem has enough data | Initial displacement and velocity for second-order time dynamics | Boundary data must respect finite propagation and compatibility |
+| Where information travels in a first-order PDE | Characteristics | Characteristics can cross, creating shocks or multivalued classical solutions |
+| Which initial data determine a point | Domain of dependence | Hyperbolic cones, parabolic smoothing, and elliptic global coupling differ |
+| Whether uniqueness is plausible | Subtract two solutions and use an energy estimate | The estimate must match the PDE type and boundary conditions |
+| Whether weak solutions are the right existence frame | Lax-Milgram or a variational formulation | Weak existence may not imply classical smoothness |
 
 ---
 

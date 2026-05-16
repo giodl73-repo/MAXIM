@@ -110,7 +110,7 @@ NOACHIAN (4.1–3.7 Ga):
 - Valley networks (fluvial erosion by water!)
 - Clay minerals (phyllosilicates) formed in neutral water
 - Warm and wet? OR cold and icy with episodic melt?
-- Theis = "Noah's time" analogy
+- Name = "Noah's time" analogy
 
 HESPERIAN (3.7–3.0 Ga):
 - Massive volcanic outpourings
@@ -309,17 +309,24 @@ Barringer Crater (AZ) ~50 ka    1.2 km    Best-preserved young crater
 
 ## Decision Cheat Sheet
 
-| Observation | Planetary Interpretation |
-|-------------|--------------------------|
-| Uniform surface age ~500 Ma, no craters in highland, no spreading centers | Venus episodic resurfacing |
-| Heavily cratered, anorthositic composition | Lunar highlands (~4.0 Ga) |
-| Dark, smooth plains, fewer craters, basaltic | Lunar maria (~3.0–3.8 Ga) |
-| Valley networks + clay minerals (phyllosilicates) | Noachian Mars (water activity) |
-| Giant shield volcanoes, no subduction evidence | One-plate planet (Mars, Venus) |
-| Shocked quartz + iridium anomaly in sedimentary section | Impact event |
-| Active sulfur volcanism, no craters | Io (tidal heating) |
+| Comparative Question | Use This Evidence | Likely Interpretation |
+|---|---|---|
+| How old is an exposed planetary surface? | Crater density calibrated by sample ages where available | More craters generally means older surface, but resurfacing resets the clock |
+| Is the terrain lunar highland or mare? | Albedo + crater density + composition | Light anorthosite = ancient highland; dark basalt = younger mare flooding |
+| Did Mars once host persistent surface water? | Valley networks, deltas, hydrated minerals, clay assemblages | Strong Noachian water activity, with climate interpretation still debated |
+| Is Venus stagnant-lid or plate-tectonic? | Lack of spreading centers/subduction trenches, coronae, tesserae, crater distribution | Stagnant-lid planet with volcanic/tectonic resurfacing, not Earth-style plates |
+| Is a surface young because of volcanism or erosion? | Crater erasure mechanism + flow/tectonic morphology | Lava plains, cryovolcanism, glacial relaxation, and atmosphere-driven erosion reset surfaces differently |
+| Is an impact interpretation defensible? | Shocked quartz, shatter cones, suevite, gravity anomaly, iridium layer | Crater-like morphology alone is insufficient |
+| Why can a small body remain active? | Tidal heating, orbital resonance, volatile/ice shell | Io, Europa, and Enceladus show heat source can dominate size |
+| What makes Earth unusual? | Water, plate tectonics, atmosphere, biosphere feedbacks | Earth is not the default rocky planet; it is the wet mobile-lid comparison case |
 
 ---
+
+## Cross-References
+
+- [Plate Tectonics](05-PLATE-TECTONICS.md) supplies the Earth baseline for comparing planets without plate tectonics.
+- [Igneous Rocks](02-IGNEOUS-ROCKS.md) connects volcanic plains, basalts, and differentiated crusts across worlds.
+- [Geologic Time](07-GEOLOGIC-TIME.md) explains the dating logic behind crater counts and planetary chronology.
 
 ## Common Confusion Points
 

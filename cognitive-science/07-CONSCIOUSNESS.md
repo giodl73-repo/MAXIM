@@ -338,15 +338,21 @@ The visual system processes color, orientation, motion, shape in different areas
 
 ---
 
+## Cross-References
+
+- `cognitive-science/01-PERCEPTION.md` — perceptual contents of consciousness.
+- `philosophy-of-mind/01-MIND-BODY-PROBLEM.md` — philosophical framing of consciousness.
+- `neuroscience/01-NEURONS-SIGNALS.md` — neural substrate for conscious-state theories.
+
 ## Decision Cheat Sheet
 
-| Theory | Consciousness = ? | Strength | Weakness |
-|--------|------------------|----------|---------|
-| **GWT** | Global broadcast to workspace | Neural evidence, predictive | Doesn't address hard problem |
-| **IIT** | Integrated information (Φ) | Principled math, explains cerebellum | Panpsychism, computationally intractable |
-| **HOT** | Higher-order representation of state | Explains reportability | What makes HOT conscious? Regress? |
-| **Predictive processing** | Best model of causes of input | Unified framework, clinical relevance | Doesn't directly address phenomenal |
-| **Dennett eliminativism** | There's nothing extra to explain | Avoids hard problem | Counterintuitive; denies qualia |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why information becomes reportable and controllable | Global Workspace Theory | Strong for access consciousness; does not dissolve the hard problem. |
+| Whether consciousness can be mathematically measured | Integrated Information Theory | Principled but computationally hard and carries panpsychist implications. |
+| Why awareness requires representing one's own state | Higher-Order Thought theories | Explains reportability but risks regress: what makes the higher-order state conscious? |
+| How perception, prediction, and clinical symptoms connect | Predictive processing | Unifies many mechanisms but does not directly explain phenomenal feel. |
+| Whether qualia are a false target | Dennett-style eliminativism | Avoids the hard problem by denying its premise; many find that cost too high. |
 
 ---
 

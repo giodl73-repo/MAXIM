@@ -294,17 +294,23 @@ Beyond common calcite speleothems:
 
 ---
 
+## Cross-References
+
+- `geochemistry/05-CARBON-CYCLE.md` - carbonates in the long carbon cycle.
+- `ecology/04-BIOGEOCHEMICAL-CYCLES.md` - phosphorus cycling and biological limitation.
+- `geochemistry/03-GEOCHRONOLOGY.md` - phosphate minerals as geochronometers.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Field test for calcite? | Effervesces vigorously in cold dilute HCl |
-| Field test for dolomite? | Only effervesces when powdered or in hot HCl |
-| Why does calcite show double refraction? | High birefringence — two different refractive indices |
-| Where does fertilizer phosphate come from? | Phosphorite deposits (sedimentary apatite concentrations) |
-| What is bone made of? | Hydroxyapatite + collagen (~70% mineral, ~30% organic) |
-| Why is Morocco strategically important? | ~75% of world's phosphate rock reserves |
-| Cave speleothems can tell you what? | Past climate (δ¹⁸O), past rainfall, precisely dated by U-Th |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Calcite in field | Vigorous cold dilute HCl effervescence | Aragonite also effervesces; crystal form/lab tests separate them. |
+| Dolomite in field | Powdered sample or hot HCl reaction | Lack of cold fizz is diagnostic, not proof of non-carbonate. |
+| Calcite double refraction | High birefringence and two refractive indices | Optical behavior follows crystal anisotropy. |
+| Fertilizer phosphate source | Phosphorite apatite concentrations | Sedimentary concentration controls strategic supply. |
+| Bone mineral composition | Hydroxyapatite plus collagen | Bone is composite, not pure mineral. |
+| Moroccan phosphate importance | Large share of global phosphate rock reserves | Reserve dominance creates geopolitical fertilizer risk. |
+| Speleothem climate archive | U-Th dating plus oxygen isotopes | Isotope interpretation depends on rainfall/source effects. |
 
 ---
 

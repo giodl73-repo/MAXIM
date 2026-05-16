@@ -480,15 +480,23 @@ CUBISM / RELATIVITY PARALLEL
 
 ## Decision Cheat Sheet
 
-| Movement | Central claim | Key work | Counter |
-|----------|--------------|---------|---------|
-| Fauvism | Color is autonomous, not descriptive | Matisse, Woman with a Hat (1905) | Still tied to representation |
-| Die Brücke | Psychic interiority over external reality | Kirchner, Berlin street scenes | "Primitivism" borrows without attribution |
-| Der Blaue Reiter | Inner necessity justifies formal innovation | Kandinsky's abstractions | Spiritualism is unfalsifiable |
-| Analytic Cubism | Multiple simultaneous viewpoints contain more truth | Picasso, Ma Jolie (1912) | Almost unreadable without titles |
-| Synthetic Cubism | Collage inserts reality into representation | Braque, papier collé (1912) | Raises more questions than it answers |
-| Futurism | Technology and speed are the new sublime | Boccioni, States of Mind | Its political logic leads to Fascism |
-| Dada | Art supports civilization; civilization produced WWI; therefore anti-art | Duchamp, Fountain (1917) | If everything is anti-art, nothing is |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Fauvist color | Check whether color describes local appearance, emotional force, surface rhythm, or decorative autonomy. | Fauvism loosens representation but usually does not abandon it. |
+| Die Brucke expression | Examine urban anxiety, jagged contour, print culture, nude/landscape rhetoric, and "primitive" borrowing. | Psychic intensity can sit on ethically compromised appropriation. |
+| Der Blaue Reiter spirituality | Trace color theory, music analogy, abstraction, folk sources, and Kandinsky's "inner necessity." | Spiritual claims are historically powerful but not empirically testable. |
+| Analytic Cubism | Analyze fractured viewpoint, shallow space, tonal restriction, signs, titles, and object reconstruction. | Multiple viewpoints can become unreadable without textual anchors. |
+| Synthetic Cubism | Track collage, papier colle, lettering, commodity fragments, and the boundary between object and representation. | Inserting reality into art destabilizes rather than solves representation. |
+| Futurism | Separate motion studies, machine sublime, urban speed, manifesto rhetoric, and political violence. | Formal innovation cannot be detached from Futurism's fascist trajectory. |
+| Dada anti-art | Check readymade logic, wartime nihilism, institution critique, chance, performance, and publication network. | If everything can be anti-art, the institution becomes part of the work. |
+
+---
+
+## Cross-References
+
+- `06-IMPRESSIONISM-POSTIMPRESSIONISM.md` supplies the color, perception, and brushwork experiments early modernists inherited.
+- `08-ABSTRACTION.md` follows Cubism, Kandinsky, Mondrian, and Malevich into non-representational systems.
+- `../cinema-film/00-OVERVIEW.md` gives the parallel modern medium that changed visual culture after photography.
 
 ---
 

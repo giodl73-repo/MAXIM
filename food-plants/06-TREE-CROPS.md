@@ -202,7 +202,7 @@ SUGAR CONTENT: ~60-70% sugars in dried dates (glucose + fructose + sucrose)
 
 Subsistence value in desert:
   Caloric density (280 kcal/100g dried)
-  Complete protein when combined with camel milk
+  Nutritionally complementary with camel milk (sugar + fat/protein/minerals)
   Stores 1-3 years without refrigeration
   Entire palm usable: fruit, fronds (shelter/weaving), trunk (timber),
     heart of palm (vegetable), date syrup, date vinegar, sap (fermented → wine)
@@ -272,17 +272,23 @@ Almond in California:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why was olive oil equivalent to petroleum in ancient Mediterranean? | Primary caloric fat + lamp fuel + cosmetic + medicinal + religious — covered all household energy needs |
-| Why can olive trees survive for millennia (and what does that mean for crop resilience)? | Lignotuber (underground woody mass) regenerates the tree after fire, drought, or cutting; olive's meristematic tissue is protected below ground — functionally similar to a distributed checkpoint in fault-tolerant systems |
-| How was phylloxera solved? | Grafting European vines onto American *Vitis* rootstocks (phylloxera-resistant) |
-| Why are most wine grapes grafted? | Phylloxera devastated ungrafted European roots in 1860s-1890s |
-| What makes dates valuable in desert agriculture? | High caloric density (280 kcal/100g), stores 1-3 years, grows where almost nothing else can |
-| Why might figs be humanity's first domesticated plant? | Parthenocarpic figs at Gilgal I site (11,400 BP) predate cereal cultivation |
-| Why does California need trucked bees for almonds? | Almond is self-incompatible (needs cross-pollination); flowers all at once in February; CA monoculture provides no resident pollinator population |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Olive as capital good | Long-lived tree, oil yield, and multi-use economy | It is food, light, medicine, ritual, and trade commodity together |
+| Olive resilience | Resprouting from protected woody tissue | Tree survival does not mean annual yield stability |
+| Phylloxera solution | American rootstock + European scion grafting | Wine identity sits aboveground; resistance sits belowground |
+| Date-palm desert value | Heat, groundwater, storage, sugar density | Oasis agriculture depends on water control, not just drought tolerance |
+| Fig early domestication | Parthenocarpy at Gilgal I | Earliest-crop claims depend on how "cultivation" is defined |
+| Almond pollination | Self-incompatibility plus synchronized monoculture bloom | Bee demand is an agricultural system-design artifact |
+| Tree-crop breeding | Generation time and clonal propagation | Improvement is slower and more capital intensive than annual crops |
 
 ---
+
+## Cross-References
+
+- [Fruits](04-FRUITS.md) covers the fruit biology and domestication pressures behind many orchard crops.
+- [Food Plants Overview](00-OVERVIEW.md) situates perennial crops in the full domestication landscape.
+- [Modern Breeding](09-MODERN-BREEDING.md) explains why long generation times make tree-crop improvement slower and more capital intensive.
 
 ## Common Confusion Points
 

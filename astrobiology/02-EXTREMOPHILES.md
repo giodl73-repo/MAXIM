@@ -393,19 +393,25 @@ POLYEXTREMOPHILES:
 
 **Deinococcus DNA repair as fault-tolerant distributed storage.** Deinococcus radiodurans survives 5,000+ Gy of radiation — equivalent to 650 double-strand DNA breaks — by maintaining 4-8 copies of its genome (redundancy), packing the nucleoid in a toroid geometry that keeps broken ends co-localized for repair (locality-aware architecture), and using extended synthesis-dependent strand annealing to reassemble shattered chromosomes from fragments (erasure code reconstruction). The critical insight is that Mn(II) antioxidant complexes protect proteins rather than DNA — protein damage, not DNA damage, is what kills irradiated cells. This is analogous to a distributed system where the bottleneck for recovery is not data loss (which can be reconstructed from replicas) but the availability of the operational machinery (compute nodes) that performs reconstruction.
 
+## Cross-References
+
+- `astrobiology/01-ORIGIN-OF-LIFE.md` — origin scenarios constrained by life at limits.
+- `astrobiology/03-HABITABLE-ENVIRONMENTS.md` — environments where extremophile analogies matter.
+- `microbiology/01-MICROBIAL-DIVERSITY.md` — microbial diversity behind extremophile metabolism.
+
 ## Decision Cheat Sheet
 
-| Extremophile type | Defining stress | Record organism | Temp/pH/etc |
-|---|---|---|---|
-| Hyperthermophile | High temperature | Methanopyrus kandleri | 122 C |
-| Psychrophile | Low temperature | Sea ice bacteria | -20 C |
-| Acidophile | Low pH | Picrophilus torridus | pH 0.7 |
-| Alkaliphile | High pH | Natronobacterium gregoryi | pH 12.5 |
-| Halophile | High salinity | Halobacterium salinarum | 25% NaCl |
-| Piezophile | High pressure | Moritella yayanosii | 110 MPa |
-| Radioresistant | Ionizing radiation | Deinococcus radiodurans | 5,000 Gy |
-| Xerophile | Low water activity | Aspergillus penicillioides | aw 0.60 |
-| Cryptobiont | Complete desiccation | Tardigrades (tun state) | aw ~0 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether high temperature is the dominant constraint | Hyperthermophile record such as Methanopyrus kandleri | Growth at 122 C is exceptional; pressure, chemistry, and macromolecule stability co-vary. |
+| Whether cold alone prevents life | Psychrophiles in sea ice | Metabolism can persist cold, but liquid water films and nutrient flux matter. |
+| Whether low pH is survivable | Acidophiles such as Picrophilus torridus | Acid tolerance requires pH homeostasis; it does not imply tolerance of heat or pressure. |
+| Whether alkaline water is habitable | Alkaliphiles such as Natronobacterium gregoryi | High pH life needs compatible ion gradients and membrane adaptations. |
+| Whether salt-rich worlds are plausible habitats | Halophiles such as Halobacterium salinarum | Some halophiles require salt; low water activity can still become limiting. |
+| Whether deep ocean pressure blocks life | Piezophiles such as Moritella yayanosii | Pressure tolerance does not supply energy; rock-water chemistry still matters. |
+| Whether radiation resistance predicts space survival | Deinococcus radiodurans DNA repair | Radiation resistance is specific and short-timescale; it is not universal invulnerability. |
+| Whether low water activity is the limiting stress | Xerophiles such as Aspergillus penicillioides | Water activity, not just total water, sets biochemical availability. |
+| Whether cryptobiosis implies interstellar viability | Tardigrade tun state | Dormancy survives months/years, not proven cosmic-ray exposure over interstellar times. |
 
 ---
 

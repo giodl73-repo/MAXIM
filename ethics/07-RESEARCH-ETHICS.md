@@ -563,22 +563,27 @@ REPLICATION CRISIS:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Applied ethics framework | `ethics/06-APPLIED-ETHICS.md` |
+| Deontological rights and consent | `ethics/03-DEONTOLOGY.md` |
+| AI research and deployment ethics | `ethics/08-AI-ETHICS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Framework | Origin | Key requirements | Applies to |
-|---|---|---|---|
-| Nuremberg Code | 1947, Doctors' Trial | Voluntary consent paramount; no prior harm | All human subjects research |
-| Declaration of Helsinki | 1964 (WMA) | IRB review; vulnerable populations; placebo limits | Medical research (professional standard) |
-| Belmont Report | 1979 (NCPHSBBR) | Respect persons, beneficence, justice | Federally funded human subjects research |
-| Common Rule (45 CFR 46) | 1991/2018 | IRB review, informed consent, vulnerable population protections | U.S. federally funded research |
-| HIPAA | 1996 | Health data privacy; de-identification standards | Healthcare data |
-| GDPR | 2018 | Consent, purpose limitation, data minimization | EU personal data (including research) |
-
-| IRB Review Level | When | Requires |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Exempt | Minimal risk, specific categories | IRB determination (not self-determined) |
-| Expedited | Minimal risk, 18 categories | Chair/designee review |
-| Full board | Greater than minimal risk | Convened committee |
+| Human-subject consent baseline | Nuremberg Code and voluntary consent | Consent can be formally present but ethically hollow under deception or coercion. |
+| Medical research professional duties | Declaration of Helsinki: IRB review, vulnerability, placebo limits | Professional standards can exceed local legal minimums. |
+| Core U.S. research-ethics principles | Belmont: respect for persons, beneficence, justice | Principles require interpretation; they do not mechanically resolve tradeoffs. |
+| U.S. federally funded research compliance | Common Rule IRB review and informed consent | IRB approval is a regulatory floor, not proof the study is ethically ideal. |
+| Health-data privacy | HIPAA identifiers, covered entities, and de-identification | HIPAA scope is narrower than "all health-related data." |
+| EU personal data in research | GDPR consent, purpose limitation, minimization, lawful basis | Research exemptions exist, but purpose and data minimization still matter. |
+| IRB review level | Exempt, expedited, or full board based on risk/category | "Exempt" still requires IRB determination; researchers do not self-exempt. |
 
 ---
 

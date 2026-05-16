@@ -1,6 +1,6 @@
 # Health Metrics
 
-## The Measurement Problem in Population Health
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -305,18 +305,28 @@ TOP ATTRIBUTABLE RISK FACTORS (GBD 2019, global DALYs):
   highest-value investment in most populations.
 ```
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Experimental and observational evidence design | `statistics-applied/01-EXPERIMENTAL-DESIGN.md` |
+| Chronic disease burden measurement | `public-health/05-CHRONIC-DISEASE.md` |
+| Global-health comparisons and priorities | `public-health/07-GLOBAL-HEALTH.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Metric question | Metric to use |
-|---|---|
-| Compare life expectancy across countries | e0 from period life table (age-standardized) |
-| Control for age structure in death rate comparison | Direct or indirect standardization |
-| Capture both mortality AND morbidity burden | DALY = YLL + YLD |
-| Prioritize health investments by cost-effectiveness | ICER = ΔCost/ΔQALY; compare to WTP threshold |
-| Measure healthy years expected, not just total years | HALE |
-| Attribute disease burden to modifiable risk factors | GBD CRA → PAF × total DALYs = attributable DALYs |
-| Evaluate clinical treatment coverage decision | QALY-based cost-effectiveness (NICE model) |
-| Compare global burden across disease categories | GBD total DALYs by cause |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Life expectancy comparison | `e0` from period life tables | Period life expectancy is synthetic; it is not a cohort forecast. |
+| Age-structure control | Direct or indirect standardization | Choose indirect standardization when study age-specific rates are unstable. |
+| Mortality plus morbidity burden | DALY = YLL + YLD | Disability weights embed value judgments. |
+| Investment cost-effectiveness | ICER = delta cost / delta QALY or DALY averted | Threshold choice is normative and budget-constrained. |
+| Healthy years expected | HALE rather than total life expectancy | HALE depends on morbidity measurement quality. |
+| Risk-factor attribution | GBD comparative risk assessment and PAFs | Attributable burden assumes causal exposure-risk functions. |
+| Clinical coverage decisions | QALY-based cost-effectiveness, e.g. NICE-style HTA | QALY maximization can conflict with equity or severity weighting. |
+| Global burden comparison | GBD total DALYs by cause | Modeled estimates may differ from national reporting. |
 
 ## Common Confusion Points
 

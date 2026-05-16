@@ -6,7 +6,7 @@
 
 ---
 
-## The Big Picture — Metabolic Map
+## The Big Picture
 
 ```
 FUEL INPUTS
@@ -400,19 +400,25 @@ HORMONAL CONTROL:
 
 ---
 
+## Cross-References
+
+- `nutrition/06-METABOLISM-ENERGY.md` - organism-level energy balance.
+- `natural-sciences/07-ENZYMES.md` - enzymatic control of metabolic flux.
+- `disease/06-METABOLIC-ENDOCRINE.md` - metabolic disease as pathway dysregulation.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Answer |
-|----------|---------|--------|
-| Where is glycolysis regulated? | PFK-1 | Main committed step; ATP inhibits, AMP activates |
-| Why can't fatty acids make glucose? | Acetyl-CoA → OAA bypass | Acetyl-CoA enters TCA but both carbons lost as CO₂ |
-| Why does FADH₂ yield less ATP than NADH? | Complex II | FADH₂ enters at Complex II (no proton pumping) |
-| Why does the brain need glucose? | Fuel specificity | Can't use fatty acids (can't cross BBB); uses ketones during starvation |
-| Why is lactate produced during sprinting? | Anaerobic → NAD⁺ limit | O₂ delivery insufficient; LDH regenerates NAD⁺ |
-| What is the Cori cycle? | Lactate shuttle | Muscle lactate → liver → glucose → muscle |
-| Why is gluconeogenesis not reverse glycolysis? | 3 irreversible steps | Need pyruvate carboxylase, PEPCK, G6Pase |
-| What does NADPH do? | Reductive power | Biosynthesis + antioxidant (GSH reduction) |
-| Why is fat better stored fuel than carbohydrate? | Carbon oxidation state | Fats more reduced → more electrons → more ATP |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Glycolysis control point | PFK-1 committed step | Regulation is distributed across hormonal and energy signals. |
+| Fat-to-glucose impossibility | Acetyl-CoA carbon loss in TCA | Odd-chain fatty acids are partial exception via propionyl-CoA. |
+| FADH2 lower ATP yield | Complex II entry without proton pumping | P/O ratios are approximate, not fixed integers. |
+| Brain fuel specificity | Fatty acids do not cross BBB well | Ketones become important during starvation. |
+| Sprint lactate production | NAD+ regeneration by LDH | Lactate is a redox shuttle, not simply waste. |
+| Cori cycle | Muscle lactate to liver glucose | Liver pays ATP cost to recycle carbon. |
+| Gluconeogenesis route | Bypass of three irreversible glycolysis steps | It is not reverse glycolysis. |
+| NADPH demand | Reductive biosynthesis and antioxidant defense | NADH and NADPH are compartmentalized currencies. |
+| Fat energy density | More reduced carbon state | Storage advantage also includes anhydrous packing. |
 
 ---
 

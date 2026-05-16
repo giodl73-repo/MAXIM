@@ -334,17 +334,24 @@ The reintroduction of gray wolves (*Canis lupus*) to Yellowstone National Park (
 
 ---
 
+## Cross-References
+
+- `04-FOREST-ECOLOGY.md` defines the structures conservation tries to preserve.
+- `07-SILVICULTURE.md` supplies management interventions and tradeoffs.
+- `08-FOREST-ECONOMICS.md` explains carbon, timber, and ecosystem-service incentives.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What makes a forest "old-growth"? | Structural complexity: large live trees, large snags, large CWD, multiple canopy layers, pit-and-mound topography |
-| Reforestation or afforestation for carbon? | Reforestation on previously forested land; avoid afforestation on peatlands, native grasslands |
-| What fraction of US old-growth remains? | < 5% of original; < 1% in eastern forest; Pacific NW 10–20% |
-| What is the evidence that rewilding works? | Yellowstone wolves (15+ yr data); sea otter/kelp (Pacific coast); Knepp Estate (UK farmland to rich habitat in 20 yr) |
-| What edge effect depth should I use to define forest interior? | > 300–600 m from edge depending on species; conservative planning: > 600 m |
-| What drives Amazon deforestation? | ~67% cattle, ~17% soy, with road building as the access vector |
-| Why can tree planting be harmful? | Peatland/grassland afforestation destroys ancient ecosystems and may cause net carbon loss |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Old-growth status | Structural complexity: large live trees, snags, coarse woody debris, canopy layers, pit-and-mound topography | Age alone is not the definition. |
+| Carbon-oriented planting | Reforestation on previously forested land | Avoid afforestation on peatlands and native grasslands. |
+| US old-growth scarcity | Less than 5% of original old-growth; less than 1% in eastern forests | Pacific Northwest remnants are larger but still depleted. |
+| Rewilding evidence | Yellowstone wolves, sea otter/kelp systems, Knepp Estate | Trophic effects are context-dependent and require long monitoring. |
+| Forest-interior habitat | Edge depth greater than 300-600 m depending on species | Conservative planning often uses more than 600 m. |
+| Amazon deforestation driver | Cattle, soy expansion, and roads as access vectors | Road building is often the enabling mechanism. |
+| Harmful tree planting | Peatland/grassland afforestation and monoculture pledges | More trees is not always more biodiversity or more carbon. |
+| Protected-area effectiveness | Enforcement, management funding, and local tenure | Paper parks can perform like unprotected land. |
 
 ---
 

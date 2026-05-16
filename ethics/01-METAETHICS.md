@@ -349,19 +349,27 @@ IN PRACTICE:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Consequentialist normative theory | `ethics/02-CONSEQUENTIALISM.md` |
+| Deontological normative theory | `ethics/03-DEONTOLOGY.md` |
+| Virtue ethics as character-centered alternative | `ethics/04-VIRTUE-ETHICS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Position | Moral claims truth-apt? | Moral facts exist? | How we know |
-|---|---|---|---|
-| Moral naturalism | Yes | Yes (= natural facts) | Empirical investigation |
-| Moral non-naturalism | Yes | Yes (non-natural) | Moral intuition |
-| Cornell realism | Yes | Yes (natural, a posteriori) | Empirical + conceptual |
-| Constructivism | Yes (constructed) | Yes (constructed) | Rational reflection |
-| Emotivism (Ayer) | No | No | N/A (express attitudes) |
-| Quasi-realism (Blackburn) | Yes (earned) | Functionally yes | Quasi-real justification |
-| Norm-expressivism (Gibbard) | Yes (norms) | No mind-independent | Coherent norm acceptance |
-| Error theory (Mackie) | Yes | No — all false | They're just false |
-| Cultural relativism | Yes, relatively | Relative to cultures | Cultural investigation |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Realist naturalism | Moral facts as natural facts known empirically | Moore's open-question argument mainly targets analytic naturalism. |
+| Non-natural realism | Truth-apt moral claims and non-natural facts | Intuition must explain disagreement and epistemic access. |
+| Cornell realism | A posteriori natural moral properties | Treats moral properties like theoretical identities, not definitions. |
+| Constructivism | Moral truth constructed through rational procedure | Constructed truth is not the same as mere preference or culture. |
+| Expressivist families | Moral claims as attitudes, commitments, or norm acceptance | Sophisticated expressivism preserves much of moral discourse's surface logic. |
+| Error theory | Truth-apt moral claims with no moral facts | Metaethical falsity does not mechanically imply social nihilism. |
+| Relativism | Moral truth indexed to cultures or frameworks | "Respect all cultures" is itself a normative claim, not a relativist consequence. |
 
 ---
 

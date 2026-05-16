@@ -345,16 +345,26 @@ CRITIQUES — ORGANIZED BY PARADIGM
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Liberal institutional counter-argument | `international-relations/02-LIBERALISM.md` |
+| Constructivist critique of material power | `international-relations/03-CONSTRUCTIVISM.md` |
+| Nuclear deterrence as realist security logic | `international-relations/04-NUCLEAR-DETERRENCE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Realist answer |
-|----------|----------------|
-| Why does war happen? | Anarchy + distribution of power + security dilemma; rational states pursue power, conflict follows |
-| Do alliances last? | No — alliances are temporary coalitions of interest; balance against the most threatening, not the most powerful |
-| Will China challenge the US? | Offensive realism: yes, structurally determined; defensive realism: possible accommodation if China is "satisfied" |
-| Does trade prevent war? | Realism: no — relative gains concerns mean trade doesn't prevent conflict between competing great powers |
-| Are nuclear weapons stabilizing? | Waltz: yes — secure second strike → mutual deterrence → great powers avoid direct conflict |
-| Does foreign policy follow rational interest? | Structural realism: yes; neoclassical: sometimes distorted by domestic politics and misperception |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| War causation | Anarchy, power distribution, and security dilemma | Realism predicts tendencies, not specific war dates. |
+| Alliance durability | Temporary coalitions against threat | States balance against perceived threat, not raw power alone. |
+| China-US competition | Offensive realism versus defensive realism | Structural prediction is not moral endorsement. |
+| Trade and conflict | Relative-gains concerns in security competition | Trade raises costs but may not dominate security stakes. |
+| Nuclear stability | Secure second strike and mutual deterrence | Stability at the great-power level can coexist with proxy violence and crisis risk. |
+| Rational-interest foreign policy | Structural incentives filtered by neoclassical domestic politics | Misperception and institutions can distort state response. |
 
 ---
 

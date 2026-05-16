@@ -187,16 +187,22 @@ Communities change over time (→ covered in detail in 05-SUCCESSION-STABILITY.m
 
 ---
 
+## Cross-References
+
+- `ecology/01-POPULATION-DYNAMICS.md` - population dynamics underneath communities.
+- `evolutionary-biology/08-COEVOLUTION.md` - reciprocal adaptation among interacting species.
+- `botany/05-FLOWERS-REPRODUCTION.md` - pollination as a community interaction.
+
 ## Decision Cheat Sheet
 
-| Community observation | Ecological interpretation |
-|-----------------------|--------------------------|
-| Single species dominates after removal of one species | Keystone predator or dominant competitor removed |
-| Vegetation recovering in areas of predator reintroduction | Trophic cascade (behavioral + consumptive) |
-| Two similar species segregate in different microhabitats | Character displacement / niche partitioning (coexistence mechanism) |
-| Species diversity highest with intermediate predation | Keystone predator maintains diversity by suppressing dominant |
-| Introduced predator collapses native prey community | Naive prey (no evolutionary history with predator) |
-| Plant diversity increases after fire removes dominant grass | Intermediate disturbance; competitive dominant suppressed |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Dominance after one species removal | Keystone predator or dominant competitor release | Keystone status is impact-weighted, not biomass-weighted. |
+| Vegetation recovery after predator return | Trophic cascade | Cascades can be behavioral, consumptive, or both. |
+| Similar species segregating by microhabitat | Niche partitioning or character displacement | Pattern alone does not prove evolutionary displacement. |
+| Peak diversity under moderate predation | Keystone predation suppressing a dominant | Intermediate effects are context-dependent. |
+| Native prey collapse after introduced predator | Naive prey lacking evolutionary history | Habitat change and disease can co-drive collapse. |
+| Plant diversity after fire | Disturbance suppressing competitive dominant | Fire regime matters as much as fire presence. |
 
 ---
 

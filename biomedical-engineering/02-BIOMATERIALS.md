@@ -490,19 +490,25 @@ foreign body response (scaffold outlasts need).
 
 ---
 
+## Cross-References
+
+- `biomedical-engineering/01-BIOMECHANICS.md` — mechanical loading context for materials.
+- `materials/02-BONDING-BANDS.md` — bonding and material behavior fundamentals.
+- `medicine/06-CANCER-DRUGS.md` — implanted and drug-delivery material constraints.
+
 ## Decision Cheat Sheet — Material Selection
 
-| Application | Primary Choice | Rationale |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Fracture fixation plate (temporary) | 316L SS or Ti-6Al-4V | Stiffness, strength, removal planned |
-| Cementless hip stem (permanent) | Ti-6Al-4V (porous-coated) | Osseointegration, MRI conditional |
-| Hip femoral head bearing | CoCrMo or alumina (ceramic) | Wear resistance |
-| Acetabular cup liner | UHMWPE (cross-linked + Vit. E) | Low wear, toughness |
-| Spinal interbody cage | PEEK or Ti-6Al-4V (porous) | Radiolucency, stiffness matching |
-| Dental implant | Ti-6Al-4V or Ti Grade 4 | Osseointegration |
-| Absorbable bone screw | PLLA or PLGA composite | Degrades as bone heals |
-| Drug delivery scaffold | PLGA (tunable degradation) | Releases drug as it degrades |
-| Self-expanding stent | Nitinol | Superelastic, MRI conditional |
-| Balloon-expanded stent | CoCrMo or 316L SS | High radial strength |
-| Soft tissue implant | Silicone | Elasticity, bioinert |
-| Bone graft substitute | Beta-TCP or HA | Resorbable, osteoconductive |
+| Whether a temporary fracture plate can be stiff and removable | 316L stainless steel or Ti-6Al-4V | Stiffness helps fixation but can stress-shield; removal plan changes material tradeoff. |
+| Whether a permanent hip stem should integrate with bone | Porous-coated Ti-6Al-4V | Osseointegration depends on surface, loading, and surgical fit, not alloy alone. |
+| Which bearing surface resists hip wear | CoCrMo or alumina ceramic femoral head | Wear debris biology and fracture risk differ by material pair. |
+| Which acetabular liner balances wear and toughness | Cross-linked UHMWPE with vitamin E | Oxidation resistance helps, but geometry and activity level still govern wear. |
+| Whether a spinal cage needs radiolucency or porous ingrowth | PEEK or porous Ti-6Al-4V | Stiffness mismatch, imaging visibility, and fusion surface all trade off. |
+| Whether dental implants need titanium | Ti-6Al-4V or Grade 4 Ti | Osseointegration also depends on surface roughness, oral load, and infection control. |
+| Whether a bone screw should disappear | PLLA/PLGA composite | Degradation rate must match healing; acidic byproducts can inflame tissue. |
+| Whether a scaffold should release drug while degrading | PLGA | Tunable degradation is useful only when release kinetics match therapy. |
+| Whether a stent must self-expand | Nitinol | Superelasticity helps tortuous anatomy; nickel sensitivity and fatigue still matter. |
+| Whether a stent needs balloon expansion | CoCrMo or 316L stainless steel | High radial strength trades against flexibility and deliverability. |
+| Whether soft-tissue implants need elastic bioinert material | Silicone | Bioinert does not mean immune-invisible; encapsulation and rupture remain concerns. |
+| Whether bone graft substitute needs osteoconduction | Beta-TCP or hydroxyapatite | Resorption and new bone formation must be balanced for the defect. |

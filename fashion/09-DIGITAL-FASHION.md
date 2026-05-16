@@ -16,8 +16,8 @@
 |  7. 3D design tools: CLO, Browzwear (design before sampling)     |
 |                                                                  |
 |  MARKET SIZE                                                     |
-|  Metaverse fashion (broad def): $55-$80B projected 2030          |
-|  Gaming cosmetics: $50B+ actual (2023)                           |
+|  Metaverse fashion projections: speculative, hype-era numbers    |
+|  Gaming cosmetics: large proven market, bigger than NFT fashion  |
 |  NFT fashion: peaked 2021-2022; collapsed 2022-2023              |
 |                                                                  |
 |  SUSTAINABILITY CLAIM:                                           |
@@ -81,7 +81,7 @@ GAMING COSMETICS SCALE (2023)
   League of Legends (Riot): >$1B annual from skins
   Call of Duty: $600M+ annual from bundles/skins
 
-  Total gaming cosmetic market: $50-60B annually (2023)
+  Total gaming cosmetic market: tens of billions annually
   This DWARFS the "digital fashion" market as usually defined.
 
   A FORTNITE SKIN ($5-20) IS DIGITAL FASHION:
@@ -155,10 +155,12 @@ THE CRASH (2022-2023)
   Crypto market collapses: ETH price -75%
   NFT trading volume: -97% from peak
   Most fashion NFT projects: near-zero secondary market value
-  RTFKT/Nike: team largely disbanded 2023
+  RTFKT/Nike: wound down after the boom rather than becoming a
+  durable mass-market fashion channel
 
   WHAT REMAINED:
-  Nike: still holds RTFKT assets; undefined long-term plan
+  Nike: RTFKT assets and experiments remain a case study in post-boom
+        digital-collectible uncertainty
   Some blockchain-based digital collectibles: ongoing but niche
   Gaming NFTs: some survival (limited)
 
@@ -308,6 +310,12 @@ THE COUNTER-ANALYSIS:
 
 ---
 
+## Cross-References
+
+- [Fashion Theory](08-FASHION-THEORY.md) explains why virtual garments still function as identity and status signals.
+- [Fashion Industry](04-FASHION-INDUSTRY.md) gives the physical supply-chain baseline that digital fashion partly bypasses.
+- [Sustainable Fashion](07-SUSTAINABILITY.md) frames the environmental comparison between material and virtual production.
+
 ## Common Confusion Points
 
 **"Digital fashion = NFTs"** -- NFTs were a speculative application of digital
@@ -326,7 +334,7 @@ not be net positive depending on whether they complement or substitute physical
 purchase. The energy cost of digital is real.
 
 **"Digital fashion is for young people / gamers"** -- Gaming cosmetics are
-mainstream. Fortnite had 350M registered accounts in 2021. The demographic
+mainstream. Fortnite has hundreds of millions of registered accounts. The demographic
 spending on in-game cosmetics spans from children to adults in their 40s.
 
 ---
@@ -335,12 +343,12 @@ CLO 3D and Browzwear are **digital twin pipelines for garment production**: simu
 
 ## Decision Cheat Sheet
 
-| When you need to...                                        | Strategy / Tool                           | Because                                                  |
-|------------------------------------------------------------|-------------------------------------------|----------------------------------------------------------|
-| Reduce physical sample iterations in design                | CLO 3D / Browzwear (digital twin of garment)| Simulate drape physics and fit before cutting fabric     |
-| Reach Gen Z at lower unit economics than physical product  | Gaming cosmetics partnerships (Fortnite, Roblox)| $50B+ market; digital-only margin structure              |
-| Evaluate NFT fashion as a strategy                         | Don't — speculation bubble collapsed 97%  | Speculative asset, not product with use value            |
-| Assess whether digital fashion reduces environmental impact| 3D sampling: proven. Virtual-only garments: unclear | 3D sampling eliminates physical prototypes; virtual wear is additive |
-| Virtual influencers and their use                | Brand partnerships; authenticity risk| Controlled image but audiences distrust undisclosed virtual nature |
-| Metaverse fashion in 2024                        | Mostly shelved; gaming thrives    | Meta/Decentraland hype deflated; Fortnite/Roblox remain viable |
-| AI role in fashion design currently              | Moodboards, patterns; not full design| Generative AI accelerates concepting but doesn't replace drape judgment |
+| If you need to evaluate... | Ask First | Strong Signal |
+|----------------------------|-----------|---------------|
+| 3D design tools | Does the workflow replace physical samples? | Fewer prototypes, less airfreight, faster fit iteration |
+| Gaming cosmetics | Is there an existing social space where identity display matters? | Fortnite/Roblox-style demand already exists without metaverse assumptions |
+| NFT fashion | What function does blockchain add beyond resale speculation? | A durable use case that does not depend on asset-price appreciation |
+| Digital-only garments | Do they substitute for physical purchases or add another consumption layer? | Measured displacement, not just lower material input |
+| Virtual influencers | Is the synthetic nature disclosed and accepted? | Controlled brand image without authenticity backlash |
+| Metaverse fashion | Are users already spending time there without subsidies or hype? | Persistent daily use, not land sales or press launches |
+| AI design | Is the task concepting, pattern engineering, or collection editing? | AI accelerates ideation; production fit and editorship still need human judgment |

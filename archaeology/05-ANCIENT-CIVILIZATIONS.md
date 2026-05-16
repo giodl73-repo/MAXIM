@@ -294,16 +294,23 @@ INFORMATION MANAGEMENT AS STATE DRIVER:
 
 ---
 
+## Cross-References
+
+- `archaeology/04-PREHISTORY.md` — transition from prehistoric societies to early states.
+- `epigraphy/01-CUNEIFORM.md` — writing as archaeological evidence for state systems.
+- `urban-planning/01-LAND-USE.md` — settlement organization as a built-system problem.
+
 ## Decision Cheat Sheet
 
-| Use this approach when... | Method / concept | Notes |
-|--------------------------|-----------------|-------|
-| Distinguishing independent urban invention from diffusion | Comparative urbanism: timing, geographic separation, subsistence base | Simultaneous appearance in isolated regions (Mesopotamia, Indus, China, Mesoamerica) with different subsistence bases = convergent evolution, not diffusion |
-| The written record claims something the material record contradicts | Material culture analysis as primary evidence | Pyramid-builder villages with administrative records disprove "slave" narrative; Indus urban planning without monumental temples disproves theocratic model derived from analogies with Mesopotamia |
-| Explaining state formation without a single cause | Multi-factor systems model | Irrigation management, trade control, military coercion, ritual authority — weight each factor against archaeological evidence; no single variable explains all cases |
-| Interpreting a script that hasn't been deciphered | Internal analysis: sign frequency, distribution, Zipf's law | Can establish whether it is likely a writing system (language encoding) vs. a non-linguistic marking system before decipherment |
-| Tracing the spread of a specific technology or crop | Archaeobotany / zooarchaeology + radiocarbon sequencing | Dated first appearances at multiple sites + direction of spread establish diffusion trajectories |
-| Understanding "collapse" without implying extinction | Distinguish elite administrative collapse from population decline | The Maya "collapse" is the failure of the southern lowland palace economy; Maya population continued and the northern cities thrived for another 200+ years |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Independent urban invention versus diffusion | Comparative urbanism: timing, separation, subsistence, and site networks | Similar cities can be convergent responses to scale, not proof of contact. |
+| Written claims that conflict with material evidence | Material culture, settlement, administrative, and labor evidence | Texts encode agendas; absence or contradiction in material record matters. |
+| State formation without monocausal stories | Multi-factor systems model | Irrigation, trade, coercion, and ritual authority vary by case; no single driver explains all states. |
+| Undeciphered script status | Sign frequency, distribution, repetition, and Zipf-like behavior | Internal structure can suggest writing without revealing language or content. |
+| Technology or crop spread | Archaeobotany/zooarchaeology plus radiocarbon-sequenced first appearances | First finds are sampling artifacts until multiple dated sites establish direction. |
+| "Collapse" versus extinction | Separate elite administration, population, settlement pattern, and continuity | Civilizational collapse usually means institutional failure, not disappearance of people. |
+| Whether "civilization" is a value claim | Urban scale, administration, craft specialization, and material traces | Archaeological usage is descriptive of organization, not moral superiority. |
 
 ---
 

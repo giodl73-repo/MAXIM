@@ -446,36 +446,24 @@ NEAR-CONTEMPORARIES:
 
 ---
 
+## Cross-References
+
+- `animal-phylogeny/08-CHORDATA-ORIGINS.md` — chordate foundations.
+- `animal-phylogeny/10-AMPHIBIA.md` — transition from water to land.
+- `marine-biology/04-FISH-ECOLOGY.md` — fish as marine and freshwater ecological systems.
+
 ## Decision Cheat Sheet
 
-```
-WHAT FISH IS THIS?
-
-No jaws, eel-like body, no paired fins?
-  → AGNATHA
-  Sucker mouth with rasping teeth, 7 gill pores → Lamprey
-  No eyes visible, releases slime when grabbed → Hagfish
-
-Has jaws. Cartilage skeleton (X-ray shows no bone)?
-  → CHONDRICHTHYES
-  Streamlined, heterocercal tail, rough skin? → SHARK
-  Flattened, pectoral fins as wings, eyes on top → RAY/SKATE
-  Blade-like saw rostrum → Sawfish (critically endangered)
-  Chimaera-like (long rat tail, plate teeth)  → Holocephali
-
-Has jaws. Bony skeleton. Fins with thin rays?
-  → ACTINOPTERYGII
-  Very deep body, flattened laterally?  → likely Pleuronectiformes (flatfish)
-  Elongated eel-like?                   → Anguilliformes
-  Seahorse shape?                       → Syngnathiformes
-  Puffs up when threatened?             → Tetraodontiformes
-
-Has jaws. Bony skeleton. Fins with fleshy lobe?
-  → SARCOPTERYGII
-  Known only from Indian Ocean/Indonesia? → Coelacanth
-  Has actual lungs, freshwater?          → Lungfish
-  Has four limbs?                        → TETRAPOD (you're here)
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether "fish" is the right category | Aquatic vertebrate body plan | "Fish" is a practical grade; tetrapods sit inside the broader ancestry. |
+| Whether a jawless eel-like animal is agnathan | No jaws, no paired fins, eel-like body | Lampreys and hagfish are not interchangeable; slime, eyes, and sucker mouth differ. |
+| Whether a jawed fish is chondrichthyan | Cartilaginous skeleton, placoid scales, jawed form | Cartilage is not "primitive weakness"; sharks are ancient and highly specialized. |
+| Whether shark, ray/skate, sawfish, or chimaera is likely | Body shape, tail, pectoral fins, saw rostrum, or plate teeth | Similar silhouettes can mask different conservation and phylogenetic status. |
+| Whether a bony fish is ray-finned | Bony skeleton and thin fin rays | Ray-finned fishes dominate diversity but are not the ancestor of tetrapods. |
+| Whether ray-finned order hints are useful | Flatfish, eel-like, seahorse, or puffer body forms | Specialized morphology can reflect ecology and metamorphosis, not simple lineage rank. |
+| Whether a bony fish is lobe-finned | Fleshy lobed fins and sarcopterygian anatomy | Lungfish and coelacanths are collateral relatives, not direct tetrapod ancestors. |
+| Whether lungs or swim bladders came first | Basal bony-fish air-breathing context | Swim bladders are modified lungs in many lineages, not the reverse. |
 
 ---
 

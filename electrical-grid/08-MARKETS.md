@@ -41,7 +41,7 @@ ELECTRICITY MARKET STRUCTURE (US):
 
 Before deregulation: vertically integrated utilities (generation + transmission + distribution) in geographic monopolies. They owned it all, operated it all, and a rate commission approved their rates.
 
-**The argument for deregulation:** Competition in generation → lower costs → lower prices. Utilities had no incentive to be efficient; they recovered all costs from ratepayers plus guaranteed return on investment.
+**The argument for deregulation:** Competition in generation could lower costs and prices by exposing generators to market discipline. The counterargument is that electricity reliability, market power, transmission constraints, and public-service obligations make the design problem much harder than ordinary commodity competition.
 
 **FERC Order 888 (1996):** Required utilities to provide "open access" to their transmission networks — competitors could use the wires at published rates (OATT — Open Access Transmission Tariff). Separated the natural monopoly (transmission) from the competitive function (generation).
 
@@ -616,20 +616,24 @@ ERCOT URI FAILURE ANATOMY:
 
 ## Decision Cheat Sheet
 
-| Question | Short Answer |
-|----------|-------------|
-| What is an ISO/RTO? | Independent System Operator / Regional Transmission Organization — independent entity that operates transmission and runs competitive wholesale markets |
-| What is LMP? | Locational Marginal Price — cost of serving one more MW of load at a specific grid node, including energy + congestion + losses; varies by location and time |
-| What causes LMP congestion? | Transmission line at thermal limit can't carry cheapest generation to load → must use more expensive local generation → price diverges between nodes |
-| Day-ahead vs real-time market? | DA: financially binding schedule for next day, run day before; RT: 5-minute balancing, settles deviations from DA schedule |
-| What is a capacity market? | Forward market paying generators for availability (MW available), not energy produced; ensures adequate generation capacity exists 3 years forward |
-| What is the "missing money" problem? | In energy-only markets, peakers earn insufficient revenue from infrequent dispatch → may retire → reliability gap; capacity markets fill this gap |
-| What are ancillary services? | Grid services beyond energy: regulation (fast frequency control), spinning reserve (online backup), non-spinning reserve (fast-start backup) |
-| What is a physical vs virtual PPA? | Physical: actual electricity delivered to offtaker; Virtual/Financial: contract-for-differences financial settlement, no physical delivery |
-| Why do batteries earn premium regulation payments? | Millisecond response vs minutes for gas; performance-based markets pay premium for speed and accuracy (2-3× more than slow resources) |
-| What is uniform clearing price? | All dispatched generators receive the clearing price set by the marginal (most expensive dispatched) unit, regardless of their offer price |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether an ISO/RTO market matters | Identify who controls dispatch, transmission access, reliability coordination, settlement, and market monitoring. | Some regions remain vertically integrated; market vocabulary does not automatically apply everywhere. |
+| An LMP or congestion claim | Decompose price into energy, congestion, and losses at the relevant node and interval. | "Cheap generation exists" is not enough if the network cannot deliver it to load. |
+| A day-ahead vs real-time settlement issue | Compare forecast, day-ahead schedule, real-time deviation, uplift, and imbalance exposure. | Day-ahead is a financial commitment; real-time is physical balancing under uncertainty. |
+| Whether capacity payments are needed | Check resource adequacy target, scarcity pricing, peaker revenue, retirement risk, demand response, imports, and accreditation rules. | Capacity markets can address missing money, but they do not automatically buy fuel security or weatherized performance. |
+| An ancillary-service revenue claim | Separate regulation, spinning reserve, non-spinning reserve, voltage support, ramping, and black-start products. | Speed and accuracy matter, but market saturation can erode premium payments. |
+| A PPA claim | Distinguish physical delivery, financial/virtual settlement, basis risk, REC ownership, shape risk, and firming obligation. | A VPPA is not the same as physically consuming the electrons from a plant. |
+| A battery-market claim | Test response capability, state-of-charge constraints, degradation, market participation rules, and stacked-service conflicts. | Fast response can earn value, but a battery cannot sell the same MW/MWh to incompatible obligations at once. |
+| A uniform-clearing-price critique | Ask whether the market is pay-as-bid, uniform-price, mitigated, constrained by transmission, and monitored for market power. | Uniform pricing incentivizes marginal-cost offers in theory; real markets require mitigation and scarcity rules. |
 
 ---
+
+## Cross-References
+
+- `03-TRANSMISSION.md` explains congestion, losses, and physical constraints behind market prices.
+- `06-ENERGY-STORAGE.md` shows how storage participates in energy and ancillary-service markets.
+- `../economics/01-MICROECONOMICS.md` supplies the supply-demand and market-clearing baseline.
 
 ## Common Confusion Points
 

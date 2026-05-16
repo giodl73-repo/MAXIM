@@ -6,7 +6,7 @@
 
 ---
 
-## Landscape
+## The Big Picture
 
 ```
 ┌────────────────────────────────────────────────────────────────────┐
@@ -390,19 +390,25 @@ EC 7  Translocases       Ion pumps, transport ATPases (added 2018)
 
 ---
 
+## Cross-References
+
+- `natural-sciences/04-KINETICS.md` - rate laws and activation barriers.
+- `natural-sciences/06-BIOMOLECULES.md` - proteins and cofactors as catalytic matter.
+- `biophysics/01-THERMODYNAMICS-BIO.md` - energy landscapes and biological constraints.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Key indicator |
-|----------|---------|--------------|
-| Does inhibitor change Vmax? | Inhibition type | Competitive: no; noncompetitive: yes |
-| Does inhibitor change Km? | Inhibition type | Competitive: yes; noncompetitive: no |
-| Lineweaver-Burk lines parallel — which inhibition? | Uncompetitive | Same slope = Km/Vmax unchanged |
-| Why is kcat/Km the key efficiency metric? | Second-order kinetics | At low [S], v₀ = (kcat/Km)[E][S] |
-| Sigmoidal v₀ vs [S] curve — what does it mean? | Cooperativity | n > 1 in Hill equation, allosteric enzyme |
-| Why does 2,3-BPG decrease O₂ affinity? | Allosteric T-state stabilization | BPG binds T → shifts equilibrium → less R |
-| What does a high Km mean? | Weak binding | Need high [S] to saturate; enzyme has low affinity |
-| How does phosphorylation regulate enzymes? | Covalent modification | Adds −2 charge; changes conformation; on or off |
-| What's the difference between synthase and synthetase? | EC nomenclature | Synthetase uses ATP; synthase does not |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Vmax change under inhibitor | Inhibition pattern | Pure textbook types are idealizations. |
+| Km change under inhibitor | Competitive versus noncompetitive signature | Km is operational, not always binding affinity. |
+| Parallel Lineweaver-Burk lines | Uncompetitive inhibition | Double-reciprocal plots overweight low-substrate noise. |
+| Catalytic efficiency | kcat/Km at low substrate | Diffusion limit bounds the metric. |
+| Sigmoidal velocity curve | Cooperative/allosteric enzyme | Hill coefficient is phenomenological. |
+| 2,3-BPG oxygen effect | T-state stabilization | Effect depends on hemoglobin context and pH. |
+| High Km interpretation | Higher half-saturation concentration | It only equals Kd under restrictive assumptions. |
+| Phosphorylation regulation | Covalent charge/conformation change | Phosphorylation can activate or inhibit. |
+| Synthase versus synthetase | EC naming convention | Historical names are not always perfectly consistent. |
 
 ---
 

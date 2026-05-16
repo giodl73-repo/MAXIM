@@ -319,6 +319,18 @@ Is it eukaryotic (has nucleus)?
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Molecular machinery of cells | `biology/01-MOLECULAR-MACHINERY.md` | LUCA, eukaryotes, and animals are built from conserved molecular systems |
+| Natural selection and transitions | `evolutionary-biology/01-NATURAL-SELECTION.md` | Major transitions require selection, cooperation, and inheritance |
+| Genomic evidence | `genomics/01-SEQUENCING-TECH.md` | Phylogeny is now inferred primarily from sequence data |
+| Animal diversity after origins | `zoology/01-ANIMAL-DIVERSITY.md` | Single-cell origins lead into metazoan body plans |
+| Symbiosis and microbes | `microbiology/01-BACTERIAL-BIOLOGY.md` | Endosymbiosis ties bacterial history to eukaryotic origin |
+
+---
+
 ## Common Confusion Points
 
 **Archaea ≠ ancient bacteria.**

@@ -862,32 +862,24 @@ spots. Always seed with human-authored golden cases.
 
 ---
 
+## Cross-References
+
+- `ai-engineering/01-LLM-CONCEPTS.md` — model primitives whose behavior the harness measures.
+- `ai-engineering/03-ORCHESTRATION.md` — framework traces and outputs that feed eval datasets.
+- `security-engineering/01-THREAT-MODELING.md` — adversarial mindset for red-team and safety eval design.
+
 ## Decision Cheat Sheet
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  WHAT DO I NEED?              │  DO THIS                            │
-├───────────────────────────────┼─────────────────────────────────────┤
-│  Quick eval, new feature      │  promptfoo init + 20 test cases    │
-│  Compare two models/prompts   │  promptfoo eval --providers A B     │
-│  CI gate on regressions       │  promptfoo eval --ci in GitHub Wf   │
-│  Complex eval logic in code   │  Braintrust SDK                     │
-│  Team reviews + UI            │  Braintrust cloud                   │
-│  RAG pipeline quality         │  RAGAS (faithfulness + recall)      │
-│  Trace prod + build dataset   │  LangSmith                          │
-│  Red-team / adversarial       │  promptfoo redteam                  │
-│  Zero external dependencies   │  Roll your own (50-line loop)       │
-│  Human in the loop            │  Braintrust annotation queue        │
-│                               │  or Argilla                         │
-├───────────────────────────────┼─────────────────────────────────────┤
-│  SCORER CHOICE                │                                     │
-│  Output is structural         │  JSON schema, regex, exact match    │
-│  Output is semantic           │  LLM-as-judge with rubric           │
-│  Output is a paraphrase       │  Embedding cosine similarity        │
-│  Output must match source     │  Faithfulness / RAGAS               │
-│  Output is a translation      │  BLEU / BERTScore                   │
-└───────────────────────────────┴─────────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a prompt change regressed quality | PromptFoo cases in CI | A green gate only covers the cases you wrote; keep adding failures back into the suite |
+| Whether two models are meaningfully different | Paired evals with the same dataset and scorer | Do not compare aggregate scores without inspecting variance and representative failures |
+| Whether a RAG answer is grounded | RAGAS faithfulness and context-recall checks | Faithfulness can pass while retrieval misses the right source; test both retrieval and generation |
+| Whether the scorer is trustworthy | A small hand-labeled calibration set | LLM-as-judge is a component under test, not an oracle |
+| Whether production traces should become tests | LangSmith or Braintrust dataset capture | Sample deliberately; raw logs reproduce traffic mix, not necessarily risk mix |
+| Whether a safety risk is exploitable | PromptFoo redteam plus focused adversarial cases | Red-team results are starting points; promote confirmed failures into stable regression tests |
+| Whether human review is required | Braintrust annotation queues or Argilla | Human labels must have a rubric, otherwise the eval measures reviewer taste |
+| Whether a lightweight harness is enough | A direct SDK loop with fixtures and assertions | Once cases, scorers, and trace capture multiply, move to a real eval platform |
 
 ---
 

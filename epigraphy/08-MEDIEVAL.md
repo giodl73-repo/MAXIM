@@ -368,17 +368,24 @@ SIGNIFICANCE:
 
 ---
 
+## Cross-References
+
+- `02-GREEK-LATIN.md` supplies the Latin epigraphic inheritance.
+- `05-RUNIC.md` covers northern vernacular inscription practices.
+- `09-MODERN-METHODS.md` covers church, tomb, coin, and stone documentation.
+
 ## Decision Cheat Sheet
 
-| Formula | Expanded | Context |
-|---------|---------|---------|
-| HIC IACET | Here lies | Tomb inscription opening |
-| OBIIT | Died [on date] | Memorial date marker |
-| CUIUS ANIMA REQUIESCAT IN PACE | Whose soul may rest in peace | Funerary closing (became "R.I.P.") |
-| ORATE PRO ANIMA | Pray for the soul of | Request for intercession |
-| DEI GRATIA REX | King by God's Grace | Coin / royal title formula |
-| DEDICATA EST | Was dedicated | Church dedication inscription |
-| HIS + OBIIT | Standard coin abbreviation | Coin reading shortcuts |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Tomb opening | `HIC IACET` and name/status sequence | Formulaic Latin can still carry local identity and patronage information. |
+| Memorial date | `OBIIT` plus feast day, regnal year, or calendar date | Dating requires local calendar conventions, not just translation. |
+| Funerary closing | `CUIUS ANIMA REQUIESCAT IN PACE` / R.I.P. lineage | "Rest in peace" is a back-translation from Latin formula. |
+| Intercessory request | `ORATE PRO ANIMA` and devotional context | The inscription asks the reader to perform an action, not just read a record. |
+| Royal coin legend | `DEI GRATIA REX`, ruler name, and mint formula | Abbreviations and damaged edges make coin legends specialist evidence. |
+| Church dedication | `DEDICATA EST` with saint, bishop, and date formulae | Dedication text is institutional memory as much as event record. |
+| Mason's mark | Repeated nonlinguistic mark on stone blocks | It is an accounting/workshop mark, not a signature or alphabetic text. |
+| Medieval graffiti | Pilgrim, ship, prayer, or presence mark context | Graffiti can be devotional evidence, not mere vandalism. |
 
 ---
 

@@ -265,14 +265,22 @@ Silence            |  Movement without sound           |  Pilobolus; post-Cage w
 
 ## Decision Cheat Sheet
 
-| Situation | Approach | Why |
-|-----------|----------|-----|
-| Need to reconstruct a specific historical work | Labanotation score | Only notation system with sufficient precision for choreographic reconstruction |
-| Analyzing movement quality (effort, flow) | Laban Movement Analysis (LMA) | Systematic vocabulary for describing *how* movement is performed, not just what |
-| Training for classical ballet technique | Vaganova method (Russian) or RAD (British) | Most codified technique systems with clear syllabi and examination standards |
-| Understanding contemporary movement vocabulary | Study modern → postmodern lineage | Graham → Cunningham → release technique → contact improvisation is the development path |
-| Scientific study of movement biomechanics | Motion capture (MoCap) + force plates | Quantitative 3D kinematic data; enables computational analysis |
-| Cross-cultural study of dance forms | Ethnochoreology framework | Comparative method; avoids Western-centric analysis of non-Western forms |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A historical reconstruction problem | Check notation availability, film, oral transmission, company lineage, music, and staging context. | Labanotation is powerful, but reconstruction still requires interpretive decisions. |
+| Movement quality | Use Laban Movement Analysis for effort, shape, space, flow, and phrasing. | LMA describes how movement is performed; it does not by itself evaluate artistic quality. |
+| Classical technique training | Compare Vaganova, RAD, Cecchetti, Balanchine, syllabus, body demands, and institutional goals. | Codified systems differ in emphasis; no method is neutral. |
+| Contemporary vocabulary | Trace modern, postmodern, release, contact improvisation, somatics, and hybrid lineages. | Contemporary dance is current practice, not a single historical style. |
+| Biomechanics or injury | Use motion capture, force plates, anatomy, workload, fatigue, and technique analysis. | Quantitative data needs artistic/contextual interpretation. |
+| Cross-cultural analysis | Start with ethnochoreology, local categories, ritual/social function, transmission, and power relations. | Avoid forcing non-Western forms into ballet-derived categories. |
+
+---
+
+## Cross-References
+
+- `01-BALLET.md` gives the codified classical technique and institution model.
+- `02-MODERN-POSTMODERN.md` shows the 20th-century break from ballet hierarchy and narrative.
+- `07-DANCE-SCIENCE.md` connects dance practice to biomechanics, injury, and training.
 
 ---
 

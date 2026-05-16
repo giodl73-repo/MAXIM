@@ -322,17 +322,23 @@ The platform problem:
 
 ---
 
+## Cross-References
+
+- `03-CONTENT-STRATEGY.md` supplies purpose, audience, and governance.
+- `01-WEB-WRITING.md` supplies web-native clarity and scanning behavior.
+- `09-FUTURE-TRENDS.md` extends storytelling into generative and spatial media.
+
 ## Decision Cheat Sheet
 
-| Form | Use when | Key tool |
-|------|---------|---------|
-| Scrollytelling | Story unfolds geographically or temporally; scroll maps to narrative | Scrollama, Shorthand |
-| Interactive data vis | User has multiple questions; data supports exploration | D3.js, Flourish, Datawrapper |
-| Narrative data vis | You have one specific message from data | Datawrapper, Illustrator, Flourish |
-| Branching story | Multiple equally valid paths; finite decisions | Twine, Ink, Yarn Spinner |
-| VR/immersive | Physical presence at scene is essential; niche distribution OK | Unity, Unreal, 360 video |
-| Podcast narrative | Audio-primary story; serial audience commitment desired | Interview + scripted hybrid |
-| Longform web | 2,000-20,000 words; committed reader | Atavist, Shorthand, own CMS |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Scrollytelling fit | Geographic or temporal story where scroll maps to narrative | Production cost is high; use for flagship pieces, not routine coverage. |
+| Exploratory data story | Interactive visualization when users have multiple questions | Interaction must serve inquiry, not decorate the page. |
+| Explanatory data story | Narrative visualization for one specific data message | Authorial sequencing is a feature, not a limitation. |
+| Branching story | Finite meaningful decisions with multiple paths | Full branching explodes; funneling and delayed consequences are normal. |
+| VR/immersive story | Physical presence at scene is central | Presence is not the same as empathy or durable behavior change. |
+| Podcast narrative | Audio-primary story with serial commitment | On-demand structure differs from broadcast scheduling. |
+| Longform web | Committed reader and 2,000-20,000 word depth | Length requires structure, navigation, and payoff. |
 
 ---
 

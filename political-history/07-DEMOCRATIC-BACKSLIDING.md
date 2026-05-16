@@ -292,16 +292,26 @@ DEMOCRATIC RESILIENCE FACTORS
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Authoritarian resurgence as broader pattern | `political-history/08-AUTHORITARIAN-RESURGENCE.md` |
+| Postwar democratic order | `political-history/06-POSTWAR-ORDER.md` |
+| Political-history interpretation debates | `political-history/09-HISTORIOGRAPHY.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is democratic backsliding? | Elected leaders gradually dismantling democratic constraints while maintaining electoral legitimacy — death by a thousand cuts, not coup |
-| What are the two informal norms Levitsky-Ziblatt identify? | Mutual toleration (accept opponents as legitimate) + institutional forbearance (don't use every legal power maximally) |
-| What is V-Dem's finding on backsliding speed? | Gradual — most cases take 5-10 years to full autocracy. Not sudden, making it harder to recognize in real time |
-| Why did Hungary succeed and Poland (partially) fail? | Hungary: Orbán got 2/3 constitutional majority; Polish courts and civil society stronger; EU pressure more effective in Poland |
-| What is Mounk's "undemocratic liberalism"? | Technocratic institutions (EU, IMF, central banks) making consequential decisions without democratic accountability — creates populist backlash |
-| What keeps democracies alive? | Strong courts, independent media, unified opposition, robust civil society, and crucially: norm-upholding factions within the ruling party |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Democratic backsliding | Elected leaders dismantling constraints while keeping elections | Bad governance or corruption is not backsliding unless institutions are degraded. |
+| Informal democratic norms | Mutual toleration and institutional forbearance | Legal power can be anti-democratic when maximized against constitutional spirit. |
+| Backsliding speed | V-Dem gradual 5-10 year autocratization patterns | Gradualism makes real-time recognition and coordination harder. |
+| Hungary versus Poland | Constitutional majority, court/civil society strength, EU leverage | Cases diverge because institutions and opposition capacity differ. |
+| Populist backlash to technocracy | Mounk's undemocratic liberalism | Technocratic insulation can provoke backlash without justifying autocratization. |
+| Democratic resilience | Courts, media, unified opposition, civil society, ruling-party norm keepers | Norm-upholding insiders can matter as much as formal checks. |
 
 ---
 

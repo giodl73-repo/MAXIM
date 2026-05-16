@@ -1,6 +1,6 @@
 # Social Preferences
 
-## Beyond Self-Interest
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -296,17 +296,27 @@ APPLICATIONS:
   than with the cross-functional project team.
 ```
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Individual bounded-rationality mechanisms | `behavioral-economics/03-HEURISTICS-BIASES.md` |
+| Market evidence for non-standard preferences | `behavioral-economics/08-MARKET-ANOMALIES.md` |
+| Policy implications of reciprocity and fairness | `behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Social preference question | Finding | Implication |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Will employees accept a clearly unfair pay offer? | Ultimatum game: ~50-80% reject offers < 20% | Internal pay equity matters for morale and retention |
-| How much weight should managers give to procedural fairness? | Fehr-Schmidt: α ≈ 0.5+ for most; process matters | Fair process acceptance even of bad outcomes |
-| Will a team free-ride on a shared project? | Conditional cooperation: most cooperate if others do | Visible contribution tracking; punishment of free-riding |
-| Will employees reciprocate trust with effort? | Trust game + efficiency wages: yes | Autonomy and above-market wages elicit reciprocal effort |
-| Does pay transparency hurt morale? | Card et al.: below-median employees reduce satisfaction | Transparency has equity benefits but morale costs for below-median |
-| How are organizational norms sustained? | Internalization + shame + social sanction | Leaders model behavior; maintain clean environments |
-| Why do cross-functional teams underperform? | Minimal group paradigm + competing identities | Shared team identity building; reduce departmental identity salience |
+| Rejection of unfair offers | Ultimatum-game inequity aversion | Fairness norms vary culturally; do not overfit WEIRD samples. |
+| Procedural fairness effects | Fehr-Schmidt disadvantageous inequity and process legitimacy | Fair process can soften bad outcomes but cannot redeem exploitation. |
+| Free-riding risk | Conditional cooperation and visible contribution tracking | Punishment can sustain cooperation but can also poison trust if perceived as unfair. |
+| Reciprocity to trust | Trust games, efficiency wages, autonomy, and perceived intent | Attribution matters; the same outcome can signal respect or manipulation. |
+| Pay transparency effects | Equity gains versus below-median morale costs | Transparency exposes unfairness; it does not by itself fix compensation design. |
+| Norm maintenance | Internalization, shame, sanctions, and leader modeling | Incentives can crowd out social norms when they reframe obligations as prices. |
+| Cross-functional underperformance | Minimal groups and competing identities | Shared identity must be real work design, not slogan-level team branding. |
 
 ## Common Confusion Points
 

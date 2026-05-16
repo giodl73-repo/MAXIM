@@ -337,18 +337,24 @@ MARS GEOCHEMISTRY FROM METEORITES AND SPACECRAFT
 
 ---
 
+## Cross-References
+
+- `planetary-science/01-SOLAR-SYSTEM-FORMATION.md` - solar-system formation context.
+- `planetary-science/09-PLANETARY-INTERIORS.md` - planetary interior constraints.
+- `geochemistry/02-ISOTOPE-SYSTEMS.md` - isotope tools for planetary histories.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| What are CAIs and why do they matter? | Calcium-aluminum-rich inclusions; oldest solids in solar system (4567.3 Ma); define t=0; have live ²⁶Al isotope evidence; condensed first from solar nebula |
-| What is the late veneer? | ~0.5-0.8% of Earth's mass added as chondritic material after core formation was complete; explains near-chondritic HSE ratios in mantle despite D_metal/silicate >> 10,000 |
-| What does the Δ¹⁷O diagram show? | Mass-independent oxygen isotope variation among solar system objects; each body has a unique fingerprint; Earth + Moon are identical → Theia same source region as Earth |
-| Why is the Moon depleted in volatiles? | Giant impact caused extreme heating and devolatilization; K, Na, Zn, Cl escaped to space during the post-impact synestia or early Moon stage |
-| What is KREEP? | Potassium-Rare Earth Elements-Phosphorus enriched material; represents the last residual melt of the Lunar Magma Ocean; concentrated on nearside of Moon |
-| How do we know SNC meteorites are from Mars? | Unique Δ¹⁷O = +0.32‰; trapped atmospheric gas matches Mars atmosphere measured by Viking; young ages (165-1300 Ma) imply geologically active body |
-| What is the CC-NC dichotomy? | Carbonaceous chondrites (CC) and non-carbonaceous chondrites (NC) have distinct nucleosynthetic isotope anomalies (⁵⁴Cr, ⁹⁶Mo, ⁵⁰Ti); suggests Jupiter formed as a barrier separating two nebular reservoirs |
-| What are Widmanstätten patterns? | Intergrowth of kamacite and taenite iron-nickel bands in iron meteorites; form by slow cooling (~1°C/Myr) of a metallic core; diagnostic of differentiated parent body cooling |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Solar-system time zero | CAIs at 4567.3 Ma | CAIs define earliest solids, not every meteorite age. |
+| Earth's late accretion | Late veneer HSE budget | It is inferred after core formation, not during main differentiation. |
+| Planetary oxygen fingerprint | Delta 17O mass-independent variation | Earth-Moon similarity constrains Theia/source mixing models. |
+| Lunar volatile depletion | Giant-impact heating and volatile loss | Isotopes indicate Moon is mostly proto-Earth material. |
+| Lunar residual melt | KREEP enrichment | KREEP is localized and records late magma-ocean evolution. |
+| Martian meteorite origin | SNC oxygen isotope, trapped atmosphere, young ages | Meteorite launch/alteration history still matters. |
+| Nebular reservoir split | CC-NC nucleosynthetic isotope dichotomy | Jupiter-as-barrier is a model, not direct observation. |
+| Iron meteorite cooling | Widmanstatten kamacite/taenite intergrowth | Pattern requires very slow cooling in differentiated parent body cores. |
 
 ---
 

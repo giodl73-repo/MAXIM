@@ -370,18 +370,24 @@ Jerome Bruner bridges Piaget and Vygotsky, adding important extensions:
 
 ## Decision Cheat Sheet
 
-| Concept | Key Insight | Practical Implication |
-|---------|-------------|----------------------|
-| Assimilation/accommodation | Learning = schema change | Prior knowledge determines what new info means |
-| Piaget's stages | Cognitive readiness matters | Age-appropriate task design |
-| Conservation | Children's logic is qualitatively different | Don't assume adult logic from children |
-| ZPD | Development happens at edge of current ability | Instruction in the productive zone |
-| Scaffolding | Temporary support that fades | Design for gradual release of responsibility |
-| Private speech | Self-talk is cognitive, not distraction | Encourage verbalization |
-| Spiral curriculum | Return to ideas with greater depth | Curriculum organization |
-| Discovery learning | Experts: moderate guidance; novices: explicit | Match guidance to expertise level |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A schema-change problem | Look for assimilation, accommodation, prior misconception, and what the learner must reorganize. | New information is interpreted through existing structure, not copied into memory unchanged. |
+| A developmental-readiness claim | Compare Piagetian sequence, task demands, language load, culture, and observed performance. | Stage labels are not precise age-based eligibility rules. |
+| A conservation or logic task | Check whether the child tracks invariance, reversibility, classification, and perspective-taking. | Failure can reflect task framing or language, not only cognitive incapacity. |
+| A ZPD intervention | Identify current independent performance, performance with help, scaffold type, and fading plan. | ZPD is a teaching diagnostic, not a measurable zone with sharp boundaries. |
+| A scaffolding design | Plan prompts, worked examples, peer/expert support, feedback, and gradual release. | Support that never fades becomes dependency rather than scaffolding. |
+| A private-speech behavior | Distinguish disruptive talking from self-regulation, planning, and strategy narration. | Self-talk can be cognitive work, not merely classroom noise. |
+| A spiral-curriculum choice | Revisit the same idea with higher abstraction, richer examples, and stronger transfer demands. | Repetition without increased depth is review, not spiral design. |
+| A discovery-learning proposal | Match guidance level to learner expertise, domain complexity, and risk of misconception. | Novices usually need explicit guidance; experts can benefit from more open exploration. |
 
 ---
+
+## Cross-References
+
+- `01-LEARNING-THEORY.md` places developmental theory among behaviorist, cognitive, and constructivist models.
+- `03-COGNITIVE-SCIENCE-EDU.md` contrasts developmental-stage accounts with memory and practice effects.
+- `../psychology/05-DEVELOPMENTAL.md` gives the broader developmental psychology context.
 
 ## Common Confusion Points
 

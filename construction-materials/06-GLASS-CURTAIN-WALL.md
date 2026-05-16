@@ -561,19 +561,25 @@ POINT-FIXED GLAZING SYSTEMS
 
 ---
 
+## Cross-References
+
+- `construction-materials/04-INDUSTRIAL-METALS.md` — frame systems that enable curtain walls.
+- `glassmaking/01-GLASS-SCIENCE.md` — glass chemistry and material behavior.
+- `architecture-history/06-MODERNISM.md` — modernist envelope and transparency ideals.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| Overhead glazing — which glass? | Laminated mandatory (e.g., tempered + SGP interlayer); never single lite |
-| Structural silicone for overhead glass? | No — silicone creeps under sustained gravity load; use mechanical retainers |
-| Best U-value single IGU achievable (standard components)? | ~0.5 W/m²K (triple + two soft-coat low-e + krypton fill + warm edge + thermally broken frame) |
-| South-facing glass in offices — cooling dominated? | Specify low SHGC (0.2–0.3); secondary shading still best practice |
-| High SHGC when needed? | North-facing residential in cold climate; passive solar heating strategy |
-| Tempered glass breaks — fragments safe? | Yes — thermally toughened: small dice. But no post-fracture residual capacity. |
-| SSG vs stick-built — which for speed? | Unitized SSG panels: fastest on-site erection; highest factory cost |
-| Thermal break width — trade-off? | Wider = better thermal; narrower = stiffer mullion. Typically 20–34 mm. |
-| Argon vs krypton fill? | Argon: cheaper, adequate for 12–16 mm gap. Krypton: thinner gap (8–12 mm); higher cost. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Which glass belongs overhead | Laminated glass, often tempered plus SGP interlayer | Overhead glass needs post-fracture retention; never rely on a single lite. |
+| Whether structural silicone can carry overhead glass | Mechanical retainers | Silicone creeps under sustained gravity load and is not the primary overhead support. |
+| What best-in-class single IGU U-value looks like | Triple glazing, two soft-coat low-e layers, krypton, warm edge, thermally broken frame | Center-of-glass numbers are not whole-window performance. |
+| Whether south-facing office glass is cooling dominated | Low SHGC around 0.2-0.3 plus shading | SHGC and U-value solve different physics; external shading often beats glass specification alone. |
+| When high SHGC is desirable | Cold-climate passive solar strategy | Orientation, occupancy, and summer overheating risk decide whether solar gain helps. |
+| Whether tempered glass fragments safely | Thermally toughened glass for dice-like fragments | Safe fragments do not mean residual structural capacity after fracture. |
+| Whether SSG or stick-built wins schedule | Unitized SSG panels for fastest site erection | Factory cost, tolerance control, access, and replacement strategy still matter. |
+| Whether wider thermal breaks are always better | Balance thermal break width against mullion stiffness | Wider breaks reduce conduction but may weaken structural stiffness. |
+| Whether argon or krypton fill fits the IGU | Argon for 12-16 mm gaps; krypton for thinner 8-12 mm gaps | Krypton improves thin cavities but costs more and does not fix poor edge/frame losses. |
 
 ---
 

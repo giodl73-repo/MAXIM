@@ -4,27 +4,42 @@
 
 ## The Big Picture
 
-Plate tectonics is geology's grand unified theory, explaining the distribution of mountains, earthquakes, volcanoes, ore deposits, and the assembly/dispersal of continents. The plates are rigid lithospheric slabs moving on the ductile asthenosphere, driven primarily by slab pull and ridge push.
+Plate tectonics is geology's grand unified theory, explaining the distribution of mountains, earthquakes, volcanoes, ore deposits, and the assembly/dispersal of continents. The plates are rigid lithospheric slabs moving on the ductile asthenosphere. Slab pull dominates many fast subducting systems; ridge push contributes; basal drag and mantle-flow coupling are regime-dependent; plume interpretation remains contested.
 
 ```
-+------------------------------------------------------------------+
-|                  GLOBAL PLATE SYSTEM                             |
-|                                                                  |
-|  PLATE BOUNDARIES                                                |
-|  ┌─────────────────────┬─────────────────────┬─────────────┐     |
-|  │ DIVERGENT           │ CONVERGENT          │ TRANSFORM   │     |
-|  │ (rifting apart)     │ (colliding)         │ (sliding)   │     |
-|  │                     │                     │             │     |
-|  │ Mid-ocean ridges    │ Subduction zones    │ Strike-slip │     |
-|  │ Continental rifts   │ Collision belts     │ fault zones │     |
-|  │ Ophiolites          │ Island arcs         │             │     |
-|  └─────────────────────┴─────────────────────┴─────────────┘     |
-|                                                                   |
-|  INTRAPLATE: Hotspot tracks, Large Igneous Provinces (LIPs)      |
-|                                                                   |
-|  DRIVING FORCES:                                                  |
-|  Slab pull (~dominant) > Ridge push > Mantle drag                |
-+------------------------------------------------------------------+
+GLOBAL PLATE SYSTEM
+===================
+
+OBSERVATIONS
+  fossils fit
+  magnetic stripes
+  earthquake belts
+  volcano chains
+        |
+        v
+PLATE MOTIONS
+  rigid lithosphere over weak asthenosphere
+  GPS today: cm/yr velocities, not speculation
+        |
+        +--> DIVERGENT: ridge/rift
+        |       creates ocean crust
+        |       young seafloor + high heat flow
+        |
+        +--> CONVERGENT: subduction/collision
+        |       destroys or thickens lithosphere
+        |       trenches + arcs + mountains + ore belts
+        |
+        +--> TRANSFORM: strike-slip boundary
+        |       offset ridges and continental fault zones
+        |       earthquake belts, little volcanism
+        |
+        +--> WILSON CYCLE
+        |       rift -> ocean opens -> matures -> subducts -> collision
+        |
+        +--> INTRAPLATE EXCEPTIONS
+                hotspot tracks, LIPs, plume debate
+
+DRIVERS: slab pull + ridge push + mantle coupling by regime
 ```
 
 ---
@@ -222,6 +237,14 @@ Detroit Seamount (~76 Ma)
 | Paired metamorphic belts | Ancient subduction: high-P side + arc high-T side |
 
 ---
+
+## Cross-References
+
+- [Igneous Rocks](02-IGNEOUS-ROCKS.md) shows how tectonic setting controls magma chemistry and volcanic rocks.
+- [Earthquakes and Volcanoes](06-EARTHQUAKES-VOLCANOES.md) follows plate boundaries into hazards and seismicity.
+- [Geologic Time](07-GEOLOGIC-TIME.md) places plate cycles into deep-time reconstruction.
+- [Planetary Geology](10-PLANETARY-GEOLOGY.md) contrasts Earth's mobile-lid tectonics with stagnant-lid and episodic-lid planets.
+- [Economic Geology](08-ECONOMIC-GEOLOGY.md) follows tectonic setting into ore-system formation.
 
 ## Common Confusion Points
 

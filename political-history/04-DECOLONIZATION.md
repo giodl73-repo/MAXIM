@@ -403,16 +403,26 @@ DECOLONIZATION — CHANGE MATRIX
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Imperial system being dismantled | `political-history/02-IMPERIALISM.md` |
+| Cold War pressures on new states | `political-history/05-COLD-WAR.md` |
+| Historiography of decolonization | `political-history/09-HISTORIOGRAPHY.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Who drove decolonization — metropole or periphery? | Both; timing depended on cost calculus of metropole + capacity of nationalist movements |
-| Why did British decolonization look different from French? | British preferred managed transfer; French had Algeria (settler colony integral to France) + Indochina (strategic) → used force |
-| What is the Radcliffe Line and why does it still matter? | Partition boundary drawn in 5 weeks by someone who'd never been to India; created Kashmir dispute still active today |
-| Why did Congo fail? | Colonial power (Belgium) extracted resources without building institutions; no trained civil service; Cold War superpower competition destabilized the new state |
-| What is the Non-Aligned Movement? | Bandung 1955; claim to Third World agency outside Cold War blocs; Nehru/Nasser/Tito; institutionally weak but ideologically significant |
-| What does Fanon argue about violence? | Violence is not just political strategy but psychological reclamation of agency for the colonized; also: bourgeois nationalism will reproduce colonial structures |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Metropole versus periphery causation | Imperial cost calculus plus nationalist capacity | Both sides mattered; timing varies by war, economy, and movement strength. |
+| British versus French patterns | Managed transfer versus settler/strategic colonies and force | Colonial style differs by local institutional preparation and metropolitan politics. |
+| Partition's long shadow | Radcliffe Line speed, ignorance, and Kashmir consequences | Partition violence was already rising; rushed boundary timing amplified chaos. |
+| Congo crisis roots | Belgian extraction, absent institutions, no trained civil service, Cold War intervention | "State failure" was produced by colonial governance choices, not simply postcolonial incapacity. |
+| Non-Aligned Movement significance | Bandung, Nehru/Nasser/Tito, Third World agency | Non-alignment was not pacifist neutrality; it was bloc independence with weak institutions. |
+| Fanon on violence | Psychological agency, political strategy, and bourgeois nationalism critique | Fanon is not a simple celebration of violence; he also diagnoses postcolonial elite reproduction. |
 
 ---
 

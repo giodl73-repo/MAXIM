@@ -308,16 +308,22 @@ LEVEL III — POSTCONVENTIONAL (principled ethics)
 
 ---
 
+## Cross-References
+
+- `cognitive-science/01-PERCEPTION.md` — perceptual development baseline.
+- `developmental-biology/06-NEURAL-DEVELOPMENT.md` — biological substrate for cognitive development.
+- `education/01-LEARNING-THEORY.md` — learning frameworks applied to development.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| When do children develop object permanence? | Piaget: ~8 months (reaching). Baillargeon: 3-5 months (looking). Explicit ToM needed for full appreciation. |
-| What is the ZPD? | The range between what a child can do alone and what they can do with skilled assistance |
-| When do children pass false belief? | ~4-5 years (explicit task); possibly ~13-15 months (implicit looking-time task) |
-| Does the marshmallow test predict outcomes? | Much weaker than originally claimed; largely confounded with SES |
-| What drives development: nature or nurture? | Both; interactionist consensus. Innate systems (Spelke's core knowledge) + social scaffolding (Vygotsky) |
-| Why do autistic individuals fail false belief? | Proposed ToM deficit; but may reflect earlier joint-attention difficulty; many autistic adults pass standard tests |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| When object permanence appears | Piaget reaching at about 8 months; Baillargeon looking at 3-5 months | Competence and performance diverge; task demands reveal different ages. |
+| Where instruction should target | Zone of proximal development | ZPD is the assisted range, not what the child can already do alone or cannot approach. |
+| When false-belief reasoning appears | Explicit tasks around 4-5 years; implicit looking-time claims much earlier | The implicit-task evidence is debated and may not equal full explicit theory of mind. |
+| Whether marshmallow-test delay predicts life outcomes | Replication and SES-confound literature | Predictive power is much weaker when family context is controlled. |
+| Whether nature or nurture drives development | Interactionist model: core knowledge plus social scaffolding | Modern consensus rejects a simple either/or. |
+| Why autistic children may fail false-belief tasks | ToM hypothesis plus joint-attention and task-demand alternatives | Many autistic adults pass standard tests; failure is not a global absence of social cognition. |
 
 ---
 

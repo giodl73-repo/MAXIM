@@ -2,7 +2,12 @@
 
 ## The Big Picture
 
-Insects are the dominant animals on Earth by every metric that matters: species count, biomass, ecological function, evolutionary tenure. Count anything alive and legged — most of what you count will be an insect. Everything else — all vertebrates, all other invertebrates — is a thin veneer on top of an insect world. The collector who tries to catalog insects never finishes. That is the first fact of entomology.
+Insects dominate terrestrial animal diversity by species count, abundance, and
+ecological function. Biomass rankings depend on whether termites, ants, marine
+crustaceans, livestock, and humans are counted, but the practical conclusion is
+unchanged: terrestrial ecosystems are insect-structured systems. The collector
+who tries to catalog insects never finishes. That is the first fact of
+entomology.
 
 ```
 +------------------------------------------------------------------+
@@ -256,7 +261,8 @@ INSECT EVOLUTIONARY TIMELINE
 ~50 Mya  --- Modern insect family composition established
 
 Present  --- Anthropocene insect decline:
-             ~40% declining species (Hallmann 2017; Sanchez-Bayo 2019)
+             strong regional biomass/abundance declines; global magnitude
+             varies by taxon, geography, land use, and sampling design
 ```
 
 ---
@@ -309,18 +315,24 @@ Phylogenetic trees are DAGs with specific constraints: directed (time flows root
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| How many insect species described? | ~1 million (~400K beetles alone) |
-| What defines an insect? | 3 tagmata, 3 leg pairs, 1 antenna pair |
-| Largest order? | Coleoptera (beetles, ~400,000 spp) |
-| What is Holometabola? | Orders with complete metamorphosis (~87% of insects) |
-| Fraction of flowering plants needing insect pollination? | ~75% |
-| When did wings evolve? | ~350 Mya, Carboniferous |
-| Are termites really cockroaches? | Yes — Isoptera embedded within Blattodea |
-| What distinguishes Hexapoda from Insecta? | Collembola/Protura/Diplura are hexapods but not insects |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| "Is it an insect?" | Three tagmata, three leg pairs, one antenna pair | Spiders, centipedes, millipedes, and crustaceans are arthropods, not insects |
+| Hexapod vs insect | Entognathous mouthparts and lineage placement | Springtails are hexapods but not true insects |
+| Order-level ID | Wing type, mouthparts, metamorphosis, and body plan | Common names cut across taxonomy |
+| Beetle dominance | Coleoptera species count and ecological breadth | "Largest" depends on described species, not necessarily biomass |
+| Metamorphosis claim | Hemimetaboly vs holometaboly | Larva/pupa/adult separation enabled major ecological niche partitioning |
+| Pollination claim | Flowering-plant dependency and crop dependency separately | Ecological dependence is not identical to human food-calorie dependence |
+| Insect-decline claim | Metric, region, taxon, and sampling method | Biomass, abundance, richness, and extinction risk are different signals |
+| Termite classification | Isoptera nested within Blattodea | "Cockroach" is phylogenetic, not a claim about household pests |
 
 ---
+
+## Cross-References
+
+- `01-INSECT-BODY-PLAN.md` gives the anatomical baseline for the section.
+- `03-METAMORPHOSIS.md` explains the developmental strategy that structures insect life histories.
+- `06-POLLINATION.md` shows the major ecological service linking insects and plants.
 
 ## Common Confusion Points
 
@@ -328,10 +340,10 @@ Phylogenetic trees are DAGs with specific constraints: directed (time flows root
 
 **Hemimetabola vs Holometabola**: Hemimetabola (incomplete metamorphosis) — nymphs resemble adults. Holometabola (complete) — larva, pupa, adult are morphologically distinct. "Metamorphosis" in common speech usually means holometabolous complete metamorphosis.
 
-**Termites are cockroaches**: Molecular phylogenetics placed Isoptera inside Blattodea. Termites are eusocial wood-feeding cockroaches. Current classification: family Termitoidae within order Blattodea.
+**Termites are cockroaches**: Molecular phylogenetics placed Isoptera inside Blattodea. Termites are eusocial wood-feeding relatives of cockroaches, commonly treated as infraorder Isoptera within Blattodea.
 
 **"Bug" is not "insect"**: True bugs (Hemiptera) have piercing-sucking mouthparts and characteristic wing structure. All bugs are insects; most insects are not bugs.
 
-**Species counts are a lower bound**: Tropical forests, soil fauna, and parasitoid Hymenoptera remain massively under-described. Estimated 5.5 million total insect species; ~1 million described. We have named barely one-fifth of what exists. The collection is never complete.
+**Species counts are a lower bound**: Tropical forests, soil fauna, and parasitoid Hymenoptera remain massively under-described. Estimates for total insect diversity vary widely, but ~1 million described species is clearly an undercount. The collection is never complete.
 
 **The insect decline literature**: Headlines about "40% decline" conflate different metrics — flying insect biomass (Germany, Hallmann 2017), species extinction rates, and abundance trends. Real but geographically uneven; tropical forest diversity may be less affected than temperate agricultural zones.

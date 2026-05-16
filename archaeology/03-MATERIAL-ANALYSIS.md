@@ -318,19 +318,25 @@ MACRO-PLANT REMAINS (ARCHAEOBOTANY):
 
 ---
 
+## Cross-References
+
+- `archaeology/02-DATING-METHODS.md` — chronological frame for material evidence.
+- `materials/01-CRYSTAL-STRUCTURE.md` — material structure vocabulary.
+- `geochemistry/04-STABLE-ISOTOPE-PALEO.md` — isotope proxies used in artifact and residue interpretation.
+
 ## Decision Cheat Sheet
 
-| Question | Best Method |
-|----------|-------------|
-| Where was this pottery made? | XRF/NAA + comparison to source database |
-| What did these people eat? | δ¹³C + δ¹⁵N from bone collagen |
-| Did these people migrate? | Sr + O isotopes in tooth enamel vs. bone |
-| Who is genetically related in this cemetery? | aDNA kinship analysis |
-| What was stored in this Bronze Age jar? | Lipid residue analysis (GC-MS) |
-| How old was this animal when killed? | Bone fusion + tooth wear analysis |
-| What crops were grown here? | Archaeobotany (flotation + microscopy) |
-| What was the past vegetation? | Pollen (lake sediment) or phytoliths |
-| Is this Roman silver from Spain or Greece? | Lead isotope ratios |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Pottery production source | XRF/NAA compared with clay/source databases | Chemistry needs a reference population; trade and clay mixing complicate provenance. |
+| Human diet | C and N stable isotopes from bone collagen | Collagen averages years of protein-biased diet, not a complete menu. |
+| Childhood versus adult mobility | Sr/O isotopes in tooth enamel versus bone | Local baselines are essential; geology and water systems can overlap. |
+| Cemetery kinship | aDNA kinship analysis | Contamination, preservation, and sampling bias can distort family reconstruction. |
+| Vessel contents | Lipid residue GC-MS | Residues indicate use history, not where the vessel was made. |
+| Animal age at death | Bone fusion and tooth wear | Species, husbandry regime, and taphonomy affect age estimates. |
+| Crop presence | Flotation and archaeobotanical microscopy | Absence of macroremains may reflect preservation or recovery, not absence of crops. |
+| Past vegetation | Pollen cores and phytoliths | Pollen is regional-biased; phytoliths are plant-part and preservation biased. |
+| Metal ore source | Lead isotope ratios plus compositional context | Recycling and mixed ores can erase a single-source signal. |
 
 ---
 

@@ -326,17 +326,23 @@ THE DOUBLE DESCENT PROBLEM
 
 ---
 
+## Cross-References
+
+- `machine-learning-theory/07-DOUBLE-DESCENT.md` — modern non-monotone continuation of bias-variance intuition.
+- `probability-statistics/07-REGRESSION-MODELS.md` — classical regression setting where bias-variance tradeoffs are explicit.
+- `machine-learning-theory/02-VC-DIMENSION.md` — model capacity as a formal generalization-control axis.
+
 ## Decision Cheat Sheet
 
-| Observation | Diagnosis | Fix |
-|-------------|-----------|-----|
-| Train error low, test error high | High variance | More data, regularization, simpler model |
-| Both train and test error high | High bias | More complex model, different features |
-| Train and test error both high, equal | High bias | Same |
-| Train and test error both converge but to same high value | Bias floor = Bayes error, or model misspecified | Check model family |
-| Test error U-shaped with model complexity | Classic bias-variance | Find optimal complexity via CV |
-| Test error keeps decreasing with complexity | Double descent | Module 07 |
-| Adding regularization increases test error | Already high bias | Reduce λ or use different regularization |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Low train error, high test error | High variance | More data or regularization helps only if signal is stable. |
+| High train and test error | High bias | Feature/model mismatch can dominate. |
+| Equal high errors | Underfit regime | Irreducible noise can set a floor. |
+| Converged high error | Bayes floor or misspecified model | Check label noise before adding complexity. |
+| U-shaped test error | Classical bias-variance tradeoff | Cross-validation estimates the optimum, not a theorem. |
+| Decreasing error past interpolation | Double descent regime | Interpolation peak location depends on data/model/optimizer. |
+| Regularization hurts | Bias already dominant | Reduce penalty or change inductive bias. |
 
 ---
 

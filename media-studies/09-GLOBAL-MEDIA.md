@@ -404,16 +404,26 @@ The digital era created new forms of media/technology dominance:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Political economy of media ownership | `media-studies/04-POLITICAL-ECONOMY.md` |
+| Algorithmic platforms as global distributors | `media-studies/08-ALGORITHMS.md` |
+| International institutions and governance | `international-relations/06-INTERNATIONAL-INSTITUTIONS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Position | Evidence |
-|----------|----------|----------|
-| Does US media dominate globally? | Historically yes; increasingly multi-polar | Flow studies + K-pop, Bollywood, Al Jazeera |
-| Do audiences absorb US values? | No -- active decoding and localization | Katz & Liebes Dallas study; glocalization |
-| Is digital media new colonialism? | Substantially: infrastructure + data + moderation | Facebook Myanmar; Free Basics; AI training data |
-| Is cultural imperialism dead? | Weakened but persistent; English still dominant | Mixed evidence; depends on context |
-| How does glocalization work? | Global formats + local content = hybrid | Format franchises; K-pop synthesis |
-| What did NWICO achieve? | Little institutionally; US rejected it | Media sovereignty remains asymmetric |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether US media still dominates globally | Flow studies across film, TV, platforms, music, and news | The system is more multipolar than classic cultural-imperialism models assumed. |
+| Whether audiences absorb foreign values | Active decoding, localization, and reception studies | Audiences can resist or remix meanings; circulation is not absorption. |
+| Whether digital media functions as colonialism | Infrastructure ownership, data extraction, moderation asymmetry, and API dependency | Colonialism is an analogy with material power claims; specify mechanism, not slogan. |
+| Whether cultural imperialism is dead | Language dominance, platform control, formats, and local production capacity | Evidence is mixed and context-specific. |
+| How glocalization works | Global formats combined with local content, labor, and meaning | Hybridity can be creative adaptation and market strategy at once. |
+| What NWICO changed | Media sovereignty debates and institutional power asymmetry | It achieved little institutionally, but named a still-active governance problem. |
 
 ---
 

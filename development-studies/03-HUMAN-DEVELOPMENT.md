@@ -339,17 +339,23 @@ LESSON: Human development does not require high income first.
 
 ---
 
+## Cross-References
+
+- `01-HISTORY.md` shows the shift from modernization to human-centered development.
+- `02-GROWTH-THEORY.md` supplies the GDP-growth baseline being broadened.
+- `06-MICROFINANCE.md` shows one intervention lane aimed at household capability.
+
 ## Decision Cheat Sheet
 
-| Need | Use | Reason |
-|------|-----|--------|
-| Cross-country ranking for broad development | HDI | Health + education + income; widely comparable |
-| Inequality within countries | IHDI | HDI discounted for distributional gaps |
-| Who is poor and in what way | MPI | Direct deprivation counts across 10 indicators |
-| Gender gap in development | GDI | Separate HDI by sex |
-| Policy targeting (which deprivation to address) | MPI decomposition | Shows which dimensions drive poverty in a region |
-| Macro economic comparison, debt sustainability | GDP/GNI | Income-based, standard economic use |
-| Philosophical framework for what development means | Sen capabilities | Real freedom, not just resources |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Broad cross-country development | HDI | HDI is a narrow measurement proxy, not the full capabilities approach. |
+| Distributional loss | IHDI | Inequality adjustment can change ranking without identifying policy mechanism. |
+| Multidimensional poverty | MPI | MPI is deprivation counting, not an income poverty line. |
+| Gender development gap | GDI | Sex-disaggregated HDI misses power, violence, and unpaid-care dimensions. |
+| Regional policy target | MPI decomposition | It shows deprivation components, not automatically feasible interventions. |
+| Debt and macro comparison | GDP/GNI | Income remains necessary for fiscal analysis even when development is broader. |
+| Development meaning | Sen capabilities | Capabilities are opportunities; policy should not force functionings. |
 
 ---
 

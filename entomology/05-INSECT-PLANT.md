@@ -2,7 +2,13 @@
 
 ## The Big Picture
 
-Insect-plant interactions constitute the most species-rich and biochemically complex set of ecological relationships on land. Roughly 40% of insect species are phytophagous (plant-eating); ~300,000 flowering plant species have co-diversified with their insect partners. The framework for understanding these interactions — coevolution, the arms race model, chemical ecology — is now a central organizing principle of ecology.
+Insect-plant interactions constitute one of the most species-rich and
+biochemically complex sets of ecological relationships on land. A large fraction
+of insect species are phytophagous, and flowering plants have diversified in
+constant interaction with herbivores, pollinators, seed predators, gall makers,
+and mutualists. The framework for understanding these interactions -- coevolution,
+the arms-race model, diffuse selection, and chemical ecology -- is a central
+organizing principle of ecology.
 
 ```
 INSECT-PLANT INTERACTION LANDSCAPE
@@ -321,17 +327,24 @@ The monarch butterfly (Danaus plexippus) / milkweed (Asclepias) system is the ca
 
 ## Decision Cheat Sheet
 
-| Interaction | Net outcome | Key taxa | Evolutionary mechanism |
-|-------------|-------------|----------|------------------------|
-| Herbivory | - plant | ~40% of insect spp | Arms race; coevolution |
-| Pollination | + plant + insect | Hymenoptera, Lepidoptera, Diptera | Mutualism; reward systems |
-| Gall formation | - plant (mostly) | Cynipidae, Cecidomyiidae | Hormonal manipulation |
-| Ant-plant domatia | + both | Formicidae + many trees | Obligate mutualism |
-| Myrmecochory | + both | Formicidae + spring ephemerals | Elaiosome reward |
-| Sequestration | + insect (defense) | Monarch, burnets, chrysomelids | Detoxification + re-use |
-| HIPVs (tritrophic) | + plant (indirect) | Plant + parasitoid wasps | Indirect defense |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Herbivory claim | Feeding guild, host breadth, and plant tissue attacked | "Plant-eating" spans leaf miners, sap feeders, borers, seed predators, and grazers |
+| Coevolution claim | Pairwise vs diffuse selection | Clean one-to-one arms races are famous because they are uncommon |
+| Plant-defense claim | Constitutive, induced, chemical, physical, and indirect defenses | Defense cost and ecological context matter as much as toxicity |
+| Insect counter-defense | Detoxification, sequestration, target-site mutation, and behavior | Specialists may use the toxin as a cue or defense |
+| Gall claim | Meristem manipulation and species-specific morphology | Galls are extended phenotypes, not just swelling from damage |
+| Ant-plant mutualism | Food bodies, domatia, nectaries, and defense behavior | Mutualism can shift with nutrient state and ant species |
+| Tritrophic claim | Herbivore-induced volatiles recruiting parasitoids/predators | Signals can also be exploited by herbivores or competitors |
+| Monarch/milkweed claim | Cardenolide sequestration and Na/K-ATPase resistance | Canonical example, not the template for all insect-plant systems |
 
 ---
+
+## Cross-References
+
+- `06-POLLINATION.md` covers the mutualistic side of insect-plant relationships.
+- `08-ECONOMIC-ENTOMOLOGY.md` follows plant-feeding insects into agriculture and pest control.
+- `../botany/08-PLANT-DEFENSES.md` explains the plant chemical defenses insects must overcome.
 
 ## Common Confusion Points
 

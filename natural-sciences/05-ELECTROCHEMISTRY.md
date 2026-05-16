@@ -6,7 +6,7 @@
 
 ---
 
-## Landscape
+## The Big Picture
 
 ```
 ┌───────────────────────────────────────────────────────────────────┐
@@ -366,20 +366,26 @@ Prevention:
 
 ---
 
+## Cross-References
+
+- `energy-storage/01-ELECTROCHEMICAL.md` - electrochemistry as battery architecture.
+- `natural-sciences/03-THERMOCHEM.md` - free energy and redox potential.
+- `electronics/01-CIRCUITS.md` - current, voltage, and circuit analogies.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Key equation |
-|----------|---------|-------------|
-| Will this redox reaction be spontaneous? | E°cell > 0 | E°cell = E°cathode − E°anode |
-| What is ΔG for this cell reaction? | Free energy link | ΔG° = −nFE° |
-| What is K for this equilibrium? | Nernst link | log K = nE°/0.05916 |
-| How does voltage change with concentration? | Nernst | E = E° − (0.05916/n)·log Q |
-| Which metal corrodes in galvanic pair? | More negative E° | Anode (oxidation) = more active metal |
-| How to protect steel in seawater? | Cathodic protection | Attach Zn (Zn corrodes instead) |
-| Why does stainless steel not rust? | Passivation | Cr₂O₃ film, Pourbaix passivation region |
-| How much metal is plated by 10 A for 30 min? | Faraday's laws | m = MIt/nF |
-| What determines battery voltage? | E°cell | Sum of half-cell potentials |
-| Why does H₂ fuel cell need Pt? | Overpotential | Pt has high j₀ → low overpotential |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Redox spontaneity | Positive Ecell from cathode minus anode | Use consistent reduction-potential convention. |
+| Cell free energy | Delta G standard = -nFE standard | Nonstandard conditions require Nernst correction. |
+| Equilibrium constant | log K = nE standard / 0.05916 | Relation assumes 25 C and standard-state conventions. |
+| Concentration voltage shift | Nernst equation and reaction quotient | Voltage changes with activities, approximated by concentrations. |
+| Galvanic corrosion member | More active metal as anode | Environment and passivation can override simple E tables. |
+| Steel protection in seawater | Sacrificial zinc cathodic protection | Protection requires electrical contact and sufficient anode. |
+| Stainless corrosion resistance | Cr2O3 passivation | Chloride can break passivity and cause pitting. |
+| Electroplated mass | Faraday's law m = MIt/nF | Current efficiency may be less than 100%. |
+| Battery voltage | Half-cell potential difference | Loaded voltage also includes overpotential and internal resistance. |
+| Fuel-cell platinum need | Low overpotential / high exchange current | Catalyst cost and poisoning constrain design. |
 
 ---
 

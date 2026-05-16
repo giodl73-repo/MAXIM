@@ -296,19 +296,25 @@ CAIs (calcium-aluminum-rich inclusions) in carbonaceous chondrites are the oldes
 
 ---
 
+## Cross-References
+
+- `astronomy/01-EARTH-MOTIONS.md` — orbital context for solar-system structure.
+- `planetary-science/02-TERRESTRIAL-PLANETS.md` — inner-planet outcomes of formation processes.
+- `planetary-science/06-SMALL-BODIES.md` — planetesimal remnants of early accretion.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| How long does planet formation take? | Planetesimals: 1 Myr; giant planets: 3-10 Myr; terrestrial planets: 30-100 Myr |
-| Why is Mars so small? | Grand Tack — Jupiter's inward migration truncated Mars's feeding zone |
-| Why is the asteroid belt depleted? | Grand Tack swept through it; also mean-motion resonances with Jupiter continuously scatter bodies out |
-| What is the LHB? | Spike in impact rates ~3.9 Ga caused by Nice model instability scattering KBO material inward |
-| What evidence supports LHB? | Apollo samples showing clustering of impact melt ages near 3.9 Ga; lunar basin ages |
-| What are CAIs? | Ca-Al-rich inclusions — first solids to condense; dated to 4.567 Ga, defining solar system age |
-| Why does Jupiter have 2-4× solar metallicity? | Core accretion: formed a rock/ice core first; accreted surrounding gas with solar composition on top |
-| How did Earth get water? | Primarily late accretion of C-type asteroids (D/H matches Earth's); Grand Tack delivered them to asteroid belt crossing zone |
-| What is pebble accretion? | Gas-drag assisted capture of cm-scale pebbles; huge geometric cross-section; explains fast giant planet core growth |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Planet-formation timescale | Planetesimals, giant planets, then terrestrial planets | Different reservoirs finish on different clocks. |
+| Small Mars problem | Grand Tack truncation of feeding zone | Migration history is model-dependent. |
+| Depleted asteroid belt | Jupiter migration plus resonant clearing | Present belt is a processed remnant. |
+| Late Heavy Bombardment claim | Nice-model instability near 3.9 Ga | LHB timing and spike shape remain debated. |
+| LHB evidence | Apollo impact-melt age clustering | Lunar sampling is geographically biased. |
+| Solar-system age marker | CAIs at 4.567 Ga | CAIs date first solids, not fully formed planets. |
+| Jupiter metallicity enrichment | Core accretion plus gas capture | Interior models infer, not directly observe, heavy elements. |
+| Earth water delivery | C-type asteroid D/H match | Comets and nebular sources remain constrained alternatives. |
+| Fast giant-core growth | Pebble accretion | Pebble isolation and disk timing cap growth. |
 
 ---
 

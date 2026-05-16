@@ -264,23 +264,29 @@ TANNIN CHEMISTRY
 
 ---
 
+## Cross-References
+
+- `02-MORDANTING.md` explains how natural dyes bind to fibers.
+- `03-DYE-CHEMISTRY.md` explains chromophores and color chemistry.
+- `04-FIBER-PREPARATION.md` shows why fiber state controls dye uptake.
+
 ## Decision Cheat Sheet
 
-| Color Needed | Primary Source | Mordant | Notes |
-|-------------|----------------|---------|-------|
-| Blue (any fiber) | Indigo (Indigofera) | No mordant -- vat process | Lightfast; vat chemistry required |
-| Blue (historic, Europe) | Woad | No mordant -- vat process | Less intense than Indigofera |
-| Red (wool, fast) | Cochineal | Alum | Brightest, most lightfast red |
-| Red (brilliant scarlet) | Cochineal | Tin (stannous chloride) | Fiber damage risk |
-| Red-orange (wool) | Madder | Alum | Earthier than cochineal |
-| Dark brown-purple (wool) | Madder | Iron | "Saddened" color |
-| Turkey Red (cotton) | Madder | Oil + alum (complex) | Historic cotton red process |
-| Best yellow | Weld | Alum | BW 5-6, highest natural yellow |
-| Quick yellow (fugitive) | Onion skins | Alum | Easy; BW 3-4 only |
-| Purple | Cochineal + alkali | Alum + soda ash | Shift dye bath pH > 8 |
-| Green | Weld + overdye indigo | Alum | Yellow base, blue over |
-| Grey-black | Iron with any tannin | Iron | Iron sulfate in tannin-rich bath |
-| Cotton/linen any color | Any + tannin first | Tannin -> alum | Pre-mordant with oak gall |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Durable blue | Indigofera vat process | No mordant is needed, but vat chemistry must be controlled. |
+| Historic European blue | Woad vat process | Same indigo molecule, much weaker precursor yield than Indigofera. |
+| Bright fast red on wool | Cochineal with alum | Carmine is an insect product, not a synthetic red. |
+| Brilliant scarlet | Cochineal with tin | Tin can damage fiber and is a harsher historical route. |
+| Earthy red-orange | Madder with alum | Madder is a root mixture; synthetic alizarin captured only part of its color. |
+| Saddened dark purple/brown | Madder or tannin source with iron | Iron darkens but can embrittle fiber if overused. |
+| Turkey Red cotton | Madder plus oil and alum sequence | The cotton process is a multi-stage technology, not just a dye choice. |
+| Reliable natural yellow | Weld with alum | Weld is strong for natural yellow; turmeric is far more fugitive. |
+| Easy quick yellow | Onion skins with alum | Convenience trades off against lightfastness. |
+| Purple shift | Cochineal bath alkalized with soda ash | pH changes hue and can also stress some fibers. |
+| Green | Weld yellow base overdyed with indigo | Natural green is usually layered, not a single green dye. |
+| Grey-black | Tannin-rich bath plus iron sulfate | Tannin/iron blacks depend on both chemistry and fiber tolerance. |
+| Cotton/linen color uptake | Tannin pre-mordant followed by alum | Cellulosic fibers need preparation before many natural dyes bind well. |
 
 ---
 

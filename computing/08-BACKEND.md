@@ -913,22 +913,23 @@ Validation at the API boundary is mandatory. Zod is the standard in TypeScript b
 
 ---
 
+## Cross-References
+
+- `computing/09-DATABASE.md` — persistence layer behind backend services.
+- `computing/10-AUTH.md` — identity and authorization as backend boundary conditions.
+- `cloud-architecture/05-MICROSERVICES.md` — service decomposition at cloud scale.
+
 ## Decision Cheat Sheet
 
-| I want to... | Use |
-|---|---|
-| Build a public API consumed by many clients | REST + OpenAPI |
-| Build an internal API in a TypeScript monorepo | tRPC |
-| Build an API for a complex graph of data (social, CMS) | GraphQL |
-| Get started quickly with minimal boilerplate | Express |
-| Need maximum performance in Node.js | Fastify |
-| Want Angular/ASP.NET-style structure with DI | NestJS |
-| Deploy to edge (Cloudflare Workers, Vercel Edge) | Hono |
-| Validate incoming request body | Zod `safeParse()` |
-| Document my REST API | OpenAPI spec + swagger-ui |
-| Generate typed client from REST API | `openapi-generator` or `orval` (same as "Add Service Reference") |
-| Handle real-time (chat, live updates) | WebSockets (`ws`) or Server-Sent Events |
-| Scale to zero, pay per request | Serverless (Azure Functions, Vercel) |
-| Run code close to the user globally | Edge functions |
-| Need ASP.NET-style error filters and guards | NestJS |
-| Consume an external REST API | `fetch()` (built-in) or `axios` |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Public API design | Use REST + OpenAPI, resource boundaries, versioning, auth, errors, and client generation. | Public APIs are contracts; compatibility matters more than elegance. |
+| Internal TypeScript API | Consider tRPC when client/server share repo, types, deployment cadence, and trust boundary. | tRPC couples consumers to implementation language and release rhythm. |
+| Graph-shaped data | Evaluate GraphQL schema, client query needs, authorization, N+1 risk, and caching. | GraphQL moves complexity into resolver and governance layers. |
+| Minimal Node backend | Compare Express simplicity, middleware ecosystem, validation, and error handling discipline. | Minimal boilerplate can mean implicit architecture. |
+| High-performance Node backend | Consider Fastify with schema validation, plugin model, lifecycle hooks, and benchmarks on real routes. | Framework speed rarely dominates slow database calls. |
+| Structured enterprise backend | Use NestJS when DI, guards, filters, modules, and team conventions are valuable. | Structure helps teams but can be heavy for small services. |
+| Edge deployment | Check runtime APIs, cold start, data locality, package limits, and Hono/worker fit. | Edge functions cannot use every Node library or database pattern. |
+| Request validation | Validate body, params, auth context, and output shape with Zod or equivalent. | TypeScript types do not validate network input. |
+| Real-time updates | Compare WebSockets, SSE, polling, backpressure, reconnection, and infrastructure support. | Real-time is a state consistency problem, not just a transport. |
+| Serverless vs long-running service | Compare scale-to-zero, latency, connection pooling, background jobs, observability, and cost curve. | Serverless punishes assumptions about process lifetime. |

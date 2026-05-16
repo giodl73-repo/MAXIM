@@ -163,18 +163,26 @@ Periderm (secondary):        Living support             Sugar transport
 
 ## Decision Cheat Sheet
 
-| When you want to understand... | Look here | The key insight |
-|-------------------------------|-----------|-----------------|
-| How plants pull water against gravity | 01-PLANT-CELL-PHYSIOLOGY | Cohesion-tension: transpiration creates negative pressure; water column under −5 MPa |
-| Why plants don't need a heart | 01-PLANT-CELL-PHYSIOLOGY | Pressure-flow (phloem) and cohesion-tension (xylem) — both passive, driven by thermodynamics |
-| Why trees can grow indefinitely | 03-STEMS-WOOD | Indeterminate growth via apical + lateral meristems; no programmed size limit |
-| Why maize outyields wheat per unit water | 04-LEAVES-PHOTOSYNTHESIS | C4 photosynthesis — CO₂ concentrating mechanism eliminates RuBisCO's oxygenase problem |
-| How a flower "knows" what pollinator to attract | 05-FLOWERS-REPRODUCTION | Pollination syndromes: color, scent, shape, reward co-evolved with specific pollinator sensory systems |
-| What makes old-growth structurally different | 06-TREES-FORESTS | Vertical stratification + standing deadwood + fungal networks missing in second growth |
-| Why cutting rainforest produces poor farmland | 07-BIOMES | Nutrients are in the living biomass, not the soil — slash-and-burn releases them temporarily then they're gone |
-| Why broccoli is bitter | 08-PLANT-DEFENSES | Glucosinolates: sulfur-containing secondary metabolites; activated by myrosinase on tissue damage |
-| How to trace a drug back to a plant | 09-ECONOMIC-BOTANY | Secondary metabolite → medicinal compound pathway (willow bark → salicylate → aspirin) |
-| Which group dominates modern ecosystems | This file | Angiosperms (~300,000 species); explosive diversification after ~130 Mya flower/pollinator coevolution |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Water movement against gravity | Check transpiration, cohesion-tension, xylem continuity, stomata, vapor-pressure deficit, and cavitation. | Water is pulled under tension; pumps are not doing the main work. |
+| Plant transport without a heart | Separate xylem negative pressure, phloem pressure-flow, source-sink gradients, and thermodynamic drivers. | Passive does not mean uncontrolled; anatomy sets the hydraulic circuit. |
+| Tree size and age | Examine apical/lateral meristems, cambium, modular growth, resource limits, and hydraulic constraints. | Indeterminate growth has constraints even without a fixed body plan. |
+| C4 crop performance | Compare CO2 concentration, photorespiration, water-use efficiency, temperature, anatomy, and nitrogen cost. | C4 advantage depends on climate and resource context. |
+| Pollination fit | Inspect color, scent, shape, timing, reward, pollinator sensory system, and coevolutionary history. | Pollination syndromes are tendencies, not one-to-one rules. |
+| Old-growth structure | Look for vertical layers, deadwood, canopy gaps, age diversity, fungal networks, and disturbance history. | Old growth is structure plus process, not just old trees. |
+| Rainforest soil fertility | Separate nutrient storage in biomass, leaching, decomposition rate, soil age, and slash-and-burn pulse. | Removing forest removes the nutrient engine. |
+| Plant defense chemistry | Trace tissue damage, glucosinolates, alkaloids, terpenes, myrosinase, herbivore pressure, and human taste. | Defense compounds can become foods, poisons, or medicines by dose and context. |
+| Plant-derived drug lineage | Follow secondary metabolite, ethnobotany, isolation, modification, pharmacology, and production route. | A medicinal origin story is not proof of safety or efficacy. |
+| Angiosperm dominance | Check flowers, double fertilization, vessels, fruit, pollinator/seed-disperser coevolution, and diversification timing. | Dominance reflects ecological coupling, not one isolated innovation. |
+
+---
+
+## Cross-References
+
+- `01-PLANT-CELL-PHYSIOLOGY.md` establishes the cellular machinery behind plant form and metabolism.
+- `05-FLOWERS-REPRODUCTION.md` explains the angiosperm reproductive innovation behind modern plant diversity.
+- `07-BIOMES.md` scales plant biology up to climate, geography, and ecosystem distribution.
 
 ---
 

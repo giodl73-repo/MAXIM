@@ -282,6 +282,18 @@ MUSEUM GLASS DISEASE:
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Silicate minerals | `geology/01-MINERALS.md` | Glass chemistry starts from silica and network modifiers |
+| Ceramic bodies | `ceramics/01-CLAY-TYPES.md` | Glass phase and vitrification connect ceramics to glass science |
+| Optical materials | `optics/01-GEOMETRIC-OPTICS.md` | Transparency, dispersion, and refractive index shape lenses |
+| Materials structure | `materials/01-CRYSTAL-STRUCTURE.md` | Glass is defined by lack of long-range crystalline order |
+| Pigments and colorants | `pigments/01-PREHISTORIC-EARTH.md` | Metal ions and particles color glass as they color pigments |
+
+---
+
 ## Common Confusion Points
 
 **Random network ≠ liquid structure**:

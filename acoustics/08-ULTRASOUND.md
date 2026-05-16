@@ -252,18 +252,24 @@ Sonochemistry:
 
 ---
 
+## Cross-References
+
+- `acoustics/06-ELECTROACOUSTICS.md` — piezoelectric transducers convert electrical drive to ultrasound pressure waves.
+- `biomedical-engineering/01-BIOMECHANICS.md` — medical ultrasound interacts with soft tissue and mechanical properties.
+- `signal-processing/01-SIGNALS-SYSTEMS.md` — beamforming and echo processing are signal-processing problems.
+
 ## Decision Cheat Sheet
 
-| Application | Frequency | Reason |
-|-------------|-----------|--------|
-| Cardiac imaging | 2–5 MHz | Penetrate chest wall (5–20 cm depth) |
-| Obstetric imaging | 3–7 MHz | Adequate penetration, good fetal resolution |
-| Vascular superficial | 10–15 MHz | Fine resolution for superficial vessels |
-| Skin imaging | 20–100 MHz | Sub-millimeter resolution, 1–5 mm depth |
-| Industrial weld inspection | 2–10 MHz | Penetrate 20–100 mm steel |
-| NDT thin composites | 5–15 MHz | Resolution for thin layers |
-| Ultrasonic cleaning | 20–80 kHz | Optimal cavitation threshold |
-| HIFU therapy | 0.5–5 MHz | Penetrate tissue, create focal heating |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether cardiac imaging needs depth | 2-5 MHz probe | Chest-wall penetration trades away fine resolution |
+| Whether fetal imaging balances depth/resolution | 3-7 MHz obstetric imaging | Tissue path and safety limits constrain settings |
+| Whether superficial vessels need detail | 10-15 MHz vascular probe | High frequency attenuates quickly |
+| Whether skin layers need submillimeter detail | 20-100 MHz ultrasound | Depth is limited to millimeters |
+| Whether steel welds can be inspected | 2-10 MHz industrial probe | Grain structure and geometry affect scattering |
+| Whether thin composites need layer resolution | 5-15 MHz NDT | Coupling and anisotropy can dominate the signal |
+| Whether cleaning relies on cavitation | 20-80 kHz ultrasonic bath | Cavitation threshold depends on fluid, temperature, and load |
+| Whether tissue therapy needs focused heating | HIFU at 0.5-5 MHz | Focusing, perfusion, and safety margins control dose |
 
 ---
 

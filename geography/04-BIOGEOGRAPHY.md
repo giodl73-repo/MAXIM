@@ -17,8 +17,8 @@ Climate change is now rewriting species distributions in real time.
 |  ────────────────────            ─────────────────────               |
 |  Continental drift → vicariance  Climate envelope / niche            |
 |  Gondwana/Laurasia legacies      Fundamental vs realized niche       |
-|  Wallace Line (Gondwana vs       Competitive exclusion               |
-|  Laurasia fauna)                 Dispersal vs barriers               |
+|  Wallace Line (deep-water        Competitive exclusion               |
+|  barrier + realm history)        Dispersal vs barriers               |
 |  Paleoclimate refugia                                                |
 |                                                                      |
 |  ISLAND BIOGEOGRAPHY             CONTEMPORARY CHANGE                 |
@@ -403,8 +403,10 @@ Climate change is now rewriting species distributions in real time.
   (lag due to long-lived organisms, dispersal limitations)
   → Even if warming stabilized today, extinctions would continue
     as slow-dispersers fail to track climate envelope
-  Estimated: 20-40% of species already "committed to extinction"
-    under current trajectories (but vast uncertainty)
+  Some studies estimate large extinction debts under high-warming scenarios,
+    but the range is wide: exposure, dispersal, adaptation, land use, and
+    conservation response dominate outcomes. Treat "committed extinction" as
+    a scenario-dependent risk signal, not a fixed percentage.
 
   BIODIVERSITY HOTSPOTS:
   Myers (1988/2000): 36 regions with exceptional concentration of
@@ -429,16 +431,26 @@ Climate change is now rewriting species distributions in real time.
 
 ## Decision Cheat Sheet
 
-| Biogeography Question | Answer |
-|---|---|
-| Why are there no tigers in Africa? | Asian vs African faunal history — India plate collision + Indomalayan realm |
-| Why do Australian mammals look so different? | Gondwana isolation 80-65 Ma → independent marsupial evolution |
-| How many species should a 10× larger island have? | ~2× (species-area relationship, z~0.25-0.3) |
-| Why is the Amazon so biodiverse? | Af climate + long geological stability + large area + refugia during glacials |
-| What's the fastest way to lose species? | Habitat destruction (area loss) → island biogeography predicts immediate commitment to extinction |
-| Why are range shifts not universal? | Dispersal ability + habitat connectivity + physiology all mediate; slow-dispersers create climate debt |
+| Question Type | Use This Frame | What It Tells You |
+|---|---|---|
+| Why is this lineage here and not there? | Historical biogeography: vicariance, dispersal, realm history | Deep-time geology and barriers explain many present distributions |
+| Why does this species stop at this boundary today? | Ecological niche + realized niche | Climate tolerance, competitors, predators, and dispersal barriers set current range |
+| How many species should habitat area support? | Species-area relationship, S = cA^z | 10× area often gives roughly 2× species; area loss creates extinction debt |
+| Should conservation prefer one large reserve or several small? | Island biogeography + beta diversity + connectivity | Large is usually safer for extinction risk, but networks can capture more habitat diversity |
+| Why do islands have many endemic species? | Isolation + founder effects + adaptive radiation | Low immigration and small founding populations accelerate divergence |
+| Why is the Wallace Line sharp? | Deep-water barrier plus Indo-Australian realm history | Present water gap is the surface expression of long-separated evolutionary pools |
+| Will climate warming simply move species poleward? | Range-shift capacity + habitat connectivity | Only mobile species with reachable habitat can track their climate envelope |
+| Is high productivity enough to predict biodiversity? | Energy plus stability, heterogeneity, and history | NPP helps, but reefs and open ocean show productivity is not the whole model |
 
 ---
+
+## Cross-References
+
+- [Physical Geography](01-PHYSICAL-GEOGRAPHY.md) supplies the landform and climate controls on species distribution.
+- [Climate Zones and Biomes](02-CLIMATE-ZONES.md) frames the biome map that biogeography explains dynamically.
+- [Ocean-Atmosphere Coupling](03-OCEAN-ATMOSPHERE.md) connects dispersal and range limits to climate oscillations.
+- [Plate Tectonics](../geology/05-PLATE-TECTONICS.md) supplies the continental-drift engine behind historical biogeography.
+- [Ecology](../ecology/01-POPULATION-DYNAMICS.md) supplies the population mechanisms behind dispersal, competition, and extinction risk.
 
 ## Common Confusion Points
 

@@ -434,18 +434,21 @@ Draft and target models must share the same tokenizer and vocabulary. You can't 
 
 ---
 
+## Cross-References
+
+- `cloud-architecture/01-CLOUD-MODELS.md` — hosting choices, managed services, and responsibility boundaries.
+- `ai-engineering/06-FINE-TUNING.md` — adapted models and adapters that must be served efficiently.
+- `computer-architecture/01-ISA-FUNDAMENTALS.md` — hardware abstraction baseline for inference performance tradeoffs.
+
 ## Decision Cheat Sheet
 
-| I need to... | Use |
-|---|---|
-| Deploy quickly, don't own infra | OpenAI / Anthropic / Azure AOAI API |
-| Self-host Llama-3-70B on 1× A100 | AWQ INT4 quantization + vLLM |
-| Self-host for local dev (no GPU) | Ollama + GGUF Q4_K_M model |
-| Maximize GPU throughput | vLLM with continuous batching |
-| Reduce KV cache memory 4× | Use GQA model (Llama-3, Mistral) |
-| Cut long-context prefill cost | Enable prefix caching (Anthropic API or vLLM) |
-| Accelerate decode on A100 | FlashAttention-2 (included in vLLM/TGI) |
-| Speed up large model decode 2–3× | Speculative decoding (small + large same family) |
-| Run structured generation (JSON) | Outlines library or SGLang |
-| Scale to multi-GPU | vLLM tensor parallelism (--tensor-parallel-size N) |
-| Compress 70B to fit single A100 | QLoRA or AWQ INT4 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether managed API or self-hosting fits | Latency, data-control, and operations constraints | Owning GPUs adds scheduler, observability, and capacity-planning work |
+| Whether a model fits one GPU | Weight, activation, and KV-cache memory estimates | Quantized weights are only part of the footprint; long context can dominate |
+| Whether throughput is batching-bound | vLLM continuous-batching traces | Higher throughput may increase tail latency; measure the service SLO, not tokens/sec alone |
+| Whether prefill cost dominates | Prompt length distribution and prefix-cache hit rate | Prefix caching only helps repeated prefixes; random long prompts still pay full prefill |
+| Whether decode speed is the bottleneck | Tokens/sec by phase with FlashAttention enabled | FlashAttention helps attention cost but not every serving bottleneck |
+| Whether speculative decoding helps | Acceptance rate between draft and target models | Poor draft alignment can add complexity without speedup |
+| Whether structured generation is reliable | Constrained decoding with schema-invalid examples | JSON mode is not business validation; still validate semantics downstream |
+| Whether multi-GPU scaling is worth it | Tensor-parallel benchmark under real concurrency | More GPUs can reduce per-request latency while worsening cost per token |

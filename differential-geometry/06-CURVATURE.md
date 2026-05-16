@@ -278,16 +278,22 @@ The complete classification:
 
 ## Decision Cheat Sheet
 
-| Curvature Tensor | Dimension | Information | Key Use |
-|---|---|---|---|
-| Riemann R_{ijkl} | n^2(n^2-1)/12 | Full curvature | Holonomy, sectional curvature |
-| Ricci Ric_{ij} | n(n+1)/2 | Average over 2-planes | Einstein equations, comparison thms |
-| Scalar R | 1 | Full trace | Gauss-Bonnet, energy conditions |
-| Sectional K(sigma) | 1 per 2-plane | Curvature in a direction | Comparison geometry |
-| Weyl W_{ijkl} | Conformal | Tidal forces, radiation | Conformal geometry, GR |
-| Einstein G_{ij} | n(n+1)/2 | Ric - (1/2)gR | Source term in GR |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether you need full curvature | Use the Riemann tensor when holonomy, sectional curvature, geodesic deviation, or complete local curvature data matters. | Ricci/scalar contractions discard information; they cannot reconstruct Riemann in high dimensions. |
+| A volume or comparison theorem | Start with Ricci curvature, dimension, completeness, and the relevant lower/upper bound. | Ricci is an averaged curvature signal, so it controls volume and convergence more than individual planes. |
+| A surface or 2D problem | Use Gaussian/scalar curvature and Gauss-Bonnet. | In 2D, contractions contain much more information than they do in higher dimensions. |
+| A directional curvature question | Use sectional curvature for the specific 2-plane. | A manifold can have mixed sectional curvatures even when scalar curvature has one sign. |
+| A conformal or gravitational-radiation claim | Inspect Weyl curvature separately from Ricci. | Weyl captures conformal/tidal degrees of freedom; Ricci is tied to local matter in GR. |
+| An Einstein-equation claim | Use the Einstein tensor and stress-energy conservation. | The tensor is constructed to have zero divergence; that is why it matches conserved source terms. |
 
 ---
+
+## Cross-References
+
+- `05-CONNECTIONS.md` defines the covariant derivative machinery curvature measures.
+- `08-FIBER-BUNDLES.md` generalizes curvature to gauge fields and principal bundles.
+- `../physics/09-GENERAL-RELATIVITY.md` applies Ricci curvature and Einstein tensors to spacetime.
 
 ## Common Confusion Points
 

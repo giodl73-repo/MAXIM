@@ -339,16 +339,22 @@ Event Grid provides reactive routing of small events. It is not a message queue 
 
 ---
 
+## Cross-References
+
+- `cloud-architecture/04-NETWORKING.md` — network substrate for service decomposition.
+- `distributed-systems/03-CONSENSUS.md` — consistency and coordination limits.
+- `systems-engineering/01-REQUIREMENTS.md` — requirements boundaries before service boundaries.
+
 ## Decision Cheat Sheet
 
-| Scenario | Azure Service |
-|----------|--------------|
-| Container orchestration (full control) | AKS |
-| Containerized apps without cluster ops | Container Apps |
-| External API gateway + developer portal | API Management |
-| Service-to-service mTLS and traffic policies | Istio (AKS add-on) |
-| React to Azure resource events | Event Grid |
-| High-throughput telemetry/IoT streaming | Event Hubs |
-| Reliable business process messaging | Service Bus |
-| Cross-language microservice plumbing | Dapr |
-| Multi-region HTTP routing + WAF + CDN | Azure Front Door |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether container orchestration needs full control | AKS | Cluster control brings node, upgrade, policy, and platform ownership. |
+| Whether containerized apps can avoid cluster operations | Container Apps | Great for app teams; less suitable when you need low-level Kubernetes control. |
+| Whether external APIs need productized access | API Management | Gateway policy does not fix poor service boundaries or versioning. |
+| Whether service-to-service traffic needs mesh policy | Istio AKS add-on | mTLS and routing power add operational complexity and debugging surface. |
+| Whether Azure resource events should trigger reactions | Event Grid | Notifications require idempotent handlers; delivery is not business workflow state. |
+| Whether telemetry or IoT needs high-throughput streaming | Event Hubs | Streaming ingestion is not durable command processing. |
+| Whether business processes need reliable messaging | Service Bus | Queues/topics preserve business semantics but are not raw event firehoses. |
+| Whether cross-language service plumbing is the hard part | Dapr | Sidecars standardize patterns but do not remove distributed-system failure modes. |
+| Whether multi-region HTTP edge routing is needed | Azure Front Door | Edge routing and WAF do not replace regional service health design. |

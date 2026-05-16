@@ -330,17 +330,24 @@ SKELETON PLOT (1 column per ring year, height = departure from expected):
 
 ---
 
+## Cross-References
+
+- `01-TREE-ANATOMY.md` supplies the cambial ring mechanism.
+- `04-FOREST-ECOLOGY.md` explains ecological drivers recorded in ring width.
+- `09-CONSERVATION.md` uses long tree records for disturbance and climate context.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What method dates a medieval roof beam to a specific year? | Cross-dating against regional master chronology |
-| Why can't I date a tropical hardwood beam by ring count alone? | Tropical rings may not be annual; need anatomical verification |
-| What is the longest continuous tree-ring chronology? | Great Basin bristlecone: ~9,000 yr BP |
-| Why does a 14C date sometimes span 400 years of calendar time? | Calibration plateau (Hallstatt, ~800–400 BC) |
-| What is the MXD proxy and when is it preferred over width? | Maximum latewood density; preferred for summer temperature reconstruction in northern conifers |
-| How is a dendroclimatic reconstruction validated? | Split-period calibration/verification with RE and CE statistics > 0 |
-| What event produces a detectable frost ring across a continent? | Large volcanic eruption causing growing-season frost (Tambora 1815) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Exact-year building timber date | Cross-dating against regional master chronology | Ring count alone cannot detect missing or false rings. |
+| Tropical hardwood dating | Anatomical annual-ring verification before counting | Many tropical rings are not annual. |
+| Long chronology anchor | Great Basin bristlecone chronology around 9,000 years BP | Long chronology still needs overlap and replication. |
+| Wide calibrated radiocarbon range | Calibration plateau such as Hallstatt | Radiocarbon BP is not calendar BP; report calibrated probability. |
+| Summer-temperature reconstruction | Maximum latewood density in northern conifers | Width and density proxies answer different climate questions. |
+| Climate reconstruction validation | Split-period calibration/verification with positive RE and CE | Statistical skill must be tested outside calibration data. |
+| Continental frost-ring event | Large eruption causing growing-season frost, such as Tambora 1815 | Frost rings need spatial replication before event attribution. |
+| Non-climate application | Archaeology, art history, forensics, ecology, hydrology | Dendrochronology is broader than climate reconstruction. |
 
 ---
 

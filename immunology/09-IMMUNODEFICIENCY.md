@@ -358,20 +358,26 @@ IMMUNODEFICIENCY: WHEN IMMUNITY IS INSUFFICIENT
 
 ---
 
+## Cross-References
+
+- `immunology/02-ADAPTIVE-IMMUNITY.md` — adaptive immune components lost in immunodeficiency.
+- `immunology/01-INNATE-IMMUNITY.md` — innate defects and barrier/recognition failures.
+- `microbiology/06-PATHOGEN-MECHANISMS.md` — opportunistic infection mechanisms.
+
 ## Decision Cheat Sheet
 
-| Susceptibility Pattern | Defect | Disease Example |
-|-----------------------|--------|-----------------|
-| Encapsulated bacteria | Low antibody | XLA, CVID, hyper-IgM |
-| Catalase+ bacteria (Staph, Aspergillus) | NADPH oxidase | CGD |
-| No pus at infection sites | Neutrophil adhesion | LAD |
-| Neisseria meningitidis recurrent | MAC deficiency | C5–9 deficiency |
-| All opportunistic infections | T cell deficiency | SCID, HIV/AIDS |
-| Male child, low all Ig isotypes | BTK mutation | XLA |
-| Any sex, adult low IgG/A/M | B cell plasma cell failure | CVID |
-| CD4 <200 + opportunistic infections | HIV | AIDS |
-| Post-transplant infection | Immunosuppression | Tacrolimus/MMF |
-| Very late onset poor vaccine response | Immunosenescence | Age-related |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Encapsulated bacterial susceptibility | Antibody deficiency | Complement and splenic defects can look similar. |
+| Catalase-positive infections | NADPH oxidase defect | CGD classically includes Staph and Aspergillus. |
+| No pus at infection sites | Leukocyte adhesion defect | Neutrophils exist but cannot reach tissue. |
+| Recurrent Neisseria | Terminal complement/MAC deficiency | C5-C9 defects spare many other pathways. |
+| Broad opportunistic infections | T-cell deficiency | Combined defects are usually more severe than isolated B-cell defects. |
+| Male child with low all Ig | BTK mutation/XLA | Maternal IgG can delay presentation. |
+| Adult low IgG/IgA/IgM | CVID-like plasma-cell failure | CVID is heterogeneous and exclusionary. |
+| CD4 below 200 with OIs | HIV/AIDS pattern | CD4 count is risk stratification, not the whole immune state. |
+| Post-transplant infections | Iatrogenic immunosuppression | Risk tracks drug combination and time since transplant. |
+| Late poor vaccine response | Immunosenescence | Aging affects innate, B-cell, and T-cell arms together. |
 
 ---
 

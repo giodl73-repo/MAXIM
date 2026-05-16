@@ -360,18 +360,24 @@ WHAT CHINA DID NOT DO:
 
 ---
 
+## Cross-References
+
+- `02-GROWTH-THEORY.md` formalizes several postwar development models.
+- `03-HUMAN-DEVELOPMENT.md` reframes development beyond GDP.
+- `04-INSTITUTIONS.md` explains the governance turn in development theory.
+
 ## Decision Cheat Sheet
 
-| Paradigm | Core claim | Policy implication | Key empirical failure |
-|----------|-----------|-------------------|-----------------------|
-| Modernization (Rostow) | Linear stages; capital → take-off | Foreign aid, technology transfer | Can't explain why stages don't follow |
-| ISI (Prebisch/ECLA) | Terms of trade deteriorate → industrialize | Import protection, SOEs | Protected industries uncompetitive; fiscal unsustainable |
-| Dependency (Frank) | Core extracts surplus from periphery | De-link from world economy | Can't explain East Asian success |
-| World Systems (Wallerstein) | One world-system since 1450 | Structural transformation | Too macro for actionable policy |
-| Washington Consensus | Liberalize; markets work if unimpeded | Privatize, deregulate, fiscal discipline | Social costs; ignored institutions |
-| Post-Washington Consensus | Institutions precede markets | Governance reform | Which institutions? How to build? |
-| Post-Development | Development = power discourse | Local alternatives | Romanticizes poverty |
-| China Model | State-led industrial policy + export discipline | SEZs, industrial policy | Reproducibility; authoritarianism required |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Linear-stage development claim | Modernization theory and Rostow | Stage sequence fails empirically across many countries. |
+| Import-substitution logic | Prebisch/ECLA and terms-of-trade pessimism | Protection can create uncompetitive industry and fiscal stress. |
+| Core/periphery exploitation claim | Dependency theory | East Asian export-led success is the major counterexample. |
+| Macro world-system framing | Wallerstein world-systems theory | Often too macro to generate actionable policy. |
+| Liberalization prescription | Washington Consensus | Williamson's list is not identical to every structural-adjustment program. |
+| Governance-first argument | Post-Washington Consensus | "Institutions matter" does not specify how to build them. |
+| Development-as-power critique | Post-development | It can romanticize poverty and rarely functions as state policy. |
+| State-led export discipline | China model | Transferability is limited by scale, party-state capacity, and history. |
 
 ---
 

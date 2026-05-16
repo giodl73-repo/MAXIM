@@ -20,8 +20,9 @@ VERSUS THERMAL:
                                        (directly sets frequency and voltage)
 
 KEY DIFFERENCE:
-  Thermal: synchronous generator is the grid. It defines voltage magnitude,
-           frequency, phase — it IS the grid.
+  Thermal: synchronous generators historically supplied the voltage reference,
+           frequency response, inertia, and fault current that made the grid
+           easy to synchronize.
   Renewables (most): inverter interfaces the generation to the grid.
            The inverter follows the grid (usually). Fundamentally different.
 ```
@@ -184,7 +185,7 @@ Average new utility installation: ~25%
 Germany (worst major solar market): ~10-12% CF
 ```
 
-**Curtailment:** When solar generation exceeds what the grid can absorb, output must be curtailed (panels deliberately misaligned or inverter limited). California curtailed approximately 3 TWh of solar in 2023 — wasted clean energy. This happens during spring days (mild temperatures, low load, high solar output) and midday year-round. Curtailment is the economic loss driver that makes storage investments compelling.
+**Curtailment:** When solar generation exceeds what the local grid, market, or transmission export path can absorb, output may be curtailed through inverter limits or plant controls. California curtailed several TWh of solar in 2023; the exact value depends on reporting scope and resource category. Curtailment often appears during mild, low-load, high-solar periods, and it is one economic signal for storage, demand response, transmission, or market redesign.
 
 ---
 
@@ -482,20 +483,23 @@ Both below new CCGT in high-gas-price scenarios ($65-80/MWh at $5/MMBtu gas).
 
 ## Decision Cheat Sheet
 
-| Question | Short Answer |
-|----------|-------------|
-| What limits solar PV efficiency? | Bandgap mismatch (only photons above bandgap absorbed), recombination losses; silicon theoretical max ~29% (Shockley-Queisser); current commercial: 21-23% |
-| Grid-following vs grid-forming? | Grid-following needs existing voltage/frequency to lock to, can't black start, contributes no inertia; grid-forming creates its own voltage reference, can black start, can provide virtual inertia |
-| What is the Betz limit? | 59.3% — maximum fraction of wind kinetic energy extractable; fundamental physics, not engineering limitation |
-| Why does wind power scale as v³? | P ∝ kinetic energy flow rate = ½ρAv² × v = ½ρAv³; doubling wind speed = 8× power |
-| DFIG vs Type 4 wind? | DFIG: 30% partial converter, lower cost, some coupling to grid; Type 4: full converter, complete decoupling, better fault ride-through, supports grid-forming control |
-| What are cut-in/rated/cut-out speeds? | Cut-in ~3.5 m/s (starts generating); rated ~12-15 m/s (max power); cut-out ~25 m/s (shut down for protection) |
-| Why are offshore CFs higher? | More consistent, stronger wind at sea; no terrain disruption; larger rotors viable |
-| What is curtailment? | Deliberately limiting renewable output when generation exceeds grid absorption capacity; increasing problem as RE penetration grows |
-| What is the duck curve? | Net load shape (load minus solar) creates midday surplus + steep evening ramp; defines need for fast-ramping resources or storage |
-| What drives value deflation? | More solar → lower midday prices → lower revenue per solar MWh; makes each incremental solar plant less valuable than the previous one |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A solar-efficiency claim | Separate bandgap physics, recombination, module architecture, inverter efficiency, temperature, soiling, and degradation. | Cell efficiency is not plant yield; capacity factor and revenue depend on site, weather, curtailment, and market timing. |
+| Whether an inverter is grid-following or grid-forming | Ask whether it follows an external voltage reference or establishes one, and what controls are certified for fault ride-through and black-start behavior. | "Grid-forming" is a control capability, not magic inertia; protection, standards, and system studies still matter. |
+| A wind-resource claim | Check wind-speed distribution, hub height, rotor swept area, turbulence, wake losses, cut-in/rated/cut-out speeds, and capacity factor. | The v³ relationship makes siting decisive; average wind speed alone hides distribution and extreme-wind constraints. |
+| Whether DFIG or Type 4 matters | Identify converter fraction, grid coupling, reactive support, fault ride-through, control flexibility, and O&M context. | Technology choice affects grid services, but project value also depends on interconnection rules and market compensation. |
+| Whether offshore wind is better than onshore | Compare capacity factor, distance to load, seabed/foundation, vessel/O&M cost, permitting, transmission, and price support. | Offshore often has high grid value near coastal load; it does not automatically win on pure LCOE. |
+| A curtailment or duck-curve problem | Diagnose local congestion, transmission export limits, minimum generation, storage duration, flexible demand, and market price signals. | Curtailment can be rational; zero curtailment is not always the economic optimum. |
+| A value-deflation claim | Compare capture price, production profile, congestion, cannibalization, storage pairing, hedges, and capacity credit. | Low LCOE does not guarantee high project value when many resources produce in the same hours and places. |
 
 ---
+
+## Cross-References
+
+- `01-GENERATION.md` gives the dispatchable generation baseline renewables disrupt.
+- `05-GRID-STABILITY.md` explains inertia, frequency, and control impacts of inverter-based resources.
+- `06-ENERGY-STORAGE.md` covers storage as the main flexibility complement.
 
 ## Common Confusion Points
 

@@ -308,17 +308,24 @@ QUALITY CONTROL SEQUENCE
 
 ---
 
+## Cross-References
+
+- `01-MASONRY-UNITS.md` supplies brick dimensions and material classes.
+- `02-MORTAR-GROUT.md` supplies joint material and workability.
+- `05-STRUCTURAL-MASONRY.md` explains load paths behind bond and reinforcement choices.
+
 ## Decision Cheat Sheet
 
-| Situation | Bond and Method Choice |
-|-----------|----------------------|
-| Single-wythe CMU wall | Running bond — only option without headers |
-| Traditional 2-wythe brick, maximum strength | English bond — headers every course |
-| Traditional 2-wythe brick, classic appearance | Flemish bond — headers every course alternate |
-| Contemporary aesthetic, flat joints | Running bond (1/2 or 1/3 offset) |
-| Stack bond (aesthetic requirement) | Horizontal joint reinforcement every 16" — required |
-| Repair existing Flemish bond wall | Match existing bond exactly — use queen closures |
-| Tall lead required (over 7 courses) | Use corner poles (metal guides) instead of masonry leads |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Single-wythe CMU wall | Running bond | Without headers, bond pattern choices are structurally limited. |
+| Maximum traditional brick strength | English bond with headers every course | More labor and visual regularity trade off against strength. |
+| Classic 2-wythe appearance | Flemish bond with alternating headers | Corners need queen closers/bats to avoid false bond. |
+| Contemporary flat-joint aesthetic | Running bond with 1/2 or 1/3 offset | Aesthetic simplicity still needs joint control and story pole checks. |
+| Stack-bond requirement | Horizontal joint reinforcement every 16 inches | Stack bond is a pattern, not an interlocking structural bond. |
+| Flemish bond repair | Exact bond match and queen closures | Existing pattern controls the repair, not mason preference. |
+| Tall leads | Corner poles instead of leads over about seven courses | Lead-to-field height difference can create settlement problems. |
+| Course alignment error | Story pole and string-line gap | Tiny joint errors accumulate quickly. |
 
 ---
 

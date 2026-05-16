@@ -564,6 +564,12 @@ rate 1980-2010 was the fastest sustained growth in economic history.
 
 ---
 
+## Cross-References
+
+- `03-COLONIAL-EXTRACTION.md` frames colonial inputs, markets, and capital flows.
+- `05-GOLD-STANDARD.md` follows industrial capitalism into the 19th-century monetary order.
+- `../manufacturing/00-OVERVIEW.md` connects mechanization and factory organization to production systems.
+
 ## Common Confusion Points
 
 **Watt did not invent the steam engine.** Newcomen built the first practical steam engine in 1712, 53 years before Watt's separate condenser patent. Watt made the existing engine dramatically more efficient. Trevithick (not Watt) made the first steam locomotive.
@@ -578,15 +584,11 @@ rate 1980-2010 was the fastest sustained growth in economic history.
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why Britain first? (Allen) | High wages + cheap coal made labor-saving machines profitable; true nowhere else in same period |
-| Why Britain first? (North-Weingast) | Glorious Revolution 1688 secured property rights; interest rates fell; capital flowed to industry |
-| Why not China? (Allen) | Coal in wrong location (northwest, far from coastal industry); low wages made machines unprofitable |
-| Spinning Jenny inventor and date? | James Hargreaves, 1764; 8 spindles; no water power needed |
-| Water Frame innovation? | Richard Arkwright, 1769; required water power; first factory system; Cromford Mill 1771 |
-| Watt's key invention? | Separate condenser (1769): prevents cylinder cooling; 5x efficiency improvement over Newcomen |
-| Watt's commercial model? | Charged customers 1/3 of fuel savings vs Newcomen engine; aligned incentives |
-| Railway social savings (Fogel)? | US 1890 GNP would have been ~5% lower without railroads; not "indispensable" |
-| Manchester life expectancy 1840s? | ~28 years in slums vs ~44 years in rural England |
-| When did British real wages clearly start rising? | 1840s-1850s; 80 years after first inventions (Engels pause) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why Britain industrialized first | Compare wages, coal price/location, institutions, empire/trade, skills, patents, and capital markets. | Allen and North-Weingast answer different layers; neither alone is sufficient. |
+| A China-vs-Britain comparison | Check coal geography, labor costs, market integration, state incentives, textile demand, and ecological constraints. | "Why not China?" is not evidence of timeless Western superiority. |
+| A textile-innovation claim | Separate spinning vs weaving bottlenecks, power source, labor skill, factory organization, and raw cotton supply. | Inventions mattered because they entered a system of demand, energy, finance, and labor discipline. |
+| A steam-engine claim | Identify mine pumping, separate condenser, fuel savings, rotary motion, patent/business model, and diffusion context. | Watt's invention was technical and commercial; the fuel-saving contract shaped adoption. |
+| A railway indispensability claim | Compare actual transport network to counterfactual canals/roads, freight rates, time savings, and social-savings method. | Low social-savings estimates do not mean railways had no transformative local effects. |
+| A living-standards claim | Track real wages, urban mortality, working hours, child labor, housing, prices, and distribution. | GDP growth and worker welfare diverged during the Engels pause. |

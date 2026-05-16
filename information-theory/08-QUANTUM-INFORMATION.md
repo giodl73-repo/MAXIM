@@ -1,5 +1,7 @@
 # Quantum Information Theory
 
+## The Big Picture
+
 ```
 QUANTUM VS CLASSICAL INFORMATION
 
@@ -246,19 +248,26 @@ Fidelity: F(ρ^{⊗n}, decompress(compress(ρ^{⊗n}))) → 1
 
 ---
 
+## Cross-References
+
+- `quantum-computing/01-QUBITS-CIRCUITS.md` — qubit and circuit substrate for quantum information.
+- `information-theory/02-SOURCE-CODING.md` — classical entropy and coding baseline.
+- `cryptography/01-SYMMETRIC.md` — secrecy and key distribution context for quantum information.
+
 ## Decision Cheat Sheet
 
-| Quantity | Formula | Analogy | Key property |
-|----------|---------|---------|--------------|
-| Von Neumann entropy | S(ρ) = -Tr(ρ log ρ) | Shannon H | Pure state → S=0 |
-| Quantum mutual info | I(A:B) = S_A+S_B-S_AB | Classical I(X;Y) | Always ≥ 0 |
-| Entanglement entropy | E(ψ) = S(ρ_A) = S(ρ_B) | No classical analog | Unique for pure states |
-| Coherent information | Ic = S_out - S_env | ≈ negative "noise" | Can be negative |
-| Holevo quantity | χ = S(avg) - avg(S) | Classical MI bound | Bounds classical capacity |
-| Quantum capacity | Q = lim Ic^{(n)}/n | Shannon capacity C | Superadditive |
-| EA classical capacity | C_E = S + Ic | Beats classical C | Single-letter formula |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a quantum state has mixedness | Von Neumann entropy `S(rho)` | Pure states have zero entropy even when subsystems are mixed |
+| Whether two quantum systems share total correlations | Quantum mutual information | It includes classical and quantum correlations |
+| Whether pure-state entanglement is present | Entanglement entropy of a subsystem | This clean measure is special to bipartite pure states |
+| Whether a channel can transmit quantum information | Coherent information | It can be negative and is not generally single-letter |
+| Whether classical information can be read from quantum states | Holevo quantity | It is an upper bound, not automatically an achievable rate |
+| Whether quantum channel capacity is additive | Regularized quantum capacity | Superadditivity makes single-use intuition unreliable |
+| Whether entanglement assistance changes classical capacity | Entanglement-assisted capacity | Shared entanglement is a resource assumption, not free bandwidth |
 
-**Ordering**: C_E ≥ C ≥ Q ≥ 0 always. Entanglement assistance only helps.
+**Ordering:** `C_E >= C >= Q >= 0` always. Entanglement assistance only helps,
+but it changes the resource model.
 
 ---
 

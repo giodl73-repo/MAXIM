@@ -339,6 +339,12 @@ TYPOGRAPHIC SCALE SYSTEMS
 
 ---
 
+## Cross-References
+
+- [Swiss Style](02-SWISS-STYLE.md) provides the modernist typography and Helvetica baseline.
+- [Grid Systems](04-GRID-SYSTEMS.md) explains how type locks to layout structure.
+- [Brand Identity Systems](07-BRAND-IDENTITY.md) shows typography as part of recognizable identity systems.
+
 ## Common Confusion Points
 
 **"Serif is for print, sans-serif is for screen"** -- This was true on low-

@@ -4,7 +4,7 @@
 
 ---
 
-## Big Picture: Symmetric Primitive Stack
+## The Big Picture: Symmetric Primitive Stack
 
 ```
 ┌───────────────────────────────────────────────────────────────────────────┐
@@ -522,6 +522,18 @@ AEAD NONCE GENERATION AT SCALE — BIRTHDAY BOUND MATH:
 | sUF-CMA requirement? | Use Ed25519 or RSA-PSS; ECDSA is EUF-CMA but has malleability |
 | AEAD = ? | AES-GCM provides: IND-CPA (CTR mode) + INT-CTXT (GHASH MAC) → IND-CCA2 |
 | ChaCha20 key+nonce size? | 256-bit key + 96-bit nonce + 32-bit counter = 480 bits of block function input |
+
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Protocol and system threat framing | `security-engineering/01-THREAT-MODELING.md` | Crypto primitives only help after the threat model names the property needed |
+| Public-key complements | `cryptography/02-PUBLIC-KEY.md` | Symmetric crypto handles bulk data; public-key crypto handles agreement and identity |
+| Finite-field algebra behind AES/GHASH | `abstract-algebra/01-GROUPS.md` | AES and GHASH are engineering uses of algebraic structure |
+| Information-theoretic limits | `information-theory/01-ENTROPY-INFORMATION.md` | Secrecy, randomness, compression, and authentication all depend on entropy |
+| Secure implementation risks | `security-engineering/01-THREAT-MODELING.md` | Side channels and nonce misuse are implementation/system failures, not primitive failures |
 
 ---
 

@@ -92,14 +92,14 @@ Antiquity–1600        Hand tools only                Mortise-and-tenon, carved
                                                      Victorian mass production
 
 1850–1920             Michael Thonet bentwood        First industrial furniture
-                      Industrial press, steam        (bent beechwood, pre-
-                      forming                        assembled globally from
-                                                     flat-pack parts — 1859)
+                      Industrial press, steam        (bent beechwood, shipped
+                      forming                        disassembled in compact
+                                                     crates for global sale)
 
 1920–1945             Tubular steel rolling          Bauhaus steel furniture;
                       Welding                        tubular steel cantilever
-                      Molded plywood (aircraft)      chairs; aircraft-industry
-                                                     plywood techniques
+                      Molded plywood (aircraft)      chairs; later aircraft-
+                                                     industry plywood methods
 
 1945–1970             WWII tech transfer             Eames molded plywood/
                       Fiberglass (boat industry)     fiberglass; foam replaces
@@ -259,18 +259,23 @@ The best furniture designers are systems thinkers: hold material constraints, bo
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What's the difference between a joiner and cabinetmaker? | Joiner = structural timber + fitted work; cabinetmaker = fine casework, veneering, finishing |
-| Why did Victorian furniture look so fussy? | Steam-powered mechanical carving made ornament cheap; no design constraint to remove it |
-| What technology enabled Thonet's bentwood chairs? | Steam-bent solid beechwood rods, pressure forming; first truly industrial furniture 1859 |
-| What connects Bauhaus furniture to aircraft manufacturing? | Both used tubular steel and molded plywood techniques developed/refined in aerospace |
-| What is "Mid-Century Modern" actually describing? | Post-WWII ~1945–1969, primarily US/Scandinavian, organic forms + industrial materials |
-| Why did Arts & Crafts movement arise? | Reaction against machine-produced Victorian ornament — Ruskin/Morris argument for visible craft |
-| What is KD furniture? | Knock-Down: ships flat, assembled by buyer with cam-lock and confirmat hardware — IKEA model |
-| How does furniture connect to power/status? | Chair = authority from antiquity; "chair" of a committee preserves this etymologically |
+| If you need to diagnose... | Start With | Why It Matters |
+|----------|------------|----------------|
+| Whether a piece is craft casework, fitted joinery, seating, or turned work | Trade taxonomy: cabinetmaker, joiner, upholsterer, woodturner | The trade tells you the expected joints, surfaces, materials, and failure modes |
+| Why a style suddenly becomes affordable or widespread | Manufacturing capability timeline | Steam bending, veneer sawing, tubular steel, foam, CNC, and KD hardware each make a different design language cheap |
+| Whether ornament is structural logic or surface fashion | Material + manufacturing + period context | Arts & Crafts exposes joints; Victorian revivalism often applies machine-made ornament; Art Deco advertises modernity through surface |
+| How to compare two period labels that overlap by date | Geographic origin and patronage system | French Rococo, English Queen Anne, American Federal, and German Biedermeier answer different markets despite chronological overlap |
+| Whether a chair signals authority, task fit, or egalitarianism | Seating hierarchy and room context | Throne, dining chair, task chair, and conference chair encode different social contracts |
+| Whether a modern design is industrially coherent | Material/process match | Tubular steel, molded plywood, foam, injection molding, and flat-pack particleboard reward different geometries |
+| Where to go next in the directory | Failure mode: joints, style identification, modernism, materials, business system, ergonomics, or digital fabrication | The right guide is chosen by the question, not by chronology alone |
 
 ---
+
+## Cross-References
+
+- [Wood and Joinery](01-WOOD-JOINERY.md) starts with the structural craft logic behind furniture.
+- [Furniture History](02-HISTORY-STYLES.md) gives the period-style chronology behind the field map.
+- [Contemporary Furniture](09-CONTEMPORARY.md) follows the landscape into digital fabrication and current design systems.
 
 ## Common Confusion Points
 

@@ -198,18 +198,24 @@ FUNDAMENTAL GROUP OF GRAPH:
 
 ---
 
+## Cross-References
+
+- `topology/03-CONTINUITY-HOMEOMORPHISM.md` — connectedness is preserved by continuous images and homeomorphisms.
+- `topology/06-FUNDAMENTAL-GROUP.md` — path-connected and simply connected spaces lead into loop invariants.
+- `topology/09-MANIFOLDS.md` — connected components organize manifolds and classification problems.
+
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Prove X connected | Show no clopen partition; or show f: X→{0,1} must be constant |
-| Prove X path-connected | Construct explicit path between any two points |
-| Prove simply connected | Show π₁(X) = 0 via van Kampen; or show every loop is null-homotopic |
-| Apply IVT | Use connectedness of [a,b] |
-| Understand S¹ not simply connected | Winding number argument; loop e^{2πit} has winding 1 |
-| Count connected components | Compute H₀ (rank = # components) |
-| Separate region in R² | Jordan curve theorem |
-| Understand proofs about homotopy groups | Need simply connected universal cover |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a space is connected | Rule out nontrivial clopen partitions | Connected does not imply path-connected |
+| Whether paths connect all points | Construct paths between arbitrary points | Path-connectedness depends on actual paths, not just no separation |
+| Whether loops all contract | Fundamental group or null-homotopies | Simply connected requires path-connectedness plus trivial `pi_1` |
+| Whether IVT-style reasoning applies | Connectedness of intervals | IVT is connectedness plus continuity into ordered spaces |
+| Whether `S^1` has essential loops | Winding number | Winding is homotopy invariant, not geometric length |
+| Whether components can be counted algebraically | Zeroth homology `H_0` | Homology counts path components in standard settings |
+| Whether a planar curve separates regions | Jordan curve theorem | The theorem is deep despite the statement looking obvious |
+| Whether universal covers simplify homotopy arguments | Simply connected universal cover | Existence requires suitable local conditions |
 
 ---
 

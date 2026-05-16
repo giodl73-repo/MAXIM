@@ -590,6 +590,12 @@ CHINA WITHOUT EUROPEAN INTERFERENCE:
 
 ---
 
+## Cross-References
+
+- `02-MEDIEVAL-TRADE.md` supplies the pre-colonial trade networks colonial systems displaced or captured.
+- `04-INDUSTRIAL-REVOLUTION.md` connects extraction, capital accumulation, and industrial demand.
+- `../development-studies/03-DEPENDENCY-WORLD-SYSTEMS.md` gives the modern dependency-theory frame.
+
 ## Common Confusion Points
 
 **Mercantilist theory was not stupid — it was wrong in specific ways.** The zero-sum assumption about trade was incorrect (comparative advantage shows trade creates mutual gains). But the concern about terms-of-trade (who captures gains from trade) was not wrong. Modern "unequal exchange" theories (Emmanuel, Wallerstein) are more sophisticated versions of similar intuitions.
@@ -604,15 +610,12 @@ CHINA WITHOUT EUROPEAN INTERFERENCE:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What made Potosi's silver production possible? | Mercury amalgamation (patio process, 1572) + mita forced labor |
-| Where did most Potosi silver end up? | ~40% China (via Manila Galleons); rest dispersed through Europe |
-| What was triangular trade? | Manufactured goods to Africa; enslaved Africans to Americas; plantation goods to Europe |
-| Middle Passage mortality? | ~12-15% overall; 20-25% early period; dropped to 5-8% by 1800 |
-| What was the Zong massacre? | 1781: 133 enslaved people thrown overboard for insurance claim; galvanized abolition movement |
-| Mercantilist core error? | Assumed trade was zero-sum (fixed pie); Smith showed comparative advantage creates mutual gains |
-| What were EIC's Diwani rights (1765)? | Tax collection authority over Bengal, Bihar, Orissa; conquest by accounting without formal sovereignty transfer |
-| What caused the Bengal Famine of 1770? | Crop failure combined with EIC maintaining full tax extraction; ~10M deaths |
-| What was the VOC's capital innovation? | Permanently invested capital (not dissolved after each voyage); tradeable shares; = first stock market |
-| Patnaik's drain estimate? | $45 trillion (2018 dollars) extracted from India 1765-1938; controversial due to compound interest assumptions |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A silver-flow claim | Trace mine technology, forced labor, mercury supply, minting, Manila/Atlantic routes, and final demand. | Bullion routes were global; Europe was often an intermediary, not the final sink. |
+| A triangular-trade claim | Separate commodity legs, credit/insurance, mortality, coercion, and plantation labor regime. | The triangle is a schematic; actual voyages and finance networks were more varied. |
+| A mercantilist-policy claim | Identify bullionism, monopoly charter, navigation restriction, colonial manufacturing ban, and fiscal-military state need. | Mercantilism was a policy bundle, not a single coherent theory. |
+| An East India Company claim | Distinguish trade privilege, territorial revenue, Diwani rights, private fortunes, famine policy, and metropolitan oversight. | Company rule mixed commercial accounting with coercive sovereignty. |
+| A colonial-famine claim | Compare crop shock, market access, tax extraction, relief policy, grain prices, and administrative incentives. | Crop failure alone does not explain famine mortality. |
+| A drain estimate | Inspect price base, transfer channel, counterfactual investment, interest compounding, and time horizon. | Large totals can be directionally important and methodologically contested at the same time. |
+| A chartered-company innovation | Compare permanent capital, tradable shares, monopoly rights, armed force, and state backing. | Corporate finance innovation and coercive empire developed together. |

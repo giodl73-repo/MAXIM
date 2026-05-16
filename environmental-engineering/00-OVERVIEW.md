@@ -376,21 +376,24 @@ The five domains are not siloed — each generates waste streams that enter anot
 
 ## Decision Cheat Sheet
 
-| Question | Where to Look |
-|----------|--------------|
-| What health standard applies to my drinking water contaminant? | SDWA NPDWRs — EPA contaminant tables |
-| Does my discharge need a permit? | CWA NPDES — point source to WOTUS triggers permit |
-| What air permit does a backup diesel generator need? | CAA: PTE vs. major source threshold; nonattainment status |
-| How do I classify my waste as hazardous? | RCRA: listed waste (F/K/P/U) or characteristic (TCLP test) |
-| Site has chlorinated solvents — what cleanup standard? | CERCLA RAGS risk-based target or state VCP SSTLs |
-| What is my facility's carbon footprint? | GHG Protocol Corporate Standard — Scope 1/2/3 |
-| Is this site a Superfund candidate? | CERCLA HRS score ≥28.5 → potential NPL listing |
-| What technology removes PFAS from drinking water? | BAT per 2024 MCL rule: GAC or PFAS-specific IX resin |
-| How do I evaluate a candidate site for purchase? | Phase I ESA (ASTM E1527-21) — RECs and AAI |
-| How do I quantify hardware environmental impacts? | ISO 14040 LCA, ecoinvent database, GWP100 characterization |
-| What is "water positive"? | Net positive water balance: return more than withdrawn in stressed areas |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Drinking-water contaminant | SDWA MCL/MCLG, treatability, monitoring, and primacy agency | Health goal and enforceable limit are not the same thing |
+| Wastewater discharge | Point source, receiving water, NPDES limit, and TMDL status | CWA permit logic depends on discharge path and current WOTUS scope |
+| Air-permit question | Pollutant, potential to emit, attainment status, and source category | NAAQS are ambient standards, not stack limits |
+| Hazardous-waste question | Listed waste, characteristic waste, generator status, and cradle-to-grave tracking | RCRA compliance does not erase CERCLA liability |
+| Remediation standard | Exposure pathway, receptor, risk target, and state/federal cleanup program | Cleanup is risk-based, not "remove every molecule" |
+| PFAS treatment claim | Source water, chain length, resin/GAC performance, and disposal route | Treatment creates a residuals problem |
+| Site-acquisition risk | Phase I ESA, RECs, historical operations, and nearby releases | AAI protects liability only if followed by continuing obligations |
+| Sustainability claim | Boundary, functional unit, Scope 1/2/3, water stress, and LCA method | Metrics can improve locally while burden shifts elsewhere |
 
 ---
+
+## Cross-References
+
+- `01-WATER-TREATMENT.md` gives the drinking-water treatment baseline.
+- `02-WASTEWATER.md` covers the return-flow and sanitation side of urban water systems.
+- `06-SUSTAINABILITY.md` connects environmental engineering to lifecycle and systems design.
 
 ## Common Confusion Points
 

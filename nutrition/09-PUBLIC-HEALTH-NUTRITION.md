@@ -428,18 +428,24 @@ EVIDENCE-BASED SUPPLEMENTATION:
 
 ---
 
+## Cross-References
+
+- `public-health/01-EPIDEMIOLOGY.md` - population measurement and intervention logic.
+- `nutrition/06-METABOLISM-ENERGY.md` - individual metabolism scaled to public-health patterns.
+- `disease/10-EPIDEMIOLOGY.md` - disease burden and risk measurement.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Kwashiorkor vs marasmus: how to distinguish | Kwashiorkor: edema + adequate calories + protein-deficient; Marasmus: total starvation + wasted |
-| Most common micronutrient deficiency globally | Iron deficiency (>1 billion) |
-| Most preventable cause of childhood blindness | Vitamin A deficiency (twice-yearly supplementation prevents it) |
-| Single most cost-effective nutrition intervention | Iodized salt + Vitamin A supplementation (Copenhagen Consensus) |
-| Does adding a supermarket to a food desert fix obesity? | No — demand/preference factors dominate; access alone insufficient |
-| Which supplements have strong universal evidence? | Folic acid in pregnancy; vitamin D; B12 for vegans |
-| Which supplements are harmful in excess? | Vitamin E, A, beta-carotene (especially smokers); selenium |
-| Why did low-fat dietary guidelines possibly worsen obesity? | Food industry replaced fat with refined carbs; UPF "low-fat" was calorie-equivalent but less sating |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Kwashiorkor versus marasmus | Edema/protein deficiency versus wasting/total starvation | Mixed severe acute malnutrition is common. |
+| Global micronutrient deficiency | Iron deficiency burden | Iron deficiency can precede anemia. |
+| Preventable childhood blindness | Vitamin A deficiency and supplementation | Dose programs must avoid toxicity. |
+| Cost-effective nutrition intervention | Iodized salt and vitamin A supplementation | Local deficiency prevalence determines impact. |
+| Food-desert intervention limits | Access plus demand/preference/price/cooking constraints | Supermarket access alone rarely fixes obesity. |
+| Universal supplement evidence | Folate in pregnancy, D where deficient, B12 for vegans | "Universal" still depends on population risk. |
+| Excess supplement harm | A, E, beta-carotene, selenium | Smokers have special beta-carotene risk. |
+| Low-fat guideline backfire | Refined-carb UPF replacement | Satiety and food processing matter, not just fat percent. |
 
 ---
 

@@ -1,5 +1,7 @@
 # Operating Systems — Universal Cheat Sheet & Vocabulary Load-In
 
+## The Big Picture
+
 ```
 KERNEL ARCHITECTURE AT A GLANCE
 ════════════════════════════════════════════════════════════════════
@@ -665,6 +667,18 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 | Crash log has `java.lang.NullPointerException` | Android Java/Kotlin exception |
 | `0xC0000005` in crash | Windows Access Violation (NULL deref) |
 | `SIGSEGV` in core dump | Linux/macOS segmentation fault |
+
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Package managers above the OS | `computing/01-PACKAGE.md` | Package tools sit on filesystem, permissions, dynamic libraries, and process model |
+| CPU/ISA substrate below the OS | `computer-architecture/01-ISA-FUNDAMENTALS.md` | Syscalls, traps, ABI, and privilege rings depend on architecture |
+| Cloud responsibility boundaries | `cloud-architecture/01-CLOUD-MODELS.md` | IaaS exposes OS management; PaaS/SaaS hide most of it |
+| Security boundaries and threat models | `security-engineering/01-THREAT-MODELING.md` | Processes, users, permissions, and kernel attack surface are security primitives |
+| Scripting interfaces | `scripting/01-CHEATSHEET.md` | Shells are the daily control plane over OS concepts |
 
 ---
 

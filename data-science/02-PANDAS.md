@@ -610,6 +610,18 @@ df.with_columns([
 
 ---
 
+## Cross-References
+
+- `01-NUMPY.md` gives the array and memory model Pandas builds on.
+- `03-SCIKIT-LEARN.md` shows how cleaned DataFrames feed classical ML pipelines.
+- `../query-languages/01-SQL.md` supplies the relational baseline behind joins, grouping, and filtering.
+
+## Cross-References
+
+- `01-NUMPY.md` gives the array and memory model Pandas builds on.
+- `03-SCIKIT-LEARN.md` shows how cleaned DataFrames feed classical ML pipelines.
+- `../query-languages/01-SQL.md` supplies the relational baseline behind joins, grouping, and filtering.
+
 ## Common Confusion Points
 
 **`.loc` includes the end, `.iloc` excludes it**: `df.loc["a":"c"]` returns rows
@@ -639,30 +651,11 @@ one Python string object per cell — no vectorization possible. Cast to
 
 ## Decision Cheat Sheet
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  TASK                           │  APPROACH                         │
-├─────────────────────────────────┼──────────────────────────────────┤
-│  Select single column           │  df["col"]                       │
-│  Select by label, safe write    │  df.loc[rows, cols]              │
-│  Select by position             │  df.iloc[rows, cols]             │
-│  Filter rows                    │  df[mask] or df.query("...")     │
-│  Grouped aggregation            │  df.groupby("k").agg(...)        │
-│  Add group stat to original     │  groupby().transform()           │
-│  Long → wide                    │  df.pivot(index, columns, values)│
-│  Wide → long                    │  df.melt(id_vars, value_vars)    │
-│  Join two DataFrames            │  pd.merge(left, right, on, how)  │
-│  Stack rows                     │  pd.concat([df1, df2], axis=0)   │
-│  Temporal groupby               │  df.resample("W").mean()         │
-│  Rolling window                 │  df["col"].rolling(7).mean()     │
-│  String ops                     │  df["col"].str.contains(...)     │
-│  Avoid SettingWithCopyWarning   │  df.loc[mask, "col"] = val       │
-├─────────────────────────────────┼──────────────────────────────────┤
-│  PERFORMANCE                    │                                  │
-│  Low-cardinality strings        │  .astype("category")             │
-│  Float/int columns              │  dtype=float32/int32 at read     │
-│  Complex arithmetic             │  pd.eval() / df.eval()           │
-│  File format                    │  Parquet > CSV always            │
-│  > 1GB or need speed            │  Switch to Polars                │
-└─────────────────────────────────┴──────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A selection or assignment bug | Distinguish label selection (`.loc`), positional selection (`.iloc`), column selection, and chained indexing. | Use `.loc`/`.iloc` for writes; chained indexing can be ambiguous under copy/view behavior. |
+| A groupby problem | Decide whether the result should shrink (`agg`), preserve shape (`transform`), or run arbitrary per-group logic (`apply`). | `apply` is flexible but often slow and harder to reason about than vectorized aggregation. |
+| A reshape problem | Identify wide vs long form, uniqueness of index/column pairs, duplicate handling, and whether aggregation is needed. | `pivot` requires uniqueness; `pivot_table` aggregates duplicates. |
+| A join problem | Check key cardinality, null keys, join type, duplicate keys, index-vs-column joins, and expected row count. | Most surprising Pandas joins are cardinality explosions, not syntax mistakes. |
+| A performance problem | Inspect row count, dtype choices, object columns, vectorization, file format, memory footprint, and whether Polars/DuckDB fits better. | Parquet is usually better for analytics, but CSV may still be right for human exchange or interoperability. |
+| A time-series problem | Verify datetime parsing, timezone, index frequency, resampling interval, rolling window semantics, and missing periods. | Timezone and closed/open interval defaults can silently shift results. |

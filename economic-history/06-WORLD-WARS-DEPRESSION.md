@@ -510,8 +510,8 @@ KEYNES AND THE NEW DEAL:
   FDR worried about deficits; reduced spending 1937-38
   1937-38 recession ("Roosevelt Recession"): deflationary fiscal shift
   caused sharp relapse
-  This actually proved Keynesian theory: spending cuts during recovery
-  cause recession; the cure was more spending, not less
+  This became key Keynesian evidence: spending cuts during a fragile
+  recovery can be contractionary
 ```
 
 ---
@@ -579,6 +579,12 @@ WARTIME ECONOMIC CONTROLS:
 
 ---
 
+## Cross-References
+
+- `05-GOLD-STANDARD.md` explains the monetary regime that constrained interwar policy.
+- `07-BRETTON-WOODS.md` shows the institutional settlement built after depression and war.
+- `../economics/03-MACROECONOMICS.md` supplies the aggregate-demand and policy vocabulary.
+
 ## Common Confusion Points
 
 **Weimar hyperinflation was not caused by the Versailles reparations alone.** The root cause was the fiscal and monetary policy response to the Ruhr occupation (1923). Reparations created the pressure; the government chose to finance passive resistance by printing money. Alternative: accept the occupation, allow French extraction, stabilize the currency (at political cost). Germany chose money printing; France (1926) chose fiscal austerity. Different choices; different outcomes.
@@ -595,15 +601,12 @@ WARTIME ECONOMIC CONTROLS:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| How did UK finance WWI? | ~30% taxation, ~60% borrowing (war bonds); some money creation |
-| Keynes's main critique of Versailles? | Reparations unpayable without trade surplus; transfer problem; would destabilize German middle class |
-| What triggered Weimar hyperinflation? | Ruhr occupation (Jan 1923) + government printed money to finance passive resistance |
-| How was hyperinflation stopped? | Rentenmark + fiscal adjustment + Dawes Plan (1924) -- credible commitment to stop printing |
-| Why did the 1929 crash become a Depression? | Bank failures (9,000 banks) contracted money supply 34%; Fed failed as lender of last resort |
-| Friedman-Schwartz thesis? | Federal Reserve caused Depression by allowing M2 to fall 34%; policy failure, not natural disaster |
-| Eichengreen's gold standard finding? | Countries that left gold earliest recovered earliest; gold transmitted deflation globally |
-| What did FDIC actually accomplish? | Eliminated bank-run incentive; if deposits insured, no reason to panic-withdraw |
-| What was the Roosevelt Recession (1937-38)? | FDR cut spending prematurely; relapse proved Keynesian theory: fiscal withdrawal during recovery is contractionary |
-| When did US unemployment effectively reach zero? | 1942 (WWII spending, not New Deal) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A WWI finance claim | Separate taxation, domestic borrowing, foreign borrowing, money creation, inflation, and postwar debt overhang. | War finance choices shaped postwar politics as much as battlefield economics. |
+| A Versailles/reparations claim | Track transfer capacity, trade surplus, fiscal politics, middle-class balance sheets, and diplomatic enforcement. | Reparations were destabilizing, but they were not a single-cause explanation for later events. |
+| Weimar hyperinflation | Start with Ruhr occupation, passive resistance, fiscal deficits, money printing, and credibility collapse. | Reparations created pressure; the immediate trigger was the policy response to occupation. |
+| The Great Depression's depth | Compare bank failures, money-supply contraction, Fed lender-of-last-resort failure, gold constraints, and demand collapse. | The stock crash was a trigger, not a sufficient explanation for a 30% GDP contraction. |
+| A New Deal effectiveness claim | Separate relief, financial reform, public works, monetary regime change, fiscal scale, and unemployment outcomes. | Recovery and full employment are different thresholds. |
+| Gold-standard recovery evidence | Compare exit timing, devaluation, monetary expansion, trade effects, and political credibility. | Countries that left gold earlier generally recovered earlier, but causality runs through policy channels. |
+| A WWII fiscal-stimulus analogy | Check spending scale, rationing, price controls, labor mobilization, idle capacity, and peacetime applicability. | Total-war mobilization is not a clean template for ordinary recession policy. |

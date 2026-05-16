@@ -267,20 +267,24 @@ This connects to fiber bundles (08) — a Riemannian metric is exactly an O(n)-r
 
 ---
 
+## Cross-References
+
+- `differential-geometry/01-MANIFOLDS.md` — base smooth-manifold structure that tangent bundles package.
+- `differential-geometry/03-DIFFERENTIAL-FORMS.md` — cotangent and exterior bundles as the home of differential forms.
+- `differential-geometry/05-CONNECTIONS.md` — connections differentiate sections of vector bundles.
+
 ## Decision Cheat Sheet
 
-| Object | Definition | Acts On | Section Is |
-|---|---|---|---|
-| TM (tangent bundle) | Union of T_p M | — | Vector field |
-| T*M (cotangent bundle) | Union of T*_p M | — | 1-form |
-| T^{1,0}M | = TM | — | Vector field |
-| T^{0,1}M | = T*M | — | 1-form |
-| T^{r,s}M | r up, s down | Vectors and covectors | (r,s)-tensor field |
-| Lambda^k T*M | Antisym (0,k) | k tangent vectors | k-form |
-| Sym^2 T*M | Symm (0,2) | Pairs of vectors | Symmetric bilinear form |
-| Pushforward dF | TM -> TN | Vectors forward | — |
-| Pullback F* | Omega^k(N) -> Omega^k(M) | Forms backward | — |
-| Lie derivative L_X | Tensors -> Tensors | Along flow of X | — |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether vectors vary smoothly over `M` | Tangent bundle `TM` | A section of `TM` is a vector field, not a single tangent space |
+| Whether covectors are the right dual object | Cotangent bundle `T*M` | 1-forms eat tangent vectors pointwise |
+| Whether a tensor type is contravariant/covariant | `T^{r,s}M` notation | Upper/lower slots transform differently under coordinate change |
+| Whether antisymmetric covariant tensors are involved | `Lambda^k T*M` | A `k`-form vanishes on linearly dependent input vectors |
+| Whether symmetric bilinear structure is needed | `Sym^2 T*M` | Symmetry is separate from positivity or nondegeneracy |
+| Whether vectors move through a smooth map | Pushforward `dF` | Pushforwards act on tangent vectors, not arbitrary covectors |
+| Whether forms move backward through a map | Pullback `F*` | Pullback is always defined for forms; pushforward is not |
+| Whether change along a flow is measured | Lie derivative `L_X` | Lie derivative needs a vector field generating the flow |
 
 ---
 

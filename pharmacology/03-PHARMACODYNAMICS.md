@@ -339,18 +339,24 @@ ANTIBIOTIC PD CLASSIFICATION
 
 ---
 
+## Cross-References
+
+- `pharmacology/01-RECEPTOR-THEORY.md` - receptor binding as the substrate for effect.
+- `pharmacology/02-PHARMACOKINETICS.md` - exposure-time curves that feed response curves.
+- `medicine/03-CARDIOVASCULAR-DRUGS.md` - clinical drug effects in a major therapeutic class.
+
 ## Decision Cheat Sheet
 
-| PD Concept | Parameter | Clinical Reading |
-|------------|-----------|-----------------|
-| Drug A more potent than Drug B | EC50_A < EC50_B | Smaller dose needed for A |
-| Drug A has greater efficacy | Emax_A > Emax_B | Stronger maximum effect from A |
-| Drug has narrow TI | TD50/ED50 < 10 | Requires TDM, careful dosing |
-| Dose-response is steep | Hill n > 2 | Small dose change → large effect change |
-| Effect lags concentration | Counter-clockwise hysteresis | Allow time for effect-site equilibration |
-| Tolerance developing | Tolerance mechanisms | May need dose escalation or tolerance breaks |
-| Antibiotic needs high peak | Concentration-dependent PD | Once-daily dosing (aminoglycosides) |
-| Antibiotic needs sustained level | Time-dependent PD | Frequent dosing or continuous infusion |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Greater potency | Lower EC50 | Potency is not efficacy or clinical value. |
+| Greater efficacy | Higher Emax | Bigger maximum effect is not always safer or better. |
+| Narrow therapeutic index | TD50/ED50 below about 10 | Individualized monitoring can make narrow-TI drugs usable. |
+| Steep dose-response | Hill coefficient above 2 | Small dose changes can cause large effect changes. |
+| Effect lagging plasma level | Counter-clockwise hysteresis | Wait for effect-site equilibration before redosing. |
+| Tolerance | Receptor, signaling, or PK adaptation | Escalation may worsen dependence or toxicity. |
+| Peak-dependent antibiotic effect | Concentration-dependent PD | Aminoglycoside-style dosing also needs toxicity monitoring. |
+| Time-dependent antibiotic effect | Time above MIC | Continuous infusion helps only when exposure target fits drug class. |
 
 ---
 

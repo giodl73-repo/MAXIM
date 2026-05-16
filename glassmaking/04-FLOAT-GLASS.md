@@ -4,6 +4,13 @@
 
 The float glass process is one of the great manufacturing innovations of the 20th century. Before 1959, flat glass required grinding and polishing to achieve flatness — expensive, slow, and wasteful. After float, a continuous ribbon of optically flat glass emerged from a bath of molten tin and needed no further surface treatment. Within 20 years it replaced every previous flat glass manufacturing method globally.
 
+**Bridge — float as continuous-platform manufacturing:** Old flat glass was
+batch correction: make a sheet, then grind and polish defects away. Float turned
+the process into a stable continuous platform: a hot line with controlled
+viscosity, atmosphere, draw speed, thickness, annealing, and post-process value
+layers. The modern analogy is moving from artisanal rework to a production
+pipeline with tight process control and downstream product SKUs.
+
 ```
 FLOAT GLASS PROCESS
 =====================
@@ -40,7 +47,25 @@ FURNACE → TIN BATH → ANNEALING LEHR → CUTTING
    Laser or diamond scribe → break
    Standard jumbo: 3.21m × 6.0m
           |
-   WAREHOUSE + SECONDARY PROCESSING
+    WAREHOUSE + SECONDARY PROCESSING
+```
+
+```
+FLOAT RIBBON -> ANNEALED SHEET -> PRODUCT DECISION TREE
+
+  base float
+      |
+      +-- leave annealed ---------- ordinary framed glazing only
+      |
+      +-- temper / heat-strengthen - safety + thermal shock resistance
+      |
+      +-- laminate ---------------- safety, security, acoustic control
+      |
+      +-- online hard coat -------- durable Low-E / self-cleaning, temperable
+      |
+      +-- offline soft coat ------- high-performance Low-E, sealed in IGU
+      |
+      +-- IGU / triple glazing ---- thermal system: panes + coating + gas
 ```
 
 ---
@@ -278,6 +303,12 @@ PERFORMANCE STANDARDS:
 
 ---
 
+## Cross-References
+
+- [Raw Materials](02-RAW-MATERIALS.md) supplies the batch chemistry behind soda-lime flat glass.
+- [Forming Techniques](03-FORMING-TECHNIQUES.md) places float glass among blowing, casting, drawing, and pressing.
+- [Safety Glass](06-SAFETY-GLASS.md) follows flat glass into tempered, laminated, and automotive systems.
+
 ## Common Confusion Points
 
 **Float glass ≠ tempered or laminated**:
@@ -296,15 +327,15 @@ A float line is a continuous operation running for 10-15 years. There is no "bat
 
 ## Decision Cheat Sheet
 
-| Float Glass Question | Answer |
-|---------------------|--------|
-| Why float is superior to plate glass | No grinding; fire-polished surfaces; lower cost |
-| Standard jumbo sheet size | 3.21m × 6.0m |
-| How to detect tin side | UV fluorescence at 365nm (tin side fluoresces) |
-| Low-E coating: hard vs soft | Hard = online CVD (durable, lower perf); soft = sputtered (better perf) |
-| Best insulating gas | Krypton (expensive); argon (common) |
-| Low-E coating position in typical IGU | Surface #2 (inner face of outer pane) for heating climates |
-| Why float line never stops | Campaign economics; restart = months + millions |
-| Self-cleaning glass mechanism | TiO₂ photocatalysis + hydrophilicity (needs UV) |
-| SHGC purpose | Solar heat gain coefficient; controls solar heating through glass |
-| Argon vs air in IGU | Argon ~40% lower thermal conductivity → better insulation |
+| Use Case | Choose | Why / Constraint |
+|---|---|---|
+| Ordinary framed window away from hazardous locations | Annealed float glass | Cheapest optically flat base product; not a safety glass |
+| Door, low-level glazing, shower, guard, or impact-risk location | Tempered or laminated safety glass | Annealed float is dangerous in hazardous locations; code usually controls |
+| Overhead, security, hurricane, or acoustic glazing | Laminated glass | Interlayer retains fragments and adds security/acoustic damping |
+| Cold-climate residential IGU | Soft-coat Low-E on protected cavity surface plus argon | Best insulation per cost; coating must be sealed inside the unit |
+| Hot-climate facade with cooling-load problem | Solar-control Low-E / spectrally selective coating | Lower SHGC matters more than maximum passive solar gain |
+| Glass that must be tempered after coating | Online hard coat | Pyrolytic coating survives tempering; soft coat usually cannot |
+| Highest thermal performance where weight/cost are acceptable | Triple glazing, often argon or krypton in narrow cavities | Lower U-value; check frame, hardware, and edge-spacer limits |
+| Museum/display/solar application where reflection matters | Anti-reflective coated float | Transmission and reflection dominate value, not basic flatness |
+| Hard-to-clean exterior roof or conservatory glass | Online TiO2 self-cleaning coating | Needs UV activation and rain rinse; not magic dirt removal |
+| Process troubleshooting or coating adhesion issue | Identify tin side with 365nm UV | Tin side fluorescence reveals the bath-contact surface |

@@ -463,36 +463,24 @@ Ant trail pheromone specificity:
 
 ---
 
+## Cross-References
+
+- `animal-phylogeny/04-NEMATODA-ECDYSOZOA.md` — molting-body-plan context.
+- `entomology/01-INSECT-ANATOMY.md` — insect specialization inside Arthropoda.
+- `evolutionary-biology/07-SEXUAL-SELECTION.md` — display, weapon, and mating-system diversification.
+
 ## Decision Cheat Sheet
 
-```
-ARTHROPOD IDENTIFICATION
-
-How many walking legs?
-  4 pairs (8 legs) + no antennae → ARACHNIDA
-    + Stinging tail → Scorpiones
-    + Pincers (pedipalps) + 8 legs → if tiny, Pseudoscorpionida
-    + Normal spider body → Araneae
-    + Tiny, parasite → Acari (mite or tick)
-
-  2+ many pairs + 1 antenna pair → MYRIAPODA
-    1 pair legs/segment + forcipules → CHILOPODA (centipede)
-    2 pairs legs/segment + cylindrical → DIPLOPODA (millipede)
-
-  Variable legs + 2 antenna pairs → CRUSTACEA
-    10 walking legs (5 pairs) + carapace → Decapoda
-    No legs visible, attached to substrate → Barnacle (Cirripedia)
-    Tiny, planktonic → Copepoda
-    Flat oval, terrestrial, many legs → Isopoda (woodlouse)
-
-  Exactly 6 legs + 1 antenna pair + 3 body sections → INSECTA
-    Hard wing covers → Coleoptera (beetle)
-    One pair wings → Diptera (fly)
-    Scales on wings → Lepidoptera (butterfly/moth)
-    Constricted waist → Hymenoptera (bee/wasp/ant)
-    Long jumping legs → Orthoptera (grasshopper/cricket)
-    Piercing mouthparts → Hemiptera (bug)
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether an arthropod is arachnid | Four pairs of walking legs and no antennae | Harvestmen, spiders, mites, ticks, scorpions, and pseudoscorpions are different arachnid solutions. |
+| Whether an arachnid is a spider | Waist constriction, silk apparatus, and spider body plan | "Daddy longlegs" can mean a true spider or a harvestman. |
+| Whether a many-legged arthropod is myriapod | One antenna pair and repeated leg-bearing segments | Centipede/millipede distinction depends on legs per segment and forcipules. |
+| Whether a variable-legged arthropod is crustacean | Two antenna pairs and often aquatic ancestry | Insects are nested within pancrustaceans phylogenetically, so "crustacean" has grade/clade tension. |
+| Whether a crustacean lifestyle identifies decapod/barnacle/copepod/isopod | Carapace and 10 legs, sessile attachment, planktonic form, or terrestrial oval body | Lifestyle can obscure body plan; barnacles are crustaceans despite looking like shells. |
+| Whether an arthropod is insect | Six legs, one antenna pair, three main body regions | Larvae can obscure adult insect traits. |
+| Whether insect order can be inferred | Wing covers, one wing pair, wing scales, waist, jumping legs, or piercing mouthparts | Order-level traits are shortcuts; metamorphosis and specialized forms can mislead. |
+| Whether beetle diversity is accidental | Elytra plus larval/adult niche partitioning | Diversity reflects ecological opportunity and life history, not just taxonomic age. |
 
 ---
 

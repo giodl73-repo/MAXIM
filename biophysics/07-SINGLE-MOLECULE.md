@@ -491,18 +491,24 @@ Single-molecule experiments are precision measurement instruments. Every design 
 
 ---
 
+## Cross-References
+
+- `biophysics/03-STRUCTURAL-METHODS.md` — ensemble structural methods contrasted with single-molecule probes.
+- `probability-statistics/04-STOCHASTIC-PROCESSES.md` — stochastic trajectories and noise interpretation.
+- `biophysics/08-STOCHASTIC-BIO.md` — stochastic biological dynamics.
+
 ## Decision Cheat Sheet
 
-| Goal | Best technique | Key parameter |
-|------|---------------|---------------|
-| Measure motor step size | Optical tweezers | 0.3 nm spatial resolution at 10 kHz |
-| Protein mechanical unfolding | AFM force spectroscopy | Load spring constant k ~ 10-100 pN/nm |
-| DNA topology, supercoiling | Magnetic tweezers | Rotational control |
-| Conformational switching (< 10 nm) | smFRET | Förster radius R₀ ~ 5 nm pair |
-| Many molecules in parallel | Magnetic tweezers or smFRET | Wide-field camera |
-| Real-time protein dynamics on surface | HS-AFM | 10-100 ms/frame |
-| Trap calibration (accurate stiffness) | Lorentzian power spectrum | Corner frequency f_c |
-| Distance between two labeled sites | smFRET | E = 1/(1+(r/R₀)⁶) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Motor step size | Optical tweezers | Trap stiffness and bandwidth set usable resolution. |
+| Protein mechanical unfolding | AFM force spectroscopy | Loading rate changes apparent unfolding force. |
+| DNA topology or supercoiling | Magnetic tweezers | Torsional control trades off spatial/temporal resolution. |
+| Sub-10 nm conformational switching | smFRET | Label placement and dye behavior can dominate signal. |
+| Many molecules in parallel | Wide-field smFRET or magnetic tweezers | Throughput can reduce per-molecule control. |
+| Surface protein dynamics | High-speed AFM | Surface attachment can perturb dynamics. |
+| Trap stiffness calibration | Lorentzian power spectrum | Calibration must match buffer and bead conditions. |
+| Distance between labeled sites | smFRET efficiency relation | FRET reports distributions, not a single rigid distance. |
 
 ---
 

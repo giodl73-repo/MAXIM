@@ -27,7 +27,7 @@
          |  HERITAGE & DECOLONIZATION        |
          |  NAGPRA  /  CARE principles       |
          |  Linda Tuhiwai Smith              |
-         |  Digital repatriation            |
+         |  Digital repatriation             |
          +-----------------------------------+
 ```
 
@@ -271,7 +271,7 @@ the gap between what research shows and what organizations can implement.
   THE PROCESS:
   ┌────────────────────────────────────────────────────────┐
   │ 1. EMPATHIZE: ethnographic observation                 │
-  │    - "Follow the user home" — observe in natural context│
+  │    - Follow the user home; observe in context          │
   │    - Shadowing, contextual interviews                  │
   │    - NOT: focus groups, surveys, stated preferences    │
   │    Why: people say what they think they should do;     │
@@ -624,18 +624,26 @@ the gap between what research shows and what organizations can implement.
 
 ## Decision Cheat Sheet
 
-| I want to do... | Anthropological tool |
-|----------------|---------------------|
-| Understand why users don't follow the manual | Kleinman's explanatory model elicitation |
-| Understand actual vs. designed workflow | Contextual inquiry (Holtzblatt) + sequence model |
-| Understand why top-down org redesign fails | Scott "Seeing Like a State" — metis vs. techne |
-| Build genuine community participation in design | CBPR + FPIC principles |
-| Understand why "collaboration" programs produce compliance | Mosse's "participation as performance" |
-| Conduct user research that captures real behavior | Follow-home ethnography, not surveys/focus groups |
-| Handle indigenous data in research/products | CARE principles + tribal consultation |
-| Identify human remains in legal or humanitarian context | Forensic anthropology biological profile + Daubert |
-| Return cultural property to source communities | NAGPRA process + international repatriation frameworks |
-| Bridge research insights to product decisions | Embedded researchers + synthesis artifacts (personas, opportunity maps) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Users ignoring a manual | Elicit explanatory models, local categories, incentives, workarounds, and perceived risk. | Noncompliance may be rational inside the user's model. |
+| Designed vs actual workflow | Use contextual inquiry, sequence models, artifacts, interruptions, and handoffs. | The real workflow is often the exception path, not the diagram. |
+| Top-down redesign failure | Compare metis, local knowledge, legibility, incentives, and state/management simplification. | Standardization can erase the knowledge that makes work function. |
+| Community participation | Use CBPR, FPIC, shared governance, reciprocity, and decision rights. | Participation without power becomes extraction with meetings. |
+| Collaboration-as-compliance | Check who sets agenda, metrics, funding, reporting, and acceptable outcomes. | "Participation" can perform legitimacy while preserving control. |
+| Behavior-centered user research | Prefer follow-home/contextual ethnography, observation, diaries, and triangulation. | Focus groups capture talk about behavior, not behavior itself. |
+| Indigenous data governance | Apply CARE principles, tribal consultation, stewardship, access rules, and benefit-sharing. | Open data can be harmful when sovereignty is ignored. |
+| Human-remains identification | Use biological profile, trauma/taphonomy, chain of custody, Daubert, and uncertainty language. | Legal contexts require method validity and communication discipline. |
+| Cultural-property return | Use NAGPRA, provenance, affiliation, consultation, international frameworks, and community priorities. | Repatriation is a relationship and governance process. |
+| Product decision translation | Embed researchers, synthesize evidence, connect to roadmap artifacts, and preserve uncertainty. | Personas/opportunity maps are only as good as the field evidence behind them. |
+
+---
+
+## Cross-References
+
+- `05-CULTURAL-ANTHROPOLOGY.md` supplies the ethnographic methods applied anthropology operationalizes.
+- `06-ARCHAEOLOGY.md` shows how heritage, consultation, and material culture enter applied work.
+- `../organizational-behavior/00-OVERVIEW.md` connects organizational culture to incentives, power, and institutional design.
 
 ---
 

@@ -361,7 +361,7 @@ Most wines from most areas (village level)
 
 **Burgundy vs Bordeaux philosophically:**
 Burgundy: one variety (Pinot Noir for red, Chardonnay for white), tiny plots,
-terroir expression is everything, producer name matters less than vineyard name.
+terroir expression is the grammar; producer skill still matters enormously.
 Bordeaux: multi-variety blends, chateau system, producer brand dominates.
 
 ### Champagne: Methode Champenoise
@@ -461,6 +461,12 @@ ICE WINE:
 
 ---
 
+## Cross-References
+
+- [Fermentation and Spirits Overview](00-OVERVIEW.md) locates wine among fermented and distilled beverage families.
+- [Brandy and Cognac](05-BRANDY-COGNAC.md) follows wine through distillation into fruit spirits.
+- [Cocktail Culture](09-COCKTAIL-CULTURE.md) shows how wine, fortified wine, and brandy become mixed-drink components.
+
 ## Common Confusion Points
 
 **"Old World vs New World wine."**
@@ -479,9 +485,9 @@ drinkers rarely complain. The "sulfite headache" claim is largely debunked.
 
 **"Expensive wine = better wine."**
 Price correlates with scarcity and brand, not reliably with sensory quality.
-Professional blind tastings repeatedly show trained palates cannot consistently
-distinguish $20 from $200 bottles. Parker effect: 100-point scale created enormous
-price distortions in Bordeaux and California.
+Blind tastings show price is an unreliable proxy for sensory preference, even
+for trained tasters. Parker effect: 100-point scale created enormous price
+distortions in Bordeaux and California.
 
 **"Wine improves with age."**
 Only specific wines age well: high tannin reds (Barolo, Bordeaux, Burgundy Grand Cru),
@@ -493,15 +499,15 @@ to a tiny fraction of production.
 
 ## Decision Cheat Sheet
 
-| I want to... | Wine style | Key region |
-|---|---|---|
-| Red with maximum aging potential | Tannic, high acid | Barolo (Nebbiolo), Bordeaux, Burgundy Grand Cru |
-| Red, early drinking, plush | Low tannin, ripe | Beaujolais Nouveau, Pinot Noir (Oregon), Merlot |
-| White, crisp/mineral/aromatic | High acid, no oak | Chablis, Mosel Riesling, Muscadet, Sancerre |
-| White, rich/oaky/buttery | MLF + oak | White Burgundy, California Chardonnay |
-| Sparkling, traditional method | Champagne-style | Champagne, Cava, Cremant, TasmanianSparkling |
-| Sweet/dessert | Botrytis or freeze | Sauternes, Eiswein, Tokaji Aszu |
-| Fortified, dry | Sherry | Fino Manzanilla (Sanlucar), Amontillado |
-| Fortified, sweet | Port | LBV Port, Vintage Port, Tawny 10/20yr |
-| Understand classification | Bordeaux | 1855 Classification + St-Emilion + Pomerol |
-| Understand terroir theory | Burgundy | Cote d'Or commune/premier cru/grand cru hierarchy |
+| If you need to diagnose... | Start With | Typical Evidence |
+|----------------------------|------------|------------------|
+| Aging potential | Tannin, acidity, sugar, structure, and producer track record | Barolo, Bordeaux, Burgundy Grand Cru, German Riesling, Sauternes |
+| Early-drinking red | Lower tannin, fruit-forward extraction, modest oak | Beaujolais, many Pinot Noir, many Merlot-led blends |
+| Crisp white | High acid, no or low oak, blocked MLF | Chablis, Mosel Riesling, Muscadet, Sancerre |
+| Rich white | MLF, lees contact, oak, lower perceived acid | White Burgundy, California Chardonnay |
+| Traditional-method sparkling | Bottle secondary fermentation and lees aging | Champagne, Cava, Cremant, Tasmanian sparkling |
+| Sweet wine | Botrytis, freezing, drying, or arrested fermentation | Sauternes, Eiswein, Tokaji Aszu |
+| Dry fortified wine | Fortification after dryness plus flor/oxidation choices | Fino/Manzanilla, Amontillado, Oloroso |
+| Sweet fortified wine | Fortification before sugar is consumed or sweetening after fermentation | Vintage/LBV/Tawny Port, PX Sherry |
+| Bordeaux classification claim | Estate, bank, commune, and classification system | 1855 left bank vs St-Emilion vs unclassified Pomerol |
+| Burgundy terroir claim | Vineyard hierarchy plus producer | Village, premier cru, grand cru, and grower reputation |

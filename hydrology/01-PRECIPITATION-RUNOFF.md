@@ -405,6 +405,18 @@ Snowmelt degree-day model     Linear threshold model
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Physical geography of basins | `geography/01-PHYSICAL-GEOGRAPHY.md` | Relief, soil, and drainage pattern determine runoff response |
+| Climate drivers of precipitation | `climate-science/01-CARBON-CYCLE.md` | Rainfall regime and extremes are climate-system outputs |
+| Water treatment downstream | `environmental-engineering/01-WATER-TREATMENT.md` | Source-water quality and flow shape treatment design |
+| Soil infiltration | `soil-science/01-SOIL-FORMATION.md` | Infiltration and runoff depend on soil structure and saturation |
+| Infrastructure and flood control | `infrastructure-systems/01-CLASSIFICATION.md` | Stormwater systems are engineered responses to hydrographs |
+
+---
+
 ## Common Confusion Points
 
 **CN is a property of soil AND land use AND antecedent moisture together**: The same soil type gets different CN values for forest vs. impervious surface vs. agricultural land. Urbanization increases CN dramatically — a meadow CN=55 becomes parking lot CN=98. The CN method is the most widely misused tool in hydrology because practitioners forget the antecedent moisture condition and use tabulated CN without site verification.

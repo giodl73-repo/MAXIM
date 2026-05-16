@@ -4,7 +4,7 @@
 
 ---
 
-## Big Picture: The Body as an Integrated Control System
+## The Big Picture
 
 ```
 PHYSIOLOGY: How the body's organs work individually and together
@@ -420,20 +420,26 @@ PANCREATIC HORMONES — GLUCOSE HOMEOSTASIS:
 
 ---
 
+## Cross-References
+
+- `human-biology/05-ENDOCRINE.md` - hormonal feedback control.
+- `human-biology/08-RENAL.md` - fluid and electrolyte regulation.
+- `control-theory/01-PID-CLASSICAL.md` - feedback-control analogy.
+
 ## Decision Cheat Sheet
 
-| Physiological Goal | System | Key Mechanism |
-|--------------------|--------|---------------|
-| Maintain blood pressure | Cardiovascular + Renal | Baroreflex (fast) + RAAS (slow) |
-| Regulate blood glucose | Endocrine | Insulin vs Glucagon balance |
-| Regulate body temperature | Hypothalamus + ANS | Sweating, shivering, vasodilation |
-| Respond to infection | Immune | Innate (fast/broad) → Adaptive (slow/specific) |
-| Control acid-base | Respiratory + Renal | Respiratory (minutes) + Bicarbonate (hours-days) |
-| Coordinate fight-or-flight | ANS (sympathetic) + Adrenal | Epinephrine/cortisol release |
-| Long-term reproduction/metabolism | HPG/HPT/HPA axes | Feedback loops with brain |
-| Filter blood; water balance | Kidney | ADH for water; Aldosterone for Na⁺ |
-| Deliver O₂ to tissues | Cardiovascular + Hb | Bohr effect, O₂ saturation curve |
-| Remember/fight pathogen again | Adaptive immune memory | Long-lived B + T memory cells |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Blood-pressure maintenance | Fast baroreflex plus slower RAAS | Acute compensation differs from chronic remodeling. |
+| Blood-glucose regulation | Insulin/glucagon balance | Stress hormones and liver state shift setpoint. |
+| Body-temperature regulation | Hypothalamus and ANS effectors | Fever is regulated setpoint change, not failed cooling. |
+| Infection response | Innate-to-adaptive sequence | Innate and adaptive systems are coupled, not separate. |
+| Acid-base control | Respiratory minutes plus renal bicarbonate days | Compensation has expected limits. |
+| Fight-or-flight coordination | Sympathetic ANS plus adrenal hormones | Cortisol is slower than catecholamines. |
+| Reproduction/metabolism axes | HPG/HPT/HPA feedback loops | Pulsatility and feedback phase matter. |
+| Blood filtration/water balance | Kidney ADH water and aldosterone sodium logic | ADH controls water, not sodium directly. |
+| Oxygen delivery | Hemoglobin curve and Bohr effect | Saturation can look normal while delivery is impaired. |
+| Immune memory | Long-lived B and T memory cells | Memory strength depends on antigen, adjuvant, and boosting. |
 
 ---
 

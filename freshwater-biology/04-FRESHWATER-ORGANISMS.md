@@ -311,17 +311,24 @@ Freshwater organisms show extraordinary local endemism — many species have ran
 
 ---
 
+## Cross-References
+
+- `02-RIVER-ECOLOGY.md` supplies flowing-water habitat structure.
+- `07-AQUATIC-FOOD-WEBS.md` connects organisms into trophic networks.
+- `09-WATER-QUALITY.md` uses organisms as biological indicators.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What organisms best indicate clean headwater streams? | Stonefly (Plecoptera) nymphs — most sensitive EPT group |
-| What organism indicates organic pollution? | High Chironomidae, Tubificidae, Asellus + low/absent EPT |
-| Why are salmonids restricted to headwaters in summer? | Thermal tolerance < 20°C; dissolved O2 requirement > 7 mg/L |
-| What killed 90+ amphibian species globally? | Batrachochytrium dendrobatidis (chytrid fungus) |
-| What do diatoms tell you about phosphorus? | Diatom indices (IPS, TDI) weighted by taxon TP tolerance values |
-| Why are Unionid mussels good long-term indicators? | Lifespan 50–100 yr; integrate decades of water quality; host-specific to fish for larval stage |
-| What makes Lake Victoria cichlid loss unique? | Fastest adaptive radiation (15,000 yr) + fastest documented extinction wave (50 yr after Nile perch) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Clean headwater condition | Stonefly nymphs as the most sensitive EPT group | Use EPT richness and abundance together. |
+| Organic pollution | High Chironomidae, Tubificidae, Asellus, and low or absent EPT | Tolerant taxa can dominate even if some EPT remain. |
+| Salmonid summer restriction | Temperature below 20 deg C and dissolved oxygen above 7 mg/L | Thermal and oxygen stress interact. |
+| Amphibian crash | Batrachochytrium dendrobatidis chytrid fungus | Disease interacts with trade, climate, and habitat stress. |
+| Phosphorus from diatoms | IPS/TDI indices weighted by taxon TP tolerance | Diatoms also track silica availability and light. |
+| Long-term water-quality integration | Unionid mussel lifespan and filter-feeding exposure | Larval dependence on host fish couples mussels to fish assemblages. |
+| Lake Victoria cichlid collapse | Rapid adaptive radiation followed by Nile-perch-driven extinction | Turbidity and eutrophication also weakened mate recognition. |
+| Biological indicator choice | Match organism lifespan to disturbance timescale | Short-lived invertebrates and long-lived mussels answer different questions. |
 
 ---
 

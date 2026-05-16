@@ -311,17 +311,24 @@ Perhaps the most important concept in lake management: lakes can exist in two al
 
 ---
 
+## Cross-References
+
+- `05-NUTRIENT-CYCLES.md` supplies the phosphorus and nitrogen drivers.
+- `01-LAKE-STRATIFICATION.md` explains anoxia and internal loading.
+- `08-CONSERVATION.md` connects eutrophication to management interventions.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What triggers cyanobacteria dominance? | N:P < 10:1 (mass); stratified warm conditions; large colony size escapes grazing |
-| Why does reducing external P loading not immediately restore a lake? | Internal P loading from sediment can exceed external load for 10–20 yr |
-| What is alum treatment and when to use it? | Al2(SO4)3 binds P; use when internal loading is high; Al-P is redox-stable unlike Fe-P |
-| What is biomanipulation? | Remove planktivorous fish; enhance Daphnia; Daphnia grazes algae clear |
-| Why can two lakes with same P load be clear and turbid? | Alternative stable states with hysteresis; history-dependent; both states stable at intermediate P |
-| What P concentration threshold separates mesotrophic/eutrophic? | ~35 µg TP/L is a common threshold (Vollenweider reference) |
-| What drives summer cyanobacteria blooms in most lakes? | Stratification + warm temperature + P availability + low N:P after growing season N depletion |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Cyanobacteria dominance | Low N:P, warm stratification, colony size, and grazing escape | Nutrient ratio alone is not sufficient. |
+| Slow recovery after P cuts | Internal sediment P loading for 10-20 years | External-load reduction may be necessary but not immediately visible. |
+| Alum treatment fit | Al2(SO4)3 binding phosphorus under high internal loading | Al-P is redox-stable unlike Fe-P, but dosing and pH matter. |
+| Biomanipulation mechanism | Remove planktivores, release Daphnia, graze algae down | Without P control, clarity gains often fade. |
+| Clear versus turbid at same P | Alternative stable states and hysteresis | History and macrophytes can lock in different states. |
+| Mesotrophic/eutrophic threshold | Around 35 micrograms TP/L as a common Vollenweider reference | Thresholds are classification tools, not hard phase transitions. |
+| Summer bloom driver | Stratification, warm temperature, P availability, and seasonal N depletion | Climate warming worsens symptoms even at constant load. |
+| Chemical bloom treatment | Algaecide as symptom suppression | Killing algae does not remove nutrient loading. |
 
 ---
 

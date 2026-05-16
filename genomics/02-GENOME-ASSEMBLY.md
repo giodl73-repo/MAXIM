@@ -330,18 +330,24 @@ For most studies, de novo assembly is not needed. Instead, reads are aligned to 
 
 ---
 
+## Cross-References
+
+- `genomics/01-SEQUENCING-TECH.md` — read length and error profile shape assembly strategy.
+- `genomics/08-BIOINFORMATICS-PIPELINE.md` — assembly as one stage in reproducible genomic analysis.
+- `evolutionary-biology/05-PHYLOGENETICS.md` — assembled genomes feed comparative evolutionary inference.
+
 ## Decision Cheat Sheet
 
-| Goal | Approach | Tool |
-|------|----------|------|
-| Map reads to known genome | Reference alignment | BWA-MEM2, minimap2 |
-| Assemble novel organism | De novo assembly | Hifiasm (HiFi), Flye (ONT), SPAdes (Illumina) |
-| Resolve structural variants | Long-read de novo or SV caller | Sniffles, pbsv, SVABA |
-| Get chromosome-scale assembly | HiFi + Hi-C | Hifiasm + 3D-DNA |
-| Complete telomere-to-telomere | HiFi + ONT ultra-long | verkko assembler |
-| Phase haplotypes | Trio or Hi-C | Hifiasm trio/Hi-C mode |
-| Assess assembly quality | BUSCO + N50 + QV | BUSCO, merqury |
-| Build pangenome | Multiple T2T assemblies | Minigraph-Cactus |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Mapping to known genome | Reference alignment | Reference bias hides novel or diverged sequence. |
+| Novel-organism assembly | De novo assembly with read technology matched to genome | Repeats and heterozygosity dominate difficulty. |
+| Structural variants | Long-read assembly or SV caller | Breakpoints need orthogonal validation for clinical use. |
+| Chromosome-scale assembly | HiFi plus Hi-C scaffolding | Hi-C links can misjoin repeats or structural polymorphisms. |
+| Telomere-to-telomere target | HiFi plus ONT ultra-long with Verkko | T2T is data-hungry and sample-specific. |
+| Haplotype phasing | Trio or Hi-C phasing | Phase blocks can break at low-informative regions. |
+| Assembly quality | BUSCO, N50, and QV together | N50 alone rewards contiguity, not correctness. |
+| Pangenome construction | Multiple high-quality assemblies | Graph complexity grows with population diversity. |
 
 ---
 

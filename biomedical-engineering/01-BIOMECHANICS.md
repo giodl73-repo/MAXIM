@@ -431,6 +431,18 @@ material models are far more complex.
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Human musculoskeletal structure | `human-biology/01-MUSCULOSKELETAL.md` | Biomechanics applies force, torque, stress, and motion to anatomical structures |
+| Material behavior in implants and tissue | `materials/01-CRYSTAL-STRUCTURE.md` | Bones, polymers, metals, and composites fail or deform by material laws |
+| Control and feedback in movement | `control-theory/01-PID-CLASSICAL.md` | Motor control and prosthetics require closed-loop sensing and actuation |
+| Medical device/drug context | `medicine/01-ANTIBIOTICS.md` | Clinical engineering choices sit inside patient risk, infection, and treatment context |
+| Robotics and kinematics | `robotics/01-KINEMATICS.md` | Prosthetics, exoskeletons, and surgical robots reuse rigid-body kinematics |
+
+---
+
 ## Common Confusion Points
 
 **Stiffness vs. strength**: Bone's Young's modulus (~20 GPa for cortical) is stiffness — how

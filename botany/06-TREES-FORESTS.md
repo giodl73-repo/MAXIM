@@ -263,16 +263,22 @@ DEEPEST ROOTS:
 
 ---
 
+## Cross-References
+
+- `botany/03-STEMS-WOOD.md` - woody structure and vascular support.
+- `ecology/03-ECOSYSTEM-ENERGETICS.md` - forests as high-biomass energy systems.
+- `dendrology/01-TREE-IDENTIFICATION.md` - tree identification and forest composition.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What % of light reaches tropical rainforest floor? | ~0.5-1% |
-| What is the intermediate disturbance hypothesis? | Max biodiversity at intermediate disturbance levels; too little = late-successional dominance, too much = only pioneers |
-| What defines old-growth beyond tree age? | Structural complexity: dead wood (snags, logs), multiple canopy layers, deep soil web |
-| What are serotinous cones? | Cones sealed with resin, only opened by heat; release seeds after fire (jack pine, lodgepole pine) |
-| What is Pando? | ~80,000 quaking aspen stems sharing one root system; largest single organism by mass |
-| What was wrong with Clements' climax theory? | Forests are not static equilibria — disturbance continuously resets patches; no single endpoint |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Rainforest understory light | Canopy interception leaving about 0.5-1% at floor | Sunflecks and gap dynamics matter locally. |
+| Biodiversity after disturbance | Intermediate disturbance hypothesis | Not universal; productivity, dispersal, and history alter patterns. |
+| Old-growth status | Structural complexity beyond tree age | Virgin forest and old-growth are different criteria. |
+| Fire-adapted seed release | Serotinous cones opened by heat | Fire regime must match adaptation frequency and intensity. |
+| Clonal forest organism | Pando as one root-connected aspen clone | "Largest" depends on mass, area, and genetic definition. |
+| Climax-theory failure | Patch dynamics and continual disturbance | Some systems have alternative stable states rather than one endpoint. |
 
 ---
 

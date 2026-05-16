@@ -1,6 +1,6 @@
 # History of Journalism: From Gazette to Digital
 
-## The Historical Landscape
+## The Big Picture
 
 Journalism history is a history of technology, economics, and political power intersecting around the flow of information. Each technological shift — printing press, telegraph, radio, television, internet — has restructured the economics, reach, and practice of journalism. The normative claim (truth-telling, public interest) has persisted across every shift; the institutional structures have not.
 
@@ -313,17 +313,23 @@ WATERGATE (1972-1974)
 
 ---
 
+## Cross-References
+
+- `03-REPORTING-WRITING.md` turns historical newsroom forms into reporting craft.
+- `04-EDITORIAL-STANDARDS.md` explains the standards that emerged from professionalization.
+- `09-DIGITAL-JOURNALISM.md` shows the current platform-era transformation.
+
 ## Decision Cheat Sheet
 
-| Historical Situation | Lesson for Modern Practice |
-|---------------------|---------------------------|
-| Penny press moon hoax | Verification as professional duty; entertainment vs. truth tension built into commercial model |
-| Yellow journalism + Spanish-American War | Agenda-setting power is real; sensationalism can have geopolitical consequences |
-| AP formation | Neutral tone as business necessity when serving multiple political audiences |
-| Muckraking era | Document-based investigation; let facts do the work |
-| Kennedy-Nixon debate | Visual medium creates different evaluation criteria than print |
-| Pentagon Papers | Prior restraint near-impossible; national security claims must be specific |
-| Watergate | Two-source standard; verification before publication; institutional support from editors |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Commercial entertainment versus truth | Penny press and moon-hoax incentives | Verification became a professional duty partly because the business model rewarded spectacle. |
+| Sensationalism and public agenda | Yellow journalism and Spanish-American War | Agenda-setting power is real, but famous anecdotes can be apocryphal. |
+| Neutral tone emergence | AP/wire-service economics across political audiences | Objectivity is a historical professional norm, not timeless journalism nature. |
+| Investigative documentation | Muckraking and document-based exposure | Facts need structure; outrage alone becomes polemic. |
+| Medium-specific politics | Kennedy-Nixon debate and television evaluation | Visual media change what audiences evaluate. |
+| National-security publication | Pentagon Papers and prior-restraint doctrine | Government secrecy claims need specificity, not generic invocation. |
+| Institutional investigative support | Watergate verification, editors, courts, and Congress | Press exposed; constitutional institutions acted. |
 
 ---
 

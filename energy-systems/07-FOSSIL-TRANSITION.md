@@ -146,8 +146,10 @@ FOSSIL FUEL ROLE IN GLOBAL ENERGY (2023)
 
 ## Carbon Capture and Storage (CCS)
 
-CCS is the technology that could allow some continued fossil use while meeting climate targets,
-or remove CO₂ from the atmosphere directly.
+CCS is the technology that could allow some continued point-source fossil or
+industrial emissions while meeting climate targets. Direct air capture and BECCS
+are carbon-dioxide-removal pathways; they share transport/storage infrastructure
+with CCS but have different physics and economics.
 
 Amine scrubbing is a direct application of gas-liquid absorption/stripping (see `chemical-eng/04-SEPARATIONS.md`). The absorber is a packed column gas-liquid contactor; the stripper is a thermal desorber; the MEA regeneration cycle is the classic stripping operation. The 15-25% energy penalty is dominated by reboiler duty for MEA regeneration at 110-120 C — the same thermodynamic constraint governing distillation column energy costs.
 
@@ -184,10 +186,10 @@ Amine scrubbing is a direct application of gas-liquid absorption/stripping (see 
   Petra Nova (Texas): coal CCS — suspended 2020 (economics), restarted 2023
 
   SCALE GAP:
-  Current CCS capacity: ~50 Mt CO₂/yr globally
+  Current CCS capacity: tens of Mt CO₂/yr globally
   IEA NZE 2030 target: ~1,600 Mt CO₂/yr
-  Scale-up required: 32× in 7 years
-  Realistic by 2030? Not if based purely on announced projects.
+  Scale-up required: order-of-magnitude growth this decade
+  Realistic by 2030? Not if based purely on currently operating projects.
   45Q tax credit (USA): $85/tonne CO₂ for geologic storage — improving economics
 ```
 
@@ -304,8 +306,9 @@ Amine scrubbing is a direct application of gas-liquid absorption/stripping (see 
 ## Methane Leakage — The Sleeper Problem
 
 Natural gas is marketed as a "bridge fuel" — cleaner than coal. This is true only if
-methane leakage rates are low. Methane is 84× more potent as a greenhouse gas than CO₂
-over 20 years (GWP₂₀ = 84). Over 100 years, GWP₁₀₀ = 28.
+methane leakage rates are low. Methane is roughly 80× more potent than CO₂
+over 20 years and roughly 30× over 100 years; exact GWP values vary by IPCC
+assessment and whether climate-carbon feedbacks are included.
 
 ```
   THE LEAKAGE MATH:
@@ -535,33 +538,36 @@ backlash that slows or reverses transition (see German coal phase-out politics).
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Fossil fuels % of global primary energy? | ~80% (coal 26%, oil 31%, gas 23%) |
-| Typical coal plant lifetime? | 30-50 years — assets built in 2010s run to 2040s-2060s |
-| What % of proven reserves are "unburnable" at 1.5°C? | ~80% (IEA unburnable carbon thesis) |
-| CCS post-combustion efficiency penalty? | 15-25% of plant output consumed by capture |
-| Current CCS deployed capacity? | ~50 Mt CO₂/yr globally (IEA NZE 2030 target: 1,600 Mt) |
-| DAC cost today? | $600-1,000/tonne CO₂ (target: $100-150 by 2035) |
-| Methane GWP (20yr)? | 84× CO₂ — gas leakage >3.2% makes gas worse than coal (20yr) |
-| IRA clean H₂ credit (Tier 1)? | $3/kg for <0.45 kg CO₂/kg H₂ |
-| IRA DAC credit? | $180/tonne for geological storage |
-| Allam cycle: what makes it different? | Oxyfuel combustion in sCO₂; inherently captures CO₂, no amine scrubbing |
-| Why aviation is hard to decarbonize? | Jet fuel: 43 MJ/kg; batteries: 0.7 MJ/kg (61× gap) |
-| Social cost of carbon (US official)? | $51/tonne CO₂ (Biden admin 2022) — market prices far below this |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Transition speed | Capital-stock lifetime, permitting, replacement rate, and demand growth | "Electrify everything" still has asset-turnover inertia |
+| Stranded-asset risk | Reserve economics, policy trajectory, and remaining asset life | Book reserves are financial claims, not guaranteed future emissions |
+| CCS suitability | CO2 concentration, capture penalty, storage access, and policy credit | Better fit for cement/steel/process emissions than cheap bulk power |
+| DAC vs CCS | Ambient 0.04% CO2 vs concentrated flue gas | Same storage pipe does not mean same capture economics |
+| Gas bridge claim | Methane leakage, time horizon, and displaced generation | Gas is climate-beneficial only with verified low leakage and declining use |
+| Hydrogen color claim | Lifecycle CO2/kg H2 and upstream methane | Color labels are marketing shorthand; measured carbon intensity matters |
+| Aviation/shipping decarb | Energy density, duty cycle, and fuel logistics | Batteries solve cars first; molecules remain valuable for long-haul transport |
+| Just-transition claim | Regional labor concentration and tax-base dependence | Ignoring communities creates political backlash that slows decarbonization |
 
 ---
+
+## Cross-References
+
+- `00-OVERVIEW.md` frames fossil fuels as high-exergy chemical energy carriers.
+- `08-THERMAL-CYCLES.md` explains the conversion machinery of coal and gas plants.
+- `05-GRID-INTEGRATION.md` covers the grid-flexibility issues created by retiring dispatchable fossil capacity.
 
 ## Common Confusion Points
 
 **"Natural gas is a clean bridge fuel"**
-Only if methane leakage is <1.5-2%. At US average leakage (~1.2-1.5%), gas is
-somewhat better than coal. At Permian Basin rates (~3.5%), gas is worse than coal
-for near-term warming. The "bridge" argument requires aggressive leak reduction — not guaranteed.
+Only if methane leakage is low, verified, and falling. At roughly 1-2% leakage,
+gas can be better than coal for power-sector CO2 displacement; at high-leakage
+basins or on short time horizons, the advantage can disappear. The bridge
+argument requires measurement and enforcement, not average-factor optimism.
 
 **"CCS can save coal and gas"**
 CCS adds 50-70% to the cost of coal power (energy penalty + capex for capture/storage).
-At $50-80/MWh CCS-coal vs $30-55/MWh solar, CCS-coal is uncompetitive.
+Against cheap wind/solar, CCS-coal is usually uncompetitive for bulk power.
 CCS makes more sense for industrial processes (cement, steel) where you can't
 substitute electricity directly — not for power generation where alternatives exist.
 

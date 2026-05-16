@@ -302,16 +302,22 @@ TIA (transient ischemic attack): stroke-like symptoms resolving < 24 hr (typical
 
 ---
 
+## Cross-References
+
+- `human-biology/02-CARDIOVASCULAR.md` - normal cardiovascular system architecture.
+- `medicine/03-CARDIOVASCULAR-DRUGS.md` - clinical treatment mechanisms.
+- `nutrition/03-FATS.md` - lipid metabolism and cardiovascular risk.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Stable vs unstable angina: key distinction? | Troponin: stable = no rise (no necrosis). Unstable = clinical change + no troponin (or NSTEMI if troponin rises) |
-| Highest priority in STEMI? | Time to reperfusion — door-to-balloon < 90 min (PCI) or thrombolytics if PCI unavailable < 30 min |
-| HFrEF drugs that improve survival? | RAAS blockade (ACEi/ARB/ARNi) + β-blocker + MRA (aldosterone antagonist) + SGLT2 inhibitor ("Fab 4") |
-| AF + stroke risk: when anticoagulate? | CHA₂DS₂-VASc ≥ 2 in men, ≥ 3 in women → anticoagulate (DOAC preferred over warfarin) |
-| LQTS: why do drugs like azithromycin prolong QT? | Block hERG (KCNH2 = LQT2 gene) → delayed repolarization → ↑ risk TdP |
-| Secondary HTN workup: most common cause? | Primary hyperaldosteronism (~10% of hypertensives) — check aldosterone:renin ratio |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Stable versus unstable angina | Troponin and clinical change | Troponin elevation can be non-MI injury. |
+| STEMI priority | Time to reperfusion | PCI target differs from thrombolytic fallback. |
+| HFrEF survival therapy | RAAS/ARNI, beta-blocker, MRA, SGLT2 inhibitor | Start/titrate around stability, kidney function, and potassium. |
+| AF anticoagulation need | CHA2DS2-VASc threshold | Bleeding risk modifies but does not erase stroke risk. |
+| Drug-induced long QT | hERG/KCNH2 blockade | Electrolytes and other QT drugs amplify risk. |
+| Secondary HTN screen | Aldosterone:renin ratio for hyperaldosteronism | Resistant HTN is a key trigger to test. |
 
 ---
 

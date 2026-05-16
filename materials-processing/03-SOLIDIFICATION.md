@@ -364,18 +364,24 @@ Applications of simulation:
 
 ---
 
+## Cross-References
+
+- `materials-processing/01-PHASE-TRANSFORMATIONS.md` - thermodynamic basis for solidification.
+- `materials/04-METALS-ALLOYS.md` - as-cast alloy microstructures.
+- `materials-processing/09-CHARACTERIZATION.md` - measuring grains, segregation, and porosity.
+
 ## Decision Cheat Sheet
 
-| Solidification Challenge | Solution |
-|--------------------------|----------|
-| Shrinkage porosity in thick sections | Add/enlarge risers, use chills, optimize solidification direction |
-| Gas porosity in aluminum | Rotary degassing, dry charge, dehumidify molds |
-| Coarse grain in aluminum casting | Add Ti-B grain refiner |
-| Poor ductility from flake Si in Al-Si | Add Sr or Na modifier |
-| Hot tearing in Al casting | Grain refine with Zr (Al-Cu) or reduce geometric restraint |
-| Maximum creep life in Ni turbine blade | Single crystal solidification |
-| Need to eliminate segregation in aluminum billet | Homogenization anneal (460°C/24h) |
-| Predict where shrinkage will form | Solidification simulation (Niyama criterion) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Shrinkage porosity in thick sections | Risers, chills, and directional solidification | The riser must solidify after the casting. |
+| Aluminum gas porosity | Rotary degassing, dry charge, dry molds | Gas pores are rounded; shrinkage voids are irregular. |
+| Coarse aluminum grains | Ti-B grain refiner | Nucleant addition must precede pouring and be well distributed. |
+| Poor Al-Si ductility | Sr or Na modification | Modification fades during holding and should be verified. |
+| Hot tearing in aluminum | Grain refinement and reduced restraint | Alloy freezing range and geometry both matter. |
+| Ni turbine creep life | Single-crystal solidification | Cost and casting control are extreme. |
+| Aluminum billet segregation | Homogenization anneal near 460 deg C for long soak | Homogenization reduces microsegregation; it does not remove gross defects. |
+| Shrinkage prediction | Solidification simulation and Niyama criterion | Simulation quality depends on boundary conditions and feeding assumptions. |
 
 ---
 

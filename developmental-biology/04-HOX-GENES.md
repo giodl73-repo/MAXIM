@@ -319,16 +319,22 @@ HOX DYSREGULATION IN CANCER
 
 ---
 
+## Cross-References
+
+- `evolutionary-biology/06-EVO-DEVO.md` - Hox genes as conserved evolutionary toolkit.
+- `developmental-biology/03-SIGNALING-PATHWAYS.md` - upstream patterning signals.
+- `developmental-biology/05-ORGANOGENESIS.md` - anatomical outcomes of positional identity.
+
 ## Decision Cheat Sheet
 
-| Question | HOX Concept | Clinical/Experimental Example |
-|----------|------------|------------------------------|
-| Why do thoracic vertebrae have ribs but lumbar don't? | Hox10 represses rib formation | Hox10 knockout → lumbar ribs |
-| Why does the thumb look different from the little finger? | HOXD gradient from ZPA/Shh | ZPA graft → mirror image digits |
-| How does the brain know where to put trigeminal vs facial nerve? | Rhombomere Hox codes | Hoxa2 KO → r4 gets r2 identity |
-| Why does HOXA9 cause leukemia? | Blocks differentiation | NUP98-HOXA9 fusion |
-| What's colinearity? | Chromosome position = expression position | Most 3' = most anterior |
-| Why do vertebrates have 4 HOX clusters? | Vertebrate whole genome duplications | 2 WGD events: 1→2→4 clusters |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Rib versus lumbar identity | Hox10 repression of rib formation | Single knockouts can be buffered by paralogs. |
+| Thumb/pinky identity | HOXD gradient from ZPA/Shh | Digit identity is gradient-plus-time, not one gene per digit. |
+| Cranial nerve placement | Rhombomere HOX codes | Hindbrain identity shifts can be partial. |
+| HOXA9 leukemia mechanism | Differentiation block such as NUP98-HOXA9 | Target validation does not make TFs easy to drug. |
+| HOX colinearity | Chromosome position matching AP expression | Temporal and spatial colinearity are related but distinct. |
+| Four vertebrate HOX clusters | Two whole-genome duplications | Redundancy is incomplete and evolutionarily constrained. |
 
 ---
 

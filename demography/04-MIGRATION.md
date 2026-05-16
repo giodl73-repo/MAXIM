@@ -1,6 +1,6 @@
 # Migration
 
-## Migration Landscape
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -318,17 +318,27 @@ CLIMATE MIGRATION — PROJECTIONS:
   - "Trapped populations": too poor to move, most vulnerable
 ```
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Demographic transition context | `demography/05-DEMOGRAPHIC-TRANSITION.md` |
+| Aging societies and dependency ratios | `demography/06-AGING.md` |
+| Global governance context for migration | `international-relations/06-INTERNATIONAL-INSTITUTIONS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Migration question | Framework |
-|---|---|
-| What drives international migration flows? | Push-pull model; Roy model for selection |
-| Why do migration streams persist after wage gap narrows? | Network effects; cumulative causation |
-| Are migrants selected on skill? | Roy model; empirically: mostly positively selected |
-| What's the health status of recent immigrants? | Healthy migrant effect; deteriorates over time |
-| Impact of remittances on origin country? | Consumption/education/health gains at household level; FX at macro level |
-| How much does brain drain cost origin countries? | Case-by-case; severe in small, health-sector-depleted countries |
-| What migration is climate change causing? | Primarily internal; displacement from flood/drought; poorest most trapped |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| International migration flows | Push-pull forces plus Roy selection | Wage gaps matter, but networks and policy constraints shape realized flows. |
+| Persistence after wage gaps narrow | Network effects and cumulative causation | Migration streams can become self-sustaining after initial conditions fade. |
+| Skill selection | Roy model and origin/destination returns to skill | Selection is usually positive, but varies by corridor and visa regime. |
+| Immigrant health status | Healthy migrant effect and assimilation trajectory | Advantage often deteriorates with time, exposure, and selection changes. |
+| Remittance effects | Household consumption, education, health, and macro FX | Remittances help households but do not automatically build state capacity. |
+| Brain drain costs | Country size, sector depletion, diaspora, and return migration | Small health-sector systems are most vulnerable; diaspora effects can offset loss. |
+| Climate migration | Internal displacement from flood, drought, heat, and livelihood loss | The poorest may be trapped rather than mobile. |
 
 ## Common Confusion Points
 

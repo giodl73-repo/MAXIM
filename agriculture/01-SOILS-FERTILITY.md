@@ -284,17 +284,23 @@ LOSING SOM:
 
 ---
 
+## Cross-References
+
+- `hydrology/01-PRECIPITATION-RUNOFF.md` — water movement through landscapes and soil infiltration context.
+- `microbiology/01-BACTERIA.md` — microbial nutrient cycling and soil biological function.
+- `agriculture/03-IRRIGATION.md` — water management interacting with texture, salinity, and fertility.
+
 ## Decision Cheat Sheet
 
-| Soil situation | Management action |
-|---------------|------------------|
-| Compacted, poor drainage, heavy machinery | Reduce tillage; increase OM; improve drainage; subsoiling if needed |
-| Low CEC (sandy soil); nutrients leach | Increase OM; apply smaller more frequent applications |
-| pH < 5.5; stunted crops | Apply agricultural lime; test for Al toxicity |
-| pH > 7.5; Fe or Mn chlorosis | Apply chelated micronutrients; ammonium fertilizers; sulfur |
-| Yellow old leaves; N deficiency | Sidedress with N; split applications |
-| Purple leaves (corn); P deficiency | Check pH first (P unavailable at low pH); apply P if pH OK |
-| Low SOM; declining yields | Cover crops, compost, no-till; SOM takes 5–20 years to build |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether poor growth is compaction | Bulk density, infiltration, and root-depth checks | Subsoiling helps only when a physical pan exists and traffic is controlled afterward |
+| Whether sandy soil is losing nutrients | CEC and organic-matter results | More fertilizer per pass can worsen leaching; split applications and carbon inputs matter |
+| Whether low pH is limiting crops | Soil pH plus aluminum-toxicity risk | Lime decisions need buffer pH and time; surface application does not instantly fix subsoil acidity |
+| Whether high pH is causing chlorosis | Micronutrient tissue tests and carbonate context | Adding more Fe may fail if pH chemistry keeps it unavailable |
+| Whether yellow leaves mean nitrogen deficiency | Leaf position, tissue test, and recent weather | Nitrogen symptoms can mimic waterlogging or root damage; do not treat color alone |
+| Whether phosphorus is unavailable | Soil P, pH, and crop stage | Purple leaves can reflect cold stress; check availability before applying P |
+| Whether soil organic matter is the yield constraint | SOM trend, rotation, residue, and tillage history | SOM rebuilding is slow; expect multi-year changes, not a single-season fix |
 
 ---
 

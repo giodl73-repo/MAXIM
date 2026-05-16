@@ -314,18 +314,24 @@ OUTER PLANET ATMOSPHERE COMPARISON
 
 ---
 
+## Cross-References
+
+- `planetary-science/01-SOLAR-SYSTEM-FORMATION.md` — core accretion and volatile capture origins.
+- `planetary-science/09-PLANETARY-INTERIORS.md` — interior structure and high-pressure phases.
+- `planetary-science/07-EXOPLANETS.md` — giant planets as a dominant exoplanet class.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| What is metallic hydrogen? | At pressures >1 Mbar, hydrogen becomes electrically conducting (electrons delocalized); it's the dynamo source in Jupiter/Saturn |
-| Why does Saturn have lower density than water? | Saturn's 95 M_Earth is spread over a volume 9× Earth's radius; mostly hydrogen, which is very low density even under compression |
-| Why does Uranus have no internal heat? | Unknown — possibly suppressed by a stably stratified interior layer preventing heat from escaping; the ice giant formation event may have cleared heat faster |
-| What drives Io's volcanism? | Tidal heating from the 1:2:4 Laplace resonance with Europa and Ganymede; the eccentric orbit forces repeated tidal flexing → frictional heat |
-| Why is Triton captured? | Retrograde orbit is impossible for an in-situ-formed moon; it was captured from the Kuiper Belt (similar composition to Pluto) |
-| Why are ring particles in Saturn so white? | Very young surface (cosmically speaking); ice not yet darkened by meteoroid contamination; rings are estimated <100 Myr old |
-| How was Neptune discovered? | By Newtonian prediction — Le Verrier (and Adams) noticed Uranus's orbit deviated from predictions → postulated a perturbing planet → found in 1846 |
-| What is the Roche limit? | Distance inside which tidal forces exceed a body's self-gravity; moons inside the Roche limit are torn apart → form rings |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Metallic hydrogen layer | Megabar-pressure conducting hydrogen | It is inferred from interior physics, not sampled. |
+| Saturn's low bulk density | Hydrogen-rich composition over huge volume | Bulk density hides strong radial compression. |
+| Uranus low heat flux | Stable stratification hypothesis | The cause is unresolved. |
+| Io volcanism | Laplace-resonance tidal heating | Orbital eccentricity maintenance is essential. |
+| Triton capture | Retrograde orbit and Kuiper-belt composition | Capture likely disrupted Neptune's original satellites. |
+| Saturn ring brightness | Young/clean icy particle surfaces | Ring age remains debated. |
+| Neptune discovery | Perturbation of Uranus and Newtonian prediction | Historical credit is shared and messy. |
+| Roche-limit ring formation | Tidal disruption inside self-gravity limit | Material strength and cohesion modify the simple limit. |
 
 ---
 

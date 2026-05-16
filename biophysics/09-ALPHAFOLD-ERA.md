@@ -487,18 +487,24 @@ The MSA attention in Evoformer is computing, at a high level:
 
 ---
 
+## Cross-References
+
+- `biophysics/02-PROTEIN-FOLDING.md` — physical folding problem behind structure prediction.
+- `machine-learning-theory/09-OPEN-PROBLEMS.md` — theory gaps around deep learning success.
+- `ai-engineering/01-LLM-CONCEPTS.md` — model-scale engineering analogy for modern biological foundation models.
+
 ## Decision Cheat Sheet
 
-| Question | Answer | Source |
-|----------|--------|--------|
-| What does AlphaFold2 take as input? | Amino acid sequence (builds MSA internally) | Section 1 |
-| What key architectural innovation handles long-range contacts? | Triangular multiplicative updates in pair representation | Section 1 |
-| What does pLDDT < 50 mean? | Predicted disordered; do not model as fixed structure | Section 1 |
-| How many structures in the AF database? | ~200 million (v4, 2022) | Section 2 |
-| Why can't AF2 predict drug binding? | No dynamics; no ligand-induced conformational change | Section 3 |
-| What does ESMFold do differently from AF2? | No explicit MSA; uses LLM sequence embeddings | Section 4 |
-| What does RFdiffusion do? | Generate novel backbone folds for protein design | Section 5 |
-| What did AlphaFold3 add? | Protein + nucleic acid + small molecule joint prediction | Section 5 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| AlphaFold2 input assumptions | Amino-acid sequence and MSA-derived signal | Weak MSA depth weakens evolutionary constraints. |
+| Long-range contact handling | Pair representation with triangular updates | Architecture learns correlations, not physical simulation. |
+| Low pLDDT region | Disorder or low-confidence structure | Do not force a fixed fold onto low-confidence segments. |
+| Database-scale coverage | AlphaFold DB structural models | Coverage does not imply experimental validation. |
+| Drug-binding limitation | Missing dynamics and induced-fit context | Static apo models are weak docking substrates. |
+| ESMFold difference | Language-model sequence embeddings without explicit MSA | Speed trades off some MSA-derived accuracy. |
+| RFdiffusion role | Generative backbone design | Designed backbones still need expression and function validation. |
+| AlphaFold3 extension | Joint biomolecular complex prediction | Complex prediction remains confidence- and context-dependent. |
 
 ---
 

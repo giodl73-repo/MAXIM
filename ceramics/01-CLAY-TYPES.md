@@ -297,6 +297,18 @@ TESTING:
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Crystal structure behind clay minerals | `materials/01-CRYSTAL-STRUCTURE.md` | Phyllosilicate layer geometry explains plasticity, swelling, and firing behavior |
+| Geologic formation of clay deposits | `geology/01-MINERALS.md` | Kaolin, ball clay, and fire clay are mineral deposits with specific formation pathways |
+| Silica, alumina, and flux chemistry | `glassmaking/01-GLASS-SCIENCE.md` | Porcelain strength and translucency depend on glass phase plus mullite crystals |
+| Pigment and iron-color interactions | `pigments/01-PREHISTORIC-EARTH.md` | Iron content controls fired clay color and connects ceramics to earth-pigment chemistry |
+| Building and refractory applications | `construction-materials/01-PREHISTORIC-VERNACULAR.md` | Brick, tile, firebrick, and kiln furniture are clay bodies optimized for use case |
+
+---
+
 ## Common Confusion Points
 
 **"Kaolin" and "china clay" are the same thing**:

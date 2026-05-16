@@ -356,17 +356,25 @@ FORMAL ELEMENTS VOCABULARY
 
 ## Decision Cheat Sheet — Which Analytical Method?
 
-| Question | Best Method |
-|----------|-------------|
-| How does the visual structure work? What holds it together? | Formal analysis (Wölfflin) |
-| What does the iconography mean — who is that figure? | Iconographic analysis (Panofsky Level 2) |
-| What does this reveal about the culture that made it? | Iconology (Panofsky Level 3) |
-| How did production conditions, class, and money shape this? | Social history of art (Clark) |
-| Why are women absent from canonical narrative? | Feminist art history (Nochlin/Pollock) |
-| Why was this made here and not elsewhere? Trade routes, materials? | Material culture / economic history |
-| What did contemporary audiences understand that we miss? | Reception theory (Baxandall's "period eye") |
-| How does this object function in a system of signs? | Semiotics (Barthes) |
-| Who does this canonical narrative erase or subordinate? | Post-colonial critique |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Visual structure | Use formal analysis: composition, scale, color, line, medium, surface, and viewing position. | Form is evidence, not decoration; connect it to an argument. |
+| Symbolic content | Use iconography: figures, attributes, narrative source, convention, and textual program. | Do not jump from symbol lookup to cultural meaning without context. |
+| Cultural worldview | Use iconology: patronage, ritual, institution, ideology, and historical mentalities. | Panofsky Level 3 is powerful but easy to overstate. |
+| Class, labor, and money | Use social history: production system, market, patron, workshop, audience, and ownership. | Economic explanation should not erase visual specificity. |
+| Gendered absence or framing | Use feminist art history: canon formation, access, gaze, labor, and representation. | The question is structural, not just "add missing women." |
+| Material and trade routes | Use material culture: pigment, support, technique, supply chain, portability, and cost. | Materials constrain meaning but rarely determine it alone. |
+| Period audience response | Use reception theory: period eye, viewing context, literacy, ritual habit, and local expectation. | Evidence for audience response is often indirect. |
+| Signs and codes | Use semiotics: signifier, signified, code, convention, medium, and circulation. | Semiotic precision can become sterile if severed from history. |
+| Canonical exclusion | Use post-colonial critique: empire, collection history, museum framing, translation, and power. | Critique the frame without reducing the object to victimhood. |
+
+---
+
+## Cross-References
+
+- `02-BYZANTINE-MEDIEVAL.md` and `04-BAROQUE-ROCOCO.md` show how patronage, theology, and institutions shape form.
+- `07-EARLY-MODERNISM.md` and `08-ABSTRACTION.md` trace the break from representation toward formal autonomy.
+- `11-ART-MARKET.md` connects artistic value to institutions, provenance, markets, and museums.
 
 ---
 

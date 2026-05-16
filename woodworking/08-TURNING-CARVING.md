@@ -289,20 +289,26 @@ POWER CARVING:
 
 ---
 
+## Cross-References
+
+- `01-WOOD-SELECTION.md` explains grain, hardness, and green-wood behavior.
+- `02-HAND-TOOLS.md` covers edge geometry and sharpening concepts.
+- `09-SHOP-SETUP.md` covers lathe placement, dust, chips, and safety layout.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the lathe speed formula? | 9,000 ÷ diameter (inches) = max safe RPM |
-| What is spindle turning? | Stock held between centers; grain parallel to lathe axis |
-| What is faceplate/bowl turning? | Stock on faceplate or chuck; grain perpendicular to axis |
-| Which gouge is for bowl turning? | Bowl gouge with swept-back grind (not a roughing gouge) |
-| Why turn green wood rough first? | Green cuts easily; rough-out → dry → finish-turn to final dimensions |
-| What is the roughing gouge used for? | Roughing square spindle stock to cylinder ONLY; never on bowls |
-| What is the swept-back grind? | Bowl gouge shape: wings ground back; handles the long grain/end grain transition |
-| What is chip carving? | Removing geometric triangular chips with knife; geometric patterns |
-| What does gouge number indicate? | Curvature sweep (#1 = flat, #11 = full U; higher = more curved) |
-| What are slip stones for? | Sharpening the inside (concave face) of gouges and V-tools |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Safe lathe speed | 9,000 divided by diameter in inches as max RPM | Cleanest cut is not always fastest safe speed. |
+| Spindle turning setup | Stock between centers, grain parallel to axis | Tool geometry assumes continuous long-grain presentation. |
+| Bowl/faceplate setup | Faceplate or chuck, grain perpendicular to axis | Intermittent grain changes catch behavior. |
+| Bowl gouge choice | Swept-back bowl gouge | Never use a spindle roughing gouge on bowls. |
+| Green-wood bowl workflow | Rough turn, dry, then finish turn | Oval drying is expected and planned for. |
+| Roughing gouge use | Square spindle stock to cylinder only | On faceplate work it can eject tool or blank. |
+| Long/end-grain transition | Swept-back wings on a bowl gouge | Grind shape manages changing grain direction, not decoration. |
+| Chip carving | Low-angle knife cuts removing triangular chips | Tool angle differs from relief carving. |
+| Carving gouge selection | Sweep number: #1 flat to #11 deep U | Sweep describes curvature, not tool size alone. |
+| Gouge/V-tool sharpening | Slip stones on concave inside faces | Dull carving tools become unsafe because they require force. |
 
 ---
 

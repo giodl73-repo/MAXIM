@@ -503,16 +503,24 @@ Climate risk is the canonical real-world case for risk-averse decision criteria 
 
 ## Decision Cheat Sheet
 
-| Topic | Key facts |
-|---|---|
-| Current SLR rate | ~3.7 mm/year, accelerating |
-| Wet-bulb temperature survival limit | Tw 35°C — unsurvivable >6 hours |
-| Coral reef risk threshold | 1.5°C: 70-90% severely bleached annually |
-| Clausius-Clapeyron for precipitation | +7% moisture capacity per +1°C |
-| 2003 European heat deaths | ~70,000 excess deaths in 2 weeks |
-| Ocean pH change since 1850 | -0.11 units = 26% increase in H⁺ concentration |
-| Internal climate migrants by 2050 | World Bank: 216 million (6 regions modeled) |
-| CO₂ fertilization caveat | Real but smaller than models; reduces food quality |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Sea-level-rise claim | Separate thermal expansion, glaciers, ice sheets, land subsidence, regional ocean dynamics, and acceleration. | Global mean SLR is not local flood risk. |
+| Extreme heat risk | Check wet-bulb temperature, humidity, exposure duration, acclimatization, labor, housing, and cooling access. | Dry-bulb temperature alone misses survivability. |
+| Coral reef threshold | Compare heat stress, bleaching frequency, acidification, local pollution, adaptation, and recovery interval. | Reef risk rises sharply before complete ecosystem loss. |
+| Precipitation intensification | Use Clausius-Clapeyron scaling, storm dynamics, moisture transport, topography, and land-use change. | More atmospheric moisture does not mean uniform rainfall increase. |
+| Heat mortality estimate | Separate exposure, demographic vulnerability, baseline mortality, adaptation, warning systems, and attribution method. | Death counts depend on public-health capacity as well as temperature. |
+| Ocean acidification claim | Check pH, carbonate saturation, alkalinity, organism sensitivity, upwelling, and co-stressors. | A small pH-number change can be a large hydrogen-ion change. |
+| Climate migration projection | Examine model region, livelihood pathway, adaptation, conflict, urban capacity, and policy response. | Migration is mediated by economics and governance, not climate alone. |
+| CO2 fertilization benefit | Check nutrient limits, heat stress, water stress, pests, crop quality, and model bias. | More CO2 can increase biomass while reducing nutrition or yield stability. |
+
+---
+
+## Cross-References
+
+- `03-FEEDBACKS-TIPPING.md` explains the nonlinear thresholds behind some impact risks.
+- `04-EMISSIONS-PATHWAYS.md` links future impact severity to policy and technology trajectories.
+- `../public-health/00-OVERVIEW.md` connects heat, disease, disasters, and food insecurity to population health.
 
 ---
 

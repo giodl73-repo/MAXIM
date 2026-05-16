@@ -307,6 +307,12 @@ GRAND DUCHY OF LITHUANIA:
 
 ---
 
+## Cross-References
+
+- [Scandinavia and the Norse World](05-SCANDINAVIA-NORSE.md) supplies the Baltic and Rus connections feeding Eastern Europe.
+- [Mongol Empire](11-MONGOL-EMPIRE.md) explains the steppe pressure that reshaped Rus, Hungary, and regional power.
+- [South Asia Medieval](14-SOUTH-ASIA-MEDIEVAL.md) offers a comparison for frontier, conquest, and layered sovereignty.
+
 ## Common Confusion Points
 
 **"Bohemia" is not ethnic Czech**

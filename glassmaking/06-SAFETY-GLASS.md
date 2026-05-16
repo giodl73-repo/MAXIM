@@ -291,6 +291,12 @@ BUILDING CODE REFERENCES:
 
 ---
 
+## Cross-References
+
+- [Float Glass](04-FLOAT-GLASS.md) supplies the flat-glass substrate most safety glass starts from.
+- [Glass Science](01-GLASS-SCIENCE.md) explains stress, annealing, and fracture behavior behind tempering and lamination.
+- [Glass Trades](10-GLASS-TRADES.md) connects safety glass to glazing, installation, and code-facing practice.
+
 ## Common Confusion Points
 
 **Tempered glass is NOT the same as laminated glass**:

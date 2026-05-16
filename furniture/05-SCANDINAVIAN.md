@@ -44,7 +44,7 @@ OUTPUT: Over 500 chair designs in 50 years.
         Most are variations on the same structural problem:
         how does the human back meet a chair back?
 
-THE CHAIR (CH24, "Wishbone Chair," 1949):
+CH24 "WISHBONE CHAIR" (1949):
   +---------+
   |    Y    |
   |         |
@@ -52,15 +52,16 @@ THE CHAIR (CH24, "Wishbone Chair," 1949):
   +--/ \----+
     /   \
 
-  Y-shaped back post (one piece, not two);
-  supports woven paper cord seat.
-  Arms integrate with back in continuous curve.
-  Curved legs (steam-bent solid wood).
+  Y-shaped back support visually ties the back rail to
+  the woven paper cord seat.
+  Arms and back rail integrate in a continuous curve.
+  Curved rear legs and rail geometry produce the light silhouette.
 
   MANUFACTURING:
-    The Y-back is steam-bent from a single piece of ash or beech.
-    No joint at the Y-fork -- it's bent, not glued.
-    This is the key to structural integrity.
+    The chair uses many separate shaped parts, not a single
+    magical Y-shaped bend. The craft is in the precise joinery,
+    shaping, and paper-cord weaving rather than hidden monocoque
+    construction.
     The woven paper cord seat: labor-intensive (1 hour per chair),
     but durable, lightweight, and visually light.
     Still in production by Carl Hansen & Son.
@@ -200,7 +201,7 @@ SWEDISH DESIGN IDENTITY:
   IKEA product names use Swedish geographical names:
   KALLAX (Kallax, a municipality in northern Sweden)
   BILLY (common Swedish name)
-  POANG (Pong, a Swedish place name)
+  POANG (from Swedish "poang," meaning point or argument)
   This is deliberate branding: associates design with
   Swedish origin, plays to Scandinavian design reputation.
 ```
@@ -324,17 +325,22 @@ THE ONGOING INFLUENCE:
 
 ## Decision Cheat Sheet
 
-| Designer | Country | Key Object | What It Demonstrates |
-|---------|---------|-----------|---------------------|
-| Hans Wegner | Denmark | CH24 Wishbone Chair | Steam-bent Y-back from single piece; paper cord |
-| Arne Jacobsen | Denmark | Series 7 (3107) | One-piece pressed shell; most-produced chair ever |
-| Arne Jacobsen | Denmark | Egg Chair (1958) | Fiberglass cocoon; privacy through form |
-| Finn Juhl | Denmark | Chieftain Chair | Floating seat/back; sculptural composition |
-| Borge Mogensen | Denmark | Spanish Chair | Functionalist rationalism; 100-year durability |
-| Alvar Aalto | Finland | Stool 60 | L-leg bent plywood; stackable; $300 authorized |
-| IKEA | Sweden | POANG | Aalto-derived bent wood; $100; global default |
+| Diagnostic Question | Scandinavian Frame | Evidence To Look For |
+|---------------------|--------------------|----------------------|
+| Is the chair a craft solution to comfort, proportion, and wood joinery? | Danish modern / Wegner-Mogensen-Klint lineage | Shaped hardwood, paper cord or leather, visible joinery, restraint rather than austerity |
+| Is furniture inseparable from an architectural commission? | Arne Jacobsen | Hotel, canteen, or building-specific constraints explain the shell, base, privacy, or stacking decision |
+| Does the piece make seat/back elements appear to float inside a frame? | Finn Juhl | Sculptural separation of support frame from body-supporting elements |
+| Does modernism stay wooden rather than becoming steel-and-glass? | Alvar Aalto / Finnish modernism | Birch plywood, L-leg, bent laminated forms, clinical or civic functional brief |
+| Is affordability part of the design brief rather than an afterthought? | Folkelighed / democratic design | Good design for ordinary people, craft-to-industry translation, low-price pressure |
+| Is the object Scandinavian design or IKEA's cost-optimized descendant? | Swedish industrial democratization | Flat-pack logistics, names/branding, particleboard or bentwood cost engineering, global scale |
 
 ---
+
+## Cross-References
+
+- [Furniture History](02-HISTORY-STYLES.md) places Scandinavian design in the larger period-style sequence.
+- [Bauhaus and Modernist Furniture](03-BAUHAUS-MODERNISM.md) supplies the industrial modernist contrast.
+- [IKEA Model](07-IKEA-MODEL.md) shows how Scandinavian design language became a global flat-pack business system.
 
 ## Common Confusion Points
 

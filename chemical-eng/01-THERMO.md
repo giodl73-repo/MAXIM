@@ -1,6 +1,8 @@
 # 01 — Chemical Engineering Thermodynamics
 
-## Phase Equilibria, Equations of State, Fugacity, Activity
+## The Big Picture
+
+### Phase Equilibria, Equations of State, Fugacity, Activity
 
 ```
 CHEMICAL THERMODYNAMICS TOOLKIT
@@ -288,6 +290,12 @@ related to saturation pressure and activity coefficient.
 **K_eq ≠ rate:** Equilibrium constant tells you where the system ends up, not how fast. You need kinetics (reaction engineering) for rates. High K_eq just means reactions goes far to completion; doesn't mean it's fast.
 
 ---
+
+## Cross-References
+
+- `mechanical/01-THERMODYNAMICS.md` — single-component energy/entropy base before mixtures and reactions.
+- `materials/01-CRYSTAL-STRUCTURE.md` — solid phases and defects that bound real material behavior.
+- `energy-systems/01-SOLAR-PV.md` — applied thermodynamic accounting in modern energy systems.
 
 ## Decision Cheat Sheet
 

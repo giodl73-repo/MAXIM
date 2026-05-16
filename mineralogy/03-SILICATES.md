@@ -365,17 +365,23 @@ Goldich's dissolution series (1938) matches Bowen's reaction series in reverse �
 
 ---
 
+## Cross-References
+
+- `mineralogy/01-MINERAL-CHEMISTRY.md` - composition, bonding, and polymorphism foundations.
+- `geochemistry/07-WEATHERING-SOILS.md` - silicate weathering as geochemical driver.
+- `geology/01-MINERALS.md` - mineral identification and rock-forming context.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why are silicates dominant? | Si + O = 74% of crust; SiO₄ tetrahedra polymerize into all structure types |
-| How to ID pyroxene vs. amphibole? | Cleavage angles: pyroxene ~90°, amphibole ~60°/120° |
-| What is jade? | Jadeite (pyroxene) or nephrite (tremolite/actinolite amphibole) — different minerals, same name |
-| Why is quartz resistant to weathering? | 3D covalent framework, no cleavage, chemically inert at surface T |
-| What are clay minerals? | Phyllosilicates formed by weathering of feldspar; kaolinite, smectite, illite |
-| Why does mica split into thin sheets? | Perfect basal cleavage along weak interlayer bonds (K⁺ bridges between T-O-T units) |
-| Why is olivine in the mantle? | High density, high Mg content, crystallizes at highest T from mafic melt |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Silicate dominance | Crustal Si + O abundance and SiO4 polymerization | Abundance plus structural flexibility both matter. |
+| Pyroxene versus amphibole | Cleavage angles near 90 deg versus 60/120 deg | Amphiboles include OH; pyroxenes do not. |
+| Jade identity | Jadeite or nephrite | Trade name hides two different mineral groups. |
+| Quartz weathering resistance | 3D covalent framework, no cleavage, surface inertness | Mechanical durability and chemical stability reinforce each other. |
+| Clay mineral origin | Weathered feldspar phyllosilicates | Kaolinite, smectite, and illite behave differently. |
+| Mica sheet splitting | Weak interlayer bonds between T-O-T sheets | Perfect basal cleavage follows structure. |
+| Mantle olivine abundance | Mg-rich, dense, high-temperature mafic mineral | Surface instability makes olivine weather quickly. |
 
 ---
 

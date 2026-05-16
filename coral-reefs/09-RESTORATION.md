@@ -314,18 +314,24 @@ Is coral absent because of:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is coral gardening? | Fragment-based propagation: collect → grow in nursery → outplant |
-| What is micro-fragmentation? | Very small (5–10 mm) fragments grow 15–40× faster than standard fragmentation |
-| What are reef balls? | Hollow concrete structures providing hard substrate for coral settlement |
-| What is biorock? | Low-voltage electrolytic mineral accretion technology; effectiveness contested |
-| What is assisted gene flow? | Moving thermotolerant or genetically diverse individuals to depleted reefs |
-| What is clade shuffling? | Coral swapping from less to more thermotolerant zooxanthellae clade |
-| What is the scale gap? | Global restoration capacity ~1–10 km²/yr; need to recover ~140,000 km² |
-| Does restoration work? | Locally yes; at global scale: orders of magnitude insufficient without climate action |
-| What blocks coral outplanting success most? | Algal cover on substrate; must remove algae and restore herbivory first |
-| What is larval seeding? | Collect/raise larvae from mass spawning; broadcast onto reef at settlement |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A coral-gardening project | Check source colonies, nursery survival, genotype diversity, outplant substrate, and post-plant monitoring. | Fragment propagation can clone vulnerability if diversity is ignored. |
+| A micro-fragmentation claim | Compare species, fragment size, growth rate, fusion behavior, labor cost, and deployment survival. | Fast nursery growth does not guarantee reef-scale persistence. |
+| An artificial-substrate proposal | Evaluate reef balls or other structures for placement, material chemistry, complexity, stability, and larval supply. | Hard substrate is useful only if water quality and recruitment conditions support coral. |
+| A biorock or electro-mineral claim | Inspect voltage, mineral accretion, energy source, maintenance, storm resistance, and independent evidence. | Effectiveness is contested and highly site-dependent. |
+| An assisted-evolution proposal | Separate assisted gene flow, selective breeding, symbiont manipulation, heat tolerance, and ecological risk. | Thermotolerance gains can trade off growth, reproduction, or local adaptation. |
+| The restoration scale gap | Compare restored area per year, cost, labor, survival, global reef area, and climate trajectory. | Restoration is local triage; by itself it is not a solution to global reef decline. |
+| An outplanting failure | Start with algal cover, herbivory, substrate stability, sediment, heat stress, disease, and monitoring duration. | Planting coral into an unrecovered stress regime usually fails. |
+| Larval seeding | Check spawning timing, fertilization, settlement cues, substrate preparation, predation, and early survival. | High larval numbers do not translate linearly into adult coral cover. |
+
+---
+
+## Cross-References
+
+- `05-BLEACHING.md` defines the thermal-stress problem restoration cannot solve alone.
+- `08-HUMAN-IMPACTS.md` separates global climate pressure from local management levers.
+- `../conservation/00-OVERVIEW.md` places reef restoration inside broader conservation triage.
 
 ---
 

@@ -433,20 +433,26 @@ SOUND BRIDGE:
 
 ---
 
+## Cross-References
+
+- `cinema-film/02-SILENT-ERA.md` — early experiments that became grammar.
+- `cinema-film/08-EDITING-THEORY.md` — cutting as the operational form of narrative structure.
+- `rhetoric/01-CLASSICAL-RHETORIC.md` — persuasion and arrangement as older narrative technology.
+
 ## Decision Cheat Sheet
 
-| Element | Description | Function |
-|---------|-------------|---------|
-| Establishing shot | Wide; shows space and character positions | Spatial orientation for viewer |
-| 180° rule | Cameras on one side of action axis | Prevents spatial disorientation |
-| Match on action | Cut in mid-movement | Creates continuous perceived action |
-| Eyeline match | Look -> cut to what's seen | Establishes spatial relationship |
-| Shot-reverse-shot | Alternate faces in dialogue | Standard conversation construction |
-| Crosscutting | Alternate simultaneous events | Creates suspense, irony, temporal connection |
-| Jump cut | Cut within same scene, discontinuous | Time ellipsis, psychological effect |
-| Kuleshov effect | Same face + different context = different meaning | Editing creates meaning not in shots |
-| Metric montage | Cut on absolute time intervals | Rhythmic, visceral, musical |
-| Intellectual montage | Juxtapose for concept creation | Abstract meaning from unlike images |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether the viewer knows where bodies are in space | Establishing shot | Orientation is a tool, not a mandatory opener. |
+| Why a scene suddenly feels spatially wrong | 180-degree rule and action axis | Crossing the line is not forbidden; it must be motivated or reoriented. |
+| Why a cut feels invisible | Match on action | Continuity depends on motion logic, screen direction, and timing together. |
+| How a film implies what a character sees | Eyeline match | The relationship is learned grammar; not all audiences parse it automatically. |
+| Why dialogue scenes feel legible | Shot-reverse-shot | The pattern can become invisible convention or be disrupted for power dynamics. |
+| How simultaneous events create tension | Crosscutting | Alternation can imply simultaneity, irony, or thematic relation; context decides. |
+| Why discontinuity creates a modern or anxious rhythm | Jump cut | A jump cut may be an error, ellipsis, or deliberate anti-continuity gesture. |
+| How context changes perceived emotion | Kuleshov effect | Meaning emerges from sequence, not from the shot in isolation. |
+| How rhythm can dominate narrative continuity | Metric montage | Timed cutting creates bodily effect but may weaken spatial clarity. |
+| How editing can create an abstract concept | Intellectual montage | Conceptual collision asks the viewer to infer, not merely follow action. |
 
 ---
 

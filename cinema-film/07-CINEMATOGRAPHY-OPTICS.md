@@ -388,18 +388,24 @@ Same "scene" = infinite options. The DP makes choices based on:
 
 ---
 
+## Cross-References
+
+- `cinema-film/01-OPTICAL-PERSISTENCE.md` — moving-image perceptual foundation.
+- `photography/01-OPTICS-LENSES.md` — lens geometry and photographic image formation.
+- `optics/01-GEOMETRIC-OPTICS.md` — ray model behind focus, aperture, and field of view.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What does focal length control? | Field of view (angle) + perspective effects (via necessary shooting distance) |
-| Why does telephoto "flatten" perspective? | Forces camera far away; near/far objects at similar distances = less relative difference |
-| What does aperture control? | Light level + depth of field (cannot be separated) |
-| What is the 180° shutter rule? | Set shutter speed to double the fps (24fps -> 1/48s); gives natural motion blur |
-| What is film grain vs digital noise? | Grain = silver crystal clusters, organic texture. Noise = electronic signal variation, less organic |
-| What is a digital intermediate? | Scan film to digital, grade, output to DCP or back to film; enables modern color grading |
-| What is dynamic range? | Stops from darkest to brightest captured detail; modern cinema cameras 14-17 stops |
-| What is log gamma? | Compressed recording of full dynamic range; looks flat; expanded in post to display gamma |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why framing changes spatial feel | Focal length plus required camera distance | Perspective comes from camera position; focal length usually forces that position. |
+| Why telephoto images look compressed | Distant camera placement makes near/far distances more similar | The lens does not "flatten" by magic; geometry does. |
+| Why exposure changes focus feel | Aperture controls both light and depth of field | You cannot change aperture without either exposure compensation or depth-of-field consequences. |
+| Why motion blur feels natural or staccato | 180-degree shutter rule, e.g. 24fps -> 1/48s | It is a convention; action, war, and sports imagery may deliberately violate it. |
+| Why film grain and digital noise feel different | Silver crystal clusters vs electronic signal variation | Texture can be aesthetic signal or technical defect depending on stock, sensor, and grade. |
+| Why film workflows became digitally graded | Digital intermediate scan-grade-output pipeline | DI adds control but also moves the image into color-management discipline. |
+| Whether a camera handles high contrast | Dynamic range in stops | Stops matter with highlight rolloff, noise floor, and color science, not as a single scoreboard. |
+| Why log footage looks flat | Log gamma compresses dynamic range for recording | Log is an intermediate encoding; it needs transform and grade before display. |
 
 ---
 

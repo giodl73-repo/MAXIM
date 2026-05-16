@@ -403,19 +403,25 @@ LEAN 4 AND HoTT:
 
 ---
 
+## Cross-References
+
+- `06-DEPENDENT-TYPES.md` gives the proof-oriented branch of the frontier.
+- `07-EFFECT-SYSTEMS.md` gives the effect-tracking branch.
+- `08-COMPILER-SEMANTICS.md` grounds frontier type systems in implementation.
+
 ## Decision Cheat Sheet
 
-| Need | System | Status |
-|------|--------|--------|
-| Mix typed + untyped code soundly | Typed Racket | Production |
-| TypeScript-style type checking | TypeScript | Production (intentionally unsound) |
-| Array bounds, null safety, security | LiquidHaskell / F* | Production for security-critical |
-| Verified cryptography | F* (EverCrypt, HACL*) | Production (in Firefox, Chrome) |
-| Memory safety via types | Rust (affine types) | Production |
-| Communication protocol types | Session types in Rust crates | Experimental in production |
-| Formalizing mathematics | Lean 4 + Mathlib | Active (Mathlib 1.5M lines) |
-| Homotopy theory formalization | Cubical Agda | Research frontier |
-| Univalent foundations | HoTT / Cubical | Research frontier |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Typed/untyped boundary | Typed Racket gradual typing | Formal gradual typing includes casts and blame, not just optional annotations. |
+| Practical structural checking | TypeScript | TypeScript is intentionally unsound for ecosystem compatibility. |
+| Lightweight refinement need | LiquidHaskell or F* | Solver automation is powerful but bounded by decidable fragments. |
+| Verified cryptography | F*, EverCrypt, HACL* | Production status depends on extraction and verified implementation boundaries. |
+| Memory safety | Rust affine ownership | Memory safety is not protocol correctness or data-race freedom outside the model. |
+| Communication protocol types | Session-type libraries | Many are experimental even when embedded in production languages. |
+| Formal mathematics | Lean 4 plus Mathlib | Library maturity dominates user productivity. |
+| Homotopy formalization | Cubical Agda | Research ergonomics differ from mainstream proof engineering. |
+| Univalent foundations | HoTT/Cubical systems | Foundation choice affects equality and transport everywhere. |
 
 ---
 

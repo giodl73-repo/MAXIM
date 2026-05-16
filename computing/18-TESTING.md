@@ -741,21 +741,27 @@ Playwright has built-in auto-waiting — locators automatically wait for element
 
 ---
 
+## Cross-References
+
+- `computing/04-BUILD.md` — test execution inside build systems.
+- `computing/13-CICD.md` — automated quality gates.
+- `formal-methods/01-LOGIC-FOUNDATIONS.md` — proof-oriented contrast class to testing.
+
 ## Decision Cheat Sheet
 
-| I want to test... | Use |
-|---|---|
-| Pure function / business logic | Vitest unit test |
-| React component behavior | Testing Library + Vitest |
-| API route with real DB | Supertest + Vitest integration test |
-| Component that fetches data | Testing Library + MSW |
-| Full browser flow (user journey) | Playwright E2E |
-| Multiple browsers | Playwright (Chromium, Firefox, WebKit) |
-| Visual regression | Playwright screenshots or Chromatic |
-| Accessibility | axe-core via `@axe-core/playwright` or Testing Library |
-| API mocking without changing component code | MSW |
-| Snapshot of rendered output | Vitest `toMatchSnapshot()` |
-| Code coverage | Vitest `--coverage` with v8 provider |
-| Generate test code from clicking | `playwright codegen` |
-| Run only tests matching a pattern | `vitest run utils` or `playwright test checkout` |
-| API contract between services | Pact (consumer-driven contract testing) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether deterministic business logic is correct | Vitest unit test | Unit tests buy precision; they do not prove integration wiring. |
+| Whether a React component behaves as the user sees it | Testing Library plus Vitest | Prefer behavior queries over implementation details or brittle DOM snapshots. |
+| Whether an API route works against persistence | Supertest plus Vitest integration test | Use a real test database when storage semantics are part of the contract. |
+| Whether a data-fetching component handles responses | Testing Library plus MSW | MSW mocks network boundaries; keep handlers aligned with real API contracts. |
+| Whether a user journey works end to end | Playwright E2E | E2E value comes from real stack coverage; excessive mocking turns it into a slow component test. |
+| Whether browser differences matter | Playwright browser projects | Multi-browser testing should target risk areas, not multiply every low-value test. |
+| Whether UI pixels drift | Playwright screenshots or Chromatic | Visual tests need stable rendering inputs or they become approval noise. |
+| Whether the experience is accessible | axe-core via Playwright or Testing Library | Automated a11y catches rule violations, not full usability with assistive tech. |
+| Whether frontend tests need API isolation | MSW | Mock the transport, not internal component functions. |
+| Whether rendered shape should be frozen | Vitest `toMatchSnapshot()` | Snapshots are useful for stable generated output, weak for intentional UI behavior. |
+| Whether test coverage has blind spots | Vitest `--coverage` with v8 provider | Coverage measures executed lines, not assertion quality or important behavior. |
+| Whether to bootstrap E2E selectors quickly | `playwright codegen` | Generated tests need refactoring into stable locators and domain assertions. |
+| Why a focused test run misses failures | `vitest run <pattern>` or `playwright test <grep>` | Pattern runs are debugging tools, not merge gates. |
+| Whether service APIs remain compatible | Pact consumer-driven contract testing | Contracts prevent mock drift; they do not replace integration smoke tests. |

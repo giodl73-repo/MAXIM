@@ -299,17 +299,24 @@ Historical value:
 
 ---
 
+## Cross-References
+
+- `01-ANCIENT-NEAR-EAST.md` supplies the older inscriptional archive tradition.
+- `04-DECIPHERMENT.md` explains how epigraphers move from signs to language.
+- `08-MEDIEVAL.md` extends public inscription habits into later Latin and vernacular contexts.
+
 ## Decision Cheat Sheet
 
-| Inscription type | Standard formula | What it records |
-|-----------------|-----------------|----------------|
-| Greek honorific | "The demos praised X and crowned him..." | Democratic award, benefactor honors |
-| Greek votive | "[Name] dedicated to [deity]" | Religious act, social display |
-| Greek funerary | "I am the marker of X who died..." | Identity, tribal affiliation, age |
-| Latin funerary | "D.M.S. [name] vixit annis X" | Age, DM dedication, dedicant |
-| Latin milestone | "To the Emperor X... N miles from Y" | Road infrastructure |
-| Electoral notice | "[Organization] urges you to elect X..." | Political campaigning |
-| Military diploma | "Emperor X to soldier Y who served Z years..." | Citizenship + discharge rights |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Greek honorific inscription | Demos/council praise formula and crown language | It records public recognition, not a neutral biography. |
+| Greek votive inscription | Dedicator, deity, and offering formula | Religious act and social display are often inseparable. |
+| Greek funerary marker | Name, family, deme/tribe, age, and epitaph conventions | Surviving identity is shaped by who could afford stone. |
+| Latin funerary text | `D.M.S.`, age, dedicant, and status markers | Formulaic text can still reveal family and legal status. |
+| Latin milestone | Imperial titulature, road name, and distance | Infrastructure inscriptions are also propaganda for state reach. |
+| Pompeian electoral notice | Candidate, office, and endorsing group | Wall writing was a formal political medium, not merely vandalism. |
+| Military diploma | Dual-copy citizenship/discharge formula | Prestige documents could be forged; sealed copies matter. |
+| Official decree or casualty list | Commissioning authority and inclusion criteria | "Official" does not mean complete or neutral. |
 
 ---
 

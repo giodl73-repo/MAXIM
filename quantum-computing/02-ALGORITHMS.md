@@ -393,17 +393,23 @@ Quantum simulation:
 
 ---
 
+## Cross-References
+
+- `quantum-computing/03-ERROR-CORRECTION.md` — algorithmic speedups require fault-tolerant execution at scale.
+- `number-theory/09-COMPUTATIONAL-NUMBER-THEORY.md` — factoring and discrete log complexity context.
+- `quantum-computing/04-HARDWARE-COMPLEXITY.md` — physical resource constraints behind algorithm feasibility.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What problem should I use Grover for? | Unstructured search in a database, key exhaustion |
-| Will Grover break AES-128? | Reduces to 2^64 queries — NIST says AES-256 for post-quantum |
-| Why does Shor break RSA but not AES? | RSA relies on factoring hardness; AES is symmetric (Grover only) |
-| Can QC solve NP-complete problems? | Not known; Grover gives √N — not polynomial for NP-complete |
-| What's the most realistic near-term QC advantage? | Quantum chemistry simulation (VQE for small molecules) |
-| Is HHL useful? | Only with QRAM, sparse A, logarithmic readout — rarely holds |
-| What are variational algorithms good for? | Heuristic approximations; no proven advantage established |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Grover applicability | Unstructured search and key-exhaustion style problems | Speedup is quadratic in search space, not polynomial in input size. |
+| AES under Grover | AES-128 becomes roughly `2^64` quantum queries | Resource constants and parallelization matter; AES-256 is the conservative PQ choice. |
+| Shor versus symmetric crypto | Factoring/discrete log structure versus symmetric brute force | Shor breaks RSA/ECC assumptions, not block-cipher structure. |
+| NP-complete expectations | Grover-style square-root search over assignments | No known quantum polynomial-time algorithm for NP-complete problems. |
+| Near-term advantage | Quantum chemistry/simulation heuristics such as VQE | Published VQE has not established practical quantum advantage. |
+| HHL usefulness | Sparse, well-conditioned systems with QRAM and logarithmic readout | The input/output assumptions rarely hold in ordinary linear algebra workloads. |
+| Variational algorithms | Heuristic approximation under noisy hardware | Trainability, barren plateaus, and classical baselines dominate credibility. |
 
 ---
 

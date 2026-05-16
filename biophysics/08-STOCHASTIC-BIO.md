@@ -522,18 +522,24 @@ Stochastic biology uses exactly the same mathematical machinery as stochastic pr
 
 ---
 
+## Cross-References
+
+- `probability-statistics/04-STOCHASTIC-PROCESSES.md` — mathematical foundation for random biological dynamics.
+- `biophysics/07-SINGLE-MOLECULE.md` — experimental view of stochastic molecular trajectories.
+- `statistical-mechanics/08-NON-EQUILIBRIUM.md` — fluctuations and driven systems.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Key Formula |
-|----------|---------|-------------|
-| When does stochasticity matter? | Low copy number | CV = 1/√⟨n⟩ → significant if ⟨n⟩ < 100 |
-| How does thermal noise enter dynamics? | Langevin equation | ⟨ξ(t)ξ(t')⟩ = 2γk_BT δ(t-t') |
-| What is the steady-state protein distribution? | Poisson (simple birth-death) | P_n = e^(-λ)λⁿ/n! |
-| What causes super-Poissonian noise in gene expression? | Transcriptional bursting | CV² = 1/⟨n⟩ + b/(1+kf/kb) |
-| How to get ΔF from non-equilibrium work? | Jarzynski equality | ⟨exp(-βW)⟩ = exp(-βΔF) |
-| How to find ΔF graphically from pulling experiments? | Crooks FT | P_F(W=ΔF) = P_R(-W=ΔF) |
-| Why does the second law follow from Jarzynski? | Jensen's inequality | exp(-β⟨W⟩) ≤ ⟨exp(-βW)⟩ |
-| How does noise differ intrinsic vs. extrinsic? | Elowitz two-reporter | Correlated fluctuations = extrinsic |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Stochasticity relevance | Low copy number and coefficient of variation | Bulk averages hide cell-to-cell effects. |
+| Thermal noise in dynamics | Langevin forcing | Noise strength is tied to dissipation. |
+| Simple protein-number distribution | Birth-death Poisson model | Bursting and feedback break Poisson assumptions. |
+| Super-Poisson gene-expression noise | Transcriptional bursting | Extrinsic noise can masquerade as bursting. |
+| Free energy from nonequilibrium work | Jarzynski equality | Rare trajectories dominate the exponential average. |
+| Graphical free-energy estimate | Crooks fluctuation theorem crossing | Forward/reverse work distributions need overlap. |
+| Second-law connection | Jensen inequality applied to Jarzynski | The average permits violations only in small trajectories. |
+| Intrinsic versus extrinsic noise | Two-reporter correlation test | Reporter design can introduce its own noise. |
 
 ---
 

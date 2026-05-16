@@ -605,6 +605,18 @@ INCLUSIONARY ZONING MECHANICS:
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Spatial design at building scale | `architecture/01-SPATIAL-DESIGN.md` | Zoning shapes the envelope in which architecture can operate |
+| Transportation and access | `transportation/01-RAIL.md` | Land use and mobility co-determine density, value, and daily life |
+| Physical constraints on settlement | `geography/01-PHYSICAL-GEOGRAPHY.md` | Floodplains, slopes, soils, and hazards constrain land-use decisions |
+| Political and legal authority | `law/01-CONTRACTS.md` | Zoning is public-law control over private land use, layered with contracts and property rights |
+| Historical settlement patterns | `historical-geography/01-FEUDAL-MECHANICS.md` | Modern zoning sits on older geography of parcels, roads, power, and land tenure |
+
+---
+
 ## Common Confusion Points
 
 **"FAR and density are the same thing"**

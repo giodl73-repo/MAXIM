@@ -262,16 +262,23 @@ ANNALES CRITIQUES
 
 ---
 
+## Cross-References
+
+- `03-RANKEAN-POSITIVISM.md` supplies the archival baseline Annales expanded.
+- `05-SOCIAL-CULTURAL-TURN.md` continues the move toward ordinary life and meaning.
+- `08-GLOBAL-HISTORY.md` scales structures beyond Europe and the nation-state.
+
 ## Decision Cheat Sheet
 
-| Annales Concept | Historical Question It Answers | Limitation |
-|-----------------|-------------------------------|------------|
-| Longue duree | Why do some patterns persist for centuries? | Cannot explain why change happens when it does |
-| Geographic determinism | How does ecology constrain historical possibilities? | Determinism ignores agency |
-| Conjunctural analysis | How do economic cycles shape political options? | Cycle identification is retrospective |
-| Mentalites | What did ordinary people believe? | Individual variation lost; hard to source |
-| Serial history | What were the aggregate patterns in prices/population/crime? | Data quality; category changes |
-| Lieux de memoire | How does national memory get constructed? | Focus on official/elite sites |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Slow structural persistence | Longue duree: geography, climate, ecology, settlement patterns | Long duration is about speed of change, not just long coverage. |
+| Environmental constraint | Braudel-style geography and material limits | Constraint is not determinism; agency still operates within limits. |
+| Medium-term cycles | Conjunctural analysis of prices, demography, and economic rhythms | Cycles are often clearer retrospectively than prospectively. |
+| Shared popular assumptions | Mentalites and inadvertent sources such as records of practice | Collective mentality can erase individual variation. |
+| Aggregate pattern history | Serial data for prices, population, crime, wages, harvests | Categories and data quality change over time. |
+| National memory construction | Lieux de memoire and symbolic sites | Memory studies can over-focus official or elite sites. |
+| "Annales method" claim | Three-generation school rather than one method | Annales is a family resemblance, not a single toolkit. |
 
 ---
 

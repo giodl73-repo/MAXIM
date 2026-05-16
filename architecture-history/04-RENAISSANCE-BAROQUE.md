@@ -174,7 +174,7 @@ DOUBLE SHELL CROSS-SECTION
    | / void  \ |
    |/         \ |
    +-----------+
-   |/    S    \ |
+   |/   S    \ |
    |     T     |
    |     R     |
    +     U     +
@@ -639,18 +639,26 @@ US Federal architecture (18th–19th c.)
 
 ## Decision Cheat Sheet: Renaissance and Baroque
 
-| Question | Answer |
-|----------|--------|
-| Why did Brunelleschi use herringbone brickwork? | Self-supporting rings during construction — no centering required |
-| Why is St. Peter's dome double-shelled? | Inner shell for interior scale; outer for external profile; iron chains for hoop tension |
-| What is a pendentive dome? | Circular dome on a square room via spherical-triangle transitions |
-| What is entasis? | Subtle column bulge — optical correction or structural expression |
-| What is the most influential architectural book ever? | Palladio's I Quattro Libri (1570) — established classical proportional system for 300 years |
-| What is Baroque's defining characteristic? | Emotional engagement over rational clarity; curved surfaces, dramatic light, movement |
-| What are Bernini's twisted columns? | "Solomonic" columns evoking the Temple of Solomon — spiral implies movement/energy |
-| Why does Borromini use curves in plan? | Spatial drama — space breathes, multiple focal points, no single readable geometry |
-| What is Wren's three-dome solution at St. Paul's? | Inner (visible, plastered), structural brick cone (hidden, carries lantern), outer timber (external silhouette) |
-| What is Palladianism? | Application of Palladio's proportional system to country houses and public buildings (England, USA) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Brunelleschi dome construction | Check herringbone brick, double shell, ring action, chains, hoists, and centering avoidance. | The innovation is construction process as much as geometric form. |
+| St. Peter's dome | Separate inner scale, outer profile, shell thickness, hoop tension, drum, and later reinforcement. | Visual dominance and structural logic are carried by different layers. |
+| Pendentive dome | Analyze square-to-circle transition, spherical triangles, piers, thrust, and liturgical space. | Pendentives solve a load-path and geometry problem simultaneously. |
+| Entasis | Compare optical correction, column proportion, structural expression, and classical precedent. | Do not reduce it to one universal optical trick. |
+| Palladio's influence | Trace proportional systems, villa typology, publication, pattern-book transmission, and later adoption. | The book spread a portable grammar, not one fixed style. |
+| Baroque spatial effect | Examine curves, light, axial drama, movement, patronage, and Counter-Reformation affect. | Emotional engagement is engineered through geometry and staging. |
+| Bernini's Solomonic columns | Check spiral form, biblical reference, bronze material, altar setting, and movement. | Symbol, material, and choreography work together. |
+| Borromini's curved plans | Analyze concave/convex rhythm, multiple focal points, compression/expansion, and mathematical geometry. | Complexity is controlled, not arbitrary distortion. |
+| Wren's St. Paul's section | Separate inner dome, brick cone, outer timber shell, lantern load, and urban silhouette. | The visible dome is not the only structural dome. |
+| Palladianism | Examine proportion, symmetry, villa/public-building adaptation, patron class, and colonial transmission. | Classical order becomes social language as well as design method. |
+
+---
+
+## Cross-References
+
+- `01-ANCIENT.md` supplies the classical orders, typologies, and precedents Renaissance architects revived.
+- `05-NEOCLASSICAL.md` follows the later purification and political reuse of classical language.
+- `../architecture/00-OVERVIEW.md` connects historical design systems to modern professional practice.
 
 ---
 

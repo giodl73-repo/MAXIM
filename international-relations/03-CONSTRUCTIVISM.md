@@ -310,16 +310,26 @@ FEMINIST IR — KEY CONTRIBUTIONS
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Realist material-power baseline | `international-relations/01-REALISM.md` |
+| Liberal institutional cooperation | `international-relations/02-LIBERALISM.md` |
+| Norms embedded in institutions | `international-relations/06-INTERNATIONAL-INSTITUTIONS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Constructivist answer |
-|----------|-----------------------|
-| Why is "anarchy" compatible with cooperation? | Anarchy is what states make of it — Kantian, Lockean, or Hobbesian cultures are all possible; the culture is reproduced by practice and can change |
-| How do international norms spread? | Norm lifecycle: entrepreneur → organizational platform → tipping point → cascade → internalization |
-| Why did the Cold War end? | Identity change: Gorbachev's "new thinking" changed Soviet identity → changed interests → changed behavior; structural realism can't explain this |
-| What is securitization? | A speech act that moves an issue from normal politics to exceptional emergency sphere; audience must accept the framing; can suspend normal democratic constraints |
-| What does postcolonial IR add? | Historical grounding for present-day asymmetries; critique of Western norm dominance; multiple world orders, not one liberal order |
-| What does feminist IR add? | Gendered assumptions in IR theory; making women visible; human security vs. state-centric security |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Cooperation under anarchy | Wendt: anarchy is reproduced as Hobbesian, Lockean, or Kantian culture | Constructivism adds social meaning; it does not deny material capability. |
+| Norm diffusion | Entrepreneurs, platforms, tipping point, cascade, internalization | Internalization does not mean perfect compliance. |
+| Cold War ending | Identity change and Gorbachev's "new thinking" changing interests | Structural explanations still matter for constraints and opportunity. |
+| Securitization | Speech act accepted by audience and moved to emergency politics | Failed securitizing moves are rhetoric, not securitization. |
+| Postcolonial IR | Historical asymmetry, Western norm dominance, and plural orders | It is not just adding cases; it challenges theory's default standpoint. |
+| Feminist IR | Gendered assumptions, women made visible, human security | It broadens security referents beyond the state without ignoring states. |
 
 ---
 

@@ -548,30 +548,36 @@ Raman Spectroscopy:
 
 ---
 
+## Cross-References
+
+- `materials/01-CRYSTAL-STRUCTURE.md` - crystal structures measured by diffraction.
+- `materials-processing/02-HEAT-TREATMENT.md` - verification of heat-treatment outcomes.
+- `materials-processing/03-SOLIDIFICATION.md` - microstructures inherited from casting.
+
 ## Decision Cheat Sheet
 
-| Characterization Need | Technique |
-|-----------------------|-----------|
-| Identify phases in heat-treated steel | XRD (phase ID) + optical microscopy (etch) |
-| Measure retained austenite in hardened steel | XRD (ASTM E975) |
-| Measure residual stress in shot-peened surface | XRD sin²ψ method |
-| Image fracture surface (fatigue striation) | SEM (SE imaging) |
-| Map element distribution across weld | SEM-EDS elemental map |
-| Determine crystal orientation (texture) | EBSD |
-| Image precipitates at nm scale (γ' in Ni alloy) | TEM (bright field + STEM-HAADF) |
-| Measure grain size in steel | Optical microscopy after nital etch |
-| Identify polymer (incoming QC) | FTIR or DSC (Tg/Tm fingerprint) |
-| Measure polymer crystallinity | DSC (ΔHm comparison) |
-| Verify thermoset fully cured | DSC (no residual cure exotherm) |
-| Determine filler content in composite | TGA (burn off matrix, weigh residue) |
-| Hardness of thin PVD coating | Nanoindentation (depth < film/10) |
-| Detect internal pores in casting | X-ray radiography or CT scan |
-| Inspect weld for subsurface flaws | Phased array UT (PAUT) |
-| Detect surface cracks in aluminum | Liquid penetrant (PT) |
-| Detect surface cracks in steel | Magnetic particle (MT) |
-| Identify surface chemistry on failed bond | XPS (chemical state, not just elemental) |
-| Bulk elemental composition of steel | Spark OES |
-| Trace element content (ppm level) | ICP-MS |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Heat-treated steel phases | XRD plus etched optical microscopy | XRD detects phase; etching reveals microstructure morphology. |
+| Retained austenite | XRD per ASTM E975 | Sample prep and texture affect quantification. |
+| Shot-peened residual stress | XRD sin2psi method | Surface layer and stress gradient matter. |
+| Fatigue striations | SEM secondary-electron imaging | Striations are microscopic; beach marks are macroscopic. |
+| Weld element distribution | SEM-EDS map | EDS is semi-quantitative and interaction-volume limited. |
+| Texture/crystal orientation | EBSD | Surface polish quality controls indexing. |
+| Nanoscale precipitates | TEM or STEM-HAADF | Thin-foil prep can introduce artifacts. |
+| Steel grain size | Nital etch plus optical microscopy | Etch response depends on alloy and heat treatment. |
+| Polymer identity | FTIR or DSC Tg/Tm fingerprint | Additives and blends can obscure fingerprints. |
+| Polymer crystallinity | DSC melting enthalpy comparison | Requires correct reference enthalpy and baseline. |
+| Thermoset cure completeness | DSC residual cure exotherm | No exotherm does not prove perfect network structure. |
+| Composite filler content | TGA matrix burnoff | Filler oxidation or residue chemistry can bias mass. |
+| Thin coating hardness | Nanoindentation below film/10 depth | Substrate influence grows quickly with depth. |
+| Casting internal pores | X-ray radiography or CT | CT resolution limits smallest detectable pores. |
+| Weld subsurface flaws | Phased-array UT | Geometry and calibration blocks control reliability. |
+| Aluminum surface cracks | Liquid penetrant testing | Surface must be clean and crack open to surface. |
+| Steel surface cracks | Magnetic particle testing | Requires ferromagnetic material. |
+| Failed-bond surface chemistry | XPS chemical-state analysis | XPS samples only the top few nanometers. |
+| Bulk steel composition | Spark OES | Surface prep and calibration standards matter. |
+| Trace ppm content | ICP-MS | Dissolution/prep contamination can dominate trace results. |
 
 ---
 

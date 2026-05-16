@@ -186,8 +186,9 @@ his germ theory of disease by ~20 years and directly enabled modern industrial b
           Diluted with water -- pure wine considered barbaric
           Amphorae trade across Mediterranean
 
-~700 CE   Arab alembic distillation
-          Al-Razi, Al-Kindi -- distillation for medicine and perfume
+~700 CE   Islamic-world alembic distillation
+          Al-Razi, Al-Kindi, and related alchemical traditions --
+          distillation for medicine and perfume
           "Al-kuhl" (fine powder -> fine spirits) -- etymology of alcohol
           Spirits as medicine: "aqua vitae" (water of life)
 
@@ -254,13 +255,13 @@ his germ theory of disease by ~20 years and directly enabled modern industrial b
 |                                                                    |
 |  ASIA-PACIFIC                                                    |
 |  Japan:      Whisky (Scotch-inspired), shochu (misc base)        |
-|  Korea:      Soju (diluted column spirit -- #1 world volume)     |
-|  China:      Baijiu (world's #1 volume, solid-state ferment)     |
+|  Korea:      Soju (large-volume diluted column spirit)           |
+|  China:      Baijiu (world's largest spirits category by volume) |
 |  Japan:      Sake (rice "wine" via koji parallel fermentation)   |
 |  SEA:        Tapai, palm wine, rice wine traditions              |
 |                                                                    |
 |  AFRICA/MIDDLE EAST                                              |
-|  North Africa: Arak (anise, grape or date base)                  |
+|  Levant/Eastern Mediterranean: Arak (anise, grape/date base)     |
 |  Sub-Saharan:  Sorghum beer, palm wine, banana beer              |
 |  Egypt/Sudan:  Bouza (ancient wheat/barley beer)                 |
 +------------------------------------------------------------------+
@@ -338,6 +339,12 @@ Months to years                                  Days to weeks
 
 ---
 
+## Cross-References
+
+- [Beer](01-BEER.md) and [Wine](02-WINE.md) show fermentation before distillation.
+- [Distillation](03-DISTILLATION.md) explains the separation physics that turns fermented wash into spirits.
+- [Cocktail Culture](09-COCKTAIL-CULTURE.md) follows finished spirits into service, ritual, and modern bar systems.
+
 ## Common Confusion Points
 
 **"Fermentation produces alcohol -- distillation just concentrates it."**
@@ -374,16 +381,14 @@ than malted barley amylase.
 
 ## Decision Cheat Sheet
 
-| I want to understand... | Go to |
-|-------------------------|-------|
-| Beer malting/mashing/hopping/styles | `01-BEER.md` |
-| Wine terroir/fermentation/classification | `02-WINE.md` |
-| Pot still vs column still physics | `03-DISTILLATION.md` |
-| Scotch vs bourbon vs Irish differences | `04-WHISKEY.md` |
-| Cognac vs Armagnac vs Calvados | `05-BRANDY-COGNAC.md` |
-| Gin botanical chemistry, vodka neutrality | `06-GIN-VODKA.md` |
-| Rum styles and colonial history | `07-RUM-SUGARCANE.md` |
-| Sake koji, baijiu, shochu, soju | `08-SAKE-RICE-SPIRITS.md` |
-| Cocktail history from punch to craft revival | `09-COCKTAIL-CULTURE.md` |
-| Ethanol metabolism biochemistry | `natural-sciences/08-METABOLISM.md` |
-| Yeast enzyme chemistry | `natural-sciences/07-ENZYMES.md` |
+| If you need to diagnose... | Start With | Go Deeper In |
+|----------------------------|------------|--------------|
+| Why fermentation works at all | NAD+ regeneration after glycolysis | `natural-sciences/08-METABOLISM.md` |
+| Why beer differs from wine | Starch conversion vs already-fermentable sugars | `01-BEER.md`, `02-WINE.md` |
+| Why spirits differ from fermented beverages | Distillation as separation and congener management | `03-DISTILLATION.md` |
+| Why whiskey families taste different | Grain bill, still type, barrel, climate, and law | `04-WHISKEY.md` |
+| Why grape/apple brandies are a separate family | Fruit wine base plus regional aging rules | `05-BRANDY-COGNAC.md` |
+| Why gin and vodka share a base but diverge | Neutral spirit plus botanical extraction vs neutrality | `06-GIN-VODKA.md` |
+| Why rum is inseparable from colonial history | Cane juice/molasses economics and plantation trade | `07-RUM-SUGARCANE.md` |
+| Why sake, shochu, soju, and baijiu do not map cleanly to Western categories | Koji, parallel fermentation, dilution, and solid-state fermentation | `08-SAKE-RICE-SPIRITS.md` |
+| Why cocktails are a separate cultural layer | Finished spirits become service architecture and ritual | `09-COCKTAIL-CULTURE.md` |

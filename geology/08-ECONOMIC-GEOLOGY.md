@@ -1,6 +1,6 @@
 # Economic Geology — Ore Deposits, Petroleum Systems, Critical Minerals
 
-**Bridge — ore concentration factor as signal-to-noise ratio:** Economic geology is fundamentally about enrichment ratios. Gold averages 4 ppb in continental crust; an economic deposit runs 1–10 g/t (ppm), representing 250,000–2,500,000× enrichment above background. This is identical to extracting actionable signal from noisy data — the geological processes that form ore deposits are the physical-chemical filters that amplify signal (target metal) while rejecting noise (gangue). Hydrothermal fluid flow is a natural column chromatograph: different metals precipitate at different temperatures and chemical conditions, separating them from the bulk rock matrix. Placer deposits are gravity-sorted arrays: specific gravity differences act as a filter, concentrating dense metals (Au SG=19.3, Cassiterite SG=7.0) while washing away silicate gangue (SG≈2.6). Cutoff grade is the signal threshold: below it, the cost of extraction exceeds the value of signal recovered. Changing metal price shifts the threshold, reclassifying "noise" as "signal" — exactly like adjusting a classifier's decision boundary.
+**Bridge — ore concentration factor as signal-to-noise ratio:** Economic geology is fundamentally about enrichment ratios. Gold averages ~4 ppb in continental crust; an economic deposit running 1–10 g/t (1–10 ppm) represents roughly 250–2,500x enrichment above background. This is identical to extracting actionable signal from noisy data — the geological processes that form ore deposits are the physical-chemical filters that amplify signal (target metal) while rejecting noise (gangue). Hydrothermal fluid flow is a natural column chromatograph: different metals precipitate at different temperatures and chemical conditions, separating them from the bulk rock matrix. Placer deposits are gravity-sorted arrays: specific gravity differences act as a filter, concentrating dense metals (Au SG=19.3, Cassiterite SG=7.0) while washing away silicate gangue (SG≈2.6). Cutoff grade is the signal threshold: below it, the cost of extraction exceeds the value of signal recovered. Changing metal price shifts the threshold, reclassifying "noise" as "signal" — exactly like adjusting a classifier's decision boundary.
 
 ## The Big Picture
 
@@ -257,8 +257,8 @@ Cu        55 ppm            0.3–1%           ~50–100×
 Ni        80 ppm            0.3–1%           ~30–100×
 Pb        13 ppm            1–2%             ~1000×
 Zn        70 ppm            2–5%             ~300–700×
-Au        4 ppb             1–5 g/t           250,000–1,250,000×
-Pt        10 ppb            2–5 g/t           200,000–500,000×
+Au        4 ppb             1–5 g/t           250–1,250×
+Pt        10 ppb            2–5 g/t           200–500×
 ```
 
 **Cutoff grade** — the grade below which ore is uneconomic to process. Changes with metal price, processing cost, and ore geometry. A deposit at one metal price can become sub-economic at another price, instantly reclassifying "reserves" to "resources."
@@ -267,16 +267,24 @@ Pt        10 ppb            2–5 g/t           200,000–500,000×
 
 ## Decision Cheat Sheet
 
-| Deposit type encountered | Look for |
-|--------------------------|---------|
-| Porphyry Cu | Large intrusive; disseminated sulfides; stockwork veins; argillic alteration halo |
-| Epithermal Au | Shallow volcanic setting; silicified veins; adularia; low-sulfidation or high-sulfidation alteration |
-| BIF iron ore | Precambrian; alternating chert + magnetite/hematite bands; high-grade if supergene enriched |
-| Laterite (bauxite/Ni) | Tropical humid climate; residual concentration; red/yellow clay profile |
-| Coal | Sedimentary basin; carbonaceous strata; Carboniferous or Permian age typical |
-| Petroleum | Sedimentary basin; identify source + trap + seal + migration path |
+| Exploration / Evaluation Question | Use This Diagnostic | Likely Interpretation |
+|---|---|---|
+| Is this ore or just mineralization? | Grade, tonnage, geometry, metallurgy, cutoff price | Economic value is a moving threshold, not a rock label |
+| What process concentrated the metal? | Host rock + alteration + structure + geochemistry | Magmatic, hydrothermal, sedimentary, weathering, placer, or metamorphic system |
+| Is it porphyry Cu-Mo? | Large arc intrusion, stockwork veins, disseminated sulfides, alteration halo | Low-grade, high-tonnage system centered on magmatic-hydrothermal fluids |
+| Is it epithermal Au-Ag? | Shallow volcanic setting, quartz/adularia or advanced argillic alteration | Boiling/mixing near the paleosurface concentrated precious metals |
+| Is it a residual/weathering deposit? | Tropical profile, laterite/bauxite, supergene enrichment | Climate and leaching upgraded insoluble or redeposited components |
+| Is it a placer? | Dense resistant minerals in stream/beach traps | Hydraulic sorting concentrated high-specific-gravity grains |
+| Is the petroleum system complete? | Source, maturity, migration, reservoir, trap, seal, timing | One missing element kills the play even if the basin is hydrocarbon-prone |
+| Is a "critical mineral" actually geologically scarce? | Crustal abundance vs processing/supply concentration | Criticality is usually supply-chain risk plus processing bottleneck, not rarity alone |
 
 ---
+
+## Cross-References
+
+- [Minerals](01-MINERALS.md) supplies the ore-mineral and identification foundation.
+- [Igneous Rocks](02-IGNEOUS-ROCKS.md) explains magmatic and hydrothermal ore systems.
+- [Plate Tectonics](05-PLATE-TECTONICS.md) connects resource provinces to convergent margins, rifts, and basins.
 
 ## Common Confusion Points
 

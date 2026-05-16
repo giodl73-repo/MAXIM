@@ -240,16 +240,23 @@ NEWMARK SLIDING BLOCK CONCEPT:
 
 ## Decision Cheat Sheet
 
-| Situation | Method | Parameters |
-|-----------|--------|-----------|
-| Shallow rainfall-triggered landslide | Infinite slope | c', φ', ru (measure piezometer) |
-| Cut slope in homogeneous clay | Bishop simplified | Su (undrained) or c', φ' (drained) |
-| Embankment on soft clay | Bishop simplified | Su of foundation clay |
-| Complex layered profile with weak seam | Janbu or Spencer | c', φ' for each layer |
-| Earthquake stability | Pseudostatic (screening) + Newmark (deformation) | kh, ay vs. earthquake record |
-| Preliminary estimate | Taylor or Bishop stability chart | Su, γ, H, β |
+| Stability Question | Use This Analysis | Watch-Out |
+|---|---|---|
+| Is a shallow rainfall slide plausible? | Infinite slope with pore-pressure ratio ru | Saturation can halve F in cohesionless slopes |
+| Is a homogeneous clay cut stable short term? | Undrained circular analysis with Su | End-of-construction can govern before drainage occurs |
+| Is the long-term cut slope stable? | Drained c'/phi' analysis, often residual strength for OC clay | Do not carry short-term cohesion into long-term design |
+| Is a weak seam controlling? | Janbu/Spencer non-circular search | Circular Bishop surfaces can miss the governing mechanism |
+| Will an embankment on soft clay fail during staging? | Undrained foundation stability with staged construction | Settlement improvement does not imply immediate stability |
+| Is seismic deformation acceptable? | Pseudostatic screen, then Newmark displacement | F < 1 during shaking is not automatically collapse; displacement matters |
+| What should be monitored? | Piezometers, inclinometers, survey points, crackmeters | Acceleration in movement or pore pressure is more important than one absolute reading |
 
 ---
+
+## Cross-References
+
+- [Shear Strength](04-SHEAR-STRENGTH.md) supplies the strength parameters slope models consume.
+- [Effective Stress](02-EFFECTIVE-STRESS.md) explains why pore pressure changes slope stability.
+- [Retaining Structures](08-RETAINING.md) covers engineered responses when slopes become wall-supported systems.
 
 ## Common Confusion Points
 

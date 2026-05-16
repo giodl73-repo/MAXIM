@@ -467,21 +467,27 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
 
 ---
 
+## Cross-References
+
+- `microbiology/05-MICROBIAL-ECOLOGY.md` — community ecology principles behind microbiomes.
+- `nutrition/01-MACRONUTRIENTS.md` — diet as a major microbiome input where applicable.
+- `public-health/01-EPIDEMIOLOGY.md` — population-level disease and exposure context.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| How many bacteria in human gut? | ~38 trillion (~1:1 with human cells) |
-| What do gut bacteria primarily make? | SCFAs: butyrate (colonocyte fuel), propionate, acetate |
-| Which SCFA is most important for gut health? | Butyrate — colonocyte fuel, anti-inflammatory |
-| What is dysbiosis? | Loss of normal community structure; pathobiont blooms |
-| Best-proven microbiome therapy? | FMT for recurrent C. difficile (~90% cure rate) |
-| Is Firmicutes/Bacteroidetes ratio a reliable biomarker? | No — too variable; specific species more informative |
-| Healthiest vaginal microbiome? | LOW diversity — Lactobacillus crispatus dominant (CST I) |
-| How to measure microbiome? | 16S (cheap, who) vs. shotgun metagenomics (full, functional) |
-| Gut-brain axis: real? | Yes — anatomical (vagus nerve) + biochemical evidence |
-| Does microbiome cause obesity? | Contributes; FMT evidence; not sole cause |
-| C. diff treatment of choice for recurrent disease? | FMT or FDA-approved microbiome products (Vowst/Rebyota) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Human gut bacterial scale | Roughly 38 trillion cells | Counts vary by person, diet, and measurement assumptions. |
+| Primary gut bacterial metabolites | SCFAs: acetate, propionate, butyrate | Metabolite output depends on substrate supply. |
+| Butyrate relevance | Colonocyte fuel and anti-inflammatory effects | Producer presence is not enough without fermentable fiber. |
+| Dysbiosis claim | Community-structure loss and pathobiont bloom | Dysbiosis is descriptive, not a single diagnosis. |
+| Best-proven microbiome therapy | FMT for recurrent C. difficile | Evidence is much weaker outside recurrent C. diff. |
+| F/B ratio biomarker | Avoid broad Firmicutes/Bacteroidetes claims | Species and function matter more than phylum ratio. |
+| Vaginal microbiome health | Lactobacillus crispatus-dominant low diversity | "High diversity" is not always healthy in every niche. |
+| Microbiome measurement choice | 16S versus shotgun metagenomics | 16S gives taxonomy; shotgun better captures function. |
+| Gut-brain axis evidence | Vagus plus biochemical/immune routes | Mechanism is real but often overclaimed. |
+| Obesity causality | Microbiome contribution plus diet/metabolism | Microbiome is not the sole cause. |
+| Recurrent C. diff treatment | FMT or approved microbiome products | Use is indication- and regulation-specific. |
 
 ---
 

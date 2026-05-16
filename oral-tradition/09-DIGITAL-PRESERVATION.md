@@ -372,17 +372,24 @@ DECOLONIZATION FRAMEWORK:
 
 ---
 
+## Cross-References
+
+- `07-PERFORMANCE.md` explains what recordings capture and what they miss.
+- `08-ORAL-HISTORY.md` supplies interview, consent, and archival practices.
+- `06-TRANSMISSION.md` frames preservation as an intervention in living tradition.
+
 ## Decision Cheat Sheet
 
-| Need | Tool / Resource |
-|------|----------------|
-| Archive audio/video from field | AILLA (Latin America), PARADISEC (Pacific), ELAR (worldwide) |
-| Organize field recordings | SayMore (Windows), ELAN for annotation |
-| Find metadata standard | OLAC (language-focused), Dublin Core extended |
-| Find endangered language resources | Endangered Languages Project (endangeredlanguages.com) |
-| Audio quality minimum | WAVE 24-bit/96kHz; never MP3 for archival |
-| Community consent framework | AILLA model: tiered access with community control |
-| Revitalization (not documentation) | Welsh/Maori models: immersion schools + official status |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Field audio/video archive | AILLA, PARADISEC, or ELAR deposit path | Repository fit depends on region, language, consent, and access model. |
+| Recording organization | SayMore for session workflow and ELAN for time-aligned annotation | File organization is preservation infrastructure, not clerical cleanup. |
+| Metadata standard | OLAC for language resources plus extended Dublin Core | Metadata is what makes files discoverable after the collector is gone. |
+| Endangered-language resource search | Endangered Languages Project as directory | It links to materials; it is not itself a research archive. |
+| Archival audio quality | WAVE 24-bit/96kHz capture | MP3 is distribution-only because lossy compression discards linguistic signal. |
+| Community access control | Tiered access with community authority, AILLA-style | Consent is governance over future use, not a one-time form. |
+| Long-term digital survival | 3-2-1 storage, checksums, and format migration | Digital archives decay without active management. |
+| Revitalization goal | Immersion schools, official status, and community-led use | Documentation is necessary but does not create speakers. |
 
 ---
 

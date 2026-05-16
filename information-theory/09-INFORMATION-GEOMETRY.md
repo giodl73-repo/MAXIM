@@ -1,5 +1,7 @@
 # Information Geometry
 
+## The Big Picture
+
 ```
 THE GEOMETRIC STRUCTURE OF STATISTICS
 
@@ -330,19 +332,25 @@ Geometric: ELBO maximization = E-projection of q onto model manifold
 
 ---
 
+## Cross-References
+
+- `probability-statistics/01-PROBABILITY-FOUNDATIONS.md` — probability distributions as the underlying objects.
+- `differential-geometry/01-MANIFOLDS.md` — manifold and metric language used by information geometry.
+- `machine-learning-theory/01-PAC-LEARNING.md` — statistical models and optimization landscapes as learning context.
+
 ## Decision Cheat Sheet
 
-| Goal | Tool | Formula |
-|------|------|---------|
-| Distance between distributions | Fisher-Rao geodesic | ∫√(θ'Iθ') dt |
-| Asymmetric divergence | KL divergence | E_p[log(p/q)] |
-| Symmetric divergence | Jensen-Shannon or Hellinger | JS = ½KL(P‖M) + ½KL(Q‖M) |
-| Mass transport distance | Wasserstein W₂ | Min expected squared distance |
-| Improve gradient descent | Natural gradient | F^{-1}∇L |
-| Scalable natural gradient | K-FAC | Kronecker factorization per layer |
-| Latent variable model fitting | EM algorithm | E: m-project; M: e-project |
-| Regularized optimal transport | Sinkhorn | Entropic regularization, Bregman iterations |
-| Model compression tradeoff | Information bottleneck | min I(X;T) - βI(T;Y) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether distribution distance should be intrinsic | Fisher-Rao geodesic | Computing geodesics can be hard outside simple families |
+| Whether divergence direction matters | KL divergence | `KL(P||Q)` and `KL(Q||P)` penalize different errors |
+| Whether a symmetric divergence is needed | Jensen-Shannon or Hellinger | Symmetry does not make every divergence a geodesic distance |
+| Whether geometry should move probability mass | Wasserstein `W2` | Transport cost depends on the ground metric |
+| Whether gradient descent ignores statistical curvature | Natural gradient | Fisher inverse estimation is the computational bottleneck |
+| Whether natural-gradient scaling is needed in deep nets | K-FAC approximation | Kronecker structure is an approximation to curvature |
+| Whether latent-variable fitting alternates projections | EM algorithm | EM is local and can converge slowly |
+| Whether optimal transport needs fast regularization | Sinkhorn iterations | Entropic regularization changes the transport problem |
+| Whether representation compression is the objective | Information bottleneck | Estimating mutual information in high dimension is difficult |
 
 ---
 

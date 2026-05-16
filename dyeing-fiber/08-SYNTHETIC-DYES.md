@@ -292,18 +292,22 @@ OPTICAL BRIGHTENERS
 
 ## Decision Cheat Sheet
 
-| Need | Dye Class | Mechanism | Lightfastness | Washfastness |
-|------|-----------|-----------|---------------|--------------|
-| Cotton: bright, fast | Reactive (Procion) | Covalent C-O bond | BW 4-6 | ISO 4-5 |
-| Cotton: maximum fastness | Vat dyes | Physical entrapment | BW 7-8 | ISO 4-5 |
-| Wool: bright colors | Acid dyes | Ionic, -SO3- / -NH3+ | BW 3-6 | ISO 3-4 |
-| Wool: maximum fastness | Chrome-mordant dyes | Cr coordination | BW 6-7 | ISO 4-5 |
-| Polyester: any color | Disperse dyes | Solid solution | BW 5-6 | ISO 4 |
-| Nylon: bright | Acid or disperse | Ionic or solid solution | BW 4-5 | ISO 3-4 |
-| Any: "natural" white | Fluorescent brightener | UV -> blue emission | N/A | varies |
-| Historical recreation | Natural + mordant | Coordinate complex | BW 2-6 | ISO 2-4 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A cotton dye choice | Compare reactive, vat, direct, fiber-reactive conditions, fixation rate, salt/alkali use, and wash-off burden. | Brightness and washfastness are process-dependent, not dye-class labels alone. |
+| A wool or protein-fiber dye choice | Check acid dye class, pH, leveling, fiber damage, mordant use, and required fastness. | Chrome mordants can improve fastness but add serious toxicity and wastewater constraints. |
+| A polyester or synthetic-fiber problem | Look at disperse dye diffusion, heat setting, carrier use, sublimation, and fiber blend. | Hydrophobic fibers need different mechanisms than cellulosic or protein fibers. |
+| A fastness claim | Separate lightfastness, washfastness, rubfastness, perspiration, bleach resistance, and test standard. | One fastness number does not predict all use conditions. |
+| A natural-vs-synthetic safety claim | Evaluate mordants, auxiliaries, effluent, biodegradability, exposure, and dose. | Natural is not automatically safe; synthetic is not automatically harmful. |
+| A historical-recreation dye | Identify period chemistry, available mordants, fiber, water chemistry, and acceptable modern substitutions. | Historically accurate processes can be environmentally unacceptable today. |
 
 ---
+
+## Cross-References
+
+- `03-DYE-CHEMISTRY.md` gives the chromophore and auxochrome chemistry behind synthetic dye classes.
+- `04-FIBER-PREPARATION.md` explains why fiber chemistry governs dye uptake.
+- `../coatings/02-PAINT-COMPOSITION.md` offers a parallel pigment/binder/colorant system.
 
 ## Common Confusion Points
 

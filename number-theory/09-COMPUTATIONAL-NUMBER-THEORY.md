@@ -348,20 +348,26 @@ BARRETT REDUCTION:
 
 ---
 
+## Cross-References
+
+- `number-theory/01-DIVISIBILITY-PRIMES.md` — Euclidean algorithms and primes are the computational baseline.
+- `number-theory/10-CRYPTOGRAPHY-CONNECTIONS.md` — factoring, discrete log, and primality become cryptographic hardness assumptions.
+- `quantum-computing/02-ALGORITHMS.md` — Shor's algorithm changes the complexity landscape for factoring and discrete log.
+
 ## Decision Cheat Sheet
 
-| Task | Best Algorithm | Complexity |
-|------|---------------|------------|
-| Compute gcd(a,b) | Euclidean | O(log min(a,b)) |
-| Modular inverse a⁻¹ mod n | Extended Euclidean | O(log² n) |
-| Modular exponentiation aᵉ mod n | Square-and-multiply | O(log e · log² n) |
-| Test primality (probabilistic) | Miller-Rabin | O(k log³ n) |
-| Test primality (deterministic) | AKS | O(log^6 n) |
-| Factor n, small factors | Pollard rho | O(n^{1/4}) |
-| Factor n, p-1 smooth | Pollard p-1 | O(B log B log² n) |
-| Factor n, ECM (mid-size factors) | Lenstra ECM | L_p[1/2, √2] |
-| Factor n (large, general) | Number Field Sieve | L_n[1/3, 1.923] |
-| Find all primes ≤ N | Sieve of Eratosthenes | O(N log log N) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a gcd is the primitive operation | Euclidean algorithm | Bit complexity depends on integer size, not just step count |
+| Whether a modular inverse exists | Extended Euclidean algorithm | Inverse exists only when `gcd(a,n)=1` |
+| Whether modular powers dominate runtime | Square-and-multiply | Constant-time variants matter in cryptographic code |
+| Whether probable primality is enough | Miller-Rabin | Error probability depends on bases and compositeness assumptions |
+| Whether deterministic primality is needed theoretically | AKS | Polynomial does not mean fastest in practice |
+| Whether a factor is relatively small | Pollard rho | Runtime is probabilistic and depends on factor size |
+| Whether `p-1` is smooth | Pollard `p-1` | Fails when factor group order lacks smoothness |
+| Whether mid-size factors are the target | Lenstra ECM | Complexity depends on the smaller factor, not `n` alone |
+| Whether a large general integer must be factored | Number Field Sieve | Setup and polynomial selection dominate engineering cost |
+| Whether all primes up to `N` are needed | Sieve of Eratosthenes | Memory layout matters at large `N` |
 
 ---
 

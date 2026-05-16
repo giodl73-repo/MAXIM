@@ -362,19 +362,25 @@ ADAPTIVE COVARIANCE:
 
 ---
 
+## Cross-References
+
+- `control-theory/02-STATE-SPACE.md` — state-space dynamics and observation models.
+- `probability-statistics/06-BAYESIAN-STATISTICS.md` — Kalman filtering as recursive Bayesian updating.
+- `signal-processing/06-STOCHASTIC-SIGNALS.md` — noisy signals and random-process assumptions.
+
 ## Decision Cheat Sheet
 
-| Situation | Estimator |
-|-----------|-----------|
-| Linear dynamics + Gaussian noise | Kalman Filter (KF) — optimal |
-| Mildly nonlinear, unimodal | Extended Kalman Filter (EKF) |
-| Moderately nonlinear, n < 50 | Unscented Kalman Filter (UKF) |
-| Highly nonlinear, multimodal | Particle Filter (PF) |
-| Robot localization with known map | EKF/UKF SLAM |
-| Robot in unknown environment | Graph SLAM (GTSAM, iSAM2) |
-| IMU + GPS fusion | EKF or Complementary Filter |
-| P becoming non-PSD numerically | Joseph form or Square-Root filter |
-| Need to estimate Q, R online | Adaptive KF with innovation monitoring |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether the textbook Kalman filter assumptions hold | Linear dynamics with Gaussian process/measurement noise | Optimality disappears when the model/noise assumptions are wrong |
+| Whether mild nonlinearity can be handled locally | Extended Kalman Filter | Linearization can diverge when uncertainty is large or the Jacobian is poor |
+| Whether nonlinear uncertainty needs deterministic sampling | Unscented Kalman Filter | Sigma points scale with state dimension and still assume a unimodal belief |
+| Whether the posterior is multimodal or highly nonlinear | Particle Filter | Particle counts explode with dimension and poor proposal distributions |
+| Whether localization has a known map | EKF/UKF SLAM | Linearized data association errors can dominate the estimator |
+| Whether the map is unknown and loop closures matter | Graph SLAM with factor graphs | Batch/smoothing methods trade runtime simplicity for graph management |
+| Whether IMU and GPS should be fused | EKF or complementary filter | Bias modeling and time synchronization matter more than the filter name |
+| Whether covariance numerics are corrupting the estimate | Joseph form or square-root filtering | Symmetry/PSD preservation does not fix a wrong process model |
+| Whether `Q` and `R` are badly tuned | Innovation monitoring or adaptive KF | Online tuning can chase unmodeled dynamics instead of true noise changes |
 
 ---
 

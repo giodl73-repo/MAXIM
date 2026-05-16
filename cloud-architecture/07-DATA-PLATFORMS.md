@@ -297,16 +297,22 @@ They are fundamentally different engines. Serverless SQL: query files in ADLS, p
 
 ---
 
+## Cross-References
+
+- `cloud-architecture/05-MICROSERVICES.md` — service data ownership and integration.
+- `data-science/01-NUMPY.md` — analytical compute context downstream of data platforms.
+- `query-languages/01-SQL.md` — query interface foundations.
+
 ## Decision Cheat Sheet
 
-| Use Case | Service | Notes |
-|----------|---------|-------|
-| Ingest from 100+ external sources | Azure Data Factory | Connectors, scheduling, IR |
-| Complex Spark transformations | Databricks or Synapse Spark | Databricks: better ecosystem |
-| Ad hoc SQL over data lake | Synapse Serverless SQL | Pay per scan |
-| High-performance repetitive SQL queries | Synapse Dedicated SQL Pool | Pause when idle |
-| ML model training + experiment tracking | Databricks (MLflow) + Azure ML | |
-| Multi-cloud data sharing | Snowflake | Or Azure Data Share for simpler cases |
-| Data governance and lineage | Microsoft Purview | Scans Synapse, Databricks, ADF |
-| ACID transactions on lake | Delta Lake | Open source, works everywhere |
-| Real-time streaming to lake | Event Hubs → Spark Streaming | Or Stream Analytics → ADLS |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether ingestion breadth is the hard part | Azure Data Factory | Connectors and scheduling help, but schema drift and integration runtime ownership remain. |
+| Whether transformations need complex Spark ecosystem | Databricks or Synapse Spark | Databricks usually has stronger ecosystem; Synapse may fit Azure-integrated estates. |
+| Whether lake data needs ad hoc SQL | Synapse Serverless SQL | Pay-per-scan rewards partitioning and file pruning; sloppy layout becomes cost. |
+| Whether repetitive SQL needs predictable performance | Synapse Dedicated SQL Pool | Dedicated capacity should pause when idle or it burns money. |
+| Whether ML needs training plus experiment tracking | Databricks MLflow plus Azure ML | Split ownership carefully: notebooks, registry, deployment, and governance can fragment. |
+| Whether sharing crosses clouds or companies | Snowflake, or Azure Data Share for simpler Azure cases | Data sharing is also contract, lineage, and access governance. |
+| Whether lineage/governance is the missing layer | Microsoft Purview | Scanning tools need naming, ownership, and stewardship processes to be useful. |
+| Whether the lake needs ACID table semantics | Delta Lake | ACID helps reliability but does not fix bad partitioning or modeling. |
+| Whether streams should land in the lake in near-real time | Event Hubs plus Spark Streaming, or Stream Analytics to ADLS | Streaming pipelines need replay, watermarking, and backpressure design. |

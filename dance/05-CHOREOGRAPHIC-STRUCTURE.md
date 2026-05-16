@@ -393,18 +393,24 @@ CHOREOGRAPHIC METHOD COMPARISON
 
 ## Decision Cheat Sheet
 
-| Compositional goal | Device to use |
-|-------------------|---------------|
-| Create cohesion across a work | Motif + development |
-| Show a passage of time | Augmentation or retrograde |
-| Create visual unity | Unison + same spatial pattern |
-| Create complexity from simple material | Canon or accumulation |
-| Make structure visible (self-referential) | Accumulation |
-| Avoid narrative expectation | Chance procedures |
-| Organize a large ensemble | Formal structures (ABA, rondo) |
-| Create dialogue between individual and group | Solo/ensemble alternation |
-| Remove theatrical artifice | Task-based composition |
-| Make dynamic contrast | Crescendo/diminuendo phrase shaping |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Cohesion across a work | Identify motif, phrase, variation, recurrence, spatial pathway, and rhythmic identity. | Repetition creates identity only when the audience can perceive the relationship. |
+| Time transformation | Use augmentation, diminution, retrograde, inversion, and changed spacing. | Retrograde is constrained by anatomy and gravity, not just reversing a video. |
+| Visual unity | Check unison, canon spacing, shared facing, floor pattern, level, and ensemble timing. | Perfect unison can flatten texture if overused. |
+| Complexity from simple material | Build canon, accumulation, fragmentation, layering, and counterpoint. | Complexity should clarify structure, not bury the original motif. |
+| Self-referential structure | Use accumulation, task rules, visible process, and performer memory burden. | Process transparency is an aesthetic choice, not automatically engaging. |
+| Non-narrative organization | Use chance procedures, modular order, task composition, and abstract spatial logic. | Chance still needs boundaries, selection rules, and performance discipline. |
+| Large-ensemble architecture | Compare ABA, rondo, theme/variation, solo/ensemble alternation, entrances, and exits. | Group structure must solve traffic and sightline problems as well as form. |
+| Dynamic contrast | Diagnose crescendo, diminuendo, density, tempo, level, force, and stillness. | Contrast works through relation; a single loud/fast passage is not contrast by itself. |
+
+---
+
+## Cross-References
+
+- `04-LABAN-NOTATION.md` shows how choreography can be encoded and reconstructed.
+- `06-MUSIC-DANCE.md` connects choreographic structure to rhythm, meter, and phrasing.
+- `09-DIGITAL-DANCE.md` extends choreographic structure into motion capture, screens, and interactive systems.
 
 ---
 

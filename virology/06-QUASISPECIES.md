@@ -295,16 +295,22 @@ Despite similar error rates, influenza evolves much faster antigenically:
 
 ---
 
+## Cross-References
+
+- `evolutionary-biology/02-POPULATION-GENETICS.md` — mutation, selection, and drift in allele-frequency terms.
+- `virology/03-REPLICATION-CYCLES.md` — replication error rates that generate mutant clouds.
+- `virology/08-PANDEMIC-BIOLOGY.md` — viral evolution during outbreaks and transmission chains.
+
 ## Decision Cheat Sheet
 
-| Question | Quasispecies answer |
-|----------|---------------------|
-| When does drug resistance appear? | Before treatment — pre-existing minority |
-| Why use combination therapy? | Simultaneous triple resistance is impossible |
-| Why does flu need annual vaccine? | Antigenic drift + reassortment shifts |
-| Why can't we raise the mutation rate to kill viruses? | Close to error threshold — lethal mutagenesis works in principle |
-| Does quasispecies evolve differently from standard populations? | Yes — cloud fitness matters, not just individual sequences |
-| What limits RNA virus genome size? | Error threshold — larger genome = more mutations per cycle → can't maintain information |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Drug-resistance timing | Pre-existing minority variants | Detection depends on sampling depth. |
+| Combination-therapy logic | Joint probability of multi-drug resistance | "Impossible" means vanishingly unlikely, not mathematically zero. |
+| Annual flu vaccine need | Antigenic drift plus reassortment | Drift and shift operate at different scales. |
+| Lethal mutagenesis strategy | Error-threshold proximity | Host toxicity and compensatory evolution limit use. |
+| Quasispecies behavior | Mutant-cloud fitness, not only master sequence | Standard population genetics still supplies much of the machinery. |
+| RNA-virus genome limit | Error threshold and per-genome mutation load | Proofreading and segmentation can relax the limit. |
 
 ---
 

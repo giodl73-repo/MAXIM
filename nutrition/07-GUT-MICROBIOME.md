@@ -435,18 +435,24 @@ COLORECTAL CANCER:
 
 ---
 
+## Cross-References
+
+- `microbiology/04-MICROBIOME.md` - microbiome composition and function.
+- `human-biology/07-DIGESTIVE.md` - digestive-system host context.
+- `nutrition/09-PUBLIC-HEALTH-NUTRITION.md` - population nutrition implications.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Best prebiotic for butyrate production | Resistant starch (RS3 = cooked-cooled potato/rice; RS2 = green banana) |
-| Probiotic with most evidence for any indication | L. rhamnosus GG + S. boulardii for AAD/traveler's diarrhea |
-| Most effective microbiome intervention overall | FMT for recurrent C. diff (90%+ cure rate) |
-| Does gut serotonin affect mood directly? | No — doesn't cross BBB; indirect via vagus; kynurenine pathway more direct |
-| How to increase microbiome diversity | Increase dietary fiber diversity: 30+ different plant foods/week |
-| Is F/B ratio a useful health marker? | No — not consistently predictive in humans; abandoned as clinical metric |
-| Dysbiosis association with obesity | Real but not cleanly causal; diet confound large; microbiome change modest |
-| Akkermansia: why valuable? | Mucosal barrier reinforcement; inversely correlated with metabolic disease |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Butyrate-supporting prebiotic | Resistant starch RS2/RS3 | Individual microbiome capacity changes response. |
+| Evidence-backed probiotic use | L. rhamnosus GG or S. boulardii for AAD/traveler diarrhea | Evidence is strain- and dose-specific. |
+| Strongest microbiome intervention | FMT for recurrent C. diff | Translation to multifactorial disease is much weaker. |
+| Gut-serotonin mood claim | Gut 5-HT does not cross BBB | Effects are indirect via vagus, immunity, and tryptophan metabolism. |
+| Microbiome diversity increase | Diverse fiber and 30+ plant foods/week | Diversity is a rough marker, not a clinical endpoint. |
+| Firmicutes/Bacteroidetes ratio claim | Avoid F/B ratio as health metric | It is not consistently predictive in humans. |
+| Obesity dysbiosis association | Diet-confounded microbiome shifts | Causality is not cleanly established. |
+| Akkermansia interest | Mucosal barrier association | Correlation does not establish supplementation benefit. |
 
 ---
 

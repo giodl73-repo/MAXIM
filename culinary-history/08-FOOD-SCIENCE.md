@@ -310,15 +310,23 @@ UMAMI COMPOUNDS (see 07-GLOBAL-TRADITIONS.md for full treatment):
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the Maillard reaction? | Amino acids + reducing sugars at ~140-165°C → brown, flavorful compounds |
-| Maillard vs caramelization? | Maillard needs protein; caramelization is pure sugar; different flavors, different temperatures |
-| Why does mayo fail when oil is added too fast? | Not enough lecithin to coat all droplets → uncoated droplets coalesce |
-| What sets gelatin vs agar? | Both set on cooling; gelatin melts at mouth temperature (~35°C); agar melts at ~85°C |
-| What is sous vide's key advantage? | Uniform doneness throughout; time × temperature allows pasteurization without overcooking |
-| What is spherification? | Sodium alginate + calcium chloride → thin gel membrane around liquid sphere |
-| What is transglutaminase? | Enzyme that cross-links proteins → "meat glue" |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Browning and roast flavor | Check Maillard reactants, surface dryness, pH, temperature, time, and competing caramelization. | Wet surfaces cap temperature near boiling and block deep browning. |
+| Maillard vs caramelization | Separate amino-acid/sugar reactions from sugar pyrolysis, then compare flavor and temperature range. | Similar color does not mean the same chemistry. |
+| A broken emulsion | Inspect emulsifier, droplet size, oil-addition rate, shear, temperature, and water phase. | Emulsions fail when droplets coalesce faster than the stabilizer can cover them. |
+| Gel selection | Compare gelatin, agar, pectin, starch, setting temperature, melting temperature, texture, and acidity. | A gel's mouthfeel depends on melting behavior, not just whether it sets. |
+| Sous vide safety/quality | Use time-temperature tables, thickness, pasteurization target, sear step, and chilled storage. | Precision temperature is useful only when paired with food-safety time control. |
+| Spherification or modernist gels | Track alginate, calcium, pH, ion availability, membrane thickness, and service timing. | The technique is sensitive to formulation and can continue gelling after service. |
+| Protein-binding claims | Examine transglutaminase, protein surface contact, enzyme activity, labeling, texture, and safety. | "Meat glue" is a functional enzyme, not magic adhesion for any food matrix. |
+
+---
+
+## Cross-References
+
+- `06-INDUSTRIAL-FOOD.md` shows where food science becomes mass production and preservation.
+- `09-CONTEMPORARY.md` follows food science into molecular gastronomy, health claims, and sustainability.
+- `../chemistry/00-OVERVIEW.md` supplies the molecular language behind flavor, browning, gels, and emulsions.
 
 ---
 

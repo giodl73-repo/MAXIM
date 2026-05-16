@@ -399,3 +399,15 @@ snoRNA: guide RNA modification in nucleolus (rRNA 2'-O-methylation, pseudouridyl
 **Protein half-life varies 100-fold**: Some proteins (e.g., cyclins, c-Myc) turn over in minutes; others (histones, structural proteins) last weeks. The ubiquitin-proteasome system targets proteins with degradation signals (degrons). Half-life is regulated, not constant.
 
 **AlphaFold2 predicts structure, not dynamics**: AF2 produces a single static structure with per-residue confidence (pLDDT). It does not model conformational flexibility, allosteric changes, or binding-induced folding. Intrinsically disordered regions (IDRs) — common in regulatory proteins — are not well-handled.
+
+---
+
+## Cross-References
+
+| If you need... | Go to |
+|---|---|
+| Cell-scale context for DNA/RNA/protein systems | [Cell Biology](02-CELL-BIOLOGY.md) |
+| Inheritance, mutation, and recombination consequences | [Genetics](03-GENETICS.md) |
+| Evolutionary pressure on molecular machinery | [Evolution](04-EVOLUTION.md) |
+| Biochemical pathways that proteins execute | [Metabolism](../natural-sciences/08-METABOLISM.md) |
+| Molecular biology as a dedicated track | [Molecular Biology](../natural-sciences/09-MOLECULAR-BIO.md) |

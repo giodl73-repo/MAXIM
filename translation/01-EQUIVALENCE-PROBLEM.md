@@ -329,6 +329,18 @@ THE IMPOSSIBILITY THESIS — STRONGEST FORM
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| The sign-system layer beneath translation | `semiotics/01-SAUSSURE.md` | Translation is a semiotic operation before it is a literary problem |
+| Meaning, reference, and compositionality | `philosophy-of-language/01-FREGE.md` | Equivalence debates reuse the same sense/reference distinction at text scale |
+| Sound systems and grammatical categories | `linguistics/01-PHONETICS-PHONOLOGY.md` | Many translation losses begin as phonological, morphological, or syntactic mismatches |
+| Comparative language families and scripts | `world-languages/01-CHEATSHEET.md` | Shows why "same meaning, different words" fails across typologically distant languages |
+| Rhetorical effect and audience adaptation | `rhetoric/01-CLASSICAL-RHETORIC.md` | Dynamic equivalence is partly a rhetorical problem: preserve effect, not surface form |
+
+---
+
 ## Common Confusion Points
 
 **"Faithful" is ambiguous**: When translators say a translation is "faithful," they mean faithful to *something* — but what? Faithful to the words? The meaning? The effect? The style? The culture? Naming what is being preserved (and thus what is being sacrificed) is more useful than claiming generic fidelity.

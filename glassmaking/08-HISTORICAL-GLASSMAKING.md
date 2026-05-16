@@ -336,6 +336,12 @@ COMPETITION WITH VENICE:
 | Bohemian / German | 1600 – 1900 CE | Potash-lime (forest ash + lime) | Wheel engraving; cutting | Potash glass = harder, better cut | Wheel-engraved covered beaker; ruby flashed |
 | English Lead Crystal | 1676 – present | Lead oxide (24–30%) | Cutting; wheel engraving | Lead oxide → high refractive index + softness for cutting | Cut decanter; chandelier drops |
 
+## Cross-References
+
+- [Glassmaking Overview](00-OVERVIEW.md) gives the modern supply-chain baseline for historical comparison.
+- [Forming Techniques](03-FORMING-TECHNIQUES.md) connects core-forming, blowing, and casting to process physics.
+- [Art Glass](09-ART-GLASS.md) follows historical craft traditions into stained glass, Tiffany, and studio glass.
+
 ## Common Confusion Points
 
 **Core-forming ≠ glass casting**:

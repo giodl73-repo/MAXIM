@@ -337,17 +337,27 @@ The debate is philosophical, not empirical.
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Functionalist computational model under attack | `philosophy-of-mind/02-FUNCTIONALISM.md` |
+| Mind-body framing of mental causation | `philosophy-of-mind/01-MIND-BODY-PROBLEM.md` |
+| Embodied and situated accounts of understanding | `philosophy-of-mind/08-EMBODIED-COGNITION.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| If someone argues... | The relevant counter is... |
-|---|---|
-| "LLMs understand language — look at what they can do" | Searle's core: behavioral competence doesn't establish semantic understanding. The Chinese Room passes the same test. The question is whether the internal causal structure produces original intentionality, not whether the outputs are impressive. |
-| "The Chinese Room proves LLMs have no understanding" | The Systems Reply: understanding may be a system-level property, not a component property. No single neuron understands either. The question is whether the *system as a whole* has the right organizational properties. Searle's internalization counter is strong but has not ended the debate. |
-| "Adding a body/sensors to an LLM would give it understanding" | The Robot Reply, which Searle grants partial credit: embodied grounding addresses the symbol-grounding problem. Searle's counter: internalize the robot too — the person now receives sensory inputs and follows more complex rules. Still syntax. Whether grounding adds semantics or just more elaborate symbol manipulation is the unresolved question. |
-| "If we simulate a brain neuron-by-neuron, it would understand" | Brain Simulator Reply is the strongest challenge to Searle. Chalmers' fading qualia: replace neurons one by one with silicon equivalents; at each step the person reports normal experience. If understanding disappears at some step, which step? And why that one? Searle: simulation ≠ instantiation. A fire simulation doesn't burn. |
-| "The Chinese Room argument proves AI can never be conscious" | Searle's biological naturalism is narrower than that: formal symbol manipulation lacks the right causal powers. A non-computational artificial system with the right causal structure might qualify. The argument targets computational functionalism, not all possible AI architectures. |
-| "Searle's argument has been refuted" | No consensus view exists after 40+ years. The Systems Reply is widely compelling; Searle's counter to it remains seriously defended. The debate tracks fundamental disagreement about what constitutes understanding — not an empirical dispute that evidence can settle. |
-| "LLMs are trained on human text, so they inherit human semantic grounding" | Searle would say: derived intentionality. The training data has grounded meaning (produced by beings with original intentionality), but statistical patterns extracted from that data are still syntax. The grounding would need to be causally transmitted to the LLM's internal states, not just statistically associated. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Behavioral competence as understanding | Searle's syntax/semantics distinction and original intentionality | Impressive output does not settle whether internal states mean anything. |
+| Chinese Room as proof against LLM understanding | Systems Reply: understanding may be system-level | Searle's internalization counter is strong enough that no consensus exists. |
+| Embodiment as grounding solution | Robot Reply and sensorimotor grounding | Searle can internalize more inputs; whether grounding adds semantics remains contested. |
+| Brain simulation as understanding | Brain Simulator Reply and fading-qualia pressure | Searle distinguishes simulation from instantiation; critics dispute the relevance. |
+| AI consciousness impossibility claims | Biological naturalism and causal powers | The target is formal symbol manipulation, not every possible artificial system. |
+| Claims that Searle was refuted | Forty-year disagreement over what constitutes understanding | The dispute is philosophical/constitutive, not easily settled by benchmark evidence. |
+| Human-text training as inherited semantics | Derived intentionality from grounded human language | Statistical association is not obviously causal transmission of original meaning. |
 
 ---
 

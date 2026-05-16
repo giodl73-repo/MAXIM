@@ -322,21 +322,27 @@ IMPLICIT VARIATIONAL PROBLEM:
 
 ---
 
+## Cross-References
+
+- `machine-learning-theory/06-NEURAL-TANGENT.md` — gradient-flow and training-dynamics theory.
+- `machine-learning-theory/08-INFORMATION-THEORETIC.md` — variational and information-theoretic learning principles.
+- `control-theory/09-LEARNING-BASED-CONTROL.md` — learning objectives over trajectories.
+
 ## Decision Cheat Sheet
 
-| ML Problem | Variational Formulation | Key Object |
-|-----------|------------------------|-----------|
-| Gradient descent | Gradient flow dθ/dt = −∇L | Euler-Lagrange of L[θ(t)] |
-| Momentum optimization | Damped Hamiltonian dynamics | Lagrangian 0.5 \|theta-dot\|^2 - L |
-| Neural ODE training | Optimal control (Pontryagin) | Adjoint ODE (backward) |
-| Natural gradient | Riemannian gradient flow | Fisher information metric G |
-| Optimal transport | Monge-Kantorovich problem | Kantorovich dual (convex conjugate) |
-| Wasserstein distance | Kinetic energy action | Benamou-Brenier formula |
-| VAE training | Maximize ELBO = −F[Q] | Variational free energy |
-| Lagrangian NN | Learn Lagrangian L(q,q̇) | Euler-Lagrange derivatives |
-| Hamiltonian NN | Learn Hamiltonian H(q,p) | Hamilton's equations |
-| Diffusion model | Schrödinger bridge | Reverse SDE with score function |
-| Generalization | Implicit variational problem | Minimum-norm interpolant |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Gradient descent as dynamics | Gradient flow limit | Discrete optimizer step size changes behavior. |
+| Momentum optimizer | Damped Hamiltonian/Lagrangian dynamics | Damping and discretization are essential. |
+| Neural ODE training | Optimal-control adjoint equation | Continuous adjoints can suffer numerical mismatch. |
+| Natural gradient | Riemannian gradient flow with Fisher metric | Metric estimation is hard at scale. |
+| Optimal transport | Monge-Kantorovich formulation | Cost choice defines the geometry. |
+| Wasserstein distance | Benamou-Brenier action | Dynamic formulation assumes mass conservation. |
+| VAE objective | ELBO as variational free energy | Approximate posterior family sets the ceiling. |
+| Lagrangian neural net | Learned L(q,qdot) and E-L equations | Coordinates and constraints must be represented. |
+| Hamiltonian neural net | Learned H(q,p) and symplectic dynamics | Canonical variables are assumed. |
+| Diffusion model bridge | Schrödinger bridge/reverse SDE | Score estimation dominates quality. |
+| Generalization by interpolation | Minimum-norm variational problem | Which norm matters. |
 
 ---
 

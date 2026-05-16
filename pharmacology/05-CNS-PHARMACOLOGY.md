@@ -335,18 +335,24 @@ The neurotransmitter system is a distributed event-driven architecture with mult
   ──────────────────────────────────────────────────────────────────────
 ```
 
+## Cross-References
+
+- `medicine/04-CNS-DRUGS.md` - clinical CNS drug classes.
+- `human-biology/04-NERVOUS-SYSTEM.md` - nervous-system organization.
+- `neuroscience/01-NEURONS-SIGNALS.md` - neuronal signaling substrate.
+
 ## Decision Cheat Sheet
 
-| Patient Scenario | Target System | Drug Choice | Why This One |
-|------------------|---------------|-------------|--------------|
-| Depression / anxiety | Serotonin ± NE bus | SSRI (first-line) / SNRI | Broadest evidence, acceptable safety; weeks to effect |
-| Psychosis (dopamine excess) | Dopamine D2 bus | Atypical antipsychotic (olanzapine, quetiapine) | D2 + 5-HT2A block; fewer EPS than typical |
-| Acute anxiety / seizure | GABA bus | Benzodiazepine | Rapid allosteric GABA-A potentiation; ceiling limits lethal overdose |
-| Opioid overdose | μ-opioid bus | Naloxone (IV/IM) | Competitive antagonist; fast reversal of respiratory depression |
-| Opioid use disorder | μ-opioid bus | Buprenorphine | Partial agonist ceiling prevents fatal OD; prevents withdrawal |
-| Parkinson's (dopamine deficit) | Dopamine synthesis | Levodopa + carbidopa | Precursor crosses BBB; carbidopa blocks peripheral conversion |
-| Alzheimer's (mild-mod) | Cholinergic bus | AChE inhibitor (donepezil) | Increase ACh availability; symptomatic only |
-| Alzheimer's (moderate-severe) | Glutamate bus | Memantine | NMDA open-channel block; reduces excitotoxicity |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Depression or anxiety drug fit | SSRI/SNRI serotonin/NE modulation | Clinical effect takes weeks despite fast transporter binding. |
+| Psychosis treatment | D2 plus 5-HT2A blockade | Atypicals trade fewer EPS for metabolic risks. |
+| Acute anxiety or seizure | Benzodiazepine GABA-A potentiation | Dependence and respiratory risk rise with other depressants. |
+| Opioid overdose | Naloxone competitive mu antagonism | Duration can be shorter than opioid; monitor for recurrence. |
+| Opioid use disorder | Buprenorphine partial agonism | Ceiling effect helps safety but induction timing matters. |
+| Parkinsonian dopamine deficit | Levodopa plus carbidopa | Long-term use can produce motor fluctuations. |
+| Mild/moderate Alzheimer symptoms | Acetylcholinesterase inhibition | Symptomatic benefit, not disease reversal. |
+| Moderate/severe Alzheimer symptoms | Memantine NMDA open-channel block | Effect size is modest and patient-specific. |
 
 ---
 

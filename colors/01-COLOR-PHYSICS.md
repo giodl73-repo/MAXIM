@@ -312,18 +312,28 @@ SAME SURFACE UNDER DIFFERENT ILLUMINANTS:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Color-order systems and coordinate spaces | `colors/03-COLOR-SYSTEMS.md` |
+| Pigment and light mixing | `colors/06-MIXING-THEORY.md` |
+| Cultural meanings of color | `colors/07-PSYCHOLOGY-CULTURE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why is the sky blue? | Rayleigh scattering (λ⁻⁴) — N₂/O₂ molecules scatter blue far more than red; scattered blue fills the entire sky |
-| Why are clouds white? | Mie scattering from large water droplets (~10-100 μm) — wavelength-independent, scatters all colors equally |
-| Why are sunsets red? | Long atmospheric path (38×) → blue/green Rayleigh-scattered away entirely → only red/orange reaches eye |
-| How does thin-film interference create color? | Partial reflections at top and bottom film surfaces → two reflected waves interfere; constructive interference wavelength set by 2nt = mλ (n=RI, t=thickness) |
-| Does the morpho butterfly contain blue pigment? | No — structural color from periodic lamellae (photonic crystal effect); zero blue pigment, all geometry |
-| What is Wien's displacement law? | λ_max = 2898 μm·K / T — hotter blackbodies peak at shorter (bluer) wavelengths |
-| Why does vinyl glazing turn yellow? | UV absorption by plasticizers or polymer chains undergoes photodegradation; extended conjugation develops → absorbs blue → appears yellow |
-| What makes a good chromophore? | Extended conjugation (lowers HOMO-LUMO gap into visible range), charge-transfer transitions, or d-d transitions in crystal field |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Blue sky color | Rayleigh scattering by N2/O2 molecules with wavelength dependence | Dust and haze are larger-particle/Mie effects, not the primary blue-sky mechanism. |
+| White cloud color | Mie scattering from water droplets across visible wavelengths | Droplet size distribution and optical thickness affect brightness and grayness. |
+| Red sunsets | Long atmospheric path removing blue/green via scattering | Aerosols can intensify or muddy color; path length alone is not the whole atmosphere. |
+| Thin-film color | Interference between top/bottom reflected waves and optical thickness | Angle, refractive index, and film thickness shift the observed color. |
+| Morpho-style blue | Structural color from periodic lamellae/photonic geometry | Structural color still depends on material refractive index and microstructure. |
+| Blackbody color temperature | Wien's displacement law and peak wavelength shift | Higher Kelvin is physically bluer despite "cool" aesthetic vocabulary. |
+| Yellowed vinyl/plastic | UV photodegradation and conjugation absorbing blue | Yellowing is chemical aging, not pigment intentionally added. |
+| Chromophore behavior | Conjugation, charge transfer, or d-d crystal-field transitions | Visible color depends on environment, bonding, and absorption spectrum, not molecule name alone. |
 
 ---
 

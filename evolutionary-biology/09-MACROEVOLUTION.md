@@ -485,16 +485,22 @@ Current extinction rates are estimated at 100-1,000x background:
 
 ---
 
+## Cross-References
+
+- `paleontology/07-MASS-EXTINCTIONS.md` — extinction pulses and recovery as macroevolutionary structure.
+- `evolutionary-biology/05-PHYLOGENETICS.md` — large-scale evolutionary branching patterns.
+- `paleontology/08-VERTEBRATE-EVOLUTION.md` — vertebrate macroevolutionary record.
+
 ## Decision Cheat Sheet
 
-| Question | Framework | Evidence type |
-|----------|-----------|--------------|
-| Why did dinosaurs go extinct? | K-Pg impact + Deccan | Iridium layer, shocked quartz, soot |
-| Is evolution gradual or punctuated? | Both — depends on lineage | Morphometric time series |
-| What survived mass extinctions? | Body size, range, diet breadth | Trait-extinction correlations |
-| What drives body size increase in a clade? | Species selection vs. within-sp. | Partition variance |
-| When did a group first appear? | Ghost lineage, fossil record | Earliest fossil + molecular clock |
-| Why did a clade radiate rapidly? | Ecological release, key innovation | Net diversification rate |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| K-Pg dinosaur extinction | Impact evidence plus Deccan context | Extinction selectivity varied by clade and ecology. |
+| Gradual versus punctuated change | Lineage-specific morphometric series | Fossil sampling can create apparent stasis or jumps. |
+| Mass-extinction survival | Body size, range, diet breadth, and habitat | Correlation is not a universal survival rule. |
+| Body-size increase in a clade | Species selection versus within-lineage trend | Partition variance before naming a mechanism. |
+| First appearance of a group | Earliest fossil plus ghost lineage | Fossil first appearance underestimates origin time. |
+| Rapid clade radiation | Ecological release or key innovation | Net diversification can rise from speciation, extinction decline, or sampling. |
 
 ---
 

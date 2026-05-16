@@ -185,19 +185,24 @@ EDUCATION SYSTEM: CAUSAL RELATIONSHIPS
 
 ## Decision Cheat Sheet
 
-| Question | Key Framework | Key File |
-|----------|---------------|----------|
-| How does learning actually happen? | Cognitive science + constructivism | 01-LEARNING-THEORY |
-| What do children need at each age? | Piaget's stages + Vygotsky's ZPD | 02-PIAGET-VYGOTSKY |
-| What does cognitive science say about studying? | Spacing, retrieval, interleaving | 03-COGNITIVE-SCIENCE-EDU |
-| How do I design a course or curriculum? | Backward design, Bloom's taxonomy | 04-CURRICULUM |
-| How do I measure learning? | Formative vs. summative assessment | 05-ASSESSMENT |
-| How does higher education work? | Structural/institutional analysis | 06-HIGHER-EDUCATION |
-| Do MOOCs work? | Completion crisis research | 07-MOOCS-DIGITAL |
-| Why do achievement gaps persist? | Sociocultural + structural analysis | 08-EQUITY |
-| What will AI do to education? | Personalization, AI tutors | 09-FUTURE-LEARNING |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A learning claim | Compare cognitive load, prior knowledge, retrieval practice, feedback, motivation, and constructivist sense-making. | "Active learning" is not a method by itself; the mechanism matters. |
+| An age/readiness claim | Use Piaget for developmental constraints and Vygotsky for ZPD/scaffolding opportunities. | Stages are sequences, not rigid age gates. |
+| A study-technique claim | Check spacing, retrieval, interleaving, elaboration, worked examples, and transfer. | Fluency during study is not the same as durable learning. |
+| A curriculum design problem | Start with backward design, learning objectives, assessment alignment, sequencing, and cognitive demand. | Coverage is not curriculum; alignment is the core design constraint. |
+| An assessment problem | Separate formative, summative, diagnostic, validity, reliability, and incentive effects. | Assessment changes behavior; it is never a neutral measurement layer. |
+| A higher-education claim | Inspect financing, credential value, governance, research incentives, labor market signaling, and student outcomes. | Institutional prestige can hide very different educational production functions. |
+| An equity or achievement-gap claim | Analyze socioeconomic structure, cultural capital, school resources, tracking, discrimination, and measurement. | Gaps are multi-causal; avoid reducing them to either family or school alone. |
+| An AI/digital-learning claim | Test personalization, feedback latency, mastery evidence, completion rates, teacher workflow, and access. | Novel tooling does not repeal motivation, assessment, or institutional constraints. |
 
 ---
+
+## Cross-References
+
+- `01-LEARNING-THEORY.md` gives the theoretical baseline for how learning is modeled.
+- `03-COGNITIVE-SCIENCE-EDU.md` supplies evidence-backed study and instruction mechanisms.
+- `05-ASSESSMENT.md` explains measurement, grading, and validity.
 
 ## Common Confusion Points
 

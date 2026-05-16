@@ -395,16 +395,26 @@ The newest major criminal market, with distinct organizational features.
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| White-collar and corporate crime comparison | `criminology/04-WHITE-COLLAR.md` |
+| Policing organized networks | `criminology/06-POLICING.md` |
+| Cross-national organized-crime systems | `criminology/09-COMPARATIVE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Analytical Need | Best Framework | Key Insight |
-|----------------|---------------|-------------|
-| Explaining structure | Enterprise theory | OC = business in illegal market |
-| Mapping relationships | Network analysis | Betweenness centrality identifies key nodes |
-| Understanding violence | Transaction cost theory | Violence enforces contracts |
-| Explaining origins | Ethnic succession | Marginalized groups use crime as mobility path |
-| Targeting enforcement | RICO / conspiracy law | Enterprise liability for leadership |
-| Understanding cyber | RaaS model | Industrialized, franchised crime |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Organized-crime structure | Enterprise theory and illegal-market business logic | "Mafia hierarchy" is one model, not organized crime in general. |
+| Relationship mapping | Network analysis and betweenness centrality | High centrality may identify brokers, not always leaders. |
+| Market violence | Transaction-cost theory and contract enforcement without courts | Violence often signals market instability, not normal efficient operation. |
+| Group origins | Ethnic succession and blocked mobility pathways | Ethnicity is an opportunity structure, not an inherent crime cause. |
+| Leadership enforcement | RICO/conspiracy enterprise liability | Broad liability tools can overreach if association substitutes for action. |
+| Cybercrime industrialization | Ransomware-as-a-service and franchised specialization | Cyber networks can be modular and market-like rather than territorial. |
 
 ---
 

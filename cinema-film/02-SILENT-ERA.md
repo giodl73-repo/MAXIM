@@ -355,18 +355,24 @@ ECONOMIC DOMINANCE:
 
 ---
 
+## Cross-References
+
+- `cinema-film/01-OPTICAL-PERSISTENCE.md` — technical preconditions for moving images.
+- `cinema-film/03-NARRATIVE-GRAMMAR.md` — narrative conventions stabilized after the silent era.
+- `history-of-science/01-ANCIENT-NATURAL-PHILOSOPHY.md` — older optical inquiry behind projection culture.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the Cinématographe? | Lumière combined camera/printer/projector; first public screenings Dec 28, 1895 |
-| What is a Kinetoscope? | Edison's peep-show device; one viewer, no projection; 1891 |
-| What is a nickelodeon? | 5-cent storefront movie theater; 1905; working-class/immigrant audience; ~10,000 in US by 1910 |
-| What did Méliès invent? | Stop substitution, double exposure, split screen, miniatures, dissolves; all in-camera effects |
-| What did Griffith invent? | Systematic continuity editing: close-up, crosscutting, eyeline match, match on action |
-| Why was Hollywood chosen? | Independent producers fled Edison's NJ patent enforcement; Los Angeles = far + near Mexican border |
-| What is the MPPC? | Edison's Motion Picture Patents Company (1908); trust cartel controlling US film; broken by 1914 |
-| What is United Artists? | 1919 artist-owned distribution company; Chaplin + Pickford + Fairbanks + Griffith |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why the Lumiere device mattered | Cinematographe as camera, printer, and projector | The breakthrough was public projection infrastructure, not isolated image capture. |
+| Why Edison did not dominate theatrical cinema | Kinetoscope as single-viewer peep-show device | Edison controlled patents early but missed the social economics of projected exhibition. |
+| Why nickelodeons scaled quickly | Five-cent storefront theaters for working-class and immigrant audiences | Cheap exhibition created demand before feature-length prestige stabilized. |
+| What Melies contributed | In-camera effects: substitution, double exposure, split screen, miniatures, dissolves | His innovation was cinematic transformation, not continuity realism. |
+| What Griffith systematized | Continuity editing: close-up, crosscutting, eyeline match, match on action | Many techniques predate him; his role is synthesis and industrial proof. |
+| Why Hollywood displaced earlier centers | Distance from MPPC enforcement plus climate, land, and border geography | The move was legal-economic as much as aesthetic. |
+| How the MPPC functioned as platform control | Patent pool plus supply, distribution, and exhibition licensing | It was a vertical cartel, not merely an inventor defending patents. |
+| Why United Artists mattered | Artist-owned distribution by Chaplin, Pickford, Fairbanks, and Griffith | It shifted bargaining power, but still depended on access to theaters and capital. |
 
 ---
 

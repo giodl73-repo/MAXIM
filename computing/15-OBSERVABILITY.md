@@ -646,21 +646,27 @@ Application Insights is a feature of Azure Monitor (not a separate product). The
 
 ---
 
+## Cross-References
+
+- `computing/12-KUBERNETES.md` — runtime platform needing observability.
+- `cloud-architecture/08-COST-OPTIMIZATION.md` — telemetry as cost-control input.
+- `statistics-applied/01-EXPERIMENTAL-DESIGN.md` — measurement design and inference discipline.
+
 ## Decision Cheat Sheet
 
-| I want to... | Use |
-|---|---|
-| Record what happened (events, errors) | Structured logs → Loki / Log Analytics |
-| Measure how fast / how many | Metrics → Prometheus / Azure Monitor Metrics |
-| Find where a slow request spent its time | Distributed traces → Tempo / Jaeger / App Insights |
-| Instrument a Node.js service once, pick backend later | OpenTelemetry SDK |
-| Visualize all three pillars in one UI | Grafana (OSS) or Azure Monitor Workbooks |
-| Set an alert when error rate spikes | Prometheus Alertmanager / Grafana Alerts / Azure Alerts |
-| Query logs with SQL-like syntax (Azure) | Log Analytics (KQL) |
-| Query logs (OSS) | Loki (LogQL) |
-| Calculate p99 latency | Prometheus Histogram + `histogram_quantile()` |
-| Track user journeys and business events | App Insights custom events / OTel custom spans |
-| Define "what does healthy mean" | SLOs on key SLIs with error budgets |
-| Avoid Datadog/Honeycomb vendor lock-in | OpenTelemetry SDK → OTel Collector → any backend |
-| Keep App Insights backend, adopt OTel SDK | Azure Monitor OpenTelemetry Distro / `azuremonitor` exporter |
-| Short-lived function/job push metrics to Prometheus | Prometheus Pushgateway |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| What happened during an incident | Structured logs in Loki or Log Analytics | Logs explain events; they do not prove latency distribution or causal path. |
+| How much, how fast, or how saturated the system is | Metrics in Prometheus or Azure Monitor Metrics | Metrics aggregate away detail; preserve labels carefully or cardinality will explode. |
+| Where one slow request spent its time | Distributed traces in Tempo, Jaeger, or App Insights | Traces are only useful when service boundaries propagate context consistently. |
+| How to instrument once before choosing a backend | OpenTelemetry SDK plus collector | OTel standardizes telemetry shape; backend query models still differ. |
+| Whether operators need one pane or specialized tools | Grafana or Azure Monitor Workbooks | A unified UI is not a unified data model; source-of-truth ownership still matters. |
+| When an error spike should page someone | SLO-based alerts via Alertmanager, Grafana, or Azure Alerts | Alert on user-impacting symptoms first; raw error counts create noisy pages. |
+| How to inspect Azure logs interactively | Log Analytics with KQL | KQL is powerful but Azure-specific; keep portable fields at ingestion time. |
+| How to inspect OSS log streams | Loki with LogQL | Loki indexes labels, not full text; choose labels deliberately. |
+| Whether p99 latency is real or bucket artifact | Prometheus histograms plus `histogram_quantile()` | Bucket boundaries determine resolution; bad buckets produce false precision. |
+| Whether user journeys map to business outcomes | App Insights custom events or OTel spans | Business events need product semantics, not just HTTP endpoint names. |
+| What "healthy" means for the service | SLIs, SLOs, and error budgets | SLOs must align with user-visible reliability, not component vanity metrics. |
+| How to reduce vendor lock-in | OTel SDK -> OTel Collector -> backend exporter | Vendor neutrality is strongest at instrumentation time, weakest in dashboards and alerts. |
+| How to keep App Insights while adopting OTel | Azure Monitor OpenTelemetry Distro or `azuremonitor` exporter | This preserves Azure operations fit but does not make queries portable. |
+| How a short-lived job reports Prometheus metrics | Pushgateway | Pushgateway is for service-level job outcomes, not per-instance liveness. |

@@ -454,6 +454,18 @@ Most interesting games have **multiple Nash equilibria**. How to pick one?
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Market equilibrium as decentralized strategy | `economics/01-MICROECONOMICS.md` | Nash equilibrium generalizes price-taking and strategic market behavior |
+| Contract negotiation and breach incentives | `law/01-CONTRACTS.md` | Legal commitments change payoffs, available strategies, and equilibrium outcomes |
+| Social-choice and institutional design | `political-science/01-IR-THEORY.md` | Institutions are game forms that reshape incentives and credible commitments |
+| Mixed strategies and probability foundations | `probability-statistics/01-PROBABILITY-FOUNDATIONS.md` | Mixed equilibrium relies on distributions, expected payoff, and indifference |
+| Algorithmic solution concepts | `computing/01-PACKAGE.md` | Equilibrium computation is an algorithmic problem with representation and complexity tradeoffs |
+
+---
+
 ## Common Confusion Points
 
 **"Player mixes because they are uncertain"**: No. In a mixed NE, a player mixes because

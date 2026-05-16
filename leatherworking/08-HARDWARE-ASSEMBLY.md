@@ -302,20 +302,26 @@ FOR PROTOTYPING:
 
 ---
 
+## Cross-References
+
+- `03-PATTERN-MAKING.md` plans hardware placement and reinforcement.
+- `04-CUTTING-SKIVING.md` prepares straps, folds, and holes.
+- `07-STITCHING-SEWING.md` complements hardware with sewn load paths.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the correct Chicago screw stack height? | Total leather thickness + 1/16" |
-| What is the difference between solid and tubular rivets? | Solid = peened (stronger); tubular = hollow post flared outward |
-| What is a 4-part snap system? | Cap + socket (top piece) + cap + post (bottom piece) — 4 separate parts |
-| Line 24 vs. Line 20 snaps? | Line 24 = larger (15mm); Line 20 = smaller (12mm) |
-| What buckle width for a 1.5" strap? | 1.5" buckle (inner frame width must match strap width exactly) |
-| What is a gusset? | Expansion panel between bag faces that adds depth |
-| What is a mitered corner on a gusset? | Gusset notched at corners; two sides joined at 45° → crisp square corner |
-| Why install hardware before assembly? | Many hardware settings require access from both sides, inaccessible after assembly |
-| What reinforces magnetic snap installation? | Backing leather or stabilizing fabric on leather inside; prongs distribute force |
-| What is a Sam Browne stud? | Decorative brass post + loop; strap loops over without snapping; military/officer tradition |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Chicago screw fit | Total leather thickness plus about 1/16 inch stack height | Diameter alone is not enough; pitch and stack height must match. |
+| Rivet strength | Solid peened rivet versus tubular flared post | Tubular is easier; solid is stronger when set correctly. |
+| Snap assembly | Four parts: cap/socket plus cap/post | Line sizes require matching setters. |
+| Snap size choice | Line 24 for larger 15 mm, Line 20 for smaller 12 mm | Wrong setter deforms caps without setting the snap. |
+| Buckle/strap match | Buckle inner frame width equal to strap width | Nominal buckle size must match the actual strap. |
+| Bag depth | Gusset between face panels | Add zipper tape allowance during pattern design, not after. |
+| Crisp bag corners | Mitered gusset corner joined at 45 degrees | Corner geometry must preserve stitch-line alignment. |
+| Assembly sequencing | Install hardware while both sides remain accessible | Riveted hardware is often irreversible after assembly. |
+| Magnetic snap durability | Backing leather or stiffener behind prongs | Unbacked prongs tear through leather over time. |
+| Non-snap strap closure | Sam Browne stud and loop | Decorative tradition does not remove fit/tension requirements. |
 
 ---
 

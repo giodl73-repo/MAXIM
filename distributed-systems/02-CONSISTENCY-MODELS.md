@@ -259,6 +259,12 @@ Compare to eventual consistency: leader acks immediately, replicates asynchronou
 
 ---
 
+## Cross-References
+
+- `03-CONSENSUS.md` shows how strong consistency is implemented under failure.
+- `04-REPLICATION.md` explains the data-copying mechanisms that expose consistency tradeoffs.
+- `07-CAP-THEOREM.md` frames consistency choices under partitions and availability pressure.
+
 ## Common Confusion Points
 
 **"Linearizability" vs. "Serializability"**
@@ -277,10 +283,11 @@ Causal consistency can be achieved without global coordination, but it does requ
 
 ## Decision Cheat Sheet
 
-| Model | When to Use | Cost | Example Systems |
-|-------|-------------|------|-----------------|
-| Linearizability | Locks, leader election, financial | High latency | ZooKeeper, Spanner, CosmosDB Strong |
-| Sequential | Shared memory primitives | Medium | x86 TSO |
-| Causal+ | Social, collaborative editing | Low-medium | MongoDB causal sessions, COPS |
-| Session | User-facing reads after writes | Low | CosmosDB Session, most web apps |
-| Eventual | Counters, metrics, recommendations | Lowest | DynamoDB default, Cassandra, DNS |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether linearizability is required | Ask if correctness depends on real-time order: locks, leader election, money movement, uniqueness, or compare-and-set. | Linearizability is expensive across regions; do not buy it for data that only needs convergence. |
+| Whether sequential consistency is enough | Check whether all clients need one common order but not real-time recency. | Sequential consistency can surprise users because a later real-time operation may appear earlier. |
+| Whether causality matters | Track happens-before relationships, messages, user actions, and conflict resolution semantics. | Causal consistency orders related operations, not concurrent ones. |
+| Whether session consistency is enough | Focus on per-user read-your-writes and monotonic reads. | Session guarantees do not protect other users from seeing stale or differently ordered state. |
+| Whether eventual consistency is safe | Confirm commutativity/idempotence, conflict policy, convergence requirement, and user tolerance for stale reads. | "Eventually" gives no bound on when readers see the latest value. |
+| Whether a vendor level matches your model | Map the vendor term to real-time order, prefix order, session guarantees, bounded staleness, and conflict behavior. | Product labels often bundle multiple guarantees; test the anomaly you care about. |

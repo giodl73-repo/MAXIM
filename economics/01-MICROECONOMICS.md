@@ -415,3 +415,15 @@ COMMON POOL RESOURCES (TRAGEDY OF THE COMMONS):
 **Short-run vs long-run supply**: Short run: at least one input (typically capital) is fixed. Supply curve = MC curve above AVC (shutdown point). Long run: all inputs variable; entry/exit drives economic profit to zero. The long-run supply curve in a competitive industry with constant input costs is *horizontal* at minimum AC — not upward sloping. Upward sloping long-run supply requires rising input prices as industry expands (increasing-cost industry).
 
 **Consumer surplus vs utility**: Consumer surplus = area under demand curve above price = willingness to pay minus price actually paid. This is a monetary measure of welfare gain. Utility is an ordinal preference index — only differences in ordinal ranking matter, not the magnitude. CS approximates the compensating variation in welfare under quasi-linear preferences; otherwise there are income effects to worry about. CS and utility are related but not the same object.
+
+---
+
+## Cross-References
+
+| If you need... | Go to |
+|---|---|
+| Strategic interaction beyond price-taking markets | [Game Theory](02-GAME-THEORY.md) |
+| Incentive-compatible market and auction design | [Mechanism Design](03-MECHANISM-DESIGN.md) |
+| Aggregate demand, inflation, and growth | [Macroeconomics](04-MACROECONOMICS.md) |
+| Applied finance consequences of risk and information | [Finance](../finance/00-OVERVIEW.md) |
+| Behavioral deviations from rational-agent assumptions | [Behavioral Economics](../behavioral-economics/00-OVERVIEW.md) |

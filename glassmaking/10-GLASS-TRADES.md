@@ -367,6 +367,12 @@ QUALITY REQUIREMENTS:
 | Optical fabricator | Optical glass (BK7, fused silica) | Lenses 5mm–1m | Surface figure ±λ/10 (~50nm) | Optics technician school; OJT at optics shop | Defense, aerospace, telescope, semiconductor | Lenses, mirrors, prisms, flats |
 | Float glass technician | Soda-lime batch | Continuous ribbon, 1M+ m²/yr | Thickness ±0.2mm; inclusion <1/1000 m² | Process engineering; chemical engineering | AGC, NSG (Pilkington), Guardian | Architectural/automotive sheet |
 
+## Cross-References
+
+- [Forming Techniques](03-FORMING-TECHNIQUES.md) maps the processes behind glassblower, gaffer, and industrial roles.
+- [Safety Glass](06-SAFETY-GLASS.md) connects glaziers to tempered, laminated, automotive, and code-regulated glass.
+- [Art Glass](09-ART-GLASS.md) shows how trade roles appear in studio and decorative glass contexts.
+
 ## Common Confusion Points
 
 **Gaffer ≠ just the lead blower**:

@@ -234,15 +234,23 @@ where μ is a measure (charge distribution). This satisfies ∇²u = −μ (Pois
 
 ## Decision Cheat Sheet
 
-| Problem | Solution |
-|---------|---------|
-| Solve Laplace on unit disk with boundary data g | Poisson formula u(re^{iφ}) = ∫ P_r(φ-θ) g(e^{iθ}) dθ/2π |
-| Solve Laplace on upper half-plane with data g(t) | Cauchy-Poisson: u(x+iy) = (y/π)∫ g(t)/((x-t)²+y²) dt |
-| Solve Laplace on general domain Ω | Map Ω → disk (Riemann), then Poisson |
-| Show u is constant on Ω | Maximum principle: if u has no boundary, u = constant |
-| Find harmonic conjugate of u | Integrate: v = ∫(−∂u/∂y dx + ∂u/∂x dy) |
-| Show u is real-analytic | u = Re(f) for holomorphic f → real-analytic |
-| Prove uniqueness of Dirichlet problem | Maximum principle: u₁−u₂ harmonic, zero on boundary → zero everywhere |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Disk Dirichlet problem | Use Poisson kernel, boundary data regularity, radial limit behavior, and normalization. | The explicit formula exploits disk symmetry. |
+| Upper-half-plane boundary data | Use Cauchy-Poisson kernel, integrability of boundary data, and behavior at infinity. | Boundary conditions at infinity may matter. |
+| General planar domain | Consider conformal map to a standard domain, Green's function, boundary regularity, and topology. | Not every domain has a simple explicit map; multiply connected domains complicate conjugates. |
+| Constancy or bounds | Apply maximum principle, connectedness, boundary maximum, and compactness assumptions. | Interior maxima force constancy only under the harmonic/connected hypotheses. |
+| Harmonic conjugate | Check simply connected domain, closed differential form, periods, and integration path. | On multiply connected domains the conjugate can be multi-valued. |
+| Real-analyticity | Use local harmonic conjugate or elliptic regularity and compare with holomorphic real parts. | The holomorphic-function shortcut is a 2D advantage. |
+| Dirichlet uniqueness | Subtract two solutions, apply maximum principle to the difference, and verify boundary agreement. | Existence and uniqueness are separate questions. |
+
+---
+
+## Cross-References
+
+- `01-ANALYTIC-FUNCTIONS.md` gives the Cauchy-Riemann bridge between analytic and harmonic functions.
+- `04-CONFORMAL-MAPS.md` shows harmonic functions as potentials preserved under conformal change.
+- `09-APPLICATIONS.md` connects harmonic functions to electrostatics, fluid flow, and boundary-value problems.
 
 ---
 

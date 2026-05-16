@@ -390,17 +390,27 @@ COERCIVE DIPLOMACY — THEORY AND APPLICATION
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Realist state-interest model | `international-relations/01-REALISM.md` |
+| Liberal domestic-institution model | `international-relations/02-LIBERALISM.md` |
+| Constructivist identity and norms model | `international-relations/03-CONSTRUCTIVISM.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Framework | Question answered | Best use |
-|-----------|------------------|---------|
-| Model I (Rational Actor) | What policy would a rational unitary state choose? | Strategic forecasting; arms control; crisis bargaining |
-| Model II (Organizational Process) | Why did the policy come out THIS way, not the theoretically optimal way? | Understanding implementation failures; institutional path dependence |
-| Model III (Bureaucratic Politics) | Who won the internal debate and why? | Understanding specific policy choices where bureaucratic interests matter |
-| Prospect Theory | Why did the state take such a high risk? | Explaining seemingly irrational risk-taking in losing positions |
-| Groupthink | Why did the group fail to consider obvious alternatives? | Explaining catastrophic decision failures |
-| Two-Level Games | What constrains the negotiator's agreement space? | Trade, arms control, climate negotiations |
-| Coercive Diplomacy | Will a threat/limited force change the adversary's behavior? | Crisis management; sanctions design |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Rational strategic baseline | Model I: unitary rational actor choice | Baseline is useful but incomplete; it hides implementation and internal politics. |
+| Why policy was not optimal | Model II: organizational process and routines | Bureaucratic routines shape outputs even without explicit political conflict. |
+| Who won inside government | Model III: bureaucratic politics and bargaining | Interests, position, and access matter; not every outcome is national strategy. |
+| High-risk choices in loss domains | Prospect theory and reference points | Reference point is interpretive; different baselines change risk diagnosis. |
+| Catastrophic decision closure | Groupthink symptoms and suppressed dissent | Consensus is not groupthink unless challenge was socially blocked. |
+| Negotiation constraint space | Two-level games and domestic win-sets | Domestic constraints can be genuine limits or bargaining tactics. |
+| Threats and limited force | Coercive diplomacy, credibility, and off-ramps | Coercion can harden resistance if demands, assurance, or proportionality fail. |
 
 ---
 

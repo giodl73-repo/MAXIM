@@ -18,18 +18,16 @@ CONSENSUS PROBLEM
 |  Solution: partial synchrony (Dwork-Lynch-Stockmeyer)     |
 |                                                           |
 |  ALGORITHM LANDSCAPE                                      |
-|  +---------------+  +-------------+  +-----------------+  |
-|  | Paxos (1989)  |  | Raft (2014) |  | Viewstamped Rep | |
-|  | Consensus     |  | Consensus   |  | (VR, 1988)      | |
-|  | via quorums   |  | via leader  |  | View changes    | |
-|  | Hard to impl  |  | Explicit    |  | Liskov et al.   | |
-|  +---------------+  +-------------+  +-----------------+ |
-|          |                |                  |           |
-|          v                v                  v           |
-|     Chubby          etcd, CockroachDB    MongoDB repl    |
-|     CosmosDB        TiKV, ConsulDB                       |
-|     internally      Kubernetes control                   |
-|                                                          |
+|  Paxos (1989)     Raft (2014)       Viewstamped Rep (VR)  |
+|  Consensus        Consensus         Consensus             |
+|  via quorums      via leader        via views             |
+|  Hard to impl     Explicit          Liskov et al.         |
+|       |                |                  |               |
+|       v                v                  v               |
+|  Chubby           etcd, CockroachDB  MongoDB repl         |
+|  CosmosDB         TiKV, ConsulDB                          |
+|  internally       Kubernetes control                      |
+|                                                           |
 +-----------------------------------------------------------+
 ```
 
@@ -112,6 +110,34 @@ Proposer                         Acceptors
 ```
 
 **The quorum requirement**: A majority of acceptors must participate in each phase. With 2F+1 nodes, F failures are tolerated. The overlap guarantee: any two majorities share at least one node — ensuring a new proposer always learns about previously accepted values.
+
+### Paxos Safety Trace: Competing Proposers
+
+The invariant is easier to see with two proposers racing:
+
+```
+ACCEPTORS: A1 A2 A3          quorum = any 2
+
+Round 10:
+  P1 sends ACCEPT(10, X) to A1, A2
+  A1 accepts X, A2 accepts X          -> X may be chosen
+
+Round 11:
+  P2 sends PREPARE(11) to A2, A3
+  A2 replies: "I accepted X at round 10"
+  A3 replies: "I accepted nothing"
+
+  P2 MUST propose X, not its own value Y.
+
+Why? Any quorum for round 11 intersects the round-10 quorum at A2.
+The prepare phase carries the previously accepted value across the
+quorum intersection. That is the whole safety proof in one line:
+
+  later quorums inherit earlier possible decisions.
+```
+
+If P1's value X was chosen, P2 preserves it. If X was not chosen yet, P2 may
+still safely complete it. Paxos never needs to know which case occurred.
 
 ### Multi-Paxos: Replicating a Log
 
@@ -221,6 +247,35 @@ FOLLOWERS commit entry → apply to state machine
 ```
 
 **Log Matching Property**: If two logs contain an entry with the same index and term, then the logs are identical in all entries up through that index. This is the key safety invariant.
+
+### Raft Conflict Repair Trace
+
+Followers can lag or diverge after leader changes. Raft repairs this by walking
+back to the last matching `(index, term)` pair.
+
+```
+Leader log:     [1:a] [2:b] [3:c] [4:d] [5:e]
+Follower log:   [1:a] [2:b] [3:X] [4:Y]
+
+Leader sends AppendEntries(prevIndex=4, prevTerm=d, entry=5:e)
+Follower rejects: "my index 4 has term Y, not d"
+
+Leader retries with prevIndex=3, prevTerm=c
+Follower rejects: "my index 3 has term X, not c"
+
+Leader retries with prevIndex=2, prevTerm=b
+Follower accepts: index 2 matches.
+
+Follower deletes conflicting suffix [3:X] [4:Y]
+Follower appends leader suffix [3:c] [4:d] [5:e]
+
+Result:
+Follower log:   [1:a] [2:b] [3:c] [4:d] [5:e]
+```
+
+This is why Raft's safety rule is local and mechanical: never append after a
+mismatched prefix. Find the shared prefix, delete the divergent suffix, replay
+the leader's log from there.
 
 ### Safety Guarantee
 

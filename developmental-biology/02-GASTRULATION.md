@@ -399,17 +399,23 @@ GASTRULATION IN DIFFERENT ORGANISMS
 
 ---
 
+## Cross-References
+
+- `developmental-biology/01-FERTILIZATION-CLEAVAGE.md` - early embryo setup before germ-layer formation.
+- `developmental-biology/03-SIGNALING-PATHWAYS.md` - signaling gradients that pattern gastrulation.
+- `developmental-biology/05-ORGANOGENESIS.md` - organs built from gastrulation-derived layers.
+
 ## Decision Cheat Sheet
 
-| Event | Timing (human) | Signal | Result |
-|-------|---------------|--------|--------|
-| Primitive streak appears | Day 14-15 | Nodal/Wnt | Establishes posterior; PS forms |
-| Ingression through PS | Day 15-17 | FGF8, T/Brachyury | EMT; mesoderm and endoderm form |
-| Node forms | Day 14-15 | BMP inhibition | Organizer; induces dorsal patterns |
-| Notochord forms | Day 16-17 | From node | Midline; induces floor plate, somites |
-| Somites begin | Day 20 | FGF/RA/Notch clock | Segmentation; ~3/day until 42-44 pairs |
-| Gut tube forms | Week 4 | Lateral folding | Foregut/midgut/hindgut |
-| Cardiac crescent | Week 3 | FGF from hypoblast | First heart progenitors |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Primitive-streak onset | Day 14-15 Nodal/Wnt posterior patterning | Timing is approximate and ethically significant. |
+| Germ-layer ingression | FGF8 and T/Brachyury-driven EMT | Mesoderm/endoderm fates depend on streak position and timing. |
+| Organizer/node function | BMP inhibition and dorsal induction | BMP is context-dependent, not simply bad. |
+| Notochord formation | Node-derived midline signaling | Notochord induces, but does not become, neural tube. |
+| Somite initiation | FGF/RA/Notch segmentation clock | Segmentation defects reflect clock, wavefront, or tissue competence. |
+| Gut tube formation | Week-4 lateral folding | Folding errors affect body wall and gut topology. |
+| Cardiac crescent emergence | Week-3 FGF-related progenitor induction | Early heart fields are patterned before a visible heart tube. |
 
 ---
 

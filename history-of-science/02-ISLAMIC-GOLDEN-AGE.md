@@ -452,6 +452,12 @@ Hunayn ibn Ishaq's method for producing accurate Arabic translations of Galen: c
 
 The epistemological sophistication is striking: Hunayn did not claim certainty where the sources were inconsistent; he preserved uncertainty signals in his output.
 
+## Cross-References
+
+- [Ancient Natural Philosophy](01-ANCIENT-NATURAL-PHILOSOPHY.md) supplies the Greek, Babylonian, and Alexandrian sources translated and transformed.
+- [Scientific Revolution](03-SCIENTIFIC-REVOLUTION.md) follows Islamic-era mathematics, optics, medicine, and astronomy into early modern Europe.
+- [Chemical Revolution](04-CHEMISTRY-REVOLUTION.md) contrasts alchemical traditions with later quantitative chemistry.
+
 ## Common Confusion Points
 
 **"The Arabs just copied the Greeks" is false.** Islamic scholars corrected Greek errors, extended Greek methods, and in some areas (algebra, experimental optics) made contributions that have no Greek precedent.

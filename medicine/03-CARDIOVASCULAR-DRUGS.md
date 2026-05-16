@@ -6,7 +6,7 @@
 
 **Systems Bridge:** The cardiovascular pharmacology landscape is organized around two negative-feedback control systems and one cascading activation network. The RAAS (renin-angiotensin-aldosterone system) is a classic multi-level feedback loop: ↓ renal perfusion pressure → ↑ renin → Ang I → ACE → Ang II → ↑ aldosterone + ↑ vasoconstriction → ↑ blood pressure and volume → restore renal perfusion. Chronic activation of this loop in heart failure causes remodeling and fluid overload — so ACEi/ARBs/ARNi are not just antihypertensives, they interrupt pathological compensatory feedback. The coagulation cascade is a directed acyclic graph (DAG) with convergent paths: the intrinsic pathway (contact activation, XII→XI→IX) and extrinsic pathway (tissue factor, VII) both converge on factor X → thrombin (IIa) → fibrin. Two paths in, one bottleneck (thrombin), one output (clot). This convergent architecture means anticoagulants that block the bottleneck (thrombin inhibitors: dabigatran; Xa inhibitors: rivaroxaban, apixaban) are more efficient than blocking upstream branches. Warfarin is an unusual target: it blocks the synthesis of all vitamin K-dependent factors (II, VII, IX, X) simultaneously — not one node in the cascade but the shared post-translational modification step.
 
-## Big Picture: CV Drug Landscape
+## The Big Picture
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -455,24 +455,30 @@ DIGOXIN:
 
 ---
 
+## Cross-References
+
+- `human-biology/02-CARDIOVASCULAR.md` - cardiovascular physiology substrate.
+- `disease/05-CARDIOVASCULAR-DISEASE.md` - disease states these drugs treat.
+- `pharmacology/02-PHARMACOKINETICS.md` - exposure and dosing logic.
+
 ## Decision Cheat Sheet
 
-| Indication | Drug(s) of Choice | Notes |
-|-----------|-------------------|-------|
-| LDL reduction primary target | High-intensity statin | Atorvastatin 40–80 or rosuvastatin 20–40 |
-| LDL still high on max statin | + Ezetimibe → + PCSK9i | Additive: statin + eze + PCSK9i → LDL <20 possible |
-| HTN + HF + CKD | ACEi or ARB | Renoprotective; avoid ACEi if bilateral RAS |
-| HTN + HF + proteinuria (diabetic) | ACEi or ARB first | Do NOT combine ACEi + ARB |
-| HTN + HFrEF + proteinuria | ARNI (sacubitril-valsartan) | Superior to ACEi for HF mortality |
-| AF rate control | β-blocker or non-DHP CCB | Diltiazem or verapamil; avoid CCB in HFrEF |
-| AF rhythm control (no structural HD) | Flecainide or propafenone | CAST data → CI in CAD/HFrEF |
-| AF rhythm control (structural HD) | Amiodarone, sotalol, dofetilide | Amiodarone most effective; sotalol OK if EF ok |
-| Stable VT (wide complex) | Amiodarone or procainamide IV | Lidocaine second line |
-| SVT (termination) | Adenosine 6mg IV rapid push | If fails: 12mg; then 18mg; then verapamil/diltiazem |
-| AF anticoagulation | DOAC (apixaban preferred) | Warfarin only if mechanical valve |
-| DVT/PE anticoagulation | DOAC | Rivaroxaban or apixaban preferred; parenteral initially |
-| HIT | Argatroban or bivalirudin | STOP heparin; do NOT give platelets |
-| ACS + PCI | DAPT (aspirin + ticagrelor or prasugrel) | Ticagrelor preferred over clopidogrel in most ACS |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Primary LDL reduction | High-intensity statin | Intensity and tolerance drive regimen. |
+| LDL high despite statin | Add ezetimibe, then PCSK9 inhibitor | Very low LDL may be appropriate in high-risk disease. |
+| HTN with HF/CKD | ACEi or ARB | Avoid in bilateral renal artery stenosis; monitor K/Cr. |
+| Proteinuric diabetic HTN | ACEi or ARB | Do not combine ACEi plus ARB. |
+| HFrEF with proteinuria | ARNI such as sacubitril/valsartan | Requires ACEi washout and blood-pressure tolerance. |
+| AF rate control | Beta-blocker or non-DHP CCB | Avoid non-DHP CCB in HFrEF. |
+| AF rhythm without structural disease | Flecainide or propafenone | Contraindicated in CAD/HFrEF. |
+| AF rhythm with structural disease | Amiodarone, sotalol, or dofetilide | Amiodarone efficacy trades off long-term toxicity. |
+| Stable wide-complex VT | IV amiodarone or procainamide | Rhythm stability and diagnosis determine urgency. |
+| SVT termination | Rapid-push adenosine | Needs monitoring and correct rhythm context. |
+| AF anticoagulation | DOAC such as apixaban | Mechanical valves still require warfarin. |
+| DVT/PE anticoagulation | DOAC pathway | Some regimens need initial parenteral anticoagulation. |
+| HIT anticoagulation | Argatroban or bivalirudin | Stop all heparin and avoid platelet transfusion unless bleeding. |
+| ACS after PCI | DAPT with aspirin plus potent P2Y12 inhibitor | Bleeding risk modifies duration and agent. |
 
 ---
 

@@ -209,20 +209,26 @@ GNSS-based POD for EO satellites
 
 ---
 
+## Cross-References
+
+- `08-PLATFORMS.md` maps orbits to real satellite programs.
+- `02-PASSIVE-SENSORS.md` depends on orbit geometry for revisit and illumination.
+- `03-ACTIVE-SENSORS-SAR.md` depends on orbit geometry for coverage and interferometry.
+
 ## Decision Cheat Sheet
 
-| Requirement | Orbit Choice | Mission Examples |
-|-------------|--------------|-----------------|
-| Daily global optical | Low SSO + wide swath | MODIS, VIIRS |
-| Daily global optical 3-5m | Constellation LEO SSO | Planet Dove |
-| 5-day 10m optical | SSO, 290km swath | Sentinel-2 A+B |
-| 16-day historical archive | SSO, 185km swath | Landsat |
-| Minutes refresh, weather | GEO (35,786km) | GOES, Meteosat |
-| Sub-meter commercial | SSO, narrow swath, tasking | WorldView, Pleiades |
-| All-weather 6-day | SSO C-band SAR | Sentinel-1 |
-| L-band SAR global 12-day | SSO L-band SAR | NISAR |
-| Poles (ice, cryosphere) | SSO (near-polar coverage) | CryoSat-2, ICESat-2 |
-| Continuous ocean/SST | GEO or daily-global LEO | GOES ABI, VIIRS |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Daily global optical | Low sun-synchronous orbit with wide swath | Wide swath means coarse spatial resolution. |
+| Daily 3-5 m optical | LEO SSO constellation | Revisit comes from fleet size, not one satellite. |
+| 5-day 10 m optical | Sentinel-2 A+B SSO geometry | Revisit differs from repeat cycle and can be cloud-limited. |
+| 16-day archive continuity | Landsat SSO ground track | Cross-sensor calibration matters across decades. |
+| Minute-scale weather refresh | Geostationary orbit | GEO sacrifices high-latitude geometry and fine resolution. |
+| Sub-meter tasking | Narrow-swath commercial SSO | Tasking priority and off-nadir angle affect data quality. |
+| All-weather 6-day radar | Sentinel-1-style SSO C-band SAR | Radar repeat does not guarantee interferometric coherence. |
+| L-band 12-day radar | NISAR-style SSO L-band SAR | Longer wavelength helps vegetation but not all decorrelation. |
+| Polar cryosphere coverage | Near-polar SSO | Orbit coverage does not imply constant illumination. |
+| Continuous ocean/SST | GEO or daily-global LEO | Clouds still limit passive thermal ocean retrieval. |
 
 ---
 

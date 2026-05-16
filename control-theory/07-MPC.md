@@ -1,6 +1,6 @@
 # Model Predictive Control
 
-## Big Picture: Receding Horizon
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -311,33 +311,22 @@ WHEN PID OVER MPC:
 
 ---
 
+## Cross-References
+
+- `control-theory/03-OPTIMAL-CONTROL.md` — finite-horizon optimal control foundation.
+- `control-theory/04-KALMAN-FILTER.md` — state estimation feeding receding-horizon controllers.
+- `numerical-methods/08-OPTIMIZATION.md` — constrained optimization machinery behind MPC solvers.
+
 ## Decision Cheat Sheet
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                     │ RECOMMENDATION                        │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Linear plant, hard           │ Linear MPC with condensed QP;        │
-│ constraints, T_s > 10ms      │ OSQP or qpOASES; terminal cost/set  │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Nonlinear dynamics,          │ NMPC with multiple shooting +         │
-│ T_s > 100ms                  │ IPOPT; CasADi for automatic diff.     │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Nonlinear, fast dynamics     │ RTI-NMPC (single SQP iteration);    │
-│ (T_s < 100ms)                │ acados or ACADO toolkit              │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Embedded, no QP solver,      │ Explicit MPC (MPT3 offline);          │
-│ simple system (n_x ≤ 5)      │ PWA lookup at runtime                 │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Economic objective           │ Economic MPC: replace quadratic cost │
-│ (maximize yield, etc.)       │ with economic objective; stability   │
-│                              │ via dissipativity theory             │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Stability guarantee needed   │ Terminal cost P = DARE, terminal set  │
-│                              │ X_f = max positively invariant set    │
-│                              │ under LQR; verify N sufficient        │
-└──────────────────────────────┴───────────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a constrained linear plant fits standard MPC | Linear MPC with a condensed or sparse QP | Hard real-time feasibility depends on solver latency and warm starts |
+| Whether nonlinear dynamics can be optimized online | NMPC with multiple shooting and automatic differentiation | Convergence and model fidelity are part of the controller, not implementation details |
+| Whether nonlinear fast dynamics need one-step updates | RTI-NMPC with a single SQP iteration | RTI is suboptimal and needs contraction assumptions for stability |
+| Whether embedded runtime cannot solve QPs | Explicit MPC with offline piecewise-affine regions | Region count grows rapidly with state dimension and constraints |
+| Whether the objective is economic rather than tracking | Economic MPC with dissipativity arguments | Stability is no longer automatic from a quadratic tracking cost |
+| Whether stability needs a formal guarantee | Terminal cost, terminal set, and sufficient horizon `N` | Feasibility alone is not stability, and longer horizons cost computation |
 
 ---
 

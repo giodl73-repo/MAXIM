@@ -322,17 +322,23 @@ For self-adjoint operators on bounded domains:
 
 ---
 
+## Cross-References
+
+- `signal-processing/04-CONVOLUTION-CORRELATION.md` — impulse-response and convolution analogy.
+- `partial-differential-equations/05-LAPLACE-POISSON.md` — Green's functions for elliptic boundary-value problems.
+- `partial-differential-equations/06-FOURIER-METHODS.md` — Fourier-domain inversion of linear operators.
+
 ## Decision Cheat Sheet
 
-| Problem | Green's Function | Notes |
-|---------|-----------------|-------|
-| Poisson in R³ | G = 1/(4π|x−y|) | Coulomb potential |
-| Poisson in half-space | Images + Φ | Reflection across boundary |
-| Poisson in ball | Kelvin inversion | G = Φ(x−y) − (R/|y|)Φ(x−y*) |
-| Heat equation on R^n | G = Gaussian heat kernel | Causal (t > s) |
-| Wave equation on R³ | G = δ(t−s−|x−y|/c)/(4πc|x−y|) | Retarded, Huygens |
-| General bounded domain | Spectral expansion G = Σ φ_nφ_n/λ_n | Eigenfunction expansion |
-| Inhomogeneous PDE → homogeneous | Duhamel's principle | Works for all linear evolution |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether Poisson in free 3D space is Coulomb-like | Fundamental solution `1/(4*pi*|x-y|)` | Free-space kernels ignore boundary conditions |
+| Whether a half-space boundary can be enforced by symmetry | Image charge/source construction | Images rely on flat boundaries and simple BCs |
+| Whether a ball has an explicit Green's function | Kelvin inversion | The reflected source and prefactor depend on dimension and radius |
+| Whether heat forcing propagates causally | Gaussian heat kernel with `t > s` | Parabolic propagation is instantly nonzero but still time-causal |
+| Whether wave forcing has sharp retarded support | Retarded 3D wave Green's function | Huygens behavior is dimension- and operator-dependent |
+| Whether a bounded domain is best treated spectrally | Eigenfunction expansion of the inverse operator | Convergence and zero modes depend on BCs and spectrum |
+| Whether inhomogeneous forcing can be accumulated over time | Duhamel's principle | Linearity is essential; nonlinear problems need different machinery |
 
 ---
 

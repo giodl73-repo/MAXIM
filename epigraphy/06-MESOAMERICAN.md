@@ -291,22 +291,24 @@ Significance:
 
 ---
 
+## Cross-References
+
+- `04-DECIPHERMENT.md` explains the methods used to crack Maya writing.
+- `07-INDUS-UNDECIPHERED.md` contrasts deciphered systems with unresolved scripts.
+- `09-MODERN-METHODS.md` supports documentation of carved, painted, and weathered signs.
+
 ## Decision Cheat Sheet
 
-| System | Type | Period | Status |
-|--------|------|--------|--------|
-| Maya Classic | Logo-syllabic (full writing) | 250-900 CE (continued to ~1700) | ~75-80% deciphered |
-| Aztec | Pictographic (not full writing) | 1300-1521 CE | Readable with context; no phonetic decoding |
-| Zapotec | Partially logo-syllabic | 500 BCE - 900 CE | Partially read |
-| Olmec | Unknown | 900-400 BCE | Undeciphered |
-
-| Term | Meaning |
-|------|---------|
-| Long Count | Maya vigesimal calendar; dates inscriptions to the day |
-| Glyph block | Maya text unit (main sign + affixes combined) |
-| Screenfold | Folded bark-paper book (codex); accordion-fold |
-| Chum ajaw | "Seating of the lord" = accession formula |
-| Rebus principle | Writing a sound by using a picture of something with that sound |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Classic Maya inscription | Logo-syllabic glyph blocks, Long Count dates, royal formulae | Maya is full writing; decipherment is substantial but not complete. |
+| Aztec manuscript or monument | Pictographic/mnemonic system plus historical context | It is not a fully phonetic writing system for arbitrary Nahuatl sentences. |
+| Zapotec inscription | Monte Alban context, calendrical signs, and partial logo-syllabic evidence | It may predate Maya writing, but the relationship remains active research. |
+| Olmec sign claim | Corpus size, dating, and sign-distribution evidence | "Earliest" claims are fragile without enough repeated text. |
+| Calendar interpretation | Long Count vigesimal date conversion | Calendar rollover is not apocalypse evidence. |
+| Codex evidence | Screenfold bark-paper survival and colonial destruction history | Codices are rare because of destruction, not because the tradition was minor. |
+| Accession formula | `chum ajaw` and royal event syntax | Formula recognition helps, but names and titles still require glyph reading. |
+| Phonetic breakthrough | Rebus principle and Knorozov-style phonetic substitution | Authority resistance can delay correct decipherment. |
 
 ---
 

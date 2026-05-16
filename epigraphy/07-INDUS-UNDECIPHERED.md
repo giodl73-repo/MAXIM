@@ -357,15 +357,23 @@ MORAL: Decipherment is not primarily about intelligence.
 
 ---
 
+## Cross-References
+
+- `04-DECIPHERMENT.md` supplies the conditions successful decipherment usually needs.
+- `01-ANCIENT-NEAR-EAST.md` gives a solved archive tradition for contrast.
+- `06-MESOAMERICAN.md` shows how a once-resistant system became readable.
+
 ## Decision Cheat Sheet
 
-| Script | Period | Signs | Main barrier |
-|--------|--------|-------|-------------|
-| Proto-Elamite | 3300-2900 BCE | 1,000+ | No bilingual; language unknown |
-| Indus Valley | 2600-1900 BCE | 400-600 | No bilingual; language unknown; short texts |
-| Linear A | 1800-1450 BCE | ~80 | Bilingual-derived sounds read; language unknown |
-| Rongorongo | Pre-1864 | ~120 | Reading tradition lost; no bilingual |
-| Voynich | 1404-1438 | ~25 | Language/cipher unknown; may be constructed |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Proto-Elamite claim | Large sign inventory, accounting context, unknown language | No bilingual means statistical structure cannot supply meaning alone. |
+| Indus script claim | 400-600 signs, seal context, very short text average | AI can model patterns but cannot invent a phonetic key without external constraint. |
+| Linear A reading claim | Linear B-derived sign values and unknown language | Sound values without language knowledge are not decipherment. |
+| Rongorongo claim | Lost reading tradition, small corpus, no bilingual | Cultural disruption removed the normal validation chain. |
+| Voynich explanation | Manuscript dating, glyph inventory, statistical language/cipher tests | Hoax, cipher, and unknown-language hypotheses remain constrained by hard-to-fake structure. |
+| "Not writing" argument | Sign distribution, repetition, and comparison to nonlinguistic systems | The Indus non-writing thesis is serious but unresolved. |
+| Short-corpus method | Text length, repetition, and sign-position statistics | Very short texts cap what any statistical method can prove. |
 
 ---
 

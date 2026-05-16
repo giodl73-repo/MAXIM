@@ -1,6 +1,6 @@
 # Press Freedom: First Amendment, Shield Laws, Autocratic Suppression
 
-## The Press Freedom Landscape
+## The Big Picture
 
 Press freedom is not a uniform global condition — it ranges from constitutional protection (US First Amendment) to legal frameworks with exceptions (most democracies) to state-controlled and actively suppressive environments (Russia, China, authoritarian states). The practical floor of press freedom is the ability to publish true information about government without legal consequence.
 
@@ -331,16 +331,24 @@ SAFETY IN THE FIELD
 
 ---
 
+## Cross-References
+
+- `04-EDITORIAL-STANDARDS.md` explains the professional obligations press freedom protects.
+- `05-INVESTIGATIVE.md` shows why legal protections matter for accountability reporting.
+- `09-DIGITAL-JOURNALISM.md` adds platform, surveillance, and cross-border pressures.
+
 ## Decision Cheat Sheet
 
-| Press Freedom Situation | Legal/Practical Approach |
-|------------------------|--------------------------|
-| Government seeks injunction against publication | Document First Amendment defense; near-absolute bar on prior restraint |
-| Subpoena for source identity | Invoke state shield law; challenge in court; prepare for federal prosecution of subpoena |
-| SLAPP suit filed after story | File anti-SLAPP motion in states with statute; document frivolous intent |
-| Operating in authoritarian country | Use encrypted comms; fixer with local legal knowledge; have exit plan |
-| Covering Espionage Act prosecution | Note publisher/reporter distinction; no precedent for successful prosecution of journalist |
-| Journalist arrested at protest | Document press credential; invoke First Amendment; have lawyer's number ready |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Government injunction | Prior-restraint doctrine and First Amendment defense | Post-publication liability remains a different, weaker protection zone. |
+| Source-identity subpoena | Shield-law map, court challenge, federal-risk assessment | State shield laws do not bind federal grand juries. |
+| SLAPP suit | Anti-SLAPP motion where available and record of retaliatory intent | Protection depends heavily on state statute. |
+| Authoritarian reporting | Encrypted communications, local legal fixer, exit plan | Security choices can shift risk onto local partners. |
+| Espionage Act coverage | Publisher/reporter distinction and precedent analysis | Absence of successful journalist prosecution is not the same as no risk. |
+| Arrest at protest | Credential documentation, lawyer contact, First Amendment assertion | Field conditions may not respect doctrinal clarity in real time. |
+| Defamation exposure | Public/private figure status and actual-malice/negligence standard | Private individuals face a lower burden than public figures. |
+| Press-freedom statistics | CPJ/RSF methodology and confirmed-case limits | Published counts are floor estimates, especially in closed societies. |
 
 ---
 

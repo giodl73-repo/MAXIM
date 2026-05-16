@@ -499,3 +499,15 @@ Pauling (bond energies), Mulliken ((IE+EA)/2), Allred-Rochow (Zeff/r²),
 Allen (spectroscopic average energy) — all different numbers, all valid for
 their intended use. When in doubt which to use: Pauling for organic chemistry,
 Allen for precise trends.
+
+---
+
+## Cross-References
+
+| If you need... | Go to |
+|---|---|
+| Bonding consequences of orbital structure | [Bonding](02-BONDING.md) |
+| Reaction energy landscapes after electronic structure | [Thermochemistry](03-THERMOCHEM.md) |
+| Redox and electron transfer applications | [Electrochemistry](05-ELECTROCHEMISTRY.md) |
+| Periodic-table element-by-element consequences | [Periodic Table](../periodic-table/00-OVERVIEW.md) |
+| Numerical methods behind eigenvalue and SCF solves | [Numerical Methods](../numerical-methods/00-OVERVIEW.md) |

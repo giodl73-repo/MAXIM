@@ -380,16 +380,26 @@ CHINA AND THE LIBERAL ORDER — ANALYTICAL POSITIONS
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| World War II settlement | `political-history/03-WORLD-WARS.md` |
+| Cold War bipolarity | `political-history/05-COLD-WAR.md` |
+| International institutions as order architecture | `international-relations/06-INTERNATIONAL-INSTITUTIONS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the Bretton Woods system? | Fixed exchange rates (currencies pegged to dollar, dollar to gold); IMF for BOP crises; World Bank for development; killed competitive devaluations of 1930s |
-| Why did Bretton Woods collapse? | US fiscal expansion (Vietnam + Great Society) + European recovery eroded US surplus + dollar overhang exceeded gold backing → Nixon closed gold window 1971 |
-| What is Ikenberry's thesis? | US built a constitutional order post-1945 — self-binding institutions so other states accepted US leadership; order outlasts any one administration |
-| What is hegemonic stability theory? | Open international economy requires a single dominant power to provide public goods (Kindleberger). When Britain declined and US abstained in 1930s, no public goods provided → depression, war |
-| What did Fukuyama get right/wrong? | Right: liberal democracy had no ideological competitor; Wrong: massively underestimated nationalism, state-building difficulty, authoritarian resilience |
-| How does China challenge the order? | Revises norms (state capitalism vs. Washington Consensus, non-interference vs. democracy promotion), builds parallel institutions (AIIB, BRI), competes for technology standards |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Bretton Woods architecture | Dollar-gold peg, fixed exchange rates, IMF, World Bank | Today's dollar system is not Bretton Woods; gold convertibility is gone. |
+| Bretton Woods collapse | Dollar overhang, US deficits, European recovery, Nixon closing gold window | Collapse was structural, not just one presidential decision. |
+| US-led institutional order | Ikenberry's self-binding constitutional order thesis | Institutions constrain and legitimate hegemony, but power asymmetry remains. |
+| Hegemonic stability claims | Kindleberger public goods and 1930s leadership gap | Hegemony may provide openness, but can also produce dependence and coercion. |
+| Fukuyama's end-of-history claim | Ideological competitor absence after 1989 | Nationalism, weak state-building, and authoritarian adaptation were underestimated. |
+| China's order challenge | State capitalism, non-interference, AIIB/BRI, standards competition | Challenge is revision within some institutions and parallelism outside others. |
 
 ---
 

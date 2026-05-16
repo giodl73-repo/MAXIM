@@ -831,31 +831,24 @@ strategies will eventually push you into prompt truncation or OOM. LangChain's
 
 ---
 
+## Cross-References
+
+- `ai-engineering/02-EVALS-HARNESS.md` — measurement layer for orchestration quality and regression gates.
+- `ai-engineering/04-AGENTS.md` — agent loops that orchestration frameworks often grow into.
+- `cloud-architecture/01-CLOUD-MODELS.md` — deployment responsibility split for hosted model services.
+
 ## Decision Cheat Sheet
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  TASK                              │  APPROACH                      │
-├────────────────────────────────────┼────────────────────────────────┤
-│  Simple LLM call, one step         │  SDK directly, no framework    │
-│  Basic RAG over docs               │  LlamaIndex (fastest path)     │
-│  Complex retrieval pipeline        │  LlamaIndex ingestion pipeline │
-│  General-purpose agent             │  LangChain + AgentExecutor     │
-│  Multi-agent, stateful graph       │  LangGraph                     │
-│  .NET existing codebase            │  Semantic Kernel C#            │
-│  Azure-native, compliance matters  │  Semantic Kernel + Azure AOAI  │
-│  Custom logic, zero deps           │  SDK directly + roll your own  │
-│  Tracing production calls          │  LangSmith or OTEL SDK         │
-│  RAG + evals                       │  LlamaIndex + RAGAS            │
-│  Prototyping fast                  │  LangChain (widest docs/stack) │
-├────────────────────────────────────┼────────────────────────────────┤
-│  CHUNKING                          │                                │
-│  Quick prototype                   │  Fixed size, 512 + overlap 64  │
-│  Production prose                  │  SentenceSplitter              │
-│  Mixed structure (PDF, HTML)       │  Structure-aware + overlap     │
-│  Max retrieval quality             │  Semantic chunking + HyDE      │
-└────────────────────────────────────┴────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether orchestration is needed at all | Direct SDK call with explicit inputs and outputs | Frameworks add value when composition dominates, not when the call is one prompt |
+| Why a RAG prototype fails | Retrieval traces before generation traces | Bad answers often start as bad candidate context; do not tune prompts first by default |
+| Whether LangChain is helping or hiding complexity | Map each chain step to a data contract | If the framework obscures state, debugging becomes harder than writing the loop |
+| Whether LlamaIndex fits the workload | Ingestion and retrieval pipeline shape | It is strongest around document indexing; agent control flow may belong elsewhere |
+| Whether LangGraph is warranted | Branching, resumability, and human-interrupt requirements | Use it for state machines, not for a two-node prompt chain |
+| Whether Semantic Kernel is the right bridge | Existing .NET or Azure-native integration constraints | Stack fit is useful, but still validate prompt, tool, and trace semantics explicitly |
+| Whether chunking is the root cause | Retrieval examples by document type | Chunk size is not a universal knob; structure-aware splitting beats blind overlap for mixed sources |
+| Whether production behavior is observable | OpenTelemetry or platform traces from the first prototype | Retrofitting tracing after chains sprawl usually misses the failure boundary |
 
 ---
 

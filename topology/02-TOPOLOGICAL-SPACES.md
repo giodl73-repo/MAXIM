@@ -217,18 +217,24 @@ WHY COMPACTNESS MATTERS:
 
 ---
 
+## Cross-References
+
+- `topology/01-METRIC-SPACES.md` — concrete metric intuition before abstract open-set axioms.
+- `topology/03-CONTINUITY-HOMEOMORPHISM.md` — continuous maps are the morphisms once open sets are defined.
+- `abstract-algebra/09-CATEGORY-THEORY.md` — Top is a category; products and quotients are universal constructions.
+
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Define continuous map | f^{-1}(open) = open |
-| Build topology from distances | Open balls → generate topology |
-| Build topology from scratch | Specify open sets satisfying 3 axioms |
-| Make quotient space | X/~, quotient map q, finest topology s.t. q continuous |
-| Build product of spaces | Product topology (sub-base = inverse images of opens) |
-| Check if space is Hausdorff | Distinct points have disjoint open neighborhoods |
-| Check if metric space | Need triangle inequality + d(x,y)=0 ↔ x=y |
-| Check if metrizable | Regular + second countable → metrizable (Urysohn) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a map is continuous topologically | Preimages of open sets are open | No metric or epsilon-delta structure is required |
+| Whether a metric induces the topology | Open balls generate open sets | Different metrics can induce the same topology |
+| Whether a topology is valid from scratch | Check arbitrary unions, finite intersections, and `empty/X` | Too many or too few opens changes convergence and continuity |
+| Whether an identification has the right topology | Quotient topology via the quotient map | Quotient spaces can lose separation properties |
+| Whether a product topology is intended | Subbasis from coordinate projections | Infinite products are not box topologies |
+| Whether points can be separated | Hausdorff neighborhoods | Quotients and weak topologies may fail Hausdorffness |
+| Whether a distance function is actually a metric | Triangle inequality and identity of indiscernibles | Pseudometrics allow distinct points at zero distance |
+| Whether a topology comes from some metric | Metrization criteria such as Urysohn | Regularity and countability hypotheses are essential |
 
 ---
 

@@ -354,16 +354,22 @@ Yes, with combustible materials (paper, wood chips, carbon-heavy materials) in a
 
 ---
 
+## Cross-References
+
+- `ceramics/02-FORMING.md` — green-body geometry and stress sources.
+- `ceramics/04-GLAZES.md` — firing compatibility with surface chemistry.
+- `materials-processing/02-HEAT-TREATMENT.md` — thermal-process logic across materials.
+
 ## Decision Cheat Sheet
 
-| Goal | Firing Choice |
-|------|--------------|
-| Simple, reliable firing | Electric kiln, Cone 06 (earthenware) or Cone 6 (stoneware) |
-| Celadon green (iron glaze) | Gas reduction kiln, Cone 10 |
-| Copper red / sang de boeuf | Gas reduction kiln; precise atmosphere control |
-| Natural ash glaze | Wood anagama kiln |
-| Orange-peel texture exterior | Salt or soda kiln |
-| Carbon flashing effects | Wood kiln or western raku |
-| Bright commercial colors | Low-fire electric (Cone 06); overglaze enamels |
-| Maximum density/strength | High-fire (Cone 10) stoneware |
-| White translucent porcelain | Cone 10 (or higher) in oxidation or neutral |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether reliability matters more than atmospheric effects | Electric kiln at Cone 06 or Cone 6 | Electric oxidation is predictable but cannot create true reduction effects. |
+| Whether celadon green is the target | Iron glaze in gas reduction around Cone 10 | Color depends on iron amount, glaze thickness, body, and reduction timing. |
+| Whether copper red is realistic | Gas reduction with precise atmosphere control | Copper reds are highly sensitive and failure-prone. |
+| Whether natural ash surface is the goal | Wood anagama firing | Results depend on flame path, ash deposit, placement, and long firing labor. |
+| Whether orange-peel exterior texture is desired | Salt or soda kiln | Vapor glazing affects kiln furniture and has environmental/studio constraints. |
+| Whether carbon flashing is desired | Wood kiln or western raku | Flashing is surface and atmosphere dependent, not a uniform glaze effect. |
+| Whether bright commercial colors matter | Low-fire electric plus stains or overglaze enamels | Low fire gives palette but usually less durability than high-fire ware. |
+| Whether maximum density/strength matters | High-fire stoneware around Cone 10 | Strength also depends on vitrification, body fit, and thermal shock behavior. |
+| Whether white translucent porcelain is required | Cone 10 or higher oxidation/neutral porcelain | Translucency trades against warping, pyroplastic deformation, and firing cost. |

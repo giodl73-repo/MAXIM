@@ -336,6 +336,18 @@ Bolt holes:    ⌀0.020 M ⊕ A B C   (position at MMC)
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Machine-process capability | `manufacturing/02-MACHINING.md` | GD&T only works if the process can hold the specified tolerance |
+| Materials and dimensional stability | `materials/01-CRYSTAL-STRUCTURE.md` | Thermal expansion, grain structure, and stress relief affect tolerancing |
+| Measurement systems and uncertainty | `statistics-applied/01-EXPERIMENTAL-DESIGN.md` | Inspection is statistical measurement under gauge repeatability and uncertainty |
+| Mechanical assembly function | `mechanical/01-THERMODYNAMICS.md` | Tolerances protect fits, motion, sealing, heat paths, and load-bearing geometry |
+| Quality systems and production control | `systems-engineering/01-SE-PROCESS.md` | GD&T is one interface between design intent, manufacturing, inspection, and lifecycle control |
+
+---
+
 ## Common Confusion Points
 
 **RFS is the default in Y14.5-2018**: Earlier editions (2009 and prior) required the RFS symbol (S) if you wanted regardless-of-feature-size. The 2018 edition makes RFS the default. Explicitly calling MMC now requires the M circle. Check which edition your drawings reference.

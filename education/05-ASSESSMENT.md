@@ -386,17 +386,23 @@ Assessment tasks that mirror real-world use of knowledge and skills:
 
 ## Decision Cheat Sheet
 
-| Need | Assessment Type | Design Features |
-|------|----------------|-----------------|
-| Adjust tomorrow's instruction | Formative | Hinge questions, exit tickets, cold calls |
-| Diagnose prior knowledge | Diagnostic | Pre-test, concept mapping |
-| Measure final learning | Summative | Valid coverage, reliable scoring |
-| Demonstrate real-world competence | Authentic | Performance task, rubric, portfolio |
-| Compare across schools/nations | Standardized | Norm/criterion referenced, sampling frame |
-| Provide detailed feedback | Analytic rubric | Separate criteria, levels defined |
-| Demonstrate overall proficiency | Holistic rubric | Comprehensive level descriptions |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A next-lesson adjustment | Use formative evidence: hinge questions, exit tickets, observation, and rapid feedback. | It is formative only if instruction changes in response. |
+| Prior knowledge or misconception | Use diagnostic tasks, concept maps, pre-tests, interviews, or error analysis. | Diagnostic data is useful only when tied to a remediation decision. |
+| Final learning evidence | Check summative validity, coverage, scoring reliability, and alignment to objectives. | A final test can be reliable and still miss the intended construct. |
+| Real-world competence | Use authentic performance tasks, portfolios, rubrics, and transfer contexts. | Authenticity often trades scale and reliability for validity. |
+| Cross-school comparison | Inspect standardization, sampling frame, norm/criterion reference, accommodations, and stakes. | Comparability can improve measurement while narrowing incentives. |
+| Detailed feedback | Use analytic rubrics with separate criteria, levels, exemplars, and revision loops. | Too many criteria can fragment judgment and overload learners. |
+| Overall proficiency | Use holistic rubrics when integrated performance matters more than component diagnosis. | Holistic scores are faster but weaker for targeted feedback. |
 
 ---
+
+## Cross-References
+
+- `03-COGNITIVE-SCIENCE-EDU.md` explains why retrieval and feedback make testing instructional, not just evaluative.
+- `04-CURRICULUM.md` anchors assessment in objectives and backward design.
+- `../statistics-applied/03-CAUSAL-INFERENCE.md` supplies the validity and inference mindset for educational measurement.
 
 ## Common Confusion Points
 

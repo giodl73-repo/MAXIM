@@ -299,17 +299,23 @@ MARS SAMPLE RETURN ARCHITECTURE
 
 ---
 
+## Cross-References
+
+- `planetary-science/02-TERRESTRIAL-PLANETS.md` — comparative rocky-planet framework.
+- `astrobiology/03-HABITABLE-ENVIRONMENTS.md` — Mars as a past-habitability target.
+- `space-exploration/01-ORBITAL-MECHANICS.md` — mission mechanics for Mars exploration.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| Was Mars warm and wet? | Definitive geological evidence for liquid water (valley networks, lake deltas, clays); unclear if warm was global or localized/episodic |
-| Why did Mars lose its atmosphere? | Dynamo cessation ~3.9 Ga → no magnetic shield → solar wind stripping; also small gravity (5 km/s escape velocity) |
-| What are the crustal magnetic stripes? | Remnant magnetism from the Noachian dynamo; patterns resemble seafloor spreading on Earth but may have different origin |
-| Why is the northern hemisphere so different? | Hemispheric dichotomy: northern lowlands are thin-crusted, low, smooth — possibly from a single giant oblique impact |
-| What is the best evidence for past habitability? | Jezero Crater fan delta (ancient lake system); Gale Crater mudstones with CHNOPS chemistry; Opportunity jarosite (liquid water) |
-| What is InSight's most important result? | Core radius ~1830 km (larger than models predicted); crust 20-70 km thick; mantle unexpectedly cold; seismically active planet |
-| How does Mars's obliquity affect climate? | High obliquity (~40°) shifts polar ice to mid-latitudes; snowball episodes; obliquity has varied 15°-35° over millions of years |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Warm/wet Mars claim | Valley networks, deltas, and clays | Water evidence does not prove globally warm climate. |
+| Atmospheric loss | Dynamo shutdown, solar wind stripping, and low gravity | Loss processes changed over time. |
+| Crustal magnetic stripes | Remanent Noachian magnetism | Earth-like seafloor spreading is not required. |
+| Northern lowlands dichotomy | Giant oblique impact hypothesis | Interior dynamics alternatives remain possible. |
+| Past habitability evidence | Jezero delta, Gale mudstones, jarosite | Habitability is not evidence of life. |
+| InSight interior result | Large core, crust thickness, seismicity | Sparse station geometry limits resolution. |
+| Obliquity climate effect | Ice migration during high-obliquity epochs | Orbital forcing redistributes ice more than it warms globally. |
 
 ---
 

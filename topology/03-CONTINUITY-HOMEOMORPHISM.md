@@ -206,17 +206,23 @@ DEFORMATION RETRACT: r: X → A ⊆ X with r|_A = id_A and r ≃ id_X.
 
 ---
 
+## Cross-References
+
+- `topology/02-TOPOLOGICAL-SPACES.md` — open-set definitions make continuity purely structural.
+- `topology/05-CONNECTEDNESS.md` — connectedness is a topological invariant preserved by homeomorphism.
+- `topology/09-MANIFOLDS.md` — manifolds are glued from local charts using compatible topological maps.
+
 ## Decision Cheat Sheet
 
-| Task | Approach |
-|------|---------|
-| Prove f continuous | Show f^{-1}(U) open for every open U |
-| Prove f is a homeomorphism | Show bijective + continuous + f^{-1} continuous |
-| Shortcut: f homeomorphism | Compact domain + Hausdorff codomain + bijective + continuous |
-| Prove X ≇ Y | Find invariant that differs (π₁, homology, compactness, etc.) |
-| Show X ≃ Y (homotopy equiv.) | Construct f: X→Y, g: Y→X, homotopies g∘f≃id, f∘g≃id |
-| Prove spaces have same dim | Invariance of domain |
-| Distinguish Rⁿ and Rᵐ | Homology of sphere Sⁿ⁻¹ vs Sᵐ⁻¹ |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a map is continuous | Preimage-open criterion | Continuity depends on the domain and codomain topologies |
+| Whether a bijection is a homeomorphism | Continuity of the map and inverse | Continuous bijection alone is not enough generally |
+| Whether the compact-Hausdorff shortcut applies | Compact domain, Hausdorff codomain, continuous bijection | Both compactness and Hausdorffness are required |
+| Whether two spaces cannot be homeomorphic | Compare invariants such as compactness, homology, or `pi_1` | Matching one invariant does not prove equivalence |
+| Whether homotopy equivalence is enough | Maps both ways with homotopies to identities | Homotopy equivalence is weaker than homeomorphism |
+| Whether dimension is preserved | Invariance of domain | The theorem has hypotheses; it is not a dimension-counting slogan |
+| Whether `R^n` and `R^m` differ topologically | Homology of punctured/spherical complements | Need invariants stable under homeomorphism |
 
 ---
 

@@ -2,6 +2,8 @@
 
 **Reader note**: The E-L derivation and classical examples below serve as reference. The key value for this learner is the connection between E-L and the fundamental PDEs of physics (Laplace, wave, Schrodinger as E-L equations of their action functionals), Noether's theorem, and the field-theory generalization — these sections follow the classical material.
 
+## The Big Picture
+
 ## The Central Result
 
 The Euler-Lagrange equation is the necessary condition for a function to extremize a
@@ -282,17 +284,23 @@ A key structure in the E-L formulation:
 
 ---
 
+## Cross-References
+
+- `variational-calculus/01-FUNCTIONALS.md` — variational derivative and functional setup.
+- `variational-calculus/03-CONSTRAINTS.md` — constrained extrema extend Euler-Lagrange with multipliers.
+- `partial-differential-equations/03-WAVE-EQUATION.md` — field equations as Euler-Lagrange equations of action.
+
 ## Decision Cheat Sheet
 
-| Situation | Tool |
-|-----------|------|
-| F = F(x,u,u') | Standard E-L: F_u − (F_{u'})' = 0 |
-| F has no explicit x | Beltrami identity: F − u'F_{u'} = C |
-| Multiple functions | One E-L per function |
-| u defined on domain in R^n | E-L: F_u − ∇·(F_{∇u}) = 0 (PDE) |
-| Higher derivatives u'' in F | E-L: F_u − (F_{u'})' + (F_{u''})'' = 0 |
-| Free endpoint at x=b | Natural BC: F_{u'}(b) = 0 |
-| Check local minimum | Legendre condition: F_{u'u'} ≥ 0 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether the standard one-dimensional E-L equation applies | `F_u - (F_{u'})' = 0` | Endpoint and regularity assumptions are doing work |
+| Whether translation in `x` gives a first integral | Beltrami identity `F - u'F_{u'} = C` | It requires no explicit `x` dependence |
+| Whether several dependent functions vary independently | One E-L equation per function | Coupled integrands produce coupled equations |
+| Whether the domain is multidimensional | PDE form `F_u - div(F_grad u) = 0` | Boundary terms now live on the domain boundary |
+| Whether higher derivatives appear in the integrand | Higher-order E-L with alternating derivatives | Extra boundary conditions are needed for well-posedness |
+| Whether a free endpoint creates a boundary condition | Natural BC such as `F_{u'}(b)=0` | Only free endpoint components generate natural conditions |
+| Whether a stationary curve is locally minimizing | Legendre condition and second variation | The E-L equation alone does not rule out maxima or saddles |
 
 ---
 

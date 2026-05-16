@@ -293,38 +293,24 @@ PROTOSTOMIA                    DEUTEROSTOMIA
 
 ## Decision Cheat Sheet — Which Phylum Is This?
 
-```
-START: You have an animal specimen. What is it?
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether it is an animal | Check multicellularity, heterotrophy, development, tissues, and relation to choanoflagellates. | Many simple animals do not look like the familiar "animal" prototype. |
+| Sponge-like specimen | Look for lack of true tissues, choanocyte-style feeding, pores, spicules, and water flow. | Porifera is not a primitive plant-like leftover; it is a specialized animal lineage. |
+| Non-bilaterian animal | Compare radial symmetry, diploblasty, stinging cells, comb rows, and extremely simple body plans. | Cnidaria, Ctenophora, and Placozoa are different experiments, not one grade. |
+| Bilaterian placement | Check bilateral symmetry, three germ layers, cephalization, through-gut pattern, and developmental evidence. | Adult symmetry can be misleading after metamorphosis. |
+| Protostome vs deuterostome | Use embryology, molecular phylogeny, blastopore fate, coelom formation, and gene evidence. | Textbook developmental traits have exceptions; molecular trees matter. |
+| Ecdysozoan candidate | Look for molting cuticle, exoskeleton, jointed appendages, segmentation, and nematode/tardigrade alternatives. | Molting unites very different body plans. |
+| Lophotrochozoan candidate | Check trochophore/larval traits, lophophore, segmentation, shell/mantle, flat body, and molecular placement. | The group is phylogenetic, not a simple visible body-plan category. |
+| Deuterostome candidate | Compare water vascular system, notochord, pharyngeal slits, vertebrae, and early-development evidence. | Echinoderms obscure their bilaterian ancestry in adult radial form. |
 
-  Has tissues?
-   |
-   +-- No  → Porifera (sponge)
-   +-- Yes
-        |
-        Bilateral symmetry?
-         |
-         +-- NO (radial)
-         +-- YES → BILATERIA
+---
 
-  Non-bilaterian options:
-    Two germ layers → Cnidaria or Ctenophora
-    Simplest body   → Placozoa
+## Cross-References
 
-BILATERIA:
-Blastopore → mouth? → PROTOSTOMIA
-  Molts exoskeleton? → ECDYSOZOA
-    Jointed legs?   → Arthropoda
-    No legs, cuticle→ Nematoda (or Tardigrada/Onychophora)
-  Does not molt?    → LOPHOTROCHOZOA
-    Segmented body? → Annelida
-    Shell/mantle?   → Mollusca
-    Flat, no coelom?→ Platyhelminthes
-
-Blastopore → anus? → DEUTEROSTOMIA
-  Water vascular system? → Echinodermata
-  Notochord at some stage→ Chordata
-    Has vertebrae?       → Vertebrata
-```
+- `../evolutionary-biology/03-PHYLOGENETICS.md` gives the tree-building methods behind clades and character inference.
+- `../zoology/00-OVERVIEW.md` extends animal diversity into anatomy, behavior, and ecological function.
+- `../marine-biology/03-MARINE-INVERTEBRATES.md` deepens the invertebrate branches that dominate animal diversity.
 
 ---
 

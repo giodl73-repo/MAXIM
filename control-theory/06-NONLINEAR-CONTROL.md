@@ -1,6 +1,6 @@
 # Nonlinear Control
 
-## Big Picture: Why Linearization Isn't Enough
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -354,32 +354,22 @@ ADVANTAGES:
 
 ---
 
+## Cross-References
+
+- `control-theory/02-STATE-SPACE.md` — linearized state-space models as the local baseline.
+- `variational-calculus/03-CONSTRAINTS.md` — constrained dynamics and nonlinear optimization context.
+- `robotics/01-KINEMATICS.md` — nonlinear motion constraints in robotic systems.
+
 ## Decision Cheat Sheet
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                     │ RECOMMENDATION                        │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ 2D system, need stability    │ Phase plane + Poincaré-Bendixson for │
-│ analysis or limit cycle study│ existence; Lyapunov for stability     │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Need global stability proof  │ Lyapunov direct method; SOS programs  │
-│ (not just local linear)      │ for polynomial systems                │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Exact linearization desired  │ Feedback linearization; FIRST check  │
-│ (cancel nonlinearities)      │ minimum phase (zero dynamics stable) │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Disturbance rejection,       │ Sliding mode; tune k for disturbance  │
-│ finite-time convergence      │ bound; add boundary layer for         │
-│                              │ chattering reduction                  │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Strict-feedback structure,   │ Backstepping (systematic Lyapunov    │
-│ need systematic design       │ design); DSC for lower complexity    │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Robotics, port-Hamiltonian   │ Passivity-based control (IDA-PBC);    │
-│ systems, power electronics   │ energy shaping + damping injection    │
-└──────────────────────────────┴───────────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a 2D system has interpretable global behavior | Phase plane and Poincare-Bendixson analysis | The geometry does not generalize cleanly beyond two states |
+| Whether stability needs proof beyond local linearization | Lyapunov direct method or SOS for polynomial systems | Finding a Lyapunov function is constructive art, not a push-button test |
+| Whether nonlinearities can be exactly canceled | Feedback linearization | Zero dynamics must be stable and the diffeomorphism must hold on the domain |
+| Whether finite-time disturbance rejection is the goal | Sliding mode control | Chattering can damage actuators; boundary layers weaken exact rejection |
+| Whether the plant has strict-feedback structure | Backstepping or dynamic surface control | Backstepping assumes known nonlinear terms or an adaptive approximation |
+| Whether energy structure is the design handle | Passivity-based control or IDA-PBC | Passivity gives storage/dissipation logic, not arbitrary trajectory tracking |
 
 ---
 

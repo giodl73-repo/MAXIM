@@ -314,17 +314,23 @@ ESCAPE AND RADIATE MODEL (Ehrlich & Raven, 1964):
 
 ---
 
+## Cross-References
+
+- `evolutionary-biology/08-COEVOLUTION.md` - plant-herbivore arms races.
+- `natural-sciences/17-ORGANIC-CHEMISTRY.md` - defensive secondary metabolites.
+- `ecology/02-COMMUNITY-ECOLOGY.md` - defense as interaction ecology.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What class of compound is caffeine? | Purine alkaloid (methylxanthine) |
-| What is the evolutionary function of caffeine? | Insecticidal (toxic to many insects at plant concentrations) |
-| What makes broccoli cancer-protective? | Sulforaphane (from glucoraphanin + myrosinase on cell damage) via Nrf2 pathway induction |
-| Why does cooking reduce broccoli's benefits? | Heat deactivates myrosinase → less sulforaphane formed (gut bacteria partially compensate) |
-| What is artemisinin? | Sesquiterpene from *Artemisia annua*; front-line malaria treatment; Nobel 2015 |
-| What is the ecological function of tannins? | Bind proteins → astringency deters herbivores; bind digestive enzymes → reduce nutritional value |
-| What is the herbivory arms race? | Plant toxin → insect resistance → plant new toxin → cycle; Ehrlich-Raven escape-and-radiate model |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Caffeine chemistry | Purine alkaloid / methylxanthine | Class does not determine safe dose. |
+| Caffeine defense role | Insecticidal effect at plant concentrations | Human stimulant dose is a different exposure regime. |
+| Broccoli protective pathway | Glucoraphanin plus myrosinase forming sulforaphane | Bioavailability depends on preparation and gut microbiome. |
+| Cooking effect on broccoli | Heat deactivation of myrosinase | Gut bacteria partly compensate but less predictably. |
+| Artemisinin identity | Sesquiterpene from *Artemisia annua* | Medical use depends on dosing and combination therapy. |
+| Tannin herbivore defense | Protein and digestive-enzyme binding | Tannins also affect taste, preservation, and human diet. |
+| Herbivory arms race | Escape-and-radiate toxin/resistance cycles | Coevolution is not always one-to-one or directional. |
 
 ---
 

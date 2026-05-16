@@ -257,18 +257,24 @@ LOCAL application to specific reefs:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the CO₂-carbonate cascade? | CO₂ → H₂CO₃ → HCO₃⁻ + H⁺ → CO₃²⁻ + H⁺; more CO₂ = less CO₃²⁻ = harder calcification |
-| What is Ωarag? | Aragonite saturation state: [Ca²⁺][CO₃²⁻] / Ksp; >1 = supersaturated |
-| What Ωarag do reefs need? | Historically >3; functional reefs need >~2; dissolution risk below ~1.5 |
-| Current ocean Ωarag? | ~2.5 (down from ~3.0 pre-industrial) |
-| Current ocean pH? | ~8.08 (down from ~8.20 pre-industrial; 32% more acidic in [H⁺]) |
-| pH change at 2× CO₂? | ~7.95; calcification reduced ~30–50% in many species |
-| Which carbonate mineral dissolves first? | High-Mg calcite (CCA), then aragonite (coral), then low-Mg calcite |
-| Why does daytime reef pH rise? | Zooxanthellae photosynthesis consumes CO₂ from reef water |
-| What is local alkalinity enhancement? | Adding alkalinity (Ca(OH)₂, electrolysis) to raise local Ωarag |
-| Is acidification separate from bleaching? | Yes — different mechanism (chemistry vs. temperature); both from CO₂ |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A carbonate-chemistry claim | Follow CO2 uptake, carbonic acid, bicarbonate, carbonate ion depletion, pH, and saturation state. | pH and carbonate availability move together but answer different diagnostic questions. |
+| An aragonite-saturation claim | Compute or compare Omega-arag from calcium, carbonate ion, temperature, salinity, pressure, and Ksp. | Omega above 1 means thermodynamic supersaturation, not automatically healthy reef growth. |
+| A reef-growth threshold | Check Omega-arag, calcification rate, bioerosion, temperature stress, nutrients, and species mix. | Functional reef accretion depends on net carbonate budget, not one threshold alone. |
+| A pH trend or "percent more acidic" claim | Convert pH to hydrogen-ion concentration and compare baseline, site, depth, and season. | The pH scale is logarithmic; small pH shifts can be chemically large. |
+| A mineral-dissolution risk | Compare high-Mg calcite, aragonite, low-Mg calcite, microhabitat pH, and exposure time. | Coralline algae can be more vulnerable than coral skeleton in some settings. |
+| Daily reef pH swings | Look at photosynthesis, respiration, water residence time, alkalinity, and night/day timing. | Short-term local swings can mask the long-term acidification trend. |
+| A local alkalinity intervention | Evaluate dose, mixing, energy source, ecological side effects, monitoring, and scale. | Local chemistry manipulation cannot offset open-ocean acidification at reef-tract scale. |
+| Acidification-vs-bleaching attribution | Separate carbonate chemistry from thermal oxidative stress while tracking their shared CO2 driver. | Different mechanisms can compound in the same stressed coral. |
+
+---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places carbonate chemistry inside the full reef system.
+- `05-BLEACHING.md` connects temperature stress to physiology, symbiosis, and calcification.
+- `08-HUMAN-IMPACTS.md` explains acidification, nutrient loading, and local water-quality pressure.
 
 ---
 

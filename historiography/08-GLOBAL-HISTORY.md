@@ -266,16 +266,24 @@ BIG HISTORY
 
 ---
 
+## Cross-References
+
+- `02-ENLIGHTENMENT.md` provides the older universal-history frame.
+- `05-SOCIAL-CULTURAL-TURN.md` supplies subaltern and postcolonial methods.
+- `09-PHILOSOPHY-OF-HIST.md` frames scale, causation, and comparative explanation.
+
 ## Decision Cheat Sheet
 
-| Approach | Scale | Key Question | Core Method | Limitation |
-|----------|-------|--------------|-------------|------------|
-| World systems (Wallerstein) | Global 16th c. to present | How does capitalist world-economy structure history? | Structural analysis | No agency; over-determined |
-| Connected histories | Regional/global | What actual connections shaped parallel developments? | Trace links (trade, ideas, people) | Scale: hard to maintain at large scale |
-| Provincializing Europe | Conceptual | How do European categories distort non-Western history? | Conceptual critique | More diagnostic than prescriptive |
-| Comparative history | Cross-national | What explains variation across similar cases? | Control variables | Risks treating cases as isolates |
-| Atlantic history | Regional | How did Atlantic basin form as connected unit? | Regional integration | Ignores internal Asia, Pacific |
-| Big History | Cosmic | What is humanity's place in cosmic time? | Interdisciplinary synthesis | Loses historical specificity |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Capitalist world-economy structure | Wallersteinian core/semi-periphery/periphery analysis | Strong structure can overdetermine agency. |
+| Actual cross-regional links | Connected histories tracing trade, people, texts, commodities, and ideas | Large scale is hard to sustain without losing specificity. |
+| European category distortion | Provincializing Europe and conceptual critique | The goal is not abandoning universal categories but rebuilding them less parochially. |
+| Variation across cases | Comparative history and controlled contrast | Cases can be falsely treated as isolated units. |
+| Atlantic basin integration | Atlantic history of slavery, empire, trade, migration, and revolution | Regional integration may sideline Asia, Pacific, or internal continental histories. |
+| Human place in cosmic time | Big History and interdisciplinary synthesis | Cosmic scale can dissolve historical specificity. |
+| "Global history" label | Analytical global connections, circulations, or comparisons | It is not just adding non-European chapters. |
+| Public-history reframing | 1619 Project-style intervention | Journalistic/public history should be assessed differently from a monograph. |
 
 ---
 

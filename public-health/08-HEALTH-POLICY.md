@@ -1,6 +1,6 @@
 # Health Policy
 
-## Health Systems Taxonomy — The Big Picture
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -265,17 +265,27 @@ COST-EFFECTIVENESS ANALYSIS:
 | UHC cube (who × what services × financial protection) | Service coverage specification: three independent dimensions of coverage policy that can be tuned independently; a country can have 100% population coverage for a narrow benefit package with poor financial protection — the tradeoffs between dimensions are explicit policy choices, not technical constraints |
 | PAYG pension sustainability equation τ = (b/W) × (R/E) | Shared resource pool provisioning: the tax rate τ is the utilization rate of a shared pool; the pool serves R retirees drawn from E workers; the ratio R/E is the load factor; as aging increases R/E, the system must either increase τ (raise capacity cost), decrease b/W (reduce service level), or increase E (add contributors) — standard capacity planning arithmetic |
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Global-health governance and aid architecture | `public-health/07-GLOBAL-HEALTH.md` |
+| Measuring health-system outcomes | `public-health/10-HEALTH-METRICS.md` |
+| Institutional cooperation theory | `international-relations/06-INTERNATIONAL-INSTITUTIONS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Health policy question | Key framework |
-|---|---|
-| Expand to universal coverage | UHC cube: who, what, how much coverage |
-| Choose financing mechanism | Tax > payroll > premiums > OOP for equity |
-| Evaluate if a new drug should be covered | HTA/ICER vs. willingness-to-pay threshold |
-| Compare US to other systems | % GDP, outcomes, equity — US outlier on cost |
-| Why US spends so much | Admin overhead, provider consolidation, no drug price negotiation |
-| Address catastrophic health spending | Financial protection via pre-payment and pooling |
-| Fund health in low-income country | DAH + domestic mobilization + SHI development |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Universal-coverage expansion | UHC cube: population, service, and cost coverage | UHC is a goal; financing/delivery architecture varies widely. |
+| Financing mechanism choice | Tax, payroll, premiums, and out-of-pocket equity gradient | Equity, political feasibility, and administrative capacity trade off. |
+| New-drug coverage | HTA/ICER against willingness-to-pay thresholds | Cost-effectiveness can conflict with severity and equity priorities. |
+| US system comparison | Spending share, outcomes, access, equity, and prices | US exceptionalism is mostly cost/pricing, not uniformly worse outcomes. |
+| US spending drivers | Administrative overhead, consolidation, prices, and weak negotiation | Utilization alone does not explain the spending gap. |
+| Catastrophic spending protection | Pre-payment, pooling, benefit design, and caps | Insurance expansion without cost control can still leave affordability gaps. |
+| Low-income country health financing | DAH, domestic resource mobilization, and SHI development | Donor financing can save lives while weakening long-term system ownership. |
 
 ## Common Confusion Points
 

@@ -606,17 +606,23 @@ The design implication: environments that reference natural patterns, processes,
 
 ---
 
+## Cross-References
+
+- `architecture/03-ENVIRONMENTAL.md` — sustainability and passive-design movement context.
+- `manufacturing/01-GDT-TOLERANCING.md` — DFMA and fabrication precision behind prefab/offsite movements.
+- `urban-planning/01-LAND-USE.md` — social and contextual pressures that shape contemporary practice.
+
 ## Decision Cheat Sheet
 
-| Design ambition | Contemporary approach | Key consideration |
-|-----------------|----------------------|-------------------|
-| Complex freeform geometry | Rhino/Grasshopper + rationalization to fabricatable surfaces | Cost is 2–4× conventional unless rationalized |
-| Lowest carbon building | Mass timber (CLT/glulam) + adaptive reuse strategy | Check local fire code for mass timber stories |
-| Fast hotel construction | Volumetric modular | Design must fit transport limits (≤4m wide module) |
-| Biophilic workplace | Views to nature, natural materials (wood, stone), dynamic light, prospect-refuge spaces | POE shows 8–13% productivity gain |
-| Adaptive reuse | Structural survey first; embodied carbon assessment; character preservation strategy | Seismic and fire code compliance are the common blockers |
-| Tall timber building | Hybrid: CLT floors + concrete core. 8–18 stories pure timber, hybrid above | IBC 2021 Type IV-A/B/C; verify local adoption |
-| LEED vs Passivhaus | LEED = points and certification. Passivhaus = physical performance standard | PH is harder to achieve but actually verifies energy use |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether freeform geometry is buildable | Surface rationalization, panel repetition, and fabrication tolerances | Parametric form is cheap to model and expensive to make unless rationalized early |
+| Whether low-carbon design starts with material substitution | Adaptive reuse and whole-life carbon before new material choice | The greenest structure is often the one not demolished |
+| Whether modular construction fits | Transport envelope, repetition count, and site logistics | Modular saves time only when design accepts module constraints from day one |
+| Whether biophilic design is substantive | Light, views, materiality, prospect-refuge, and POE metrics | Plants alone are decoration; biophilia is an environmental-performance strategy |
+| Whether adaptive reuse is feasible | Structural survey, code triggers, and embodied-carbon balance | Fire, accessibility, and seismic upgrades can dominate the reuse case |
+| Whether tall timber is viable | Local code adoption, hybrid core strategy, and fire detailing | IBC categories help only where jurisdictions have adopted and interpreted them |
+| Whether certification matches ambition | LEED point plan versus Passivhaus performance target | LEED documents breadth; Passivhaus verifies a narrower physical-energy claim |
 
 ---
 

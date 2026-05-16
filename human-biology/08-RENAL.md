@@ -352,16 +352,22 @@ Clearance = (U_x × V̇) / P_x is the volume of plasma fully cleared of substanc
 **RAAS as cascading amplifier with negative feedback**
 Renin (protease) cleaves angiotensinogen → Ang I → ACE (in lung) → Ang II. Each step is enzymatic amplification: a small number of renin molecules generates much more Ang I, and ACE converts efficiently. Ang II acts on multiple effectors in parallel: vasoconstriction (fast, direct), aldosterone release (medium, renal Na⁺ retention), ADH release (medium, water retention), proximal tubule Na⁺ reabsorption (direct). Negative feedback closes via BP → less renin. ACE inhibitors and ARBs interrupt the cascade at different points: ACEi blocks conversion (also prevents bradykinin degradation → cough); ARBs block the effector receptor. Both reduce downstream output regardless of upstream activity.
 
+## Cross-References
+
+- `human-biology/02-CARDIOVASCULAR.md` - pressure and perfusion coupling.
+- `medicine/03-CARDIOVASCULAR-DRUGS.md` - diuretics and renal hemodynamic effects.
+- `disease/06-METABOLIC-ENDOCRINE.md` - metabolic and endocrine effects on renal function.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why is loop diuretic so powerful? | Blocks 25% of filtered Na⁺ reabsorption at TAL; also washes out medullary gradient → can't concentrate urine |
-| Why do thiazides cause hypokalemia? | Block DCT NCC → more Na⁺ reaches collecting duct → aldosterone-driven K⁺ secretion increases |
-| What does aldosterone do? | Retain Na⁺ (and water) + excrete K⁺. Acts at collecting duct via ENaC + Na/K-ATPase |
-| Why does ACEi cause cough? | ACE also degrades bradykinin; inhibiting ACE → ↑ bradykinin → prostaglandin-mediated cough |
-| eGFR 55 vs 85 — which is CKD? | eGFR 55 (< 60 for ≥3 months = CKD). eGFR 85 is normal. |
-| What does SGLT2 inhibitor do to glucose? | Blocks PCT glucose reabsorption → glucosuria → lower blood glucose + BP + weight; cardiorenal protection |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Loop diuretic potency | TAL blockade of large Na load plus medullary-gradient washout | Potency increases electrolyte-loss risk. |
+| Thiazide hypokalemia | More distal Na delivery driving K secretion | Aldosterone state modifies severity. |
+| Aldosterone action | ENaC/Na-K-ATPase sodium retention and K excretion | Volume and potassium effects are linked but separable. |
+| ACE-inhibitor cough | Bradykinin accumulation | ARBs avoid most cough but share RAAS monitoring issues. |
+| CKD by eGFR | eGFR below 60 for at least 3 months | Albuminuria can define CKD even with higher eGFR. |
+| SGLT2 inhibitor glucose effect | PCT glucose reabsorption blockade | Cardiorenal benefit exceeds glucose lowering alone. |
 
 ---
 

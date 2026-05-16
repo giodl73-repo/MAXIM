@@ -346,18 +346,24 @@ THE CLASS GROUP RELEVANCE:
 
 ---
 
+## Cross-References
+
+- `abstract-algebra/05-POLYNOMIALS-FIELDS.md` — number fields are finite extensions of Q.
+- `abstract-algebra/04-RINGS-IDEALS.md` — ideals repair failed unique factorization in rings of integers.
+- `number-theory/10-CRYPTOGRAPHY-CONNECTIONS.md` — algebraic number theory feeds modern lattice and post-quantum constructions.
+
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Find O_K for Q(√d) | Z[√d] if d≡2,3 mod 4; Z[(1+√d)/2] if d≡1 mod 4 |
-| Check if p splits/inerts/ramifies in Q(√d) | Legendre symbol (d/p) and divisors of Δ |
-| Compute norm of element | a²-db² for Q(√d) |
-| Find units in Q(√d), d>0 | Fundamental unit via Pell equation x²-dy²=±1 |
-| Compute class number h_K | Factor primes ≤ Minkowski bound, find relations |
-| Determine if O_K is a PID | h_K = 1 |
-| Understand ideal factorization failure | Class group Cl(K) measures the failure |
-| Connect to post-quantum crypto | Ring-LWE, NTRU ← ideal lattice problems |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a quadratic field's integers are obvious | Ring-of-integers congruence for `Q(sqrt(d))` | The simple formula is special to quadratic fields |
+| Whether a rational prime splits or ramifies | Legendre symbol and discriminant divisibility | Ramification is controlled by the discriminant |
+| Whether an element's size is arithmetic | Field norm | Norm formulas depend on the chosen field and embedding |
+| Whether real quadratic units are infinite | Pell equation / fundamental unit | Unit structure differs sharply between real and imaginary fields |
+| Whether class number can be computed directly | Minkowski bound and ideal relations | Computation grows quickly beyond small fields |
+| Whether the ring of integers is a PID | Check `h_K = 1` | UFD/PID behavior is global, not visible from one factorization |
+| Whether unique factorization failed | Class group `Cl(K)` | Ideals factor uniquely even when elements do not |
+| Whether algebraic number theory underlies lattice crypto | Ring-LWE or NTRU ideal-lattice setting | Security depends on concrete parameter and hardness assumptions |
 
 ---
 

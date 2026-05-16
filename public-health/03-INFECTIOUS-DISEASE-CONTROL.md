@@ -1,6 +1,6 @@
 # Infectious Disease Control
 
-## Transmission Dynamics — The Big Picture
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -264,18 +264,28 @@ AMR THREAT LANDSCAPE:
   - Agricultural: reduce non-therapeutic agricultural antibiotic use
 ```
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Surveillance systems that detect outbreaks | `public-health/02-DISEASE-SURVEILLANCE.md` |
+| Global-health coordination for control programs | `public-health/07-GLOBAL-HEALTH.md` |
+| Health-policy levers and institutions | `public-health/08-HEALTH-POLICY.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Control question | Tool/concept |
-|---|---|
-| Will this outbreak grow? | Estimate Rt — if <1, declining |
-| What vaccination coverage is needed? | p* = 1 − 1/R₀ |
-| How long to quarantine contacts? | Maximum incubation period |
-| Is this point source or propagated? | Epidemic curve shape |
-| Which contacts to prioritize for tracing? | Highest-risk exposures, presymptomatic window |
-| How much do school closures help? | 15-25% Rt reduction, evidence variable |
-| Control a vector-borne disease | LLIN/IRS for malaria; source reduction for dengue |
-| Reduce hospital AMR | Antibiotic stewardship + contact precautions |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Outbreak growth | Estimate `Rt`; below 1 means declining transmission | `Rt` is context-sensitive and lagged by observation/reporting delay. |
+| Vaccination coverage | Herd threshold `p* = 1 - 1/R0` | Clustering and heterogeneity allow local outbreaks above global threshold. |
+| Quarantine duration | Maximum incubation period plus test timing | Compliance and cost can make shorter tested quarantine better in practice. |
+| Point-source versus propagated spread | Epidemic-curve shape and exposure timing | Case-definition changes and reporting artifacts can mimic dynamics. |
+| Contact-tracing priority | Highest-risk exposures and presymptomatic transmission window | Serial interval versus incubation period determines urgency. |
+| School-closure effect | Expected `Rt` reduction and setting-specific contact structure | Evidence varies; costs and substitution behavior matter. |
+| Vector-borne control | LLIN/IRS for malaria; source reduction for dengue | Vector ecology determines which tool is plausible. |
+| Hospital AMR reduction | Antibiotic stewardship plus contact precautions | Stewardship without infection-control operations underperforms. |
 
 ## Common Confusion Points
 

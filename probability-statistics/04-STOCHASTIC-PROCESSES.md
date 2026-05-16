@@ -408,18 +408,24 @@ Spectral properties of random matrices — essential for PCA in high dimensions 
 
 ---
 
+## Cross-References
+
+- `probability-statistics/02-RANDOM-VARIABLES.md` — processes are indexed families of random variables.
+- `probability-statistics/08-TIME-SERIES.md` — observed temporal data as modeled stochastic processes.
+- `signal-processing/06-STOCHASTIC-SIGNALS.md` — stochastic processes as noisy signals in engineering systems.
+
 ## Decision Cheat Sheet
 
-| Process | Use When | Key Parameter |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Discrete Markov chain | System with countable states, memoryless transitions | Transition matrix P |
-| Poisson process | Count of events, exponential interarrivals | Rate lambda |
-| Brownian motion | Continuous diffusion, finance | Volatility sigma |
-| Geometric BM | Multiplicative processes, stock prices | Drift mu, volatility sigma |
-| Ornstein-Uhlenbeck | Mean-reverting diffusion | Mean theta, reversion kappa |
-| Martingale | Fair-game structure, optional stopping | Filtration |
-| Gaussian process | Function estimation with uncertainty | Mean m(t), kernel k(s,t) |
-| HMM | Latent state inference from observations | A, B, pi |
+| Whether countable states evolve memorylessly | Discrete Markov chain | The transition matrix encodes a one-step Markov assumption |
+| Whether event counts have independent exponential gaps | Poisson process | Rate homogeneity fails under clustering or seasonality |
+| Whether continuous diffusion is the right primitive | Brownian motion | Paths are nowhere differentiable despite continuous trajectories |
+| Whether growth is multiplicative and noisy | Geometric Brownian motion | Log-normal tails and constant volatility are modeling choices |
+| Whether a diffusion mean-reverts | Ornstein-Uhlenbeck process | Linear pullback misses regime shifts and nonlinear saturation |
+| Whether fair-game conditioning is central | Martingale with filtration | Optional stopping requires technical boundedness/integrability conditions |
+| Whether unknown functions need uncertainty bands | Gaussian process | Kernel choice encodes smoothness and extrapolation assumptions |
+| Whether latent states emit observations | Hidden Markov model | State count and emission assumptions can dominate inference |
 
 ---
 

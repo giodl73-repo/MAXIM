@@ -52,7 +52,8 @@ LABOR ECONOMICS (Bangladesh, 2024)
   Factory margin: ~2-4% of factory price
 
 TIER 1 GEOGRAPHY
-  Bangladesh: ~40% of global garment exports; $44B industry
+  Bangladesh: major garment exporter; apparel dominates national exports;
+              roughly $45-50B annual garment export scale, not 40% of global trade
   China: declining share but still dominant in complex items
   Vietnam: fast-growing; $44B exports
   Cambodia: $10B exports
@@ -139,8 +140,8 @@ RICHEMONT (Johann Rupert, Swiss-listed)
 TAPESTRY (US)
   Coach, Kate Spade, Stuart Weitzman
   Mid-luxury; accessible luxury price points
-  Failed merger with Capri Holdings (Versace, Jimmy Choo, Michael Kors)
-  blocked by FTC in 2023
+  Proposed merger with Capri Holdings (Versace, Jimmy Choo, Michael Kors)
+  challenged by FTC in 2024 and abandoned after the injunction
 
 INDITEX (Amancio Ortega, Spanish)
   Zara (~70% of Inditex revenue), Massimo Dutti, Pull&Bear, Bershka
@@ -288,6 +289,12 @@ RESALE MARKET (disruption from below)
 
 ---
 
+## Cross-References
+
+- [Ready-to-Wear and Pret-a-Porter](02-RTW-PRÊT.md) explains the production model that industrial fashion scales.
+- [Fast Fashion](05-FAST-FASHION.md) shows how supply-chain speed changes the industry's economics.
+- [Sustainable Fashion](07-SUSTAINABILITY.md) follows the environmental and labor constraints created by mass production.
+
 ## Common Confusion Points
 
 **"Brands own factories"** -- Almost no major Western brands own factories.
@@ -314,12 +321,12 @@ The supply chain tier structure (Tier 1 = cut-sew factory; Tier 2 = fabric mill;
 
 ## Decision Cheat Sheet
 
-| When you need to...                                      | Strategy / Key concept                    | Because                                                  |
-|----------------------------------------------------------|-------------------------------------------|----------------------------------------------------------|
-| Choose vertical integration vs outsourced manufacturing  | Vertical: time-to-market + quality control| Zara/Inditex model; higher capex, lower markdowns        |
-| Assess audit reach across the supply chain               | Tier 1 auditable; Tier 2/3 are visibility gaps | Regulatory compliance (EU CSDDD) requires deeper reach   |
-| Understand luxury conglomerate economics                 | LVMH bag: 80-90% gross margin             | Brand value, not production cost, drives price           |
-| Evaluate DTC vs wholesale channel economics              | DTC: 2x margin; wholesale: lower CAC      | Trade-off is margin per unit vs customer acquisition cost|
-| Diagnose why a $5 shirt exists                           | Volume + margin compression + labor cost externalization | Brand pricing power squeezes factory margins to <5%     |
-| Assess post-Rana-Plaza regulatory landscape              | Bangladesh Accord (binding) vs Alliance (voluntary) | Binding accords with enforcement mechanisms are more effective |
-| Map market concentration in luxury                       | LVMH + Kering + Richemont = ~60%+ of luxury market | Conglomerate model: shared services, brand portfolio    |
+| If you need to diagnose... | Start With | Watch-Out |
+|----------------------------|------------|-----------|
+| Why a cheap garment can exist | Factory price, labor share, markdown risk, and brand markup | Low retail price usually means labor, safety, or environmental costs are externalized somewhere |
+| Whether a brand controls production risk | Ownership model: vertical, wholesale, concession, DTC, or outsourced sourcing | Brands often control price/specs without legally employing workers |
+| How far an audit can see | Tier 1 vs Tier 2/3 supplier visibility | Passing Tier 1 audits does not prove yarn, dye, fiber, or subcontractor compliance |
+| Why luxury pricing decouples from cost | Gross margin, scarcity, marketing, and brand portfolio economics | High price can indicate brand power rather than material or labor cost |
+| Whether DTC is operationally better | Margin capture vs CAC, fulfillment, shipping, and returns | DTC can improve brand economics while worsening parcel-level logistics |
+| Whether post-Rana-Plaza reform is real | Binding Accord-style enforcement vs voluntary programs | Building safety can improve while wages and purchasing pressure remain unresolved |
+| Why fast fashion has a cash-flow advantage | Shorter cycle time, lower inventory risk, and in-season response | Speed reduces markdown risk but increases volume pressure |

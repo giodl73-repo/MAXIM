@@ -338,6 +338,12 @@ MAGAZINE EXAMPLE:
 
 ---
 
+## Cross-References
+
+- [Swiss Style](02-SWISS-STYLE.md) shows grid systems as a central International Style tool.
+- [Typography in Graphic Design](05-TYPOGRAPHY-DESIGN.md) connects grids to type hierarchy, measure, and rhythm.
+- [Digital Transition](08-DIGITAL-TRANSITION.md) follows grids into screen, web, and responsive layout systems.
+
 ## Common Confusion Points
 
 **"Grid = columns"** -- A grid includes margins, gutters, columns, AND baseline.

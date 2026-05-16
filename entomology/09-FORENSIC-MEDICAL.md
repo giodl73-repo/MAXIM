@@ -2,7 +2,12 @@
 
 ## The Big Picture
 
-Forensic entomology uses insect succession patterns on remains to estimate postmortem interval (PMI). Medical entomology covers the insects and arachnids that cause disease — either as direct parasites or as vectors of pathogens. Together they represent the applied entomological interface with human welfare: one solves crimes, the other prevents death from disease.
+Forensic entomology uses insect development and succession patterns on remains
+to estimate a minimum postmortem interval and reconstruct exposure conditions.
+Medical entomology covers insects and arachnids that cause harm directly or act
+as pathogen vectors. Together they represent the applied entomological interface
+with human welfare: one contributes evidence under uncertainty, the other targets
+disease transmission mechanisms.
 
 ```
 ENTOMOLOGY-HUMAN WELFARE INTERFACE
@@ -390,23 +395,31 @@ The R₀ threshold for epidemic spread (R₀ > 1 sustains transmission; R₀ < 1
 
 ## Decision Cheat Sheet
 
-| Disease | Vector | Pathogen | Key control |
-|---------|--------|----------|-------------|
-| Malaria | Anopheles spp. | Plasmodium spp. | LLINs + IRS + ACTs |
-| Dengue/Zika | Aedes aegypti | Flavivirus | Container removal; Wolbachia |
-| Yellow fever | Aedes aegypti | Flavivirus | Vaccine (17D) |
-| West Nile | Culex pipiens | Flavivirus | Larval control; surveillance |
-| Lyme disease | Ixodes scapularis | Borrelia burgdorferi | Tick checks; habitat modification |
-| Chagas | Triatoma spp. | Trypanosoma cruzi | Housing improvement; spraying |
-| Onchocerciasis | Simulium spp. | Onchocerca volvulus | Ivermectin + Bti |
-| Sleeping sickness | Glossina spp. | Trypanosoma brucei | SIT; deltamethrin targets |
-| PMI estimation | Calliphoridae | - | ADH method; degree-day accumulation |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| PMI estimate | Species ID, oldest stage, temperature history, and colonization access | Insect evidence usually gives minimum PMI, not exact time of death |
+| Succession claim | Decomposition stage, habitat, season, and body access | Indoor, buried, wrapped, burned, or moved remains change colonization |
+| Degree-day claim | Development threshold and local microclimate | Maggot masses generate heat; weather stations can mislead |
+| Vector competence claim | Can the vector acquire, maintain, and transmit the pathogen | Competence is per-vector biology, not population transmission risk |
+| Vectorial capacity claim | Density, biting rate, survival, and extrinsic incubation period | Mosquito longevity often dominates because of the p^n term |
+| Malaria-control claim | LLINs, IRS, ACTs, larval control, and surveillance | Insecticide resistance changes which lever works |
+| Arbovirus-control claim | Aedes container habitat, biting behavior, and Wolbachia/vector control | Vaccine availability differs sharply by disease |
+| Tick-borne disease claim | Host reservoir, tick life stage, habitat, and human exposure | Ticks are arachnids but belong in medical entomology practice |
 
 ---
 
+## Cross-References
+
+- `03-METAMORPHOSIS.md` explains the developmental timing used in forensic estimates.
+- `07-INSECT-ECOLOGY.md` connects succession and habitat to forensic interpretation.
+- `../public-health/00-OVERVIEW.md` places vector-borne disease inside population health.
+
 ## Common Confusion Points
 
-**PMI vs time since death**: PMI (postmortem interval) starts at death. "Time since death" is the same thing. Insect-based PMI gives the minimum time (oviposition lag adds 1-6 hours from death to first egg). The actual PMI may be longer if colonization was delayed.
+**PMI vs time since death**: PMI (postmortem interval) starts at death, but
+insect-based evidence usually estimates minimum PMI because colonization may lag
+death. Weather, access, wrapping, burial, toxicology, and maggot-mass heat can
+all widen the uncertainty interval.
 
 **Vector competence vs capacity**: Competence = can the mosquito actually replicate and transmit the pathogen (intrinsic, per-mosquito)? Capacity = how many secondary cases does one infectious case generate through vectors (population-level, includes density, survival, biting rate)? A competent vector with low density has low capacity.
 

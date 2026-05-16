@@ -350,27 +350,23 @@ EVIDENCE: Hox gene expression
 
 ---
 
+## Cross-References
+
+- `animal-phylogeny/07-DEUTEROSTOMES-ECHINODERMS.md` — deuterostome background.
+- `animal-phylogeny/09-FISH.md` — vertebrate radiation after chordate origins.
+- `developmental-biology/04-HOX-GENES.md` — axial-patterning toolkit behind chordate form.
+
 ## Decision Cheat Sheet
 
-```
-IS IT A CHORDATE? (at any life stage)
-  Has notochord + dorsal nerve cord + pharyngeal slits?
-  → CHORDATA
-
-  No vertebrae, sessile adult, tunic covering?
-    → UROCHORDATA (tunicate)
-    Solitary, two siphons? → Ascidiacea (sea squirt)
-    Colonial, star-shaped? → Botryllus
-    Pelagic, barrel-shaped? → Salp or Doliolid
-
-  No vertebrae, buries in sand, fish-like but translucent?
-    → CEPHALOCHORDATA (lancelet / amphioxus)
-
-  Has vertebral column?
-    → VERTEBRATA (next files)
-    No jaws, eel-like? → AGNATHA (lamprey or hagfish)
-    Has jaws?          → GNATHOSTOMATA (all jawed vertebrates)
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether an animal is chordate | Notochord, dorsal nerve cord, and pharyngeal slits at some life stage | Adult morphology may hide larval chordate traits. |
+| Whether a sessile adult is tunicate | Tunic, siphons, and chordate larval stage | Tunicates are not vertebrate ancestors; their sessile adult is derived. |
+| Whether a tunicate form is solitary, colonial, or pelagic | Two siphons, star-shaped colonies, or barrel-shaped planktonic body | Tunicate ecology varies more than the sea-squirt stereotype suggests. |
+| Whether a fish-like invertebrate is cephalochordate | Sand-burrowing translucent lancelet body with no vertebrae | Amphioxus is not a fish; it preserves pre-vertebrate chordate architecture. |
+| Whether a chordate is vertebrate | Vertebral column, skull/neural-crest-associated features | The notochord persists in vertebrates as intervertebral-disc material. |
+| Whether jawless versus jawed vertebrate matters | Eel-like jawless form versus gnathostome jaws | Jaw state is a deep vertebrate split, not just a feeding-style detail. |
+| Whether embryonic pharyngeal structures imply "gills" | Pharyngeal arches and pouches | Human embryos do not form open gill slits; the homology is developmental, not literal fish anatomy. |
 
 ---
 

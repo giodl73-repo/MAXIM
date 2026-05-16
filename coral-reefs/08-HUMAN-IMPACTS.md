@@ -287,18 +287,23 @@ ECONOMIC JUSTIFICATION:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why is parrotfish loss so damaging? | Herbivory; without parrotfish/urchins, algae overgrow and block coral recruitment |
-| What triggers CoTS outbreaks? | Nutrient-enhanced phytoplankton boosts larval survival; amplified by predator removal |
-| What does blast fishing do to reef structure? | Shatters skeleton into rubble; leaves bare zones that don't recover naturally |
-| What is cyanide fishing? | Squirts cyanide into coral crevices to stun fish; kills coral tissue |
-| Which sunscreen chemical is most harmful? | Oxybenzone (BP-3); causes bleaching, DNA damage at parts per trillion |
-| What is the reef safe sunscreen alternative? | Non-nano zinc oxide or titanium dioxide mineral sunscreens |
-| Why do no-take zones help adjacent fished areas? | Spillover effect — large fish reproduce more in protected zones, juveniles disperse |
-| What fraction of GBR is no-take? | ~33% after 2004 rezoning |
-| What is the trophic cascade from shark removal? | Mesopredators released → eat more herbivores → algal bloom |
-| Can local management substitute for climate action? | No — buys time, slows rate of decline, improves recovery capacity |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Herbivore loss | Track parrotfish, urchins, algal cover, coral recruitment, fishing pressure, and predator structure. | Herbivory protects recovery space but cannot reverse severe heat stress by itself. |
+| Crown-of-thorns outbreaks | Check nutrient pulses, phytoplankton, larval survival, predator removal, and outbreak wave timing. | CoTS outbreaks are ecological amplifiers, not isolated starfish accidents. |
+| Destructive fishing damage | Separate blast rubble, cyanide toxicity, live-coral mortality, structural complexity loss, and recovery substrate. | Physical framework loss is harder to reverse than temporary fish-stock depletion. |
+| A sunscreen or chemical-toxicity claim | Examine compound, concentration, exposure pathway, local dilution, coral life stage, and regulatory threshold. | Lab toxicity does not map directly to reef-scale risk without exposure context. |
+| Marine-protected-area benefits | Evaluate no-take fraction, enforcement, habitat coverage, adult spillover, larval export, and community compliance. | Paper parks do little; protection has to be large, connected, and enforced. |
+| A trophic-cascade claim | Follow shark/predator removal, mesopredator release, herbivore pressure, algal growth, and coral recruitment. | Cascades are site-specific and can be swamped by climate or nutrient stress. |
+| A local-management claim | Combine fishing, water quality, coastal development, protected areas, restoration, and thermal stress trajectory. | Local management improves resilience and recovery odds; it does not replace emissions reduction. |
+
+---
+
+## Cross-References
+
+- `05-BLEACHING.md` covers the dominant climate-linked physiological stressor.
+- `07-REEF-CHEMISTRY.md` explains ocean acidification and carbonate saturation mechanics.
+- `09-RESTORATION.md` distinguishes impact reduction from active reef repair.
 
 ---
 

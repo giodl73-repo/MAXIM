@@ -519,17 +519,24 @@ The person who produces tiles (in a factory or studio) and the person who instal
 
 ---
 
+## Cross-References
+
+- `00-OVERVIEW.md` frames ceramic types, processes, and use cases before the trade specialization layer.
+- `05-FIRING-KILNS.md` explains why kiln masters and firing specialists become separate skill roles.
+- `../manufacturing/00-OVERVIEW.md` connects craft division of labor to industrial production systems.
+
+---
+
 ## Decision Cheat Sheet
 
-| If You're Asking About... | Look Here |
-|---------------------------|-----------|
-| Who makes the molds at Meissen | Model maker (Kändler), mold maker |
-| Why industrial pottery uses division of labor | Wedgwood's explicit organizational innovation |
-| The firing specialist in a traditional pottery | Kiln master / fireman |
-| Women in pottery traditions | African/Native American hand-building; gendered wheel-throwing |
-| How a studio potter actually makes a living | Three-legged stool (making/selling/teaching) |
-| Best technical ceramics education (worldwide) | German Keramiker apprenticeship |
-| Best studio ceramics education (US) | Alfred University, Haystack, Penland |
-| Who painted Meissen ware | Specialist enamellist/porcelain painter (by subject type) |
-| Two-city Chinese export porcelain | Made in Jingdezhen, decorated in Guangzhou (Canton) |
-| Large-format industrial tile production | Dust pressing, 200-400 tonne presses |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Porcelain factory labor | Separate model maker, mold maker, caster, thrower, trimmer, kiln staff, and painter roles. | A named artist may represent design authority, not all hands on the object. |
+| Industrial division of labor | Examine Wedgwood-style task specialization, quality control, throughput, training, and capital equipment. | Efficiency gains can detach makers from full-object authorship. |
+| Kiln responsibility | Identify kiln master/fireman role, fuel, atmosphere, pyrometric control, loading, and firing risk. | Firing expertise is both craft judgment and production bottleneck. |
+| Gendered pottery tradition | Compare hand-building, wheel throwing, market access, ritual roles, and colonial/industrial disruption. | Gender divisions are historically specific, not universal craft facts. |
+| Studio-potter livelihood | Check sales mix, teaching, workshops, commissions, gallery margin, online sales, and production capacity. | Artistic autonomy often depends on non-making income. |
+| Technical ceramics training | Compare apprenticeship, materials science, process control, metrology, kiln/furnace operation, and QA. | Industrial expertise is less about style than repeatable tolerances. |
+| Studio ceramics education | Evaluate critique culture, kiln access, glaze chemistry, residency network, market support, and safety training. | Prestigious programs do not replace material/process competence. |
+| Meissen or export decoration | Track blank production, enamelling, subject specialization, export route, and decorating center. | Decoration site and body-production site may differ. |
+| Industrial tile production | Inspect powder preparation, dust pressing, press tonnage, drying, glazing, firing curve, and warpage control. | Large format magnifies small process errors. |

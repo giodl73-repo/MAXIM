@@ -351,16 +351,27 @@ The Nordic countries are the reference case for low-incarceration, rehabilitatio
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Classical and deterrence foundations | `criminology/01-CLASSICAL-THEORIES.md` |
+| Comparative policing institutions | `criminology/06-POLICING.md` |
+| Punishment and incarceration regimes | `criminology/07-INCARCERATION.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Comparison | US | Germany | Norway | What It Shows |
-|-----------|-----|---------|--------|---------------|
-| Incarceration rate | ~600 | ~70 | ~55 | Policy choice |
-| Max sentence | Life / death | 15 years | 21 years | Punishment philosophy |
-| Prosecutor type | Elected DA | Civil servant | Civil servant | Political insulation matters |
-| System type | Adversarial | Inquisitorial | Inquisitorial | Trial process |
-| Prison philosophy | Punishment/incapacitation | Resocialization | Normalization | Reform potential |
-| Recidivism (~3yr) | ~68% rearrest | ~35% | ~20% | Outcomes |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Incarceration-rate differences | US, Germany, Norway rates as policy-output comparison | Lower incarceration does not automatically mean lower crime; compare inputs and outputs separately. |
+| Maximum sentence philosophy | Life/death versus finite maximums and review structures | Sentence ceilings reveal punishment theory, not just severity tolerance. |
+| Prosecutorial politics | Elected DA versus civil-service prosecutor systems | Political insulation changes incentives but does not remove discretion. |
+| Trial system differences | Adversarial versus inquisitorial process | Modern systems mix features; treat the contrast as heuristic, not binary. |
+| Prison purpose | Punishment/incapacitation, resocialization, normalization | Philosophy affects daily regime, staff role, and reentry outcomes. |
+| Recidivism comparisons | Rearrest/reconviction/reincarceration definitions across systems | Measures differ; do not compare headline percentages without denominator and definition. |
+| Transitional justice cases | Truth commissions, lustration, reparations, hybrid tribunals | Accountability/truth tradeoffs vary by regime transition and enforcement capacity. |
 
 ---
 

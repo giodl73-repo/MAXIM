@@ -334,20 +334,26 @@ When p >> n (more predictors than observations):
 
 ---
 
+## Cross-References
+
+- `probability-statistics/05-STATISTICAL-INFERENCE.md` — estimation, testing, and confidence intervals for model parameters.
+- `probability-statistics/06-BAYESIAN-STATISTICS.md` — Bayesian regression and posterior predictive uncertainty.
+- `machine-learning-theory/04-BIAS-VARIANCE.md` — model complexity and generalization tradeoffs.
+
 ## Decision Cheat Sheet
 
-| Situation | Model | Key Hyperparameter |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Continuous Y, Gaussian errors | OLS | None |
-| Binary Y | Logistic regression | None (or regularization lambda) |
-| Count Y | Poisson regression | None |
-| Count Y with overdispersion | Negative binomial regression | Dispersion |
-| Positive Y, skewed | Gamma regression | None |
-| Multicollinearity, all predictors matter | Ridge | lambda (CV) |
-| Sparse true model | Lasso | lambda (CV) |
-| Correlated predictors, sparse model | Elastic Net | alpha, lambda (CV) |
-| Grouped/repeated-measures data | Linear mixed model | Random effects variance |
-| p >> n | Lasso/Ridge | lambda (CV) |
+| Whether continuous outcomes have Gaussian residuals | OLS | Residual structure and omitted variables matter more than formula familiarity |
+| Whether the outcome is binary | Logistic regression | Separation and calibration can break naive fits |
+| Whether counts are equidispersed | Poisson regression | Overdispersion invalidates standard errors and intervals |
+| Whether count variance exceeds the mean | Negative-binomial regression | Dispersion may reflect latent heterogeneity or zero inflation |
+| Whether positive skewed outcomes need a GLM | Gamma regression | Link choice changes interpretation |
+| Whether multicollinearity inflates variance | Ridge regression | Ridge keeps all predictors and shrinks interpretation |
+| Whether sparsity is plausible | Lasso | Correlated predictors make variable selection unstable |
+| Whether sparse correlated predictors coexist | Elastic net | `alpha` controls the ridge/lasso compromise |
+| Whether observations are grouped or repeated | Linear mixed model | Random-effects structure is a modeling assumption |
+| Whether predictors exceed observations | Regularized regression | Cross-validation tunes prediction, not causal validity |
 
 ---
 

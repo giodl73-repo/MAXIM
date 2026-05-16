@@ -356,15 +356,26 @@ BRI — IMPERIAL OR NOT?
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Decolonization as imperial breakdown | `political-history/04-DECOLONIZATION.md` |
+| World wars as imperial-order rupture | `political-history/03-WORLD-WARS.md` |
+| Historiography of empire | `political-history/09-HISTORIOGRAPHY.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Theory | Core claim | Best case | Weakness |
-|--------|-----------|-----------|----------|
-| Hobson | Finance capital exports; empire secures investment | Late British Empire | Capital went to settled not tropical colonies |
-| Lenin | Imperialism = monopoly capitalism's final stage | WWI as war for redivision | Predictive failure (capitalism survived) |
-| Schumpeter | Imperialism = pre-capitalist warrior class atavism | Wilhelmine Germany | Can't explain commercial British imperialism |
-| Robinson-Gallagher | Informal preferred; formal when local collaboration collapses | Egypt 1882, West Africa | Downplays economic motives |
-| Frank | Peripheral underdevelopment produced by core | Latin American stagnation | East Asian development disproves it |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Finance-capital explanations | Hobson on investment export and empire | Capital flows often favored settler colonies, complicating tropical-imperial claims. |
+| Monopoly-capitalism explanations | Lenin on imperialism as capitalism's final stage | Strong for WWI framing; weak as prediction that capitalism would collapse. |
+| Atavistic-state explanations | Schumpeter on warrior elites and pre-capitalist residues | Explains some militarism poorly suited to commercial empire cases. |
+| Informal-to-formal transition | Robinson-Gallagher collaboration and intervention | Downplays economic motives if treated as a full replacement explanation. |
+| Dependency accounts | Frank on core/periphery underdevelopment | East Asian development and developmental states complicate deterministic dependency. |
+| Debt-trap claims | Infrastructure finance, collateral, and bargaining asymmetry | Some dependency effects are real even when systematic intentional trap claims are weak. |
 
 ---
 

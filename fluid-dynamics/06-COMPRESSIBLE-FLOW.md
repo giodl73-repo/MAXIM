@@ -250,18 +250,28 @@ This is why reentry vehicles need thermal protection systems (ablative tiles on 
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Continuum equations before compressibility enters | `fluid-dynamics/01-CONTINUUM-MECHANICS.md` |
+| Inviscid flow assumptions and their limits | `fluid-dynamics/02-INVISCID-FLOW.md` |
+| Aerodynamic regimes and shock-bearing flows | `fluid-dynamics/07-AERODYNAMICS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Situation | Tool |
-|----------|------|
-| Check if compressibility matters | Ma < 0.3 → incompressible; Ma > 0.3 → use compressible formulas |
-| Stagnation temperature | T₀ = T(1 + (γ-1)M²/2) |
-| Normal shock M₂ from M₁ | Use Rankine-Hugoniot; M₂ < 1 always |
-| Supersonic nozzle throat | A* = A at M=1; use A/A* relation for given M |
-| Oblique shock deflection | θ-β-M relation; weak shock branch |
-| Flow around a corner (turning away) | Prandtl-Meyer expansion fan (isentropic) |
-| Shock tube analysis | Rankine-Hugoniot for shock; isentropic for rarefaction |
-| Heating at high M | T₀ = T(1 + 0.2M²) for air |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether compressibility matters | Mach threshold: below about 0.3 often incompressible; above needs compressible treatment | Heat release, density variation, or acoustics can force compressible thinking earlier. |
+| Stagnation temperature | `T0 = T(1 + (gamma - 1)M^2/2)` | Assumes adiabatic flow with ideal-gas heat-capacity model. |
+| Normal shock downstream Mach | Rankine-Hugoniot relations | Normal shocks are irreversible; total pressure always drops. |
+| Supersonic nozzle throat | Choked condition `A*` at `M = 1` and area-Mach relation | Back pressure determines whether shocks appear inside or outside the nozzle. |
+| Oblique shock deflection | `theta-beta-M` relation and weak/strong branches | Real flows usually select weak branch until constraints force otherwise. |
+| Turning away from supersonic flow | Prandtl-Meyer expansion fan | Expansion fans are isentropic; shocks are not. |
+| Shock tube dynamics | Rankine-Hugoniot for shock plus isentropic rarefaction | Contact discontinuity and driver/driven gases matter. |
+| High-Mach heating | Air estimate `T0 = T(1 + 0.2M^2)` | At high temperature, real-gas chemistry breaks constant-gamma formulas. |
 
 ---
 

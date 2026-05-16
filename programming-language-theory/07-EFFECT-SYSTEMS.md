@@ -357,17 +357,23 @@ RUST'S EFFECT ENCODING VIA LINEAR TYPES:
 
 ---
 
+## Cross-References
+
+- `04-DENOTATIONAL-SEM.md` motivates monads and effectful meaning.
+- `08-COMPILER-SEMANTICS.md` shows how effects constrain optimization.
+- `09-MODERN-FRONTIERS.md` connects effects to algebraic and production type systems.
+
 ## Decision Cheat Sheet
 
-| Need | Approach | Language |
-|------|----------|----------|
-| Effect tracking via types | IO/State monads | Haskell |
-| Multiple effects with less boilerplate | mtl typeclasses | Haskell |
-| Maximum compositionality for effects | Algebraic effects + handlers | Koka, OCaml 5, Eff |
-| Zero-cost effects in production | OCaml 5 effects | OCaml |
-| Memory safety as effect | Ownership / affine types | Rust |
-| Protocol state machines | Linear types / session types | Idris 2 |
-| Capture effects in OO language | Capture checking (experimental) | Scala 3 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Typed effect tracking | IO/State monads | Monads model many sequential structures, not just IO. |
+| Multiple effects with lower boilerplate | `mtl`-style typeclasses | Transformer order can change semantics. |
+| Composable user-defined effects | Algebraic effects and handlers | Handler order is explicit semantic design. |
+| Production resumable effects | OCaml 5 effects | Effects capture continuations; exceptions do not resume. |
+| Memory safety as discipline | Ownership and affine types | Rust prevents safe-code UB, not every logic bug. |
+| Protocol-state correctness | Linear or session types | Expressiveness can exceed mainstream ergonomics. |
+| Object-language capture control | Scala 3 capture checking experiments | Experimental systems may not represent stable production practice. |
 
 ---
 

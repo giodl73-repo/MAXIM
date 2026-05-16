@@ -290,6 +290,12 @@ ANTI-ENTROPY (background, asynchronous)
 
 ---
 
+## Cross-References
+
+- `02-CONSISTENCY-MODELS.md` defines the guarantees replication protocols can and cannot provide.
+- `03-CONSENSUS.md` supplies the coordination substrate for strongly consistent replication.
+- `07-CAP-THEOREM.md` explains the availability and partition-tolerance tradeoff behind replication choices.
+
 ## Common Confusion Points
 
 **"Replication = higher availability"**
@@ -308,11 +314,11 @@ Leaderless systems avoid the leader-election split-brain problem, but can have w
 
 ## Decision Cheat Sheet
 
-| Use Case | Replication Strategy |
-|----------|---------------------|
-| OLTP with strong consistency | Single-leader, synchronous replication |
-| Read-heavy workload | Single-leader, multiple read replicas |
-| Multi-region active-active | Multi-leader with CRDT or application-level merge |
-| Maximum availability, tunable consistency | Leaderless (DynamoDB/Cassandra style) |
-| Coordination / metadata | Consensus-based (etcd/ZooKeeper — not replication) |
-| Global SQL with external consistency | Spanner / CockroachDB (Paxos per shard) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether single-leader fits | Check write locality, failover time, synchronous vs asynchronous replicas, fencing, and read-staleness tolerance. | Single-leader simplifies conflicts but can reduce write availability during leader failure. |
+| Whether read replicas solve the problem | Measure read/write ratio, replica lag, read-your-writes needs, and query isolation. | More replicas improve read scale but can increase freshness ambiguity. |
+| Whether multi-leader is safe | Identify conflict frequency, merge semantics, user locality, clock use, and application invariants. | Active-active is easy for independent writes and hard for uniqueness or balance invariants. |
+| Whether leaderless/quorum replication fits | Tune N/R/W, hinted handoff, read repair, anti-entropy, and conflict resolution. | W+R>N only helps when quorums are real and overlap; sloppy quorum weakens that assumption. |
+| Whether consensus is actually needed | Ask whether the data is coordination metadata, locks, membership, or configuration. | Consensus systems replicate state, but the point is agreement, not read scaling. |
+| Whether global SQL is appropriate | Check latency budget, external consistency requirement, shard locality, clock assumptions, and transaction scope. | Strong global transactions trade off against tail latency and regional independence. |

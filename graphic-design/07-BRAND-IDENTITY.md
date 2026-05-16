@@ -337,6 +337,12 @@ LESSON: Logo evolution should track brand evolution.
 
 ---
 
+## Cross-References
+
+- [American Modernism](03-AMERICAN-MODERNISM.md) gives the corporate-identity lineage behind modern branding.
+- [Color Theory and Brand](06-COLOR-IN-DESIGN.md) explains color as part of identity recognition and differentiation.
+- [Digital Transition](08-DIGITAL-TRANSITION.md) shows how brand systems adapt to screens, components, and responsive contexts.
+
 ## Common Confusion Points
 
 **"A logo redesign means the brand changed"** -- The logo is the visible signal.

@@ -76,7 +76,8 @@ RESCUE
 
 ACCOUNTABILITY
   Sohel Rana: arrested; murder charges filed
-  Trial: still ongoing as of 2024 (11+ years later)
+  Trial: remained unresolved for years after the collapse, with proceedings
+         repeatedly delayed
   Factory managers: some charged; complex legal proceedings
   Brands: civil liability; compensation processes varied
 ```
@@ -156,7 +157,8 @@ ACCORD (legally binding)
                Primark, C&A, s.Oliver, and others)
   Key terms:
   - Independent safety inspections (not self-certification)
-  - BINDING: brands legally obligated to pay for required remediation
+  - BINDING: brands legally obligated to ensure required remediation
+    is financed and completed at covered factories
   - Workers: can refuse unsafe work without penalty
   - Joint union-brand committee: governing body includes workers
   - Duration: initially 5 years; extended; became International Accord
@@ -164,8 +166,8 @@ ACCORD (legally binding)
   WHY "BINDING" MATTERS:
   Previous codes of conduct: voluntary; no enforcement mechanism
   Accord: legally enforceable in country of brand domicile
-  If H&M doesn't fund repairs at an Accord factory, they can be sued
-  (This has been used: Inditex faced arbitration)
+  If a signatory brand fails to meet its Accord obligations, it can face
+  legally enforceable arbitration
 
 RESULTS (2013-2018):
   Inspected: 1,600+ factories
@@ -201,8 +203,8 @@ ALLIANCE (voluntary)
 
 ```
 RANA PLAZA DONORS TRUST FUND
-  Goal: $40 million (full compensation for all victims per ILO formula)
-  Raised: ~$30 million (shortfall persisted)
+  Goal: ~$30 million (full compensation for all victims per ILO formula)
+  Raised: goal reached in 2015 after sustained pressure
 
   Who contributed:
   Primark: paid voluntarily (accepted moral responsibility)
@@ -280,7 +282,7 @@ PROPOSED SOLUTIONS UNDER DEBATE
      Germany: Lieferkettensorgfaltspflichtengesetz (2023) -- supply chain
      due diligence law; brands liable for violations at suppliers
      France: Loi de Vigilance (2017): similar requirement for large French firms
-     EU Corporate Sustainability Due Diligence Directive (CS3D): 2024
+     EU Corporate Sustainability Due Diligence Directive (CSDDD/CS3D): 2024
      USA: No equivalent federal law yet
 
   2. BINDING WAGE FLOORS
@@ -300,6 +302,12 @@ PROPOSED SOLUTIONS UNDER DEBATE
 ```
 
 ---
+
+## Cross-References
+
+- [Fashion Industry](04-FASHION-INDUSTRY.md) supplies the supply-chain structure behind subcontracting and price pressure.
+- [Fast Fashion](05-FAST-FASHION.md) explains the speed and margin logic that made Rana Plaza a systemic warning.
+- [Sustainable Fashion](07-SUSTAINABILITY.md) follows the post-disaster reform agenda into circularity, auditing, and transparency.
 
 ## Common Confusion Points
 
@@ -329,13 +337,13 @@ purely economic one.
 
 ## Decision Cheat Sheet
 
-| I want to understand...                           | Key point                        |
-|---------------------------------------------------|----------------------------------|
-| What happened at Rana Plaza                       | 1,134 dead; foreseeable; 2013    |
-| Why workers entered a building declared unsafe    | Economic coercion; $38/month wage|
-| What the Bangladesh Accord actually does          | Binding safety inspections; legal|
-| Why US brands signed Alliance not Accord          | Less binding; self-policing       |
-| The Triangle Shirtwaist parallel                  | 1911; NYC; 146 dead; labor reform |
-| The legal structure that enables brand impunity   | No employment relationship       |
-| What supply chain due diligence laws do           | Make brands responsible for what |
-|                                                   | they should have known           |
+| If you need to explain... | Start With | Ethical / Legal Point |
+|---------------------------|------------|-----------------------|
+| Whether Rana Plaza was an accident | April 23 warning, cracks, closure order, worker coercion, generator vibration | The collapse was foreseeable and preventable |
+| Why workers entered anyway | Wage precarity and threats of dismissal or lost pay | "Choice" under economic coercion is not meaningful consent |
+| Why brand accountability was hard | Brands contracted with factories but did not directly employ workers | Legal distance created moral and practical distance |
+| Why audits failed | Announced audits, subcontracting, price pressure, and structural blind spots | Compliance paperwork did not change procurement incentives |
+| Why the Accord mattered | Binding inspections, worker refusal rights, union participation, enforceable obligations | Binding mechanisms changed building safety more than voluntary codes |
+| What the Alliance showed | US-brand preference for weaker, brand-controlled commitments | Voluntary self-policing is structurally less accountable |
+| Why Triangle Shirtwaist is the bridge | Visible domestic disaster produced labor-law reform | Rana Plaza exposed what changes when harm is geographically outsourced |
+| What due diligence laws try to fix | Duty to know and act across the supply chain | Ignorance is treated as a governance failure, not an excuse |

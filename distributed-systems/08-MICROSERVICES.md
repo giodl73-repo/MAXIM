@@ -341,6 +341,12 @@ CLIENT-SIDE vs. SERVER-SIDE LOAD BALANCING:
 
 ---
 
+## Cross-References
+
+- `04-REPLICATION.md` explains the data duplication problems microservices inherit.
+- `05-DISTRIBUTED-TRANSACTIONS.md` covers sagas and transaction boundaries across services.
+- `../cloud-architecture/07-CONTAINERS-KUBERNETES.md` gives the deployment substrate for service meshes and discovery.
+
 ## Common Confusion Points
 
 **"Service mesh replaces the API gateway"**
@@ -359,13 +365,12 @@ Sagas provide different guarantees. 2PC provides isolation (other readers don't 
 
 ## Decision Cheat Sheet
 
-| Problem | Pattern |
-|---------|---------|
-| Downstream service is flaky | Circuit Breaker |
-| One service's failures cascade | Bulkhead (thread pool isolation) |
-| Fast producer overwhelms consumer | Backpressure (reactive streams, Kafka as buffer) |
-| Multi-service atomic workflow | Saga (orchestration or choreography) |
-| Service-to-service TLS, retries, routing | Service Mesh (Istio / Linkerd) |
-| External traffic ingress, auth, rate limit | API Gateway (APIM, Kong) |
-| Service location resolution | DNS-based (Kubernetes) or Registry (Consul) |
-| A/B testing in production | Canary routing via service mesh VirtualService |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A flaky dependency | Measure timeout, retry budget, idempotency, circuit-breaker threshold, fallback behavior, and user-visible error. | Retries without budgets can amplify outages. |
+| A cascading failure | Identify shared pools, connection limits, queue depth, bulkhead boundaries, and priority traffic. | Bulkheads preserve capacity for other dependencies; they do not fix the failing dependency. |
+| Producer/consumer overload | Check backpressure signal, queue/broker durability, consumer lag, drop policy, and replay semantics. | Buffers buy time; they do not create infinite capacity. |
+| A cross-service workflow | Decide between saga orchestration, choreography, idempotent steps, compensation, and explicit user-visible states. | Sagas are not ACID transactions; intermediate states can be observable. |
+| Whether a service mesh helps | Look for mTLS, traffic splitting, retries, telemetry, policy, and sidecar/ambient operational cost. | A mesh centralizes cross-cutting traffic policy but adds control-plane complexity. |
+| API gateway vs service discovery | Separate external ingress/auth/rate limits from internal service location and load balancing. | Gateways are edge control points; registries/DNS solve internal lookup. |
+| A canary or A/B rollout | Define traffic split, metrics, rollback threshold, sticky sessions, and data compatibility. | Routing canaries do not protect you from incompatible database/schema changes. |

@@ -252,20 +252,26 @@ Appendix II = regulated (permit required for trade).
 
 ---
 
+## Cross-References
+
+- `02-TANNING-PROCESSES.md` explains how tanning creates different leather behaviors.
+- `03-PATTERN-MAKING.md` uses leather type to plan layout and seam allowance.
+- `06-DYEING-FINISHING.md` depends on surface type and tannage.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the best grade of leather? | Full grain (intact grain surface; develops genuine patina) |
-| What does "genuine leather" mean? | A low quality marketing grade (often split leather); NOT a quality claim |
-| What is the difference between suede and nubuck? | Suede = flesh side of split (weak); nubuck = grain side buffed (stronger) |
-| What is bicast leather? | Split leather with polyurethane coating; a form of bonded leather; avoid |
-| What is pull-up leather? | Lightly finished full/top grain that shows lighter streaks when stretched |
-| How do you identify bonded leather? | Edges show fiber mass or smooth cut; back is fabric/paper; peels after years |
-| What exotic leather is most practical? | Stingray (shagreen) — very hard, water resistant, uniquely patterned |
-| What do CITES regulations affect? | Trade in exotic leathers from protected species (alligator, crocodile, python) |
-| What makes nubuck better than suede? | Made from grain-side leather, so much stronger than split-based suede |
-| What is aniline leather? | Leather dyed with transparent aniline dye; grain fully visible; most natural |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Highest natural leather grade | Full grain with intact grain surface | Marketing uses "full grain" loosely; inspect edges and tannery details. |
+| "Genuine leather" claim | Treat as low-grade marketing language | It usually signals split or heavily processed leather, not quality. |
+| Suede versus nubuck | Suede from flesh side/split; nubuck from buffed grain side | Nubuck is stronger because the grain layer remains. |
+| Bicast/bonded risk | Split or fiber base plus polyurethane coating | Coating can peel; avoid for long-life goods. |
+| Pull-up behavior | Lightly finished leather that lightens when stretched | Pull-up marks are a feature only when patina is desired. |
+| Bonded leather identification | Fiber-mass edge, fabric/paper backing, smooth cut, peeling | It fails by delamination, not graceful aging. |
+| Practical exotic leather | Stingray/shagreen for hardness and water resistance | Hardness makes cutting and stitching more difficult. |
+| Regulated exotic trade | CITES status for alligator, crocodile, python, and related species | Legality depends on documentation and jurisdiction. |
+| Aniline natural look | Transparent dye with visible grain | Natural appearance also means vulnerability to staining and variation. |
+| "Vegan leather" label | Identify actual substrate: PU, PVC, mycelium, plant fiber | It has different properties and care; it is not leather. |
 
 ---
 

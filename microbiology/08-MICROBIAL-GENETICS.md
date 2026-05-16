@@ -437,22 +437,28 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
 
 ---
 
+## Cross-References
+
+- `genomics/01-SEQUENCING-TECH.md` — sequencing technologies for microbial genomes.
+- `microbiology/07-ANTIMICROBIAL-RESISTANCE.md` — resistance genes and plasmid transfer.
+- `genomics/08-BIOINFORMATICS-PIPELINE.md` — computational analysis of microbial genomic data.
+
 ## Decision Cheat Sheet
 
-| Concept | Key Detail |
-|---------|-----------|
-| lac operon logic | Two-input AND: lactose present AND glucose absent |
-| trp operon control | Feedback repression + attenuation (ribosome stalling) |
-| sigma factor function | Swappable RNAP subunit; determines promoter −10/−35 recognition |
-| σ³² function | Heat shock response; released by DnaK titration |
-| Two-component system | HK autophosphorylates His → transfers to RR Asp → gene expression |
-| SOS response trigger | ssDNA → RecA coprotease → LexA cleavage → >40 genes |
-| sRNA regulatory mechanism | Base-pair with mRNA at RBS; requires Hfq chaperone |
-| Riboswitch mechanism | 5' UTR directly binds metabolite; no protein required |
-| CRISPR adaptation | Cas1-Cas2 integrates new spacers from phage DNA |
-| Anti-CRISPR | Phage-encoded inhibitors; Acr-IIA4 mimics DNA; blocks Cas9 |
-| Class 1 integron function | Captures gene cassettes via attI × attC recombination |
-| LTEE key finding | Citrate+ evolution at ~31,500 gen; historical contingency |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| lac operon behavior | Lactose present and glucose absent | Inducer and catabolite control are separate inputs. |
+| trp operon control | Repression plus attenuation | Coupled transcription/translation enables attenuation. |
+| Sigma-factor switching | Promoter-recognition subunit swap | Sigma competition depends on abundance and anti-sigma factors. |
+| Heat-shock sigma response | Sigma 32 released by DnaK titration | Proteostasis load tunes the response. |
+| Two-component signaling | Histidine kinase to response regulator | Cross-talk and phosphatases shape specificity. |
+| SOS induction | ssDNA, RecA, LexA cleavage | SOS repair is mutagenic as well as protective. |
+| sRNA regulation | Hfq-assisted base pairing near RBS | Target accessibility controls effect size. |
+| Riboswitch control | Metabolite binding in 5-prime UTR | No protein sensor is required. |
+| CRISPR adaptation | Cas1-Cas2 spacer acquisition | Spacer choice biases future immunity. |
+| Anti-CRISPR escape | Phage inhibitors of Cas systems | Anti-CRISPRs can be highly system-specific. |
+| Class 1 integron role | Gene-cassette capture via att sites | Integrons mobilize resistance when carried on mobile elements. |
+| LTEE contingency | Citrate-positive evolution after potentiating mutations | Historical contingency is the lesson, not citrate alone. |
 
 ---
 

@@ -32,9 +32,9 @@ Egyptian furniture survives better than almost any other ancient material cultur
 
 ```
 KEY FORMS:
-  Folding stool (diphros okladias): crossed legs with leather seat
+  Folding stool: crossed legs with leather or woven seat
   Throne chair: animal legs (lion paw feet), gilded wood, inlaid
-  Chest: primary storage form — box on legs, dovetail corners
+  Chest: primary storage form — box on legs, pegged and tenoned corners
   Bed: low frame, head end raised, feet braced
 
 KEY MATERIALS AND TECHNIQUES:
@@ -82,7 +82,7 @@ KLISMOS ANATOMY:
   Bottom: sabre legs (curve matches backrest).
 ```
 
-The sabre leg is mechanically superior to straight legs: the curve acts as a spring, absorbing shock. The Greek designers probably observed this empirically; the physics is that the curved geometry distributes load through the curve rather than concentrating it at joints.
+The sabre leg is not just decoration: the curved member can flex slightly under load and moves visual weight away from the vertical post. The Greek designers probably observed the effect empirically; the engineering point is that the curve changes the load path and failure mode rather than making every sabre leg automatically stronger than a straight one.
 
 **Influence**: The klismos disappeared with Rome's fall. It was reborn in the early 19th century — the Regency and Empire periods rediscovered Greek vase paintings and reproduced the klismos almost exactly. It appears again in Mies van der Rohe's Barcelona Chair (1929): sabre legs, low seat, no arms — a 2,500-year-old design principle in chrome-plated flat steel.
 
@@ -185,9 +185,10 @@ The reaction to Baroque's formality was curvilinear and intimate:
 ```
 CHARACTERISTICS:
   Serpentine fronts: case pieces bulge and curve
-  Cabriole leg: the S-curve leg (originated in China;
-                arrived via William & Mary period in England;
-                became the defining Louis XV element)
+  Cabriole leg: the S-curve leg (with Asian and classical
+                antecedents; transmitted through Dutch and
+                English taste before becoming a defining
+                Louis XV element)
   Asymmetrical ornament: C-scrolls, S-scrolls, shells,
   asymmetrical cartouches — Rococo ornament never repeats
   on the same piece, unlike Baroque symmetry
@@ -423,19 +424,25 @@ See 03-BAUHAUS-MODERNISM.md for the continuation.
 
 ## Decision Cheat Sheet
 
-| Period | Identifying Feature | Material Indicator |
-|--------|--------------------|--------------------|
-| Egyptian | Animal feet, ebony inlay | Ebony, cedar, ivory |
-| Queen Anne | Cabriole leg + pad foot | Walnut primary |
-| Chippendale | Ball-and-claw foot | Mahogany primary |
-| Adam/Hepplewhite | Tapered legs, shield back | Satinwood, painted ornament |
-| Regency | Heavy classical, ormolu mounts | Rosewood, ebonized wood |
-| Victorian | Horror vacui, eclectic mix | Walnut, mahogany, rosewood |
-| Arts & Crafts | Exposed joinery, quartersawn oak | Oak, rush seats |
-| Art Nouveau | Organic curves | Carved walnut, bronze mounts |
-| Art Deco | Geometric ornament | Exotic veneers, lacquer, chrome |
+| Diagnostic Question | Most Likely Style Frame | Confirming Evidence |
+|---------------------|-------------------------|--------------------|
+| Animal legs, inlay, low beds, and tomb-survival context? | Egyptian or Egyptian revival | Ebony/cedar/ivory vocabulary; check whether it is ancient, Regency/Empire revival, or 1920s Deco revival |
+| Curved cabriole legs but restrained surfaces? | Queen Anne | Walnut, pad feet, fiddle-back splats, little applied ornament |
+| Cabriole or straight forms overloaded with Gothic/Chinese/Rococo carving? | Chippendale | Mahogany, ball-and-claw feet, pattern-book vocabulary |
+| Straight tapered legs and delicate classical motifs? | Adam, Hepplewhite, or Sheraton | Satinwood, stringing, painted urns/swags, shield/oval/square chair backs |
+| Heavy classical authority rather than delicate classicism? | Regency/Empire | Ormolu mounts, rosewood or ebonized wood, Egyptian/Greek/Roman motifs |
+| Many historical references on one object? | Victorian eclecticism | Machine carving, dense upholstery, walnut/mahogany/rosewood, horror vacui |
+| Visible construction treated as moral argument? | Arts & Crafts / Mission | Quartersawn oak, through-tenons, rush/leather, hand-hammered hardware |
+| Organic curves with luxury botanical surface work? | Art Nouveau | Carved walnut, bronze mounts, asymmetry, plant forms |
+| Geometric modern luxury surface? | Art Deco | Exotic veneers, lacquer, chrome, shagreen, stepped/zigzag ornament |
 
 ---
+
+## Cross-References
+
+- [Wood and Joinery](01-WOOD-JOINERY.md) explains the structural techniques behind many historical styles.
+- [Bauhaus and Modernist Furniture](03-BAUHAUS-MODERNISM.md) follows the break from ornament to industrial modernism.
+- [Scandinavian Design](05-SCANDINAVIAN.md) shows a regional modernist tradition with craft, function, and warmth.
 
 ## Common Confusion Points
 

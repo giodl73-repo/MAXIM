@@ -525,15 +525,23 @@ GREENBERG'S ARGUMENT (condensed)
 
 ## Decision Cheat Sheet
 
-| Artist/movement | Central formal question | Key theoretical claim |
-|-----------------|------------------------|----------------------|
-| Kandinsky | What is the color-emotion grammar? | Pure visual elements trigger spiritual resonance |
-| Mondrian | What is the relationship between reduction and universality? | Primary colors + right angles = universal order |
-| Malevich | What is the zero degree of representation? | Pure sensation divorced from the world |
-| Bauhaus | How do art, craft, and technology integrate? | Form follows function; unified arts education |
-| Pollock | What does the process record? | Action painting: canvas as arena for bodily event |
-| Rothko | What does scale + dissolved color do to the viewer? | Envelopment = secular transcendence |
-| Greenberg | What are the logical constraints of the medium? | Medium specificity = modernism's program |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Kandinsky abstraction | Check color, line, music analogy, theosophy, improvisation, composition, and spiritual resonance. | The theory is not a recipe; the paintings still require formal looking. |
+| Mondrian reduction | Analyze grid, primary color, asymmetry, balance, De Stijl theory, and universal-order claims. | Reduction is an argument about order, not mere simplification. |
+| Malevich Suprematism | Examine black square, ground, non-objectivity, revolution, icon placement, and zero-degree rhetoric. | "Pure sensation" still has historical and theological echoes. |
+| Bauhaus integration | Trace workshop pedagogy, material experiment, industrial production, function, typography, and architecture. | "Form follows function" was educational and social, not just minimalist style. |
+| Pollock action painting | Inspect scale, drip process, all-over field, bodily movement, photography, and critical framing. | Process evidence does not make the canvas a simple transcript of action. |
+| Rothko color field | Study scale, edge dissolution, installation, color relation, viewer distance, and chapel context. | Transcendence is staged through material and spatial control. |
+| Greenberg medium specificity | Evaluate flatness, opticality, autonomy, criticism, exclusion, and the market/institutional context. | Medium specificity explains one modernist program, not all abstraction. |
+
+---
+
+## Cross-References
+
+- `07-EARLY-MODERNISM.md` explains the representational breakdown abstraction extends.
+- `09-CONTEMPORARY.md` follows abstraction into postwar pluralism, conceptualism, and installation practice.
+- `../colors/01-COLOR-PHYSICS.md` supplies the perception and material basis behind color-field and optical abstraction.
 
 ---
 

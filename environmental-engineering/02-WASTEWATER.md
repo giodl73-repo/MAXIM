@@ -461,18 +461,24 @@ Every WWTP discharge to surface water requires an NPDES permit.
 
 ## Decision Cheat Sheet
 
-| Design Question | Answer |
-|----------------|--------|
-| Primary purpose of secondary treatment | Reduce dissolved BOD via biological oxidation — activated sludge is the standard approach |
-| Key design variable for effluent quality | SRT controls effluent BOD and whether nitrification occurs; longer SRT = better quality |
-| Need to achieve <10 mg/L TN in effluent | BNR required — A²/O or Bardenpho; also need adequate SRT for nitrification (>10 days) |
-| Phosphorus limit in permit (<1 mg/L TP) | EBPR first; chemical backup (alum) for reliability; tertiary sand filter or membrane polishing |
-| Plant wants to minimize energy cost | Optimize aeration (DO control, fine bubble diffusers, demand-based DO setpoint); biogas CHP recovery |
-| Wastewater reuse for landscape irrigation | Secondary treatment + filtration + disinfection (Title 22 equivalent) |
-| Site constrained — can't expand footprint | MBR eliminates secondary clarifier; MBBR retrofit increases capacity in existing aeration tanks |
-| Biosolids cannot be land applied (PFAS) | Dewatering + thermal drying + incineration or co-combustion at permitted facility |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| BOD/COD problem | Biodegradable vs total oxidizable organics | High COD:BOD means biology alone may not solve it |
+| Secondary-treatment choice | Influent load, effluent limit, footprint, SRT/HRT, and operator skill | Activated sludge is standard, not always simplest |
+| Nitrification failure | SRT, temperature, DO, pH/alkalinity, and inhibition | Nitrifier washout can take weeks to recover |
+| Nitrogen limit | Nitrification plus denitrification zones and carbon availability | Low TN limits need process sequencing, not just longer aeration |
+| Phosphorus limit | EBPR, chemical precipitation, and polishing filtration | EBPR often needs chemical backup for permit reliability |
+| Energy optimization | Aeration control, diffuser efficiency, pumping, and biogas recovery | Aeration savings must not sacrifice nitrification or settleability |
+| Reuse claim | Treatment train, pathogen target, salinity, and end use | "Reuse" requirements are jurisdiction- and exposure-specific |
+| Biosolids/PFAS claim | Source control, testing, land-application rules, and disposal outlet | Destroying PFAS is harder than diverting biosolids |
 
 ---
+
+## Cross-References
+
+- `01-WATER-TREATMENT.md` contrasts potable-water treatment with wastewater treatment goals.
+- `04-SOLID-WASTE.md` covers biosolids and residuals as waste-management problems.
+- `../public-health/00-OVERVIEW.md` explains the sanitation and disease-prevention stakes.
 
 ## Common Confusion Points
 

@@ -1,6 +1,6 @@
 # Immune System
 
-## The Big Picture: Two-Tier Defense
+## The Big Picture
 
 ```
 IMMUNE SYSTEM
@@ -356,16 +356,22 @@ Complement is a plasma protein cascade that deploys without cellular involvement
 **Immune tolerance as whitelisting**
 Central tolerance (thymic deletion, bone marrow receptor editing) is compile-time whitelisting: self-reactive clones are eliminated before deployment. Peripheral tolerance (Treg suppression, anergy, PD-1/CTLA-4 checkpoints) is runtime ACL enforcement: self-reactive clones that escaped central deletion are held in check by active suppression. Autoimmune disease is whitelist failure: self-reactive clones escape both layers and attack host tissue. Cancer exploits the checkpoint layer: PD-L1 expression on tumor cells mimics normal self-tissue signals to evade CTL killing — checkpoint blockade removes this exploit.
 
+## Cross-References
+
+- `immunology/01-INNATE-IMMUNITY.md` - innate immune mechanisms.
+- `immunology/02-ADAPTIVE-IMMUNITY.md` - adaptive immune learning and memory.
+- `disease/07-AUTOIMMUNE-INFLAMMATORY.md` - immune dysfunction as disease.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What must happen for naive T cell to activate? | Signal 1 (TCR + MHC-peptide) AND signal 2 (CD28 + CD80/86). Either alone → anergy |
-| CD8 T cell: how does it kill? | Perforin pores + granzyme B → target apoptosis; also Fas/FasL |
-| Complement terminal event? | MAC (C5b-9) forms pore in bacterial membrane → osmotic lysis |
-| What's the danger of NK cells' "missing self" strategy? | NK cells can kill self cells that lost MHC I (e.g., stressed, cancerous). Normal cells survive by constantly displaying MHC I. |
-| Why IgG crosses placenta but not IgM? | IgG: FcRn (neonatal Fc receptor) on placental syncytiotrophoblasts mediates transcytosis. IgM pentamer: too large. |
-| Why re-vaccination schedule? | Primary response is modest/short; boosters drive germinal center, affinity maturation, memory generation |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Naive T-cell activation | Signal 1 TCR/MHC plus signal 2 CD28/CD80-86 | Signal 1 without costimulation can induce anergy. |
+| CD8 killing | Perforin/granzyme apoptosis and Fas/FasL | Killing is targeted but collateral inflammation can occur. |
+| Complement terminal event | MAC C5b-9 pore formation | Gram-positive walls and host regulators alter vulnerability. |
+| NK missing-self logic | Loss of MHC I removes inhibitory signal | Activation also requires stress/activating ligands balance. |
+| Placental antibody transfer | FcRn-mediated IgG transcytosis | IgM size and structure prevent efficient transfer. |
+| Booster schedule rationale | Germinal-center affinity maturation and memory | Timing balances waning immunity and response maturation. |
 
 ---
 

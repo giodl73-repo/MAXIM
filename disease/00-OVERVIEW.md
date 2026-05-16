@@ -256,22 +256,16 @@ DALY (Disability-Adjusted Life Year):
 
 ## Decision Cheat Sheet
 
-| Finding / Presentation | Interpretation | Category in Landscape |
-|------------------------|----------------|----------------------|
-| Cell swelling (hydropic change) on biopsy | Reversible injury — ATP failure, Na/K-ATPase stops; remove stimulus, cell recovers | Non-infectious endogenous |
-| Ghost cells with preserved architecture | Coagulative necrosis — ischemia (most organs); irreversible | Non-infectious |
-| Liquefactive center (pus or brain) | Liquefactive necrosis — abscess or CNS infarct; hydrolases dominate | Infectious or vascular |
-| Caseous ("cheesy") necrosis + granuloma | Think TB (Mycobacterium) until proven otherwise; also fungal (histoplasma, coccidioides), sarcoid, leprosy | Infectious |
-| Saponification (chalky fat deposits, pancreas) | Fat necrosis — pancreatic lipase release | Non-infectious |
-| Neutrophils dominant in infiltrate | Acute inflammation (hours–days) | Infectious most common |
-| Mononuclear cells (macrophages, lymphocytes) dominant | Chronic inflammation (weeks–months) | Infectious or autoimmune |
-| Epithelioid macrophages + giant cells | Granulomatous inflammation — enclosed agent immune system can't kill | Infectious (TB, fungal) or autoimmune (sarcoid, Crohn) |
-| Fibrinoid necrosis in vessel wall | Immune complex deposition — SLE, polyarteritis nodosa; not infection | Autoimmune/inflammatory |
-| Loss of control over cell proliferation (unencapsulated mass, invasion) | Neoplasia — not infection, not hypertrophy; irreversible | Neoplastic |
-| Tissue replaced by fibrous scar | Extensive damage → fibroblast activation → collagen; check original category | Any (endpoint) |
-| High troponin + cell death in heart | Cardiomyocyte necrosis (MI) — look upstream for thrombotic/embolic cause | Cardiovascular non-infectious |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether injury is reversible | Look for hydropic change, membrane integrity, mitochondrial recovery, stimulus duration, and return of ATP-dependent transport. | Reversible injury can tip into necrosis or apoptosis if the stress persists. |
+| A necrosis pattern | Match morphology to mechanism: coagulative ischemia, liquefactive abscess/CNS, caseous granuloma, fat saponification, or fibrinoid vessel injury. | Morphology narrows the cause; it rarely proves the upstream etiology alone. |
+| An inflammatory infiltrate | Separate neutrophil-predominant acute inflammation, mononuclear chronic inflammation, granulomatous response, and immune-complex vasculitis. | Time course, organism, tissue, and host immune state can blur the classic categories. |
+| Infectious vs non-infectious disease | Ask whether an organism, toxin, immune reaction, metabolic failure, vascular event, neoplasm, or genetic defect explains the lesion. | Koch-style causal thinking helps, but many diseases are multifactorial or unculturable. |
+| A neoplastic process | Check invasion, clonality, proliferation control, differentiation, metastasis, and host/tissue context. | Hyperplasia and dysplasia are not the same as invasive cancer. |
+| A population-burden claim | Separate incidence, prevalence, CFR, IFR, age structure, income setting, risk exposure, and surveillance quality. | High-income and low-income burden patterns differ; development shifts dominant categories rather than eliminating disease. |
 
-**Global burden anchor:** From the landscape diagram above — the Non-Infectious column dominates HIC mortality: #1 ischemic heart disease (cardiovascular), #2 stroke (cerebrovascular), #3 COPD (respiratory/non-infectious), #6 lung cancer (neoplastic), #7 dementia (neurological). The Infectious column dominates LMIC: lower respiratory infections (#4 globally), diarrhoeal diseases (#8), neonatal disorders overlap. Public health intervention on the Infectious column shrinks mortality toward the Non-Infectious pattern — which is the trajectory all countries follow with development.
+**Global burden anchor:** From the landscape diagram above, non-infectious disease dominates many high-income mortality profiles, while infectious, maternal/neonatal, and exposure-linked diseases remain heavier in many low- and middle-income settings. Public health, sanitation, vaccination, nutrition, and chronic-disease risk transitions shift the dominant category mix over time.
 
 ---
 
@@ -291,6 +285,12 @@ DALY (Disability-Adjusted Life Year):
 | `10-EPIDEMIOLOGY.md` | Public Health | R₀, study designs, outbreak investigation |
 
 ---
+
+## Cross-References
+
+- `01-BACTERIAL.md` starts the pathogen-specific disease sequence.
+- `04-CANCER.md` shows disease as dysregulated growth and selection.
+- `10-EPIDEMIOLOGY.md` connects disease mechanisms to population evidence and causal inference.
 
 ## Common Confusion Points
 

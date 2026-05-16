@@ -289,17 +289,23 @@ IBN KHALDUN'S THEORETICAL FRAMEWORK
 
 ---
 
-## Decision Cheat Sheet: What Each Historian Offers
+## Cross-References
 
-| Historian | Distinctive Contribution | Still Relevant For |
-|-----------|--------------------------|-------------------|
-| Herodotus | Ethnographic openness; source labeling; multi-causal | Multicultural history; oral tradition; contingency |
-| Thucydides | Proximate/underlying cause split; human nature constant; speeches as analysis | IR theory (Thucydidean trap); political realism |
-| Polybius | Universal history; constitutional typology; military analysis | Institutional analysis; comparative politics |
-| Livy | Narrative model; how myth and history interweave | National memory; propaganda; the uses of the past |
-| Sima Qian | Annals-biographies format; biographical approach; personal voice | Chinese historiography; structure of official history |
-| Bede | Source criticism; chronology (AD dating); institutional church history | Medieval sources; how chronology shapes narrative |
-| Ibn Khaldun | Social cohesion theory; cyclical dynastic change; geography | State formation; rise-and-fall cycles; comparative history |
+- `02-ENLIGHTENMENT.md` shows how historical writing shifts toward philosophy of progress.
+- `03-RANKEAN-POSITIVISM.md` turns narrative inheritance into archival method.
+- `09-PHILOSOPHY-OF-HIST.md` revisits causation, narrative, and objectivity.
+
+## Decision Cheat Sheet
+
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Ethnographic and oral-source history | Herodotus: source labeling, multiple causes, cultural comparison | "Father of lies" is a later evidence-standard projection, not a sufficient reading. |
+| Structural causes of war | Thucydides: proximate versus underlying cause | The "truest cause" is structural, not a conspiracy theory. |
+| Comparative institutions | Polybius: universal history, constitutional cycles, military analysis | Institutional typology can flatten local political culture. |
+| National memory narrative | Livy: myth/history weave and exemplary storytelling | Narrative power can become propaganda. |
+| Official biography structure | Sima Qian: annals, tables, treatises, hereditary houses, biographies | Personal voice coexists with imperial-history architecture. |
+| Christian chronology and sources | Bede: source criticism, AD dating, institutional church narrative | Medieval historiography is not uniformly credulous or providential. |
+| Rise-and-fall social theory | Ibn Khaldun: asabiyyah, dynasty cycles, geography | He extends Islamic scholarly traditions, not solitary modern sociology. |
 
 ---
 

@@ -2,7 +2,12 @@
 
 ## The Big Picture
 
-Insect population ecology bridges individual-level physiology and community-level processes. Insects are both the drivers and the dominated objects in most terrestrial food webs. Their population dynamics — cycles, outbreaks, collapses — are among the most studied in ecology, and the mathematical frameworks developed for insects (Nicholson-Bailey model, density-dependence theory) have become ecological theory foundations.
+Insect population ecology bridges individual physiology and community-level
+processes. Insects are major drivers, prey, herbivores, pollinators, decomposers,
+parasitoids, and disease vectors in terrestrial and freshwater food webs. Their
+population dynamics -- cycles, outbreaks, collapses, migrations -- are among the
+best-studied systems in ecology, and insect models such as Nicholson-Bailey and
+density-dependence theory became foundations for broader ecological theory.
 
 ```
 ECOLOGICAL LEVELS IN INSECT ECOLOGY
@@ -355,17 +360,24 @@ Degree-day accumulation is thermal integration — the biological equivalent of 
 
 ## Decision Cheat Sheet
 
-| Concept | Key equation/model | Application |
-|---------|-------------------|-------------|
-| Exponential growth | dN/dt = rN | Early-stage outbreak prediction |
-| Logistic growth | dN/dt = rN(1-N/K) | Carrying capacity; K estimation |
-| Degree-days | DD = sum(T_mean - T_base) | Pest emergence forecasting |
-| Net reproductive rate | R0 = sum(lx*mx) | Population trajectory direction |
-| EPT index | High EPT = clean water | Stream biomonitoring |
-| Nicholson-Bailey | Oscillatory parasitoid-host | Biological control design |
-| Thermal performance curve | Bell-shaped T vs rate | Climate vulnerability |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Population-growth claim | Exponential vs logistic assumptions | Early outbreak growth rarely stays exponential for long |
+| Regulation claim | Density-dependent vs density-independent forces | Real populations usually experience both |
+| Degree-day claim | Base temperature, accumulated heat, and life stage | Microclimate can matter more than weather-station averages |
+| Outbreak claim | Host condition, predator/parasitoid lag, weather, and landscape structure | Outbreaks can be normal ecosystem dynamics, not just imbalance |
+| Aquatic indicator claim | EPT richness, dissolved oxygen, organic load, and pesticides | "Clean water" is multi-dimensional, not just high EPT |
+| Food-web claim | Herbivore, predator, parasitoid, decomposer, and mutualist roles | A species can occupy different roles across life stages |
+| Migration claim | Directionality, seasonality, and reproduction en route | Wind-assisted dispersal is not always true migration |
+| Climate claim | Thermal performance curve, phenology, voltinism, and host synchrony | Warming can help some insects while harming others |
 
 ---
+
+## Cross-References
+
+- `02-DIVERSITY-CLASSIFICATION.md` maps ecological roles onto insect diversity.
+- `05-INSECT-PLANT.md` explains one dominant interaction network in terrestrial ecosystems.
+- `../ecology/02-COMMUNITY-ECOLOGY.md` supplies the interaction and community framework.
 
 ## Common Confusion Points
 

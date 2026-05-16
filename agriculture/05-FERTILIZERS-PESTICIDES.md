@@ -9,9 +9,9 @@ Synthetic fertilizers and pesticides are the two chemical pillars of industrial 
 |              CHEMICAL INPUTS TO AGRICULTURE                      |
 |                                                                  |
 |  FERTILIZERS                   PESTICIDES                        |
-|  ──────────────────────        ──────────────────────────────  |
-|  Provide macronutrients        Kill or repel organisms that     |
-|  (N, P, K) + secondaries      compete with or damage crops       |
+|  ----------------------        ----------------------------      |
+|  Provide macronutrients        Kill or repel organisms that      |
+|  (N, P, K) + secondary        compete with or damage crops       |
 |                                                                  |
 |  SOURCES:                      CLASSES:                          |
 |  Synthetic: Haber-Bosch N      Herbicides   (weeds)              |
@@ -483,15 +483,23 @@ PESTICIDE ENVIRONMENTAL FATE:
 
 ## Decision Cheat Sheet
 
-| Situation | Action |
-|-----------|--------|
-| High N demand crop (corn, wheat); precision approach | Split N application (starter + sidedress); presidedress N test (PSNT) to calibrate in-season |
-| Surface-applied urea; summer heat/rain | Use urease inhibitor (NBPT) or incorporate within 24 hr to prevent volatilization |
-| Weed control; herbicide resistance suspected | Test field populations; rotate to different MOA Group; include multi-site inhibitor in tank mix |
-| Pest approaching Economic Threshold | Identify species; select narrow-spectrum insecticide for that pest; protect beneficial insects |
-| Fungal disease pressure in cereal | Rotate DMI + SDHI + multi-site; do NOT use same Group 3 two years running |
-| Water near field; runoff risk | Setback buffers; banded fertilizer placement; slow-release N; foliar-applied P |
-| Phosphate rock supply concern | Prioritize P recycling (manure P accounting); struvite recovery from wastewater; reduce P to legacy-P soils |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| High nitrogen demand | Use crop stage, yield goal, soil test, PSNT, split application, and weather risk. | More N can lower profit and raise losses after the response plateau. |
+| Surface-applied urea loss | Check temperature, moisture, pH, residue cover, rainfall timing, incorporation, and urease inhibitor fit. | Inhibitors buy time; they do not eliminate volatilization risk. |
+| Herbicide resistance | Identify species, test population, map patches, rotate MOA groups, mix effective sites, and add nonchemical control. | Rotating products is useless if they share the same mode of action. |
+| Pest threshold decision | Confirm species, life stage, crop stage, economic threshold, beneficial insects, and narrow-spectrum option. | Calendar spraying can destroy the natural enemies that hold pests below threshold. |
+| Cereal fungal pressure | Check disease forecast, variety susceptibility, growth stage, FRAC groups, and multi-site protection. | Repeating one fungicide group selects resistance quickly. |
+| Runoff-sensitive field | Evaluate buffers, slope, placement, slow-release N, foliar P, timing, and storm forecast. | Nutrient placement matters as much as nutrient amount. |
+| Phosphorus supply concern | Account for manure P, legacy soil P, struvite recovery, crop removal, and erosion control. | Recycling P must avoid creating new runoff hotspots. |
+
+---
+
+## Cross-References
+
+- `02-CROP-SYSTEMS.md` places nutrient and pest choices inside rotation, intercropping, and soil-health strategy.
+- `../soil-science/03-SOIL-CHEMISTRY.md` explains pH, cation exchange, and nutrient availability.
+- `../ecology/05-POPULATION-DYNAMICS.md` gives the selection-pressure logic behind pesticide resistance.
 
 ---
 

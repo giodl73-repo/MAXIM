@@ -338,22 +338,28 @@ SAR OCEAN APPLICATIONS:
 
 ---
 
+## Cross-References
+
+- `02-PASSIVE-SENSORS.md` supplies vegetation, water, and land-cover products.
+- `03-ACTIVE-SENSORS-SAR.md` supplies all-weather structure and moisture products.
+- `06-IMAGE-PROCESSING.md` turns raw imagery into application-ready layers.
+
 ## Decision Cheat Sheet
 
-| Application | Primary Sensor | Secondary | Key Algorithm |
-|-------------|---------------|-----------|---------------|
-| Crop type mapping | Sentinel-2 (time series) | Sentinel-1 | Random Forest + phenology |
-| Soil moisture field-scale | Sentinel-1 | SMAP (coarse) | Change detection |
-| Forest AGB | LiDAR + Sentinel-1 | Sentinel-2 | Data fusion ML |
-| Deforestation alerts | Sentinel-1 SAR | Landsat | RADD, GLAD |
-| Burn severity | Landsat (dNBR) | -- | dNBR threshold |
-| Urban heat island | Landsat TIRS, ECOSTRESS | -- | Split-window LST |
-| Flood mapping | Sentinel-1 GRD | Sentinel-2 | Threshold + change detection |
-| Earthquake damage | Sentinel-1 (coherence) | -- | Coherence change ratio |
-| Sea ice type | RADARSAT / Sentinel-1 | AMSR-2 | Polarimetric decomposition |
-| Glacier velocity | Sentinel-2 / Sentinel-1 | ICESat-2 | Feature tracking |
-| SST | MODIS, VIIRS, GOES ABI | -- | Split-window |
-| Ocean chlorophyll | MODIS Aqua, OLCI | -- | OC4 band ratio |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Crop type mapping | Sentinel-2 time series plus Sentinel-1 | Phenology features matter more than one-date spectra. |
+| Field-scale soil moisture | Sentinel-1 with SMAP context | Roughness and vegetation confound radar moisture. |
+| Forest AGB | LiDAR plus Sentinel-1/Sentinel-2 fusion | High-biomass saturation limits optical/radar-only estimates. |
+| Deforestation alerting | Sentinel-1 RADD or Landsat GLAD | SAR detects structure change; optical detects spectral clearing. |
+| Burn severity | Landsat dNBR | Thresholds are ecosystem-specific. |
+| Urban heat island | Landsat TIRS or ECOSTRESS LST | LST is surface temperature, not human-experienced air temperature. |
+| Flood mapping | Sentinel-1 GRD plus Sentinel-2 validation | Dark SAR equals open water only in the right geometry/land cover. |
+| Earthquake damage | Sentinel-1 coherence change | Coherence loss is a proxy and can reflect non-damage changes. |
+| Sea ice type | RADARSAT/Sentinel-1 plus AMSR-2 | Polarization, incidence angle, and weather affect interpretation. |
+| Glacier velocity | Sentinel-2/Sentinel-1 feature tracking plus ICESat-2 | Feature tracking fails in low-texture or fast-deforming zones. |
+| Sea-surface temperature | MODIS, VIIRS, or GOES ABI split-window | Cloud screening dominates usable coverage. |
+| Ocean chlorophyll | MODIS Aqua or OLCI band ratios | Coastal waters break open-ocean algorithms. |
 
 ---
 

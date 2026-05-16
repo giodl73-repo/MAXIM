@@ -298,17 +298,14 @@ SOUTH ASIAN MONSOON — SEASONAL REVERSAL
   Cold air sinks over land             Hot air rises over land
   Wind blows FROM land → sea           Wind blows FROM sea → land
 
-  ┌─────────────────────────┐          ┌─────────────────────────┐
-  │    ASIA (cold, high P)  │          │    ASIA (hot, low P)    │
-  │         ↓↓↓↓↓↓↓         │          │         ↑↑↑↑↑↑↑         │
-  │  HIMALAYAS ▲▲▲▲▲▲▲▲▲▲  │          │  HIMALAYAS ▲▲▲▲▲▲▲▲▲▲  │
-  │         ↓↓↓↓→→→→        │          │     ←←←←↑↑↑↑↑↑         │
-  │  INDIA  →→→→→→→→        │          │  INDIA ←←←←←←←←        │
-  │         dry NE wind     │          │     moist SW wind       │
-  │         →→→→→→→→→       │          │  ←←←←←←←←←←←           │
-  │    INDIAN OCEAN         │          │    INDIAN OCEAN         │
-  │    (warm, low P)        │          │    (warm, high P)       │
-  └─────────────────────────┘          └─────────────────────────┘
+  WINTER COLUMN                     SUMMER COLUMN
+  ASIA: cold, high pressure         ASIA: hot, low pressure
+        vvvvvvv                           ^^^^^^^
+  HIMALAYAS ridge                   HIMALAYAS ridge
+        vvvv---->                         <----^^^^^^
+  INDIA --------> dry NE wind       INDIA <-------- moist SW wind
+        -------->                         <----------
+  INDIAN OCEAN: warm, low P         INDIAN OCEAN: warm, high P
 
   RESULT: dry winter          RESULT: 80% of India's annual
           (Oct-May)                    rainfall in 4 months
@@ -375,14 +372,11 @@ MAJOR STORM TRACK CORRIDORS
   FORMATION ZONE         westward drift      poleward turn
 
   ATLANTIC BASIN:                    W. PACIFIC BASIN:
-  ╭────────────╮                     ╭──────────────╮
-  │ Cape Verde │                     │  W. Pacific  │
-  │  ←←←←←←←  │                     │   ←←←←←←←←   │
-  │ Caribbean  │  Jun-Nov            │  Philippines │  May-Dec
-  │  ←←←←←←←↗ │  peak: Aug-Oct     │   ←←←←←←←↗  │  peak: Aug-Nov
-  │ Gulf/US    │  ~12/year          │  Japan/China │  ~26/year
-  │  coast ↗↗  │                     │   coast ↗↗   │  (most active
-  ╰────────────╯                     ╰──────────────╯   basin)
+  Cape Verde     <<<<<<<             W. Pacific    <<<<<<<<
+  Caribbean      <<<<<<<^            Philippines   <<<<<<<^
+  Gulf/US coast      ^^              Japan/China       ^^
+  Jun-Nov; peak Aug-Oct; ~12/year    May-Dec; peak Aug-Nov; ~26/year
+                                      (most active basin)
 
   Also: S. Indian, N. Indian, S. Pacific basins.
   NO tropical cyclones in South Atlantic (cool water, high shear).

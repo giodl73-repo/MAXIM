@@ -294,20 +294,26 @@ CONDITIONING FREQUENCY:
 
 ---
 
+## Cross-References
+
+- `01-LEATHER-TYPES.md` explains why surfaces absorb dye differently.
+- `02-TANNING-PROCESSES.md` supplies the chemistry behind finish compatibility.
+- `05-TOOLING-CARVING.md` shows how finish choices highlight carved detail.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Which dye penetrates leather most deeply? | Alcohol/spirit dye (solvent carrier; deepest fiber penetration) |
-| What produces the antique finish contrast effect? | Pigment stays in tooled recesses; wipe removes it from high surfaces |
-| What is Tokonole? | Japanese edge finishing gel; used with burnishing to compress and harden edge fibers |
-| What is Gum Tragacanth? | Natural plant gum; traditional edge burnishing compound; very smooth result |
-| What is Resolene? | Fiebing's acrylic topcoat; standard protective finish for veg-tan |
-| Should you dilute Resolene for tooled leather? | Yes — 1:1 with water for lower sheen and more flexibility |
-| Can you lighten dyed leather? | Not with dye — dye darkens only; bleaching is destructive and inconsistent |
-| What does neatsfoot oil do to light leather? | Darkens it (sometimes significantly); conditions and lubricates fibers |
-| What is the sequence for edge finishing? | Bevel → edge dye → burnish with compound → optional edge paint |
-| What does saddle soap do? | Cleans leather; must follow with oil conditioning |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Deep dye penetration | Alcohol/spirit dye | Wait before topcoating so solvent can evaporate and bind. |
+| Antique contrast | Pigment retained in tooled recesses | Without tooling, antique is just uneven stain. |
+| Glassy burnished edge | Tokonole plus burnishing pressure | Edge quality is visible at arm's length. |
+| Traditional burnishing | Gum Tragacanth | Compound helps only after beveling and surface prep. |
+| Protective veg-tan topcoat | Resolene acrylic finish | Too heavy a coat can look plasticky and reduce flexibility. |
+| Tooled-leather Resolene | Dilute 1:1 with water | Lower sheen and flexibility matter on carved surfaces. |
+| Over-dark dye result | Accept darker color or remake; dye does not lighten | Bleaching is destructive and inconsistent. |
+| Dry/stiff leather | Neatsfoot oil as fiber lubricant | Oil before cracking; it cannot repair broken fibers. |
+| Edge finishing sequence | Bevel, edge dye, burnish, optional edge paint | Skipping beveling prevents proper fiber consolidation. |
+| Saddle-soap cleaning | Clean, then condition/oil appropriately | Cleaning without follow-up can leave leather dry. |
 
 ---
 

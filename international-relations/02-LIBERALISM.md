@@ -302,16 +302,26 @@ CRITIQUES OF LIBERAL IR
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Realist critique of cooperation | `international-relations/01-REALISM.md` |
+| International institutions as cooperation mechanisms | `international-relations/06-INTERNATIONAL-INSTITUTIONS.md` |
+| Constructivist view of norms and identity | `international-relations/03-CONSTRUCTIVISM.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Liberal answer |
-|----------|----------------|
-| Why is democratic peace so robust? | Normative (shared norms of bounded competition) + institutional (audience costs, executive constraint); Kantian triangle effect |
-| Do institutions matter or are they epiphenomenal? | Keohane: institutions reduce transaction costs, provide information, enable cooperation even without hegemon |
-| Does trade prevent war? | Commercial liberalism: trade creates mutual gains interests → reduces war incentive; but high-interdependence pairs can still compete (China-US) |
-| Is US hegemony necessary for world order? | Hegemonic stability: probably for certain public goods; but Keohane argues institutions can maintain cooperation even as hegemony declines |
-| Can China be accommodated in the liberal order? | Liberal hope: economic integration socializes preferences; realist fear: China is challenging the order's fundamental rules |
-| Are relative or absolute gains more important? | Neoliberal institutionalism: absolute gains dominate in most economic issue areas; realism: relative gains dominate in security |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Democratic peace | Normative restraint, audience costs, executive constraints, Kantian triangle | Democracies fight often; the claim is dyadic, not pacifist. |
+| Institutional effects | Keohane: lower transaction costs, information, monitoring, repeated interaction | Institutions work within anarchy; they are not world government. |
+| Commercial peace | Mutual gains and higher opportunity cost of conflict | Interdependence is not deterministic when security stakes dominate. |
+| Hegemony and order | Public-goods provision versus post-hegemonic institutional persistence | Some goods may need leadership; some cooperation can outlive hegemonic peak. |
+| China in liberal order | Integration/socialization hopes versus rule-revision fears | Accommodation depends on which order rules are treated as negotiable. |
+| Relative versus absolute gains | Issue-area split: economics often absolute, security often relative | The gains debate changes with threat perception and distributional stakes. |
 
 ---
 

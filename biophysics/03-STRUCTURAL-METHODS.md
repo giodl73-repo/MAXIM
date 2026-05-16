@@ -469,18 +469,24 @@ All three methods are fundamentally about recovering 3D structure from incomplet
 
 ---
 
+## Cross-References
+
+- `biophysics/02-PROTEIN-FOLDING.md` — structures measured by experimental methods.
+- `biophysics/09-ALPHAFOLD-ERA.md` — prediction versus experimental structure determination.
+- `materials/01-CRYSTAL-STRUCTURE.md` — diffraction and structural inference analogy.
+
 ## Decision Cheat Sheet
 
-| Situation | Method | Why |
-|-----------|--------|-----|
-| Small rigid protein, need atomic resolution | X-ray | Highest resolution, tractable if crystallizes |
-| Need backbone dynamics at every residue | NMR | R₁/R₂/NOE relaxation, S² order parameters |
-| Large complex (ribosome, proteasome, spike) | Cryo-EM | No crystallization needed, >100 kDa ideal |
-| Need to know conformation in solution, not crystal | NMR or Cryo-EM | Crystal contacts can distort |
-| Want multiple conformations from one dataset | Cryo-EM 3D classification | Heterogeneity handled computationally |
-| Protein is IDP (intrinsically disordered) | NMR | Crystal and cryo-EM both give poor density |
-| Drug binding site mapping | X-ray (soaking) or cryo-EM | Co-crystal or grid soaking |
-| No homolog, no prior structure | SAD/MAD (X-ray) or ab initio cryo-EM | Phase problem solutions |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Small rigid protein at atomic resolution | X-ray crystallography | Crystallization and crystal contacts are the bottlenecks. |
+| Residue-level backbone dynamics | NMR relaxation | Size and spectral overlap limit tractability. |
+| Large macromolecular complex | Cryo-EM | Particles must be stable and classifiable. |
+| Solution conformation | NMR or cryo-EM | Each method observes a different ensemble/filter. |
+| Multiple conformations | Cryo-EM 3D classification | Computational classes are hypotheses needing validation. |
+| Intrinsically disordered protein | NMR ensemble measurements | Disorder resists a single static structure. |
+| Drug binding site | X-ray soaking/co-crystal or cryo-EM | Binding pose can change with construct and conditions. |
+| No homolog or prior structure | SAD/MAD phasing or ab initio cryo-EM | Phase/initial-model uncertainty can dominate. |
 
 ---
 

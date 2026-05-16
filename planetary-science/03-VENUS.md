@@ -317,18 +317,24 @@ VENUS MISSION PORTFOLIO
 
 ---
 
+## Cross-References
+
+- `planetary-science/02-TERRESTRIAL-PLANETS.md` — comparative terrestrial-planet context.
+- `climate-science/01-CARBON-CYCLE.md` — greenhouse and atmospheric feedback comparison.
+- `planetary-science/08-HABITABILITY.md` — habitability boundary conditions and failure modes.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| Why is Venus hotter than Mercury? | Massive CO₂ greenhouse (+506 K effect) overwhelms its high albedo; Mercury has no greenhouse |
-| What triggered the runaway greenhouse? | Increasing solar luminosity over time pushed Venus past the runaway threshold; once H₂O enters the stratosphere, photolysis removes hydrogen permanently |
-| How do we know Venus lost water? | D/H ratio in atmosphere is ~150-240× Earth's; deuterium enrichment records cumulative hydrogen escape |
-| Why does Venus rotate backward? | Unknown; hypotheses: late large impact reversed rotation; atmospheric tidal torques slowly reversed it over billions of years |
-| Why no magnetic field? | Slow rotation (insufficient Coriolis) and possibly no solid inner core → no dynamo |
-| What is a corona on Venus? | Circular volcanic feature formed by mantle plume uplift, magma release, and crustal collapse; unique to Venus |
-| Why does Venus's atmosphere rotate 60× faster than the planet? | Super-rotation driven by tidal + wave forcing; mechanism not fully resolved |
-| What would DAVINCI+ tell us about habitability? | Noble gas and isotope ratios constrain water inventory and atmosphere origin; D/H gives total water lost |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Venus hotter than Mercury | CO2 greenhouse overwhelming high albedo | Distance alone does not set surface temperature. |
+| Runaway greenhouse trigger | Solar luminosity crossing water-vapor feedback threshold | Timing depends on initial water inventory and clouds. |
+| Venus water loss | Deuterium enrichment in atmosphere | D/H constrains loss but not a unique history. |
+| Retrograde rotation | Impact and atmospheric-tide hypotheses | The cause is unresolved. |
+| No intrinsic magnetic field | Slow rotation and core-state uncertainty | Induced ionosphere still interacts with solar wind. |
+| Corona formation | Mantle plume uplift and collapse | Coronae are volcanic/tectonic features, not impact craters. |
+| Atmospheric super-rotation | Wave and tidal momentum transport | Mechanism is still an active modeling problem. |
+| DAVINCI habitability test | Noble gases and isotope ratios | Mission data would constrain history, not directly observe past oceans. |
 
 ---
 

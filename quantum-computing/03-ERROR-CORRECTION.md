@@ -425,18 +425,24 @@ CURRENT STATE (2024):
 
 ---
 
+## Cross-References
+
+- `quantum-computing/02-ALGORITHMS.md` — fault tolerance required for deep useful algorithms.
+- `quantum-computing/04-HARDWARE-COMPLEXITY.md` — physical noise, overhead, and scaling constraints.
+- `information-theory/08-QUANTUM-INFORMATION.md` — quantum information constraints that make error correction non-classical.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why can't we just repeat qubits like classical bits? | No-cloning theorem forbids copying quantum states |
-| How does syndrome measurement avoid disturbing state? | Measures parity of multiple qubits — tells error location, not state value |
-| What's the surface code threshold? | ~1% physical error rate; leading platforms approaching this |
-| Why is T gate expensive? | Eastin-Knill theorem: no transversal non-Clifford gate; needs distillation |
-| How many physical qubits per logical qubit? | ~1000–2000 at d≈30 for surface code |
-| What decoder does surface code use? | Minimum-weight perfect matching (MWPM) — polynomial time |
-| When will CRQC break RSA? | ~9-10M physical qubits needed; current: 100s — most say 2035–2040+ |
-| What's the Eastin-Knill theorem? | No universal transversal gate set exists for any QEC code |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why repetition fails | No-cloning theorem forbids copying unknown quantum states | QEC encodes logical information nonlocally rather than cloning it. |
+| Syndrome measurement | Multi-qubit parity operators measured via ancilla | The syndrome reveals error class/location, not the logical state value. |
+| Surface-code viability | Physical error rate below roughly 1% threshold | Below threshold is necessary, not sufficient for useful logical error rates. |
+| T-gate overhead | Eastin-Knill blocks universal transversal gates; magic-state distillation supplies non-Clifford gates | Distillation factories often dominate physical-qubit cost. |
+| Physical per logical qubit | Surface-code distance and target logical error rate | `1000-2000` is workload/architecture dependent, not a constant. |
+| Surface-code decoding | Minimum-weight perfect matching or modern decoder variants | Decoder latency must keep up with syndrome cycles. |
+| CRQC timeline for RSA | Millions of physical qubits plus low logical error rates | Calendar forecasts depend more on scaling and error correction than raw qubit count. |
+| Eastin-Knill implication | No QEC code has a universal transversal gate set | Fault-tolerant universality requires extra machinery beyond transversal gates. |
 
 ---
 

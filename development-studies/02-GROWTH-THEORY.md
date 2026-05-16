@@ -344,17 +344,23 @@ Key findings:
 
 ---
 
+## Cross-References
+
+- `01-HISTORY.md` places growth theory in the postwar development sequence.
+- `03-HUMAN-DEVELOPMENT.md` explains why growth is not the whole objective.
+- `04-INSTITUTIONS.md` adds the rules-and-state-capacity layer.
+
 ## Decision Cheat Sheet
 
-| Model | Key equation | Convergence prediction | Long-run growth driver | Policy implication |
-|-------|-------------|----------------------|----------------------|-------------------|
-| Harrod-Domar | g = s/v | Yes (conditional) | Savings rate | Raise savings; plan capital |
-| Solow | dk/dt = sf(k) − (n+δ)k | Yes, conditional | Exogenous TFP (A) | Education, institutions (affect A) |
-| AK | g = sA − δ | No | Savings rate (permanently) | Subsidize capital formation |
-| Romer 1986 | A(K) spillover | No | Knowledge spillovers | Subsidize investment (externality) |
-| Lucas 1988 | Human capital H | No | Human capital accumulation | Invest in education |
-| Romer 1990 | Ideas non-rival; monopolistic competition | Conditional | R&D investment | Patent system; R&D subsidies |
-| Aghion-Howitt | Creative destruction | Depends on distance | Innovation competition | Competition policy; frontier-specific |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Savings-gap planning | Harrod-Domar | ICOR-style planning overstates capital's determinism. |
+| Conditional convergence | Solow model | TFP residual is a basket of technology, institutions, allocation, and measurement error. |
+| Permanent capital-led growth | AK model | Broadening capital can become tautological. |
+| Investment spillovers | Romer 1986 | Externalities must be empirically grounded, not assumed. |
+| Human-capital accumulation | Lucas 1988 | Schooling quantity is not the same as learning quality. |
+| R&D-driven idea growth | Romer 1990 | Scale effects are empirically problematic. |
+| Creative destruction policy | Aghion-Howitt | Competition policy differs for frontier versus catch-up economies. |
 
 ---
 

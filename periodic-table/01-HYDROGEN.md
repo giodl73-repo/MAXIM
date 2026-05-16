@@ -188,10 +188,6 @@ Biomass gasification:  like coal but from organic feedstock
 Thermochemical cycles:  e.g., sulfur-iodine cycle (high-temp nuclear heat → H₂)
 ```
 
----
-
-The PEMFC membrane is an engineered ion channel: Nafion is a sulfonated fluoropolymer that conducts H⁺ (protons) while blocking electrons and gases. The same selectivity problem appears in biological ion channels (K⁺ channel: conducts K⁺ at near-diffusion-limited rates while rejecting Na⁺ by 1,000:1 despite the smaller ionic radius of Na⁺). Both are solved by charge/geometry filters — the engineering and biology are structurally identical problems. In industrial fuel cell stacks (Azure datacenter backup power, hydrogen forklift fleets), the membrane stack is the analogous unit to a CPU die: replicated identical unit cells, performance scales with cell count, and the failure mode is localized rather than systemic.
-
 ## Hydrogen Economy & Fuel Cells
 
 ```
@@ -207,6 +203,39 @@ THE HYDROGEN VALUE CHAIN:
 ```
 
 ### Proton Exchange Membrane Fuel Cell (PEMFC)
+
+**Bridge: engineered membrane as selective channel.** The PEMFC membrane is an
+engineered ion channel: Nafion is a sulfonated fluoropolymer that conducts H⁺
+(protons) while blocking electrons and gases. The same selectivity problem
+appears in biological ion channels (K⁺ channel: conducts K⁺ at
+near-diffusion-limited rates while rejecting Na⁺ by 1,000:1 despite the smaller
+ionic radius of Na⁺). Both are solved by charge/geometry filters — the
+engineering and biology are structurally identical problems.
+
+At stack scale, a fuel cell resembles a replicated compute substrate more than a
+single engine: identical membrane-electrode assemblies repeated cell by cell,
+with performance scaling by cell count and many failures localized to a unit.
+
+```
+PEMFC MECHANISM: selective transport, not combustion
+
+ANODE SIDE                         MEMBRANE                  CATHODE SIDE
+H2 gas in                          Nafion                    O2 + air in
+   |                                  |                          |
+   v                                  |                          v
+Pt catalyst splits H2                 |                    O2 waits for e-
+   |                                  |                          |
+   +--> H+  H+  H+  ----------------> | ---------------->  combine with H+
+   |            proton path only      |                    and returning e-
+   |
+   +--> e-  e-  e-  === external circuit === load ===> e- returns
+
+Key separation:
+  - Protons cross the membrane.
+  - Electrons are forced through the circuit.
+  - Gases stay on their own sides.
+  - Useful work comes from keeping those paths separate.
+```
 
 ```
 H₂ enters anode, O₂ (air) enters cathode:

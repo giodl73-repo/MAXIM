@@ -4,7 +4,7 @@
 
 ---
 
-## Big Picture: Evolution's Four Forces
+## The Big Picture
 
 ```
 EVOLUTION: change in allele frequencies in a population over generations
@@ -398,20 +398,26 @@ GENOME SIZE EVOLUTION:
 
 ---
 
+## Cross-References
+
+- `evolutionary-biology/02-POPULATION-GENETICS.md` - allele-frequency mechanics.
+- `evolutionary-biology/04-SPECIATION.md` - divergence into species.
+- `biology/03-GENETICS.md` - heredity as evolutionary substrate.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Key Formula/Rule |
-|----------|---------|-----------------|
-| Is this locus under selection? | dN/dS ratio (ω) | ω > 1: positive, < 1: purifying, = 1: neutral |
-| Is population in HWE? | Hardy-Weinberg test | p² + 2pq + q² = 1; χ² test |
-| How fast will allele spread? | Selection coefficient | T ≈ 2 ln(2N)/s generations to fixation |
-| How important is drift vs selection? | N_e · s product | s >> 1/2N_e: selection wins; s << 1/2N_e: drift |
-| How are species related? | Phylogenetic tree | Build with ML or Bayesian; model selection |
-| What's the molecular clock rate? | Neutral theory | K = μ at neutral sites; calibrate with fossils |
-| Why do hybrids fail? | DMI incompatibilities | Incompatible alleles at two loci |
-| How does body plan change? | Evo-devo: Hox genes | Regulatory changes, cis-regulatory evolution |
-| How do I estimate population history? | Coalescent / PSMC | E[T_MRCA] = 4N_e for diploid |
-| Is this a real clade? | Monophyly + bootstrap | Clade = ancestor + ALL descendants |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Selection at locus | dN/dS ratio omega | Site-averaging can hide episodic selection. |
+| Hardy-Weinberg status | p2 + 2pq + q2 and chi-square test | Assumptions fail under structure, selection, or nonrandom mating. |
+| Allele spread speed | Selection coefficient approximation | Demography and dominance alter trajectories. |
+| Drift versus selection | Ne*s comparison | Effective population size, not census size, controls drift. |
+| Species relatedness | ML or Bayesian phylogenetic tree | Model selection and sampling affect topology. |
+| Molecular clock rate | Neutral theory K = mu calibration | Fossil calibration uncertainty propagates into dates. |
+| Hybrid failure | Dobzhansky-Muller incompatibilities | Incompatibilities accumulate between lineages. |
+| Body-plan change | Hox and cis-regulatory evolution | Regulatory change can preserve protein sequence. |
+| Population history | Coalescent / PSMC inference | Signals are blurred by recombination and population structure. |
+| Real clade status | Monophyly plus support values | Bootstrap support is not posterior probability. |
 
 ---
 

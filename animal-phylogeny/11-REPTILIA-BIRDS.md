@@ -472,47 +472,24 @@ SONG LEARNING:
 
 ---
 
+## Cross-References
+
+- `animal-phylogeny/10-AMPHIBIA.md` — pre-amniote terrestrial constraints.
+- `animal-phylogeny/12-MAMMALIA.md` — parallel amniote solution space.
+- `ornithology/01-BIRD-ANATOMY.md` — bird specialization within the reptile-bird lineage.
+
 ## Decision Cheat Sheet
 
-```
-REPTILE / BIRD IDENTIFICATION
-
-Has feathers?
-  → AVES (bird — a dinosaur)
-  Can't fly, massive, Africa? → Ostrich (Struthioniformes)
-  Swims, black+white, Antarctic? → Penguin (Sphenisciformes)
-  60% of birds by species → Passeriformes (perching birds)
-
-Has scales, no feathers, no hair?
-
-  Shell (carapace + plastron)?
-    → TESTUDINES
-    In water, streamlined flippers? → Sea turtle
-    Land, domed, retractile? → Tortoise
-    Flat, freshwater, webbed? → Freshwater turtle
-
-  Long snout, visible 4th lower tooth?
-    → CROCODILIA (crocodile)
-  Long snout, lower teeth all hidden?
-    → CROCODILIA (alligator/caiman)
-  Extremely narrow snout, many small teeth?
-    → Gavial (Gavialis)
-
-  Body slender with obvious neck + legs?
-    → SQUAMATA (lizard)
-    Turret eyes, projectile tongue? → Chameleon
-    Toe pads, vertical pupil?     → Gecko
-    Huge, up to 3m, monitor?      → Varanus (monitor)
-    Beaded scales, venomous chew? → Heloderma
-
-  No legs, no eyelids, forked tongue?
-    → SQUAMATA (snake)
-    Thick body, heat pits (pit viper)? → Viperidae
-    Hood when threatened? → Naja (cobra)
-
-  Spiky, 3rd eye visible, New Zealand?
-    → RHYNCHOCEPHALIA (tuatara)
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether feathers identify birds | Feathers plus avian dinosaur anatomy | Birds are reptiles; "reptile" excludes birds only in informal grade language. |
+| Whether flightlessness defines a bird lineage | Ostrich/penguin body plan and ecology | Ratites and penguins are secondarily flightless or flight-modified, not primitive birds. |
+| Whether a shell indicates turtle | Carapace plus plastron | Sea turtle, tortoise, and freshwater turtle labels mix habitat and morphology. |
+| Whether a crocodilian is crocodile/alligator/gavial | Snout shape, tooth visibility, and jaw profile | Crocodilians are the closest living relatives of birds, not lizards. |
+| Whether a scaled animal is lizard | Squamate body with legs, eyelids, and obvious neck | Specialized lizards can be venomous, pad-footed, turret-eyed, or monitor-sized. |
+| Whether a legless squamate is snake | No legs, no eyelids, forked tongue | Leglessness evolved repeatedly; snake traits are more than missing limbs. |
+| Whether venom or hooding is diagnostic | Heat pits, venom system, hood display, or fang morphology | Venom evolved mainly for prey capture; defensive use is secondary. |
+| Whether tuatara is a lizard | Rhynchocephalian traits and New Zealand range | Tuatara is a surviving sister lineage, not an odd lizard. |
 
 ---
 

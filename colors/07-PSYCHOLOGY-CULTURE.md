@@ -365,17 +365,27 @@ WCAG 3.0 / APCA (Advanced Perceptual Contrast Algorithm):
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Physical basis of color perception | `colors/01-COLOR-PHYSICS.md` |
+| Historical shade meanings | `colors/05-HISTORICAL-SHADES.md` |
+| Global media and cultural circulation | `media-studies/09-GLOBAL-MEDIA.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why do financial companies use blue? | Trustworthiness association — robust across cultures. Blue sky, clean water → liked, familiar, safe. Not universal: varies by shade and exact cultural context. |
-| Does color increase button click rates? | Contrast with surrounding context increases click rate. "Orange buttons outperform X" is context-specific, not a general rule. |
-| What is synesthesia prevalence? | ~4% of population have some form; ~1-3% have grapheme-color synesthesia (letters/numbers evoke specific colors automatically). |
-| Does Baker-Miller pink reduce aggression? | Poorly replicated. Original study had no control or blinding. Most replication attempts failed. Classic pop-psychology overclaim. |
-| Do warm colors advance spatially? | Yes — well-replicated perceptual effect. Red appears closer than blue at same distance. Used in painting (warm foreground/cool background) and interior design. |
-| What is the Luscher color test? | 1940s Swiss test claiming to diagnose personality from color preferences. No scientific validity. Widely used in amateur psychology; not clinically accepted. |
-| What does the ecological valence theory predict? | Preference for a color correlates with preference for objects typically that color. Blue → liked (sky, clean water). Brown → disliked (mud, decay). Explains universal blue preference. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Blue in finance/brands | Trust, familiarity, sky/water associations, and shade choice | Associations are robust but not universal; context and exact hue matter. |
+| Button-click color claims | Contrast, salience, layout, copy, and surrounding design | "Orange wins" claims usually confound color with the full interface context. |
+| Synesthesia claims | Stable automatic cross-modal mappings and prevalence estimates | Mappings are idiosyncratic; there is no universal A=red code. |
+| Baker-Miller pink claims | Replication quality and original study design | Classic pop-psychology effect; treat strong aggression claims skeptically. |
+| Warm/cool spatial effects | Red/warm advance and blue/cool recede perceptual pattern | This is a perceptual/design effect, not a cultural symbolism rule. |
+| Luscher-style personality tests | Claimed color preference diagnostics | No accepted clinical validity; distinguish from empirical color perception. |
+| Ecological valence theory | Preference for objects typically associated with a color | Explains tendencies, not deterministic meanings in every culture/context. |
 
 ---
 

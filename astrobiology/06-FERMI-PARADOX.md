@@ -392,18 +392,24 @@ be technologically visible at the level of 1 Kardashev Type II+.
 
 ---
 
+## Cross-References
+
+- `astrobiology/05-JWST-DETECTION.md` — observational limits on life detection.
+- `astrobiology/09-FUTURE-MISSIONS.md` — mission pathways that could change the evidence base.
+- `philosophy-of-science/09-SCIENCE-LIMITS.md` — inference under sparse or absent evidence.
+
 ## Decision Cheat Sheet
 
-| Resolution | Implication | Testable? | Current support |
-|---|---|---|---|
-| Rare Earth | We are rare; few competitors | Partially (Mars life test) | Moderate |
-| Rare abiogenesis | Life is hard to start | Mars, Enceladus | Unknown |
-| Rare intelligence | Complex life doesn't lead to tech | Hard to test | Uncertain |
-| Short L / self-destruction | Civilizations die fast | Not directly | Sobering |
-| Zoo hypothesis | They're hiding | Unfalsifiable | Low |
-| Not looking right | Wrong frequency/method | Yes -- expand search | Possible |
-| We are first | No one got there before us | Mars/Enceladus life test | Possible |
-| Simulation | Irrelevant | Unfalsifiable | Philosophy |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether complex habitable planets are rare | Rare Earth | Mars/icy-world biology tests can constrain life frequency, not all planetary contingencies. |
+| Whether life itself is hard to start | Rare abiogenesis | Independent life on Mars or Enceladus would push the filter later. |
+| Whether intelligence is the bottleneck | Rare intelligence | Hard to test from one biosphere; complex life and technology are separate transitions. |
+| Whether civilizations self-limit quickly | Short `L` / self-destruction | Sobering but not directly testable across unseen civilizations. |
+| Whether civilizations intentionally hide | Zoo hypothesis | Mostly unfalsifiable unless it makes a risky observational prediction. |
+| Whether our search strategy is too narrow | Not looking right | Expand frequencies, modalities, time domains, and technosignature classes. |
+| Whether humanity is early | We are first | Plausible under cosmic timing arguments, but Mars/Enceladus evidence would still matter. |
+| Whether the premise is irrelevant | Simulation-style hypotheses | Philosophically interesting, empirically weak unless made testable. |
 
 ---
 

@@ -246,16 +246,22 @@ CLEAR-FELLED WATERSHED:
 
 ---
 
+## Cross-References
+
+- `climate-science/01-CARBON-CYCLE.md` - carbon cycling in climate context.
+- `ecology/03-ECOSYSTEM-ENERGETICS.md` - energy flow coupled to nutrient cycling.
+- `hydrology/01-PRECIPITATION-RUNOFF.md` - water cycle as transport system.
+
 ## Decision Cheat Sheet
 
-| Ecological context | Relevant cycle consideration |
-|------------------|------------------------------|
-| Freshwater lake turning green | P-limited eutrophication; control P inputs |
-| Coastal dead zone | N + P from agriculture; N often limiting near coast |
-| Why old-growth forest is C-neutral | NEP ≈ 0; decomposition matches production |
-| Wetland as C sink | Anaerobic decomposition → slow; CH₄ flux offsets some |
-| Boreal peatlands | Huge C stocks; slow decomposition; warming = C release risk |
-| N₂O emissions from fertilized fields | Denitrification in waterlogged soil; N₂O = 273× CO₂ GWP |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Green freshwater lake | Phosphorus-limited eutrophication | Nutrient limitation can shift with lake and season. |
+| Coastal dead zone | Agricultural N and P loading | Nitrogen is often limiting near coasts, but not always. |
+| Carbon-neutral old growth | NEP near zero | Carbon neutrality depends on disturbance and soil pools. |
+| Wetland carbon sink | Anaerobic decomposition slowing CO2 release | Methane flux can offset part of the sink. |
+| Boreal peatland risk | Huge cold-soil carbon stocks | Warming can convert long-term sinks to sources. |
+| Fertilized-field N2O | Denitrification in waterlogged soils | Requires anoxic microsites; aerated soils behave differently. |
 
 ---
 

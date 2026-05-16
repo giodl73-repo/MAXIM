@@ -271,6 +271,18 @@ Plants coordinate growth via chemical signals. The full set comprises nine major
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Plant ecology and populations | `ecology/01-POPULATION-DYNAMICS.md` | Cell physiology scales into plant competition, growth, and stress response |
+| Food plants and domestication | `food-plants/01-GRAINS.md` | Crop traits are cellular physiology plus selection |
+| Cellulose fibers | `textiles/01-NATURAL-FIBERS-PLANT.md` | Plant cell walls become textile materials |
+| Photosynthesis and carbon cycling | `climate-science/01-CARBON-CYCLE.md` | Plant cells are major carbon-cycle machinery |
+| Development and heredity | `developmental-biology/01-FERTILIZATION-CLEAVAGE.md` | Growth and differentiation depend on cell signaling and regulation |
+
+---
+
 ## Common Confusion Points
 
 **Cell wall ≠ cell membrane.** Wall is outside the plasma membrane, rigid, made of cellulose. Membrane is a lipid bilayer, selectively permeable. Plants have both; animal cells only have the membrane.

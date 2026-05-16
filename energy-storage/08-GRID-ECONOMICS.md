@@ -2,9 +2,11 @@
 
 ## The Big Picture
 
-Energy storage economics are dominated by one metric: Levelized Cost of Storage (LCOS).
-The learning curve for Li-ion has been extraordinary (89% cost reduction in 10 years).
-Grid storage economics require stacking multiple revenue streams to justify investment.
+Energy storage economics are often summarized by Levelized Cost of Storage (LCOS),
+but bankable projects are decided by revenue timing, market rules, degradation,
+financing, and contractability. Li-ion learning curves have been extraordinary;
+grid storage economics still require matching the asset to a revenue stack it can
+actually deliver.
 
 ```
 GRID STORAGE ECONOMIC FRAMEWORK
@@ -292,17 +294,22 @@ TYPICAL UTILITY-SCALE BESS PROJECT (2025):
 
 ## Decision Cheat Sheet
 
-| Economic question | Key consideration |
-|------------------|------------------|
-| Li-ion vs. flow for 4-hour storage | Li-ion wins (CAPEX lower at short duration) |
-| Li-ion vs. flow for 12-hour storage | Flow can win (stack cost amortized; Li-ion expensive at long duration) |
-| Where does most revenue come from? | Frequency regulation + capacity often > arbitrage |
-| What drives LCOS most? | CAPEX (biggest), then cycle life (determines cost per MWh throughput) |
-| When does storage project cash flow? | After stacking 2-3 revenue streams (single stream rarely sufficient) |
-| What did FERC Order 841 change? | Mandated storage access to wholesale markets (frequency reg, capacity) |
-| Where is Li-ion near cost floor? | LFP cells at $50-60/kWh are near material cost floor |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether LCOS is meaningful | Check duration, cycles/year, efficiency, degradation, replacement, discount rate, augmentation, and residual value. | LCOS is comparable only when the duty cycle and service are comparable. |
+| Whether Li-ion or flow fits | Compare duration, cycle depth, capex split between power/energy, degradation, footprint, safety, and warranty terms. | Li-ion often wins at short duration; flow options need duration or cycle-life value to offset project risk. |
+| Where revenue comes from | Separate energy arbitrage, frequency regulation, capacity/resource adequacy, congestion relief, demand-charge reduction, and contracts. | Revenue streams can saturate or conflict; stacking does not mean full simultaneous capture. |
+| Whether a project is financeable | Look for contracted revenue, merchant exposure, interconnection, degradation warranty, augmentation plan, tax-credit eligibility, and counterparty risk. | A technically positive spread may still fail financing if revenue is volatile or uncontracted. |
+| Whether FERC Order 841 matters | Check ISO/RTO participation model, minimum size, state-of-charge rules, metering, charging treatment, and dual-use limits. | Market access is necessary; it does not guarantee profitable dispatch. |
+| Whether cost floors are near | Separate cell material cost, pack integration, PCS, EPC, land, interconnection, fire protection, and financing. | Cell cost can fall while installed project cost is constrained by balance-of-system and grid queue costs. |
 
 ---
+
+## Cross-References
+
+- `01-ELECTROCHEMICAL.md` supplies battery performance parameters used in storage finance.
+- `05-PUMPED-HYDRO.md` and `06-COMPRESSED-AIR.md` give long-duration mechanical-storage comparisons.
+- `../electrical-grid/08-MARKETS.md` explains the market structures where storage earns revenue.
 
 ## Common Confusion Points
 

@@ -428,18 +428,24 @@ Protein folding is a search and optimization problem over an astronomically larg
 
 ---
 
+## Cross-References
+
+- `biophysics/01-THERMODYNAMICS-BIO.md` — free energy and entropy as folding constraints.
+- `biophysics/09-ALPHAFOLD-ERA.md` — modern prediction and structure-learning context.
+- `biology/01-MOLECULAR-MACHINERY.md` — folded proteins as cellular machines.
+
 ## Decision Cheat Sheet
 
-| Question | Answer | Module |
-|----------|--------|--------|
-| Why does protein folding not take astronomical time? | Energy funnel, not random search | Section 2 |
-| What determines folding rate (kinetics)? | ΔG‡, contact order | Section 2 |
-| What determines folded fraction (equilibrium)? | ΔG_fold | Section 2 |
-| What chaperone encapsulates individual proteins? | GroEL/GroES | Section 3 |
-| What is the unique feature of prion disease? | PrPˢᶜ catalyzes conversion of PrPᶜ | Section 4 |
-| Is amyloid thermodynamically stable? | Yes — kinetically trapped native state | Section 4 |
-| What did AlphaFold2 definitively solve? | Static structure of single-chain proteins | Section 5 |
-| What can't AlphaFold2 predict? | Dynamics, disorder, function, drug binding | Section 5 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Levinthal paradox | Energy-funnel search | Folding is biased, not exhaustive. |
+| Folding rate | Barrier height and contact order | Kinetics and thermodynamic stability are different. |
+| Folded fraction | Delta G of folding | Small free-energy shifts can change population strongly. |
+| Chaperonin assistance | GroEL/GroES encapsulation | Chaperones assist folding; they do not encode the final fold. |
+| Prion propagation | Template-catalyzed conformational conversion | Sequence identity and strain conformation both matter. |
+| Amyloid stability | Kinetic trapping versus thermodynamic basin | Native state can be metastable, not globally lowest energy. |
+| AlphaFold2 success | Static single-chain structure prediction | Confidence is local and context-dependent. |
+| AlphaFold2 limit | Dynamics, disorder, function, and binding | Structure prediction is not full biophysics. |
 
 ---
 

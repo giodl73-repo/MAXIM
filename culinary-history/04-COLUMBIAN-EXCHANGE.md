@@ -243,14 +243,22 @@ CROSBY'S KEY INSIGHTS
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Who coined "Columbian Exchange"? | Alfred Crosby, 1972 |
-| How long did Italian tomato tradition take to develop? | ~200-300 years (1570s-1800s adoption) |
-| Why did chiles spread so fast to Asia? | Portuguese spice trade routes; similarity to pepper; adapted easily |
-| What is pellagra and how does it relate to maize? | Niacin deficiency when maize eaten without nixtamalization; epidemic when maize spread without processing technique |
-| What disease explains Spanish conquest more than military power? | Smallpox (preceded armies; killed 50-90% of indigenous populations) |
-| Why is sugar linked to slavery? | Labor-intensive tropical cultivation; European demand increased 10×; enslaved African labor was the "solution" |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A Columbian Exchange framing | Use Crosby's ecological-exchange lens: crops, animals, pathogens, people, labor, and landscapes. | It was not a managed program; it was cumulative movement through trade, conquest, and accident. |
+| A tomato-in-Italy tradition claim | Check introduction date, suspicion/ornamental phase, regional adoption, sauce technology, and national identity. | "Traditional" can be real while still historically recent. |
+| Chili diffusion | Track Portuguese routes, pepper substitution, climate fit, seed portability, local cuisines, and colonial trade. | Rapid adoption does not mean old-world origin. |
+| Maize and pellagra | Separate crop diffusion, nixtamalization loss, niacin bioavailability, poverty diets, and public-health response. | A crop can increase calories while creating deficiency if processing knowledge is missing. |
+| Disease and conquest | Compare smallpox, measles, demographic collapse, military alliances, political fragmentation, and timing. | Pathogens were decisive, but conquest still involved human alliances and violence. |
+| Sugar and slavery | Analyze tropical labor demand, mortality, plantation discipline, European consumption, capital, and Atlantic trade. | Sugar's economics were inseparable from coercive labor systems. |
+
+---
+
+## Cross-References
+
+- `03-MEDIEVAL.md` gives the pre-exchange food world transformed by American and Old World crops.
+- `07-GLOBAL-TRADITIONS.md` follows how exchanged ingredients became embedded in regional cuisines.
+- `../agriculture/00-OVERVIEW.md` links crop diffusion to farming systems, yields, and ecology.
 
 ---
 

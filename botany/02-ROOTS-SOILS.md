@@ -296,16 +296,22 @@ CONTROL STRATEGIES:
   Biological control: Fusarium oxysporum Fsp. strigae (hyperparasite)
 ```
 
+## Cross-References
+
+- `soil-science/01-SOIL-FORMATION.md` - soil as the physical and chemical substrate.
+- `botany/04-LEAVES-PHOTOSYNTHESIS.md` - root uptake supporting leaf metabolism.
+- `agriculture/01-SOILS-FERTILITY.md` - managed fertility and plant nutrition.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Taproot vs fibrous root? | Taproot = dicots, single dominant primary root; fibrous = monocots, adventitious root network |
-| What does the Casparian strip do? | Blocks apoplastic water flow; forces water through endodermal cells |
-| Why is phosphorus hard to obtain? | Moves extremely slowly in soil; mycorrhizae extend reach beyond P-depleted zone |
-| What are arbuscules? | Branched fungal structures inside root cortex cells; site of C/P exchange in AM fungi |
-| What is the rhizosphere? | Zone of elevated microbial activity around roots, fed by root exudates |
-| Do mycorrhizal networks actively share resources? | Transfer is real; intentionality/adaptive cooperation is debated |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Root architecture | Taproot versus fibrous/adventitious systems | Architecture reflects lineage and function, not edibility. |
+| Selective water uptake | Casparian strip forcing symplastic flow | It blocks apoplastic bypass, not all passive transport. |
+| Phosphorus limitation | Low soil mobility and mycorrhizal reach | Total soil P can be high while plant-available P is low. |
+| Arbuscular mycorrhiza function | Arbuscules as carbon/phosphorus exchange sites | Mutualism depends on living roots and soil context. |
+| Rhizosphere activity | Root exudates feeding microbial communities | Not all microbes are beneficial. |
+| Mycorrhizal network claims | Documented resource transfer | Avoid implying intentional forest cooperation. |
 
 ---
 

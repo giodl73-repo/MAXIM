@@ -333,19 +333,29 @@ VIRTUE EPISTEMOLOGY:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Consequences-centered contrast | `ethics/02-CONSEQUENTIALISM.md` |
+| Duties-centered contrast | `ethics/03-DEONTOLOGY.md` |
+| Applied ethics and professional character | `ethics/06-APPLIED-ETHICS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Concept | Definition | Aristotle's key term |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Eudaimonia | Human flourishing; excellent rational activity | Eudaimonia |
-| Function argument | Humans' function is rational activity; excellence = virtue | Ergon |
-| Doctrine of the mean | Virtue is mean between excess and deficiency, relative to person | Mesotes |
-| Moral virtue | Stable disposition to act and feel appropriately | Hexis (stable state) |
-| Practical wisdom | Master virtue: knowing how to apply other virtues in context | Phronesis |
-| Habituation | Virtues acquired through practice, not born with | Ethos/ethike |
-| Stoic indifferents | Health/wealth are preferred/dispreferred, not genuinely good/bad | Adiaphora |
-| MacIntyre practices | Activities with internal goods; virtues required to excel at them | Praxis |
-| Natural goodness (Foot) | Good = what a member of a natural kind needs for flourishing | -- |
+| Eudaimonia | Human flourishing as excellent rational activity | Not a feeling-state or simple pleasure metric. |
+| Function argument | Human function as rational activity; virtue as excellence | Depends on whether a human function can do normative work. |
+| Doctrine of the mean | Virtue between excess and deficiency relative to person and context | The mean is not arithmetic moderation or political centrism. |
+| Moral virtue | Stable disposition to act and feel appropriately | Virtue includes affective training, not just rule compliance. |
+| Practical wisdom | Phronesis: context-sensitive application of virtues | This is the action-guidance engine, but it resists algorithmic rules. |
+| Habituation | Virtue acquired through repeated practice | Practice must be socially shaped; repetition alone can train vice. |
+| Stoic indifferents | Health and wealth as preferred/dispreferred, not truly good/bad | Stoicism targets false value judgments, not all emotion. |
+| MacIntyre practices | Internal goods and virtues required by social practices | Tradition-dependence is not automatically relativism. |
+| Foot's natural goodness | Good as what a life-form needs for flourishing | Natural-kind reasoning is powerful but contested for humans. |
 
 ---
 

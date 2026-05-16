@@ -1,6 +1,6 @@
 # Heuristics and Biases
 
-## The Heuristics Research Program
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -315,17 +315,27 @@ REPLICATION OF HEURISTICS/BIASES FINDINGS:
   small-N studies on weak phenomena. Return to basics: the core is solid.
 ```
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Formal value function behind biased choice | `behavioral-economics/02-PROSPECT-THEORY.md` |
+| Social motives beyond individual heuristics | `behavioral-economics/05-SOCIAL-PREFERENCES.md` |
+| Choice architecture as applied debiasing | `behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Heuristic question | Error condition | Debiasing strategy |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Representativeness | Linda problem; base rate neglect; hot hand / gambler's fallacy | Explicitly compute P(A∩B); seek base rates; ask "what is the reference class?" |
-| Availability | Risk perception distorted by vivid/recent events | Ask "what's the actual incidence rate?"; use actuarial data |
-| Anchoring | Salary, pricing, legal, estimation tasks | Make the first offer; use reference class for estimation; challenge anchors explicitly |
-| Affect heuristic | Risk-benefit link distorted by affect | Separate risk and benefit judgments; use structured assessments |
-| Overconfidence | Project estimates too narrow/optimistic | Reference class forecasting; de Bondt intervals; red team |
-| Status quo bias | Staying with bad default | Reframe status quo as active loss; compare to reference class performance |
-| Confirmation bias | Evidence search stops early; disconfirming evidence ignored | Pre-mortem; adversarial collaboration; structured devil's advocate |
+| Representativeness errors | Base rates, conjunction logic, and reference-class selection | The heuristic works when resemblance tracks frequency; bias is environment-specific. |
+| Availability distortions | Vividness, recency, media salience, and actual incidence | Ease of recall is not the same as probability. |
+| Anchoring effects | First numbers in salary, pricing, legal, and estimation tasks | Challenging anchors helps, but anchors often persist after awareness. |
+| Affect heuristic | Emotion-driven coupling of risk and benefit judgments | Separate risk/benefit scoring before aggregating. |
+| Overconfidence | Narrow intervals, optimistic plans, and inside-view estimates | Reference-class forecasting beats confidence calibration alone. |
+| Status quo bias | Default retention despite poor performance | Reframe the default as an active choice, not neutral inaction. |
+| Confirmation bias | Early search stopping and ignored disconfirmation | Pre-mortems and adversarial collaboration must be structurally empowered. |
 
 ## Common Confusion Points
 

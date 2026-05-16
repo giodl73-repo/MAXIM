@@ -314,6 +314,12 @@ THIS IS THE SAME PATTERN as configuration-driven systems:
 
 ---
 
+## Cross-References
+
+- [Grid Systems](04-GRID-SYSTEMS.md) supplies the layout logic that becomes responsive screen design.
+- [Brand Identity Systems](07-BRAND-IDENTITY.md) shows how identities become componentized digital systems.
+- [Contemporary Graphic Design](09-CONTEMPORARY.md) follows digital transition into current tooling, platforms, and workflows.
+
 ## Common Confusion Points
 
 **"Web design is just putting print layouts on screen"** -- Print designers who

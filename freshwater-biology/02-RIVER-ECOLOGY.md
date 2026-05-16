@@ -271,17 +271,24 @@ Fish communities in temperate rivers show strong longitudinal patterns (European
 
 ---
 
+## Cross-References
+
+- `03-WETLANDS.md` connects river flood pulses to wetland hydroperiods.
+- `04-FRESHWATER-ORGANISMS.md` maps river habitats to organism groups.
+- `08-CONSERVATION.md` covers dam, flow, and invasive-species pressures.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What determines stream order? | Strahler's system: number of confluences with equal-order tributaries |
-| Why are shredders most abundant in headwaters? | Abundant CPOM (leaf litter) from closed riparian canopy; low autochthonous production |
-| Why are scrapers most abundant in mid-order reaches? | Canopy opens; algal periphyton (biofilm) grows on rocks |
-| What is the dominant FFG in large rivers? | Collectors (filter feeders, deposit feeders) feeding on FPOM from upstream |
-| Why is riparian shading critical for coldwater fish? | Even 2–3°C increase can push salmonid habitat below thermal tolerance |
-| What does the hyporheic zone do for salmon eggs? | Oxygenated upwelling flow; thermal buffering; egg survival requires DO > 7 mg/L |
-| What drives Amazon fish productivity? | Flood pulse — lateral connectivity between river and floodplain during inundation |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Stream order | Strahler confluences among equal-order tributaries | Order is topology, not slope or channel size alone. |
+| Headwater shredders | Coarse particulate organic matter from closed riparian canopy | Local geology, land use, and dams can override RCC averages. |
+| Mid-order scrapers | Open canopy, light, and algal periphyton on rocks | Scrapers track biofilm access, not simply stream width. |
+| Large-river feeding groups | Collectors using fine particulate organic matter from upstream | Floodplain connectivity can dominate main-channel inputs. |
+| Coldwater fish risk | Riparian shading and thermal tolerance | A 2-3 deg C rise can push salmonids beyond tolerance. |
+| Salmon-egg survival | Hyporheic upwelling, oxygen, and thermal buffering | Dissolved oxygen above roughly 7 mg/L is critical. |
+| Amazon productivity | Flood pulse and lateral floodplain connectivity | Productivity is seasonal and spatial, not a fixed channel trait. |
+| Dam discontinuity | Serial Discontinuity Concept | Dams reset temperature, sediment, and organic-matter gradients. |
 
 ---
 

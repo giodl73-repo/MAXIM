@@ -323,18 +323,24 @@ PERFORATIONS AS CLOCK:
 
 ---
 
+## Cross-References
+
+- `cinema-film/02-SILENT-ERA.md` — early film grammar after optical capture became practical.
+- `photography/01-OPTICS-LENSES.md` — lens and image-formation foundations.
+- `neuroscience/01-NEURONS-SIGNALS.md` — sensory signaling behind visual persistence.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is persistence of vision? | Incorrect theory: retinal afterimages persist between frames. Actual mechanisms are phi phenomenon + CFF. |
-| What is the phi phenomenon? | Brain perceives motion between two sequentially presented stationary stimuli (Wertheimer, 1912) |
-| What is critical flicker fusion? | ~16-20 Hz threshold below which light appears to flicker; cinema uses 72 flashes/sec (3-blade shutter x 24fps) |
-| Who is Muybridge? | Eadweard Muybridge: decomposed horse gallop into sequential photos (1878); proved all-4-feet-airborne |
-| Who is Marey? | Étienne-Jules Marey: chronophotographic gun (1882); multiple exposures on single plate; motion science |
-| Why 35mm film? | Dickson cut Eastman 70mm film lengthwise; arbitrary choice that became international standard (1909) |
-| Why 24fps? | Sound synchronization standard (1927); minimum for flicker-free experience at practical film speeds |
-| What is a zoetrope? | Slotted rotating cylinder with sequential drawings inside; 1834; multiple viewers simultaneously |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether "persistence of vision" explains cinema motion | Phi phenomenon plus critical flicker fusion | Retinal afterimage persistence is the wrong causal model. |
+| Why separated still images appear to move | Wertheimer's phi phenomenon | Apparent motion is an active perceptual inference, not a projector trick alone. |
+| Why projection can look steady instead of flickering | Critical flicker fusion around 16-20 Hz, with cinema often flashing 72 times/sec | Frame rate and flash rate differ; a 3-blade shutter flashes each 24fps frame three times. |
+| What Muybridge contributed | Sequential photographic decomposition of motion | Muybridge analyzed motion; he did not create standardized projected cinema. |
+| What Marey contributed | Chronophotography and motion science | Marey's goal was measurement of movement, not mass theatrical exhibition. |
+| Why 35mm became standard | Dickson's split of Eastman 70mm stock and later standardization | The standard began as contingent engineering, then hardened through network effects. |
+| Why 24fps became the cinema norm | Sound synchronization economics and stability | 24fps is a standard-aesthetic compromise, not a biological minimum for motion. |
+| What optical toys explain about pre-cinema | Zoetrope-style sequential drawings and slotted viewing | Toys demonstrate perceptual principles but lack photographic capture, projection, and industrial distribution. |
 
 ---
 

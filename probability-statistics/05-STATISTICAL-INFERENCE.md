@@ -374,18 +374,24 @@ The bootstrap (Efron, 1979) estimates the sampling distribution of a statistic b
 
 ---
 
+## Cross-References
+
+- `probability-statistics/03-LIMIT-THEOREMS.md` — asymptotics behind estimators, intervals, and tests.
+- `probability-statistics/06-BAYESIAN-STATISTICS.md` — posterior inference as the Bayesian counterpart.
+- `probability-statistics/07-REGRESSION-MODELS.md` — regression as inference over conditional models.
+
 ## Decision Cheat Sheet
 
-| Goal | Method | Notes |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Point estimation, likelihood known | MLE | Asymptotically efficient |
-| Point estimation, likelihood intractable | GMM, M-estimation | Moment-based |
-| Test simple vs. simple hypothesis | Likelihood ratio test | Neyman-Pearson optimal |
-| Test composite hypothesis | LRT, score test, Wald test | Asymptotically chi-squared |
-| Interval estimation | Confidence interval (pivot or LR) | Exact or approximate |
-| Multiple testing, few false positives | Bonferroni | FWER control, conservative |
-| Multiple testing, many tests (genomics) | Benjamini-Hochberg | FDR control |
-| Robust to outliers | Median, M-estimators, Huber | Reduces efficiency |
+| Whether a known likelihood can identify parameters | Maximum likelihood estimation | Asymptotic efficiency assumes correct model and regularity |
+| Whether likelihood is unavailable but moments are usable | GMM or M-estimation | Moment choice affects identification and efficiency |
+| Whether two simple hypotheses are being compared | Neyman-Pearson likelihood-ratio test | Optimality is for fixed size and simple-vs-simple tests |
+| Whether a composite test is asymptotic | LRT, score, or Wald test | Chi-square limits require regularity and large samples |
+| Whether interval coverage is the target | Pivot, likelihood-ratio, or asymptotic confidence interval | Coverage is a repeated-sampling property, not posterior probability |
+| Whether any false positive is costly | Bonferroni correction | FWER control is conservative under many tests |
+| Whether many discoveries tolerate some false positives | Benjamini-Hochberg FDR control | Dependence structure can affect guarantees |
+| Whether outliers dominate estimates | Median, Huber, or M-estimator | Robustness trades away efficiency under the ideal model |
 
 ---
 

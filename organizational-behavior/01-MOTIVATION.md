@@ -420,6 +420,18 @@ RECOGNITION AND PRAISE:
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Individual and group psychology | `psychology/01-SOCIAL-PSYCHOLOGY.md` | Motivation is shaped by identity, authority, norms, and social comparison |
+| Economic incentive design | `behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md` | Pay and rewards often fail because humans are not simple utility maximizers |
+| Organizational structure | `sociology/01-SOCIAL-STRUCTURE.md` | Roles, hierarchy, status, and institutions shape what effort means |
+| Learning and performance improvement | `education/01-LEARNING-THEORY.md` | Goals, feedback, practice, and mastery link motivation to skill acquisition |
+| Contract and employment incentives | `law/01-CONTRACTS.md` | Formal agreements define pay, obligations, ownership, and enforcement boundaries |
+
+---
+
 ## Common Confusion Points
 
 **Maslow's hierarchy has no empirical support for the sequence**:

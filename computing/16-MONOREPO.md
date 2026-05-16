@@ -488,17 +488,23 @@ pnpm is preferred for monorepos: stricter hoisting (prevents phantom dependencie
 
 ---
 
+## Cross-References
+
+- `computing/02-GIT.md` — version-control substrate for repository scale.
+- `computing/04-BUILD.md` — build graph and caching pressure in monorepos.
+- `computing/13-CICD.md` — pipeline fan-out and change detection.
+
 ## Decision Cheat Sheet
 
-| I want to... | Use |
-|---|---|
-| Share code between apps without publishing to npm | Monorepo with workspaces |
-| Build only what changed | Turborepo or Nx with affected commands |
-| Cache build outputs across CI runs | Remote cache (Turbo → Vercel, Nx → Nx Cloud) |
-| Simple task orchestration, lean setup | Turborepo |
-| Code generation, IDE integration, enterprise scale | Nx |
-| Manage package installs in a monorepo | pnpm workspaces (preferred) |
-| Enforce that apps don't import from other apps | Nx module boundaries |
-| Publish some packages to npm, keep others internal | Changesets for versioning + Turbo/Nx for building |
-| Visualize which packages depend on what | `nx graph` or `turbo build --graph` |
-| Run only tests for code a PR touches | `nx affected --target=test` or `turbo --filter=...[HEAD^1]` |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether shared code needs a repo boundary or package boundary | Workspaces in one monorepo | A monorepo removes publishing friction; it does not remove API ownership. |
+| Why CI rebuilds too much | Turborepo or Nx affected task graph | Affected builds depend on accurate dependency metadata and deterministic inputs. |
+| Why builds are slow across machines | Remote cache for Turbo or Nx | Cache hits are only safe when tasks are hermetic; hidden environment inputs poison trust. |
+| Whether the repo needs lean orchestration | Turborepo | Turbo is simpler but intentionally narrower than a full project system. |
+| Whether the repo needs generators, plugins, and IDE graph policy | Nx | Nx adds governance power; it also adds platform conventions teams must accept. |
+| Why installs differ between developers and CI | pnpm workspaces | pnpm exposes phantom dependencies that npm hoisting may have hidden. |
+| Why apps accidentally depend on other apps | Nx module boundaries | Boundaries require a domain model; rules without architecture just become lint noise. |
+| How internal and public packages should version | Changesets plus Turbo/Nx build orchestration | Internal packages can float together; published packages still need compatibility contracts. |
+| Where dependency coupling lives | `nx graph` or `turbo build --graph` | Graph visualization shows edges, not whether the edges are conceptually healthy. |
+| How to run only tests affected by a PR | `nx affected --target=test` or `turbo --filter=...[HEAD^1]` | Filtered tests are safe only if the graph includes generated code, config, and runtime dependencies. |

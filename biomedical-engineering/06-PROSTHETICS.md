@@ -499,16 +499,22 @@ and for reimbursement.
 
 ---
 
+## Cross-References
+
+- `biomedical-engineering/05-NEURAL-INTERFACES.md` — neural control and feedback pathways.
+- `biomedical-engineering/02-BIOMATERIALS.md` — socket, implant, and interface material constraints.
+- `robotics/01-KINEMATICS.md` — motion-control foundations for powered prostheses.
+
 ## Decision Cheat Sheet
 
-| Patient scenario | Primary recommendation | Notes |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Active K3/K4 TT amputee | Carbon fiber ESAR foot (Össur Flex-Foot or equivalent) | Best balance energy return/weight |
-| Active K3/K4 TF amputee | Microprocessor knee + ESAR foot (C-Leg or Genium) | MPK safety clearly demonstrated |
-| K1/K2 TF amputee | Non-MPK knee (stance control) + SACH foot | MPK benefit modest, high cost |
-| Bilateral TF amputee | Short pylons first, progress to longer prostheses | Balance training is primary challenge |
-| Transradial amputee, working | Body-powered hook (workhorse) + myoelectric (cosmesis) | Likely needs both |
-| Transhumeral amputee | TMR surgery first, then pattern recognition myoelectric | More EMG sources -> better control |
-| Athletic/recreational TT | Running blade (Cheetah/Taleo) for sport, ESAR for ADL | Sport-specific device |
-| SCI (T4-L1) rehabilitation | Exoskeleton (ReWalk or Ekso) for rehab program | Not ADL replacement, therapy tool |
-| Chronic socket problems | Consider osseointegration evaluation | IDE in US, standard care in EU/AU |
+| Whether an active K3/K4 transtibial user needs energy return | Carbon fiber ESAR foot | Energy return, weight, terrain, socket fit, and payer criteria all interact. |
+| Whether an active transfemoral user needs knee safety | Microprocessor knee plus ESAR foot | MPK safety is strong, but training, maintenance, and coverage matter. |
+| Whether a low-activity transfemoral user benefits from MPK | Stance-control knee plus SACH foot | MPK benefit may be modest relative to cost and functional goals. |
+| Whether bilateral transfemoral fitting should start short | Short pylons with progressive height | Balance training and fall risk dominate before device sophistication. |
+| Whether a working transradial user needs rugged function | Body-powered hook plus possible myoelectric device | Many users need both workhorse function and cosmetic/social options. |
+| Whether high-level upper-limb control needs more EMG sources | TMR followed by pattern-recognition myoelectric control | Surgery improves signal options but adds recovery and training burden. |
+| Whether sport use should share the ADL device | Running blade for sport plus ESAR for daily living | Sport-specific devices optimize performance but are not general-purpose feet. |
+| Whether SCI exoskeleton is daily mobility | ReWalk/Ekso-style rehab program | Exoskeletons are therapy tools for many users, not full ADL replacements. |
+| Whether chronic socket problems justify bone anchoring | Osseointegration evaluation | Regulatory status, infection risk, loading, and local expertise decide fit. |

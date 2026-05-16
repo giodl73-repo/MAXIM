@@ -244,18 +244,24 @@ This is the bridge to physics: gauge fields ARE connections on principal bundles
 
 ---
 
+## Cross-References
+
+- `differential-geometry/02-TANGENT-BUNDLES.md` — vector bundles whose sections connections differentiate.
+- `differential-geometry/06-CURVATURE.md` — curvature measures the noncommutativity and holonomy of connections.
+- `control-theory/04-KALMAN-FILTER.md` — parallel transport and state propagation as a useful systems analogy.
+
 ## Decision Cheat Sheet
 
-| Concept | Definition | Key Property |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Affine connection nabla | Derivative operator, Leibniz rule | Chart-independent differentiation |
-| Christoffel symbols Gamma^k_{ij} | nabla_{partial_i} partial_j = Gamma partial_k | Not tensors; encode connection |
-| Parallel transport P_gamma | Solve nabla_{gamma'} V = 0 | Preserves metric (Levi-Civita) |
-| Holonomy | Parallel transport around loops | Measures curvature globally |
-| Torsion T | nabla_X Y - nabla_Y X - [X,Y] | 0 for Levi-Civita |
-| Levi-Civita | Torsion-free + metric-compatible | Unique; determined by g |
-| Geodesic equation | D gamma'/dt = 0 | Zero covariant acceleration |
-| Covariant derivative along curve | DV/dt = nabla_{gamma'} V | Generalizes d/dt in curved space |
+| Coordinate-independent differentiation | Affine connection `nabla` with Leibniz rule | A connection is extra structure, not determined by smoothness alone. |
+| Connection coefficients | Christoffel symbols `Gamma^k_ij` | Christoffel symbols are not tensor components. |
+| Vector transport along curves | Solve `nabla_gamma' V = 0` for parallel transport | Levi-Civita transport preserves metric, not an ambient vector identity. |
+| Curvature around loops | Holonomy from parallel transport around closed paths | Holonomy measures global accumulated curvature, not just local coefficients. |
+| Torsion | `T(X,Y) = nabla_X Y - nabla_Y X - [X,Y]` | Levi-Civita sets torsion to zero; other connections need not. |
+| Canonical Riemannian connection | Levi-Civita: torsion-free and metric-compatible | Unique only after both conditions and the metric are specified. |
+| Geodesic motion | `D gamma'/dt = 0` | Geodesics are connection-dependent, not automatically shortest globally. |
+| Differentiating fields along curves | `DV/dt = nabla_gamma' V` | Differs from Lie derivative, which follows flow without a connection. |
 
 ---
 

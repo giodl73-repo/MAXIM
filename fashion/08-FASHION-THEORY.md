@@ -224,10 +224,11 @@ HEBDIGE'S "SUBCULTURE: THE MEANING OF STYLE" (1979)
   Second-hand resistance ("someone else's clothes") = identity anxiety
 
 ENCLOTHED COGNITION (Adam & Galinsky, 2012)
-  Wearing a doctor's coat increases sustained attention performance
-  when participants are told it is a doctor's coat.
-  Same coat described as a painter's coat: no effect.
-  The symbolic meaning of the clothing affects cognition, not the garment itself.
+  Wearing a doctor's coat increased sustained attention performance
+  in the original study when participants were told it was a doctor's coat.
+  Same coat described as a painter's coat: no effect in that experiment.
+  Treat as a suggestive effect, not a settled universal law; the point is
+  that clothing can activate socially learned schemas.
 
   IMPLICATION:
   "Dressing for the job you want" is not entirely metaphor.
@@ -325,6 +326,12 @@ CULTURAL APPROPRIATION IN FASHION
 
 ---
 
+## Cross-References
+
+- [Fashion History](03-FASHION-HISTORY.md) gives the institutional chronology behind fashion as cultural signal.
+- [Fashion Industry](04-FASHION-INDUSTRY.md) connects symbolic meaning to market structure and media cycles.
+- [Digital Fashion](09-DIGITAL-FASHION.md) extends identity and dress into avatars, platforms, and virtual scarcity.
+
 ## Common Confusion Points
 
 **"Fashion theory is just jargon for obvious ideas"** -- Veblen's conspicuous
@@ -351,14 +358,13 @@ consequential in daily life than most "serious" culture.
 
 ## Decision Cheat Sheet
 
-| I want to understand...                           | Framework                        |
-|---------------------------------------------------|----------------------------------|
-| Why expensive things are more desired             | Veblen goods; conspicuous consumption|
-| How taste is connected to class                   | Bourdieu; cultural capital; habitus|
-| Why fashion cycles work the way they do           | Simmel; imitation + differentiation|
-| How fashion communicates meaning                  | Barthes; fashion as sign system  |
-| Why gender-neutral fashion is theoretically grounded| Butler; gender as performance  |
-| How subcultural style works and gets absorbed     | Hebdige; bricolage + incorporation|
-| Whether "buy nothing" is a viable solution        | Wilson; adorning is human; change|
-|                                                   | the system, not the desire       |
-| Why dress codes are politically serious           | Sumptuary laws; power encoding   |
+| If you need to explain... | Use This Frame | Diagnostic Question |
+|---------------------------|----------------|---------------------|
+| Why a higher price can increase desire | Veblen | Is the price itself part of the status signal? |
+| Why "good taste" tracks class | Bourdieu | What cultural capital must the wearer/viewer already possess? |
+| Why fashion cycles keep moving | Simmel | Who is imitating, who is differentiating, and when does distinction collapse? |
+| How clothing communicates | Barthes | What is denoted by the garment, and what is connoted by the styling/context? |
+| Why gender-neutral fashion is theoretically grounded | Butler | Which repeated acts of dress are producing the category rather than expressing an essence? |
+| How subculture becomes mainstream | Hebdige | What resistant meaning is lost when the style is incorporated into commerce? |
+| Whether "buy nothing" can scale | Wilson | Does the proposal reform the production system or deny the human impulse to adorn? |
+| Why dress codes matter politically | Sumptuary / institutional power | Who is allowed to signal rank, belonging, legitimacy, or refusal? |

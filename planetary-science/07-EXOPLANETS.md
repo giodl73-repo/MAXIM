@@ -352,18 +352,24 @@ BIOSIGNATURE SEARCH
 
 ---
 
+## Cross-References
+
+- `astronomy/01-EARTH-MOTIONS.md` — transit and orbital geometry foundations.
+- `planetary-science/08-HABITABILITY.md` — exoplanet habitability assessment.
+- `astrobiology/05-JWST-DETECTION.md` — atmospheric detection and biosignature searches.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| How do we measure planet mass? | Radial velocity (m sin i) or transit timing variations (true mass) |
-| How do we measure planet radius? | Transit (R_p/R_star from ΔF/F = (R_p/R_star)²) |
-| What causes the radius gap? | Atmospheric photoevaporation or core-powered mass loss strips H/He from small cores; gap at ~1.5-2.0 R⊕ |
-| What fraction of stars have rocky planets in the HZ? | η_⊕ ≈ 10-50% (uncertain; based on Kepler statistics extrapolated to longer periods) |
-| How were hot Jupiters formed? | Cannot form in place; migrated inward via disk migration or high-eccentricity scattering + tidal circularization |
-| Best current target for biosignature search? | TRAPPIST-1 system (especially e and f); LHS 1140 b — rocky, near HZ, M dwarf, observable with JWST |
-| What did Kepler's most important discovery change? | That small planets (sub-Neptune) are the most common type, not gas giants — solar system is atypical |
-| What is a Hycean world? | Hypothetical planet type: liquid water ocean under a thick H₂-rich atmosphere; may inhabit a wider temperature range than Earth-like HZ |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Planet mass measurement | Radial velocity or transit timing variations | RV gives m sin i without inclination. |
+| Planet radius measurement | Transit depth relative to stellar radius | Stellar-radius uncertainty propagates directly. |
+| Radius gap origin | Photoevaporation or core-powered mass loss | Multiple mechanisms may contribute. |
+| Rocky HZ occurrence | Eta-Earth from Kepler extrapolation | Long-period completeness makes uncertainty wide. |
+| Hot Jupiter origin | Disk migration or high-eccentricity migration | In-place formation is strongly disfavored, not always impossible in every model. |
+| Biosignature target choice | Nearby transiting rocky HZ planets | M-dwarf activity complicates atmospheric interpretation. |
+| Kepler demographic shift | Small planets dominate occurrence | Detection bias still shapes raw catalogs. |
+| Hycean-world claim | H2-rich ocean-world hypothesis | Habitability and biosignature interpretation are speculative. |
 
 ---
 

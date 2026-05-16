@@ -308,20 +308,26 @@ T CELLS: CELLULAR IMMUNITY COORDINATORS AND KILLERS
 
 ---
 
+## Cross-References
+
+- `immunology/02-ADAPTIVE-IMMUNITY.md` — T cells as the cellular adaptive arm.
+- `immunology/07-IMMUNOTHERAPY.md` — checkpoint blockade and CAR-T as engineered T-cell interventions.
+- `virology/05-IMMUNE-EVASION.md` — viral strategies that evade T-cell detection.
+
 ## Decision Cheat Sheet
 
-| Goal | Which T Cell |
-|------|-------------|
-| Kill infected cells (virus/intracellular bacteria) | CD8 cytotoxic T cells |
-| Activate macrophages to kill intracellular bacteria | Th1 (IFN-γ) |
-| Help B cells make IgE / fight parasites | Th2 (IL-4) |
-| Recruit neutrophils to mucosal surface (fungi) | Th17 (IL-17) |
-| Help B cells in germinal center (antibody) | Tfh (IL-21) |
-| Suppress immune responses | Treg (FoxP3, IL-10, TGF-β) |
-| What gets blocked by checkpoint inhibitors? | PD-1 (on T cells) or PD-L1 (on tumor) |
-| What is T cell exhaustion? | Chronic antigen → progressive function loss + PD-1 |
-| Why is Signal 3 needed? | Inflammatory context ensures CD8 memory |
-| What receptor does CTLA-4 compete with? | CD28 (competes for B7 binding) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Killing infected cells | CD8 cytotoxic T cells | Antigen must be presented on MHC I. |
+| Macrophage activation | Th1 and IFN-gamma | Excess Th1 activity can drive immunopathology. |
+| Parasite/IgE response | Th2 and IL-4 | Th2 bias also underlies allergic disease. |
+| Mucosal neutrophil recruitment | Th17 and IL-17 | Th17 defects predispose to fungi; excess drives inflammation. |
+| Germinal-center B-cell help | Tfh and IL-21 | Tfh dysregulation can support autoantibodies. |
+| Immune suppression | Treg, FoxP3, IL-10, TGF-beta | Suppression protects tolerance but can blunt tumor immunity. |
+| Checkpoint-inhibitor target | PD-1 on T cells or PD-L1 on tumor/APC | Blocking brakes can cause autoimmune toxicity. |
+| T-cell exhaustion | Chronic antigen plus inhibitory receptors | Exhaustion is a graded state, not simple deletion. |
+| CD8 memory formation | Signal 3 inflammatory cytokines | Too much inflammation can damage tissue. |
+| CTLA-4 competition | CD28 competition for B7 | CTLA-4 mainly acts during priming. |
 
 ---
 

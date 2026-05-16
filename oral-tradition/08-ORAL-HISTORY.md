@@ -329,17 +329,24 @@ Paraphrase acceptable               Verbatim transcript standard
 
 ---
 
+## Cross-References
+
+- `03-MEMORY-TECHNIQUES.md` explains memory limits and reconstruction.
+- `06-TRANSMISSION.md` distinguishes testimony from tradition drift.
+- `09-DIGITAL-PRESERVATION.md` covers archiving, metadata, and access.
+
 ## Decision Cheat Sheet
 
-| Issue | Oral history approach |
-|-------|----------------------|
-| Dating events accurately | Cross-reference with documents; expect telescoping |
-| Hindsight contamination | Ask for contemporaneous feelings before outcomes known |
-| Self-presentation bias | Recognize it as data; don't try to eliminate |
-| Collective memory contamination | Ask "Do you remember what you thought at the time?" |
-| Conflicting testimonies | Both may be true; document and analyze the conflict |
-| Accessing restricted communities | Community consent + individual consent; cultural mediator |
-| Archiving sensitive material | Tiered access; sealed deposit; negotiated consent |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Event dating | Cross-reference documents and expect telescoping | Date error may coexist with accurate meaning memory. |
+| Hindsight contamination | Ask for contemporaneous feelings before outcomes were known | Later knowledge reorganizes memory without obvious markers. |
+| Self-presentation bias | Treat identity performance as data | Do not pretend bias can simply be eliminated. |
+| Collective-memory influence | Ask what the narrator remembers thinking at the time | Community narratives can overwrite individual chronology. |
+| Conflicting testimony | Preserve and analyze conflict rather than harmonizing too fast | Both accounts may be true at different experiential levels. |
+| Restricted-community access | Community consent, individual consent, and cultural mediator | Legal consent alone may violate community protocol. |
+| Sensitive archive material | Tiered access, sealed deposit, and negotiated consent | Future access is part of the ethics, not just storage logistics. |
+| Apparent factual inaccuracy | Portelli-style meaning analysis | The "error" may be the historical finding. |
 
 ---
 

@@ -430,16 +430,23 @@ or demeans the practice.
 
 ## Decision Cheat Sheet
 
-| Tradition | Core Structure | What Makes It Unique | Transmission |
-|-----------|---------------|----------------------|-------------|
-| Bharatanatyam | Margam structure; tala cycles | Mudras as signed language; 9 rasas | Guru-shishya lineage |
-| Kathak | Taans, tihais, chakkar (turns) | Mughal + Hindu synthesis; footwork + storytelling | Gharana system |
-| West African | Polyrhythmic; call-response | Body as poly-instrument; dancer leads drummer | Community participation |
-| Flamenco | Palos (forms) with compas | Total art: cante + toque + baile; duende | Oral/family/pena |
-| Tango | The embrace; improvised dialogue | No fixed sequence; leader/follower conversation | Social dancing |
-| Noh | Extremely slow; masked; text-based | Time as spiritual dimension; stillness as movement | Rigidly hereditary |
-| Butoh | No vocabulary; instruction images | Phenomenological surrender; post-Hiroshima | Workshop/solo practice |
-| Haka | Group chant + stomping | Identity declaration; functional (not entertainment) | Tribal oral tradition |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A Bharatanatyam claim | Examine margam structure, tala, mudras, rasa, devadasi history, revival politics, and guru lineage. | Its "classical" form is a 20th-century reconstruction as well as an older practice lineage. |
+| A Kathak claim | Check gharana, footwork, chakkar, tihai, storytelling, Mughal court influence, and Hindu devotional roots. | Court synthesis and regional lineage both matter. |
+| A West African dance claim | Track polyrhythm, call-response, community function, drum-dance dialogue, and diaspora transformation. | "African dance" is not one style; regional/social function is essential. |
+| Flamenco or tango | Compare compas/palos/cante/toque/baile or embrace/improvisation/social floor rules. | Stage versions can differ sharply from social or community practice. |
+| Noh or Butoh | Diagnose mask/text/stillness/hereditary transmission or image-based improvisation/postwar body politics. | Slow or minimal movement can be highly formal, not empty. |
+| Haka or identity performance | Start with iwi context, text, gesture, group formation, occasion, and oral transmission. | Haka is not only aggressive and not merely entertainment. |
+| Cross-cultural comparison | Use local categories, transmission system, music relation, ritual/social function, colonial history, and audience frame. | Avoid ranking forms by Western theatrical criteria. |
+
+---
+
+## Cross-References
+
+- `08-CULTURAL-HISTORY.md` gives the social and political context for dance traditions.
+- `06-MUSIC-DANCE.md` connects world forms to rhythm, meter, and accompaniment.
+- `../anthropology/05-CULTURAL-ANTHROPOLOGY.md` supplies the ritual, performance, and cultural-meaning frame.
 
 ---
 

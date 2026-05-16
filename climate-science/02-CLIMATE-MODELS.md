@@ -399,15 +399,23 @@ Parameterization in climate models is the same contract boundary as a well-defin
 
 ## Decision Cheat Sheet
 
-| I want to understand... | Model type |
-|---|---|
-| Climate sensitivity (theoretical) | EBM |
-| How feedback loops work | EBM / 1D RCM |
-| Global temperature projections | GCM (CMIP6) |
-| Carbon cycle feedbacks | ESM (C4MIP) |
-| Regional climate impacts | RCM / statistical downscaling |
-| Uncertainty ranges | Multi-model ensemble (CMIP6) |
-| Internal variability | Large initial-condition ensemble |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Theoretical climate sensitivity | Use an energy-balance model, forcing, feedback parameter, ocean heat uptake, and equilibrium assumption. | Simple models clarify sensitivity but omit spatial dynamics. |
+| Feedback mechanism | Compare water vapor, lapse rate, albedo, cloud, carbon-cycle, and timescale coupling in EBM/1D RCM. | Feedback sign and magnitude can depend on state and region. |
+| Global temperature projection | Start with GCM/CMIP ensemble, scenario, forcing, resolution, ocean-atmosphere coupling, and historical tuning. | Projection is conditional on emissions pathway and model structure. |
+| Carbon-cycle feedback | Use ESM/C4MIP, land/ocean sinks, permafrost, vegetation, nutrient limits, and CO2 fertilization. | Carbon feedback uncertainty is not the same as physics uncertainty. |
+| Regional impact claim | Compare RCM, statistical downscaling, topography, extremes, bias correction, and local observations. | Downscaling adds detail but not guaranteed accuracy. |
+| Uncertainty range | Separate scenario uncertainty, model uncertainty, internal variability, parameter uncertainty, and observational constraint. | A multi-model spread is not a formal probability distribution by itself. |
+| Internal variability | Use large initial-condition ensembles, modes of variability, decadal noise, and signal-to-noise emergence. | One realization can look unlike the forced trend for years to decades. |
+
+---
+
+## Cross-References
+
+- `01-CARBON-CYCLE.md` supplies the forcing and reservoir dynamics models must simulate.
+- `03-FEEDBACKS-TIPPING.md` explains why model uncertainty depends heavily on feedback strength.
+- `04-EMISSIONS-PATHWAYS.md` separates physical climate response from scenario choice.
 
 ---
 

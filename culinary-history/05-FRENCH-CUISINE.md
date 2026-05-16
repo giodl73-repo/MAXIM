@@ -251,15 +251,22 @@ LASTING IMPACT:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What did Carême systematize? | 4 grandes sauces, pièces montées, documented cooking theory |
-| What is the brigade system? | Military-hierarchy kitchen organization (Escoffier): stations + chain of command |
-| What are the 5 sauces mères? | Béchamel, Velouté, Espagnole, Tomat, Hollandaise |
-| What is Hollandaise? | Egg yolk + clarified butter emulsion (hot emulsified sauce) |
-| What is Béarnaise? | Hollandaise + tarragon + shallot reduction |
-| What was the Michelin Guide originally? | Free motorist guide (1900), stars added 1926 for restaurant quality |
-| What was Nouvelle Cuisine's main break? | Lighter sauces, fresh seasonal ingredients, smaller portions, artistic plating |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Carême's contribution | Look at grandes sauces, pièces montées, court service, codification, and written theory. | He systematized elite practice; he did not invent French cooking from scratch. |
+| Escoffier's brigade | Map stations, hierarchy, timing, hotel service, menu simplification, and labor discipline. | The brigade is kitchen operating architecture, not just job titles. |
+| Mother-sauce logic | Compare base liquid, thickener, fat, emulsion, derivative sauces, and service context. | Sauce taxonomy is a teaching scaffold; kitchens adapt it pragmatically. |
+| Hollandaise/Béarnaise | Diagnose emulsion temperature, egg yolk, clarified butter, acid, aromatics, and failure modes. | Small temperature errors can break the emulsion. |
+| Michelin's influence | Track motoring guide origins, anonymous inspection, star incentives, tourism, and restaurant economics. | Stars measure a particular elite dining model, not all culinary value. |
+| Nouvelle Cuisine | Compare sauce weight, portion size, seasonality, plating, menu length, and chef authorship. | Its break was aesthetic and operational, not rejection of technique. |
+
+---
+
+## Cross-References
+
+- `03-MEDIEVAL.md` explains the courtly and humoral foundations French cuisine later formalized.
+- `06-INDUSTRIAL-FOOD.md` contrasts haute cuisine with mass production, preservation, and distribution.
+- `../art-history/04-BAROQUE-ROCOCO.md` gives the court-culture context for display, patronage, and taste.
 
 ---
 

@@ -413,6 +413,20 @@ SAMPLING RULE OF THUMB:
 | Implement in software | Discrete PID with Tustin (bilinear) transform |
 | Trade-off between PM and bandwidth | Bode: PM ↑ → bandwidth ↓ |
 
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Fourier/Laplace frequency intuition | `signal-processing/01-FOURIER-ANALYSIS.md` | Bode and Nyquist are frequency-domain views of system response |
+| State-space and modern control extensions | `systems-engineering/01-SE-PROCESS.md` | Classical SISO loops sit inside larger engineered system feedback structures |
+| Mechanical plant examples | `mechanical/01-THERMODYNAMICS.md` | Many controlled plants are thermal, fluid, or mechanical systems with lag and inertia |
+| Robotics motion-control use cases | `robotics/01-KINEMATICS.md` | Servo loops and trajectory tracking apply PID and frequency-domain margins directly |
+| Matrix transfer analogy in optics | `optics/01-GEOMETRIC-OPTICS.md` | ABCD optics and control both compose linear transformations across components |
+
+---
+
 ## Common Confusion Points
 
 **Gain margin and phase margin can both be infinite (for a type-0 first-order system).**

@@ -2,7 +2,13 @@
 
 ## The Big Picture
 
-Eusociality is the highest level of social organization in the animal kingdom: overlapping generations living together, cooperative brood care, and reproductive division of labor. It has evolved independently ~15 times in insects, and the majority of insect biomass on Earth is eusocial. Understanding it requires grasping both the evolutionary logic (Hamilton's kin selection) and the proximate mechanisms (pheromones, caste determination).
+Eusociality is the highest level of social organization in the animal kingdom:
+overlapping generations living together, cooperative brood care, and reproductive
+division of labor. It has evolved independently multiple times in insects and
+produced several biomass-dominant terrestrial lineages, especially ants and
+termites. Understanding it requires separating evolutionary logic (inclusive
+fitness, monogamy, ecological constraints) from proximate mechanisms
+(pheromones, caste determination, nutrition, and task allocation).
 
 ```
 EUSOCIALITY DEFINITION (Michener 1969, refined)
@@ -67,8 +73,9 @@ IMPLICATION:
   Therefore helping rear sisters is MORE inclusive-fitness-efficient
   than reproducing directly -- PROVIDED the colony produces enough sisters.
 
-  This is why eusociality evolved many times in Hymenoptera but
-  only ONCE (termites) in diploid insects -- haplodiploidy tips rb > c.
+  This helps explain why eusociality is common in Hymenoptera, but it is not
+  sufficient: termites and some other diploid insects show that ecology and
+  life history can also make rb > c.
 
 CAVEAT (modern view):
   Haplodiploidy is predisposing but not sufficient.
@@ -223,16 +230,17 @@ All female larvae initially identical
   |
   Brood cell type:
     Worker cell (hexagonal, small) -> worker
-    Queen cell (vertical, large)   -> queen (if royally fed)
+    Queen cell (vertical, large)   -> queen (if queen-development diet is sustained)
 
   Royal jelly feeding:
     All larvae fed royal jelly first 3 days
     Worker larvae: switched to beebread (pollen + honey) after day 3
     Queen larvae:  royal jelly throughout larval development
 
-  Molecular mechanism (discovered 2008):
-    Royal jelly -> royalactin protein -> activates EGFR/TOR pathways
-    -> accelerated growth + ovary development + longevity
+  Molecular mechanism:
+    Sustained queen diet shifts insulin/TOR, juvenile-hormone, and gene-
+    regulatory pathways; royalactin/EGFR is one proposed component, not a
+    complete single-molecule explanation.
 
   Result:
     Worker larva: ~6 days larval + 12 days pupa -> worker
@@ -380,16 +388,24 @@ Eusocial insect colonies are distributed systems running without central coordin
 
 ## Decision Cheat Sheet
 
-| Taxon | Colony size | Caste mechanism | Annual/perennial | Unique feature |
-|-------|-------------|-----------------|------------------|----------------|
-| Ants (Formicidae) | 100 - 50M | Nutritional/developmental | Perennial (most) | All 22K spp eusocial; haplodiploidy |
-| Honey bees (Apis) | 50,000-80,000 | Royal jelly (royalactin/EGFR) | Perennial | Waggle dance; 6M sperm stored |
-| Bumble bees (Bombus) | 50-400 | Dominance + nutrition | Annual | Queen overwinters alone |
-| Paper wasps (Polistes) | 10-100 | Dominance behavior | Annual | No morphological caste |
-| Yellow jackets (Vespula) | 5,000-15,000 | Pheromone + size | Annual | Paper nests |
-| Termites (Termitoidae) | 1M-5M | Unknown details | Perennial | Diploid workers; king persists |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Eusociality claim | Overlap, brood care, reproductive division of labor | Large colonies alone are not eusociality |
+| Haplodiploidy claim | Relatedness asymmetry and Hamilton's rule | Haplodiploidy helps but does not cause eusociality by itself |
+| Ant caste claim | Nutrition, hormones, colony cues, and genotype-environment interaction | Most castes are developmental outcomes, not separate species |
+| Honey-bee queen claim | Sustained royal diet, queen-cell context, and pheromone feedback | "Royalactin alone" is an over-simplification |
+| Bumble-bee vs honey-bee claim | Annual founding vs perennial colony | Both are bees; their colony demography differs sharply |
+| Social-wasp claim | Polistes dominance vs vespine morphological castes | "Wasp" spans solitary, primitively eusocial, and advanced eusocial forms |
+| Termite worker claim | Diploid colony with king/queen and immature worker pathways | Termite workers are not the same developmental category as ant workers |
+| Pheromone claim | Trail, alarm, queen, brood, and nestmate-recognition channels | Pheromones are distributed control signals, not human-language messages |
 
 ---
+
+## Cross-References
+
+- `02-DIVERSITY-CLASSIFICATION.md` places ants, bees, wasps, and termites in insect taxonomy.
+- `07-INSECT-ECOLOGY.md` explains colony roles in food webs and ecosystem engineering.
+- `../animal-phylogeny/06-ARTHROPODA.md` supplies the broader arthropod frame.
 
 ## Common Confusion Points
 

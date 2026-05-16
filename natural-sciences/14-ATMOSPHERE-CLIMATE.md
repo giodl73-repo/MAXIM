@@ -6,7 +6,7 @@
 
 ---
 
-## Atmospheric Structure
+## The Big Picture
 
 ```
 LAYER          HEIGHT (km)   TEMP PROFILE   KEY PROCESSES
@@ -371,19 +371,25 @@ Model validation:
 
 ---
 
+## Cross-References
+
+- `climate-science/01-CARBON-CYCLE.md` - greenhouse forcing and carbon context.
+- `meteorology/01-ATMOSPHERE-BASICS.md` - weather and atmospheric dynamics.
+- `oceanography/01-OCEAN-PHYSICS.md` - ocean-atmosphere coupling.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Key number/relation |
-|----------|---------|---------------------|
-| What is Earth's effective temperature without greenhouse effect? | Radiation balance | 255 K (−18°C); actual 288 K → 33°C warming from GHE |
-| Why is the stratosphere stable? | Temperature inversion | Temperature increases with height → inhibits convection |
-| Why are trade winds easterly? | Hadley cell + Coriolis | Surface return flow deflected by Coriolis to become NE/SE |
-| Why does CO₂ have log forcing? | Beer-Lambert saturation | ΔF ≈ 5.35 ln(C/C₀); main CO₂ bands partially saturated |
-| What is climate sensitivity? | ECS | ~3°C per CO₂ doubling (likely range 2.5–4°C) |
-| What drives AMOC? | Thermohaline | Salinity + temperature → density → deep water formation |
-| Why is the Antarctic ozone hole in spring? | Polar stratospheric clouds | PSCs in winter → activate Cl; sunlight in spring triggers catalytic destruction |
-| Why does El Niño affect global weather? | Teleconnections | Warm Pacific SST shifts Hadley circulation → precipitation pattern changes globally |
-| What is the biggest uncertainty in climate models? | Cloud feedback | Low cloud response to warming uncertain in sign and magnitude |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Greenhouse baseline | 255 K effective temperature versus 288 K actual | The 33 deg C gap is system greenhouse effect, not CO2 alone. |
+| Stratospheric stability | Temperature inversion with height | Stable stratification suppresses convection. |
+| Easterly trade winds | Hadley return flow plus Coriolis deflection | Direction differs by hemisphere. |
+| Log CO2 forcing | Beer-Lambert saturation, 5.35 ln(C/C0) | Log forcing means each doubling adds similar forcing. |
+| Climate sensitivity | ECS near 3 deg C per CO2 doubling | Range reflects feedback uncertainty. |
+| AMOC driver | Salinity/temperature density and deep-water formation | Wind and basin geometry also shape circulation. |
+| Antarctic ozone-hole timing | PSC chlorine activation plus spring sunlight | Chemistry is prepared in winter but destruction accelerates in light. |
+| El Nino global impact | Teleconnections from warm Pacific SST | Regional effects vary with event flavor and background state. |
+| Climate-model uncertainty | Cloud feedback, especially low clouds | Sign and magnitude remain key uncertainty. |
 
 ---
 

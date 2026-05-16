@@ -17,11 +17,11 @@
 |  Pot + column    Triple dist    Column          Pot + column     |
 |  Ex-bourbon/     (usually)      (160 pr max)    Mizunara oak     |
 |   sherry cask    Oak 3yr min    New charred oak  Sherry/bourbon  |
-|  3yr min         No req.        No req. (2yr     3yr min         |
+|  3yr min         3yr min        No req. (2yr     3yr min         |
 |                               "straight")                        |
 |                                                                  |
 |  CANADIAN        RYES           TAIWAN/INDIA    OTHER            |
-|  Blended, light  51%+ rye       Kaoliang,       Global boom      |
+|  Blended, light  51%+ rye       Kavalan/Amrut,  Global boom      |
 |  Less regulated  Spicy char     tropical aging  since 2000s      |
 +------------------------------------------------------------------+
 ```
@@ -331,10 +331,11 @@ LINCOLN COUNTY PROCESS (Jack Daniel's, George Dickel)
       v
   Filtered spirit -> new charred oak barrel -> aging
 
-This step REMOVES the spirit from the bourbon legal category
-(bourbon cannot have its character altered by filtering before barreling)
--> Tennessee whiskey is not bourbon by law (though distilled similarly)
--> Jack Daniel's is not bourbon (despite looking, tasting, and being made like bourbon)
+This step is the Tennessee signature layered on top of bourbon-like production.
+Jack Daniel's could satisfy the federal bourbon definition, but Tennessee law
+and brand identity treat "Tennessee whiskey" as a separate label category.
+The practical distinction is charcoal mellowing before barreling, not a
+different grain/still/oak architecture.
 
 LEGAL STATUS:
   Tennessee whiskey is a separate legal category (US law, Tennessee state law)
@@ -421,10 +422,16 @@ AGE STATEMENT GUIDE
 
   JAPANESE:
     Before 2021 voluntary standards: no rules
-    After 2021 JSLMA guidelines: 3yr minimum for "Japanese Whisky" label
+    After 2021 JSLMA voluntary guidelines: 3yr minimum for compliant labels
 ```
 
 ---
+
+## Cross-References
+
+- [Beer](01-BEER.md) explains the grain mash and fermentation logic whiskey inherits before distillation.
+- [Distillation](03-DISTILLATION.md) gives the physical separation model behind cuts and still choice.
+- [Cocktail Culture](09-COCKTAIL-CULTURE.md) follows whiskey from production into service categories and canonical drinks.
 
 ## Common Confusion Points
 
@@ -457,16 +464,15 @@ not a reflection of intrinsic worth vs other world whiskies.
 
 ## Decision Cheat Sheet
 
-| I want... | Category | Example |
-|---|---|---|
-| Heavily peated, maritime smoke | Islay Scotch | Ardbeg 10, Laphroaig Quarter Cask |
-| Fruity, floral, light Scotch | Speyside | Balvenie 12 Doublewood, Glenfiddich 15 |
-| Rich, sherry-bomb Scotch | Highland/Speyside | Macallan 12 Sherry, Glendronach 12 |
-| Classic bourbon, balanced | Kentucky | Buffalo Trace, Four Roses Small Batch |
-| High-rye, spicy bourbon | Kentucky high-rye | Bulleit Bourbon, Woodford Reserve |
-| Soft, wheated bourbon | Kentucky wheated | Maker's Mark, W.L. Weller 12 |
-| Smooth, lighter Irish | Irish blended | Jameson Original, Tullamore DEW |
-| Distinctive pot still Irish | Irish single pot still | Redbreast 12, Yellow Spot |
-| Scotch-inspired Japanese | Japanese | Nikka From the Barrel, Hibiki Harmony |
-| Pre-Prohibition rye spice | American rye | Rittenhouse 100, Sazerac 6yr |
-| Maximum age, maximum price | Rare Scotch | Mortlach 16, Springbank 21 |
+| If you need to diagnose... | Start With | Typical Signal |
+|----------------------------|------------|----------------|
+| Peated maritime Scotch | Peat PPM, Islay/Island origin, cask type | Ardbeg, Laphroaig, Lagavulin-style smoke/iodine/seaweed |
+| Fruity/light Scotch | Speyside/Highland profile, still shape, ex-bourbon cask | Balvenie/Glenfiddich-style orchard fruit and malt |
+| Sherry-led Scotch | First-fill oloroso/PX cask influence | Macallan/Glendronach-style dried fruit, chocolate, spice |
+| Bourbon sweetness | Corn majority plus new charred oak | Vanilla, caramel, coconut, char, brown sugar |
+| Bourbon spice | Rye percentage and yeast | Bulleit/Four Roses/Woodford-style spice and dryness |
+| Wheated softness | Wheat replacing rye in flavor grain | Maker's Mark/Weller-style roundness |
+| Irish lightness | Triple distillation, grain blend, lower peat | Jameson/Tullamore-style clean blend |
+| Irish pot-still character | Malted + unmalted barley in copper pot stills | Redbreast/Green Spot spice, oil, cereal depth |
+| Japanese scarcity/price | Stock age, voluntary standards, demand shock | High quality may coexist with shortage-driven pricing |
+| Rye claim | 51%+ rye mash for US rye; Canadian "rye" is looser | Spicy/herbal profile vs blended Canadian convention |

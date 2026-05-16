@@ -349,16 +349,22 @@ Below the estrogen threshold (~200 pg/mL for >36 hours), estrogen feeds back neg
 **hCG as keep-alive heartbeat signal**
 If implantation occurs, the trophoblast immediately secretes hCG (detectable in blood within 8 days of ovulation). hCG binds the LH/hCG receptor on the corpus luteum and prevents its programmed death at day 23–24. Without hCG, the corpus luteum regresses → progesterone falls → menstruation. hCG is a keep-alive signal that says "implantation happened, maintain the corpus luteum." It has a 24-hour half-life (vs LH's 20-minute half-life) due to heavy glycosylation — it is engineered for sustained receptor occupancy rather than rapid pulsatile signaling.
 
+## Cross-References
+
+- `developmental-biology/01-FERTILIZATION-CLEAVAGE.md` - embryologic start of reproduction.
+- `human-biology/05-ENDOCRINE.md` - reproductive hormone axes.
+- `disease/09-GENETIC-DEVELOPMENTAL.md` - inherited and developmental disease context.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why does spermatogenesis need low temperature? | Optimal ~34°C (2–3° below core); undescended testes (cryptorchidism) → infertility + ↑ cancer risk |
-| What triggers the LH surge? | High sustained estrogen crosses a threshold → positive feedback → GnRH surge → LH surge |
-| What is hCG's function in pregnancy? | Rescue corpus luteum from luteal regression → maintains progesterone → prevents menstruation |
-| What does fertilization trigger in the egg? | Ca²⁺ wave → cortical granule exocytosis → zona hardening (block to polyspermy) + Meiosis II completion |
-| Why does maternal age increase Down syndrome risk? | Primary oocytes arrested in Meiosis I prophase for decades → cohesin degradation → chromosome 21 nondisjunction risk increases |
-| Progesterone: what is it doing throughout pregnancy? | Prevents uterine contractions (blocks oxytocin receptor), maintains decidua, suppresses immune rejection of fetus |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Spermatogenesis temperature need | Scrotal temperature near 34 C | Cryptorchidism affects fertility and cancer risk. |
+| LH surge trigger | Sustained high estrogen switching to positive feedback | Threshold behavior depends on hypothalamic/pituitary readiness. |
+| hCG pregnancy role | Corpus-luteum rescue and progesterone maintenance | Placenta later assumes progesterone production. |
+| Fertilization egg activation | Calcium wave and cortical-granule exocytosis | Blocks polyspermy and completes meiosis II. |
+| Maternal-age aneuploidy risk | Decades-long oocyte arrest and cohesin degradation | Risk rises probabilistically, not deterministically. |
+| Progesterone pregnancy maintenance | Uterine quiescence, decidua, immune tolerance | Parturition involves functional progesterone withdrawal. |
 
 ---
 

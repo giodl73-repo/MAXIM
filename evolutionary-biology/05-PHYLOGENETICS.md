@@ -394,17 +394,23 @@ inference:
 
 ---
 
+## Cross-References
+
+- `evolutionary-biology/04-SPECIATION.md` — branching events that phylogenies reconstruct.
+- `genomics/02-GENOME-ASSEMBLY.md` — genome-scale data feeding comparative trees.
+- `animal-phylogeny/01-SINGLE-CELL-ORIGINS.md` — tree-of-life context.
+
 ## Decision Cheat Sheet
 
-| Task | Method | Tool |
-|------|--------|------|
-| Quick exploratory tree | Neighbor-Joining | MEGA, FastTree |
-| Best ML tree from DNA | ML with model selection | IQ-TREE2 |
-| Dated phylogeny | Bayesian + molecular clock | BEAST2 |
-| Species tree from gene trees | Coalescent species tree | ASTRAL |
-| Ancient divergences, fossil calibration | BEAST relaxed clock | BEAST2 |
-| Population-level genealogy | Coalescent | ARGweaver, RELATE |
-| Ancestral state reconstruction | Bayesian ASR | BayesTraits, IQ-TREE |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Quick exploratory tree | Neighbor-joining or FastTree | Do not overinterpret branch support. |
+| Best DNA tree estimate | ML with explicit model selection | Model misspecification can dominate topology. |
+| Divergence timing | Bayesian clock analysis | Fossil calibration priors carry heavy leverage. |
+| Species tree from gene trees | Coalescent species-tree method | Incomplete lineage sorting is not horizontal transfer. |
+| Ancient divergence | Relaxed molecular clock with fossil calibration | Rate heterogeneity widens credible intervals. |
+| Population-level genealogy | Coalescent/ARG inference | Recombination makes one tree per locus insufficient. |
+| Ancestral state | Bayesian ancestral-state reconstruction | State coding and taxon sampling drive results. |
 
 ---
 

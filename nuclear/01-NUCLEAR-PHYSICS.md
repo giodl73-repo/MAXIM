@@ -1,6 +1,8 @@
 # 01 — Nuclear Physics for Engineers
 
-## Binding Energy, Cross Sections, Decay, Fission
+## The Big Picture
+
+### Binding Energy, Cross Sections, Decay, Fission
 
 ```
 NUCLEAR PHYSICS — KEY SCALES AND NOTATION
@@ -248,6 +250,12 @@ Fuel resources: D from seawater (abundant), T must be bred from Li-6 in blanket
 **Half-life vs activity:** High activity ≠ long-lived hazard. ¹³¹I has T½ = 8 days → very high activity, but gone in weeks. ²³⁹Pu has T½ = 24,000 yr → low activity but very long-lived. Both are hazardous, but in different ways.
 
 ---
+
+## Cross-References
+
+- `physics/01-ELECTROSTATICS.md` — electromagnetic scale contrast for nuclear vs. atomic binding.
+- `energy-systems/01-SOLAR-PV.md` — energy-source comparison against non-nuclear generation.
+- `materials/01-CRYSTAL-STRUCTURE.md` — irradiation damage and lattice-defect context for reactor materials.
 
 ## Decision Cheat Sheet
 

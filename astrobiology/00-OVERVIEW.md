@@ -304,15 +304,23 @@ Astrobiology's core problems map directly onto probability theory and informatio
 
 ## Decision Cheat Sheet
 
-| Question | Short answer | See |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| How did life start? | RNA World is leading hypothesis, not settled | 01-ORIGIN-OF-LIFE |
-| Best solar system target? | Enceladus (H2 confirmed), Europa (ocean confirmed) | 03-HABITABLE-ENVIRONMENTS |
-| Best detection strategy near-term? | JWST transit spectroscopy of TRAPPIST-1 system | 05-JWST-DETECTION |
-| Why haven't we heard from aliens? | Fermi Paradox — multiple competing explanations | 06-FERMI-PARADOX |
-| Can life survive space travel? | Lithopanspermia plausible; interstellar timescales brutal | 07-DIRECTED-PANSPERMIA |
-| Could life look very different? | Yes — XNA, alternative solvents, alternative metabolism | 08-SYNTHETIC-BIOLOGY |
-| Next major missions? | Europa Clipper (2030), Dragonfly (2034), Mars Sample Return | 09-FUTURE-MISSIONS |
+| Origin-of-life claim | Compare RNA World, metabolism-first, lipid world, hydrothermal vents, prebiotic chemistry, and experimental constraints. | No current model is a complete pathway from geochemistry to cells. |
+| Solar-system target priority | Check liquid water, energy gradient, organics, access, contamination risk, and mission feasibility. | "Habitable" is not the same as inhabited. |
+| Exoplanet biosignature strategy | Evaluate telescope capability, stellar activity, atmospheric retrieval, disequilibrium gases, and false positives. | A single gas is weak evidence; ensembles matter. |
+| Fermi paradox explanation | Separate astrophysical rarity, biological filters, technological lifetimes, detectability, and sociology of search. | The paradox constrains assumptions more than it supplies an answer. |
+| Panspermia plausibility | Check launch survival, radiation exposure, transit time, impact delivery, and viable population size. | Transfer may be plausible locally while interstellar transfer remains brutal. |
+| Alternative biochemistry | Examine solvent, polymer backbone, energy metabolism, information storage, and environmental context. | "Different life" still needs chemistry that supports heredity and metabolism. |
+| Mission roadmap claim | Compare target, instrument, sample-return path, planetary protection, launch window, and funding reality. | Mission dates and scope shift; scientific priority is not schedule certainty. |
+
+---
+
+## Cross-References
+
+- `01-ORIGIN-OF-LIFE.md` gives the chemistry-to-biology problem astrobiology inherits.
+- `03-HABITABLE-ENVIRONMENTS.md` expands habitability beyond the classical circumstellar habitable zone.
+- `06-FERMI-PARADOX.md` links biosignatures and technosignatures to the Great Silence.
 
 ---
 

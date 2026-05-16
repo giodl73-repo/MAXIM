@@ -240,18 +240,24 @@ GRD = Ground Range Detected (detected amplitude, speckle filtered, geocoded)
 
 ---
 
+## Cross-References
+
+- `01-EM-SPECTRUM.md` explains radar wavelength and atmospheric behavior.
+- `07-INSAR.md` extends SAR phase into deformation measurement.
+- `08-PLATFORMS.md` places SAR on satellite and airborne systems.
+
 ## Decision Cheat Sheet
 
-| Question | SAR Choice | Reason |
-|----------|------------|--------|
-| Flood mapping rapidly | Sentinel-1 GRD (C-band VV) | Water appears dark; C-band, free, 6-day |
-| Earthquake deformation | Sentinel-1 SLC (for InSAR) | C-band coherence over rock/soil |
-| Forest biomass mapping | ALOS-2 or NISAR (L-band) | Deep canopy penetration; less decorrelation |
-| Urban change detection | TerraSAR-X Spotlight (X-band) | 1m resolution; high coherence buildings |
-| Global ice monitoring | RADARSAT-2, Sentinel-1 EW | Wide swath; HH penetrates sea ice |
-| Daily global change | Sentinel-1 ScanSAR (EW) | 400km swath, daily global coverage |
-| Soil moisture | NISAR L-band, SMAP | Deep penetration to soil surface |
-| Vegetation structure | BIOMASS P-band (2023+) | Deepest penetration; forest AGB |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Rapid flood extent | Sentinel-1 GRD C-band VV | Dark water can be confused with radar shadow or smooth surfaces. |
+| Earthquake deformation | Sentinel-1 SLC for InSAR | Coherence over vegetation or snow may fail. |
+| Forest biomass | ALOS-2 or NISAR L-band | Biomass saturation still limits high-biomass forests. |
+| Urban change | TerraSAR-X Spotlight X-band | High coherence buildings help, but layover/shadow distort geometry. |
+| Global ice monitoring | RADARSAT-2 or Sentinel-1 EW | Polarization and incidence angle matter for ice type. |
+| Daily broad change | Sentinel-1 ScanSAR/EW | Wide swath sacrifices resolution. |
+| Soil moisture | NISAR L-band or SMAP | Vegetation and roughness confound soil signal. |
+| Vegetation structure | BIOMASS P-band | Regulatory/geographic coverage and saturation limits still apply. |
 
 ---
 

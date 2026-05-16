@@ -350,19 +350,25 @@ These must have been solved simultaneously or in close succession — that's wha
 
 **Autocatalytic networks as the bootstrapping problem generalized.** Metabolism-first models (Wachtershauser, Kauffman) propose that life began as an autocatalytic chemical network — a set of reactions where the products catalyze their own synthesis. This is the generalization of the bootstrap problem to network form: instead of one molecule that copies itself, a set of reactions where A catalyzes B, B catalyzes C, and C catalyzes A. Kauffman's work on autocatalytic sets uses graph theory: above a critical connectivity threshold, a random chemical network almost certainly contains an autocatalytic subset. This is a phase transition result with the same structure as percolation theory.
 
+## Cross-References
+
+- `astrobiology/02-EXTREMOPHILES.md` — life-limit evidence for origin scenarios.
+- `natural-sciences/06-BIOMOLECULES.md` — molecular building blocks for prebiotic chemistry.
+- `planetary-science/08-HABITABILITY.md` — planetary constraints on origin-of-life environments.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| Which "first" hypothesis is leading? | RNA World (genetics-first) has most experimental support |
-| What is a ribozyme? | Catalytic RNA — proves RNA can do what proteins do |
-| What's the RNA World's biggest problem? | Abiotic synthesis of RNA nucleotides under plausible conditions |
-| What did Sutherland 2009 solve? | Synthesis of ribonucleotide precursors without free ribose |
-| Why are alkaline vents favored? | Natural pH gradient mimics the proton motive force all cells use |
-| What is LUCA? | Last Universal Common Ancestor — reconstructed by comparative genomics |
-| How old is life on Earth? | ~3.5 Ga confirmed (stromatolites); possibly 3.7–4.1 Ga |
-| What is a protocell? | Lipid vesicle + RNA — demonstration of non-enzymatic cell precursor |
-| What does LUCA's membrane paradox tell us? | Bacteria and Archaea have different lipid chemistry; LUCA may predate membrane fixation |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Which "first" hypothesis currently has the strongest experimental lane | RNA World / genetics-first | Support for RNA function does not solve RNA's own abiotic synthesis problem. |
+| Why RNA can bridge information and catalysis | Ribozymes | Catalytic RNA proves possibility, not a complete prebiotic pathway. |
+| Where the RNA World is weakest | Plausible nucleotide synthesis and polymerization | The origin of RNA is a separate hard problem from RNA's later evolutionary role. |
+| What Sutherland 2009 changed | Ribonucleotide precursor synthesis without free ribose | It solved a major chemistry bottleneck, not full abiogenesis. |
+| Why alkaline vents stay plausible | Natural pH gradients resembling proton motive force | Energetics are strong, but wet-dry/UV chemistry may solve different steps. |
+| What LUCA can and cannot tell us | Comparative genomics of the Last Universal Common Ancestor | LUCA was already sophisticated; it was not the first cell. |
+| How old the earliest firm life evidence is | About 3.5 Ga stromatolites, with older candidates disputed | Earlier claims depend on contested isotope or morphology interpretations. |
+| Why protocells matter | Lipid vesicle plus RNA-like chemistry | Protocells demonstrate compartmentalization, not complete living metabolism. |
+| What the membrane paradox implies | Different bacterial/archaeal lipid chemistries | LUCA may predate fixed membranes, or early lineages replaced membrane systems. |
 
 ---
 

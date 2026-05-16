@@ -280,17 +280,24 @@ Silicon (Si) is the only major nutrient with a fully biogenic component in fresh
 
 ---
 
+## Cross-References
+
+- `01-LAKE-STRATIFICATION.md` controls oxygen and nutrient mixing.
+- `06-EUTROPHICATION.md` is the failure mode of excess nutrient loading.
+- `09-WATER-QUALITY.md` measures nutrients and downstream chemistry.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why is P limiting in freshwater but N in marine? | P has no atmospheric reservoir; N can be fixed by cyanobacteria; N:P ratio of inputs typically > Redfield |
-| What N:P ratio (by mass) signals P limitation? | N:P > 14 by mass (> 22 conservative) = P limiting |
-| What N:P ratio favors cyanobacteria? | N:P < 10:1 by mass in water column |
-| What's the direct link between anoxic hypolimnion and bloom size? | Fe-P coupling: anoxia releases Fe-bound P; fall turnover recycles it to surface |
-| How do dams affect downstream Si supply? | Trap Si-bearing sediment; reservoir diatoms deplete DSi; less Si to downstream/coastal systems |
-| What drives boreal lake "browning"? | Increasing DOC export from watersheds (warmer, wetter conditions mobilize more humic acids) |
-| What is internal P loading? | P release from sediment under anoxic conditions; can exceed external load in old eutrophic lakes |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Freshwater phosphorus limitation | No atmospheric P reservoir and cyanobacterial N fixation | Redfield is descriptive, not a fixed law. |
+| P-limitation signal | N:P greater than 14 by mass; greater than 22 as conservative threshold | Ratios vary by season and algal luxury uptake. |
+| Cyanobacteria favorability | N:P below 10:1 by mass in the water column | Warm stratified conditions and grazing escape also matter. |
+| Anoxia-to-bloom pathway | Fe-P coupling and phosphorus release under anoxia | Fall turnover can recycle released P to the surface. |
+| Dam effect on silica | Trapped Si-bearing sediment and reservoir diatom uptake | Downstream coastal food webs can shift when DSi falls. |
+| Boreal lake browning | Increased DOC export from warmer, wetter watersheds | DOC changes light, heat, and nutrient chemistry simultaneously. |
+| Internal phosphorus load | Sediment P release under anoxic conditions | Internal load can exceed external load in old eutrophic lakes. |
+| Nitrogen-removal claim | Denitrification as a permanent N sink | Immobilization is temporary retention, not removal. |
 
 ---
 

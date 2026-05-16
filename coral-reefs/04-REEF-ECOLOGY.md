@@ -230,20 +230,26 @@ NET EFFECT: Reef is productive 24 hours
 
 ---
 
+## Cross-References
+
+- `01-REEF-FORMATION.md` supplies the physical reef zones.
+- `02-CORAL-BIOLOGY.md` supplies coral growth and competition mechanics.
+- `06-REEF-DIVERSITY.md` expands reef ecology across biogeographic provinces.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What zone has maximum coral cover? | Fore-reef slope, 5–15 m depth |
-| What zone is dominated by CCA? | Reef crest (highest wave energy) |
-| What is the most critical reef ecological process? | Herbivory — keeps algae off substrate for coral recruitment |
-| What killed Caribbean reefs most in 1983? | Diadema urchin mass mortality (disease) → algal bloom |
-| What do parrotfish produce as byproduct? | Sand (~90 kg per large individual per year) |
-| What is an algal phase shift? | Reef switches from coral to macroalgae dominance; very hard to reverse |
-| What are Trapezia crabs? | Obligate mutualists living in Acropora; defend coral against CoTS |
-| What percentage of reef species are cryptic? | ~50–70% |
-| When do coral polyps feed? | Primarily at night (tentacles extended to catch zooplankton) |
-| What is mesophotic zone? | 30–150 m depth; lower light; distinct community; potential thermal refugium |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Maximum coral cover | Fore-reef slope around 5-15 m depth | Fish diversity and coral cover do not peak identically everywhere. |
+| CCA-dominated zone | High-energy reef crest | CCA is both habitat cue and structural cement. |
+| Algae-control process | Herbivory maintaining open substrate for coral recruitment | Fishing pressure can drive phase shift even without high nutrients. |
+| 1983 Caribbean reef crash | Diadema mass mortality and macroalgal bloom | Disease removed a keystone grazer, not coral directly. |
+| Parrotfish byproduct | Sand production by bioerosion and grazing | Parrotfish can both maintain substrate and erode carbonate. |
+| Algal phase shift | Switch from coral to macroalgae dominance | Hysteresis makes reversal difficult. |
+| Trapezia mutualism | Acropora-dwelling crabs defending against crown-of-thorns starfish | Mutualism is species-specific and habitat-specific. |
+| Cryptic biodiversity | Roughly 50-70% of reef species hidden in cavities and rubble | Visual surveys undercount reef diversity. |
+| Coral feeding timing | Night polyp extension for zooplankton capture | Daytime productivity is largely symbiont-driven. |
+| Mesophotic zone | 30-150 m lower-light reefs | Refugium potential is limited by distinct communities and connectivity. |
 
 ---
 

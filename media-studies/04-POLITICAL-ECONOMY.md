@@ -315,16 +315,26 @@ Dallas Smythe's foundational insight: what does commercial television actually p
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Frankfurt School culture-industry critique | `media-studies/02-FRANKFURT-SCHOOL.md` |
+| Journalism as institutional media system | `media-studies/06-JOURNALISM.md` |
+| Global ownership and media flows | `media-studies/09-GLOBAL-MEDIA.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Analysis Need | Framework | Key Insight |
-|---------------|-----------|-------------|
-| Why does media ignore certain stories? | Propaganda model filters | Source dependency + advertising + ownership |
-| Who is the media's real customer? | Smythe's audience commodity | Advertisers, not audiences |
-| What does media concentration produce? | Ownership analysis | Homogenization, synergy, risk aversion |
-| Why is local news dying? | Revenue model analysis | Advertising migrated to digital platforms |
-| How does public service broadcasting differ? | Commercial vs. PSB model | Citizen vs. consumer orientation |
-| How do digital platforms monetize? | Surveillance capitalism | Behavioral prediction products |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why some stories systematically disappear | Propaganda-model filters: ownership, ads, sourcing, flak, ideology | Bias can emerge from incentives without direct conspiracy. |
+| Who the media customer is | Smythe's audience commodity and two-sided market logic | Audience attention may be product, citizen public, or subscriber revenue depending on model. |
+| What concentration changes | Ownership, vertical integration, synergy, and risk aversion | Concentration shapes option space; it does not mechanically determine every story. |
+| Why local news collapses | Revenue model migration from local ads to digital platforms | Economic diagnosis must distinguish demand, trust, and distribution changes. |
+| How public service broadcasting differs | Citizen orientation, public mandate, and funding insulation | PSB can still reflect state, elite, or institutional biases. |
+| How platforms monetize media | Surveillance capitalism and behavioral prediction products | Data extraction is not only advertising; it can reshape ranking, pricing, and governance. |
 
 ---
 

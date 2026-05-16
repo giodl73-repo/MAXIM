@@ -310,18 +310,24 @@ RADIOCARBON DATING
 
 ---
 
+## Cross-References
+
+- `geochemistry/02-ISOTOPE-SYSTEMS.md` - isotope system foundations.
+- `mineralogy/05-CARBONATES-PHOSPHATES.md` - monazite and phosphate geochronology.
+- `paleontology/01-FOSSILIZATION.md` - age control for fossil records.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| Why is zircon the preferred mineral for U-Pb? | Zero initial Pb (Pb²⁺ excluded from lattice); high U; chemically durable; survives recycling events; tiny → in situ analysis |
-| What does concordia plot reveal? | Whether a system is closed (on the curve) or discordant (Pb loss); upper intercept of discordia = crystallization age |
-| What is Ar-Ar's advantage over K-Ar? | Measures ³⁹Ar (proxy for K) and ⁴⁰Ar in same analysis; step-heating provides age spectrum diagnosing open-system behavior; no separate K analysis needed |
-| What is closure temperature? | Temperature below which a mineral retains its daughter product; system "locks in" the clock at Tc; depends on cooling rate and grain size |
-| What is a T-t path? | Time-temperature path reconstructed from multiple thermochronometers with different Tc values; records tectonic/exhumation history |
-| Why can't you date seawater carbonate with Ar-Ar? | No K in calcite/aragonite; need K-bearing minerals for Ar-Ar |
-| What limits ¹⁴C to 50,000 yr? | ¹⁴C/¹²C becomes unmeasurably small; too few ¹⁴C atoms remain to count reliably even with AMS |
-| What does the discordia lower intercept mean? | Age of Pb loss event (often a metamorphic or hydrothermal event that reset the system); can date secondary events |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| U-Pb mineral choice | Zircon with low initial Pb, high U, durability | Inheritance and Pb loss still require imaging/concordia checks. |
+| Closed-system test | Concordia versus discordia | Discordance can encode useful disturbance ages. |
+| Ar-Ar over K-Ar | Same-analysis 39Ar proxy and 40Ar plus step heating | It dates cooling or resetting, not necessarily crystallization. |
+| Clock lock-in | Closure temperature | Tc depends on cooling rate and grain size. |
+| Exhumation history | Multi-chronometer time-temperature path | Different systems record different thermal windows. |
+| Carbonate Ar-Ar limits | Need K-bearing minerals | Calcite/aragonite lack K for Ar-Ar dating. |
+| Radiocarbon upper limit | Vanishing 14C/12C after about 50 kyr | Calibration is still required for younger dates. |
+| Secondary event age | Discordia lower intercept | Often dates Pb loss, metamorphism, or hydrothermal resetting. |
 
 ---
 

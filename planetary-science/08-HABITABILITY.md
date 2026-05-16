@@ -283,18 +283,24 @@ STELLAR EFFECTS ON HABITABILITY
 
 ---
 
+## Cross-References
+
+- `astrobiology/01-ORIGIN-OF-LIFE.md` — habitability as the environmental side of origin-of-life questions.
+- `planetary-science/07-EXOPLANETS.md` — applying habitability criteria to observed planets.
+- `climate-science/01-CARBON-CYCLE.md` — climate regulation and atmospheric feedbacks.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| What is the classical habitable zone? | Range of orbital distances where a rocky planet with a CO₂-H₂O greenhouse atmosphere can maintain surface liquid water |
-| What determines the inner HZ edge? | Moist/runaway greenhouse: water vapor reaches stratosphere, gets photolyzed, hydrogen escapes |
-| What determines the outer HZ edge? | Maximum CO₂ greenhouse: CO₂ Rayleigh scattering and condensation reduce warming efficiency |
-| Is the Moon important for Earth's habitability? | Possibly stabilizes Earth's obliquity (without Moon, obliquity might vary chaotically 0°-85°); but this is debated — life survived obliquity variations |
-| Why is Europa a top astrobiology target? | Confirmed subsurface liquid water ocean + tidal heating + Cassini/Galileo evidence for hydrothermal activity; all key ingredients present |
-| What is the carbonate-silicate cycle? | Negative feedback loop that regulates planetary temperature on 100 kyr timescales; requires volcanism and liquid water for silicate weathering |
-| Do tidally locked planets have climates? | 3D GCM models generally show habitable climates are possible even with tidal locking — wind transport distributes heat; it's not automatic disqualification |
-| What is η_⊕? | Occurrence rate of Earth-like rocky planets in the HZ; estimated 10-50% for FGK stars from Kepler; wide uncertainty |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Classical habitable zone | Rocky planet with CO2-H2O greenhouse and surface liquid water | HZ is about surface water, not guaranteed life. |
+| Inner HZ edge | Moist/runaway greenhouse threshold | Clouds and rotation can shift the edge. |
+| Outer HZ edge | Maximum CO2 greenhouse limit | CO2 condensation and scattering cap warming. |
+| Moon habitability role | Obliquity stabilization hypothesis | The necessity of a large moon is debated. |
+| Europa astrobiology case | Subsurface ocean plus tidal energy | Ocean access and chemistry remain mission questions. |
+| Carbonate-silicate thermostat | Weathering-volcanism feedback | Requires liquid water and active volatile cycling. |
+| Tidally locked climate | 3D heat transport by atmosphere/ocean | Habitability is model- and atmosphere-dependent. |
+| Eta-Earth estimate | Rocky HZ occurrence rate | Kepler extrapolation leaves broad uncertainty. |
 
 ---
 

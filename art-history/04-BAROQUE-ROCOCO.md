@@ -470,15 +470,23 @@ PATRONAGE TRANSFORMATION
 
 ## Decision Cheat Sheet
 
-| Object | Key interpretive question | Approach |
-|--------|--------------------------|----------|
-| Caravaggio painting | What Counter-Reformation function? Why rejected? | Contextual + iconographic |
-| Rembrandt portrait | What does the light reveal about the inner life? | Formal + psychological analysis |
-| Vermeer interior | What is the implied narrative? What optics? | Formal + technical + contextual |
-| Rubens workshop piece | What did Rubens make vs assistants? | Connoisseurship + technical analysis |
-| Las Meninas | Who is being painted? Where are we? | Semiotic + contextual |
-| Bernini sculpture | How does marble simulate impossible materials? | Technical + iconographic |
-| Rococo painting | What social function? Who is the audience? | Social history |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Caravaggio painting | Check tenebrism, model type, sacred narrative, patron, chapel context, and Counter-Reformation function. | Rejection can signal devotional intensity as well as decorum failure. |
+| Rembrandt portrait | Examine light, surface, aging, costume, pose, patronage, and self-fashioning. | Psychological depth is a visual construction, not direct access to inner life. |
+| Vermeer interior | Analyze optical framing, implied narrative, map/letter/music props, light path, and market context. | Quiet realism often encodes social and pictorial systems. |
+| Rubens workshop piece | Separate design, underdrawing, assistants, finish, replication, provenance, and technical evidence. | "Workshop" is a production system, not automatically a quality downgrade. |
+| Las Meninas | Map sightlines, mirror, royal presence, painter status, viewer position, and court politics. | The puzzle is spatial, social, and representational at once. |
+| Bernini sculpture | Study material illusion, viewing path, theatrical setting, patronage, and devotional affect. | Technical virtuosity serves staged experience, not just virtuoso display. |
+| Rococo painting | Identify patron, salon setting, erotic code, decorative ensemble, class performance, and audience. | Rococo lightness is a social function, not absence of structure. |
+
+---
+
+## Cross-References
+
+- `03-RENAISSANCE.md` provides the classical and humanist baseline Baroque intensifies.
+- `05-NEOCLASSICISM-ROMANTICISM.md` tracks the reaction against Rococo court culture after 1789.
+- `../architecture-history/04-RENAISSANCE-BAROQUE.md` connects painting and sculpture to theatrical architectural space.
 
 ---
 

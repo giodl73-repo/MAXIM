@@ -312,18 +312,24 @@ SAR-based:
 
 ---
 
+## Cross-References
+
+- `02-PASSIVE-SENSORS.md` supplies multispectral and thermal inputs.
+- `03-ACTIVE-SENSORS-SAR.md` supplies radar inputs with different noise models.
+- `09-APPLICATIONS.md` consumes the corrected, classified, and change-detected outputs.
+
 ## Decision Cheat Sheet
 
-| Task | Method | Requirement |
-|------|---------|-------------|
-| Quick atmospheric correction | DOS | No aux data; historical imagery |
-| Production surface reflectance | LaSRC (Landsat), Sen2Cor (S2) | Standard product, free |
-| Aquatic environments | ACOLITE, C2RCC | Specialized water algorithms |
-| Rapid land cover map | Random Forest | 50-100 training samples per class |
-| High accuracy urban mapping | CNN (U-Net) | Large labeled dataset |
-| Global consistent classification | Pre-existing products (ESA WorldCover) | 10m annual, free |
-| Time series change | CCDC, LandTrendr | Full archive Landsat |
-| Post-disaster rapid mapping | SAR coherence ratio | All-weather, rapid |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Quick atmospheric correction | Dark Object Subtraction | Crude but useful when auxiliary data is missing. |
+| Production surface reflectance | LaSRC for Landsat or Sen2Cor for Sentinel-2 | Standard products still encode algorithm assumptions. |
+| Aquatic correction | ACOLITE or C2RCC | Water algorithms are specialized because water-leaving radiance is small. |
+| Rapid land-cover map | Random Forest | Training sample quality matters more than algorithm name. |
+| High-accuracy urban map | CNN/U-Net | Requires large labeled data and transfer checks. |
+| Consistent global class layer | ESA WorldCover or similar product | Pre-existing products may not match local class definitions. |
+| Long time-series change | CCDC or LandTrendr | Needs dense archive and seasonal model awareness. |
+| Rapid disaster mapping | SAR coherence ratio | Coherence loss is a proxy for disruption, not damage truth. |
 | Accuracy reporting | Confusion matrix + F1 | Independent test set required |
 
 ---

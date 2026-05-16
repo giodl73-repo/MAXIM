@@ -370,17 +370,23 @@ PRACTICAL SIGNIFICANCE:
 
 ---
 
+## Cross-References
+
+- `03-OPERATIONAL-SEM.md` defines the source and target behaviors to preserve.
+- `04-DENOTATIONAL-SEM.md` supplies an alternate meaning-preservation lens.
+- `07-EFFECT-SYSTEMS.md` explains why side effects complicate optimization.
+
 ## Decision Cheat Sheet
 
-| Topic | Key theorem/insight | Practical use |
-|-------|---------------------|---------------|
-| CompCert | ⟦compile(p)⟧ = ⟦p⟧, proved in Coq | Verified C compiler for safety-critical systems |
-| CPS transform | Semantics-preserving; every call is tail call | Compiler IR; call/cc implementation |
-| SSA form | Each var defined once; φ at joins | LLVM, GVN, DCE, register allocation |
-| GHC Core (Fc) | System F + coercions; zero-cost newtypes | All GHC optimizations |
-| GHC STG | Explicit lazy evaluation model | Thunk/closure code generation |
-| LLVM IR | Typed SSA for multiple source languages | Rust, Swift, Julia backend |
-| Partial evaluation | pe(int, prog) = compiled program (1st Futamura) | JIT, MetaML, Template Haskell |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Verified compilation claim | CompCert semantic preservation | The theorem assumes source programs without undefined behavior. |
+| Control-flow transform | CPS transform | Semantics preservation does not mean runtime continuations survive optimization. |
+| Optimization-friendly IR | SSA form | Phi nodes are join parameters; SSA and CPS are closely related. |
+| Haskell optimization behavior | GHC Core/System Fc | You influence Core indirectly through source and rewrite rules. |
+| Lazy code generation | GHC STG | Thunk and closure semantics make evaluation order explicit. |
+| Multi-language backend | LLVM typed SSA | Source-language semantics must already be lowered into LLVM's model. |
+| Compile-time specialization | Partial evaluation | It is much broader than constant folding and hard to implement generally. |
 
 ---
 

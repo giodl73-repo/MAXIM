@@ -291,17 +291,24 @@ Mercury in freshwater is uniquely problematic because of methylation:
 
 ---
 
+## Cross-References
+
+- `04-FRESHWATER-ORGANISMS.md` supplies the taxa in the food web.
+- `05-NUTRIENT-CYCLES.md` supplies bottom-up resource controls.
+- `06-EUTROPHICATION.md` shows food-web regime shifts under nutrient pressure.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What did Carpenter's lake experiments prove? | Top-down trophic cascade exists in lakes; adding/removing piscivores changes water clarity without changing nutrient load |
-| Why does biomanipulation (adding bass) clear lake water? | Bass --> planktivore reduction --> Daphnia release --> phytoplankton grazed down |
-| Why does biomanipulation eventually fail without P control? | Nutrient loading continues; at high P, even large Daphnia cannot control algae; cascade overwhelmed bottom-up |
-| What is the difference between bioaccumulation and biomagnification? | Bioaccumulation = organism > water concentration (per species); biomagnification = increases with trophic level |
-| Why is methylmercury worse than inorganic mercury? | Much more lipophilic; easily absorbed by organisms; extremely high bioconcentration factor |
-| What indicator organisms have the highest PCB/mercury? | Long-lived piscivores: pike, walleye, muskie, lake trout; plus fish-eating birds (osprey, eagle) |
-| What is ecological efficiency? | ~10% of energy transferred per trophic level; limits biomass at higher trophic levels |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Top-down trophic cascade | Carpenter lake experiments with piscivore changes and water clarity | Cascade strength depends on trophic state and web complexity. |
+| Bass biomanipulation | Bass reduce planktivores, Daphnia increase, phytoplankton falls | Works best where Daphnia can dominate grazing. |
+| Biomanipulation failure | Continued phosphorus loading overwhelming grazing control | Bottom-up nutrient pressure eventually wins at high P. |
+| Bioaccumulation versus biomagnification | Organism-to-water concentration versus trophic-level increase | Compound chemistry controls whether magnification occurs. |
+| Methylmercury risk | Lipophilicity, absorption, and high bioconcentration | Fish-tissue risk is not obvious from water concentration alone. |
+| High contaminant indicators | Long-lived piscivores and fish-eating birds | Age, fat content, and trophic level all matter. |
+| Trophic biomass limits | About 10% energy transfer per trophic level | Ecological efficiency varies by pathway and organism size. |
+| Advisory target | Food-web transfer into fish tissue | Drinking-water and fish-consumption risks are different endpoints. |
 
 ---
 

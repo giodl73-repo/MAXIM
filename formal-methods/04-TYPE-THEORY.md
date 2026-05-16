@@ -42,7 +42,7 @@ You know lambda calculus from MIT — this builds that directly into modern PL p
 |  HOMOTOPY TYPE THEORY (HoTT)                                             |
 |  Types as spaces. Paths as equality proofs. Univalence axiom.            |
 |  Higher inductive types. Cubical type theory (computational content).    |
-|  Agda cubical, Lean 4 (classical, not cubical).                          |
+|  Agda cubical, Coq HoTT library; mainstream Lean 4 is not cubical.       |
 +--------------------------------------------------------------------------+
 
   INDUSTRIAL IMPLEMENTATIONS:
@@ -340,7 +340,7 @@ through the lens of algebraic topology.
   With univalence: proving A ≃ B lets you immediately reuse
   ALL theorems about A for B.
 
-  This is why Mathlib cares about univalence — it enables
+  This is why HoTT/univalent foundations care about univalence — it enables
   massive reuse across isomorphic structures.
 
   Computational content: classical HoTT (Lean 4, Coq + HoTT library)
@@ -550,20 +550,25 @@ From your C# background — this is F-omega subtyping in practice:
 
 ## Decision Cheat Sheet
 
-| I want to... | Type system / Tool |
-|---|---|
-| Polymorphic functions, type inference | HM / System F (Haskell, F#, OCaml, Rust) |
-| Higher-kinded abstractions (Functor, Monad) | System F-omega (Haskell, Scala) |
-| Encode array lengths or matrix dims in types | Dependent types (Lean 4, Idris, F*) |
-| Prevent use-after-free at compile time | Affine types / Rust ownership |
-| Flexible structural subtyping | TypeScript structural types |
-| Type-level if/else on type structure | TypeScript conditional types |
-| Verify security properties of programs | F* (refinement types + Z3) or Coq |
-| Prove type system soundness | Coq or Lean 4 (RustBelt uses Iris/Coq) |
-| Represent equivalence of structures | HoTT / univalence (Lean 4 + Mathlib) |
-| Understand read/write variance in C# generics | Covariance/contravariance annotations |
+| Type-System Question | Use This Frame | Watch-Out |
+|---|---|---|
+| Do I need ordinary generics? | System F / rank-1 polymorphism | Full System F inference is undecidable; HM gives a tractable subset |
+| Do I need abstractions over type constructors? | F-omega / higher-kinded types | Haskell exposes this directly; C#/F#/Rust expose narrower encodings |
+| Do I need values in types? | Dependent Pi/Sigma types | More proof power means more annotation and proof burden |
+| Do I need memory safety without GC? | Affine/linear types with regions | Rust proves ownership properties for safe code, not arbitrary unsafe blocks |
+| Do I need structural API compatibility? | Structural subtyping | Width/depth compatibility can surprise nominal-type instincts |
+| Do I need type-level branching? | Conditional/mapped/template literal types | TypeScript can become Turing-complete and slow at the type level |
+| Do I need executable security proofs? | F* refinements + SMT, or Coq/Lean for deeper proofs | SMT automation trades transparency for solver/debugging complexity |
+| Do I need equality of equivalent structures? | HoTT/univalence or explicit transport/isomorphism machinery | Mainstream Lean/Mathlib is not univalent; it manages equivalence through typeclasses, coercions, and theorems |
+| Do I need C# variance intuition? | Producer/consumer rule: `out` covariant, `in` contravariant | Mutable containers are invariant for a reason |
 
 ---
+
+## Cross-References
+
+- [Logic Foundations](01-LOGIC-FOUNDATIONS.md) frames the logical connectives that type theory internalizes.
+- [Theorem Proving](03-THEOREM-PROVING.md) shows how dependent types become proof-assistant machinery.
+- [Specification](05-SPECIFICATION.md) connects type-level claims to executable and declarative system contracts.
 
 ## Common Confusion Points
 
@@ -575,10 +580,11 @@ is a runtime value whose type-level inclusion makes bounds-checking a type error
 
 **"HoTT is impractical / academic"**
 
-HoTT's univalence is now in Lean 4 (via classical logic). Mathlib uses it pervasively.
-The isomorphism-transport pattern ("move a theorem about A to an isomorphic B") is
-enormously useful in formalized mathematics, where you constantly deal with multiple
-representations of the same structure.
+HoTT remains more specialized than mainstream Lean/Coq/Isabelle workflows, but its
+core problem is practical: how do you move theorems across equivalent structures
+without hand-transport boilerplate? Mainstream Mathlib handles this with typeclasses,
+canonical structures, coercions, equivalences, and explicit transfer theorems rather
+than by assuming univalence.
 
 **"Rust's borrow checker is ad-hoc / heuristic"**
 

@@ -1,6 +1,6 @@
 # Bacterial Disease
 
-## The Big Picture: Classification by Cell Wall
+## The Big Picture
 
 ```
 BACTERIA
@@ -238,16 +238,22 @@ ANTIBIOTIC STEWARDSHIP:
 
 ---
 
+## Cross-References
+
+- `microbiology/01-BACTERIAL-BIOLOGY.md` - bacterial cell structure and physiology.
+- `medicine/01-ANTIBIOTICS.md` - antibacterial treatment mechanisms.
+- `microbiology/07-ANTIMICROBIAL-RESISTANCE.md` - resistance mechanisms and clinical pressure.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Gram+ thick wall: which antibiotics blocked by OM? | β-lactams work well on Gram+; Gram− OM is a barrier to many (only small/hydrophilic pass porins) |
-| MRSA mechanism? | mecA → PBP2a: altered transpeptidase, still cross-links cell wall, β-lactam ring can't bind |
-| Cholera toxin: why massive watery diarrhea? | Locks Gsα on → ↑↑ cAMP → CFTR permanently open → isotonic secretion into gut lumen |
-| Why no antibiotics in EHEC O157? | Stx phage induction — antibiotics → bacterial lysis → phage release → ↑↑ Shiga toxin → HUS |
-| What's different about Listeria that changes treatment? | Intrinsically resistant to cephalosporins (all standard "covers" meningitis); need ampicillin + gentamicin |
-| Biofilm resistance mechanism? | Physical matrix limits antibiotic diffusion; metabolically dormant (persister) cells not killed by most antibiotics; efflux pump upregulation |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Gram-positive versus Gram-negative drug entry | Outer-membrane barrier and porins | Gram stain does not alone determine susceptibility. |
+| MRSA beta-lactam resistance | mecA producing PBP2a | MRSA still cross-links cell wall; drug binding is altered. |
+| Cholera watery diarrhea | Gs alpha locked on, cAMP high, CFTR open | Fluid loss is isotonic and rapidly dangerous. |
+| EHEC antibiotic avoidance | Shiga-toxin phage induction risk | Antibiotics can increase HUS risk. |
+| Listeria treatment exception | Cephalosporin intrinsic resistance | Meningitis coverage needs ampicillin when Listeria risk exists. |
+| Biofilm antibiotic failure | Matrix diffusion, persisters, efflux | Device removal may be required. |
 
 ---
 

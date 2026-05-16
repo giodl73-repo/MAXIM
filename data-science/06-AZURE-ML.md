@@ -1157,25 +1157,23 @@ Entra ID / RBAC integration, existing .NET/Azure DevOps pipelines.
 
 ## Decision Cheat Sheet
 
-| Need | Use |
-|------|-----|
-| Interactive dev / notebook | Compute Instance + Studio |
-| Train a model (single GPU) | Command Job on Compute Cluster |
-| Train (multi-GPU / multi-node) | Command Job + TorchDistribution |
-| Hyperparameter search | Sweep Job (Bayesian + Bandit termination) |
-| No ML code, just tabular classification | AutoML |
-| Reusable pipeline with caching | AzureML Pipelines + Components |
-| Real-time inference (<1s latency) | Managed Online Endpoint |
-| Batch scoring (millions of rows) | Batch Endpoint |
-| LLM orchestration + eval | Prompt Flow (Azure AI Studio) |
-| Fine-tune GPT-4o / Phi / Llama | Azure AI Studio fine-tuning |
-| Govern data access | Datastores + Managed Identity + Private Endpoints |
-| Blue/green deploy | Traffic split on Online Endpoint |
-| CI/CD for ML | CLI v2 YAML + GitHub Actions |
-| Cost: dev machine | Compute Instance auto-stop (30 min idle) |
-| Cost: training | Compute Cluster min=0 + LowPriority tier |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Which Azure ML compute to use | Separate interactive exploration, scheduled training, GPU scale-out, low-priority tolerance, and existing Kubernetes needs. | Compute Instance is for humans; Compute Cluster is for jobs. |
+| How to package a training job | Check code asset, environment, command, inputs/outputs, identity, datastore, and experiment tracking. | A job is reproducible only if code, data, environment, and parameters are versioned together. |
+| Whether AutoML fits | Confirm the task is standard tabular/image/NLP forecasting/classification/regression and that interpretability/runtime constraints are acceptable. | AutoML is not a substitute for problem framing or leakage checks. |
+| Whether to use pipelines/components | Look for reusable stages, cached outputs, independent compute needs, and promotion from experimentation to CI/CD. | Pipelines add overhead unless the workflow has stable boundaries. |
+| Online vs batch endpoint | Compare latency SLA, traffic pattern, payload size, cost idle time, scoring volume, and rollback needs. | Online endpoints incur standing cost; batch endpoints trade latency for scale-to-zero economics. |
+| Governance and network access | Check managed identity, RBAC, private endpoints, datastore permissions, Key Vault, and audit requirements. | Secrets and data access should be assigned to identities, not embedded in code. |
+| Cost control | Inspect min instances, idle shutdown, VM SKU, low-priority suitability, endpoint replicas, and schedule. | The main cost bug is leaving always-on compute or endpoints running for sporadic workloads. |
 
 ---
+
+## Cross-References
+
+- `05-MLOPS.md` explains the platform-independent lifecycle AzureML implements.
+- `04-PYTORCH.md` covers the deep-learning jobs commonly trained and registered here.
+- `../cloud-architecture/06-IAM-SECURITY.md` gives the identity and governance context for production workspaces.
 
 ## Common Confusion Points
 

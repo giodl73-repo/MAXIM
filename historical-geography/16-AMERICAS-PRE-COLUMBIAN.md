@@ -495,6 +495,12 @@ POTLATCH:
 
 ---
 
+## Cross-References
+
+- [South Asia Medieval](14-SOUTH-ASIA-MEDIEVAL.md) gives a Eurasian comparison for agrarian empire and regional diversity.
+- [Mongol Empire](11-MONGOL-EMPIRE.md) contrasts steppe mobility with Andean and Mesoamerican imperial logistics.
+- [Islamic Caliphates](09-ISLAMIC-CALIPHATES.md) provides another model of expansion, fragmentation, and regional successor states.
+
 ## Common Confusion Points
 
 **"Pre-Columbian" doesn't mean static or primitive**

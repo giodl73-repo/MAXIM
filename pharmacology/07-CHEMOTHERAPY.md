@@ -343,19 +343,25 @@ COMBINATION THERAPY RATIONALE
 
 ---
 
+## Cross-References
+
+- `medicine/06-CANCER-DRUGS.md` - oncology treatment classes.
+- `disease/04-CANCER.md` - cancer hallmarks and disease mechanisms.
+- `genomics/09-PERSONALIZED-MEDICINE.md` - tumor-genomic targeting logic.
+
 ## Decision Cheat Sheet
 
-| Cancer Type | Mechanism to Check | Targeted Drug |
-|-------------|-------------------|---------------|
-| CML | BCR-ABL / Ph chromosome | Imatinib → dasatinib if resistant |
-| NSCLC | EGFR mut? ALK fusion? KRAS G12C? | Osimertinib, alectinib, sotorasib |
-| Melanoma | BRAF V600E? | Dabrafenib + trametinib |
-| Breast | HER2+? HR+? BRCA? | Trastuzumab, palbociclib, olaparib |
-| Colorectal | KRAS/NRAS/BRAF status? MSI? | Cetuximab only if WT-KRAS; pembrolizumab if MSI-H |
-| B-cell ALL | CD19 | CAR-T (tisagenlecleucel) |
-| CLL | BTK pathway | Ibrutinib, acalabrutinib, venetoclax |
-| Any solid tumor | MSI-H? High TMB? | Pembrolizumab |
-| Chemo-induced nausea | 5-HT3 + NK1 + dex | Ondansetron + aprepitant + dexamethasone |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| CML targeted therapy | BCR-ABL / Philadelphia chromosome | Resistance mutations can require next-generation TKIs. |
+| NSCLC targeted option | EGFR, ALK, KRAS G12C and related biomarkers | Histology and sequencing quality matter. |
+| Melanoma targeted option | BRAF V600E status | BRAF inhibitor is usually paired with MEK inhibitor. |
+| Breast cancer pathway | HER2, hormone receptor, and BRCA status | HER2-low and ADC categories complicate old binary rules. |
+| Colorectal targeted option | KRAS/NRAS/BRAF and MSI status | EGFR antibodies require RAS wild-type context. |
+| B-cell ALL immunotherapy | CD19 expression | Antigen loss and cytokine-release syndrome are major caveats. |
+| CLL pathway targeting | BTK/BCL2 pathway dependence | Resistance and cardiac/toxicity profiles shape selection. |
+| Tumor-agnostic immunotherapy | MSI-H or high TMB | Biomarker strength varies by tumor and assay. |
+| Chemo-induced nausea | 5-HT3 plus NK1 plus dexamethasone | Match prophylaxis to emetogenic risk. |
 
 ---
 

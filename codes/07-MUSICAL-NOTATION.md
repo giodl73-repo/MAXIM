@@ -482,24 +482,22 @@ Alternative notation for string instruments (guitar, bass), encoding fret positi
 
 ## Decision Cheat Sheet
 
-| Situation | Symbol/Convention |
-|-----------|-------------------|
-| Piano right hand | Treble clef |
-| Piano left hand | Bass clef |
-| Viola part | Alto clef (C on line 3) |
-| Cello high passage | Tenor clef (C on line 4) |
-| Need 4 beats per measure | 4/4 time signature |
-| Waltz | 3/4 |
-| Jig/compound feel | 6/8 |
-| Very fast | Presto, Allegro |
-| Very slow | Adagio, Largo |
-| Very loud | ff, fff |
-| Very soft | pp, ppp |
-| Gradual louder | Crescendo hairpin < |
-| Detached notes | Staccato (dot) |
-| Smooth connected notes | Legato / slur (curved line) |
-| Guitar chord spelling | Chord symbol (C, Dm, G7, etc.) |
-| Guitar position/fret | TAB notation |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Staff placement or clef choice | Identify instrument range, sounding vs written pitch, ledger-line burden, and clef tradition. | Clefs reduce reading cost; they do not change the sounding musical structure. |
+| Meter or rhythmic feel | Compare beat unit, measure grouping, accent pattern, subdivision, and tempo. | 3/4 and 6/8 can both contain six eighth-notes but imply different felt beats. |
+| Tempo marking | Use Italian term, metronome mark, style period, performer convention, and local rubato. | Tempo words are ranges and characters, not exact clocks. |
+| Dynamics | Read absolute marking, local context, instrument capability, ensemble balance, and crescendo/decrescendo shape. | `ff` means loud relative to the piece and instrument, not a fixed decibel value. |
+| Articulation | Check staccato, accent, tenuto, slur, bowing/breath, phrase boundary, and style period. | The same mark can imply different physical action on piano, voice, strings, or wind. |
+| Guitar or lead-sheet notation | Separate chord symbol, voicing, rhythm slash, TAB position, fingering, and actual sounding pitch. | Chord symbols specify harmony, not a complete performance. |
+
+---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places musical notation among broader symbol systems, codes, and protocols.
+- `01-MORSE.md` contrasts notation for performance with notation for transmission.
+- `../music-theory/01-PITCH-SCALES.md` supplies the pitch and scale theory that staff notation encodes.
 
 ---
 

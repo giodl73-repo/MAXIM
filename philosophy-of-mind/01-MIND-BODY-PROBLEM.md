@@ -363,17 +363,27 @@ THE STANDARD RESPONSE:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Functionalist response to mind-body dualism | `philosophy-of-mind/02-FUNCTIONALISM.md` |
+| Chinese Room critique of computationalism | `philosophy-of-mind/04-CHINESE-ROOM.md` |
+| Embodied cognition as anti-Cartesian alternative | `philosophy-of-mind/08-EMBODIED-COGNITION.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| If someone argues... | The relevant response is... |
-|---|---|
-| "Mind is completely separate from brain and can survive it" (substance dualism) | Princess Elizabeth's interaction problem: how does an unextended substance exert force on matter? The interaction mechanism can't be named without pushing the problem back. |
-| "Mental states are just C-fiber firing" (type identity) | Putnam's multiple realizability: octopus pain, Martian pain, silicon pain would all be different *things* if pain = one physical type. Mental kinds don't carve at the same joints as physical kinds. |
-| "But couldn't two systems have identical physical states but different mental states?" (anti-identity) | Token identity handles this — each mental event is *some* physical event, even if no type laws connect mental and physical vocabulary. |
-| "Okay, but then mental properties are causally inert" (epiphenomenalism worry) | Kim's causal exclusion is the right diagnosis. The functionalist response: mental properties just *are* certain functional/causal roles, so causal power comes with the role. Kim disputes this. |
-| "Descartes' category mistake dissolved the mind-body problem" (Ryle) | Ryle explains behavioral dispositions but not phenomenal experience. The category-mistake diagnosis applies to the Cartesian theater picture but leaves the hard problem untouched. |
-| "The hard problem means property dualism is true" (Chalmers) | Property dualism is one response; illusionism (Frankish) and phenomenal concepts strategy (Papineau) are physicalist alternatives that deny the inference from explanatory gap to ontological gap. |
-| "Neuroscience will eventually explain everything" | The easy/hard distinction: neuroscience can solve functional questions (what the brain does). The hard problem asks why those functions are accompanied by experience — a different kind of question, not answerable by more neural detail. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Substance dualist claims | Interaction problem: how an unextended mind affects matter | Rejecting substance dualism does not remove the motivation from subjective experience. |
+| Type-identity claims | Multiple realizability across octopus, Martian, or silicon pain | Neuroscience correlation is not by itself a type-identity proof. |
+| Token-identity alternatives | Each mental event as some physical event | Token identity avoids strict type laws but leaves explanatory vocabulary unreduced. |
+| Causal-exclusion pressure | Kim's exclusion argument and functional-role replies | Functionalists claim causal power comes with role; Kim disputes that move. |
+| Rylean category-mistake diagnosis | Behavioral dispositions and rejection of Cartesian theater | Dispositions do not by themselves explain phenomenal experience. |
+| Chalmers-style hard-problem inference | Property dualism versus illusionism or phenomenal-concept strategies | Explanatory gaps do not automatically entail ontological gaps. |
+| Neuroscience optimism | Easy/hard distinction between function and experience | More neural detail can solve mechanisms without settling why experience accompanies them. |
 
 ---
 

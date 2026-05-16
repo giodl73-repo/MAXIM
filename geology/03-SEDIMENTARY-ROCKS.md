@@ -225,19 +225,25 @@ TIMING:          All must coincide — generation + migration +
 
 ## Decision Cheat Sheet
 
-| Sample in hand | Identification |
-|----------------|----------------|
-| Gritty, quartz grains, medium-grained | Sandstone |
-| Fine-grained, fissile (splits in layers), dark | Shale |
-| Fine-grained, fizzes with HCl | Limestone |
-| Coarse angular fragments in fine matrix | Breccia (close-source, angular) |
-| Coarse rounded fragments in fine matrix | Conglomerate (transported) |
-| White, powdery, very fine-grained, fizzes | Chalk |
-| Very hard, glassy, chipping like flint | Chert |
-| Laminated, salty taste | Rock salt (halite) |
-| Black, combustible, organic | Coal |
+| Field / Basin Question | Use This Diagnostic | Likely Interpretation |
+|---|---|---|
+| What was the transport energy? | Grain size | Gravel/sand = high energy; silt/clay = low energy or quiet-water settling |
+| How far did sediment travel? | Rounding + sorting + mineral maturity | Rounded, well-sorted quartz sand = long reworking; angular, mixed clasts = short transport |
+| Is this river, beach, desert, or deep marine? | Sedimentary structures + fossils | Cross-beds, ripples, graded beds, mud cracks, and fossil assemblages constrain environment |
+| Is this a time marker or environment marker? | Fossils vs facies | Index fossils correlate age; facies diagnose depositional setting |
+| Is a gap present in the record? | Unconformity geometry | Angular, erosional, or nonconformity surfaces mark missing time |
+| Is it a carbonate system? | HCl reaction + fossils + texture | Limestone reacts strongly; dolomite weakly unless powdered; fossils imply biogenic carbonate |
+| Is it an evaporite? | Crystal habit + basin context | Halite/gypsum imply restricted evaporation; do not rely on taste as a primary test |
+| Could it be a reservoir rock? | Porosity + permeability + seal/source context | Sandstones and carbonates can store fluids only if pore network and trap timing work |
+| Could it be a source rock? | Organic richness + anoxic laminations + maturity | Dark shale or carbonate mud can generate hydrocarbons only inside the thermal window |
 
 ---
+
+## Cross-References
+
+- [Minerals](01-MINERALS.md) explains the grains, cements, and chemical precipitates sedimentary rocks contain.
+- [Geologic Time](07-GEOLOGIC-TIME.md) connects stratigraphy to relative dating and fossil succession.
+- [Surficial Geology](09-SURFICIAL-GEOLOGY.md) supplies the active environments that create many sediments.
 
 ## Common Confusion Points
 

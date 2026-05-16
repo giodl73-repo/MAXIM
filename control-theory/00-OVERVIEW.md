@@ -205,19 +205,24 @@ Stability margin             "How much can deployment parameters vary before
 
 ## Decision Cheat Sheet
 
-| You want to...                              | Use this                    |
-|---------------------------------------------|-----------------------------|
-| Control a single loop (temperature, speed)  | PID controller              |
-| Understand why the system oscillates        | Bode plot / root locus      |
-| Guarantee stability margins                 | Nyquist criterion           |
-| Control multiple inputs/outputs             | State-space + pole placement |
-| Handle unmeasured states                    | Luenberger observer         |
-| Balance tracking vs. control effort         | LQR optimal control         |
-| Add noise/uncertainty to LQR               | LQG (LQR + Kalman)          |
-| Guarantee robustness to model error         | H∞ control                  |
-| Handle constraints on inputs/states         | Model Predictive Control    |
-| Fuse sensors (GPS + IMU)                    | Kalman filter / EKF         |
-| Unknown nonlinear dynamics                  | Reinforcement learning      |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A single-loop regulation problem | PID, loop response, actuator limits, disturbance size, and tuning method. | PID is often enough, but poor sensing or delay can dominate controller choice. |
+| Oscillation or poor transient response | Bode plots, root locus, poles/zeros, damping ratio, phase margin, and time delay. | Frequency and root-locus views explain different slices of the same closed-loop behavior. |
+| Stability-margin risk | Nyquist/Bode margins, gain/phase uncertainty, unmodeled dynamics, and saturation. | Margins are model-relative; they are not blanket guarantees outside assumptions. |
+| A multi-input/multi-output plant | State-space model, controllability, observability, pole placement, and coupling structure. | State-space notation does not remove hard modeling and sensing constraints. |
+| Hidden-state estimation | Luenberger observer, Kalman filter, sensor noise, process noise, and observability. | Deterministic observers assume cleaner models than real sensors usually provide. |
+| Tracking-vs-effort tradeoff | LQR weights, actuator cost, state penalties, and reference tracking architecture. | LQR optimizes the stated quadratic model, not robustness by default. |
+| Constraints and operating envelopes | Model Predictive Control, prediction horizon, constraints, solver latency, and fallback mode. | MPC quality depends on model fidelity and real-time optimization reliability. |
+| Unknown nonlinear behavior | Adaptive control, system identification, robust control, or learning-based control. | Reinforcement learning is a last-mile option when safety, data, and sim-to-real risk are controlled. |
+
+---
+
+## Cross-References
+
+- `01-PID-CLASSICAL.md` gives the classical feedback baseline.
+- `02-STATE-SPACE.md` moves from transfer functions to modern MIMO state models.
+- `07-MPC.md` shows constraint-aware control in the optimization-heavy modern style.
 
 ## Common Confusion Points
 

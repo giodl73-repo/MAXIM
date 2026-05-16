@@ -277,16 +277,22 @@ CONSEQUENCES:
 
 ---
 
+## Cross-References
+
+- `agriculture/09-FUTURE-AGRICULTURE.md` — precision agriculture extends the mechanization arc into sensing and autonomy.
+- `manufacturing/01-GDT-TOLERANCING.md` — industrial precision and machine design shape agricultural equipment.
+- `transportation/01-RAIL.md` — mechanization and transport infrastructure jointly reorganized rural production.
+
 ## Decision Cheat Sheet
 
-| Farm situation | Technology consideration |
-|---------------|--------------------------|
-| Planting row crops on large flat fields | RTK autosteer + variable rate seeder |
-| Grain harvesting; want yield data | Yield monitor + GPS → prescription map next year |
-| Weed control without herbicides | Robotic weeding (laser or mechanical) |
-| Irrigation scheduling | Remote sensing ET + soil sensors → IoT automation |
-| Cover crop establishment | GPS cover crop applicator; aerial seeding via drone |
-| Precision nutrient management | Soil EC mapping + zone sampling + variable rate spreader |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether row-crop planting can be automated | RTK autosteer and variable-rate seeding | Flat field geometry and data quality matter |
+| Whether harvest data can drive next year's plan | Yield monitor plus GPS prescription map | Calibration and lagged agronomic interpretation are critical |
+| Whether herbicide-free weed control is feasible | Robotic mechanical or laser weeding | Crop/weed recognition and field conditions limit reliability |
+| Whether irrigation can be scheduled precisely | Remote-sensing ET plus soil sensors | Sensor placement and water rights/infrastructure constrain action |
+| Whether cover crops can be established at scale | GPS applicator or drone/aerial seeding | Timing and seed-soil contact control success |
+| Whether nutrients can be managed by zones | Soil EC mapping, zone sampling, variable-rate spreading | Spatial maps are proxies and need ground-truth sampling |
 
 ---
 

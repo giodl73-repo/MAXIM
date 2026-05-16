@@ -269,20 +269,26 @@ ANTIQUE FINISH PROCESS:
 
 ---
 
+## Cross-References
+
+- `01-LEATHER-TYPES.md` identifies which leathers accept tooling.
+- `06-DYEING-FINISHING.md` explains how carved surfaces take color and antique.
+- `09-CARE-MAINTENANCE.md` preserves tooled surfaces after use.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What leather must you use for tooling? | Vegetable-tanned (veg-tan) — chrome-tan is too soft and won't hold impressions |
-| What is the toothpick test for casing? | Press toothpick; leaves mark that snaps back = correct moisture; stays compressed = too wet |
-| What does the B200 beveler do? | Presses fibers down beside a swivel knife cut; creates the relief effect |
-| What is the Sheridan style? | Western floral leather carving tradition from Sheridan, Wyoming; flowing stems, five-petal flowers |
-| Which side of the beveler does the swivel knife cut go on? | Left side of beveler (beveler presses down to the right of the cut) |
-| How deep should swivel knife cuts be? | ~1/2 leather thickness; never through |
-| What is a pear shader? | Smooth rounded stamp that creates convex curvature in petals and leaves |
-| What is the antique finish technique? | Apply antique paste; work into recesses; wipe back; dark remains in cuts |
-| What is casing from the flesh side? | Re-dampening from back during work session; slower, more controlled than re-wetting grain side |
-| How do you sharpen a swivel knife? | Strop on charged leather (jeweler's rouge or green compound); both bevel faces |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Tooling-capable leather | Vegetable-tanned leather | Chrome-tan is too soft and will not hold impressions. |
+| Correct casing moisture | Toothpick mark that snaps back | Freshly wet leather is usually too wet; wait for absorption. |
+| Relief beside cut | B200 beveler pressing fibers down | Direction is a design choice; wrong side muddies the pattern. |
+| Sheridan-style carving | Flowing Western floral stems and five-petal flowers | Style vocabulary does not replace clean swivel-knife technique. |
+| Beveler orientation | Swivel cut on left side, beveler pressing down to right | Reverse when the design requires the opposite relief. |
+| Swivel-knife depth | About half leather thickness, never through | Hesitant cuts show; practice continuous motion on scrap. |
+| Petal/leaf curvature | Pear shader rounded stamp | Background stamping still needs separate time and consistency. |
+| Antique contrast | Paste in recesses, wipe high surfaces | Leather must be fully dry after casing or finish turns patchy. |
+| Mid-session moisture control | Re-dampen from flesh side | Slower and more controlled than wetting grain side. |
+| Swivel-knife edge | Strop both bevel faces on charged leather | Dull blades cause drag and ragged cuts. |
 
 ---
 

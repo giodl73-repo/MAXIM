@@ -1,6 +1,6 @@
 # Reporting and Writing: Inverted Pyramid, Narrative, Data Journalism
 
-## The Writing Landscape
+## The Big Picture
 
 Journalism writing is constrained by three forces: structure (which organizational form fits this story), speed (deadline pressure limits revision), and clarity (complex information for general audiences). Different story types require different forms — the inverted pyramid for breaking news, the narrative arc for features, the wall-style for analysis.
 
@@ -378,16 +378,22 @@ STRUCTURAL CONVENTIONS
 
 ---
 
+## Cross-References
+
+- `04-EDITORIAL-STANDARDS.md` supplies attribution, correction, and fairness constraints.
+- `05-INVESTIGATIVE.md` extends reporting into document and source strategy.
+- `09-DIGITAL-JOURNALISM.md` adapts reporting to real-time and platform contexts.
+
 ## Decision Cheat Sheet
 
-| Story Type | Structure | Lead Type |
-|-----------|-----------|----------|
-| Breaking news (fire, vote, resignation) | Inverted pyramid | Hard news 5W+H |
-| Feature on a social trend | WSJ formula | Anecdotal → nut graf |
-| Crime narrative | Hourglass | Summary news → chronological narrative |
-| Policy analysis | WSJ or explanatory | Nut graf-first or scene |
-| Data story | Data-forward + visualization | Statistical finding |
-| Profile | Narrative | Scene or anecdote |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Breaking news | Inverted pyramid with hard-news 5W+H lead | Optimized for early exit, not nuance or emotional arc. |
+| Social-trend feature | WSJ formula: anecdote to nut graf | The nut graf must arrive early enough to answer "why am I reading?" |
+| Crime narrative | Hourglass: summary news then chronology | Avoid turning sequence into speculation beyond verified facts. |
+| Policy analysis | Explanatory or WSJ structure | Lead with stakes and mechanism, not process jargon. |
+| Data story | Data-forward structure plus visualization | Expert/statistical review is part of reporting, not polish. |
+| Profile | Narrative scene or anecdotal lead | Scene must reveal character or stakes, not just decorate. |
 
 ---
 

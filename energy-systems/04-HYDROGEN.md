@@ -2,11 +2,11 @@
 
 ## The Big Picture
 
-Hydrogen is simultaneously the most abundant element in the universe and essentially
-absent as a free gas on Earth — it exists bound in water, hydrocarbons, and biomass.
-The "hydrogen economy" is about using electricity (ideally renewable) to split water,
-producing H₂ as a zero-carbon fuel/feedstock. The core challenge: it costs $4-8/kg
-green H₂ today; the industrial sector already uses H₂ at $1-2/kg from natural gas.
+Hydrogen is simultaneously the most abundant element in the universe and scarce as
+a free fuel on Earth -- it exists bound in water, hydrocarbons, and biomass. The
+"hydrogen economy" is about manufacturing low-carbon H2 for roles where a molecule
+beats direct electrification. The core challenge is not whether hydrogen is useful;
+it is where its cost, losses, storage, and infrastructure make sense.
 
 ```
 HYDROGEN VALUE CHAIN
@@ -459,22 +459,23 @@ Apply to the applications where alternatives are hardest.
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What % of H₂ today is grey? | ~95% (SMR from natural gas) |
-| Green H₂ cost today? | $4-8/kg (vs $1-1.5 grey) |
-| Rule of thumb: $/MWh electricity → $/kg H₂? | $10/MWh electricity ≈ $0.50-0.60/kg H₂ |
-| Most efficient electrolyzer? | SOEC (80-90% at 800°C) then PEM (65-75%) then AEC (63-70%) |
-| Best electrolyzer for variable renewables? | PEM (seconds response time) |
-| Cheapest electrolyzer? | AEC (~$400-700/kW) |
-| Round-trip efficiency H₂ for storage? | ~30-40% (vs 85-92% for Li-ion) |
-| Why ammonia instead of liquid H₂ for shipping? | Higher volumetric density, -33°C not -253°C, existing infrastructure |
-| PEMFC vs SOFC: which for data center? | SOFC (higher efficiency, multi-fuel, stationary) |
-| Where does H₂ clearly beat direct electrification? | Ammonia, DRI steel, ocean shipping, perhaps aviation |
-| Where does H₂ lose to direct electrification? | Passenger cars, building heat |
-| US IRA Tier 1 H₂ credit? | $3/kg for <0.45 kg CO₂/kg H₂ |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A hydrogen-cleanliness claim | Check production pathway, electricity source, methane leakage, CCS capture rate, temporal matching, compression/liquefaction, and boundary. | Color labels are shorthand, not proof of carbon intensity. |
+| A green-H2 cost claim | Decompose electricity price, electrolyzer capex, capacity factor, efficiency, water treatment, compression, storage, transport, and financing. | Cheap electricity is necessary but not sufficient if utilization or delivery costs are poor. |
+| Which electrolyzer fits | Compare AEC, PEM, and SOEC by load following, efficiency, capex, critical materials, heat integration, and maturity. | "Best" depends on operating profile, not only stack efficiency or response time. |
+| Hydrogen as storage | Compare duration, cavern/tank cost, conversion efficiency, fuel-cell/turbine choice, and alternative firm capacity. | Poor round-trip efficiency is acceptable only where duration or molecule value dominates. |
+| Hydrogen transport | Compare compressed gas, liquid H2, ammonia, LOHC, pipeline, purity, safety, and reconversion losses. | Ammonia and LOHC solve logistics by adding chemical-conversion burdens. |
+| Hydrogen end-use priority | Rank incumbent grey demand, ammonia, steel DRI, shipping fuels, aviation e-fuels, backup power, cars, and building heat. | Direct electrification should be the default competitor wherever feasible. |
+| A policy-credit claim | Verify carbon-intensity threshold, accounting rule, labor/domestic-content requirements, and project start/qualification date. | Subsidy eligibility can change project economics without changing physical efficiency. |
 
 ---
+
+## Cross-References
+
+- `03-ENERGY-STORAGE.md` places hydrogen among storage options.
+- `05-GRID-INTEGRATION.md` explains when power-to-hydrogen can absorb renewable surplus.
+- `../energy-storage/07-HYDROGEN.md` focuses on hydrogen as a storage pathway.
 
 ## Common Confusion Points
 

@@ -491,6 +491,12 @@ The EU's TSI (Technical Specifications for Interoperability) are the regulatory 
 
 ---
 
+## Cross-References
+
+- `infrastructure-systems/01-CLASSIFICATION.md` — rail as networked, capital-intensive civil infrastructure.
+- `electrical-grid/01-GENERATION.md` — electrified rail depends on generation, transmission, and substations.
+- `aeronautics/01-AERODYNAMICS.md` — modal contrast: guideway-bound rolling resistance vs. lift/drag flight.
+
 ## Decision Cheat Sheet — Rail Segment Selection
 
 | Requirement | Solution |

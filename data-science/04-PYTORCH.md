@@ -898,27 +898,22 @@ For .NET engineers, the familiar vocabulary:
 
 ## Decision Cheat Sheet
 
-```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  TASK                              │  WHAT TO USE                            │
-├────────────────────────────────────┼─────────────────────────────────────────┤
-│  Tabular ML (<1M rows)             │  scikit-learn (03-SKLEARN.md)           │
-│  Tabular ML (millions of rows)     │  XGBoost / LightGBM — still not PyTorch │
-│  Image classification              │  torchvision pretrained + fine-tune     │
-│  Text classification               │  HuggingFace AutoModel + fine-tune      │
-│  Custom architecture               │  PyTorch nn.Module from scratch         │
-│  Training loop boilerplate         │  PyTorch Lightning                      │
-│  Hyperparameter search             │  W&B Sweeps or Optuna                   │
-│  Multi-GPU single node             │  DDP via torchrun / Lightning           │
-│  Multi-GPU multi-node              │  DDP + AzureML (06-AZURE-ML.md)         │
-│  Fast inference                    │  ONNX Runtime (see 05-MLOPS.md)         │
-│  Speedup (free)                    │  torch.compile(model)                   │
-│  Memory efficiency                 │  AMP (autocast + GradScaler)            │
-│  Reproducibility                   │  torch.manual_seed + DataLoader seeds   │
-└────────────────────────────────────┴─────────────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether PyTorch is the right tool | Compare tabular, image, text, sequence, custom architecture, and differentiable-programming needs. | For ordinary tabular ML, scikit-learn/XGBoost/LightGBM often beat neural networks. |
+| A tensor-shape failure | Track batch, channel, sequence, feature, device, dtype, and contiguous/non-contiguous layout. | Most PyTorch bugs are shape/device/dtype bugs before they are model-theory bugs. |
+| A gradient problem | Check `requires_grad`, graph construction, `.detach()`, `no_grad`, accumulated `.grad`, and optimizer zeroing. | Gradients accumulate by default; forgetting `zero_grad()` changes the optimization problem. |
+| A training-loop issue | Separate model mode, loss, optimizer, scheduler, validation, checkpoint, and mixed precision. | `model.train()` and `model.eval()` change dropout/batchnorm behavior. |
+| A scaling problem | Decide between single GPU, DDP single-node, DDP multi-node, gradient accumulation, AMP, and checkpointing. | Distributed training adds data-sharding and synchronization failure modes. |
+| An inference/deployment path | Compare `state_dict`, TorchScript/ONNX export, batch size, latency, quantization, and serving runtime. | Save weights plus code for long-term reproducibility; pickled whole models are brittle. |
 
 ---
+
+## Cross-References
+
+- `01-NUMPY.md` supplies the tensor-like array baseline before autograd.
+- `03-SCIKIT-LEARN.md` contrasts classical estimator APIs with neural training loops.
+- `05-MLOPS.md` carries trained PyTorch models into registry, deployment, and monitoring.
 
 ## Common Confusion Points
 

@@ -4,7 +4,7 @@
 
 ---
 
-## Big Picture: Heredity Information Flow
+## The Big Picture
 
 ```
 GENETICS: How information is stored, transmitted, and expressed
@@ -352,20 +352,26 @@ THERAPEUTIC STATUS (2024):
 
 ---
 
+## Cross-References
+
+- `genomics/01-SEQUENCING-TECH.md` - modern measurement of genetic information.
+- `disease/09-GENETIC-DEVELOPMENTAL.md` - inherited defects and disease.
+- `biology/04-EVOLUTION.md` - heredity as substrate for evolutionary change.
+
 ## Decision Cheat Sheet
 
-| Goal | Method | Key Caveat |
-|------|--------|------------|
-| Knockout gene (cell line) | CRISPR-Cas9 + NHEJ | Verify with sequencing; beware frameshift +3 |
-| Correct pathogenic SNP | Base editor (CBE/ABE) | Need C→T or A→G; check editing window position |
-| Activate/repress without editing | CRISPRa/CRISPRi | Reversible; no sequence change |
-| Find disease variant associations | GWAS | Need large N; most hits in non-coding |
-| Whole transcriptome expression | RNA-seq | Normalize; bioinformatics pipeline needed |
-| Single-cell heterogeneity | scRNA-seq | Batch correction; clustering algorithm choice |
-| Map regulatory elements | ATAC-seq + ChIP-seq | Antibody quality critical for ChIP |
-| Understand inheritance pattern | Mendelian analysis | Check penetrance, expressivity, epistasis |
-| Identify functional non-coding regions | Evolutionary constraint (PhyloP/PhastCons) | High constraint = likely functional |
-| Assign epigenetic state | Histone marks (H3K4me3/H3K27ac etc.) | Combinatorial; need multiple marks |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Gene knockout | CRISPR-Cas9 plus NHEJ | Sequence-verify; in-frame indels can preserve function. |
+| Pathogenic SNP correction | Base editor such as CBE/ABE | Edit window and off-target edits constrain feasibility. |
+| Expression activation/repression | CRISPRa or CRISPRi | Expression changes without sequence editing. |
+| Disease association | GWAS at large sample size | Most hits are noncoding and mechanistically indirect. |
+| Transcriptome state | RNA-seq with normalization | Pipeline choices affect differential-expression calls. |
+| Single-cell heterogeneity | scRNA-seq clustering | Batch correction can create or erase clusters. |
+| Regulatory element map | ATAC-seq plus ChIP-seq | ChIP depends heavily on antibody quality. |
+| Inheritance pattern | Mendelian analysis | Penetrance, expressivity, and epistasis complicate pedigrees. |
+| Functional noncoding region | Evolutionary constraint metrics | Constraint suggests function, not mechanism. |
+| Epigenetic state | Combinatorial histone marks | Single marks are ambiguous without context. |
 
 ---
 

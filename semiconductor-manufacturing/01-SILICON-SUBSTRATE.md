@@ -245,6 +245,12 @@ PRODUCTION FORMAT:
 
 ---
 
+## Cross-References
+
+- `materials/01-CRYSTAL-STRUCTURE.md` — lattice, defects, and crystallography foundation for wafer quality.
+- `electronics/01-CIRCUITS.md` — downstream circuit behavior enabled by controlled semiconductor structures.
+- `nanotechnology/01-NANOSCALE-PHYSICS.md` — scale effects that dominate advanced device manufacturing.
+
 ## Decision Cheat Sheet
 
 | Application | Substrate Choice |

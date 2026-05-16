@@ -262,17 +262,23 @@ Individual HRTFs differ — "personalized HRTF" is active research area
 
 ---
 
+## Cross-References
+
+- `neuroscience/01-NEURONS-SIGNALS.md` — neural signaling substrate for auditory perception.
+- `acoustics/01-WAVE-PHYSICS.md` — physical stimulus before auditory processing.
+- `music-theory/01-PITCH-SCALES.md` — perceptual pitch bridge into musical systems.
+
 ## Decision Cheat Sheet
 
-| Application | Psychoacoustic Principle |
-|-------------|--------------------------|
-| MP3/AAC compression | Masking threshold — quantize below threshold |
-| dB(A) measurement | A-weighting approximates 40-phon sensitivity |
-| Speaker design: where to spend budget | 2–5 kHz is most perceptually sensitive |
-| Binaural headphone rendering | Convolve with personalized HRTF |
-| Perceptual pitch from bass-limited phone | Missing fundamental — temporal theory |
-| Concert hall too reverberant | Late reverberation masks early reflections |
-| Recording ambience in stereo | ITD + ILD cues via microphone spacing/angling |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether codec artifacts should be audible | Masking threshold versus quantization noise | Pre-echo and swish appear when noise escapes temporal or frequency masking |
+| Whether a dB reading matches perceived loudness | A-weighting and equal-loudness contours | dB(A) is a rough public-noise proxy, not a universal loudness model |
+| Whether speaker defects will be noticed | 2-5 kHz response and distortion first | Human hearing is most sensitive where speech cues live |
+| Whether binaural rendering works | Listener-specific HRTF and headphone calibration | Generic HRTFs can externalize poorly or invert front/back location |
+| Whether bass is perceived without bass energy | Missing-fundamental and harmonic structure | The brain infers pitch from harmonics only when the harmonic pattern is coherent |
+| Whether a hall is too reverberant | Early/late energy balance and RT60 by band | Late reverberation masks clarity; early reflections can support presence |
+| Whether stereo ambience is spatially convincing | ITD and ILD cues from microphone geometry | Spacing and angling trade image width against phase and mono compatibility |
 
 ---
 

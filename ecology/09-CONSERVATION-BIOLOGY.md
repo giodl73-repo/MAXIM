@@ -327,14 +327,14 @@ ADAPTATION STRATEGIES:
   │                                                                 │
   │ CONNECTIVITY: facilitate natural dispersal                      │
   │   Climate corridors: route from current → future habitat        │
-  │   Stepping stones: intermediate patches for long-distance moves│
+  │   Stepping stones: intermediate patches for long-distance moves │
   │   → Design for future climate, not current conditions           │
   │                                                                 │
   │ MANAGED RELOCATION (assisted migration):                        │
   │   Deliberately move individuals/populations to future habitat   │
   │   High controversy: could introduce new invasive dynamics       │
   │   Best cases: species with very limited dispersal ability       │
-  │   (plants, tortoises, freshwater fish above dispersal barriers)│
+  │   (plants, tortoises, freshwater fish above dispersal barriers) │
   │   Examples: Torreya taxifolia (Florida) moved to NC mountains   │
   └─────────────────────────────────────────────────────────────────┘
 ```
@@ -373,16 +373,22 @@ SPECIES × CLIMATE THREAT MATRIX:
 
 ---
 
+## Cross-References
+
+- `ecology/06-BIOGEOGRAPHY.md` - species ranges and protected-area placement.
+- `ecology/08-DISTURBANCE-ECOLOGY.md` - disturbance regimes and resilience.
+- `environmental-engineering/01-WATER-TREATMENT.md` - engineered environmental protection context.
+
 ## Decision Cheat Sheet
 
-| Conservation question | Tool/concept |
-|----------------------|-------------|
-| How fragmented is a landscape? | Patch size distribution, connectivity metrics, fragmentation indices |
-| What size reserve is needed? | PVA + minimum area requirements + target species needs |
-| Which species most at risk? | IUCN criteria (A-E); PVA; EDGE (Evolutionarily Distinct/Globally Endangered) |
-| How to restore connectivity | Wildlife corridors, stepping stones; landscape permeability models |
-| Prioritize conservation investments | Hotspot mapping; irreplaceability analysis; cost-effectiveness |
-| Rewild an area | Core-corridor-carnivore framework; identify missing ecological processes |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Landscape fragmentation | Patch size, connectivity, and fragmentation indices | Edge effects can dominate nominal area. |
+| Reserve size need | PVA plus target-species area requirements | Single-species targets can miss ecosystem processes. |
+| Species risk priority | IUCN criteria, PVA, and EDGE | Data deficiency can hide high risk. |
+| Connectivity restoration | Corridors, stepping stones, and permeability models | Corridors can also move disease or invasives. |
+| Conservation investment priority | Hotspots, irreplaceability, and cost-effectiveness | Political feasibility and local stewardship affect success. |
+| Rewilding feasibility | Core-corridor-carnivore framework | Missing processes may not be restorable at current landscape scale. |
 
 ---
 

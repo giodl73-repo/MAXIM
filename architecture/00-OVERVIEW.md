@@ -330,16 +330,24 @@ The software discipline borrowed the vocabulary because the cognitive challenge 
 
 ## Decision Cheat Sheet
 
-| Situation | Approach | Why |
-|-----------|----------|-----|
-| Long-span open floor plan (>12m) | Steel moment frame or composite | Steel spans longest; concrete needs post-tensioning for >12m |
-| Lateral resistance in seismic zone | Moment frame or braced frame (steel); shear wall (concrete) | Ductility requirements drive system choice; shear walls are stiffest |
-| Hot-dry climate, minimize HVAC | Thermal mass + night ventilation + small windows | Mass stores coolth overnight; re-radiates during day; reduces solar gain |
-| Hot-humid climate, minimize HVAC | Cross ventilation + shading + elevated floors | Airflow and shade are primary; mass doesn't help when nights are warm |
-| Speed of delivery paramount | Design-build or CM-at-risk | Overlapping design and construction phases; single point of responsibility |
-| Quality / design control paramount | Design-bid-build (traditional) | Full design documentation before construction begins; competitive bidding |
-| Sustainability certification needed | LEED / Passivhaus / BREEAM framework from schematic design | Integrated early; retroactive certification is expensive and limited |
-| Adaptive reuse of existing structure | Structural assessment first; code compliance survey | Existing structure constrains everything; understand before designing |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Long-span open plan | Check span, load, vibration, depth, fire, services, steel/composite/PT options, and cost. | Longest span is not always the best floor system. |
+| Seismic lateral resistance | Compare moment frame, braced frame, shear wall, ductility, stiffness, drift, and detailing. | Strength without ductility can be unsafe. |
+| Hot-dry passive strategy | Use diurnal swing, thermal mass, night ventilation, solar control, and envelope airtightness. | Thermal mass helps only when nights cool enough to recharge it. |
+| Hot-humid passive strategy | Prioritize shading, cross-ventilation, elevated floors, moisture control, and low thermal storage. | Mass can worsen comfort when humidity and warm nights dominate. |
+| Speed of delivery | Compare design-build, CM-at-risk, procurement lead times, overlap risk, and decision authority. | Fast delivery shifts risk into early coordination. |
+| Design-control priority | Use design-bid-build, complete documentation, mockups, QA, and change-control discipline. | Competitive bidding can save cost while slowing iteration. |
+| Sustainability certification | Start in schematic design with energy target, envelope, materials, commissioning, and documentation. | Retroactive certification is expensive and usually shallow. |
+| Adaptive reuse | Begin with structural assessment, code survey, hazardous materials, services, heritage, and program fit. | Existing constraints are design inputs, not late-stage surprises. |
+
+---
+
+## Cross-References
+
+- `../architecture-history/00-OVERVIEW.md` gives the historical styles and movements behind contemporary design vocabulary.
+- `../structural/00-OVERVIEW.md` explains the load paths, materials, and failure modes that architecture must coordinate with.
+- `../urban-planning/00-OVERVIEW.md` connects buildings to zoning, transportation, land use, and public realm.
 
 ---
 

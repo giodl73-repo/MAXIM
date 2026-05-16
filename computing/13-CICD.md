@@ -610,20 +610,23 @@ ADO stores credentials in service connections (client secret or cert). GHA best 
 
 ---
 
+## Cross-References
+
+- `computing/02-GIT.md` — source-control trigger and review workflow.
+- `computing/04-BUILD.md` — build stage inside delivery automation.
+- `computing/18-TESTING.md` — quality gates inside CI/CD.
+
 ## Decision Cheat Sheet
 
-| I want to... | Use |
-|---|---|
-| Run tests on every PR | GitHub Actions `on: pull_request` |
-| Block merge if CI fails | Branch protection → required status checks |
-| Build & push Docker image on merge | `build-push-action` in `on: push` + `needs: test` |
-| Deploy to K8s on merge | `kubectl set image` or `KubernetesManifest` task |
-| Require human approval before prod deploy | Environment protection rules / ADO approvals |
-| Pass build output between jobs | `upload-artifact` + `download-artifact` |
-| Speed up slow installs | `cache:` in `setup-node` / `actions/cache` |
-| Test across Node 18, 20, 22 | Matrix strategy |
-| Deploy only when tests pass | `needs: test` + `if: success()` |
-| Access Azure resources from pipeline | OIDC federated identity (no stored secrets) |
-| Run on private network | Self-hosted runner in your VNet |
-| Need ADO-grade gates (Azure Monitor, ServiceNow) | Azure Pipelines for CD stage |
-| Both GitHub + Azure together | GitHub Actions for CI → Azure Pipelines for CD (or GitHub Actions throughout with `azure/login`) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| PR validation | Trigger on pull request, run deterministic tests, cache safely, and publish actionable failure output. | CI that is flaky trains teams to ignore it. |
+| Merge blocking | Use branch protection, required checks, review rules, and bypass governance. | A required check is only as meaningful as what it actually tests. |
+| Image build and publish | Chain test, build, scan, tag, push by digest, and record provenance. | Building on merge without test dependency can publish bad artifacts. |
+| Kubernetes deploy | Compare manifest apply, Helm, GitOps, image update, rollout status, and migration order. | Deploy success is not app health unless readiness and smoke checks exist. |
+| Production approval | Use environment protection, approvers, change windows, and audit trail. | Manual approval is not a substitute for automated quality gates. |
+| Cross-job artifacts | Use upload/download artifacts with retention, integrity, and version naming. | Artifacts are release inputs; treat them as immutable. |
+| Slow pipeline | Profile install, cache keys, dependency lockfiles, matrix shape, and parallelism. | Bad cache keys can serve stale dependencies. |
+| Matrix testing | Choose runtime versions, OS, dependency versions, and allowed failures deliberately. | More matrix axes can explode cost without improving confidence. |
+| Cloud credentials | Prefer OIDC federation, least privilege, environment scoping, and audit logs. | Stored long-lived secrets in CI are high-value targets. |
+| Private-network deployment | Use self-hosted runners, network placement, patching, isolation, and runner trust. | Self-hosted runners become infrastructure you operate. |

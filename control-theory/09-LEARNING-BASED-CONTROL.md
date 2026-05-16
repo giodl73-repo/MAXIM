@@ -1,6 +1,6 @@
 # Learning-Based and Data-Driven Control
 
-## Big Picture: From Models to Data
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -345,37 +345,24 @@ SAC (Soft Actor-Critic):
 
 ---
 
+## Cross-References
+
+- `control-theory/08-ADAPTIVE-CONTROL.md` — classical online adjustment before learning-based control.
+- `machine-learning-theory/01-PAC-LEARNING.md` — generalization framing for learned controllers.
+- `robotics/01-KINEMATICS.md` — robotics as a major application surface for learned control.
+
 ## Decision Cheat Sheet
 
-```
-┌───────────────────────────┬────────────────────────────────────────────┐
-│  Situation                │  Best Approach                             │
-├───────────────────────────┼────────────────────────────────────────────┤
-│  Model known, linear,     │  LQR / MPC — no learning needed            │
-│  quadratic cost           │                                            │
-├───────────────────────────┼────────────────────────────────────────────┤
-│  Model unknown, can       │  System ID → model-based control           │
-│  excite system safely     │  (N4SID, PEM, DMD + LQR/MPC)               │
-├───────────────────────────┼────────────────────────────────────────────┤
-│  Model unknown, nonlinear,│  Model-free RL (SAC, PPO)                  │
-│  simulator available      │  + domain randomization for sim-to-real    │
-├───────────────────────────┼────────────────────────────────────────────┤
-│  Sparse real-world data,  │  Model-based RL (PILCO, MBPO) or           │
-│  no fast simulator        │  GP + policy search                        │
-├───────────────────────────┼────────────────────────────────────────────┤
-│  Expert demonstrations    │  Behavior cloning → IRL/GAIL if            │
-│  available                │  compounding errors problematic            │
-├───────────────────────────┼────────────────────────────────────────────┤
-│  Safety-critical system   │  CBF safety filter + any RL policy         │
-│                           │  OR: offline RL on safe dataset            │
-├───────────────────────────┼────────────────────────────────────────────┤
-│  Fixed historical dataset │  Offline RL (IQL, CQL, TD3+BC)             │
-│  no new data collection   │                                            │
-├───────────────────────────┼────────────────────────────────────────────┤
-│  LTI system, trajectory   │  DeePC / Willems-based predictive control  │
-│  data only, no model      │                                            │
-└───────────────────────────┴────────────────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Known linear-quadratic model | LQR or MPC | Learning adds risk when the model is adequate. |
+| Unknown but safely excitable model | System ID then model-based control | Excitation must cover the operating envelope. |
+| Unknown nonlinear system with simulator | Model-free RL plus domain randomization | Sim-to-real gap can dominate. |
+| Sparse real-world data | Model-based RL or GP policy search | Model uncertainty must be propagated into control. |
+| Expert demonstrations | Behavior cloning before IRL/GAIL | Distribution shift causes compounding errors. |
+| Safety-critical learning | CBF safety filter or offline RL | Safety filter assumptions must match plant limits. |
+| Fixed historical dataset | Offline RL such as IQL/CQL/TD3+BC | Extrapolation outside dataset support is dangerous. |
+| LTI system with trajectories only | DeePC/Willems predictive control | Persistent excitation is the hidden prerequisite. |
 
 ---
 

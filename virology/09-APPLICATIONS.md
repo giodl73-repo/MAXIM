@@ -330,18 +330,24 @@ Viruses engineered or selected to preferentially replicate in tumor cells.
 
 ---
 
+## Cross-References
+
+- `genomics/07-CRISPR.md` — viral defense systems repurposed as genome-editing tools.
+- `immunology/07-IMMUNOTHERAPY.md` — viral vectors and immune engineering.
+- `virology/01-VIRUS-STRUCTURE.md` — capsid/envelope structure as engineering substrate.
+
 ## Decision Cheat Sheet
 
-| Application | Vector/Tool | Key advantage | Limitation |
-|-------------|-------------|---------------|-----------|
-| In vivo gene therapy (liver) | AAV8 | Non-integrating, liver tropism | 4.7 kb limit; pre-existing NAbs |
-| In vivo gene therapy (CNS) | AAV9 | Crosses BBB | Same as AAV8 |
-| Ex vivo stem cell gene therapy | Lentiviral SIN | Stable integration, divides | Insertional mutagenesis risk |
-| Vaccination (COVID) | mRNA-LNP | Fast, flexible, no virus | Cold chain, lipid reactions |
-| Vaccination (Ebola, COVID) | Adenoviral | Strong immunogenicity | Anti-Ad5 immunity |
-| Antibiotic-resistant infection | Phage therapy | Kill specific bacteria | Host range, regulatory, resistance |
-| Melanoma | T-Vec (HSV) | Oncolysis + immune | Low response rate |
-| Antibody discovery | Phage display | Huge diversity, selectable | In vitro only |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Liver in vivo gene therapy | AAV8 tropism | Payload limit and pre-existing neutralizing antibodies constrain use. |
+| CNS gene therapy | AAV9 BBB crossing | Distribution and dose toxicity remain hard. |
+| Ex vivo stem-cell therapy | Self-inactivating lentiviral vector | Stable integration carries insertional-mutagenesis risk. |
+| Fast vaccine platform | mRNA-LNP | Cold chain and lipid reactogenicity are platform constraints. |
+| Strong viral-vector vaccine | Adenoviral vector | Pre-existing anti-vector immunity can blunt response. |
+| Resistant bacterial infection | Phage therapy | Host range, regulation, and resistance limit generality. |
+| Oncolytic melanoma therapy | T-Vec HSV | Oncolysis plus immunity has modest response rates. |
+| Antibody discovery | Phage display | Selection is in vitro and needs downstream validation. |
 
 ---
 

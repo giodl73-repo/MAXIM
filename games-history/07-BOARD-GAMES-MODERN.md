@@ -555,9 +555,10 @@ KEY CAMPAIGNS:
   Zombicide (2012): $2.3M (one of first million-dollar campaigns)
   Exploding Kittens (2015): $8.8M in 30 days — most-backed game
     on Kickstarter at the time.
-  Gloomhaven (2017): $12.9M (3rd campaign), became
-    #1 rated game on BoardGameGeek, ~250,000 sold.
-  Frosthaven (2020): $12.9M — matching Gloomhaven.
+  Gloomhaven (2017): $12.9M (2nd edition campaign), became
+     #1 rated game on BoardGameGeek, ~250,000 sold.
+  Frosthaven (2020): ~$13M — effectively matching/exceeding
+    Gloomhaven and proving deluxe campaign games were a market tier.
   Lancer (2023): $1.5M+ for a tabletop RPG.
 
 MARKET TRANSFORMATION:
@@ -651,20 +652,24 @@ OGL CRISIS (2023):
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Who actually invented Monopoly? | Elizabeth "Lizzie" Magie, 1903 — The Landlord's Game |
-| What was Magie's original intent? | Demonstrate Georgist land taxation theory via two rule sets |
-| What did Parker Brothers pay Magie? | $500, no royalties |
-| First military wargame? | Kriegsspiel, Prussian Army, 1824 |
-| Who invented the umpire/referee role in games? | Kriegsspiel — the direct ancestor of the Dungeon Master |
-| Who invented D&D? | Gary Gygax + Dave Arneson, 1974; key RPG mechanic by Arneson |
-| What is Settlers of Catan's significance? | 1995 Spiel des Jahres winner; sparked the Eurogame global revolution |
-| What did Dominion invent? | The deck-building mechanism (2008, Donald X. Vaccarino) |
-| Who invented Mafia/Werewolf? | Dmitry Davidoff, Moscow State University, 1986 |
-| Largest Kickstarter board game? | Gloomhaven by Isaac Childres ($12.9M, 2017, #1 BGG) |
+| If You Need To Explain... | Use This Frame | Why It Matters |
+|---|---|---|
+| Why Monopoly dominates despite weak design | IP control + mass-market distribution + cultural lock-in | Popularity and design quality are different axes |
+| Why The Landlord's Game matters | Mechanics as political argument | The same ruleset can teach an economic critique or become a monopoly fantasy |
+| Why wargames lead to RPGs | Kriegsspiel umpire -> D&D Dungeon Master | Hidden state plus referee judgment becomes collaborative fiction |
+| Why Catan was a watershed | Eurogame gateway: no elimination, trade, modular board, fixed arc | It made designer games legible to families and the US hobby market |
+| Which mechanism to reach for in a design | Worker placement, deck-building, area control, co-op, legacy, engine-building | Mechanisms are reusable system primitives, not just themes |
+| Why social deduction works | Asymmetric information + cheap talk + Bayesian updating | The table conversation is the game state |
+| Why Kickstarter changed publishing | Demand discovery before manufacturing | It converts inventory risk into pre-sold premium production |
+| Why legacy games are different from expansions | Irreversible state mutation across sessions | The object itself becomes a persistent campaign record |
 
 ---
+
+## Cross-References
+
+- [Games History Overview](00-OVERVIEW.md) places modern board games in the long play chronology.
+- [Chess](02-CHESS.md) supplies the abstract-strategy baseline many board games extend or reject.
+- [Video Games](08-VIDEO-GAMES.md) compares tabletop design loops with digital rules engines and platform ecosystems.
 
 ## Common Confusion Points
 
@@ -672,7 +677,7 @@ OGL CRISIS (2023):
 
 **"The Landlord's Game had the Atlantic City properties"**: No. Atlantic City street names were added by Charles Todd's version, which Darrow learned from Todd. Magie's original had generic street names.
 
-**"Eurogames have no luck"**: Most Eurogames have dice or card draws, but the luck is mitigated. You can usually choose which resources to gather, when to act, etc. The design goal is: luck affects tactics, not strategy. Agriola has no dice; Puerto Rico has none; but Catan and Agricola's card system both include randomness.
+**"Eurogames have no luck"**: Most Eurogames have dice or card draws, but the luck is mitigated. You can usually choose which resources to gather, when to act, etc. The design goal is: luck affects tactics, not strategy. Agricola has no dice in its core action system; Puerto Rico has none; Catan and optional card drafting in Agricola still introduce randomness.
 
 **"RPGs require a board"**: D&D and most tabletop RPGs use no board. Space is described verbally by the Game Master. The "dungeon map" on graph paper is a player convenience tool, not a game component.
 

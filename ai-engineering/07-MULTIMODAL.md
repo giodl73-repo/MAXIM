@@ -323,18 +323,21 @@ For structured documents (invoices, forms, tables) with consistent layouts, Azur
 
 ---
 
+## Cross-References
+
+- `ai-engineering/09-VECTOR-DATABASES.md` — embedding spaces and cross-modal retrieval mechanics.
+- `photography/01-OPTICS-LENSES.md` — physical image formation before visual model representation.
+- `acoustics/01-WAVE-PHYSICS.md` — audio modality bridge from pressure waves to machine representations.
+
 ## Decision Cheat Sheet
 
-| Task | Approach | Why |
-|------|---------|-----|
-| OCR clean PDF, extract text | pdfplumber / PyMuPDF | Free, fast, perfect quality for clean PDFs |
-| OCR complex form / invoice | Azure Form Recognizer, AWS Textract | Structured extraction, cheaper than VLM |
-| Understand image content (QA) | GPT-4V or Claude 3 vision | State-of-the-art VQA |
-| Image captioning at scale | LLaVA or Phi-3-Vision (self-hosted) | Cheaper than API for batch work |
-| Image search by text query | CLIP/SigLIP embeddings + vector DB | Shared embedding space is the tool for this |
-| Speech transcription (batch) | Whisper large-v3 or OpenAI API | Best quality, easy API |
-| Real-time voice interface | Deepgram / Azure Speech / GPT-4o Audio | Streaming; Whisper is batch only |
-| Video summarization | Frame sampling + GPT-4V or Gemini | Sample key frames, not every frame |
-| Long video analysis (full film) | Gemini 1.5 Pro | 1M context handles it |
-| Multi-modal RAG (docs + images) | CLIP for images, text-embedding for text, RRF | Separate embeddings, fused ranking |
-| Chart / graph interpretation | GPT-4V or Claude 3 (high detail) | Visual reasoning over data visualizations |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether OCR is enough | PyMuPDF or pdfplumber text extraction | Do not pay a vision model to read clean embedded text |
+| Whether forms need a document AI service | Field-level extraction accuracy on representative layouts | Structured forms fail by layout drift; test variants, not one sample invoice |
+| Whether image QA requires a frontier VLM | Error examples involving spatial, text, and commonsense reasoning | Captions and VQA are different tasks; a good captioner may answer poorly |
+| Whether image search works | CLIP or SigLIP embeddings with held-out text queries | Shared embedding space gives retrieval, not grounded explanation |
+| Whether speech is batch or interactive | Latency budget before model choice | Whisper is strong for batch; streaming voice interfaces need streaming ASR/TTS architecture |
+| Whether video needs full-context analysis | Frame-sampling baseline plus event-recall tests | Sampling saves cost but can miss brief decisive events |
+| Whether multimodal RAG needs fusion | Separate text/image retrieval plus reciprocal-rank fusion | One embedding space rarely serves every modality and metadata filter equally well |
+| Whether chart interpretation is reliable | High-resolution vision model runs against known chart answers | Visual plausibility is not data accuracy; inspect axes, legends, and extracted values |

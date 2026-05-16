@@ -427,16 +427,22 @@ COMPARISON TO JWST:
 
 ---
 
+## Cross-References
+
+- `astrobiology/04-BIOSIGNATURES.md` — science targets for future mission design.
+- `astrobiology/05-JWST-DETECTION.md` — current-generation observational baseline.
+- `space-exploration/09-FUTURE.md` — mission-architecture horizon beyond current platforms.
+
 ## Decision Cheat Sheet
 
-| Mission | Body | Launch | Arrival | Primary goal | Life detection? |
-|---|---|---|---|---|---|
-| Europa Clipper | Europa | 2024 | 2030 | Habitability | No (characterize only) |
-| Dragonfly | Titan | 2028 | 2034 | Organic chem | Indirect (prebiotic) |
-| Mars Sample Return | Mars | ~2030s | N/A | Sample return | Yes (Earth lab analysis) |
-| Enceladus Orbilander | Enceladus | ~2038+ | ~2050+ | Life detection | Yes (target) |
-| DAVINCI+ | Venus | ~2030 | ~2031 | Atm history | Possible (aerosol) |
-| HWO | Exoplanets | ~2040s | N/A | Earth-twin biosig. | Yes (atmospheric) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether Europa Clipper is a life-detection mission | Europa habitability characterization | Clipper can constrain ocean/ice chemistry; it is not designed to prove life. |
+| Whether Titan organic chemistry implies biology | Dragonfly prebiotic chemistry | Amino acids or organics are not enough; chirality/context would matter. |
+| Whether Mars evidence needs Earth labs | Mars Sample Return | MSR science is high value but program architecture and cost remain unsettled. |
+| Whether Enceladus can be tested directly | Orbilander-style plume/surface life detection | Decadal priority is not a launch guarantee; contamination and payload design are decisive. |
+| Whether Venus clouds deserve biosignature follow-up | DAVINCI+ atmospheric history and aerosol context | Cloud chemistry may be habitable-ish, but water activity and acidity remain severe constraints. |
+| Whether exoplanet biosignatures need a future flagship | Habitable Worlds Observatory | Remote atmospheric biosignatures will be probabilistic, not instant proof. |
 
 ---
 

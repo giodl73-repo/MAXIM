@@ -305,18 +305,26 @@ pH NEUTRALIZATION BEFORE DISPOSAL:
 
 ---
 
-## Color Shift Cheat Sheet
+## Decision Cheat Sheet
 
-| Dye | Alum | Iron | Copper | Tin | Chrome |
-|-----|------|------|--------|-----|--------|
-| Madder | Bright red-orange | Purple-brown | Terracotta | Orange-scarlet | Red-brown |
-| Weld | Clear yellow | Olive | Deep yellow-green | Gold | Khaki |
-| Cochineal | Crimson | Grey-purple | Muted red | Brilliant scarlet | Dark red |
-| Oak gall | Cream-tan | Grey to black | Dark green | Buff | Dark grey |
-| Indigo | N/A (vat dye) | N/A | N/A | N/A | N/A |
-| Black-eyed Susan | Yellow-gold | Olive-green | Deep green | Bright yellow | Khaki |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Clear bright natural color | Alum pre-mordant | Over-alum can leave wool tacky; measure by weight of fiber. |
+| Darkened or "saddened" color | Iron post-mordant | Iron is powerful and can catalyze fiber damage if overused. |
+| Green or blue-green shift | Copper mordant or copper vessel effect | Moderate toxicity means careful handling and disposal. |
+| Brilliant scarlet/orange-red | Tin with cochineal or madder | Tin brightens but can tender wool; use minimum concentration. |
+| Very fast muted industrial color | Chrome mordant | Hexavalent chrome is hazardous and not a home-dyeing material. |
+| Indigo blue | Vat reduction chemistry, not mordanting | Indigo is physically trapped after oxidation; mordant tables do not apply. |
+| Cotton/linen natural dyeing | Tannin bridge followed by alum | Cellulose needs tannin-assisted coordination for good depth. |
+| One-bath shortcut | Simultaneous mordant/dye only for tolerant recipes | Metal-dye complexes can precipitate before reaching fiber. |
 
 ---
+
+## Cross-References
+
+- `01-NATURAL-DYE-SOURCES.md` supplies the dye molecules mordants coordinate.
+- `03-DYE-CHEMISTRY.md` explains the chemistry behind color shifts and binding.
+- `04-FIBER-PREPARATION.md` shows how fiber surface preparation changes mordanting.
 
 ## Common Confusion Points
 

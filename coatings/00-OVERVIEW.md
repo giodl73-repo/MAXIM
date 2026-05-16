@@ -239,16 +239,24 @@ FAILURE MODES ARE SYMMETRIC:
 
 ## Decision Cheat Sheet
 
-| I need to coat... | Goal | Use |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Interior drywall | Color, washable | Latex interior, satin or eggshell |
-| Exterior wood siding | Weather protection | 100% acrylic exterior latex |
-| Bare wood furniture | Clear protection | Oil-based polyurethane |
-| Bare steel (garage) | Rust prevention | Etching primer + enamel or epoxy |
-| Aluminum | Corrosion protection | Etch primer + compatible topcoat |
-| Concrete floor | Abrasion resistance | 2-part epoxy floor coating |
-| Bathroom joint | Waterproof, flexible | Silicone sealant |
-| Fill window gap | Paintable, flexible | Acrylic latex caulk |
+| Interior drywall coating | Check substrate porosity, prior paint, washability, sheen, VOC limits, and lighting. | Sheen changes perceived color and defect visibility. |
+| Exterior wood siding | Evaluate moisture movement, UV, mildew, primer, back-priming, and acrylic film flexibility. | Coating failure often starts from trapped or moving moisture. |
+| Bare wood furniture | Compare oil, waterborne polyurethane, varnish, wear, repairability, ambering, and application environment. | Clear protection still changes color and tactile feel. |
+| Bare steel | Start with surface prep, rust state, primer chemistry, barrier/topcoat, abrasion, and exposure. | Coating choice cannot compensate for poor surface preparation. |
+| Aluminum | Check oxide layer, etch/adhesion primer, galvanic contact, topcoat compatibility, and environment. | Aluminum corrosion protection is mostly an adhesion and compatibility problem. |
+| Concrete floor | Inspect moisture vapor, laitance, profile, crack movement, abrasion, chemical exposure, and epoxy cure. | Epoxy fails quickly on damp or poorly profiled concrete. |
+| Wet flexible joint | Separate sealant movement, adhesion, mold exposure, paintability, and cure chemistry. | Silicone waterproofs well but is often not paintable. |
+| Paintable gap | Check joint width, movement, substrate, exterior exposure, and acrylic latex flexibility. | Caulk hides gaps; it does not repair structural movement. |
+
+---
+
+## Cross-References
+
+- `02-PAINT-COMPOSITION.md` breaks coatings into binder, pigment, solvent, and additive systems.
+- `04-SURFACE-PREPARATION.md` explains why adhesion failures usually begin before application.
+- `../materials/00-OVERVIEW.md` connects coating behavior to substrate, interface, and degradation mechanics.
 
 ---
 

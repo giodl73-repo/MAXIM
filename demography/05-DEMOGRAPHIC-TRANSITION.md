@@ -1,6 +1,6 @@
 # Demographic Transition
 
-## The Transition Framework
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -200,16 +200,26 @@ THEORY vs. REALITY:
   replacement for decades with population consequences.
 ```
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Migration as demographic adjustment | `demography/04-MIGRATION.md` |
+| Aging as late-transition consequence | `demography/06-AGING.md` |
+| Population health measurement | `public-health/10-HEALTH-METRICS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Transition question | Key concept |
-|---|---|
-| What stage is a country in? | CDR trajectory vs. CBR trajectory; NI; TFR level |
-| Why does population grow fastest during transition? | Stage 2: CDR falls, CBR still high; maximum NI |
-| Why do East Asian countries have lowest fertility? | SDT + housing costs + gender inequality + Confucian family values → delayed marriage |
-| Can pronatalist policy raise TFR? | Limited evidence; Nordic approach (egalitarian gender + family support): best results; ~1.7-1.9 |
-| Is Sub-Saharan Africa following Asia's path? | Slower transition but following; different timing; desired family size remains higher |
-| Will Africa's population growth slow? | Yes, eventually; UN medium projection assumes fertility transition; timing is key uncertainty |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A country's transition stage | CDR, CBR, natural increase, and TFR together | DTM is descriptive; it does not predict timing by itself. |
+| Fastest population growth | Stage 2: death rates fall before birth rates | Mechanisms differ: death decline is faster and policy-driven; fertility decline is slower and behavioral. |
+| Very low East Asian fertility | Second demographic transition, housing costs, gender inequality, delayed marriage | Culture, labor markets, and family policy interact; no single lever explains it. |
+| Pronatalist policy prospects | Nordic-style gender equality plus family support | Evidence for large TFR increases is limited; policy can soften, not reverse, deep trends. |
+| Sub-Saharan transition path | Declining mortality, slower fertility transition, higher desired family size | It may rhyme with Asia without matching Asia's speed or endpoint. |
+| Africa's population-growth outlook | Fertility-transition timing in UN projections | Growth slows eventually, but timing uncertainty dominates forecasts. |
 
 ## Common Confusion Points
 

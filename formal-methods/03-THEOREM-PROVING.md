@@ -555,19 +555,25 @@ DAFNY MODEL:
 
 ## Decision Cheat Sheet
 
-| Situation | Tool |
-|-----------|------|
-| Verifying a distributed algorithm (infinite state) | Lean 4 or Coq (or TLA+ TLAPS for lighter proofs) |
-| Verifying a compiler or language runtime | Coq (CompCert precedent, large ecosystem) |
-| Verifying an OS kernel / security architecture | Isabelle/HOL (seL4 precedent) |
-| Formalizing mathematics | Lean 4 + Mathlib (largest library, fastest) |
-| Verifying cryptographic protocol game-based | CryptHOL (Isabelle) or EasyCrypt |
-| Extracting verified OCaml/Haskell code | Coq (extraction) or HOL4 (for CakeML) |
-| Lightweight algorithm verification in CI | Dafny (Z3-based, lighter learning curve) |
-| Need fast iteration on proofs | Lean 4 (best IDE support, fast elaborator) |
-| Historical academic literature | Isabelle (most AFP entries, Sledgehammer) |
+| Verification Question | Use This Tool / Frame | Watch-Out |
+|---|---|---|
+| Do I need a small trusted kernel? | LCF-style assistant: Coq, Lean, Isabelle, HOL | Tactics are untrusted; the kernel-checked proof term/theorem is the artifact |
+| Am I formalizing mainstream mathematics? | Lean 4 + Mathlib, or Coq/MathComp for algebra-heavy traditions | Library coverage matters more than surface syntax |
+| Am I verifying a compiler/runtime? | Coq has CompCert precedent and extraction ecosystem | Parser, assembler, hardware, and undefined behavior remain trust-boundary issues |
+| Am I verifying an OS/security architecture? | Isabelle/HOL has seL4 precedent | Hardware side channels and platform assumptions are outside the proof unless modeled |
+| Do I need game-based crypto proofs? | EasyCrypt or Isabelle/CryptHOL | Separate protocol model, implementation, and side-channel assumptions |
+| Do I want verified executable code? | Coq extraction, F*, Dafny, or HOL4/CakeML depending on target | Extraction/runtime correctness is a separate trust layer |
+| Do I want lightweight CI verification? | Dafny-style auto-active verification | SMT success depends on annotations and solver-friendly invariants |
+| Do I need distributed-system temporal reasoning? | TLA+/TLAPS for lighter proof, Coq/Lean/Isabelle for deeper mechanization | Model checking and theorem proving answer different failure modes |
+| Is AI proof search central? | Lean 4 is currently the strongest LLM target | Generated proofs still need kernel checking and library-compatible statements |
 
 ---
+
+## Cross-References
+
+- [Logic Foundations](01-LOGIC-FOUNDATIONS.md) supplies the proof systems and semantics behind interactive theorem proving.
+- [Model Checking](02-MODEL-CHECKING.md) contrasts proof construction with exhaustive state exploration.
+- [Type Theory](04-TYPE-THEORY.md) explains the propositions-as-types foundation of Coq, Lean, Agda, and related systems.
 
 ## Common Confusion Points
 

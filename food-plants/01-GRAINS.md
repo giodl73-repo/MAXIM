@@ -285,6 +285,18 @@ RESULTS (1960-1990):
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Plant cell physiology | `botany/01-PLANT-CELL-PHYSIOLOGY.md` | Grain yield and seed structure rest on plant-cell function |
+| Agriculture and soils | `agriculture/01-SOILS-FERTILITY.md` | Grains are crops embedded in soil, water, and nutrient systems |
+| Human nutrition | `nutrition/01-CARBOHYDRATES.md` | Grains feed humans primarily through starch, protein, and micronutrients |
+| Evolution and domestication | `evolutionary-biology/01-NATURAL-SELECTION.md` | Domestication is artificial selection on plant traits |
+| Culinary history | `culinary-history/01-PREHISTORIC.md` | Grain processing shaped bread, beer, porridge, noodles, and states |
+
+---
+
 ## Common Confusion Points
 
 **Gluten is normal wheat protein, not a food contaminant.** ~1% of people have celiac disease (autoimmune response). ~6% have non-celiac gluten sensitivity (mechanism unclear). ~93% have no issue. Modern wheat has similar gluten content to ancient varieties — the rise in reported sensitivity has other explanations (gut microbiome changes, FODMAP intolerance, sourdough vs fast-leavened bread).

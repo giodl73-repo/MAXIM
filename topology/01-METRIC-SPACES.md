@@ -245,19 +245,25 @@ APPLICATIONS:
 
 ---
 
+## Cross-References
+
+- `topology/02-TOPOLOGICAL-SPACES.md` — metric spaces generate the first concrete examples of topologies.
+- `topology/04-COMPACTNESS.md` — compactness has especially strong equivalent forms in metric spaces.
+- `analysis/01-REAL-ANALYSIS.md` — convergence, completeness, and Cauchy sequences bridge directly into analysis.
+
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Define continuity precisely | ε-δ definition using metric |
-| Show sequence converges | Show d(xₙ,x) → 0 |
-| Show space is incomplete | Find non-convergent Cauchy sequence |
-| Show space is complete | Complete the Cauchy completeness proof |
-| Apply BCT consequences | Need complete metric space (e.g., Banach space) |
-| Show function has fixed point | Find contraction on complete metric space |
-| Show two metrics are equivalent | Find c,C: c·d₁ ≤ d₂ ≤ C·d₁ |
-| Understand compactness in Rⁿ | Heine-Borel: closed + bounded |
-| Understand compactness in ∞-dim | Sequential: compact = complete + totally bounded |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether continuity is metric-specific | Epsilon-delta definition | Equivalent topological continuity may hide the metric choice |
+| Whether a sequence converges | Show `d(x_n,x) -> 0` | Convergence depends on the metric/topology |
+| Whether a space is incomplete | Find a Cauchy sequence with no limit in the space | The limit may exist in a completion outside the space |
+| Whether completeness holds | Prove every Cauchy sequence converges | Completeness is not topological; equivalent metrics can differ |
+| Whether Baire category applies | Complete metric space or Banach setting | Missing completeness invalidates the category conclusion |
+| Whether a fixed point theorem applies | Contraction on a complete metric space | Nonexpansive is not enough for Banach's theorem |
+| Whether two metrics define comparable geometry | Bi-Lipschitz inequalities `c d1 <= d2 <= C d1` | Topological equivalence is weaker than metric equivalence |
+| Whether Euclidean compactness is simple | Heine-Borel closed and bounded | This characterization is finite-dimensional |
+| Whether infinite-dimensional compactness holds | Complete plus totally bounded | Closed bounded balls are not compact in infinite-dimensional Banach spaces |
 
 ---
 

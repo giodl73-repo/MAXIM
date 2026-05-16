@@ -536,8 +536,8 @@ RECUPERATED BRAYTON CYCLE:
 
 ## The Combined Cycle — Engineering's Best Answer
 
-The combined-cycle gas turbine (CCGT) is the highest-efficiency thermal power plant
-in commercial service. It is the Alchemist's masterpiece of cascade: extract work from
+The combined-cycle gas turbine (CCGT) is the highest-efficiency combustion
+thermal power plant in commercial service. It is the Alchemist's masterpiece of cascade: extract work from
 the hottest gas first (Brayton), then extract more work from its still-hot exhaust
 (Rankine). Two taxes paid on the same fuel, two revenue streams captured.
 
@@ -1070,24 +1070,26 @@ HEAT REJECTION METHODS:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Most efficient deployed thermal cycle? | CCGT at 58-64% (Brayton + Rankine combined) |
-| Why CCGT beats everything? | Captures work from gas at 1600 K AND steam at 870 K — two cascaded cycles |
-| Rankine subcritical vs supercritical? | SC operates above water's critical point (374°C, 221 bar) → higher T_H → +5-7% |
-| What limits Rankine efficiency? | Metallurgy: boiler tube and turbine blade materials set T_max |
-| Why nuclear PWR efficiency is only 33%? | T_hot deliberately limited to ~320°C for fuel cladding integrity |
-| What is OCGT's grid role? | Peaker: fast start (5-15 min), low CF (10-30%), high marginal cost |
-| What is sCO₂ and why does it matter? | CO₂ near critical point is very dense → tiny compressor work → high η in compact package |
-| When is sCO₂ better than steam? | T_source 500-800°C; space-constrained (nuclear SMR, offshore, CSP); waste heat |
-| What is ORC for? | Low-grade heat (80-350°C) that can't drive a steam cycle: geothermal, waste heat |
-| Allam cycle vs CCGT + CCS? | Allam: inherent CO₂ capture (CO₂ is working fluid); CCGT + CCS: bolted-on amine scrubbing |
-| Reheat purpose? | Prevent moisture in LP turbine + raise avg T of heat addition → +3-4% η |
-| Regenerative feedwater heating? | Bleed steam preheats boiler feedwater → +4-7% η; 6-8 heaters in modern plant |
-| Biggest exergy loss in a coal plant? | Combustion irreversibility (~25-30%): flame at 2000 K → steam at 600°C |
-| Dry vs wet cooling impact? | Dry cooling raises T_cold by 10-25°C → 1-5% efficiency penalty; saves water |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Best deployed combustion cycle | CCGT: Brayton topping plus Rankine bottoming | Efficiency depends on turbine class, ambient conditions, and load |
+| Rankine vs Brayton | Working fluid phase change vs gas compression/expansion | Temperature source and scale determine the right cycle |
+| Subcritical vs supercritical steam | Water critical point and average heat-addition temperature | Higher pressure/temperature buys efficiency at material cost |
+| PWR efficiency limit | Coolant and fuel-cladding temperature constraints | Nuclear heat is not inherently inefficient; current LWR temperature is low |
+| OCGT grid role | Fast-start, low-capex peaking capacity | Cheap capacity can have expensive fuel and emissions |
+| sCO2 claim | Dense near-critical CO2 and low compressor work | Promising for medium-temperature heat, not a universal steam replacement |
+| ORC claim | Low-grade heat source and organic working fluid | Low percent efficiency can still be valuable if the heat was waste |
+| Allam cycle claim | Oxyfuel combustion in a CO2 working fluid | Capture benefit must be judged with ASU load and first-plant reliability |
+| Reheat/regeneration | Moisture control and higher average heat-addition temperature | Gains are incremental, not magic thermodynamics |
+| Cooling-system choice | Condenser temperature, water availability, and siting | Dry cooling saves water by sacrificing output/efficiency |
 
 ---
+
+## Cross-References
+
+- `06-NUCLEAR-SYSTEMS.md` applies steam cycles to nuclear generation.
+- `07-FOSSIL-TRANSITION.md` applies Rankine and Brayton cycles to coal and gas assets.
+- `../mechanical/01-THERMODYNAMICS.md` supplies the entropy, exergy, and cycle-efficiency baseline.
 
 ## Common Confusion Points
 
@@ -1114,9 +1116,10 @@ SOFC + gas turbine), but "combined cycle" in industry means CCGT unless stated o
 sCO₂ excels at 500-800°C heat sources and compact installations. For very high T_hot
 (>1200°C), the Brayton gas turbine is still superior. For very large power output
 (>1 GW), multi-stage steam turbines are well-optimized and hard to beat on cost.
-sCO₂ will likely dominate the medium-temperature range (nuclear, CSP, waste heat),
-not replace all thermal cycles. The installed base of steam infrastructure is enormous
-and won't be scrapped for marginal gains.
+sCO₂ is a strong candidate in parts of the medium-temperature range (nuclear,
+CSP, waste heat), not a guaranteed winner across all thermal cycles. The installed
+base of steam infrastructure is enormous and will not be scrapped for marginal
+gains.
 
 **"ORC is inefficient, so it's not worth building"**
 A 12% efficient ORC recovering 200°C waste heat from a cement kiln produces electricity
@@ -1131,8 +1134,8 @@ separation unit (ASU) that produces pure O₂ — a major parasitic load. Withou
 gross efficiency would be higher. The comparison should be: Allam at 52% with 97% CO₂
 capture vs CCGT at 62% with 0% capture, or CCGT at 48% with 90% amine CCS. On a
 *captured-emission-adjusted* basis, Allam wins. The remaining question is capital cost
-and operational reliability at commercial scale — NET Power's first full-scale plant
-(~2027) will answer this.
+and operational reliability at commercial scale — first utility-scale deployments
+will be the real test.
 
 **"Nuclear could be more efficient with higher temperatures"**
 Yes, and this is the Gen IV thesis. PWR operates at ~320°C (efficiency ~33%) not because

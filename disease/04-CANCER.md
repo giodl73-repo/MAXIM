@@ -1,6 +1,6 @@
 # Cancer
 
-## The Big Picture: Hallmarks of Cancer
+## The Big Picture
 
 ```
 Hanahan & Weinberg (2000, updated 2011, 2022)
@@ -333,16 +333,22 @@ Tumor-educated platelets (TEPs), exosomes: also explored as biomarkers
 
 ---
 
+## Cross-References
+
+- `medicine/06-CANCER-DRUGS.md` - treatment classes mapped to cancer mechanisms.
+- `genomics/09-PERSONALIZED-MEDICINE.md` - tumor genomics and precision therapy.
+- `pharmacology/07-CHEMOTHERAPY.md` - pharmacologic oncology toolkit.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why are TSGs recessive but oncogenes dominant? | TSGs: need to lose both functional copies (two hits). Oncogenes: one gain-of-function allele sufficient to drive proliferation. |
-| BRCA1/2 mutation → what targeted therapy? | PARP inhibitors (olaparib, niraparib): exploit synthetic lethality — BRCA-deficient cells can't repair DSBs without HR + PARP inhibited. |
-| What does BCR-ABL fusion do? | Constitutively active ABL tyrosine kinase (no regulatory domain) → continuous cell proliferation + survival → CML |
-| MSI-H tumors respond well to what? | PD-1 / PD-L1 checkpoint inhibitors (pembrolizumab) — hypermutated → high neoantigens → T cell response when brakes released |
-| Warburg effect: why do tumor cells use glycolysis even with O₂? | Speed and biosynthetic precursors: aerobic glycolysis (pyruvate → lactate) is wasteful for ATP but supplies carbon for nucleotides, lipids, amino acids faster; also acidifies microenvironment |
-| What predisposes to chromosomal translocations? | NHEJ (error-prone DSB repair) misligates two broken ends from different chromosomes; radiation, topoisomerase inhibitors, DNA-damaging agents |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| TSG versus oncogene genetics | Two-hit loss versus one-allele gain of function | Haploinsufficiency and dominant-negative cases complicate the binary. |
+| BRCA-targeted therapy | PARP inhibitor synthetic lethality | Requires HR-deficiency context and resistance monitoring. |
+| BCR-ABL mechanism | Constitutively active ABL tyrosine kinase | Kinase-domain mutations change TKI choice. |
+| MSI-H treatment fit | PD-1/PD-L1 checkpoint blockade | Immune toxicity can affect any organ. |
+| Warburg metabolism | Aerobic glycolysis for speed and biosynthetic carbon | Not all tumors are equally glycolytic. |
+| Chromosomal translocation risk | Error-prone NHEJ after double-strand breaks | Radiation and topoisomerase inhibitors raise risk. |
 
 ---
 

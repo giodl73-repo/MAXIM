@@ -150,8 +150,9 @@ PROPORTIONS:
 
 PRODUCTION REALITY:
   1929 original: welded steel (32 welds, extensive hand finishing)
-  Current Knoll version: seamlessly welded (single piece), CNC-ground,
-  hand-polished ~120 hours per chair, leather cut and welded (not sewn)
+  Current Knoll version: stainless-steel frame polished to mirror finish,
+  hand-finished at high labor cost, leather panels individually cut,
+  welted, and sewn into the cushion grid
   Price: ~$9,000–14,000 per chair (authorized Knoll production)
 ```
 
@@ -241,7 +242,7 @@ UNIFYING CHARACTERISTICS:
   All use minimum material for function
   All designed for industrial reproduction (not one-off craft)
   All reject historical ornament
-  None are particularly comfortable for extended use
+  Most prioritize structural clarity and visual argument over long-duration comfort
 ```
 
 ---
@@ -263,8 +264,8 @@ EMIGRATION MAP:
   Herbert Hirsche ---------> Various industrial design positions
 
 CONSEQUENCE:
-  American architecture schools from 1940–1970 were almost entirely
-  taught by Bauhaus-trained faculty or their direct students.
+  American architecture schools from 1940–1970 were strongly shaped
+  by Bauhaus-trained faculty, emigres, and their direct students.
   The International Style (Mies's glass box towers) became the
   default corporate American architecture.
   Herman Miller and Knoll hired designers trained in this tradition —
@@ -296,15 +297,22 @@ THE SIGNALING:
 
 ## Decision Cheat Sheet
 
-| Object | Designer | Date | What Makes It Significant |
-|--------|---------|------|--------------------------|
-| Wassily Chair (B3) | Breuer | 1925 | First tubular steel furniture; bicycle frame insight |
-| Cantilever chair (B32) | Breuer (disputed Stam) | 1928 | Steel spring geometry; millions in use globally |
-| Barcelona Chair | Mies | 1929 | Flat steel, machine-polished; power signaling through cost |
-| LC4 Chaise | Le Corbusier/Perriand | 1928 | Adjustable "relaxation machine"; two-component system |
-| Barcelona Stool (X601) | Mies | 1929 | Same X-frame logic applied to stool |
+| Diagnostic Question | Modernist Frame | What To Check |
+|---------------------|-----------------|---------------|
+| Is the object a manifesto for industrial material rather than domestic comfort? | Breuer/Bauhaus tubular steel | Exposed tube, sling surfaces, bicycle/pipe logic, minimum upholstery |
+| Does the chair float on two front supports? | Cantilever modernism | U-shaped spring geometry; distinguish Stam priority, Breuer refinement, and Mies curved-tube variants |
+| Does the object signal elite corporate modernity despite anti-ornament rhetoric? | Mies / Barcelona lineage | Expensive finishing, low throne-like posture, reception-space use, flat-bar steel |
+| Is the body treated as a machine-positioning problem? | LC4 / Perriand functionalism | Adjustable recline, separable base and body support, chaise as mechanism |
+| Is "Bauhaus" being used as a style label rather than a historical claim? | Commercial modernist pastiche | Simple geometry and chrome are influence signals, not proof of Bauhaus authorship |
+| Does the design actually suit industrial production? | Gold-standard modernist test | Material, joint count, tooling, repeatability, and maintenance must align with the aesthetic claim |
 
 ---
+
+## Cross-References
+
+- [Furniture History](02-HISTORY-STYLES.md) supplies the pre-modern style sequence Bauhaus reacted against.
+- [Eames Engineering](04-EAMES-ENGINEERING.md) extends modernist furniture into molded plywood and systems engineering.
+- [Modern Furniture Materials](06-MATERIALS-MODERN.md) explains the steel, plywood, and plastics that enabled modernist forms.
 
 ## Common Confusion Points
 

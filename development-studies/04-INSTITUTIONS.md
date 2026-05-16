@@ -366,17 +366,23 @@ advantage          biotech               specialty chemicals, luxury goods
 
 ---
 
+## Cross-References
+
+- `02-GROWTH-THEORY.md` explains growth models that institutions modify.
+- `05-AID-EFFECTIVENESS.md` shows how institutions condition external assistance.
+- `06-MICROFINANCE.md` shows institutions at the credit-market scale.
+
 ## Decision Cheat Sheet
 
-| Question | Framework | Key finding |
-|----------|-----------|-------------|
-| Why are some countries richer? | AJR + Acemoglu/Robinson | Colonial institutions → property rights → income; R² ≈ 0.52 |
-| What are institutions? | North (1990) | Formal rules + informal norms + enforcement |
-| Can communities govern shared resources? | Ostrom (1990) | Yes, with her 8 design principles |
-| How does corruption harm development? | Rent-seeking theory | Diverts resources to unproductive competition |
-| Why do different capitalisms persist? | Hall-Soskice VoC | Institutional complementarities prevent convergence |
-| Does property titling help the poor? | de Soto + empirical lit. | Mixed: yes for investment; complications with commons, displacement |
-| What's the difference between capacity and rule of law? | Fukuyama's triad | State capacity ≠ rule of law ≠ accountability; need all three |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Cross-country income gap claim | AJR and Acemoglu/Robinson | Identification is influential but not the whole geography/institutions debate. |
+| Institution definition | North: rules, norms, and enforcement | Institutions are rules; organizations are players. |
+| Commons governance | Ostrom design principles | Community governance is not a universal anti-privatization rule. |
+| Corruption mechanism | Rent-seeking theory | Corruption's effect depends on state capacity and political settlement. |
+| Persistent capitalism variants | Hall-Soskice varieties of capitalism | Institutional complementarities resist one-off transplant reforms. |
+| Property titling reform | de Soto plus empirical evidence | Benefits are mixed where commons or displacement risks dominate. |
+| Governance triad | Fukuyama: capacity, rule of law, accountability | These are distinct; strengthening one can weaken another. |
 
 ---
 

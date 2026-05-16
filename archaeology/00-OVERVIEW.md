@@ -244,16 +244,24 @@ CURRENT PRACTICE:
 
 ## Decision Cheat Sheet
 
-| Use archaeology when... | Because... |
-|-------------------------|-----------|
-| Material record diverges from written record | Documents record what their authors chose; archaeology records what people actually did — the gap is often the most informative finding |
-| The society was non-literate or marginally documented | Archaeology is the only primary source for 90%+ of human existence |
-| You want to reconstruct "history from below" | The enslaved, the peasant, the colonized rarely appear in texts; material culture is their record |
-| Dating written records requires physical corroboration | Stratigraphy + radiocarbon can confirm, contradict, or date textual claims independently |
-| You need diet, health, or demography of a population | Skeletal and botanical evidence recovers what no written source records |
-| Trade networks need mapping beyond what merchants wrote | Artifact distributions and isotope provenancing trace movement of goods and people |
-| Culture history interpretation relies too heavily on one paradigm | Processualist testing or post-processualist critique offers alternative explanatory frames |
-| Evidence is ambiguous between migration vs. diffusion | Archaeological distributions + aDNA + isotopic mobility can distinguish people moving from ideas spreading |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Material vs written-record conflict | Compare author incentives, depositional context, artifact distribution, and activity residue. | The gap between text and material evidence is often the finding. |
+| Non-literate or thinly documented society | Use settlement, tools, ecofacts, burials, landscape, and regional survey. | Archaeology is primary evidence, not illustration for later texts. |
+| History from below | Look for household remains, foodways, wear, refuse, spatial segregation, and coerced-labor traces. | Subaltern evidence is often fragmentary and context-dependent. |
+| Textual chronology | Combine stratigraphy, radiocarbon, datable imports, inscriptions, and calibration. | Physical corroboration can confirm, refine, or overturn textual sequence. |
+| Diet, health, or demography | Use skeletal markers, isotopes, archaeobotany, zooarchaeology, aDNA, and burial context. | Biological evidence must be interpreted with preservation and sampling bias. |
+| Trade network reconstruction | Map artifact sourcing, isotopes, distribution, shipwrecks, workshops, and consumption contexts. | Goods move through exchange, imitation, theft, and migration; mechanism matters. |
+| Paradigm-limited explanation | Compare culture-history typology, processual testing, post-processual meaning, and agency. | Theory changes the questions, not just the answer labels. |
+| Migration vs diffusion | Combine material culture, aDNA, isotopic mobility, settlement change, and language/contact evidence. | Pots are not people, but sometimes people moved with pots. |
+
+---
+
+## Cross-References
+
+- `01-DATING-STRATIGRAPHY.md` develops the time-ordering methods behind archaeological claims.
+- `02-EXCAVATION-SURVEY.md` covers field recovery, context control, and sampling strategy.
+- `../anthropology/06-ARCHAEOLOGY.md` places archaeology inside the broader anthropological method stack.
 
 ---
 

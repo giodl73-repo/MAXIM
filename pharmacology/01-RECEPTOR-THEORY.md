@@ -357,16 +357,22 @@ Receptor binding follows the same equilibrium mathematics as resource contention
   ──────────────────────────────────────────────────────────────────────
 ```
 
+## Cross-References
+
+- `pharmacology/03-PHARMACODYNAMICS.md` — receptor binding translated into effect curves.
+- `biophysics/04-MEMBRANE-BIOPHYSICS.md` — membrane receptors and ion channels as biophysical targets.
+- `medicine/01-ANTIBIOTICS.md` — drug-target reasoning in antimicrobial therapy.
+
 ## Decision Cheat Sheet
 
-| I need to know... | Look at... | Because... |
-|-------------------|------------|------------|
-| How tightly does drug bind? | Kd (dissociation constant) | At [D] = Kd, 50% of receptors occupied |
-| How much receptor is occupied at a given dose? | pO = [D]/([D]+Kd) | Law of mass action at equilibrium |
-| What is the maximum possible response? | Emax × α (intrinsic activity) | α=1 full, 0<α<1 partial, α=0 antagonist |
-| Can I overcome this antagonism with more drug? | Competitive? → yes; Non-competitive? → no | Competitive shifts EC50; non-competitive reduces Emax |
-| Why does tolerance develop? | Receptor desensitization / downregulation | Prolonged agonist → β-arrestin → internalization |
-| Why can't I stop this drug abruptly? | Receptor upregulation from chronic antagonism | Rebound when exogenous antagonist removed |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Binding tightness | Kd dissociation constant | Affinity is not efficacy. |
+| Receptor occupancy at dose | Mass-action occupancy equation | Free drug concentration matters more than administered dose. |
+| Maximum response | Emax and intrinsic activity | Spare receptors can decouple occupancy from effect. |
+| Antagonism reversibility | Competitive versus noncompetitive pattern | Competitive shifts EC50; noncompetitive lowers Emax. |
+| Tolerance mechanism | Desensitization/downregulation | Multiple downstream adaptations can contribute. |
+| Abrupt withdrawal risk | Receptor upregulation after chronic antagonism | Rebound depends on drug half-life and system reserve. |
 
 ---
 

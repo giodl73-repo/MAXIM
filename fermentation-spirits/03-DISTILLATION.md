@@ -15,7 +15,7 @@
 |  ----------------                 --------------------------     |
 |  One charge at a time             Continuous input/output        |
 |  Simple or compound               Theoretical plates             |
-|  Retains congeners                Strips congeners               |
+|  Retains congeners                Rectifies toward neutrality    |
 |  Lower ABV (<70%)                 Higher ABV (up to 96%)         |
 |  More flavor                      More neutral                   |
 |  Scotch, Cognac, Irish pot        Vodka, grain neutral, column   |
@@ -238,7 +238,7 @@ ABV vs PROOF (historical and modern):
   -> 100 British proof = 57.15% ABV (Sikes hydrometer system)
   Modern British/EU: switched to ABV, abandoned proof
 
-  US system (Sykes/Treasury standard):
+  US system (Treasury standard):
   100 proof defined as 50% ABV by volume at 60 degrees F
   Used commercially until today on US labels
 ```
@@ -304,8 +304,10 @@ This is why:
   - Stainless stills require added copper contact elsewhere
 
 Worm tubs (coil condenser in cold water tank):
-  Traditional condensers; slower cooling -> more copper contact -> cleaner spirit
-  Replaced by shell-and-tube heat exchangers -> faster, less copper contact -> heavier spirit
+  Traditional condensers; less active copper interaction after the lyne arm
+  -> heavier, meatier spirit character
+  Shell-and-tube heat exchangers: more controllable condensation and copper contact
+  -> generally lighter, cleaner spirit
   Some distilleries (Craigellachie, Dalwhinnie) intentionally use worm tubs for character.
 ```
 
@@ -356,6 +358,12 @@ WATER ACTIVITY:
 
 ---
 
+## Cross-References
+
+- [Whiskey](04-WHISKEY.md) applies distillation choices to grain mash, barrel aging, and regional styles.
+- [Gin and Vodka](06-GIN-VODKA.md) contrasts neutral-spirit rectification with botanical redistillation.
+- [Rum and Sugarcane Spirits](07-RUM-SUGARCANE.md) shows how feedstock and still design shape heavy and light spirit profiles.
+
 ## Common Confusion Points
 
 **"You can make vodka at home by distilling cheap wine."**
@@ -390,11 +398,12 @@ for optimal flavor expression with water dilution.
 
 ## Decision Cheat Sheet
 
-| I want... | Still type | ABV target | Character |
-|---|---|---|---|
-| Maximum neutral spirit | Multi-column | 94-96% | Vodka base; no character |
-| Whisky/brandy character | Pot still | 60-72% | Rich, congener-forward |
-| Blended whisky efficiency | Coffey still (column) | 85-94% | Lighter grain whisky |
-| Irish pot still character | Large copper pot | 65-72% | Triple distillation; clean, light |
-| Maximum Jamaican ester | Pot + dunder + muck | 65-70% | Heavy ester rum |
-| Understand the cuts | Pot still run | N/A | Temperature monitoring + sensory |
+| If you need to diagnose... | Start With | Implication |
+|----------------------------|------------|-------------|
+| Neutral spirit | Column height, reflux, and plate count | More rectification, higher ABV, fewer congeners |
+| Whisky or brandy character | Pot still geometry and cut width | Lower ABV and wider congener retention preserve flavor |
+| Blended whisky economics | Coffey/column grain whisky plus pot-still malt | Efficient neutral/lighter base blended with character malt |
+| Irish pot still character | Large copper pot, triple distillation, mixed mash tradition | Cleaner than many malts but not neutral |
+| Jamaican heavy rum | Long fermentation, dunder/muck ecology, pot still, ester management | Process creates congeners before distillation preserves them |
+| Heads/hearts/tails decision | Sensory, ABV, time, and still history together | Temperature alone is a weak proxy for cut quality |
+| A legal-category claim | Distillation limit, feedstock, geography, maturation, bottled ABV | Law often encodes flavor and origin choices, not just chemistry |

@@ -4,7 +4,7 @@
 
 ---
 
-## Big Picture: CNS Disease Landscape
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -536,19 +536,25 @@ Repeated exposure: ΔFosB (truncated isoform, stable) accumulates in striatum
 
 ---
 
+## Cross-References
+
+- `human-biology/04-NERVOUS-SYSTEM.md` - nervous-system organization.
+- `medicine/04-CNS-DRUGS.md` - CNS treatment classes.
+- `neuroscience/03-COGNITION-COMPUTATION.md` - cognition and neural computation context.
+
 ## Decision Cheat Sheet
 
-| Disease | Hallmark Pathology | Key Gene/Mechanism | Disease-Modifying Rx? |
-|---------|-------------------|-------------------|----------------------|
-| Alzheimer's | Aβ plaques + NFTs | APOE ε4 risk; PSEN1 FAD | Anti-Aβ mAbs (lecanemab) |
-| Parkinson's | Lewy bodies (α-synuclein) | LRRK2, PINK1/Parkin | No (L-DOPA symptomatic) |
-| ALS | TDP-43 inclusions | C9orf72, SOD1 | Riluzole (modest) |
-| Huntington's | Striatal atrophy | CAG ≥40 (HTT) | No |
-| Epilepsy | Neuronal hyperexcitability | SCN1A, KCNQ2 | AEDs (seizure control, not disease) |
-| GBS | Demyelination (PNS) | Post-infectious (anti-ganglioside) | IVIg/plasmapheresis |
-| Migraine | CSD + CGRP | Trigeminovascular | Anti-CGRP mAbs (prevention) |
-| Depression | ↓ BDNF, HPA activation | — | SSRI/SNRI/ketamine/ECT |
-| Schizophrenia | DA imbalance | — | Antipsychotics (symptom control) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Alzheimer mechanism | Amyloid plaques, tau tangles, APOE/PSEN risk | Tau burden tracks symptoms better than amyloid alone. |
+| Parkinson mechanism | Alpha-synuclein Lewy bodies and basal-ganglia dopamine loss | L-DOPA is symptomatic, not disease-modifying. |
+| ALS mechanism | TDP-43 inclusions, C9orf72/SOD1 | UMN and LMN signs coexist. |
+| Huntington mechanism | HTT CAG expansion and striatal atrophy | Anticipation depends on repeat instability. |
+| Epilepsy mechanism | Hyperexcitable circuits and channel genes | AEDs suppress seizures, not always underlying disease. |
+| GBS mechanism | Post-infectious peripheral demyelination | IVIg/plasmapheresis timing matters. |
+| Migraine mechanism | Cortical spreading depression and CGRP | Prevention differs from acute abortive therapy. |
+| Depression mechanism | BDNF/HPA/network models | Neurobiology is heterogeneous; treatment response varies. |
+| Schizophrenia mechanism | Dopamine imbalance and circuit dysfunction | Antipsychotics control symptoms; negative symptoms often persist. |
 
 ---
 

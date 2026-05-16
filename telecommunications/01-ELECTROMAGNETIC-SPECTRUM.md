@@ -218,6 +218,18 @@ Typically design for 10-20 dB margin to handle fading, shadowing.
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| The physical wave model behind RF bands | `physics/01-ELECTROSTATICS.md` | EM propagation starts from field behavior before it becomes a link budget |
+| Fourier bandwidth and modulation intuition | `signal-processing/01-FOURIER-ANALYSIS.md` | Spectrum allocation is signal bandwidth, not just carrier frequency |
+| Information capacity and noise limits | `information-theory/01-ENTROPY-INFORMATION.md` | Link budgets become Shannon capacity once bandwidth and SNR are known |
+| Cellular and network architecture above RF | `telecommunications/02-CELLULAR.md` | Shows how propagation constraints shape cells, handoff, reuse, and backhaul |
+| Satellite and orbital communications geometry | `space-exploration/01-ORBITAL-MECHANICS.md` | GEO, LEO, and deep-space links are path-loss and latency problems in orbit |
+
+---
+
 ## Common Confusion Points
 
 **dBi vs dBd**: Antenna gain in dBi = gain relative to isotropic antenna (equal in all directions).

@@ -20,6 +20,17 @@ Rule: each semitone = multiply by ¹²√2 = 1.05946...
 
 **Pitch class:** Strip octave information. C₄ and C₅ are the same pitch class (0). Z₁₂ is the natural algebraic structure: 12 elements, addition mod 12.
 
+**Notation used in this guide:**
+
+| Symbol | Meaning | Why it matters |
+|---|---|---|
+| `C♯` / `D♭` | enharmonic spellings | Same piano key in 12-TET, different harmonic function |
+| `C₄`, `A₄`, `C₅` | pitch with octave number | Octave information retained; A₄ is the 440 Hz reference |
+| `C = 0` in `Z₁₂` | pitch class | Octave stripped; arithmetic is mod 12 |
+| `f₀` | reference frequency | Formula anchor, usually A₄ = 440 Hz |
+| `n` | semitone offset | Positive above `f₀`, negative below |
+| `M/m/P/aug/dim` | interval quality | Major, minor, perfect, augmented, diminished |
+
 ---
 
 ## 12-TET Mathematics
@@ -94,9 +105,17 @@ DIMINISHED: one semitone narrower than minor or perfect
 DOUBLY-AUG/DIM: two semitones wider/narrower (rare, in chromatic harmony)
 ```
 
-**Inversion rule:** An interval + its inversion = 9.
-- M3 (4) inverts to m6 (8) → 4+8=12... no: the rule counts quality: M inverts to m, P inverts to P, aug inverts to dim
-- m3 → M6, M2 → m7, P5 → P4, TT → TT (self-inverting)
+**Inversion rule:** interval numbers add to 9; semitone counts add to 12.
+Quality flips according to a separate rule.
+
+| Original | Inversion | Number Rule | Semitone Rule | Quality Rule |
+|----------|-----------|-------------|---------------|--------------|
+| M3 (C→E, 4 st) | m6 (E→C, 8 st) | 3 + 6 = 9 | 4 + 8 = 12 | major ↔ minor |
+| m3 (C→E♭, 3 st) | M6 (E♭→C, 9 st) | 3 + 6 = 9 | 3 + 9 = 12 | minor ↔ major |
+| P5 (C→G, 7 st) | P4 (G→C, 5 st) | 5 + 4 = 9 | 7 + 5 = 12 | perfect ↔ perfect |
+| aug4 (C→F♯, 6 st) | dim5 (F♯→C, 6 st) | 4 + 5 = 9 | 6 + 6 = 12 | augmented ↔ diminished |
+
+So the shortcut is: **number to 9, semitones to 12, quality flips by family**.
 
 ---
 
@@ -290,3 +309,15 @@ Example: C to E♭
 Context determines which is meant.
 
 **Octave numbering:** Middle C is C₄. A₄ = 440 Hz. Octave numbers change at C (not at A): B₃ is below C₄, not above it. B₄ is above C₄.
+
+---
+
+## Cross-References
+
+| If you need... | Go to |
+|---|---|
+| The acoustic and psychoacoustic foundation for pitch | [Music Theory Overview](00-OVERVIEW.md) |
+| Modes after major/minor scale construction | [Modes & Pentatonic](02-MODES-PENTATONIC.md) |
+| How pitch materials become chord function | [Harmony & Chords](04-HARMONY-CHORDS.md) |
+| Voice-leading consequences of intervals | [Voice Leading & Counterpoint](05-VOICE-LEADING-COUNTERPOINT.md) |
+| Jazz/20th-century extensions of scales and pitch sets | [20th Century & Jazz](09-20TH-CENTURY-JAZZ.md) |

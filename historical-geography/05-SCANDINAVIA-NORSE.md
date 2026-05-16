@@ -320,6 +320,12 @@ BREAKUP:
 
 ---
 
+## Cross-References
+
+- [Western Europe](03-WESTERN-EUROPE.md) provides the neighboring feudal and maritime context around Norse expansion.
+- [Eastern Europe](07-EASTERN-EUROPE.md) follows Norse and Rus connections into Baltic and Slavic political geography.
+- [Mongol Empire](11-MONGOL-EMPIRE.md) gives the later steppe-imperial contrast to Norse maritime mobility.
+
 ## Common Confusion Points
 
 **"Viking" ≠ a people**

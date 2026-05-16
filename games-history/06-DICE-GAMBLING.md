@@ -210,8 +210,8 @@ PASCAL'S SOLUTION:
   Round 3: A wins (prob 1/2) → A wins match regardless
   Round 3: B wins (prob 1/2)
     Round 4: A wins (prob 1/4) → A wins match
-    Round 4: B wins (prob 1/4) → B wins match (tied 2-2, but
-             wait — A needs 3, so B wins if they tie)
+    Round 4: B wins (prob 1/4) → B wins match
+             (B has won both remaining rounds, reaching 3)
 
   Actually from 2-1 (A needs 1, B needs 2):
   P(A wins match) = P(A wins next round)
@@ -761,20 +761,24 @@ PRACTICAL USE:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Are astragali fair dice? | No — asymmetric bone shape creates non-uniform probabilities |
-| When were cubic dice invented? | ~3000 BCE, Mesopotamia and Indus Valley |
-| What caused formal probability theory? | Pascal-Fermat correspondence (1654) — Problem of Points (gambling) |
-| What is De Méré's problem? | P(one 6 in 4 dice)≠P(double-6 in 24 pairs) by the margin 51.77% vs 49.14% |
-| Pass line house edge in craps? | 1.41% |
-| What is the only zero-edge bet in craps? | Free Odds (behind the pass line) |
-| European vs American roulette house edge? | 2.70% vs 5.26% (single vs double zero) |
-| Who invented slot machine? | Charles Fey, Liberty Bell, 1895 |
-| TD-Gammon significance? | First neural net self-play to reach expert game performance (1992) — precursor to AlphaGo |
-| Kelly Criterion formula? | f* = (bp - q) / b = p - q/b |
+| If You Need To Decide... | Use This Concept | Why It Matters |
+|---|---|---|
+| Whether a premodern randomizer was fair | Astragali / loaded-dice asymmetry | Shape and weighting precede formal probability; the device itself defines the distribution |
+| Whether two dice bets with similar intuition are actually equivalent | Exhaustive outcome enumeration | De Méré's problem shows why "4 × 1/6" reasoning fails for repeated trials |
+| How to divide stakes in an interrupted game | Expected value / Problem of Points | Fairness depends on future win probabilities, not current score ratio |
+| Whether a casino dice bet is tolerable | House edge and true odds | Pass line is low edge; free odds pays true odds but requires the edge-bearing base bet |
+| Whether roulette history predicts the next spin | Independence vs device bias | Past spins do not condition a fair wheel, but long-run anomalies can reveal a biased device |
+| Whether a bankroll can survive negative expectation | Gambler's ruin | With finite bankroll against deep capital, small negative edge becomes eventual ruin |
+| How much to bet with a real edge | Kelly / fractional Kelly | Maximizes log-growth but full Kelly has brutal drawdowns; professionals usually scale down |
+| Why backgammon mattered for AI | MDP + TD learning | Dice randomness made it a clean testbed for value-function learning under stochastic transitions |
 
 ---
+
+## Cross-References
+
+- [Ancient Games](01-ANCIENT-GAMES.md) gives the astragali, knucklebones, and ritual-chance background.
+- [Card Games](03-CARD-GAMES.md) connects dice to gambling houses, probability, and wagering cultures.
+- [Poker](04-POKER.md) shows hidden information and betting strategy after chance devices move into card systems.
 
 ## Common Confusion Points
 

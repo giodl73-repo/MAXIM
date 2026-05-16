@@ -329,19 +329,19 @@ Contemporary       + CNC + BIM                    replaces tradition.
 
 ## Decision Cheat Sheet
 
-| You need to... | Use this structural system | Because | Era |
-|----------------|---------------------------|---------|-----|
-| Span 5m with stone | Post-and-lintel (trabeated) | Stone beams fail in bending beyond ~5m | Egyptian/Greek |
-| Span 10–40m with stone/brick | Arch, barrel vault, cross vault | Arch converts bending to compression — all stone stays compressed | Roman |
-| Span 30m+ and want interior light | Pointed arch + ribbed vault + flying buttress | Buttress carries thrust outside, freeing wall for glass | Gothic |
-| Cover a circular plan with a dome | Pendentive or squinch to transition square→circle, then dome | Pendentives distribute dome thrust to 4 piers | Byzantine |
-| Build a dome with no centering | Double-shell herringbone brick (Brunelleschi method) | Each ring is self-supporting during construction | Renaissance |
-| Enclose very large volumes cheaply | Cast iron frame + glass infill (Crystal Palace model) | Prefabricated modular components, no masonry needed | Industrial |
-| Build tall (10+ stories) | Steel or RC frame — curtain wall envelope | Frame carries all load; wall is weather seal only | 1890s–present |
-| Maximum floor plan flexibility | RC column-slab (Le Corbusier's Dom-ino) | No load-bearing walls — partition freely | Modernism |
-| Build a supertall (300m+) | Tube structure, diagrid, or outrigger system | Lateral (wind) loads dominate above ~40 stories | Contemporary |
-| Minimize operational energy | Passivhaus envelope (superinsulation + MVHR) | Eliminates ~90% heating/cooling energy | Contemporary |
-| Passive cooling without electricity | Thermal mass + night ventilation or wind catcher (badgir) | Phase-shifts diurnal heat wave by ~12 hours | Vernacular |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Short stone spans | Check post-and-lintel geometry, stone tensile weakness, bearing, jointing, and beam depth. | Stone is excellent in compression but poor in bending. |
+| Long masonry spans | Use arch/vault behavior, thrust line, abutment, centering, and compression continuity. | The arch works only if thrust has somewhere to go. |
+| Gothic height and light | Analyze pointed arch, rib vault, flying buttress, wall thinning, glass, and load path. | The visual theology depends on a structural thrust system. |
+| Dome transition | Compare pendentive, squinch, drum, pier layout, hoop tension, and shell thickness. | A circular dome over a square room is a geometry problem before an image problem. |
+| Centering-free dome construction | Examine double shell, herringbone brick, ring action, chains, and construction sequence. | Brunelleschi's method is construction logic, not just final form. |
+| Industrial enclosure | Check cast iron, glass, prefabrication, modular grid, transport, and fire/corrosion risk. | Cheap enclosure can introduce new maintenance and safety regimes. |
+| Tall building frame | Separate steel/RC frame, curtain wall, elevator, fireproofing, wind, and services. | Height is enabled by systems, not frame material alone. |
+| Flexible modern plan | Use column-slab frame, non-load-bearing partitions, services, facade independence, and grid. | Plan freedom still depends on structure, shafts, and code. |
+| Supertall system | Compare tube, diagrid, outrigger, damping, wind comfort, core, and constructability. | Lateral behavior dominates long before gravity capacity is exhausted. |
+| Low-energy envelope | Check insulation, airtightness, MVHR, thermal bridges, glazing, and commissioning. | Passivhaus is measured performance, not just thick walls. |
+| Passive cooling | Compare thermal mass, night ventilation, wind catchers, humidity, diurnal swing, and occupancy. | Hot-dry strategies can fail in hot-humid climates. |
 
 **Navigation index** (for deeper dives into each era):
 
@@ -356,6 +356,14 @@ Contemporary       + CNC + BIM                    replaces tradition.
 | Postmodernism, Deconstructivism, Gehry | `07-POSTMODERNISM.md` |
 | Climate-responsive vernacular | `08-VERNACULAR.md` |
 | BIM, parametric, Passivhaus, tall buildings | `09-CONTEMPORARY.md` |
+
+---
+
+## Cross-References
+
+- `01-ANCIENT.md` and `02-MEDIEVAL.md` establish the classical, civic, and religious building systems.
+- `04-RENAISSANCE-BAROQUE.md` follows the return of classical language and the move into theatrical spatial control.
+- `../architecture/00-OVERVIEW.md` bridges historical movements to professional design practice.
 
 ---
 

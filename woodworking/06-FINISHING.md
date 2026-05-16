@@ -323,20 +323,26 @@ BURNISHING SHELLAC:
 
 ---
 
+## Cross-References
+
+- `01-WOOD-SELECTION.md` explains absorption, color, and pore structure.
+- `05-SURFACE-PREPARATION.md` controls final finish quality.
+- `07-FURNITURE-CONSTRUCTION.md` shows where finish durability matters in use.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What finish is the universal sealer / compatible with everything? | Dewaxed shellac (Zinsser SealCoat) |
-| Can waxed shellac go under polyurethane? | No — wax prevents adhesion; use dewaxed only |
-| What causes NC lacquer to yellow? | Nitrocellulose oxidation with time and light; use CAB-acrylic for non-yellowing |
-| Which finish is best for pale/light woods? | CAB-acrylic lacquer or water-based (non-yellowing) |
-| What is wipe-on poly? | Oil-based polyurethane thinned ~50% with mineral spirits; applied by rag |
-| Does oil-based varnish re-dissolve in solvent once cured? | No — oxidative crosslinking; cannot be redissolved (unlike shellac/lacquer) |
-| What finish for butcher block / food contact? | Mineral oil (never cures, must re-apply) or pure tung/walnut oil |
-| What is the main disadvantage of water-based finish? | Raises grain; less self-leveling; looks less warm/deep than oil-based |
-| Can you apply lacquer over oil without sealing? | Not reliably — oil must be fully cured AND sealed (with dewaxed shellac) first |
-| How do you achieve a satin finish from gloss? | Sand with 400+ grit wet/dry or rub with 0000 steel wool + paste wax |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Universal sealer need | Dewaxed shellac such as SealCoat | Waxed shellac blocks polyurethane adhesion. |
+| Shellac compatibility | Dewaxed versus waxed formulation | Old premixed shellac may not cure properly. |
+| Yellowing risk | Nitrocellulose oxidation and light exposure | Use CAB-acrylic or water-based finish when pale color must stay pale. |
+| Light wood finish | Non-yellowing CAB-acrylic lacquer or water-based finish | Water-based can look cooler and raise grain. |
+| Wipe-on film finish | Oil-based polyurethane thinned about 50% with mineral spirits | Thin coats trade build speed for control. |
+| Repair/recoat behavior | Crosslinked varnish versus redissolving shellac/lacquer | Once cured, oil varnish cannot be redissolved by solvent. |
+| Food-contact surface | Mineral oil, pure tung oil, or walnut oil by use case | Mineral oil never cures and requires reapplication. |
+| Water-based finish problem | Grain raising, lower self-leveling, cooler look | Pre-raise grain or sand after the first coat. |
+| Lacquer over oil | Full oil cure plus dewaxed shellac barrier | Compatibility failures may appear weeks later. |
+| Satin sheen | Rub gloss with 400+ wet/dry or 0000 steel wool plus paste wax | Satin additives cloud film; rubbing gloss gives more control. |
 
 ---
 

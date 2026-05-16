@@ -268,19 +268,25 @@ CONNECTION TO NTT AND LATTICE CRYPTO:
 
 ---
 
+## Cross-References
+
+- `abstract-algebra/04-RINGS-IDEALS.md` — polynomial rings, irreducibility, and quotient fields use ring structure directly.
+- `abstract-algebra/06-GALOIS-THEORY.md` — field extensions become the object side of the Galois correspondence.
+- `number-theory/06-ALGEBRAIC-NUMBER-THEORY.md` — number fields are field extensions studied arithmetically.
+
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Find degree [F(α):F] | deg(minimal polynomial of α over F) |
-| Check if α is algebraic | Find polynomial f ∈ F[x] with f(α)=0 |
-| Check irreducibility over Q | Rational root theorem, Eisenstein, reduction mod p |
-| Construct GF(p^n) | F_p[x]/(f) for irreducible f of degree n |
-| Find splitting field of f | Adjoin all roots of f; check degree using tower law |
-| Determine char(F) | 1+1+...=0 first time, or 0 if never |
-| Count elements of GF(p^n) | Exactly p^n |
-| Find order of α in GF(p^n)* | Find smallest k with α^k=1; must divide p^n-1 |
-| Primitive element of GF(p^n)* | Generator of cyclic group; order p^n-1 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether an algebraic extension degree is known | Minimal polynomial degree | The polynomial must be minimal over the base field |
+| Whether an element is algebraic | Polynomial relation over the base field | Transcendental elements satisfy no nonzero such polynomial |
+| Whether a rational polynomial is irreducible | Rational root, Eisenstein, or reduction mod `p` | Each test has hypotheses and failure is not proof of reducibility |
+| Whether a finite field is being constructed | `F_p[x]/(f)` for irreducible degree `n` | Irreducibility of `f` is essential |
+| Whether a splitting field is complete | Adjoin all roots and use tower law | Degree depends on dependencies among roots |
+| Whether field characteristic is positive | Repeated sum of `1` | Characteristic is prime or zero for fields |
+| Whether a finite field has expected size | `GF(p^n)` has `p^n` elements | The multiplicative group has size `p^n - 1` |
+| Whether an element's multiplicative order is known | Smallest `k` with `alpha^k = 1` | The order must divide `p^n - 1` |
+| Whether an element is primitive | Generator of `GF(p^n)^*` | Primitive means full multiplicative order |
 
 ---
 

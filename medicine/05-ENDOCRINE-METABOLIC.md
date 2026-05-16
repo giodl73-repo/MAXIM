@@ -6,7 +6,7 @@
 
 **Systems Bridge:** The endocrine system is a collection of hierarchically cascaded control loops, and endocrine pharmacology is the art of modifying loop parameters. The HPT axis (hypothalamus CRH → pituitary TSH → thyroid T3/T4) is a three-level proportional controller with an integrating term: TSH rises proportionally to the deficit in T4, and sustained low T4 drives sustained high TSH. Hypothyroidism treatment (levothyroxine) is replacement at the output — close the loop by restoring the controlled variable. Hyperthyroidism treatment with thionamides is gain reduction at the synthesis step — reduce the plant's ability to produce output. Radioiodine ablation is actuator removal. The key insight from a systems perspective: when you treat at the wrong level, you disrupt the feedback. Giving T4 to someone with secondary hypothyroidism (pituitary failure) restores the controlled variable but does not restore the feedback signal (TSH stays low) — the loop is permanently open-loop after that. Diabetes pharmacology works similarly: insulin replacement is actuator bypass (the plant has lost its actuator — give the output directly); metformin reduces hepatic gluconeogenesis gain; GLP-1 agonists work at the sensor/controller level (incretin effect — augment the physiological insulin secretion response to glucose); SGLT2 inhibitors are an output valve — they waste glucose renally regardless of what the controller does. Understanding which level each drug targets explains their interaction effects and why combination therapy is often additive without redundancy.
 
-## Big Picture: Endocrine Drug Map
+## The Big Picture
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -411,22 +411,28 @@ Corticosteroids: methylprednisolone/prednisone — if NSAIDs/colchicine CI; IM o
 
 ---
 
+## Cross-References
+
+- `human-biology/05-ENDOCRINE.md` - hormone axes and feedback loops.
+- `disease/06-METABOLIC-ENDOCRINE.md` - endocrine and metabolic disease patterns.
+- `nutrition/06-METABOLISM-ENERGY.md` - energy balance and metabolic substrate.
+
 ## Decision Cheat Sheet
 
-| Condition | First-Line Drug | Key Notes |
-|-----------|----------------|-----------|
-| T2DM, no major complications | Metformin | First-line; add SGLT2i if HF/CKD, GLP-1 RA if weight/MACE |
-| T2DM + HF | SGLT2i (empagliflozin, dapagliflozin) | Reduces HF hospitalization, CV death |
-| T2DM + CKD (eGFR >20) | SGLT2i (dapagliflozin, canagliflozin) | Slows CKD progression; CREDENCE/DAPA-CKD |
-| T2DM + ASCVD/high CV risk | GLP-1 RA (semaglutide, liraglutide) | MACE reduction proven |
-| T2DM + obesity | GLP-1 RA or tirzepatide | Most weight loss (~15–22%) |
-| T1DM basal | Insulin degludec or glargine | Peakless, predictable |
-| Hyperthyroidism | Methimazole (not 1st trimester) | PTU in 1st trimester or thyroid storm |
-| Hypothyroidism | Levothyroxine | TSH target 0.5–4.5; ↑ dose in pregnancy |
-| Thyroid storm | PTU + propranolol + hydrocortisone + iodide (wait 1h after PTU) | |
-| Osteoporosis | Alendronate or zoledronate | Severe (T-score < -3.0, vertebral fracture): teriparatide first |
-| Acute gout | NSAIDs or colchicine (low dose) | Start within 24h for best effect |
-| Chronic gout prevention | Allopurinol (titrated to <6 mg/dL) | Screen HLA-B*5801 in high-risk populations |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| T2DM without complications | Metformin baseline therapy | Comorbid HF/CKD/ASCVD can make add-on choice primary. |
+| T2DM with heart failure | SGLT2 inhibitor | Watch volume status and euglycemic DKA risk. |
+| T2DM with CKD | SGLT2 inhibitor if eGFR permits | Renal benefit can persist despite modest glucose effect. |
+| T2DM with ASCVD risk | GLP-1 receptor agonist | Agent-specific MACE evidence matters. |
+| T2DM with obesity | GLP-1 RA or tirzepatide | GI tolerability and access often constrain use. |
+| Type-1 diabetes basal need | Degludec or glargine | Basal insulin never replaces prandial strategy. |
+| Hyperthyroidism | Methimazole | PTU fits first trimester or thyroid storm. |
+| Hypothyroidism | Levothyroxine and TSH titration | Pregnancy increases dose requirement. |
+| Thyroid storm | PTU, beta-blocker, steroid, then iodide | Iodide follows thionamide to avoid substrate loading. |
+| Osteoporosis | Bisphosphonate baseline | Very severe disease may start anabolic therapy. |
+| Acute gout flare | NSAID or low-dose colchicine | Early treatment works best; renal/GI risks matter. |
+| Chronic gout prevention | Titrated allopurinol to urate target | Screen HLA-B*5801 in high-risk populations. |
 
 ---
 

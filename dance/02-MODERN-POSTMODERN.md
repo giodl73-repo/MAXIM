@@ -353,18 +353,23 @@ CONTEMPORARY DANCE LANDSCAPE
 
 ## Decision Cheat Sheet
 
-| Figure | Key Idea | Technical Innovation |
-|--------|----------|---------------------|
-| Isadora Duncan | Natural movement; body as emotional instrument | Bare feet; solar plexus center |
-| Martha Graham | Contraction/release; Greek myth; female interior | Spinal curvature as vocabulary |
-| Doris Humphrey | Fall and recovery; arc between two deaths | Gravity as compositional force |
-| Jose Limon | Humanist themes; weight and breath | Graham technique + Hispanic themes |
-| Merce Cunningham | Movement = movement; chance procedures | Algorithmic composition; separated elements |
-| Yvonne Rainer | Task-based; pedestrian; anti-spectacle | Demolished all theatrical conventions |
-| Steve Paxton | Shared weight; no hierarchy | Contact improvisation as ongoing form |
-| Trisha Brown | Accumulation; structural transparency | Equipment works; additive form |
-| William Forsythe | Ballet deconstructed | Off-axis; extreme speed; improvisation tech |
-| Pina Bausch | Tanztheater; repetition as revelation | Text + movement + design + biography |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Early modern dance rebellion | Compare Duncan's natural movement, bare feet, torso center, anti-ballet stance, and classical references. | "Natural" was an aesthetic construction, not absence of technique. |
+| Graham technique | Look at contraction/release, pelvis/spine, mythic structure, breath, gendered interiority, and codified training. | Graham rejected ballet's verticality while building an equally rigorous system. |
+| Humphrey/Limon lineage | Diagnose fall/recovery, weight, breath, humanist themes, and gravity as compositional force. | Limon extends Humphrey and Graham rather than fitting one pure lineage. |
+| Cunningham/post-Cage composition | Track chance operations, independence of music/dance/design, spatial decentralization, and phrase generation. | Chance procedures are structured systems, not randomness without craft. |
+| Judson/postmodern dance | Use task movement, pedestrian action, anti-spectacle, site, repetition, and ordinary bodies. | Rejecting theatrical convention did not mean rejecting form. |
+| Contact improvisation | Examine shared weight, rolling point of contact, consent, momentum, and nonhierarchical partnering. | Apparent spontaneity requires trained listening and safety discipline. |
+| Ballet deconstruction or Tanztheater | Compare Forsythe's off-axis ballet logic with Bausch's repetition, text, design, and biography. | Both disrupt ballet/theater from inside high technique, not from technical absence. |
+
+---
+
+## Cross-References
+
+- `01-BALLET.md` supplies the codified system modern dance rejected and transformed.
+- `05-CHOREOGRAPHIC-STRUCTURE.md` explains how modern and postmodern work organize time, space, and bodies.
+- `08-CULTURAL-HISTORY.md` connects modern dance to institutions, politics, and identity.
 
 ---
 

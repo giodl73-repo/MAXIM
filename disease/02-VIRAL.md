@@ -1,6 +1,6 @@
 # Viral Disease
 
-## The Big Picture: Baltimore Classification
+## The Big Picture
 
 ```
 VIRUS CLASSIFICATION BY GENOME → REPLICATION STRATEGY
@@ -275,16 +275,22 @@ HHV-8 (KSHV) dsDNA   Kaposi's sarcoma,         vFLIP, vCyclin, vIRF1
 
 ---
 
+## Cross-References
+
+- `virology/01-VIRUS-STRUCTURE.md` - virion structure and genome organization.
+- `virology/03-REPLICATION-CYCLES.md` - replication cycle mechanics.
+- `medicine/02-ANTIVIRALS-VACCINES.md` - prevention and treatment map.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why do −ssRNA viruses package RdRP? | They can't be directly translated — ribosomes only read +mRNA. The packaged RdRP makes +sense strand first. |
-| Why can't we cure HIV? | Integrated provirus in resting CD4+ T cells is invisible to ART and immune system — latent reservoir |
-| Why does influenza reassort easily? | Segmented genome: 8 separate RNA segments can swap between viruses in a doubly-infected cell (especially in swine) |
-| Acyclovir doesn't work for CMV — why? | Acyclovir requires phosphorylation by viral thymidine kinase (TK). CMV doesn't encode TK (uses UL97 kinase); ganciclovir is phosphorylated by UL97. |
-| How do NA inhibitors work? | Block neuraminidase → virion stuck attached to sialic acid on released cell surface → clumping, reduced spread |
-| HCV: "cured" vs "cleared" — what does SVR mean? | SVR12 (sustained virologic response at 12 weeks post-treatment) = undetectable HCV RNA = clinical cure in ~99% of patients |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Negative-strand RNA infectivity | Packaged RdRP to make positive-sense mRNA | Host ribosomes cannot read negative-sense RNA directly. |
+| HIV cure barrier | Integrated latent provirus in resting CD4 cells | ART suppresses replication but does not purge reservoir. |
+| Influenza reassortment risk | Eight segmented RNA genome pieces | Coinfection host ecology shapes reassortment opportunity. |
+| CMV acyclovir failure | Missing HSV-style thymidine kinase | CMV uses UL97; ganciclovir fits that activation route. |
+| Neuraminidase-inhibitor effect | Block virion release from sialic acid | Timing matters because replication peaks early. |
+| HCV cure status | SVR12 undetectable HCV RNA | Reinfection remains possible after cure. |
 
 ---
 

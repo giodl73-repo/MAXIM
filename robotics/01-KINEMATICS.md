@@ -458,6 +458,18 @@ NULL-SPACE MOTION:
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Feedback control of robot motion | `control-theory/01-PID-CLASSICAL.md` | Kinematics maps pose; control closes the loop around motion error |
+| Linear algebra of transforms | `mathematics/06-LINEAR-ALGEBRA.md` | Homogeneous transforms, rotations, Jacobians, and singularities are matrix geometry |
+| Mechanical constraints and actuation | `mechanical/01-THERMODYNAMICS.md` | Real robots have torque, friction, inertia, thermal, and power limits |
+| Perception and sensing | `computer-architecture/01-ISA-FUNDAMENTALS.md` | Robotic systems depend on compute, sensor pipelines, and real-time constraints |
+| Spatial planning | `architecture/01-SPATIAL-DESIGN.md` | Workspace, reachability, and navigation are spatial-configuration problems |
+
+---
+
 ## Common Confusion Points
 
 **"FK always has a solution; IK may not"**

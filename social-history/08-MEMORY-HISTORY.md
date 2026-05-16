@@ -295,17 +295,27 @@ this to the practical questions of how history is produced outside the academy.
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| History from below and lived experience | `social-history/03-HISTORY-FROM-BELOW.md` |
+| Sociology of knowledge and collective memory | `intellectual-history/02-SOCIOLOGY-KNOWLEDGE.md` |
+| Political historiography and evidence | `political-history/09-HISTORIOGRAPHY.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| I want to understand... | Go to |
-|---|---|
-| Halbwachs's collective memory | Halbwachs section |
-| Nora's lieux de mémoire | Nora section |
-| History vs. memory distinction | History vs. memory section |
-| Holocaust testimony and representation | Trauma/testimony section |
-| Postmemory (children of survivors) | Hirsch postmemory section |
-| WWI commemoration | Winter and Mosse section |
-| Truth and Reconciliation Commissions | Difficult histories section |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Collective memory | Halbwachs's social frameworks of remembering | Collective memory is not just many individuals sharing recall. |
+| Sites of memory | Nora's lieux de mémoire versus living milieux | Sites can be texts, practices, symbols, or archives, not only monuments. |
+| History versus memory | Critical reconstruction versus lived/social remembrance | The distinction is analytic; historians also operate within memory cultures. |
+| Trauma and testimony | Holocaust representation, witnessing, and limits of narration | Trauma is not identical to memory; it can disrupt ordinary narrative recall. |
+| Postmemory | Hirsch's second-generation mediated inheritance | Postmemory is mediated by stories/images, not direct experience. |
+| Commemoration | Winter, Mosse, ritual, mourning, and national form | Commemoration can console, mobilize, exclude, or mythologize. |
+| Difficult histories | Truth and Reconciliation Commissions and public history | Public truth processes trade off legal, therapeutic, political, and historical goals. |
 
 ---
 

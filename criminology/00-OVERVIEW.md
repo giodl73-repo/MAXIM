@@ -252,18 +252,24 @@ POLICY EVALUATION
 
 ## Decision Cheat Sheet
 
-| Question | Key Framework | Key File |
-|----------|---------------|----------|
-| Why does rational crime occur? | Classical/rational choice | 01-CLASSICAL-THEORIES |
-| Why does crime cluster in poor areas? | Strain, social disorganization | 02-STRAIN-ANOMIE |
-| Why do most people NOT commit crime? | Social control / bond theory | 03-SOCIAL-CONTROL |
-| How does the justice system create criminals? | Labeling theory | 03-SOCIAL-CONTROL |
-| What is corporate crime? | White-collar framework | 04-WHITE-COLLAR |
-| How do criminal organizations work? | Organized crime structures | 05-ORGANIZED-CRIME |
-| What does effective policing look like? | Evidence-based policing | 06-POLICING |
-| Why does the US incarcerate so many? | Incarceration policy | 07-INCARCERATION |
-| How do people stop offending? | Desistance / life-course | 08-DESISTANCE |
-| How does the US compare globally? | Comparative criminology | 09-COMPARATIVE |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A deterrence or rational-choice claim | Compare perceived certainty, severity, swiftness, opportunity, target hardening, and bounded rationality. | Certainty usually matters more than severity, and many offenses are not fully calculated. |
+| Neighborhood crime concentration | Examine strain, social disorganization, collective efficacy, segregation, labor markets, and routine activity. | Area effects and individual choices interact; do not reduce causation to poverty alone. |
+| Why people comply with law | Use social bonds, legitimacy, informal control, self-control, and opportunity structure. | Non-offending is produced by social integration, not just fear of punishment. |
+| Justice-system amplification | Track labeling, criminal records, surveillance, school/prison pathways, and employment exclusion. | System response can create feedback loops without implying original innocence. |
+| White-collar or corporate crime | Inspect organizational incentives, regulatory gaps, accounting opacity, opportunity, and elite impunity. | Harm can be massive even when violence is absent. |
+| Organized crime | Map market demand, protection rackets, hierarchy/network form, violence governance, and state corruption. | Organizations vary from loose networks to bureaucratic cartels. |
+| A policing intervention | Check evidence base, displacement, legitimacy, hot spots, focused deterrence, and community trust. | Effective crime reduction can fail politically if legitimacy collapses. |
+| Incarceration or desistance | Separate sentencing policy, incapacitation, deterrence, rehabilitation, aging out, employment, and family ties. | More punishment is not the same as more public safety. |
+
+---
+
+## Cross-References
+
+- `01-CLASSICAL-THEORIES.md` gives the deterrence and rational-choice baseline.
+- `03-SOCIAL-CONTROL.md` explains informal and institutional regulation of behavior.
+- `07-INCARCERATION.md` connects criminological theory to punishment systems and policy outcomes.
 
 ---
 

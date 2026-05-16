@@ -46,20 +46,20 @@
 
                           EXAMPLES OF GROUPS
 +---------------+----------+---------------------+-------------------+
-| Group         | Operation | Order               | Abelian?          |
+| Group         | Operation| Order               | Abelian?          |
 +---------------+----------+---------------------+-------------------+
-| Z             | +        | ∞                   | Yes               |
+| Z             | +        | infinite            | Yes               |
 | Z/nZ          | + mod n  | n                   | Yes               |
-| (Z/nZ)*       | × mod n  | φ(n)                | Yes               |
-| Q*, R*, C*    | ×        | ∞                   | Yes               |
-| S_n           | compose  | n!                  | n≤2 only          |
-| A_n           | compose  | n!/2                | n≤3 only          |
-| D_n (dihedral)| compose  | 2n                  | n≤2 only          |
-| GL(n,F)       | ×        | ∞ (or finite for F_p)| No (n≥2)         |
-| SL(n,F)       | ×        | ∞ (or finite)       | No (n≥2)          |
-| SO(n)         | ×        | ∞ (Lie group)       | n≤2 only          |
-| SU(2)         | ×        | ∞ (Lie group)       | No                |
-| (Z/pZ)* (p prime)| ×     | p-1                 | Yes (cyclic)      |
+| (Z/nZ)*       | x mod n  | phi(n)              | Yes               |
+| Q*, R*, C*    | x        | infinite            | Yes               |
+| S_n           | compose  | n!                  | n<=2 only         |
+| A_n           | compose  | n!/2                | n<=3 only         |
+| D_n           | compose  | 2n                  | n<=2 only         |
+| GL(n,F)       | x        | finite/infinite     | No (n>=2)         |
+| SL(n,F)       | x        | finite/infinite     | No (n>=2)         |
+| SO(n)         | x        | infinite Lie group  | n<=2 only         |
+| SU(2)         | x        | infinite Lie group  | No                |
+| (Z/pZ)*       | x        | p-1                 | Yes (cyclic)      |
 +---------------+----------+---------------------+-------------------+
 ```
 
@@ -308,16 +308,24 @@ The key insight: building symmetry into the network architecture (via group equi
 
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Verify G is a group | Check 4 axioms (or subgroup criterion for H ≤ G) |
-| Find order of element a | Smallest k with a^k = e; in S_n: lcm of cycle lengths |
-| Show a^{|G|} = e | Lagrange: ord(a) divides |G| |
-| Count elements of each order in Z/nZ | Elements of order d: φ(d), for each d|n |
-| Classify all abelian groups of order n | Factor n = ∏p_i^{a_i}; apply structure theorem per prime |
-| Analyze group of given order | Sylow theorems for prime factorization |
-| Show H ≤ G | Two-step criterion: H ≠ ∅ and ab⁻¹ ∈ H |
-| Show H ◁ G (normal) | gHg⁻¹ = H for all g; or index 2 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a set is a group | Check closure, associativity, identity, inverses, or use a known construction. | Associativity is usually inherited, not proved from scratch every time. |
+| Element order | Compute the smallest `k` with `a^k = e`; for permutations use cycle-length lcm. | Element order depends on the ambient operation. |
+| Lagrange-style consequence | Relate element/subgroup order to `|G|`, cosets, and divisibility. | Lagrange gives necessary divisibility, not existence of every divisor subgroup. |
+| Orders in `Z/nZ` | Factor `n`, use cyclic-group structure, gcds, and Euler phi counts. | Additive and multiplicative groups of residues are different objects. |
+| Finite abelian classification | Prime-factor `n`, decompose into p-primary parts, and apply invariant-factor/elementary-divisor form. | Classification is canonical only after choosing the correct normal form. |
+| Unknown group of given order | Use Sylow counts, normal subgroups, semidirect products, and known small-order classifications. | Sylow narrows possibilities; it may not finish the classification. |
+| Subgroup test | Check nonempty subset, closure under `ab^{-1}`, and inherited operation. | A subset with the right size pattern can still fail closure. |
+| Normality | Test conjugation invariance, kernel form, quotient intent, or index-two shortcut. | Normal means stable under all conjugation, not merely closed. |
+
+---
+
+## Cross-References
+
+- `02-SUBGROUPS-QUOTIENTS.md` turns groups into the machinery of normality, quotienting, and exact structure.
+- `03-PERMUTATION-GROUPS.md` makes finite symmetry concrete through actions on sets.
+- `07-REPRESENTATION-THEORY.md` linearizes groups so symmetry becomes matrices, characters, and decompositions.
 
 ---
 

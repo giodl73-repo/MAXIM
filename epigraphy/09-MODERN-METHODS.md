@@ -422,20 +422,26 @@ LEIDEN CONVENTIONS (text marking standard):
 
 ---
 
+## Cross-References
+
+- `04-DECIPHERMENT.md` shows how documentation feeds interpretation.
+- `08-MEDIEVAL.md` supplies common built-environment inscription cases.
+- `07-INDUS-UNDECIPHERED.md` shows why better imaging does not guarantee decipherment.
+
 ## Decision Cheat Sheet
 
-| Problem | Best method |
-|---------|-------------|
-| Worn letters, relief inscription | RTI |
-| Dimensional measurement, 3D model | Photogrammetry |
-| Faded ink on papyrus/parchment | Multispectral (IR/UV) |
-| Small object, very high detail | Structured light scanning |
-| Large site, architectural inscription | Terrestrial LiDAR |
-| Working copy, traditional record | Epigraphic squeeze |
-| Search Latin corpus by formula | EDCS (edcs.uni-erlangen.de) |
-| Search Greek corpus | PHI (inscriptions.packhum.org) |
-| Cuneiform tablets | CDLI (cdli.ucla.edu) |
-| AI text completion assistance | Ithaca (DeepMind tool) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Worn relief letters | RTI surface-normal capture | RTI is not metric 3D scanning. |
+| Dimensional model | Photogrammetry from overlapping images | Accuracy depends on calibration, scale control, and surface texture. |
+| Faded ink | Multispectral IR/UV surface reflectance | It is not X-ray and does not reveal hidden internal structure. |
+| Small object detail | Structured-light scanning | Excellent geometry still needs epigraphic interpretation. |
+| Large architectural inscription | Terrestrial LiDAR plus photographic documentation | Site-scale capture can miss shallow incisions without close imaging. |
+| Traditional working copy | Epigraphic squeeze where conservation permits | Squeezes can damage fragile surfaces and may now be prohibited. |
+| Latin corpus search | EDCS formula and abbreviation search | Database coverage and normalization choices shape results. |
+| Greek corpus search | PHI inscriptions search | Corpus search is not a substitute for autopsy or edition history. |
+| Cuneiform tablet corpus | CDLI metadata, images, and transliterations | Digital transliteration inherits prior editorial decisions. |
+| AI completion/date/place help | Ithaca-style human-plus-model workflow | AI assists known scripts; it cannot decipher unknown writing systems. |
 
 ---
 

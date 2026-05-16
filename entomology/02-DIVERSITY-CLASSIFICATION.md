@@ -114,7 +114,7 @@ ORTHOPTERA
 ```
 BLATTODEA (includes Isoptera)
   ~4,500 cockroach species; ~3,500 termite species
-  Termites = eusocial cockroaches (Isoptera now inside Blattodea)
+  Termites = eusocial cockroach relatives (Isoptera within Blattodea)
 
   Cockroaches:
     Survivors: 350+ Mya virtually unchanged body plan
@@ -366,19 +366,24 @@ Compiler-style pattern matching (structural pattern matching in ML, switch expre
 
 ## Decision Cheat Sheet
 
-| Order | Key feature | Metamorphosis | Notable |
-|-------|-------------|---------------|---------|
-| Coleoptera | Elytra (hard fore-wings) | Complete | Largest order ~400K spp |
-| Lepidoptera | Scales on wings | Complete | Coiled proboscis |
-| Hymenoptera | Hamuli; petiole | Complete | Haplodiploidy; eusociality |
-| Diptera | 1 wing pair + halteres | Complete | Drosophila; malaria vector |
-| Hemiptera | Piercing-sucking beak (rostrum) | Incomplete | True bugs only |
-| Orthoptera | Jumping hindlegs; stridulation | Incomplete | Locusts; serotonin phase shift |
-| Odonata | Wings cannot fold; compound eyes | Incomplete | 97% capture rate |
-| Blattodea | Flat body; includes termites | Incomplete | Eusocial termites |
-| Mantodea | Raptorial forelegs | Incomplete | Single midline tympanal organ |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Beetle vs bug | Elytra/mandibles vs hemelytra/rostrum | "Bug" in common speech is not Hemiptera |
+| Fly identity | One functional wing pair plus halteres | Mayflies, fireflies, butterflies, and dragonflies are not Diptera |
+| Moth vs butterfly | Lepidoptera scales first, antenna/resting traits second | "Butterfly" is a derived subset inside a broader moth-like radiation |
+| Bee vs wasp | Pollen provisioning and plumose hairs | Bees are specialized wasps, not a separate deep branch |
+| Termite classification | Isoptera nested within Blattodea | Phylogeny says cockroach relatives; ecology says eusocial wood processors |
+| Order ID workflow | Wing count/type, mouthparts, metamorphosis, leg specialization | Identification keys are decision trees over morphological characters |
+| Species-count claim | Described species and sampling bias | Coleoptera is largest among described orders; undiscovered diversity can shift estimates |
+| Social-insect claim | Hymenoptera vs termite eusociality | Eusociality evolved multiple times under different genetic/ecological regimes |
 
 ---
+
+## Cross-References
+
+- `01-INSECT-BODY-PLAN.md` supplies the morphological characters used in classification.
+- `03-METAMORPHOSIS.md` explains developmental traits that separate major orders.
+- `07-INSECT-ECOLOGY.md` connects diversity to niches, food webs, and ecosystem roles.
 
 ## Common Confusion Points
 
@@ -390,6 +395,6 @@ Compiler-style pattern matching (structural pattern matching in ML, switch expre
 
 **Fly vs other flying insects**: Diptera = "two wings" — if it has one wing pair and gyroscopic halteres, it's a fly. "Fly" in common speech (mayfly, stonefly, firefly, butterfly) is not taxonomically meaningful.
 
-**Isoptera inside Blattodea**: Classic taxonomy listed termites as order Isoptera. Post-2007 molecular consensus: termites are embedded within cockroaches (order Blattodea). Current placement: epifamily Termitoidae within Blattodea.
+**Isoptera inside Blattodea**: Classic taxonomy listed termites as order Isoptera. Molecular phylogenetics places termites inside Blattodea; many current treatments use infraorder Isoptera within Blattodea rather than a separate order.
 
 **Parasitoid vs parasite**: Parasitoids kill their host (typically consuming it from inside). Parasites persist on/in a living host. Most "parasitic wasps" are parasitoids. This is a functional distinction, not taxonomic.

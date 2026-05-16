@@ -306,15 +306,23 @@ Both aircraft committed to ~50% composites; different design choices:
 
 ## Decision Cheat Sheet
 
-| 787 Design Question | Answer |
-|---------------------|--------|
-| Why CFRP fuselage? | Weight (-20%), fatigue elimination, pressure/humidity benefits |
-| How are fuselage barrels made? | AFP layup on mandrel, autoclave cure, ultrasonic inspection |
-| Why so many delays? | Supply chain and integration issues, not CFRP technology per se |
-| Why copper mesh in skin? | CFRP not conductive enough for lightning strike protection |
-| What failed in service? | Battery system (Li-ion), shimming compound delamination at joints |
-| How does CFRP change maintenance? | Less corrosion/fatigue inspection, but CFRP repair is expensive |
-| How does it compare to A350? | Similar composite fraction; A350 learned from 787 delays |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| CFRP fuselage rationale | Compare weight, fatigue, corrosion, cabin pressure/humidity, repair, and certification cost. | Weight benefit came with new production and repair complexity. |
+| Barrel manufacturing | Trace AFP layup, mandrel/tooling, autoclave cure, joins, shimming, and ultrasonic inspection. | Barrel architecture reduces fasteners but amplifies large-tooling and tolerance risk. |
+| Program delays | Separate global supply chain, outsourcing, systems integration, travelled work, battery issues, and composite technology. | Not every 787 delay was a composite-material failure. |
+| Lightning protection | Check CFRP conductivity, copper mesh, strike current path, repair, weight, and inspection. | Carbon fibers conduct poorly compared with metal skins. |
+| In-service failure modes | Distinguish Li-ion battery incidents, shimming delamination, impact, repair documentation, and inspection. | Battery failures were aircraft-system issues, not evidence against CFRP fuselage. |
+| Maintenance change | Compare corrosion/fatigue reduction, impact detection, bonded repairs, NDI, and approved repair schemes. | Less metal fatigue does not mean simpler maintenance overall. |
+| A350 comparison | Compare composite fraction, panel vs barrel philosophy, lessons learned, supply chain, and certification timing. | Similar material percentage can hide different manufacturing architectures. |
+
+---
+
+## Cross-References
+
+- `01-FUNDAMENTALS.md` explains why carbon-fiber composites changed weight, corrosion, and fatigue tradeoffs.
+- `06-DESIGN-ANALYSIS.md` supplies the laminate and failure-analysis tools behind aircraft certification.
+- `09-END-OF-LIFE.md` follows the lifecycle implications of aerospace composite adoption.
 
 ---
 

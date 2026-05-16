@@ -365,22 +365,28 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
 
 ---
 
+## Cross-References
+
+- `medicine/01-ANTIBIOTICS.md` — drug classes and bacterial targets under resistance pressure.
+- `microbiology/08-MICROBIAL-GENETICS.md` — horizontal gene transfer and resistance spread.
+- `public-health/01-EPIDEMIOLOGY.md` — surveillance and population-level containment.
+
 ## Decision Cheat Sheet
 
-| Concept | Key Point |
-|---------|-----------|
-| Most common Gram- resistance mechanism | β-lactamase production (blaTEM, CTX-M, NDM-1) |
-| MRSA mechanism | mecA encodes PBP2a; low affinity for all β-lactams |
-| VRE mechanism | vanA/vanB: D-Ala-D-Ala → D-Ala-D-Lac; vancomycin can't bind |
-| Most dangerous carbapenemase | NDM-1 (metalloenzyme; not inhibited by avibactam) |
-| First mobile colistin resistance | mcr-1 (from Chinese pigs; 2015; plasmid-borne) |
-| How resistance genes really spread | Integron → transposon → plasmid → conjugation |
-| What is the resistome? | All resistance genes in all microbes including environment |
-| Agricultural antibiotic share | ~73% of global antibiotic consumption (animals) |
-| Why no new antibiotic classes? | Market failure: short courses + stewardship = low revenue |
-| UK solution to pipeline crisis | Subscription model: pay for access, not per-unit |
-| Efflux pump in P. aeruginosa | MexAB-OprM (RND family); broad-spectrum export |
-| Anti-virulence advantage | Less selective pressure; bacteria survive, just can't cause disease |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Gram-negative beta-lactam resistance | Beta-lactamase production | Enzyme class determines inhibitor options. |
+| MRSA mechanism | mecA/PBP2a low beta-lactam affinity | mecA presence must align with phenotype. |
+| VRE mechanism | D-Ala-D-Lac target replacement | van genotype changes transmissibility and risk. |
+| Carbapenemase concern | NDM-1 metalloenzyme | Avibactam does not inhibit metallo-beta-lactamases. |
+| Mobile colistin resistance | mcr plasmid genes | Fitness cost and co-selection shape spread. |
+| Resistance-gene mobility | Integron to transposon to plasmid to conjugation | Mobility needs ecological selection to persist. |
+| Environmental reservoir | Resistome | Clinical resistance draws from environmental gene pools. |
+| Agricultural selection pressure | Animal antibiotic consumption | Policy impact depends on class and use pattern. |
+| Antibiotic pipeline failure | Stewardship and short-course market economics | Scientific difficulty and regulation also matter. |
+| Pipeline policy response | Subscription/access model | Delinkage pays for availability, not volume. |
+| Pseudomonas efflux | MexAB-OprM RND pump | Efflux often stacks with porin and enzyme mechanisms. |
+| Anti-virulence therapy | Reduce pathogenicity without killing | Lower selection is plausible, not guaranteed. |
 
 ---
 

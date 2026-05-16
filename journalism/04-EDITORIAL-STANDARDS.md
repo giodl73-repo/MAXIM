@@ -1,6 +1,6 @@
 # Editorial Standards: Ethics, Objectivity, Corrections, Conflicts of Interest
 
-## The Standards Framework
+## The Big Picture
 
 Editorial standards define what journalism is supposed to be: a discipline committed to truth, public service, and accountability. The Society of Professional Journalists (SPJ) Code of Ethics (revised 2014) provides the most widely cited US framework.
 
@@ -301,18 +301,24 @@ OWNERSHIP INFLUENCE ON EDITORIAL INDEPENDENCE
 
 ---
 
+## Cross-References
+
+- `03-REPORTING-WRITING.md` applies standards to story construction.
+- `05-INVESTIGATIVE.md` stresses standards under high-risk reporting.
+- `06-PRESS-FREEDOM.md` supplies the legal and political protections standards depend on.
+
 ## Decision Cheat Sheet
 
-| Ethical Situation | Standard |
-|-------------------|---------|
-| Error discovered after publication | Correct prominently, at same level as original story |
-| Source offers gift in exchange for favorable coverage | Decline; note attempt if relevant to story |
-| Beat source wants prior review of story | Decline story approval; offer quote-accuracy read-back only |
-| Conflicting scientific claims from competing interest groups | Calibrate weight to scientific consensus; disclose funding of sources |
-| Anonymous source makes serious allegation | Require documentary corroboration; at least one senior editor know source identity |
-| Reporter owns stock in company being covered | Sell stock or recuse from coverage |
-| Publisher pressures to soft-pedal advertiser criticism | Document pressure; resist; escalate within org or blow whistle |
-| Victim asks to be identified (protective journalism conflict) | Give serious weight to request; explain tradeoffs; respect autonomy |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Post-publication error | Prominent correction at the same level as original story | Corrections address factual accuracy, not subject dissatisfaction. |
+| Gift or favor offer | Decline and document if relevant | Access pressure can become part of the story. |
+| Prior review request | Decline approval; allow quote-accuracy read-back if appropriate | Source review of the full story compromises independence. |
+| Competing scientific claims | Weight claims by evidence and consensus; disclose funding | False balance is not fairness. |
+| Serious anonymous allegation | Documentary corroboration and senior-editor source knowledge | Anonymity is a tool, not a substitute for reliability. |
+| Reporter financial conflict | Recuse or divest | Disclosure alone does not remove a direct conflict. |
+| Advertiser/publisher pressure | Document, resist, escalate, or whistleblow | Editorial independence is operational, not just a stated value. |
+| Victim identification request | Weigh autonomy, safety, public interest, and trauma | Protective journalism should not erase agency without explanation. |
 
 ---
 

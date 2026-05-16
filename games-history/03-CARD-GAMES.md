@@ -47,7 +47,9 @@ PAPER MONEY → CARD GAMES HYPOTHESIS
 ═════════════════════════════════════
 
 Tang dynasty China:
-  Paper money (jiaozi) in circulation ~7th-8th century CE.
+  Paper money develops later in China; Tang-period play likely
+  involved paper slips, money-like tokens, or denomination concepts
+  rather than Song-dynasty jiaozi in the strict sense.
   Money amounts to physical tokens with:
     - Distinct values (ranks)
     - Combinational rules (which beats which)
@@ -517,9 +519,9 @@ VARIANTS:
 SOLITAIRE (Klondike)
 ═════════════════════
 
-The most commonly played card game in history (because
-it shipped with Windows 3.0 in 1990, teaching millions
-to use a mouse with drag-and-drop).
+One of the most widely played digital card games in history because it
+shipped with Windows 3.0 in 1990, teaching millions to use a mouse with
+drag-and-drop.
 
 Klondike: 7 tableau columns (1-7 cards face down,
   top card face up). Goal: build 4 foundation piles
@@ -535,8 +537,10 @@ PROBABILITY NOTE:
 
 FREECELL: Variant where all cards are visible.
   Almost all deals solvable (4 freecells = buffer).
-  Only 8 known unsolvable deals in the standard 32,000
-  numbered deals. TRUE: 99.999% solvable.
+  In the original Microsoft 32,000 numbered deals, only
+  deal #11982 is known to be unsolvable. Larger deal sets
+  contain additional unsolvable positions, but solvability
+  remains extremely high.
   This makes FreeCell a puzzle, not a chance game.
   TCS note: FreeCell is a deterministic planning problem —
   graph reachability in a finite state space. Generalized
@@ -613,20 +617,24 @@ BACCARAT:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Where did playing cards originate? | China, Tang dynasty ~850 CE (yezi ge) |
-| Oldest surviving substantial deck? | Mamluk deck, ~1370-1420 CE (Topkapi Museum) |
-| Why are French suits standard globally? | Simple 2-color printing, British trade spread them |
-| Was tarot invented for divination? | No — invented as a trick-taking game (~1420s Italy), divination use is ~1780s |
-| First systematic game rulebook? | Edmond Hoyle's "Treatise on Whist" (1742) |
-| What did Harold Vanderbilt invent? | Contract Bridge scoring system (1925, SS Finland) |
-| House edge: Blackjack basic strategy? | ~0.5% (without counting) |
-| Is card counting illegal? | No — it's mentally tracking information. Casinos may ban you. |
-| Can you count cards with 8 decks? | Much harder; True Count rarely gets high enough to matter |
-| Highest-skill card game? | Contract Bridge (by most measures) or Poker |
+| If you need to explain... | Start With | Key Distinction |
+|---------------------------|------------|-----------------|
+| Why cards appear first in China | Paper, money-like tokens, and leaf-game evidence | Exact paper-money mechanism is debated; East Asian origin is not |
+| How European decks descend from Islamic decks | Mamluk 52-card structure | Latin suits preserve the cups/coins/swords/polo-stick lineage |
+| Why French suits became global | Stencil/printing economy | Production simplicity beat richer regional iconography |
+| Why tarot is misunderstood | Tarocchi as a trick-taking game | Divination is an 18th-century reinterpretation, not the origin |
+| Why Whist matters | Hoyle and partnership trick-taking | Systematic card strategy precedes Bridge's auction system |
+| Why Bridge is the apex trick-taking game | Contract, vulnerability, dummy, duplicate play | Auction communication and duplicate scoring separate skill from deal luck |
+| Why Solitaire became culturally huge | Windows Klondike and FreeCell | Digital distribution, not ancient pedigree, drove mass familiarity |
+| Why Blackjack is mathematically special | Basic strategy + card counting | Public information can move edge; casinos counter by rules and access control |
 
 ---
+
+## Cross-References
+
+- [Games History Overview](00-OVERVIEW.md) places card games in the larger technology and play timeline.
+- [Poker](04-POKER.md) drills into one hidden-information card-game family.
+- [Dice and Gambling](06-DICE-GAMBLING.md) connects cards to chance, wagering, and probability culture.
 
 ## Common Confusion Points
 

@@ -539,6 +539,18 @@ The cool stone floor of a Romanesque church is an acoustic, thermal, and tactile
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Historical building lineages | `architecture-history/01-ANCIENT.md` | Spatial design principles become visible across temple, basilica, mosque, and civic forms |
+| Structural constraints | `structural/01-STATICS.md` | Space is bounded by loads, spans, materials, and stability |
+| Urban context and land use | `urban-planning/01-LAND-USE.md` | Buildings make spatial claims inside neighborhoods, circulation, zoning, and public life |
+| Environmental comfort systems | `hvac/01-THERMODYNAMICS.md` | Spatial design becomes occupied architecture through heat, air, light, and moisture control |
+| Design history and user affordance | `industrial-design/01-HISTORY-MOVEMENTS.md` | Architecture and product design share ergonomics, affordances, and modernist lineages |
+
+---
+
 ## Common Confusion Points
 
 **Program is not design**: The architectural program (area schedule + adjacency matrix) is a pre-design document. Writing it does not constrain design — it enables it. Architects who skip programming and go straight to form lose control of the design process when the client's requirements conflict with the emerging design.

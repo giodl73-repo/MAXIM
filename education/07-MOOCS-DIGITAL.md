@@ -2,7 +2,7 @@
 
 ## The Big Picture
 
-The Massive Open Online Course (MOOC) revolution (2012) promised to democratize higher education: world-class instruction freely accessible to anyone with internet. What actually happened was more complicated: MOOCs revealed a profound completion problem, failed to disrupt higher education as predicted, but succeeded as professional development tools, and the data they generated has informed adaptive learning systems that represent the more durable EdTech transformation.
+The Massive Open Online Course (MOOC) revolution (2012) promised to democratize higher education: world-class instruction freely accessible to anyone with internet. What actually happened was more complicated: MOOCs revealed a profound completion problem, failed to disrupt higher education as predicted, but succeeded as professional development tools. The more durable EdTech shift is not "free lectures replace universities"; it is the platform stack around online delivery, adaptive practice, analytics, credential experiments, and institutional support.
 
 ```
 +------------------------------------------------------------------+
@@ -402,16 +402,22 @@ Beyond MOOCs, the more durable EdTech contribution is adaptive learning -- syste
 
 ## Decision Cheat Sheet
 
-| Question | Answer | Implication |
-|----------|--------|-------------|
-| Do MOOCs democratize education? | Partially; serve already-educated most | Not a substitute for access; supplement |
-| What's the completion rate? | 3-15% for self-paced xMOOCs | Need accountability structures |
-| Who completes? | Already-educated professionals | Not reaching most disadvantaged |
-| What improves completion? | Cohorts, payment, reminders, coaching | Design accountability in |
-| What does adaptive learning actually do? | Personalizes sequence and pacing using mastery estimation | Strong evidence for math especially |
-| What is an LMS for? | Content delivery and management | Not sufficient for deep learning support |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a MOOC is an access intervention | Ask whether the bottleneck is content access, credential value, support, time, or preparation. | Free content helps motivated learners; it does not by itself solve advising, money, childcare, prior preparation, or employer recognition. |
+| Whether a low completion rate means failure | Separate casual browsers, auditors, serious starters, certificate seekers, and enrolled degree students. | The raw denominator is often inflated; still, self-paced massive courses need accountability if completion is the goal. |
+| Who benefits most from MOOCs | Check prior education, employment status, language, country income, broadband/device access, and credential motive. | The "democratization" claim is weakest when the least-advantaged learners lack the surrounding supports. |
+| Which completion intervention to add | Match the failure mode: no schedule, no social accountability, no feedback, weak credential value, or weak motivation. | Cohorts and payment raise commitment but reduce the open/flexible character that made MOOCs distinctive. |
+| Whether adaptive learning is the right tool | Look for a well-structured skill graph, frequent observable responses, and actionable feedback loops. | Adaptive math/practice systems have stronger evidence than open-ended humanities or complex project work. |
+| Whether an LMS solves a learning problem | Distinguish content logistics from pedagogy, mastery estimation, tutoring, advising, and community. | LMS telemetry tells you what happened; it rarely explains why learning failed without additional models and human interpretation. |
 
 ---
+
+## Cross-References
+
+- `06-HIGHER-EDUCATION.md` explains the institutional market MOOCs and OPMs entered.
+- `03-COGNITIVE-SCIENCE-EDU.md` supplies the learning-science baseline for adaptive systems.
+- `09-FUTURE-LEARNING.md` follows digital education into AI tutors and credential shifts.
 
 ## Common Confusion Points
 

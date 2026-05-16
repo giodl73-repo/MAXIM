@@ -333,17 +333,24 @@ The EU WFD (2000/60/EC) is the most comprehensive water legislation framework gl
 
 ---
 
+## Cross-References
+
+- `05-NUTRIENT-CYCLES.md` explains nutrient measurements and loading.
+- `06-EUTROPHICATION.md` connects chemistry to algal blooms and hypoxia.
+- `08-CONSERVATION.md` uses water-quality metrics for restoration decisions.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What BOD level indicates a healthy river? | < 2 mg/L; > 10 mg/L = heavily polluted |
-| What DO level is lethal for most fish? | < 1–2 mg/L; behavioral avoidance below 4 mg/L |
-| What is the EU WFD drinking water nitrate limit? | 50 mg NO3-/L; USA EPA equivalent is 44 mg NO3-/L (both convert to 10 mg N/L) |
-| What does EPT richness > 20 indicate? | Good to excellent stream quality; reference-like conditions |
-| What is the IBI? | Index of Biotic Integrity; multi-metric fish index scoring departure from reference conditions |
-| What is the oxygen sag curve? | Streeter-Phelps model: DO drops below point source discharge, reaches minimum at critical deficit, then recovers via reaeration |
-| What EU WFD status do 60% of EU water bodies currently fail? | Good ecological status; primarily agricultural diffuse pollution + hydromorphological alteration |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Organic pollution by BOD | Healthy river below 2 mg/L; heavily polluted above 10 mg/L | Specify BOD5 versus ultimate BOD. |
+| Fish oxygen stress | Lethal DO below 1-2 mg/L and avoidance below 4 mg/L | Species, temperature, and life stage change thresholds. |
+| Nitrate standard conversion | EU 50 mg NO3-/L and US 44 mg NO3-/L both near 10 mg N/L | Nitrate-as-ion and nitrate-as-N units are easy to confuse. |
+| Stream biological quality | EPT richness above 20 for reference-like quality | Richness and percent abundance answer different questions. |
+| Fish community integrity | IBI as departure from reference conditions | Reference condition is regional, not universal. |
+| Point-source oxygen sag | Streeter-Phelps DO deficit and reaeration curve | Assumes conditions that may not hold in complex rivers. |
+| EU WFD failure mode | Failure to reach good ecological status | Ecological status is departure from reference, not one absolute chemistry value. |
+| Conductivity anomaly | Salinization, mine drainage, road salt, or acid-impacted soft water | Conductivity is context, not a pollutant by itself. |
 
 ---
 

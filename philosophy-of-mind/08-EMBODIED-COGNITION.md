@@ -329,16 +329,27 @@ IMPLICATION FOR LLMs:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Cartesian mind-body framing | `philosophy-of-mind/01-MIND-BODY-PROBLEM.md` |
+| Functionalist internal-state model | `philosophy-of-mind/02-FUNCTIONALISM.md` |
+| AI understanding debate | `philosophy-of-mind/04-CHINESE-ROOM.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| If evaluating AI claim... | The embodied cognition counter is... |
-|---|---|
-| "LLMs understand physical causality / spatial reasoning" | Moravec paradox + enactivism: sensorimotor grounding is 540 million years of evolution; abstract language processing is recent. LLMs have the shallow layer (recent evolutionary layer = narrow cortical module) but lack the foundation (sensorimotor coupling). Consistent with observed failures in physical reasoning tasks. |
-| "Adding tools/APIs to an LLM gives it grounded cognition" | Clark/Chalmers extended mind can support this — if the tool is reliably accessible and automatically endorsed, it may qualify as an extended cognitive component. But Dreyfus counter: tool use in the extended mind sense still requires the right kind of sensorimotor coupling. A robot with tools is different from an LLM with API calls. |
-| "LLMs will achieve human-level common sense with scale" | Dreyfus: expert-level skill is absorbed engagement, not rule-following at scale. GOFAI (which Dreyfus critiqued) also improved with scale without achieving common sense. Deep learning is architecturally different from GOFAI, but the missing embodied grounding concern still applies. |
-| "A team using AI tools is just a human team with better tools" | Hutchins distributed cognition: the team + AI tools is a new cognitive system with different properties from either component alone. Productivity, error patterns, and failure modes are properties of the whole system. Managing the cognitive system well requires understanding how the distributed components interact — not just evaluating individual tools. |
-| "Conceptual reasoning is substrate-independent" | Lakoff/Johnson: abstract concepts are built on sensorimotor schemas. The words are substrate-independent; the conceptual structure they encode may not be. LLMs learn the linguistic manifestations of conceptual metaphors without the underlying sensorimotor grounding — whether this matters for the conceptual operations they can perform is empirically open. |
-| "AI systems will be conscious when sufficiently complex" | Enactivism/Merleau-Ponty: consciousness may require autopoietic sensorimotor coupling with an environment, not just sufficient computational complexity. A sufficiently complex text processor might still lack the embodied engagement that constitutes experience. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| AI physical/spatial reasoning claims | Moravec paradox, sensorimotor grounding, and enactivism | Language competence can mask weak physical coupling. |
+| Tool/API grounding claims | Extended mind criteria: reliable access and automatic endorsement | API access is not automatically embodied coupling; robot/tool integration differs. |
+| Scale-to-common-sense claims | Dreyfus on absorbed skill and non-rule-following expertise | Deep learning is not GOFAI, but grounding concerns can still apply. |
+| Human teams augmented by AI | Hutchins-style distributed cognition | Team+tool behavior has system-level failure modes not visible in individual tools. |
+| Substrate-independent conceptual reasoning | Lakoff/Johnson sensorimotor schemas for abstract concepts | Words may transfer while underlying conceptual grounding remains open. |
+| Complexity-to-consciousness claims | Enactivism, autopoiesis, and Merleau-Ponty embodiment | Computational complexity alone may not constitute lived engagement. |
+| Strong versus moderate embodiment | Constitutive versus shaping roles for the body | Different embodiment strengths imply different AI limits. |
 
 ---
 

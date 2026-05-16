@@ -341,33 +341,24 @@ If Hypothesis 2 is correct:
 
 ---
 
+## Cross-References
+
+- `animal-phylogeny/01-SINGLE-CELL-ORIGINS.md` — pre-animal cellular foundations.
+- `animal-phylogeny/03-LOPHOTROCHOZOA-WORMS.md` — bilaterian body-plan diversification.
+- `evolutionary-biology/05-PHYLOGENETICS.md` — tree inference behind early-animal placement.
+
 ## Decision Cheat Sheet
 
-```
-IDENTIFYING NON-BILATERIAN ANIMALS
-
-Has pores (ostia), no mouth, filter feeds?
-  → PORIFERA (sponge)
-  What skeleton? Calcareous → Calcarea
-                 Silica + spongin → Demosponge
-                 6-rayed silica → Hexactinellida
-
-Flat, ~1mm, no fixed shape, no tissues?
-  → PLACOZOA (Trichoplax)
-
-Has stinging tentacles (nematocysts)?
-  → CNIDARIA
-  Attached to substrate? → POLYP form
-  Bell-shaped, swimming? → MEDUSA form
-  Polyp only, reef-builder? → ANTHOZOA (coral/anemone)
-  "True" free-swimming jelly? → SCYPHOZOA
-  Box-shaped bell, true eyes? → CUBOZOA (box jellyfish — dangerous!)
-  Long tentacles, colonial float? → Physalia (Hydrozoa)
-
-Has 8 rows of comb plates, sticky tentacles (not stinging)?
-  → CTENOPHORA (comb jelly)
-  Bioluminescent? → yes (photophores)
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether an animal is a sponge | Pores, no mouth, filter-feeding body plan | Skeleton chemistry separates major groups; "simple" does not mean non-animal. |
+| Whether a tiny flat animal is placozoan | Flat, millimeter-scale body with no fixed shape or tissues | Placozoans are easy to miss and not just juvenile cnidarians or sponge fragments. |
+| Whether stinging tentacles define the animal | Cnidarian nematocysts | Polyp/medusa form is life-stage architecture, not always a taxonomic identity. |
+| Whether a reef-builder is cnidarian | Anthozoan polyp-only organization | Coral identity depends on symbiosis and skeleton; bleaching is stress, not instant death. |
+| Whether a "jellyfish" is a true jelly | Scyphozoan medusa traits | Hydrozoan colonies such as Physalia are not true jellyfish. |
+| Whether a dangerous box-shaped jelly is cubozoan | Cubozoan bell and complex eyes | Eye complexity does not imply centralized brain-like control. |
+| Whether comb rows identify ctenophores | Eight ciliary comb rows and sticky tentacles | Ctenophores use colloblasts, not cnidarian stinging cells. |
+| Whether bioluminescence is diagnostic | Ctenophore photophores | Bioluminescence is common enough that body plan still decides identity. |
 
 ---
 

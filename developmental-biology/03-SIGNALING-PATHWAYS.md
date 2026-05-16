@@ -382,13 +382,19 @@ WNT-NOTCH-HEDGEHOG INTERACTIONS
 
 ---
 
+## Cross-References
+
+- `developmental-biology/02-GASTRULATION.md` - pathway deployment during body-axis formation.
+- `developmental-biology/04-HOX-GENES.md` - patterning genes downstream of positional signals.
+- `biology/02-CELL-BIOLOGY.md` - cell signaling machinery at the cellular layer.
+
 ## Decision Cheat Sheet
 
-| Pathway | Key Receptor | Key Effector TF | Cancer Relevance | Therapeutic |
-|---------|-------------|----------------|-----------------|-------------|
-| Wnt | Frizzled + LRP5/6 | β-catenin → TCF/LEF | APC mutations (CRC), CTNNB1 (HCC) | Tankyrase inh., PORCN inh. |
-| Notch | Notch1-4 | NICD → CSL/RBPjk → HES | NOTCH1 in T-ALL, JAG1 in Alagille | γ-secretase inh. (GSI) |
-| Hedgehog | PTCH1/2, SMO | Gli1/2/3 | PTCH1 in BCC, medulloblastoma | Vismodegib (SMO inh.) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Wnt pathway activation | Frizzled/LRP to beta-catenin/TCF | Canonical and noncanonical arms depend on cellular context. |
+| Notch boundary signaling | Ligand-neighbor NICD to CSL/RBPjk | Cis-inhibition can sharpen fate boundaries. |
+| Hedgehog pathway activation | PTCH/SMO control of Gli factors | Vertebrate signaling depends on primary-cilium trafficking. |
 
 ---
 

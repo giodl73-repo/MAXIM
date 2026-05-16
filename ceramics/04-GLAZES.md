@@ -354,17 +354,23 @@ In Guan ware (Song Dynasty), crazing is a deliberate and celebrated aesthetic. I
 
 ---
 
+## Cross-References
+
+- `ceramics/03-DRYING-FIRING.md` — kiln schedule and glaze maturity.
+- `glassmaking/01-GLASS-SCIENCE.md` — glass chemistry behind glaze melts.
+- `pigments/01-PREHISTORIC-EARTH.md` — oxide colorants and mineral pigment chemistry.
+
 ## Decision Cheat Sheet
 
-| Goal | Glaze Approach |
-|------|---------------|
-| Food-safe white opaque earthenware | Tin glaze (8-12% SnO₂) + lead-free flux |
-| Blue decoration on white | Cobalt oxide underglaze + clear glaze over |
-| Celadon (jade green) | 1-2% iron, high-fire reduction Cone 10 |
-| Copper red (sang de boeuf) | 0.5-1.5% copper, gas reduction Cone 10 |
-| Matte satin surface | CaO + MgO flux; medium Al₂O₃ |
-| Crystalline surface | High ZnO, no Al₂O₃, precise controlled cooling |
-| Maximum visual surface interest | Rutile (TiO₂ + Fe) = breaking, unpredictable |
-| Classical tenmoku | 8-12% iron, gas reduction Cone 10-12 |
-| Orange-peel texture without salt kiln | Crystalline or specific crawl glaze |
-| Bright commercial colors | Low-fire commercial stains (Cone 06 range) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether white opaque earthenware must be food-safe | Lead-free tin glaze with 8-12 percent SnO2 | Opacity is not the same as leach safety; test fired ware. |
+| Whether blue-on-white should survive firing | Cobalt underglaze plus clear glaze | Cobalt is powerful and can bleed; application thickness matters. |
+| Whether celadon green is the target | 1-2 percent iron in high-fire reduction | Body color, glaze thickness, and atmosphere timing shift the result. |
+| Whether copper red is feasible | 0.5-1.5 percent copper in Cone 10 gas reduction | Small atmosphere differences can turn red to green, clear, or muddy. |
+| Whether a matte satin surface is desired | CaO/MgO flux balance with medium Al2O3 | Matte glazes can be underfired, rough, or harder to clean if poorly formulated. |
+| Whether crystalline surfaces are the goal | High ZnO, low/no Al2O3, controlled cooling | Crystals need schedule precision and may run dramatically. |
+| Whether visual breaking/unpredictability is wanted | Rutile with TiO2 and iron | Rutile effects are body, thickness, and atmosphere sensitive. |
+| Whether classical tenmoku is the goal | 8-12 percent iron in Cone 10-12 reduction | Iron saturation produces beauty only within a narrow melt/atmosphere window. |
+| Whether orange-peel texture must avoid salt kiln | Crystalline or crawl-glaze approach | Texture without vapor glazing may sacrifice durability or cleanability. |
+| Whether bright commercial color is the priority | Low-fire commercial stains around Cone 06 | Bright palette usually trades against high-fire durability and surface depth. |

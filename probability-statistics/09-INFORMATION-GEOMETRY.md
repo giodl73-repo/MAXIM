@@ -368,18 +368,24 @@ Connecting large deviations theory (03-LIMIT-THEOREMS) to information geometry:
 
 ---
 
+## Cross-References
+
+- `information-theory/09-INFORMATION-GEOMETRY.md` — parallel information-theory treatment of the same geometry.
+- `differential-geometry/01-MANIFOLDS.md` — manifold language used for distribution families.
+- `probability-statistics/05-STATISTICAL-INFERENCE.md` — Fisher information and Cramer-Rao bounds as inference geometry.
+
 ## Decision Cheat Sheet
 
-| Concept | What It Is | Used For |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Fisher metric | Riemannian metric on distribution space | Cramer-Rao, natural gradient |
-| KL divergence (forward) | D_KL(data \|\| model) | MLE, moment matching |
-| KL divergence (reverse) | D_KL(model \|\| data) | Variational inference |
-| Natural gradient | Fisher-preconditioned gradient | Efficient optimization |
-| e-flat manifold | Exponential family geometry | MLE is a projection |
-| m-flat manifold | Mixture family geometry | Moment matching is a projection |
-| EM algorithm | Alternating dual projections | Latent variable models |
-| Alpha-divergence | Generalization of KL | Robust estimation |
+| Whether parameter space has an intrinsic metric | Fisher information metric | Degenerate or misspecified models can make geometry singular |
+| Whether MLE is minimizing data-to-model discrepancy | Forward KL `D_KL(data || model)` | Forward KL penalizes missing data support heavily |
+| Whether variational inference is mode-seeking | Reverse KL `D_KL(model || data)` | Reverse KL can ignore low-probability modes |
+| Whether gradients should respect statistical geometry | Natural gradient | Computing or approximating the Fisher matrix is the cost |
+| Whether exponential-family structure is flat | e-flat manifold | Projection statements depend on the chosen connection |
+| Whether mixture constraints are flat | m-flat manifold | Moment matching is projection under dual geometry, not Euclidean distance |
+| Whether latent-variable fitting alternates projections | EM algorithm | EM can converge slowly and to local optima |
+| Whether KL is too brittle | Alpha-divergence family | Robustness changes which errors are emphasized |
 
 ---
 

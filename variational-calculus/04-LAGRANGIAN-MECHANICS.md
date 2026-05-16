@@ -291,17 +291,23 @@ The Lagrangian formulation extends naturally to fields (infinite DOF):
 
 ---
 
+## Cross-References
+
+- `variational-calculus/02-EULER-LAGRANGE.md` — Euler-Lagrange equations generate the equations of motion.
+- `variational-calculus/05-HAMILTONIAN-MECHANICS.md` — Legendre-transform counterpart to the Lagrangian formulation.
+- `physics/02-CLASSICAL-MECHANICS.md` — physical mechanics context where available.
+
 ## Decision Cheat Sheet
 
-| Situation | Lagrangian approach |
-|-----------|---------------------|
-| Particle in gravity | L = ½mṙ² − mgz; E-L gives Newton's 2nd |
-| Central force | Polar coords; p_θ = mr²θ̇ conserved |
-| Constraint (ball on surface) | Use 2 angular coords; constraint solved by construction |
-| EM field | L = ½mṙ² − q(φ − ṙ·A/c); canonical momentum p = mṙ + qA/c |
-| Rigid body | Euler angles; T = ½ωᵀIω |
-| Field theory | Lagrangian density L(φ,∂φ); E-L = PDE for fields |
-| Conserved quantity | Find cyclic coordinate (∂L/∂qᵢ = 0) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Particle under gravity | Kinetic minus potential Lagrangian | Euler-Lagrange recovers Newton only after coordinates are chosen. |
+| Central-force motion | Polar coordinates and cyclic angle | Conserved canonical momentum follows symmetry. |
+| Holonomic constraint | Generalized coordinates satisfying constraint | Nonholonomic constraints need extra care. |
+| Charged particle in EM field | Velocity-dependent vector-potential term | Canonical and mechanical momentum differ. |
+| Rigid-body dynamics | Euler angles and inertia tensor | Coordinates can introduce singularities. |
+| Field theory | Lagrangian density over fields | Euler-Lagrange becomes a PDE. |
+| Conserved quantity | Cyclic coordinate or Noether symmetry | Coordinate absence must be genuine symmetry. |
 
 ---
 

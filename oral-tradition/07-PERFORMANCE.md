@@ -334,18 +334,25 @@ MEMORY IN THE BODY:
 
 ---
 
+## Cross-References
+
+- `01-ORAL-COMPOSITION.md` explains how performance creates text in real time.
+- `04-WORLD-EPIC.md` supplies major performance traditions.
+- `08-ORAL-HISTORY.md` contrasts performed tradition with interview-based testimony.
+
 ## Decision Cheat Sheet
 
-| Performer type | Region | Key features |
-|----------------|--------|-------------|
-| Griot / Jeli | West Africa | Hereditary; genealogy + history + praise + music; patron relationship |
-| Skald | Norse/Iceland | Court poet; drottkvaett meter; kenning density; named individuals |
-| Guslar | South Slavic | Epic singer; gusle instrument; Parry-Lord research subjects |
-| Aoidos | Ancient Greece | Singer (Homer's term); composition-in-performance |
-| Rhapsode | Classical Greece | Reciter of fixed text; relay recitation at Panathenaia |
-| File / Bard | Irish/Celtic | Bardic school training; satire power; legal function |
-| Brahmin reciter | India | Sacred Vedic text; 11-checking system; no deviation allowed |
-| Manaschi | Kyrgyz | Manas epic specialist; initiated; longest oral epic tradition |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| West African historical performance | Jeli/griot genealogy, praise, music, patronage, and diplomacy | "Storyteller" flattens a hereditary political institution. |
+| Norse court poetry | Skaldic drottkvaett, kennings, and named poet context | Skaldic form is technically dense, not generic bardic singing. |
+| South Slavic epic singing | Guslar, gusle drone, and Parry-Lord field recordings | Instrument provides rhythmic scaffolding, not guitar-like melody. |
+| Homeric singer model | Aoidos and composition-in-performance | This is recomposition within tradition, not memorized fixed text. |
+| Classical Greek reciter | Rhapsode and fixed-text relay performance | Rhapsode is a later performance ecology than aoidos. |
+| Irish/Celtic learned poet | File/bard training, satire, law, and patronage | Bardic role can be juridical and political, not merely literary. |
+| Vedic recitation | Brahmin reciter and multi-checking systems | Stability comes from ritual consequences and formal checks. |
+| Kyrgyz epic specialist | Manaschi initiation and Manas performance scale | Version boundaries shape "longest epic" claims. |
+| Performance occasion | Wedding/funeral/court/ritual setting | There is no version-independent text apart from occasion. |
 
 ---
 

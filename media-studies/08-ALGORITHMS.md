@@ -380,16 +380,26 @@ The YouTube radicalization pathway was widely discussed 2018-2022:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Medium theory and infrastructure effects | `media-studies/01-MEDIUM-IS-MESSAGE.md` |
+| Journalism distribution systems | `media-studies/06-JOURNALISM.md` |
+| Global platform governance | `media-studies/09-GLOBAL-MEDIA.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Evidence | Implication |
-|----------|----------|-------------|
-| Are filter bubbles real? | Exist but smaller than claimed; self-selection > algorithm | Don't over-attribute to algorithm |
-| Does YouTube radicalize? | Some pipeline effect for small %; overstated | Targeted intervention for extreme content |
-| Does outrage get amplified? | Yes -- well-documented (Facebook docs) | Core design problem; needs regulation |
-| What drives disinformation spread? | Human sharers > bots | Both platform design and user behavior |
-| Are algorithms transparent? | No -- proprietary, opaque | DSA researcher access is step forward |
-| Can algorithms be audited? | Partially -- sock puppets, trace data | Imperfect but necessary |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether filter bubbles are real | Compare algorithmic ranking with self-selection and social graph effects | Bubbles exist but are often smaller than claimed; polarization has multiple causes. |
+| Whether YouTube radicalizes | Pipeline effects, edge-case trajectories, and recommendation exposure | Effects are uneven; avoid treating all users as moving down one funnel. |
+| Whether outrage is amplified | Engagement optimization and high-arousal content performance | The algorithm optimizes engagement, not outrage as a conscious category. |
+| What drives disinformation spread | Human sharing, platform affordances, and bot amplification | Bots are part of the system, but human novelty/identity sharing can dominate. |
+| Whether algorithms are transparent | Proprietary models, ranking objectives, and data-access limits | Transparency reports rarely equal causal explanation. |
+| Whether algorithms can be audited | Sock-puppet audits, trace data, API access, and researcher access rules | Audits are partial views of dynamic systems, but still necessary. |
 
 ---
 

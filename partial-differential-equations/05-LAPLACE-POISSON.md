@@ -344,18 +344,24 @@ The natural basis for ∇²u = 0 on spherical domains:
 
 ---
 
+## Cross-References
+
+- `physics/01-ELECTROSTATICS.md` — Poisson equation as the field equation for electrostatic potential.
+- `complex-analysis/08-HARMONIC-FUNCTIONS.md` — harmonic functions as real and imaginary parts of holomorphic functions.
+- `partial-differential-equations/07-GREENS-FUNCTIONS.md` — Green's functions solve Poisson problems with arbitrary sources.
+
 ## Decision Cheat Sheet
 
-| I want to... | Use |
-|--------------|-----|
-| Solve ∇²u = 0 in rectangle | Separation of variables (Fourier sine series) |
-| Solve ∇²u = 0 in ball/sphere | Spherical harmonics expansion |
-| Solve ∇²u = 0 in half-space | Method of images + Poisson integral formula |
-| Solve ∇²u = f in general domain | Green's function G(x,y) — volume potential |
-| Solve ∇²u = 0 with given boundary values | Poisson kernel P(x,y) — boundary integral |
-| Prove uniqueness for Laplace | Maximum principle or energy method |
-| Extend u harmonically from boundary | Poisson integral formula |
-| Expand in multipoles | Spherical harmonics Y_ℓᵐ with Ar^ℓ + Br^{−ℓ−1} radial factors |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a rectangle problem separates | Fourier sine/cosine series | Boundary conditions choose the eigenbasis |
+| Whether spherical symmetry controls the solution | Spherical harmonics | Singular radial factors must be excluded inside regular domains |
+| Whether a half-space can be solved by symmetry | Method of images plus Poisson integral | Image constructions depend on flat boundaries and compatible BCs |
+| Whether forcing in a general domain is the main issue | Green's function volume potential | Domain Green's functions encode boundary conditions |
+| Whether boundary values determine a harmonic interior | Poisson kernel boundary integral | Kernel formulas are geometry-specific |
+| Whether uniqueness is secure | Maximum principle or energy method | Neumann problems are unique only up to constants unless compatibility holds |
+| Whether boundary data can be harmonically extended | Poisson integral formula | Regularity of the boundary data controls interior smoothness |
+| Whether far-field structure matters | Multipole expansion with spherical harmonics | Multipoles are asymptotic or geometry-adapted, not universal solvers |
 
 ---
 

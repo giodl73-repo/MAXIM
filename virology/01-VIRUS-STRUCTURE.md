@@ -239,16 +239,22 @@ Beyond structural proteins, most complex viruses encode non-structural proteins:
 
 ---
 
+## Cross-References
+
+- `microbiology/02-VIRAL-BIOLOGY.md` — broader viral replication and classification context.
+- `virology/03-REPLICATION-CYCLES.md` — structure as the entry and replication-enabling package.
+- `immunology/03-B-CELLS-ANTIBODIES.md` — capsid and envelope proteins as antibody targets.
+
 ## Decision Cheat Sheet
 
-| Question | Key point |
-|----------|-----------|
-| Why icosahedral geometry? | Maximum volume/subunit by symmetric self-assembly |
-| How does capsid size scale? | Triangulation number T: more subunits = larger T |
-| Why are enveloped viruses fragile? | Lipid bilayer destroyed by soap, UV, drying |
-| Why do RNA viruses have small genomes? | RNA is chemically unstable; error rate limits genome size |
-| Why do some viruses have segmented genomes? | Allows reassortment (key for flu evolution) |
-| What determines host range? | Surface glycoprotein–receptor compatibility |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Icosahedral capsid logic | Symmetric self-assembly with high volume per subunit | Geometry constrains design but does not determine host tropism. |
+| Capsid-size scaling | Triangulation number T | Larger T still uses repeated local interactions. |
+| Enveloped-virus fragility | Lipid bilayer sensitivity to soap, UV, and drying | Envelopes also enable immune evasion and entry machinery. |
+| Small RNA-virus genomes | Error-rate and stability limits | Some RNA viruses expand capacity with segmentation or proofreading. |
+| Segmented viral genomes | Reassortment potential | Reassortment requires co-infection of compatible strains. |
+| Host-range constraint | Glycoprotein-receptor compatibility | Entry is necessary but not sufficient for productive infection. |
 
 ---
 

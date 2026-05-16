@@ -321,6 +321,12 @@ SUSTAINABILITY AND CRISIS
 
 ---
 
+## Cross-References
+
+- `01-COUTURE-SYSTEM.md` explains the institutional high-fashion system.
+- `02-RTW-PRÊT.md` covers the industrial ready-to-wear model.
+- `../social-history/00-OVERVIEW.md` connects dress to class, gender, labor, and public culture.
+
 ## Common Confusion Points
 
 **"Fashion history is just who wore what when"** -- Fashion history is a record of
@@ -345,15 +351,13 @@ seam or an off-grain cut. The simplest clothes demand the most skill.
 
 ## Decision Cheat Sheet
 
-| When you need to...                                          | Use this historical model / analogy    | Because                                                 |
-|--------------------------------------------------------------|----------------------------------------|---------------------------------------------------------|
-| Evaluate whether a trend is structural or cyclical           | Compare to pendulum swings (volume ↔ minimalism, tight ↔ loose) | Most fashion movements are reactions to the prior era |
-| Explain why luxury trickles down and street style percolates up | Simmel's imitation-differentiation (1904) | Elite adoption → mass imitation → elite abandonment is the core cycle |
-| Assess whether a designer is innovating or reviving          | Check against Worth (1858) → Poiret (1906) → Chanel (1920s) → Dior (1947) pattern | Innovation = new relationship to the body, not just new decoration |
-| Identify the most technically revered couturier as benchmark | Balenciaga (1950s-60s)                 | Sculptural construction without visible structure        |
-| When fashion became young and accessible          | 1960s (Quant, Courreges)        | Youthquake shifted authority from couture to street |
-| When Japanese designers challenged Paris          | 1981 (Yamamoto, Kawakubo)       | Deconstructivism introduced non-Western body politics |
-| 1980s power and excess                           | Armani + Versace (opposite poles)| Tailoring vs. theatrics defined the decade's tension |
-| 1990s reaction to excess                         | Helmut Lang, Calvin Klein        | Minimalism as anti-spectacle; luxury through restraint |
-| The theatrical heights of couture spectacle      | Galliano/Dior, McQueen          | Show as artwork; expanded what fashion could be |
-| How streetwear entered luxury                    | Virgil Abloh / Off-White        | Streetwear's irony and reference culture legitimized by legacy houses |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Structural vs cyclical trend | Body silhouette, production system, class signal, and distribution channel | Many trends are pendulum reactions, not permanent breaks |
+| Trickle-down/up claim | Simmel imitation-differentiation plus street/style feedback | Luxury no longer has one-way authority |
+| Innovation claim | Relationship to body, gender, labor, technology, and market | New decoration is weaker evidence than a new system of dress |
+| Couture benchmark claim | Balenciaga for structure; Dior for commercial silhouette; Chanel for modern utility | "Most important" depends on criterion |
+| Youthquake claim | 1960s youth market, boutiques, synthetic materials, and media | Accessibility changed authority, not just hemlines |
+| Japanese avant-garde claim | Yamamoto/Kawakubo 1981 and deconstructed body politics | It challenged Paris from inside the Paris system |
+| Streetwear-luxury claim | Sneakers, logos, drops, collaboration, and reference culture | Abloh is pivotal, but the shift had many roots |
+| Sustainability/digital-era claim | Volume, labor, materials, resale, virtual goods, and platform culture | Pledges do not equal reduced production volume |

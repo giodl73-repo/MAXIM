@@ -290,20 +290,26 @@ RULE: The last step before finishing should be this naphtha/water check.
 
 ---
 
+## Cross-References
+
+- `01-WOOD-SELECTION.md` explains grain, figure, and defect behavior.
+- `02-HAND-TOOLS.md` covers planes, scrapers, and layout tools.
+- `06-FINISHING.md` depends on surface preparation for adhesion and clarity.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What do winding sticks show? | Twist (wind) in a board — sticks appear non-parallel when twisted |
-| What is the correct planing sequence? | Traverse → diagonal → with-grain |
-| When should you use a card scraper? | Difficult or reversing grain where planing causes tear-out |
-| How is the burr on a scraper formed? | Filing flat → stoning → burnishing at 90° → rolling with burnisher at 5–10° tilt |
-| What grit do you start with for machine-planed surfaces? | 80 grit (machine marks are coarse) |
-| Can you skip grits? | No — each grit removes scratches from previous; skipping doubles work |
-| What does grain raising prevent? | Fuzzy surface under first coat of water-based finish |
-| What shows remaining scratches before finishing? | Raking light; naphtha wipe (simulates finish appearance) |
-| When should you stop sanding? | 180–220 for most finishes; no benefit beyond 320 under typical topcoats |
-| What causes blotching in pine/cherry staining? | Uneven porosity; fix with pre-conditioner or gel stain |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Board twist | Winding sticks showing non-parallel sight lines | Smooth is not flat; diagnose flatness before surface sheen. |
+| Hand-planing sequence | Traverse, diagonal, then with-grain passes | Traverse looks wrong to beginners but is efficient rough leveling. |
+| Tear-out in reversing grain | Card scraper instead of plane | Scrapers excel locally; sanding may still win on large flat panels. |
+| Scraper underperformance | File, stone, burnish at 90 degrees, then roll burr 5-10 degrees | A scraper without a burr is just a dull plate. |
+| Machine-planed marks | Start around 80 grit | Sanding reveals defects if the surface is not already flat. |
+| Scratch progression | Sequential grits removing prior scratches | Skipping grits usually saves no time. |
+| Water-based fuzz | Pre-raise grain, dry, and sand before finish | Grain raising will happen; choose whether before or after first coat. |
+| Hidden scratches | Raking light and naphtha preview | Finish makes scratches more visible, not less. |
+| Sanding endpoint | 180-220 for most finishes | Beyond 320 often reduces finish adhesion or wastes effort under film finishes. |
+| Pine/cherry blotch | Pre-conditioner, gel stain, or alternate finish schedule | Blotch is uneven porosity, not bad staining technique alone. |
 
 ---
 

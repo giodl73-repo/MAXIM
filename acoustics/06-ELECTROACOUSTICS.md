@@ -260,18 +260,24 @@ Xmax:            mm one-way excursion at specified THD
 
 ---
 
+## Cross-References
+
+- `electronics/01-CIRCUITS.md` — electrical network model behind microphones and loudspeakers.
+- `acoustics/01-WAVE-PHYSICS.md` — acoustic pressure/velocity side of transduction.
+- `signal-processing/01-SIGNALS-SYSTEMS.md` — filtering and frequency-response analysis for audio systems.
+
 ## Decision Cheat Sheet
 
-| Application | Best Microphone Type |
-|-------------|---------------------|
-| Live vocals (stage) | Dynamic cardioid (SM58 type) — handles abuse, feedback rejection |
-| Studio vocals | Large diaphragm condenser — maximum detail and sensitivity |
-| Acoustic piano | Small diaphragm condenser pair — precise transients and stereo |
-| Kick drum | Large diaphragm dynamic (D112, Beta 52) — handles high SPL |
-| Guitar amp | Dynamic (SM57) or ribbon — close micing |
-| Room ambience | Pair of small condensers (ORTF, XY) or large condenser |
-| Measurement/calibration | Reference condenser omnidirectional |
-| Ultrasound | Piezoelectric transducer (piezo) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a stage vocal mic will survive feedback and abuse | Dynamic cardioid pattern and monitor geometry | Rejection pattern matters as much as capsule ruggedness |
+| Whether studio vocals need a condenser | Source loudness, room noise, and desired detail | A sensitive mic also captures a bad room and mouth noise |
+| Whether piano capture needs stereo detail | Small-diaphragm condenser pair and placement geometry | Mic spacing trades image width against phase coherence |
+| Whether kick drum needs a dynamic mic | SPL handling, diaphragm behavior, and desired attack | "Handles SPL" is not the same as capturing the wanted transient shape |
+| Whether guitar amp needs dynamic or ribbon | Cabinet tone, SPL, and proximity effect | Ribbon mics can be excellent but require care with phantom power and air blasts |
+| Whether ambience capture is convincing | Stereo technique: ORTF, XY, spaced pair, or room pair | More room sound is useful only when the room itself sounds good |
+| Whether measurements are calibrated | Reference omni mic and calibration file | Music mics are voiced; measurement mics should be boring and traceable |
+| Whether ultrasound needs a different transducer | Piezoelectric element and coupling medium | Air, water, and tissue require different impedance and frequency assumptions |
 
 ---
 

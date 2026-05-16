@@ -353,16 +353,23 @@ Musical form systems and dance form systems are closely related -- because many 
 
 ## Decision Cheat Sheet
 
-| Situation | Music-dance model in use |
-|-----------|--------------------------|
-| Ballet follows accent by accent | Mickey-mousing (music visualization) |
-| Balanchine plotless ballet | Musical architecture made visible |
-| Cunningham work | Full independence; share only time/space |
-| West African circle dance | Dancer leads drummer |
-| Tap dance | Body IS the percussion instrument |
-| Flamenco zapateado + guitar | Counterpoint; neither leads |
-| Butoh with industrial noise | Ambient emotional field |
-| Graham dramatic ballet | Commissioned score with structural correspondence |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Music visualization | Check accent matching, phrase alignment, gesture timing, and whether movement merely illustrates sound. | Mickey-mousing can clarify structure or become simplistic literalism. |
+| Balanchine-style musicality | Analyze musical architecture, counterpoint, rhythm, canon, and plotless spatial design. | Making music visible is not the same as following every beat. |
+| Cunningham independence | Separate dance, music, design, chance procedure, shared duration, and performance synchronization. | Independence still requires rigorous timing discipline. |
+| Dancer-drummer interaction | Use West African call-response, cueing, polyrhythm, and drummer adaptation to dancer. | Leadership can shift within the performance ecology. |
+| Body as instrument | Diagnose tap rhythm, timbre, weight, floor response, syncopation, and ensemble timing. | Percussive dance is music-making as well as movement. |
+| Flamenco counterpoint | Track compas, palmas, zapateado, guitar, cante, and negotiated lead/follow. | Neither music nor dance is permanently subordinate. |
+| Ambient or commissioned score | Compare emotional field, structure correspondence, dramaturgy, and performer adaptation. | Sound can organize atmosphere without dictating phrase mechanics. |
+
+---
+
+## Cross-References
+
+- `05-CHOREOGRAPHIC-STRUCTURE.md` shows how movement phrases align with musical and temporal structures.
+- `03-WORLD-FORMS.md` gives cross-cultural rhythm and accompaniment examples.
+- `../music-theory/00-OVERVIEW.md` supplies the meter, phrase, and form vocabulary.
 
 ---
 

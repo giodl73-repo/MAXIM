@@ -151,7 +151,7 @@ COVER CROP FUNCTIONS:
   │                                         (credit to next │
   │                                          crop)          │
   │                                                         │
-  │ N scavenging       Winter rye,          Capture residual │
+  │ N scavenging       Winter rye,          Capture resid.  │
   │ (catch crop)       annual ryegrass      N; prevent      │
   │                                         winter leaching │
   │                                                         │
@@ -271,14 +271,22 @@ CONSERVATION TILLAGE SPECTRUM:
 
 ## Decision Cheat Sheet
 
-| Farming situation | Recommended system |
-|------------------|-------------------|
-| Large-scale mechanized grain production | Corn-soy rotation; no-till; cover crops between seasons |
-| Erosion-prone slopes | Contour farming; cover crops; agroforestry windbreaks |
-| Pest/disease buildup in monoculture | Diversify rotation; include non-host crops |
-| Building soil health over 5–10 years | No-till + diverse cover crop mixes + compost |
-| Semi-arid; limited water | Intercropping with drought-tolerant species; agroforestry windbreaks |
-| Small-scale tropical subsistence | Home gardens or multi-strata agroforestry (maximizes LER) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Large-scale grain system | Check rotation, equipment, soil cover, herbicide plan, cover-crop window, and market logistics. | No-till without rotation diversity can become herbicide-dependent. |
+| Erosion-prone slopes | Evaluate slope length, rainfall intensity, contouring, cover crops, terraces, windbreaks, and root structure. | Erosion control is geometry plus living cover, not one practice. |
+| Monoculture pest buildup | Trace host continuity, pathogen life cycle, rotation interval, resistant varieties, and non-host crops. | Rotation works only when it breaks the pest's biological cycle. |
+| Soil-health rebuilding | Combine residue, roots, reduced disturbance, cover diversity, compost/manure, and measurement horizon. | Soil health accumulates slowly and can conflict with short-term operations. |
+| Semi-arid water limit | Compare evapotranspiration, drought-tolerant species, intercropping, mulch, windbreaks, and timing. | Diversity helps only if it reduces water stress rather than competition. |
+| Tropical smallholder system | Start with home gardens, agroforestry strata, land equivalent ratio, labor, food security, and market access. | High biological efficiency can still be labor-constrained. |
+
+---
+
+## Cross-References
+
+- `05-FERTILIZERS-PESTICIDES.md` covers the input side: nutrients, pest pressure, and resistance management.
+- `07-LIVESTOCK-SYSTEMS.md` shows how crop production couples to feed, manure, pasture, and protein systems.
+- `../soil-science/00-OVERVIEW.md` supplies the soil-process layer beneath rotation, cover crops, and tillage.
 
 ---
 

@@ -248,18 +248,24 @@ WHEN TO USE:
 
 ---
 
+## Cross-References
+
+- `acoustics/01-WAVE-PHYSICS.md` — wave reflection and standing-wave mechanics behind room response.
+- `architecture/04-BUILDING-SYSTEMS.md` — coordination of acoustic treatment with building systems.
+- `acoustics/04-ARCHITECTURAL-ACOUSTICS.md` — applied performance targets for halls, rooms, and workplaces.
+
 ## Decision Cheat Sheet
 
-| Problem | Solution |
-|---------|----------|
-| Room too reverberant (speech muddy) | Add absorption (panels, carpet, upholstery) |
-| Room too dry (music sounds dead) | Reduce absorption, add diffusion |
-| Calculate RT60 quickly | Sabine: T60 = 0.161V/(Sᾱ) |
-| More accurate RT60 (high absorption) | Eyring: use -ln(1-ᾱ) instead of ᾱ |
-| Bass buildup in corners | Bass traps (thick porous, resonant panels) |
-| Flutter echo between parallel walls | Break up with diffusers, or angle walls |
-| Below what frequency does modal analysis apply? | f < f_S = 2000√(T60/V) |
-| Measure RT60 | Fire starter pistol or sweep tone, measure decay curve |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether speech muddiness is reverberation | RT60 by octave band and early/late decay | Add absorption where speech bands dominate; bass problems need different treatment |
+| Whether a room is too dry for music | Intended use, early reflections, and diffusion balance | A good speech room can be a poor music room; optimize for the program |
+| Whether Sabine is adequate | Volume, surface area, and average absorption | Sabine is a first estimate; high absorption and uneven distribution break assumptions |
+| Whether Eyring improves the estimate | Higher absorption cases with diffuse-field assumption | Eyring is not magic at near-anechoic extremes |
+| Whether bass buildup is modal | Listener/source position and room-mode frequencies | Corner bass traps help, but modal nulls may require placement changes too |
+| Whether flutter echo is the artifact | Clap/sweep between parallel hard surfaces | Diffusion, absorption, or geometry changes work only if they interrupt the reflection path |
+| Whether modal analysis applies | Schroeder frequency from room volume and RT60 | Above that band, statistical reverberation is usually more useful than individual modes |
+| Whether measurement is trustworthy | Sweep or impulse response with decay-curve fit | Noise floor and non-diffuse decay can corrupt a single RT60 number |
 
 ---
 

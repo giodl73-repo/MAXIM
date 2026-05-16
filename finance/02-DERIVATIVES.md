@@ -477,18 +477,23 @@ SYNTHETIC CDO:
 
 ## Decision Cheat Sheet
 
-| Task | Method |
-|------|--------|
-| Price European call/put | Black-Scholes formula |
-| Get delta hedge ratio | Δ = N(d₁) for call |
-| Check if option is mispriced | Compare implied vol vs expected realized vol |
-| Price American put | Binomial tree with early exercise check |
-| Account for discrete dividends | Adjust F: S₀ - PV(dividends) |
-| Price exotic (barrier, Asian) | Monte Carlo or PDE (finite difference) |
-| Get all sensitivities at once | Greeks (Δ, Γ, Θ, ν) from BSM formulas |
-| Model volatility skew | Heston, SABR, or local vol |
-| Hedge against volatility moves | Vega hedging (trade options to neutralize ν) |
-| Price an interest rate swap | Discount fixed and floating legs, set c at swap rate |
+| If you need to diagnose... | Start With | Tooling / Caveat |
+|----------------------------|------------|------------------|
+| European vanilla option price | Replication / risk-neutral expectation | Black-Scholes as quoting convention; vol is the live input |
+| Delta hedge ratio | First derivative of option value | Delta changes with spot; gamma tells you how fast |
+| Apparent option mispricing | Implied vol vs expected realized vol | Include skew, term structure, dividends, rates, and transaction costs |
+| American exercise value | Continuation value vs intrinsic value | Binomial/finite-difference/LSM; early exercise is an optimal-stopping problem |
+| Discrete dividends | Forward adjustment and exercise incentives | Dividends can make early call exercise rational |
+| Exotic payoff | Path dependence and dimensionality | Monte Carlo for paths/high dimension; PDE/tree for low dimension |
+| Portfolio sensitivities | Greeks aggregation | Delta/gamma/vega/theta/rho are local approximations, not stress tests |
+| Volatility skew | Market-implied surface | Heston/SABR/local vol fit prices; they do not make tails disappear |
+| Interest-rate swap | Fixed leg vs floating leg PV | Swap rate is the fixed coupon that makes value zero at inception |
+
+## Cross-References
+
+- [Portfolio Theory](01-PORTFOLIO-THEORY.md) supplies the risk/return baseline that derivatives reshape.
+- [Fixed Income](03-FIXED-INCOME.md) covers yield curves and rates instruments that underlie many swaps and options.
+- [Risk Models](04-RISK-MODELS.md) follows Greeks, nonlinear payoff, and tail exposure into portfolio risk control.
 
 ## Common Confusion Points
 

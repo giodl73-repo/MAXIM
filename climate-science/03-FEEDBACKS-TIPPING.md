@@ -467,15 +467,23 @@ Tipping elements are physical systems undergoing saddle-node bifurcations. You k
 
 ## Decision Cheat Sheet
 
-| I want to understand... | Section |
-|---|---|
-| Why ECS is ~3°C not 1.2°C | Feedback overview + water vapor |
-| Why cloud feedback matters | Cloud feedback section |
-| Arctic sea ice loss physics | Ice-albedo feedback |
-| Why AMOC collapse would cool Europe | AMOC section |
-| Permafrost risk to carbon budget | Permafrost tipping section |
-| Whether tipping points can cascade | Cascade section |
-| Why 1.5°C target matters | Tipping thresholds + cascade risk |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| ECS above no-feedback warming | Separate Planck response, water vapor, lapse rate, ice-albedo, cloud feedback, and ocean heat uptake. | Feedbacks amplify or damp forcing; they are not extra emissions. |
+| Cloud-feedback claim | Check cloud height, phase, optical depth, regional regime, shortwave/longwave balance, and model spread. | Clouds can cool or warm depending on type and altitude. |
+| Arctic sea-ice loss | Use albedo contrast, seasonal timing, ocean heat storage, snow cover, and atmospheric transport. | Ice-albedo feedback is strong but still coupled to circulation and ocean heat. |
+| AMOC-collapse scenario | Examine density gradients, freshwater forcing, salinity, deepwater formation, thresholds, and regional heat transport. | Europe can cool regionally while the planet warms globally. |
+| Permafrost carbon risk | Separate CO2, methane, thaw depth, hydrology, microbial decomposition, fire, and timescale. | Permafrost feedback worsens budgets but is not an instant carbon bomb. |
+| Tipping cascade claim | Check coupling mechanism, threshold evidence, reversibility, timescale, and uncertainty class for each subsystem. | Cascades are plausible dependencies, not a single proven domino chain. |
+| 1.5 C threshold argument | Compare exposure time, overshoot, regional threshold, ecosystem sensitivity, and adaptation limit. | Global mean targets hide local and irreversible thresholds. |
+
+---
+
+## Cross-References
+
+- `02-CLIMATE-MODELS.md` shows how feedbacks and tipping elements enter modeled projections.
+- `04-EMISSIONS-PATHWAYS.md` connects forcing trajectories to threshold risk.
+- `05-IMPACTS.md` translates feedback-amplified warming into physical and social consequences.
 
 ---
 

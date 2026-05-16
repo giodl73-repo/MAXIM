@@ -393,17 +393,23 @@ Jiggering and jollying are the specific industrial rotating-mold processes for p
 
 ---
 
+## Cross-References
+
+- `ceramics/01-CLAY-TYPES.md` — clay plasticity and body selection.
+- `ceramics/03-DRYING-FIRING.md` — downstream constraints created by forming choices.
+- `manufacturing/02-MACHINING.md` — process-selection contrast with subtractive manufacturing.
+
 ## Decision Cheat Sheet
 
-| Form | Best Forming Method |
-|------|-------------------|
-| Round, symmetrical bowl/vase | Wheel throwing |
-| Teapot (complex, multiple parts) | Combination: wheel body + slab spout + pulled handle |
-| Industrial tiles | Dry pressing (RAM) or extrusion |
-| Bone china teacups (mass production) | Slip casting (jiggering for cups) |
-| Organic sculptural form | Coil building or slab |
-| Thin walls, precise interior shape | Slip casting |
-| Traditional tribal vessel | Coil (many traditions never used wheel) |
-| Architectural terra cotta profiles | Extrusion |
-| Small decorative figurine | Slip casting (complex multi-part mold) |
-| Custom one-off complex geometry | Hand building or 3D printing |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a round symmetric vessel is the target | Wheel throwing | Symmetry and speed are strong, but handles/spouts often need separate forming. |
+| Whether a teapot needs multiple functional parts | Combined wheel body, slab spout, and pulled handle | Fit, shrinkage, and drying rates must match across parts. |
+| Whether industrial tiles need repeatability | Dry pressing or extrusion | Body formulation and die wear control tolerances. |
+| Whether thin mass-produced cups need consistent walls | Slip casting or jiggering | Mold absorption, casting time, and slip rheology decide wall quality. |
+| Whether the form is organic/sculptural | Coil building or slab work | Hand-building supports asymmetry but drying stress can crack broad joins. |
+| Whether precise internal shape matters | Slip casting | Mold seams, undercuts, and release limit geometry. |
+| Whether a traditional vessel should preserve method lineage | Coil construction | The wheel is not "more advanced" for every ceramic culture or form. |
+| Whether long architectural profiles are needed | Extrusion | Cross-section consistency is strong, but drying and firing warp long sections. |
+| Whether small figurines need detail and repetition | Multi-part slip casting | Mold complexity and seam cleanup scale with detail. |
+| Whether a one-off complex form is needed | Hand building or ceramic 3D printing | 3D printing still has body, support, drying, and firing constraints. |

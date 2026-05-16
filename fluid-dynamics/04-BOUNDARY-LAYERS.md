@@ -268,17 +268,27 @@ KÁRMÁN VORTEX STREET:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| No-slip origin and Reynolds-number scaling | `fluid-dynamics/01-CONTINUUM-MECHANICS.md` |
+| Inviscid outer-flow coupling | `fluid-dynamics/02-INVISCID-FLOW.md` |
+| Turbulent boundary-layer structure | `fluid-dynamics/05-TURBULENCE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Need to... | Use |
-|-----------|-----|
-| Estimate boundary layer thickness | δ ≈ 5x/√Re_x (Blasius, flat plate, laminar) |
-| Estimate skin friction | C_f = 0.664/√Re_x (laminar), 0.0592/Re_x^{1/5} (turbulent) |
-| Find when separation occurs | Adverse dp/dx → τ_w = 0 → separation |
-| Compute integrated drag | Von Kármán integral: D = ρU_e² θ(L) |
-| Know turbulent BL structure | Three layers: sublayer, buffer, log |
-| Estimate transition location | Re_x ~ 5×10⁵ (natural, flat plate) |
-| Predict vortex shedding frequency | St = fD/U ≈ 0.2 (circular cylinder) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Boundary-layer thickness | Blasius flat-plate estimate `delta approx 5x/sqrt(Re_x)` | `delta_99` is conventional; there is no sharp physical edge. |
+| Skin friction | Laminar and turbulent `C_f` correlations | Turbulent skin friction is higher but can reduce pressure drag by delaying separation. |
+| Separation onset | Adverse pressure gradient driving wall shear `tau_w` to zero | Small laminar bubbles can reattach; not all separation is catastrophic. |
+| Integrated drag | Von Karman momentum integral and momentum thickness | Depends on external velocity distribution and closure assumptions. |
+| Turbulent boundary-layer structure | Viscous sublayer, buffer layer, log layer | Wall units `y+`, not meters, define the universal near-wall coordinate. |
+| Transition location | Natural flat-plate estimate `Re_x approx 5e5` | Roughness, freestream turbulence, pressure gradient, and noise move transition. |
+| Vortex shedding frequency | Strouhal number `St = fD/U approx 0.2` for circular cylinders | Applies over common cylinder regimes, not all bluff-body geometries. |
 
 ---
 

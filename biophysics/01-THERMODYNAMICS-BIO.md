@@ -415,19 +415,25 @@ Biological thermodynamics is classical thermodynamics applied to a non-equilibri
 
 ---
 
+## Cross-References
+
+- `mechanical/01-THERMODYNAMICS.md` — thermodynamic foundations.
+- `biophysics/02-PROTEIN-FOLDING.md` — free-energy landscapes in biomolecular structure.
+- `statistical-mechanics/08-NON-EQUILIBRIUM.md` — living systems as driven non-equilibrium systems.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Formula / Value |
-|----------|---------|-----------------|
-| Is a reaction spontaneous? | Sign of ΔG | ΔG = ΔH - TΔS < 0 |
-| What equilibrium ratio does ΔG give? | Boltzmann | p₂/p₁ = exp(-ΔΔG/k_BT) |
-| How much energy does ATP provide in the cell? | In vivo ΔG | ~-12 kcal/mol = -20 k_BT |
-| Why does a cell die when ATP runs out? | NESS collapse | [ATP]/[ADP] → Keq ≈ 10⁻⁵ |
-| What drives protein folding thermodynamically? | Hydrophobic + H-bonds | ΔG_fold ≈ -5 to -15 kcal/mol |
-| How is drug affinity related to free energy? | ΔG = RT ln(Kd) | Each 10× in Kd = 1.36 kcal/mol |
-| What links electron transport to ATP synthesis? | Proton motive force | ΔμH⁺ = FΔΨ - 2.303RT·ΔpH |
-| What makes hydrophobic burial favorable? | Water entropy gain | ΔH ≈ 0, ΔS_water > 0 at 25°C |
-| How to measure both ΔH and Kd simultaneously? | ITC | Single titration experiment |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Reaction spontaneity | Sign of free-energy change | Negative delta G says direction, not speed. |
+| Equilibrium population ratio | Boltzmann weighting | Small energy differences matter at kBT scale. |
+| Cellular ATP value | In vivo ATP hydrolysis free energy | Cellular concentrations, not standard state, set usable energy. |
+| ATP depletion death | Nonequilibrium steady-state collapse | Equilibrium is chemically allowed but biologically dead. |
+| Protein-folding thermodynamics | Hydrophobic effect plus H-bond compensation | Folding free energies are small margins over large terms. |
+| Drug affinity from energy | RT ln(Kd) relation | Affinity does not equal efficacy or selectivity. |
+| ETC to ATP coupling | Proton-motive force | Membrane leak uncouples transport from ATP yield. |
+| Hydrophobic burial | Water entropy gain | Temperature and exposed polar groups change the balance. |
+| Enthalpy and affinity measurement | Isothermal titration calorimetry | ITC needs soluble, well-behaved binding partners. |
 
 ---
 

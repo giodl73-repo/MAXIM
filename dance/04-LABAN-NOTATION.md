@@ -381,17 +381,22 @@ Like XML vs JSON: different syntax, equivalent semantic content.
 
 ## Decision Cheat Sheet
 
-| Goal | Use |
-|------|-----|
-| Reconstruct a specific choreography from score | Labanotation score |
-| Describe the quality of a movement phrase | LMA Effort analysis |
-| Analyze spatial patterns in a work | LMA Space/Choreutics |
-| Talk about a dancer's physical organization | LMA Body component |
-| Map movement to animation parameters | LMA Effort to animation weight/timing |
-| Find archival scores | Dance Notation Bureau (New York) |
-| Get certified in LMA | Laban/Bartenieff Institute (LIMS) |
-| Notation for UK ballet companies | Benesh Movement Notation |
-| Analyze mocap data with movement theory | LMA-to-mocap pipeline tools |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Choreographic reconstruction | Use Labanotation score, performer lineage, music, staging notes, and historical context. | The score encodes movement structure; performance style still needs interpretation. |
+| Movement quality | Use LMA Effort for weight, time, space, flow, phrasing, and dynamic intention. | Effort analysis describes qualities, not psychological certainty. |
+| Spatial organization | Apply LMA Space/Choreutics, pathways, levels, directions, kinesphere, and group geometry. | Spatial analysis must be paired with timing and body organization. |
+| Body organization | Use LMA Body component, initiation, sequencing, connectivity, and Bartenieff fundamentals. | Anatomy and movement theory vocabularies overlap but are not identical. |
+| Animation or mocap mapping | Translate Effort/Shape features into timing, weight, acceleration, path, and pose parameters. | Computational mapping loses nuance unless validated against expert movement judgment. |
+| Archival or certification path | Start with Dance Notation Bureau, LIMS, Benesh resources, archive holdings, and notation purpose. | Labanotation, LMA, and Benesh solve different problems. |
+
+---
+
+## Cross-References
+
+- `05-CHOREOGRAPHIC-STRUCTURE.md` explains what movement structures notation must capture.
+- `07-DANCE-SCIENCE.md` connects movement description to biomechanics and analysis.
+- `../codes/07-MUSICAL-NOTATION.md` gives a parallel notation system for time, pitch, and performance instruction.
 
 ---
 

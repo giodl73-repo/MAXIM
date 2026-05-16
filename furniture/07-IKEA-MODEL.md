@@ -367,18 +367,23 @@ IKEA NAMING CONVENTION:
 
 ## Decision Cheat Sheet
 
-| Aspect | IKEA Approach | Traditional Furniture Approach |
-|--------|--------------|-------------------------------|
-| Assembly | Customer (no labor cost) | Factory (labor cost in price) |
-| Shipping | Flat-pack (minimum volume) | Assembled (large volume) |
-| Material | Particleboard/MDF/pine | Solid wood/plywood |
-| Lifespan | 10–20 years | 30–200 years |
-| Price | Lowest possible | Reflects material + labor quality |
-| Repairability | Limited (replacement parts available) | Higher (solid wood can be repaired) |
-| Design | 5-pillar democratic design | Wide range |
-| Environmental | Complex (high volume, improving per-unit) | Better per item; lower volume |
+| Diagnostic Question | IKEA System Answer | Tradeoff |
+|---------------------|--------------------|----------|
+| Why can the price be so low? | Design-to-cost, supplier competition, flat-pack logistics, customer transport/assembly | Customer takes labor and quality-risk that a traditional maker absorbs |
+| Why does flat-pack change the whole business model? | Product volume collapses, truck/container utilization rises, and stores can hold more inventory | Assembly quality moves into the home; reassembly life is finite |
+| Why particleboard/MDF instead of solid wood? | Stable, cheap, predictable panels suit CNC drilling and melamine surfaces | Sag, moisture swelling, edge damage, and limited repairability |
+| Why does BILLY behave like a platform? | External dimensions and accessories remain stable across redesigns | Backward compatibility constrains future design changes |
+| Why does IKEA still feel Scandinavian? | Democratic-design language, naming system, pale materials, and cost-optimized simplicity | Branding can imply tradition even when the object is global industrial production |
+| Where is the sustainability tension? | Per-unit impact improves through sourcing, recycling, and buyback programs | Low price plus enormous volume still drives material throughput |
+| When is IKEA the right answer? | Temporary, budget, rental, student, modular, or platform-compatible use | Not ideal for heirloom repair, repeated moves, heavy loads, or wet environments |
 
 ---
+
+## Cross-References
+
+- [Scandinavian Design](05-SCANDINAVIAN.md) gives the design-language source IKEA industrialized.
+- [Modern Furniture Materials](06-MATERIALS-MODERN.md) explains particleboard, veneers, and engineered panels behind flat-pack economics.
+- [Contemporary Furniture](09-CONTEMPORARY.md) contrasts IKEA's mass platform with digital fabrication and new production models.
 
 ## Common Confusion Points
 

@@ -259,14 +259,14 @@ Practical Stirling engines: 30–40%. Used in spacecraft (RTG), submarines (Swed
 ### Vapor Compression Cycle (Reverse Rankine)
 
 ```
-     ┌──────CONDENSER──────┐
-     │   (high p, heat out) │
-     │                     │
+     +-------CONDENSER-------+
+     |   (high p, heat out)  |
+     |                       |
   Compressor             Expansion
   (work in)               valve
-     │                     │
-     │    EVAPORATOR       │
-     └──────────────────────┘
+     |                       |
+     |    EVAPORATOR         |
+     +-----------------------+
         (low p, heat in from space to be cooled)
 ```
 
@@ -410,3 +410,15 @@ Engineering convention: sometimes dU = δQ + δW (work done ON system positive).
 | Compressor work | Open system 1st law | Ẇ = ṁ(h₂ − h₁) |
 | Flame temperature | Enthalpy balance | H_prod(T_ad) = H_react + LHV |
 | Which cycle for my power plant? | Efficiency vs complexity | See cycle comparison above |
+
+---
+
+## Cross-References
+
+| If you need... | Go to |
+|---|---|
+| Fluid motion after thermodynamic state changes | [Fluid Mechanics](02-FLUID-MECHANICS.md) |
+| Heat exchanger and conduction/convection details | [Heat Transfer](03-HEAT-TRANSFER.md) |
+| Machine constraints around engines and compressors | [Machine Design](04-MACHINE-DESIGN.md) |
+| Manufacturing implications for turbines, pumps, and seals | [Manufacturing](05-MANUFACTURING.md) |
+| Energy-system scale consequences of exergy losses | [Energy Systems](../energy-systems/00-OVERVIEW.md) |

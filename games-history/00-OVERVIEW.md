@@ -18,7 +18,7 @@ Knucklebones/astragali   Roman Latrunculi          Billiards appears
 EARLY MODERN              INDUSTRIAL              20TH CENTURY          DIGITAL
 1700–1850                 1850–1950               1950–1985             1985–present
    │                         │                       │                     │
-Whist → Bridge           Monopoly (1903)         Go professional       Video games
+Whist → Bridge           Landlord's Game (1903)  Go professional       Video games
 Hazard → Craps           Kriegsspiel → D&D       Chess engines         Internet play
 Snooker invented         Poker standardized      Contract Bridge       Esports
 Billiards professionalized  WSOP founded (1970)  Vegas expansion       Mobile F2P
@@ -379,13 +379,13 @@ GAMES HISTORY TIMELINE
               │
 1970 ────── WSOP founded (poker professionalized).
               │
-1972 ────── PONG (Atari). Home console era begins.
+1972 ────── PONG (Atari arcade). Dedicated home Pong follows in 1975.
               │
 1974 ────── D&D (Gygax/Arneson). RPG genre born.
               │
 1978-83 ─── ARCADE GOLDEN AGE (Space Invaders, Pac-Man).
               │
-1985 ────── NES saves video game market.
+1985 ────── NES revives the US console market after the crash.
               │
 1992 ────── TD-GAMMON: first neural net to reach expert play.
               │
@@ -401,9 +401,11 @@ GAMES HISTORY TIMELINE
               │
 2016 ────── ALPHAGO defeats Lee Sedol (Go).
               │
-2017 ────── ALPHAZERO: tabula rasa, beats Stockfish in 4 hours.
+2017 ────── ALPHAZERO: self-play system beats top engines under
+              contested match conditions after short training runs.
               │
-2017 ────── LIBRATUS/PLURIBUS: poker solved heads-up + 6-handed.
+2017/2019 ─ LIBRATUS/PLURIBUS: superhuman poker agents for heads-up
+              and 6-player no-limit Hold'em via abstraction/CFR methods.
               │
 2017 ────── FORTNITE: battle royale + battle pass model.
               │
@@ -498,21 +500,26 @@ The class associations shift over time — chess was once aristocratic, now full
 
 ## Decision Cheat Sheet
 
-| You want to understand... | Go to... |
-|---------------------------|----------|
-| Oldest surviving games | 01-ANCIENT-GAMES.md |
-| Chess history and evolution | 02-CHESS.md |
-| Playing card origins and trick-taking | 03-CARD-GAMES.md |
-| Poker history and game theory | 04-POKER.md |
-| Billiards, pool, snooker | 05-BILLIARDS-POOL.md |
-| Dice, craps, probability origins | 06-DICE-GAMBLING.md |
-| Monopoly, wargames, Eurogames, D&D | 07-BOARD-GAMES-MODERN.md |
-| Video games from Spacewar! to esports | 08-VIDEO-GAMES.md |
-| Nash equilibrium formalism | mathematics/ (game theory) |
-| Probability theory foundations | mathematics/ (probability) |
-| AI game-playing algorithms | ai-engineering/ |
+| If you need to explain... | Start With | Why |
+|---------------------------|------------|-----|
+| Games as ancient ritual, race, divination, and social practice | `01-ANCIENT-GAMES.md` | Establishes that formalized play predates modern entertainment markets |
+| Abstract strategy as military/courtly/intellectual signal | `02-CHESS.md` | Chess carries the cleanest lineage from chaturanga to engines |
+| Paper, suits, trick-taking, and gambling portability | `03-CARD-GAMES.md` | Cards show how material technology changes game diffusion |
+| Imperfect information, bluffing, and gambling mathematics | `04-POKER.md` | Poker links game history to equilibrium, variance, and professionalization |
+| Cue sports as physics, class signal, and professional venue culture | `05-BILLIARDS-POOL.md` | Billiards/snooker show skill under precision equipment constraints |
+| Dice, craps, and probability origins | `06-DICE-GAMBLING.md` | Randomness created the mathematical demand for probability theory |
+| Modern board games, wargames, Eurogames, RPGs, and crowdfunding | `07-BOARD-GAMES-MODERN.md` | Industrial printing and hobby markets create new design ecologies |
+| Digital play, engines, distribution, esports, and F2P economies | `08-VIDEO-GAMES.md` | Computation turns games into software platforms and live services |
+| Formal solution concepts | `game-theory/` | Nash, minimax, cooperative games, and mechanisms supply the math substrate |
+| AI game-playing algorithms | `ai-engineering/` | Search, MCTS, neural evaluation, and self-play explain modern superhuman play |
 
 ---
+
+## Cross-References
+
+- [Ancient Games](01-ANCIENT-GAMES.md) starts the chronology with ritual, race, and divination games.
+- [Chess](02-CHESS.md) follows abstract strategy from chaturanga to computer play.
+- [Card Games](03-CARD-GAMES.md) tracks paper, suits, gambling, and social play across cultures.
 
 ## Common Confusion Points
 
@@ -522,7 +529,7 @@ The class associations shift over time — chess was once aristocratic, now full
 
 **"Probability theory caused gambling"**: Causation reversed. Gambling preceded formal probability by millennia. Pascal and Fermat formalized probability *because* gamblers had hard questions about fair division of stakes. Gambling created the demand that mathematics then satisfied.
 
-**"Poker is solved"**: Near-solved in heads-up NLHE (Libratus 2017). 6-player NLHE is "essentially solved" by Pluribus (2019) in the sense that Pluribus beats human pros, but the full game tree is not solved — it uses abstraction. Generalized multi-player poker with arbitrary stack depths is not solved.
+**"Poker is solved"**: Heads-up limit Hold'em is essentially solved; heads-up no-limit and 6-player no-limit agents such as Libratus and Pluribus achieved superhuman performance with abstraction and self-play methods. That is not the same as solving the full game tree, especially for multi-player poker with arbitrary stack depths.
 
 **"Zero-sum games have a unique Nash equilibrium"**: Von Neumann's minimax theorem says they have a value (unique in payoffs), but multiple strategy profiles can achieve that value. In chess, many lines may be objectively equal draws at perfect play.
 

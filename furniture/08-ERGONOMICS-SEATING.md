@@ -90,7 +90,7 @@ SPINAL ANATOMY (side view):
 
 ### Nachemson's Disc Pressure Data
 
-Anders Nachemson's 1960s–70s research measured intradiscal pressure in the L3 vertebra across different postures. Classic data (normalized to standing = 100%):
+Anders Nachemson's 1960s–70s research measured lumbar intradiscal pressure across different postures, commonly reported for the L3-L4 disc. Classic data (normalized to standing = 100%):
 
 ```
 POSTURE                          APPROXIMATE DISC PRESSURE
@@ -390,6 +390,12 @@ LOUNGE CHAIR (Eames 670):
 | Armrests too low | Leaning to side to rest arms; lateral spine loading |
 
 ---
+
+## Cross-References
+
+- [Eames Engineering](04-EAMES-ENGINEERING.md) shows seating as a combined shell, support, and human-factor problem.
+- [Modern Furniture Materials](06-MATERIALS-MODERN.md) explains how foam, shells, steel, and plastics change comfort engineering.
+- [Contemporary Furniture](09-CONTEMPORARY.md) follows ergonomic design into task chairs, digital modeling, and workplace systems.
 
 ## Common Confusion Points
 

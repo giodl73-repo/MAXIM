@@ -366,16 +366,22 @@ WHAT THE RESEARCH SHOWS:
 
 ---
 
+## Cross-References
+
+- `02-SOCIAL-PLATFORMS.md` explains spread mechanics and moderation constraints.
+- `06-ATTENTION-ECONOMY.md` explains why false content can outperform true content.
+- `09-FUTURE-TRENDS.md` covers generative media and detection pressure.
+
 ## Decision Cheat Sheet
 
-| Intervention | Effectiveness | Best use case |
-|-------------|--------------|--------------|
-| Debunking | Limited; partial belief update | High-profile, specific claim correction |
-| Prebunking | Stronger and more durable | Inoculate against manipulation techniques |
-| Content labels | Small sharing reduction; implied truth risk | Newsworthy high-reach misinformation |
-| Friction insertion | ~8-11% sharing reduction | Impulsive sharing of unread content |
-| Demonetization | Effective for financial motivation | Coordinated misinformation networks |
-| Removal | Only scalable with automation errors | CSAM, imminent threat |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Specific false-claim correction | Debunking | Usually produces partial belief updates and travels less far than the original claim. |
+| Manipulation resistance | Prebunking/inoculation before exposure | Stronger than correction, but must target techniques users will actually encounter. |
+| High-reach newsworthy misinformation | Content labels | Labels can reduce sharing but risk implying unlabeled content is true. |
+| Impulsive sharing | Friction before reposting or opening unread links | Friction helps behavior, not underlying belief. |
+| Financially motivated networks | Demonetization | Effective when revenue is the motive; weaker for ideological operations. |
+| Imminent harm or illegal content | Removal with automation and human review | Scales with errors and governance risk; not a general epistemic solution. |
 
 ---
 

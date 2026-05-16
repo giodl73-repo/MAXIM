@@ -373,16 +373,24 @@ MOST COMMON SPECIFIC INJURIES:
 
 ## Decision Cheat Sheet
 
-| Situation | Approach | Why |
-|-----------|----------|-----|
-| Student's turnout limited (<45 degrees hip ER) | Strengthen deep rotators; avoid forcing from feet | Forced turnout = knee/ankle injury; true turnout comes from hip joint |
-| Choosing between Vaganova and RAD training | Vaganova for expressive upper body (port de bras); RAD for structured examination system | Both produce professional dancers; emphasis differs |
-| Pointe readiness assessment | Minimum age ~12, sufficient ankle/calf strength, clean releve alignment | Premature pointe = metatarsal stress fracture risk |
-| Need to understand a ballet score/notation | Benesh Movement Notation (UK) or Stepanov (historical Russian) | Standard notation systems for ballet reconstruction |
-| Choreography requires extreme extensions | Develop active flexibility, not just passive ROM | Performance requires muscular control at end range, not just reaching the position |
-| What distinguishes Bolshoi from NYCB | Russian = dramatic/bravura; Balanchine = speed/musical/athletic | Style emphasis differs; both produce world-class dancers |
-| Why pointe shoes wear out fast | Professional: 12-20 hours of use before box collapses | Rosin, sweat, and impact collapse the papier-mâché box |
-| What kills ballet technique | Sickling (foot turned in), rolling in arches, gripping toes | All misalign the kinetic chain from foot through hip |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Limited turnout | Assess hip external rotation, femoral anatomy, deep rotator strength, knee tracking, and foot alignment. | Forcing turnout from knees or feet creates injury risk without improving true range. |
+| Training-method choice | Compare Vaganova, RAD, Cecchetti, Balanchine, exam structure, port de bras, musicality, and institutional goal. | Methods produce different emphases; professional quality is not method-exclusive. |
+| Pointe readiness | Check age, growth plates, ankle/calf strength, foot control, alignment, training history, and teacher assessment. | Premature pointe can create stress injury even when the student is motivated. |
+| Ballet notation or reconstruction | Use Benesh, Stepanov, film, coaching lineage, music, and production records. | Notation captures structure but not every stylistic or interpretive detail. |
+| Extreme extensions | Build active flexibility, strength at end range, pelvic control, turnout integrity, and recovery load. | Passive range without muscular control is not performance-ready range. |
+| Company style comparison | Compare Russian dramatic/bravura emphasis, Balanchine speed/musicality, school lineage, and repertory. | Style differences are tendencies, not rigid national essences. |
+| Pointe-shoe failure | Inspect box material, shank, sweat, rosin, impact, foot strength, and role workload. | Shoe life depends heavily on dancer, role, climate, and construction. |
+| Technique breakdown | Look for sickling, rolling arches, gripping toes, pelvic compensation, turnout forcing, and fatigue. | Local foot errors often reflect upstream hip/core control problems. |
+
+---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places ballet inside the wider dance ecology of technique, culture, and performance.
+- `02-MODERN-POSTMODERN.md` explains the major reaction against ballet's verticality and court inheritance.
+- `05-CHOREOGRAPHIC-STRUCTURE.md` abstracts ballet's phrase, variation, and ensemble structures.
 
 ---
 

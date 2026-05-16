@@ -336,16 +336,26 @@ Neil Postman extended and applied McLuhan with more rigor:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Critical-theory media critique | `media-studies/02-FRANKFURT-SCHOOL.md` |
+| Simulation and media reality | `media-studies/03-BAUDRILLARD.md` |
+| Platform mediation and algorithms | `media-studies/08-ALGORITHMS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Concept | Key Insight | Modern Application |
-|---------|-------------|-------------------|
-| Medium is the message | Form > content in shaping perception | Study WhatsApp format, not just messages |
-| Hot/cool | Participation inversely related to definition | TikTok is "hot"; Zoom is "cooler" |
-| Extension/amputation | Every gain has a corresponding loss | GPS / spatial cognition loss |
-| Global village | Electric media retribalizes, not universalizes | Twitter tribal conflicts |
-| Tetrad | Enhance/obsolete/retrieve/reverse | Analyze any technology systematically |
-| Postman | Entertainment logic colonizes public discourse | YouTube politics, TikTok news |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether medium effects matter more than content | Medium is the message: format, protocol, affordance, and pacing | Content still matters; McLuhan targets systematic under-attention to form. |
+| Whether hot/cool helps analyze participation | Fidelity, data density, and user completion work | Hot/cool is relational and historical, not a fixed platform taxonomy. |
+| Whether a medium extends or amputates capacity | What it amplifies and what lower layer it hides | Gains and losses are coupled; do not treat extension as pure progress. |
+| Whether global connection reduces conflict | Global village as low-latency dense graph | Connectivity can intensify tribal clustering instead of producing universalism. |
+| Whether a technology needs lifecycle analysis | Tetrad: enhance, obsolete, retrieve, reverse | The reversal is often an emergent scale failure, not original intent. |
+| Whether Postman extends McLuhan | Entertainment logic colonizing public discourse | Postman is more normative/prescriptive; McLuhan is more diagnostic/descriptive. |
 
 ---
 

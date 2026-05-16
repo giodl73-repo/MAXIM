@@ -257,16 +257,22 @@ Cycles occur at MULTIPLE SCALES simultaneously:
 
 ---
 
+## Cross-References
+
+- `ecology/08-DISTURBANCE-ECOLOGY.md` - disturbance as succession trigger.
+- `ecology/02-COMMUNITY-ECOLOGY.md` - community assembly and stability.
+- `control-theory/05-ROBUST-CONTROL.md` - stability and resilience analogy.
+
 ## Decision Cheat Sheet
 
-| Management situation | Ecological implication |
-|---------------------|----------------------|
-| Forest burned; want fastest recovery | Secondary succession; preserve seed bank and soil |
-| Lake becomes turbid despite nutrient reduction | Hysteresis; need to reduce nutrients well below threshold |
-| Ecosystem recovering slowly from human impact | Low ecological resilience; may be near alternative state |
-| Suppressing fire in fire-adapted ecosystem | Increases fuel load → eventual catastrophic fire |
-| Wanting to restore old-field to forest | Let secondary succession proceed; may need 50–150 years |
-| Coral reef declining despite reduced stressors | Regime shift occurred; may need active intervention |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Fast recovery after forest fire | Secondary succession and preserved soil/seed bank | Severe burns can reset soil and propagule assumptions. |
+| Turbid lake after nutrient reduction | Hysteresis and alternate stable states | Reversal may require going far below original threshold. |
+| Slow post-impact recovery | Low ecological resilience | Slow recovery is not identical to low engineering resilience. |
+| Fire suppression effect | Fuel accumulation in fire-adapted systems | Fire interval and intensity determine ecological outcome. |
+| Old-field forest restoration | Secondary succession over decades | Invasives, soil depletion, and fragmentation can stall recovery. |
+| Coral reef decline after stressor reduction | Regime shift to alternative state | Active intervention may still fail without larval supply and herbivory. |
 
 ---
 

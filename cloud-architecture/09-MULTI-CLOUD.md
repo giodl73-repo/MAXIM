@@ -320,15 +320,23 @@ Both bring cloud into your datacenter, but the model differs. Outposts: AWS ship
 
 ---
 
+## Cross-References
+
+- `01-CLOUD-MODELS.md` defines the responsibility boundaries multi-cloud multiplies.
+- `02-LANDING-ZONES.md` covers the governance and network baseline required before adding providers.
+- `08-HYBRID-CLOUD.md` distinguishes true multi-cloud from on-prem extension and hybrid control planes.
+
+---
+
 ## Decision Cheat Sheet
 
-| Scenario | Approach |
-|----------|----------|
-| Manage on-prem VMs with Azure tooling | Azure Arc (Arc-enabled servers) |
-| Run same Kubernetes workloads on-prem + Azure | Azure Arc Kubernetes (GitOps) |
-| AWS is primary, need Azure AD, want Azure management | Azure Arc on EKS |
-| AWS primary, regulatory: local data | AWS Outposts |
-| GCP primary, hybrid Kubernetes management | Google Anthos |
-| Single cloud, but extend policies to on-prem SQL | Azure Arc-enabled SQL Server |
-| Multiple business units, different cloud commitments | Negotiate shared landing zone + tag governance |
-| "Should we go multi-cloud?" | Validate the specific use case; default to single cloud until justified |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| On-prem VM management through cloud tooling | Check inventory, agent trust, policy scope, patching, identity, network path, and Azure Arc fit. | Management-plane extension is not workload portability. |
+| Kubernetes across on-prem and cloud | Compare cluster lifecycle, GitOps, ingress, secrets, storage, observability, and platform ownership. | Same YAML rarely means same operational behavior. |
+| AWS primary with Azure identity/governance | Separate identity federation, policy intent, Arc on EKS, logging, RBAC, and blast radius. | Cross-cloud management adds another failure and authority plane. |
+| Local-data regulatory need | Evaluate data residency, latency, control-plane dependency, Outposts/sovereign options, and audit evidence. | Local hardware does not automatically satisfy sovereignty. |
+| GCP-centered hybrid Kubernetes | Compare Anthos, cluster fleet management, service mesh, identity, cost, and operator skill. | Multi-cloud platforms can become a proprietary layer above clouds. |
+| Extending policy to on-prem SQL | Check Arc-enabled SQL, inventory, assessment, patching, backups, licensing, and monitoring. | Governance visibility is not the same as managed database service semantics. |
+| Business-unit cloud fragmentation | Start with landing zones, tagging, identity, network segmentation, chargeback, and exception governance. | Organizational multi-cloud is usually a governance problem before a technical one. |
+| Whether to go multi-cloud | Require a specific driver: regulation, M&A, vendor risk, regional reach, service fit, or resilience. | Default to one cloud unless the extra complexity has a named owner and payoff. |

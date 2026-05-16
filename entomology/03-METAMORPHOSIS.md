@@ -267,7 +267,8 @@ CLASSIC HYPOTHESIS (Berlese-Imms):
   Holometabola evolved from ancestors that hatched as protolarvae
   (undeveloped; essentially an "escape from egg" stage)
   Pupa = compressed hemimetabolous nymphal series
-  This is still the dominant model
+  This remains a major model, though details of pupal-stage origin and endocrine
+  rewiring are still actively discussed
 
 MOLECULAR PHYLOGENIES:
   Holometabola is monophyletic (~230 Mya divergence)
@@ -309,28 +310,30 @@ Imaginal discs are lazy initialization of adult structures. A caterpillar contai
 
 ## Decision Cheat Sheet
 
-| Term | Meaning | Example |
-|------|---------|---------|
-| Hemimetabola | Incomplete metamorphosis; nymph -> adult | Grasshoppers, true bugs, dragonflies |
-| Holometabola | Complete metamorphosis; larva -> pupa -> adult | Beetles, moths, flies, bees |
-| Instar | Stage between molts | "5th instar caterpillar" |
-| Imago | Adult insect | Final stage after all molting |
-| Ecdysis | The molt itself (shedding old cuticle) | Triggered by 20E |
-| Apolysis | Separation of epidermis from old cuticle (precedes ecdysis) | Early stage of molt |
-| Juvenile Hormone | "Stay juvenile" signal from corpora allata | High -> larval character |
-| 20-hydroxyecdysone | Steroid that triggers molting | Released by PTG via PTTH |
-| Imaginal disc | Reserved undifferentiated cells -> adult structure | Wing disc, eye disc |
-| Histolysis | Breakdown of larval tissues during pupation | Muscles dissolved |
-| Histogenesis | Construction of adult tissues from imaginal discs | During pupation |
-| Diapause | Programmed developmental arrest | Pupal overwintering |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Hemimetaboly vs holometaboly | Nymph-adult continuity vs larva-pupa-adult separation | Both still molt; metamorphosis is developmental reorganization |
+| Nymph vs larva | Adult-like body plan vs specialized juvenile body plan | Aquatic naiads are hemimetabolous nymphs, not holometabolous larvae |
+| Molt timing | Apolysis, new cuticle secretion, ecdysis, expansion, hardening | Ecdysis is only the shedding event |
+| Hormone logic | 20E pulse plus juvenile-hormone level | JH specifies molt identity; it is not a generic growth hormone |
+| Pupal claim | Histolysis plus histogenesis from imaginal tissues | The pupa is active reorganization, not sleep or total dissolution |
+| Imaginal-disc claim | Adult structures reserved and expanded during larval life | Not every adult tissue comes from a named disc in the same way |
+| Diapause claim | Programmed arrest synchronized to environment | Diapause is not simple dormancy or accidental starvation |
+| Evolution claim | Single origin of holometaboly plus endocrine rewiring | The broad monophyly is clear; the stepwise origin model is still refined |
 
 ---
+
+## Cross-References
+
+- `01-INSECT-BODY-PLAN.md` gives the anatomical starting point for life-stage change.
+- `02-DIVERSITY-CLASSIFICATION.md` shows which groups use incomplete versus complete metamorphosis.
+- `05-INSECT-PLANT.md` connects metamorphosis to host use and niche partitioning.
 
 ## Common Confusion Points
 
 **Metamorphosis is not the same as molting**: Molting (ecdysis) is the mechanical shedding of the old cuticle. Metamorphosis is the developmental transformation. Hemimetabola molt without metamorphosis (mostly). Holometabola undergo metamorphosis at the larval-pupal transition.
 
-**Pupa does not "sleep"**: The pupal stage is metabolically active. Extensive tissue remodeling occurs. Neuroscience note: in Drosophila, olfactory memories formed in larvae survive metamorphosis — the mushroom body neurons connecting odor to memory persist through histolysis.
+**Pupa does not "sleep"**: The pupal stage is metabolically active. Extensive tissue remodeling occurs. Neuroscience note: in Drosophila, some larval olfactory memories can survive metamorphosis because parts of the mushroom-body circuitry persist or are remodeled rather than simply erased.
 
 **Larval prolegs are not legs**: The abdominal prolegs of caterpillars are not homologous to the thoracic true legs. True legs = 3 pairs on thorax. Prolegs = fleshy false appendages on abdomen; lost at pupation.
 

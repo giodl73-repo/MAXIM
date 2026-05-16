@@ -413,22 +413,28 @@ MICROBIAL ECOLOGY: MICROBES AS ECOSYSTEM ENGINEERS
 
 ---
 
+## Cross-References
+
+- `ecology/01-POPULATION-DYNAMICS.md` — population and interaction models shared with macro-ecology.
+- `microbiology/04-MICROBIOME.md` — host-associated microbial communities.
+- `geochemistry/07-WEATHERING-SOILS.md` — microbes as geochemical and soil-process agents.
+
 ## Decision Cheat Sheet
 
-| Concept | Key Point |
-|---------|-----------|
-| Second messenger for biofilm | c-di-GMP: HIGH → biofilm; LOW → planktonic |
-| Biofilm antibiotic resistance | 100–1000x MIC; persister cells + diffusion barrier |
-| QS autoinducer in Gram-negative | AHL (acyl-homoserine lactone); sensed by LuxR family |
-| QS in Gram-positive | Autoinducing peptides (AIP); e.g., Staph agr system |
-| Most abundant photosynthetic organism | Prochlorococcus in ocean |
-| Most abundant bacterium on Earth | SAR11 (Pelagibacter) in ocean |
-| Where to find nitrogen fixation? | Root nodules, wetlands, termite guts, ocean (Trichodesmium) |
-| Anammox: why important? | ~50% of oceanic N₂ production; no O₂ required |
-| Deep biosphere | Life at 5+ km depth; doubling times in thousands of years |
-| Deinococcus radiodurans superpower | Survives 5,000 Gy; reconstructs shattered genome |
-| Viral shunt in ocean | Phage kill 20–40% bacteria/day; carbon stays dissolved |
-| Syntrophy definition | Obligate metabolic cooperation; neither partner survives alone |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Biofilm state switch | High c-di-GMP | Regulatory networks differ across species. |
+| Biofilm antibiotic tolerance | Persisters plus diffusion barrier | High MIC-like tolerance is not always heritable resistance. |
+| Gram-negative quorum sensing | AHL/LuxR-family signaling | Signal chemistry varies by lineage and environment. |
+| Gram-positive quorum sensing | Autoinducing peptide systems | Peptide signaling is often species-specific. |
+| Marine photosynthetic abundance | Prochlorococcus | Abundance does not mean high per-cell productivity everywhere. |
+| Dominant ocean bacterium | SAR11/Pelagibacter | Streamlined genomes trade flexibility for efficiency. |
+| Nitrogen-fixation niche | Nodules, wetlands, guts, and Trichodesmium | Oxygen sensitivity constrains nitrogenase. |
+| Anammox importance | Anaerobic ammonium oxidation | It matters most in low-oxygen nitrogen zones. |
+| Deep biosphere claim | Slow subsurface life | Contamination control is central to interpretation. |
+| Radiation survival | Deinococcus genome repair | Resistance is repair architecture, not invulnerability. |
+| Ocean viral shunt | Phage lysis retaining dissolved carbon | Viral mortality varies with ecosystem state. |
+| Syntrophy | Obligate metabolic cooperation | Thermodynamics can make partners mutually dependent. |
 
 ---
 

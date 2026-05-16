@@ -295,18 +295,24 @@ PRIMARY GROWTH:                    SECONDARY GROWTH:
 
 ---
 
+## Cross-References
+
+- `02-WOOD-PROPERTIES.md` turns anatomy into mechanical and working properties.
+- `03-DENDROCHRONOLOGY.md` reads cambial growth as an annual record.
+- `05-TEMPERATE-TREES.md` applies anatomy to major tree groups.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What produces new wood every year? | Vascular cambium (one cell thick) |
-| Why is conifer wood structurally simpler? | Tracheids do double duty (water + support); no fibers or vessels needed |
-| What distinguishes ring-porous from diffuse-porous? | Vessel size distribution relative to ring boundary |
-| Why does beech have prominent ray flecks? | Large multiseriate rays; visible on quartersawn surfaces |
-| What causes pitch pockets in pine lumber? | Resin canals (traumatic) enclosed in harvested wood |
-| Why does oak resist rot without treatment? | Heartwood tannins, tyloses blocking vessels, silica deposits |
-| What is the "silver grain" on quartersawn oak? | Ray cells oriented radially; flat face of large ray sheets |
-| Where does the tree "know" to stop making sapwood? | Ray cells signal extractive deposition; controlled, not passive |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Annual wood production | Vascular cambium dividing inward to xylem and outward to phloem | The cambium divides; it does not thicken into the bark. |
+| Conifer wood simplicity | Tracheids doing both water conduction and support | Simpler anatomy does not mean mechanically inferior wood. |
+| Ring-porous versus diffuse-porous wood | Vessel size distribution relative to ring boundary | Pore pattern is anatomical, not a generic hardwood quality score. |
+| Ray flecks in beech/oak | Large multiseriate rays on quartersawn faces | Ray visibility depends on cut orientation. |
+| Pine pitch pockets | Traumatic resin canals enclosed in harvested wood | Resin canals are normal defenses; pockets reflect injury/growth history. |
+| Oak decay resistance | Heartwood tannins, tyloses, and silica/extractive chemistry | Heartwood chemistry, not color alone, drives durability. |
+| Quartersawn oak silver grain | Radial ray sheets exposed on the face | It is ray anatomy, not a separate grain direction. |
+| Sapwood-heartwood transition | Ray-cell signaling and extractive deposition | Sapwood width is species/hydraulic-demand regulated, not simply age. |
 
 ---
 

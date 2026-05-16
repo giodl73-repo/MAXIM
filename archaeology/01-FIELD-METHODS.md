@@ -375,6 +375,18 @@ PROBLEM: grey literature
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Human biological evidence | `anthropology/01-PHYSICAL-ANTHROPOLOGY.md` | Burials and remains connect field methods to human biology |
+| Historical geography | `historical-geography/01-FEUDAL-MECHANICS.md` | Sites sit in landscapes of settlement, trade, and land use |
+| Remote sensing | `remote-sensing/01-EM-SPECTRUM.md` | LiDAR, aerial imagery, and geophysics extend archaeological survey |
+| Material culture | `ceramics/01-CLAY-TYPES.md` | Artifacts require material identification and production knowledge |
+| Dating and stratigraphy | `paleontology/01-STRATIGRAPHY.md` | Layering, context, and relative dating are shared field logics |
+
+---
+
 ## Common Confusion Points
 
 **Stratigraphy is physical layers, not the Harris Matrix**: Stratigraphy is the actual physical sequence of deposits. The Harris Matrix is a diagram that records and represents that physical sequence. The matrix is derived from the stratigraphy — it's the formal documentation of what you observed in the ground.

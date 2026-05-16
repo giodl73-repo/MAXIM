@@ -1,6 +1,6 @@
 # Broadcast Journalism: Television News, Radio, Live Reporting, Chyrons
 
-## The Broadcast Journalism Landscape
+## The Big Picture
 
 Broadcast journalism is news delivered through audio and video media — structurally constrained by time (30-second packages vs. 3,000-word print articles), distribution technology (spectrum licensing, satellite, cable, streaming), and the performance demands of on-camera or on-microphone presentation. The format shapes the journalism: broadcast favors the visual and emotional over the analytical; immediacy over depth; conflict and drama over process.
 
@@ -398,19 +398,25 @@ BROADCAST-SPECIFIC ETHICAL STANDARDS
 
 ---
 
+## Cross-References
+
+- `03-REPORTING-WRITING.md` supplies the reporting base for scripts and live hits.
+- `07-PHOTOJOURNALISM.md` connects still-image ethics to video evidence.
+- `09-DIGITAL-JOURNALISM.md` shows how broadcast adapts to streaming and platforms.
+
 ## Decision Cheat Sheet
 
-| Broadcast Situation | Standard |
-|--------------------|----------|
-| Breaking news: first reports unconfirmed | Report confirmed facts only; hedge with "reports of" or "unconfirmed"; do not chase competitor air |
-| Live shot at empty scene hours after event | Question news value; consider whether presence advances story or just performs presence |
-| Lower third title outdated mid-broadcast | Correct immediately; note "former" if applicable |
-| Chyron overstates confirmed facts | Use hedging language until confirmed; update chyron in real time |
-| Sound bite selected out of context | Ensure bite represents speaker's overall position; don't use bite that inverts meaning |
-| Guest/analyst speculates live about pending event | Anchor must push back; label speculation as speculation, not fact |
-| Re-enactment needed for documentary | Label explicitly ("re-enactment") in frame; never present as documentary footage |
-| Podcast: host discusses reporting vs. opinions | Label clearly; ensure listeners understand difference between original reporting and analysis |
-| Nielsen ratings vs. editorial judgment | Ratings inform scheduling; should not dictate story selection; that is advertiser capture |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Unconfirmed breaking news | Confirmed facts only, with explicit "reports of" or "unconfirmed" labels | Do not chase competitor airtime into false certainty. |
+| Empty-scene live shot | Ask whether presence adds information or merely performs presence | Production value is not the same as journalistic value. |
+| Outdated lower third | Immediate correction and "former" labeling where needed | Visual metadata can become a factual claim. |
+| Overstated chyron | Hedge to current evidence and update in real time | Viewers often retain the chyron more than the spoken caveat. |
+| Context-stripped sound bite | Compare bite to speaker's full position | Compression cannot invert meaning. |
+| Live speculation by guest | Anchor pushback and explicit speculation label | Live format transfers correction burden to the host immediately. |
+| Documentary re-enactment | In-frame "re-enactment" label and production disclosure | It must never masquerade as documentary footage. |
+| Podcast reporting versus opinion | Segment labels and host disclosure | Downloads, starts, and listeners are different audience measures. |
+| Ratings pressure | Treat ratings as scheduling input, not story-selection authority | Otherwise editorial judgment becomes advertiser capture. |
 
 ---
 

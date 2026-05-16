@@ -255,15 +255,23 @@ Ultra-processed food characteristics:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why did Appert's canning work? | Heat kills microorganisms; hermetic seal prevents recontamination |
-| When did Appert understand why it worked? | He didn't — Pasteur explained microbial spoilage 48 years later |
-| What killed the Franklin expedition? | Multiple causes; lead poisoning from soldered cans is a hypothesis |
-| What is the key principle of mechanical refrigeration? | Vapor-compression cycle: evaporation absorbs heat, compression/condensation releases it |
-| Why is quick-freezing better? | Small ice crystals → cell membranes intact → fresh texture on thawing |
-| What is trans fat? | Partially hydrogenated vegetable oil byproduct → cardiovascular risk; FDA banned 2018 |
-| What is HFCS? | Corn syrup enzymatically converted to fructose; cheaper than cane sugar in US due to subsidies |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why canning works | Separate heat processing, microbial kill step, hermetic seal, recontamination, acidity, and botulism risk. | Appert proved the process before Pasteur explained the microbiology. |
+| A historical canning failure | Check solder, processing time, contamination, storage, nutrition, expedition context, and competing hypotheses. | Lead poisoning may contribute in some cases, but rarely explains every outcome alone. |
+| Refrigeration impact | Use vapor-compression cycle, cold chain, urban markets, meat/dairy safety, and transport range. | Refrigeration changed geography and seasonality, not just household convenience. |
+| Quick-freezing quality | Compare ice-crystal size, freezing rate, cell rupture, blanching, packaging, and thawing method. | Freezing preserves texture only when the whole process chain is controlled. |
+| Hydrogenated fat | Track shelf stability, texture, partial hydrogenation, trans-fat formation, cardiovascular evidence, and regulation. | Industrial functionality created health externalities recognized later. |
+| HFCS economics | Examine enzymatic conversion, corn subsidies, sugar quotas, beverage formulation, and fructose load. | HFCS is not uniquely toxic versus sucrose; the issue is excess sugar/fructose intake. |
+| Industrial food as system | Analyze preservation, standardization, branding, logistics, regulation, labor, and public health. | Scale creates reliability and new failure modes at the same time. |
+
+---
+
+## Cross-References
+
+- `05-FRENCH-CUISINE.md` contrasts artisanal and restaurant refinement with industrial scale.
+- `08-FOOD-SCIENCE.md` explains the chemistry and process controls behind industrial food.
+- `../manufacturing/00-OVERVIEW.md` connects food production to automation, standardization, and throughput.
 
 ---
 

@@ -226,17 +226,23 @@ ESPRIT         | superhigh  | good     | p sinusoids | O(N²)
 
 ---
 
+## Cross-References
+
+- `signal-processing/06-STOCHASTIC-SIGNALS.md` — PSD as the frequency-domain description of random processes.
+- `signal-processing/01-FOURIER-ANALYSIS.md` — Fourier transforms provide the spectral coordinate system.
+- `probability-statistics/08-TIME-SERIES.md` — spectral density and periodograms in time-series analysis.
+
 ## Decision Cheat Sheet
 
-| Situation | Method |
-|-----------|--------|
-| Quick, general PSD estimate | Welch (50% overlap, Hann window) |
-| Narrowband spectral analysis, bias control | Multitaper |
-| Known AR/MA process, estimate parameters | Burg AR or Yule-Walker |
-| Few sinusoids in noise, need high resolution | MUSIC or ESPRIT |
-| Number of sinusoids unknown | MUSIC with model order selection (MDL/AIC) |
-| Detecting a specific known frequency | Goertzel algorithm (DFT at one frequency) |
-| Non-stationary signal | Short-time processing (STFT) → time-frequency |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| General finite-data PSD | Welch with overlap and Hann window | Segment length, not total record length, sets resolution. |
+| Narrowband spectrum with bias control | Multitaper estimation | Taper count trades variance reduction against spectral smoothing. |
+| AR/MA parameter estimation | Burg AR or Yule-Walker | Parametric methods are only as good as the model family. |
+| Few sinusoids in noise | MUSIC or ESPRIT | Assumes correct model order and usually white noise. |
+| Unknown sinusoid count | MDL/AIC model-order selection before subspace estimation | Wrong order splits or hides peaks. |
+| Specific known frequency | Goertzel algorithm for one DFT bin | Efficient for targeted bins, not broad spectral discovery. |
+| Non-stationary signal | STFT or other time-frequency processing | Window length fixes the time-frequency resolution tradeoff. |
 
 ---
 

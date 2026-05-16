@@ -2,11 +2,12 @@
 
 ## The Big Picture
 
-Hydrogen is both a storage medium (like a battery) and an energy carrier (like a fuel).
-As storage: electricity -> H2 -> electricity with ~25-40% round-trip efficiency. As a
-fuel or chemical feedstock, it is valuable independent of round-trip efficiency.
-The hydrogen economy debate is about which role hydrogen plays and whether its
-inefficiency as a battery substitute is justified by its unique properties.
+Hydrogen is both a storage medium and an energy carrier. As electricity storage,
+electricity -> H2 -> electricity has poor round-trip efficiency relative to batteries
+or pumped hydro. As a molecule for fertilizer, refining, steel, shipping fuels, or
+seasonal storage, its value can be independent of electricity round-trip efficiency.
+The hydrogen-economy debate is therefore a role-selection problem, not a yes/no
+verdict on hydrogen.
 
 ```
 HYDROGEN VALUE CHAIN
@@ -405,18 +406,23 @@ COST DRIVERS FOR GREEN H2 COST REDUCTION:
 
 ## Decision Cheat Sheet
 
-| Hydrogen application | Best technology |
-|---------------------|----------------|
-| Large-scale electrolyzer, utility | Alkaline (AEL) -- mature, cheap |
-| Variable renewable coupled | PEM -- fast response |
-| Industrial baseload (nuclear / waste heat) | SOEC -- highest efficiency |
-| Automotive onboard storage | 700 bar Type IV tank |
-| Long-duration seasonal storage | Underground salt cavern (compressed) |
-| Long-distance H2 transport by ship | Liquid NH3 (ammonia) or LOHC |
-| Safe low-pressure H2 storage | Metal hydride (niche) |
-| Power generation from H2 | PEM fuel cell (vehicle) or CCGT (utility) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether hydrogen is the right energy carrier | Identify end use: chemical feedstock, industrial heat, transport fuel, seasonal storage, backup power, or daily electricity arbitrage. | Hydrogen is usually weak as a daily battery substitute but can be strong where a molecule is required. |
+| Which electrolyzer fits | Compare alkaline, PEM, and SOEC by load-following, efficiency, stack cost, critical materials, water purity, pressure, and heat integration. | Fast response is not the only criterion; utilization and capex dominate hydrogen cost. |
+| Whether "green" hydrogen is actually low carbon | Check electricity source, temporal matching, grid emissions, electrolyzer utilization, water source, compression/liquefaction energy, and leakage. | A color label is not an LCA; emissions depend on boundaries and operating pattern. |
+| Which storage mode fits | Compare 350/700 bar tanks, salt caverns, liquid hydrogen, ammonia/LOHC, and metal hydrides by scale, duration, safety, and losses. | The cheapest storage is geological and location-specific; tanks are flexible but expensive per kWh. |
+| Whether transport by ship is plausible | Compare liquefaction, ammonia synthesis/cracking, LOHC cycling, port infrastructure, toxicity, boil-off, and end-use purity. | Shipping H2 is often really shipping a carrier molecule, with conversion losses and safety regimes. |
+| Whether fuel cells or turbines fit | Check scale, duty cycle, efficiency, start time, fuel purity, emissions, maintenance, and heat recovery. | Fuel cells fit vehicles and distributed power better; turbines fit bulk power but may need NOx controls and blending limits. |
+| Whether hydrogen can decarbonize a sector | Start with the incumbent molecule or heat process, electrification alternative, cost premium, infrastructure, and policy support. | Use hydrogen where direct electrification is technically or economically weak, not because it is fashionable. |
 
 ---
+
+## Cross-References
+
+- `01-ELECTROCHEMICAL.md` contrasts batteries with hydrogen's power-to-gas pathway.
+- `08-GRID-ECONOMICS.md` explains when long-duration storage can justify low round-trip efficiency.
+- `../energy-systems/04-HYDROGEN.md` connects storage hydrogen to broader energy-system uses.
 
 ## Common Confusion Points
 

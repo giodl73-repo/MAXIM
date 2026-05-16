@@ -540,16 +540,24 @@ VIP TECHNOLOGY
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| GFRP rebar in chloride environment — design difference vs steel? | Crack width governs: need larger area to achieve same crack width. Use ACI 440.1R not ACI 318. |
-| CFRP bonded strips for beam strengthening — when is it appropriate? | Sagging moment (mid-span); tension face accessible; good concrete substrate (pull-off ≥ 1.5 MPa) |
-| Geopolymer concrete — can it replace OPC for all applications today? | No: code gaps; variable supply; long-term durability data thin; use in pilot/specialist contexts |
-| Aerogel vs mineral wool — when does cost justify aerogel? | Where space is critically limited: thermal bridges; historic building internal insulation; thin wall profiles |
-| PCM wallboard — does it replace thermal mass? | No. PCM works in narrow temperature band; thermal mass works across all temperature swings. Both are useful. |
-| Self-healing concrete — for structural use today? | Crystalline admixtures: yes, commercial. Bacterial: research stage; not standard specification. |
-| VIP panel puncture on site — what happens? | Vacuum lost; λ rises to ~0.07 W/mK (10× worse); panel must be replaced. Mark locations carefully. |
-| AFRP (aramid) for bridge tendons — trade-off? | Good tensile strength; very light; but moisture absorption, UV degradation, and poor compression limit use vs CFRP |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| GFRP rebar in chlorides | Check corrosion target, modulus, crack width, deflection, bar area, and ACI 440.1R limits. | GFRP avoids corrosion but needs larger area because stiffness is lower than steel. |
+| CFRP strengthening strips | Evaluate moment/shear demand, tension-face access, substrate pull-off, anchorage, fire, and debonding. | Bonded CFRP is only as reliable as the concrete surface and anchorage. |
+| Geopolymer concrete substitution | Inspect precursor supply, activator handling, curing, code acceptance, durability data, and local QA. | It is promising but not a drop-in universal OPC replacement. |
+| Aerogel insulation | Compare space constraint, thermal bridge severity, cost, moisture, fire, and installation robustness. | High performance is justified mainly when thickness is scarce. |
+| PCM wallboard | Match melting point, diurnal temperature swing, ventilation/night cooling, encapsulation, and load profile. | PCM stores heat only within a narrow phase-change band. |
+| Self-healing concrete | Distinguish crystalline admixtures, capsule systems, bacterial systems, crack width, water exposure, and code status. | Commercial waterproofing use is not the same as general structural self-repair. |
+| VIP insulation | Check panel layout, puncture risk, edge losses, QA marking, replacement access, and service life. | A punctured VIP loses most of its insulation value. |
+| AFRP bridge tendons | Compare tensile strength, creep, moisture, UV, compression weakness, anchorage, and CFRP alternatives. | Aramid strength is useful, but environmental durability controls bridge adoption. |
+
+---
+
+## Cross-References
+
+- `../composite-materials/01-FUNDAMENTALS.md` supplies the fiber-matrix mechanics behind construction composites.
+- `07-ENGINEERED-WOOD.md` shows a parallel engineered-material logic using timber rather than fibers and resin.
+- `09-SUSTAINABILITY.md` evaluates composites through lifecycle, repair, and embodied-carbon tradeoffs.
 
 ---
 

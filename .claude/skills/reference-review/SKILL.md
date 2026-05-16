@@ -72,6 +72,95 @@ You are a **technical reference editor** (think O'Reilly, Manning, MIT Press). N
 
 ---
 
+## Gold Rubric v2 — Raised Quality Bar
+
+The 7-point style contract answers: **does this look like a MAXIM guide?**
+Gold Rubric v2 answers: **does this deserve to be treated as one of the best
+reference pages on the internet?**
+
+Use Gold Rubric v2 for canonical guides, high-traffic topics, section exemplars,
+atlas exemplars, and any guide used as a template for future work. Do not inject
+Gold scores into every sweep by default; use them when a guide is a Gold
+candidate or when a user asks for a highest-quality pass.
+
+**Certification reset rule:** proof-clean output, Da Vinci invariants, and
+Cross-References are prerequisites only. They can make a guide
+Candidate-Hardened, but they do not certify Gold without guide-specific rubric
+notes, adversarial findings, and reader-task evidence.
+
+### Quality Tiers
+
+| Tier | Use For | Required Claim |
+|---|---|---|
+| **Gold** | Canonical guides, overviews, high-traffic topics, atlas exemplars, template guides | Mechanically clean, editorially strong, adversarially spot-checked |
+| **Candidate-Hardened** | Mechanically hardened factory or cohort outputs | Proof-clean, cross-linked, invariant-protected where applicable, but awaiting independent Gold panel |
+| **Silver** | Normal content guides | Style-contract complete, proof-clean or explicitly waived, no unresolved P1/P2 issues |
+| **Bronze** | Niche or low-traffic supplemental guides | Structurally complete, useful, factual, no blocking defects |
+| **Held** | Content-policy blocked, tool-blocked, or awaiting external evidence | Blocker written; no clean claim made |
+
+### Ten Gold Dimensions
+
+Score each dimension 0-5. A Gold guide needs no score below 4 and an average of
+4.5+. A Silver guide can tolerate one or two 3s if no P1/P2 issue remains.
+
+| Dimension | 5 Means | Common Failure | Existing Tag |
+|---|---|---|---|
+| **Landscape power** | Opening diagram shows the whole field and relationships among parts | Diagram lists topics but gives no structure | `diagram/P2` |
+| **Layering integrity** | Every major section drills into a node or implication from the opening map | Sections feel appended or arbitrary | `structure/P2` |
+| **ASCII precision** | Diagrams align visually, arrows connect, labels fit, and terminal rendering is clean | Boxes pass loosely but communicate poorly | `diagram/P1/P2` |
+| **Explanatory compression** | Dense, direct prose; no filler, no missing bridge sentence | Terse to opacity, or padded textbook prose | `content/P2`, `audience/P3` |
+| **Decision utility** | Cheat sheet answers real "what do I use when?" questions | Cheat sheet summarizes instead of deciding | `structure/P2` |
+| **Confusion handling** | Gotchas are the mistakes a smart reader actually makes | Generic FAQ or obvious definitions | `content/P2` |
+| **Bridge quality** | Universal conceptual bridges first, widely-known tooling second, stack-specific last | Azure/.NET bridge becomes load-bearing or bridge absent | `bridge/P1/P2/P3` |
+| **Cross-reference value** | Links deepen understanding across sections and concepts | Links are navigation-only or missing obvious adjacent guides | `content/P3`, `bridge/P3` |
+| **Voice** | Peer-level, direct, no beginner handholding, no academic fog | Intro-textbook tone or unearned grandiosity | `audience/P2/P3` |
+| **Factual confidence** | Claims are current, bounded, caveated when needed, not overclaimed | Stale tool claims, suspicious absolutes, uncited strong claims | `content/P1/P2` |
+
+### Gold Review Protocol
+
+1. **Mechanical proof first**: run the relevant proof gate before making a clean
+   claim. For protected figures, include `--daVinci`. Parse output for literal
+   `FAIL`; `--no-fail` can still exit 0.
+2. **Style-contract audit**: verify the 7 required MAXIM surfaces.
+3. **Gold dimension score**: score all ten dimensions with guide-specific notes.
+   Repeated cohort-wide scores are not certification evidence.
+4. **Adversarial pass**: ask what a strong domain reader would object to and
+   record BLOCK/WARN/NOTE findings or an explicit "no finding" rationale.
+5. **Reader task test**: define 3-5 tasks the guide should answer and verify the
+   guide answers them without requiring another page.
+6. **Decision**:
+   - Gold: score threshold met, no BLOCK/WARN findings.
+   - Candidate-Hardened: proof/cross-link/Da Vinci prerequisites met, but
+     independent Gold panel evidence is incomplete.
+   - Silver: useful and clean, but not gold.
+   - Bronze: acceptable but not a model.
+   - Held: blocker or external limitation.
+
+### Gold Registry
+
+`context/gold/REGISTRY.md` is the source of truth for certified Gold guides,
+Gold candidates, and their protected Da Vinci invariants.
+
+- Add a guide to **Certified Gold** only when a reset-era wave or panel records
+  proof, guide-specific Gold scores, adversarial review, and reader tasks.
+- Add factory-hardened guides to **Gold Candidates** as Candidate-Hardened unless
+  an independent panel has already supplied certification evidence.
+- Add promising guides to **Gold Candidates** with a concrete next gate.
+- If a certified Gold guide regresses, move it back to Candidate with a blocker
+  note instead of silently leaving the claim stale.
+- Do not update the registry during ordinary sweeps unless the sweep explicitly
+  includes a Gold promotion/regression decision.
+
+### Severity Under the Raised Bar
+
+| Severity | Meaning Under Gold Rubric v2 |
+|---|---|
+| **BLOCK** | The guide makes a misleading clean/gold claim, contains a likely factual error, lacks a required decision surface, or has a diagram failure that prevents understanding. Maps to `P1`. |
+| **WARN** | The guide is useful but below gold: weak bridge, decorative diagram, summary-style cheat sheet, missing caveat, or uneven voice. Usually maps to `P2`. |
+| **NOTE** | Improvement would make a good guide excellent: stronger cross-link, sharper example, better archetype resonance, minor visual polish. Usually maps to `P3`. |
+
+---
+
 ## Review Rubric — 4 Levels
 
 ### Level 1 — Structure Audit (mechanical, fast)
@@ -218,6 +307,28 @@ Perform a full `sweep` of C:\src\reference\{dir}\:
 ## Mode: `file <path>`
 
 Full developmental review of a single file. Apply all 4 rubric levels carefully. Read the entire file before tagging anything — understand the full scope before making judgments. Output a per-file summary after injecting tags.
+
+If the file is a Gold candidate, also apply Gold Rubric v2 and output:
+
+| Dimension | Score | Notes |
+|---|---:|---|
+| Landscape power | 0-5 | ... |
+| Layering integrity | 0-5 | ... |
+| ASCII precision | 0-5 | ... |
+| Explanatory compression | 0-5 | ... |
+| Decision utility | 0-5 | ... |
+| Confusion handling | 0-5 | ... |
+| Bridge quality | 0-5 | ... |
+| Cross-reference value | 0-5 | ... |
+| Voice | 0-5 | ... |
+| Factual confidence | 0-5 | ... |
+
+Then add a reader-task table and final tier decision: Gold,
+Candidate-Hardened, Silver, Bronze, or Held. Do not claim Gold unless the guide
+is mechanically clean and has no BLOCK/WARN findings.
+
+For a Gold promotion or regression, update `context/gold/REGISTRY.md` in the
+same change and cite the wave or panel that contains the evidence.
 
 ---
 

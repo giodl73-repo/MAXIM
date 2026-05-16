@@ -361,16 +361,26 @@ Baudrillard's most controversial application -- and most misunderstood:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Medium effects before simulation theory | `media-studies/01-MEDIUM-IS-MESSAGE.md` |
+| Platform capitalism and symbolic exchange | `media-studies/04-POLITICAL-ECONOMY.md` |
+| Algorithmic reality construction | `media-studies/08-ALGORITHMS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Concept | Meaning | Example |
-|---------|---------|---------|
-| Simulacrum | Copy without an original | Disneyland, Instagram identity |
-| Hyperreality | More real than real | Las Vegas, cable news war coverage |
-| Precession of simulacra | Map precedes territory | Credit score defines creditworthiness |
-| Sign value | Meaning within sign system | BMW as class signal, not transport |
-| Orders of simulacra | Historical phases: counterfeit/production/simulation | Renaissance art / Ford assembly / social media |
-| Implosion | Collapse of distinctions | TV and reality collapse into each other |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a representation is simulacral | Copy, model, or identity without a stable original | Baudrillard is diagnosing a historical media condition, not saying nothing is true. |
+| Whether hyperreality is operating | Representation that feels more operational than lived reality | "More real than real" is about social force, not sensory vividness alone. |
+| Whether the map precedes territory | Schema, metric, classifier, or score defining what counts as real | Models can constitute categories they claim merely to measure. |
+| Whether sign value dominates use value | Status and meaning within a sign system | Utility still exists; the analytic question is when sign position drives value. |
+| Which order of simulacra is in play | Counterfeit, production, or simulation logic | The phases are heuristic historical logics, not clean chronological bins. |
+| Whether distinctions have imploded | News/entertainment, TV/reality, politics/performance collapsing | Implosion is not mere confusion; it is institutional boundary collapse. |
 
 ---
 

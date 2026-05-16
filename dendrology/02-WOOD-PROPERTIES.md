@@ -336,17 +336,24 @@ DURABILITY CLASSES (EN 350 / European standard):
 
 ---
 
+## Cross-References
+
+- `01-TREE-ANATOMY.md` explains the cellular structure behind wood behavior.
+- `05-TEMPERATE-TREES.md` compares properties across common hardwoods and softwoods.
+- `07-SILVICULTURE.md` connects growth conditions to timber quality.
+
 ## Decision Cheat Sheet
 
-| Need | Species / Cut to Choose |
-|------|------------------------|
-| Minimum movement in furniture (solid wood) | Quartersawn teak or white oak; small T/R ratio |
-| Hardest domestic flooring | Hard maple (1450 lbf) or hickory (1820 lbf) |
-| Maximum stiffness/weight beam | Douglas-fir (high E/density ratio) |
-| Tool handle (impact toughness) | Hickory (energy absorption), ash |
-| Outdoor decking without treatment | Teak, ipe, black locust |
-| Lightweight structure (aircraft, model) | Balsa core + composite facing |
-| Musical instrument soundboard (Sitka spruce) | High E/density, straight grain, low damping |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Minimum solid-wood movement | Quartersawn teak or white oak with low T/R ratio | Shrinkage specs are green-to-oven-dry; real movement is partial MC swing. |
+| Hard domestic flooring | Hard maple or hickory Janka values | Janka measures indentation, not bending/tension strength. |
+| Stiff light beam | Douglas-fir E/density ratio | Grade, defects, and moisture condition matter as much as species. |
+| Impact tool handle | Hickory or ash energy absorption | Straight grain matters; figure weakens axis strength. |
+| Untreated outdoor decking | Teak, ipe, or black locust durability | Outdoor durability is chemistry/decay resistance, not hardness alone. |
+| Lightweight structure | Balsa core with composite facing | Balsa is weak alone; sandwich construction supplies stiffness. |
+| Soundboard material | Sitka spruce high E/density, straight grain, low damping | Acoustic value depends on damping and grain uniformity, not just species name. |
+| Lumberyard moisture mismatch | Purchased MC versus interior EMC | "Dry" at sale may still be far from installation equilibrium. |
 
 ---
 

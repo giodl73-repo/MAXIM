@@ -316,20 +316,26 @@ COLOR PRESERVATION:
 
 ---
 
+## Cross-References
+
+- `01-LEATHER-TYPES.md` identifies surface and grain before treatment.
+- `02-TANNING-PROCESSES.md` explains chemical compatibility.
+- `06-DYEING-FINISHING.md` shows which finishes are being cleaned or renewed.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| How often to condition a daily-use wallet? | Monthly or when the scratch test shows dryness |
-| What product for light-colored leather? | Leather Honey or lanolin-based conditioner (minimal darkening) |
-| What does neatsfoot oil do to pale veg-tan? | Darkens it significantly; intended; part of conditioning's character |
-| What should never be used on leather? | Vaseline, WD-40, cooking oils, silicone spray |
-| How do you treat mold on leather? | Dry immediately; brush surface mold; wipe with 70% isopropyl alcohol; dry; condition |
-| How do you treat water stains on veg-tan? | Wet the entire piece uniformly; dry evenly; stain diffuses |
-| How do you maintain bag shape in storage? | Stuff with acid-free tissue; cotton bags for storage; never sealed plastic |
-| What creates veg-tan patina? | UV light + oils from handling + friction + tannin oxidation over time |
-| Can you re-dye worn leather? | Yes — sand lightly, apply dye, refinish; complete redye requires stripping old finish |
-| What humidity for leather storage? | 45–55% RH; below 40% = desiccation; above 70% = mold risk |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Conditioning timing | Scratch test, stiffness, and actual dryness | More conditioning is not better; over-oiling softens structure. |
+| Light leather care | Low-darkening conditioner such as Leather Honey or lanolin-based products | Always test because most conditioners darken at least slightly. |
+| Pale veg-tan darkening | Neatsfoot oil as intentional darkening/lubrication | It changes character and cannot be undone. |
+| Product exclusion | Avoid Vaseline, WD-40, cooking oils, and silicone spray | These contaminate, oxidize, or interfere with finish/repair. |
+| Mold response | Dry, brush, wipe with 70% isopropyl alcohol, dry, then condition | Mold digests collagen; treat immediately. |
+| Water stain diffusion | Wet entire veg-tan piece uniformly and dry evenly | Spot treatment usually preserves the halo. |
+| Bag storage | Acid-free tissue stuffing and cotton storage bag | Sealed plastic traps humidity and promotes mold. |
+| Veg-tan patina | UV, handling oils, friction, and tannin oxidation | Patina is desired aging, not automatically dirt or damage. |
+| Worn leather re-dye | Light sanding, dye, refinish; strip for complete recolor | Existing finish blocks dye penetration. |
+| Storage humidity | 45-55% RH target | Below 40% dries; above 70% invites mold. |
 
 ---
 

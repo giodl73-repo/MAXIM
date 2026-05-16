@@ -305,19 +305,26 @@ Tooled (concave) joints compress mortar, improving density and bond. Raked joint
 
 ---
 
+## Cross-References
+
+- `01-MASONRY-UNITS.md` defines the units mortar and grout bind.
+- `03-BRICKLAYING.md` applies mortar in bed joints, head joints, and coursing.
+- `08-REPAIR-RESTORATION.md` depends on mortar compatibility and repointing.
+
 ## Decision Cheat Sheet
 
-| Situation | Mortar Specification |
-|-----------|---------------------|
-| Below-grade foundation wall, masonry | Type M (highest strength, best water resistance) |
-| Exterior above-grade, general facing brick | Type N (best workability + adequate strength) |
-| Exterior at grade, reinforced structural | Type S (structural bond + flexibility balance) |
-| Interior non-load-bearing partition | Type N or O |
-| Pre-1900 historic brick (soft, high absorption) | Type O or lime putty / NHL mortar |
-| Repointing historic masonry | Match original — petrographic analysis required |
-| Below-grade in freezing climate | Type S or M with air-entrained masonry cement |
-| CMU core filling | ASTM C476 fine or coarse grout (not mortar) |
-| Pointing thin joints <3/8" | Type N or S with smaller aggregate (pass through joint) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Below-grade masonry foundation | Type M mortar | High strength is useful here but not universally better. |
+| General exterior facing brick | Type N mortar | Workability and bond often matter more than Portland content. |
+| Exterior at-grade reinforced wall | Type S mortar | Use Portland/lime where bond strength is critical. |
+| Interior non-load-bearing partition | Type N or O | Lower strength can be appropriate when units are soft or loads are low. |
+| Pre-1900 soft brick | Type O, lime putty, or NHL mortar | Hard mortar can destroy soft historic units. |
+| Historic repointing | Petrographic analysis and original mortar match | "Match color" is not enough; match composition and vapor behavior. |
+| Freeze-climate below grade | Type S or M with air-entrained masonry cement | Water management still governs durability. |
+| CMU core filling | ASTM C476 fine or coarse grout | Grout is poured into cores; mortar belongs in joints. |
+| Thin joint pointing | Type N or S with smaller aggregate | Aggregate must pass through the joint without bridging. |
+| High-absorption units | Water-retentive mortar or pre-wetting | Dry units steal water before bond develops. |
 
 ---
 

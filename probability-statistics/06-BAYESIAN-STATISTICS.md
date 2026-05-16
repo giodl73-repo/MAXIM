@@ -404,17 +404,23 @@ The formal statement that "with enough data, the prior doesn't matter":
 
 ---
 
+## Cross-References
+
+- `probability-statistics/05-STATISTICAL-INFERENCE.md` — frequentist inference baseline and contrast.
+- `probability-statistics/02-RANDOM-VARIABLES.md` — priors and posteriors are distributions over unknowns.
+- `machine-learning-theory/08-INFORMATION-THEORETIC.md` — Bayesian evidence, coding, and information-theoretic interpretations.
+
 ## Decision Cheat Sheet
 
-| Goal | Method | When to Use |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Closed-form posterior | Conjugate prior | Model fits conjugate family |
-| High-dimensional posterior | HMC / NUTS (Stan) | Complex models, n not huge |
-| Very large data | Variational inference (ADVI) | Scalability needed |
-| Compare models | LOO-CV (PSIS), WAIC, Bayes factor | Prefer LOO for practical use |
-| Select model order | BIC | Large n, quick approximation |
-| Borrow strength across groups | Hierarchical model | Grouped data with imbalance |
-| Propagate parameter uncertainty | Posterior predictive | Predictions with uncertainty |
+| Whether the posterior can be written in closed form | Conjugate prior | Conjugacy is convenience, not automatically a good prior |
+| Whether a complex posterior needs exact-ish sampling | HMC/NUTS | Diagnostics, geometry, and reparameterization matter |
+| Whether data scale blocks MCMC | Variational inference | VI often underestimates posterior uncertainty |
+| Whether predictive model comparison is the target | PSIS-LOO or WAIC | Bayes factors answer a different prior-sensitive question |
+| Whether model order needs a quick approximation | BIC | Large-sample assumptions and regular models are required |
+| Whether groups should share information | Hierarchical model | Partial pooling depends on exchangeability assumptions |
+| Whether prediction must include parameter uncertainty | Posterior predictive distribution | Model misspecification is still propagated confidently |
 
 ---
 

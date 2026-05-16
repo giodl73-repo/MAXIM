@@ -74,7 +74,8 @@ NOCTUIDAE (owlet moths) -- most damaging family:
   Mythimna separata (armyworm): small grains, Asia
 
 PYRALIDAE / CRAMBIDAE:
-  Ostrinia nubilalis (European corn borer): single largest pest in US corn
+  Ostrinia nubilalis (European corn borer): historically major US corn pest,
+    now strongly suppressed where Bt corn is widely planted
   Chilo suppressalis (striped rice borer): Asia
   Plutella xylostella (diamondback moth): Brassica specialist; Bt resistant in field
 
@@ -327,17 +328,24 @@ IRAC (Insecticide Resistance Action Committee) resistance management strategy: r
 
 ## Decision Cheat Sheet
 
-| Pest type | First-line IPM | Biological agent | Key threshold concept |
-|-----------|---------------|------------------|----------------------|
-| Aphids | Beneficial insect conservation; selective aphicide | Aphidius wasps; Orius | >10 aphids/leaf (varies by crop) |
-| Whitefly | Yellow sticky traps (monitoring) | Encarsia formosa | 3-4 adults/leaf in greenhouse |
-| Thrips | Blue sticky traps; reflective mulch | Amblyseius cucumeris | TSWV risk > density threshold |
-| Caterpillars | Pheromone traps; Bt kurstaki | Trichogramma (egg); NPV | Egg mass/frass counts |
-| Corn borer | Bt crop or Trichogramma release | Trichogramma ostriniae | >25% plants with eggs |
-| Bark beetle | Sanitation; pheromone traps | Natural (woodpeckers, parasitoids limited) | Prevent mass attack synchronization |
-| Soil pests | Crop rotation; EPN | Steinernema/Heterorhabditis | Larvae/m^2 count |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Pest status claim | Crop stage, density, damage coefficient, and market value | An insect is a pest only when expected damage exceeds tolerance |
+| EIL/ET claim | Economic injury level vs action threshold | ET is intentionally below EIL and varies by crop, season, and control cost |
+| IPM claim | Monitoring, threshold, cultural, biological, chemical, and genetic tools | IPM is optimization, not "no pesticides" |
+| Biocontrol claim | Classical, augmentative, or conservation biocontrol | Establishment, non-target risk, and business model differ |
+| Bt claim | Spray vs transgenic expression vs Cry protein target | Organic status follows production method, not molecule identity |
+| Resistance claim | IRAC mode of action and generation turnover | Rotate modes, not brand names or products in the same group |
+| Threshold-number claim | Local crop, pest stage, natural enemies, weather, and price | Universal numeric thresholds are usually wrong |
+| Invasive-pest claim | Enemy release, climate fit, host range, and surveillance | Early detection often matters more than later eradication |
 
 ---
+
+## Cross-References
+
+- `05-INSECT-PLANT.md` explains plant-feeding insects before they become crop pests.
+- `06-POLLINATION.md` covers the positive economic value of insect services.
+- `../agriculture/05-PEST-MANAGEMENT.md` supplies the integrated pest management context.
 
 ## Common Confusion Points
 

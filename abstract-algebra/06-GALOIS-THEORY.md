@@ -321,18 +321,24 @@ CONSTRUCTIBLE REGULAR POLYGONS (Gauss-Wantzel):
 
 ---
 
+## Cross-References
+
+- `abstract-algebra/02-SUBGROUPS-QUOTIENTS.md` — subgroup lattices and quotients are the group side of Galois theory.
+- `abstract-algebra/05-POLYNOMIALS-FIELDS.md` — splitting fields and extensions are the field side of Galois theory.
+- `number-theory/06-ALGEBRAIC-NUMBER-THEORY.md` — Galois groups become arithmetic objects over number fields.
+
 ## Decision Cheat Sheet
 
-| Task | Method |
-|------|--------|
-| Find Gal(K/F) | Find all F-automorphisms of K |
-| Determine if extension is Galois | Check: splitting field of separable polynomial |
-| Find fixed field of H | α ∈ K with σ(α)=α for all σ ∈ H |
-| Apply Galois correspondence | H ↔ K^H, index ↔ degree |
-| Test if f solvable by radicals | Compute Gal(f); check if solvable group |
-| Prove quintic not solvable | Gal(general quintic) = S₅; S₅ not solvable |
-| Find constructible numbers | [Q(α):Q] must be power of 2 |
-| Find cyclotomic Galois group | Gal(Q(ζₙ)/Q) ≅ (Z/nZ)* |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a Galois group is known | All automorphisms of `K` fixing `F` | Automorphisms must fix the base field pointwise |
+| Whether an extension is Galois | Splitting field of a separable polynomial | Normality and separability are both required |
+| Whether a subgroup has a fixed field | Elements fixed by every subgroup automorphism | Fixed fields reverse inclusion |
+| Whether the correspondence applies | `H <-> K^H`, index and degree | The clean correspondence assumes a finite Galois extension |
+| Whether a polynomial is solvable by radicals | Galois group solvability | Requires connecting the polynomial to its splitting field group |
+| Whether the general quintic is unsolvable | `S_5` not solvable | Special quintics can still be solvable |
+| Whether a number is constructible | Extension degree a power of two | Power-of-two degree is necessary in the right tower context |
+| Whether a cyclotomic Galois group is explicit | Units `(Z/nZ)^*` | The isomorphism uses primitive roots of unity and base `Q` |
 
 ---
 

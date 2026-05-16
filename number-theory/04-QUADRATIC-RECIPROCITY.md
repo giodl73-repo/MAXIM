@@ -286,18 +286,24 @@ This is the foundation of the Langlands program — connecting:
 
 ---
 
+## Cross-References
+
+- `number-theory/01-DIVISIBILITY-PRIMES.md` — primes, gcds, and modular arithmetic are the prerequisite substrate.
+- `abstract-algebra/05-POLYNOMIALS-FIELDS.md` — finite-field thinking clarifies residues and character sums.
+- `cryptography/01-SYMMETRIC.md` — reciprocity belongs to the deeper number-theoretic side of cryptographic mathematics.
+
 ## Decision Cheat Sheet
 
-| Task | Method |
-|------|--------|
-| Check if a is QR mod p (p prime) | Euler's criterion: a^{(p-1)/2} mod p |
-| Compute (a/n) without factoring n | Jacobi symbol algorithm (O(log² n)) |
-| Find √a mod p when p ≡ 3 (mod 4) | a^{(p+1)/4} mod p |
-| Find √a mod p in general | Tonelli-Shanks algorithm |
-| Determine if a is QR mod n (composite) | Need factorization (QR assumption hard without it) |
-| Probabilistic primality test | Solovay-Strassen (Jacobi-based); Miller-Rabin better |
-| Understand (-1/p) | (p ≡ 1 mod 4) iff (-1 is QR mod p) |
-| Understand (2/p) | (p ≡ ±1 mod 8) iff (2 is QR mod p) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether `a` is a quadratic residue mod prime `p` | Euler's criterion | Only works directly for odd prime moduli |
+| Whether a symbol can be computed without factoring | Jacobi-symbol algorithm | Jacobi `1` does not imply residue for composite modulus |
+| Whether square roots are easy for `p = 3 mod 4` | Exponent `a^((p+1)/4)` | The congruence class of `p` is essential |
+| Whether modular square roots need the general method | Tonelli-Shanks algorithm | Requires prime modulus and residue input |
+| Whether compositeness hides quadratic residuosity | Factor the modulus or invoke QR hardness | This hardness underlies cryptographic assumptions |
+| Whether a Jacobi-based primality test is enough | Solovay-Strassen | Miller-Rabin is usually stronger in practice |
+| Whether `-1` is a residue | Supplement `(-1/p)` | Depends on `p mod 4` |
+| Whether `2` is a residue | Supplement `(2/p)` | Depends on `p mod 8` |
 
 ---
 

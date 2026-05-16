@@ -354,6 +354,12 @@ VARIABLE FONT EXPRESSIVENESS
 
 ---
 
+## Cross-References
+
+- [Digital Transition](08-DIGITAL-TRANSITION.md) explains how screen and web design reshaped graphic practice.
+- [Brand Identity Systems](07-BRAND-IDENTITY.md) provides the system-design baseline contemporary work often extends.
+- [Color Theory and Brand](06-COLOR-IN-DESIGN.md) connects contemporary practice to reusable color systems and visual tokens.
+
 ## Common Confusion Points
 
 **"Design systems are only for big companies"** -- Any product with more than

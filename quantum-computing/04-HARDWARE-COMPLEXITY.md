@@ -384,19 +384,25 @@ TLS 1.3 + PQC:
 
 ---
 
+## Cross-References
+
+- `quantum-computing/03-ERROR-CORRECTION.md` — error-correction overhead dominates hardware scale.
+- `semiconductor-manufacturing/01-SILICON-SUBSTRATE.md` — fabrication substrate analogy for scalable physical systems.
+- `quantum-computing/06-QUANTUM-COMMUNICATION.md` — hardware constraints for transmitting quantum states.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Best platform for gate fidelity? | Trapped ion (~99.9% 2Q); superconducting improving |
-| Best platform for qubit count? | Superconducting (IBM, Google) — 100s–1000s |
-| Which platform will win? | Unknown; likely problem-dependent or hybrid |
-| Is D-Wave a fault-tolerant QC? | No — quantum annealer, specialized, no proven quantum speedup |
-| When do quantum computers break RSA? | Most experts: 2035–2040+ minimum; 10M+ physical qubits needed |
-| Should I implement PQC now? | Yes — harvest-now-decrypt-later attacks are active today |
-| What's NIST's post-quantum standard? | ML-KEM (FIPS 203), ML-DSA (FIPS 204), SLH-DSA (FIPS 205) |
-| What complexity class is factoring in? | BQP ∩ NP; NOT known NP-complete |
-| Can QC solve NP-complete problems? | No known polynomial time algorithm; Grover gives √N |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Gate-fidelity leader | Trapped ions near `99.9%` two-qubit fidelity; superconducting improving | Fidelity without speed/connectivity is not a full platform comparison. |
+| Qubit-count leader | Superconducting platforms in the hundreds to low thousands | Raw qubit count is weaker than logical quality, depth, and error rates. |
+| Winning platform claims | Problem-dependent or hybrid hardware outlook | No platform has proven a fault-tolerant, scalable endgame. |
+| D-Wave claims | Quantum annealer, not universal fault-tolerant QC | Specialized annealing has no general proven quantum speedup. |
+| RSA-break timeline | Millions of physical qubits plus error correction, often forecast 2035-2040+ | Forecasts are dominated by scaling and QEC assumptions. |
+| PQC urgency | Harvest-now-decrypt-later risk today | Migration lead time matters even before CRQC exists. |
+| NIST PQC standards | ML-KEM, ML-DSA, and SLH-DSA FIPS tracks | Standards adoption still requires protocol, inventory, and lifecycle work. |
+| Factoring complexity | Factoring in `BQP` and `NP`; not known NP-complete | "Quantum speedup" is not the same as solving NP-complete problems. |
+| NP-complete expectations | Grover gives square-root search over assignments | No known polynomial-time quantum algorithm for NP-complete problems. |
 
 ---
 

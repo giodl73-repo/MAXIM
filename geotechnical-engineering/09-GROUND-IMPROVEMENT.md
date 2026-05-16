@@ -302,18 +302,24 @@ Mitigation strategies:
 
 ## Decision Cheat Sheet
 
-| Problem | Soil Type | Best Method | Alternative |
-|---------|-----------|------------|------------|
-| Soft clay, large area, time available | Saturated clay | Preloading + PVDs | DSM columns |
-| Loose sand, large area, vibration OK | Clean sand/gravel | Vibro-compaction | Dynamic compaction |
-| Soft clay, immediate strength needed | Soft clay | Stone columns + LTP | DSM columns |
-| Underpinning existing structure | Any | Compaction grouting or jet grouting | Micropiles |
-| Excavation support in any soil | Any | Jet grouting or DSM panels | Sheet pile |
-| Liquefiable sand, earthquake zone | Loose sand | Vibro-densification | Stone columns + drainage |
-| Contaminated zone, no excavation | Any | Ground freezing (temporary) | DSM containment |
-| Deep access tunnel (waterlogged) | Sandy/gravelly | Ground freezing | Jet grouting cutoff |
+| Ground Problem | Preferred Improvement Logic | Watch-Out |
+|---|---|---|
+| Soft clay, large footprint, time available | Preload/surcharge with PVDs to finish consolidation before service | Stage fill for stability; monitor pore pressure, not just settlement |
+| Soft clay, strength needed quickly | DSM columns or stone columns with load-transfer platform | Stone columns drain/load-share; they do not densify clay |
+| Loose clean sand, vibration acceptable | Vibro-compaction or dynamic compaction | Fines content and groundwater control whether densification works |
+| Liquefiable sand | Densification, drainage, or solidification depending on access and performance target | Verify with post-treatment CPT/SPT against CRR target |
+| Underpinning an existing structure | Compaction grouting, jet grouting, or micropiles | Injection can heave or damage structures if not staged/monitored |
+| Excavation in wet/runny ground | Jet grout/DSM cutoff, ground freezing, or permeation grout | Method depends on permeability and required temporary/permanent behavior |
+| Contaminated soil containment | DSM panels, jet-grout walls, or freezing for temporary access | Avoid methods that mobilize contaminants through uncontrolled flow paths |
+| Improvement vs deep foundations | Compare residual settlement, schedule, verification, and constructability | Cheapest unit cost is not lowest project risk |
 
 ---
+
+## Cross-References
+
+- [Consolidation](03-CONSOLIDATION.md) explains why preloading and vertical drains change settlement timing.
+- [Shallow Foundations](06-SHALLOW-FOUNDATIONS.md) shows the design objective ground improvement often tries to make viable.
+- [Deep Foundations](07-DEEP-FOUNDATIONS.md) provides the competing solution when improvement is insufficient or uneconomic.
 
 ## Common Confusion Points
 

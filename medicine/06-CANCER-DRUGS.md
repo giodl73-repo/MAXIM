@@ -6,7 +6,7 @@
 
 **Systems Bridge:** Targeted oncology therapy exploits two related architectural vulnerabilities. Oncogene addiction is a SPOF (single point of failure) problem: a cancer cell that has amplified or constitutively activated a single oncogenic pathway becomes dependent on that pathway for survival — it has traded pathway redundancy for proliferative gain. When you inhibit that pathway (imatinib → BCR-ABL; trastuzumab → HER2; erlotinib → mutant EGFR), the cell has no fallback. Normal cells have parallel signaling pathways and tolerate the loss of one; the addicted cancer cell cannot. Synthetic lethality is the redundancy analysis version: if two repair pathways (BRCA homologous recombination + PARP base excision repair) are both individually essential for survival under DNA damage, and you knock out one (BRCA mutation in the tumor), then the other becomes the sole critical path. Inhibit the sole remaining path (PARP inhibitor) → the system crashes — but only in the BRCA-mutant cell, not in normal cells that still have both pathways. This is exactly the logic of fault injection against a system that has one redundancy layer already removed: inject a fault in the remaining path → failure. The precision of targeted therapy relative to cytotoxic chemotherapy comes from this architectural specificity: cytotoxics kill all dividing cells (low specificity); targeted drugs kill only cells with the specific vulnerability.
 
-## Big Picture: Oncology Drug Landscape
+## The Big Picture
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -431,24 +431,30 @@ Key ADCs:
 
 ---
 
+## Cross-References
+
+- `disease/04-CANCER.md` - hallmarks and clinical cancer categories.
+- `pharmacology/07-CHEMOTHERAPY.md` - cytotoxic and targeted therapy principles.
+- `immunology/07-IMMUNOTHERAPY.md` - immune-based cancer treatment context.
+
 ## Decision Cheat Sheet
 
-| Cancer Type | Key Targeted Therapy / Driver | Drug |
-|------------|------------------------------|------|
-| CML | BCR-ABL (Ph+) | Imatinib → dasatinib/nilotinib → ponatinib (T315I) |
-| NSCLC EGFR-mutated | EGFR ex19del/L858R | Osimertinib (1st-line or T790M) |
-| NSCLC ALK-rearranged | ALK fusion | Alectinib (1st-line) → lorlatinib |
-| NSCLC BRAF V600E | BRAF V600E | Dabrafenib + trametinib |
-| Melanoma BRAF V600E | BRAF V600E | Dabrafenib + trametinib or vemurafenib + cobimetinib |
-| Melanoma (immunotherapy) | High TMB/MSI-H | Ipilimumab + nivolumab → pembrolizumab |
-| HER2+ breast | HER2 amplified | Pertuzumab + trastuzumab + taxane → T-DXd (if relapsed) |
-| HR+ HER2- metastatic BC | ER+, HER2- | CDK4/6i + AI or fulvestrant |
-| Prostate (mCRPC) | AR signaling | Enzalutamide or abiraterone + prednisone |
-| CLL | BTK pathway | Ibrutinib/acalabrutinib (BTK) or venetoclax + obinutuzumab |
-| AML | FLT3-ITD/D835 | Midostaurin (+ chemo), gilteritinib (relapsed) |
-| AML BCL-2 | All AML (elderly/unfit) | Venetoclax + azacitidine |
-| Ovarian BRCA1/2 | BRCA1/2 germline/somatic | Olaparib maintenance; niraparib (all-comer) |
-| MSI-H any solid tumor | MMR deficiency | Pembrolizumab (tumor-agnostic) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| CML targeted sequence | BCR-ABL mutation profile | T315I changes TKI choice. |
+| EGFR-mutated NSCLC | Ex19del/L858R and resistance mutations | Osimertinib context depends on line and T790M history. |
+| ALK-rearranged NSCLC | ALK fusion | CNS penetration and resistance guide next agent. |
+| BRAF-mutated NSCLC | BRAF V600E | Use BRAF plus MEK inhibition. |
+| BRAF-mutated melanoma | BRAF V600E | Targeted therapy is fast; immunotherapy may be more durable. |
+| Immunotherapy melanoma | TMB/MSI and checkpoint context | Immune adverse events can affect any organ. |
+| HER2-positive breast cancer | HER2 amplification | ADCs blur old HER2-positive/negative boundaries. |
+| HR-positive HER2-negative metastatic breast cancer | ER pathway plus CDK4/6 dependence | Endocrine resistance changes sequencing. |
+| Metastatic castration-resistant prostate cancer | Androgen-receptor signaling | Steroid co-therapy and resistance matter. |
+| CLL targeted therapy | BTK/BCL2 pathway | Cardiac and tumor-lysis risks shape selection. |
+| FLT3-mutated AML | FLT3-ITD/D835 | Mutation status must be tracked over disease course. |
+| Elderly/unfit AML | BCL-2 dependence with hypomethylating agent | Myelosuppression and infection risk are central. |
+| BRCA-mutated ovarian cancer | PARP synthetic lethality | Germline and somatic testing both matter. |
+| MSI-H solid tumor | MMR deficiency | Tumor-agnostic approval still needs biomarker-quality confidence. |
 
 ---
 

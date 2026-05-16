@@ -1,5 +1,7 @@
 # Network Information Theory
 
+## The Big Picture
+
 ```
 FROM POINT-TO-POINT TO NETWORKS
 
@@ -291,22 +293,27 @@ Used in video coding (B-frames know neighboring frames) and CF relay strategy.
 
 ---
 
+## Cross-References
+
+- `information-theory/02-SOURCE-CODING.md` — point-to-point coding baseline before multi-user networks.
+- `telecommunications/01-ELECTROMAGNETIC-SPECTRUM.md` — physical communication systems where multi-user limits matter.
+- `distributed-systems/03-CONSENSUS.md` — network limits and coordination limits as adjacent distributed-system constraints.
+
 ## Decision Cheat Sheet
 
-| Scenario | Setup | Key result | Achievability |
-|----------|-------|------------|---------------|
-| Multiple uplink users | MAC | Pentagon capacity region | SIC decoding |
-| Cellular downlink | Gaussian BC | DPC achieves capacity | Costa precoding |
-| Two co-channel users | IC | Open; HK within 1 bit | Public/private split |
-| Cooperative relay | Relay channel | DF for degraded | Decode + re-encode |
-| Multi-antenna link | MIMO | SVD + waterfilling | Spatial multiplexing |
-| Network multicast | DAG network | Max-flow min-cut | Linear network coding |
-| Rate-limited relay | CF relay | Wyner-Ziv compression | Compress + Wyner-Ziv |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether several uplink users share a receiver | Multiple-access channel | SIC-achievable pentagons assume receiver coordination and code design |
+| Whether one transmitter serves many receivers | Broadcast channel | Dirty-paper capacity is powerful but model-specific |
+| Whether two users interfere symmetrically | Interference channel | General capacity is open; Han-Kobayashi is approximate |
+| Whether a relay should decode or compress | Relay channel | Decode-forward needs relay decodability; compress-forward needs side information |
+| Whether antennas create parallel channels | MIMO SVD and waterfilling | CSI and hardware constraints control the gain |
+| Whether multicast can exploit coding inside the network | Network coding on a DAG | Max-flow/min-cut statements need idealized network models |
+| Whether a rate-limited relay should quantize observations | Wyner-Ziv / compress-forward | Compression quality depends on decoder side information |
 
-**When to use SIC vs treat-interference-as-noise**:
-- Interference power ≫ desired signal: decode interference first (SIC)
-- Interference power ≪ desired signal: treat as noise (TIN is near-optimal for weak IC)
-- Interference power ≈ desired signal: Han-Kobayashi splitting
+**Interference regimes:** strong interference may justify SIC; weak interference
+may justify treating interference as noise; comparable interference usually
+requires split-message reasoning such as Han-Kobayashi.
 
 ---
 

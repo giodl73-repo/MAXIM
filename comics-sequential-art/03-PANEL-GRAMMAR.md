@@ -360,17 +360,23 @@ Panel layout is a spatial information architecture problem: allocating reader at
 
 ---
 
+## Cross-References
+
+- `02-MCCLOUD-THEORY.md` supplies closure and transition categories behind panel grammar.
+- `04-SUPERHERO-TRADITION.md` shows panel grammar under action, continuity, and serialized pressure.
+- `09-DIGITAL-WEBCOMICS.md` changes the page constraint into scrolling, infinite canvas, and platform rhythm.
+
+---
+
 ## Decision Cheat Sheet
 
-| I want to create...                               | Panel grammar technique           |
-|---------------------------------------------------|-----------------------------------|
-| A sense of overwhelming scale or emotion          | Full bleed or double spread       |
-| A very rapid passage of time                      | Scene-to-scene transition; few panels|
-| A slow, contemplative mood                        | Aspect-to-aspect; wide panels     |
-| Tension before a reveal                           | Page turn placement (reveal at top|
-|                                                   | of new page)                      |
-| Interiority / inner monologue                     | Caption boxes (narrated); or      |
-|                                                   | thought balloons                  |
-| A claustrophobic, controlled feel                 | Strict grid; small panels         |
-| Explosive action                                  | Free layout; large panels; bleed  |
-| Signal that panels are simultaneous               | No gutter or very narrow gutter   |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Scale or emotional overwhelm | Consider full bleed, double-page spread, low/high angle, figure size, and page-turn setup. | Bigger panels create impact only when surrounding rhythm supports contrast. |
+| Rapid time passage | Use scene-to-scene transitions, montage, compressed captions, and fewer intermediate beats. | Compression can skip necessary causal links if landmarks are missing. |
+| Slow or contemplative mood | Use aspect-to-aspect panels, wide gutters, repeated framing, environmental detail, and silence. | Slowness needs attention targets, not just empty space. |
+| Reveal tension | Place setup before the page turn, control eyeline, manage last-panel suspense, and reveal at new-page entry. | Digital scroll changes page-turn mechanics. |
+| Interiority | Choose caption, thought balloon, visual metaphor, lettering style, and narrator reliability. | Caption boxes can be narration, memory, or contradiction, not just inner monologue. |
+| Claustrophobia or control | Use strict grids, small panels, repeated framing, narrow gutters, and constrained viewpoint. | A rigid grid can feel orderly unless content pressures it. |
+| Explosive action | Break grid, enlarge panels, use diagonals, speed lines, sound effects, and bleed. | Layout chaos still needs readable action vectors. |
+| Simultaneity | Use shared background, narrow/no gutters, overlapping balloons, and parallel panel structure. | Simultaneous does not mean unordered; reading path still sequences attention. |

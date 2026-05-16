@@ -11,18 +11,17 @@
 |  → Ochre/sienna/umber available on every continent               |
 |  → Explains universal independent use in prehistoric art         |
 |                                                                  |
-|  IRON OXIDE FORM → COLOR                                         |
-|  +------------------+  +------------------+  +----------------+  |
-|  | Goethite         |  | Hematite         |  | Limonite       | |
-|  | α-FeOOH          |  | α-Fe₂O₃          |  | FeO(OH)·nH₂O  | |
-|  | Yellow           |  | Red              |  | Yellow-brown   | |
-|  | Yellow ochre     |  | Red ochre        |  | Raw sienna     | |
-|  | Heat → hematite  |  | Stable to 1200°C |  | Heat → umber   | |
-|  +------------------+  +------------------+  +----------------+ |
-|                                                                 |
-|  PLUS: Manganese dioxide (MnO₂) = black                         |
-|        Carbon (charcoal, bone black) = black/gray               |
-|        Green earth (celadonite/glauconite) = gray-green         |
+|  IRON OXIDE FORM -> COLOR                                        |
+|                                                                  |
+|  Goethite              Hematite              Limonite            |
+|  alpha-FeOOH           alpha-Fe2O3           FeO(OH).nH2O        |
+|  Yellow                Red                   Yellow-brown        |
+|  Yellow ochre          Red ochre             Raw sienna          |
+|  Heat -> hematite      Stable to 1200 C      Heat -> umber       |
+|                                                                  |
+|  PLUS: Manganese dioxide (MnO₂) = black                          |
+|        Carbon (charcoal, bone black) = black/gray                |
+|        Green earth (celadonite/glauconite) = gray-green          |
 +------------------------------------------------------------------+
 ```
 
@@ -324,3 +323,15 @@ PRACTICAL IMPLICATION:
 **"Ivory black" has no ivory:** The name persists but it's been bone-based since the mid-20th century conservation of elephant populations and cost. The composition (carbon + calcium phosphate) is the same regardless of source bone.
 
 **Cave paintings were "art" in our modern sense?** Debated. The concentration in specific deep chambers, evidence of repeated visits, and consistent symbolic choices (hand stencils, specific animals) suggest intentional symbolic behavior. Whether "art" in aesthetic sense or "ritual/spiritual" documentation — we cannot know. The technical sophistication (mixing recipes, multiple techniques) is beyond doubt.
+
+---
+
+## Cross-References
+
+| If you need... | Go to |
+|---|---|
+| Later synthetic pigment chemistry | [Ancient Synthetic Pigments](02-ANCIENT-SYNTHETIC.md) |
+| Conservation and aging behavior | [Pigment Conservation](10-CONSERVATION.md) |
+| Binder and surface systems around pigments | [Coatings](../coatings/00-OVERVIEW.md) |
+| Archaeological context for prehistoric use | [Archaeology](../archaeology/00-OVERVIEW.md) |
+| Art-historical interpretation of cave and icon practices | [Art History](../art-history/00-OVERVIEW.md) |

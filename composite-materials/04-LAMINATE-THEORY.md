@@ -340,15 +340,23 @@ For a general laminate analysis, effective engineering constants:
 
 ## Decision Cheat Sheet
 
-| Design need | Laminate approach |
-|-------------|------------------|
-| Maximize in-plane stiffness in one direction | High fraction of 0° plies |
-| Isotropic in-plane behavior | Quasi-isotropic [0/±45/90]s |
-| Avoid warpage on cure | Symmetric laminate about midplane |
-| Avoid shear-extension coupling | Balanced (+θ for every –θ) |
-| Maximum shear stiffness | ±45° dominant layup |
-| Maximize bending stiffness | 0° plies on outer faces |
-| Minimize thermal residual stress | Symmetric + balanced + low ΔT cure |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| One-direction in-plane stiffness | Increase 0-degree ply fraction, check load path, fiber allowables, buckling, and off-axis loads. | A unidirectional solution can be brittle to unexpected load directions. |
+| Quasi-isotropic behavior | Use balanced `[0/+45/-45/90]s` families and compare A-matrix terms. | Quasi-isotropic usually means in-plane only, not bending or damage isotropy. |
+| Cure warpage | Check symmetry about midplane, coefficient mismatch, cure temperature, moisture, and residual stress. | Symmetry controls extension-bending coupling but not every manufacturing distortion. |
+| Shear-extension coupling | Use balanced plus/minus angle plies and inspect `A16`, `A26`, `B`, and `D` terms. | Balance and symmetry solve different coupling problems. |
+| Shear-dominated load | Increase plus/minus 45 plies, verify bearing/bypass, matrix shear allowables, and fatigue. | Matrix and interface properties become more important in shear-heavy laminates. |
+| Bending stiffness | Put high-modulus plies far from the neutral axis and check compression, buckling, and impact tolerance. | Outer 0-degree plies increase bending stiffness but can be damage-sensitive. |
+| Thermal residual stress | Combine symmetry, balance, low cure delta-T, compatible CTEs, and process control. | Laminate theory predicts trends; process defects can dominate residual stress. |
+
+---
+
+## Cross-References
+
+- `02-FIBER-TYPES.md` supplies the directional material properties laminate theory arranges.
+- `06-DESIGN-ANALYSIS.md` turns laminate stiffness and failure criteria into engineering decisions.
+- `../materials/01-CRYSTAL-STRUCTURE.md` contrasts anisotropy in engineered laminates with anisotropy in crystals.
 
 ---
 

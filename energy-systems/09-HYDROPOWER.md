@@ -1,7 +1,7 @@
 # Hydropower — Gravity's Gift to the Grid
 
-*Hydropower is the oldest large-scale electricity source and the only renewable that is
-fully dispatchable. A reservoir stores potential energy — water at height — and converts
+*Hydropower is the oldest large-scale electricity source and the dominant
+dispatchable renewable where reservoir storage exists. A reservoir stores potential energy — water at height — and converts
 it to electricity on demand. No Carnot limit applies: gravitational potential energy
 converts directly to shaft work through turbine hydrodynamics. The Alchemist's overhead
 here is friction, turbulence, and the ecological cost of interrupting a river.*
@@ -19,8 +19,8 @@ HYDROPOWER LANDSCAPE
   (dam + storage)       months stored)   (~45%)   22 GW (Three  ancillary services
                                                   Gorges)
 
-  RUN-OF-RIVER (ROR)    No (follows      25-50%   1-500 MW      Baseload only
-  (weir/diversion,      river flow)                              (limited storage)
+  RUN-OF-RIVER (ROR)    Limited          25-50%   1-500 MW      Energy following
+  (weir/diversion,      river flow)                              natural flow
    no large reservoir)
 
   PUMPED HYDRO (PHS)    Yes (daily       N/A      100 MW-       Storage + grid
@@ -40,7 +40,7 @@ GLOBAL HYDRO CAPACITY AND GENERATION (2024):
 
 HYDROPOWER'S UNIQUE GRID ROLE:
   1. Dispatchable renewable — ramp in seconds-minutes (unlike solar/wind)
-  2. Black start capable — can restart grid after blackout (no external power needed)
+  2. Black start capable — many plants can restart grid after blackout
   3. Frequency regulation — governor response matches or beats gas turbines
   4. Reactive power — synchronous generators provide essential voltage support
   5. Seasonal storage — multi-month reservoir in Norway, Brazil
@@ -661,23 +661,24 @@ CLIMATE IMPACTS ON HYDROPOWER:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What fraction of global electricity is hydro? | ~15% (~4,400 TWh/yr from ~1,400 GW) |
-| Most common turbine type? | Francis (~60% of installed capacity) |
-| When to use Pelton? | Head > 200 m, moderate flow (impulse, jet-driven) |
-| When to use Kaplan? | Head < 30 m, very high flow (propeller, double-regulated) |
-| Peak turbine efficiency? | Francis: 94-95%; Pelton: 92-93%; Kaplan: 91-94% |
-| Can hydro provide grid frequency regulation? | Yes — governor response in seconds; a primary grid stabilizer |
-| Can hydro black-start a grid? | Yes — only large-scale renewable that can |
-| Why is existing hydro so cheap? | Capital amortized (zero fuel + paid-off dam = $10-25/MWh) |
-| Is new large hydro being built? | Yes, mainly China and Africa; OECD mostly refurbishing |
-| Pumped hydro round-trip efficiency? | 78-85% (pump η × turbine η) |
-| Climate change impact on hydro? | Varies: glacier-fed rivers decline long-term; tropics face drought/flood extremes |
-| Why is reservoir methane a concern? | Tropical reservoirs with high area/power ratio → anaerobic decomposition → CH₄ |
-| Largest hydropower plant? | Three Gorges (China): 22.5 GW, ~100 TWh/yr |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Hydro grid value | Reservoir storage, ramp rate, and synchronous-machine services | Run-of-river has much less dispatch freedom |
+| Turbine choice | Head and flow first | Pelton/Francis/Kaplan are site-fit decisions, not a quality ranking |
+| Cheap existing hydro | Paid-off civil works and zero fuel | Refurbishment, sediment, relicensing, and dam safety still cost money |
+| New hydro claim | Site quality, social license, river ecology, and resettlement | Best sites are already used in many OECD systems |
+| Pumped hydro claim | Round-trip efficiency, duration, elevation, and permitting | Long-lived and cheap per cycle, but geography and lead time dominate |
+| Reservoir methane claim | Climate zone, flooded biomass, depth, and area/power ratio | Tropical shallow reservoirs can be high-emission outliers |
+| Fish-passage claim | Species, life stage, dam height, and downstream mortality | Passage structures do not recreate a free-flowing river |
+| Climate-risk claim | Snowpack, glacier, monsoon, drought, and flood regime | Hydro is renewable but not climate-invariant |
 
 ---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places hydropower among gravitational energy sources.
+- `05-GRID-INTEGRATION.md` explains hydropower's dispatch and balancing value.
+- `../hydrology/00-OVERVIEW.md` supplies the watershed and flow-regime context.
 
 ## Common Confusion Points
 

@@ -345,18 +345,28 @@ Included here because it bridges social learning and social control -- it's not 
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Strain and anomie alternatives | `criminology/02-STRAIN-ANOMIE.md` |
+| Policing as formal control | `criminology/06-POLICING.md` |
+| Desistance and informal bonds over the life course | `criminology/08-DESISTANCE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Theory | Core Mechanism | Empirical Support | Key Variable |
-|--------|---------------|-------------------|--------------|
-| Hirschi bonds | 4 bonds prevent crime | Strong | Attachment, commitment |
-| Self-control | Low SC = versatile crime | Very strong predictively | Parenting quality by age 10 |
-| Age-graded control | Adult bonds override childhood | Strong longitudinal | Marriage quality, job stability |
-| Lemert labeling | Reaction creates criminal career | Moderate | Formal processing → worse outcomes |
-| Becker moral enterprise | Criminalization is political | Qualitative/compelling | Who makes/enforces rules |
-| Goffman stigma | Criminal label = master status | Strong (employment outcomes) | Record visibility |
-| Differential association | Crime is learned in groups | Strong | Frequency/intensity of criminal contacts |
-| Conflict theory | Law serves dominant interests | Interpretive | Class/race in criminalization |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why most people conform | Hirschi's attachment, commitment, involvement, belief | Social control theory is narrower than social control as a general concept. |
+| Versatile offending across contexts | Self-control theory and early childhood development | Predictive strength is high, but the trait is probabilistic, not deterministic. |
+| Desistance through adulthood | Age-graded control: marriage, work, military, stability | Adult bonds can redirect trajectories without erasing childhood risk. |
+| Deviance amplification | Lemert labeling and formal processing effects | Labeling explains persistence/amplification, not all initial offending. |
+| Criminalization politics | Becker's moral entrepreneurs and rule-making | Who defines deviance matters as much as who violates rules. |
+| Record visibility and master status | Goffman stigma and labor-market exclusion | Stigma mechanisms persist after formal punishment ends. |
+| Learned offending | Differential association and definitions favorable to violation | It is not just "bad friends"; definitions, intensity, and reinforcement matter. |
+| Law as power | Conflict theory and class/race patterns in criminalization | Interpretive strength is high, but causal claims need specific institutional evidence. |
 
 ---
 

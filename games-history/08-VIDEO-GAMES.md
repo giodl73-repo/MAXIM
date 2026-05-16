@@ -778,7 +778,7 @@ Riot's design decisions for LoL were explicitly esport-forward:
 - Quarterly balance patches = evolving meta = sustained viewership
 - LCS/LCK/LEC franchised leagues with revenue sharing
 
-The regional league structure mirrors conventional sports: LCS (North America), LCK (Korea), LPL (China), LEC (Europe). Each has regular season, playoffs, and World Championship (Worlds). Peak Worlds viewership: 73M concurrent in 2020.
+The regional league structure mirrors conventional sports: LCS (North America), LCK (Korea), LPL (China), LEC (Europe). Each has regular season, playoffs, and World Championship (Worlds). China-inclusive publisher viewership numbers are enormous but not directly comparable to audited sports ratings; third-party public peak-concurrent counts outside China are much lower. Treat esports viewership as real scale, but compare metrics carefully.
 
 ### Dota 2 and The International Prize Pools
 
@@ -968,25 +968,26 @@ The progression Chess → Go → StarCraft II represents increasing action space
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What was the first video game? | Spacewar! (1962, MIT, PDP-1) by Steve Russell — though "first" is contested. Cathode-Ray Tube Amusement Machine (1947) is earlier but analog. |
-| What caused the 1983 crash? | Atari's lack of quality control: flooded market with licensed shovelware. ET didn't cause it alone — it was a symptom. |
-| What saved the industry? | Nintendo Seal of Quality — economic gatekeeping via lockout chip + publisher approval. |
-| Why did N64 lose to PS1 on third-party? | Cartridge manufacturing cost ($15–25) vs CD ($1–2). Square moved Final Fantasy to PS1. Libraries diverged fatally. |
-| What is "blast processing"? | Sega marketing term. The 68000 could access the bus during DMA; SNES couldn't. Not a meaningful performance multiplier. |
-| Why did PS2 outsell everything? | DVD player economics. Cheapest DVD player on market at launch — people bought it as home theater hardware. |
-| What is raycasting vs. ray tracing? | Raycasting (Wolfenstein 3D): cast rays until first wall hit, approximate 3D from 2D map. Ray tracing: simulate light physically, bounce multiple times. Completely different algorithms. |
-| Why did id Software matter? | Tech tree: shareware distribution → BSP trees → PVS → OpenGL → client-server networking. Every FPS owes its architecture to id. |
-| What is the MDA framework? | Mechanics → Dynamics → Aesthetics. Designer controls mechanics; emergent dynamics produce player emotional response. |
-| What is a whale in F2P? | Player spending $100–$10,000+/month. Top 0.1% of players generating 50–70% of revenue. Entire F2P economy optimized around extracting whale spend. |
-| What is the Battle Pass innovation? | Recurring seasonal subscription ($10/season) that provides cosmetic progression, replacing one-time DLC. Creates daily engagement loop + predictable recurring revenue. |
-| Which AI milestone matters most for ML engineers? | AlphaZero (2017): tabula rasa self-play RL + MCTS beats all prior knowledge in Chess/Go/Shogi. Direct lineage to RLHF in LLMs. |
-| When did Korea professionalize esports? | StarCraft Brood War + OGN league, 1999. Salaried players, national TV coverage, chaebol team sponsorship. |
-| What is the Bartle taxonomy? | Four player types in multiplayer: Achievers (points), Explorers (discovery), Socializers (community), Killers (domination). |
-| How does The International fund its prize pool? | Battle Pass IAP: 25% of all Battle Pass revenue goes to TI prize pool. Community funds its own tournament. |
+| If You Need To Explain... | Use This Frame | Why It Matters |
+|---|---|---|
+| Why the industry crashed in 1983 | Platform trust failure | ET was a symptom; absent quality gates destroyed consumer confidence |
+| Why Nintendo revived consoles | Controlled platform economics | Lockout chip + publisher approval made quality a platform property |
+| Why PS1 beat N64 for third parties | Media economics, not just capacity | Cheap CDs changed margins, risk, and publisher relationships |
+| Why PS2 became dominant | Adjacent-market Trojan horse | DVD playback sold hardware before games alone could |
+| Why id Software is central | Engine architecture lineage | Shareware, BSP/PVS, OpenGL, WADs, and client-server FPS patterns became defaults |
+| Why mobile F2P changed design | Price discrimination + retention loops | Game design became LTV/CPI optimization around whales, events, and IAP menus |
+| Why Battle Pass beat DLC | Recurring progression without content fragmentation | Same playfield for all players, daily engagement for payers |
+| Why esports comparisons are tricky | Publisher leagues + platform metrics | Prize pools, peak concurrency, salaries, and team profitability measure different economies |
+| Why MDA matters | Mechanics -> dynamics -> aesthetics | Designers control rules; player emotion emerges from runtime behavior |
+| Why games matter to AI | Formal domains with measurable skill | TD-Gammon, AlphaZero, OpenAI Five, and AlphaStar each test different state/action/observability regimes |
 
 ---
+
+## Cross-References
+
+- [Modern Board Games](07-BOARD-GAMES-MODERN.md) compares analog design systems with digital game loops.
+- [Chess](02-CHESS.md) supplies the search, AI, and competitive-rating lineage behind many video-game concepts.
+- [Games History Overview](00-OVERVIEW.md) places video games in the larger history of formalized play.
 
 ## Common Confusion Points
 

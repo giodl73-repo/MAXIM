@@ -25,11 +25,11 @@ BOOM ERA                  GTO ERA                 MODERN
 WSOP expansion            Black Friday 2011:      GTO solvers standard
 Hold'em standardizes      DOJ indicts online      (PioSolver, GTO+)
 Moneymaker 2003           sites (US)              Pluribus 2019:
-Online explosion          Nash equilibrium in     6-player NLHE solved
+Online explosion          Nash equilibrium in     superhuman 6-player
 ESPN coverage             poker studied           Live high-stakes
 PokerStars peak           Academic poker          Short-deck (6+) rise
   (2005-2010)             Libratus 2017 HU        Streaming poker
-                          NLHE solved             GTO taught as base
+                          NLHE superhuman         GTO taught as base
 ```
 
 ---
@@ -389,9 +389,10 @@ FUNDAMENTAL POKER MATH
 POT ODDS:
   The ratio of the current pot to the cost of a call.
   Pot = $100, opponent bets $50, call costs $50.
-  You're calling $50 to win $150 (pot + bet) = 3:1
-  (note: you win $100 profit + your $50 back on stack)
-  Actually: $50 to win $150 total = 33% required equity.
+  You're calling $50 to win $150 already in the middle
+  (pot + villain bet) = 3:1 pot odds.
+  Required equity is 25%, because the final pot after
+  your call is $200.
 
   Required equity to call = call_size / (pot + call_size)
   $50 / ($100 + $50 + $50) = $50/$200 = 25% to call
@@ -483,8 +484,8 @@ PLURIBUS (2019):
   can profitably deviate, a weaker guarantee than
   2-player NE but sufficient in practice.
 
-  CFR+ (Tammelin 2014): variant with linear convergence
-  in practice (vs. O(1/√T) for vanilla CFR). CFR+ is
+  CFR+ (Tammelin 2014): practical variant that converges
+  much faster empirically than vanilla CFR. CFR+ is
   what Libratus and all modern solvers actually use —
   it achieves the same NE convergence guarantee but
   reaches exploitable-zero strategies orders of magnitude
@@ -648,20 +649,25 @@ Short Deck (6+)    52-card minus      2-5 removed; flush > full house
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| When was poker first documented? | Jonathan H. Green, 1843, Mississippi riverboats (~1830s) |
-| Why did Texas Hold'em win? | 2 hole cards maintain more imperfect information longer; more skill expression |
-| Who sparked the poker boom? | Chris Moneymaker, 2003 WSOP — online qualifier wins $2.5M |
-| What is Black Friday in poker? | April 15, 2011 — DOJ indicted PokerStars, Full Tilt, Absolute Poker |
-| What is GTO? | Game Theory Optimal — unexploitable strategy (Nash equilibrium in poker) |
-| What is CFR? | Counterfactual Regret Minimization — algorithm that converges to NE in poker |
-| When was HU NLHE "solved"? | Libratus 2017 (Carnegie Mellon) beat top human pros |
-| When was 6-max poker solved? | Pluribus 2019 (Carnegie Mellon/Facebook) beat pros in 6-max |
-| Basic pot odds formula | Required equity = call_size / (pot + call_size) |
-| Kelly Criterion in poker | f* = (bp - q) / b — maximize long-run geometric growth |
+| If you need to explain... | Start With | Caveat / Diagnostic |
+|---------------------------|------------|---------------------|
+| Where poker comes from | Primero, Poque, As-Nas, and Mississippi riverboats | Direct lineage is murky; Green gives early direct US documentation |
+| Why Texas Hold'em became dominant | Community cards, position, multiple streets, no-limit betting | Skill comes from information asymmetry plus bet sizing, not only hand rankings |
+| Why the poker boom happened | Moneymaker + hole-card cameras + online satellites | Media and distribution mattered as much as game design |
+| Why Black Friday matters | DOJ action against major online sites | It changed US market structure, player funds, and licensing |
+| What GTO means | Unexploitable mixed strategy baseline | Not always max-EV against weak opponents; exploitation can earn more |
+| Why CFR matters | Imperfect-information equilibrium approximation | Strong guarantees apply cleanly to 2-player zero-sum; multiplayer is weaker |
+| What Libratus/Pluribus proved | Superhuman play with abstraction and real-time refinement | Not full unabstracted poker solved |
+| Whether a call is profitable | Pot odds and equity | Required equity = call size / final pot after your call |
+| How bankroll risk is controlled | Variance, ICM, Kelly, and buy-in depth | Positive edge still needs large samples and bankroll discipline |
 
 ---
+
+## Cross-References
+
+- [Card Games](03-CARD-GAMES.md) supplies the broader card-game lineage poker belongs to.
+- [Billiards, Pool, and Snooker](05-BILLIARDS-POOL.md) offers a contrasting game of skill, geometry, and gambling culture.
+- [Dice and Gambling](06-DICE-GAMBLING.md) connects poker to risk, probability, and wagering institutions.
 
 ## Common Confusion Points
 
@@ -669,7 +675,7 @@ Short Deck (6+)    52-card minus      2-5 removed; flush > full house
 
 **"Poker is mostly luck"**: Over a single session, variance dominates. Over 10,000+ hands (a few months of regular play), skill is the deterministic factor. Professional players maintain edges of 5-10 bb/100 over large samples, which translates to consistent income. The legal question (is poker gambling?) hinges on this distinction.
 
-**"Libratus/Pluribus means poker is solved"**: Heads-up NLHE with infinite stakes is not fully solved (the game tree is astronomical). Libratus used abstraction (simplifying the game before solving) and won in practice. The abstract game is solved; the unabstracted infinite-stack game is not. Pluribus solved 6-max with its own nuanced definition of "solved."
+**"Libratus/Pluribus means poker is solved"**: Heads-up NLHE with realistic no-limit betting is not fully solved in the literal game-tree sense. Libratus used abstraction and real-time refinement to beat top humans in practice. Pluribus achieved superhuman 6-player no-limit performance with weaker multiplayer guarantees. These are landmark AI results, not proof that every unabstracted poker state has a solved optimal action.
 
 **"The best hand preflop always wins"**: In NL Hold'em, hand equity is not deterministic. Pocket aces are ~80% to win against pocket kings — not a guarantee. Bad beats are inevitable and the math says they happen frequently.
 

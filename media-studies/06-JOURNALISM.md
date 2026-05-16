@@ -380,16 +380,26 @@ Journalism is the practice of gathering, verifying, and distributing information
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Political economy of news institutions | `media-studies/04-POLITICAL-ECONOMY.md` |
+| Audience reception and trust | `media-studies/07-AUDIENCES.md` |
+| Algorithmic distribution of news | `media-studies/08-ALGORITHMS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Challenge | Root Cause | Potential Response |
-|-----------|------------|-------------------|
-| Newsroom collapse | Classified + display ad revenue gone | Nonprofit, subscription, public funding |
-| Local news deserts | Local monopoly rents destroyed | Public interest journalism subsidies |
-| Objectivity's false balance | Both-sides norm applied to non-symmetric facts | Weight-of-evidence journalism |
-| Platform distribution dependency | Algorithms control audience access | Direct subscription, email, RSS |
-| Disinformation spread | Engagement optimization favors it | Algorithmic friction, friction on sharing |
-| Partisan epistemological split | Different audiences, different facts | Shared civic media; political challenge |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Newsroom collapse | Classified/display ad migration and fixed reporting costs | New revenue models preserve capacity only if they fund reporting, not just distribution. |
+| Local news deserts | Destroyed local monopoly rents and civic-information underprovision | Subsidy design must avoid state capture and preserve editorial independence. |
+| Objectivity's false balance | Procedural balance applied to asymmetric factual claims | Weight-of-evidence journalism is not partisan advocacy when evidence is asymmetric. |
+| Platform distribution dependency | Algorithmic control of audience access | Direct channels reduce dependency but do not recreate mass distribution automatically. |
+| Disinformation spread | Engagement optimization, novelty, identity, and low sharing friction | Bots matter, but human sharing and platform design often dominate spread. |
+| Partisan epistemological split | Different audiences, trusted sources, and fact communities | Shared civic media is an institutional problem, not just a content moderation fix. |
 
 ---
 

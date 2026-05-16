@@ -688,22 +688,23 @@ Building auth from scratch is an invitation for subtle security bugs. Use a prov
 
 ---
 
+## Cross-References
+
+- `security-engineering/01-THREAT-MODELING.md` — adversarial framing for auth design.
+- `cryptography/01-SYMMETRIC.md` — cryptographic primitives behind tokens and sessions.
+- `computing/08-BACKEND.md` — enforcement point for identity and authorization.
+
 ## Decision Cheat Sheet
 
-| I need... | Use |
-|---|---|
-| Auth for a new Next.js app | NextAuth.js (Auth.js) |
-| Best DX + prebuilt UI components | Clerk |
-| Enterprise / B2B with orgs + SSO | Auth0 or Clerk |
-| Microsoft 365 / Entra integration | NextAuth MicrosoftEntraID provider |
-| Own all data, open source, free | NextAuth.js with Prisma adapter |
-| M2M / service-to-service | OAuth2 Client Credentials + JWT |
-| CLI tool / device without browser | OAuth2 Device Authorization Flow (RFC 8628) |
-| Store tokens securely | HttpOnly cookie (not localStorage) |
-| Instant token revocation | Server-side sessions |
-| Short-lived access, long-lived refresh | 15-60min access + 30-day HttpOnly refresh |
-| Role-based access control | `role` claim in JWT + middleware |
-| Social login | NextAuth.js providers |
-| Protect a Next.js page | `const session = await auth(); if (!session) redirect('/login')` |
-| Protect an API route | Check session, return 401 if missing, 403 if unauthorized |
-| Prevent auth code interception | PKCE (always use for public clients) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| App auth provider | Compare Auth.js, Clerk, Auth0, org support, UI needs, data ownership, and lock-in. | DX and control usually trade off. |
+| Enterprise or Entra integration | Check SSO protocol, tenant model, groups/claims, lifecycle, provisioning, and support burden. | Login is only one part of enterprise identity. |
+| Service-to-service auth | Use OAuth2 client credentials, audience-scoped tokens, rotation, mTLS where needed, and least privilege. | Machine identity still needs revocation and audit. |
+| CLI/device auth | Use device authorization flow, short codes, polling limits, and phishing-resistant UX. | A browserless client must not collect user passwords. |
+| Token storage | Prefer HttpOnly secure cookies, CSRF strategy, same-site policy, and refresh rotation. | LocalStorage turns XSS into token theft. |
+| Revocation requirement | Use server-side sessions or reference tokens with central invalidation. | Stateless JWTs are hard to revoke instantly. |
+| Access/refresh lifetime | Balance threat model, UX, rotation, reuse detection, and session store. | Longer refresh windows raise account-takeover blast radius. |
+| Authorization model | Start with claims, roles, permissions, resource ownership, middleware, and policy checks. | Authentication says who; authorization says what action is allowed. |
+| Route protection | Enforce checks on server/page/API boundary and return 401 vs 403 correctly. | Client-side hiding is not security. |
+| Public-client OAuth safety | Require PKCE, exact redirect URI, state/nonce, and secure callback handling. | OAuth code interception is a flow-design bug, not a crypto failure. |

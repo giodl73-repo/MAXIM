@@ -562,6 +562,12 @@ Active research area; some crops (shade-tolerant vegetables, berries) show yield
 
 ---
 
+## Cross-References
+
+- `semiconductor-manufacturing/01-SILICON-SUBSTRATE.md` — silicon material and wafer foundation for PV cells.
+- `electrical-grid/01-GENERATION.md` — grid-level generation comparison and dispatch framing.
+- `energy-storage/01-ELECTROCHEMICAL.md` — storage pairing for diurnal and weather-driven PV variability.
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

@@ -83,11 +83,11 @@ CELLULAR STRUCTURE:
 
 These are **total shrinkage coefficients** from green (fully saturated) to oven-dry — a worst-case bound, not seasonal movement in a conditioned interior. In practice, kiln-dried lumber at 8% MC in a climate-controlled space sees far smaller swings.
 
-**The practical rule for seasonal indoor movement**: a 300mm board in a temperate interior (30–50% RH swing, summer vs. winter) moves approximately:
-- Quartersawn (radial face showing): ~3–6mm
-- Flatsawn (tangential face showing): ~6–12mm
+**The practical rule for seasonal indoor movement**: a 300mm board in a temperate interior with a large seasonal RH swing moves approximately:
+- Quartersawn (radial face showing): ~2–4mm
+- Flatsawn (tangential face showing): ~4–7mm
 
-The EMC calculation in the section below (5.4mm for 300mm quartersawn oak) is correct for these real-world conditions. This is not a small effect — Victorian drawers that stick in summer are telling you about moisture and grain direction, and 6mm of panel movement is the difference between a frame-and-panel door working and a solid-panel door splitting.
+The EMC calculation in the section below (about 5.4mm for a 300mm flatsawn/tangential oak board under a large RH swing) is a real-world design number, not a laboratory curiosity. Victorian drawers that stick in summer are telling you about moisture and grain direction, and a few millimeters of panel movement is the difference between a frame-and-panel door working and a solid-panel door splitting.
 
 ### Flatsawn vs. Quartersawn
 
@@ -396,6 +396,12 @@ Why no glue? Traditional Japanese buildings are designed to flex in earthquakes.
 | Outdoor furniture | Waterproof PVA or Titebond III, through wedged tenons | Moisture resistance, no hardware to rust |
 
 ---
+
+## Cross-References
+
+- [Furniture Overview](00-OVERVIEW.md) places joinery inside the broader taxonomy of furniture systems.
+- [Furniture History](02-HISTORY-STYLES.md) shows how joinery choices track period, region, and workshop practice.
+- [Modern Furniture Materials](06-MATERIALS-MODERN.md) contrasts wood joinery with steel, plastic, and plywood connections.
 
 ## Common Confusion Points
 

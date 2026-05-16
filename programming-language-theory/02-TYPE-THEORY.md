@@ -406,17 +406,23 @@ TYPESCRIPT TEAM'S EXPLICIT TRADEOFF:
 
 ---
 
+## Cross-References
+
+- `01-LAMBDA-CALCULUS.md` supplies the term language underneath typed systems.
+- `05-CURRY-HOWARD.md` explains why types behave like propositions.
+- `06-DEPENDENT-TYPES.md` extends types from classification to specification.
+
 ## Decision Cheat Sheet
 
-| Type system | Inference | Expressiveness | Production use |
-|-------------|-----------|----------------|----------------|
-| STLC | Fully inferrable | No recursion | Foundation only |
-| System F | Undecidable | Full polymorphism | Haskell Core internally |
-| HM | Complete (Algorithm W) | Let-polymorphism | Haskell, OCaml, F#, Rust |
-| System Fω | Inferrable for mono | Higher-kinded types | Haskell kind system |
-| F<: (bounded) | Decidable subsets | Subtyping + generics | Java, Kotlin, C# |
-| Structural subtyping | Local inference | Structural compatibility | TypeScript, Go (interfaces) |
-| Dependent types | Undecidable | Express any property | Coq, Agda, Lean |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Minimal typed lambda foundation | STLC | It omits recursion and is a proof model more than a production language. |
+| Explicit polymorphism | System F | Full inference is undecidable; annotations or restricted fragments matter. |
+| ML-family inference | Hindley-Milner and Algorithm W | Effects force restrictions such as OCaml's value restriction. |
+| Higher-kinded abstraction | System F-omega | Practical systems infer only restricted fragments. |
+| Generic subtyping | Bounded F-sub and decidable subsets | Full F-sub is undecidable; languages choose nominal or structural compromises. |
+| Duck-typed static compatibility | Structural subtyping | TypeScript and Go use different structural mechanisms and soundness tradeoffs. |
+| Types as specifications | Dependent types | Expressiveness trades against automation and decidable checking boundaries. |
 
 ---
 

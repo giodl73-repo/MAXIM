@@ -41,8 +41,9 @@ DEFINITION:
   Equivalently: the α-quantile of the loss distribution.
   "We are α% confident our loss will not exceed VaR over horizon T."
 
-  Common: α = 99%, T = 1 day (trading book)
-          α = 99.9%, T = 10 days (regulatory capital, Basel II)
+  Common: α = 99%, T = 1 day (internal trading limit)
+          α = 99%, T = 10 days (legacy Basel market-risk VaR)
+          α = 99.9%, T = 1 year (credit/operational capital contexts)
 
 EXAMPLE:
   Daily VaR₉₉% = $10M means:
@@ -53,9 +54,9 @@ EXAMPLE:
 ### Parametric VaR (Variance-Covariance Method)
 
 ```
-Assume P&L ~ N(μ, σ²):
-  VaR_{α} = μ − σ · z_{1-α}   (z_{0.99} = 2.326, z_{0.95} = 1.645)
-  Often μ ≈ 0 for daily, so: VaR ≈ σ · z_{α}
+Assume loss L = -P&L and L ~ N(μ_L, σ²):
+  VaR_{α} = μ_L + σ · z_α   (z_{0.99} = 2.326, z_{0.95} = 1.645)
+  Often μ_L ≈ 0 for daily, so: VaR ≈ σ · z_α
 
 PORTFOLIO VaR (Δ-Normal):
   Portfolio positions: w ∈ ℝⁿ, asset P&L covariance: Σ
@@ -78,7 +79,7 @@ PROCEDURE:
   1. Collect N days of historical returns (e.g., N = 250 or 500)
   2. Apply today's portfolio weights to each historical day
   3. Generate N hypothetical P&L scenarios
-  4. VaR = (1−α) percentile of the distribution
+  4. VaR = α percentile of the loss distribution
 
 ADVANTAGES:
   Nonparametric — no Gaussian assumption
@@ -499,9 +500,11 @@ LIQUIDITY RISK IN ASSET MANAGEMENT:
 
 ---
 
-## FRTB Implementation Status (as of early 2026)
+## FRTB Implementation Status (moving target)
 
-The Fundamental Review of the Trading Book has been subject to repeated delay:
+The Fundamental Review of the Trading Book has been subject to repeated delay;
+implementation timing differs by jurisdiction and should be checked against
+current regulator notices before use in production policy:
 
 ```
 FRTB HISTORY AND CURRENT STATUS:
@@ -510,15 +513,11 @@ FRTB HISTORY AND CURRENT STATUS:
   Revised: January 2022 (after multiple delays)
   Basel deadline (final): January 2025
 
-  ACTUAL IMPLEMENTATION (as of early 2026):
-  EU:   CRR3 regulation published June 2024; FRTB mandatory from January 2025
-        (IMA requires supervisory approval; many banks using SA initially)
-  UK:   PRA implementation broadly aligned with EU; SA from January 2025
-  US:   Basel III endgame proposal by Fed/OCC (2023) faces pushback
-        US implementation timeline remains uncertain; likely 2026-2027+
-        Fed Chair Powell acknowledged need for "broad and material" revision
-  Japan: FSA: implementing per Basel timeline (~2025 effective)
-  Canada/Australia: broadly on schedule with Basel Committee guidance
+  IMPLEMENTATION PATTERN:
+  EU/UK/Japan/Canada/Australia: moving through local rulemaking and phased
+        implementation, with IMA subject to supervisory approval and many desks
+        initially using SA.
+  US:   Basel III endgame proposal faces material revision and delayed timing.
 
   KEY CHANGES FROM BASEL 2.5 TO FRTB:
   1. Replace VaR₉₉% with ES₉₇.₅% (Expected Shortfall with stressed calibration)
@@ -534,27 +533,32 @@ FRTB HISTORY AND CURRENT STATUS:
   CVA capital revised (CVA framework also updated under FRTB)
   Increased transparency requirements: more frequent reporting, more granular risk factors
 
-  Note: Because US has not yet finalized implementation, firms with US operations
-  face jurisdictional inconsistency. Check current BIS and local regulator guidance
-  for latest status — this area continues to evolve.
+  Note: Firms with cross-border operations face jurisdictional inconsistency.
+  Check current BIS and local regulator guidance for latest status.
 ```
 
 ---
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What does VaR₉₉% = $10M mean? | 1% chance of losing more than $10M tomorrow |
-| Why was VaR blamed for 2008? | Underestimated tail risk; not subadditive; pro-cyclical |
-| What replaced VaR in regulations? | Expected Shortfall (ES₉₇.₅%) under Basel FRTB |
-| Is VaR still used? | Yes — widely used internally; ES required for regulatory capital |
-| How do I model fat tails? | EVT (GPD for peaks over threshold); t-copula for joint tails |
-| What's wrong with Gaussian copula? | Zero tail dependence — underestimates joint crashes |
-| What's the difference between VaR and CVaR? | VaR = threshold; CVaR = average loss beyond that threshold |
-| How to stress test a portfolio? | Historical scenarios (1987, 2008, COVID) + hypothetical scenarios |
+| If you need to diagnose... | Start With | Failure Mode |
+|----------------------------|------------|--------------|
+| Meaning of VaR | Quantile of the loss distribution | Says nothing about severity beyond the threshold |
+| Why VaR failed | Tail blindness, non-subadditivity, pro-cyclicality | Smooth history can hide cliff risk |
+| Regulatory market risk | Expected Shortfall under FRTB | ES still depends on model, window, liquidity horizon, and stress calibration |
+| Internal limits | VaR plus stress/scenario limits | VaR remains useful as one dashboard number, not as a safety guarantee |
+| Fat tails | EVT / peaks-over-threshold | Threshold choice and sample scarcity dominate error |
+| Joint crashes | t-copula or other tail-dependent dependence model | Gaussian copula has zero tail dependence |
+| Liquidity risk | Market liquidity plus funding liquidity | Funding spirals convert mark-to-market losses into forced sales |
+| Stress testing | Historical and hypothetical scenarios plus reverse stress | The unseen scenario is usually the one that matters most |
 
 ---
+
+## Cross-References
+
+- [Portfolio Theory](01-PORTFOLIO-THEORY.md) provides the covariance and factor-model base for risk aggregation.
+- [Derivatives](02-DERIVATIVES.md) supplies nonlinear exposures where VaR and stress testing become fragile.
+- [Fixed Income](03-FIXED-INCOME.md) connects risk models to duration, convexity, credit spread, and curve shocks.
 
 ## Common Confusion Points
 

@@ -300,23 +300,24 @@ MEASUREMENT:
 
 ---
 
+## Cross-References
+
+- `01-WEB-WRITING.md` applies search intent to article and page construction.
+- `03-CONTENT-STRATEGY.md` uses search data inside portfolio planning.
+- `09-FUTURE-TRENDS.md` covers AI search and zero-click shifts.
+
 ## Decision Cheat Sheet
 
-| Ranking factor category | Key signals |
-|------------------------|------------|
-| Relevance | Keyword match, semantic similarity, BERT/MUM understanding |
-| Authority | PageRank (backlinks), E-E-A-T, brand mentions |
-| Freshness | Last modified date, query freshness demand |
-| UX | Core Web Vitals, mobile-friendliness, CTR, dwell time |
-| User intent match | Query classification alignment, content format match |
-
-| Query type | Content response |
-|-----------|-----------------|
-| Navigational | Homepage or direct destination page |
-| Informational | Comprehensive, structured, citable |
-| Commercial | Comparison tables, reviews, criteria |
-| Transactional | Product/service page, clear CTA, friction-free |
-| Local | Location-optimized page, Google Business Profile |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Relevance | Keyword match, semantic similarity, and query understanding | Matching terms is weaker than satisfying the underlying task. |
+| Authority | Backlinks, E-E-A-T, brand mentions, and trust signals | PageRank is no longer the whole ranking system, but links still matter. |
+| Freshness | Last-modified signals and query-deserves-freshness demand | Freshness helps only when the query actually needs current information. |
+| UX ranking pressure | Core Web Vitals, mobile usability, CTR, and dwell signals | UX is usually a tiebreaker, not a cure for weak content. |
+| Intent mismatch | Query classification and content-format alignment | Ranking for the wrong intent produces traffic that does not convert or satisfy. |
+| Navigational queries | Direct destination or homepage response | Do not force informational content into a navigational intent. |
+| Informational queries | Comprehensive, structured, citable explanation | Zero-click SERP features can reduce traffic even when rankings are strong. |
+| Commercial/transactional/local queries | Comparison, product, CTA, and location-specific pages | Conversion path and trust signals are part of search success. |
 
 ---
 

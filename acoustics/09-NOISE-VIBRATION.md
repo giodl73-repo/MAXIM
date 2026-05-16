@@ -269,18 +269,24 @@ REAL-WORLD EXAMPLES:
 
 ---
 
+## Cross-References
+
+- `acoustics/01-WAVE-PHYSICS.md` — source-path-receiver control rests on wave propagation mechanics.
+- `manufacturing/01-GDT-TOLERANCING.md` — vibration affects tolerances, machine tools, and measurement stability.
+- `hvac/01-THERMAL-COMFORT.md` — building noise control often couples to ducts, fans, and mechanical systems.
+
 ## Decision Cheat Sheet
 
-| Problem | Tool |
-|---------|------|
-| Isolate vibrating machine from floor | Soft mounts with fₙ < excitation frequency/√2 |
-| Reduce resonance amplitude | Damping treatment (CLD, viscoelastic inserts) |
-| Reduce radiated noise from panel | Mass addition (mass law) + absorption |
-| Measure vibration modes | Modal analysis (impact hammer, FRF measurement) |
-| Protect workers from noise | Engineering controls first, then HPE, then PPE |
-| Structural vibration at one frequency | Tuned mass damper (TMD) |
-| Automotive interior noise above 500 Hz | Barrier (transmission loss) + absorption |
-| Automotive interior noise below 200 Hz | Structural stiffening, subframe decoupling, mounts |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether machine vibration should be isolated | Soft mounts below excitation frequency / sqrt(2) | Mounts amplify near resonance |
+| Whether resonance amplitude is the issue | Damping treatment such as CLD | Damping reduces peaks but does not remove forcing |
+| Whether a panel radiates too much noise | Mass law plus absorption | Added mass can shift resonances |
+| Whether vibration modes must be identified | Modal analysis with FRF measurement | Boundary conditions during test matter |
+| Whether worker exposure is too high | Engineering controls before hearing/PPE controls | PPE is the last line, not the design fix |
+| Whether one structural frequency dominates | Tuned mass damper | TMDs are narrowband and detune with system changes |
+| Whether high-frequency cabin noise dominates | Barriers plus absorption | Transmission paths can bypass the barrier |
+| Whether low-frequency interior noise dominates | Stiffening, decoupling, mounts | Low-frequency control is structural, not just absorptive |
 
 ---
 

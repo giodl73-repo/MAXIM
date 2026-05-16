@@ -273,17 +273,23 @@ Marine Protected Areas and ship quieting (slow steaming, improved propellers) he
 
 ---
 
+## Cross-References
+
+- `oceanography/01-OCEAN-PHYSICS.md` — temperature, salinity, stratification, and sound-speed profiles set the medium.
+- `acoustics/01-WAVE-PHYSICS.md` — impedance, absorption, and refraction are acoustic-wave fundamentals.
+- `signal-processing/01-SIGNALS-SYSTEMS.md` — sonar detection and communication depend on filtering and estimation.
+
 ## Decision Cheat Sheet
 
-| Application | Key Principle |
-|-------------|--------------|
-| Long-range submarine detection | SOFAR channel, convergence zones, low frequency (< 500 Hz) |
-| Short-range precision tracking | USBL (ultrashort baseline), high frequency |
-| Fish finding | Echo sounder (38–120 kHz), target strength of fish |
-| Seabed mapping | Multibeam sonar (200 kHz–400 kHz), swath bathymetry |
-| Underwater communication | Acoustic modem (2–30 kHz), OFDM modulation |
-| Shadow zone avoidance (navy) | Deploy towed array below thermocline |
-| Measuring ocean temperature | Acoustic thermometry (ATOC: travel time changes with T) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether long-range detection is plausible | SOFAR channel and low-frequency propagation | Sound-speed profile and convergence zones dominate range |
+| Whether short-range tracking needs precision | USBL/high-frequency positioning | Higher frequency improves resolution but attenuates faster |
+| Whether fish targets can be detected | Echo sounder and target strength | Species, orientation, and swim bladder affect returns |
+| Whether seabed mapping needs wide coverage | Multibeam sonar swath bathymetry | Frequency, depth, and bottom type control resolution |
+| Whether underwater data links are possible | Acoustic modem with OFDM | Multipath, Doppler, and low bandwidth are core constraints |
+| Whether shadow zones can be avoided | Array placement relative to thermocline | The ocean profile changes with season and location |
+| Whether temperature can be inferred acoustically | Acoustic thermometry travel-time shifts | Currents and path uncertainty also affect travel time |
 
 ---
 

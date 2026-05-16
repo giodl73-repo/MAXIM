@@ -305,7 +305,7 @@ Examples        IPA, stout, porter,         Pilsner, Helles, Märzen,
 |  Pale                           British                          |
 |  +-Pilsner (Czech/German)       +-Pale Ale / Bitter              |
 |  +-Helles (Munich)              +-IPA (English)                  |
-|  +-Kolsch (top-fermented lager) +-Porter / Stout                 |
+|  +-Kolsch (ale, lagered)        +-Porter / Stout                 |
 |  +-American Light               +-Barleywine                     |
 |                                                                  |
 |  Amber/Dark                     American                         |
@@ -415,6 +415,12 @@ TIMELINE
 
 ---
 
+## Cross-References
+
+- [Fermentation and Spirits Overview](00-OVERVIEW.md) places beer in the broader microbial beverage landscape.
+- [Whiskey](04-WHISKEY.md) follows grain fermentation into distillation and cask maturation.
+- [Sake and Rice Spirits](08-SAKE-RICE-SPIRITS.md) compares beer-like starch conversion with parallel Asian grain traditions.
+
 ## Common Confusion Points
 
 **"Ales are warm-fermented and dark; lagers are cold-fermented and light."**
@@ -441,14 +447,13 @@ interpretation (sugar additions, spices, various yeasts).
 
 ## Decision Cheat Sheet
 
-| I want to... | Key parameter |
-|---|---|
-| Make beer drier/more fermentable | Mash at 62-65 degrees C (beta-amylase favored) |
-| Make beer fuller/sweeter | Mash at 68-72 degrees C (alpha-amylase favored) |
-| Add color without bitterness | Crystal/caramel malts (no enzymatic activity needed) |
-| Add bitterness | Early hop additions (60 min boil = max isomerization) |
-| Add hop aroma without bitterness | Late additions (flameout, whirlpool, dry-hop) |
-| Brew a lager | S. pastorianus, 4-12 degrees C, 3-6 week cold condition |
-| Brew a clean ale | S. cerevisiae, 16-18 degrees C (low end), temp control |
-| Brew a fruity/Belgian ale | Higher temp, specific Belgian yeast strains (15-25 degrees C) |
-| Understand a style | BJCP Style Guide -- the definitive reference |
+| If you need to diagnose... | Start With | Control Lever |
+|----------------------------|------------|---------------|
+| Why a beer is dry or full-bodied | Fermentability profile | Mash 62-65 degrees C for beta-amylase; 68-72 degrees C for dextrins/body |
+| Why color changed without bitterness | Specialty malt contribution | Crystal, caramel, roasted, or kilned malts; color is not hop-driven |
+| Why bitterness is high | Iso-alpha-acid extraction | Earlier hop additions, boil time, alpha-acid percentage, wort gravity |
+| Why aroma is high without matching bitterness | Late or cold-side hopping | Flameout, whirlpool, dry hop, and yeast biotransformation |
+| Whether a beer is ale or lager | Yeast species and fermentation temperature | S. cerevisiae warm; S. pastorianus cold plus lagering |
+| Why a "clean ale" tastes lager-like | Low ester production | Cooler ale fermentation, healthy pitch rate, oxygenation, temperature control |
+| Why a Belgian ale is expressive | Yeast-driven phenols and esters | Strain choice and fermentation temperature matter more than color |
+| Whether a claimed style is plausible | BJCP/process constraints | Compare yeast, grist, IBU, SRM, ABV, and fermentation method |

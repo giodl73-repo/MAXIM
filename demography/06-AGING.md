@@ -1,6 +1,6 @@
 # Population Aging
 
-## The Aging Landscape
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -225,17 +225,27 @@ LONG-TERM CARE:
     Long-term care "crisis" is fundamentally a women's labor issue
 ```
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Transition mechanics behind aging populations | `demography/05-DEMOGRAPHIC-TRANSITION.md` |
+| Migration offsets and labor-force composition | `demography/04-MIGRATION.md` |
+| Chronic disease burden in older populations | `public-health/05-CHRONIC-DISEASE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Aging question | Key metric / action |
-|---|---|
-| Measure aging burden on working-age population | OADR = population 65+ / population 15-64 |
-| Project OADR impact on pension sustainability | τ = (benefit replacement rate) × (R/E) |
-| Identify most sustainable pension reform options | Raise retirement age + immigration + higher employment rates |
-| Improve healthy life expectancy | Physical activity programs; fall prevention; CVD risk factor control |
-| Quantify dementia future burden | Prevalence × cost; ~10M new cases/yr globally; doubles every 20 years |
-| Compare national aging trajectories | % 65+; old-age support ratios; projected pension spending as % GDP |
-| Evaluate "demographic window" for a country | Minimum total dependency ratio period = dividend opportunity |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Aging burden | OADR: population 65+ divided by population 15-64 | OADR is crude; actual burden depends on labor force, health, benefits, and productivity. |
+| Pension sustainability | Contribution rate, replacement rate, retirees/employees ratio | Fiscal pressure is institutional, not just demographic. |
+| Reform options | Retirement age, employment rates, immigration, benefit formulas | Immigration slows aging but rarely reverses it at rich-country scale. |
+| Healthy life expectancy | Activity, fall prevention, CVD risk, and disability compression | Longer life only helps fiscally if healthy/working years also expand. |
+| Dementia burden | Prevalence, incidence, cost, and caregiver capacity | Future burden depends on age structure and prevention/treatment trajectories. |
+| Cross-national aging | Percent 65+, support ratios, pension spending, health costs | Countries with similar age structures can have very different fiscal outcomes. |
+| Demographic dividend window | Minimum total dependency ratio and working-age share | A window is opportunity, not automatic growth. |
 
 ## Common Confusion Points
 

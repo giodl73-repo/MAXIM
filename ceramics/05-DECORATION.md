@@ -379,17 +379,23 @@ Western raku (Soldner's adaptation): post-firing reduction; dramatic carbon effe
 
 ---
 
+## Cross-References
+
+- `ceramics/04-GLAZES.md` — surface chemistry that decoration depends on.
+- `colors/06-MIXING-THEORY.md` — color interaction and visual mixing.
+- `art-history/01-PREHISTORIC-ANCIENT.md` — ceramic decoration as art-historical evidence.
+
 ## Decision Cheat Sheet
 
-| Goal | Technique |
-|------|-----------|
-| Permanent blue on white | Cobalt underglaze + clear glaze, high fire |
-| Painterly freedom, rich palette | Overglaze enamels (third fire) |
-| Traditional Italian look | Majolica (tin glaze + in-glaze painting) |
-| Iridescent metallic surface | Luster (third fire, reduction) |
-| Dramatic post-firing effects | Western raku |
-| Industrial production decoration | Transfer print or digital inkjet |
-| Handmade texture aesthetic | Slip trailing, sgraffito, feathering |
-| Native American pottery look | Burnished coil build + carbon reduction |
-| Photo-quality design on tile | Digital ceramic inkjet print |
-| Narrative scenes on vessel | Istoriato majolica technique |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether blue-on-white must be permanent | Cobalt underglaze plus clear high-fire glaze | Cobalt stability is strong, but bleeding and glaze fit still matter. |
+| Whether painterly color range matters most | Overglaze enamels in a third firing | Rich palette trades against durability and extra firing cost. |
+| Whether the target is traditional Italian opacity | Majolica: tin glaze plus in-glaze painting | Timing matters because pigment sinks into unfired glaze. |
+| Whether metallic iridescence is the goal | Luster third firing in reduction | Luster films are thin, sensitive, and often not food-surface appropriate. |
+| Whether dramatic post-firing effects are desired | Western raku | Raku effects are unpredictable and generally not functional ware surfaces. |
+| Whether decoration must scale industrially | Transfer print or digital inkjet | Production methods need body/glaze compatibility and repeatable firing color. |
+| Whether handmade texture is the aesthetic | Slip trailing, sgraffito, or feathering | Texture can trap dirt or weaken glaze continuity on functional ware. |
+| Whether a carbon-reduction traditional look is intended | Burnished coil build plus carbon reduction | Cultural form should not be reduced to surface style alone. |
+| Whether photo-quality tile graphics are required | Digital ceramic inkjet | Resolution depends on pigment chemistry, glaze layer, and firing schedule. |
+| Whether narrative vessel scenes are the goal | Istoriato majolica technique | Narrative clarity depends on glaze timing, pigment control, and vessel geometry. |

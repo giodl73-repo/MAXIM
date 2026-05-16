@@ -409,6 +409,12 @@ law/ (commercial law)   ←→  Contract enforcement, property rights
 
 ---
 
+## Cross-References
+
+- `04-INDUSTRIAL-REVOLUTION.md` gives the canonical growth and productivity transition.
+- `06-WORLD-WARS-DEPRESSION.md` shows macroeconomic crisis, war finance, and state capacity.
+- `../economics/04-GROWTH-DEVELOPMENT.md` supplies the formal growth-theory vocabulary.
+
 ## Common Confusion Points
 
 **Correlation vs causation in historical data.** Institutions, geography, and development all correlate. Acemoglu-Johnson-Robinson (2001) used settler mortality as an instrument for institutions — mortality determined settlement patterns, which determined institution type — to separate institutions from geography. This is the gold standard of identification in economic history. Many other results are more fragile.
@@ -425,15 +431,12 @@ law/ (commercial law)   ←→  Contract enforcement, property rights
 
 ## Decision Cheat Sheet — Which Framework When
 
-| Question Type | Best Framework | Key Source |
-|--------------|----------------|------------|
-| Long-run growth comparisons | Maddison Project + growth accounting | Maddison Project database |
-| Why industrialization happened where/when | Allen's high-wage hypothesis | Allen, *The British Industrial Revolution in Global Perspective* |
-| Why some countries stayed poor | Acemoglu-Robinson institutions | *Why Nations Fail* (2012) |
-| Role of geography | Diamond's lucky latitudes, Sachs on disease | *Guns Germs and Steel*; Sachs papers |
-| Trade and globalization waves | Baldwin's stages + Maddison GDP | *The Great Convergence* (2016) |
-| Financial crises: causes and responses | Kindleberger + Reinhart-Rogoff | *Manias Panics and Crashes*; *This Time Is Different* |
-| Impact of colonialism | Patnaik drain estimates; AJR settler mortality | AJR (2001) AER; Patnaik (2018) |
-| Depression / monetary policy | Friedman-Schwartz monetarist; Eichengreen gold std | *A Monetary History*; *Golden Fetters* |
-| Institutional persistence | North + path dependence | *Institutions, Institutional Change* (1990) |
-| Convergence / divergence | Growth regressions + Solow decomposition | Barro-Sala-i-Martin |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A long-run growth comparison | Use Maddison-style GDP/population series, growth accounting, sectoral productivity, and uncertainty ranges. | Pre-modern GDP is a reconstruction, not a direct measurement. |
+| Why industrialization happened in one place first | Compare wages, energy cost, coal location, institutions, empire/trade, skills, and capital markets. | No single-cause theory explains all timing and geography. |
+| A geography claim | Examine disease ecology, crops, navigability, coal/minerals, transport cost, and political adaptation. | Geography constrains options; it does not mechanically determine outcomes. |
+| A colonialism/extraction claim | Separate coercion, fiscal drain, terms of trade, forced labor, legal institutions, and counterfactual baseline. | Drain estimates are sensitive to interest rates, prices, and assumptions about alternatives. |
+| A crisis or depression claim | Track credit expansion, asset prices, gold/exchange-rate regime, policy response, and balance-sheet effects. | Monetary, financial, and real-sector explanations often interact. |
+| Institutional persistence | Look for property rights, state capacity, legal enforcement, elite incentives, and path dependence. | Institutions are endogenous; avoid treating them as magic exogenous causes. |
+| Convergence/divergence | Compare initial income, human capital, technology adoption, trade access, demographics, and policy regimes. | Total GDP and per-capita GDP answer different questions. |

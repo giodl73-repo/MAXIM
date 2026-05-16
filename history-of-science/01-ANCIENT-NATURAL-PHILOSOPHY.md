@@ -522,6 +522,18 @@ The final cause (teleology) is what Aristotle used to explain biological functio
 **Hippocratic prognosis → observability-driven operations**
 The Hippocratic emphasis on prognosis (predict the course) over diagnosis (classify the disease) maps to modern observability practice: instrument everything, track metrics over time, predict failure modes, intervene before collapse rather than after. The case record method (systematic documentation of symptoms, conditions, outcomes) is the ancestor of structured logging and telemetry dashboards. The epistemological insight — that prediction is your validation criterion, not theoretical elegance — is also the pragmatist position in modern software (a system that works reliably matters more than one that's theoretically well-structured).
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Philosophy of science | `philosophy/06-PHILOSOPHY-OF-SCIENCE.md` | Ancient natural philosophy is the ancestor of later demarcation and explanation debates |
+| Logic and argument | `logic/01-PROPOSITIONAL.md` | Greek science develops alongside formal argument and demonstration |
+| Astronomy and models | `astronomy/01-EARTH-MOTIONS.md` | Babylonian and Greek astronomy establish mathematical modeling traditions |
+| Intellectual history | `intellectual-history/01-METHODOLOGY.md` | The guide is a case study in how ideas travel and become systems |
+| Classical rhetoric | `rhetoric/01-CLASSICAL-RHETORIC.md` | Scientific explanation and public argument shared ancient educational institutions |
+
+---
+
 ## Common Confusion Points
 
 **Aristotle was not a bad scientist.** His physics (falling bodies, natural motion) was wrong and retarded European mechanics. His biology was excellent and not superseded until Harvey (circulation, 1628) and Vesalius (anatomy, 1543). Judge him by the work, not the label.

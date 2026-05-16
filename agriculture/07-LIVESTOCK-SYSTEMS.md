@@ -9,16 +9,16 @@ Livestock occupy ~26% of Earth's ice-free land (pasture) plus ~33% of cropland (
 |              LIVESTOCK SYSTEMS OVERVIEW                          |
 |                                                                  |
 |  RUMINANTS           MONOGASTRICS         AQUACULTURE            |
-|  ──────────────────  ──────────────────   (see 08-AQUACULTURE)   |
-|  Cattle, sheep,      Pigs, poultry        ─────────────────────  |
+|  ------------------  ------------------   (see 08-AQUACULTURE)   |
+|  Cattle, sheep,      Pigs, poultry        ---------------------  |
 |  goats, buffalo      (simple stomach)                            |
 |                                                                  |
 |  Ferment cellulose   Cannot digest        INTENSIFICATION:       |
 |  (4-chamber stomach) cellulose; fed        Grassland → feedlot   |
-|                      grain directly        → vertical integration |
+|                      grain directly        -> integration        |
 |                                                                  |
 |  HIGH GHG            LOWER GHG            GLOBAL PRODUCTION:     |
-|  (enteric CH₄)       (no enteric CH₄)     Cattle: 1B head        |
+|  (enteric CH4)       (no enteric CH4)     Cattle: 1B head        |
 |                                            Pigs:   1B head       |
 |                                            Chickens: 25B         |
 +------------------------------------------------------------------+
@@ -425,14 +425,22 @@ ALTERNATIVES AND TRANSITIONS:
 
 ## Decision Cheat Sheet
 
-| Livestock question | Key consideration |
-|-------------------|-------------------|
-| Minimize environmental footprint per unit protein | Poultry > pork >> beef/lamb; farmed shellfish = lowest |
-| Is grass-fed beef better for climate? | Per kg product: usually worse (more CH₄/kg). Per ecosystem: possibly neutral (C sequestration). Depends on management intensity and what land could otherwise do. |
-| How to reduce cattle methane? | 3-NOP (Bovaer); higher productivity breeds; grain-based finishing reduces CH₄/kg; pasture management to improve diet quality |
-| Why do ruminants need methanogens? | H₂ sink — methanogenesis removes H₂ that would otherwise inhibit fermentation. Methanogenesis is a metabolic necessity of rumen chemistry, not incidental. |
-| What is "enteric" vs "manure" methane? | Enteric = belched from rumen (~87% of livestock CH₄). Manure = anaerobic decomposition in storage (~13%). Different management solutions. |
-| CAFO vs small farm: which is more efficient? | Per unit output: CAFO generally more efficient (labor, input, land, FCR). Per acre: CAFO concentrates impacts. The choice is efficiency per unit vs distributed impact. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Protein footprint comparison | Compare feed conversion, methane, land use, manure handling, feed sourcing, and edible protein output. | Per-kg efficiency and ecosystem impact can rank systems differently. |
+| Grass-fed beef climate claim | Separate methane per kg, soil-carbon change, land opportunity cost, stocking density, and management intensity. | Carbon sequestration claims need baselines and permanence. |
+| Cattle methane reduction | Check 3-NOP, diet quality, productivity, finishing system, genetics, rumen chemistry, and adoption constraints. | Lower methane per kg can coexist with higher absolute herd emissions. |
+| Ruminant methanogens | Trace hydrogen balance, fermentation, volatile fatty acids, methanogenesis, and microbial ecology. | Methane is a metabolic sink, not an incidental exhaust. |
+| Enteric vs manure methane | Separate rumen emissions, manure storage conditions, anaerobic lagoons, digesters, and handling practice. | The two methane sources need different interventions. |
+| CAFO vs small farm efficiency | Compare feed conversion, labor, land, manure concentration, disease risk, animal welfare, and local carrying capacity. | Efficiency per unit output can concentrate impacts spatially. |
+
+---
+
+## Cross-References
+
+- `02-CROP-SYSTEMS.md` links livestock to feed crops, pasture, rotations, and manure cycling.
+- `../climate-science/08-MITIGATION.md` gives the emissions-reduction frame for methane and land-use tradeoffs.
+- `../nutrition/04-PROTEIN-AMINO-ACIDS.md` connects animal systems to human protein quality and dietary substitution.
 
 ---
 

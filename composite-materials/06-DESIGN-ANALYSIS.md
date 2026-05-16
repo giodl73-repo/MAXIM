@@ -295,16 +295,24 @@ FAA/EASA certification requires systematic experimental evidence at multiple sca
 
 ## Decision Cheat Sheet
 
-| Design situation | Approach |
-|-----------------|---------|
-| Strength-critical UD laminates | Max stress criterion per ply, ROM |
-| Off-axis or multi-load | Tsai-Wu failure criterion |
-| Thin panel stability | Orthotropic plate buckling formula or FEA |
-| Adhesive joint design | Scarf joint preferred; single-lap only with peel mitigation |
-| Mechanical fastening | e/d ≥ 3, p/d ≥ 4, no aluminum fasteners in CFRP |
-| Impact damage tolerance | CAI test, BVID as design damage state |
-| Fatigue design | S-N spectrum at R=-1 is limiting; use damage tolerance approach |
-| Design allowable level | B-basis minimum; A-basis for single-load-path critical |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| UD strength-critical laminate | Use ply-level stress, fiber direction, ROM, compression microbuckling, and tested allowables. | Maximum-stress checks miss interaction effects in multi-axial states. |
+| Off-axis or combined loading | Apply Tsai-Wu/Hashin/Puck style criteria, transformed stresses, and test calibration. | Failure criteria rank risk; they do not replace building-block validation. |
+| Thin-panel stability | Check orthotropic buckling, boundary conditions, imperfections, postbuckling allowance, and FEA. | Buckling may be allowable only with rigorous substantiation. |
+| Adhesive joint | Compare scarf, stepped, lap, peel stress, surface prep, bondline thickness, and inspection. | Single-lap joints need peel mitigation and conservative certification. |
+| Mechanical fastening | Check edge distance, pitch, bearing/bypass, galvanic isolation, clamp-up, and drilling damage. | Metallic fastener practices do not transfer directly to CFRP. |
+| Impact tolerance | Use BVID, CAI allowables, NDI probability, barely visible dent depth, and service inspection. | Internal delamination can be severe with little surface evidence. |
+| Fatigue design | Use spectrum loading, R-ratio, compression effects, damage tolerance, and inspection intervals. | Composites are not automatically fatigue-superior in every load state. |
+| Allowable basis | Choose A- or B-basis from criticality, load path redundancy, environment, geometry, and statistics. | Allowables are material/process/layup/environment facts, not generic material constants. |
+
+---
+
+## Cross-References
+
+- `04-LAMINATE-THEORY.md` provides the stiffness, coupling, and layup math behind composite design.
+- `08-DAMAGE-INSPECTION.md` covers the flaw and impact modes design assumptions must tolerate.
+- `07-BOEING-787.md` shows certification-scale design analysis in a real aircraft program.
 
 ---
 

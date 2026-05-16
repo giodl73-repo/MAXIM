@@ -301,20 +301,26 @@ TRADE-OFF TRIANGLE (same as distributed systems):
 
 ---
 
+## Cross-References
+
+- `genomics/02-GENOME-ASSEMBLY.md` — sequencing reads become contigs and genome assemblies.
+- `genomics/03-VARIANT-CALLING.md` — read alignment and quality determine variant confidence.
+- `microbiology/08-MICROBIAL-GENETICS.md` — sequencing as the operational substrate for microbial genomics.
+
 ## Decision Cheat Sheet
 
-| Goal | Best Technology |
-|------|----------------|
-| SNPs/small indels, population scale | Illumina WGS or WES |
-| Validate a specific variant | Sanger sequencing |
-| De novo genome assembly | PacBio HiFi + ONT hybrid |
-| Structural variant discovery | ONT or PacBio HiFi |
-| Real-time / field sequencing | ONT MinION |
-| Detect DNA methylation directly | ONT (direct sequencing) |
-| Single-cell transcriptomics | 10x Genomics + Illumina |
-| Expression with spatial context | 10x Visium / Xenium |
-| Complete telomere-to-telomere assembly | ONT ultra-long + PacBio HiFi |
-| RNA sequencing (transcriptomics) | Illumina (mostly) or ONT direct RNA |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Population-scale SNPs/indels | Illumina WGS or WES | Short reads miss many structural and repetitive regions. |
+| Specific variant validation | Sanger sequencing | Low-level mosaicism can be missed. |
+| De novo genome assembly | PacBio HiFi plus ONT hybrid | Repeat resolution still depends on coverage and haplotype complexity. |
+| Structural variants | ONT or PacBio HiFi | Caller choice and breakpoint validation matter. |
+| Field sequencing | ONT MinION | Portability trades off raw accuracy and sample-prep control. |
+| Direct methylation detection | ONT native DNA sequencing | Signal models and basecalling versions affect calls. |
+| Single-cell transcriptomics | 10x Genomics plus Illumina | Dropout and dissociation bias shape the result. |
+| Spatial expression | Visium or Xenium | Resolution and panel design constrain interpretation. |
+| Telomere-to-telomere assembly | ONT ultra-long plus PacBio HiFi | Centromeres remain coverage- and haplotype-sensitive. |
+| RNA sequencing | Illumina RNA-seq or ONT direct RNA | Isoform accuracy and quantification require different tradeoffs. |
 
 ---
 

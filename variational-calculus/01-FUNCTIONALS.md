@@ -1,5 +1,7 @@
 # Functionals and the Variational Derivative
 
+## The Big Picture
+
 ## Functionals: From Functions to Numbers
 
 A **functional** is a map from a space of functions to the real numbers.
@@ -261,19 +263,25 @@ When the endpoints are NOT fixed, the boundary term does not vanish:
 
 ---
 
+## Cross-References
+
+- `variational-calculus/02-EULER-LAGRANGE.md` — stationarity of functionals yields Euler-Lagrange equations.
+- `partial-differential-equations/08-VARIATIONAL-WEAK.md` — weak PDE formulations are variational equalities.
+- `control-theory/03-OPTIMAL-CONTROL.md` — functionals as objective criteria over trajectories.
+
 ## Decision Cheat Sheet
 
-| Concept | Definition |
-|---------|------------|
-| Functional J[u] | Map from functions to numbers: J: V → R |
-| Variation δu | Perturbation: u → u + εη, η with η=0 at endpoints |
-| First variation δJ | dJ[u+εη]/dε at ε=0; analogue of directional derivative |
-| Stationary condition | δJ[u;η] = 0 for all admissible η |
-| Variational derivative δJ/δu | The E-L expression: the "gradient" of J |
-| E-L equation | δJ/δu = 0 (necessary condition for extremum) |
-| Natural BC | Emerges from free-endpoint variation; analogue of Neumann BC |
-| Second variation δ²J | Analogue of Hessian; positive definite → local minimum |
-| Legendre condition | F_{u'u'} ≥ 0 (necessary for minimum) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether the object is a functional | Map `J: V -> R` from functions to numbers | The choice of function space `V` is part of the problem |
+| Whether a perturbation is admissible | Variation `u -> u + eps eta` | `eta` must respect fixed endpoints or boundary constraints |
+| Whether the first-order change vanishes | First variation at `eps = 0` | Vanishing first variation is stationarity, not minimum |
+| Whether stationarity must hold against all tests | `delta J[u;eta] = 0` for every admissible `eta` | Restricted variations only prove constrained stationarity |
+| Whether the Euler-Lagrange expression is the gradient | Variational derivative `delta J / delta u` | Boundary terms and regularity determine the actual expression |
+| Whether the E-L equation proves optimality | `delta J / delta u = 0` | It is necessary; second variation or convexity handles sufficiency |
+| Whether free endpoints impose boundary conditions | Natural boundary terms | Natural BCs depend on which endpoint values were left free |
+| Whether a stationary point is locally minimizing | Second variation | Positive definiteness must hold on admissible perturbations |
+| Whether the integrand passes a minimum sanity check | Legendre condition `F_{u'u'} >= 0` | Legendre is necessary, not sufficient, for a strong minimum |
 
 ---
 

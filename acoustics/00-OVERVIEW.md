@@ -176,16 +176,24 @@ This 3600× impedance mismatch explains why ~99.9% of sound is reflected at air-
 
 ## Decision Cheat Sheet
 
-| Application | Key Concept |
-|-------------|-------------|
-| Why can I hear around corners? | Diffraction (wavelength-scale objects) |
-| Why does bass go through walls? | Low frequency → long wavelength → less absorption |
-| Concert hall sounds hollow? | Inadequate reverberation (RT60 too short) or flutter echo |
-| Recording booth too reverberant? | Increase absorption (reduce RT60) |
-| Measure sound level | SPL in dB re 20 µPa |
-| Measure source loudness | Sound Power Level (SWL) |
-| Subwoofer in a small room | Room modes (standing waves) at low frequencies |
-| PA system feedback (squeal) | Loop gain > 1 at some frequency — microphone in speaker field |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Sound around corners | Compare wavelength, aperture/object size, diffraction, scattering, and frequency. | Diffraction is strong only when wavelength is comparable to the obstacle scale. |
+| Bass through walls | Check wavelength, wall mass, stiffness, flanking paths, resonances, and absorption limits. | Low-frequency isolation is usually a construction problem, not foam treatment. |
+| Hollow concert hall | Inspect RT60, early reflections, flutter echo, volume, absorption, diffusion, and seat coverage. | "Reverb" quality depends on timing and distribution, not duration alone. |
+| Reverberant recording booth | Measure decay, identify reflective surfaces, add broadband absorption, and avoid over-deadening. | Thin foam treats highs before lows, leaving boomy rooms. |
+| Sound-level measurement | Use SPL reference, weighting curve, time averaging, distance, and calibration. | Decibels are ratios; the reference and weighting matter. |
+| Source loudness | Separate sound power, sound pressure, directivity, distance, and room response. | A source can have fixed power but different measured SPL in different rooms. |
+| Small-room subwoofer | Map room modes, boundaries, placement, crossover, phase, and listener position. | Equalization cannot fully fix modal nulls. |
+| PA feedback | Trace microphone pickup, speaker field, loop gain, frequency response, placement, and gain before feedback. | Feedback is a closed-loop stability problem. |
+
+---
+
+## Cross-References
+
+- `01-WAVE-PHYSICS.md` builds the pressure-wave, impedance, reflection, and resonance model.
+- `02-PSYCHOACOUSTICS.md` explains why measured sound and perceived loudness diverge.
+- `09-NOISE-VIBRATION.md` connects acoustic theory to isolation, damping, and engineering control.
 
 ---
 

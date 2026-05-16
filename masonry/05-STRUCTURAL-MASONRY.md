@@ -363,17 +363,24 @@ DESIGN METHOD COMPARISON
 
 ---
 
+## Cross-References
+
+- `01-MASONRY-UNITS.md` defines unit strength and geometry.
+- `02-MORTAR-GROUT.md` supplies composite action and grout reinforcement.
+- `06-ARCHES-VAULTS.md` shows compression load paths in curved masonry.
+
 ## Decision Cheat Sheet
 
-| Situation | Design Approach |
-|-----------|----------------|
-| 1-2 story residential, SDC A/B | Empirical design — h/t ≤ 18, standard proportions |
-| 3+ story, any seismic zone | Engineered design required (TMS 402 ASD or SD) |
-| SDC D/E/F (California, Pacific NW, New Madrid) | Special reinforced masonry — no exceptions |
-| High slenderness wall (large window openings) | PT masonry or reinforced masonry required |
-| Shear wall in lateral-force-resisting system | Reinforced; design in-plane shear and flexure |
-| Upgrade existing URM building | Add bond beams, anchor to diaphragm, possibly PT |
-| CMU retaining wall | Treat as cantilever — reinforced, ASD or SD |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Low seismic low-rise residence | Empirical design with h/t <= 18 and standard proportions | Empirical limits stop applying once geometry or seismic demand rises. |
+| Three-plus-story masonry | Engineered TMS 402 ASD or strength design | Do not extrapolate empirical rules upward. |
+| SDC D/E/F project | Special reinforced masonry | New URM is not acceptable in high seismic zones. |
+| High slenderness/openings | Post-tensioned or reinforced masonry | Effective height, not just clear height, controls h/t. |
+| Lateral-force shear wall | Reinforced in-plane shear and flexure design | Check diaphragm anchorage and load path continuity. |
+| Existing URM upgrade | Bond beams, diaphragm anchorage, and possible PT/retrofit system | Retrofit is evaluation-specific, often ASCE 41-driven. |
+| CMU retaining wall | Cantilever reinforced wall design | Soil pressure and drainage govern as much as masonry strength. |
+| CMU stress calculation | Grouted versus ungrouted net/gross area | Using gross area for ungrouted CMU can be dangerously unconservative. |
 
 ---
 

@@ -373,17 +373,24 @@ ARTHUR MITCHELL AND DANCE THEATRE OF HARLEM:
 
 ## Decision Cheat Sheet
 
-| Event | Dance Significance |
-|-------|------------------|
-| Ghost Dance suppression + Wounded Knee | Colonial power targeting Indigenous dance as political threat |
-| Anti-Nautch movement | Devadasi practice criminalized under "moral reform" framing |
-| Congo Square | One site where African dance practice survived slavery |
-| Savoy Ballroom / Harlem Renaissance | Black vernacular dance as cultural expression during segregation |
-| Capoeira history | Resistance coded as dance under colonial suppression |
-| Ballroom/Vogue culture | LGBTQ+ of color created complete cultural world outside mainstream |
-| Soviet ballet / Nureyev defection | Ballet as Cold War ideological symbol |
-| Ailey's "Revelations" | Concert dance claiming Black American experience as its subject |
-| Arthur Mitchell / DTH | Response to racism; classic technique for Black dancers |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Colonial suppression of dance | Compare Ghost Dance, Wounded Knee, law, ritual authority, land pressure, and state fear of collective movement. | Suppression targeted political meaning, not just performance style. |
+| Moral reform and caste/gender politics | Examine Anti-Nautch, devadasi practice, colonial morality, nationalist reform, and class/caste recoding. | "Classical" revival can preserve technique while transforming social ownership. |
+| Survival under slavery or segregation | Look at Congo Square, ring shout, social dance spaces, policing, and cultural continuity. | Survival sites were constrained spaces, not free cultural autonomy. |
+| Black vernacular modernity | Use Savoy Ballroom, Harlem Renaissance, swing, competition, migration, and segregation context. | Popular entertainment and political identity can be the same event. |
+| Dance as resistance | Diagnose capoeira, coding, martial practice, music, disguise, and colonial surveillance. | Resistance can be embodied without being openly declarative. |
+| Ballroom/Vogue culture | Track houses, kinship, categories, race, queer survival, competition, and later commodification. | Mainstream visibility can erase the survival structure that produced the form. |
+| Cold War ballet politics | Compare Soviet ballet, defectors, state patronage, touring, technique, and ideological display. | Ballet functioned as soft power while remaining an art practice. |
+| Concert-dance representation | Analyze Ailey, Mitchell/DTH, repertory, classic technique, racial access, and institutional legitimacy. | Inclusion in elite technique systems can challenge and reproduce institutions simultaneously. |
+
+---
+
+## Cross-References
+
+- `03-WORLD-FORMS.md` gives the comparative repertoire and tradition map.
+- `02-MODERN-POSTMODERN.md` links dance history to 20th-century institutional and political change.
+- `../social-history/00-OVERVIEW.md` connects dance to class, gender, migration, and public culture.
 
 ---
 

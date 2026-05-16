@@ -1,6 +1,6 @@
 # Metamorphic Rocks — P-T Paths, Facies, Foliation, Index Minerals
 
-**Bridge — metamorphism as constrained optimization under changing boundary conditions:** A shale entering a subduction zone carries its original mineral assemblage (the starting data structure). As pressure and temperature increase along the P-T path, the system continuously seeks the lowest free-energy configuration given current constraints — recrystallizing into new mineral assemblages without melting, preserving bulk chemical composition throughout. This is refactoring under new performance requirements: same data, reorganized structure to satisfy the current operating constraints. The P-T path is the full constraint history of the transformation; retrograde overprinting (chlorite replacing garnet during exhumation) records constraint relaxation on the way out. Index minerals are runtime type assertions: finding kyanite in a rock is a proof that the system was once at >5 kbar (>15 km depth), regardless of what it looks like now. Eclogite (dense, garnet + omphacite) is the fully-optimized state for subduction-zone P-T conditions — bring it to the surface and it becomes metastable, a high-performance data structure running on the wrong hardware.
+**Bridge — metamorphism as constrained optimization under changing boundary conditions:** A shale entering a subduction zone carries its original mineral assemblage (the starting data structure). As pressure and temperature increase along the P-T path, the system continuously seeks the lowest free-energy configuration given current constraints — recrystallizing into new mineral assemblages without full melting. Many metamorphic reactions are approximately isochemical, but fluids can add or remove components during metasomatism, so "same data, reorganized" is a useful default, not a law. The P-T path is the full constraint history of the transformation; retrograde overprinting (chlorite replacing garnet during exhumation) records constraint relaxation on the way out. Index minerals are runtime type assertions: finding kyanite in a rock is a proof that the system was once at >5 kbar (>15 km depth), regardless of what it looks like now. Eclogite (dense, garnet + omphacite) is the fully-optimized state for subduction-zone P-T conditions — bring it to the surface and it becomes metastable, a high-performance data structure running on the wrong hardware.
 
 ## The Big Picture
 
@@ -209,20 +209,25 @@ Preserved retrograde minerals (e.g., chlorite replacing garnet) record the cooli
 
 ## Decision Cheat Sheet
 
-| Sample | Identification |
-|--------|----------------|
-| Fine-grained, cleaves into thin flat sheets | Slate |
-| Fine-grained, silky sheen, crinkled cleavage | Phyllite |
-| Platy, medium-grained mica-rich, foliated | Schist |
-| Coarse-grained, alternating light/dark bands | Gneiss |
-| Very hard, white/grey, no foliation, quartzose | Quartzite |
-| White/grey, calcitic, no foliation, fizzes HCl | Marble |
-| Dark green, serpentine minerals, slippery feel | Serpentinite |
-| Fine-grained, non-foliated, hornlike | Hornfels (contact metamorphic) |
-| Dense, red garnet + green omphacite | Eclogite (high-P subduction) |
-| Blue amphibole present | Blueschist (subduction high-P/low-T) |
+| Field / Lab Question | Use This Diagnostic | Likely Interpretation |
+|---|---|---|
+| Did it melt? | Igneous texture vs solid-state fabric | Full melt returns to igneous; migmatite records partial melting at the high-grade edge |
+| What was the protolith? | Relict minerals + bulk composition | Shale -> slate/phyllite/schist/gneiss; sandstone -> quartzite; limestone -> marble; basalt -> amphibolite/eclogite |
+| What grade is it? | Grain size + index minerals | Slate/phyllite low grade; garnet/staurolite/kyanite/sillimanite mark increasing P-T |
+| What was the tectonic setting? | Facies assemblage | Blueschist/eclogite = subduction; hornfels = contact aureole; amphibolite/gneiss = regional orogenic belt |
+| Is foliation present? | Planar mineral alignment or banding | Directed stress during deformation; absence can mean contact metamorphism or equant minerals |
+| Is this slate or shale? | Cleavage vs bedding | Slate has metamorphic cleavage often cutting bedding; shale splits along sedimentary bedding |
+| Is this schist or gneiss? | Fabric scale | Schist = mica-rich schistosity; gneiss = segregated light/dark bands |
+| Did fluids matter? | Veins, reaction rims, skarn/serpentine | Metasomatism changed chemistry, so simple isochemical assumptions fail |
+| Is the rock out of equilibrium now? | Retrograde minerals | Chlorite after garnet or hydration rims record exhumation/cooling overprint |
 
 ---
+
+## Cross-References
+
+- [Minerals](01-MINERALS.md) supplies the index-mineral and crystal-system foundation.
+- [Plate Tectonics](05-PLATE-TECTONICS.md) explains subduction, collision, and crustal-thickening settings.
+- [Igneous Rocks](02-IGNEOUS-ROCKS.md) contrasts melting and crystallization with solid-state recrystallization.
 
 ## Common Confusion Points
 

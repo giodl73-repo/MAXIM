@@ -419,15 +419,23 @@ Complex code with no direct patient safety connection = Class A.
 
 ---
 
+## Cross-References
+
+- `01-BIOMECHANICS.md` grounds devices and implants in force, motion, tissues, and failure.
+- `03-MEDICAL-IMAGING.md` covers the measurement stack behind diagnosis and image-guided intervention.
+- `../medicine/00-OVERVIEW.md` connects engineering artifacts to clinical workflows, risk, and patient outcomes.
+
+---
+
 ## Decision Cheat Sheet — Regulatory Pathways
 
-| Situation | US Pathway | EU Pathway |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Low-risk device (Class I) | 510(k) exempt; general controls only | Self-declare CE (some need NB for sterile) |
-| Moderate risk, has predicate | 510(k) ~90-180 days | Notified Body for IIa/IIb |
-| Moderate risk, no predicate | De Novo (new classification) | Notified Body + clinical evaluation |
-| High risk / life-sustaining | PMA + IDE clinical trial | Notified Body + clinical evidence |
-| Investigational use only | IDE application first | Clinical Trial Authorization |
-| Software as Medical Device | SaMD 510(k) or PMA per risk | MDR or IVDR depending on function |
-| Combination product | Lead center assignment (CDER/CDRH/CBER) | Competent Authority leads |
-| Design change to cleared device | Special 510(k) or letter-to-file | Technical file update |
+| Low-risk device | Check intended use, Class I exemptions, sterile/measuring status, general controls, and CE self-declaration limits. | "Low risk" still requires quality-system discipline and truthful labeling. |
+| Moderate-risk device with predicate | Compare intended use, technological characteristics, substantial equivalence, bench testing, and clinical need. | A predicate can speed 510(k), but differences can trigger extra evidence. |
+| Moderate-risk device without predicate | Evaluate De Novo classification, special controls, clinical evaluation, and Notified Body expectations. | No predicate means the risk classification itself must be argued. |
+| High-risk or life-sustaining device | Start with PMA, IDE, clinical endpoints, risk management, manufacturing controls, and post-market surveillance. | Clinical evidence and design controls dominate schedule. |
+| Investigational use | Separate feasibility study, pivotal study, IDE/CTA requirements, ethics review, and informed consent. | Research use does not erase patient-risk governance. |
+| Software as Medical Device | Define medical purpose, risk class, algorithm change control, cybersecurity, validation, and monitoring. | Software updates can become regulated design changes. |
+| Combination product | Identify primary mode of action, lead center or competent authority, device/drug/biologic evidence, and interfaces. | The hardest risks often live at the boundary between components. |
+| Design change to cleared device | Assess intended-use change, technology change, risk analysis, verification, labeling, and file update path. | "Same product" can still require a new submission if risk or claims shift. |

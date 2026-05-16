@@ -582,20 +582,24 @@ MINARETS:
 
 ---
 
+## Cross-References
+
+- `architecture-history/01-ANCIENT.md` — Roman and late antique inheritance.
+- `religious-studies/01-ABRAHAMIC.md` — religious context for sacred built form.
+- `art-history/02-BYZANTINE-MEDIEVAL.md` — visual culture around Byzantine and Islamic architecture.
+
 ## Decision Cheat Sheet: Byzantine and Islamic
 
-| Question | Answer |
-|----------|--------|
-| What is a pendentive? | Curved triangle connecting square bay to circular dome base |
-| Why does Hagia Sophia's dome appear to float? | 40 windows at drum base flood light; massive piers are hidden; scale disorientation |
-| What is a squinch? | Corner arch that converts square corner to octagonal base for dome |
-| What is a muqarnas? | Corbelled stalactite ornament — decorative, not structural |
-| What is a qibla? | Direction of Mecca — determines mosque orientation |
-| What is a hypostyle mosque? | Forest of columns (Córdoba) — many short bays, equal emphasis all directions |
-| What is a four-iwan plan? | Courtyard with vaulted halls on all four sides (Persian tradition) |
-| Why no figures in Islamic mosques? | Doctrine: only God creates life — figural representation in sacred space inappropriate |
-| What is girih tiling? | Set of 5 tile shapes producing quasi-crystalline geometric patterns |
-| What is the Taj Mahal's double dome for? | Inner dome: appropriate interior scale; outer dome: visual impact from distance |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Dome over square bay | Pendentive or squinch transition geometry | Pendentives and squinches solve related square-to-circle problems differently. |
+| Hagia Sophia's floating dome effect | Windowed drum, hidden piers, half-domes, and scale disorientation | The visual miracle depends on heavy structural work made hard to see. |
+| Muqarnas role | Corbelled/stalactite transition or ornamental surface | Muqarnas may be decorative, plaster-suspended, or semi-structural; do not assume load path. |
+| Mosque orientation and prayer wall | Qibla direction and mihrab placement | Orientation is liturgical, but urban constraints can create irregular plans. |
+| Hypostyle mosque organization | Repeated columns and many short bays | Equal spatial emphasis differs from basilican axial procession. |
+| Four-iwan plan | Courtyard with vaulted halls on four sides | Persian urban and madrasa traditions shape the type; it is not a universal mosque plan. |
+| Figural absence in sacred space | Aniconism, calligraphy, geometry, and vegetal ornament | Islamic art is not uniformly non-figural outside sacred contexts. |
+| Girih tiling or double dome | Geometric tile system or inner/outer dome separation | Geometry and optics serve theological, spatial, and urban-image goals together. |
 
 ---
 

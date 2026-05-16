@@ -318,17 +318,23 @@ HSV-1 as the paradigm for nuclear-replicating dsDNA virus.
 
 ---
 
+## Cross-References
+
+- `microbiology/02-VIRAL-BIOLOGY.md` — Baltimore logic for genome-to-mRNA pathways.
+- `virology/01-VIRUS-STRUCTURE.md` — virion structure that enables entry and genome delivery.
+- `virology/07-ANTIVIRAL-STRATEGIES.md` — replication stages as drug targets.
+
 ## Decision Cheat Sheet
 
-| Virus class | Replication location | Key enzyme(s) | Timeline |
-|-------------|---------------------|---------------|----------|
-| Herpesvirus (dsDNA) | Nucleus | Host RNA pol; viral DNA pol | 18-24 h |
-| Poxvirus (dsDNA) | Cytoplasm | Viral RNA pol + DNA pol | 12-24 h |
-| Coronavirus (+ssRNA) | Cytoplasm (DMVs) | RdRp, nsp14 ExoN | 8-12 h |
-| Poliovirus (+ssRNA) | Cytoplasm | RdRp | ~6 h |
-| Influenza (-ssRNA) | Nucleus + cytoplasm | RdRp, cap-snatching | 6-8 h |
-| Ebola (-ssRNA) | Cytoplasm | RdRp | 72+ h |
-| HIV (ssRNA-RT) | Cytoplasm → nucleus | RT, integrase | 24-48 h |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Herpesvirus replication | Nuclear dsDNA cycle and viral DNA polymerase | Latency changes the clinical timeline. |
+| Poxvirus replication | Cytoplasmic DNA replication with viral polymerases | Cytoplasmic DNA replication is the exception, not the rule. |
+| Coronavirus replication | Cytoplasmic RNA replication in DMVs | nsp14 proofreading makes coronaviruses unusual RNA viruses. |
+| Poliovirus replication | Fast cytoplasmic +RNA RdRp cycle | Speed amplifies error-prone population dynamics. |
+| Influenza replication | Nuclear cap-snatching plus cytoplasmic assembly | Segmentation adds reassortment risk. |
+| Ebola replication | Cytoplasmic -RNA RdRp cycle | Slow detected timeline reflects pathogenesis, not just polymerase speed. |
+| HIV replication | Reverse transcription, integration, then expression | Integrated provirus makes eradication hard. |
 
 ---
 

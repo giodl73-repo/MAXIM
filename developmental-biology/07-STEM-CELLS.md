@@ -361,16 +361,22 @@ CAVEATS AND CONTROVERSY
 
 ---
 
+## Cross-References
+
+- `developmental-biology/08-IPSCS.md` - induced pluripotency as engineered stem-cell state.
+- `developmental-biology/09-REGENERATION.md` - repair and replacement using stem-cell programs.
+- `biology/02-CELL-BIOLOGY.md` - cell-cycle and differentiation substrate.
+
 ## Decision Cheat Sheet
 
-| Stem Cell Type | Self-Renewal | Potency | Niche Signals | Clinical Relevance |
-|---------------|-------------|---------|--------------|-------------------|
-| Embryonic (ESC) | Unlimited | Pluripotent | LIF, FGF2, Activin | Disease modeling, cell therapy |
-| iPSC | Unlimited | Pluripotent | Same as ESC | Patient-specific therapy |
-| HSC (LT-HSC) | Long-term | Multipotent (all blood) | CXCL12, SCF, TPO | Bone marrow transplant |
-| NSC (adult) | Limited | Multipotent (CNS) | FGF2, EGF, Notch | Neurological disease |
-| LGR5+ intestinal | Unlimited (in situ) | Multipotent (intestinal) | Wnt, EGF, Notch | Organoid therapy, IBD |
-| Satellite cell (muscle) | Quiescent; activated by injury | Myogenic | HGF, FGF | Muscular dystrophy |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| ESC use | Unlimited pluripotency with LIF/FGF2/Activin conditions | Clinical use faces differentiation and tumor-risk controls. |
+| iPSC use | Patient-specific pluripotency | Epigenetic memory and somatic mutations matter. |
+| HSC transplant logic | LT-HSC multipotency with CXCL12/SCF/TPO niche | HSCs do not normally make non-blood tissues. |
+| Adult NSC capacity | Limited CNS multipotency with FGF2/EGF/Notch | Human adult neurogenesis remains debated. |
+| Intestinal organoid source | LGR5+ Wnt/EGF/Notch-dependent stem cells | In vitro organoids simplify immune and stromal context. |
+| Muscle repair stem cell | Quiescent satellite cell activated by injury | Chronic disease can exhaust or mispattern repair. |
 
 ---
 

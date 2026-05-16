@@ -399,18 +399,24 @@ VOICE UI (Alexa, Siri, Google Assistant):
 
 ---
 
+## Cross-References
+
+- `01-WEB-WRITING.md` provides clarity and scanability foundations.
+- `03-CONTENT-STRATEGY.md` supplies voice, tone, and governance.
+- `06-ATTENTION-ECONOMY.md` separates helpful nudges from manipulative patterns.
+
 ## Decision Cheat Sheet
 
-| UX writing task | Key rule |
-|----------------|---------|
-| Button label | Verb + object: "Delete account", not "Submit" |
-| Error message | What + why + what to do; no blame; calm tone |
-| Destructive action confirmation | Echo the specific action; make consequences clear |
-| Empty state | Explain what goes here; provide the action to fill it |
-| Onboarding | Lead with user's goal/value; progressive disclosure |
-| Form validation | Inline, specific, actionable; positive framing when possible |
-| Alt text | Describe content AND function; "" for decorative |
-| Hedging language | Remove "just", "simply", "easy" — they signal inaccessibility |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Button labels | Verb plus object, e.g. "Delete account" | Generic labels hide consequence and reduce scannability. |
+| Error messages | What happened, why, and what to do next | HTTP/status codes are support details, not user-facing explanations. |
+| Destructive confirmations | Echo the exact action and consequence | Confirmation is a last guardrail, not a substitute for reversible design. |
+| Empty states | Explain what belongs here and provide the next action | Avoid marketing copy where the user needs task recovery. |
+| Onboarding | User goal/value first, progressive disclosure after | Too much instruction before value increases abandonment. |
+| Form validation | Inline, specific, actionable feedback | Positive framing helps only if the fix is clear. |
+| Alt text | Describe content and function; empty alt for decorative media | Accessibility is task meaning, not image captioning by default. |
+| Hedging/accessibility language | Remove "just", "simply", and "easy" | Ease claims can blame users when the UI fails them. |
 
 ---
 

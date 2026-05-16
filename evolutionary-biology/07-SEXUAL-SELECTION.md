@@ -301,17 +301,23 @@ DISTINGUISHING HANDICAP FROM RUNAWAY:
     ornament size should change with condition if handicap)
 ```
 
+## Cross-References
+
+- `evolutionary-biology/02-POPULATION-GENETICS.md` — allele-frequency consequences of mate choice.
+- `behavioral-economics/01-COGNITIVE-BIASES.md` — signaling and preference analogies in decision systems.
+- `animal-phylogeny/01-SINGLE-CELL-ORIGINS.md` — evolutionary context for reproductive strategies.
+
 ## Decision Cheat Sheet
 
-| Question | Framework | Key concept |
-|----------|-----------|-------------|
-| Why do males have elaborate traits? | Sexual selection | Runaway or good genes |
-| Why is the female choosy? | Anisogamy, Bateman | More invested sex chooses |
-| Are ornaments honest? | Zahavi handicap | Condition-dependent cost |
-| Why do males have large testes? | Sperm competition | Promiscuity index |
-| Why do we age? | Medawar, Williams | Mutation accumulation, antagonistic pleiotropy |
-| Why do bees sacrifice for sisters? | Kin selection | r·B > C, haplodiploidy |
-| Fast vs. slow life history? | r/K or fast-slow continuum | Mortality risk, body size |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Elaborate male traits | Sexual selection via runaway or good genes | Natural selection can oppose the ornament. |
+| Choosy sex | Anisogamy and Bateman gradients | Sex roles can reverse when investment reverses. |
+| Ornament honesty | Condition-dependent cost or handicap logic | Honesty can also be maintained by index constraints. |
+| Large testes | Sperm competition and mating-system evidence | Testis size is comparative, not a single-species proof. |
+| Senescence pattern | Mutation accumulation and antagonistic pleiotropy | Extrinsic mortality alone does not mechanically cause aging. |
+| Altruism toward kin | Inclusive fitness and rB > C | Haplodiploidy is neither necessary nor sufficient. |
+| Fast versus slow life history | Mortality risk, body size, and reproductive schedule | r/K is a heuristic; modern models are continuous. |
 
 ---
 

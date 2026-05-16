@@ -204,14 +204,22 @@ Cultural:   covenant salt (Bible), sacred status in many traditions
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| When did cooking start? | ~1 Mya (Wonderwerk) for fire; Wrangham argues anatomy implies ~1.9 Mya |
-| What's Wrangham's key argument? | Cooked food → 30% more calories → gut shrinkage → brain growth |
-| First evidence of fermentation? | ~13,000 BP (Raqefet Cave grain fermentation) |
-| What are grinding stones for? | Making hard seeds/roots into digestible flour; precedes agriculture |
-| Why is salt historically valuable? | Preservation (dehydrates bacteria) + essential mineral |
-| What is an earth oven? | Pit lined with heated rocks, covers food for slow cooking |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| The start of cooking | Compare direct hearth evidence, burned bone/plant remains, control of fire, anatomy, and Wrangham's energetic argument. | Fire evidence near 1 Mya and anatomical inference near 1.9 Mya are different evidence types. |
+| Cooking's effect on human evolution | Track calorie availability, digestibility, gut size, chewing anatomy, brain energy demand, and social time. | Cooked-food energetics are central but not the only driver of hominin evolution. |
+| Early fermentation evidence | Look for residues, vessels/pits, plant starch, yeast/lactic signatures, and ritual context. | Fermentation can predate agriculture without implying large-scale brewing economies. |
+| Grinding-stone use | Inspect wear patterns, starch residues, seed/root hardness, processing labor, and seasonal storage. | Grinding tools reveal processing strategy, not automatically farming. |
+| Salt value | Separate preservation, physiology, trade scarcity, taxation, and military/animal needs. | Salt's value depends on climate, storage system, and access to alternatives. |
+| Earth-oven technology | Check pit construction, heated stones, covering material, cooking duration, group labor, and food type. | Slow cooking is a social scheduling technology as much as a heat-transfer method. |
+
+---
+
+## Cross-References
+
+- `00-OVERVIEW.md` frames cooking as technology, ecology, and social organization.
+- `02-ANCIENT-CIVILIZATIONS.md` follows domestication into grain states, storage, and cuisine.
+- `../human-biology/07-DIGESTIVE.md` connects cooking and diet to physiology and energy extraction.
 
 ---
 

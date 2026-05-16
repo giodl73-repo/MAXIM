@@ -370,19 +370,25 @@ NUMERICAL DISPERSION:
 
 ---
 
+## Cross-References
+
+- `acoustics/01-WAVE-PHYSICS.md` — physical wave propagation and acoustic interpretation.
+- `partial-differential-equations/01-CLASSIFICATION.md` — hyperbolic PDE classification and finite-speed propagation.
+- `variational-calculus/02-EULER-LAGRANGE.md` — wave equations as Euler-Lagrange equations of action functionals.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| 1D wave general solution? | F(x+ct) + G(x−ct) (d'Alembert) |
-| Solution given ICs? | d'Alembert formula |
-| 3D wave solution? | Kirchhoff formula (spherical averages) |
-| Why is Huygens sharp in 3D but not 2D? | 3D: only sphere surface contributes; 2D: full disk contributes |
-| Energy conserved? | Yes: ∫[u_t² + c²|∇u|²] dx = constant |
-| Standing waves on [0,L]? | Separation of variables; ω_n = cnπ/L |
-| Dispersive vs. non-dispersive? | Group velocity = phase velocity → non-dispersive |
-| What makes a soliton? | Balance of nonlinear steepening and dispersive spreading |
-| When do waves reflect? | At impedance mismatch Z₁ ≠ Z₂ |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a 1D solution is just two traveling waves | d'Alembert form `F(x+ct) + G(x-ct)` | Boundary conditions modify the free-space decomposition |
+| Whether initial data determine the solution explicitly | d'Alembert formula | The formula assumes the ideal 1D constant-speed equation |
+| Whether a 3D free-space solution has sharp fronts | Kirchhoff spherical means | Dimension matters: even dimensions have tails inside the cone |
+| Whether Huygens' principle should hold | Check spatial dimension and wave operator form | Potentials, boundaries, or variable coefficients can destroy sharp propagation |
+| Whether energy should be conserved | Energy integral for `u_t` and `grad u` | Damping, forcing, boundary flux, or variable media alter the balance |
+| Whether bounded-domain modes explain behavior | Separation of variables and eigenfrequencies | Mode expansion depends on boundary conditions and geometry |
+| Whether the wave is dispersive | Compare group and phase velocity | Nonlinear or higher-order terms can introduce dispersion |
+| Whether soliton language is justified | Balance nonlinear steepening against dispersion | Solitons require special integrable or near-integrable structure |
+| Whether reflection/transmission should occur | Impedance mismatch | Real interfaces can also absorb, scatter, or mode-convert energy |
 
 ---
 

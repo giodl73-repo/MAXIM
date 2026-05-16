@@ -2,8 +2,8 @@
 
 ## The Big Picture
 
-Wind is now the cheapest source of new electricity in most of the world for onshore,
-and offshore wind is the dominant strategy for decarbonizing high-latitude grids
+Wind is often among the cheapest new electricity sources at strong onshore sites,
+and offshore wind is one major strategy for decarbonizing high-latitude grids
 (UK, northern Europe, US Northeast) where solar resources are weak. Understanding
 the Betz limit, the capacity factor economics, and the wake/siting problem is the
 core. The generator and grid integration layers sit on top.
@@ -449,21 +449,22 @@ on existing permitted sites. Economics:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Maximum theoretical wind energy extraction? | 59.3% (Betz limit) — physics, not engineering |
-| Why does power scale with v³? | KE = ½mv²; mass flow = ρAv → P = ½ρAv³Cp |
-| Best CF for onshore wind? | 35-40% in good sites (Great Plains, central Europe) |
-| Best CF for offshore? | 40-55% fixed; 45-60% floating (projected) |
-| Gearbox vs direct-drive for offshore? | Direct-drive wins (no gearbox failures at sea) |
-| DFIG vs PMSG? | DFIG: cheaper partial converter; PMSG: better variable speed, no rare earth issue (wound-field variants) |
-| Why spacing matters? | Wake losses: 7-10D along-wind spacing; 3-5D cross-wind |
-| Largest turbines (2024)? | 14-16 MW offshore (Vestas V236, SGRE SG 14-222 DD) |
-| Onshore LCOE? | $25-50/MWh — cheapest new electricity in most markets |
-| Offshore fixed LCOE? | $70-120/MWh (falling, target <$60 by 2030 in North Sea) |
-| Main bottleneck for US offshore? | Permitting, WTIV vessel shortage, supply chain, cable |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A wind-resource claim | Check hub-height wind distribution, turbulence, shear, wake losses, terrain, icing, and grid congestion. | Mean wind speed hides the v3 value of high-wind hours and the damage risk of extremes. |
+| A capacity-factor claim | Compare resource quality, turbine specific power, curtailment, availability, wake layout, and offshore/onshore O&M. | High capacity factor can reflect turbine design tradeoffs, not just a better site. |
+| Gearbox vs direct-drive | Evaluate access cost, failure mode, generator mass, rare-earth exposure, converter design, and O&M strategy. | Direct-drive is attractive offshore, but it is not universally superior onshore. |
+| DFIG vs PMSG | Compare converter fraction, variable-speed range, grid-code support, fault ride-through, cost, and supply chain. | Generator topology matters only in the full plant/control/interconnection context. |
+| A wake-spacing/layout decision | Model rotor diameter, prevailing wind rose, land/lease cost, turbulence, collection cable, and wake steering. | Maximum spacing reduces wakes but can increase land, cable, and permitting costs. |
+| An offshore economics claim | Include foundation type, water depth, vessel availability, port capacity, cable route, offtake price, and financing. | Offshore wind can have high system value near coastal load while still facing high project execution risk. |
 
 ---
+
+## Cross-References
+
+- `01-SOLAR-PV.md` gives the parallel variable-renewable generation model.
+- `05-GRID-INTEGRATION.md` explains balancing, curtailment, and transmission needs.
+- `../aeronautics/01-AERODYNAMICS.md` supplies the lift, drag, and blade-flow vocabulary.
 
 ## Common Confusion Points
 

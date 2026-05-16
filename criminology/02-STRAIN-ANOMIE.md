@@ -354,16 +354,26 @@ IAT predicts nations with strong non-economic institutions (generous welfare sta
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Classical deterrence baseline | `criminology/01-CLASSICAL-THEORIES.md` |
+| Control theory as a different causal family | `criminology/03-SOCIAL-CONTROL.md` |
+| Incarceration and structural response | `criminology/07-INCARCERATION.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Theorist | Core Mechanism | Empirical Strength | Policy Lever |
-|----------|---------------|-------------------|--------------|
-| Durkheim | Anomie = normative breakdown | High conceptual; limited direct test | Normative integration |
-| Merton | Goal/means disjunction | Moderate; explains property crime | Expand opportunity |
-| Cohen | Status frustration + subculture | Good for gang delinquency | School inclusion programs |
-| Cloward-Ohlin | Differential access to illegitimate means | Good; explains subculture variation | Community development |
-| Agnew (GST) | Multiple strains + negative affect | Strong individual-level support | Stress reduction, coping resources |
-| Messner-Rosenfeld | Institutional imbalance | Good comparative evidence | Strengthen non-economic institutions |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Macro normative breakdown | Durkheimian anomie | Conceptually powerful but hard to test directly at individual level. |
+| Blocked opportunity toward shared goals | Merton's goal/means disjunction | Strain increases probability; it does not make all blocked groups criminal. |
+| Gang delinquency and school status | Cohen's status frustration and reaction formation | Subculture formation depends on peer context, not humiliation alone. |
+| Variation among delinquent subcultures | Cloward-Ohlin access to illegitimate opportunity | Criminal opportunity is structured too; it is not equally available. |
+| Individual stress-to-crime pathway | Agnew's GST: strain, negative affect, coping resources | Selection effects and criminal peers complicate causal attribution. |
+| Cross-national/institutional imbalance | Messner-Rosenfeld institutional anomie | Economic dominance is comparative/institutional, not a single-policy lever. |
 
 ---
 

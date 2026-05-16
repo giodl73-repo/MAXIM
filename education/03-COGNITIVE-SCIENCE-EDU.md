@@ -426,18 +426,24 @@ The dominant instructional design theory grounded in information processing cons
 
 ## Decision Cheat Sheet
 
-| Strategy | Evidence | Effect Size | Effort | Use When |
-|----------|----------|-------------|--------|----------|
-| Retrieval practice | Very strong | Large | High | Always, for all material |
-| Spacing | Very strong | Large | High planning | Always, when time allows |
-| Interleaving | Strong | Medium-large | High | After initial learning |
-| Elaborative interrogation | Moderate | Medium | Medium | Factual/conceptual learning |
-| Dual coding | Moderate | Medium | Medium | Complex/relational material |
-| Worked examples | Strong | Large | Low for learner | Novice learners |
-| Re-reading | Weak | Small | Low | Never as primary strategy |
-| Learning styles matching | None | Zero | Variable | Never |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A memory-retention problem | Use retrieval practice, spacing, feedback, and cumulative review. | Retrieval should be low-stakes and frequent; grading is not the mechanism. |
+| A cramming-vs-spacing claim | Compare short-term fluency, delayed retention, planning horizon, and forgetting curve. | Spacing feels worse during study because desirable difficulty is doing work. |
+| An interleaving choice | Check whether learners have initial competence in each component before mixing problem types. | Interleaving too early can overload novices rather than strengthen discrimination. |
+| A conceptual-learning task | Add elaborative interrogation, self-explanation, examples/nonexamples, and transfer prompts. | Explanation quality matters more than asking "why" mechanically. |
+| A diagram or multimedia lesson | Diagnose dual coding, split attention, redundancy, signaling, and modality load. | More media is not better if it increases extraneous load. |
+| A novice-skill lesson | Start with worked examples, fading, practice problems, and immediate feedback. | Worked examples help novices most; experts may need less guidance. |
+| A weak study strategy | Treat re-reading and highlighting as fluency checks, not durable-learning engines. | They can support orientation, but should not be the primary learning method. |
+| A learning-styles claim | Ask for evidence of improved outcomes from matching instruction to claimed style. | Preference is real; the matching hypothesis is not supported. |
 
 ---
+
+## Cross-References
+
+- `01-LEARNING-THEORY.md` gives the conceptual history behind cognitive learning models.
+- `04-CURRICULUM.md` turns cognitive principles into sequenced instructional design.
+- `05-ASSESSMENT.md` connects retrieval, feedback, and measurement.
 
 ## Common Confusion Points
 

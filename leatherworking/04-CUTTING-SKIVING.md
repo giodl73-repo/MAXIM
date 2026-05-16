@@ -300,20 +300,26 @@ CONSISTENT HOLE SPACING:
 
 ---
 
+## Cross-References
+
+- `03-PATTERN-MAKING.md` defines what must be cut and where thickness must change.
+- `07-STITCHING-SEWING.md` depends on skived edges and accurate seam geometry.
+- `08-HARDWARE-ASSEMBLY.md` uses skiving and cutting for folded straps and attachments.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the best cutting surface? | Marble or granite slab (cleanest cuts; tool-friendly) |
-| When should you use a head knife? | Long straight cuts; pull stroke along metal ruler |
-| When should you use a round knife? | Curved cuts; versatile general use; rocking motion |
-| What is skiving? | Reducing leather thickness at an edge, fold, or seam zone |
-| Why skive a folded edge? | Full thickness won't fold cleanly; must reduce to ~1/3 thickness at fold |
-| What edge beveler size for 6 oz leather? | #2 (medium) |
-| What is a feather edge skive? | Taper to near-zero thickness at the very edge (maximum fold cleanliness) |
-| What is the pricking iron for? | Marking stitch hole positions along a pre-grooved line |
-| What is the correct belt hole spacing? | 1" apart; 5 holes minimum; first at 4" from strap end |
-| What punch for buckle slots? | Oblong punch (match size to buckle pin width + clearance) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Clean heavy-leather cuts | Marble or granite slab under sharp knife | Soft mats can deflect thick leather cuts. |
+| Long straight cuts | Head knife pulled along metal ruler | Dull knives require force and become more dangerous. |
+| Curved cuts | Round knife with rocking motion | Control comes from sharpness and wrist path, not pressure. |
+| Edge or seam bulk | Skiving thickness at fold/seam zone | Practice on identical scrap; cutting through is common. |
+| Folded edge | Reduce to about one-third thickness | Full thickness will not fold or glue cleanly. |
+| Medium leather edge prep | #2 beveler for roughly 6 oz leather | Bevel before burnishing or edge paint. |
+| Maximum fold cleanliness | Feather skive toward near-zero edge | Feathering improves fold but weakens the edge if overdone. |
+| Stitch-hole layout | Pricking iron on pre-grooved stitch line | It marks spacing; awl/chisel may still open holes. |
+| Belt adjustment holes | 1 inch spacing, at least five holes, first about 4 inches from strap end | Hardware style and wearer fit can shift layout. |
+| Buckle slot | Oblong punch matched to pin plus clearance | Slot too tight binds; too loose looks sloppy and wears fast. |
 
 ---
 

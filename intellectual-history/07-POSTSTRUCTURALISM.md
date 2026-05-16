@@ -323,17 +323,27 @@ Saussure's core insight — "in language there are only differences without posi
 
 **Foucault's discourse → API governance.** A discourse is a system of rules about what can be said, by whom, under what conditions. An API's versioning policy, deprecation rules, and access controls constitute exactly this: they define which calls are "valid," who has permission, and what the conditions of legitimate usage are. The "power-knowledge" relation maps to API authorization — the ability to make a call is inseparable from the knowledge encoded in the response.
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Sociology of knowledge background | `intellectual-history/02-SOCIOLOGY-KNOWLEDGE.md` |
+| Memory history and discourse | `social-history/08-MEMORY-HISTORY.md` |
+| Baudrillard and simulation theory | `media-studies/03-BAUDRILLARD.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| I want to understand... | Go to |
-|---|---|
-| Language as system of differences | Saussure section |
-| Myth as second-order signification | Barthes section |
-| What deconstruction actually does | Derrida section |
-| Power-knowledge and discourse | Foucault section |
-| Postmodernism and metanarratives | Lyotard section |
-| The rhizome concept | Deleuze section |
-| How French theory was received in US | Anglo-American reception section |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Language as a system of differences | Saussurean signifier/signified and differential meaning | Structuralism is the foil; poststructuralism radicalizes its instabilities. |
+| Myth as second-order signification | Barthes's semiology of cultural signs | Myth analysis is not just "spot the symbol"; it tracks naturalized ideology. |
+| What deconstruction does | Derrida's close reading of binaries and internal tensions | Deconstruction is not destruction or "anything means anything." |
+| Power-knowledge and discourse | Foucault's genealogy, institutions, and subject formation | Power-laden truth claims are still criticizable; Foucault is not simple relativism. |
+| Postmodernism and metanarratives | Lyotard's incredulity toward legitimating grand stories | Postmodernism and poststructuralism overlap but are not identical. |
+| Rhizome-style organization | Deleuze/Guattari's non-hierarchical multiplicity | The rhizome is a model of connection, not a slogan for disorder. |
+| US reception of French theory | Translation, literature departments, and culture-war framing | Reception history often simplified the original debates. |
 
 ---
 

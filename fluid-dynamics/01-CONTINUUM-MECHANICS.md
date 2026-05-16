@@ -240,19 +240,29 @@ The no-slip condition at solid walls is the origin of boundary layers. In ideal 
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Inviscid limits and Bernoulli reasoning | `fluid-dynamics/02-INVISCID-FLOW.md` |
+| Viscous stresses and Navier-Stokes solutions | `fluid-dynamics/03-VISCOUS-FLOW.md` |
+| Boundary layers from no-slip walls | `fluid-dynamics/04-BOUNDARY-LAYERS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Need to... | Use |
-|-----------|-----|
-| Track a fluid parcel | Material derivative D/Dt |
-| Write mass balance | Continuity: ∂ρ/∂t + ∇·(ρ**v**) = 0 |
-| Check incompressibility | ∇·**v** = 0 |
-| Find vorticity | **ω** = ∇ × **v** |
-| Check irrotationality | **ω** = 0 → potential flow φ exists |
-| Write inviscid momentum | Euler: ρ D**v**/Dt = −∇p + ρ**g** |
-| Write viscous momentum | Navier-Stokes: +μ∇²**v** |
-| Derive field from integral form | Reynolds transport theorem + divergence |
-| Track vorticity evolution | Vorticity equation with stretching term |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Fluid-parcel change | Material derivative `D/Dt` | Different from fixed-point Eulerian partial time derivative. |
+| Mass balance | Continuity `partial rho/partial t + div(rho v) = 0` | Incompressible flow can still have spatially varying density. |
+| Incompressibility | `div v = 0` for parcel volume conservation | It is a velocity constraint, not a statement that density is uniform. |
+| Vorticity | `omega = curl v` | Vorticity is twice local angular velocity, not streamline curvature. |
+| Irrotationality | `omega = 0` and possible velocity potential `phi` | Global potential may fail on domains with holes or singular cores. |
+| Inviscid momentum | Euler equation | Neglects viscous stress and cannot explain boundary-layer drag. |
+| Viscous momentum | Navier-Stokes with viscous term such as `mu laplacian v` | Newtonian, constant-viscosity simplification is not universal. |
+| Integral-to-field derivation | Reynolds transport theorem plus divergence theorem | Requires smoothness/control-volume assumptions. |
+| Vorticity evolution | Vorticity equation and stretching term | Stretching is a 3D mechanism; 2D dynamics differ sharply. |
 
 ---
 

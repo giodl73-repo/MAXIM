@@ -418,16 +418,24 @@ THE ORAL TRADITION PROBLEM:
 
 ## Decision Cheat Sheet
 
-| Goal | Technology | Notes |
-|------|-----------|-------|
-| Capture precise joint angles in lab | Optical MoCap (Vicon/Qualysis) | Gold standard; expensive; controlled space only |
-| Portable movement analysis | IMU suit (Xsens) | Drift over time; no finger tracking |
-| Real-time interactive performance | Depth camera (Kinect/RealSense) + Max/Isadora | Low cost; lower precision |
-| Analyze movement qualities | MoCap + LMA computation | Research-level; requires validation |
-| Generate movement from text/music | Transformer motion models | Research tools; not production-ready for art |
-| Document choreography digitally | Multi-camera video + Motionbank annotation | Current best practice |
-| Interactive audience experience | 360 video or volumetric + VR | Experiential priority |
-| Human-AI choreographic collaboration | Train on corpus + curatorial workflow | Successful experimental models exist |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Precise lab capture | Use optical MoCap, marker placement, calibration, occlusion control, force plates, and controlled volume. | High precision comes with cost, setup burden, and artificial capture conditions. |
+| Portable movement analysis | Compare IMU drift, calibration, body model, battery, missing fingers/face, and environment constraints. | Portability trades absolute spatial accuracy for field use. |
+| Real-time interactive performance | Combine depth camera or tracking, latency budget, Max/Isadora/TouchDesigner patching, and fail-safe design. | Low-cost sensing can be expressive even when measurement precision is limited. |
+| Movement-quality computation | Pair MoCap features with LMA/Effort labels, expert annotation, model validation, and uncertainty. | Qualitative movement concepts do not map cleanly to raw coordinates. |
+| Generative movement AI | Inspect training corpus, body model, musical/text conditioning, feasibility, style bias, and choreographer curation. | Generated motion needs artistic selection and often physical adaptation. |
+| Digital documentation | Use multi-camera video, annotations, scores, metadata, interviews, and repository durability. | Video records a performance; it does not preserve all choreographic knowledge. |
+| Immersive audience work | Compare 360 video, volumetric capture, VR embodiment, interaction design, and audience comfort. | Immersion changes spectatorship rather than simply improving documentation. |
+| Human-AI collaboration | Design corpus boundaries, prompt/control workflow, dancer feedback, authorship model, and ethical constraints. | AI can expand ideation but does not remove choreographic judgment. |
+
+---
+
+## Cross-References
+
+- `05-CHOREOGRAPHIC-STRUCTURE.md` gives the movement organization digital tools transform.
+- `07-DANCE-SCIENCE.md` connects motion capture and analysis to biomechanics.
+- `../digital-media/00-OVERVIEW.md` places screen-based performance inside platform and media systems.
 
 ---
 

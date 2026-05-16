@@ -355,20 +355,26 @@ SEPARABILITY: if K[j,k] = h₁[j]·h₂[k], then 2D convolution = 1D + 1D
 
 ---
 
+## Cross-References
+
+- `signal-processing/03-FILTERS.md` — filters as the reusable DSP primitive across domains.
+- `signal-processing/04-CONVOLUTION-CORRELATION.md` — convolution and correlation as application-level operations.
+- `biomedical-engineering/01-BIOMECHANICS.md` — biomedical signals and instrumentation contexts.
+
 ## Decision Cheat Sheet
 
-| Application | Key DSP Operation |
-|-------------|-------------------|
-| Audio EQ | Parametric biquad IIR filter |
-| Audio compression | MDCT + perceptual masking |
-| Digital reverb (quality) | FFT overlap-add convolution with RIR |
-| Digital reverb (cheap) | Schroeder/FDN comb/allpass |
-| Radar range | Pulse compression (matched filter / FFT) |
-| Radar velocity | DFT across pulse train (Doppler) |
-| ECG beat detection | Pan-Tompkins (bandpass + square + integrate) |
-| Speech features | MFCC (13–40 coefficients per frame) |
-| Audio classification | Log-mel spectrogram + CNN |
-| Image blur/sharpen | 2D convolution with appropriate kernel |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Audio EQ | Parametric biquad IIR filters | Coefficient quantization and cascade ordering affect stability/noise. |
+| Audio compression | MDCT plus perceptual masking | Coding artifacts track psychoacoustic model failures, not just bitrate. |
+| High-quality digital reverb | FFT overlap-add convolution with room impulse response | Latency and block size are part of the sound/UX tradeoff. |
+| Cheap digital reverb | Schroeder or FDN comb/allpass structure | Efficient approximations can sound metallic if modes are too regular. |
+| Radar range | Pulse compression with matched filter/FFT | Range resolution comes from bandwidth, not matched-filter SNR alone. |
+| Radar velocity | DFT across pulse train for Doppler | Ambiguity depends on PRF and coherent processing interval. |
+| ECG beat detection | Pan-Tompkins bandpass, square, and integration chain | Clinical morphology can be distorted by careless notch/filter design. |
+| Speech features | MFCC frame coefficients | MFCC decorrelation was designed for GMM-era assumptions. |
+| Audio classification | Log-mel spectrogram plus CNN | Learned models still inherit front-end window/hop choices. |
+| Image blur/sharpen | 2D convolution with appropriate kernel | Boundary handling and kernel symmetry change visual artifacts. |
 
 ---
 

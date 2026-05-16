@@ -470,15 +470,23 @@ IDENTITY:
 
 ## Decision Cheat Sheet
 
-| Clinical concern | Assessment | Intervention |
-|-----------------|------------|-------------|
-| Stress fracture risk | Bone density (DEXA), energy availability assessment | Load reduction, nutrition review |
-| Low turnout | Passive vs active ROM comparison, bone morphology imaging | Technique correction, targeted strengthening |
-| Repeated ankle sprains | Proprioception testing, landing mechanics video | Balance training, peroneal strengthening |
-| FAI symptoms | Hip impingement test, imaging | Technique modification, arthroscopy if severe |
-| Eating disorder | RED-S screening, energy availability calculation | Sports dietitian, psychology referral |
-| Performance fatigue | HRV monitoring, load tracking | Periodization, recovery weeks |
-| Balance deficits | Single-leg balance time, perturbation test | Progressive balance training |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Stress-fracture risk | Check training load, energy availability, menstrual/endocrine status, DEXA, pain location, and recovery. | Bone stress is a system problem, not just a foot or shin problem. |
+| Low turnout | Compare passive range, active control, femoral morphology, hip strength, knee tracking, and teacher cues. | Forcing turnout can create injury while hiding the real anatomical limit. |
+| Repeated ankle sprains | Assess proprioception, landing mechanics, fatigue, peroneal strength, footwear, and rehearsal surface. | Recurrence often reflects neuromuscular control, not only ligament laxity. |
+| Hip impingement symptoms | Check FAI tests, imaging, extension/rotation demands, choreography, technique compensation, and pain pattern. | Surgical options do not replace load and technique modification. |
+| RED-S or eating-disorder risk | Screen energy availability, nutrition, psychology, menstrual/endocrine signs, and performance pressure. | Aesthetic culture can hide serious medical risk behind "discipline." |
+| Performance fatigue | Track workload, HRV, sleep, recovery weeks, rehearsal spikes, and cross-training balance. | Technique class alone may understate total load. |
+| Balance deficits | Use single-leg tests, perturbation, vestibular/proprioceptive input, vision, and fatigue state. | Balance is trainable but task-specific. |
+
+---
+
+## Cross-References
+
+- `01-BALLET.md` provides a high-demand technical system for applying biomechanics and injury science.
+- `04-LABAN-NOTATION.md` connects movement observation to formal description.
+- `../sports-science/00-OVERVIEW.md` supplies adjacent training, load, recovery, and performance models.
 
 ---
 

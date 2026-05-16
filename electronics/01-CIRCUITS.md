@@ -1,5 +1,7 @@
 # 01 — Circuit Analysis Fundamentals
 
+## The Big Picture
+
 ```
 CIRCUIT ANALYSIS LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
@@ -337,6 +339,18 @@ The op-amp integrator is where circuit analysis directly meets control theory: H
 | Add weighted signals | Summing amplifier |
 | Measure differential signal, reject common mode | Difference or instrumentation amp |
 | Integrate control error | Op-amp integrator |
+
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Field-level basis for circuit laws | `physics/01-ELECTROSTATICS.md` | KVL/KCL are lumped approximations of electromagnetic field constraints |
+| Signal behavior in circuits | `signal-processing/01-FOURIER-ANALYSIS.md` | Impedance, filters, and AC analysis are frequency-domain signal problems |
+| Control-loop applications | `control-theory/01-PID-CLASSICAL.md` | Op-amps, feedback, stability, and loop gain connect directly to control theory |
+| Digital hardware above circuits | `computer-architecture/01-ISA-FUNDAMENTALS.md` | Logic and processors rest on circuit abstractions, timing, and physical limits |
+| Semiconductor device substrate | `semiconductor-manufacturing/01-SILICON-SUBSTRATE.md` | Real circuits depend on doped silicon, process variation, and parasitics |
 
 ---
 

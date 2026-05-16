@@ -239,18 +239,24 @@ COMMON MISCONCEPTION:
 
 ---
 
+## Cross-References
+
+- `cognitive-science/02-ATTENTION-MEMORY.md` — perception feeding attention and memory systems.
+- `neuroscience/01-NEURONS-SIGNALS.md` — neural signaling substrate for perception.
+- `cinema-film/01-OPTICAL-PERSISTENCE.md` — perceptual persistence as media technology.
+
 ## Decision Cheat Sheet
 
-| Design Problem | Perceptual Mechanism | What to Do |
-|---------------|---------------------|------------|
-| Alert must be noticed instantly | Bottom-up salience (preattentive pop-out) | Use color, motion, or onset — features that bypass attention bottleneck |
-| User misreads a display under stress | Top-down expectation override | Design for violated expectations — make critical state changes break the expected pattern |
-| Users miss a critical change on screen | Change blindness | Don't rely on change alone — add a transient signal (flash, motion) at the change location |
-| Training sim produces wrong depth judgments | Monocular cue conflict | Ensure texture gradient, occlusion, and motion parallax are consistent — binocular disparity alone is insufficient |
-| Color-coded status is misread | Opponent-process + constancy failure | Don't rely on color alone (accessibility); use redundant coding (shape, position, label) |
-| Audio alert masked by environment | Auditory streaming failure | Use frequency/timbre distinct from ambient noise; exploit onset synchrony to bind alert components |
-| Multimodal display produces confusion | Cross-modal conflict (McGurk/ventriloquist) | Ensure spatial and temporal alignment of visual + auditory signals; vision will capture spatial, audio will capture temporal |
-| Users fail to detect rare events | Inattentional blindness under high load | Reduce perceptual load on primary task during critical monitoring, or use automated detection with salient alerting |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why an alert is not noticed instantly | Bottom-up salience and preattentive pop-out | Color, motion, or onset helps only if it is not already saturated in the display. |
+| Why a stressed user misreads a display | Top-down expectation override | Critical state changes should violate the expected pattern, not merely update a familiar field. |
+| Why users miss a visible screen change | Change blindness | Do not rely on change alone; add a transient signal at the changed location. |
+| Why a training simulator gives wrong depth judgments | Monocular cue conflict | Binocular disparity is insufficient when texture, occlusion, and motion parallax disagree. |
+| Why color-coded status is misread | Opponent-process and constancy limits | Color needs redundant shape, position, or label coding for accessibility and lighting variation. |
+| Why an audio alert is masked | Auditory streaming failure | Frequency/timbre contrast and onset synchrony help bind the alert as a separate event. |
+| Why multimodal displays confuse users | Cross-modal conflict such as McGurk or ventriloquist effects | Vision tends to capture space while audio captures timing; align both. |
+| Why rare events go undetected | Inattentional blindness under high load | Reduce primary-task perceptual load or add automated detection with salient alerting. |
 
 ---
 

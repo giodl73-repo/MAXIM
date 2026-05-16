@@ -529,20 +529,21 @@ Azure AI Search supports native hybrid search (BM25 + HNSW), semantic reranking,
 
 ---
 
+## Cross-References
+
+- `ai-engineering/03-ORCHESTRATION.md` — RAG frameworks that call vector search in production pipelines.
+- `data-science/01-NUMPY.md` — dense vector memory model behind embeddings and ANN indexes.
+- `ai-engineering/07-MULTIMODAL.md` — shared embedding spaces across text, image, audio, and documents.
+
 ## Decision Cheat Sheet
 
-| I need to... | Use |
-|---|---|
-| Start a RAG prototype quickly | Chroma (local) or pgvector (if Postgres exists) |
-| Production RAG on Azure | Azure AI Search with hybrid mode |
-| Managed vector search, zero ops | Pinecone serverless |
-| Filtered search (metadata-heavy) | Qdrant (excellent pre-filter support) |
-| Billions of vectors, on-prem | Milvus or Faiss-based custom |
-| Exact + approximate in same DB | pgvector (supports both modes) |
-| Hybrid search out of the box | Weaviate or Pinecone or Azure AI Search |
-| Best retrieval quality | ColBERT (via RAGatouille) + reranker |
-| Speed-sensitive embedding | text-embedding-3-small at 512 dims (Matryoshka) |
-| Best English retrieval quality | BGE-M3 or text-embedding-3-large |
-| Reranking top-100 to top-5 | Cohere Rerank API or bge-reranker-large |
-| Search images by text | CLIP / SigLIP embeddings |
-| Reduce embedding storage 8× | INT8 quantization (Cohere embed-v3 native) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether the database choice matters yet | Chroma locally or pgvector if Postgres already exists | Early RAG failures usually come from chunking and evals, not the index vendor |
+| Whether production search needs hybrid retrieval | BM25-plus-vector comparison on real queries | Hybrid helps lexical anchors; it does not fix stale or badly chunked content |
+| Whether metadata filters are the bottleneck | Qdrant-style pre-filter tests with realistic selectivity | Post-filtering can silently destroy recall when filters are tight |
+| Whether managed vector search is worth it | Ops budget versus latency and compliance constraints | "Zero ops" still leaves embedding pipelines, backfills, and evals to own |
+| Whether scale requires Milvus or Faiss | Vector count, update rate, and recall/latency target | Billion-scale systems are distributed data systems, not just ANN libraries |
+| Whether reranking is needed | Top-100 recall followed by cross-encoder or API reranker | Rerankers cannot recover documents absent from the candidate set |
+| Whether embedding choice is the issue | Retrieval eval split by query type and language | Larger embeddings cost more; quality gains may concentrate in specific query classes |
+| Whether storage can be compressed | INT8 or dimensionality-reduction recall test | Compression savings are only acceptable after measuring recall loss on target queries |

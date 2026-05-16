@@ -277,19 +277,22 @@ CLIMATE SCIENCE <-----> DENDROCLIMATOLOGY
 
 ## Decision Cheat Sheet
 
-| Question | Guide |
-|----------|-------|
-| How does a tree grow in girth? | 01 — vascular cambium |
-| Why does oak move less than pine when wet? | 02 — shrinkage coefficients, R vs T |
-| How do we date a medieval roof beam to 1348? | 03 — dendrochronology cross-dating |
-| Why do fire-adapted pines regenerate after crown fire? | 04 — gap dynamics, shade intolerance |
-| Which hardwood for a tool handle (need Janka > 1000 lbf)? | 05 — temperate species table |
-| Why do tropical trees have flattened buttress roots? | 06 — shallow soils, leverage mechanics |
-| Clearcut vs. selection cut — which system fits my stand? | 07 — silvicultural systems decision tree |
-| How is a forest carbon credit priced and verified? | 08 — VCS/REDD+ protocols |
-| What makes a forest qualify as "old-growth"? | 09 — structural definition, metrics |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A tree-growth claim | Separate primary growth, vascular cambium, xylem/phloem production, ring formation, and resource allocation. | Diameter growth is cambial tissue production, not simple swelling of the trunk. |
+| A wood-behavior problem | Check anatomy, density, moisture content, radial/tangential shrinkage, grain, and species group. | Hardwood/softwood names describe lineage, not mechanical hardness. |
+| A dating claim from wood | Look for annual ring clarity, cross-dating reference chronologies, missing/false rings, and provenance. | A matched ring date is not automatically a felling date unless bark/waney edge is present. |
+| A forest-regeneration claim | Identify disturbance type, shade tolerance, seed bank, serotiny/sprouting, microsite, and competition. | Fire, gap, flood, and harvest systems select for different regeneration strategies. |
+| A tree-identification problem | Start with leaf/needle arrangement, bark, buds, cones/fruit, wood anatomy, and range. | Field ID is probabilistic when hybrids, juveniles, or sterile specimens hide key traits. |
+| A carbon/old-growth claim | Separate biomass, soil carbon, permanence, additionality, leakage, structural complexity, and disturbance regime. | Carbon credit value and ecological old-growth status are related but not interchangeable. |
 
 ---
+
+## Cross-References
+
+- `01-TREE-ANATOMY.md` provides the structural vocabulary for wood, bark, cambium, and growth rings.
+- `03-DENDROCHRONOLOGY.md` turns tree growth into time-series evidence.
+- `../botany/06-TREES-FORESTS.md` places dendrology inside plant biology and forest structure.
 
 ## Common Confusion Points
 

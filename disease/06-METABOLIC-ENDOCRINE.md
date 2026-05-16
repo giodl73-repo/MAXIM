@@ -364,16 +364,22 @@ TREATMENT:
 
 ---
 
+## Cross-References
+
+- `human-biology/05-ENDOCRINE.md` - endocrine axes and hormone feedback.
+- `medicine/05-ENDOCRINE-METABOLIC.md` - drug treatment map.
+- `nutrition/06-METABOLISM-ENERGY.md` - energy metabolism and substrate flow.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| DKA vs HHS: key distinction? | DKA: T1DM, significant ketoacidosis (pH < 7.3), less severe hyperglycemia. HHS: T2DM, minimal ketones, extreme hyperglycemia + osmolality, more profound dehydration |
-| Graves vs Hashimoto's: same HLA? | Graves: HLA-DR3/DQ2. Hashimoto: HLA-DR4/DR5. Different though both autoimmune thyroid. |
-| Why give α-blocker before β-blocker in pheo? | β-blockade without α-blockade → removes vasodilatory β2 effect → unopposed α1 vasoconstriction → hypertensive crisis → stroke/death |
-| Addison vs secondary AI: hyperpigmentation present? | Only PRIMARY Addison's → ↑ ACTH → MSH from POMC → hyperpigmentation. Secondary/tertiary AI: ↓ ACTH → no hyperpigmentation. |
-| Insulin in DKA: start immediately? | Check K+ first. Insulin drives K+ into cells. If serum K+ < 3.5, give K+ replacement first — otherwise risk fatal hypokalemia-induced arrhythmia |
-| MSU crystals vs CPPD: how to differentiate? | Gout: MSU = negatively birefringent needles. Pseudogout (CPPD): calcium pyrophosphate = positively birefringent rhomboids. Both are joint fluid crystal analysis. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| DKA versus HHS | Ketoacidosis versus hyperosmolar dehydration | Overlap can occur, especially in severe illness. |
+| Graves versus Hashimoto genetics | HLA-DR3/DQ2 versus DR4/DR5 tendency | HLA association is risk, not diagnosis. |
+| Pheochromocytoma blockade order | Alpha blockade before beta blockade | Beta-first can trigger hypertensive crisis. |
+| Addison versus secondary adrenal insufficiency | ACTH/MSH-driven hyperpigmentation | Hyperpigmentation points to primary adrenal failure. |
+| DKA insulin timing | Potassium check before insulin | Low K must be replaced first to avoid arrhythmia. |
+| Gout versus pseudogout crystals | MSU negative needles versus CPPD positive rhomboids | Joint-fluid analysis is the diagnostic anchor. |
 
 ---
 

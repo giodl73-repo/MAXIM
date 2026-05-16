@@ -1,6 +1,6 @@
 # Autoimmune and Inflammatory Disease
 
-## The Big Picture: Self-Tolerance Failure
+## The Big Picture
 
 ```
 AUTOIMMUNE DISEASE: adaptive immune response against self-antigens
@@ -335,16 +335,22 @@ TREATMENT: artificial tears/saliva; pilocarpine (M3 agonist → gland stimulatio
 
 ---
 
+## Cross-References
+
+- `immunology/08-AUTOIMMUNITY.md` - tolerance failure mechanisms.
+- `medicine/07-IMMUNOMODULATORS.md` - immune-modifying therapies.
+- `human-biology/06-IMMUNE.md` - immune system anatomy and function.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| RA: RF+ or anti-CCP+, which is more specific? | Anti-CCP: ~95% specific (vs ~80% for RF). Anti-CCP appears years before symptoms — can help diagnose early and predict erosive disease. |
-| SLE kidney: why check complement + anti-dsDNA? | Active nephritis typically shows low C3/C4 (consumed by immune complex activation) + rising anti-dsDNA. Useful for monitoring without repeat biopsy. |
-| MS relapse treatment vs DMT: different goals | Relapse (acute attack): IV methylprednisolone → speeds recovery but doesn't change long-term outcome. DMTs: prevent future relapses and slow disability accumulation (no effect on acute relapse). |
-| Crohn's vs UC: who gets surgery as cure? | Only UC total proctocolectomy is curative. Crohn's can recur at any GI site; surgery reserved for complications (obstruction, fistula, refractory disease). |
-| Anti-TNF: which condition is it dangerous in? | Active TB (reactivation risk), active infections, CHF (moderate-severe), demyelinating disease, prior lymphoma. Screen with PPD/IGRA + CXR before starting. |
-| HLA-B27: how does it cause joint inflammation? | Multiple theories (arthritogenic peptide, ER stress, free heavy chain); no single consensus. Present in ~8% of white population but only ~5% of B27+ develop AS. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| RA serologic specificity | Anti-CCP over RF | Serology supports diagnosis; clinical synovitis still matters. |
+| SLE nephritis activity | Low complement plus rising anti-dsDNA | Monitoring does not always replace biopsy. |
+| MS relapse versus DMT goal | Steroids for recovery; DMT for prevention | Relapse treatment does not change long-term course. |
+| Crohn's versus UC surgery | UC colectomy can cure colitis | Crohn's can recur anywhere in GI tract. |
+| Anti-TNF danger screen | TB, infection, CHF, demyelination, lymphoma history | Screen before therapy, not after symptoms. |
+| HLA-B27 mechanism | Arthritogenic peptide / ER stress / heavy-chain theories | HLA-B27 is risk marker, not deterministic diagnosis. |
 
 ---
 

@@ -309,16 +309,22 @@ Cold starts happen whenever a function has been idle long enough that instances 
 
 ---
 
+## Cross-References
+
+- `cloud-architecture/02-COMPUTE-PATTERNS.md` — compute-pattern comparison class.
+- `cloud-architecture/05-MICROSERVICES.md` — service decomposition before function decomposition.
+- `distributed-systems/03-CONSENSUS.md` — state and coordination constraints in event systems.
+
 ## Decision Cheat Sheet
 
-| Scenario | Recommendation |
-|----------|---------------|
-| Event-driven processing, variable traffic | Functions (Consumption) |
-| HTTP API, no cold start tolerance | Functions (Elastic Premium) |
-| Long-running workflow (minutes to days) | Durable Functions |
-| Fan-out/fan-in over large dataset | Durable Functions (fan-out pattern) |
-| Human approval workflow | Durable Functions (human interaction pattern) |
-| SaaS integration, connectors needed | Logic Apps |
-| Scheduled background job | Functions (Timer trigger) |
-| Container workload, scale to zero | Container Apps (KEDA-based) |
-| Stateful microservice (actor model) | Durable Entities |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether variable event traffic should be consumption-based | Functions Consumption | Cold start and execution limits matter for latency-sensitive paths. |
+| Whether an HTTP API cannot tolerate cold starts | Functions Elastic Premium | Premium reduces latency risk but changes the cost model toward reserved capacity. |
+| Whether work lasts minutes to days | Durable Functions orchestration | Durable state is event-sourced; activities must be idempotent. |
+| Whether a dataset needs fan-out/fan-in | Durable Functions fan-out pattern | Fan-out requires throttling and failure aggregation, not just parallelism. |
+| Whether humans participate in the workflow | Durable Functions human interaction pattern | Human latency changes timeout, compensation, and audit requirements. |
+| Whether SaaS connectors are the main value | Logic Apps | Connector convenience can hide error-handling and versioning semantics. |
+| Whether a recurring job is sufficient | Functions Timer trigger | Schedules need idempotency because retries and missed windows happen. |
+| Whether a container should scale to zero | Container Apps with KEDA | Scale-to-zero fits stateless or externally stateful workloads best. |
+| Whether entity state belongs in serverless actors | Durable Entities | Actor-style state simplifies local coordination but can become a throughput bottleneck. |

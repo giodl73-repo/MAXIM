@@ -185,18 +185,23 @@ coral-reefs/
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What type of reef is a ring in open ocean? | Atoll (subsided volcanic island) |
-| What limits reef latitude? | Temperature (<18°C kills; light needed for zooxanthellae) |
-| Where is peak reef diversity? | Coral Triangle (Indonesia/Philippines/PNG) |
-| What is the reef's primary building material? | Aragonite (CaCO3 polymorph) secreted by scleractinian corals |
-| What sustains coral's energy budget? | Symbiotic zooxanthellae (90% of energy from photosynthesis) |
-| What causes bleaching? | Heat stress → reactive oxygen → zooxanthellae expelled |
-| What is the bleaching metric? | Degree Heating Weeks (DHW) — cumulative thermal anomaly |
-| What fraction of ocean floor are reefs? | ~0.1% |
-| What fraction of marine species use reefs? | 25–35% |
-| Best hope for reef survival? | Thermotolerant coral strains, emissions reduction, local stress management |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A reef-type identification | Check shoreline relation, lagoon shape, island subsidence, shelf position, and growth history. | Atoll/fringing/barrier labels are geomorphic histories, not just map shapes. |
+| A reef distribution claim | Examine temperature floor, light, depth, aragonite saturation, turbidity, and larval connectivity. | Latitude is a proxy; water clarity and chemistry can override simple temperature maps. |
+| A biodiversity claim | Separate reef area, structural complexity, Coral Triangle biogeography, endemism, and nursery use. | Reefs occupy tiny area but support high use; species-dependence varies by life stage. |
+| A reef-building claim | Track scleractinian coral, aragonite deposition, coralline algae, cementation, and bioerosion. | Reef accretion is a net budget: construction minus erosion and dissolution. |
+| A coral-energy claim | Compare zooxanthellae photosynthesis, heterotrophy, nutrient recycling, light, and stress response. | The 90% photosynthesis heuristic varies by species, depth, and feeding context. |
+| A bleaching event | Use heat anomaly, Degree Heating Weeks, light stress, symbiont expulsion, mortality, and recovery window. | Bleaching is reversible at first; repeated or prolonged events drive mortality. |
+| A survival/intervention claim | Combine emissions trajectory, local stress reduction, restoration scale, adaptation, and governance. | Local management buys resilience but cannot substitute for climate stabilization. |
+
+---
+
+## Cross-References
+
+- `01-REEF-FORMATION.md` explains how reef structures accrete from coral growth and carbonate deposition.
+- `05-BLEACHING.md` covers the thermal-stress failure mode most central to modern reef decline.
+- `09-RESTORATION.md` surveys the intervention toolkit and its limits.
 
 ---
 

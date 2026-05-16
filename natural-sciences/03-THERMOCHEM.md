@@ -6,7 +6,7 @@
 
 ---
 
-## Landscape
+## The Big Picture
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
@@ -417,20 +417,26 @@ why balanced equations form the null space of the stoichiometric matrix
 
 ---
 
+## Cross-References
+
+- `mechanical/01-THERMODYNAMICS.md` - thermodynamic laws and system boundaries.
+- `natural-sciences/04-KINETICS.md` - why favorable reactions may still be slow.
+- `biophysics/01-THERMODYNAMICS-BIO.md` - free energy in living systems.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Key relation |
-|----------|---------|-------------|
-| Will this reaction release heat? | ΔH < 0 | Exothermic — look up ΔHf° values |
-| Will this reaction occur spontaneously? | ΔG < 0 | Check ΔG = ΔH − TΔS |
-| At what temperature does spontaneity flip? | Crossover | T = ΔH/ΔS (both same sign) |
-| Where is equilibrium at 500 K? | K = e^(−ΔG°/RT) | Calculate ΔG°, then K |
-| How does K change if I heat the reaction? | Van't Hoff | Exothermic → K decreases with T |
-| Why does salt lower freezing point? | Colligative | ΔTf = Kf·m·i |
-| Can CO₂ be liquid at atmospheric pressure? | Phase diagram | No — triple point at 5.18 atm |
-| Why does ice melt under pressure? | Negative dP/dT slope | Water density anomaly |
-| What does adding product do to equilibrium? | Le Chatelier | Shifts reverse, Q > K until re-equilibration |
-| Is a reaction at standard state at equilibrium? | ΔG° vs ΔG | No — equilibrium is ΔG = 0, not ΔG° = 0 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Heat release | Negative enthalpy from formation values | Exothermic does not imply spontaneous. |
+| Spontaneity | Delta G = Delta H - T Delta S | Use actual conditions, not only standard state. |
+| Spontaneity crossover | T = Delta H / Delta S | Only meaningful when signs make a crossover possible. |
+| Equilibrium at temperature | Delta G standard to K | Equilibrium is Delta G = 0, not Delta G standard = 0. |
+| Temperature effect on K | Van't Hoff relation | Exothermic reactions decrease K as T rises. |
+| Freezing-point depression | Colligative Delta Tf = Kf*m*i | Depends on particle count, not solute identity directly. |
+| Liquid CO2 possibility | Phase diagram and triple point | Atmospheric pressure cannot support liquid CO2. |
+| Pressure melting of ice | Negative solid-liquid slope | Water is unusual because ice is less dense than liquid. |
+| Product addition | Q versus K and Le Chatelier response | System shifts until Q returns to K. |
+| Standard state misconception | Delta G standard versus Delta G | Standard-state data are reference inputs, not actual equilibrium status. |
 
 ---
 

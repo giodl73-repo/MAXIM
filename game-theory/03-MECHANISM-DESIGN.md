@@ -161,14 +161,14 @@ Agents have quasilinear utility. Agent i's value for outcome x is vᵢ(x, θᵢ)
 
 **Groves mechanism**:
 - Allocate x*(θ) (socially efficient given reports)
-- Pay agent i:  tᵢ(θ) = Σⱼ≠ᵢ vⱼ(x*(θ), θⱼ) + hᵢ(θ₋ᵢ)
+- Pay agent i:  tᵢ(θ) = hᵢ(θ₋ᵢ) - Σⱼ≠ᵢ vⱼ(x*(θ), θⱼ)
 
 where hᵢ(θ₋ᵢ) is any function of others' types (not i's).
 
 **Why is Groves DSIC?** Agent i's payoff:
 
-    vᵢ(x*(θ), θᵢ) - tᵢ(θ) = vᵢ(x*(θ), θᵢ) + Σⱼ≠ᵢ vⱼ(x*(θ), θⱼ) + hᵢ(θ₋ᵢ)
-                             = Σⱼ vⱼ(x*(θ), θⱼ) + hᵢ(θ₋ᵢ)
+    vᵢ(x*(θ), θᵢ) - tᵢ(θ) = vᵢ(x*(θ), θᵢ) + Σⱼ≠ᵢ vⱼ(x*(θ), θⱼ) - hᵢ(θ₋ᵢ)
+                             = Σⱼ vⱼ(x*(θ), θⱼ) - hᵢ(θ₋ᵢ)
 
 Agent i's payoff equals **total social welfare + a term independent of their report**.
 So maximizing their payoff = maximizing social welfare = reporting truthfully. □
@@ -181,7 +181,7 @@ setting). Efficiency + DSIC pins down the mechanism up to hᵢ.
 
 **VCG payment** (Clarke's pivot rule):
 
-    tᵢᵛᶜᴳ(θ) = Σⱼ≠ᵢ vⱼ(x*(θ), θⱼ) - Σⱼ≠ᵢ vⱼ(x*₋ᵢ(θ₋ᵢ), θⱼ)
+    tᵢᵛᶜᴳ(θ) = Σⱼ≠ᵢ vⱼ(x*₋ᵢ(θ₋ᵢ), θⱼ) - Σⱼ≠ᵢ vⱼ(x*(θ), θⱼ)
 
 where x*₋ᵢ(θ₋ᵢ) = argmax_{x} Σⱼ≠ᵢ vⱼ(x, θⱼ) is the efficient outcome without agent i.
 
@@ -442,17 +442,16 @@ at least one of these properties. In practice: mechanisms sacrifice some efficie
 
 ## Decision Cheat Sheet
 
-| Goal | Mechanism | Notes |
-|------|-----------|-------|
-| Efficient allocation, dominant strategy IC | VCG / Groves | May need external budget |
-| Single item, maximize revenue | Myerson optimal auction | Reserve price = φ⁻¹(0) |
-| Single item, standard format | Second-price (Vickrey) | Truthful, no revenue max |
-| Multiple items (packages) | Combinatorial auction + VCG | Allocation is NP-hard |
-| Two-sided matching, stability | Gale-Shapley DA | Proposing side gets optimum |
-| Match + strategy-proof for one side | Student-proposing DA | Students: truthful dominant |
-| Social choice, no transfers | Dictatorial (G-S theorem) | Or restrict domain |
-| Maximize revenue with correlated types | Cremer-McLean extraction | Requires common knowledge |
-| Trade with private costs/values | Double auction | Efficiency ↔ budget (M-S theorem) |
+| If the design objective is... | Start With | Binding Tradeoff |
+|-------------------------------|------------|-----------------|
+| Efficient allocation with dominant-strategy truthfulness | Groves / VCG | Budget balance and computational tractability may fail |
+| Single-item revenue maximization | Myerson optimal auction | Reserve prices sacrifice some efficient trades for seller revenue |
+| Simple single-item truthful auction | Vickrey second-price | Truthful and efficient, but not generally revenue-optimal |
+| Package bidding across many items | Combinatorial auction | Winner determination is NP-hard; exact VCG is often impractical |
+| Stable two-sided matching without transfers | Gale-Shapley deferred acceptance | Proposing side is favored; only that side gets strategy-proofness |
+| General social choice without money | Gibbard-Satterthwaite escape routes | Must restrict domain, randomize, add transfers, or accept dictatorship |
+| Bilateral trade with private values/costs | Myerson-Satterthwaite boundary | IC + IR + efficiency + budget balance cannot all hold |
+| Forecast or probability elicitation | Proper scoring rules | Payment rule must make truthful probabilities optimal in expectation |
 
 ---
 
@@ -469,6 +468,12 @@ at least one of these properties. In practice: mechanisms sacrifice some efficie
 | Two-sided matching (Gale-Shapley) | Stable matchings as a fixed point of a deferred acceptance algorithm; runs in O(n²) and is used in NRMP (medical residency), FCC spectrum auctions, school assignment — a polynomial-time algorithm for a problem with no NE computation difficulty |
 | Combinatorial auction (VCG) | Winner determination is NP-hard — the computational complexity of mechanism design for package bidding; practical systems use MIP solvers or approximation algorithms with bounded PoA |
 | Scoring rules / forecast elicitation | Proper scoring rules (Brier, log loss) are incentive-compatible mechanisms for eliciting probabilistic forecasts — paying log(p(true outcome)) makes truth-telling dominant; bridges to information-theory/ (log loss = cross-entropy) |
+
+## Cross-References
+
+- [Normal Form Games](01-NORMAL-FORM.md) gives the strategic baseline mechanisms deliberately reshape.
+- [Extensive Form Games](02-EXTENSIVE-FORM.md) supplies the sequential and information-structure tools behind auctions and protocols.
+- [Cooperative Game Theory](04-COOPERATIVE.md) contrasts mechanism design's incentive engineering with coalition-value allocation.
 
 ## Common Confusion Points
 

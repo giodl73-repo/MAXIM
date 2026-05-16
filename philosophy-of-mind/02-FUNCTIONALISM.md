@@ -314,16 +314,27 @@ DENNETT'S POSITION:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Mind-body problem background | `philosophy-of-mind/01-MIND-BODY-PROBLEM.md` |
+| Chinese Room challenge to functional computation | `philosophy-of-mind/04-CHINESE-ROOM.md` |
+| Embodied alternatives to internal-state functionalism | `philosophy-of-mind/08-EMBODIED-COGNITION.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Use functionalism when... | But beware... |
-|---|---|
-| Arguing that silicon systems can in principle have mental states | Block's liberalism: functionalism as stated attributes mentality too broadly — the Nation of China thought experiment has the same functional organization as a brain but no obvious mentality |
-| Explaining why neuron-by-neuron substrate doesn't determine mental type | Block's chauvinism: a creature with radically different functional organization might have genuine mental states that functionalism would deny |
-| Applying the Systems Reply to Chinese Room arguments | Searle's internalization counter: after memorizing the whole rulebook, the whole system is inside you, and you still don't understand Chinese — the systems reply hasn't settled the debate |
-| Claiming LLM behavior is sufficient for mental states | Putnam's late retraction: he later doubted functionalism is true — human cognition may require specific causal-historical connections to the world, not just abstract functional organization |
-| Defending the possibility of strong AI | The hard problem: even if the functional organization is right, functionalism doesn't entail phenomenal consciousness — Chalmers accepts functionalism's multiple realizability argument but denies that function alone explains experience |
-| Using machine-state functionalism as a formal model | The Turing machine model is clean but underspecified: "same transition table" is not obviously the right criterion for psychological equivalence — which level of description counts as the relevant functional organization? |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Silicon mentality in principle | Multiple realizability and causal-role organization | Liberalism worry: too-broad functional organization may attribute minds implausibly. |
+| Substrate independence | Neuron material versus functional role | Chauvinism worry: wrong level of function may exclude alien but genuine minds. |
+| Systems Reply to Chinese Room | Understanding as system-level rather than component-level property | Searle's internalization counter keeps the debate open. |
+| LLM behavior as mentality evidence | Functional behavior and internal organization | Putnam later doubted abstract function alone captures human cognition. |
+| Strong AI possibility | Functional organization sufficient for mental states | The hard problem remains: function may not explain phenomenal consciousness. |
+| Machine-state formalization | Turing-machine transition structure | The relevant psychological level of description is underspecified. |
+| Thermostat-style objections | Right-kind functional complexity | Information processing alone is not enough for plausible mentality. |
 
 ---
 

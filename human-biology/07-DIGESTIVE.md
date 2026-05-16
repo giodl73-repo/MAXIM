@@ -366,16 +366,22 @@ Pancreatic digestive enzymes are synthesized as inactive precursors (zymogens) t
 **Enteric nervous system as embedded autonomous controller**
 The ENS (~500 million neurons, more than the spinal cord) operates independently of the CNS to control all GI motility and secretion. It has its own sensory neurons (detecting stretch, luminal chemistry), interneurons (integrating), and motor neurons (controlling smooth muscle and secretory cells). The CNS modulates but does not control the ENS — vagal inputs set tone; ENS generates the coordinated peristaltic pattern. This is an embedded controller that maintains local control while accepting override inputs from a supervisory system. Hirschsprung disease (absence of ENS in a segment) causes functional obstruction — the segment has normal muscle but no local controller.
 
+## Cross-References
+
+- `nutrition/07-GUT-MICROBIOME.md` - microbial ecology of the digestive tract.
+- `nutrition/06-METABOLISM-ENERGY.md` - nutrient processing and energy flow.
+- `medicine/08-RESPIRATORY-GI.md` - clinical GI therapeutics context.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Where is most absorption? | Jejunum (most carbs, proteins, fats, vitamins). Ileum specialized: B12, bile acids, fat-soluble vitamins |
-| Why are fats absorbed into lymph, not portal blood? | Chylomicrons are too large for capillaries; absorbed into lacteals → thoracic duct → subclavian. Bypasses liver first pass. |
-| What activates all pancreatic zymogens? | Trypsin is the master activator; enteropeptidase (duodenal brush border) activates the first trypsinogen |
-| What stimulates gallbladder contraction? | CCK (from I cells when fat + protein enters duodenum) |
-| Parietal cell: what does it make? | HCl (via H⁺/K⁺-ATPase proton pump) + Intrinsic factor (B12 binding) |
-| Why is terminal ileum removal problematic? | Loses: B12 absorption (intrinsic factor receptor cubilin), bile acid reabsorption (enterohepatic circulation), + may overflow to colon → diarrhea |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Main absorption site | Jejunum for most macronutrients and vitamins | Ileum is specialized for B12 and bile acids. |
+| Fat lymphatic route | Chylomicron size and lacteal uptake | Medium-chain fats can enter portal blood directly. |
+| Zymogen activation | Enteropeptidase-triggered trypsin cascade | Premature activation is pancreatitis logic. |
+| Gallbladder contraction | CCK from I cells after fat/protein | Bile release also needs sphincter coordination. |
+| Parietal-cell products | HCl plus intrinsic factor | Losing intrinsic factor causes B12 malabsorption. |
+| Terminal ileum loss | B12 and bile-acid reabsorption failure | Bile acids spilling into colon cause diarrhea. |
 
 ---
 

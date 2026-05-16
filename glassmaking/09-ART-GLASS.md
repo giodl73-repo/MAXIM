@@ -372,6 +372,12 @@ CRAFT VS FINE ART TENSION:
 
 ---
 
+## Cross-References
+
+- [Historical Glassmaking](08-HISTORICAL-GLASSMAKING.md) supplies the craft lineage behind art glass traditions.
+- [Forming Techniques](03-FORMING-TECHNIQUES.md) explains the hot-working and cold-working processes artists exploit.
+- [Glass Trades](10-GLASS-TRADES.md) connects studio roles such as gaffer and glassblower to professional practice.
+
 ## Common Confusion Points
 
 **Stained glass ≠ always painted**:

@@ -342,17 +342,24 @@ Forest certification provides third-party verification that timber comes from re
 
 ---
 
+## Cross-References
+
+- `04-FOREST-ECOLOGY.md` supplies succession and gap-dynamics foundations.
+- `08-FOREST-ECONOMICS.md` explains rotation age and market constraints.
+- `09-CONSERVATION.md` frames management tradeoffs against habitat goals.
+
 ## Decision Cheat Sheet
 
-| Situation | System |
-|-----------|--------|
-| Pioneer species (pine, aspen, birch) on flat terrain | Clearcut + replanting or seed source |
-| Douglas-fir, mixed shade-tolerant + intolerant | Shelterwood (3 entries over 15–20 yr) |
-| Sugar maple, beech, hemlock — maintain forest structure | Single-tree selection |
-| Broadleaved species for regular fuel/material supply | Coppice on 15–25 yr rotation |
-| High-altitude watershed; visual sensitivity | Uneven-aged / group selection; no clearcut |
-| Maximum timber volume production (plantation) | Monoculture + thinning schedule; Faustmann rotation |
-| Certification requirement for export market | FSC Chain of Custody required for most EU markets |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Pioneer regeneration | Clearcut with replanting or seed source for pine/aspen/birch | Clearcut is context-dependent, not inherently unsustainable. |
+| Mixed shade tolerance | Shelterwood over multiple entries | Timing must match advance regeneration and seed source. |
+| Maintain uneven forest structure | Single-tree selection for sugar maple, beech, hemlock | Selection cutting is not high-grading. |
+| Regular fuel/material supply | Coppice on 15-25 year rotation | Works only for species with strong resprouting ability. |
+| Sensitive watershed/visual site | Uneven-aged or group selection, no broad clearcut | Operational access and soil protection constrain choices. |
+| Maximum timber NPV | Plantation, thinning schedule, Faustmann rotation | Economic rotation is not carbon or biodiversity optimum. |
+| Export-market certification | FSC Chain of Custody and origin due diligence | Certification does not automatically prevent timber laundering. |
+| Carbon-credit rotation shift | Longer rotation where carbon payments raise NPV | Protocol quality and permanence assumptions drive credibility. |
 
 ---
 

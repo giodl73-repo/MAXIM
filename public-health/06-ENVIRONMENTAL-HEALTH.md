@@ -1,6 +1,6 @@
 # Environmental Health
 
-## Environmental Exposure Framework
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -231,17 +231,27 @@ CUMULATIVE RISK:
 | Ecological fallacy in environmental epidemiology | Multi-level modeling error: county-level pollution correlates with health outcomes, but individuals within a county have heterogeneous exposures; aggregate-level correlation ≠ individual-level causation — the same reason you cannot infer user experience from server-side metrics without joining to user-level data |
 | Dose-response threshold (non-carcinogens) | Fault tolerance with graceful degradation: below a threshold, biological repair mechanisms keep pace with damage; above it, cumulative harm exceeds repair — analogous to a circuit breaker that tolerates low error rates but trips above a threshold to prevent cascade failure |
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Surveillance of exposure-linked disease | `public-health/02-DISEASE-SURVEILLANCE.md` |
+| Chronic disease pathways | `public-health/05-CHRONIC-DISEASE.md` |
+| Global-health environmental burden | `public-health/07-GLOBAL-HEALTH.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Environmental health question | Tool/approach |
-|---|---|
-| Assess air pollution health risk | PM2.5 concentration × dose-response function → attributable mortality |
-| Investigate suspected contamination cluster | Exposure assessment → case-control or cohort study |
-| Set regulatory limit for a toxin | NOAEL/LOAEL from animal studies → uncertainty factors → RfD |
-| Identify areas of highest EJ burden | EPA EJScreen, CDC SVI, CalEnviroScreen |
-| Prioritize pollutant for reduction | Compare attributable disease burden (DALYs) across pollutants |
-| Investigate lead exposure in children | BLL testing + environmental investigation of home/soil/water |
-| Evaluate water system contamination | Source characterization + treatment chain + distribution sampling |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Air-pollution health risk | PM2.5 concentration and dose-response attributable mortality | Exposure measurement and model choice drive estimates. |
+| Suspected contamination cluster | Exposure assessment followed by case-control or cohort design | Ecological correlations can mislead without individual exposure data. |
+| Regulatory toxin limits | NOAEL/LOAEL, uncertainty factors, and reference dose | Threshold versus no-threshold assumptions change policy stringency. |
+| Environmental-justice burden | EJScreen, CDC SVI, CalEnviroScreen, cumulative exposure | Screening tools flag priority; they do not prove causal attribution alone. |
+| Pollutant prioritization | Attributable DALYs across pollutants | Burden metrics must be balanced against feasibility and equity. |
+| Child lead exposure | Blood lead testing plus home/soil/water investigation | No safe level means low measured values can still matter. |
+| Water contamination | Source characterization, treatment chain, and distribution sampling | Treatment-plant data can miss distribution-system failures. |
 
 ## Common Confusion Points
 

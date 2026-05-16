@@ -283,17 +283,23 @@ Public benchmarks (MMLU, HumanEval, etc.) measure specific static tasks. Your ta
 
 ## Decision Cheat Sheet
 
-| Task | Model family | Why |
-|------|-------------|-----|
-| Complex reasoning, agentic, long context | Claude 3.5 Sonnet or GPT-4o | Best instruction following at cost |
-| Math, hard logic, step-by-step reasoning | o1/o3 or Claude with extended thinking | Reasoning models trained for this |
-| High volume simple tasks (classification, extraction) | GPT-4o-mini or Claude Haiku | 5-10× cheaper, good enough |
-| RAG over enterprise documents | GPT-4o or Claude 3.5, + embeddings | Strong instruction following + grounding |
-| Code generation / review | Claude 3.5 Sonnet or GPT-4o | Both strong; Sonnet slightly better on complex code |
-| Document understanding (PDF, tables, images) | GPT-4V or Claude 3 vision | 07-MULTIMODAL covers this |
-| Air-gapped deployment | Llama 3.1 70B or Phi-3 | Open weights, self-hosted |
-| Ultra-long document (book-length) | Gemini 1.5 Pro | 1M context with strong recall |
-| Speech-to-text | Whisper (OpenAI) or Deepgram | Industry standard |
-| Image generation | DALL-E 3 or Stable Diffusion | Depending on control needs |
-| Fine-tuning target (cost-sensitive) | GPT-4o-mini, Llama 3.1 8B | Small, fine-tunable, cheap |
-| Embedding / semantic search | text-embedding-3-large, BGE-M3 | 09-VECTOR-DATABASES covers this |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Complex reasoning or agentic work | Compare instruction following, tool use, long-context behavior, evals, latency, and cost. | Public benchmarks are weaker than workload-specific evals. |
+| Math or hard logic | Test reasoning trace quality, verifier pass rate, hallucination under pressure, and step budget. | "Reasoning model" does not remove the need for independent checking. |
+| High-volume simple tasks | Measure accuracy/cost curve on classification, extraction, routing, and failure escalation. | Cheap models are good only if errors are bounded and detectable. |
+| Enterprise RAG | Evaluate retrieval quality, chunking, grounding, citation behavior, access control, and answer abstention. | Model choice cannot rescue a bad retrieval/indexing layer. |
+| Code generation or review | Test repo-specific edits, tool use, test repair, security reasoning, and diff quality. | General coding scores may not predict behavior in your codebase. |
+| Multimodal document understanding | Check OCR, layout, tables, figures, grounding, and extraction schema reliability. | Vision models can read layout while still inventing relationships. |
+| Air-gapped deployment | Compare open weights, hardware, quantization, ops burden, update cadence, and data boundary. | Self-hosting shifts risk from data residency to platform operations. |
+| Ultra-long context | Test recall, positional bias, summarization drift, and retrieval augmentation. | A huge context window is not the same as reliable reasoning over all tokens. |
+| Speech or image generation | Separate recognition/generation quality, control, latency, safety, rights, and downstream workflow. | Media models need product guardrails beyond model selection. |
+| Fine-tuning or embeddings | Check whether behavior, domain language, cost, or retrieval geometry is the real bottleneck. | Fine-tuning is not a substitute for good prompts, evals, or data cleaning. |
+
+---
+
+## Cross-References
+
+- `../data-science/05-MLOPS.md` covers deployment discipline for trained models, pipelines, and monitoring.
+- `../machine-learning-theory/00-OVERVIEW.md` supplies the statistical learning layer beneath model behavior.
+- `../cloud-architecture/07-AI-ML.md` connects model capability to cloud-hosted inference, scaling, and governance.

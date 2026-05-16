@@ -426,16 +426,22 @@ IMTA CONCEPT:
 
 ---
 
+## Cross-References
+
+- `oceanography/01-OCEAN-PHYSICS.md` — water-column physics for marine and coastal aquaculture.
+- `microbiology/01-BACTERIA.md` — biofilter and pathogen dynamics in recirculating systems.
+- `infrastructure-systems/01-CLASSIFICATION.md` — aquaculture as food, water, energy, and logistics infrastructure.
+
 ## Decision Cheat Sheet
 
-| Aquaculture question | Key consideration |
-|---------------------|-------------------|
-| Most sustainable seafood choices | Bivalves (oysters, mussels, clams) > seaweed > certified tilapia > certified salmon (Norway > Chile) |
-| Why is RAS capital-intensive but growing? | Site independence, no disease exposure, no escapes, precise control. Economic only for high-value species; energy cost must be green |
-| Sea lice problem → Norway's solution vs Chile's | Norway: vaccines + mechanical/laser lice removal; very low antibiotics. Chile: historical antibiotic overuse; improving with regulation |
-| Why farmed salmon FCR is lower than beef? | Fish are ectothermic — no energy wasted on body temperature. All feed energy goes to growth, not thermoregulation. |
-| Shrimp pond vs tilapia pond sustainability | Depends enormously on management: biofloc shrimp = high production, low waste; poorly managed shrimp = high antibiotics, mangrove loss risk |
-| IMTA: does it work economically? | Not yet at large scale. Bioremediation benefit clear; economic returns from bivalve/seaweed co-culture improving. Regulatory framework is often the bottleneck. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a seafood choice is low-impact | Species group, feed dependence, and certification evidence | Bivalves and seaweed are usually cleaner bets than fed finfish, but local practice still matters |
+| Whether RAS is sustainable | Energy source, species value, and mortality data | Site independence is useful only if electricity and capital intensity do not dominate the footprint |
+| Whether salmon disease control is improving | Sea-lice treatment, vaccine, and antibiotic-use records by region | Norway and Chile have different histories; do not generalize from "farmed salmon" alone |
+| Whether FCR comparisons are meaningful | Feed composition and fish-in/fish-out ratio | Low FCR reflects ectothermy, but marine ingredient sourcing still matters |
+| Whether shrimp or tilapia ponds are sustainable | Effluent, disease, mangrove history, and biofloc/aeration management | Management variation is enormous; species label alone is not enough |
+| Whether IMTA is more than a concept | Nutrient uptake, market value, and permitting structure | Ecological complementarity does not guarantee economic viability at commercial scale |
 
 ---
 

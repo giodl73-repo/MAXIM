@@ -10,7 +10,7 @@ WHAT WE CALL "VEGETABLE" — BOTANICAL DIVERSITY
 Part selected    Example                     Family
 ─────────────────────────────────────────────────────────────────────────────
 Leaf             Spinach, lettuce, chard     Amaranthaceae, Asteraceae
-Stem             Asparagus, kohlrabi         Liliaceae, Brassicaceae
+Stem             Asparagus, kohlrabi         Asparagaceae, Brassicaceae
 Root             Carrot, parsnip, beet       Apiaceae, Amaranthaceae
 Tuber            Potato, yam                 Solanaceae, Dioscoreaceae
 Flower bud       Broccoli, cauliflower       Brassicaceae
@@ -187,11 +187,11 @@ A. tuberosum       Garlic chives  East Asia       Flat leaves, garlic flavor
 ALLIUM PUNGENCY MECHANISM
 ──────────────────────────────────────────────────────────────────────────────
 INTACT CELL:
-  Precursor: S-allylcysteine sulfoxide (ACSO) stored in cytoplasm
+  Precursor: alliin / S-allylcysteine sulfoxide stored in cytoplasm
   Enzyme: alliinase stored in vacuole — PHYSICALLY SEPARATED
 
 CELL DAMAGED (cutting, crushing):
-  ACSO + alliinase → alliin → allicin + other thiosulfinates
+  Alliin + alliinase → allicin + other thiosulfinates
 
 ALLICIN (diallyl thiosulfinate):
   The principal fresh garlic compound
@@ -248,7 +248,7 @@ LETTUCE (Lactuca sativa) — ASTERACEAE:
   Origin: Egypt/Mediterranean; ancestor Lactuca serriola (prickly lettuce)
   Domestication: elongated, non-bitter forms selected; 4,500+ years of cultivation
   Wild Lactuca: contains lactucin and lactucopicrin (bitter sesquiterpene lactones)
-    → selectd for reduced bitterness; still present in outer/older leaves
+    → selected for reduced bitterness; still present in outer/older leaves
     → Lactuca genus name: from lac (milk) — milky latex in cut stems
 
   TYPES:
@@ -288,17 +288,23 @@ SWISS CHARD (Beta vulgaris ssp. cicla):
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the wild ancestor of kale, broccoli, cabbage, and cauliflower? | *Brassica oleracea* — wild coastal plant |
-| What makes broccoli good for cancer prevention? | Sulforaphane (from glucosinolate hydrolysis) — enzyme myrosinase needed |
-| Does cooked broccoli have as much sulforaphane as raw? | No — heat deactivates myrosinase; gut bacteria partially compensate |
-| Why did Europeans fear tomatoes for 100 years? | Correctly identified as nightshade family; Solanaceae contains real toxins (belladonna) |
-| What makes garlic pungent? | Allicin (from alliinase enzyme + ACSO precursor on cell damage) |
-| Why does cooking garlic make it milder? | Heat destroys alliinase → allicin doesn't form; existing compounds mellow |
-| What makes onions cause tears? | Propanethial S-oxide gas → eye mucous membrane → sulfenic acid |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Brassica diversity | Which organ was selected | Cabbage, kale, broccoli, cauliflower, Brussels sprouts, and kohlrabi are one species |
+| Broccoli health claim | Glucosinolate -> myrosinase -> isothiocyanate chemistry | Preparation changes sulforaphane availability |
+| Nightshade fear | Solanaceae alkaloids | Tomato/potato fear was overbroad but not irrational |
+| Garlic pungency | Alliinase and alliin compartmentalization | Raw, cooked, powdered, and black garlic have different active compounds |
+| Onion tears | Lachrymatory-factor gas from damaged cells | Chilling slows enzymes; goggles beat folklore |
+| Cucurbit origin claim | Species-level domestication, not culinary category | Squash, melon, cucumber, and gourd histories differ |
+| Leafy-green nutrition claim | Oxalate, bioavailability, and preparation | High mineral content is not the same as absorbed mineral |
 
 ---
+
+## Cross-References
+
+- [Food Plants Overview](00-OVERVIEW.md) places vegetables in the broader map of edible plant parts.
+- [Root Crops and Tubers](03-ROOT-TUBERS.md) compares underground storage organs with other vegetable categories.
+- [Modern Breeding](09-MODERN-BREEDING.md) follows vegetable diversity into hybrid seed, disease resistance, and market traits.
 
 ## Common Confusion Points
 

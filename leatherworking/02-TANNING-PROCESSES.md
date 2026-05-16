@@ -285,20 +285,26 @@ RAWHIDE (untanned):
 
 ---
 
+## Cross-References
+
+- `01-LEATHER-TYPES.md` shows the material classes produced by tanning choices.
+- `06-DYEING-FINISHING.md` depends strongly on veg-tan versus chrome-tan chemistry.
+- `09-CARE-MAINTENANCE.md` explains how tannage affects long-term care.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Which tanning method allows tooling? | Vegetable tanning (firm; wet-moldable; accepts tool impressions) |
-| How long does veg-tan take? | 1–3 months (pit tanning); faster in drum tanning (weeks) |
-| How long does chrome tanning take? | 8–24 hours |
-| What is Cr³⁺ vs. Cr⁶⁺? | Cr³⁺ = safe (chrome tanning); Cr⁶⁺ = toxic/carcinogenic (not used in tanning, but forms in improper disposal) |
-| What is "wet blue"? | Chrome-tanned hide before dyeing/finishing; traded as commodity globally |
-| What makes brain-tanned leather washable? | No cross-linking (lecithin lubricates fibers); smoke-setting preserves this |
-| What is alum tawing? | Al³⁺ reversible tanning; very pale; not waterproof; historical white leather |
-| What is a syntan? | Synthetic polymer tanning agent; used alone or in combination |
-| What is LWG? | Leather Working Group; environmental performance certification for tanneries |
-| What is the biggest environmental issue with chrome tanning? | Cr³⁺ waste management; Cr³⁺→Cr⁶⁺ conversion in improper disposal |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Tooling and wet molding | Vegetable tanning | Veg-tan is application-specific, not categorically "better" or more natural. |
+| Traditional veg-tan quality | Pit tanning over 1-3 months | Drum veg-tan can be excellent but may differ in penetration/temper. |
+| Soft garment/upholstery leather | Chrome tanning in 8-24 hours | Chrome-tan is usually superior for softness and drape. |
+| Chromium safety claim | Cr3+ tanning chemistry versus Cr6+ hazard | Cr6+ is not the tanning agent but can form through improper disposal/oxidation. |
+| Global commodity stage | Wet blue before dyeing/finishing | Commodity handling separates tanning from final leather character. |
+| Washable brain-tan | Lecithin lubrication plus smoke setting | It is not crosslinked in the same way as veg/chrome leather. |
+| Pale historical white leather | Alum tawing | Tawing is reversible and not waterproof. |
+| Synthetic/combination tannage | Syntans alone or with other systems | "Synthetic" covers many chemistries, not one material behavior. |
+| Environmental certification | Leather Working Group tannery performance | Certification evaluates process management, not automatic product superiority. |
+| Chrome environmental risk | Cr3+ waste management and prevention of Cr6+ conversion | The main risk is downstream handling, not the mere word "chrome." |
 
 ---
 

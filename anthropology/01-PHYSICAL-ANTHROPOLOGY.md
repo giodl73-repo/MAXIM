@@ -585,6 +585,18 @@ humans engage in. The nature-culture split dissolves here.
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Human evolution | `evolutionary-biology/01-NATURAL-SELECTION.md` | Human biological variation is evolutionary history plus environment |
+| Archaeological context | `archaeology/01-FIELD-METHODS.md` | Skeletal and population evidence comes from field contexts |
+| Human biology | `human-biology/01-MUSCULOSKELETAL.md` | Bone, growth, sex estimation, and trauma require anatomy |
+| Population structure | `demography/01-POPULATION-DYNAMICS.md` | Migration, fertility, mortality, and ancestry shape variation |
+| Culture and society | `sociology/01-SOCIAL-STRUCTURE.md` | Bodies reflect diet, labor, inequality, disease, and institutions |
+
+---
+
 ## Common Confusion Points
 
 **"Forensic anthropology is like CSI — they can tell everything from bones."**

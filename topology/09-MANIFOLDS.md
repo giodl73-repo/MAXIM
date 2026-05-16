@@ -464,20 +464,26 @@ PRINCIPAL BUNDLE: Fiber bundle P → B with fiber G (a Lie group), G acting free
 
 ---
 
+## Cross-References
+
+- `topology/02-TOPOLOGICAL-SPACES.md` — manifolds are topological spaces with local Euclidean models.
+- `differential-geometry/01-MANIFOLDS.md` — smooth manifolds add calculus, tensors, and curvature.
+- `topology/08-COHOMOLOGY.md` — cohomology distinguishes manifolds beyond local chart structure.
+
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Define smooth manifold | Hausdorff + second-countable + smooth atlas (transition maps C^∞) |
-| Classify compact surfaces | Genus (orientable) or cross-cap number (non-orientable); χ determines g |
-| Distinguish smooth from homeomorphic | Look for exotic smooth structures (especially in dim 4 and 7) |
-| Compute tangent bundle | Charts + overlap conditions; bundle over M with fiber TₚM ≅ Rⁿ |
-| Build a manifold via surgery | Attach handles (Dᵏ × Dⁿ⁻ᵏ) to a manifold with boundary |
-| Apply Gauss-Bonnet | ∫ K dA = 2π χ(M) for compact orientable surface |
-| Prove no nowhere-zero vector field | χ(M) ≠ 0 (Poincaré-Hopf) |
-| Classify 3-manifolds | Thurston geometrization (8 model geometries + decomposition) |
-| Study smooth 4-manifolds | Intersection form + Donaldson theory / Seiberg-Witten invariants |
-| Fibration with fiber F | Use Serre spectral sequence to compute cohomology of total space |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a space is a smooth manifold | Hausdorff, second-countable smooth atlas | Local Euclidean charts alone are not enough |
+| Whether a compact surface is classified | Genus/cross-cap and Euler characteristic | Orientability must be known before interpreting `chi` |
+| Whether smooth and topological equivalence differ | Exotic smooth structures | Exotic behavior is dimension-sensitive |
+| Whether tangent data form a bundle | Charts plus transition compatibility | A tangent bundle is global even when trivialized locally |
+| Whether surgery/handles build the manifold | Handle attachment `D^k x D^{n-k}` | Handle decompositions depend on boundary and smooth category |
+| Whether curvature determines Euler characteristic | Gauss-Bonnet for compact orientable surfaces | Boundary and higher-dimensional versions need extra terms |
+| Whether a nowhere-zero vector field is impossible | Poincare-Hopf and `chi(M)` | The obstruction is sufficient in the stated compact setting |
+| Whether 3-manifolds can be decomposed geometrically | Thurston geometrization | The theorem is classification architecture, not a quick computation |
+| Whether 4-manifolds need special invariants | Intersection form, Donaldson, Seiberg-Witten | Smooth 4D behavior is exceptional |
+| Whether a fibration's total cohomology is accessible | Serre spectral sequence | Extension problems can remain after the pages stabilize |
 
 ---
 

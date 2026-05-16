@@ -710,18 +710,23 @@ William H. Whyte studied New York plaza behavior using time-lapse photography (*
 
 ---
 
+## Cross-References
+
+- `urban-planning/01-LAND-USE.md` — zoning, land use, and public-policy frame around building form.
+- `transportation/01-RAIL.md` — transit infrastructure shaping district and corridor architecture.
+- `architecture/05-DESIGN-PROCESS.md` — project-phase governance for urban-context decisions.
+
 ## Decision Cheat Sheet
 
-| Urban design situation | Typological response | Key principle |
-|-----------------------|---------------------|---------------|
-| High-density residential without towers | Perimeter block (European tradition) | Street wall activation + courtyard relief |
-| Mixed-use development at transit station | Podium + tower hybrid | Podium activates street; tower achieves density |
-| Revitalizing a dead plaza | Whyte: add food, moveable seating, sun access, water | Activity begets activity |
-| Reducing urban heat island | Green roofs + trees + cool pavement | 30%+ tree canopy is most effective single measure |
-| New development in flood zone | Accommodate: elevated FFE, flood-proof below grade, sponge elements | FEMA NFIP governs minimum; exceed it for resilience |
-| TOD development zone | Park minimums → park maximums; density gradient from station | 1/4 mile walkshed is the economic unit |
-| Long blank building wall | "Active frontage" design: windows, stoops, retail bays | Eyes on the street = Jane Jacobs' principle |
-| Tall building context | Podium at street scale + tower setback above | Human scale at grade; iconic above |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether density needs towers | Perimeter-block capacity, courtyard quality, and street-wall continuity | Mid-rise blocks can deliver high density without tower wind and shadow penalties |
+| Whether transit development is truly TOD | Walkshed, parking policy, use mix, and station-facing frontage | Transit-adjacent parking fields are not TOD, even when the station is nearby |
+| Whether a plaza is dead by design | Seating, food, sun, edges, and desire lines | Activity compounds; a hard empty plaza rarely self-corrects |
+| Whether heat-island mitigation is credible | Tree canopy, albedo, roof strategy, and shade coverage | Green roofs help, but street trees often dominate pedestrian thermal comfort |
+| Whether flood-zone design is resilient | Finished-floor elevation, floodproofing, and sponge capacity | NFIP compliance is a floor; long-life buildings should exceed minimum maps |
+| Whether frontage supports street life | Doors, windows, stoops, retail rhythm, and blank-wall length | "Eyes on the street" requires active edges, not just density |
+| Whether a tall building fits context | Podium scale, tower setback, wind, and shadow study | Iconic skyline form can still fail at the sidewalk |
 
 ---
 

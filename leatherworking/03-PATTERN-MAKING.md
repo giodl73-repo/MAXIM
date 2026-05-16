@@ -232,20 +232,26 @@ YIELD CALCULATION:
 
 ---
 
+## Cross-References
+
+- `01-LEATHER-TYPES.md` determines stretch, thickness, and layout efficiency.
+- `04-CUTTING-SKIVING.md` turns patterns into cut and thinned parts.
+- `08-HARDWARE-ASSEMBLY.md` adds allowances for buckles, rivets, snaps, and gussets.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the primary seam allowance for hand-stitched leather? | None (zero) — pattern = finished size; edge is finished as-is |
-| What material for durable repeated-use patterns? | Thin plywood or hardboard (1/8"); acetate/mylar for medium use |
-| What hide region for critical flat panels? | Back/bend (tightest, most uniform, least stretch) |
-| What hide region to avoid for structural pieces? | Belly (stretchy, loose fiber, inconsistent thickness) |
-| Where to align belt/strap blanks on hide? | Along the back spine direction (parallel to the backbone) |
-| What is usable yield from a purchased hide? | ~70–80% (waste from defects, edges, belly, cutting) |
-| How do you transfer stitch line position? | Wing dividers (set to stitch-to-edge distance); more accurate than templates |
-| What is a gusset? | Expansion panel between two faces of a bag; defines how far it opens |
-| What material for a test mockup? | Newsprint or craft paper; tape together to verify construction logic |
-| How do you mark on dark leather? | Silver metallic pen or light scratch with awl |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Hand-stitched pattern sizing | Zero seam allowance; pattern equals finished size | Leather patterns do not scale like fabric patterns with ease. |
+| Repeated-use pattern | 1/8 inch plywood/hardboard or acetate/mylar | Durability matters because knife-following damages paper quickly. |
+| Critical flat panel layout | Back/bend region of the hide | Tight fiber and low stretch are more important than area convenience. |
+| Structural-piece avoidance | Belly region for stretch/loose fiber risk | Belly is useful for gussets/lacing, not structural panels. |
+| Strap or belt layout | Long axis parallel to backbone | Directional stretch can lengthen straps under load. |
+| Hide yield estimate | 70-80% usable after defects/edges/belly/cutting waste | Yield varies by hide quality, item geometry, and nesting skill. |
+| Stitch-line transfer | Wing dividers set to stitch-to-edge distance | Divider layout is more reliable than pattern-printed stitch lines. |
+| Bag expansion design | Gusset between two faces | Gusset geometry determines opening and usable volume. |
+| Design validation | Paper/newsprint mockup taped into shape | Discover construction errors before cutting expensive leather. |
+| Dark leather marking | Silver metallic pen or final-line awl scratch | Awl marks are permanent; do not use for exploratory layout. |
 
 ---
 

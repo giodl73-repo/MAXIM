@@ -305,17 +305,24 @@ The link between hypolimnetic anoxia and eutrophication acceleration — a posit
 
 ---
 
+## Cross-References
+
+- `05-NUTRIENT-CYCLES.md` depends on stratification and turnover.
+- `06-EUTROPHICATION.md` explains how stratification amplifies oxygen depletion.
+- `09-WATER-QUALITY.md` measures the physical and chemical consequences.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why does ice float on water? | Water maximum density at 4°C; ice (0°C) less dense |
-| When does fall turnover occur? | Surface cools to match hypolimnion density; wind mixing penetrates full depth |
-| What creates the metalimnetic O2 minimum? | Phytoplankton settling and decomposing at thermocline; O2 consumed faster than supplied |
-| Why is a meromictic lake scientifically valuable? | Annually laminated sediments (varves); perfect preservation; high-resolution paleorecord |
-| Why does deepening the anoxic layer worsen eutrophication? | Fe-P binding breaks under anoxia; internal P loading accelerates external P effect |
-| What limits thermocline depth in small sheltered lakes? | Low wind fetch = shallow mixing; thermocline forms very shallow |
-| Why does a warm, shallow lake have more severe blooms? | Faster stratification + faster O2 depletion; P-limited water = sensitive to any P addition |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Ice cover behavior | Water maximum density at 4 deg C and less-dense ice at 0 deg C | The density anomaly drives inverse winter stratification. |
+| Fall turnover | Surface cooling to hypolimnion density plus wind mixing | Turnover redistributes nutrients; it does not erase loading history. |
+| Metalimnetic oxygen minimum | Phytoplankton settling and decomposing near the thermocline | Oxygen demand can exceed resupply where mixing is restricted. |
+| Meromictic scientific value | Laminated sediments, varves, preservation, paleorecords | Stability is valuable because mixing is absent or rare. |
+| Eutrophication acceleration | Anoxia breaking Fe-P binding and releasing internal phosphorus | Internal load can dominate even after external load falls. |
+| Shallow thermocline | Low wind fetch and sheltered basin geometry | Thermocline depth changes with weather and season. |
+| Severe warm shallow blooms | Fast stratification, rapid oxygen depletion, phosphorus sensitivity | Shallow lakes can flip states quickly. |
+| Secchi interpretation | Empirical Secchi-to-euphotic-depth conversion | Humic brown-water lakes can break the usual factor. |
 
 ---
 

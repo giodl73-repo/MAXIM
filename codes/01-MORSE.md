@@ -323,18 +323,25 @@ Memorizing the sound (not the symbol) is the goal. Common rhythm mnemonics:
 
 ## Decision Cheat Sheet
 
-| Situation | What to use |
-|-----------|-------------|
-| General CW contact | CQ [3x] DE [call] K |
-| End of over, want reply | AR, or K (any station), or KN (specific) |
-| Copied, replying | DE [call] [content] AR [their call] DE [call] KN |
-| Error in sending | HH (8 dots), then resend word |
-| Strong QRM on frequency | QRL? before transmitting |
-| Want to end contact | 73 SK |
-| Acknowledge receipt | QSL |
-| Signal report | RST: Readability (1-5), Strength (1-9), Tone (1-9) |
-| Station at low power | QRP (conventionally < 5W) |
-| General emergency | SOS (prosign, no gaps) or MAYDAY on voice |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Starting a CW contact | Check whether you are calling generally (`CQ`), identifying (`DE`), and inviting reply (`K`). | Send at a speed the other station can copy. |
+| Ending an over | Choose `AR`, `K`, or `KN` based on whether reply is open, expected, or limited to a station. | Prosigns are procedural control signals, not ordinary letters. |
+| Reply structure | Include both callsigns, content, end signal, and enough spacing for copy. | Identification discipline prevents confusion on shared frequencies. |
+| Sending error | Use `HH` or eight dits, pause, then resend the word cleanly. | Do not compound the error by rushing the correction. |
+| Frequency interference | Listen first, ask `QRL?`, assess QRM/QRN, and move if needed. | Shared spectrum etiquette is part of the code system. |
+| Closing contact | Use `73` for regards and `SK` to mark final end. | `SK` closes the contact; do not use it for every turn. |
+| Acknowledgement | Use `QSL` when receipt or understanding is the point. | `QSL` confirms copy, not necessarily agreement. |
+| Signal report | Report RST readability, strength, tone, and note power/QRP context if relevant. | Reports are communication quality diagnostics, not compliments. |
+| Emergency traffic | Use SOS as no-gap prosign on Morse or MAYDAY on voice with position and nature of distress. | Emergency conventions override casual contact style. |
+
+---
+
+## Cross-References
+
+- `00-OVERVIEW.md` distinguishes codes, ciphers, protocols, and signaling systems.
+- `05-NATO-PHONETIC.md` shows the voice-radio spelling system that solves a different communication problem.
+- `../telecommunications/01-ELECTROMAGNETIC-SPECTRUM.md` connects Morse transmission to radio bands and propagation.
 
 ---
 

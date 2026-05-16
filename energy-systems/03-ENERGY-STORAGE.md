@@ -512,21 +512,23 @@ Which storage technology for which grid service?
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Dominant global storage technology by GWh? | Pumped hydro (93% of installed) |
-| Dominant grid battery chemistry? | LFP (lithium iron phosphate) — safety + cycle life |
-| Why LFP for grid, not NMC? | Thermal safety at container scale; 5,000+ cycle life; lower $/kWh |
-| BESS cost 2024? | ~$150-250/kWh (system installed) |
-| Round-trip efficiency comparison? | Li-ion 85-92%; pumped hydro 78-85%; H₂ 30-40% |
-| Vanadium flow advantage over Li-ion? | Power and energy independently sized; 25yr electrolyte life |
-| Iron-air target cost? | ~$20/kWh (vs $150-250 for Li-ion) — for 100h duration |
-| Why hydrogen for seasonal despite low RTE? | Storage tank cost ≈ $0/kWh (for months of duration) |
-| Flywheel niche? | Frequency regulation (fast response, unlimited cycles, short duration) |
-| Molten salt thermal storage niche? | CSP plants in sunny climates (Mediterranean, MENA, Chile) |
-| LCOS formula what's in the denominator? | NPV(MWh discharged over lifetime) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Which storage technology fits | Identify duration, power, cycle frequency, response time, siting, degradation, safety, and revenue product. | Storage choice changes completely by time scale; there is no universal winner. |
+| A pumped-hydro dominance claim | Check whether the metric is power, energy, installed capacity, or new-build additions. | Pumped hydro dominates installed energy, but batteries dominate many recent short-duration deployments. |
+| LFP vs NMC for grid | Compare safety, cycle life, cost, energy density, footprint, warranty, and supply chain. | Stationary storage cares less about density than EVs, but footprint and thermal design still matter. |
+| A BESS cost claim | Separate cell, pack/container, PCS, transformer, EPC, fire protection, land, interconnection, and financing. | Cell price is not installed project cost. |
+| A flow/iron-air/hydrogen claim | Match power-energy decoupling, duration, efficiency, maturity, vendor bankability, and site constraints. | Long-duration promise must survive warranty, financing, and market-product tests. |
+| A seasonal-storage claim | Compare curtailment volume, cavern/tank cost, conversion losses, fuel end use, and alternative firm capacity. | Low efficiency can be rational only when storage duration value dominates energy loss. |
+| An LCOS claim | Inspect numerator costs and denominator discharged MWh under the actual duty cycle. | LCOS cannot compare technologies fairly if they perform different services. |
 
 ---
+
+## Cross-References
+
+- `05-GRID-INTEGRATION.md` shows why storage matters for renewable-heavy grids.
+- `../energy-storage/01-ELECTROCHEMICAL.md` covers battery internals.
+- `../energy-storage/08-GRID-ECONOMICS.md` connects storage physics to revenue and cost.
 
 ## Common Confusion Points
 

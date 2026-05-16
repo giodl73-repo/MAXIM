@@ -303,14 +303,22 @@ equally important.
 
 ---
 
+## Cross-References
+
+- `02-MCCLOUD-THEORY.md` gives the conceptual grammar for sequential art and closure.
+- `03-PANEL-GRAMMAR.md` turns that theory into panel, gutter, and page-layout mechanics.
+- `../printing-publishing/00-OVERVIEW.md` connects comics history to print technology, distribution, and formats.
+
+---
+
 ## Decision Cheat Sheet
 
-| I want to understand...                        | Era / Artifact                   |
-|------------------------------------------------|----------------------------------|
-| The oldest precursors of comics                | Topffer (1827); Hogarth (1735)   |
-| The newspaper strip golden age                 | Krazy Kat; Little Nemo; Peanuts  |
-| Why superheroes dominated American comics      | Action Comics #1 (1938); WWII    |
-| What the Comics Code Authority did             | Censorship; killed EC; saved Mad |
-| The underground comix breakthrough             | Zap Comix #1 (1968); R. Crumb    |
-| European BD as distinct tradition              | Tintin (1929); Herge; Moebius    |
-| When comics sought and gained literary status  | 1978 (Eisner); 1986 (Watchmen); 1992 (Maus) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Early comics precursors | Compare image sequence, captions, recurring characters, mass reproduction, and reader pacing. | Not every sequential image is comics in the modern publishing sense. |
+| Newspaper strip form | Look at syndication, Sunday pages, gag rhythm, recurring cast, layout experimentation, and mass readership. | Formal innovation was tied to newspaper economics. |
+| Superhero dominance | Track Action Comics, genre fit, WWII, serialization, ownership models, and youth markets. | American dominance is industry-specific, not a universal comics default. |
+| Comics Code effects | Examine moral panic, publisher collapse, genre censorship, distribution, EC, Mad, and underground alternatives. | Censorship reshaped genres and markets, not just content rules. |
+| Underground comix | Start with Zap, counterculture distribution, creator ownership, taboo subjects, and print networks. | Breakthrough freedom came with uneven politics and limited mainstream access. |
+| European BD tradition | Compare albums, magazines, ligne claire, state/cultural support, adult readership, and author status. | BD is not simply American comics translated into French. |
+| Literary-status claims | Trace Eisner, Watchmen, Maus, bookstores, criticism, awards, and graphic-novel marketing. | Prestige followed both artistic ambition and changes in distribution/reception. |

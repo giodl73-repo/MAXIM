@@ -343,18 +343,25 @@ ARCH CENTERING
 
 ---
 
+## Cross-References
+
+- `04-STONEWORK.md` supplies stone cutting and dry/wet masonry context.
+- `05-STRUCTURAL-MASONRY.md` explains load paths, compression, and reinforcement.
+- `02-MORTAR-GROUT.md` covers joint material and compatibility.
+
 ## Decision Cheat Sheet
 
-| Situation | Arch/Vault Choice |
-|-----------|-----------------|
-| Opening in masonry wall ≤ 6 ft | Brick soldier arch or segmental arch |
-| Opening 6–16 ft | Semicircular or segmental arch with proper abutment |
-| Large span, low thrust required | Pointed arch (Gothic two-centered) |
-| Spanning rectangular room in masonry | Groin vault (concentrates loads at 4 corners) |
-| Maximum height, slender walls | Gothic rib vault + flying buttresses |
-| Complex decorative ceiling, Tudor aesthetic | Fan vault (King's College type) |
-| Large open circular plan | Dome on drum (pendentives if square plan base) |
-| Small arch, tight budget | Brick soldier course (flat arch, steel angle backup acceptable) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Small masonry opening | Brick soldier arch or segmental arch up to about 6 feet | Soldier courses often need steel backup when acting as flat arches. |
+| Medium opening | Semicircular or segmental arch with proper abutment | Abutment capacity is the design problem, not just arch shape. |
+| Large span with reduced thrust | Pointed/Gothic two-centered arch | Thrust still exists and needs buttressing/load path. |
+| Rectangular room span | Groin vault concentrating loads at four corners | Corner support and lateral thrust control matter. |
+| High slender nave | Gothic rib vault plus flying buttresses | Flying buttresses are structural half-arches, not ornament. |
+| Decorative Tudor ceiling | Fan vault geometry | Visual complexity still follows compressive load paths. |
+| Circular open plan | Dome on drum; pendentives for square base | Transition geometry governs thrust and support. |
+| Existing cracked arch | Thrust-line/hinge assessment | Cracks are not automatically failure; three hinges are the limit state. |
+| Self-weight arch shape | Catenary approximation | Catenary is exact only for uniform self-weight, not all loads. |
 
 ---
 

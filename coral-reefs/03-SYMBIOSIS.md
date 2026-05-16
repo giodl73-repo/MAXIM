@@ -270,20 +270,25 @@ The "coral holobiont" concept: the coral + all its associated microorganisms fun
 
 ---
 
+## Cross-References
+
+- `02-CORAL-BIOLOGY.md` supplies the polyp and tissue context.
+- `05-BLEACHING.md` explains symbiosis breakdown under heat stress.
+- `06-REEF-DIVERSITY.md` shows how symbiosis supports high-diversity reef systems.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What are zooxanthellae? | Dinoflagellate algae (family Symbiodiniaceae) living inside coral gastrodermal cells |
-| What percentage of coral energy comes from them? | ~90% under optimal light conditions |
-| What do zooxanthellae get from the symbiosis? | Protected intracellular environment, CO₂, and the coral's waste nitrogen |
-| What is the bleaching trigger? | Heat-induced photoinhibition → reactive oxygen species → zooxanthellae expulsion |
-| Which clade is most thermotolerant? | Durusdinium (clade D) |
-| Does higher thermotolerance have a cost? | Yes — ~10% lower photosynthetic efficiency under normal conditions |
-| Can corals change their zooxanthellae clade? | Some can "shuffle" clades during/after stress; not universal |
-| Why do reefs thrive in nutrient-poor water? | Tight N recycling: algae capture host's metabolic waste N; no external input needed |
-| What color is a bleached coral? | White (aragonite reflects through transparent tissue); may fluoresce blue/green |
-| What is the coral holobiont? | Coral + all associated microorganisms (bacteria, archaea, fungi, viruses) as unit |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Zooxanthellae identity | Symbiodiniaceae dinoflagellates inside coral gastrodermal cells | They are protists, not plants. |
+| Coral energy budget | About 90% from symbionts under optimal light | Bleached corals survive briefly on much lower heterotrophic intake. |
+| Symbiont benefit | Protected intracellular habitat, CO2, and host waste nitrogen | The exchange depends on host control of nutrients. |
+| Bleaching trigger | Heat photoinhibition, reactive oxygen species, and symbiont expulsion | ROS is dominant but not the only injury pathway. |
+| Thermotolerant clade | Durusdinium, formerly clade D | Thermotolerance trades off against photosynthetic efficiency. |
+| Symbiont shuffling | Stress-period clade changes in some corals | Shuffling is not universal and does not guarantee survival. |
+| Reef success in poor water | Tight nitrogen recycling between host and algae | Nutrient enrichment can destabilize the partnership. |
+| Bleached-coral color | White aragonite visible through transparent tissue; sometimes fluorescence | White does not mean dead immediately. |
+| Holobiont framing | Coral plus bacteria, archaea, fungi, viruses, and symbionts | The unit concept is useful but can hide component-specific mechanisms. |
 
 ---
 

@@ -565,6 +565,12 @@ KEYNES'S GHOST:
 
 ---
 
+## Cross-References
+
+- `06-WORLD-WARS-DEPRESSION.md` explains the collapse and policy failures Bretton Woods answered.
+- `08-NEOLIBERALISM.md` follows the post-1970s order after dollar-gold convertibility ended.
+- `../international-relations/04-INSTITUTIONS.md` places IMF, World Bank, and GATT inside institutional design.
+
 ## Common Confusion Points
 
 **Bretton Woods did not create the IMF and World Bank as partners.** The IMF is a monetary fund; the World Bank is a development lender. They have different mandates, different clients, and often different views. During the 1980s-90s, they sometimes gave conflicting advice to the same countries. The "Washington Consensus" was partly the result of their convergence in the 1980s.
@@ -579,15 +585,12 @@ KEYNES'S GHOST:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why White won over Keynes? | US was the creditor with all the leverage; Congress would not accept symmetric adjustment obligation |
-| Keynes's key innovation in bancor proposal? | Interest charges on *surplus* countries, not just deficit countries; symmetric adjustment pressure |
-| IMF conditionality standard package? | Fiscal austerity, monetary tightening, devaluation, trade liberalization, privatization |
-| Marshall Plan total amount? | $13.2 billion (1948-1952; ~$150B in 2022 dollars); ~90% grants |
-| Why did USSR refuse Marshall Plan? | Stalin feared increased US influence in Eastern Europe |
-| Triffin Dilemma? | World needs dollars for reserves; US must run deficits to supply them; but deficits erode gold backing of dollars |
-| When did dollar liabilities exceed US gold? | Already by 1960; $20B liabilities vs $17.8B gold |
-| Nixon Shock date and content? | August 15, 1971; suspended gold convertibility; wage/price freeze; 10% import surcharge |
-| Why dollar survived as reserve currency post-1971? | Oil priced in dollars; no viable alternative; deep US financial markets; network effects |
-| What are SDRs? | IMF-created reserve asset; basket of currencies; meant to supplement dollar; too small to replace it |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why White beat Keynes | Compare creditor leverage, US congressional constraints, UK debt position, and symmetric-adjustment politics. | The technical design lost to bargaining power and domestic ratification constraints. |
+| A bancor or SDR proposal | Inspect surplus-country pressure, liquidity supply, reserve demand, governance, and adoption incentives. | Reserve assets work only if states actually use them at scale. |
+| IMF conditionality | Separate short-run balance-of-payments support, fiscal austerity, monetary tightening, devaluation, and structural reforms. | Conditionality varied over time; the 1980s-90s package was not identical to the 1944 design. |
+| Marshall Plan impact | Track grant/loan mix, bottleneck relief, counterpart funds, OEEC coordination, and Cold War strategy. | It was supply-chain and institution-building aid, not just a cash transfer. |
+| The Triffin Dilemma | Follow reserve demand, US deficits, dollar liabilities, gold stock, confidence, and conversion pressure. | The system needed dollar deficits and was undermined by them. |
+| The Nixon Shock | Distinguish domestic gold ownership, international convertibility, wage/price controls, import surcharge, and exchange-rate realignment. | Nixon closed the international gold window, not a domestic gold standard that still existed. |
+| Post-1971 dollar dominance | Check oil invoicing, Treasury-market depth, network effects, military/geopolitical trust, and alternatives. | Dollar dominance survived without gold, but it depends on institutions and liquidity, not magic. |

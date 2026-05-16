@@ -333,19 +333,25 @@ DEDEKIND DOMAINS AND THE CLASS GROUP:
 
 ---
 
+## Cross-References
+
+- `abstract-algebra/02-SUBGROUPS-QUOTIENTS.md` — ideals are the ring-theoretic analogue of normal subgroups.
+- `abstract-algebra/05-POLYNOMIALS-FIELDS.md` — polynomial rings and field extensions depend on ideals and quotients.
+- `number-theory/02-MODULAR-ARITHMETIC.md` — modular arithmetic is quotient-ring thinking in its most concrete form.
+
 ## Decision Cheat Sheet
 
-| Task | Structure needed |
-|------|-----------------|
-| Guaranteed unique factorization | UFD (e.g., Z, F[x]) |
-| Every ideal is principal | PID (e.g., Z, Z[i], F[x]) |
-| Division algorithm exists | Euclidean domain (e.g., Z, F[x], Z[i]) |
-| Build field from ring | Quotient by maximal ideal |
-| Build domain from ring | Quotient by prime ideal |
-| Adjoin a root of f(x) | R[x]/(f) |
-| Understand R/P (P prime) | Integral domain (no zero divisors) |
-| Understand R/M (M maximal) | Field (every nonzero element invertible) |
-| Invert elements of R | Localization S^{-1}R |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether factorization is unique | UFD structure | UFD does not imply every ideal is principal |
+| Whether every ideal has one generator | PID structure | PID implies UFD, but not conversely |
+| Whether division algorithm drives gcds | Euclidean domain | Euclidean is stronger than PID |
+| Whether a quotient ring becomes a field | Quotient by a maximal ideal | Maximality is the field condition |
+| Whether a quotient ring remains a domain | Quotient by a prime ideal | Prime ideals generalize prime numbers |
+| Whether a root is formally adjoined | Polynomial quotient `R[x]/(f)` | Field behavior requires irreducibility over a field |
+| Whether `R/P` has no zero divisors | Prime ideal quotient | Only prime ideals give domains |
+| Whether `R/M` has inverses | Maximal ideal quotient | Only maximal ideals give fields |
+| Whether selected elements should become invertible | Localization `S^{-1}R` | The multiplicative set must avoid collapsing the ring |
 
 ---
 

@@ -368,16 +368,26 @@ The Cold War cost the Global South proportionally far more than the superpowers,
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| World War II origins of bipolar order | `political-history/03-WORLD-WARS.md` |
+| Postwar institutions and alliances | `political-history/06-POSTWAR-ORDER.md` |
+| Nuclear deterrence theory | `international-relations/04-NUCLEAR-DETERRENCE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Who started the Cold War? | Orthodox: Soviet aggression; Revisionist: US economic empire; Synthesis: mutual misperception; Archives: both, but Stalin was more aggressive in Eastern Europe than revisionist school admitted |
-| What is containment? | Kennan's strategy: block Soviet expansion at every point; don't need to defeat USSR militarily, just prevent expansion until internal contradictions cause change |
-| Why is Korea the Cold War turning point? | It globalized containment, militarized it (NSC-68), and entangled the US in Asia |
-| What did archives reveal about Cuban Missile Crisis? | Soviet subs had nuclear torpedoes; tactical nukes already in Cuba; far more dangerous than public knew |
-| What is détente? | Nixon-Kissinger strategy: manage competition through arms control (SALT, ABM), linkage, China card (1972) |
-| Why did the USSR collapse? | Structural economic decline + oil price fall (1986) + Afghan quagmire + Gorbachev's choice not to use force in 1989 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Cold War origins | Orthodox, revisionist, synthesis, and archival evidence | Archives complicate both blame stories; Stalin's Eastern Europe policy matters. |
+| Containment strategy | Kennan's patient blocking of Soviet expansion | Later militarized containment differs from Kennan's original formulation. |
+| Korea as turning point | Globalized containment, NSC-68 militarization, Asian entanglement | Korea transformed policy scale, not the ideological conflict itself. |
+| Cuban Missile Crisis risk | Submarine torpedoes, tactical nukes in Cuba, command uncertainty | Public narratives understated how close command systems came to nuclear use. |
+| Détente | SALT/ABM, linkage, China card, managed competition | Détente managed rivalry; it did not end ideological or proxy conflict. |
+| Soviet collapse | Economic decline, oil shock, Afghanistan, and Gorbachev's nonviolence | No single factor "caused" collapse; agency and structure interacted. |
 
 ---
 

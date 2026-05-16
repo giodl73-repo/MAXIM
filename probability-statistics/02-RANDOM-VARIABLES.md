@@ -293,22 +293,28 @@ For X_1, ..., X_n i.i.d. with CDF F(x):
 
 ---
 
+## Cross-References
+
+- `probability-statistics/01-PROBABILITY-FOUNDATIONS.md` — sample spaces and measures that random variables push forward into distributions.
+- `probability-statistics/03-LIMIT-THEOREMS.md` — asymptotic behavior of sums and averages of random variables.
+- `probability-statistics/05-STATISTICAL-INFERENCE.md` — distribution families become likelihood models for inference.
+
 ## Decision Cheat Sheet
 
-| Distribution | Use When |
-|---|---|
-| Bernoulli(p) | Single binary outcome |
-| Binomial(n,p) | Fixed number of independent binary trials |
-| Poisson(lambda) | Count of rare events in fixed time/space |
-| Negative Binomial | Count data with overdispersion (variance > mean) |
-| Exponential(lambda) | Continuous waiting times (memoryless) |
-| Gamma(alpha, beta) | Sum of alpha exponentials; positive continuous |
-| Normal(mu, sigma^2) | Large sums (CLT), measurement error, inference |
-| Log-Normal | Multiplicative processes; prices, sizes |
-| Beta(alpha, beta) | Prior on probabilities; proportions |
-| Student-t(nu) | Inference with estimated variance; heavy tails |
-| Cauchy | Heavy-tailed noise; unstable distributions |
-| Pareto | Power-law phenomena; wealth, word frequency |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a single binary outcome is enough | Bernoulli model | The parameter is a probability, not a rate |
+| Whether fixed independent binary trials are counted | Binomial model | Fixed `n` and independent trials are structural assumptions |
+| Whether counts arise from rare independent events | Poisson model | Equidispersion fails under clustering or heterogeneity |
+| Whether count variance exceeds the mean | Negative binomial model | Overdispersion may indicate latent mixture, not a different mechanism |
+| Whether waiting times are memoryless | Exponential model | Memorylessness is strong and often physically false |
+| Whether positive waiting/sum data accumulate | Gamma model | Parameterization conventions differ across texts and software |
+| Whether additive noise or sums dominate | Normal model | Tails and bounds matter even when CLT intuition applies |
+| Whether multiplicative growth creates skew | Log-normal model | Moments can be dominated by tail behavior |
+| Whether a probability/proportion needs a prior | Beta model | Shape parameters encode pseudo-count assumptions |
+| Whether variance is estimated with small samples | Student-t model | Degrees of freedom control tail thickness |
+| Whether extremely heavy tails break moments | Cauchy model | Mean and variance do not exist |
+| Whether tail power laws dominate | Pareto model | Tail-index estimation is sample-threshold sensitive |
 
 ---
 

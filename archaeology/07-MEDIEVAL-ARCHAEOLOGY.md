@@ -254,17 +254,24 @@ STANDING BUILDING RECORDING:
 
 ---
 
+## Cross-References
+
+- `archaeology/06-CLASSICAL-ARCHAEOLOGY.md` — late antique inheritance.
+- `architecture-history/03-MEDIEVAL-GOTHIC.md` — medieval built-environment context.
+- `social-history/03-HISTORY-FROM-BELOW.md` — ordinary-life questions archaeology can answer.
+
 ## Decision Cheat Sheet
 
-| Use this when... | Method / concept | Notes |
-|-----------------|-----------------|-------|
-| A medieval timber structure survives (roof truss, floor beam, wattle) | Dendrochronology | Single-year precision; master sequences for NW Europe, Scandinavia, N. America; requires ~50+ rings for reliable match |
-| Dating occupation layers in a medieval building | Pottery sequence analysis | Ceramic production centers, glaze types, and form sequences provide TPQ dates; pottery is the "commit timestamp" of medieval stratigraphy |
-| Identifying the pathogen in a mass burial | aDNA from dental pulp (Yersinia pestis for Black Death) | Dental pulp survives well; pathogen DNA distinguishable from host; confirmed Black Death cause at East Smithfield (London) cemetery |
-| Reconstructing medieval trade networks beyond documentary evidence | Distribution maps of imported pottery + coins + stable isotopes | Saintonge ware from SW France in English sites; North German stoneware across North Sea routes — maps Hanseatic trading geography |
-| Understanding rural social history without elite documents | Deserted Medieval Village (DMV) excavation | Village layout, house sizes, animal bones → subsistence economy, social stratification without a single written source |
-| Understanding why a village was abandoned | Multi-proxy analysis (pollen + zooarchaeology + documentary search) | Black Death, enclosure for sheep farming, and flooding are all archaeologically distinguishable by different assemblage signatures |
-| Investigating a standing building's construction history | Buildings archaeology: dendro + architectural fabric analysis + documentary research | The building itself is the primary source; fabric phasing reads like version control |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Medieval timber construction date | Dendrochronology on surviving structural wood | Needs enough rings and a matching master sequence; reused timber can mislead. |
+| Occupation layers in a medieval building | Pottery sequence analysis and TPQ reasoning | Pottery is a timestamp proxy, not an occupation date by itself. |
+| Pathogen in a mass burial | aDNA from dental pulp or protected skeletal contexts | Pathogen DNA survives unevenly and requires contamination controls. |
+| Trade beyond documentary evidence | Imported pottery, coins, isotopes, and distribution maps | Trade maps show circulation, not necessarily ethnicity or merchant identity. |
+| Rural social history without elite documents | Deserted Medieval Village excavation | Layout, house size, and faunal remains infer social structure indirectly. |
+| Village abandonment cause | Pollen, zooarchaeology, documents, hydrology, and settlement phasing | Plague, enclosure, flooding, and economy leave different but overlapping signals. |
+| Standing-building construction history | Fabric analysis, dendrochronology, and documentary research | Buildings are palimpsests; later repair and reuse must be phased. |
+| Documentary record bias | Compare archaeology against who wrote the documents | Medieval documents overrepresent literate institutions and elites. |
 
 ---
 

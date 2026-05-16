@@ -17,7 +17,7 @@ MESOAMERICA              ─────                    ──────�
 ───────────              Liubo (~200 BCE)         Petteia (strategy)
 Ball game (~1400 BCE     Go/Weiqi (~400 BCE       Latrunculi (strategy)
   courts; rubber balls     confirmed)             Tabula (race)
-  ~3500 BCE)             Mahjong (much later)     Tesserae (dice)
+  ~1600 BCE)             Mahjong (much later)     Tesserae (dice)
   Peak: 1500+ courts                              Knucklebones/astragali
 
 AFRICA
@@ -249,7 +249,7 @@ SCORING:
     territory + captured stones. White gets komi.
   Area scoring (Chinese): stones on board + empty territory.
     Different counting, same game result in most cases.
-  Komi (現在): 6.5 points to White (compensates Black's
+  Komi: 6.5 points to White (compensates Black's
     first-move advantage). Historically evolved:
     4.5 → 5.5 → 6.5 (determined empirically via statistics
     of professional game outcomes)
@@ -385,7 +385,7 @@ The 2×6 board with 4 seeds each (48 total) is the standard form. Despite the si
 
 ### Archaeological Record
 
-The Mesoamerican ball game has the oldest known rubber artifacts anywhere: solid and hollow rubber balls from El Manatí (Veracruz, Mexico) dating to ~3500-3000 BCE. These predate the ball courts by over 1,000 years — the balls were initially ritual objects (offerings in sacred springs), not sporting equipment.
+The Mesoamerican ball game has the oldest known rubber balls: solid rubber balls from El Manatí (Veracruz, Mexico) dating to roughly 1600 BCE. These predate or slightly precede the earliest confirmed ball courts and were ritual objects (offerings in sacred springs), not clearly sporting equipment.
 
 **Courts**: Over 1,500 I-shaped ball courts identified archaeologically. Distribution:
 
@@ -574,19 +574,23 @@ The game likely influenced later medieval race and strategy games, but the direc
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Oldest game with physical evidence? | Senet, ~3100 BCE Egypt |
-| Oldest known written rulebook for any game? | Royal Game of Ur, ~170 BCE cuneiform (Iti-Marduk) |
-| Highest combinatorial complexity ancient game? | Go — state space ~10^170, exceeds chess by 123 orders of magnitude |
-| Game with most archaeological sites? | Mesoamerican ball game — 1,500+ courts |
-| Oldest rubber objects in history? | El Manatí rubber balls, ~3500 BCE (pre-court) |
-| Which ancient game is still professionally played? | Go (Baduk/Weiqi/Igo) — active world championship circuit |
-| First professional game competition? | Japanese Go houses under Tokugawa shogunate (~1600s) |
-| Roman race game closest to modern? | Tabula → direct backgammon ancestor |
-| Which ancient game has surviving rules? | Royal Game of Ur (late-period cuneiform); Go (rules unchanged) |
+| If you need to explain... | Start With | Evidence / Caveat |
+|---------------------------|------------|-------------------|
+| Earliest surviving board-game artifacts | Senet | Boards and pieces appear in Predynastic Egypt; rules are reconstructed, not preserved |
+| Earliest rules we can actually read | Royal Game of Ur | Late cuneiform tablet gives a playable version, but not necessarily the 2600 BCE form |
+| Ancient game with maximum combinatorial depth | Go / Weiqi | Earliest reliable evidence is much later than the mythic 2500 BCE origin story |
+| Games as cosmological architecture | Mesoamerican ball game | Courts, Popol Vuh, sacrifice imagery, and ritual rubber balls must be kept distinct |
+| Sowing mechanics and African/Asian diffusion | Mancala family | Earliest boards are later than the likely age of the mechanic |
+| Chance devices before fair dice | Astragali and throw sticks | Irregular bones and binary sticks create structured but non-uniform randomness |
+| Roman lineage into modern backgammon | Tabula | Similar board/checker structure, but modern backgammon adds later rules such as the doubling cube |
 
 ---
+
+## Cross-References
+
+- [Games History Overview](00-OVERVIEW.md) situates ancient games in the full chronology.
+- [Chess](02-CHESS.md) follows one ancient strategic lineage into medieval and modern abstraction.
+- [Dice and Gambling](06-DICE-GAMBLING.md) connects astragali and chance devices to later probability culture.
 
 ## Common Confusion Points
 

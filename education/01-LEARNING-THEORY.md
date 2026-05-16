@@ -394,6 +394,18 @@ Proposed specifically for the digital age:
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Cognitive architecture beneath learning | `cognitive-science/01-PERCEPTION.md` | Learning theory depends on attention, memory, schemas, and transfer |
+| Motivation in learners and organizations | `organizational-behavior/01-MOTIVATION.md` | Autonomy, feedback, goals, and incentives shape learning behavior |
+| Experimental evidence design | `statistics-applied/01-EXPERIMENTAL-DESIGN.md` | Education claims need causal designs, measurement, and validity checks |
+| Developmental constraints | `developmental-biology/01-FERTILIZATION-CLEAVAGE.md` | Age, maturation, and developmental sequence constrain learning trajectories |
+| Media and instructional delivery | `media-studies/01-MEDIUM-IS-MESSAGE.md` | The medium changes attention, feedback, pacing, and social presence |
+
+---
+
 ## Common Confusion Points
 
 **Constructivism ≠ Discovery Learning (Necessarily)**

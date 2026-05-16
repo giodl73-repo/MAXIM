@@ -297,16 +297,24 @@ LYOTARD AND GRAND NARRATIVES
 
 ---
 
+## Cross-References
+
+- `03-RANKEAN-POSITIVISM.md` supplies the objectivity ideal under analysis.
+- `06-POSTMODERN-CHALLENGE.md` supplies the strongest critique of historical representation.
+- `08-GLOBAL-HISTORY.md` tests explanation across scale and comparison.
+
 ## Decision Cheat Sheet
 
-| Question | Standard Answer | Complication |
-|----------|----------------|--------------|
-| What caused X? | Cite necessary + sufficient conditions; specify mechanism | Only INUS conditions achievable; all causes are at multiple levels |
-| Can covering laws explain history? | No (Hempel critique): only explanation sketches | Mechanisms replace laws; rational explanation for intentional acts |
-| Are counterfactuals legitimate? | As heuristics only; expose causal assumptions | Cannot yield positive knowledge of alternative outcomes |
-| Is periodization objective? | No: all periods are interpretive constructs | But some serve analytical purposes better than others |
-| Can history be objective? | Not in Nagel's sense; yes in intersubjective sense | Progress is real; evidence constrains; not all accounts equal |
-| Do metanarratives matter? | They are unavoidable but must be held lightly | Multiple metanarratives; test against evidence |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Causal explanation | Necessary conditions, sufficient bundles, mechanisms, and INUS logic | Historical causes operate at multiple levels and rarely mimic physics laws. |
+| Covering-law explanation | Hempel critique and explanation-sketch limits | Mechanisms and rational explanations usually replace universal laws. |
+| Counterfactual use | Heuristic exposure of causal assumptions | Counterfactuals cannot provide unconstrained knowledge of alternate outcomes. |
+| Periodization claim | Interpretive construction and analytical usefulness | Periods are not objective objects, but some carve the evidence better. |
+| Historical objectivity | Intersubjective standards, evidence constraint, and corrigibility | Not Nagelian view-from-nowhere, but not "anything goes." |
+| Metanarrative pressure | Identify the story-frame and test it against evidence | Metanarratives are unavoidable but should be held lightly. |
+| Narrative explanation | Agent beliefs, values, options, and rational-action structure | Rigorous narrative is not mere anecdote. |
+| Postmodern challenge | Practical realism plus self-awareness about production conditions | Most historians accept the moderate critique, not total relativism. |
 
 ---
 

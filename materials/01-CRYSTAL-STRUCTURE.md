@@ -389,7 +389,7 @@ This sets a floor on peak width — instrument broadening and microstrain add to
     │    1. Size: |r_A-r_B|/r_A < 15%                         │
     │    2. Crystal structure: same                           │
     │    3. Electronegativity: similar (|Δχ| < 0.4)           │
-    │    4. Valence: same preferred (higher valence dissolves) │
+    │    4. Valence: same often preferred                     │
     │    Cu-Ni: complete mutual solubility (isomorphous)      │
     │    Cu-Zn: up to 35% Zn (α-brass) → more is β, γ phases  │
     │                                                         │
@@ -581,10 +581,10 @@ For FCC: partial dislocations (b = a/6<112>) have lower energy than perfect disl
     │  Isotropic (polycrystal)     │                              │
     ├──────────────────────────────┼──────────────────────────────┤
     │  Grain boundaries = defects  │  No grain boundaries         │
-    │  → scatter at GBs           │  → better corrosion           │
+    │  -> scatter at GBs           │  -> better corrosion         │
     ├──────────────────────────────┼──────────────────────────────┤
     │  Slip on specific planes     │  Shear bands (localized)     │
-    │  → work hardens              │  → no work hardening        │
+    │  -> work hardens             │  -> no work hardening         │
     ├──────────────────────────────┼──────────────────────────────┤
     │  Sharp T_m (first-order)     │  Glass transition T_g        │
     │                              │  (second-order-like, kinetic)│
@@ -654,6 +654,12 @@ An FCC copper sample has σ_y = 200 MPa. G(Cu) = 48 GPa, b = 2.56 Å, α = 0.5.
 ```
 
 ---
+
+## Cross-References
+
+- `chemical-eng/01-THERMO.md` — phase stability and chemical-potential bridge for materials processing.
+- `semiconductor-manufacturing/01-SILICON-SUBSTRATE.md` — crystalline perfection pushed to industrial extremes.
+- `glassmaking/01-GLASS-SCIENCE.md` — amorphous network contrast against periodic crystal lattices.
 
 ## Decision Cheat Sheet
 

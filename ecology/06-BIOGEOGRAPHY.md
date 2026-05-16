@@ -241,16 +241,22 @@ CONSEQUENCES:
 
 ---
 
+## Cross-References
+
+- `botany/07-BIOMES.md` - biome geography and climate constraints.
+- `geography/01-PHYSICAL-GEOGRAPHY.md` - spatial physical context.
+- `evolutionary-biology/05-PHYLOGENETICS.md` - lineage history behind distributions.
+
 ## Decision Cheat Sheet
 
-| Biogeographic question | Tool/concept |
-|----------------------|-------------|
-| Why are two similar species on opposite sides of ocean? | Vicariance (continental drift) or dispersal |
-| How many species in protected habitat? | Species-area relationship: S = cA^z |
-| What fraction of species lost if habitat reduced to 10%? | ~46% (if z=0.25); 10^0.25 ≈ 1.78 |
-| Why is tropical diversity higher than temperate? | Energy, evolutionary time, stability (multiple hypotheses) |
-| Why do Australian mammals look so different? | Long isolation (vicariance); marsupials filled niches convergently |
-| Why does island have fewer species than mainland of same area? | Colonization rate lower; extinction rate higher (MacArthur-Wilson) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Similar species split by ocean | Vicariance versus long-distance dispersal | Requires phylogeny and timing, not geography alone. |
+| Species count in protected habitat | Species-area relationship S = cA^z | z differs between oceanic islands and habitat fragments. |
+| Species loss after habitat reduction | SAR back-calculation from remaining area | Extinction debt delays observed loss. |
+| Tropical diversity gradient | Energy, evolutionary time, and climatic stability hypotheses | No single mechanism explains all taxa. |
+| Australian mammal distinctiveness | Isolation and convergent marsupial niches | Historical contingency matters as much as adaptation. |
+| Island richness deficit | MacArthur-Wilson colonization/extinction balance | Theory predicts richness better than species identity. |
 
 ---
 

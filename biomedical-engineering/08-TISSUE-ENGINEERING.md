@@ -586,18 +586,24 @@ testing. Many constructs that work beautifully in research labs fail at GMP scal
 
 ---
 
+## Cross-References
+
+- `biomedical-engineering/02-BIOMATERIALS.md` — scaffold and implant material foundations.
+- `developmental-biology/07-STEM-CELLS.md` — cellular potency and differentiation context.
+- `materials/09-COMPUTATIONAL-MATERIALS.md` — multiscale modeling analogies for tissue scaffolds.
+
 ## Decision Cheat Sheet
 
-| Tissue engineering challenge | Approach | Notes |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Scaffold for bone | 3D-printed porous Ti or HA ceramic or PEEK | Proven clinically; bone is stiff, needs stiff scaffold |
-| Scaffold for soft tissue | Electrospun PCL/PLGA or decellularized ECM | Compliance matching important |
-| Scaffold for skin | Integra (collagen/GAG) or electrospun + cells | Avascular tissue — works clinically |
-| Cell source: patient-specific | iPSC (Sendai virus reprogramming) | Weeks to generate, complex differentiation |
-| Cell source: off-the-shelf | Allogeneic MSC or iPSC banks | HLA matching or immune evasion strategy needed |
-| Disease modeling | Patient iPSC -> target organoid | Cardiac, neural, hepatic, gut all established |
-| Drug screening | Organ-on-chip or patient-derived organoid | Replaces some animal testing |
-| Vascularized thick construct | Sacrificial Pluronic template or VEGF-releasing scaffold | Still largely research stage |
-| Bioreactor for cartilage | Rotating wall vessel or cyclic compression | Proven for chondrocyte matrix production |
-| Bioreactor for vascular | Pulsatile flow bioreactor | Shear stress drives endothelial alignment |
-| Regulatory strategy | Combination product (CBER or CDRH lead) | Long timelines; iPSC adds complexity |
+| Whether bone needs a stiff scaffold | 3D-printed porous Ti, hydroxyapatite ceramic, or PEEK | Stiffness and porosity must balance load sharing, ingrowth, and stress shielding. |
+| Whether soft tissue needs compliance matching | Electrospun PCL/PLGA or decellularized ECM | Mechanical mismatch causes failure even when cells survive. |
+| Whether skin replacement is clinically mature | Integra collagen/GAG or electrospun scaffold plus cells | Skin is relatively tractable because thin/avascular constructs can work. |
+| Whether patient-specific cells are needed | iPSC via non-integrating reprogramming such as Sendai | Personalization takes weeks and differentiation quality is hard. |
+| Whether off-the-shelf cells can work | Allogeneic MSC or iPSC banks | HLA matching, immune evasion, and batch consistency become central. |
+| Whether disease modeling is the goal | Patient iPSC to target organoid | Organoids model aspects of tissue, not whole-organ physiology. |
+| Whether drug screening can reduce animal use | Organ-on-chip or patient-derived organoid | Predictive validity must be benchmarked against clinical outcomes. |
+| Whether thick tissue needs vascularization | Sacrificial Pluronic channels or VEGF-releasing scaffold | Vascularized constructs remain largely research-stage. |
+| Whether cartilage matrix needs mechanical conditioning | Rotating wall vessel or cyclic compression | Chondrocytes respond to load; protocol details drive matrix quality. |
+| Whether vascular tissue needs flow conditioning | Pulsatile flow bioreactor | Shear stress aligns endothelium but can also damage immature constructs. |
+| Whether regulatory strategy is the bottleneck | Combination-product pathway with CBER/CDRH lead | Cells, scaffolds, and iPSC-derived products add long evidence timelines. |

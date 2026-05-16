@@ -364,18 +364,25 @@ Solifluction      Saturated      High       Slow        Permafrost below;
 
 ## Decision Cheat Sheet
 
-| Landform | Formative Process |
-|----------|------------------|
-| U-shaped valley with flat floor, steep walls | Glacial erosion |
-| Sinuous ridge in former glaciated terrain | Esker (subglacial stream deposit) |
-| Swarm of whale-back hills pointing same direction | Drumlins |
-| Funnel-shaped depression in limestone terrain | Karst sinkhole |
-| Crescent-shaped lake adjacent to river | Oxbow lake (meander cutoff) |
-| Fan-shaped sediment at mountain base | Alluvial fan |
-| Reddish, Al-rich clay in tropical terrain | Laterite/Oxisol (extreme weathering) |
-| Cross-bedded fine sand in thick eolian deposit | Loess or dune sand |
+| Landscape / Hazard Question | Use This Diagnostic | Likely Interpretation |
+|---|---|---|
+| Was this valley cut by ice or water? | Cross-section shape + striations + hanging valleys | U-shaped polished valley = glacial; V-shaped channel = fluvial incision |
+| Which way did the glacier move? | Striations, roche moutonnee, drumlin long axes | Smooth stoss/rough lee and streamlined hills indicate ice-flow direction |
+| Is this till or outwash? | Sorting + stratification | Unsorted diamicton = direct ice deposit; sorted sand/gravel = meltwater deposit |
+| Is a river migrating or avulsing? | Cut banks, point bars, oxbows, levees, crevasse splays | Channel geometry records active floodplain evolution |
+| Is karst collapse plausible? | Carbonate/evaporite bedrock + closed depressions + disappearing streams | Conduit flow and roof collapse can produce sudden sinkholes |
+| What wind regime made the dune field? | Dune shape + sand supply + vegetation | Barchan, transverse, linear, star, and parabolic dunes encode wind directionality |
+| Is the slope close to failure? | Material, water, slope angle, weak planes, vegetation loss | Raised pore pressure and reduced root strength can turn slow creep into rapid failure |
+| Is the soil young or mature? | Horizon development + CLORPT context | Thick A/B horizons imply time and stability; Entisols/Inceptisols imply youth or disturbance |
+| Will the landform preserve in rock record? | Accommodation, burial, reworking risk | Active surface forms matter most geologically when rapidly buried or repeatedly regenerated |
 
 ---
+
+## Cross-References
+
+- [Sedimentary Rocks](03-SEDIMENTARY-ROCKS.md) connects active surface processes to the preserved rock record.
+- [Earthquakes and Volcanoes](06-EARTHQUAKES-VOLCANOES.md) links surface response to hazards, landslides, and lahars.
+- [Geologic Time](07-GEOLOGIC-TIME.md) frames Quaternary landscapes inside the longer stratigraphic record.
 
 ## Common Confusion Points
 

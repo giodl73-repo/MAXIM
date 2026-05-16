@@ -494,18 +494,24 @@ HPC AND UHPC: WHAT CHANGES
 
 ---
 
+## Cross-References
+
+- `construction-materials/02-ANCIENT-MASONRY.md` — masonry and binder background.
+- `materials-processing/02-HEAT-TREATMENT.md` — process-temperature logic across materials.
+- `geochemistry/07-WEATHERING-SOILS.md` — mineral and hydration chemistry context.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| w/c = 0.60 vs 0.45 — same cement — strength difference? | Abrams' law: ~30–40% strength reduction; also much higher permeability |
-| Use GGBS to 60% replacement — what changes? | Lower early strength; lower heat of hydration; better long-term durability; less CO₂ |
-| Post-tension vs pre-tension — which for in situ slab? | Post-tension (tendons cast in, jacked after cure); pre-tension is factory only |
-| Chloride environment — normal rebar or GFRP? | GFRP if severe (XS3/XD3); normal rebar if good cover and low w/c |
-| Concrete spalling on soffits of 1960s car park — cause? | Carbonation + possibly chlorides from de-icing → rebar corrosion → spalling |
-| Silica fume vs fly ash — key difference? | Silica fume: very fine, high reactivity, high strength; fly ash: cheaper, slower, lower strength gain |
-| C₃A content — when does it matter? | Sulfate attack environments: use low-C₃A cement (SRPC: sulfate-resisting PC) |
-| Prestress jacking force — why not just use higher force? | Tendon breaking load limit; concrete bearing capacity at anchor plates; losses are % of initial |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why a mix with `w/c = 0.60` is weaker than `0.45` | Abrams' law and permeability | Extra water reduces strength and durability; workability should come from admixture, not water. |
+| What 60 percent GGBS replacement changes | Lower early strength, lower heat, better durability, less CO2 | Exposure class matters; carbonation tradeoffs can offset durability gains in dry interiors. |
+| Whether an in-situ slab uses pre- or post-tensioning | Post-tensioning with tendons jacked after cure | Pre-tensioning is factory casting-bed work. |
+| Whether chloride exposure needs normal rebar or GFRP | GFRP for severe XS3/XD3 exposure, normal rebar with good cover/low w/c otherwise | Reinforcement choice does not compensate for poor cover, cracks, or permeability. |
+| Why a 1960s car-park soffit is spalling | Carbonation plus possible de-icing chloride ingress | Confirm with testing; visible spalling is the symptom, rebar corrosion is the mechanism. |
+| Whether silica fume or fly ash is the right SCM | Silica fume for high reactivity/strength; fly ash for slower economical improvement | SCMs change curing, early strength, heat, and durability differently. |
+| When `C3A` content matters | Sulfate attack environments and low-`C3A` sulfate-resisting cement | Cement chemistry must match exposure, not just strength class. |
+| Why prestress force cannot simply be increased | Tendon breaking load, anchor bearing, and prestress losses | More jacking force can damage concrete and still decay through losses. |
 
 ---
 

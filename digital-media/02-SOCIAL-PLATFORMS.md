@@ -285,25 +285,24 @@ EFFECTIVENESS:
 
 ---
 
+## Cross-References
+
+- `06-ATTENTION-ECONOMY.md` explains the incentives behind feed optimization.
+- `08-MISINFORMATION.md` covers abuse modes amplified by platform mechanics.
+- `09-FUTURE-TRENDS.md` tracks decentralized and AI-native platform shifts.
+
 ## Decision Cheat Sheet
 
-| Platform | Graph type | Algorithm priority | Content type |
-|----------|-----------|-------------------|--------------|
-| Twitter/X | Broadcast asymmetric | Engagement velocity | Text + images |
-| Facebook | Social graph | Meaningful interactions (comments) | Mixed |
-| TikTok | Interest graph | Watch time / completion | Short video |
-| Instagram | Social + interest (Explore) | Engagement + time | Image + video |
-| LinkedIn | Professional social | Relevance + engagement | Professional |
-| YouTube | Interest graph | Watch time | Long + short video |
-| Reddit | Anonymous interest communities | Upvotes + community rules | Text + links |
-
-| Concept | Meaning |
-|---------|---------|
-| Direct network effect | More users -> more valuable to each user |
-| Indirect network effect | Two-sided market: each side benefits from the other |
-| Data network effect | More data -> better algorithm -> more users |
-| R0 > 1 | Viral: each post gets >1 share on average |
-| Filter bubble | Algorithmic personalization reduces diverse info exposure |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Broadcast-asymmetric platforms | Twitter/X-style follower graph and engagement velocity | High velocity can amplify outrage as easily as authority. |
+| Friend/social graph platforms | Facebook-style meaningful interaction ranking | Comments and social ties matter, but paid distribution and throttling still shape reach. |
+| Interest-graph platforms | TikTok/YouTube-style watch time, completion, and inferred interests | A new account can go viral without a follower base; creator strategy changes. |
+| Professional networks | LinkedIn-style relevance plus professional identity | Social proof is filtered through career and reputation incentives. |
+| Community platforms | Reddit-style upvotes and local rules | Community norms can dominate platform-wide algorithmic logic. |
+| Network effects | Direct, indirect, and data network effects | Lock-in is structural business design, not just technical inertia. |
+| Virality | Reproduction rate above one share per post | `R0 > 1` says spread, not truth, value, or safety. |
+| Filter bubbles | Personalization narrowing exposure diversity | The effect depends on user choice, social graph, recommender design, and moderation. |
 
 ---
 

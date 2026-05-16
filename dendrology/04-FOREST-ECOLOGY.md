@@ -383,17 +383,24 @@ FIRE REGIMES:
 
 ---
 
+## Cross-References
+
+- `03-DENDROCHRONOLOGY.md` records ecological disturbance in tree rings.
+- `07-SILVICULTURE.md` turns ecological succession into management practice.
+- `09-CONSERVATION.md` protects the ecological structures described here.
+
 ## Decision Cheat Sheet
 
-| Question | Concept |
-|----------|---------|
-| Why do shade-tolerant species dominate old-growth? | Long-term gap accumulation selects for advance-regeneration strategy |
-| Why does an aspen stand regenerate after clearcut? | Clonal root sprouting; intolerant pioneers have root reserves |
-| Why does old-growth hemlock resist beech regeneration? | Deep shade; hemlock creates its own perpetuating shade niche |
-| Why is N the primary limiting nutrient in boreal forests? | Low temperature slows N mineralization; decomposition bottleneck |
-| Why is P primary limiting in many tropical soils? | Old, weathered oxisols with P sorbed to Fe/Al oxides; no geologically fresh parent material |
-| Why did acid rain devastate sugar maple in NE USA? | Ca depletion from soil exchange complex; fine root damage from Al3+ |
-| How do gap-phase dynamics maintain diversity? | Different gap sizes favor different shade tolerance groups simultaneously |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Shade-tolerant old-growth dominance | Gap accumulation and advance-regeneration strategy | "Climax" is apparent stability, not a permanent endpoint. |
+| Aspen after clearcut | Clonal root sprouting and pioneer root reserves | Disturbance response depends on pre-existing belowground structure. |
+| Hemlock resisting beech | Deep shade niche and self-perpetuating light environment | Shade effects interact with deer, pests, and soil conditions. |
+| Boreal nitrogen limitation | Cold-slowed mineralization and decomposition bottleneck | Nutrient limitation can shift during ecosystem development. |
+| Tropical phosphorus limitation | Old oxisols, Fe/Al oxide sorption, low fresh parent material | Tropical fertility varies; do not generalize every tropical forest. |
+| Acid-rain maple decline | Calcium depletion, aluminum mobilization, fine-root damage | Soil chemistry mediates pollution impact. |
+| Gap-phase diversity | Different gap sizes favoring different shade-tolerance groups | Disturbance maintains diversity only within bounds; too much resets succession. |
+| Mycorrhizal-network claim | Fungal foraging and carbon exchange evidence | Networks do not imply tree-level altruism. |
 
 ---
 

@@ -531,20 +531,24 @@ MESHED NETWORK EXAMPLE:
 
 ## Decision Cheat Sheet
 
-| Question | Short Answer |
-|----------|-------------|
-| Why use high voltage for transmission? | I²R losses; 500 kV vs 13.8 kV = I is 36× lower → losses 1,296× lower for same power |
-| Why ACSR and not copper? | Aluminum weighs ~30% of copper for same conductance; tower loading makes this viable |
-| What limits line current? | Thermal rating (conductor temperature) → sag → clearance violation |
-| Why bundle conductors? | Reduce surface electric field below corona threshold; also reduces impedance |
-| When does HVDC beat HVAC overhead? | Distance > ~800 km (losses), or asynchronous interconnect required |
-| When does HVDC beat HVAC for cables? | Essentially always at > ~50 km (capacitive charging current limits AC cable) |
-| LCC vs VSC HVDC? | LCC: cheaper, needs AC voltage to operate, can't black start; VSC: full 4-quadrant, can black start, self-commutated |
-| What is reactive power? | Q = V×I×sin(φ); stored/released by inductors/capacitors; does no net work but causes real current and voltage drops; must be managed locally |
-| What is the Ferranti effect? | Long lightly-loaded line generates capacitive Q → voltage rises toward receiving end → must install shunt reactors |
-| Why can't power flow be directed easily in AC networks? | It follows path of least impedance (Kirchhoff) — FACTS or HVDC needed for control |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a voltage class is sufficient | Estimate transfer MW, current, I²R loss, thermal rating, voltage drop, reactive burden, and right-of-way constraints. | The best voltage is an economic/system optimum, not simply the highest available voltage. |
+| Whether a conductor choice is plausible | Compare resistance, weight, sag, thermal rating, strength, corona, cost, and tower loading. | ACSR dominates because system mechanics matter as much as conductivity. |
+| A line-rating bottleneck | Identify whether the constraint is thermal sag, stability, voltage, protection, or contingency flow. | Reconductoring helps thermal limits; it may not solve stability or voltage constraints. |
+| Whether bundled conductors are needed | Check corona, electric-field gradient, audible noise, radio interference, impedance, and EHV voltage. | Bundling is primarily an EHV field-management tool, not just a current-capacity trick. |
+| Whether HVDC beats HVAC | Separate overhead vs cable, distance, losses, converter cost, asynchronous tie, controllability, and outage model. | Break-even distances are rules of thumb; project geography and terminal costs dominate near the boundary. |
+| Whether LCC or VSC HVDC fits | Check receiving-grid strength, black-start requirement, reactive-power support, multi-terminal goals, losses, and cost. | VSC flexibility often wins weak-grid/offshore use cases; LCC can still win bulk point-to-point transfer. |
+| A reactive-power or Ferranti-effect problem | Locate line length, loading level, capacitance, inductance, voltage profile, and compensation devices. | Reactive power is local; MW adequacy does not imply voltage adequacy. |
+| Whether AC power can be "routed" | Map impedances, phase angles, parallel paths, FACTS devices, phase shifters, HVDC links, and protection constraints. | AC flow follows network physics; market schedules are instructions, not physical routing guarantees. |
 
 ---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places transmission inside the generation-transmission-distribution stack.
+- `05-GRID-STABILITY.md` explains why transmission limits affect frequency, voltage, and contingency behavior.
+- `08-MARKETS.md` connects congestion to locational prices and market design.
 
 ## Common Confusion Points
 

@@ -409,18 +409,24 @@ For FitzHugh-Nagumo (2D reduction), the dynamics are visible in phase space:
 
 ---
 
+## Cross-References
+
+- `neuroscience/01-NEURONS-SIGNALS.md` — action potentials and neural signaling.
+- `biophysics/04-MEMBRANE-BIOPHYSICS.md` — membrane and ion-channel substrate.
+- `control-theory/02-STATE-SPACE.md` — dynamical-system representation of conductance models.
+
 ## Decision Cheat Sheet
 
-| Question | H-H answer | Key concept |
-|----------|------------|-------------|
-| What generates the rising phase of the AP? | Na⁺ influx through opening m³h channels | Positive feedback: V↑ → m↑ → g_Na↑ → V↑ |
-| What terminates the AP rising phase? | Na⁺ channel inactivation (h → 0) | h gate closes with delay after depolarization |
-| What repolarizes the membrane? | K⁺ efflux through n⁴ channels | K⁺ current outward, delayed relative to Na⁺ |
-| Why is there an undershoot? | n still high when Na⁺ off; pulls V toward E_K | K⁺ slow to close, V overshoots E_rest |
-| What determines absolute refractory period? | h gate recovery time | h ≈ 0 → no Na⁺ current possible |
-| How far does a signal passively propagate? | Exponential decay with λ = sqrt(r_m/r_a) | λ ≈ 0.1-1 mm for typical axon |
-| Why is myelination fast? | λ >> internode distance → saltatory | AP regenerates only at nodes |
-| What did ANN drop from H-H? | Time dynamics, refractory period, cable eq. | Point neuron, no spike timing |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Action-potential upstroke | Na channel activation positive feedback | Voltage clamp parameters are model fits, not literal gates. |
+| Upstroke termination | Delayed Na inactivation | Recovery controls refractory timing. |
+| Repolarization | Delayed K current through n-gated conductance | Channel diversity exceeds the squid-axon model. |
+| Afterhyperpolarization | K conductance remains high after Na shuts off | Undershoot depends on channel kinetics and E_K. |
+| Absolute refractory period | Na inactivation recovery | Relative refractory period adds elevated K conductance. |
+| Passive spread length | Cable length constant | Geometry and myelination change effective propagation. |
+| Myelinated speed | Saltatory conduction between nodes | Demyelination breaks timing and safety factor. |
+| ANN simplification | Point-neuron abstraction | Dropped dynamics are exactly what spikes use. |
 
 ---
 

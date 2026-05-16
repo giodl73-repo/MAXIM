@@ -355,17 +355,27 @@ Benjamin (associated with the school, though distinct) offered a less pessimisti
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| McLuhan's medium-centered alternative | `media-studies/01-MEDIUM-IS-MESSAGE.md` |
+| Political economy of media industries | `media-studies/04-POLITICAL-ECONOMY.md` |
+| Audience agency and reception | `media-studies/07-AUDIENCES.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Concept | Key Insight | Contemporary Example |
-|---------|-------------|---------------------|
-| Culture industry | Mass entertainment manufactures consent | Streaming platforms, reality TV |
-| Standardization | Formulas replace genuine creation | Three-act film structure, pop song formula |
-| False needs | Consumer desire manufactured, not authentic | Planned obsolescence, fashion cycles |
-| One-dimensional | System closed to fundamental critique | Partisan politics within capitalist frame |
-| Public sphere | Deliberative space between state and market | Comment sections vs. genuine deliberation |
-| Communicative action | Action oriented toward understanding | Genuine dialogue (vs. PR/manipulation) |
-| Benjamin's aura | Uniqueness vs. reproducibility | NFTs as artificial aura for digital art |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a cultural product fits culture-industry critique | Industrial standardization, pseudo-individuation, and throughput logic | The critique targets production logic, not all popular pleasure or culture. |
+| Whether formulas replace creation | Repeated templates with parameterized surface variation | Standard form can coexist with artistry; the question is systemic substitution. |
+| Whether desire is manufactured | False needs, advertising, planned obsolescence, and habit design | "False" means socially engineered, not merely personally insincere. |
+| Whether critique is contained by the system | One-dimensional politics and closed discourse boundaries | System criticism can be commodified without changing system logic. |
+| Whether deliberation is genuinely public | Public sphere conditions between state, market, and private life | Comment sections and engagement metrics are not automatically deliberation. |
+| Whether communicative action is present | Orientation toward mutual understanding rather than strategic manipulation | PR, platform optimization, and KPI management can mimic dialogue. |
+| Whether reproduction changes art's social function | Benjamin's aura, exhibition value, and reproducibility | Aura is politically ambiguous; loss is not simply cultural decline. |
 
 ---
 

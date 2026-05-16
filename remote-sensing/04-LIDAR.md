@@ -284,18 +284,24 @@ RAW POINT CLOUD
 
 ---
 
+## Cross-References
+
+- `01-EM-SPECTRUM.md` frames LiDAR in the optical active-sensing band.
+- `06-IMAGE-PROCESSING.md` connects point clouds to derived products.
+- `09-APPLICATIONS.md` shows terrain, forestry, and urban uses.
+
 ## Decision Cheat Sheet
 
-| Application | LiDAR Type | Key Specs |
-|-------------|------------|-----------|
-| Bare-earth DEM for hydrology | Airborne (discrete) | 2 pts/m2, ground filter |
-| Forest canopy height and AGB | Airborne (full waveform) or ICESat-2 | GEDI ATL08/GEDI L4A |
-| Coral reef mapping | Bathymetric LiDAR | 532nm, clear water limit |
-| Building 3D models | TLS or airborne dense | 20+ pts/m2 |
-| Road / powerline corridor | MLS | 10cm accuracy, continuous |
-| Global vegetation structure | ICESat-2, GEDI | Space LiDAR, sampling |
-| Rockfall / cliff erosion | Repeat TLS (multi-epoch) | Sub-cm change detection |
-| Archaeological site mapping | Airborne, dense | Penetrate forest canopy |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Bare-earth hydrology DEM | Airborne discrete-return LiDAR | Ground filtering, not return number alone, defines bare earth. |
+| Forest canopy height/AGB | Full-waveform airborne LiDAR, ICESat-2, or GEDI | Biomass models are calibration-dependent and can saturate. |
+| Coral reef bathymetry | 532 nm bathymetric LiDAR | Clear water and bottom reflectance limit depth. |
+| Building 3D model | TLS or dense airborne LiDAR | Occlusion and scan geometry can dominate nominal point density. |
+| Road or powerline corridor | Mobile laser scanning | Accuracy depends on GNSS/IMU trajectory quality. |
+| Global vegetation structure | ICESat-2 or GEDI sampling | Spaceborne LiDAR is sampled, not wall-to-wall coverage. |
+| Rockfall/cliff change | Repeat TLS multi-epoch scans | Registration error sets the detection floor. |
+| Archaeological mapping | Dense airborne LiDAR under canopy | Dense vegetation can still block ground returns. |
 
 ---
 

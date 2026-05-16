@@ -297,16 +297,22 @@ METRICS FOR CONTENT OPERATIONS:
 
 ---
 
+## Cross-References
+
+- `01-WEB-WRITING.md` supplies the atomic page and article practices.
+- `04-UX-WRITING.md` connects strategy to product text and tone systems.
+- `07-DIGITAL-STORYTELLING.md` turns strategy into narrative formats.
+
 ## Decision Cheat Sheet
 
-| Question | Content strategy answer |
-|----------|------------------------|
-| We have too much content; what to keep? | Content audit: inventory + analyze + prioritize keep/update/delete |
-| Our content is inconsistent across teams | Federated governance + shared style guide |
-| Users can't find our content | Taxonomy/IA review; faceted classification if complex |
-| Brand sounds different in each channel | Defined voice + tone guide with examples |
-| Content becomes outdated quickly | Assign owners; set review cadence; build into workflow |
-| We don't know who owns each content item | Governance model clarification + RACI matrix |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Content sprawl | Content audit: inventory, analyze, prioritize keep/update/delete | Crawlers help inventory; human judgment still decides value. |
+| Cross-team inconsistency | Federated governance and shared style guide | Central standards need local ownership or they become shelfware. |
+| Findability failure | Taxonomy and IA review, faceted classification for complexity | Taxonomy is classification; navigation is one use of it. |
+| Channel voice drift | Voice/tone guide with examples | Voice is stable; tone changes by context. |
+| Rapid content decay | Assigned owners, review cadence, and workflow hooks | Review schedules fail without ownership and publishing governance. |
+| Ownership ambiguity | Governance clarification and RACI matrix | Ownership must include authority to update or retire content. |
 
 ---
 

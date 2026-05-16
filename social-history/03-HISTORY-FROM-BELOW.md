@@ -271,16 +271,26 @@ colonized. The British Marxist historians (Thompson, Hobsbawm, Hill) created the
 | **James Scott** | Southeast Asia 1970s–80s | Ethnographic fieldwork; comparative | Hidden vs. public transcript; everyday resistance | *Weapons of the Weak* (1985); *Domination and the Arts of Resistance* (1990) |
 | **Natalie Zemon Davis** | France 16th–17th C | Microhistory; legal records; cultural depth | Gender and popular culture; identity in early modernity | *The Return of Martin Guerre* (1983) |
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Sociology of knowledge and situated claims | `intellectual-history/02-SOCIOLOGY-KNOWLEDGE.md` |
+| Memory history as lived social past | `social-history/08-MEMORY-HISTORY.md` |
+| Political historiography methods | `political-history/09-HISTORIOGRAPHY.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| I want to understand... | Go to |
-|---|---|
-| Thompson's concept of class | Making section above |
-| Moral economy of food riots | Moral economy section |
-| Social bandits (Robin Hood type) | Hobsbawm section |
-| Radical religion in the English Civil War | Hill section |
-| Everyday resistance theory | Scott section |
-| How oral history works | Oral history section |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Thompson's concept of class | Class as historical formation through culture, work, and politics | "Making" is not idealism; material conditions still matter. |
+| Food riots and popular norms | Moral economy and expectations of fair price/provision | Moral economy explains collective logic, not nostalgic approval. |
+| Social bandit legends | Hobsbawm's outlaw as peasant resistance figure | Romanticization can obscure violence, local politics, and later mythmaking. |
+| Radical religion in revolution | Hill's sects, millenarianism, and English Civil War politics | Religious language can encode class and political conflict without reducing to it. |
+| Everyday resistance | Scott's hidden transcripts and low-risk acts | Hidden resistance is not the same as open revolution, but it can prepare eruptions. |
+| Oral history evidence | Interview method, memory, subjectivity, and meaning | Memory unreliability is data to analyze, not a reason to discard the source. |
 
 ---
 

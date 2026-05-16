@@ -242,16 +242,22 @@ The size/charge matching logic is the same physics underlying semiconductor dopi
 
 ---
 
+## Cross-References
+
+- `natural-sciences/02-BONDING.md` - chemical bonding foundations.
+- `materials/01-CRYSTAL-STRUCTURE.md` - crystal lattice structure context.
+- `mineralogy/03-SILICATES.md` - mineral chemistry in the dominant silicate family.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why is diamond so hard? | Pure covalent 3D network — hardest possible bonding arrangement |
-| Why is graphite a lubricant? | Van der Waals bonds between layers → layers slide easily |
-| What controls which polymorph forms? | P-T conditions at time of crystallization; metastability common |
-| What allows solid solution? | Similar ionic radius ± charge-coupled substitution |
-| Why do some minerals dissolve in water? | Ionic bonding → water dipoles break the lattice apart |
-| What does "Mg-rich olivine" mean thermally? | Forsterite has higher melting point than fayalite → crystallizes first from mafic melt |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Diamond hardness | Three-dimensional covalent carbon network | Hardness is bond topology, not just composition. |
+| Graphite lubricity | Weak van der Waals bonding between sheets | Strong in-plane bonding coexists with weak interlayer sliding. |
+| Polymorph selection | Pressure-temperature conditions and metastability | Metastable phases can persist outside stability fields. |
+| Solid solution | Similar ionic radius plus charge-coupled substitution | Solid solution is atomic-scale, not exsolution/intergrowth. |
+| Water solubility | Ionic bonding and water dipole lattice disruption | Covalent network minerals resist dissolution differently. |
+| Mg-rich olivine thermal meaning | Forsterite-fayalite melting-temperature contrast | Mg-rich olivine crystallizes earlier from mafic melt. |
 
 ---
 

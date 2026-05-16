@@ -643,17 +643,23 @@ implementation failures. ISMP publishes many infusion-pump-related medication er
 
 ---
 
+## Cross-References
+
+- `biomedical-engineering/02-BIOMATERIALS.md` — device material and biocompatibility constraints.
+- `biomedical-engineering/04-BIOSENSORS.md` — diagnostic device measurement architecture.
+- `systems-engineering/01-REQUIREMENTS.md` — requirements and risk-control discipline.
+
 ## Decision Cheat Sheet — Regulatory Strategy
 
-| Device type and situation | Regulatory approach |
-|---|---|
-| Novel Class I, straightforward | 510(k) exempt; register device, comply with QMS |
-| Similar to cleared competitor | 510(k); use competitor's device as predicate |
-| Novel technology, moderate risk, no predicate | De Novo request; creates new classification |
-| Life-sustaining novel device | PMA; plan 3-5 years from IDE to approval |
-| Design change to own cleared device | Special 510(k) if safety/effectiveness unaffected |
-| Significant change (material, software class C) | Traditional 510(k) or letter-to-file assessment |
-| Investigational use in US | IDE (significant risk) or IRB-only (non-sig risk) |
-| Drug-device combination | Office of Combination Products letter; CDRH usually leads |
-| SaMD (Software as Medical Device) | SaMD 510(k) per DeNovo or cleared class; SaMD predetermination pathway |
-| International + US simultaneous | ISO 13485 QMS + MDSAP audit covers FDA/EU/CA/AU |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a simple novel Class I device can skip premarket review | 510(k)-exempt path plus registration and QMS | Exempt does not mean unregulated; quality and labeling still apply. |
+| Whether a competitor predicate exists | 510(k) substantial equivalence | Predicate choice constrains indications, technology, and testing burden. |
+| Whether moderate-risk novelty lacks a predicate | De Novo request | De Novo creates a new class but requires enough evidence to define controls. |
+| Whether a life-sustaining novel device needs highest evidence | PMA with IDE-to-approval planning | Expect multi-year clinical, manufacturing, and postmarket commitments. |
+| Whether a change to your own cleared device is narrow | Special 510(k) | Only safe if safety/effectiveness questions are unchanged. |
+| Whether material or high-risk software changes are significant | Traditional 510(k) or documented letter-to-file assessment | Software class and material biocompatibility can force new evidence. |
+| Whether US investigational use is significant risk | IDE or IRB-only pathway | Risk classification determines FDA involvement, not sponsor preference. |
+| Whether a product is drug-device combination | Office of Combination Products request | Lead center follows primary mode of action, not company identity. |
+| Whether software is itself the medical device | SaMD 510(k), De Novo, or class-specific pathway | Algorithm changes, data drift, cybersecurity, and validation dominate evidence. |
+| Whether US and international launch should align | ISO 13485 QMS plus MDSAP | Harmonized audits help, but EU MDR and FDA evidence expectations still diverge. |

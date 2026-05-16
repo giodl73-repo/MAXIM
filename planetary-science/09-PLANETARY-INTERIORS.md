@@ -339,18 +339,24 @@ INTERIOR MODELING APPROACH
 
 ---
 
+## Cross-References
+
+- `geology/01-MINERALS.md` — mineral phases and materials in rocky interiors.
+- `planetary-science/02-TERRESTRIAL-PLANETS.md` — rocky-planet differentiation and structure.
+- `planetary-science/05-GAS-GIANT-ICE-GIANT.md` — high-pressure interiors beyond rocky planets.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| Why can't S-waves travel through liquid? | Shear modulus G=0 in fluids → v_S = √(G/ρ) = 0; they can't sustain shear deformation |
-| How do we know Earth has a liquid outer core? | S-wave shadow zone (no S-waves at 103°-143° from source); P-wave velocity drop at 2890 km |
-| What drives Earth's dynamo today? | Compositional convection (light elements released as inner core solidifies) + thermal convection, both organized by Coriolis force |
-| Why is Mars's core larger than predicted? | InSight seismology shows radius ~1830 km; implies higher light element content (S, O, H) diluting the iron → lower density |
-| What is the 660 km discontinuity? | Phase transition: ringwoodite → bridgmanite + magnesiowüstite; endothermic; resists convective overturn across this boundary |
-| How do we detect subsurface oceans on moons? | Magnetic induction: varying Jovian magnetic field induces currents in a conducting layer (saltwater ocean) → measured by magnetometer orbiter |
-| What is the Hf-W chronometer? | ¹⁸²Hf decays to ¹⁸²W (half-life 8.9 Myr); Hf is lithophile (silicate), W is siderophile (core); core-mantle fractionation age recorded in W isotopes |
-| What causes magnetic reversals? | Chaotic fluctuations in outer core convection that occasionally cause the dipole to collapse and rebuild with opposite polarity; not fully predictable |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Liquid layer from seismic waves | S-wave absence through fluids | Partial melt and attenuation require careful modeling. |
+| Earth's liquid outer core | S-wave shadow plus P-wave velocity drop | Seismology infers properties indirectly. |
+| Present Earth dynamo | Thermal and compositional convection with rotation | Dynamo sustainability depends on heat-flow history. |
+| Large Mars core inference | InSight seismic radius and low-density composition | Single-planet seismic coverage limits detail. |
+| 660 km discontinuity | Mantle mineral phase transition | It impedes but does not fully stop convection. |
+| Subsurface ocean detection | Magnetic induction in salty conducting layer | Induction requires variable external magnetic field. |
+| Hf-W chronometer | Lithophile/siderophile isotope fractionation | It dates core-mantle separation, not surface age. |
+| Magnetic reversal cause | Chaotic outer-core convection | Timing is not predictably periodic. |
 
 ---
 

@@ -279,17 +279,23 @@ NORTH CHINA PLAIN:
 
 ---
 
+## Cross-References
+
+- `hydrology/01-PRECIPITATION-RUNOFF.md` — basin-scale water balance behind field irrigation supply.
+- `agriculture/01-SOILS-FERTILITY.md` — soil texture, CEC, and salinity constraints on water delivery.
+- `control-theory/01-PID-CLASSICAL.md` — closed-loop framing for sensor-driven irrigation scheduling.
+
 ## Decision Cheat Sheet
 
-| Irrigation situation | Best approach |
-|---------------------|--------------|
-| High-value fruit/vegetable crop | Surface or subsurface drip; precision fertigation |
-| Paddy rice | Flood irrigation essential (anaerobic conditions required) |
-| Large-scale grain on flat terrain | Center pivot sprinkler |
-| Saline water source | Salt-tolerant varieties; leaching fraction; drainage |
-| Water-scarce region | Deficit irrigation (deliberately under-irrigate at less sensitive stages) |
-| Sloping terrain, erosion risk | Sprinkler or drip; not flood |
-| Over-irrigated soil with waterlogging | Install tile drainage; check irrigation scheduling |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether drip is justified | Crop value, water price, and fertigation need | Drip is economically obvious for high-value crops, not automatically for low-margin grains |
+| Whether rice can reduce water use | Flooding requirement, weed pressure, and AWD suitability | Rice needs anaerobic conditions for much of the cycle; drying windows must be managed carefully |
+| Whether center pivot fits | Field size, slope, energy cost, and grain economics | Hardware efficiency does not equal basin-scale water savings when return flows matter |
+| Whether salinity is limiting yield | EC, sodium adsorption ratio, and drainage status | Leaching salts without drainage can move the problem into the root zone or groundwater |
+| Whether deficit irrigation is safe | Crop growth stage and yield-response curve | Stress timing matters more than annual water volume; reproductive stages are often sensitive |
+| Whether flood irrigation is risky | Slope, infiltration, and erosion potential | Flooding on sloped or erosive land trades water delivery for soil loss |
+| Whether waterlogging is management or drainage | Irrigation schedule plus water-table depth | Installing tile without fixing over-application preserves the cause |
 
 ---
 

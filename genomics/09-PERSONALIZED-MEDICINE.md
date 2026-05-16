@@ -316,22 +316,28 @@ PERSONALIZED MEDICINE: GENOMICS IN THE CLINIC
 
 ---
 
+## Cross-References
+
+- `genomics/03-VARIANT-CALLING.md` — clinical interpretation starts from reliable variant detection.
+- `pharmacology/09-PERSONALIZED.md` — pharmacogenomics and dose/therapy tailoring.
+- `medicine/01-ANTIBIOTICS.md` — precision treatment logic as a clinical counterpart.
+
 ## Decision Cheat Sheet
 
-| Clinical Scenario | Genomic Test |
-|-------------------|-------------|
-| Suspected genetic disease in child | WES trio (proband + parents) |
-| Adult-onset familial cancer risk | Hereditary cancer panel (30–80 genes) |
-| NSCLC driver mutation for therapy | CGP panel (FoundationOne CDx) |
-| Monitor cancer treatment response | ctDNA (liquid biopsy) |
-| Drug toxicity risk (psychiatric meds) | PGx panel (CYP2D6/2C19/2C9) |
-| Warfarin dosing | CYP2C9 + VKORC1 genotyping |
-| Abacavir (HIV) safety | HLA-B*57:01 testing |
-| Prenatal trisomy screening | NIPT (cfDNA) |
-| Embryo selection (IVF) | PGT-M or PGT-A |
-| Population cancer screening | Multi-cancer early detection (GRAIL) |
-| Exome-negative rare disease | WGS (captures non-coding + SVs) |
-| Refractory cancer, any type | TMB/MSI testing + immunotherapy |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Suspected pediatric genetic disease | Trio whole-exome sequencing | WES misses noncoding, repeat, and some structural variants. |
+| Familial adult cancer risk | Hereditary cancer panel | VUS results should not drive irreversible care. |
+| NSCLC therapy driver | Comprehensive genomic profiling panel | Tissue quality and tumor purity can limit sensitivity. |
+| Cancer response monitoring | ctDNA liquid biopsy | Low shedding can produce false reassurance. |
+| Psychiatric drug toxicity risk | CYP pharmacogenomic panel | PGx informs dosing, not diagnosis. |
+| Warfarin dosing | CYP2C9 plus VKORC1 genotyping | Clinical factors still dominate ongoing titration. |
+| Abacavir safety | HLA-B*57:01 testing | This is a strong negative-use screen, not a general HIV test. |
+| Prenatal trisomy screening | NIPT/cfDNA | It is screening; positive results need diagnostic confirmation. |
+| IVF embryo selection | PGT-M or PGT-A | Mosaicism and selection ethics constrain interpretation. |
+| Population cancer screening | Multi-cancer early-detection assay | Mortality benefit and false positives must be proven. |
+| Exome-negative rare disease | Whole-genome sequencing | Interpretation burden rises with noncoding/SV findings. |
+| Refractory cancer immunotherapy | TMB/MSI testing | Biomarkers are imperfect predictors of response. |
 
 ---
 

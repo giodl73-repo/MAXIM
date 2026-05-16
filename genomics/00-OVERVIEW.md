@@ -45,8 +45,8 @@ GENOMICS LANDSCAPE
   │  Snakemake · Nextflow · WDL/Cromwell · CWL                     │
   ├────────────────────────────────────────────────────────────────┤
   │  CLOUD COMPUTE (familiar territory)                            │
-  │  Terra · DNAnexus · Azure Microsoft Genomics                   │
-  │  AWS HealthOmics · Google Cloud Life Sciences                  │
+  │  Terra · DNAnexus · AWS HealthOmics                            │
+  │  Azure Batch + Nextflow, Google Batch                          │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -83,9 +83,9 @@ GENOMICS LANDSCAPE
   Storage per project:        Petabyte class
   Compute:                    Millions of CPU-hours per analysis
 
-  ANALOGY: This is like Azure Data Factory managing petabyte ETL.
+  ANALOGY: This is petabyte ETL with biological error models.
   FASTQ = raw event logs. BAM = indexed structured store.
-  VCF = aggregated fact table. Workflow = the ADF pipeline DAG.
+  VCF = variant delta table. Workflow = reproducible pipeline DAG.
 ```
 
 ---
@@ -176,20 +176,18 @@ Genomics sits at the DNA layer. To understand why it matters, recall the central
 
 ## Decision Cheat Sheet
 
-| I want to... | Approach |
-|-------------|---------|
-| Sequence the full genome | WGS, 30x coverage, Illumina short-read |
-| Find protein-altering variants cheaply | WES, 100x coverage, ~$300 |
-| Measure gene expression | RNA-seq (bulk) or scRNA-seq (per cell) |
-| Type known common variants at scale | SNP array, ~$50 per sample |
-| Get long contiguous sequences | PacBio HiFi or Oxford Nanopore |
-| Profile chromatin accessibility | ATAC-seq |
-| Map protein–DNA binding | ChIP-seq |
-| Sequence a microbial community | Metagenomic shotgun sequencing |
-| Find disease-associated variants in population | GWAS (need thousands of samples) |
-| Edit the genome | CRISPR-Cas9 (→ 07-CRISPR.md) |
-| Identify cancer driver mutations | Tumor-normal paired WGS/WES |
-| Detect cancer from blood | Liquid biopsy / ctDNA sequencing |
+| Task | Best First Approach | Watch-Out |
+|---|---|---|
+| Find inherited rare-disease variants | Trio WGS if possible; WES if budget/coverage constrained | WES misses noncoding, structural, repeat, and hard-to-capture regions |
+| Find protein-altering variants cheaply | WES at high depth | Good for coding SNVs/indels; weak for regulatory variants and structural variation |
+| Discover structural variants, repeat expansions, or hard assemblies | PacBio HiFi or Oxford Nanopore long reads | Higher analysis complexity; platform choice depends on accuracy vs read length |
+| Type common variants across huge cohorts | SNP array plus imputation | Cheap and scalable; only sees known/common variation well |
+| Measure expression state | Bulk RNA-seq for tissue average; scRNA-seq for cell types | RNA is dynamic; it is not a substitute for DNA variant calling |
+| Profile regulatory state | ATAC-seq for open chromatin; ChIP-seq for protein-DNA binding | Requires careful controls; cell-type mixture can dominate signal |
+| Analyze a microbial community | Shotgun metagenomics | Host contamination and reference bias can distort abundance estimates |
+| Find population disease associations | GWAS with thousands to millions of samples | Association is not causation; population stratification is a first-order confounder |
+| Interpret a tumor | Tumor-normal paired WGS/WES plus RNA/ctDNA when needed | Somatic calling needs matched normal and purity/copy-number modeling |
+| Edit a locus | CRISPR-Cas system matched to edit type | Delivery, off-targets, repair pathway, and mosaicism are the hard parts |
 
 ---
 
@@ -245,6 +243,12 @@ COMPRESSION RATIOS:
 ```
 
 **Key architectural insight:** The genome is a read-once reference (like a schema or a versioned schema migration). Every person's genome is a VCF — a diff against the reference. All downstream analysis is operating on diffs, not full copies. This is why population-scale genomics is tractable: you store one 3 GB reference + millions of 1 GB VCFs rather than millions of 90 GB FASTQs.
+
+## Cross-References
+
+- [Sequencing Technologies](01-SEQUENCING-TECH.md) explains the measurement platforms behind genomic data.
+- [Genome Assembly](02-GENOME-ASSEMBLY.md) follows reads into contigs, scaffolds, and reference construction.
+- [Bioinformatics Pipelines](08-BIOINFORMATICS-PIPELINE.md) connects genomic data to file formats and computational workflow.
 
 ## Common Confusion Points
 

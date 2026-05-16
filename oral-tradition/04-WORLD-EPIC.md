@@ -310,18 +310,24 @@ a learned assembly of inherited material.
 
 ---
 
+## Cross-References
+
+- `01-ORAL-COMPOSITION.md` explains formulaic composition behind epic scale.
+- `07-PERFORMANCE.md` places epics in singer, patron, and audience context.
+- `09-DIGITAL-PRESERVATION.md` addresses recording and archiving living traditions.
+
 ## Decision Cheat Sheet
 
-| Epic | Key fact to know |
-|------|----------------|
-| Gilgamesh | Oldest surviving narrative; predates Genesis flood story |
-| Iliad/Odyssey | Oral-derived; formula density ~80%; fixed ~750 BCE |
-| Mahabharata | Largest literary work; 10x Iliad+Odyssey; multiple oral layers |
-| Beowulf | Alliterative oral formula; kenning system; single manuscript |
-| Sundiata | Living oral tradition; no canonical text; jeli performance |
-| Mwindo | Episodic; no fixed order; most visible oral performance frame |
-| Kalevala | Collected from singers; Lönnrot synthesis; not one performance |
-| Manas | Longest oral epic; still performed by manaschi; up to 500k lines |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Near Eastern flood tradition | Gilgamesh as oldest surviving narrative and shared tradition pool | Similarity to Genesis does not by itself prove direct copying. |
+| Greek oral-derived epic | Iliad/Odyssey formula density and textual fixation | Fixed text is a later stabilization of oral-derived material. |
+| Sanskrit epic scale | Mahabharata layers, war core, and Brahmanical expansion | Length comparisons conflate different transmission histories. |
+| Old English heroic epic | Beowulf alliterative formulae, kennings, and single manuscript | Survival through one manuscript makes loss/bias central. |
+| Living Mande epic | Sundiata and jeli performance | There is no original canonical text; fixation events create canons. |
+| Episodic Central African epic | Mwindo performance frame and flexible ordering | Episodic order may be tradition-governed without being fixed. |
+| Finnish national epic | Kalevala as Lonnrot synthesis from runo singers | It is editor-composed from tradition, not one oral performance. |
+| Kyrgyz epic performance | Manas and manaschi performance scale | "Longest" claims depend on version boundaries. |
 
 ---
 

@@ -373,17 +373,23 @@ DISADVANTAGES
 
 ---
 
+## Cross-References
+
+- `developmental-biology/07-STEM-CELLS.md` - pluripotency and potency hierarchy.
+- `developmental-biology/09-REGENERATION.md` - regenerative-medicine applications.
+- `genomics/07-CRISPR.md` - engineering cells for disease models and therapy.
+
 ## Decision Cheat Sheet
 
-| Goal | Approach | Key Factors | Timeline |
-|------|----------|------------|---------|
-| Generate patient-specific pluripotent cells | iPSC reprogramming | OSKM, Sendai virus | 3-4 weeks to iPSC + 2-4 weeks differentiation |
-| Model genetic disease | Patient iPSC + CRISPR | OSKM + Cas9 correction | 2-3 months |
-| Drug screening (cardiomyocytes) | iPSC-CMs | OSKM → Wnt-activation → Wnt-inhibition | 3-4 months |
-| Cell therapy (allogeneic, ready-made) | Universal donor iPSC | HLA KO (B2M/CIITA CRISPR) | Pre-made bank |
-| Neurological aging model | Direct reprogramming | Ascl1/Brn2/Myt1l | 2-3 weeks |
-| In vivo cardiac repair | In vivo direct reprogramming | GMT (GATA4/MEF2C/TBX5) in viral vector | Experimental |
-| Beta cell replacement (T1D) | ESC/iPSC → beta cell | Sequential signal differentiation | 6+ months from iPSC |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Patient-specific pluripotent cells | OSKM iPSC reprogramming with non-integrating delivery | Reprogramming artifacts and QC dominate clinical readiness. |
+| Genetic disease model | Patient iPSC plus CRISPR isogenic correction | Isogenic controls are essential for interpretation. |
+| Cardiomyocyte drug screen | iPSC-CM Wnt activation then inhibition | Maturity of iPSC-CMs limits adult-drug extrapolation. |
+| Allogeneic cell therapy | Universal donor iPSC with HLA editing | Immune evasion can create safety surveillance problems. |
+| Neurological aging model | Direct reprogramming with neuronal TFs | Skipping pluripotency may preserve age marks but limits expansion. |
+| In vivo cardiac repair | GMT direct reprogramming vector | Experimental vector delivery and partial conversion are major risks. |
+| Type-1 diabetes beta cells | Sequential ESC/iPSC beta-cell differentiation | Purity, maturation, and immune protection remain bottlenecks. |
 
 ---
 

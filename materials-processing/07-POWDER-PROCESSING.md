@@ -359,18 +359,24 @@ Transformation-toughened zirconia (TTZ):
 
 ---
 
+## Cross-References
+
+- `materials-processing/03-SOLIDIFICATION.md` - alternative route to cast microstructures.
+- `materials/07-CERAMICS-COMPOSITES.md` - ceramic and composite powder routes.
+- `manufacturing/01-GDT-TOLERANCING.md` - manufacturing constraints on final parts.
+
 ## Decision Cheat Sheet
 
-| PM/Sintering Need | Process |
-|------------------|---------|
-| High-volume automotive PM gears/bearings | Conventional die pressing + sintering |
-| Complex 3D geometry metal part (medium to high volume) | MIM |
-| Maximum density for DMLS aerospace parts | Post-process HIP |
-| Near-net shape from difficult-to-machine alloy (tool steel, superalloy) | Powder HIP |
-| Cemented carbide tool insert | WC-Co liquid phase sintering |
-| Nano-grained ceramic, minimum grain growth | SPS/FAST |
-| Structural ceramic component | Die press + sinter (+ HIP for max density) |
-| Repair/densify cast Ti aerospace part | HIP at 900°C/100 MPa |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| High-volume PM gears/bearings | Conventional die pressing and sintering | Density shortfall can dominate fatigue performance. |
+| Complex 3D metal part | Metal injection molding | Debinding and pore-closure profile control final density. |
+| Dense DMLS aerospace part | Post-process HIP | HIP closes internal porosity but not bad surface finish. |
+| Near-net superalloy/tool-steel shape | Powder HIP | Powder cleanliness and capsule control are critical. |
+| Cemented carbide insert | WC-Co liquid-phase sintering | Binder melts; WC does not. |
+| Nano-grained ceramic | SPS/FAST | The "spark" mechanism is disputed; rapid Joule heating is the practical point. |
+| Structural ceramic component | Die press and sinter, plus HIP if needed | Grain growth can destroy toughness mechanisms. |
+| Cast titanium densification | HIP near 900 deg C and high pressure | HIP repairs pores, not geometry or surface-connected defects. |
 
 ---
 

@@ -107,8 +107,8 @@ LEGHEMOGLOBIN: pink/red color of active nodule
   - Binds O₂ with high affinity (similar to hemoglobin)
   - Maintains very low [O₂] around bacteroids while allowing respiration
   - Without it: nitrogenase destroyed, no N₂ fixation
-  - Fun fact: leghemoglobin gene likely transferred from animal ancestor
-    or converged through horizontal gene transfer
+  - Globin proteins are ancient and widespread; leghemoglobin is a plant-bacterial
+    symbiosis adaptation, not an animal-gene import.
 ```
 
 ### What Legumes Fix Per Year
@@ -169,7 +169,10 @@ WHOLE SOYBEAN
 
 ### The Amazon Problem
 
-Brazilian soy expansion is the leading driver of Amazon deforestation (directly and via cattle displacement). ~80% of Brazilian soy goes to animal feed (mostly in China). The "soy = deforestation" claim is accurate for Brazilian rainforest but misleading for US or European soy (temperate grassland conversion, less biodiverse).
+Brazilian soy expansion is a major Amazon/Cerrado deforestation driver, both
+directly and by displacing cattle ranching into new frontiers. Cattle remains the
+largest direct Amazon driver, so "soy = deforestation" is accurate only when the
+regional supply chain is named; it is misleading if generalized to all soy.
 
 ---
 
@@ -268,14 +271,14 @@ Vegans need adequate total protein (0.8-1.0g/kg bodyweight) + B12.
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why do legumes improve soil? | Rhizobium symbiosis in root nodules; fix atmospheric N₂ → NH₃ |
-| What is leghemoglobin? | O₂-scavenging protein in nodules; protects nitrogenase from O₂ |
-| How many times was common bean domesticated? | Twice (Mesoamerica + Andes independently) |
-| What is aquafaba? | Chickpea cooking water; whips like egg white due to protein/saponins |
-| Does protein complementarity require same-meal timing? | No; daily variety is sufficient |
-| What is the main use of US soy crop? | Animal feed (~70-75%) |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Soil improvement from legumes | Rhizobium nodules and nitrogenase | Fixation depends on species, strain, inoculation, and soil conditions |
+| Nitrogenase protection | Leghemoglobin oxygen buffering | Nodules need low free O2 but still need respiration |
+| Bean domestication | Mesoamerican vs Andean gene pools | Both spread globally after the Columbian Exchange |
+| Aquafaba behavior | Chickpea proteins, saponins, and polysaccharides | It is accidental food science, not a complete egg substitute in all contexts |
+| Protein complementarity | Lysine/methionine balance across the day | Same-meal combining is unnecessary for varied diets |
+| Soy-system impact | Feed, oil, deforestation region, and processing | Animal feed and regional land-use context dominate the ethics |
 
 ---
 
@@ -303,6 +306,12 @@ CULINARY FORMS:
   Dried split peas: yellow or green; field varieties with starchy seeds; soup base
   Pea protein: major ingredient in plant-based meat (Beyond Burger: pea protein isolate)
 ```
+
+## Cross-References
+
+- [Food Plants Overview](00-OVERVIEW.md) places legumes in the larger domestication and crop-system map.
+- [Grains](01-GRAINS.md) provides the cereal complement that makes legume proteins agronomically and nutritionally central.
+- [Modern Breeding](09-MODERN-BREEDING.md) shows how breeding changes yield, disease resistance, and nitrogen-use traits.
 
 ## Common Confusion Points
 

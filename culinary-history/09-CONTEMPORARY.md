@@ -303,15 +303,23 @@ ACTUAL USE:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Who founded the farm-to-table movement? | Alice Waters, Chez Panisse, Berkeley CA, 1971 |
-| What drove the 2020 sourdough surge? | COVID-19 lockdowns; home baking resurgence; Google "sourdough starter" peaked March 2020 |
-| What is koji? | *Aspergillus oryzae* mold; produces amylase + protease; ferments miso, soy sauce, sake |
-| What is "garum" in modern context? | Fish-sauce-like intensely savory liquid from koji-fermented proteins; revived by Noma |
-| What regulatory approvals did cultivated meat receive in US? | FDA GRAS + USDA approval for GOOD Meat + Upside Foods (2023); limited commercial sales |
-| What is ultra-processed food? | NOVA Group 4: industrial extractions + additives not in home cooking; ~58% of US calories |
-| What does Pollan mean by "Eat food"? | Real food (recognizable ingredients); not edible food-like substances (ultra-processed) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A farm-to-table claim | Examine sourcing distance, seasonality, farmer relationships, labor, price, and restaurant signaling. | Local sourcing can improve transparency without automatically improving sustainability. |
+| A pandemic food trend | Separate supply-chain disruption, home time, social media, anxiety rituals, and ingredient availability. | Search spikes reveal attention, not necessarily durable practice change. |
+| A koji or fermentation claim | Check organism, enzymes, substrate, temperature, salt, time, safety, and flavor products. | Fermentation is controlled microbial work; not all fermented foods are probiotic. |
+| Modern garum or Noma-style ferments | Inspect protein substrate, koji enzymes, salt level, aging, umami compounds, and food-safety controls. | Ancient names are analogies; modern processes often use new microbiology and equipment. |
+| Cultivated meat | Track cell line, growth medium, bioreactor scale, regulatory approval, cost, texture, energy, and consumer acceptance. | Approval and limited sale do not imply mass-market scalability. |
+| Ultra-processed food | Use NOVA category, ingredient function, industrial formulation, palatability, diet pattern, and health evidence. | Processing degree is a useful signal, not a complete nutritional model. |
+| A food-systems critique | Combine health, labor, climate, animal welfare, affordability, culture, and corporate concentration. | "Natural" or "real food" language needs operational definitions to avoid nostalgia. |
+
+---
+
+## Cross-References
+
+- `08-FOOD-SCIENCE.md` explains the technical base for modernist cuisine and processed-food design.
+- `04-COLUMBIAN-EXCHANGE.md` gives the historical baseline for globalized ingredient flows.
+- `../nutrition/00-OVERVIEW.md` connects contemporary food systems to diet, health, and public guidance.
 
 ---
 

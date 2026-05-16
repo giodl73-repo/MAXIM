@@ -558,16 +558,23 @@ ENERGY MODELLING TOOLS
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| New build vs adaptive reuse — carbon argument? | Retain structure if feasible: saves ~200–500 kgCO₂e/m² upfront; payback for new build often > 30 yr |
-| How to reduce concrete frame embodied carbon fastest? | Specify 40–50% GGBS replacement in all concrete — single largest lever; 25–40% reduction |
-| Passivhaus vs LEED — which for energy performance? | Passivhaus: absolute energy standard; LEED: relative points. Passivhaus for genuine energy performance. |
-| CLT "carbon negative" claim — valid? | Only if biogenic credit included AND sustainable forestry AND specific EOL scenario assumed. Report separately from fossil. |
-| Where is embodied carbon NOT currently captured in ratings? | LEED and BREEAM have limited embodied carbon credits; whole-life carbon in EN 15978 is not yet mandatory in most codes |
-| Refrigerant choice — priority in net-zero building? | Specify low-GWP (GWP < 150); CO₂ (R-744) or propane (R-290) systems where feasible; avoid R-410A |
-| Bamboo structural in temperate climate? | Requires drying, treatment, specialist connections; not mainstream code coverage; consult specialist |
-| Straw bale — why does render type matter? | Straw must breathe: lime render (vapour-permeable). Cement render: traps moisture → rot |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| New build vs reuse | Compare retained structure, operational savings, upfront carbon, payback period, function, and code upgrades. | A very efficient new building can still take decades to repay demolition carbon. |
+| Concrete-frame carbon | Check cement content, GGBS/fly ash/LC3 substitution, strength age, curing, availability, and EPDs. | Cement replacement affects schedule, supply, and durability assumptions. |
+| Energy-performance certification | Compare Passivhaus absolute demand, LEED/BREEAM points, measured performance, and commissioning. | Ratings can reward process; actual energy needs measured operation. |
+| CLT carbon-negative claim | Separate fossil emissions, biogenic storage, forestry practice, replacement effects, and end-of-life scenario. | Report biogenic credits separately to avoid hiding assumptions. |
+| Rating-system carbon gap | Inspect whole-life boundary, EN 15978 modules, embodied-carbon credits, code mandates, and data quality. | "Green certified" does not automatically mean whole-life-carbon optimized. |
+| Refrigerant choice | Compare GWP, leakage, efficiency, safety class, equipment availability, service practice, and climate. | Low-GWP refrigerants can add toxicity/flammability or design constraints. |
+| Bamboo or straw bale | Check moisture, treatment, connections/render, code acceptance, detailing, and local craft. | Bio-based materials fail quickly when moisture detailing is wrong. |
+
+---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places sustainability inside the full material-family and structural-role map.
+- `05-PORTLAND-CEMENT.md` explains why cement dominates embodied-carbon discussions.
+- `07-ENGINEERED-WOOD.md` covers the major low-carbon structural-material alternative.
 
 ---
 

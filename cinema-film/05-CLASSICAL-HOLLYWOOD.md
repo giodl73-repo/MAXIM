@@ -304,18 +304,24 @@ LONG-TERM IMPACT:
 
 ---
 
+## Cross-References
+
+- `cinema-film/03-NARRATIVE-GRAMMAR.md` — continuity grammar used by studio storytelling.
+- `cinema-film/09-INDUSTRY-ECONOMICS.md` — studio system and distribution economics.
+- `media-studies/04-POLITICAL-ECONOMY.md` — ownership and institutional analysis of media systems.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the Paramount Decree? | 1948 Supreme Court antitrust ruling forcing studios to divest theater chains; ended vertical integration |
-| What is block booking? | Forcing exhibitors to buy whole slate of films to get access to hits; declared illegal 1948 |
-| What is the Production Code? | 1930-1968 self-censorship code; enforced from 1934 by Breen Office; covered sex, crime, morality |
-| What is the B-film? | Low-budget filler film; double-feature partner for A-film; training ground for new talent |
-| What was Clark Gable's role in Gone With the Wind? | On loan from MGM to Selznick; MGM got distribution rights in exchange |
-| When did the studio contract system end? | Gradually through 1950s-60s after Paramount Decree; stars became independent |
-| What is the star system? | Studios own exclusive contracts with talent; construct public personas; pre-sell films via star brands |
-| How many films did major studios produce per year? | 40-60 films/year (A-films + B-films + serials combined) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why studio-era vertical integration broke | Paramount Decree, 1948 | Divesting theaters ended one integration form; studio distribution power remained. |
+| How studios forced weak films into theaters | Block booking | The practice tied access to hits to purchase of whole slates, making antitrust central. |
+| Why classical films encode morality so visibly | Production Code and Breen Office enforcement | The Code was private industry regulation, not direct government censorship. |
+| Why studios made low-budget companion films | B-films in double-feature economics | B-films were filler and training grounds, not just bad movies. |
+| How star loans reveal studio bargaining | Clark Gable loan to Selznick for Gone With the Wind | Talent movement often traded distribution rights, not just cash. |
+| Why the contract system faded | Post-Paramount economics and 1950s-60s star independence | The end was gradual; legal shock, TV, agents, and independent production interacted. |
+| How stars pre-sold films | Studio-managed star system | Persona construction was an industrial asset, not merely celebrity culture. |
+| Why output volume shaped film form | Major studios producing roughly 40-60 films/year | Factory scale required genre templates, contract labor, and predictable distribution. |
 
 ---
 

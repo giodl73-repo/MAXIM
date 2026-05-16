@@ -289,20 +289,26 @@ This connects topology (cohomology) to analysis (harmonic functions). Harmonic f
 
 ---
 
+## Cross-References
+
+- `differential-geometry/02-TANGENT-BUNDLES.md` — forms are sections of exterior powers of the cotangent bundle.
+- `topology/08-COHOMOLOGY.md` — de Rham cohomology as the smooth form version of cohomological invariants.
+- `partial-differential-equations/06-FOURIER-METHODS.md` — differential operators and integral identities in analysis.
+
 ## Decision Cheat Sheet
 
-| Object/Operation | What It Is | Use |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| k-form omega | Antisymmetric (0,k) tensor field | Integrand on k-dimensional submanifold |
-| Wedge product wedge | Antisymmetric tensor product | Build k-forms from 1-forms |
-| Exterior derivative d | d: Lambda^k -> Lambda^{k+1} | Unifies grad/curl/div |
-| Interior product i_X | Lambda^k -> Lambda^{k-1} | Contract vector into form |
-| Lie derivative L_X | Lambda^k -> Lambda^k | Form variation along flow |
-| Stokes' theorem | Int d omega = Int_{boundary} omega | Unifies all classical theorems |
-| Closed form | d omega = 0 | Locally exact; globally may not be |
-| Exact form | omega = d eta | Integrals around closed curves = 0 |
-| de Rham cohomology H^k | Closed / Exact forms | Topological invariant |
-| Hodge star * | Lambda^k -> Lambda^{n-k} | Inner product on forms, Laplacian |
+| Integrands on submanifolds | `k`-forms as antisymmetric `(0,k)` tensor fields | Forms encode coordinate-change behavior automatically. |
+| Building higher forms | Wedge product as antisymmetrized tensor product | Wedge is not ordinary tensor product; signs matter. |
+| Generalized differentiation | Exterior derivative `d: Lambda^k -> Lambda^{k+1}` | `d^2 = 0` is structural, not a computational accident. |
+| Contracting vectors into forms | Interior product `i_X: Lambda^k -> Lambda^{k-1}` | Depends on vector field choice, not metric. |
+| Variation along flow | Lie derivative `L_X` on forms | Measures transport by a vector field without requiring coordinates. |
+| General Stokes theorem | `int_M d omega = int_boundary(M) omega` | Orientation and boundary conventions carry the sign. |
+| Closed forms | `d omega = 0` | Locally exact need not mean globally exact. |
+| Exact forms | `omega = d eta` | Closed-loop integrals vanish only when the form is globally exact. |
+| de Rham cohomology | Closed forms modulo exact forms | Measures topology through integration obstructions. |
+| Hodge star | `*: Lambda^k -> Lambda^{n-k}` | Requires a metric and orientation; unlike `d`, it is not purely topological. |
 
 ---
 

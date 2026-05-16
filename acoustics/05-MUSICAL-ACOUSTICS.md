@@ -244,16 +244,22 @@ SINGER'S FORMANT (~3 kHz cluster):
 
 ---
 
+## Cross-References
+
+- `music-theory/01-PITCH-SCALES.md` — tuning, pitch systems, and harmonic perception.
+- `acoustics/01-WAVE-PHYSICS.md` — resonance, standing waves, and radiation physics.
+- `acoustics/02-PSYCHOACOUSTICS.md` — perception of timbre, loudness, and pitch.
+
 ## Decision Cheat Sheet
 
-| Instrument | Key Physics |
-|------------|-------------|
-| Why does bass guitar need longer strings? | Longer L → lower f₁ = (1/2L)√(T/μ) |
-| Clarinet vs flute same length, different pitch? | Clarinet: closed tube → f₁ = c/(4L); flute: open → c/(2L) |
-| Why does piano need "stretched" tuning? | Inharmonicity of stiff strings (f_n ≠ n·f₁) |
-| Why do drums have indefinite pitch? | Membrane modes have inharmonic frequency ratios (Bessel zeros) |
-| How does a singer project over an orchestra? | Singer's formant cluster at 3 kHz |
-| Why does a thick string sound lower? | Larger μ → lower √(T/μ) → lower c_s and f₁ |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a string instrument needs lower pitch | String length, tension, and linear density | Lowering pitch by thickness changes timbre and feel, not just frequency |
+| Whether a wind instrument behaves open or closed | Boundary condition at mouthpiece and bell | Same physical length can produce different fundamentals because pressure nodes differ |
+| Whether piano tuning must be stretched | Inharmonicity from string stiffness | Equal temperament is not the only compromise; real pianos also compensate for stiff partials |
+| Whether percussion has definite pitch | Modal frequency ratios of membrane or bar | Non-harmonic partials blur pitch even when a dominant mode exists |
+| Whether a singer will project | Formant placement around the orchestra's spectral gap | Loudness alone is not projection; spectral placement matters |
+| Whether an instrument timbre changed with pitch | Harmonic spectrum, body resonance, and excitation method | The same fundamental can sound different when produced by different physical mechanisms |
 
 ---
 

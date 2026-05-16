@@ -303,17 +303,23 @@ but creates parallel systems.
 
 ---
 
+## Cross-References
+
+- `01-HISTORY.md` places aid debates in development history.
+- `04-INSTITUTIONS.md` explains why aid works differently across states.
+- `06-MICROFINANCE.md` gives a narrower intervention model with its own evidence base.
+
 ## Decision Cheat Sheet
 
-| Question | Answer | Source |
-|----------|--------|--------|
-| Does aid increase growth? | No robust aggregate effect (Rajan-Subramanian) | Macro evidence |
-| Do specific interventions work? | Yes — CCTs, vaccines, ORS, bed nets have strong evidence | RCT evidence |
-| Sachs or Easterly? | Both partially right — specific interventions work; big push planning has weak evidence | Synthesis |
-| What's the best aid modality? | Depends on recipient governance quality; budget support requires accountability | Paris Declaration |
-| Why does CCT target women? | Women invest more in children; increases women's bargaining power | Progresa evidence |
-| Is unconditional cash better than conditional? | GiveDirectly evidence: UCTs also work; conditions may be unnecessary overhead | UCT RCTs |
-| What about aid and corruption? | Mixed evidence; aid to accountable governments more effective | IMF/World Bank research |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Aid-growth aggregate claim | Rajan-Subramanian-style macro evidence | Macro aid effects are hard to identify and heterogeneous. |
+| Specific intervention effect | RCT-backed CCTs, vaccines, ORS, bed nets | RCTs answer intervention questions, not whole-country growth strategy. |
+| Sachs/Easterly disagreement | Strategy versus intervention distinction | Both can be right at different levels of analysis. |
+| Aid modality choice | Governance quality and accountability | Budget support needs credible public financial management. |
+| CCT targeting women | Progresa-style household investment evidence | Targeting can shift bargaining power and impose compliance burdens. |
+| Unconditional versus conditional cash | GiveDirectly and UCT evidence | Conditions may add overhead; context decides whether incentives matter. |
+| Aid/corruption risk | Accountable-government conditioning | Aid is not monolithic; diagnosis and dosage matter. |
 
 ---
 

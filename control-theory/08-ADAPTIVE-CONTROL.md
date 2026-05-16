@@ -1,6 +1,6 @@
 # Adaptive Control
 
-## Big Picture: Unknown or Time-Varying Plants
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -325,32 +325,22 @@ CONTROL EFFORT DURING ADAPTATION:
 
 ---
 
+## Cross-References
+
+- `control-theory/02-STATE-SPACE.md` — state-space plant models used for adaptive laws.
+- `control-theory/05-ROBUST-CONTROL.md` — robust control handles uncertainty without online identification.
+- `control-theory/09-LEARNING-BASED-CONTROL.md` — data-driven successor to classical adaptation.
+
 ## Decision Cheat Sheet
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                     │ RECOMMENDATION                        │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Linear plant, parametric     │ MRAC (direct, Lyapunov-based);       │
-│ uncertainty, tracking        │ add projection to prevent drift       │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ SISO plant identification    │ RLS with forgetting factor;           │
-│ + controller redesign        │ STR (indirect) with certainty equiv.  │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Known operating points,      │ Gain scheduling — simpler, safer,    │
-│ slow scheduling variable     │ industry standard; use LPV for       │
-│                              │ formal stability analysis            │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Safety-critical + adaptation │ L1 adaptive control — guaranteed      │
-│ needed (aerospace)           │ transient bounds; tune via C(s) ω_c   │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Unknown nonlinear dynamics   │ NN adaptive control + Lyapunov       │
-│                              │ stability analysis + projection       │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Time-varying plant, need     │ RLS with λ < 1; set λ based on        │
-│ tracking of parameter change │ time constant of variation            │
-└──────────────────────────────┴───────────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Linear parametric uncertainty with tracking | MRAC with Lyapunov design | Add projection to prevent drift. |
+| SISO identification plus redesign | RLS and indirect STR | Certainty equivalence needs stability scrutiny. |
+| Slow known operating-point changes | Gain scheduling or LPV | Simpler scheduling lacks automatic global stability proof. |
+| Safety-critical adaptation | L1 adaptive control | Filter choice trades robustness against performance. |
+| Unknown nonlinear dynamics | NN adaptive control with Lyapunov analysis | Approximation error and projection matter. |
+| Time-varying parameters | RLS with forgetting factor | Forgetting factor sets tracking/noise tradeoff. |
 
 ---
 

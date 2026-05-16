@@ -441,17 +441,23 @@ PARTIAL PROGRESS
 
 ---
 
+## Cross-References
+
+- `machine-learning-theory/06-NEURAL-TANGENT.md` — one tractable approximation to deep learning dynamics.
+- `machine-learning-theory/07-DOUBLE-DESCENT.md` — unresolved generalization behavior in overparameterized models.
+- `ai-engineering/02-EVALS-HARNESS.md` — empirical evaluation as the engineering counterpart to unresolved theory.
+
 ## Decision Cheat Sheet: Research Directions
 
-| Problem | Current Best Tools | Key Papers |
-|---------|------------------|------------|
-| Generalization of deep nets | PAC-Bayes, CMI | Dziugaite-Roy 2017, Steinke-Zakynthinou 2020 |
-| SGD implicit regularization | Stability bounds, mirror descent | Soudry et al. 2018, Vaskevicius 2019 |
-| In-context learning | Attention as GD | Akyürek 2022, Von Oswald 2023 |
-| Neural net hardness | Cryptographic reductions | Daniely 2021 |
-| Grokking | Mechanistic interp. | Power 2022, Nanda 2023 |
-| Complexity measure | Spectral + PAC-Bayes | Bartlett 2017, Neyshabur 2018 |
-| Transformers | Sparse attention theory | Yun 2020, Tian 2023 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Deep-net generalization gap | PAC-Bayes and CMI tools | Non-vacuous bounds remain narrow and assumption-heavy. |
+| SGD implicit regularization | Stability, margin, and mirror-descent analyses | Results are regime-specific. |
+| In-context learning mechanism | Attention-as-gradient-descent models | Toy mechanisms may not explain frontier models. |
+| Neural-net hardness | Cryptographic reductions | Worst-case hardness need not describe trained practice. |
+| Grokking | Mechanistic interpretability and phase-transition models | Dataset algebra and regularization matter. |
+| Complexity measure search | Spectral norms plus PAC-Bayes | Single scalar complexity likely misses training dynamics. |
+| Transformer theory | Sparse attention and expressivity analyses | Expressivity is not learnability. |
 
 ---
 

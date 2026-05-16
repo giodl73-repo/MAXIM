@@ -245,14 +245,22 @@ Transmitted: Spice trade management and routes
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why were spices so expensive? | Long supply chain (Maluku → Java → India → Arab traders → Venice → Europe); every handoff = markup |
-| What ended the Venetian spice monopoly? | Vasco da Gama's 1498 Cape of Good Hope route to India |
-| Difference between gruit and hops? | Gruit = pre-hop herb mixture; hops = preservative + bitter; hop adoption freed beer from church gruit monopoly |
-| Why salt cod was so important | Preserved protein for Lent + year-round; enabled naval voyages; urban food security |
-| Why did famines happen every ~10 years? | Dependence on single-year harvest with limited storage technology; no buffer against 2 consecutive failures |
-| What did monasteries contribute to food? | Systematic brewing, fermentation experimentation, agricultural improvement, preservation of Roman knowledge |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A medieval spice-cost claim | Trace source islands, Indian Ocean routes, Arab intermediaries, Venetian finance, risk, and courtly display. | Spices were luxury signals and medical/cultural goods, not mainly rotten-meat camouflage. |
+| The end of Venetian dominance | Compare Cape-route navigation, Portuguese naval force, Islamic/Venetian trade networks, and price effects. | Vasco da Gama opened a route; monopoly erosion was a political-military process, not a single voyage. |
+| Beer before and after hops | Separate gruit herbs, preservation, bitterness, taxation/church rights, urban brewing, and shelf stability. | Hop adoption changed institutions and trade as well as flavor. |
+| Salt cod's importance | Check Lent rules, preservation, Atlantic fisheries, naval provisioning, urban markets, and cheap protein demand. | Preservation value depends on religion, trade logistics, and labor systems together. |
+| Medieval famine recurrence | Examine harvest variability, storage capacity, transport cost, grain markets, war, and entitlement failure. | Food shortage and famine mortality are related but not identical. |
+| Monastic food innovation | Look at brewing, fermentation, agriculture, manuscript preservation, estate management, and hospitality. | Monasteries preserved and systematized knowledge; they were also landholding economic institutions. |
+
+---
+
+## Cross-References
+
+- `02-ANCIENT-CIVILIZATIONS.md` supplies the grain, oil, wine, and spice foundations medieval cuisines inherited.
+- `04-COLUMBIAN-EXCHANGE.md` marks the post-medieval rupture in ingredients and global food systems.
+- `../economic-history/00-OVERVIEW.md` connects food production to trade, taxation, and urban markets.
 
 ---
 

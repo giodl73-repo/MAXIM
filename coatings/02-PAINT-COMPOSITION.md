@@ -399,16 +399,24 @@ A paint TDS is a product specification document — equivalent to an API referen
 
 ## Decision Cheat Sheet
 
-| Project | Binder | Sheen | Notes |
-|---|---|---|---|
-| Interior wall | 100% acrylic latex | Eggshell/Satin | Self-priming on previously painted |
-| Ceiling | Flat latex | Flat | Hide texture, no glare |
-| Trim, doors | Waterborne alkyd or 100% acrylic | Semi-gloss or Gloss | Hard film, cleanable |
-| Kitchen cabinets | Waterborne alkyd | Gloss/Semi-gloss | Benjamin Moore Advance, SW Emerald |
-| Garage floor | 2-part epoxy | Floor coating | Roll-on 2-part; prime concrete first |
-| Bare metal | Alkyd/epoxy primer | N/A | Primer only; topcoat separately |
-| Exterior siding | 100% acrylic exterior | Satin/semi-gloss | HALS, mildewcide, UV stable |
-| Bathroom | 100% acrylic | Semi-gloss | Mildewcide loading; anti-condensation |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Interior wall paint | Check binder, pigment volume concentration, washability, sheen, substrate, and prior coating. | "Self-priming" usually means previously sound paint, not raw problem surfaces. |
+| Ceiling paint | Prioritize flat sheen, hiding power, spatter, texture, glare, and lap-mark control. | Flat hides defects but sacrifices scrub resistance. |
+| Trim or doors | Compare acrylic, waterborne alkyd, hardness, blocking resistance, gloss, brushing, and cure time. | Dry-to-touch and cured-hard are different states. |
+| Kitchen cabinets | Evaluate adhesion, hardness, leveling, grease resistance, cleaning, primer, and cure schedule. | Cabinet coatings fail if prep and cure are rushed. |
+| Garage floor coating | Inspect concrete moisture, profile, primer, two-part mix ratio, pot life, abrasion, and hot-tire pickup. | Epoxy is a system; wrong prep is the usual failure. |
+| Bare metal primer | Check rust removal, conversion, epoxy/alkyd chemistry, adhesion, topcoat compatibility, and exposure. | Primer is not a finished protective stack by itself. |
+| Exterior siding paint | Use UV-stable binder, mildewcide, flexibility, primer, vapor behavior, and weather window. | Exterior paint must survive substrate movement and climate, not just sunlight. |
+| Bathroom coating | Check humidity, mildew, condensation, cleaning chemicals, ventilation, and sheen. | Mildewcide helps, but ventilation controls the moisture load. |
+
+---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places paint composition inside the broader coating, sealant, and surface-protection landscape.
+- `03-DRYING-CURING.md` explains how binder chemistry becomes a film.
+- `05-FAILURE-MODES.md` connects formulation choices to peeling, blistering, chalking, and cracking.
 
 ---
 

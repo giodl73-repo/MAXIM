@@ -264,17 +264,24 @@ Modern design: AASHTO LRFD Bridge Design Specification (structural/bridge piles)
 
 ## Decision Cheat Sheet
 
-| Situation | Foundation Type | Capacity Method |
-|-----------|----------------|-----------------|
-| Soft clay, no hard layer | Friction piles (driven or drilled) | Alpha method (total stress) |
-| Dense sand, silt overlying | End-bearing piles to sand | Beta or CPT method |
-| Bedrock at moderate depth | Drilled shaft socketed in rock | Rock socket in shear |
-| Noise/vibration sensitive area | Drilled shafts (no driving) | CPT or load test |
-| Scour zone (bridge pier) | Deep driven piles below scour | Capacity from below scour zone only |
-| Lateral loads dominant | Drilled shaft (large diameter, stiff) | p-y analysis (LPile) |
-| Verify capacity on-site | Static load test (ASTM D1143) | Direct measurement |
+| Foundation Question | Use This Choice / Check | Watch-Out |
+|---|---|---|
+| Why not shallow foundations? | Deep foundations if weak/compressible/scour-prone near-surface soils control | Piles solve bearing and settlement differently; still check group settlement |
+| Soft clay with no hard layer | Friction piles using alpha method | Adhesion depends on Su and installation; negative skin friction may govern |
+| Dense sand or CPT-defined bearing layer | Driven or drilled end-bearing piles with CPT/beta methods | Driving can densify sand; drilled shafts can disturb the base |
+| Rock at feasible depth | Rock-socketed drilled shafts or H-piles to rock | Socket cleanliness and rock mass quality matter more than intact qu alone |
+| Noise/vibration limits dominate | Drilled shafts, micropiles, or pressed systems | Construction risk shifts to borehole stability, slurry, and spoil control |
+| Bridge pier/scour setting | Driven piles or shafts below design scour | Ignore resistance in the scour zone for final capacity |
+| Lateral loads dominate | Large drilled shafts or pile groups with p-y analysis | Axial capacity checks do not prove lateral serviceability |
+| Capacity must be proven | Static load test, PDA/CAPWAP, or O-cell depending on system | WEAP predicts driveability; it is not proof of final capacity |
 
 ---
+
+## Cross-References
+
+- [Shallow Foundations](06-SHALLOW-FOUNDATIONS.md) gives the first-line foundation option deep systems replace.
+- [Effective Stress](02-EFFECTIVE-STRESS.md) explains skin friction, end bearing, and pore-pressure effects.
+- [Ground Improvement](09-GROUND-IMPROVEMENT.md) covers cases where soil improvement competes with piles or shafts.
 
 ## Common Confusion Points
 

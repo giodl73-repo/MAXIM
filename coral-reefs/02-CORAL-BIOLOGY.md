@@ -244,20 +244,26 @@ CALICOBLASTIC EPITHELIUM (below basal disc)
 
 ---
 
+## Cross-References
+
+- `01-REEF-FORMATION.md` connects coral skeletons to reef accretion.
+- `03-SYMBIOSIS.md` explains the photosynthetic partnership driving coral energy.
+- `05-BLEACHING.md` is the failure mode of stressed coral physiology.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What phylum are corals in? | Cnidaria (with jellyfish, anemones, hydroids) |
-| What class? | Anthozoa (no medusa stage) |
-| What is the corallite? | The aragonite cup secreted by one polyp |
-| What are septa? | Radial aragonite partitions inside the corallite |
-| How do corals catch food? | Tentacles with nematocysts (stinging cells) |
-| What are mesenterial filaments? | Extruded digestive tissue; extra-oral digestion; also warfare weapon |
-| What is broadcast spawning? | Mass simultaneous gamete release; external fertilization; GBR in Nov–Dec |
-| What is brooding? | Internal fertilization; planula larvae released directly |
-| How are annual bands formed? | Dense winter / less dense summer aragonite layers — readable by X-ray |
-| How old can a massive coral be? | 700–1,000 years (Porites heads on GBR) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Coral animal identity | Cnidaria with jellyfish, anemones, and hydroids | Coral is an animal, not a plant. |
+| Coral class | Anthozoa with no medusa stage | Life-cycle stage matters for cnidarian comparison. |
+| Corallite structure | Aragonite cup secreted by one polyp | A coral head contains many clonal polyps. |
+| Septa identification | Radial aragonite partitions inside the corallite | Septa are skeletal architecture, not soft tissue. |
+| Feeding mechanism | Tentacles with nematocysts | Symbiosis supplements energy; it does not eliminate predation. |
+| Mesenterial filaments | Extruded digestive tissue for extra-oral digestion and warfare | Filaments are both feeding and competitive tools. |
+| Broadcast spawning | Mass synchronous gamete release and external fertilization | Synchrony depends on lunar, thermal, and light cues. |
+| Brooding strategy | Internal fertilization and direct planula release | Brooding changes dispersal scale and recruitment pattern. |
+| Annual band reading | Dense winter and less-dense summer aragonite visible by X-ray | Band interpretation needs species and site context. |
+| Massive coral age | Porites heads on GBR around 700-1,000 years | Age is colony age, not individual polyp lifespan. |
 
 ---
 

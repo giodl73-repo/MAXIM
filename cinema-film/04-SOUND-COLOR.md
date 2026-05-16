@@ -370,18 +370,24 @@ STANDARD ASPECT RATIOS (modern):
 
 ---
 
+## Cross-References
+
+- `cinema-film/03-NARRATIVE-GRAMMAR.md` — grammar changed by synchronized sound and color.
+- `colors/01-COLOR-PHYSICS.md` — physical basis of color capture and display.
+- `acoustics/01-WAVE-PHYSICS.md` — sound-wave foundations for recording and playback.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is Vitaphone? | Disc-on-film sync sound system (Warner Bros, 1926); disc mechanically linked to projector |
-| What is the Jazz Singer's significance? | First commercially successful sync sound feature (Oct 1927); not first sound film |
-| What is an optical soundtrack? | Sound encoded as light-varying track on film edge; variable area = width variation |
-| What is the Technicolor three-strip process? | Camera with beam splitter records three separate color strips; dye transfer printing; 1932-1955 |
-| Why did Eastmancolor replace Technicolor? | Single-strip convenience + much lower cost; quality gap closed by mid-1950s |
-| Why did widescreen emerge in 1953? | TV threat: theater differentiation required larger/wider screen impossible on TV |
-| What is CinemaScope? | Fox anamorphic lens system (1953); squeezes 2.35:1 onto standard 35mm; unsqueeze at projection |
-| What is Dolby Stereo? | 1975 matrix encoding of 4-channel surround into 2-channel optical track; Star Wars adoption |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why early sync sound was fragile | Vitaphone disc-linked projector synchronization | Disc sound solved timing commercially before optical sound dominated, but it was mechanically brittle. |
+| Why The Jazz Singer became the threshold event | Commercially successful sync-sound feature in 1927 | It was not the first sound film; it proved conversion economics. |
+| Why optical sound displaced disc systems | Sound encoded on the film edge as light variation | Putting picture and sound on one strip simplified synchronization and distribution. |
+| Why three-strip Technicolor looked distinctive | Beam-splitter camera plus dye-transfer printing | Saturation came from process and aesthetic governance, not "natural" color reproduction. |
+| Why Eastmancolor replaced Technicolor | Single-strip convenience and lower cost | The quality gap closed enough for industry economics to dominate. |
+| Why widescreen arrived when it did | Theater differentiation against television | Aspect ratio shifts were market strategy as much as aesthetic innovation. |
+| How CinemaScope made standard 35mm wide | Anamorphic squeeze/unsqueeze lens system | Anamorphic optics bring visual artifacts as well as wider framing. |
+| Why Dolby Stereo mattered | Matrixed surround in a 2-channel optical track | The breakthrough was compatible upgrade economics, not just more channels. |
 
 ---
 

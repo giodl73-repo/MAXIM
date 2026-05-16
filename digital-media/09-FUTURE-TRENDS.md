@@ -330,20 +330,24 @@ THE STRUCTURAL THREAT:
 
 ---
 
+## Cross-References
+
+- `02-SOCIAL-PLATFORMS.md` supplies the current platform baseline.
+- `05-SEARCH-ALGORITHMS.md` explains AI search and ranking disruption.
+- `08-MISINFORMATION.md` frames generative media as a trust and verification problem.
+
 ## Decision Cheat Sheet
 
-| Trend | Current state (2025) | Timeline |
-|-------|---------------------|---------|
-| LLM-generated content | Widespread spam; some legitimate use | Now |
-| Text-to-image | Production quality; standard tool | Now |
-| Text-to-video (short) | High quality up to ~60 seconds | Now |
-| AI detection | Unreliable; detection arms race | Ongoing |
-| C2PA content provenance | Adopted by some; not universal | 2-5 years to wide coverage |
-| Consumer VR | ~10% adoption; no killer app | Slow growth |
-| AR glasses (no screen) | Meta Ray-Bans: low feature | 3-5 years to useful |
-| ActivityPub/Bluesky | Growing but niche | Slow growth |
-| AI-native interfaces | Emerging as primary search | 2-4 years to dominant |
-| Automated journalism | Narrow domains: operational | Expanding scope |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| LLM-generated content | Widespread spam plus legitimate workflow support | Detection is unreliable; provenance and editorial process matter more. |
+| Text-to-image/video | Production-quality image and short-video generation | Capability does not settle copyright, disclosure, or trust policy. |
+| AI detection claims | Arms race with high false positives | Do not use detectors as sole adjudication. |
+| Content provenance | C2PA adoption and cryptographic signing | Coverage must become broad before absence of provenance means much. |
+| Consumer spatial computing | VR/AR adoption and use-case fit | Enterprise niches may mature long before mass consumer media. |
+| Decentralized social | ActivityPub and AT Protocol growth | Protocol gains do not erase network-effect advantages of centralized platforms. |
+| AI-native interfaces | Search and assistant interfaces as front doors | Traffic redistribution may matter more than interface novelty. |
+| Automated journalism | Structured-data domains such as earnings, sports, quakes | Automation handles routine events, not source judgment or accountability. |
 
 ---
 

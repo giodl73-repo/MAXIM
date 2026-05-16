@@ -424,6 +424,18 @@ Refractive index varies with wavelength (dispersion). Two types:
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Field-theory foundations beneath rays | `physics/01-ELECTROSTATICS.md` | Geometric optics is the high-frequency limit of electromagnetic waves |
+| Fourier optics and imaging limits | `signal-processing/01-FOURIER-ANALYSIS.md` | Diffraction, aperture, and resolution are spatial-frequency problems |
+| Lens materials and refractive index | `materials/01-CRYSTAL-STRUCTURE.md` | Dispersion and optical quality come from atomic structure and defects |
+| Camera systems and practical imaging | `photography/01-OPTICS-LENSES.md` | Applies ray tracing, focal length, aperture, aberrations, and depth of field |
+| Control/state-space analogy | `control-theory/01-PID-CLASSICAL.md` | ABCD matrices compose optical systems like transfer matrices compose dynamical systems |
+
+---
+
 ## Common Confusion Points
 
 **Sign conventions are inconsistent across textbooks**: The real-is-positive convention (do, di positive for real objects/images) is used here. Some texts use the Cartesian sign convention (distances measured from surface, leftward negative). Always check which convention a formula uses before plugging in numbers.

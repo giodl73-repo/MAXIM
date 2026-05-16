@@ -424,20 +424,26 @@ The MIT TCS background makes this precise:
 
 ---
 
+## Cross-References
+
+- `probability-statistics/02-RANDOM-VARIABLES.md` — random variables and distributions are the objects limits act on.
+- `probability-statistics/05-STATISTICAL-INFERENCE.md` — confidence intervals and hypothesis tests rely on LLN/CLT approximations.
+- `machine-learning-theory/01-PAC-LEARNING.md` — learning guarantees are limit-theorem reasoning applied to empirical risk.
+
 ## Decision Cheat Sheet
 
-| Theorem | What It Gives | Conditions |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Weak LLN | X_bar -> mu in probability | E\|X\| < inf |
-| Strong LLN | X_bar -> mu a.s. | E\|X\| < inf |
-| CLT (iid) | Gaussian fluctuations at rate 1/sqrt(n) | Finite variance |
-| Berry-Esseen | CLT error O(1/sqrt(n)) | Finite 3rd moment |
-| Lindeberg-Feller | CLT for non-iid | Lindeberg condition |
-| Slutsky | Combine distribution limits | One limit is constant |
-| Continuous mapping | Apply continuous functions to limits | g continuous a.e. |
-| Delta method | CLT for smooth transformations | g differentiable at theta |
-| Large deviations | Exponential tail bounds | MGF finite near 0 |
-| Hoeffding | Exponential bound for bounded r.v.s | Bounded X_i |
+| Whether averages converge in probability | Weak law of large numbers | Convergence in probability is weaker than almost sure convergence |
+| Whether sample averages converge pathwise | Strong law of large numbers | Moment and dependence assumptions matter |
+| Whether fluctuations become Gaussian | IID CLT | Finite variance is doing real work |
+| Whether CLT approximation error matters | Berry-Esseen bound | Requires a finite third absolute moment |
+| Whether non-identical terms still have a CLT | Lindeberg-Feller theorem | No single term may dominate the variance |
+| Whether limits can be algebraically combined | Slutsky theorem | One component must converge to a constant |
+| Whether a function of a convergent sequence converges | Continuous mapping theorem | Discontinuities at mass points break naive use |
+| Whether a smooth transformation inherits asymptotic normality | Delta method | Derivative zero or nonsmooth maps need different scaling |
+| Whether rare-event probabilities decay exponentially | Large deviations | Rate functions need stronger tail/MGF assumptions |
+| Whether bounded variables need concentration | Hoeffding inequality | Boundedness drives the bound, not variance precision |
 
 ---
 

@@ -278,6 +278,12 @@ SUBMARINE CABLES:
 
 ---
 
+## Cross-References
+
+- [Specialty Glass](05-SPECIALTY-GLASS.md) frames optical fiber as an extreme purity and composition-control case.
+- [Forming Techniques](03-FORMING-TECHNIQUES.md) supplies the drawing logic adapted to fiber manufacture.
+- [Glass Science](01-GLASS-SCIENCE.md) explains total internal reflection, attenuation, and defect sensitivity from material structure.
+
 ## Common Confusion Points
 
 **TIR requires light to travel from denser to less dense medium**:

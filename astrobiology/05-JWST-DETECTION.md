@@ -263,22 +263,28 @@ WHAT HWO NEEDS (contrast requirements):
 
 ---
 
+## Cross-References
+
+- `astrobiology/04-BIOSIGNATURES.md` — what the detection pipeline is trying to identify.
+- `astronomy/09-EXOPLANETS.md` — exoplanet discovery and characterization background.
+- `remote-sensing/02-PASSIVE-SENSORS.md` — passive spectral measurement logic.
+
 ## Decision Cheat Sheet
 
-| Method | What you get | Best for | JWST capable? |
-|---|---|---|---|
-| Transit spectroscopy | Limb atmosphere composition | Sub-Neptunes, M-dwarf HZ | Yes (large/close planets) |
-| Secondary eclipse | Dayside T-P profile and composition | Hot planets | Yes |
-| Phase curve | Longitudinal temperature map | Hot Jupiters | Yes |
-| Direct imaging | Full disk reflectance spectrum | Near, large planets | Marginally |
-| High-res ground-based | O2, CO2, H2O at R~100,000 | TRAPPIST-1 system | No (needs ELT) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a transiting planet's atmosphere is measurable | Transit spectroscopy | Works best for large/close planets; retrieval is inverse modeling with cloud/haze degeneracies. |
+| Whether a hot planet's dayside chemistry is accessible | Secondary eclipse | Strong for hot planets, not Earth analog biosignatures. |
+| Whether longitudinal heat transport matters | Phase curves | Best for hot Jupiters and strongly irradiated planets. |
+| Whether full-disk reflected light is possible | Direct imaging | JWST is marginal; Earth analogs need future coronagraph/starshade-class missions. |
+| Whether narrow molecular lines can be separated | High-resolution ground-based spectroscopy | O2/CO2/H2O at very high resolution needs ELT-class instruments, not JWST. |
 
-| Target | Priority | Why | Transits needed |
-|---|---|---|---|
-| TRAPPIST-1e/f/g | Highest near-term | HZ, rocky, 40 ly | 20-50 each |
-| K2-18b | High (already interesting) | DMS tentative, sub-Neptune | More to confirm |
-| LHS 1140b | High | HZ rocky super-Earth, quiet star | ~30 |
-| 55 Cancri e | Medium (not HZ) | Lava world, atmospheric chemistry | Done |
+| If you need to diagnose target priority... | Start With | Key Caveat |
+|---|---|---|
+| Best near-term rocky HZ candidates | TRAPPIST-1e/f/g | Dozens of transits are needed and stellar activity complicates retrieval. |
+| Most publicized tentative biosignature case | K2-18b | DMS remains unconfirmed and the planet is a sub-Neptune, not an Earth twin. |
+| Quiet-star rocky super-Earth opportunity | LHS 1140b | High value, but still transit-expensive. |
+| Non-HZ atmospheric laboratory | 55 Cancri e | Useful for lava-world chemistry, not life detection. |
 
 ---
 

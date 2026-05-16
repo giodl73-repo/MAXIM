@@ -572,19 +572,24 @@ Understanding which framework is mandatory vs. voluntary and who the audience is
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Need to compare environmental impacts of two cooling systems | LCA (ISO 14040/14044); include energy, water, refrigerant GWP, materials across full life |
-| Reporting Scope 2 with renewable energy claims | Use market-based method with RECs or PPAs; location-based method for secondary disclosure |
-| How much of our footprint is Scope 3? | Calculate all 15 categories; Cat. 1 (purchased goods) and Cat. 11 (use of products) dominate for tech companies |
-| SBTi validation — what does it require? | 90%+ absolute reduction; all Scopes; near-term (2030) + long-term (2050) targets submitted |
-| What framework should we use for climate risk disclosure? | ISSB IFRS S2 (global standard going forward); TCFD if not in mandatory jurisdiction yet |
-| Is buying offsets enough for net-zero claim? | No — SBTi net-zero requires deep reduction first; offsets ≠ reductions |
-| How do I measure circular economy performance? | Material flow analysis; reuse rate (% by mass); circularity rate (Ellen MacArthur CI) |
-| What's the best LCI database for tech hardware? | Ecoinvent + industry-specific data (iNemi reports, PAIA data for electronics) |
-| Carbon neutral vs. net-zero — which claim is defensible? | Net-zero (SBTi) is more rigorous; "carbon neutral" has no mandatory reduction requirement and is increasingly challenged |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| LCA comparison | Functional unit, boundary, allocation, inventory data, and impact method | Change the functional unit and the winner can flip |
+| Scope 2 claim | Location-based vs market-based accounting and instrument quality | RECs transfer attributes, not electrons |
+| Scope 3 footprint | Category coverage, supplier data quality, spend vs process data | Scope 3 is influence-heavy and control-light |
+| Net-zero claim | Absolute reductions, residual emissions, removals, and target year | Offsets are not a substitute for deep decarbonization |
+| Climate-risk disclosure | Physical vs transition risk, scenario, time horizon, and financial materiality | Reporting framework does not prove risk is managed |
+| Circularity claim | Material flow, reuse/recycling quality, lifetime extension, and leakage | Recycling is lower on the hierarchy than reuse and design-out |
+| Water-positive claim | Basin stress, withdrawal vs consumption, replenishment quality, and timing | Returning water in the wrong basin may not offset local stress |
+| Carbon-neutral claim | Boundary, offset quality, permanence, additionality, and claims language | "Carbon neutral" is weaker and more contested than SBTi-style net zero |
 
 ---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places sustainability inside the environmental-engineering field map.
+- `04-SOLID-WASTE.md` connects circularity to material recovery and disposal.
+- `../materials-processing/09-CHARACTERIZATION.md` gives adjacent tools for measuring material and process impacts.
 
 ## Common Confusion Points
 

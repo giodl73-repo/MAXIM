@@ -250,16 +250,22 @@ float biquad(float x, float* w) {
 
 ---
 
+## Cross-References
+
+- `signal-processing/03-FILTERS.md` — poles and zeros determine IIR filter behavior.
+- `control-theory/01-PID-CLASSICAL.md` — discrete-time control uses the z-plane counterpart of the s-plane.
+- `signal-processing/02-SAMPLING-THEORY.md` — sampling turns continuous-time dynamics into discrete-time sequences.
+
 ## Decision Cheat Sheet
 
-| Problem | Z-transform approach |
-|---------|---------------------|
-| Analyze stability of a difference equation | Compute H(z), find poles, check |z|<1 |
-| Find frequency response | Evaluate H(z) on unit circle, z = e^{jω} |
-| Design a notch filter | Place zero ON unit circle at notch frequency |
-| High-Q resonator | Pole near unit circle at resonant frequency |
-| Check if filter matches difference equation | Z-transform the equation → H(z) |
-| Implement IIR filter | Factor into biquad cascade |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Difference-equation stability | Compute `H(z)`, find poles, and check `|z| < 1` for causal stability | The region of convergence is part of the system description. |
+| Frequency response | Evaluate `H(z)` on the unit circle, `z = e^{jω}` | Unit-circle evaluation only makes sense when the ROC includes it. |
+| Notch filter design | Place zeros on the unit circle at the notch frequency | Pole placement nearby controls bandwidth and numerical sensitivity. |
+| High-Q resonator | Put poles close to the unit circle at the resonant angle | Quantization can push marginal designs unstable. |
+| Difference equation versus filter | Z-transform the equation and solve for `H(z)` | Initial conditions and causal assumptions affect interpretation. |
+| IIR implementation | Factor into stable biquad sections | Direct high-order forms are coefficient-sensitive. |
 
 ---
 

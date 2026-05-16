@@ -332,20 +332,26 @@ LIGHTING:
 
 ---
 
+## Cross-References
+
+- `02-HAND-TOOLS.md` defines bench and storage needs.
+- `03-POWER-TOOLS.md` defines machine, dust, and electrical requirements.
+- `07-FURNITURE-CONSTRUCTION.md` turns shop layout into project workflow.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the optimal bench height? | Wrist height when arms hang straight down (typically 33–36") |
-| Roubo vs. Scandinavian bench — key difference? | Roubo: massive leg vise + holdfast holes; Scandinavian: metal face vise, simpler build |
-| What is a holdfast? | Iron hook dropped through bench hole; locked with hammer blow; one-handed work holding |
-| Minimum bench top thickness? | 3" (3.5–4" for holdfasts to work reliably) |
-| How should chisels be stored? | Individually in roll, rack, or foam-lined drawer — edges protected |
-| What must never be used in a wood shop? | Silicone-based products (contaminate wood; finish adhesion failure) |
-| What dust filter rating is minimum? | 1 micron pleated canister; 0.5 micron or MERV 16 for fine hardwood/MDF |
-| What are blast gates for? | Direct full CFM to one machine at a time instead of diluting across all ports |
-| What is stickering? | Uniform spacers between stored boards for airflow; prevents moisture gradient warping |
-| What circuit for a 3HP table saw? | 240V, 20A dedicated circuit |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Bench height | Wrist height with arms hanging straight, adjusted by work type | Plane work often wants lower height than chisel/layout work. |
+| Bench design | Roubo mass/leg vise/holdfasts versus Scandinavian face vise simplicity | Bench style is workflow choice, not a virtue hierarchy. |
+| One-handed workholding | Holdfast holes and top thickness | Holdfasts work reliably only with enough top thickness and correct hole fit. |
+| Edge-tool storage | Individual roll, rack, or foam-lined drawer | Storage is edge protection, not just organization. |
+| Finish contamination | Ban silicone products from the shop | Silicone contamination can cause finish failures far downstream. |
+| Fine dust filtration | 1 micron pleated canister minimum; 0.5 micron or MERV 16 for fine hardwood/MDF | Cloth bags can collect chips while passing hazardous fine dust. |
+| Dust collection airflow | Blast gates directing full CFM to one machine | Open branches dilute suction below useful capture velocity. |
+| Lumber storage | Stickers with uniform airflow between boards | Poor stickering creates moisture gradients and warp. |
+| Thick-stock acclimation | Moisture meter and species/thickness-dependent wait | Time alone does not prove equilibrium MC. |
+| 3HP table-saw power | 240V, 20A dedicated circuit | Electrical work requires correct breaker, wire, receptacle, and code compliance. |
 
 ---
 

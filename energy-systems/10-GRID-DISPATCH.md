@@ -655,24 +655,26 @@ ELECTRICITY MARKET DESIGN EVOLUTION:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is merit order dispatch? | Rank generators by marginal cost, dispatch cheapest first until supply = demand |
-| What is unit commitment? | Binary on/off scheduling of generators over 24-48h; MILP optimization problem |
-| Why is UC harder than dispatch? | Binary variables (on/off) + inter-temporal constraints (startup cost, min up/down time) |
-| What sets the clearing price? | The marginal (most expensive dispatched) generator — all units receive this price |
-| Why do VRE push prices to zero? | Zero marginal cost: once built, wind/solar produce at effectively $0/MWh |
-| How does BESS earn revenue? | Stacking: arbitrage + frequency regulation + reserves + capacity payments |
-| What is the minimum profitable spread? | Degradation cost (~$40/MWh) + round-trip loss cost (~$5-8/MWh) ≈ $45-50/MWh |
-| Why is seasonal storage different? | Duration × energy cost: Li-ion scales linearly with hours → absurd at 1,000h; H₂/PHS have low $/kWh |
-| What is the "missing money" problem? | VRE at $0/MWh suppresses energy prices → insufficient revenue for firm capacity |
-| What is ORDC (ERCOT)? | Scarcity pricing: price adder escalates when reserves are thin (up to $5,000/MWh) |
-| What is N-1 contingency? | Grid must survive the sudden loss of any single generator or line |
-| Can data centers do demand response? | Yes: shift batch training, backups, ETL to off-peak; keep serving traffic unaffected |
-| What fraction of curtailment is acceptable? | System-optimal: 5-15%; above this, add storage or transmission |
-| Dark doldrums: what solves it? | Portfolio: firm capacity + interconnection + DR + strategic H₂ + overbuilt VRE |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Merit-order claim | Marginal cost stack for the next interval | Greedy dispatch ignores startup, ramping, reserves, and transmission |
+| Unit-commitment claim | Binary on/off variables plus inter-temporal constraints | Commitment is solved before real-time dispatch and under uncertainty |
+| Clearing-price claim | Marginal dispatched resource at a location/time | Congestion and losses create nodal price differences |
+| VRE price suppression | Near-zero marginal cost and must-take incentives | Low prices are a signal; persistent low prices expose flexibility shortage |
+| BESS revenue claim | Arbitrage, ancillary services, capacity, and degradation | Revenue stacking is constrained by state of charge and market rules |
+| Seasonal-storage claim | Duration cost, self-discharge, and event frequency | Li-ion is power-flexible; molecules/reservoirs fit long duration better |
+| Missing-money claim | Energy-only revenue vs firm-capacity adequacy | Scarcity pricing, capacity markets, and reliability products solve it differently |
+| Data-center DR claim | Workload criticality, latency, and carbon/price signal | Batch jobs can move; interactive serving often cannot |
+| Curtailment claim | Marginal value of storage/transmission vs spilled MWh | Some curtailment is optimal; zero curtailment is overbuilt infrastructure |
+| Dark-doldrum claim | Weather correlation, interconnection, firm capacity, and long-duration storage | No single asset solves multi-day regional scarcity |
 
 ---
+
+## Cross-References
+
+- `05-GRID-INTEGRATION.md` gives the operational stability context for dispatch.
+- `03-ENERGY-STORAGE.md` explains how storage changes dispatch constraints.
+- `../electrical-grid/08-MARKETS.md` connects dispatch to market clearing and prices.
 
 ## Common Confusion Points
 
@@ -681,14 +683,14 @@ That is merit order dispatch — the simplest case. Real dispatch includes unit 
 (binary startup decisions with inter-temporal constraints), security constraints (N-1,
 transmission limits), and reserve procurement. The full problem is a mixed-integer program
 solved under uncertainty. "Cheapest first" is the greedy heuristic; the real problem
-requires dynamic programming or MILP.
+requires optimization, usually MILP/MINLP approximations in ISO practice.
 
 **"Batteries will replace all gas peakers"**
-For durations up to 4 hours, BESS is already cheaper than gas peakers in many markets.
-But gas peakers can run for 8-12+ hours during extended events (heat waves, polar vortex).
-Until long-duration storage is commercially available, gas peakers remain the backstop
-for multi-day extreme events. The replacement is gradual: first the 1-2h peakers, then
-the 4h, then eventually the 8h+ role.
+For short-duration peaking and ancillary services, BESS can already beat gas in
+many markets. But gas peakers can run through long heat waves, cold snaps, or
+low-renewable events if fuel is available. Until long-duration storage, firm
+clean capacity, or demand flexibility scales, the replacement is gradual: first
+the 1-2h peakers, then the 4h role, and only later the multi-day backstop.
 
 **"Negative prices mean the market is broken"**
 Negative prices are a feature, not a bug, of well-functioning markets with high VRE.
@@ -698,11 +700,11 @@ Negative prices that persist for many hours signal inadequate storage, demand fl
 or transmission — an infrastructure gap, not a market design failure.
 
 **"Demand response is just telling people to use less electricity"**
-That is demand curtailment (reduction) — the crude version. Modern demand response is
-demand *shifting*: move consumption from high-price to low-price hours without reducing
-total consumption. A data center that runs batch training at 2pm instead of 6pm consumes
-the same energy but at a different price point and carbon intensity. The total service
-delivered is unchanged.
+That is demand curtailment (reduction) — the crude version. Modern demand
+response is often demand *shifting*: move flexible consumption from high-price to
+low-price hours without reducing total service. A data center can shift batch
+training, backups, or ETL more easily than latency-sensitive serving; the value
+depends on workload separability and service-level commitments.
 
 **"BESS degradation cost doesn't matter"**
 At 5,000 cycles and $200/kWh installed, degradation costs ~$40/MWh discharged. This is

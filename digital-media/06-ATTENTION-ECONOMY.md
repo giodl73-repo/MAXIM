@@ -331,16 +331,22 @@ ART DESIGN IMPLICATIONS:
 
 ---
 
+## Cross-References
+
+- `02-SOCIAL-PLATFORMS.md` shows attention markets in feed algorithms.
+- `04-UX-WRITING.md` shows where engagement design touches interface language.
+- `08-MISINFORMATION.md` covers the failure mode when attention rewards falsehood.
+
 ## Decision Cheat Sheet
 
-| Concept | Definition |
-|---------|-----------|
-| Attention economy | Advertising model that treats human attention as the product sold to advertisers |
-| Engagement metric | Proxy measure for attention capture (watch time > shares > likes > views) |
-| Dark pattern | UI design that achieves platform goals at users' expense |
-| Variable reward schedule | Skinner-derived design technique; unpredictable rewards create compulsive checking |
-| Directed attention | Effortful cognitive focus; depletes with use |
-| Involuntary attention | Effortless; restored by natural/fascinating stimuli |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Attention-economy business model | Advertising systems that sell captured human attention | The product is audience behavior, not just ad inventory. |
+| Engagement metrics | Watch time, shares, likes, views, and other attention proxies | Engagement is not a neutral welfare metric. |
+| Dark patterns | UI that serves platform goals at user expense | Dark patterns increasingly carry regulatory and enforcement risk. |
+| Compulsive checking | Variable reward schedules and intermittent reinforcement | Behavioral-design mechanics are real, but user effects vary by context. |
+| Cognitive depletion | Directed attention as effortful focus | Screen-time correlations do not by themselves prove causation. |
+| Attention restoration | Involuntary attention and soft fascination | Some digital contexts can restore; interruption-heavy contexts usually deplete. |
 
 ---
 

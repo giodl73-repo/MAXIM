@@ -2,7 +2,13 @@
 
 ## The Big Picture
 
-Pollination by insects is the reproductive mechanism for ~75% of flowering plant species and ~35% of global food production. The system operates as a market economy: plants advertise (flowers) and pay (nectar, pollen, oils, resins) for services; pollinators shop based on energetic return. Pollinator decline represents a potential market failure with cascading consequences across terrestrial ecosystems.
+Pollination by animals is required or beneficial for most flowering plant
+species and many high-value crops, though staple calories are still dominated by
+wind-pollinated cereals and vegetatively propagated crops. The system operates
+like a market economy: plants advertise and pay with nectar, pollen, oils,
+resins, heat, shelter, or deception; pollinators forage based on reward, memory,
+competition, and morphology. Pollinator decline is a dependency-graph risk, not
+just a honey-bee management problem.
 
 ```
 POLLINATION ECOLOGY OVERVIEW
@@ -29,7 +35,7 @@ WHO POLLINATES?
 
 CROP DEPENDENCY:
   ~87 of 115 leading global food crops require/benefit from
-  animal pollination (Klein et al. 2007)
+  animal pollination (Klein et al. 2007), but cereal staples dominate calories
   Economic value: ~$150-500 billion USD/yr (2020 estimates)
   Exceptions: cereals (wind-pollinated), rice, wheat, maize
 ```
@@ -319,18 +325,24 @@ Pollinator decline is a cascading failure through a dependency graph. ~87% of fl
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What fraction of food crops require insect pollination? | ~87 of 115 leading crops (Klein et al. 2007) |
-| Which crops are NOT pollinator dependent? | Cereals (wheat, rice, maize) -- wind-pollinated |
-| What is buzz pollination? | Vibration of anther at ~400 Hz to release pollen (tomato, blueberry) |
-| Can honey bees buzz-pollinate? | No -- different flight muscle type |
-| What is the dominant driver of pollinator decline? | Multiple synergistic factors; habitat loss + neonicotinoids +pathogens |
-| Are neonicotinoids banned? | EU outdoor use banned 2018; emergency authorizations persist in some regions |
-| What is phenological mismatch? | Temporal disconnect between flower timing and pollinator emergence due to differential climate response |
-| Are urban pollinators worse off than rural? | Often better -- more diverse plantings, less pesticide |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Crop-dependence claim | Species count, production volume, economic value, and calories separately | Pollinator-dependent crops are nutritionally/economically important even if cereals dominate calories |
+| Pollination-syndrome claim | Flower color, scent, reward, shape, and visitor morphology | Syndromes are probabilistic pattern-recognition tools |
+| Honey-bee claim | Managed Apis service vs wild-pollinator diversity | Honey bees are livestock; wild bees supply resilience and specialization |
+| Buzz-pollination claim | Poricidal anthers and vibration behavior | Bumblebees and some solitary bees do it; honey bees generally do not |
+| Decline claim | Region, taxon, metric, and monitoring method | Managed colony loss, wild range contraction, and biomass decline are different signals |
+| Pesticide claim | Exposure route, dose, crop, timing, and landscape context | Lab effects do not automatically equal field population collapse |
+| Conservation claim | Floral continuity, nesting substrate, pesticide reduction, and landscape connectivity | Insect hotels alone are not habitat restoration |
+| Deceptive-pollination claim | Reward absence, mimicry target, and pollinator learning | Deception works only while encounter rates and alternatives keep the system viable |
 
 ---
+
+## Cross-References
+
+- `05-INSECT-PLANT.md` gives the broader herbivory, mutualism, and coevolution frame.
+- `08-ECONOMIC-ENTOMOLOGY.md` connects pollination to agricultural value and managed bees.
+- `../botany/05-FLOWERS-REPRODUCTION.md` supplies the plant reproductive anatomy.
 
 ## Common Confusion Points
 

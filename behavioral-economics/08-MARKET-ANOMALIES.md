@@ -1,6 +1,6 @@
 # Market Anomalies
 
-## Behavioral Finance Overview
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -296,17 +296,27 @@ SHLEIFER & VISHNY (1997) LIMITS TO ARBITRAGE:
   efficient in the long run but with systematic, exploitable deviations.
 ```
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Prospect-theory basis for risk anomalies | `behavioral-economics/02-PROSPECT-THEORY.md` |
+| Heuristics behind investor mistakes | `behavioral-economics/03-HEURISTICS-BIASES.md` |
+| Experimental evidence standards | `statistics-applied/01-EXPERIMENTAL-DESIGN.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Market anomaly | Behavioral mechanism | Investment implication |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Equity premium puzzle | Myopic loss aversion (λ=2.25 × annual evaluation) | Long-horizon investors should hold more equity than market implies |
-| Disposition effect | Prospect theory: sell winners (gain domain risk aversion), hold losers (loss domain risk seeking) | Tax-loss harvesting; challenge your own selling decisions |
-| Momentum (3-12 months) | Underreaction to news; investor inertia | Momentum factor in diversified portfolio |
-| Long-run reversal (3-5 years) | Overreaction to earnings; correction | Value/contrarian strategy |
-| Excess trading | Overconfidence in informational edge | Index funds beat active trading for most investors |
-| Analyst optimism | Overconfidence + career incentives | Discount long-term analyst growth projections substantially |
-| IPO underperformance | Investor overoptimism at listing | Be skeptical of hot IPOs; wait for post-lockup rationalization |
+| Equity premium puzzle | Myopic loss aversion plus frequent evaluation | Quantitative fit is impressive, but not the only possible explanation. |
+| Disposition effect | Selling winners in gain domain and holding losers in loss domain | Tax, liquidity, and portfolio constraints can mimic behavioral selling patterns. |
+| Momentum | Underreaction to news and investor inertia over 3-12 months | Publication and crowding can weaken anomaly returns. |
+| Long-run reversal | Overreaction and later correction over 3-5 years | Risk-based and behavioral explanations are hard to separate. |
+| Excess trading | Overconfidence in informational edge | Retail evidence is strongest; institutional settings have different distortions. |
+| Analyst optimism | Career incentives plus overconfidence | Forecast bias varies by sector, horizon, and incentive structure. |
+| IPO underperformance | Listing overoptimism and post-lockup repricing | Hot-issue markets are regime-dependent, not a timeless free-money rule. |
 
 ## Common Confusion Points
 

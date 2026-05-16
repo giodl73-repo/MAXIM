@@ -544,18 +544,26 @@
 
 ## Decision Cheat Sheet
 
-| I want to understand... | Framework |
-|------------------------|-----------|
-| Why altruism toward kin exists | Hamilton's rule (rB > C) |
-| Why unrelated people cooperate | Reciprocal altruism (Trivers) + strong reciprocity |
-| Why punishment of cheaters exists | Altruistic punishment, ultimatum game data |
-| Why incest avoidance is universal | Westermarck effect (proximity in early childhood) |
-| Why humans have such long childhoods | Life history theory — brain development cost |
-| Why grandmothers matter | Grandmother hypothesis (Hawkes, inclusive fitness) |
-| Why human mating is mildly polygynous | Anatomical signals (SSD, testis size) |
-| Why evolutionary psych claims fail cross-culturally | WEIRD problem (Henrich 2010) |
-| Why "natural" doesn't mean "right" | Naturalistic fallacy — logic error |
-| Why organ design vs. behavior | Adaptation vs. by-product — spandrel argument |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Kin altruism | Use Hamilton's rule, relatedness, benefit, cost, inclusive fitness, and ecological context. | `rB > C` is a model frame, not a complete behavioral explanation. |
+| Cooperation among non-kin | Compare reciprocal altruism, reputation, punishment, institutions, repeated games, and group structure. | Human cooperation mixes evolved psychology with cultural institutions. |
+| Punishment of cheaters | Check public goods games, ultimatum data, norm enforcement, status, cost, and coalition dynamics. | Punishment can stabilize cooperation or become dominance. |
+| Incest avoidance | Evaluate Westermarck effect, childhood proximity, kin recognition, taboo, and alliance rules. | Cultural rules and evolved avoidance can reinforce each other. |
+| Long childhood | Use life-history theory, brain growth, learning load, dependency, provisioning, and mortality. | Childhood length is a tradeoff among learning, fertility, and survival. |
+| Grandmother effect | Examine post-reproductive lifespan, provisioning, inclusive fitness, childcare, and demographic models. | The hypothesis is plausible but population- and ecology-sensitive. |
+| Human mating pattern | Compare sexual size dimorphism, testis size, pair bonding, paternal investment, and cultural rules. | Biology constrains mating systems; institutions reshape them. |
+| Cross-cultural evolutionary claim | Check WEIRD bias, measurement equivalence, ecology, local norms, and alternative explanations. | A universal-looking result can be sampling artifact. |
+| Naturalistic-fallacy risk | Separate descriptive evolutionary account from moral justification. | "Natural" does not mean good, inevitable, or acceptable. |
+| Adaptation vs by-product | Test design fit, comparative evidence, developmental constraint, spandrels, and exaptation. | Not every trait with a story is an adaptation. |
+
+---
+
+## Cross-References
+
+- `02-PALEOANTHROPOLOGY.md` provides the fossil and archaeological record that evolutionary models must explain.
+- `03-PRIMATOLOGY.md` supplies comparative evidence for sociality, cognition, and mating systems.
+- `07-COGNITIVE-CULTURAL.md` links gene-culture evolution to transmission, norms, and cultural learning.
 
 ---
 

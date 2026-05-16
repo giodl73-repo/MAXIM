@@ -304,18 +304,24 @@ OORT CLOUD (HYPOTHETICAL)
 
 ---
 
+## Cross-References
+
+- `planetary-science/01-SOLAR-SYSTEM-FORMATION.md` — planetesimal remnants and accretion history.
+- `paleontology/07-MASS-EXTINCTIONS.md` — impact events as biosphere-scale perturbations.
+- `space-exploration/01-ORBITAL-MECHANICS.md` — small-body trajectories and mission design.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| What is the asteroid belt's total mass? | ~4% of the Moon's mass (~3×10²¹ kg); mostly empty space despite being "a belt" |
-| Why is there a gap at 2.5 AU? | Jupiter 3:1 mean-motion resonance (Kirkwood gap); repeated perturbations scatter asteroids out |
-| What are C-type asteroids made of? | Hydrated silicates + carbon-rich material; most primitive; likely sources of Earth's water via late accretion |
-| What drives comet activity? | Sublimation of ices when nucleus warms inside ~3 AU; CO₂ can drive activity at larger distances |
-| Why is the ion tail straight? | Solar wind blows directly away from the Sun (radially); ion tail aligns with the solar wind direction |
-| How old are chondrites? | Chondrules date to 4.563-4.567 Ga — essentially the age of the solar system |
-| What is the Tisserand parameter? | Orbital parameter T_J relative to Jupiter; T_J < 3 → Jupiter-family comet; T_J > 3 → asteroid (roughly) |
-| Why is Pluto not a planet? | Doesn't clear its orbital neighborhood — the Kuiper Belt is full of similar objects; fails IAU 2006 criterion 3 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Asteroid belt mass | About 4 percent of Moon mass | "Belt" does not imply dense packing. |
+| Kirkwood gap at 2.5 AU | Jupiter 3:1 mean-motion resonance | Resonant clearing is gradual orbital diffusion. |
+| C-type asteroid composition | Hydrated silicates and carbon-rich material | Primitive does not mean chemically unaltered. |
+| Comet activity driver | Ice sublimation inside a few AU | CO2 and CO can drive activity farther out. |
+| Straight ion tail | Solar-wind pickup away from Sun | Dust tails curve differently under radiation pressure/orbit. |
+| Chondrite age | Chondrules near 4.563-4.567 Ga | Chondrules date solids, not every parent-body process. |
+| Tisserand classification | Jupiter-relative T_J parameter | It is a dynamical heuristic with edge cases. |
+| Pluto planet status | Failure to clear neighborhood | IAU category is taxonomic, not geophysical worth. |
 
 ---
 

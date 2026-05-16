@@ -210,6 +210,18 @@ An **ore mineral** contains the target metal in extractable concentration. **Gan
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Rock families above minerals | `geography/01-PHYSICAL-GEOGRAPHY.md` | Minerals combine into rocks that shape landforms and resources |
+| Crystal/material structure | `materials/01-CRYSTAL-STRUCTURE.md` | Mineral properties are structure-property relationships |
+| Ore formation and element distribution | `geochemistry/01-ELEMENT-DISTRIBUTION.md` | Economic minerals concentrate through geochemical processes |
+| Clay and ceramic minerals | `ceramics/01-CLAY-TYPES.md` | Phyllosilicates bridge geology into material culture |
+| Pigment minerals | `pigments/01-PREHISTORIC-EARTH.md` | Earth pigments are mineral chemistry used visually |
+
+---
+
 ## Common Confusion Points
 
 **Color is unreliable for minerals** — Quartz can be colorless (rock crystal), purple (amethyst), pink (rose), black (smoky), yellow (citrine), or white (milky). Impurity elements cause color. Always check streak for ID.

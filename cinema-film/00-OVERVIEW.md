@@ -203,16 +203,24 @@ MODERN STRUCTURE (Post-1948 / Post-Streaming):
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why 24 frames/second? | Compromise: enough for smooth motion illusion, minimum film stock consumption; 1927 sound sync standard |
-| What is the 180° rule? | Cameras must stay on one side of action axis; crossing = spatial disorientation for viewer |
-| What ended the studio system? | Paramount Decree 1948 (antitrust) forced studios to sell theaters; TV competition followed |
-| What is a digital intermediate? | Scan film to digital, grade/manipulate, output back to film or direct digital; enables modern color grading |
-| What is the franchise model? | Pre-sold IP, sequel potential, merchandise revenue, worldwide simultaneous release; lower creative risk |
-| What is a distribution window? | Sequential release: theaters -> physical media -> streaming -> broadcast; each window monetizes residual audience |
-| What killed the 3-strip Technicolor? | Eastmancolor (1950): single-strip color film; much cheaper, good enough quality |
-| What is the "film look"? | 24fps + motion blur + color grade characteristics; distinct from video's 30fps + interlace + direct color |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Frame-rate choice | Check motion illusion, sound sync, stock cost, shutter angle, display standard, and audience expectation. | 24 fps is an industrial compromise that became an aesthetic norm. |
+| Screen geography | Use the 180-degree axis, eyelines, movement direction, shot/reverse-shot, and continuity editing. | Breaking the axis is a tool only if disorientation is intentional. |
+| Studio-system collapse | Trace vertical integration, Paramount Decree, theater divestiture, TV competition, stars, and financing. | Antitrust opened the system; audience and technology shifts finished the change. |
+| Digital intermediate | Separate scan, conform, color grade, VFX pipeline, output format, and archival implications. | DI changes authorship and look; it is not just a transfer step. |
+| Franchise economics | Check IP pre-sold awareness, sequel logic, merchandising, global release, risk pooling, and creative constraint. | Lower market risk can increase narrative standardization. |
+| Distribution-window strategy | Map theatrical, physical, VOD, streaming, broadcast, exclusivity, and residual monetization. | Windows are business architecture, not neutral release order. |
+| Technicolor transition | Compare 3-strip color, Eastmancolor cost, camera complexity, lab control, saturation, and preservation. | Cheaper "good enough" technology can displace higher-control systems. |
+| Film look claim | Inspect frame rate, motion blur, grain, lensing, dynamic range, color grade, and display chain. | "Film look" is a bundle of capture, processing, and projection traits. |
+
+---
+
+## Cross-References
+
+- `01-EARLY-CINEMA.md` traces the technical and exhibition systems that made cinema possible.
+- `04-EDITING-MONTAGE.md` explains how time, continuity, and meaning are constructed after capture.
+- `../photography/00-OVERVIEW.md` supplies the optical and image-making lineage cinema extends.
 
 ---
 

@@ -338,6 +338,12 @@ AUTOMOTIVE APPLICATION (growing):
 
 ---
 
+## Cross-References
+
+- [Glass Science](01-GLASS-SCIENCE.md) supplies the network, viscosity, and annealing foundation specialty glasses modify.
+- [Raw Materials](02-RAW-MATERIALS.md) explains the compositional levers behind borosilicate, lead crystal, and optical glass.
+- [Optical Fiber](07-OPTICAL-FIBER.md) follows ultra-pure specialty glass into telecommunications infrastructure.
+
 ## Common Confusion Points
 
 **Borosilicate = thermal shock resistant; not the same as tempered**:

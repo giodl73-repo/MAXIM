@@ -330,18 +330,24 @@ BALTIMORE CLASSIFICATION: THE FORMAL VIRAL TAXONOMY
 
 ---
 
+## Cross-References
+
+- `virology/01-VIRUS-STRUCTURE.md` — deeper virus-structure treatment.
+- `virology/03-REPLICATION-CYCLES.md` — replication logic by viral genome strategy.
+- `immunology/04-T-CELLS.md` — cellular immune recognition of infected cells.
+
 ## Decision Cheat Sheet
 
-| Virus Type | Genome | Needs Own Polymerase? | Example |
-|-----------|--------|----------------------|---------|
-| Class I dsDNA | dsDNA | No (host pol II) | Herpesvirus, Adenovirus |
-| Class IV (+)RNA | ssRNA | No (genome = mRNA) | SARS-CoV-2, poliovirus |
-| Class V (−)RNA | ssRNA | Yes (RdRp essential) | Influenza, measles, Ebola |
-| Class VI Retrovirus | ssRNA | Yes (RT + integrase) | HIV, HTLV |
-| Enveloped | Lipid bilayer | Fragile (detergent kills) | HIV, influenza |
-| Non-enveloped | Protein capsid | Resistant (surfaces, gut) | Norovirus, poliovirus |
-| Lytic phage | dsDNA (many) | Kills bacterium rapidly | T4, T7 |
-| Lysogenic phage | dsDNA | Integrates silently | Lambda, CTXφ |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| dsDNA virus replication | Class I genome using host nuclear machinery | Poxviruses are major cytoplasmic exceptions. |
+| Positive-sense RNA virus | Genome acts as mRNA | Replication still needs viral RdRp after entry. |
+| Negative-sense RNA virus | Virion-carried RdRp requirement | Genome is not directly translatable. |
+| Retrovirus biology | Reverse transcriptase and integrase | Integrated provirus changes latency and cure logic. |
+| Enveloped-virus fragility | Lipid envelope sensitivity | Envelope also enables entry and immune evasion. |
+| Non-enveloped persistence | Protein capsid environmental resistance | Resistance aids fecal-oral/surface spread. |
+| Lytic phage behavior | Rapid bacterial killing | Host range is narrow. |
+| Lysogenic phage behavior | Silent integration/prophage | Prophage genes can alter bacterial virulence. |
 
 ---
 

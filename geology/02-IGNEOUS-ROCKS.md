@@ -83,7 +83,7 @@ HIGH T:  Anorthite (Ca-rich plagioclase, CaAl₂Si₂O₈)
 LOW T:   Albite (Na-rich plagioclase, NaAlSi₃O₈)
 ```
 
-**Magmatic differentiation** = early-crystallizing minerals (olivine, Ca-plagioclase) are denser → sink out of melt (crystal fractionation) → remaining melt becomes progressively more silica/alkali-rich → can generate granitic magma from basaltic parent. This is why oceanic islands (basalt) and continents (granite) have such different compositions.
+**Magmatic differentiation** = early-crystallizing minerals (olivine, Ca-plagioclase) separate from the melt by settling, filter pressing, wall crystallization, or chamber replenishment/mixing. The remaining liquid becomes progressively more silica/alkali-rich and can move toward intermediate or felsic compositions. Basalt can differentiate toward granitic melts, but continents are not "made from basalt" by this route alone: crustal melting, assimilation, subduction fluids, and repeated recycling all matter.
 
 ---
 
@@ -198,19 +198,25 @@ Continent       Crustal partial    Rhyolitic/         Yellowstone,
 
 ## Decision Cheat Sheet
 
-| Sample in hand | Identification path |
-|----------------|---------------------|
-| Coarse-grained, light colored | Granite (pinkish K-feldspar) or Granodiorite |
-| Coarse-grained, dark colored | Gabbro (pyroxene + plagioclase) |
-| Fine-grained, dark, dense | Basalt |
-| Fine-grained, light/grey | Rhyolite or Andesite (check SiO₂ if needed) |
-| Glassy, black, conchoidal fracture | Obsidian |
-| Frothy, floats in water | Pumice (vesiculated felsic lava) |
-| Large crystals in fine matrix | Porphyry (two-stage cooling) |
-| Giant crystals (>cm), often with gem minerals | Pegmatite |
-| Columnar jointing, dark | Basalt cooling columns (Devils Postpile, Giant's Causeway) |
+| Field / Lab Question | Use This Diagnostic | Likely Interpretation |
+|---|---|---|
+| Is the rock intrusive or extrusive? | Grain size | Coarse phaneritic = slow plutonic cooling; fine/glassy = volcanic or shallow cooling |
+| Is the composition mafic or felsic? | Color index + mineral assemblage + SiO2 if available | Dark pyroxene/olivine/plagioclase -> basalt/gabbro; quartz/K-feldspar -> rhyolite/granite |
+| Why are there big crystals in a fine matrix? | Two-stage cooling | Porphyritic texture: phenocrysts grew at depth, groundmass quenched later |
+| Why is it full of holes? | Vesicles and density | Gas escape before solidification; pumice is felsic enough to float, scoria is mafic and denser |
+| What tectonic setting generated it? | Magma chemistry + setting | MORB at ridges, OIB at hotspots, andesite/rhyolite common in arcs and continental systems |
+| Is this granite, granodiorite, or tonalite? | Quartz + K-feldspar/plagioclase proportions | "Granite" in casual use often hides real plutonic classification |
+| Why is the texture glassy? | Quench rate | Obsidian/tachylite cooled too fast for crystals; not a mineral |
+| Why are crystals giant? | Pegmatitic volatile-rich residual melt | Water/fluxes allow large crystals and concentrate rare elements |
+| Why are there columns? | Cooling contraction joints | Common in basaltic flows/sills; geometry records thermal contraction, not crystal shape |
 
 ---
+
+## Cross-References
+
+- [Minerals](01-MINERALS.md) supplies the crystal and silicate vocabulary used in igneous classification.
+- [Plate Tectonics](05-PLATE-TECTONICS.md) explains the tectonic settings that generate magma.
+- [Earthquakes and Volcanoes](06-EARTHQUAKES-VOLCANOES.md) follows igneous processes into volcanic hazards.
 
 ## Common Confusion Points
 

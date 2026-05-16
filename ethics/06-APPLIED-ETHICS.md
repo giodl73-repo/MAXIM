@@ -644,23 +644,33 @@ ACCURACY IN THE AGE OF SOCIAL MEDIA:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Consequentialist risk-benefit reasoning | `ethics/02-CONSEQUENTIALISM.md` |
+| Deontological rights and duties | `ethics/03-DEONTOLOGY.md` |
+| Rawlsian institutional justice | `ethics/05-RAWLS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Domain | Core tension | Key principle | Landmark case |
-|---|---|---|---|
-| Bioethics | Beneficence vs. autonomy | Four principles (B-C) | Quinlan, Schiavo |
-| Informed consent | Disclosure vs. therapeutic privilege | Prudent patient standard | Canterbury v. Spence (1972) |
-| End-of-life | Allowing to die vs. active euthanasia | Double effect doctrine | Oregon Death with Dignity Act |
-| Abortion (Thomson) | Right to life vs. right to use another's body | Violinist argument | Roe v. Wade |
-| Abortion (Marquis) | Future-like-ours | Killing deprives futures | -- |
-| Genetic enhancement | Treatment vs. enhancement | Germline/somatic distinction | He Jiankui |
-| Cognitive enhancement | Authenticity vs. liberty | Enhancement ≠ doping | -- |
-| Legal ethics | Candor to tribunal vs. zealous advocacy | Rule 3.3 | -- |
-| Medical confidentiality | Patient confidentiality vs. duty to warn | Tarasoff rule | Tarasoff (1976) |
-| Organ allocation | Medical need vs. utility vs. fairness | Multi-criteria (UNOS) | -- |
-| Engineering (safety) | Cost vs. safety | Public safety paramount | Pinto, Challenger |
-| Whistleblowing | Loyalty vs. public safety | DeGeorge's criteria | Boisjoly/Challenger |
-| Journalism | Truth vs. harm | Minimize harm, act independently | Pentagon Papers |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Bioethics conflicts | Beneficence, nonmaleficence, autonomy, justice | The four principles identify tensions; they are not an algorithm. |
+| Informed consent | Disclosure, comprehension, voluntariness, prudent-patient standard | Therapeutic privilege is narrow and abuse-prone. |
+| End-of-life decisions | Allowing to die, active euthanasia, and double effect | Intent alone is insufficient; means/end structure matters. |
+| Thomson on abortion | Right to life versus right to use another's body | The violinist argument is strongest under nonconsensual dependency conditions. |
+| Marquis on abortion | Future-like-ours deprivation account | The argument shifts focus from personhood to the value of future experience. |
+| Genetic enhancement | Treatment/enhancement and germline/somatic distinctions | "Normal functioning" is partly normative, not purely biological. |
+| Cognitive enhancement | Authenticity, liberty, fairness, and coercion | Enhancement is not automatically equivalent to cheating or doping. |
+| Legal ethics | Candor to tribunal versus zealous advocacy | Professional role duties do not erase ordinary moral constraints. |
+| Medical confidentiality | Patient privacy versus duty to warn | Tarasoff-style duties are exceptional and jurisdiction-sensitive. |
+| Organ allocation | Need, utility, urgency, fairness, and procedural legitimacy | No single metric captures all morally relevant allocation claims. |
+| Engineering safety | Public safety paramount over employer/client pressure | Following specifications does not discharge professional responsibility. |
+| Whistleblowing | Serious harm, exhausted channels, evidence, and likely prevention | Not every wrongdoing triggers immediate public disclosure. |
+| Journalism ethics | Truth, harm minimization, independence, public interest | "Minimize harm" cannot become a veto on publishing true matters of public concern. |
 
 ---
 

@@ -1,6 +1,6 @@
 # Earthquakes and Volcanoes — Seismic Waves, Mw Scale, Eruption Types
 
-**Bridge — elastic rebound as accumulated technical debt with a brittle failure mode:** Elastic rebound theory (Reid, 1910) is the geological version of accumulated technical debt releasing catastrophically. Tectonic plates move continuously at 2–10 cm/yr; where they are locked at fault interfaces, elastic strain accumulates silently in the surrounding rock — measurable via GPS surface deformation but invisible to casual observation. This is identical to debt accumulation: the system appears stable while stress builds. When shear stress exceeds static friction (the "debt ceiling"), rupture propagates along the fault plane at ~3 km/s — a cascading failure that releases in seconds what took centuries to accumulate. The Cascadia Subduction Zone has been locked since 1700, accumulating strain for 325+ years toward an expected M8.7–9.2 event. Unlike software debt, there is no incremental paydown option — only the full release. The magnitude scales with the fault area ruptured and average slip, making earthquake size the integral of all the accumulated deficit.
+**Bridge — elastic rebound as accumulated technical debt with a brittle failure mode:** Elastic rebound theory (Reid, 1910) is the geological version of accumulated technical debt releasing catastrophically. Tectonic plates move continuously at 2–10 cm/yr; where they are locked at fault interfaces, elastic strain accumulates silently in the surrounding rock — measurable via GPS surface deformation but invisible to casual observation. This is identical to debt accumulation: the system appears stable while stress builds. When shear stress exceeds static friction (the "debt ceiling"), rupture propagates along the fault plane at ~3 km/s — a cascading failure that releases in seconds what took centuries to accumulate. The Cascadia Subduction Zone has been locked since 1700, accumulating strain for 325+ years toward a plausible M8.7–9.2 event, but recurrence intervals are probabilistic rather than clock deadlines. Unlike software debt, there is no controlled incremental paydown option for a locked megathrust — only partial ruptures, slow slip, or a full release. The magnitude scales with the fault area ruptured and average slip, making earthquake size the integral of accumulated deficit.
 
 ## The Big Picture
 
@@ -116,7 +116,7 @@ Magnitude (Mw)  M₀ = μ × A × D          0–?      No upper limit theoretic
 **Energy equivalents:**
 - Mw 5.0 ≈ 32 TJ ≈ Hiroshima bomb
 - Mw 6.0 ≈ 1 PJ ≈ small nuclear test
-- Mw 9.0 ≈ annual global human energy consumption
+- Mw 9.0 ≈ several weeks of global human energy consumption
 - Mw 9.5 (1960 Valdivia, Chile) ≈ 2.5 × 10¹⁸ J
 
 **Intensity vs Magnitude** — Magnitude is intrinsic to the earthquake source. Intensity (Modified Mercalli, MMI I–XII) describes shaking at a specific location. Same earthquake → different MMI at different distances/ground conditions.
@@ -136,7 +136,8 @@ Last event: January 26, 1700 (dated by Japanese tsunami records
              + drowned coastal forests)
 
 Recurrence interval: ~200–500 years
-Next event: OVERDUE
+Next event: not "overdue" like a schedule; probability rises with
+            accumulated strain and recurrence evidence
 
 Expected: M8.7–9.2
 Impact: Pacific Northwest coast devastation + Pacific-wide tsunami
@@ -233,17 +234,25 @@ tsunamis
 
 ## Decision Cheat Sheet
 
-| Situation | Interpretation |
-|-----------|---------------|
-| Swarm of small earthquakes at volcano | Magma movement; precursor to eruption |
-| Deep (>300 km) earthquakes | Subduction zone; slab seismicity |
-| Shallow (<35 km), strike-slip focal mechanism | Transform fault |
-| No S-wave received at seismograph | P-wave in shadow zone; liquid in path |
-| VEI 4+ with SO₂ spike | Significant stratospheric aerosol loading |
-| Long-period (LP) seismicity at volcano | Fluid (magma or hydrothermal) movement |
-| Caldera depression at large volcano | Previous magma chamber collapse |
+| Hazard / Interpretation Question | Use This Diagnostic | Likely Interpretation |
+|---|---|---|
+| What fault setting is this? | Depth + focal mechanism + plate boundary | Shallow strike-slip = transform; deep events = subducting slab; thrust at trench = megathrust |
+| How big can the earthquake get? | Rupture area + average slip + fault coupling | Moment magnitude scales with fault geometry, not felt shaking at one city |
+| Why did one town shake worse? | Intensity, distance, basin fill, building stock | Magnitude is source size; damage is local ground motion plus exposure |
+| Is a tsunami plausible? | Shallow offshore thrust + vertical seafloor displacement | Strike-slip earthquakes usually make weak tsunamis unless landslides occur |
+| Is volcanic unrest magmatic? | Swarms, deformation, gas chemistry, LP tremor | One signal is ambiguous; converging seismic/geodetic/gas evidence is stronger |
+| What eruption style is likely? | Magma composition + volatile content + viscosity | Basalt tends effusive; water-rich andesite/rhyolite tends explosive |
+| Which volcanic hazard dominates? | Volcano type + topography + snow/ice/water | Stratovolcano valleys amplify lahars; calderas and domes threaten pyroclastic flows |
+| Will ash affect climate or aviation? | VEI + plume height + SO2 injection | Stratospheric aerosols cool climate; fine ash disrupts engines and air routes |
+| Is Cascadia "due"? | Paleoseismic recurrence + coupling + elapsed time | Elevated long-term hazard, not a deterministic appointment |
 
 ---
+
+## Cross-References
+
+- [Plate Tectonics](05-PLATE-TECTONICS.md) supplies the boundary settings behind most earthquakes and volcanoes.
+- [Igneous Rocks](02-IGNEOUS-ROCKS.md) explains magma composition, differentiation, and eruption products.
+- [Surficial Geology](09-SURFICIAL-GEOLOGY.md) connects hazards to landslides, lahars, and surface response.
 
 ## Common Confusion Points
 

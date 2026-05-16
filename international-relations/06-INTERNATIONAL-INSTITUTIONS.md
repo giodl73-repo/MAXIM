@@ -387,16 +387,26 @@ INSTITUTIONS EFFECTIVENESS DEBATE
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Liberal theory of cooperation | `international-relations/02-LIBERALISM.md` |
+| Realist critique of institutional constraint | `international-relations/01-REALISM.md` |
+| Global-health institutional case | `public-health/07-GLOBAL-HEALTH.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why does the UNSC have veto power? | Design choice: great powers won't accept binding decisions against their interests; veto = great power buy-in. Consequence: gridlock when P5 interests conflict |
-| What is MFN principle? | Any trade advantage given to one WTO member must be extended to all; prevents bilateral trade discrimination |
-| Why is the WTO DSM in crisis? | US blocked Appellate Body appointments (2017-); argued AB was legislating through dispute settlement; AB now below quorum |
-| What is IMF conditionality and its critique? | Loans require policy conditions (austerity, liberalization, privatization); critics: one-size-fits-all, deepens recessions, serves Washington Consensus ideology |
-| Why can't the ICC arrest Putin? | No police force; depends on state cooperation; Russia not a party; ICC party states have legal obligation but political reluctance to arrest |
-| Do institutions matter? | Yes for economic cooperation; less so for security when great powers are directly involved |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| UNSC veto design | Great-power buy-in for binding security decisions | The same design creates gridlock when P5 interests conflict. |
+| WTO MFN principle | Extend any trade advantage to all WTO members | WTO is managed trade rules, not barrier-free trade. |
+| WTO DSM crisis | US Appellate Body appointment blockade and overreach critique | Dispute settlement depends on members accepting adjudicatory authority. |
+| IMF conditionality | Crisis loans tied to austerity, liberalization, or privatization | Critiques target one-size-fits-all policy and Washington Consensus bias. |
+| ICC enforcement limits | No police force; dependence on state cooperation | Legal obligation and political willingness are separate. |
+| Institutional effectiveness | Stronger for economic cooperation than great-power security disputes | Institutions matter most when powerful states find compliance useful. |
 
 ---
 

@@ -312,17 +312,23 @@ UNDERSTANDING IS SEEING:
 
 ---
 
+## Cross-References
+
+- `cognitive-science/03-REASONING-JUDGMENT.md` — thought and inference around language.
+- `linguistics/01-PHONETICS-PHONOLOGY.md` — language system foundations.
+- `philosophy-of-language/01-MEANING-REFERENCE.md` — meaning and reference as philosophical framing.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Does language cause differences in color perception? | Yes, for adjacent color pairs straddling a lexical boundary, lateralized to left hemisphere |
-| Can Pirahã speakers count? | Approximately, but not exactly for large numbers — disputed |
-| Why is the Wason task hard? | Formal conditional logic is not naturally computed; deontic framing reveals domain-specific social-rule competence |
-| Where is language in the brain? | Distributed left-hemisphere network (Broca + Wernicke + arcuate + angular gyrus + STG); not just two spots |
-| What's a concept? | Prototype structure + exemplar similarity + embedded causal theory; multiply represented |
-| Is there a Language of Thought? | Something like structured compositional representations seems required; amodal vs grounded debate open |
-| Do conceptual metaphors shape thought? | The linguistic evidence is robust; the behavioral priming evidence is mostly failed replications |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether language shifts color perception | Lexical-boundary effects, especially left-hemisphere lateralized tasks | Effects are narrow and online; they do not imply language wholly determines perception. |
+| Whether language limits exact number | Piraha approximate number findings | The case is disputed and separates approximation from exact symbolic counting. |
+| Why the Wason task is hard | Abstract conditional logic vs deontic social-rule framing | Failure on abstract cards is not general stupidity; domain framing changes competence. |
+| Where language lives neurally | Distributed left-hemisphere network | Broca and Wernicke are nodes, not the whole language system. |
+| What kind of representation a concept is | Prototype, exemplar, and causal-theory structure | Concepts are multiply represented; no single model covers every task. |
+| Whether thought needs a language-like structure | Language of Thought and compositional representation debate | Structured representations seem required, but amodal vs grounded format remains open. |
+| Whether conceptual metaphors shape thought | Robust linguistic patterns | Behavioral priming claims are much weaker than the linguistic evidence. |
 
 ---
 

@@ -269,18 +269,22 @@ The holonomy of a connection measures the failure of parallel transport around l
 
 ## Decision Cheat Sheet
 
-| Bundle Type | Fiber | Structure Group | Key Application |
-|---|---|---|---|
-| Tangent bundle TM | R^n | GL(n,R) | Vector fields, geometry |
-| Riemannian frame bundle | O(n) | O(n) | Orthonormal frames |
-| Complex line bundle | C | U(1) | Electromagnetism |
-| Principal SU(2)-bundle | SU(2) | SU(2) | Weak force, instantons |
-| Principal SU(3)-bundle | SU(3) | SU(3) | Strong force (QCD) |
-| Hopf fibration S^3 -> S^2 | S^1 | U(1) | Non-trivial topology |
-| Tautological bundle over Gr(k,n) | R^k | GL(k,R) | K-theory, ML features |
-| Spinor bundle | C^{2^{n/2}} | Spin(n) | Dirac equation, fermions |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a space is a product or bundle | Check local trivializations, transition functions, and whether a global section/trivialization exists. | Locally product does not imply globally product; twisting lives in the gluing maps. |
+| A tangent or frame-bundle claim | Identify the base manifold, fiber dimension, frame group, metric reduction, and orientation/spin assumptions. | Choosing a metric can reduce structure group; it does not erase topology. |
+| A gauge-theory statement | Distinguish principal bundle, associated vector bundle, connection, curvature, and gauge transformation. | The group acts on fibers; physical fields often live in associated bundles. |
+| A line-bundle/topology example | Inspect first Chern/Stiefel-Whitney class, transition functions, and existence of nonvanishing sections. | The Mobius band and Hopf fibration are minimal warnings against product intuition. |
+| A spinor-bundle claim | Check orientability, spin structure, Clifford representation, and dimension/parity. | Not every manifold admits spinors; the obstruction is topological. |
+| A machine-learning/geometric-feature analogy | Ask what base, fiber, equivariance group, and transport rule are being modeled. | Bundle language is useful only if the group action and gluing structure do real work. |
 
 ---
+
+## Cross-References
+
+- `03-DIFFERENTIAL-FORMS.md` supplies the language of connection forms and curvature forms.
+- `05-CONNECTIONS.md` explains parallel transport before the full bundle abstraction.
+- `06-CURVATURE.md` connects bundle curvature back to Riemannian geometry.
 
 ## Common Confusion Points
 

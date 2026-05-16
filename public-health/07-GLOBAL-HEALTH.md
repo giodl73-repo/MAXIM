@@ -1,6 +1,6 @@
 # Global Health
 
-## Global Health Architecture
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -249,17 +249,27 @@ Major catalytic reports that shaped global health policy:
 | EAT-Lancet Commission on Food | 2019 | Planetary health diet; food system → both health and environment |
 | Global Burden of Obesity | 2024 | 1B people now obese globally |
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Infectious disease control programs | `public-health/03-INFECTIOUS-DISEASE-CONTROL.md` |
+| Health-policy and financing systems | `public-health/08-HEALTH-POLICY.md` |
+| International institutions and cooperation | `international-relations/06-INTERNATIONAL-INSTITUTIONS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Global health question | Key concept/resource |
-|---|---|
-| Compare disease burden across countries | GBD study (IHME); DALYs by cause and country |
-| Measure health gain from an intervention | DALYs averted; cost per DALY averted |
-| Fund vaccines for poorest countries | Gavi mechanisms; AMC model |
-| Respond to novel epidemic threat | CEPI for vaccine R&D; WHO IHR/PHEIC for coordination |
-| Understand HIV treatment scale-up | PEPFAR: 20M+ on ART, model of bilateral scale |
-| Address health inequity root causes | CSDH framework; social determinants action |
-| Evaluate global health governance | WHO structure; voluntary vs. assessed contributions |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Cross-country disease burden | GBD/IHME DALYs by cause and country | GBD modeled estimates can diverge from national official statistics. |
+| Intervention health gain | DALYs averted and cost per DALY averted | DALYs are prioritization tools, not complete ethical rankings. |
+| Vaccine funding for poor countries | Gavi mechanisms and advance market commitments | Financing solves access only if delivery systems can absorb supply. |
+| Novel epidemic response | CEPI for vaccine R&D; WHO IHR/PHEIC for coordination | WHO coordinates and declares; it cannot compel state action. |
+| HIV treatment scale-up | PEPFAR as bilateral scale model | Lives saved does not automatically mean sustainable health-system strengthening. |
+| Health inequity roots | CSDH social-determinants framework | Social determinants require intersectoral policy, not health-sector action alone. |
+| Global-health governance | WHO assessed/voluntary funding and member-state politics | Voluntary earmarking shapes agenda power. |
 
 ## Common Confusion Points
 

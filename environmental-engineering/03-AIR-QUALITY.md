@@ -367,19 +367,24 @@ This is directly operational for Microsoft data centers.
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| New data center in ozone nonattainment area — generator permits | Check NOₓ PTE vs. NSR threshold; may need LAER + offsets; Tier 4 + SCR may be required |
-| Air permit needed for existing 15 MW generator fleet? | Calculate PTE for all generators; if >100 tpy criteria pollutant → Title V; if <100 tpy → state minor permit |
-| Model air impact for new large stack | AERMOD with 5 years of hourly met data; AERMET + AERMAP preprocessing |
-| Which PM control is best for my application? | High-temp gas: ESP; fine particle collection + moisture: baghouse; <100 acfm: cartridge filter |
-| Need to control SO₂ from large combustion | Wet FGD (>90% efficiency, gypsum byproduct); DSI for smaller or retrofit applications |
-| NOₓ limit 0.05 lb/MMBtu from boiler | Low-NOₓ burner alone likely insufficient → SCR required at that level |
-| Radon found at 6 pCi/L in building | Above action level → sub-slab depressurization mitigation; retest after installation |
-| What triggers GHGRP reporting? | >25,000 MT CO₂e/yr from stationary combustion or process emissions at the facility |
-| SF₆ from switchgear — how to minimize? | Gas-insulated switchgear (GIS) maintenance to minimize leaks; SF₆ recycling; transition to g³ (Novec/CO₂ blend alternatives) |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| NAAQS question | Pollutant, averaging time, monitor/background, and modeled contribution | Ambient standard is not the same as an emission limit |
+| Generator-permit question | PTE, emergency/non-emergency hours, attainment status, and RICE category | Testing hours can change classification and permit burden |
+| Nonattainment project | Pollutant-specific area status, precursor emissions, LAER, and offsets | Ozone is secondary; NOx/VOC controls matter |
+| Dispersion-model claim | Source parameters, terrain, meteorology, receptors, and background | AERMOD output is only as good as inputs and scenario design |
+| PM-control choice | Particle size, temperature, moisture, gas chemistry, and flow | ESP, baghouse, scrubber, and cartridge filters solve different problems |
+| SO2/acid-gas control | Fuel sulfur, flue-gas rate, removal target, and byproduct handling | Wet FGD is powerful but creates wastewater/solids issues |
+| Indoor-air issue | Source control, ventilation, filtration, and exposure pathway | Dilution is not a substitute for source elimination where feasible |
+| GHG reporting claim | Facility boundary, combustion/process emissions, and reporting threshold | GHGRP reporting is not the same as corporate Scope accounting |
 
 ---
+
+## Cross-References
+
+- `05-REMEDIATION.md` covers pollutant control after release into environmental media.
+- `06-SUSTAINABILITY.md` connects air-quality control to lifecycle and systems decisions.
+- `../climate-science/04-EMISSIONS-PATHWAYS.md` distinguishes air pollutants from greenhouse-gas trajectories.
 
 ## Common Confusion Points
 

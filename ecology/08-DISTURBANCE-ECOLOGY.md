@@ -280,16 +280,22 @@ CASE 5: Chestnut blight fungus (Cryphonectria parasitica) — Eastern US
 
 ---
 
+## Cross-References
+
+- `ecology/05-SUCCESSION-STABILITY.md` - succession after disturbance.
+- `climate-science/01-CARBON-CYCLE.md` - climate-linked disturbance regimes.
+- `ecology/09-CONSERVATION-BIOLOGY.md` - conservation response to disturbance.
+
 ## Decision Cheat Sheet
 
-| Disturbance ecology situation | Interpretation |
-|-------------------------------|---------------|
-| Old-growth fire suppressed forest with dense understory | High crown fire risk; fuel accumulation from exclusion |
-| Species diversity highest in meadow patchwork | IDH: gap-phase dynamics or intermediate grazing maintaining openness |
-| Native predator absent; prey species erupting | Trophic cascade; consider predator reintroduction |
-| Invasive plant outcompeting natives | Enemy release likely; biological control if available |
-| Fire-adapted ecosystem with declining fire frequency | Woody encroachment risk; prescribed fire needed |
-| New pathogen wiping out dominant plant species | Analogous to chestnut blight; consider resistance breeding |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Dense fire-suppressed old growth | Fuel accumulation and crown-fire risk | Historical fire regime determines desired treatment. |
+| High diversity in meadow patchwork | Gap dynamics or intermediate grazing | IDH is a hypothesis, not a universal law. |
+| Prey eruption after predator loss | Trophic cascade | Predator reintroduction requires social and habitat feasibility. |
+| Invasive plant dominance | Enemy release and competitive advantage | Biological control must be host-specific. |
+| Fire-adapted system with less fire | Woody encroachment and prescribed fire need | Fire near communities requires landscape-level planning. |
+| Dominant plant lost to pathogen | Chestnut-blight-style disease disturbance | Resistance breeding takes decades and may not restore function. |
 
 ---
 

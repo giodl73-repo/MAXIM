@@ -377,6 +377,12 @@ BATTLE OF TALIKOTA 1565:
 
 ---
 
+## Cross-References
+
+- [Islamic Caliphates](09-ISLAMIC-CALIPHATES.md) supplies the broader Islamic political vocabulary behind Sultanate and Mughal forms.
+- [Mongol Empire](11-MONGOL-EMPIRE.md) connects Central Asian conquest and post-Mongol statecraft to South Asian history.
+- [Americas Pre-Columbian](16-AMERICAS-PRE-COLUMBIAN.md) offers a comparison for large agrarian empires outside Eurasia.
+
 ## Common Confusion Points
 
 **"Mughal" ≠ Mongol by culture**

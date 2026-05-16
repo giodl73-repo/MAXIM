@@ -12,7 +12,7 @@ The precision progression in plant breeding maps directly to the testing/verific
 | Classical hybridization | Integration testing — combine two tested genomes, select for desired phenotype in offspring | Brings in linked undesired loci (linkage drag); takes many backcross generations to remove | Unregulated |
 | Marker-assisted selection | Targeted regression testing — use molecular markers to select for specific loci without sequencing | Still works at genome level; precision in selecting, not inserting | Unregulated |
 | Transgenic GMO (Agrobacterium) | Dependency injection — insert a known-function module (gene) into the codebase | Insertion site somewhat random; possible position effects; transgene integrates into chromosome | Heavily regulated (USDA, EPA, FDA triple pathway in US; EU essentially prohibited) |
-| CRISPR-Cas9 | Surgical refactoring — edit a specific codon in a specific gene | Near-zero off-target if designed correctly; no foreign DNA required | Light-touch or unregulated for small edits (US, Japan, Argentina); EU still regulated as GMO |
+| CRISPR-Cas9 | Surgical refactoring — edit a specific locus or base class | Off-target risk can be low with good guide design and validation; foreign DNA may be absent in final plant | Light-touch or unregulated for small edits (US, Japan, Argentina); EU still regulated as GMO |
 | Gene drive | Configuration at compile time — change propagates through entire population, not just one organism | Population-level; theoretically irreversible; no field deployments approved | No current regulatory framework; still contained lab/island trial stage |
 
 ```
@@ -25,10 +25,10 @@ BREEDING TECHNOLOGY LANDSCAPE
   Regulation:  None         Full GMO review          Varies (US: less; EU: full)
   IP model:    PVP, F1      Patents on transgene +   Patents on Cas9 method +
                hybridization method                  specific edit
-  Key crops:   Corn, wheat, Bt corn/cotton,          High-oleic soybean (2019)
-               rice, sunflower RR soy/canola          CRISPR mushroom (2016)
-               (F1 hybrids)  HB4 soy/wheat           Purple tomato (2023)
-                             (drought tolerance)      Waxy corn, high-amylose
+  Key crops:   Corn, wheat, Bt corn/cotton,          High-GABA tomato (2021)
+                rice, sunflower RR soy/canola          CRISPR mushroom (2016)
+                (F1 hybrids)  HB4 soy/wheat           Waxy corn, high-amylose
+                              (drought tolerance)      disease-resistance edits
   Limitation:  Slow (years); Regulatory cost;        Off-target risks (low);
                linkage drag  consumer rejection (EU)  patent landscape complex
   ──────────────────────────────────────────────────────────────────────
@@ -350,10 +350,9 @@ DELIVERY:
 ```
 NOTABLE CRISPR-EDITED CROPS (2023)
 ──────────────────────────────────────────────────────────────────────────────
-Simplot Innate potato (US):
-  Reduced acrylamide (low-asparagine), reduced browning, late blight resistance
-  Not a GMO under USDA definition (no foreign DNA in final product for some edits)
-  FDA/USDA approved
+CRISPR mushroom (US, 2016):
+  Polyphenol oxidase knockout reduces browning
+  USDA did not regulate because no plant-pest DNA was inserted
 
 Calyxt High-Oleic Soybean (US): TALEN-edited (similar to CRISPR)
   Fatty acid profile: high oleic acid (like olive oil)
@@ -362,9 +361,10 @@ Calyxt High-Oleic Soybean (US): TALEN-edited (similar to CRISPR)
 Herbicide-tolerant canola: multiple companies
   CRISPR-created herbicide tolerance (alternative to transgenic RR)
 
-Purple Tomato (Norfolk Plant Sciences):
+Purple Tomato (Norfolk Plant Sciences) is a useful contrast case, not CRISPR:
   Anthocyanin-producing genes from snapdragon → purple color + antioxidants
-  UK: first commercialization of CRISPR crop in 2023
+  Transgenic, USDA-cleared in the US; shows why "edited" and "transgenic"
+  must be kept separate
 
 Disease-resistant banana: ongoing
   Resistance to TR4 (threatens Cavendish — see food-plants/04-FRUITS.md)
@@ -413,17 +413,24 @@ ARGUMENT FOR DEREGULATION:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why can't farmers save F1 hybrid seeds? | F2 generation shows Mendelian segregation → yield loss; economically not worthwhile |
-| What is the Rht gene? | Semi-dwarf wheat gene (DELLA protein insensitive to gibberellin); Green Revolution |
-| How does Bt toxin kill insects? | Cry protein binds midgut receptor → membrane pore → ion imbalance → cell death |
-| Why is Bt non-toxic to humans? | No receptor for Cry protein in human gut; alkaline pH requirement not met |
-| What gene makes Roundup Ready crops resistant? | Agrobacterium EPSPS variant (glyphosate-insensitive) |
-| What is Golden Rice? | Rice expressing beta-carotene (Vitamin A precursor) in endosperm; ~20 years delayed by anti-GMO politics |
-| Is CRISPR classified as GMO? | US/Japan: no (for edits achievable by conventional breeding); EU: yes (2018 court ruling) |
+| Breeding / Policy Question | Use This Frame | Watch-Out |
+|---|---|---|
+| Why do F1 hybrid farmers rebuy seed? | Heterosis collapses and traits segregate in F2 | This is a biological reason, separate from GMO patent restrictions |
+| Why did semi-dwarf wheat/rice matter? | Architecture changed input response | Short stems allowed fertilizer to become grain instead of lodging |
+| When is marker-assisted selection enough? | Known loci, slow trait measurement, large breeding population | It selects genomes; it does not insert a new trait module |
+| When is transgenic GMO the right category? | Foreign or engineered DNA integrated into the crop genome | Bt, Roundup Ready, Golden Rice, and Purple Tomato are process/category distinct from simple CRISPR knockouts |
+| When is CRISPR closer to conventional mutation? | Small knockout/base edit with no foreign DNA in final plant | Off-target validation and regulatory status still matter |
+| How should Bt risk be evaluated? | Target receptor specificity plus resistance management | Human toxicity and pest resistance are different questions |
+| How should herbicide tolerance be evaluated? | Weed-control system, not just crop trait | Selection pressure can produce resistant weeds and herbicide dependence |
+| What makes Golden Rice politically important? | Humanitarian trait plus regulatory/NGO legitimacy conflict | Nutrition impact depends on adoption, diet, bioavailability, and trust |
 
 ---
+
+## Cross-References
+
+- [Grains](01-GRAINS.md) shows the cereal systems transformed most visibly by hybridization and the Green Revolution.
+- [Legumes](02-LEGUMES.md) connects breeding to protein, nitrogen fixation, and feed-crop economics.
+- [Tree Crops](06-TREE-CROPS.md) explains why long-generation perennial crops have different breeding constraints.
 
 ## Common Confusion Points
 

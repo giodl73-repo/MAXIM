@@ -46,12 +46,12 @@ The Electrical Grid:
 ```
 Generator ──▶ [ WIRE — no buffer ] ──▶ Load
 
-Supply MUST equal demand at every instant.
+Supply and demand must be balanced within tight tolerance at every instant.
 Imbalance → frequency drifts
 Uncorrected drift → cascading failure
 ```
 
-**The governing constraint:** At 60.0 Hz (North America), every synchronous generator in the Eastern Interconnection rotates at exactly 3600 RPM (2-pole) or 1800 RPM (4-pole). All generators are electromagnetically coupled through the transmission network — they must all agree on this single value. This is mandatory distributed consensus without a protocol layer; it emerges from physics.
+**The governing constraint:** At 60.0 Hz (North America), every synchronous generator in the Eastern Interconnection is electromagnetically coupled to the network and operates around the same frequency target. This is mandatory distributed consensus without a protocol layer; it emerges from physics rather than message passing.
 
 - Generation > Load: rotor shafts accelerate → frequency rises above 60 Hz
 - Generation < Load: rotors decelerate (kinetic energy extracted from spinning mass) → frequency drops
@@ -405,21 +405,24 @@ Equipment age             Average US transmission           Modernization progra
 
 ## Decision Cheat Sheet
 
-| Question | Short Answer |
-|----------|-------------|
-| Why high voltage transmission? | P=IV; high V → low I → low I²R losses; 500 kV vs 13.8 kV = 1,296× lower losses |
-| Why AC for bulk grid? | Transformers require AC; transformers enable economical voltage stepping |
-| When does HVDC beat HVAC? | Submarine cable > 50 km; asynchronous interconnection; >800 km distance |
-| What is capacity factor? | Actual MWh / (nameplate MW × 8,760h); nuclear 92%, solar 25%, wind 35% |
-| What maintains 60.00 Hz? | Spinning inertia of synchronous generators + governor response + AGC |
-| What happens if generation suddenly drops? | Frequency drops; if uncorrected → UFLS → cascade risk |
-| What is the duck curve? | Net load (load minus solar) creates midday surplus + steep evening ramp |
-| What is merit order dispatch? | Generators called in order of marginal cost; cheapest first (nuclear, hydro, wind/solar, then gas, then peakers) |
-| What drives wholesale price? | Marginal unit; last unit dispatched sets clearing price for all |
-| Hardest part of high-renewable grids? | Variability + zero synchronous inertia from inverters + transmission constraints |
-| Most dangerous failure mode? | Cascading failure — automatic power redistribution via Kirchhoff → overloads → exponential cascade |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A grid-stability claim | Separate energy balance, instantaneous power balance, frequency response, voltage support, reserves, and protection action. | Annual MWh adequacy does not prove real-time operability. |
+| Whether transmission voltage is high enough | Estimate current, I²R loss, thermal limit, voltage drop, right-of-way, and reactive-power burden. | Higher voltage lowers losses but raises insulation, clearance, equipment, and permitting cost. |
+| Whether AC or HVDC is the right bulk-transfer architecture | Check distance, cable vs overhead, asynchronous interconnection, controllability, converter-station cost, and reliability model. | HVDC wins some long/cable/asynchronous cases; HVAC remains cheaper and simpler for many networked overhead corridors. |
+| A capacity-factor comparison | Compute actual MWh over nameplate MWh and then ask what hours the output arrives. | Capacity factor is not capacity credit; timing and dispatchability determine grid value. |
+| A frequency-event narrative | Identify lost MW, inertia, governor response, AGC, reserves, under-frequency load shedding, and protection settings. | The same MW loss is more severe on a low-inertia or weakly connected system. |
+| A duck-curve or renewable-integration problem | Look at net load, ramp rate, curtailment, storage duration, transmission export path, and flexible demand. | The problem is not "too much solar"; it is temporal/location mismatch plus insufficient flexibility. |
+| A wholesale-price explanation | Trace marginal unit, congestion, losses, scarcity adders, uplift, and local market rules. | Merit order explains the baseline; real LMPs are also network prices. |
+| A cascade risk | Map contingency, automatic power redistribution, relay action, voltage collapse risk, and operator time window. | Cascades are system-state dependent; N-1 planning reduces but does not eliminate correlated or hidden failures. |
 
 ---
+
+## Cross-References
+
+- `01-GENERATION.md` explains how power is produced before it enters the grid.
+- `03-TRANSMISSION.md` covers the high-voltage backbone.
+- `05-GRID-STABILITY.md` explains the control problem that keeps the whole system synchronized.
 
 ## Common Confusion Points
 

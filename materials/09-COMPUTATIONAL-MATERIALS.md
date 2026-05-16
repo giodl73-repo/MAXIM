@@ -1,6 +1,6 @@
 # Computational Materials Science
 
-## Big Picture: Bridging Scales
+## The Big Picture
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -361,37 +361,24 @@ SCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Ander
 
 ---
 
+## Cross-References
+
+- `materials/01-CRYSTAL-STRUCTURE.md` - atomistic structure inputs.
+- `materials-processing/09-CHARACTERIZATION.md` - experimental validation for simulations.
+- `numerical-methods/01-FLOATING-POINT.md` - numerical computation foundations.
+
 ## Decision Cheat Sheet
 
-```
-┌──────────────────────────────────┬────────────────────────────────────┐
-│  Problem                         │  Method                            │
-├──────────────────────────────────┼────────────────────────────────────┤
-│  Electronic structure, bandgap,  │  DFT (PBE for metals, hybrid for   │
-│  formation energy, bonding       │  semiconductors)                   │
-├──────────────────────────────────┼────────────────────────────────────┤
-│  Dynamics of thousands of atoms  │  Classical MD (EAM, AMBER, ReaxFF) │
-│  ns–μs timescale                 │                                    │
-├──────────────────────────────────┼────────────────────────────────────┤
-│  Dynamics with chemical accuracy │  Machine-learned potential (MACE,  │
-│  millions of atoms               │  NequIP, MACE-MP-0)                │
-├──────────────────────────────────┼────────────────────────────────────┤
-│  Grain growth, microstructure,   │  Phase field (Allen-Cahn /         │
-│  solidification, phase separation│  Cahn-Hilliard)                    │
-├──────────────────────────────────┼────────────────────────────────────┤
-│  Equilibrium phase diagram       │  CALPHAD + Thermo-Calc             │
-│  for multicomponent alloy        │                                    │
-├──────────────────────────────────┼────────────────────────────────────┤
-│  Predict material property from  │  Graph NN (SchNet, DimeNet, CGCNN) │
-│  structure                       │  trained on Materials Project      │
-├──────────────────────────────────┼────────────────────────────────────┤
-│  Screen 10k+ candidate materials │  ML surrogate + active learning    │
-│  for specific property target    │  + DFT validation on top candidates│
-├──────────────────────────────────┼────────────────────────────────────┤
-│  Strongly correlated electrons   │  DFT+U, DMFT, or quantum chemistry │
-│  (NiO, cuprates, rare earths)    │  (CCSD(T) for molecules)           │
-└──────────────────────────────────┴────────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Electronic structure or bandgap | DFT with functional choice by material class | Functional error can dominate the result. |
+| Thousands of atoms over ns-us | Classical MD with EAM, AMBER, or ReaxFF | Force field validity is the model. |
+| Chemical-accuracy large dynamics | Machine-learned potentials such as MACE or NequIP | Training domain controls extrapolation risk. |
+| Grain growth or phase separation | Phase-field Allen-Cahn/Cahn-Hilliard models | Parameters and boundary conditions drive realism. |
+| Multicomponent phase diagram | CALPHAD and Thermo-Calc | Database assessment quality limits predictions. |
+| Property from structure | Graph neural networks such as SchNet, DimeNet, CGCNN | Training set bias can look like physical insight. |
+| 10k+ candidate screening | ML surrogate, active learning, then DFT validation | Surrogates need high-fidelity confirmation. |
+| Strongly correlated electrons | DFT+U, DMFT, or quantum chemistry | Standard DFT often fails for this class. |
 
 ---
 

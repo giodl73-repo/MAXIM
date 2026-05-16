@@ -542,6 +542,18 @@ A single neuron encodes information in its spike train. Shannon's channel capaci
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Ion channels and membrane biophysics | `biophysics/01-THERMODYNAMICS-BIO.md` | Action potentials are electrochemical gradients plus membrane conductance dynamics |
+| Cellular machinery behind neurons | `biology/01-MOLECULAR-MACHINERY.md` | Synapses, receptors, and channels are molecular machines embedded in cells |
+| Perception and computation above spikes | `cognitive-science/01-PERCEPTION.md` | Neural signals become cognition through circuits, coding, and inference |
+| Pharmacological modulation | `pharmacology/01-RECEPTOR-THEORY.md` | Many neural effects are receptor binding, agonism, antagonism, and dose-response |
+| Electrical-circuit analogies | `electronics/01-CIRCUITS.md` | Membranes, conductances, capacitance, and RC constants map naturally to circuits |
+
+---
+
 ## Common Confusion Points
 
 **Threshold is not a fixed voltage**: The -55 mV "threshold" is an approximation.

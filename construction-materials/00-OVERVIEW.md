@@ -478,19 +478,24 @@ STRUCTURAL SYSTEM SELECTION — MATERIAL MATCH
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| Masonry or plain concrete, spans > 6 m? | Use arch/vault OR reinforce OR prestress — not plain spans |
-| Building > 8 stories? | Steel or RC frame; mass timber possible but specialist design |
-| Fire rating 60+ min required? | RC always OK; steel needs intumescent/boarding; CLT with char margin |
-| High humidity / aggressive environment? | Stainless fixings; GFRP rebar; UHPC; avoid plain steel |
-| Embodied carbon reduction priority? | CLT/glulam; high fly-ash or GGBS concrete; adaptive reuse |
-| Thermal mass needed? | Exposed concrete soffit; brick; stone; rammed earth — not timber/steel |
-| Acoustic isolation floor to floor? | Mass + decoupling; heavy concrete or CLT + floating screed + resilient |
-| Seismic zone, ductility required? | Ductile steel moment frame; ductile RC shear walls |
-| Fast on-site erection? | Prefab steel; unitized curtain wall; precast concrete; CLT panels |
-| Long span, minimal structural depth? | Post-tensioned flat slab; Vierendeel steel; glulam-steel hybrid |
-| No formwork, complex geometry? | Shotcrete; UHPC precast; GFRC; 3D-printed concrete |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Long spans in masonry/plain concrete | Check tension demand, arch/vault geometry, reinforcement, prestress, and support movement. | Compression-only materials need form or reinforcement to cross long spans. |
+| Tall building material | Compare steel, RC, mass timber, lateral system, fire, vibration, code, and supply chain. | Height is governed by lateral loads and fire/connection design, not material strength alone. |
+| Fire rating | Evaluate concrete cover, steel protection, CLT char layer, compartmentation, and connection performance. | Material fire behavior and assembly fire rating are different questions. |
+| Aggressive environment | Check chloride, moisture, carbonation, freeze-thaw, stainless/GFRP/UHPC options, and detailing. | Corrosion is often a detailing and exposure problem as much as material selection. |
+| Embodied carbon reduction | Start with adaptive reuse, structural efficiency, cement substitution, timber, and EPD data. | Low-carbon claims depend on boundary, replacement, and end-of-life assumptions. |
+| Thermal mass or acoustic isolation | Compare mass, exposure, decoupling, surface finish, airtightness, and operational strategy. | Mass helps only when connected to the right thermal or acoustic pathway. |
+| Seismic ductility | Use ductile steel/RC systems, detailing, connections, redundancy, and energy dissipation. | Strong but brittle systems can be dangerous in seismic design. |
+| Speed or complex geometry | Compare prefab steel, precast, CLT, unitized facade, shotcrete, UHPC/GFRC, 3D printing, and tolerances. | Fast or complex methods shift work into design coordination and QA. |
+
+---
+
+## Cross-References
+
+- `01-PREHISTORIC-VERNACULAR.md` anchors material choice in climate, local supply, and craft constraints.
+- `05-PORTLAND-CEMENT.md` and `07-ENGINEERED-WOOD.md` show two modern structural-material systems.
+- `09-SUSTAINABILITY.md` reframes material selection around embodied carbon and lifecycle performance.
 
 ---
 

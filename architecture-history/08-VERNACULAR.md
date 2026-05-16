@@ -656,17 +656,25 @@ ventilation                building standards (CIBSE, ASHRAE 55)
 
 ## Decision Cheat Sheet: Vernacular Architecture
 
-| Question | Answer |
-|----------|--------|
-| What is thermal mass and why does it help in hot-dry climates? | Stores heat during day, delays peak indoor temperature by 8–12 hours; releases at night when outdoor air is cool |
-| How does a wind catcher (badgir) work? | Pressure differential drives air down one channel; thermal stack drives cool air up from underground water source |
-| Why are tropical vernacular houses raised on stilts? | Flood protection, air circulation under floor, pest/snake exclusion, storage |
-| What is a shotgun house? | Narrow, deep house with rooms in series — through-ventilation from front to back |
-| Why does Japanese timber joinery use no nails? | Mortise-and-tenon friction joints last centuries; nails corrode and loosen |
-| How is the igloo geometrically optimal? | Catenary cross-section = optimal compression arch form; spiral construction needs no centering |
-| What is the Dogon togu na? | Deliberately low men's council house — occupants must sit, preventing rash decisions |
-| What is a chattel house? | Portable post-emancipation Caribbean house, designed to be disassembled and moved |
-| Why do hot-dry courtyard houses face inward? | Thermal, privacy, and security reasons — the courtyard is the outdoor space, not the street |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Thermal mass in hot-dry climate | Check diurnal temperature swing, wall mass, night ventilation, solar gain, and occupancy schedule. | Thermal mass fails when nights stay hot or ventilation is blocked. |
+| Wind catcher performance | Analyze pressure differential, stack effect, tower orientation, underground water/thermal sink, and wind availability. | Badgir logic is climate-specific, not a universal passive-cooling device. |
+| Tropical raised house | Compare flood risk, underfloor airflow, pests, humidity, shaded outdoor work, and lightweight envelope. | Elevation solves several problems only when airflow remains open. |
+| Shotgun house ventilation | Trace narrow plan, aligned doors, prevailing breeze, porch, urban lot, and social use. | Through-ventilation depends on orientation and unobstructed openings. |
+| Japanese timber joinery | Inspect wood movement, mortise-tenon geometry, repairability, seismic behavior, and metal corrosion. | Nail-free does not mean simple; precision is the technology. |
+| Igloo geometry | Use catenary/compression form, snow-block properties, spiral construction, insulation, and wind protection. | The form is optimal for a specific material and climate. |
+| Dogon togu na | Examine low roof, sitting posture, council process, shade, social regulation, and symbolic meaning. | Architecture shapes behavior through affordance, not force alone. |
+| Chattel house portability | Check post-emancipation land tenure, modular timber, disassembly, labor, and Caribbean climate. | Portability is a political-economic response, not just a construction trick. |
+| Inward-facing courtyard | Separate thermal buffering, privacy, security, gendered/social use, dust, and street relation. | The courtyard becomes the controlled outdoor room. |
+
+---
+
+## Cross-References
+
+- `07-POSTMODERNISM.md` shows how modern architects reinterpreted region, memory, and local meaning.
+- `../architecture/00-OVERVIEW.md` connects vernacular lessons to contemporary practice, climate, and users.
+- `../construction-materials/01-PREHISTORIC-VERNACULAR.md` grounds vernacular form in earth, timber, stone, and local material systems.
 
 ---
 

@@ -321,17 +321,23 @@ NTK ←→ MEAN FIELD
 
 ---
 
+## Cross-References
+
+- `machine-learning-theory/05-KERNEL-METHODS.md` — kernel methods are the classical limit that NTK connects neural nets to.
+- `machine-learning-theory/07-DOUBLE-DESCENT.md` — overparameterized regimes where NTK-style analysis appears.
+- `machine-learning-theory/09-OPEN-PROBLEMS.md` — limits of current theory for deep learning dynamics.
+
 ## Decision Cheat Sheet
 
-| Question | NTK Answer |
-|----------|-----------|
-| Does gradient descent converge globally? | Yes, for infinite-width networks |
-| What does the network compute at convergence? | Kernel regression with K^∞ |
-| Does the kernel change during training? | No (infinite-width); yes (finite) |
-| Why do real networks beat kernel methods? | Feature learning — beyond NTK regime |
-| How to compute NTK for a given architecture? | Recursive formula; closed form for fully-connected + ReLU |
-| Is NTK useful for finite networks? | As a first-order approximation, yes; fails to capture feature learning |
-| What is the effective prior in NTK regression? | RKHS with K^∞ norm — encodes architectural inductive bias |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Global convergence claim | Infinite-width NTK regime | Finite networks can leave the lazy-training limit. |
+| Converged predictor | Kernel regression with limiting NTK | This describes function evolution, not learned features. |
+| Kernel evolution | Fixed at infinite width | Finite-width feature learning changes the kernel. |
+| Real-network advantage | Feature learning beyond NTK | Not every architecture/training run escapes NTK-like behavior. |
+| Architecture NTK computation | Recursive kernel formulas | Closed forms are easiest for idealized fully connected/ReLU nets. |
+| Finite-network usefulness | First-order approximation | It can miss representation learning and finite-width noise. |
+| Implicit prior | RKHS norm induced by limiting kernel | Architectural bias is only one part of training bias. |
 
 ---
 

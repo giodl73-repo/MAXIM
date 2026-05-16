@@ -150,10 +150,10 @@ HOW?
   Option B: South Americans reached Polynesia
   Option C: Floating tubers (rejected — tubers don't survive ocean transport)
 
-CURRENT CONSENSUS (2020 genetic analysis):
-  Multiple contact events between Polynesians and South Americans
-  ~1200 CE timeframe; Polynesians reached South America, acquired sweet potato
-  One of the most well-supported evidence for pre-Columbian transoceanic contact
+CURRENT BEST EVIDENCE:
+  Genetic and linguistic evidence supports pre-Columbian contact between
+  Polynesians and South Americans, likely around the late first or early second
+  millennium CE, but the exact direction and number of transfers remain debated.
 ```
 
 ### Nutrition and Distribution
@@ -255,7 +255,8 @@ NUTRITION:
   Protein: ~7% dry weight; reasonable for a root vegetable
   Calcium oxalate crystals: raw taro causes intense mouth/throat irritation (needle-like
     crystals mechanically damage mucous membranes)
-  Must be cooked: heat degrades and softens calcium oxalate; extended cooking important
+  Must be cooked/processed: heat, soaking, and leaching reduce the irritation
+    risk; extended cooking is important for edible leaves and corms
   Suitable for gluten-free and low-allergen diets (one of the least allergenic starches)
 
 CULTURAL SIGNIFICANCE:
@@ -274,17 +275,23 @@ FOOD PRODUCTS:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why did potato cause European population growth? | ~2× calories per acre vs grain in temperate climate; enabled smaller-plot subsistence |
-| What caused the Irish Famine? | *Phytophthora infestans* water mold + genetic uniformity of Lumper potato (no resistance) |
-| What is chuño? | Andean freeze-dried potato; 10-year shelf-stable; Inca logistics food |
-| Why did sweet potato reach Polynesia before Columbus? | Pre-Columbian Polynesian-South American contact (~1200 CE); Polynesians acquired it in S America |
-| Why does cassava have cyanide? | Cyanogenic glycosides (linamarin): anti-herbivore defense; bitter varieties have more = higher yield but need processing |
-| Why is cassava grown despite cyanide? | Drought-tolerant, poor soil, highest tropical caloric yield; safe when properly processed |
-| Is American "yam" a yam? | No — typically a soft sweet potato variety; true yams (*Dioscorea*) are different plants |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Potato population effect | Calories per acre plus small-plot subsistence | Demography also depends on land tenure, milk, and political economy |
+| Irish Famine causation | *Phytophthora infestans*, Lumper monoculture, colonial policy | Not a purely natural disaster |
+| Chuno as technology | Freeze-thaw dehydration at altitude | It is logistics engineering, not just a food preparation |
+| Sweet potato in Polynesia | Genetic + linguistic evidence for pre-Columbian contact | Direction/timing remain debated; avoid overclaiming certainty |
+| Cassava cyanide risk | Linamarin/lotaustralin compartmentalization | Bitter varieties are safe only with proper processing |
+| Why cassava persists | Drought tolerance, poor-soil performance, living storage | Low protein and processing burden are the tradeoffs |
+| Yam vs sweet potato | *Dioscorea* vs *Ipomoea* | US grocery naming is culinary marketing, not botany |
 
 ---
+
+## Cross-References
+
+- [Food Plants Overview](00-OVERVIEW.md) frames root and tuber crops as domesticated storage organs.
+- [Vegetables](05-VEGETABLES.md) compares edible plant organs outside seed and fruit categories.
+- [Modern Breeding](09-MODERN-BREEDING.md) covers disease resistance, clonal propagation, and breeding constraints.
 
 ## Common Confusion Points
 

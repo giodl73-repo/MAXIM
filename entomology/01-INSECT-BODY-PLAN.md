@@ -2,7 +2,11 @@
 
 ## The Big Picture
 
-The insect body plan is a masterpiece of miniaturized engineering: a rigid exoskeleton that serves simultaneously as skeleton, armor, and sensory array; a tracheal gas-exchange system that bypasses the circulatory bottleneck; and an open circulatory system that matters less when oxygen delivery is handled by diffusion.
+The insect body plan is a compact engineering stack: a rigid cuticular
+exoskeleton that serves as skeleton, armor, waterproofing, and sensory substrate;
+a tracheal gas-exchange system that decouples oxygen delivery from circulation;
+and an open circulatory system optimized for nutrients, hormones, immunity, and
+hydraulics rather than high-pressure oxygen transport.
 
 ```
 +-------------------------------------------------------------+
@@ -102,7 +106,9 @@ Hormones:
 
 ## Tracheal System: Gas Exchange Without Lungs
 
-The insect respiratory system is the reason insects don't have vertebrate-style lungs and why there is a physical upper size limit on insects (except with elevated O2 atmospheres).
+The insect respiratory system explains why insects do not need
+vertebrate-style lungs and why body size is constrained by oxygen delivery,
+ventilation geometry, molt mechanics, and exoskeletal scaling.
 
 ```
 TRACHEAL SYSTEM ARCHITECTURE
@@ -127,8 +133,9 @@ Gas exchange:
 
 Size constraint:
   Diffusion distance L^2 ~ D (D = diffusion coefficient)
-  Tracheal O2 delivery scales poorly beyond ~2-3cm body width
-  Carboniferous hyperoxia (35% vs 21% O2) allowed Meganeura (60cm)
+  Tracheal O2 delivery scales poorly as body radius increases
+  Carboniferous hyperoxia likely helped giant forms such as Meganeura,
+  but ecology, temperature, predation, and developmental constraints also matter
 ```
 
 ---
@@ -333,18 +340,24 @@ Insect cuticle is a layered composite material with the same engineering logic a
 
 ## Decision Cheat Sheet
 
-| Structure | Function | Unique feature |
-|-----------|----------|----------------|
-| Cuticle | Support, waterproofing, armor | Chitin + sclerotized protein; must molt to grow |
-| Tracheal system | O2 delivery | Bypasses circulatory system; sets size limit |
-| Open circulatory system | Nutrients, hormones, hydraulics | Not primary O2 carrier |
-| Compound eye | Wide-field vision, UV, polarized light | High temporal resolution; low spatial acuity |
-| Mushroom bodies | Learning, memory, olfactory integration | Enlarged in social Hymenoptera |
-| Ovipositor | Egg placement | Modified to sting in aculeate Hymenoptera |
-| Asynchronous flight muscle | High-frequency wing beat | Oscillates at resonant frequency, not nerve rate |
-| Spermatheca | Sperm storage | Allows mating/oviposition temporal separation |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Insect identity | Head/thorax/abdomen, three leg pairs, one antenna pair | Larval stages can obscure adult body-plan rules |
+| Cuticle claim | Epicuticle, procuticle, sclerotization, and molting | The exoskeleton is also waterproofing and sensory infrastructure |
+| Size-limit claim | Tracheal diffusion/ventilation plus exoskeletal scaling | Oxygen is central, but not the only constraint on giant insects |
+| Circulation claim | Hemolymph functions: nutrients, hormones, immunity, hydraulics | It is usually not the primary O2 carrier |
+| Eye-performance claim | Ommatidia count, field of view, and flicker fusion | Motion/temporal performance can beat spatial acuity |
+| Mouthpart claim | Homologous appendages modified by diet | Chewing, piercing, siphoning, and sponging are transformations, not separate inventions |
+| Flight-muscle claim | Synchronous vs asynchronous actuation | Wingbeat frequency is not always nerve impulse frequency |
+| Reproductive-structure claim | Ovipositor, spermatheca, accessory glands | Stings are modified ovipositors only in aculeate Hymenoptera |
 
 ---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places the insect body plan inside the full entomology map.
+- `02-DIVERSITY-CLASSIFICATION.md` shows how body-plan variations map to major groups.
+- `03-METAMORPHOSIS.md` connects anatomy to life-stage transformation.
 
 ## Common Confusion Points
 

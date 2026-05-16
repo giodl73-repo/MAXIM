@@ -403,16 +403,22 @@ THE SECOND GREEN REVOLUTION DEBATE:
 
 ---
 
+## Cross-References
+
+- `agriculture/01-SOILS-FERTILITY.md` — fertilizer response depends on soil chemistry and nutrient buffering.
+- `agriculture/03-IRRIGATION.md` — water control is one of the hard dependencies of Green Revolution yield gains.
+- `genomics/01-DNA-SEQUENCING.md` — modern crop improvement extends the breeding logic with molecular tools.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why did semi-dwarf varieties respond to N but traditional didn't? | Harvest index: taller plants used extra N for stem growth and lodged; semi-dwarfs channeled N into grain |
-| Was the Green Revolution "worth it"? | On net, almost certainly yes — 1 billion lives saved is not a rounding error. But costs were real and unevenly distributed. |
-| Why didn't Africa get a Green Revolution? | Different crops, rain-fed not irrigated, weaker institutions; CGIAR focused on wheat/rice; maize gains in eastern Africa were real but smaller scale |
-| What was CGIAR? | Consultative Group on International Agricultural Research — 15 international centers (CIMMYT, IRRI, ICARDA, etc.) created 1971 to institutionalize agricultural R&D for developing world |
-| Is genetic diversity gone? | In farmers' fields, largely yes for wheat and rice. Gene banks (IRRI, CIMMYT, Svalbard) preserve it ex situ. In situ diversity maintained more in Africa and for minor crops. |
-| What's the connection to N₂O emissions? | More N fertilizer applied → more denitrification by soil bacteria → more N₂O (GWP 265×CO₂). Green Revolution increased food security but accelerated greenhouse forcing. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why semi-dwarf varieties responded to nitrogen | Harvest index and lodging resistance | Genetics only paid off with fertilizer, irrigation, and management |
+| Whether the Green Revolution was net beneficial | Lives saved and yield gains | Costs were real, unevenly distributed, and environmentally persistent |
+| Why Africa had a different trajectory | Crop mix, rain-fed systems, institutions, and research focus | There were regional maize gains, but not the same wheat/rice package |
+| What CGIAR changed institutionally | International agricultural R&D centers | Institutional priorities shaped crops, regions, and farmer beneficiaries |
+| Whether genetic diversity disappeared | Field diversity versus gene-bank preservation | Ex situ preservation is not the same as in situ resilience |
+| How fertilizer connects to climate forcing | Nitrogen fertilizer and soil `N2O` emissions | Food security gains and greenhouse forcing advanced together |
 
 ---
 

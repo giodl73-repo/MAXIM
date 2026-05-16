@@ -334,19 +334,25 @@ KETOGENIC DIET (nutritional ketosis):
 
 ---
 
+## Cross-References
+
+- `natural-sciences/08-METABOLISM.md` - biochemical metabolism foundations.
+- `disease/06-METABOLIC-ENDOCRINE.md` - metabolic disease patterns.
+- `medicine/05-ENDOCRINE-METABOLIC.md` - metabolic pharmacotherapy.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Most accurate BMR formula | Mifflin-St Jeor (for typical adults); Katch-McArdle if LBM known |
-| Why caloric restriction slows metabolism | Adaptive thermogenesis: NEAT + hormonal suppression (T3, leptin) |
-| RQ 0.7 means what? | Nearly pure fat oxidation |
-| RQ 1.0 means what? | Nearly pure carbohydrate oxidation |
-| When does gluconeogenesis begin? | ~8–16h fast; rates increase as glycogen depletes |
-| When is ketosis nutritional vs dangerous? | <3 mmol/L + normal insulin = nutritional; >10 + DM + no insulin = DKA |
-| Why does keto help epilepsy? | Not fully known; BHB has direct neuromodulatory effects; glucose/mTOR suppression |
-| Exercise at low intensity burns what? | Fat dominant until ~65% VO₂max crossover |
-| What is NEAT? | All non-exercise movement; highly variable; adapts to caloric intake |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| BMR estimate | Mifflin-St Jeor, or Katch-McArdle if LBM known | BMR is not total daily expenditure. |
+| Metabolic slowdown during dieting | Adaptive thermogenesis via NEAT, T3, leptin | Energy expenditure is not fixed. |
+| RQ near 0.7 | Predominant fat oxidation | Oxidizing fat is not the same as losing body fat. |
+| RQ near 1.0 | Predominant carbohydrate oxidation | Overfeeding can push RQ above 1 via lipogenesis. |
+| Gluconeogenesis onset | 8-16 hour fast as glycogen declines | Rate rises gradually, not as an on/off switch. |
+| Nutritional ketosis versus DKA | Ketone level plus insulin/glucose context | SGLT2 inhibitors can blur glucose signal in DKA. |
+| Ketogenic epilepsy effect | BHB and network/metabolic effects | Mechanism is not fully settled. |
+| Low-intensity exercise fuel | Fat-dominant oxidation below crossover | Total energy balance drives fat loss. |
+| NEAT contribution | Non-exercise movement adaptation | NEAT varies widely between individuals. |
 
 ---
 

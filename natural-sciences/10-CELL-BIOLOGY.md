@@ -6,7 +6,7 @@
 
 ---
 
-## Prokaryote vs Eukaryote
+## The Big Picture
 
 ```
 Feature              Prokaryote                Eukaryote
@@ -363,19 +363,25 @@ BCL-2 family key members:
 
 ---
 
+## Cross-References
+
+- `biology/02-CELL-BIOLOGY.md` - cell biology in the biology track.
+- `natural-sciences/09-MOLECULAR-BIO.md` - molecular information machinery inside cells.
+- `microbiology/01-BACTERIAL-BIOLOGY.md` - prokaryotic cell structure.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Answer |
-|----------|---------|--------|
-| How does a signal reach the nucleus from outside? | Signal cascade | GPCR/RTK → second messengers → kinase cascade → TF phosphorylation |
-| Why does insulin lower blood glucose? | RTK/PI3K/AKT | GLUT4 translocation to plasma membrane in muscle/fat |
-| What prevents premature anaphase? | SAC | MCC inhibits APC/C-CDC20 until all kinetochores bi-orient |
-| Why do cancer cells avoid apoptosis? | BCL-2 overexpression | Sequesters BH3-only proteins; prevents MOMP |
-| How does a vesicle know where to go? | SNARE pairing | Specific v-SNARE / t-SNARE combinations provide targeting specificity |
-| What controls cell size checkpoints? | CDK-Cyclin levels | Cyclin accumulates → CDK active → checkpoint passed → next phase |
-| How does the ER sort secretory proteins? | Signal sequence | N-terminal hydrophobic signal → SRP → translocon → ER lumen |
-| Why is Ca²⁺ a second messenger? | Concentration gradient | Cytoplasmic [Ca²⁺] ~100 nM vs ER/extracellular ~µM–mM → 10,000× gradient |
-| What does RAS do in cancer? | Constitutive GTP binding | Mutation prevents GTPase → always-on proliferation signal |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| External signal reaching nucleus | GPCR/RTK cascade to second messengers, kinases, TFs | Amplification is large but terminated and time-limited. |
+| Insulin lowering glucose | RTK/PI3K/AKT and GLUT4 translocation | Tissue context matters: muscle/fat response differs from liver. |
+| Premature anaphase prevention | Spindle assembly checkpoint and MCC inhibition of APC/C-CDC20 | All kinetochores must bi-orient before release. |
+| Cancer apoptosis avoidance | BCL-2 sequestration of BH3-only proteins | Blocking MOMP is one anti-apoptotic route, not the only one. |
+| Vesicle target specificity | v-SNARE/t-SNARE pairing | Rab GTPases and tethering factors also contribute. |
+| Cell-cycle size/checkpoint control | Cyclin accumulation and CDK activation | Checkpoints integrate damage and growth signals, not just size. |
+| Secretory protein ER targeting | N-terminal hydrophobic signal, SRP, translocon | Signal sequences route co-translational import. |
+| Calcium second-messenger power | Steep cytosol-to-store/extracellular gradient | Calcium signals require pumps/buffers to stay transient. |
+| Oncogenic RAS signaling | GTPase-disabled constitutive RAS | Always-on proliferation depends on downstream pathway context. |
 
 ---
 

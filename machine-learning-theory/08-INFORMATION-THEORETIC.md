@@ -352,16 +352,22 @@ This is exactly the PAC-Bayes objective: maximize empirical fit while penalizing
 
 ---
 
+## Cross-References
+
+- `information-theory/02-SOURCE-CODING.md` — code length as the operational form of compression.
+- `information-theory/07-ALGORITHMIC-INFORMATION.md` — complexity and shortest descriptions as a deep counterpart.
+- `machine-learning-theory/03-RADEMACHER.md` — complexity-bound comparison point.
+
 ## Decision Cheat Sheet
 
-| Goal | Framework | Key Quantity |
-|------|-----------|-------------|
-| Tight bound for stochastic classifier | PAC-Bayes | KL(Q \|\| P) |
-| Bound for deterministic algorithm | CMI | I(W; U \| Z₁,...,Z_{2m}) |
-| Analyze SGD generalization | MI bound | I(W; S)/m |
-| Understand weight compression | MDL | Description length in bits |
-| Non-vacuous bound for neural net | PAC-Bayes (optimized) | Numerically minimize KL |
-| Prior knowledge about task | PAC-Bayes with informed P | Better P → tighter bound |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Stochastic-classifier bound | PAC-Bayes KL between posterior and prior | Prior choice must be data-independent unless accounted for. |
+| Deterministic-algorithm bound | Conditional mutual information | CMI setup is subtle and sample-splitting dependent. |
+| SGD generalization | Mutual information between output and sample | Naive MI can be infinite for deterministic continuous outputs. |
+| Weight compression story | MDL description length | Compression after training must avoid data leakage. |
+| Non-vacuous neural-net bound | Optimized PAC-Bayes posterior | Optimization can hide strong assumptions. |
+| Task prior knowledge | Informed PAC-Bayes prior | Better priors tighten only if legitimately specified. |
 
 ---
 

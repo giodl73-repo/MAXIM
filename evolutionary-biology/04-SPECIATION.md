@@ -307,16 +307,22 @@ divergence (many species more similar than human populations).
 
 ---
 
+## Cross-References
+
+- `evolutionary-biology/02-POPULATION-GENETICS.md` — gene flow, drift, and selection as speciation mechanics.
+- `evolutionary-biology/05-PHYLOGENETICS.md` — species divergence represented as branching history.
+- `ecology/01-POPULATION-DYNAMICS.md` — ecological isolation and population processes.
+
 ## Decision Cheat Sheet
 
-| Situation | Expected speciation mode | Key signal |
-|-----------|-------------------------|-----------|
-| Island colonization | Allopatric / peripatric | Founder effects, rapid divergence |
-| Mountain range barrier | Allopatric vicariance | Phylogeographic break |
-| Host-plant shift (insects) | Sympatric / parapatric | Assortative mating on host |
-| Polyploid plant | Instantaneous speciation | Chromosome number change |
-| Hybridizing species at contact | Hybrid zone | Mosaic genome, barrier loci |
-| Lake fish radiation | Ecological speciation | Trophic morphology divergence |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Island colonization divergence | Allopatric or peripatric speciation | Founder effects can mimic selection signatures. |
+| Barrier-driven split | Vicariant allopatry | Phylogeographic breaks need timing evidence. |
+| Host-plant shift | Sympatric/parapatric ecology plus assortative mating | Gene flow must be measured, not assumed absent. |
+| Polyploid plant origin | Chromosome-number change | Instant isolation is strongest in plants, not universal. |
+| Contact-zone mixing | Hybrid-zone genomic mosaic | Hybridization can reinforce or erode species boundaries. |
+| Lake fish radiation | Ecological speciation and trophic morphology | Rapid radiations can blur tree-like history. |
 
 ---
 

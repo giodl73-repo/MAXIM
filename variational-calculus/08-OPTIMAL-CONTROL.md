@@ -278,18 +278,24 @@ The minimum-time problem:
 
 ---
 
+## Cross-References
+
+- `control-theory/03-OPTIMAL-CONTROL.md` — control-theory treatment of the same optimal-control machinery.
+- `variational-calculus/05-HAMILTONIAN-MECHANICS.md` — Hamiltonian structure behind costates and PMP.
+- `control-theory/07-MPC.md` — receding-horizon implementation of finite-horizon optimization.
+
 ## Decision Cheat Sheet
 
-| Problem type | Method |
-|-------------|--------|
-| Unconstrained control, smooth | Euler-Lagrange equation |
-| Constrained control u ∈ U | Pontryagin Maximum Principle |
-| Linear dynamics + quadratic cost | LQR → Riccati equation → linear feedback |
-| Global optimal policy | HJB equation (backward PDE for value function) |
-| Gradient of J w.r.t. parameters | Adjoint method (one backward pass) |
-| Minimum time | Bang-bang control, switching from PMP |
-| Neural ODE training | Adjoint method = continuous-time backprop |
-| Stochastic control | HJB with Itô terms (stochastic optimal control) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Smooth unconstrained control | Euler-Lagrange equation | Control constraints invalidate simple E-L sufficiency. |
+| Constrained control set | Pontryagin Maximum Principle | PMP is necessary, not automatically sufficient. |
+| Linear-quadratic dynamics | Riccati equation and LQR feedback | Model mismatch can dominate optimality. |
+| Global optimal policy | HJB value-function PDE | Curse of dimensionality is severe. |
+| Parameter gradient | Adjoint method | Backward pass depends on stable state/adjoint integration. |
+| Minimum-time control | Bang-bang switching from PMP | Singular arcs can break pure bang-bang intuition. |
+| Neural ODE training | Continuous-time adjoint backprop | Memory/numerical tradeoffs affect gradients. |
+| Stochastic control | HJB with Ito terms | Noise model is part of the problem definition. |
 
 ---
 

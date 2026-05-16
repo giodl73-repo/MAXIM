@@ -334,15 +334,21 @@ which are aqueous. Very different chemistry.
 
 **The MARSIS radar signal as ambiguous instrumentation.** The bright basal radar reflector at ~1.5 km depth under the Mars south polar ice cap is consistent with liquid water — but also with CO₂ clathrates and brine-saturated ice with specific dielectric properties. This is the instrumentation ambiguity problem: a single measurement that falls within the confidence interval of multiple competing hypotheses cannot distinguish between them. The resolution is more measurements from different instruments or geometries — the same principle as requiring multiple independent signals before acting on a metric in production system monitoring.
 
+## Cross-References
+
+- `astrobiology/02-EXTREMOPHILES.md` — organism-level evidence for environmental habitability.
+- `astrobiology/04-BIOSIGNATURES.md` — detectable consequences of habitable settings.
+- `planetary-science/08-HABITABILITY.md` — broader planetary habitability framework.
+
 ## Decision Cheat Sheet
 
-| Body | Best evidence | Why interesting | Best mission | Timeline |
-|---|---|---|---|---|
-| Mars | Ancient lakes, clay minerals | Past habitability near-certain | MSR (sample return) | 2033+ |
-| Europa | Induced magnetic field, chaos terrain | Large ocean, rock contact | Europa Clipper | 2030 arr. |
-| Enceladus | H2 in plumes (direct), complex organics | Active hydrothermal now | Orbilander concept | 2050s |
-| Titan | Methane lakes confirmed (Cassini) | Alternative biochemistry | Dragonfly | 2034 arr. |
-| Venus | Cloud conditions tolerable | Atmospheric biosphere | DAVINCI+ | ~2030 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether Mars preserved past habitability | Ancient lakes and clay minerals | Water is necessary, not sufficient; energy, nutrients, and preservation decide biosignature value. |
+| Whether Europa's ocean is accessible and energetic | Induced magnetic field and chaos terrain | Ocean presence is strong; rock contact and oxidant delivery remain key uncertainties. |
+| Whether Enceladus is currently active | H2 and complex organics in plumes | Plumes sample chemistry, not life; contamination control and life-detection payload matter. |
+| Whether Titan supports alternative solvent chemistry | Methane lakes observed by Cassini | Methane life is speculative and would not resemble water-based biochemistry. |
+| Whether Venus clouds are a plausible niche | Temperate cloud layer conditions | Acidity, water activity, and phosphine controversy make the case fragile. |
 
 ---
 

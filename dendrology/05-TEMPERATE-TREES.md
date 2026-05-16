@@ -221,19 +221,25 @@ The largest conifer family: pines, spruces, firs, larches, hemlocks, Douglas-fir
 
 ---
 
+## Cross-References
+
+- `01-TREE-ANATOMY.md` gives the anatomy used for identification.
+- `02-WOOD-PROPERTIES.md` compares the material behavior of temperate woods.
+- `04-FOREST-ECOLOGY.md` places species traits in community context.
+
 ## Decision Cheat Sheet
 
-| Application | Best Species |
-|-------------|-------------|
-| Wine/spirits barrels | White oak (tyloses; watertight) |
-| Structural framing (North America) | Douglas-fir, Southern yellow pine |
-| Outdoor decking without treatment | Black locust, ipe, teak, western red cedar |
-| High-hardness flooring (domestic) | Hard maple, hickory, white oak |
-| Musical instrument soundboard | Sitka spruce (high E/density, straight grain) |
-| Fine furniture (domestic) | Black walnut, black cherry, hard maple |
-| Tool handles (maximum toughness) | Hickory, white ash |
-| Shingles / siding | Western red cedar, eastern white cedar |
-| Boat planking (traditional) | White oak, teak, Port Orford cedar |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Watertight barrels | White oak with tyloses | Red oak and white oak are not interchangeable for liquid-tight work. |
+| North American framing | Douglas-fir or Southern yellow pine | Douglas-fir is not a true fir; technical naming matters. |
+| Untreated exterior decking | Black locust, ipe, teak, or western red cedar | Durability, machining cost, and legal sourcing differ. |
+| Domestic hard flooring | Hard maple, hickory, or white oak | Hardness is only one wear variable; movement and finish matter. |
+| Instrument soundboard | Sitka spruce with high E/density and straight grain | Acoustic use needs low damping, not just light weight. |
+| Domestic fine furniture | Black walnut, black cherry, hard maple | Color, grain, movement, and workability drive choice. |
+| Tough tool handle | Hickory or white ash | Straight grain and absence of runout matter more than species label alone. |
+| Shingles or siding | Western or eastern white cedar | "Cedar" names often refer to non-Cedrus genera. |
+| Traditional boat planking | White oak, teak, or Port Orford cedar | Teak silica damages tools and raises machining cost. |
 
 ---
 

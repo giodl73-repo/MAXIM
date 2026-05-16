@@ -344,18 +344,24 @@ IMPLICATION:
 
 ---
 
+## Cross-References
+
+- `03-MEMORY-TECHNIQUES.md` supplies the memory mechanisms behind stability and drift.
+- `05-FOLKLORE.md` supplies high-variation narrative genres.
+- `09-DIGITAL-PRESERVATION.md` explains what changes when transmission is recorded.
+
 ## Decision Cheat Sheet
 
-| Concept | Precise meaning |
-|---------|----------------|
-| Version | Stable distinct form of a tale type |
-| Variant | Minor performance deviation from a version |
-| Serial reproduction | Bartlett's method; shows drift in worst case |
-| Conventionalization | Drift toward culturally familiar schema |
-| Conservative bearer | Prioritizes faithful transmission |
-| Innovative bearer | Prioritizes good performance |
-| Community correction | Audience intervention to maintain standard form |
-| Fixed-text form | Most stable oral form; error has ritual consequences |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Stable form of a tale | Version as distinct transmissible form | Multiple versions are normal, not evidence of corruption. |
+| Minor performance difference | Variant within a recognized version | Surface variation may leave schema intact. |
+| Worst-case drift | Bartlett serial reproduction | Telephone-game models remove real stabilizers. |
+| Culturally familiar reshaping | Conventionalization toward known schema | Drift reveals cultural expectations, not just memory failure. |
+| Faithful transmission priority | Conservative bearer and ritual/legal stakes | Stability increases when error has social consequences. |
+| Performance-quality priority | Innovative bearer adapting to occasion | Innovation can be tradition-maintaining rather than destructive. |
+| Audience enforcement | Community correction during performance | Communities remember together, not just through individual brains. |
+| Highly stable recitation | Fixed-text form with ritual consequences | Fixed oral forms are not representative of all oral tradition. |
 
 ---
 

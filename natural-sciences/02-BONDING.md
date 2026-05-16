@@ -6,7 +6,7 @@
 
 ---
 
-## The Bonding Landscape
+## The Big Picture
 
 ```
 WHAT HOLDS ATOMS TOGETHER?
@@ -377,20 +377,26 @@ Boiling points of noble gases:
 
 ---
 
+## Cross-References
+
+- `natural-sciences/03-THERMOCHEM.md` - bond enthalpy and thermodynamic consequences.
+- `natural-sciences/17-ORGANIC-CHEMISTRY.md` - covalent bonding in carbon frameworks.
+- `materials/01-CRYSTAL-STRUCTURE.md` - bonding expressed as crystal structure.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Answer |
-|----------|---------|--------|
-| How many bonds does C form? | Valence = 4 | 4 bonds (tetrahedral sp³ or planar sp²) |
-| Why is H₂O bent, not linear? | VSEPR — 2 lone pairs | Tetrahedral electron geometry, bent molecular |
-| Why is O₂ paramagnetic? | MO theory | Two unpaired e⁻ in degenerate π*2p |
-| Why is N₂ so unreactive? | Bond order 3 + no dipole | Triple bond (945 kJ/mol), symmetric |
-| Why does HF have higher bp than HCl? | H-bond strength | F stronger H-bond acceptor/donor despite smaller size |
-| Why is CO₂ nonpolar despite polar C=O bonds? | Vector sum | Linear molecule, dipoles cancel |
-| Why is CO isoelectronic with N₂? | 10 e⁻, triple bond | Both: σ²π⁴, BO=3, ~same length and strength |
-| Why does metallic radius increase down a group? | Higher n shell | More electron shielding, larger valence orbitals |
-| Why can SF₆ have 12 bonding electrons? | Period 3, expanded octet | 3d orbitals accessible (hypervalent model) |
-| Is hybridization real? | Approximation | Useful model for geometry/counting, not physical mechanism |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Carbon valence | Four bonding directions, sp3/sp2/sp context | Hybridization is a model, not a mechanism. |
+| Bent water geometry | VSEPR with two lone pairs | Electron geometry differs from molecular shape. |
+| Oxygen paramagnetism | MO occupancy in degenerate pi* orbitals | Lewis structures miss this. |
+| Nitrogen inertness | Bond order 3 and no dipole | Catalysts and high temperature can overcome kinetic barrier. |
+| HF boiling point | Hydrogen bonding strength | Size trends alone predict the wrong answer. |
+| CO2 nonpolarity | Linear vector cancellation | Bond polarity and molecular polarity are separate. |
+| CO/N2 similarity | Isoelectronic 10-electron triple-bond systems | Different nuclei still change polarity and reactivity. |
+| Metallic radius trend | Higher shell and shielding down group | Ionic radius trends depend on charge state. |
+| SF6 hypervalence | Period-3 hypervalent bonding model | Modern MO descriptions do not require literal d-orbital expansion. |
+| Hybridization use | Geometry/counting approximation | Use MO theory when orbital energies and magnetism matter. |
 
 ---
 

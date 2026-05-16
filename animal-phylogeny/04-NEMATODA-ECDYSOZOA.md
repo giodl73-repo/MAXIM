@@ -375,33 +375,23 @@ Adults: do NOT eat (no functional gut)
 
 ---
 
+## Cross-References
+
+- `animal-phylogeny/03-LOPHOTROCHOZOA-WORMS.md` — contrast with spiralian protostomes.
+- `animal-phylogeny/06-ARTHROPODA.md` — ecdysozoan specialization at maximum scale.
+- `evolutionary-biology/06-EVO-DEVO.md` — developmental-toolkit view of body-plan change.
+
 ## Decision Cheat Sheet
 
-```
-ECDYSOZOAN IDENTIFICATION (non-arthropod)
-
-Round in cross-section, no legs, sinusoidal movement?
-  → NEMATODA
-  Free-living, <1 mm, soil/water? → probably free-living nematode
-  In intestinal tissue → likely parasitic (Ascaris, hookworm, etc.)
-  On plant roots, causing galls? → root-knot nematode (Meloidogyne)
-
-Tiny (<1.5 mm), 4 pairs stubby legs, claws?
-  → TARDIGRADA
-  In a dehydrated barrel-shape (tun)? → cryptobiosis state
-
-Soft, velvety body, many pairs stubby legs (>8)?
-  Shoots sticky slime? → ONYCHOPHORA (velvet worm)
-
-Very long, thread-like, in freshwater or dead arthropod?
-  → NEMATOMORPHA (horsehair worm)
-
-Marine sediment, eversible toothed proboscis?
-  → PRIAPULIDA
-
-Microscopic, exactly 13 segments, marine sediment?
-  → KINORHYNCHA
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a round legless worm is nematode | Round cross-section, cuticle, sinusoidal movement | Movement reflects longitudinal muscles and hydrostatic pressure, not annelid-style crawling. |
+| Whether a nematode is free-living or parasitic | Habitat: soil/water, host tissue, or plant root galls | "Nematode" spans model organisms, parasites, and plant pathogens. |
+| Whether a tiny animal is tardigrade | Four pairs of stubby legs and claws | Cryptobiosis is a state, not ordinary active life. |
+| Whether a soft many-legged predator is onychophoran | Velvet body, lobopods, sticky slime | "Living fossil" describes body-plan conservation, not genomic stasis. |
+| Whether a threadlike worm is nematomorph | Very long freshwater form or emerging from arthropod host | Adult appearance hides a parasitic juvenile life cycle. |
+| Whether marine sediment worm is priapulid | Eversible toothed proboscis | Cambrian importance does not mean modern priapulids are primitive leftovers. |
+| Whether tiny segmented sediment animal is kinorhynch | Exactly 13 segments and marine sediment habitat | Segment count is useful only with microscopy; larvae/juveniles can mislead. |
 
 ---
 

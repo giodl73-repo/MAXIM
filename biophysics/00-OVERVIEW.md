@@ -221,15 +221,23 @@ The physical energy unit k_BT ≈ 4.1 pN·nm at 310 K is the "clock cycle" of bi
 
 ## Decision Cheat Sheet
 
-| Question | Biophysics framework | Module |
-|----------|---------------------|--------|
-| How does a protein fold spontaneously? | Energy landscape theory | 01, 02 |
-| How was the ribosome structure determined? | Cryo-EM | 03 |
-| How does a neuron fire an action potential? | Hodgkin-Huxley | 05 |
-| How does kinesin walk on microtubules? | Brownian ratchet | 06 |
-| Can I measure single-molecule force? | Optical tweezers | 07 |
-| Is a biochemical process at equilibrium? | Fluctuation-dissipation | 01, 08 |
-| What was left unsolved after AlphaFold? | Function, dynamics, design | 09 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Protein folding | Use energy landscapes, hydrophobic collapse, kinetics, chaperones, sequence constraints, and misfolding pathways. | "Spontaneous" does not mean a single deterministic route. |
+| Large complex structure | Compare X-ray, cryo-EM, NMR, resolution, sample heterogeneity, conformational states, and model validation. | A structure is an ensemble-informed model, not the molecule frozen in life. |
+| Action potential | Start with Hodgkin-Huxley conductances, membrane capacitance, channel gating, gradients, and cable geometry. | The spike is circuit physics implemented by molecular channels. |
+| Molecular motor motion | Check ATP cycle, Brownian ratchet, load, step size, track polarity, and thermal noise. | Motors rectify stochastic motion rather than simply "walk" like machines. |
+| Single-molecule force | Evaluate optical tweezers, AFM, force calibration, tether geometry, loading rate, and population heterogeneity. | The measurement perturbs the molecule it reveals. |
+| Nonequilibrium process | Use detailed balance, fluctuation-dissipation, entropy production, chemical potential, and driven cycles. | Living systems often operate precisely by staying away from equilibrium. |
+| AlphaFold-era claim | Separate static structure, confidence, complexes, dynamics, function, design, and experimental validation. | Predicted structure is not the same as mechanism or cellular behavior. |
+
+---
+
+## Cross-References
+
+- `01-PROTEIN-FOLDING.md` shows physical energy landscapes operating at molecular scale.
+- `03-MEMBRANES.md` connects thermodynamics and mechanics to biological boundaries.
+- `../biology/01-MOLECULAR-MACHINERY.md` gives the cellular machine layer biophysics explains quantitatively.
 
 ---
 

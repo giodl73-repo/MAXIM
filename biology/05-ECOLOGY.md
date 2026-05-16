@@ -4,7 +4,7 @@
 
 ---
 
-## Big Picture
+## The Big Picture
 
 ```
 ECOLOGY: How organisms interact with each other and their environment
@@ -290,20 +290,26 @@ ECOSYSTEM-BASED CONSERVATION:
 
 ---
 
+## Cross-References
+
+- `ecology/01-POPULATION-DYNAMICS.md` - population-level ecological mechanics.
+- `evolutionary-biology/08-COEVOLUTION.md` - reciprocal ecological selection.
+- `natural-sciences/18-ECOLOGY.md` - broader ecology context.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Key Tool |
-|----------|---------|----------|
-| Why is population declining? | Limiting factors, vital rates | Life table, λ from Leslie matrix |
-| Can two species coexist? | Lotka-Volterra, niche theory | Coexistence: intraspecific > interspecific competition |
-| What's limiting primary production? | Nutrient colimitation | N in oceans; P in freshwater |
-| Why is biodiversity high here? | Intermediate disturbance, species-area | S = cA^z; IDH |
-| How much energy reaches top predator? | 10% rule | 10^(trophic levels) less than primary production |
-| Is this community food web stable? | Connectance, interaction strength | Weak links stabilize; compartmentalization |
-| What drives nutrient limitation? | Biogeochemical cycling | N: fixation/denitrification; P: weathering only |
-| How to size a nature reserve? | SLOSS + MVP + island biogeography | Large preferred; corridor connectivity crucial |
-| What happens when predator removed? | Trophic cascade | Bottom-up release of prey → potential overgrazing |
-| Is this habitat patch enough? | Metapopulation viability | Patch occupancy model; extinction-recolonization balance |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Population decline | Vital rates and limiting factors | Lambda from a Leslie matrix depends on stage structure. |
+| Species coexistence | Lotka-Volterra and niche theory | Real coexistence often needs spatial/temporal variation. |
+| Primary-production limit | Nutrient colimitation | Ocean N and freshwater P are rules of thumb, not universal. |
+| High biodiversity | Species-area and disturbance hypotheses | IDH is context-dependent. |
+| Top-predator energy | Trophic-transfer efficiency | Ten-percent rule applies to production. |
+| Food-web stability | Connectance and interaction strength | Weak links and compartments can stabilize. |
+| Nutrient limitation driver | Biogeochemical cycle bottlenecks | N has atmosphere; P lacks a gaseous reservoir. |
+| Reserve sizing | SLOSS, MVP, and island biogeography | Connectivity and edge effects can dominate area alone. |
+| Predator removal effect | Trophic cascade | Cascades are often nonlinear and multi-factor. |
+| Habitat-patch sufficiency | Metapopulation viability | Occupancy depends on extinction-recolonization balance. |
 
 ---
 

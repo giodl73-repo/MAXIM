@@ -253,18 +253,24 @@ Bass is hardest to block (low f → low TL)
 
 ---
 
+## Cross-References
+
+- `acoustics/03-ROOM-ACOUSTICS.md` — RT60, reflections, and room-field mechanics.
+- `architecture/03-ENVIRONMENTAL.md` — acoustic comfort as part of environmental design.
+- `music-theory/01-PITCH-SCALES.md` — musical-performance requirements that drive hall acoustics.
+
 ## Decision Cheat Sheet
 
-| Design Situation | Key Action |
-|-----------------|-----------|
-| Optimize concert hall for orchestral music | T60 = 1.8–2.2 s, maximize LF (lateral energy) |
-| Improve speech intelligibility | Shorten RT60 (< 0.7 s), raise SNR, eliminate echoes |
-| Measure speech intelligibility | Measure STI (target > 0.60 for good) |
-| Reduce HVAC noise in conference room | Target NC ≤ 30 |
-| Block sound between offices | STC ≥ 45 partition; check flanking paths |
-| Home recording studio | Short RT60 (0.2–0.4 s), treat first reflection points |
-| Reduce bass buildup in studio | Bass traps in corners (thick porous or resonant panel) |
-| Shoebox or vineyard hall? | Shoebox: better LF envelopment; Vineyard: more seats, intimacy |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a concert hall supports orchestra | RT60, lateral fraction, and early-reflection geometry | Long reverberation without lateral energy can sound large but not enveloping |
+| Whether speech intelligibility is poor | RT60, SNR, STI, and echo paths | Shortening RT60 is not enough if HVAC noise or late echoes dominate |
+| Whether STI is acceptable | Measured STI at listener positions | STI is in-room intelligibility; it is not wall isolation |
+| Whether HVAC noise is the culprit | NC curve by octave band | A single broadband dB value can hide low-frequency rumble |
+| Whether office isolation is adequate | STC assembly plus flanking inspection | The weakest path may be ceiling plenum, slab, duct, or door, not the partition |
+| Whether a recording room is controlled | First-reflection points, RT60, and bass decay | A short midband RT60 can still have uncontrolled low-frequency ringing |
+| Whether bass treatment is effective | Waterfall decay and corner pressure maxima | Thin foam is not a bass trap; depth or resonance is required |
+| Whether shoebox or vineyard geometry fits | Program, seat count, lateral energy, and intimacy goals | Hall form is a tradeoff between envelopment, capacity, sightlines, and construction constraints |
 
 ---
 

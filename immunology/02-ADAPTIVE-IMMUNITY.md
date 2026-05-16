@@ -324,20 +324,26 @@ ADAPTIVE IMMUNITY: LEARNED, SPECIFIC, REMEMBERED
 
 ---
 
+## Cross-References
+
+- `immunology/03-B-CELLS-ANTIBODIES.md` — humoral arm of adaptive immunity.
+- `immunology/04-T-CELLS.md` — cellular arm of adaptive immunity.
+- `immunology/06-VACCINES.md` — vaccination trains adaptive memory.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Where do B cells mature? | Bone marrow |
-| Where do T cells mature? | Thymus |
-| What kills self-reactive thymocytes? | Negative selection (medullary DCs + AIRE) |
-| What ensures T cells can bind MHC? | Positive selection (cortical TECs) |
-| Why do T cells need two signals? | Prevents anergy; requires APC with pathogen context |
-| What is cross-presentation? | DCs loading external antigen onto MHC I → prime CD8 T cells |
-| What is affinity maturation? | Somatic hypermutation + selection in germinal centers |
-| What mediates somatic hypermutation? | AID (activation-induced cytidine deaminase) |
-| What is clonal anergy? | T cell silence from Signal 1 without Signal 2 |
-| What does CTLA-4 do? | Competes with CD28 for B7 → inhibits T cell activation |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| B-cell maturation site | Bone marrow development | Activation and class switching occur later in secondary lymphoid tissue. |
+| T-cell maturation site | Thymic selection | Thymic output declines with age. |
+| Self-reactive thymocyte deletion | Negative selection with AIRE and medullary APCs | Central tolerance is incomplete. |
+| MHC restriction | Positive selection on cortical epithelial cells | Surviving T cells are self-MHC restricted, not self-reactive by default. |
+| Two-signal requirement | Antigen plus costimulation | Missing costimulation induces anergy, not activation. |
+| Cross-presentation | Dendritic-cell loading of exogenous antigen on MHC I | It is specialized, not the default antigen route. |
+| Affinity maturation | Germinal-center mutation and selection | High affinity can trade off breadth. |
+| Somatic hypermutation enzyme | AID | Off-target activity creates lymphoma risk. |
+| Clonal anergy | Signal 1 without Signal 2 | Anergy is one tolerance mode among several. |
+| CTLA-4 inhibition | Competition with CD28 for B7 | Checkpoint blockade releases this brake systemically. |
 
 ---
 

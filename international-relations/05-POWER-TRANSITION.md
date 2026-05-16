@@ -341,16 +341,26 @@ INTERDEPENDENCE AND POWER TRANSITION — THE DEBATE
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Realist balance-of-power logic | `international-relations/01-REALISM.md` |
+| Nuclear deterrence under great-power rivalry | `international-relations/04-NUCLEAR-DETERRENCE.md` |
+| Institutions during power shifts | `international-relations/06-INTERNATIONAL-INSTITUTIONS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Power Transition answer |
-|----------|-------------------------|
-| When is war most likely? | When challenger approaches 80-100% of dominant power's capabilities AND is dissatisfied with the existing order |
-| Why does Gilpin say wars happen? | The distribution of power shifts but the distribution of benefits in the order doesn't adjust; war resets the order |
-| What are the peaceful conditions? | Shared cultural/institutional characteristics (UK-US), nuclear deterrence (US-USSR), accommodation by dominant power |
-| What is Thucydides Trap? | Allison's argument that rising powers threatening dominant powers tend to go to war (12/16 historical cases) |
-| Does interdependence prevent war? | Liberal: yes, raises costs; Realist: no, pre-WWI UK-Germany example; current US policy suggests decoupling, not relying on interdependence |
-| What is hegemonic stability? | Kindleberger: dominant power provides public goods (open trade, stable currency, security) that the system needs but won't self-provide |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| War risk under power transition | Challenger near parity plus dissatisfaction with the existing order | Parity alone is insufficient; dissatisfaction is the key second variable. |
+| Gilpin's war mechanism | Power distribution shifts faster than benefit distribution | War "resets" order, but adjustment can also happen institutionally. |
+| Peaceful transition conditions | Shared institutions/culture, nuclear deterrence, dominant-power accommodation | UK-US and US-USSR are special cases, not automatic templates. |
+| Thucydides Trap claims | Dominant-power fear of a rising challenger | The quote concerns Sparta's fear, not a universal law of rising-power war. |
+| Interdependence limits | Liberal cost-raising versus realist security competition | Trade raises costs but may not dominate security or status stakes. |
+| Hegemonic stability | Kindleberger public goods: trade, currency, security | Hegemons also extract rents; public-good provision is not purely benevolent. |
 
 ---
 

@@ -323,19 +323,25 @@ This is why backward heat ill-posedness (mode explosion) directly predicts diffu
 
 ---
 
+## Cross-References
+
+- `partial-differential-equations/01-CLASSIFICATION.md` — parabolic well-posedness and smoothing behavior.
+- `probability-statistics/04-STOCHASTIC-PROCESSES.md` — Brownian motion and diffusion process interpretation.
+- `statistical-mechanics/08-NON-EQUILIBRIUM.md` — irreversible diffusion and entropy production context.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Fundamental solution of heat equation? | K(x,t) = (4παt)^{−n/2} e^{−|x|²/4αt} (Gaussian) |
-| Characteristic length scale at time t? | L ~ √(αt) (diffusive scaling) |
-| Separation of variables gives what? | Exponentially decaying Fourier modes |
-| Long-time dominant behavior? | Lowest eigenmode, decay rate e^{−αλ₁t} |
-| Why is backward heat ill-posed? | Gaussian → modes grow as e^{αk²T} when reversed |
-| What is the maximum principle for heat? | Max/min achieved on parabolic boundary (t=0 or ∂Ω) |
-| Does heat equation preserve positivity? | Yes — non-negative initial data stays non-negative |
-| How does Black-Scholes relate to heat? | Change of variables transforms B-S exactly to heat equation |
-| What is diffusion-driven instability? | Turing: two-species RD can form patterns from uniform state |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a heat problem is free-space diffusion | Gaussian fundamental solution | Boundaries, variable coefficients, and sources alter the kernel |
+| Whether a length scale should grow diffusively | `L ~ sqrt(alpha t)` | Advection, reaction, or anomalous diffusion changes the scaling |
+| Whether separation of variables is appropriate | Exponentially decaying eigenmodes | Geometry and boundary conditions determine the eigenbasis |
+| What controls long-time behavior | Lowest eigenmode and decay rate `exp(-alpha lambda_1 t)` | Conserved mass or nonhomogeneous forcing can change the asymptotic state |
+| Whether backward heat is stable | Reverse the Fourier-mode decay | High-frequency modes grow like `exp(alpha k^2 T)` and amplify noise |
+| Whether maxima can form inside the domain | Parabolic maximum principle | The boundary is parabolic: initial slice plus spatial boundary |
+| Whether positivity should be preserved | Positivity-preserving heat semigroup | Sources, reactions, or sign-changing boundary data can break it |
+| Whether Black-Scholes is a heat equation in disguise | Log/discount change of variables | Financial boundary/payoff conditions carry the modeling assumptions |
+| Whether diffusion can create patterns | Turing instability in reaction-diffusion systems | It requires at least coupled species and differential diffusion rates |
 
 ---
 

@@ -299,17 +299,24 @@ Environmental flows (e-flows) are the quantity, timing, and quality of water flo
 
 ---
 
+## Cross-References
+
+- `02-RIVER-ECOLOGY.md` explains flow regimes and river continuity.
+- `03-WETLANDS.md` covers high-value conservation habitats.
+- `09-WATER-QUALITY.md` supplies monitoring metrics for intervention success.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| How did zebra mussels change Lake Erie? | Filter-fed phytoplankton, reduced it 80–90%; shifted system from pelagic to benthic; increased water clarity but altered food web |
-| What stopped Nile perch from being entirely negative? | Massive fishery value; but 200+ endemic cichlid species lost |
-| What does a large dam do to water temperature downstream? | Cold hypolimnetic releases in summer; eliminates warm-season temperature cues for native species |
-| Where does the delta sediment go after Aswan Dam? | Trapped in reservoir (98%); Nile Delta erodes without replacement supply |
-| What is the minimum e-flow for basic ecological function? | ~30% of mean annual flow (Tennant method); 10% MAF = severe degradation floor |
-| Does dam removal work for fish recovery? | Yes — documented within 1–5 yr for most anadromous species in multiple case studies |
-| What threatens freshwater mussels more than any other group? | Dam construction and reservoir impoundment (need clear, fast-flowing water + specific fish hosts) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Zebra mussel impact | Lake Erie shift from pelagic to benthic production and 80-90% phytoplankton reduction | Clearer water is not ecosystem recovery. |
+| Nile perch tradeoff | Fishery value versus loss of 200+ endemic cichlid species | Economic gain did not erase extinction cost. |
+| Downstream dam temperature | Cold hypolimnetic releases in summer | Releases can erase native warm-season cues. |
+| Delta sediment starvation | Aswan trapping about 98% of Nile sediment | Delta erosion follows when replacement supply stops. |
+| Basic environmental flow | Tennant method near 30% mean annual flow | 10% MAF is a severe degradation floor, not a target. |
+| Dam-removal fish recovery | Anadromous species recovery within 1-5 years in case studies | Sediment contamination must be assessed before removal. |
+| Mussel conservation threat | Dams, impoundments, flow loss, and host-fish disruption | Mussels need both habitat and host-specific fish. |
+| Fish-ladder claim | Dam height, species, and passage rate | Ladders at large dams often fail to restore historic runs. |
 
 ---
 

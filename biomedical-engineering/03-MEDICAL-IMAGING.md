@@ -581,21 +581,27 @@ gallstone on US).
 
 ---
 
+## Cross-References
+
+- `biomedical-engineering/04-BIOSENSORS.md` — measurement systems at smaller scale.
+- `optics/01-GEOMETRIC-OPTICS.md` — optical imaging foundations.
+- `signal-processing/09-APPLICATIONS.md` — reconstruction and image-processing signal logic.
+
 ## Decision Cheat Sheet — Modality Selection
 
-| Clinical Question | First Choice | Why |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Acute stroke | MRI (DWI) | Detects ischemia in minutes, no radiation |
-| Acute hemorrhage | CT (non-contrast) | Fast, bright blood on CT |
-| Bone fracture | CT | Superior bone detail, Hounsfield units |
-| Soft tissue tumor | MRI | Superior soft tissue contrast |
-| Lung, thoracic | CT | High contrast between air and soft tissue |
-| Cardiac anatomy | CT or MRI (no radiation) | Gated acquisition |
-| Cardiac function | Echo (ultrasound) | Real-time, Doppler |
-| Myocardial perfusion | PET (Rb-82) or SPECT | Functional imaging |
-| Metabolic/oncology staging | PET/CT (FDG) | Warburg effect |
-| Liver fibrosis | MRI elastography | Non-invasive shear wave |
-| Pregnancy | Ultrasound | No radiation, real-time, portable |
-| Joint cartilage | MRI | T2 mapping, dGEMRIC |
-| Prostate cancer | MRI (multiparametric) | PI-RADS scoring |
-| Thyroid nodule | Ultrasound first | Size, vascularity, calcification |
+| Whether acute ischemia is present | MRI with DWI | Best early ischemia signal, but availability and time-to-treatment may favor CT pathway. |
+| Whether acute hemorrhage is present | Non-contrast CT | Fast and sensitive to blood; does not replace vascular imaging when needed. |
+| Whether cortical bone detail is decisive | CT | Radiation dose is acceptable only when the bone question justifies it. |
+| Whether soft tissue contrast matters most | MRI | Superior contrast trades against time, contraindications, and motion sensitivity. |
+| Whether thoracic/lung structure is the target | CT | Air-soft-tissue contrast is strong; incidental findings and dose management matter. |
+| Whether cardiac anatomy is the question | Gated CT or MRI | CT has radiation/contrast; MRI has time and device constraints. |
+| Whether cardiac function is the question | Echocardiography | Real-time Doppler is accessible, but image windows can limit quality. |
+| Whether myocardial perfusion is the question | PET Rb-82 or SPECT | Functional signal depends on tracer availability and quantitative needs. |
+| Whether metabolic staging is needed | FDG PET/CT | Warburg-effect uptake is useful but inflammation can mimic malignancy. |
+| Whether liver fibrosis can be staged noninvasively | MRI elastography | Shear-wave stiffness is indirect and must be interpreted with inflammation/congestion context. |
+| Whether pregnancy imaging is needed | Ultrasound | No ionizing radiation, but operator skill and acoustic windows matter. |
+| Whether cartilage composition is the target | MRI with T2 mapping or dGEMRIC | Advanced sequences are protocol-sensitive and not just an anatomic scan. |
+| Whether prostate cancer needs local characterization | Multiparametric MRI | PI-RADS standardizes suspicion, not definitive histology. |
+| Whether a thyroid nodule needs first-line characterization | Ultrasound | Size, vascularity, and calcification guide risk; cytology may still be required. |

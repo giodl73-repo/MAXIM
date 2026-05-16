@@ -571,35 +571,24 @@ NEANDERTHAL INTROGRESSION:
 
 ---
 
+## Cross-References
+
+- `animal-phylogeny/11-REPTILIA-BIRDS.md` — amniote contrast class.
+- `human-biology/01-MUSCULOSKELETAL.md` — mammalian anatomy in human form.
+- `evolutionary-biology/09-MACROEVOLUTION.md` — mammalian radiations after extinction events.
+
 ## Decision Cheat Sheet
 
-```
-MAMMAL ORDER IDENTIFICATION
-
-Lays eggs, in Australia/New Guinea?
-  → MONOTREMATA
-  Bill, aquatic, webbed feet, venomous spur? → Platypus
-  Spiny, rolls up? → Echidna
-
-Has pouch (or descended from pouched ancestor)?
-  → MARSUPIALIA
-  Hops on huge hindlimbs? → Macropus (kangaroo)
-  Sleeps 20hrs, eats eucalyptus? → Koala
-  Small, insectivore, striped? → Numbat/quoll
-  Long nose, ears → Americas? → Opossum
-
-Placental mammal — use order:
-  Wings (powered flight)? → CHIROPTERA (bat)
-  Aquatic, no hind legs, tail fluke? → CETACEA (whale/dolphin)
-  Large, trunk? → PROBOSCIDEA (elephant)
-  Slow, suspended from trees, claws? → PILOSA (sloth)
-  Armored body plates? → CINGULATA (armadillo)
-  Retractile claws, cat face? → CARNIVORA (Felidae)
-  Ever-growing incisors, no canines? → RODENTIA
-  Primates: forward eyes + grasping hands
-    Great ape, no tail? → HOMINIDAE (gorilla, chimp, orangutan, human)
-    Has tail, monkey? → Cercopithecidae (OW) or Platyrrhini (NW)
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether egg-laying mammal is monotreme | Oviparity in Australia/New Guinea plus mammary traits | Platypus and echidna preserve deep mammal splits without being "part reptile." |
+| Whether platypus or echidna is likely | Bill/webbed aquatic form or spiny terrestrial form | Venom, electroreception, and sex chromosomes are specialized, not primitive leftovers. |
+| Whether a pouched mammal is marsupial | Pouch or descent from pouched ancestor | Marsupials are not incomplete placentals; they use a different reproductive strategy. |
+| Whether marsupial ecology identifies kangaroo/koala/quoll/opossum | Hindlimb hopping, eucalyptus specialization, carnivory/insectivory, or American distribution | Common names hide deep geographic and ecological splits. |
+| Whether a placental mammal order is likely | Powered flight, fluke swimming, trunk, claws, armor, carnassials, incisors, or primate hands | Order cues are functional syndromes; convergent lifestyles can mislead. |
+| Whether whales belong with hoofed mammals | Cetacean body plan plus molecular/fossil link to hippos | Whales are even-toed ungulates despite total aquatic transformation. |
+| Whether primate labels separate apes and monkeys | Forward eyes, grasping hands, tail state, Old/New World traits | Humans are hominids; "ape" is not a lesser category. |
+| Whether brain size explains human distinctiveness | Encephalization and cortical organization | Absolute brain mass alone is a poor diagnostic for cognition. |
 
 ---
 

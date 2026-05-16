@@ -1,6 +1,6 @@
 # Disease Surveillance
 
-## Surveillance System Architecture
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -246,17 +246,27 @@ SARS-CoV-2 example (2020):
   Discrepancy = iceberg phenomenon
 ```
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Infectious-disease control actions triggered by surveillance | `public-health/03-INFECTIOUS-DISEASE-CONTROL.md` |
+| Health metrics and burden measurement | `public-health/10-HEALTH-METRICS.md` |
+| Environmental exposure monitoring | `public-health/06-ENVIRONMENTAL-HEALTH.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Surveillance need | System type | Key considerations |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Track nationally notifiable diseases | Passive/mandatory (NNDSS) | Underreporting, lag, legal framework |
-| Detect outbreak before diagnosis confirmed | Syndromic (ESSENCE, BioSense) | False alarm rate, signal lag |
-| Achieve high data quality on specific diseases | Sentinel network (FluView) | Not representative of all geography |
-| Respond to international outbreak threat | IHR/PHEIC mechanism | 24hr notification requirement |
-| Verify outbreak exists | Epidemic curve vs. historical baseline | Account for reporting artifacts |
-| Investigate foodborne outbreak | Case-control among exposed | Attack rate analysis by food item |
-| Assess national pandemic preparedness | JEE/IHR self-assessment | Score ≠ actual performance |
+| Notifiable-disease tracking | Passive/mandatory systems such as NNDSS | Underreporting and lag are structural, not incidental. |
+| Early outbreak detection | Syndromic systems such as ESSENCE/BioSense | Speed trades off against specificity and false alarms. |
+| High-quality disease monitoring | Sentinel networks such as FluView | Sentinel data are intentionally sampled, not geographically complete. |
+| International threat response | IHR/PHEIC notification and coordination | Legal notification requirements do not guarantee operational capacity. |
+| Outbreak verification | Epidemic curve against historical baseline | Annotate case-definition changes and reporting artifacts. |
+| Foodborne outbreak investigation | Case-control design among exposed populations | Attack-rate analysis depends on accurate exposure reconstruction. |
+| Pandemic preparedness assessment | JEE/IHR self-assessment and simulation | Score does not equal real-world performance under stress. |
 
 ## Common Confusion Points
 

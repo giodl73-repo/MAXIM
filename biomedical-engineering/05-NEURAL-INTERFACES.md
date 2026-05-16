@@ -526,16 +526,22 @@ where decades of osseointegration data exist.
 
 ---
 
+## Cross-References
+
+- `biomedical-engineering/04-BIOSENSORS.md` — sensor transduction background.
+- `neuroscience/01-NEURONS-SIGNALS.md` — neural signaling substrate.
+- `robotics/01-KINEMATICS.md` — control interfaces for prosthetic and robotic systems.
+
 ## Decision Cheat Sheet
 
-| Need | Technology | Notes |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Research, rodent | Neuropixels | Best spatial density, drift correction needed |
-| Clinical BCI (human) | Utah Array (BrainGate) or Neuralink | Proven vs. novel/wireless |
-| Non-invasive BCI | EEG (P300, SSVEP, motor imagery) | Lower performance, no surgery |
-| Non-invasive BCI, better spatial | ECoG or Synchron Stentrode | Subdural or endovascular |
-| Parkinson's therapy | DBS (Medtronic/Abbott/BSci) | FDA approved, closed-loop available |
-| Hearing restoration | Cochlear implant | FDA approved, excellent outcomes |
-| Vision restoration | Experimental (PRIMA, Orion) | No FDA-approved product currently |
-| Kinetics without animal harm | In vitro MEA (multielectrode array) | Culture dish, drug screening |
-| Population dynamics, behaving | Neuropixels + calcium imaging | Complementary modalities |
+| Whether rodent research needs dense spikes | Neuropixels | Spatial density is excellent, but drift correction and tissue response still matter. |
+| Whether a human clinical BCI needs proven intracortical access | Utah Array / BrainGate class systems | Proven signal quality trades against invasiveness and long-term stability. |
+| Whether surgery must be avoided | EEG with P300, SSVEP, or motor imagery | Non-invasive safety comes with lower bandwidth and more artifact. |
+| Whether better spatial resolution can stay less invasive than cortex arrays | ECoG or Synchron Stentrode | Subdural and endovascular routes have different surgical and signal compromises. |
+| Whether Parkinson's symptoms need stimulation therapy | DBS systems from Medtronic/Abbott/Boston Scientific | FDA approval and closed-loop options do not remove programming and adverse-effect burden. |
+| Whether hearing restoration is clinically mature | Cochlear implant | Outcomes are strong but depend on nerve integrity, age, training, and mapping. |
+| Whether vision restoration is clinically available | Experimental retinal/cortical systems such as PRIMA or Orion | No broadly FDA-approved visual prosthesis currently matches cochlear success. |
+| Whether kinetics can be measured without animal harm | In vitro multielectrode arrays | Culture systems improve screening but simplify intact-circuit physiology. |
+| Whether behaving population dynamics need complementary views | Neuropixels plus calcium imaging | Electrical and optical modalities trade temporal resolution, cell identity, and invasiveness. |

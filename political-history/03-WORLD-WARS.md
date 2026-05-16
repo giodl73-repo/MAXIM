@@ -334,16 +334,26 @@ This is institutional design from historical analysis. The designers (Acheson, K
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Imperial competition before 1914 | `political-history/02-IMPERIALISM.md` |
+| Cold War order after 1945 | `political-history/05-COLD-WAR.md` |
+| Postwar institutional settlement | `political-history/06-POSTWAR-ORDER.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What caused WWI — German design or collective failure? | Fischer: German design; Clark: sleepwalkers — debate ongoing |
-| Why did the Schlieffen Plan make a two-front war automatic? | Military mobilization logic locked in sequence; political control lost to timetables |
-| Why did appeasement fail? | Hitler's goals were unlimited, not national-interest based; each concession invited the next |
-| What is the intentionalist/functionalist debate? | Did Hitler plan the Holocaust from the start (intentionalist) or did it emerge from bureaucratic radicalization (functionalist)? Synthesis: ideology set goal, structure shaped implementation |
-| Why did the post-war order succeed where Versailles failed? | Marshall Plan instead of reparations; integration of Germany rather than exclusion; US committed rather than withdrew |
-| What is "total war"? | Full mobilization of economy, society, culture for war; industrial capacity applied to mass destruction |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| WWI causation debate | Fischer's German design versus Clark's collective sleepwalking | Responsibility can be graded without making causation monocausal. |
+| Mobilization trap | Schlieffen Plan timetables and military sequencing | War plans constrained politics; they did not erase political agency. |
+| Appeasement failure | Hitler's expansive aims and iterative concessions | Hindsight simplifies uncertainty facing 1930s policymakers. |
+| Holocaust causation | Intentionalist/functionalist synthesis | Ideology set direction; bureaucracy and war shaped implementation. |
+| Postwar order success | Marshall Plan, German integration, US commitment, institutions | Versailles comparison must include broader 1919-1923 settlements and interwar shocks. |
+| Total war | Economy, society, culture, and industry mobilized for mass destruction | Total war is a mobilization regime, not just a large war. |
 
 ---
 

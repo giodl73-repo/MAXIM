@@ -371,18 +371,24 @@ THE "BURDEN DOUBLING" CRITIQUE:
 
 ---
 
+## Cross-References
+
+- `03-HUMAN-DEVELOPMENT.md` frames gender as capabilities and agency.
+- `04-INSTITUTIONS.md` explains formal and informal rules that structure inequality.
+- `07-TRADE.md` connects gender outcomes to labor markets and global production.
+
 ## Decision Cheat Sheet
 
-| Question | Answer | Source |
-|----------|--------|--------|
-| Why did development ignore women? | Invisible in economic data; colonial/development models assumed male farmer | Boserup 1970 |
-| WID vs. GAD difference | WID = integrate women; GAD = transform gender structures | Development paradigm evolution |
-| How large is care economy? | 10-39% of GDP; women do 2-10× more unpaid care | Time-use surveys |
-| Why give CCTs to women? | Women invest more in children's health/education | Progresa/Oportunidades RCTs |
-| Do CCTs empower women? | Modestly; income matters; structural change limited | RCT evidence |
-| Return to girls' education? | 8-10% wage premium per year; large demographic effects | Schultz; Bloom-Williamson |
-| Does microfinance empower women? | Not robustly on empowerment metrics; income access, not autonomy | Banerjee et al. 2015 |
-| Land titling to women or jointly? | Context-dependent; formal title without social norm change is ineffective | Doss et al. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Women missing from development models | Boserup-style visibility problem and male-farmer assumption | Colonialism worsened systems that were already patriarchal, not egalitarian. |
+| WID versus GAD framing | WID integrates women; GAD analyzes gendered institutions | Many programs claim GAD while implementing only WID. |
+| Unpaid care burden | Time-use surveys and care-economy valuation | GDP-equivalent estimates expose scale but do not automatically create bargaining power. |
+| CCT targeting to women | Progresa/Oportunidades-style household investment evidence | Average child-investment effects are not a universal moral claim about women. |
+| CCT empowerment claims | Income channel plus autonomy and time-burden metrics | Cash transfer effects are often modest without structural change. |
+| Girls' education returns | Wage premium, fertility, and demographic-dividend pathways | The dividend needs labor-market opportunity and child-survival confidence. |
+| Microfinance empowerment | Income access versus autonomy measures | Credit access is not the same as power inside household or market institutions. |
+| Women's land title | Formal title plus norm, enforcement, and inheritance context | Title without social or legal enforcement may not change control. |
 
 ---
 

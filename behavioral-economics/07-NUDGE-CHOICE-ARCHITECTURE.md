@@ -1,6 +1,6 @@
 # Nudge and Choice Architecture
 
-## The Nudge Framework
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -280,18 +280,28 @@ ORGANIZATIONAL CHOICE ARCHITECTURE (internal):
   OKR tools → default cascading from org level → alignment.
 ```
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Loss aversion and framing mechanisms | `behavioral-economics/02-PROSPECT-THEORY.md` |
+| Heuristics nudges exploit or counteract | `behavioral-economics/03-HEURISTICS-BIASES.md` |
+| Public-policy measurement and evaluation | `statistics-applied/01-EXPERIMENTAL-DESIGN.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Nudge question | Mechanism | Effect size |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Largest single behavioral intervention | Default (opt-out) | 40-60 percentage point increase |
-| Most cost-effective energy conservation | Social comparison (Opower) | ~2% persistent reduction at scale |
-| Increase retirement savings enrollment | Auto-enrollment default | +49pp in classic study |
-| Increase vaccination rates at point of care | Presumptive announcement ("You're due for X") | 15-30% higher uptake vs. participatory |
-| Increase organ donation | Opt-out default | ~80-95% vs. ~12-27% opt-in |
-| Reduce no-shows for appointments | Implementation intention ("I will go at [time]") | 20-30% reduction |
-| Reduce tax non-compliance | Social norm + loss framing | 5-15% improvement |
-| Simplify enrollment forms | Remove steps, pre-fill information | 15-20% per step removed |
+| Large uptake gaps | Defaults, especially opt-out architecture | Defaults are powerful and therefore ethically loaded. |
+| Energy conservation nudges | Social comparison feedback at scale | Effects can be small but durable; boomerang effects need guarding. |
+| Retirement savings enrollment | Auto-enrollment and escalation defaults | Default contribution levels can anchor people too low. |
+| Vaccination uptake | Presumptive clinical announcement and timely prompts | Works best when access barriers are already low. |
+| Organ donation rates | Opt-out versus opt-in default regimes | Consent norms and public trust determine whether the default is legitimate. |
+| Appointment adherence | Implementation intentions with specific time/place commitments | Planning prompts fail when structural barriers dominate. |
+| Tax compliance | Social norms plus loss framing | Norm messages can backfire if they imply noncompliance is common. |
+| Enrollment friction | Step removal, prefill, and simplification | Simplicity can become a dark pattern if it hides costs or lock-in. |
 
 ## Common Confusion Points
 

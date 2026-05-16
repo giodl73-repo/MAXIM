@@ -377,17 +377,27 @@ The Iranian Revolution (1979) is the hardest case: no state fiscal collapse in S
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Imperial and colonial structures revolution often targets | `political-history/02-IMPERIALISM.md` |
+| Decolonization as revolutionary transition | `political-history/04-DECOLONIZATION.md` |
+| Authoritarian resurgence after revolutionary openings | `political-history/08-AUTHORITARIAN-RESURGENCE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the single most important cause of revolution? | State fiscal/military crisis (Skocpol) — not grievances alone |
-| Why do security forces matter so much? | Army willing to shoot = regime survives; refusing = regime falls |
-| What made the Bolshevik seizure possible? | Pre-existing state collapse from WWI — they exploited a vacuum |
-| Why did the French Revolution become the Terror? | Arendt: social question (poverty) overwhelmed political question (freedom) |
-| What is a "revolutionary situation" vs. outcome? | Dual sovereignty is common; actual transfer + structural change is rare |
-| Why do color revolutions sometimes fail? | Security forces stay loyal; old elites reconsolidate; no structural depth |
-| What is Tilly's "modular repertoire"? | Same action (strike, march) usable by different groups — modern contentious politics |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether grievances can produce revolution | Skocpol's state fiscal/military crisis | Grievances are widespread; state-capacity breakdown makes them revolutionary. |
+| Whether regime collapse is likely | Security-force loyalty and willingness to shoot | Protest size matters less if coercive apparatus remains cohesive. |
+| Bolshevik seizure conditions | WWI-driven state collapse and institutional vacuum | Ideology mattered, but opportunity structure made seizure possible. |
+| Revolutionary radicalization | Arendt's social question versus political freedom | The Terror has multiple explanations; do not reduce it to poverty alone. |
+| Situation versus outcome | Dual sovereignty versus actual transfer and structural change | Revolutionary situations are more common than successful revolutions. |
+| Color revolution durability | Elite reconsolidation, security loyalty, and institutional depth | Electoral mobilization is not the same as structural revolution. |
+| Repertoire diffusion | Tilly's modular strikes, marches, barricades, occupations | Same tactic can serve different groups and goals. |
 
 ---
 

@@ -355,18 +355,24 @@ HYDROGEN EMBRITTLEMENT:
 
 ---
 
+## Cross-References
+
+- `materials-processing/04-DEFORMATION.md` - plasticity and crack-tip behavior.
+- `materials/04-METALS-ALLOYS.md` - alloy toughness and fatigue context.
+- `structural/01-STATICS.md` - stress analysis before crack-aware fracture design.
+
 ## Decision Cheat Sheet
 
-| Fracture/Fatigue Challenge | Approach |
-|---------------------------|----------|
-| Find critical crack size at given stress | K_IC = Y × σ × √(πa_c), solve for a_c |
-| Determine if material choice affects crack tolerance | Compare K_IC values |
-| Calculate inspection interval | Integrate Paris law, divide by safety factor |
-| Improve fatigue life of shaft | Shot peen, improve surface finish, fillet radii |
-| Diagnose fracture origin from fracture surface | Fractography (beach marks, river marks) |
-| Test weld HAZ toughness for structural qualification | Charpy impact at specified temperature |
-| Identify ductile-brittle transition | Charpy vs temperature curve |
-| Assess low-temperature suitability | Check DBTT vs operating temperature |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Critical crack size | K_IC = Y x sigma x sqrt(pi a_c), solve for a_c | K is applied loading; K_IC is a material property at fracture. |
+| Crack-tolerance material choice | Compare K_IC at relevant strength level | Strength and toughness trade off. |
+| Inspection interval | Integrate crack-growth law and apply safety factor | Paris law alone misses near-threshold and near-instability behavior. |
+| Shaft fatigue life | Shot peen, surface finish, and fillet radius | Residual compression and stress concentration both matter. |
+| Fracture origin | Fractography: beach marks, river marks, ratchet marks | Surface interpretation needs loading history and microscopy. |
+| Weld HAZ toughness | Charpy impact at specified temperature | Charpy energy is not K_IC. |
+| Ductile-brittle transition | Charpy energy versus temperature curve | Transition behavior is mainly a ferritic steel concern. |
+| Low-temperature suitability | DBTT versus operating temperature | Operating excursions below DBTT can dominate rare-event risk. |
 
 ---
 

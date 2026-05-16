@@ -1046,24 +1046,23 @@ Tailwind is the dominant choice for new projects in 2026. Strong opinions about 
 
 ---
 
+## Cross-References
+
+- `computing/03-JS-TS.md` — language layer for frontend systems.
+- `computing/07-STATE.md` — state management underneath UI behavior.
+- `digital-media/04-UX-WRITING.md` — content and interaction layer users actually read.
+
 ## Decision Cheat Sheet
 
-| I want to... | Use |
-|---|---|
-| Start a new web app today | Vite + React (`npm create vite@latest`) |
-| Build a production app with SSR / SEO | Next.js |
-| Build for an enterprise team with Angular background | Angular |
-| Build a Vue app | Nuxt (has SSR) or plain Vite + Vue |
-| Fetch and cache server data in React | TanStack Query (React Query) |
-| Handle forms | React Hook Form |
-| Share state across components (small app) | useContext |
-| Share state across components (real app) | Zustand |
-| Style components | Tailwind CSS (new) or CSS Modules (conservative) |
-| Build a component library | React + Storybook |
-| Render a list | `.map()` with a `key` prop |
-| Show/hide something | `{condition && <Component />}` |
-| Respond to user input | Controlled component: `value` + `onChange` |
-| Run code after render | `useEffect` with appropriate deps |
-| Avoid re-computing on every render | `useMemo` |
-| Avoid re-creating callbacks on every render | `useCallback` |
-| Access a DOM element directly | `useRef` |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| New web app choice | Compare Vite/React, Next.js, Angular, Vue/Nuxt, routing, SSR, team skill, and deployment. | Framework choice should follow rendering and team constraints, not trend alone. |
+| SSR or SEO requirement | Check crawlability, latency, caching, hydration, data fetching, and hosting model. | SSR adds server architecture and cache invalidation complexity. |
+| Enterprise Angular fit | Evaluate existing skills, DI, forms, RxJS, governance, and long-lived app standards. | Familiarity can reduce risk, but ecosystem/library needs still matter. |
+| Server-state handling | Use TanStack Query for fetching, caching, retries, invalidation, and background refresh. | Server state is not the same as client UI state. |
+| Form complexity | Compare controlled inputs, React Hook Form, validation schema, accessibility, and submission lifecycle. | Forms fail at validation and UX edges, not just state wiring. |
+| Shared client state | Start with local state/context, then move to Zustand or similar when updates and ownership broaden. | Global state is a dependency graph; keep it small. |
+| Styling approach | Compare Tailwind, CSS Modules, design tokens, theming, build tooling, and team conventions. | Styling systems are governance as much as syntax. |
+| Component library | Use Storybook, accessibility tests, design tokens, versioning, and consumption examples. | A component library is a product with API compatibility. |
+| Rendering collections | Use stable keys, data identity, virtualization if needed, and accessible empty/loading states. | Index keys break when order changes. |
+| Effects and memoization | Use `useEffect`, `useMemo`, `useCallback`, and `useRef` only for their specific lifecycle/perf/identity roles. | Hooks are dependency management tools, not magic performance switches. |

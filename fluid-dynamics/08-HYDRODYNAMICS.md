@@ -216,17 +216,27 @@ A boat moving slower than 0.23 m/s creates no wave — this is the minimum phase
 
 ## Decision Cheat Sheet
 
-| Situation | Tool |
-|----------|-----|
-| Classify channel flow | Fr = V/√(gh): <1 subcritical, >1 supercritical |
-| Analyze hydraulic jump | Sequent depth ratio from Fr₁ |
-| Deep water wave speed | c = √(gλ/2π) |
-| Shallow water / tsunami speed | c = √(gh) |
-| Open channel flow rate | Manning's equation |
-| Geophysical flow (large scale) | Rossby number, geostrophic balance |
-| Stratification stability | Brunt-Väisälä frequency N |
-| Interface instability | Kelvin-Helmholtz criterion |
-| Capillary effects important? | Weber number We = ρU²L/σ |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Channel-flow regime | Froude number `Fr = V/sqrt(gh)` | Subcritical/supercritical is an information-propagation distinction, not just speed. |
+| Hydraulic jump | Sequent-depth ratio from upstream `Fr_1` | Analogous to shocks, but incompressible free-surface physics differs. |
+| Deep-water wave speed | `c = sqrt(g lambda / 2pi)` | Phase velocity differs from particle velocity and group velocity. |
+| Shallow-water or tsunami speed | `c = sqrt(gh)` | Depth, not wavelength, controls speed in the shallow-water limit. |
+| Open-channel flow rate | Manning equation | Empirical roughness coefficient dominates uncertainty. |
+| Large-scale geophysical flow | Rossby number and geostrophic balance | Coriolis matters only when length/time scales make `Ro` small. |
+| Stratification stability | Brunt-Vaisala frequency `N` | Stable stratification supports internal waves, not just static layering. |
+| Interface instability | Kelvin-Helmholtz criterion | Shear, density contrast, viscosity, and surface tension all affect onset. |
+| Capillary importance | Weber number `We = rho U^2 L / sigma` | Surface tension dominates at small scales even when inertia dominates macroscopically. |
+
+---
+
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Continuum mechanics and material derivatives | `fluid-dynamics/01-CONTINUUM-MECHANICS.md` |
+| Inviscid approximations for water waves | `fluid-dynamics/02-INVISCID-FLOW.md` |
+| Turbulence in geophysical and open-channel flows | `fluid-dynamics/05-TURBULENCE.md` |
 
 ---
 

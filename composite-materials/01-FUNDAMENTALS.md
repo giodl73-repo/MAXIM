@@ -280,16 +280,23 @@ The critical weakness of laminated composites:
 
 ## Decision Cheat Sheet
 
-| Design question | Key parameter | How to get it |
-|-----------------|--------------|---------------|
-| Stiffness in fiber direction | E1 (Rule of Mixtures accurate) | Test / datasheet |
-| Stiffness off-axis | CLT with E1, E2, G12, ν12 | CLT calculation |
-| Failure prediction (fiber) | X1T, X1C | Tension/compression test |
-| Failure prediction (matrix/off-axis) | X2T, X2C, S12 + criterion | Test + Tsai-Wu, etc. |
-| Delamination resistance | GIc, GIIc | DCB, ENF tests |
-| Effect of moisture | ETW knockdown | Conditioning + test |
-| Fiber volume fraction (quality) | Vf | Acid digest or burnout |
-| Process quality (void content) | Vv | Optical microscopy or UT |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Fiber-direction stiffness | Use fiber modulus, matrix modulus, fiber volume fraction, rule of mixtures, and test coupon data. | Rule of mixtures is best along fibers, not transverse to them. |
+| Off-axis stiffness | Use lamina properties, fiber angle, transformed stiffness matrix, and CLT stacking sequence. | Off-axis behavior depends on shear coupling as much as axial stiffness. |
+| Fiber failure | Compare tensile/compressive allowables, fiber microbuckling, knockdowns, and test direction. | Compression is usually lower than tension because matrix support controls buckling. |
+| Matrix/off-axis failure | Check transverse allowables, shear strength, stress interaction criterion, and environmental condition. | Failure criteria are calibrated engineering models, not universal laws. |
+| Delamination risk | Measure `G_Ic`, `G_IIc`, ply drops, free edges, impact, and interlaminar stresses. | In-plane strength can look excellent while interlaminar toughness is weak. |
+| Moisture/temperature effect | Use conditioned tests, wet `Tg`, hot/wet allowables, and environmental knockdowns. | Dry room-temperature data can be unsafe for service design. |
+| Fiber volume or void quality | Use acid digest/burnout, microscopy, ultrasound, process records, and acceptance limits. | High fiber volume can hurt quality if voids or dry spots increase. |
+
+---
+
+## Cross-References
+
+- `02-FIBER-TYPES.md` separates reinforcement choices by stiffness, strength, cost, and environment.
+- `03-MATRIX-SYSTEMS.md` explains the resin or matrix phase that transfers load and protects fibers.
+- `04-LAMINATE-THEORY.md` turns constituent properties into directional structural behavior.
 
 ---
 

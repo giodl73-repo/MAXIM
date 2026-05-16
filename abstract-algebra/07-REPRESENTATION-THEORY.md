@@ -304,16 +304,24 @@ APPLICATIONS OF NON-ABELIAN FOURIER ANALYSIS:
 
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Decompose representation into irreps | Compute character inner products ⟨χ_V, χᵢ⟩ |
-| Check if rep is irreducible | ⟨χ,χ⟩ = 1 iff irreducible |
-| Count irreducible representations | = number of conjugacy classes of G |
-| Find dimensions of irreps | Σdᵢ² = |G|; each dᵢ | |G| |
-| Understand spin-1/2 | SU(2) 2-dim irrep; doesn't factor through SO(3) |
-| Tensor product of irreps | Clebsch-Gordan: decompose character product |
-| Build character table | Orthogonality relations + size constraints |
-| Apply FFT | Characters of Z/nZ = Fourier modes |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Decomposition into irreps | Compute character inner products, multiplicities, and dimension checks. | Character methods assume the representation setting where characters separate irreps. |
+| Irreducibility | Use `⟨χ,χ⟩ = 1`, invariant subspaces, or Schur-style constraints. | Irreducible depends on the field and representation category. |
+| Number of irreps | Count conjugacy classes for finite groups over suitable complex representations. | This is not a universal statement for all fields or infinite groups. |
+| Irrep dimensions | Use `Σd_i^2 = |G|`, divisibility, known one-dimensional reps, and class equation constraints. | Dimension arithmetic narrows possibilities; it does not construct the reps alone. |
+| Spin-1/2 claim | Compare `SU(2)` irreps, double cover of `SO(3)`, and projective physical symmetry. | Spinors represent rotations through the cover, not ordinary vectors in `SO(3)`. |
+| Tensor products | Multiply characters and decompose with Clebsch-Gordan or inner products. | Tensor products encode interaction/coupling, not just size multiplication. |
+| Character table construction | Use conjugacy classes, orthogonality, dimensions, known quotient reps, and row/column constraints. | A table must satisfy both algebraic and representation-theoretic consistency. |
+| Fourier transform analogy | Treat characters of abelian groups as frequency modes and diagonalizers of convolution. | Nonabelian Fourier analysis produces matrix-valued blocks, not scalar frequencies. |
+
+---
+
+## Cross-References
+
+- `01-GROUPS.md` is the source object: representations are group homomorphisms into linear transformations.
+- `03-PERMUTATION-GROUPS.md` gives the most concrete representations through actions on finite sets.
+- `../lie-groups/07-REPRESENTATION-THEORY.md` extends the same idea from finite groups to continuous symmetry.
 
 ---
 

@@ -296,17 +296,23 @@ Status: Proved for rank 0 and 1 (Coates-Wiles, Gross-Zagier-Kolyvagin).
 
 ---
 
+## Cross-References
+
+- `number-theory/01-DIVISIBILITY-PRIMES.md` — divisibility and Bezout conditions solve the linear case.
+- `abstract-algebra/06-GALOIS-THEORY.md` — algebraic number theory and field structure enter higher-degree equations.
+- `topology/09-MANIFOLDS.md` — elliptic curves and rational points bridge equations to geometric spaces.
+
 ## Decision Cheat Sheet
 
-| Equation type | Key theorem | Method |
-|---------------|-------------|--------|
-| ax + by = c | Bezout: d=gcd(a,b) must divide c | Extended Euclidean |
-| x² - Dy² = 1 (Pell) | Fundamental solution via continued fractions | CF expansion of √D |
-| a² + b² = c² (Pythagorean) | Complete parametrization | m,n formula |
-| n = x² + y² | p ≡ 3 mod 4 must appear to even power | Gaussian integers |
-| n = sum of 4 squares | Always possible (Lagrange) | Constructive, but complex |
-| xⁿ + yⁿ = zⁿ (FLT) | No solutions for n ≥ 3 (Wiles) | N/A — no solutions exist |
-| y² = x³ + ax + b (EC) | Mordell-Weil: finitely generated | Descent algorithms |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a linear Diophantine equation is solvable | Bezout condition `gcd(a,b) | c` | Extended Euclidean gives one solution, then a family |
+| Whether a Pell equation has infinite structure | Continued fraction of `sqrt(D)` | The negative Pell variant has separate solvability conditions |
+| Whether a right triangle is primitive | Pythagorean parametrization | Coprimality and parity conditions avoid duplicates |
+| Whether an integer is a sum of two squares | Prime factorization modulo `4` | Factors `3 mod 4` must occur to even exponent |
+| Whether four squares always suffice | Lagrange four-square theorem | Constructive algorithms are more involved than existence |
+| Whether Fermat-type powers have nontrivial solutions | Fermat's Last Theorem | The theorem forbids `n >= 3` positive integer solutions |
+| Whether elliptic-curve integer/rational points are structured | Mordell-Weil plus descent | Finitely generated does not mean easy to compute |
 
 ---
 

@@ -206,7 +206,7 @@ K-Pg         66.04     ~75% spp        Chicxulub impactor      2–4 Ma
                         ammonites)       "impact winter"       radiate)
 ```
 
-**Current extinction** — the "Sixth Mass Extinction": species loss rates 100–1000× background. Unlike the Big 5, this one is biotic-driven (Homo sapiens).
+**Current extinction** — often framed as the "Sixth Mass Extinction": measured species-loss rates are far above background in many groups, but the exact multiplier depends on taxonomy, baseline, and sampling. Unlike the Big 5, the dominant drivers are anthropogenic: habitat conversion, overexploitation, invasive species, pollution, and climate change.
 
 ---
 
@@ -236,17 +236,24 @@ Pt, Os anomalies        Same as Ir                    Impact + LIP volcanism
 
 ## Decision Cheat Sheet
 
-| Dating need | Method |
-|-------------|--------|
-| Age of volcanic rock (K-feldspar, biotite) | Ar-Ar or K-Ar |
-| Age of zircon (any igneous) | U-Pb (TIMS or SHRIMP) |
-| Age of organic material <50,000 yr | Radiocarbon (¹⁴C) |
-| Age of cave speleothem or coral | U-series (²³⁰Th/²³⁴U) |
-| Age of very old metamorphic terrain | Sm-Nd or Lu-Hf |
-| Age of sulfide ore deposit | Re-Os |
-| Time sequence without numbers | Steno's principles + biostratigraphy |
+| Dating / Correlation Need | Use This Evidence | Watch-Out |
+|---|---|---|
+| Order events in one outcrop | Superposition, cross-cutting, inclusions, unconformities | Gives sequence, not numeric age |
+| Correlate separated sedimentary sections | Index fossils, magnetostratigraphy, chemostratigraphy | Facies can change laterally at the same time |
+| Date volcanic ash or igneous crystallization | U-Pb zircon, Ar-Ar/K-Ar feldspar or mica | Date the ash/crystal, not necessarily deposition of surrounding sediment |
+| Date organic material in archaeology/late Quaternary | Radiocarbon (C-14) | Fails beyond ~50 ka and is sensitive to contamination/reservoir effects |
+| Date cave deposits, corals, or young carbonates | U-series | Requires closed-system behavior after growth |
+| Date metamorphic history | Sm-Nd, Lu-Hf, U-Pb on metamorphic minerals, Ar-Ar cooling ages | Different minerals close at different temperatures, so "age" may be peak, growth, or cooling |
+| Date sulfide ore formation | Re-Os or dated cross-cutting igneous units | Must separate ore age from host-rock age |
+| Identify a mass-extinction boundary | Fossil turnover + isotope/iridium/ash markers | Boundary signal may be diachronous or overprinted locally |
 
 ---
+
+## Cross-References
+
+- [Sedimentary Rocks](03-SEDIMENTARY-ROCKS.md) supplies the stratigraphic record used to order deep time.
+- [Plate Tectonics](05-PLATE-TECTONICS.md) provides the dynamic engine behind long-term Earth history.
+- [Planetary Geology](10-PLANETARY-GEOLOGY.md) compares Earth's time scale with cratered and volcanic planetary surfaces.
 
 ## Common Confusion Points
 

@@ -465,20 +465,25 @@ Antoni Gaudí (Barcelona, 1852–1926):
 
 ---
 
+## Cross-References
+
+- `architecture-history/03-MEDIEVAL-GOTHIC.md` — preindustrial structural inheritance.
+- `materials/04-METALS-ALLOYS.md` — iron and steel as architectural enablers.
+- `manufacturing/01-GDT-TOLERANCING.md` — industrial precision as a building-system shift.
+
 ## Decision Cheat Sheet: Industrial Age
 
-| Question | Answer |
-|----------|--------|
-| What is the difference between cast iron and wrought iron? | Cast iron: brittle, good in compression only. Wrought iron: ductile, handles tension. |
-| Why was the Crystal Palace revolutionary? | First building designed from a module (not a room), prefabricated at industrial scale, assembled in 9 months |
-| What is a curtain wall? | Non-structural cladding hung from a structural frame — wall carries no load |
-| What makes the Home Insurance Building the first skyscraper? | First true skeleton frame: steel columns/beams carry all loads; masonry is cladding only |
-| What does "form follows function" actually mean? | The building's form should express its purpose and organizational logic (not minimalism) |
-| What is Sullivanesque ornament? | Organic flowing terra cotta ornament based on natural forms, applied to skeleton-frame buildings |
-| What is the tripartite skyscraper formula? | Base (public, different) + shaft (repeating office floors) + crown/cornice (mechanical) |
-| What is Beaux-Arts? | Classical architectural education system from Paris École des Beaux-Arts; axial composition, classical orders, rendered watercolor presentation |
-| Why did Paxton use a 7.32m module? | Standard glass pane size + prefabrication efficiency — everything fitted to one repeated unit |
-| How did St. Pancras achieve 73m span with no visible ties? | Tie is underground — the basement floor spanning between the arch bases |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Cast versus wrought iron behavior | Compression brittleness versus tensile ductility | Material name matters less than load path and failure mode. |
+| Crystal Palace's architectural break | Modular design, prefabrication, glass/iron supply chain, rapid assembly | The revolution was industrial process as architecture, not just transparency. |
+| Curtain wall logic | Non-loadbearing cladding hung from a frame | Curtain walls require a skeleton frame; otherwise masonry still carries load. |
+| Early skyscraper claim | Steel/iron skeleton carrying all loads with masonry as cladding | "First skyscraper" depends on structural definition, not just height. |
+| "Form follows function" | Form expressing program and organizational logic | Sullivan was not a minimalist; ornament remained central. |
+| Sullivanesque ornament | Organic terra-cotta ornament on skeleton-frame buildings | Ornament is non-historical, not absent. |
+| Tripartite skyscraper formula | Base, repeating shaft, and crown/cornice | The formula translates classical hierarchy into commercial verticality. |
+| Beaux-Arts training | Axial composition, classical orders, rendering, and atelier pedagogy | It was a design method and institutional system, not just a style. |
+| Paxton's module or St. Pancras span | Glass-pane module or hidden tie across arch bases | Industrial architecture often hides system constraints in dimensions and substructure. |
 
 ---
 

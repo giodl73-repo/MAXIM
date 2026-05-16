@@ -886,21 +886,23 @@ When done: `git bisect reset` — restores your working tree to HEAD and ends th
 
 ---
 
+## Cross-References
+
+- `computing/01-PACKAGE.md` — dependency and package workflow context.
+- `computing/13-CICD.md` — Git as the trigger substrate for delivery pipelines.
+- `computing/16-MONOREPO.md` — repository-scale implications of Git workflows.
+
 ## Decision Cheat Sheet
 
-| I want to... | Use |
-|---|---|
-| Start a new feature | `git switch -c feature/my-feature` |
-| Save my work temporarily | `git stash push -m "description"` |
-| Get latest from remote (safe) | `git fetch origin` |
-| Get latest + integrate | `git pull --rebase` |
-| Share my branch | `git push -u origin feature/my-feature` |
-| Clean up commits before PR | `git rebase -i main` |
-| Undo last commit (not pushed) | `git reset --soft HEAD~1` |
-| Undo a commit already pushed | `git revert <sha>` |
-| Find who wrote a line | `git blame <file>` |
-| Find when a bug was introduced | `git bisect` |
-| Work on two branches at once | `git worktree add` |
-| See compact branch graph | `git log --oneline --graph --all` |
-| Recover something I reset | `git reflog` |
-| Tag a release | `git tag -a v1.2.0 -m "Release 1.2.0"` |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Feature-branch start | Check current branch, clean worktree, base commit, branch naming, and upstream tracking. | Branches are movable labels; know what commit you are branching from. |
+| Temporary work preservation | Compare stash, WIP commit, worktree, and patch file based on reviewability and recovery need. | Stash is private and easy to forget; name it deliberately. |
+| Remote synchronization | Use fetch first, inspect divergence, then choose merge, rebase, or reset deliberately. | `pull` combines network and integration; split them when uncertain. |
+| Publishing a branch | Confirm remote, upstream, branch name, protected target, and CI trigger behavior. | Pushing shares history; rebasing after that affects collaborators. |
+| Commit cleanup before PR | Use interactive rebase only on private branch history. | Never rewrite shared history unless the team explicitly agreed. |
+| Undoing local work | Distinguish uncommitted changes, last unpublished commit, and earlier commits. | `reset` moves refs; `revert` records an inverse change. |
+| Undoing pushed work | Prefer `git revert` and preserve audit trail. | Public history should usually be append-only. |
+| Line or bug archaeology | Use blame, log, pickaxe, and bisect with a reproducible test. | Blame identifies a change, not necessarily culpability. |
+| Parallel branch work | Use worktrees for independent checkouts that share one object database. | Each worktree has its own working state but refs remain shared. |
+| Recovery after a mistake | Inspect reflog, dangling commits, and branch tips before garbage collection. | Reflog is local and time-limited. |

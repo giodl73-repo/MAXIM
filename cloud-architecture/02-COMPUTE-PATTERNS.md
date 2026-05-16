@@ -276,14 +276,20 @@ Containers share the host kernel — this is fundamentally different from VMs, w
 
 ---
 
+## Cross-References
+
+- `cloud-architecture/01-CLOUD-MODELS.md` — service-model responsibilities around compute.
+- `cloud-architecture/06-SERVERLESS.md` — event-driven compute specialization.
+- `os/01-CHEATSHEET.md` — process, container, and kernel concepts under cloud compute.
+
 ## Decision Cheat Sheet
 
-| Workload | Compute Choice | Pricing Model |
-|---------|---------------|---------------|
-| Stable web API (always on) | AKS or App Service | Reserved (1-3 year) |
-| Batch ML training (restartable) | AKS spot node pool | Spot |
-| Event-driven, scale to zero | Container Apps or Functions | Consumption |
-| Legacy Windows app | App Service (Windows) or VM | Reserved |
-| Dev/test workloads | VMs with auto-shutdown | On-demand |
-| GPU training | N-series VM or AKS GPU node pool | On-demand or Reserved |
-| Burst capacity for peak traffic | VMSS with autoscale + spot | On-demand + Spot |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether an always-on web API needs platform or cluster control | App Service or AKS | Use reservations only when utilization is predictable; AKS adds operations ownership. |
+| Whether batch ML can tolerate interruption | AKS spot node pool | Spot saves money only if checkpointing and retry semantics are solid. |
+| Whether event-driven work should scale to zero | Container Apps or Functions | Consumption pricing rewards idle time but punishes chatty, long-running, or stateful designs. |
+| Whether a legacy Windows app should be modernized or hosted | App Service Windows or VM | App Service reduces OS work; VMs preserve compatibility at the cost of patching and capacity. |
+| Whether dev/test cost is idle waste | VMs with auto-shutdown | On-demand is fine when automation guarantees shutdown and right-sizing. |
+| Whether GPU work needs dedicated capacity | N-series VM or AKS GPU node pool | Reservations require stable demand; otherwise queueing and utilization dominate cost. |
+| Whether peak traffic needs elastic overflow | VMSS autoscale plus spot where safe | Spot is for disposable capacity; protect baseline service with reliable nodes. |

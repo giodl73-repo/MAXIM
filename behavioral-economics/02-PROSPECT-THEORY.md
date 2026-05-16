@@ -1,6 +1,6 @@
 # Prospect Theory
 
-## The Paper and Its Significance
+## The Big Picture
 
 Kahneman & Tversky (1979), "Prospect Theory: An Analysis of Decision under Risk," *Econometrica* 47(2): 263-291.
 
@@ -287,17 +287,27 @@ BONUS vs. SALARY IN COMPENSATION DESIGN:
   Tradeoff between short-term motivation and long-term engagement.
 ```
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Heuristics that generate framing effects | `behavioral-economics/03-HEURISTICS-BIASES.md` |
+| Policy design built on loss aversion and defaults | `behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md` |
+| Market-level anomalies from prospect-theory behavior | `behavioral-economics/08-MARKET-ANOMALIES.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Prospect theory question | Prediction |
-|---|---|
-| Will people accept a symmetric 50/50 bet? | No, if loss > $X; need ~2× gain to compensate |
-| Why does a person buy both lottery and insurance? | Prob. weighting: overweight small probs at both extremes |
-| Why do teams fight scope cuts more than expected? | Loss aversion: cutting scope = loss; adding features = gain |
-| Why is the "Asian Disease" problem susceptible to framing? | Gain frame → risk averse; loss frame → risk seeking |
-| How to get an employee to accept a new role with uncertainty? | Frame rejection as loss (current path declining) not just new role as gain |
-| What's the endowment effect? | Owning → loss aversion → WTA >> WTP for same good |
-| Why is loss aversion strongest for small probabilities? | Probability weighting amplifies both extreme gains and extreme losses |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Rejection of fair-looking gambles | Loss aversion around the reference point | The common "2x" ratio is an average, not a portable constant. |
+| Lottery plus insurance behavior | Probability weighting at both low-probability extremes | Small probabilities are overweighted, but context and salience set the weight. |
+| Resistance to scope cuts | Cuts framed as losses versus additions framed as gains | The reference point may be expectation, budget, aspiration, or status quo. |
+| Framing sensitivity | Gain frames induce risk aversion; loss frames induce risk seeking | Framing effects describe behavior; they do not make manipulation ethical. |
+| Acceptance of uncertain change | Frame the current path and alternative relative to likely losses/gains | Reframing cannot substitute for actual expected-value improvement. |
+| Endowment effect | Ownership makes giving up the good feel like a loss | WTA/WTP gaps shrink with expertise, repeat markets, and low attachment. |
+| Strong loss response at extremes | Probability weighting amplifies extreme losses and gains | Prospect theory is descriptive, not a normative decision rule. |
 
 ## Common Confusion Points
 

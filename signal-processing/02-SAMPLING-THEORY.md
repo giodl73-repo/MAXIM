@@ -213,17 +213,23 @@ This attenuates high frequencies — reconstruction filter must compensate
 
 ---
 
+## Cross-References
+
+- `signal-processing/01-FOURIER-ANALYSIS.md` — bandlimits and spectral replicas are Fourier-domain facts.
+- `signal-processing/03-FILTERS.md` — anti-alias and reconstruction filters are sampling-system boundaries.
+- `information-theory/02-SOURCE-CODING.md` — quantized samples become symbols for compression and transmission.
+
 ## Decision Cheat Sheet
 
-| Situation | Recommendation |
-|-----------|----------------|
-| Choosing sample rate for audio (20 kHz) | 44.1 kHz or 48 kHz (standard) |
-| Need to sample at exactly 2B? | No — you need fs > 2B with margin for real AAF rolloff |
-| Anti-alias filter not sharp enough? | Oversample (4–8×) then decimate digitally |
-| Want 24-bit audio ADC? | Use sigma-delta — only practical 24-bit ADC architecture |
-| High-speed instrumentation | SAR ADC — best power/speed/resolution balance |
-| Radar / oscilloscope | Flash ADC — GS/s range, accept ~8 bits |
-| Hearing noise floor in digital audio | Dither before quantization |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether audio sample rate is sufficient | 44.1 kHz or 48 kHz for 20 kHz audio | Real anti-alias filters need transition-band margin |
+| Whether exactly `2B` sampling works | Use `fs > 2B` plus filter margin | Equality is a mathematical edge case, not an engineering target |
+| Whether analog anti-aliasing is too hard | Oversample then digitally decimate | Oversampling moves complexity into digital filtering |
+| Whether high-resolution audio conversion is needed | Sigma-delta ADC architecture | Resolution comes from oversampling/noise shaping, not instantaneous precision |
+| Whether instrumentation needs speed/resolution balance | SAR ADC | Front-end bandwidth and aperture jitter can dominate |
+| Whether GS/s capture is required | Flash ADC | Speed trades off resolution, power, and cost |
+| Whether quantization noise is audible or correlated | Dither before quantization | Dither raises noise floor to linearize quantization error |
 
 ---
 

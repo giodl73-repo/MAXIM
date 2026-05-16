@@ -35,7 +35,7 @@ Ebola)            standard container that the     the delivery mechanism, not
                   execute
 ```
 
-## Big Picture: Antiviral Target Map
+## The Big Picture
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -390,21 +390,27 @@ Hepatitis A: any traveler to endemic area; 2-dose series (Havrix/Vaqta)
 
 ---
 
+## Cross-References
+
+- `virology/03-REPLICATION-CYCLES.md` - viral life-cycle stages that antivirals target.
+- `immunology/06-VACCINES.md` - vaccine mechanisms and immune memory.
+- `disease/02-VIRAL.md` - clinical viral disease families.
+
 ## Decision Cheat Sheet
 
-| Pathogen | Drug of Choice | Mechanism | Duration |
-|---------|---------------|-----------|---------|
-| HSV encephalitis | Acyclovir IV | TK-activated chain terminator | 14–21 days |
-| HSV genital (1st) | Valacyclovir | Prodrug of acyclovir | 7–10 days |
-| VZV (shingles) | Valacyclovir or famciclovir | TK-activated | 7 days |
-| CMV retinitis | Valganciclovir PO | UL97-activated chain terminator | Induction + maintenance |
-| Acyclovir-resistant HSV | Foscarnet | Pyrophosphate analog, no TK needed | 14–21 days |
-| Ganciclovir-resistant CMV | Foscarnet or cidofovir | No UL97 needed | — |
-| HIV (initial) | BIC/TAF/FTC | INSTI + NRTI dual | Lifelong |
-| HCV (any genotype) | GLE/PIB or SOF/VEL | NS3 + NS5A or NS5B | 8–12 weeks |
-| HBV | TDF or TAF or entecavir | NRTI (reverse transcriptase) | Long-term/indefinite |
-| Influenza A/B | Oseltamivir | Neuraminidase inhibitor | 5 days |
-| COVID-19 (high-risk) | Nirmatrelvir/ritonavir | 3CL protease inhibitor | 5 days |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| HSV encephalitis therapy | IV acyclovir, TK-activated chain termination | Treat urgently; renal dosing matters. |
+| First genital HSV episode | Valacyclovir as acyclovir prodrug | Shorter recurrent-episode courses differ. |
+| Shingles antiviral choice | Valacyclovir or famciclovir | Benefit is highest when started early. |
+| CMV retinitis therapy | Valganciclovir and UL97 activation | Induction/maintenance and marrow toxicity matter. |
+| Acyclovir-resistant HSV | Foscarnet without viral TK need | Nephrotoxicity and electrolytes require monitoring. |
+| Ganciclovir-resistant CMV | Foscarnet or cidofovir bypassing UL97 | Resistance mechanism and renal risk guide choice. |
+| Initial HIV regimen | INSTI plus NRTI backbone such as BIC/TAF/FTC | Lifelong suppression depends on adherence and resistance. |
+| Pan-genotypic HCV cure | GLE/PIB or SOF/VEL | HCV can be cured; HBV generally cannot. |
+| Chronic HBV suppression | TDF/TAF/entecavir reverse-transcriptase inhibition | cccDNA persistence drives indefinite therapy. |
+| Influenza treatment | Oseltamivir neuraminidase inhibition | Timing and risk status determine value. |
+| High-risk COVID antiviral | Nirmatrelvir boosted by ritonavir | CYP3A interactions are central. |
 
 ---
 

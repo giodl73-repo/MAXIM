@@ -361,19 +361,25 @@ PROOF ASSISTANTS IN CRYPTOGRAPHY:
 
 ---
 
+## Cross-References
+
+- `02-TYPE-THEORY.md` provides the non-dependent baseline.
+- `05-CURRY-HOWARD.md` explains why dependent types are proof systems.
+- `09-MODERN-FRONTIERS.md` places dependent typing among current PL frontiers.
+
 ## Decision Cheat Sheet
 
-| Feature | Tool | Use case |
-|---------|------|---------|
-| Mathematical proof | Lean 4 + Mathlib | Formalize mathematics |
-| Verified algorithms | Coq | CompCert, Fiat-Crypto |
-| Dependent types + patterns | Agda | Type theory research |
-| Verified protocols + linear types | Idris 2 | Protocol state machines |
-| Length-indexed vectors | All of the above | Array safety |
-| Interface state machines | Idris 2 | File handles, network sockets |
-| Cryptography verification | F* (Coq subset) | EverCrypt, miTLS |
-| Π type | Dependent function | Safe lookup, heterogeneous lists |
-| Σ type | Dependent pair | Subset types, protocols |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Formal mathematics environment | Lean 4 plus Mathlib | Library coverage often matters more than kernel elegance. |
+| Verified compiler/algorithm proof | Coq | Extraction targets OCaml/Haskell; systems code may still need separate implementation. |
+| Type-theory experimentation | Agda | Excellent for research patterns, less production-oriented. |
+| Protocol state machine | Idris 2 and linear types | Totality and linearity checks constrain program shape. |
+| Array bounds in the type | Length-indexed vectors | The index burden moves into proofs and APIs. |
+| Interface lifecycle safety | Dependent state machines | State-indexed APIs can become hard to infer automatically. |
+| Crypto implementation proof | F* and its extraction pipeline | The trusted toolchain and C extraction boundary matter. |
+| Dependent function need | Pi type | Type checking depends on normalization/definitional equality. |
+| Dependent pair need | Sigma type | It packages witness plus value, not just a tuple. |
 
 ---
 

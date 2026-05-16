@@ -304,20 +304,25 @@ COLLECTION POINTS:
 
 ---
 
+## Cross-References
+
+- `01-WOOD-SELECTION.md` informs feed rate, tearout risk, and blade choice.
+- `04-JOINERY.md` uses machines for repeatable joinery operations.
+- `09-SHOP-SETUP.md` covers dust collection and machine workflow.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What prevents kickback on table saw rip cuts? | Riving knife (keeps kerf open) + anti-kickback pawls + correct stance |
-| What is the safest way to crosscut on table saw? | Crosscut sled (most accurate and safest) or miter gauge |
-| Why should fence not be used alone for crosscuts? | Workpiece can be trapped between fence and blade |
-| What blade width for resawing? | 1/2" to 3/4" with 6 TPI for hardwood |
-| What is blade drift on band saw? | Blade's natural tracking angle; compensate by adjusting fence angle |
-| Which router base for template work? | Plunge base (allows lowering into stopped grooves) or fixed-base with template |
-| What is the lathe speed formula? | 9,000 ÷ diameter (inches) = maximum safe RPM |
-| What dust particle size is most dangerous? | <2 microns (penetrates deep lung); <0.3 microns most insidious |
-| What filtration is needed for fine hardwood dust? | 0.5 micron or better filter; P100 respirator for sustained work |
-| Can you rip warped stock? | No — contact with blade is unpredictable; joint flat first |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Table-saw rip safety | Riving knife, anti-kickback pawls, flat stock, and off-line stance | The riving knife is blade-height-aware; old splitters are less protective. |
+| Table-saw crosscut safety | Crosscut sled or miter gauge | Never trap a crosscut between blade and fence. |
+| Fence misuse | Workpiece path relative to blade and fence | Fence-as-stop needs a stop block before the blade, not contact through the cut. |
+| Bandsaw resaw setup | 1/2 to 3/4 inch blade around 6 TPI for hardwood | Drift is blade-specific; reset fence angle when blades change. |
+| Router template work | Plunge base or fixed base with template guide | Feed direction controls safety; climb cutting is exceptional. |
+| Lathe speed | 9,000 divided by diameter in inches as maximum RPM | Use a face shield; blanks can become projectiles. |
+| Fine dust hazard | Sub-2 micron hardwood dust and collection path | Filtration must catch the particles you cannot see. |
+| Sustained dust exposure | 0.5 micron filtration plus P100 respirator | Dust collection is health control, not housekeeping. |
+| Warped stock on machines | Joint/flatten before ripping or surfacing | Unpredictable blade contact turns wood movement into kickback risk. |
 
 ---
 

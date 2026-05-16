@@ -342,16 +342,23 @@ VALIDATION:
 
 ---
 
+## Cross-References
+
+- `01-ANCIENT-NEAR-EAST.md` gives the Behistun and cuneiform context.
+- `06-MESOAMERICAN.md` gives a major decipherment case beyond the Old World.
+- `07-INDUS-UNDECIPHERED.md` shows what failure modes look like when evidence is insufficient.
+
 ## Decision Cheat Sheet
 
-| Case | Key breakthrough | Method |
-|------|-----------------|--------|
-| Egyptian hieroglyphic | Cartouche = royal name; Coptic helps phonology | Bilingual (Rosetta Stone) + proper names |
-| Akkadian cuneiform | Behistun trilingual; Old Persian as bridge | Trilingual; Old Persian partially known |
-| Linear B | Mycenaean Greek; placename ko-no-so | Syllabic grid + language identification |
-| Ugaritic | Small sign count (30); Semitic language | Sign count -> abjad; Semitic cognates |
-| Maya | Phonetic substitution confirmed; de Landa correctly read | Phonetic principle + historical context |
-| Lycian/Carian | Greek-bilingual gravestones | Bilingual proper names |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Egyptian hieroglyphic breakthrough | Bilingual Rosetta Stone, cartouches, Coptic phonology | Proper names unlock sound values, not the whole language by themselves. |
+| Akkadian cuneiform breakthrough | Behistun trilingual and Old Persian bridge | Deciphering the script still leaves language-specific translation work. |
+| Linear B breakthrough | Syllabic grid, sign statistics, and `ko-no-so` place-name hypothesis | The leap worked because the underlying language was Mycenaean Greek. |
+| Ugaritic breakthrough | Small sign count and Semitic cognates | Sign count suggests script type; it does not prove language identity alone. |
+| Maya breakthrough | Phonetic principle plus historical and linguistic context | Academic authority delayed acceptance of correct evidence. |
+| Lycian/Carian progress | Greek-bilingual gravestones and proper names | Bilinguals vary in usefulness; names can overfit. |
+| "Partially deciphered" claim | Percent readable, grammar understood, corpus breadth | Partial decipherment is a spectrum, not a binary status. |
 
 ---
 

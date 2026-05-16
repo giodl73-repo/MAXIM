@@ -355,17 +355,23 @@ Better model: "income variability management → credit/savings/insurance"
 
 ---
 
+## Cross-References
+
+- `03-HUMAN-DEVELOPMENT.md` frames microfinance as capability expansion.
+- `04-INSTITUTIONS.md` explains group lending as institutional design.
+- `05-AID-EFFECTIVENESS.md` connects microfinance to evidence and intervention debates.
+
 ## Decision Cheat Sheet
 
-| Question | Answer | Evidence |
-|----------|--------|----------|
-| Does microcredit cause poverty escape? | No on average; some benefit substantially | Banerjee et al. 2015 (6 RCTs) |
-| What's wrong with Compartamos-style commercialization? | Mission drift; interest rates up to 100% APR | Pricing controversy; Yunus critique |
-| What caused the AP crisis? | Multiple borrowing + aggressive collection + no regulation | AP ordinance 2010 |
-| Do group loans solve adverse selection? | Yes in dense social networks; weaker in urban/mobile settings | Ghatak models; empirical evidence |
-| What works better than microcredit? | VSLAs (savings groups), mobile money, UCTs | VSLA evaluations; M-Pesa Suri/Jack |
-| What did M-Pesa actually do? | 22% poverty reduction for rural women; risk sharing; remittances | Suri and Jack 2016 |
-| Is savings more important than credit? | Evidence suggests yes for poorest households | Portfolio of the Poor analysis |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Microcredit poverty-escape claim | Banerjee et al. six-country RCT evidence | Average impact is small; some households benefit substantially. |
+| Commercialization risk | Compartamos-style mission drift and high APR | Sustainability and exploitation are both real concerns. |
+| Andhra Pradesh crisis | Multiple borrowing, aggressive collection, weak regulation | Institutional incentives differed from classic Grameen. |
+| Group-lending screening | Dense social networks and peer monitoring | It weakens in mobile, urban, or socially fragmented settings. |
+| Alternative household finance | VSLAs, mobile money, and UCTs | Savings and payment rails often matter more than loans. |
+| M-Pesa impact claim | Risk sharing, remittances, and rural women's outcomes | The 22% poverty-reduction magnitude is debated. |
+| Savings versus credit | Portfolio of the Poor household cash-flow evidence | The poorest often need liquidity smoothing before business capital. |
 
 ---
 

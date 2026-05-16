@@ -254,6 +254,32 @@ DEVOPS:
 
 ---
 
+## Decision Cheat Sheet
+
+| Situation | Best Cloud Model |
+|---|---|
+| Need maximum OS/network control | IaaS |
+| Need managed runtime and fast app deployment | PaaS |
+| Need Kubernetes portability with provider-managed control plane | CaaS |
+| Need event-driven code with minimal operations | FaaS |
+| Need complete business application | SaaS |
+| Need strict data residency or hardware control | Hybrid/private cloud |
+| Need lowest operational burden | SaaS or FaaS, if the constraints fit |
+
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Distributed-system design beneath cloud services | `distributed-systems/03-CONSENSUS.md` | Cloud reliability depends on replication, consensus, partitioning, and failure models |
+| Cloud security responsibility boundaries | `security-engineering/01-THREAT-MODELING.md` | Shared responsibility must be mapped into concrete trust boundaries and mitigations |
+| Container and deployment architecture | `systems-engineering/01-SE-PROCESS.md` | Cloud model choice is a system architecture and operations decision |
+| Network and RF substrate | `telecommunications/01-ELECTROMAGNETIC-SPECTRUM.md` | Latency, bandwidth, region choice, and edge placement sit on physical connectivity |
+| Package/runtime supply chain | `computing/01-PACKAGE.md` | Cloud deployments inherit dependency, runtime, and artifact-management risks |
+
+---
+
 ## Common Confusion Points
 
 **"PaaS is always less control"**

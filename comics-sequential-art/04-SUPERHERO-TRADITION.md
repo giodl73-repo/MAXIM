@@ -316,14 +316,22 @@ In Europe and Japan, it was never the case.
 
 ---
 
+## Cross-References
+
+- `01-HISTORY-FORM.md` places superheroes inside the broader comics medium rather than treating them as the medium.
+- `03-PANEL-GRAMMAR.md` explains the action-page and continuity mechanics superhero comics rely on.
+- `05-ALTERNATIVE-COMICS.md` contrasts superhero seriality with auteur, underground, and independent traditions.
+
+---
+
 ## Decision Cheat Sheet
 
-| I want to understand...                           | Era / Work                        |
-|---------------------------------------------------|-----------------------------------|
-| Who created most of Marvel's characters           | Kirby + Ditko + Lee               |
-| What makes Spider-Man's moral thesis distinctive  | "Great power / responsibility"    |
-| Why Watchmen is considered significant            | Deconstruction; literary form; formal innovation|
-| What Image Comics was about                       | Creator ownership; anti-Marvel    |
-| Why Vertigo mattered                              | Literary superhero adjacents      |
-| The continuity problem for new readers            | Shared universe complexity        |
-| The current relationship between comics and MCU  | Comics = IP farm; adaptations = product|
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Marvel authorship claims | Separate Kirby, Ditko, Lee, editorial method, work-for-hire contracts, credit, and ownership. | Character creation was collaborative and legally asymmetric. |
+| Spider-Man's moral thesis | Track power/responsibility, adolescent failure, guilt, everyday problems, and serial consequence. | The slogan matters because the story repeatedly tests it. |
+| Watchmen's significance | Compare deconstruction, nine-panel grid, formal recursion, politics, genre critique, and publishing moment. | Deconstruction depends on knowing the superhero grammar it critiques. |
+| Image Comics | Examine creator ownership, superstar artists, anti-Marvel/DC stance, speculator market, and uneven craft. | Creator rights and artistic quality were related but not identical issues. |
+| Vertigo and literary superhero adjacents | Look at mature-reader branding, British writers, horror/fantasy, bookstore reach, and creator voice. | Vertigo expanded prestige by moving partly outside core superhero continuity. |
+| Continuity overload | Diagnose shared universe depth, crossovers, reboots, tie-ins, canon hierarchy, and new-reader entry points. | Continuity can create loyalty and barrier at the same time. |
+| Comics-to-MCU relationship | Separate source material, IP ownership, adaptation economics, publishing sales, and brand testing. | Comics are not only an IP farm, but corporate incentives often treat them that way. |

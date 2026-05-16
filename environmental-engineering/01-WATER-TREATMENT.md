@@ -479,6 +479,18 @@ the customer tap. Two key challenges: chemical stability and microbiological saf
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Hydrologic source and runoff behavior | `hydrology/01-PRECIPITATION-RUNOFF.md` | Treatment starts with source water, watershed, flow, and contaminant loading |
+| Public-health endpoints | `public-health/01-EPIDEMIOLOGY-FUNDAMENTALS.md` | Treatment targets disease risk, exposure pathways, and population health |
+| Chemical equilibria and contaminants | `chemistry/01-ATOMIC-STRUCTURE.md` | Coagulation, disinfection, pH, metals, and organics are chemistry problems |
+| Infrastructure system design | `infrastructure-systems/01-CLASSIFICATION.md` | Water treatment is a networked infrastructure with reliability and lifecycle constraints |
+| Environmental policy and impact | `environmental-engineering/02-WASTEWATER.md` | Potable treatment connects to wastewater, discharge, reuse, and watershed management |
+
+---
+
 ## Common Confusion Points
 
 **CT applies to the disinfection basin, not the whole plant**: CT credit is for the contact

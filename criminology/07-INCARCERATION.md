@@ -338,16 +338,26 @@ The United States incarcerates at a rate 5-10x higher than comparable democratic
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Classical punishment and deterrence logic | `criminology/01-CLASSICAL-THEORIES.md` |
+| Policing as upstream gate | `criminology/06-POLICING.md` |
+| Desistance after custody | `criminology/08-DESISTANCE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Issue | Key Fact | Policy Lever |
-|-------|----------|--------------|
-| Why so many incarcerated? | Policy choices: drug war, mandatory minimums, TIS | Sentencing reform |
-| Why racial disparity? | Compounding mechanisms at each stage | Each stage: arrest, charging, bail, sentencing |
-| What does incarceration cost? | $35-42k/person/year; $80-100B total | Cost-effectiveness alternatives |
-| Does incarceration reduce crime? | Incapacitation works; marginal deterrence weak; community destabilization | Targeted use, not mass |
-| What are the collateral consequences? | 50,000+ legal restrictions post-conviction | Reentry reform, "ban the box" |
-| What has worked elsewhere? | Germany, Scandinavia: 70-100/100k rates | Restorative justice, rehabilitation |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why incarceration grew | Drug war, mandatory minimums, truth-in-sentencing, parole changes | Violent crime alone does not explain the timing or scale. |
+| Racial disparity | Compounding mechanisms at arrest, charging, bail, plea, sentencing, supervision | No single stage explains the full cumulative gap. |
+| Fiscal cost | Per-person prison costs and total corrections budgets | Cost-effectiveness must compare public safety outcomes, not just sticker price. |
+| Crime-reduction claims | Incapacitation, marginal deterrence, and community destabilization | Effects are nonlinear; mass use can produce diminishing returns and harm. |
+| Collateral consequences | Legal restrictions, employment, housing, voting, supervision | Punishment continues after sentence completion through civil barriers. |
+| International comparison | Germany/Scandinavia incarceration rates and rehabilitation models | Lower incarceration does not mean no crime; it reflects different policy choices. |
 
 ---
 

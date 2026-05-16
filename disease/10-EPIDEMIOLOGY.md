@@ -4,7 +4,7 @@
 
 ---
 
-## Big Picture: Epidemiological Thinking
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -558,17 +558,23 @@ DALY contributors vs mortality:
 
 ---
 
+## Cross-References
+
+- `public-health/01-EPIDEMIOLOGY.md` - public-health epidemiology foundations.
+- `virology/08-PANDEMIC-BIOLOGY.md` - outbreak dynamics and control.
+- `statistics-applied/01-DESCRIPTIVE-INFERENCE.md` - statistical inference for population evidence.
+
 ## Decision Cheat Sheet
 
-| Question | Best Design | Key Measure |
-|----------|-------------|-------------|
-| Does drug X prevent disease Y? | RCT | RR, NNT |
-| Does exposure Z cause disease Y in general population? | Cohort | RR, ARD |
-| What caused this outbreak of rare disease? | Case-control | OR |
-| What % of population has disease now? | Cross-sectional | Prevalence |
-| Can group-level data suggest an association? | Ecological | Correlation (hypothesis only) |
-| How contagious is pathogen? | R₀ calculation | R₀, HIT |
-| Is this screening test worth deploying? | Wilson-Jungner + cost-effectiveness | Sensitivity, specificity, PPV, DALY |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Prevention effect of drug X | Randomized controlled trial | External validity can differ from efficacy. |
+| Exposure-disease relation | Cohort study | Confounding must be measured and controlled. |
+| Rare outbreak cause | Case-control design | Odds ratio approximates RR only when disease is rare. |
+| Current disease burden | Cross-sectional prevalence survey | Prevalence mixes incidence and duration. |
+| Group-level association | Ecological study | Ecological fallacy limits individual inference. |
+| Pathogen contagiousness | R0 and herd-immunity threshold | Effective R changes with behavior and immunity. |
+| Screening deployment | Wilson-Jungner plus cost-effectiveness | PPV depends strongly on prevalence. |
 
 ### Confounding vs Effect Modification
 

@@ -382,16 +382,22 @@ INFECTION CONTROL:
 
 ---
 
+## Cross-References
+
+- `microbiology/06-PATHOGEN-MECHANISMS.md` - pathogen strategies beyond bacteria and viruses.
+- `medicine/10-DIAGNOSTICS-IMAGING.md` - diagnostic pathways for atypical infections.
+- `immunology/01-INNATE-IMMUNITY.md` - host defense context for eukaryotic pathogens.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why are antifungals so limited? | Fungi are eukaryotes — most drug targets are shared with human cells. Only ergosterol (vs cholesterol) and β-1,3-glucan are sufficiently different. |
-| Aspergillus vs Mucor: how to distinguish? | Both angioinvasive. Aspergillus: thin, septate hyphae at 45°; Mucor: broad, sparsely septate, right angles (90°). DKA favors Mucor. |
-| Malaria relapse vs recrudescence? | Relapse: dormant hypnozoites (P. vivax/ovale) reactivate months later; need primaquine to prevent. Recrudescence: subpatent parasitemia that re-expands — P. falciparum/malariae. |
-| Why does AIDS predispose to Toxoplasma encephalitis specifically? | Primary infection seropositivity in many adults; tissue cysts in brain kept dormant by CD4+ T cells; CD4 < 100 → T cell control lost → reactivation |
-| Can you cure prion disease? | No. No treatment halts disease progression. Supportive care only. |
-| What makes PrPˢᶜ infectious? | It acts as a template that converts normal PrPᶜ to PrPˢᶜ by direct contact — protein-induced protein misfolding, autocatalytic amplification |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Limited antifungal targets | Ergosterol and beta-1,3-glucan differences | Fungal eukaryotic biology narrows therapeutic window. |
+| Aspergillus versus Mucor | Septate 45-degree versus broad right-angle hyphae | DKA strongly raises Mucor suspicion. |
+| Malaria relapse versus recrudescence | Hypnozoite reactivation versus subpatent rebound | Vivax/ovale need liver-stage therapy. |
+| AIDS toxoplasma encephalitis | Brain cyst reactivation when CD4 falls below 100 | Serostatus and imaging pattern matter. |
+| Prion-disease treatment | Supportive care only | No current therapy halts progression. |
+| Prion infectivity mechanism | PrPSc templating PrPC misfolding | It is host protein conformation, not foreign antigen. |
 
 ---
 

@@ -162,19 +162,25 @@ THREAT HIERARCHY (freshwater biodiversity):
 
 ## Decision Cheat Sheet
 
-| Question | Guide |
-|----------|-------|
-| Why does a lake turn over in spring and fall? | 01 — thermal stratification and turnover mechanics |
-| Why does stream biodiversity peak in mid-order reaches? | 02 — River Continuum Concept |
-| What distinguishes a bog from a fen? | 03 — Cowardin classification, hydrology |
-| Which invertebrates indicate clean vs. polluted water? | 04 + 09 — EPT groups and IBI scoring |
-| Why is P the limiting nutrient in freshwater but N in oceans? | 05 — Redfield analog, N-fixation availability |
-| Why do algal blooms end in cyanobacteria dominance? | 06 — N-fixation advantage, buoyancy regulation |
-| What happens to a lake's fish community after removing bass? | 07 — Carpenter trophic cascade experiments |
-| What does a dam do to the river below it? | 08 — thermal homogenization, sediment starvation, barrier |
-| What BOD level qualifies as "polluted"? | 09 — WHO/EPA thresholds |
+| Freshwater Question | Use This Frame | Follow-On Guide |
+|---|---|---|
+| Why does lake oxygen collapse at depth? | Thermal stratification separates productive surface from stagnant hypolimnion | `01-LAKE-STRATIFICATION` |
+| Why does stream biology change downstream? | River Continuum Concept: energy source shifts from leaf litter to algae to suspended particles | `02-RIVER-ECOLOGY` |
+| Is this wetland a bog, fen, marsh, or swamp? | Hydrology, chemistry, vegetation, and soil organic matter | `03-WETLANDS` |
+| Is the water biologically degraded? | Indicator taxa, EPT richness, IBI, DO/BOD chemistry | `04-FRESHWATER-ORGANISMS`, `09-WATER-QUALITY` |
+| Which nutrient should restoration target? | Limiting nutrient plus watershed loading and internal recycling | `05-NUTRIENT-CYCLES`, `06-EUTROPHICATION` |
+| Why did blooms shift to cyanobacteria? | Warm stratified water, P loading, N-fixation advantage, buoyancy control | `06-EUTROPHICATION` |
+| Why did fish communities flip after predator change? | Trophic cascade and food-web indirect effects | `07-AQUATIC-FOOD-WEBS` |
+| What does a dam do downstream? | Flow homogenization, sediment starvation, thermal alteration, migration barrier | `08-CONSERVATION` |
+| What should a monitoring program measure? | Physical, chemical, biological, and watershed indicators together | `09-WATER-QUALITY` |
 
 ---
+
+## Cross-References
+
+- [Lake Stratification](01-LAKE-STRATIFICATION.md) drills into thermal layering and turnover in standing waters.
+- [River Ecology](02-RIVER-ECOLOGY.md) follows flowing-water structure from hydraulics to riparian zones.
+- [Water Quality](09-WATER-QUALITY.md) connects freshwater biology to chemistry, indicators, and monitoring.
 
 ## Common Confusion Points
 

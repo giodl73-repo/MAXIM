@@ -273,20 +273,26 @@ BACTERIAL CELL: A SIMPLE BUT SOPHISTICATED AGENT
 
 ---
 
+## Cross-References
+
+- `microbiology/07-ANTIMICROBIAL-RESISTANCE.md` — bacterial physiology as the substrate for drug resistance.
+- `medicine/01-ANTIBIOTICS.md` — antibiotic target map and clinical treatment.
+- `microbiology/08-MICROBIAL-GENETICS.md` — bacterial gene transfer and genome plasticity.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Gram+ or Gram-? Thick vs. thin peptidoglycan | Gram+ thick; Gram- thin + outer membrane |
-| What does LPS activate? | TLR4 → NF-κB → sepsis cascade |
-| Fastest bacteria doubling time | E. coli: ~20 minutes |
-| Slowest clinically relevant | Mycobacteria: ~20 hours |
-| Fastest way to spread resistance genes | Conjugation (plasmid transfer) |
-| How do bacteria acquire entirely new traits? | Pathogenicity islands via HGT |
-| How does β-lactam work? | Blocks PBP (transpeptidase) → no peptidoglycan cross-linking |
-| Why is TB hard to treat? | Waxy mycolic acid wall, slow growth, intracellular |
-| Why do biofilm bacteria resist antibiotics? | Slow growth + matrix barrier + efflux pumps |
-| Gene expression control in bacteria | Operons: repressor + promoter architecture |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Gram-positive versus Gram-negative | Peptidoglycan thickness and outer membrane | Staining is a proxy for envelope architecture. |
+| LPS-driven sepsis | TLR4 to NF-kB inflammatory cascade | Host response, not bacterial load alone, drives shock. |
+| Fast bacterial growth | E. coli near 20-minute doubling | Lab optimum is not in vivo growth rate. |
+| Slow clinical growth | Mycobacteria near 20-hour doubling | Slow growth complicates diagnosis and therapy. |
+| Rapid resistance-gene spread | Conjugative plasmid transfer | Selection pressure determines persistence. |
+| New virulence traits | Pathogenicity islands and HGT | Acquisition does not guarantee expression or fitness. |
+| Beta-lactam mechanism | PBP/transpeptidase blockade | Non-growing cells are less vulnerable. |
+| TB treatment difficulty | Mycolic wall, slow growth, intracellular niche | Multi-drug therapy prevents resistance. |
+| Biofilm antibiotic tolerance | Slow growth, matrix barrier, efflux | Tolerance is not always genetic resistance. |
+| Bacterial gene control | Operon architecture | Global regulators and small RNAs add layers. |
 
 ---
 

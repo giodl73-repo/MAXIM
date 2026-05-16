@@ -385,18 +385,24 @@ EFA-derived compounds:
 
 ---
 
+## Cross-References
+
+- `natural-sciences/06-BIOMOLECULES.md` - lipid chemistry and biomolecular context.
+- `disease/05-CARDIOVASCULAR-DISEASE.md` - lipid risk in cardiovascular disease.
+- `nutrition/06-METABOLISM-ENERGY.md` - fat oxidation and energy storage.
+
 ## Decision Cheat Sheet
 
-| Goal | Fat strategy |
-|------|-------------|
-| Reduce atherogenic risk (high ApoB) | Reduce sdLDL: lower refined carbs; increase MUFA/fish |
-| Maximize anti-inflammatory | Increase EPA+DHA (fatty fish 2×/week or high-dose fish oil) |
-| Replace saturated fat appropriately | Replace with MUFA (olive oil) or omega-3 PUFA — not refined carbs |
-| Reduce TG | High-dose omega-3 (4g/day pharmaceutical); reduce refined carbs, fructose |
-| Ketogenic diet fat composition | Emphasize MUFA (olive, avocado) over excessive palmitic acid |
-| Heart-healthy single dietary change | PREDIMED: 4 tbsp olive oil/day OR 30g mixed nuts/day |
-| Eliminate trans fat | Avoid: partially hydrogenated oils in processed/bakery foods |
-| MCT for rapid energy (therapeutic) | MCT oil; also used in ketogenic epilepsy management |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| High ApoB risk | Lower refined carbs and increase MUFA/fish pattern | ApoB particle count is more direct than LDL-C alone. |
+| Anti-inflammatory fat strategy | EPA/DHA from fatty fish or high-dose fish oil | Dose, oxidation, and indication matter. |
+| Saturated-fat replacement | MUFA or omega-3 PUFA substitution | Replacing with refined carbs loses benefit. |
+| High triglycerides | Pharmaceutical omega-3 plus refined-carb/fructose reduction | Formulation and dose determine TG effect. |
+| Ketogenic fat composition | Emphasize olive/avocado MUFA | Keto can worsen ApoB in some people. |
+| Heart-healthy single change | Olive oil or mixed nuts pattern | Benefit comes from whole dietary pattern, not magic ingredient. |
+| Trans-fat elimination | Avoid partially hydrogenated oils | Natural ruminant trans fats are not the same exposure. |
+| Therapeutic rapid energy | MCT oil | GI tolerance and total calories constrain use. |
 
 ---
 

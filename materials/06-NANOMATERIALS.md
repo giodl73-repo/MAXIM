@@ -480,20 +480,26 @@ Battery performance is fundamentally limited by solid-state transport at the nan
 
 ---
 
+## Cross-References
+
+- `nanotechnology/01-NANOSCALE-PHYSICS.md` - nanoscale physical regimes.
+- `materials/09-COMPUTATIONAL-MATERIALS.md` - simulations across nanoscale and continuum.
+- `semiconductor-manufacturing/01-SILICON-SUBSTRATE.md` - nanoscale fabrication context.
+
 ## Decision Cheat Sheet
 
-| Application                    | Nanomaterial             | Why                                |
-|-------------------------------|-------------------------|------------------------------------|
-| QLED display (color tunable)  | CdSe/ZnS QD            | Size-tunable color, narrow emission|
-| Transparent electrode          | Graphene, ITO           | 2.3%/layer absorption, conductive  |
-| CNT composite reinforcement    | MWCNT + polymer          | 1 TPa modulus, kg/g vs GPa/g       |
-| Drug delivery                  | Lipid NP, PLGA NP       | Size controls uptake, targeting     |
-| Catalyst (HER, CO₂RR)         | Pt NP on CNT/graphene   | High surface area, exposed sites    |
-| MEMS sensor                    | Si microfabrication     | Batch manufacturing, CMOS integrate |
-| Li-ion anode (high capacity)  | Si nanowire/nanoparticle | Overcome expansion problem          |
-| Gate dielectric (high-κ)       | HfO₂ by ALD             | Reduces leakage, same capacitance   |
-| Biosensor                      | ZnO NW, graphene FET    | Surface sensitivity, fast response |
-| Cancer therapy (thermal)       | Fe₃O₄ NP (SPIONs)       | Magnetic hyperthermia, MRI contrast |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Color-tunable QLED emission | CdSe/ZnS quantum dots | Quantum confinement requires sufficiently small size. |
+| Transparent electrode | Graphene or ITO | Conductivity/transparency tradeoff sets usefulness. |
+| CNT composite reinforcement | MWCNT in polymer | Load transfer and dispersion often limit theoretical modulus. |
+| Drug delivery | Lipid or PLGA nanoparticles | Size controls uptake but targeting biology dominates outcome. |
+| HER/CO2RR catalyst | Pt nanoparticles on CNT/graphene | Surface area helps only if active sites remain accessible. |
+| MEMS sensor | Silicon microfabrication | This is micro/nano manufacturing, not necessarily quantum behavior. |
+| High-capacity Li-ion anode | Silicon nanowires or nanoparticles | Nanostructure mitigates, not eliminates, expansion damage. |
+| High-k gate dielectric | ALD HfO2 | Interface quality controls leakage and mobility. |
+| Biosensor | ZnO nanowire or graphene FET | Surface sensitivity also means fouling/noise sensitivity. |
+| Thermal cancer therapy | Fe3O4 SPIONs | Heating, delivery, and clearance all constrain therapy. |
 
 ---
 

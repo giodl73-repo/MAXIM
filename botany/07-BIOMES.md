@@ -365,16 +365,22 @@ DIFFERENCE FROM ARCTIC TUNDRA:
   Different flora: arctic and alpine share some genera but many endemics per range
 ```
 
+## Cross-References
+
+- `ecology/06-BIOGEOGRAPHY.md` - spatial distribution of life across regions.
+- `climate-science/01-CARBON-CYCLE.md` - climate constraints on biome distribution.
+- `botany/06-TREES-FORESTS.md` - forest biomes as structured plant communities.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why is tropical rainforest soil so poor? | Nutrients cycle in living biomass, not soil; rapid decomposition + uptake |
-| Why do trees drop leaves in temperate zones? | Winter = frozen soil = no water uptake; leaves = liability in drought |
-| What stores more carbon: boreal or tropical forest? | Boreal (peat bogs + permafrost = ~500 Gt C); tropical stores more in living biomass |
-| Why are Mediterranean regions so diverse? | Stable mild climate + fire disturbance + Mediterranean basin: 3 continents meet |
-| What maintains grassland vs forest? | Fire + large herbivore grazing; suppress either → trees invade |
-| What is the Amazon tipping point? | ~20-25% deforestation may trigger savannification (self-reinforcing dieback) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Poor rainforest soil | Nutrient cycling in biomass, rapid decomposition and uptake | Fertility varies by parent material and disturbance history. |
+| Temperate leaf drop | Frozen-soil water limitation and winter drought | Deciduousness also responds to photoperiod and frost risk. |
+| Forest carbon storage | Boreal peat/permafrost versus tropical biomass | Carbon pool location differs from productivity. |
+| Mediterranean diversity | Mild seasonality, fire, and biogeographic mixing | Fire-adapted diversity depends on historical fire regime. |
+| Grassland versus forest state | Fire plus large-herbivore grazing | Climate sets the envelope; disturbance maintains state. |
+| Amazon tipping risk | Deforestation-driven moisture recycling loss | Threshold estimates are uncertain and spatially heterogeneous. |
 
 ---
 

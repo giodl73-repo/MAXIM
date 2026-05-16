@@ -322,20 +322,26 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
 
 ---
 
+## Cross-References
+
+- `immunology/02-ADAPTIVE-IMMUNITY.md` — immune memory and antigen specificity.
+- `immunology/03-B-CELLS-ANTIBODIES.md` — antibody-mediated protection and neutralization.
+- `virology/08-PANDEMIC-BIOLOGY.md` — population-scale context for vaccine deployment.
+
 ## Decision Cheat Sheet
 
-| Scenario | Vaccine Approach |
-|----------|-----------------|
-| Need durable sterilizing immunity | Live-attenuated (if safe) |
-| Immunocompromised recipient | Inactivated or subunit (no live) |
-| Need rapid design for new pathogen | mRNA+LNP platform |
-| Strong cellular (T cell) immunity | Viral vector or mRNA |
-| Mucosal immunity (respiratory tract) | Intranasal, oral (if available) |
-| Polysaccharide antigen (encapsulated bacteria) | Conjugate vaccine |
-| Need AS01B-level T cell response | AS01B adjuvant system |
-| Elderly population, poor response | Higher-dose or adjuvanted formulation |
-| Pregnancy (maternal Abs to neonate) | IgG-generating vaccine (e.g., RSV mRNA) |
-| Waning immunity issue | Annual booster or reformulation |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Durable sterilizing immunity | Live-attenuated vaccine when safe | Contraindicated in many immunocompromised recipients. |
+| Immunocompromised recipient | Inactivated or subunit platform | Safety improves, but immunogenicity may fall. |
+| Rapid new-pathogen design | mRNA-LNP platform | Manufacturing speed does not remove efficacy testing. |
+| Strong cellular immunity | Viral vector or mRNA | Pre-existing vector immunity can blunt vectors. |
+| Respiratory mucosal immunity | Intranasal or oral route when available | Mucosal correlates are harder to standardize. |
+| Encapsulated bacterial polysaccharide | Conjugate vaccine | Protein carrier makes memory T-dependent. |
+| Strong adjuvanted T-cell response | AS01B-style adjuvant system | Reactogenicity is part of the tradeoff. |
+| Elderly poor response | High-dose or adjuvanted formulation | Immunosenescence still limits durability. |
+| Maternal neonatal protection | IgG-generating maternal vaccine | Timing must align with placental transfer. |
+| Waning immunity | Booster or reformulation | Boosting depends on variant drift and immune memory. |
 
 ---
 

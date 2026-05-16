@@ -330,16 +330,22 @@ Google uses schema for:
 
 ---
 
+## Cross-References
+
+- `03-CONTENT-STRATEGY.md` places page-level writing inside a governed content system.
+- `04-UX-WRITING.md` applies clarity principles to interface microcopy.
+- `05-SEARCH-ALGORITHMS.md` explains search intent and ranking constraints.
+
 ## Decision Cheat Sheet
 
-| Writing goal | Key principle |
-|-------------|---------------|
-| Page people will scan | Descriptive headers, front-loaded paragraphs, bullet lists |
-| SEO for informational query | Match search intent; full coverage; E-E-A-T signals |
-| SEO for transactional query | Clear CTA; product schema; conversion path |
-| Accessible hyperlinks | Link text describes destination; not "click here" |
-| Reading level check | Target grade 8-10 for general audience; use F-K as sanity check |
-| Machine-readable content | JSON-LD schema.org markup for relevant content types |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Scan-heavy pages | Descriptive headers, front-loaded paragraphs, and structured lists | The F-pattern diagnoses weak hierarchy; do not design to perpetuate it. |
+| Informational SEO | Search intent, full topical coverage, and E-E-A-T signals | Semantic relevance and usefulness beat keyword stuffing. |
+| Transactional SEO | Clear CTA, product/schema markup, and conversion path | Ranking is useless if intent, offer, and path do not align. |
+| Link accessibility | Destination-descriptive link text | "Click here" fails when links are scanned out of context. |
+| Reading level | Audience-fit plain language, with F-K as a sanity check | Readability scores are not quality scores. |
+| Machine-readable content | JSON-LD schema.org for appropriate content types | Structured data clarifies content; it cannot compensate for thin content. |
 
 ---
 

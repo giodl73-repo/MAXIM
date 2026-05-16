@@ -27,7 +27,7 @@ Drug classes map to specific intervention points:
 - **Allosteric modulators (BZDs at GABA-A, ketamine at NMDA):** Act on a non-orthosteric site — middleware that changes how the receptor responds to its natural ligand without directly activating or fully blocking it. BZDs increase the frequency of Cl⁻ channel opening in response to GABA; they do not open the channel without GABA present.
 - **VMAT2 inhibitors (tetrabenazine, valbenazine):** Block vesicle loading — reduce the queue depth (available neurotransmitter for release). Used for hyperkinetic disorders (Huntington's chorea, tardive dyskinesia) by depleting dopamine.
 
-## Big Picture: CNS Drug Landscape
+## The Big Picture
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -421,27 +421,33 @@ CARBONIC ANHYDRASE INHIBITOR:
 
 ---
 
+## Cross-References
+
+- `human-biology/04-NERVOUS-SYSTEM.md` - neural system organization.
+- `disease/08-NEUROLOGICAL-PSYCHIATRIC.md` - CNS disease targets.
+- `pharmacology/05-CNS-PHARMACOLOGY.md` - receptor and neurotransmitter pharmacology.
+
 ## Decision Cheat Sheet
 
-| Condition | First-Line Drug | Notes |
-|-----------|----------------|-------|
-| MDD, uncomplicated | SSRI (sertraline, escitalopram) | Try 4–8 weeks at therapeutic dose before switching |
-| MDD + pain | SNRI (duloxetine) | DPN, fibromyalgia, MSK indications |
-| MDD + insomnia/anorexia (elderly) | Mirtazapine | Sedating, appetite-stimulating, minimal interactions |
-| MDD + smoking cessation | Bupropion | Activating; NDRI |
-| Bipolar I (acute mania) | Lithium, valproate, or olanzapine | Do not use antidepressants alone (↑ mania cycling) |
-| Bipolar II (depression) | Lamotrigine | For prevention; quetiapine for acute depressive episodes |
-| Schizophrenia, 1st episode | Olanzapine or risperidone | Clozapine only after ≥2 failed trials |
-| Treatment-resistant schizophrenia | Clozapine | Mandatory REMS monitoring |
-| Acute psychosis/agitation | Haloperidol IM ± lorazepam | Rapid tranquilization |
-| GAD, long-term | SSRI/SNRI > buspirone | BZDs: short-term only |
-| Panic disorder | SSRI + PRN BZD (short-term) | BZDs not for long-term |
-| Status epilepticus | Lorazepam IV → fosphenytoin/LEV | See 08-NEUROLOGICAL-PSYCHIATRIC |
-| Childhood absence seizures | Ethosuximide | Narrow spectrum; first-line for absence only |
-| Neonatal seizures | Phenobarbital | IV; historical gold standard |
-| Acute severe pain | IV morphine or hydromorphone | Consider PCA; monitor respiratory depression |
-| OUD treatment | Buprenorphine/naloxone | Office-based; methadone if clinic setting |
-| Opioid OD reversal | Naloxone IV/IM/IN | Repeat every 2–3 min if needed; t½ shorter than many opioids |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Uncomplicated MDD | SSRI such as sertraline/escitalopram | Assess after adequate dose and 4-8 weeks. |
+| MDD with pain | SNRI such as duloxetine | Pain indications do not remove serotonergic adverse effects. |
+| MDD with insomnia/anorexia | Mirtazapine | Sedation and weight gain can be feature or bug. |
+| MDD with smoking cessation | Bupropion | Avoid when seizure risk is high. |
+| Bipolar I acute mania | Lithium, valproate, or olanzapine | Antidepressant monotherapy can worsen cycling. |
+| Bipolar II depression | Lamotrigine or quetiapine context | Lamotrigine is more preventive than acute. |
+| First-episode schizophrenia | Olanzapine or risperidone | Metabolic/EPS tradeoff shapes choice. |
+| Treatment-resistant schizophrenia | Clozapine | REMS monitoring is mandatory. |
+| Acute psychosis/agitation | IM haloperidol plus/minus lorazepam | Monitor QT, EPS, and respiratory depression. |
+| Long-term GAD | SSRI/SNRI before buspirone | Benzodiazepines are short-term tools. |
+| Panic disorder | SSRI plus short-term PRN benzodiazepine | Avoid long-term benzodiazepine dependence. |
+| Status epilepticus | IV lorazepam then fosphenytoin/levetiracetam | Time-to-treatment determines outcome. |
+| Childhood absence seizures | Ethosuximide | Narrow spectrum; wrong for many seizure types. |
+| Neonatal seizures | IV phenobarbital | Historical standard, not necessarily benign. |
+| Acute severe pain | IV morphine or hydromorphone | Monitor respiratory depression and sedation. |
+| Opioid-use disorder | Buprenorphine/naloxone | Methadone may fit when clinic structure is needed. |
+| Opioid overdose reversal | Naloxone IV/IM/IN | Repeat dosing may be needed because naloxone wears off. |
 
 ---
 

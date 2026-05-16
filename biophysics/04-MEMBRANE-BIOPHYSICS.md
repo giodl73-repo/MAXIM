@@ -451,18 +451,24 @@ The Hodgkin-Huxley model (Module 05) is simply this equivalent circuit with nonl
 
 ---
 
+## Cross-References
+
+- `biology/01-MOLECULAR-MACHINERY.md` — membrane proteins as cellular machinery.
+- `biophysics/05-HODGKIN-HUXLEY.md` — ion-channel dynamics in excitable membranes.
+- `human-biology/01-CELLS-TISSUES.md` — cellular membrane context where available.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Key Equation/Value |
-|----------|---------|-------------------|
-| Why is membrane resting potential ~-70 mV? | GHK equation; K⁺ dominant permeability | P_K >> P_Na at rest |
-| What is the Nernst potential for K⁺ in a neuron? | E_K = (RT/F) ln([K]o/[K]i) | ≈ -98 mV |
-| How fast do lipids diffuse laterally in a membrane? | 2D fluid diffusion | D ≈ 1-10 μm²/s (liquid crystalline) |
-| What determines ion selectivity in K⁺ channels? | Selectivity filter geometry | TVGYG motif, 8-oxygen cage |
-| Why can't a Na⁺ ion pass through a K⁺ channel? | Dehydration energy mismatch | Na⁺ can't shed hydration shell profitably |
-| What makes patch clamp work at single-channel resolution? | Gigaseal | >1 GΩ seal, 0.1 pA noise floor |
-| What energy is required to form a vesicle? | Helfrich elastic energy | 8πκ ≈ 500 k_BT (independent of radius) |
-| What drives membrane curvature in endocytosis? | BAR domains, clathrin coat | Scaffold + amphipathic helix insertion |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Resting membrane potential | GHK equation with dominant K permeability | Pump gradients set conditions; channels set voltage. |
+| Potassium equilibrium voltage | Nernst potential for K | Real membranes mix several permeabilities. |
+| Lateral lipid mobility | 2D fluid diffusion coefficient | Rafts, crowding, and cytoskeleton slow local motion. |
+| Potassium-channel selectivity | TVGYG filter geometry | Selectivity is energetic compensation, not simple pore size. |
+| Sodium exclusion from K channel | Dehydration-energy mismatch | Hydration shell energetics beat radius intuition. |
+| Single-channel recording | Gigaseal patch clamp | Seal quality and noise floor determine resolution. |
+| Vesicle-bending cost | Helfrich elastic energy | Budding also needs topology and scission machinery. |
+| Endocytic curvature | BAR domains, clathrin, amphipathic helices | Curvature generation and cargo selection are coupled. |
 
 ---
 

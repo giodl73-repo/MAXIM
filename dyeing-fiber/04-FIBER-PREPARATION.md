@@ -273,18 +273,24 @@ SILK PROCESSING
 
 ---
 
-## Decision Cheat Sheet: Preparation by End Use
+## Cross-References
 
-| End Use | Fiber | Preparation | Resulting Yarn Type |
-|---------|-------|-------------|---------------------|
-| Knitting yarn (soft) | Merino wool | Scour + card | Woolen, airy, soft |
-| Suiting fabric | Wool | Scour + comb | Worsted, smooth, strong |
-| Fine linen shirting | Flax | Full retting + hacking | Line flax, fine linen |
-| Canvas, upholstery | Flax or hemp | Dew retting + tow | Tow, coarse linen |
-| Fine percale cotton | Cotton | Gin + card + comb | Combed cotton, smooth |
-| Denim, standard cotton | Cotton | Gin + card | Carded cotton ring spun |
-| Silk charmeuse | Silk | Reel + desize | Degummed silk filament |
-| Blended performance | Wool + cotton | Comb both separately | Blended worsted |
+- `02-MORDANTING.md` depends on clean, receptive fiber surfaces.
+- `03-DYE-CHEMISTRY.md` explains fiber-dye compatibility.
+- `05-SPINNING.md` shows how preparation continues into yarn formation.
+
+## Decision Cheat Sheet
+
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Soft knitting yarn | Merino scoured gently and carded | Heat plus agitation can felt wool before spinning begins. |
+| Smooth suiting fabric | Wool scoured and combed into parallel top | Combing and carding produce different structures, not just different cleanliness. |
+| Fine linen shirting | Fully retted flax, broken, scutched, and hackled | Retting quality controls spinnability and environmental load. |
+| Canvas or upholstery linen | Flax/hemp tow from coarser preparation | Coarse tow is useful, not merely waste. |
+| Fine percale cotton | Ginned, carded, and combed cotton | "Combed" means different things in cotton and wool systems. |
+| Denim or standard cotton yarn | Ginned and carded cotton | Carded cotton is adequate where smoothness is not the primary requirement. |
+| Silk charmeuse | Reeled filament and degummed silk | Degumming changes handle and dye uptake. |
+| Blended performance yarn | Prepare component fibers separately before blending | Fiber-length and surface mismatch can create uneven drafting. |
 
 ---
 

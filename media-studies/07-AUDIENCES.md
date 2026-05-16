@@ -407,18 +407,28 @@ Henry Jenkins's participatory culture framework emerged from fan studies and tra
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Frankfurt School mass-audience critique | `media-studies/02-FRANKFURT-SCHOOL.md` |
+| Journalism audience relationship | `media-studies/06-JOURNALISM.md` |
+| Algorithmic audience segmentation | `media-studies/08-ALGORITHMS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Model | Core Claim | Evidence Quality | Contemporary Relevance |
-|-------|-----------|-----------------|----------------------|
-| Hypodermic needle | Direct injection of ideology | Discredited | Still in moral panics |
-| Limited effects | Minimal attitude change | Strong for its era | Selective exposure still true |
-| Two-step flow | Opinion leaders mediate | Moderate | Twitter influencers, YouTube channels |
-| Agenda-setting | Media sets what we think about | Strong | Platform algorithm sets agenda |
-| Cultivation | Heavy exposure shapes worldview | Moderate | Heavy YouTube/TikTok viewing |
-| Hall encoding/decoding | Polysemic texts, active decoding | Qualitative support | Meme appropriation, fan readings |
-| Uses and gratifications | Audiences use media for needs | Reasonable | App choice research |
-| Participatory culture | Audiences produce and share | Descriptively accurate | Fan culture, UGC, co-creation |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Passive-audience claims | Hypodermic-needle assumptions about direct injection | Largely discredited; its persistence often signals moral panic. |
+| Minimal direct persuasion | Limited-effects evidence and selective exposure | "Limited" means limited attitude conversion, not no media effects. |
+| Intermediated influence | Two-step flow through opinion leaders and social networks | Influencers mediate messages but platforms also algorithmically mediate them. |
+| What media makes salient | Agenda-setting and issue attention | Media may set topics without determining opinions. |
+| Long exposure worldview shifts | Cultivation over repeated viewing patterns | Effects are cumulative and contextual, not single-message causality. |
+| Active interpretation | Hall encoding/decoding and polysemy | Texts are not infinitely open; decoding positions are socially patterned. |
+| Audience need selection | Uses and gratifications | Self-reported motives can rationalize behavior after the fact. |
+| Audience production | Participatory culture and user-generated circulation | Participation is uneven; platforms capture value from unpaid audience labor. |
 
 ---
 

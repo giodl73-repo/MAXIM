@@ -344,17 +344,24 @@ The compression failure mechanism:
 
 ## Decision Cheat Sheet
 
-| Need | Fiber |
-|------|-------|
-| Maximum stiffness + weight saving | Carbon (HM or IM grades) |
-| Maximum strength/weight | Carbon (IM7, T800) |
-| Lowest cost fiberglass structure | E-glass |
-| Higher performance glass | S-glass or S2-glass |
-| Ballistic protection / soft armor | Kevlar 29/129 |
-| Tension cable / high strength rope | Kevlar 49 |
-| Sustainable bio-composite | Flax or hemp (with PP or epoxy) |
-| Hybrid ballistic + structural | CF + Kevlar hybrid laminate |
-| Wind turbine blade (cost sensitive) | E-glass, possibly CF spar cap |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Maximum stiffness per weight | Compare high-modulus carbon, intermediate-modulus carbon, strain-to-failure, cost, and compressive behavior. | High modulus can reduce toughness and strain capacity. |
+| Maximum strength per weight | Start with IM carbon grades, tensile strength, compression allowables, fatigue, and supply chain. | Tensile strength alone is not structural allowables. |
+| Lowest-cost structure | Use E-glass cost, density penalty, corrosion resistance, manufacturing method, and required stiffness. | Low fiber cost can be offset by weight or labor. |
+| Higher-performance glass | Compare S-glass/S2-glass strength, modulus, cost, availability, and resin compatibility. | It improves glass performance but does not become carbon fiber. |
+| Ballistic or impact protection | Evaluate aramid grade, energy absorption, compression weakness, UV/moisture sensitivity, and hybridization. | Kevlar is excellent in tension/impact but poor in compression. |
+| Sustainable bio-composite | Check flax/hemp properties, moisture uptake, variability, matrix choice, and end-of-life route. | Bio-based reinforcement does not automatically make the whole composite sustainable. |
+| Hybrid laminate | Balance carbon stiffness, aramid impact tolerance, glass cost, galvanic/thermal mismatch, and layup order. | Hybrids solve coupled objectives but complicate failure prediction. |
+| Wind-turbine blade material | Compare E-glass shells, carbon spar caps, fatigue, cost, blade length, and manufacturing scale. | Cost-sensitive structures often use carbon only where stiffness is decisive. |
+
+---
+
+## Cross-References
+
+- `01-FUNDAMENTALS.md` explains why fibers dominate axial properties while matrices control transfer and damage tolerance.
+- `04-LAMINATE-THEORY.md` shows how fiber direction becomes laminate stiffness.
+- `07-BOEING-787.md` gives the aerospace-scale case study for carbon-fiber structural tradeoffs.
 
 ---
 

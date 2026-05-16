@@ -5,7 +5,7 @@
 
 ---
 
-## Earth Interior Structure
+## The Big Picture
 
 ```
 LAYER           DEPTH (km)   DENSITY (g/cm³)  STATE       KEY EVIDENCE
@@ -363,19 +363,25 @@ Isostatic rebound:
 
 ---
 
+## Cross-References
+
+- `geology/01-MINERALS.md` - rocks and minerals as Earth materials.
+- `planetary-science/09-PLANETARY-INTERIORS.md` - interior probes across planets.
+- `geochemistry/09-PLANETARY-GEOCHEMISTRY.md` - chemical constraints on interiors.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Key indicator |
-|----------|---------|--------------|
-| Why is the outer core liquid? | S-wave shadow zone | S-waves absent beyond 103° → liquid outer core |
-| What drives plate tectonics? | Slab pull dominates | Cold dense subducting lithosphere sinks — major driver |
-| How do we know mantle temperature? | Seismic tomography | Fast = cold, slow = hot; subducted slabs image as fast |
-| Why do island arcs have explosive volcanoes? | Wet melting | Water from subducting slab → low melting point → silicic magma → high viscosity → explosive |
-| Why are mountains in isostatic equilibrium? | Crustal root | Continental crust floats; high topography needs deep root |
-| How old is the seafloor? | Magnetic anomalies | Oldest: ~200 Ma at subduction zones; all older crust subducted |
-| Why does Scandinavia still rise? | Glacial isostatic adjustment | Mantle flow (η~10²¹ Pa·s) slowly responding to ice sheet removal |
-| What causes normal vs reverse faults? | Stress regime | Extension → normal; compression → reverse/thrust |
-| How is magnetic reversal recorded? | Seafloor spreading | Symmetric magnetic stripes about mid-ocean ridge |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Liquid outer core | S-wave shadow zone beyond 103 degrees | S-waves vanish through liquid; P-waves still refract. |
+| Plate-driving force | Slab pull from cold dense lithosphere | Ridge push and mantle flow still contribute. |
+| Mantle temperature anomaly | Seismic tomography velocity | Fast/slow velocity also depends on composition and melt. |
+| Explosive island arcs | Slab-water flux melting and viscous magma | Water lowers melting point but eruption style also depends on magma evolution. |
+| Mountain isostasy | Crustal root buoyancy | Dynamic topography and flexure can complicate simple Airy models. |
+| Seafloor age | Magnetic anomalies and spreading stripes | Oceanic crust older than about 200 Ma is mostly subducted. |
+| Scandinavian uplift | Glacial isostatic adjustment | Mantle viscosity sets the response timescale. |
+| Normal versus reverse faulting | Stress regime | Real faulting also depends on pre-existing structures. |
+| Magnetic reversal record | Symmetric seafloor-spreading stripes | Requires preserved oceanic crust and calibrated polarity timescale. |
 
 ---
 

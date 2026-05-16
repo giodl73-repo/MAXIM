@@ -496,18 +496,24 @@ EnergyPlus is the US Department of Energy's open-source whole-building energy si
 
 ---
 
+## Cross-References
+
+- `hvac/01-THERMAL-COMFORT.md` — active-system counterpart to passive environmental design.
+- `climate-science/01-CARBON-CYCLE.md` — carbon context for embodied and operational emissions.
+- `architecture/04-BUILDING-SYSTEMS.md` — building systems that execute or compensate for environmental strategy.
+
 ## Decision Cheat Sheet
 
-| Design goal | Primary passive strategy | Key metric |
-|-------------|-------------------------|------------|
-| Reduce summer cooling load | South orientation + horizontal overhangs; minimize east/west glazing | g-value < 0.25 for E/W; overhang sized to sun angles |
-| Reduce winter heating load | Thermal mass on south walls; increase south glazing | R-30+ walls; triple glazing U < 0.20 |
-| Maximize daylighting | North light (diffuse), skylights (3× efficiency), light shelves | Daylight factor 2–5% at task surfaces |
-| Reduce noise between spaces | STC-rated assembly + eliminate flanking | STC 50+ for private offices; address plenum flanking |
-| Certify at LEED Gold | Energy model, optimize envelope, water reduction, materials tracking | 60+ LEED points; EA credit is highest weight |
-| Achieve Passivhaus | 5 pillars: superinsulation + triple glaz + airtightness + thermal bridge free + MVHR | 0.6 ACH50 blower door test is the non-negotiable |
-| Minimize embodied carbon | Specify mass timber over concrete; recycled steel; low-carbon cement | Whole-life carbon assessment; WBLCA per EN 15978 |
-| Data center cooling | PUE optimization starts with passive: economizer first, then cooling | PUE target ≤ 1.2 (hyperscale) vs industry avg 1.58 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether cooling load is envelope-driven | Orientation, SHGC, and east/west glazing | Overhangs help south facades; low-angle east/west sun needs different control |
+| Whether heating load dominates | U-values, airtightness, and thermal-bridge map | More south glass can backfire without envelope discipline and night losses control |
+| Whether daylighting works | Daylight factor, glare risk, and task-plane distribution | More glass is not more usable daylight if glare and heat gain dominate |
+| Whether acoustic privacy fails | STC assembly plus flanking-path inspection | A rated wall is defeated by plenum, door, or duct bypass paths |
+| Whether LEED Gold reflects performance | Energy model assumptions and metered-performance plan | Certification is design evidence; measured operation can diverge sharply |
+| Whether Passivhaus is plausible | Airtightness, thermal bridges, glazing, and MVHR design | The blower-door target is a gate, not a cosmetic sustainability label |
+| Whether embodied carbon is the priority | Whole-life carbon assessment by material system | Operational and embodied carbon trade off; do not optimize one in isolation |
+| Whether data-center cooling is architectural | Airflow path, containment, economizer potential, and PUE | PUE is a facility metric; building layout can lock in cooling inefficiency |
 
 ---
 

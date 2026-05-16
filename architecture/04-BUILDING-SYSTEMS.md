@@ -560,18 +560,24 @@ The BAS analogy: Tridium Niagara is to building controllers what the .NET CLR is
 
 ---
 
+## Cross-References
+
+- `architecture/02-STRUCTURAL-LOGIC.md` — structural grid constraints that drive system routing.
+- `hvac/01-THERMAL-COMFORT.md` — mechanical comfort targets behind MEP design.
+- `infrastructure-systems/01-CLASSIFICATION.md` — building systems as local endpoints of larger infrastructure networks.
+
 ## Decision Cheat Sheet
 
-| Coordination challenge | Key resolution principle | When to resolve |
-|------------------------|-------------------------|-----------------|
-| Duct vs beam conflict | Structure wins; route duct around or through truss | Design Development |
-| Column spacing vs program | Set grid FIRST, size program to fit bays | Schematic Design |
-| Elevator count vs building pop. | Traffic analysis at SD; 1 cab per 40,000 sqft office | Schematic Design |
-| Sprinkler type for data center | Pre-action or clean agent; NFPA 75 governs | Design Development |
-| MEP mechanical room location | Ground level, roof, or mechanical floors every 10–15 stories | Schematic Design |
-| BAS integration standard | BACnet/IP for new; Modbus for legacy equipment | Design Development |
-| Facade water resistance | Rainscreen principle; air barrier + drainage cavity | Schematic Design |
-| Fire separation between uses | UL-listed assembly; field penetrations detailed | Construction Documents |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether duct and beam conflicts are systemic | Structural grid, duct mains, and ceiling plenum section | Structure usually wins; late duct rerouting is cheaper than late frame redesign |
+| Whether program fights the column grid | Bay module before room layouts | The grid is a strategic decision; changing it after SD cascades through every system |
+| Whether elevator count is underdesigned | Traffic analysis by population and use type | Rules of thumb are placeholders; mixed-use buildings need scenario modeling |
+| Whether a data-center fire system fits | NFPA 75, equipment risk, and pre-action logic | Suppression choice is operational risk management, not just code compliance |
+| Whether mechanical rooms are misplaced | Airflow, shaft, maintenance, and floor-area impacts | A smaller plan can create worse lifecycle cost if service access is sacrificed |
+| Whether BAS integration will be brittle | Protocol map: BACnet/IP, Modbus, gateways, legacy gear | Controls integration fails at interfaces, not at the mechanical-equipment brochure |
+| Whether facade leaks are likely | Air barrier continuity, drainage cavity, and flashing details | Water resistance is a system path; one perfect product cannot fix discontinuity |
+| Whether fire separation survives construction | UL assembly plus penetration details | The rated wall is only rated as built, including every pipe, duct, and cable breach |
 
 ---
 

@@ -228,17 +228,23 @@ Requirement: eccentricity ≤ B/6 (kern of footing) to avoid tension at footing 
 
 ## Decision Cheat Sheet
 
-| Condition | Use | Notes |
-|-----------|-----|-------|
-| Single column, adequate soil | Isolated spread footing | Size for bearing + settlement |
-| Bearing wall | Strip/continuous footing | Width from bearing capacity |
-| Soft/weak soil, large loads | Mat foundation | Reduces bearing pressure |
-| Deep basement | Net bearing / compensated | qnet = Q/A - γDf |
-| Sand, short-term loading | Immediate settlement governs | Check elastic settlement |
-| Clay, long-term | Consolidation settlement governs | Terzaghi time-rate analysis |
-| Eccentric loads | Reduce to effective B', L' | Check e < B/6 for no tension |
+| Foundation Question | Use This Choice / Check | Watch-Out |
+|---|---|---|
+| Can near-surface soil support the load? | Spread/strip footing if bearing and settlement both pass | Bearing capacity alone is not enough; settlement often governs |
+| Are column loads large or closely spaced? | Mat/raft foundation | Reduces average pressure but can still have differential settlement |
+| Is there a deep basement excavation? | Net bearing / compensated foundation | qnet may be small, but heave, buoyancy, and excavation sequence still matter |
+| Is the soil sand or granular fill? | Immediate settlement and bearing checks | Modulus correlations are rough; plate/CPT data improve confidence |
+| Is the soil soft clay? | Consolidation settlement plus time-rate | Long-term settlement can exceed construction-period movement |
+| Are loads eccentric or overturning? | Effective B', L' and kern/no-tension check | Soil cannot carry tension; contact pressure becomes nonuniform |
+| Does shallow design fail? | Enlarge footing, deepen, improve ground, or switch to deep foundations | Choose based on settlement tolerance, constructability, and risk, not habit |
 
 ---
+
+## Cross-References
+
+- [Soil Classification](01-SOIL-CLASSIFICATION.md) supplies the site-material vocabulary for foundation decisions.
+- [Consolidation](03-CONSOLIDATION.md) explains settlement timing beneath shallow foundations.
+- [Deep Foundations](07-DEEP-FOUNDATIONS.md) covers the alternative when shallow bearing or settlement is unacceptable.
 
 ## Common Confusion Points
 

@@ -1,6 +1,6 @@
 # Quantum Communication and QKD
 
-## Big Picture: Quantum vs Classical Security
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -300,35 +300,23 @@ STATUS (2025):
 
 ---
 
+## Cross-References
+
+- `information-theory/08-QUANTUM-INFORMATION.md` — quantum information principles behind communication limits.
+- `cryptography/01-SYMMETRIC.md` — classical keying and secrecy baseline.
+- `quantum-computing/03-ERROR-CORRECTION.md` — protecting quantum states against noise and loss.
+
 ## Decision Cheat Sheet
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                     │ RECOMMENDATION                        │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Need information-theoretic   │ QKD (BB84 with decoy states in       │
-│ security for key exchange    │ practice); requires authenticated    │
-│                              │ classical channel                    │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Distance < 100 km, fiber     │ BB84 with attenuated laser + decoy;   │
-│                              │ commercial systems available          │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Distance 100-400 km          │ BB84 with SNSPD + trusted repeater  │
-│                              │ nodes (security degrades at nodes)   │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Distance > 400 km            │ Satellite relay (Micius-style) or     │
-│                              │ wait for quantum repeaters (Gen 3)    │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Distrust devices             │ DI-QKD based on E91/Bell violation;  │
-│ (untrusted manufacturer)     │ requires loophole-free Bell test     │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ QBER > 11% observed          │ Abort — either eavesdropping or       │
-│                              │ channel too noisy for secure QKD      │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Post-quantum security for    │ Use ML-KEM (Kyber) / ML-DSA (Dilith.)│
-│ classical data                │ Shor-resistant, deployable now      │
-└──────────────────────────────┴───────────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Information-theoretic key exchange | QKD such as BB84 with decoy states | Requires an authenticated classical channel; QKD is key distribution, not full secure messaging. |
+| Fiber distance under 100 km | Attenuated-laser BB84 plus decoy states | Commercial availability does not remove integration and trust assumptions. |
+| Fiber distance 100-400 km | SNSPDs and trusted repeater nodes | Trusted nodes break end-to-end information-theoretic security at those nodes. |
+| Distance beyond 400 km | Satellite relay or future quantum repeaters | Satellite trust/link availability and Gen-3 repeater maturity dominate feasibility. |
+| Device distrust | Device-independent QKD from Bell violation | Loophole-free Bell tests are experimentally demanding. |
+| High QBER | Abort when QBER exceeds security threshold, e.g. around 11% for BB84 variants | High QBER can mean eavesdropping or ordinary channel noise; security proof still says abort. |
+| Classical post-quantum security | ML-KEM/ML-DSA deployment | PQC is usually cheaper and broader than QKD for enterprise traffic. |
 
 ---
 

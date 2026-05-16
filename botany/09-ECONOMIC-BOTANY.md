@@ -391,17 +391,23 @@ RESINS AND OTHER:
 
 ---
 
+## Cross-References
+
+- `food-plants/01-GRAINS.md` - staple crops as economic botany.
+- `agriculture/06-GREEN-REVOLUTION.md` - crop improvement at production scale.
+- `botany/05-FLOWERS-REPRODUCTION.md` - reproduction and domestication traits.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is Janka hardness? | Resistance to wood indentation; force to embed 11.3mm steel ball halfway into wood |
-| Why is Sitka spruce used for instrument tops? | Highest strength-to-weight ratio of any timber; specific resonance properties |
-| What was aspirin's botanical origin? | Willow bark (salicin) → salicylic acid → aspirin (acetylsalicylic acid, Bayer 1899) |
-| How does quinine work against malaria? | Inhibits heme polymerization in Plasmodium → toxic heme accumulates → parasite dies |
-| How does Taxol work? | Stabilizes microtubules (prevents depolymerization) → arrested mitosis → apoptosis |
-| Why is natural rubber still needed? | Flex-fatigue resistance (aircraft tires, surgery gloves) not fully replicable by synthetic |
-| What synthetic dye destroyed the madder trade? | Alizarin (Graebe + Liebermann, 1869) — from coal tar, same molecule |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Wood hardness | Janka indentation force | Hardness is not the same as plant category or structural strength. |
+| Instrument wood choice | Sitka spruce strength-to-weight and resonance | Acoustic performance depends on grain, cut, and construction. |
+| Aspirin origin | Willow salicin to salicylic acid to acetylsalicylic acid | Botanical origin does not mean whole-bark equivalence. |
+| Quinine antimalarial action | Heme polymerization inhibition in Plasmodium | Resistance and toxicity constrain use. |
+| Taxol anticancer action | Microtubule stabilization and mitotic arrest | Drug effect depends on cell context and dosing. |
+| Natural rubber persistence | Flex-fatigue resistance | Synthetic substitutes work for many, not all, applications. |
+| Madder trade collapse | Synthetic alizarin from coal tar | Same chromophore, different supply chain economics. |
 
 ---
 

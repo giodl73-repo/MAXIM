@@ -737,20 +737,23 @@ Compose has `restart: unless-stopped` but no health-based routing, no rolling up
 
 ---
 
+## Cross-References
+
+- `computing/12-KUBERNETES.md` — orchestration layer above containers.
+- `os/01-CHEATSHEET.md` — process, namespace, and kernel foundations.
+- `cloud-architecture/02-COMPUTE-PATTERNS.md` — cloud compute choices that consume containers.
+
 ## Decision Cheat Sheet
 
-| I want to... | Use |
-|---|---|
-| Package my app for consistent deploys | `Dockerfile` + `docker build` |
-| Run my app locally | `docker run` or `docker compose up` |
-| Run app + database + cache locally | `docker-compose.yml` with services |
-| Keep database data between restarts | Named volume |
-| Edit code and see changes immediately | Bind mount (`./src:/app/src`) |
-| Reduce production image size | Multi-stage build |
-| Share image with team / CI | Push to registry (GHCR, ACR) |
-| Pull latest base images | `docker compose pull` |
-| Debug inside a running container | `docker exec -it <name> sh` |
-| See what's eating disk space | `docker system df` |
-| Nuclear cleanup | `docker system prune -a` |
-| Deploy to Azure serverless | Azure Container Apps (ACA) |
-| Deploy to Azure Kubernetes | AKS — next module |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| App packaging | Inspect Dockerfile layers, base image, build context, runtime user, secrets, and reproducibility. | A container image is a deployable filesystem plus metadata, not a VM. |
+| Local container run | Compare `docker run` and Compose based on dependencies, ports, env files, and lifecycle. | Local success can hide production networking and persistence differences. |
+| Multi-service dev stack | Use Compose services, networks, health checks, volumes, and startup dependencies. | `depends_on` orders startup; it does not guarantee readiness unless health is modeled. |
+| Persistent data | Use named volumes, backup/export plan, schema migrations, and cleanup policy. | Volumes outlive containers and can preserve stale state. |
+| Live code editing | Use bind mounts, file-watch behavior, container user permissions, and OS filesystem quirks. | Bind mounts can mask files baked into the image. |
+| Production image size | Use multi-stage builds, minimal base, dependency pruning, and vulnerability scanning. | Small images still need patch strategy and provenance. |
+| Image sharing | Push to GHCR/ACR with tags, digests, immutability, permissions, and CI credentials. | `latest` is a moving pointer; deploy by digest for reproducibility. |
+| Debugging a container | Use logs, exec shell, inspect, environment, filesystem, and entrypoint/cmd. | Debug changes inside a running container are ephemeral. |
+| Disk pressure | Use `docker system df`, prune selectively, and distinguish images, containers, volumes, and build cache. | `prune -a` can delete useful caches and stopped-state evidence. |
+| Azure container target | Compare ACA, App Service, AKS, scaling model, networking, and operational ownership. | Kubernetes is an orchestration commitment, not a default deployment target. |

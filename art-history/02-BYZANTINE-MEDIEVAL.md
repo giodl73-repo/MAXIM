@@ -459,15 +459,23 @@ EGG TEMPERA TECHNIQUE
 
 ## Decision Cheat Sheet
 
-| Object | Key question | Approach |
-|--------|-------------|----------|
-| Byzantine icon | What theological claim does the form make? | Iconology + Byzantine theology |
-| Iconoclast-era controversy | Who has power over images? | Political + theological history |
-| Ravenna mosaic | Whose authority is being legitimized? | Contextual + iconographic |
-| Romanesque tympanum | What behavioral program for the entering pilgrim? | Iconographic + contextual |
-| Gothic architecture | How does structure enable the theological program? | Technical + iconological |
-| Stained glass program | What typological connections? | Iconographic (OT/NT typology) |
-| Manuscript illumination | How does the page work as a field vs a window? | Formal + iconographic |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Byzantine icon | Examine frontality, gold ground, inscription, gesture, prototype, liturgical role, and theology of presence. | Icons are not portraits in the modern naturalist sense. |
+| Iconoclast controversy | Separate theology, imperial authority, monastic power, public ritual, and image politics. | The debate is about mediation and authority, not mere dislike of art. |
+| Ravenna mosaic | Check patron, imperial costume, processional order, altar setting, and church-political context. | Glittering surface is part of authority-making, not ornamental excess. |
+| Romanesque tympanum | Read portal placement, pilgrim movement, Last Judgment program, scale hierarchy, and moral instruction. | The sculpture programs behavior at the threshold. |
+| Gothic architecture | Link rib vault, pointed arch, flying buttress, light, liturgy, and urban episcopal competition. | Structure enables theology, but engineering and institution remain distinct. |
+| Stained glass program | Trace typology, donor panels, guild marks, light effects, and nave/chancel placement. | Old/New Testament pairing is a reading system, not a generic illustration set. |
+| Manuscript illumination | Analyze page field, marginalia, initials, text-image pacing, reader use, and workshop practice. | Medieval pages can be diagrams, devotion tools, and luxury objects at once. |
+
+---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places Byzantine and medieval art inside the larger art-historical chronology.
+- `03-RENAISSANCE.md` shows what Renaissance writers reacted against, distorted, and inherited.
+- `../architecture-history/02-BYZANTINE-ISLAMIC.md` deepens the architectural side of dome, mosaic, and sacred-space systems.
 
 ---
 

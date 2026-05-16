@@ -323,20 +323,26 @@ LQR vs MPC:
 
 ---
 
+## Cross-References
+
+- `variational-calculus/01-FUNCTIONALS.md` — cost functionals over trajectories.
+- `variational-calculus/02-EULER-LAGRANGE.md` — calculus-of-variations route to necessary conditions.
+- `control-theory/07-MPC.md` — finite-horizon optimization applied repeatedly in real time.
+
 ## Decision Cheat Sheet
 
-| Scenario | Method |
-|----------|--------|
-| Linear system, no constraints, choose gains | LQR (solve algebraic Riccati) |
-| LQR with noisy measurements | LQG (add Kalman filter, separation principle) |
-| Need guaranteed stability margins | LQR alone (60° PM, 6dB GM) |
-| Need guaranteed robustness to uncertainty | H∞ control |
-| Constraints on states or inputs | MPC (receding-horizon QP) |
-| Minimum-time control | PMP → bang-bang controller |
-| Nonlinear system, continuous | PMP + shooting method for TPBVP |
-| Analytical optimal value function | HJB (limited to low-dimension) |
-| Large-scale nonlinear | Differential dynamic programming (DDP/iLQR) |
-| Tune Q and R weights | Bryson's rule, then iterate |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether an unconstrained linear regulator is enough | LQR via the algebraic Riccati equation | Optimality is only for the chosen quadratic cost and linear model |
+| Whether noisy measurements require estimator/controller coupling | LQG with a Kalman filter | Separation does not guarantee robustness to model error |
+| Whether nominal LQR margins are the issue | Check the classical LQR stability margins | Those margins do not cover saturation, delays, or unmodeled dynamics |
+| Whether uncertainty dominates nominal performance | `H∞` or robust-control formulation | Conservatism buys guarantees by giving up some nominal optimality |
+| Whether state/input constraints drive the design | MPC with receding-horizon optimization | Feasibility and solver latency are part of the controller |
+| Whether minimum time produces bang-bang structure | Pontryagin Maximum Principle | PMP gives necessary conditions; singular arcs and constraints complicate them |
+| Whether a nonlinear continuous problem is tractable by shooting | PMP plus a two-point boundary value solve | Shooting is sensitive to initial guesses and unstable adjoint dynamics |
+| Whether an analytic value function is possible | Hamilton-Jacobi-Bellman equation | The curse of dimensionality blocks most high-dimensional systems |
+| Whether a large nonlinear system needs local trajectory optimization | DDP or iLQR | Local quadratic models can converge to a local policy, not a global optimum |
+| Whether the cost weights are causing odd behavior | Bryson's rule, then iterate with simulations | Weight tuning encodes engineering preference; it is not a physics law |
 
 ## Common Confusion Points
 

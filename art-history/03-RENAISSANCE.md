@@ -357,7 +357,7 @@ VAN EYCK'S GLAZING SYSTEM
   │ No blending          │        │ Infinite blending while wet   │
   │ Surface is matte     │        │ Final surface luminous        │
   │                      │        │ Light penetrates layers,      │
-  │                      │        │ reflects off white gesso base, │
+  │                      │        │ reflects off white gesso base,│
   │                      │        │ passes back through glazes:   │
   │                      │        │ inner light effect            │
   └──────────────────────┘        └───────────────────────────────┘
@@ -581,3 +581,15 @@ style that takes the High Renaissance as its model and then deliberately complic
 elongates, and destabilizes it — Parmigianino's Madonna with the Long Neck is
 intentionally strange, not accidentally wrong. It is the Renaissance equivalent of
 postmodernism: a self-conscious late style.
+
+---
+
+## Cross-References
+
+| If you need... | Go to |
+|---|---|
+| Classical and medieval precedents before Renaissance naturalism | [Prehistoric & Ancient Art](01-PREHISTORIC-ANCIENT.md) |
+| Byzantine continuity and icon conventions | [Byzantine & Medieval Art](02-BYZANTINE-MEDIEVAL.md) |
+| Baroque responses to Renaissance balance | [Baroque & Rococo](04-BAROQUE-ROCOCO.md) |
+| Pigment and glazing chemistry behind Renaissance surfaces | [Pigments](../pigments/00-OVERVIEW.md) |
+| Architectural perspective and spatial systems | [Architecture History](../architecture-history/00-OVERVIEW.md) |

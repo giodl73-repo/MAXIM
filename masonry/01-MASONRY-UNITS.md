@@ -1,6 +1,6 @@
 # Masonry Units: Brick, CMU, Stone, Adobe, Tile
 
-## The Unit Landscape
+## The Big Picture
 
 Every masonry assembly begins with the unit. The unit type determines structural capacity, weathering behavior, thermal mass, and jointing requirements. Units fall into five material families, each with distinct production methods and performance profiles.
 
@@ -299,18 +299,24 @@ Absorption governs freeze-thaw durability: high-absorption units saturate, water
 
 ---
 
+## Cross-References
+
+- `02-MORTAR-GROUT.md` explains the binder system around masonry units.
+- `03-BRICKLAYING.md` uses units in bond patterns and course control.
+- `05-STRUCTURAL-MASONRY.md` turns units into load-bearing assemblies.
+
 ## Decision Cheat Sheet
 
-| Situation | Unit Choice |
-|-----------|-------------|
-| Load-bearing exterior wall, cold climate | SW-grade modular brick or normal-weight CMU |
-| Non-structural interior partition | Lightweight CMU (8×8×16) or partition tile |
-| Historic restoration — match existing brick | Mock-up test new brick for color, texture, absorption |
-| Structural wall, seismic SDC C or higher | CMU, fully grouted reinforced cores |
-| Low-cost, vernacular, dry climate | Adobe (ASTM E2392 requirements) |
-| Decorative ashlar facade | Limestone or sandstone — check bedding orientation |
-| Fire-rated column enclosure | Structural clay tile or CMU fireproofing |
-| Pavement, plaza, freeze-thaw exposure | SW brick, laid on bed, not face-bedded |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Load-bearing cold-climate wall | SW-grade modular brick or normal-weight CMU | Freeze-thaw durability depends on absorption and exposure grade. |
+| Non-structural interior partition | Lightweight CMU or partition tile | Do not over-spec structural units where load path does not require them. |
+| Historic brick match | Mock-up testing for color, texture, absorption, and joint behavior | Matching appearance without absorption match can damage old masonry. |
+| Seismic structural wall | CMU with fully grouted reinforced cores | Structural calculations depend on net/gross area and grouting pattern. |
+| Vernacular dry-climate wall | Adobe meeting ASTM E2392 requirements | Adobe and rammed earth are different structural systems. |
+| Decorative ashlar facade | Limestone or sandstone with bedding orientation checked | Stone durability depends on exposure chemistry as well as climate. |
+| Fire-rated enclosure | Structural clay tile or CMU fireproofing | Fire rating comes from tested assembly, not unit name alone. |
+| Freeze-thaw pavement/plaza | SW brick laid on bed, not face-bedded | Face bedding exposes weaker planes and accelerates failure. |
 
 ---
 

@@ -259,20 +259,26 @@ BY DEPTH:
 
 ---
 
+## Cross-References
+
+- `02-CORAL-BIOLOGY.md` explains the organisms that build carbonate structure.
+- `04-REEF-ECOLOGY.md` places reef formation in zoned habitats.
+- `05-BLEACHING.md` shows how thermal stress interrupts reef growth.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What mineral do reef corals secrete? | Aragonite (CaCO₃ orthorhombic polymorph) |
-| Who proposed fringing→atoll sequence? | Darwin (1842); confirmed by Bikini/Enewetak drilling 1952 |
-| What do CCA contribute? | Cement the reef framework; critical on wave-beaten crest |
-| How fast do branching corals grow? | 100–200 mm/yr tip extension; fragile but fast post-disturbance recovery |
-| How fast do massive corals grow? | 5–25 mm/yr; comparable bulk CaCO₃ output to branching |
-| What is net reef accretion rate? | 1–10 mm/yr (healthy); net erosion on degraded reefs |
-| Why do reefs track sea level? | Zooxanthellae need light; upward growth maintains photic zone position |
-| What are drowned reefs? | Reefs that couldn't keep pace with sea level rise; submerged relics |
-| What drives ahermatypic coral growth? | Heterotrophy only (no zooxanthellae); deep/cold water globally |
-| How old can a Porites head be? | 500–700 years; annual bands used as paleoclimate proxy |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Coral skeleton mineral | Aragonite CaCO3 polymorph | Aragonite saturation state, not pH alone, controls precipitation tendency. |
+| Atoll origin | Darwin's fringing-to-barrier-to-atoll subsidence sequence | Requires reef growth to keep pace with subsidence. |
+| Framework cement | Crustose coralline algae on wave-beaten crests | CCA is structural, not decorative. |
+| Branching coral recovery | 100-200 mm/yr tip extension | Fast growth is fragile and storm-sensitive. |
+| Massive coral growth | 5-25 mm/yr extension with large bulk carbonate output | Slow extension can still build substantial CaCO3. |
+| Net reef accretion | Healthy 1-10 mm/yr versus net erosion on degraded reefs | Accretion is growth plus cement minus bioerosion and storms. |
+| Sea-level tracking | Zooxanthellae light demand and upward photic-zone growth | Turbidity, temperature, and chemistry can prevent tracking. |
+| Drowned reef interpretation | Reef unable to keep pace with sea-level rise | Drowned reefs are submerged relics, not active catch-up systems. |
+| Ahermatypic growth | Heterotrophy without zooxanthellae in deep/cold water | These corals do not build tropical photic reefs the same way. |
+| Porites paleoclimate archive | 500-700 year heads with annual bands | Bands are proxies and require careful calibration. |
 
 ---
 

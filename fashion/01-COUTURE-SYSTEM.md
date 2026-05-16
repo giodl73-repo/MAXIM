@@ -283,6 +283,12 @@ RECENT SPECTACULARS:
 
 ---
 
+## Cross-References
+
+- `02-RTW-PRÊT.md` contrasts couture with ready-to-wear industrialization.
+- `03-FASHION-HISTORY.md` places couture institutions in the longer fashion timeline.
+- `../textiles/00-OVERVIEW.md` supplies the material and fiber context behind garment construction.
+
 ## Common Confusion Points
 
 **"Couture means hand-made in general"** -- Haute Couture is a specific legal
@@ -307,12 +313,11 @@ concept. The craft base enables experimentation impossible in RTW.
 
 ## Decision Cheat Sheet
 
-| I want to understand...                       | Key point                          |
-|-----------------------------------------------|------------------------------------|
-| What "haute couture" actually means legally   | Chambre Syndicale designation      |
-| How a couture garment is made                 | Toile -> 3 fittings -> livraison   |
-| Why couture exists if it loses money          | Press, brand positioning, craft    |
-| Who invented the modern fashion system        | Charles Frederick Worth (1858)     |
-| The craft specialists who make couture        | Lesage, Lognon, Massaro, Lemarié   |
-| Most technically admired couturier            | Balenciaga ("the master")          |
-| Couture as cultural event vs. commerce        | Show = PR; actual commission = post|
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Legal couture claim | Chambre/Federation designation and Paris atelier criteria | "Couture-inspired" is not haute couture |
+| Garment-construction claim | Toile, client dress form, fittings, atelier handwork, livraison | The value is fit + craft + authorship, not just expense |
+| Couture economics claim | Loss-leading brand theater, craft preservation, and press value | Couture revenue is small relative to fragrance/accessories |
+| Worth-origin claim | Designer authority, seasonal presentation, labels, and elite clients | Worth formalized the system; luxury dressmaking predates him |
+| Metiers d'art claim | Embroidery, feather, pleating, shoes, flowers, and specialist ateliers | Houses often depend on external craft infrastructure |
+| Show-audience claim | Press, clients, celebrities, and cultural signaling | Couture shows are not wholesale buyer markets like RTW |

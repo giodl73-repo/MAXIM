@@ -397,17 +397,27 @@ Policing is the front end of the criminal justice system -- the primary point of
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Social control theory behind policing | `criminology/03-SOCIAL-CONTROL.md` |
+| Incarceration as downstream sanction | `criminology/07-INCARCERATION.md` |
+| Comparative policing models | `criminology/09-COMPARATIVE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Strategy | Evidence Base | Best Use Case | Limitations |
-|----------|--------------|---------------|-------------|
-| Random patrol | Weak (KCPPE) | Visible reassurance | Inefficient |
-| Hot spots | Strong | High-crime micro-places | Requires accurate data |
-| Problem-oriented | Moderate-strong | Repeat call locations | Requires analysis capacity |
-| Community policing | Moderate | Trust building, legitimacy | Hard to measure crime impact |
-| Predictive policing | Weak | None endorsed without scrutiny | Feedback loop, bias risk |
-| CompStat | Mixed | Accountability | Perverse incentives |
-| Procedural justice | Moderate | Training, encounter style | Long-term, hard to measure |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Random patrol claims | KCPPE evidence and visible reassurance effects | Visibility may reassure without efficiently reducing crime. |
+| Micro-place concentration | Hot spots policing and high-crime locations | Requires reliable data and safeguards against displacement or over-policing. |
+| Repeat call/location problems | Problem-oriented policing and root-cause analysis | Works only if the agency has real analytic capacity and follow-through. |
+| Trust and legitimacy | Community policing and relationship repair | Legitimacy gains are easier to claim than crime impacts are to measure. |
+| Algorithmic deployment | Predictive policing data and feedback loops | Historical enforcement data can reproduce bias as "risk." |
+| Managerial accountability | CompStat and performance metrics | Metrics can create perverse incentives, downgrading, or quota behavior. |
+| Encounter-level fairness | Procedural justice training and respectful treatment | Long-term effects depend on institutions, not just officer scripts. |
 
 ---
 

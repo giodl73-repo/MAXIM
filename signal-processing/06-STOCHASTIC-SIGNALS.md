@@ -201,18 +201,24 @@ USE: Identify if two sensors see the same source at which frequencies.
 
 ---
 
+## Cross-References
+
+- `probability-statistics/04-STOCHASTIC-PROCESSES.md` — stochastic-process theory behind random signals.
+- `signal-processing/07-SPECTRAL-ESTIMATION.md` — estimating PSD from finite noisy observations.
+- `control-theory/04-KALMAN-FILTER.md` — filtering noisy state measurements with stochastic models.
+
 ## Decision Cheat Sheet
 
-| Situation | Tool |
-|-----------|------|
-| Characterize noise content vs frequency | PSD (Sxx) |
-| Find signal memory / correlation time | Autocorrelation function Rxx(τ) |
-| Estimate output noise through a filter | Syy = \|H\|² · Sxx |
-| Check if two signals share a source | Coherence function γ²(f) |
-| Find time delay between two noisy signals | Cross-correlation peak |
-| Noise from a resistor at temperature T | Thermal noise: 4kTR W/Hz |
-| Is the process stationary? | Check if mean and autocorrelation shift-invariant |
-| Estimate PSD from data | Welch method (see 07-SPECTRAL-ESTIMATION) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Noise content versus frequency | Power spectral density `Sxx` | "White" is band-limited in practice; ideal white noise has infinite power. |
+| Signal memory or correlation time | Autocorrelation function `Rxx(tau)` | Autocorrelation estimates usually assume ergodicity from one realization. |
+| Output noise through a filter | `Syy = |H|^2 * Sxx` | Assumes linear time-invariant filtering and compatible PSD normalization. |
+| Shared source between signals | Coherence function `gamma^2(f)` | Coherence can reflect common drive, coupling, or processing artifacts. |
+| Delay between noisy signals | Cross-correlation peak | Ambiguous peaks arise with periodic signals or colored noise. |
+| Resistor noise at temperature `T` | Thermal noise density `4kTR` W/Hz | Flatness holds only across the relevant physical bandwidth. |
+| Stationarity | Shift-invariant mean and autocorrelation | WSS, strict stationarity, and ergodicity are distinct assumptions. |
+| PSD from finite data | Welch method with windowing and averaging | Segment length sets frequency resolution; averaging reduces variance. |
 
 ---
 

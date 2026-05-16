@@ -288,18 +288,24 @@ BORON ISOTOPE pH PROXY
 
 ---
 
+## Cross-References
+
+- `geochemistry/02-ISOTOPE-SYSTEMS.md` - stable isotope taxonomy.
+- `climate-science/01-CARBON-CYCLE.md` - climate proxy interpretation context.
+- `geochemistry/08-OCEAN-GEOCHEMISTRY.md` - marine archives and seawater chemistry.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| What does a negative δ¹⁸O excursion in benthic forams mean? | Warming and/or ice sheet melting (sea-level rise releases ¹⁶O back to ocean) |
-| How do you separate T from ice volume in δ¹⁸O? | Use Mg/Ca paleothermometry (independent T proxy) to isolate the temperature signal; subtract from total δ¹⁸O to get ice-volume component |
-| What is the GMWL? | Global Meteoric Water Line: δD = 8δ¹⁸O + 10; all fresh precipitation roughly plots on this line |
-| What does deuterium excess record? | Conditions at evaporation source (low relative humidity = high d-excess); used to track moisture source changes in ice cores |
-| What did the PETM δ¹³C excursion size tell us? | Magnitude of carbon injection (~2000-4500 Gt C of ¹³C-depleted carbon); source was isotopically light (organic carbon, methane) not just volcanic CO₂ |
-| How far back can ice cores go? | ~800 kyr (EPICA Dome C); a proposed "Beyond EPICA" project targets ~1.5 Myr at low accumulation site |
-| What is a carbon isotope excursion (CIE)? | Global negative shift in δ¹³C recording rapid injection of ¹³C-depleted carbon into the ocean-atmosphere system; used for global correlation |
-| What limits the boron pH proxy? | Vital effects in foraminiferal calcification; changes in seawater δ¹¹B over time; species-specific calibration required |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Negative benthic delta 18O excursion | Warming and/or ice-volume loss | The same sign can mix temperature and ice-volume effects. |
+| Temperature versus ice volume | Mg/Ca paleothermometry paired with delta 18O | Mg/Ca has its own calibration and diagenesis limits. |
+| Meteoric-water baseline | Global Meteoric Water Line | Local meteoric lines vary by region and climate regime. |
+| Moisture-source change | Deuterium excess | It tracks evaporation-source humidity and conditions, not temperature alone. |
+| PETM carbon release | Delta 13C excursion size and isotopic lightness | Source attribution is model-dependent. |
+| Ice-core time depth | EPICA-scale 800 kyr and Beyond EPICA targets | Older ice requires low accumulation and undisturbed stratigraphy. |
+| Global correlation event | Carbon isotope excursion | Diagenesis and reservoir effects can distort local records. |
+| Boron pH proxy | Foraminiferal boron speciation | Vital effects and seawater delta 11B history require species calibration. |
 
 ---
 

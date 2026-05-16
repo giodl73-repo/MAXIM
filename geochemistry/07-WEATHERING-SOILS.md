@@ -308,18 +308,24 @@ PALEOCLIMATIC INDICATORS IN SEDIMENTARY RECORD
 
 ---
 
+## Cross-References
+
+- `botany/02-ROOTS-SOILS.md` - plant-soil interface.
+- `soil-science/01-SOIL-FORMATION.md` - pedogenesis and soil horizons.
+- `geochemistry/05-CARBON-CYCLE.md` - silicate weathering as long-cycle carbon control.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| What is the primary chemical weathering mechanism for silicates? | Hydrolysis: H⁺ (from carbonic acid or organic acids) attacks Si-O bonds, releasing cations (Ca²⁺, Mg²⁺, K⁺, Na²⁺) and producing clay minerals |
-| What is CIA? | Chemical Index of Alteration = Al₂O₃/(Al₂O₃ + CaO* + Na₂O + K₂O) × 100; fresh granite ~50; kaolinite ~100; measures weathering intensity |
-| Why does olivine weather faster than quartz? | Olivine formed at high T/P (thermodynamically far from surface conditions); quartz is stable near surface; minerals furthest from their formation conditions weather fastest |
-| What is saprolite? | Deeply weathered bedrock with original rock structure preserved but minerals replaced by clays and oxides; can be 10-100 m thick in tropical settings |
-| What is podzolization? | Soil-forming process in boreal forest: organic acids chelate Fe and Al from E horizon, move them to B horizon (Bs) where they precipitate as oxides |
-| Why does silicate (not carbonate) weathering draw down CO₂ long-term? | Carbonate dissolution releases CO₂ when carbonates recrystallize in the ocean; silicate weathering produces bicarbonate from CO₂ that gets buried permanently as carbonate in the ocean → net drawdown |
-| What is laterite? | Tropical weathering residue rich in Fe and Al oxides (kaolinite + gibbsite + goethite); formed by extreme leaching; low fertility; bauxite (Al ore) is a mature laterite |
-| What drives the positive feedback between weathering and temperature? | Higher T → more rainfall → more weathering → more CO₂ drawdown → cooler; negative feedback that stabilizes climate on 100 kyr timescales |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Silicate chemical weathering | Hydrolysis by carbonic/organic acids | Clay minerals are intermediate products, not always final residue. |
+| Weathering intensity | Chemical Index of Alteration | Parent-rock composition and Ca correction matter. |
+| Olivine versus quartz stability | Goldich/Bowen surface disequilibrium | Minerals farthest from formation conditions weather fastest. |
+| Deep weathered bedrock | Saprolite preserving original rock fabric | Saprolite is regolith, not fully developed soil. |
+| Boreal Fe/Al movement | Podzolization by organic acids | Horizon chemistry, not just color, confirms process. |
+| Long-term CO2 sink | Silicate weathering to bicarbonate and carbonate burial | Carbonate weathering is not net long-term drawdown. |
+| Tropical leached residue | Laterite with Fe/Al oxides | Geochemical maturity can mean low fertility. |
+| Climate-weathering feedback | Warmer/wetter weathering drawdown | It is a negative climate feedback over long timescales. |
 
 ---
 

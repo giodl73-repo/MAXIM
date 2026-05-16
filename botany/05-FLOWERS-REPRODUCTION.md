@@ -277,17 +277,23 @@ AGRICULTURAL SIGNIFICANCE:
 
 ---
 
+## Cross-References
+
+- `botany/09-ECONOMIC-BOTANY.md` - reproduction linked to crops and human use.
+- `evolutionary-biology/07-SEXUAL-SELECTION.md` - reproductive strategy and selection logic.
+- `ecology/02-COMMUNITY-ECOLOGY.md` - pollination as species interaction.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is double fertilization? | Two sperm cells: one fertilizes egg (→ 2n embryo), one fertilizes polar nuclei (→ 3n endosperm) |
-| What is endosperm? | Triploid nutritive tissue surrounding embryo; wheat flour, corn, rice are mostly endosperm |
-| Why are orchids evolutionarily unique in pollination? | ~8,000 species use deceptive pollination (no reward); most mimic other flowers, insects, or food sources |
-| What is anemochory? | Wind dispersal; samara/pappus/dust seeds |
-| What is the dodo-avocado hypothesis? | Avocado's large seed adapted for gut of extinct Pleistocene megafauna; now has few effective dispersers |
-| What is apomixis? | Asexual seed production without fertilization; offspring genetically identical to mother |
-| How is burdock related to velcro? | George de Mestral observed burdock hooks on his dog's fur (1941) → invented velcro |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Angiosperm fertilization | Double fertilization: embryo plus endosperm | Endosperm ploidy and development vary across lineages. |
+| Seed food tissue | Endosperm as nutritive tissue | Mature seeds can retain or consume endosperm. |
+| Orchid pollination strategy | Deceptive pollination without reward | Deception is common in orchids but not universal. |
+| Wind dispersal | Anemochory structures such as samaras and pappus | Seed shape works only in aerodynamic and habitat context. |
+| Large-fruit dispersal mismatch | Dodo-avocado/megafaunal dispersal hypothesis | Attractive hypothesis; disperser history can be hard to prove. |
+| Asexual seed production | Apomixis without fertilization | It preserves maternal genotype but reduces recombination. |
+| Hook-based dispersal analogy | Burdock burrs and Velcro biomimicry | Human design analogy should not replace botanical function. |
 
 ---
 

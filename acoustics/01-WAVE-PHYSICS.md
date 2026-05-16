@@ -215,17 +215,23 @@ Far field (r > λ/2π): propagating wave, well-behaved 1/r decay
 
 ---
 
+## Cross-References
+
+- `physics/01-ELECTROSTATICS.md` — field and potential analogies for wave-equation thinking.
+- `signal-processing/01-SIGNALS-SYSTEMS.md` — frequency-domain analysis used throughout acoustics.
+- `acoustics/03-ROOM-ACOUSTICS.md` — direct application of reflection, resonance, and interference.
+
 ## Decision Cheat Sheet
 
-| Question | Key Physics |
-|----------|-------------|
-| Why can I hear around a corner? | Diffraction (ka < 1 at low frequencies) |
-| Why does sound reflect off walls? | Impedance mismatch (ρ_wall·c_wall >> ρ_air·c_air) |
-| Why do rooms have low-frequency peaks? | Standing wave resonances (modes) |
-| Speed of sound at 35°C? | c ≈ 331 + 0.6×35 = 352 m/s |
-| How deep can bass penetrate a wall? | Mass law and diffraction (long wavelength) |
-| Why does water/glass block ultrasound poorly? | Impedance mismatch between transducer and water is low |
-| Why does sound focus in SOFAR channel? | Vertical sound speed minimum creates waveguide |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether sound will bend around an obstacle | Wavelength versus obstacle size (`ka`) | Low frequencies diffract strongly; high frequencies cast sharper acoustic shadows |
+| Whether a boundary reflects sound | Acoustic impedance mismatch | Reflection depends on material impedance and angle, not just surface hardness |
+| Whether a room problem is modal | Room dimensions and low-frequency standing-wave frequencies | Bass peaks are spatial; moving listener or source can change the symptom |
+| Whether temperature changes propagation | `c ≈ 331 + 0.6T` m/s for air | Humidity and wind matter in outdoor propagation, but temperature is the first-order estimate |
+| Whether bass penetrates a wall | Mass law, wavelength, and flanking paths | Long wavelengths and structure-borne paths defeat simple surface treatments |
+| Whether ultrasound couples into a medium | Transducer-medium impedance match | Coupling gels work because air gaps are enormous impedance discontinuities |
+| Whether sound will focus underwater | Sound-speed profile and waveguide geometry | The SOFAR channel is refraction by a speed minimum, not reflection from a hard boundary |
 
 ---
 

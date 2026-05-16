@@ -293,20 +293,26 @@ Historical comparison:
 
 ---
 
+## Cross-References
+
+- `03-SYMBIOSIS.md` explains the host-alga relationship that bleaching disrupts.
+- `02-CORAL-BIOLOGY.md` supplies the physiological injury pathway.
+- `04-REEF-ECOLOGY.md` shows ecosystem consequences of coral mortality.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is a DHW? | Degree Heating Week — cumulative weekly heat above MMM+1°C |
-| What DHW triggers bleaching alerts? | Alert 1: 4 DHW; Alert 2: 8 DHW; mass mortality risk: 12+ DHW |
-| What is the bleaching threshold? | MMM + 1°C (relative to local maximum monthly mean) |
-| When was the first global bleaching event? | 1997–1998 (El Niño driven) |
-| When was the worst GBR bleaching? | 2016 (northern GBR: 67% of corals died that year) |
-| How long to recover from mass bleaching? | 10–25+ years; currently impossible as events recur every 2–5 years |
-| Which corals bleach first? | Acropora, Montipora, Pocillopora (fast-growing forms) |
-| Which corals are most resistant? | Porites, Pavona, massive colony forms; Durusdinium-hosting corals |
-| What are cool water refugia? | Deep reefs, upwelling zones, high-latitude reefs — thermal buffers |
-| What is the 2°C projection? | >99% of reefs bleach annually; functional collapse of reef ecosystems |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Heat-stress metric | Degree Heating Weeks above MMM+1 deg C | DHW is cumulative, not instantaneous. |
+| Alert severity | 4 DHW Alert 1, 8 DHW Alert 2, 12+ DHW mass mortality risk | Duration matters as much as anomaly magnitude. |
+| Bleaching threshold | Local maximum monthly mean plus 1 deg C | Threshold is local, not global. |
+| First global event | 1997-1998 El Nino bleaching | Global synchrony reflects climate forcing, not one local stressor. |
+| Worst GBR mortality | 2016 northern GBR mortality around 67% | Later events differed in footprint and peak temperature. |
+| Recovery feasibility | 10-25+ years after mass bleaching | Recurrence every 2-5 years can prevent full recovery. |
+| First-bleaching taxa | Acropora, Montipora, Pocillopora | Fast growth often trades off with stress tolerance. |
+| Resistant forms | Porites, Pavona, massive forms, Durusdinium-hosting corals | Resistance can mean slower growth or changed community structure. |
+| Cool-water refugia | Deep reefs, upwelling zones, high-latitude reefs | Refugia are partial buffers, not permanent escapes. |
+| 2 deg C projection | Annual bleaching for more than 99% of reefs | Functional collapse can occur before every coral is dead. |
 
 ---
 

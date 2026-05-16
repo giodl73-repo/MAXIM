@@ -444,36 +444,25 @@ HISTORICAL: Native Americans used as currency (wampum)
 
 ---
 
+## Cross-References
+
+- `animal-phylogeny/03-LOPHOTROCHOZOA-WORMS.md` — lophotrochozoan context.
+- `marine-biology/02-MARINE-INVERTEBRATES.md` — ecological roles of marine mollusks.
+- `evolutionary-biology/08-COEVOLUTION.md` — shell, predation, and arms-race dynamics.
+
 ## Decision Cheat Sheet
 
-```
-IDENTIFYING MOLLUSKS
-
-No shell (or just 8 plates), broad adhesive foot, scrapes algae?
-  → POLYPLACOPHORA (chiton)
-
-Single coiled or cap shell, one-footed?
-  → GASTROPODA
-  Land/freshwater, pulmonary sac (no gills)? → Pulmonate (land snail, slug)
-  Marine, bright colors, no shell?            → Nudibranch (sea slug)
-  Cone-shaped, feeds via harpoon dart?        → Conus (cone snail!)
-
-Two lateral shells, filter feeder, no radula?
-  → BIVALVIA
-  Attached by byssus threads? → mussel
-  Cemented to substrate?      → oyster
-  Swims by snapping?          → scallop
-  Bores into wood?            → Teredo (shipworm)
-
-Arms/tentacles from head, no external shell (or internal only)?
-  → CEPHALOPODA
-  8 arms, solitary, benthic? → octopus
-  10 arms (8+2), streamlined, schooling? → squid
-  External chambered shell?  → nautilus
-
-Tusk-shaped, both ends open?
-  → SCAPHOPODA
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a shell-less grazing mollusk is chiton | Eight plates or reduced shell plus broad adhesive foot | Chitons are mollusks even though they do not look like clams or snails. |
+| Whether one shell and one foot imply gastropod | Coiled/cap shell or shell loss with torsion lineage | Gastropods include land snails, slugs, nudibranchs, and venomous cone snails. |
+| Whether a land/freshwater snail is pulmonate | Pulmonary sac instead of gills | Pulmonate status is respiratory anatomy, not just habitat. |
+| Whether a bright shell-less marine slug is nudibranch | Exposed gills/cerata and shell loss | Color can signal toxicity but is not by itself diagnostic. |
+| Whether a two-shelled mollusk is bivalve | Left/right valves, filter feeding, no radula | Bivalves are not brachiopods; valve orientation matters. |
+| Whether a bivalve lifestyle identifies mussel/oyster/scallop/shipworm | Byssus, cementing, swimming, or wood-boring behavior | Lifestyle can converge; shell and anatomy still matter. |
+| Whether arms from the head imply cephalopod | Head-foot transformation and reduced/internal shell | Cephalopod circulation and cognition are unusual within Mollusca. |
+| Whether octopus, squid, or nautilus is likely | Arm count, body form, shell condition | Nautilus preserves external shell but is not a "living squid ancestor." |
+| Whether tusk shell indicates scaphopod | Tusk-shaped shell open at both ends | Scaphopods are mollusks with specialized sediment-feeding ecology. |
 
 ---
 

@@ -408,20 +408,26 @@ where U is a universal Turing machine and |p| is the length of program p.
 
 ---
 
+## Cross-References
+
+- `information-theory/07-ALGORITHMIC-INFORMATION.md` — individual-string complexity as the non-probabilistic counterpart.
+- `signal-processing/02-SAMPLING-THEORY.md` — sampling and quantization create the symbols that coding compresses.
+- `information-theory/04-ML-CRYPTOGRAPHY-BRIDGE.md` — entropy and code length bridge directly into ML and secrecy.
+
 ## Decision Cheat Sheet
 
-| Task                            | Algorithm         | Rate          | Complexity        |
-|---------------------------------|------------------|---------------|-------------------|
-| Text compression                | LZ4/Zstandard    | ~2-3 bits/byte| O(n) fast         |
-| High-ratio text compression     | LSTM/LM + AC     | ~1-2 bits/byte| O(n²) quadratic   |
-| Image compression (lossy)       | JPEG / WebP      | 0.5-2 bits/px | O(n log n) DCT    |
-| Image lossless                  | PNG (deflate)    | ~8-12 bits/px | O(n log n)        |
-| Video compression               | H.264/H.265/AV1  | ~0.01 bits/px | O(n²) search      |
-| Audio compression               | AAC, Opus        | 128-320 kbps  | O(n log n) MDCT   |
-| Optimal prefix code             | Huffman          | H(X) to H+1   | O(n log n) sort   |
-| Near-optimal, adaptive          | Arithmetic coding| H(X)          | O(n) per symbol   |
-| Universal (unknown source)      | LZ77/LZ78        | → H as n→∞    | O(n) amortized    |
-| Optimal lossy                   | Rate-distortion  | R(D)          | NP-hard in general|
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether generic text needs fast compression | LZ4 or Zstandard | Speed/ratio tradeoffs depend on corpus redundancy |
+| Whether text ratio matters more than latency | Language model plus arithmetic coding | Model cost can dominate coding gain |
+| Whether lossy image compression is acceptable | JPEG/WebP transform coding | Perceptual quality is not captured by bits per pixel alone |
+| Whether image data must remain exact | PNG/deflate-style lossless coding | Natural images often compress worse losslessly than engineered assets |
+| Whether temporal redundancy dominates | Modern video codec motion compensation | Search complexity and encoder latency are major costs |
+| Whether perceptual audio coding is appropriate | AAC or Opus | Bitrate targets depend on content and listening conditions |
+| Whether a known discrete distribution needs prefix codes | Huffman coding | Huffman is within one bit, not exactly entropy-optimal in general |
+| Whether adaptive near-entropy coding is needed | Arithmetic coding | Probability-model quality determines realized compression |
+| Whether the source distribution is unknown | LZ77/LZ78-style universal coding | Asymptotic optimality may not help short files |
+| Whether lossy compression has an information-theoretic bound | Rate-distortion theory | Computing the operational optimum is hard and source/model dependent |
 
 ---
 

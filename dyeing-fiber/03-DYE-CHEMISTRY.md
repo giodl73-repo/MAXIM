@@ -271,18 +271,24 @@ X   = possible but not optimal
 
 ---
 
+## Cross-References
+
+- `01-NATURAL-DYE-SOURCES.md` provides concrete dye families.
+- `02-MORDANTING.md` explains metal-complex effects on color and fastness.
+- `08-SYNTHETIC-DYES.md` extends chemistry into industrial dye classes.
+
 ## Decision Cheat Sheet
 
-| Fiber | Want | Dye Class | Key Chemistry |
-|-------|------|-----------|---------------|
-| Wool | Natural color, any | Mordant dyes (natural) | Metal coordination |
-| Wool | Brilliant modern color | Acid dyes | Ionic bond to protonated -NH2 |
-| Cotton | Best washfastness | Reactive dyes (Procion MX) | Covalent C-O bond |
-| Cotton | Historical/natural | Mordant dyes via tannin | Tannin bridge + metal chelation |
-| Cotton | Blue | Indigo vat dye | Leuco-reduced vat, physical entrapment |
-| Silk | Natural tradition | Mordant dyes | As wool, lower temp |
-| Polyester | Any | Disperse dyes | Sublimation dyeing, high temp |
-| Anything | Deep blue permanent | Indigo (vat process) | No mordant; reduction chemistry |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Natural color on wool | Mordant dyes and metal coordination | The mordant changes hue as much as it improves fixation. |
+| Brilliant modern wool color | Acid dyes bonding to protonated amine groups | Acid dye means dye class; the acid bath prepares the fiber. |
+| Best washfast cotton | Reactive dyes such as Procion MX | Covalent bonding improves washfastness but says little about lightfastness. |
+| Historical cotton color | Tannin bridge plus metal chelation | Cotton lacks wool's amine-rich binding sites. |
+| Permanent deep blue | Indigo vat reduction and re-oxidation | No mordant is involved; fastness comes from photostable trapped pigment. |
+| Silk natural dyeing | Wool-like mordant chemistry at lower temperature | Silk is protein, but heat and alkalinity are less forgiving. |
+| Polyester dyeing | Disperse dyes and high-temperature diffusion | Natural mordant logic does not transfer to synthetic hydrophobic fiber. |
+| End-use durability | Separate ISO washfastness and lightfastness checks | A dye can pass one durability test and fail the other. |
 
 ---
 

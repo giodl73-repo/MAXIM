@@ -340,17 +340,23 @@ LABEL NOISE AND FLAT MINIMA
 
 ---
 
+## Cross-References
+
+- `machine-learning-theory/04-BIAS-VARIANCE.md` — classical U-shaped risk curve that double descent extends.
+- `machine-learning-theory/06-NEURAL-TANGENT.md` — overparameterized neural regimes with tractable limits.
+- `probability-statistics/07-REGRESSION-MODELS.md` — linear models as the simplest interpolation-risk laboratory.
+
 ## Decision Cheat Sheet
 
-| Observation | Explanation | Prescription |
-|-------------|-------------|-------------|
-| Classical U-curve, optimal at intermediate complexity | Underparameterized regime | Classical model selection via CV |
-| Test error peaks near P ≈ m | Interpolation threshold | Push past threshold |
-| Test error decreases again at P >> m | Double descent / benign overfitting | More parameters may help |
-| Epoch-wise test error peak then decrease | Epoch-wise double descent | Don't stop at peak |
-| Model memorizes training, generalizes later | Grokking | Train longer with weight decay |
-| Larger model, same data → better performance | Scaling law regime | Budget for model size |
-| SGD generalizes; Adam does not | Implicit regularization difference | Try SGD for generalization |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Classical U-shaped error | Underparameterized bias-variance regime | Cross-validation estimates, not proves, the optimum. |
+| Error peak near P ~= m | Interpolation threshold | Peak location depends on data noise and model family. |
+| Error drops again for P >> m | Double descent or benign overfitting | More parameters help only with the right inductive bias. |
+| Epoch-wise peak then decline | Epoch-wise double descent | Early stopping can stop at the wrong side of the peak. |
+| Memorization then generalization | Grokking dynamics | Weight decay and data structure are central. |
+| Larger model improves same-data performance | Scaling-law regime | Compute/data balance can dominate raw parameter count. |
+| SGD beats Adam in generalization | Implicit regularization difference | Optimizer effects are architecture- and schedule-dependent. |
 
 ---
 

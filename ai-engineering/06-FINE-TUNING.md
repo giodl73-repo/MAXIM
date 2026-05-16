@@ -407,17 +407,21 @@ In 2024, open-source fine-tuning workflows use SFT → DPO (or ORPO). Full RLHF 
 
 ---
 
+## Cross-References
+
+- `machine-learning-theory/01-PAC-LEARNING.md` — generalization frame beneath adaptation and overfitting risk.
+- `ai-engineering/02-EVALS-HARNESS.md` — evals needed before and after any model adaptation.
+- `ai-engineering/08-INFERENCE-DEPLOYMENT.md` — serving implications of adapted weights, adapters, and quantization.
+
 ## Decision Cheat Sheet
 
-| I need to... | Use |
-|---|---|
-| Adapt style/format/persona at low cost | LoRA (r=16) via HuggingFace PEFT |
-| Fine-tune 70B on single A100 | QLoRA (4-bit + LoRA) |
-| Teach model to follow specific output schema | SFT on 500+ (prompt, response) pairs |
-| Align model to prefer certain responses | DPO on (prompt, chosen, rejected) data |
-| Combine SFT + alignment in one pass | ORPO |
-| Fine-tune without a reference model | SimPO |
-| Maximum adaptation quality, have compute | Full fine-tuning (rare in practice) |
-| Add domain vocabulary naturally | SFT on domain corpus (5k+ examples) |
-| Fine-tune multiple tasks, swap at runtime | LoRA (keep adapters separate, merge at serve time) |
-| Know if fine-tuning is worth it | Run evals on base model first — often prompting is enough |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether fine-tuning is justified | Base-model evals with prompt and retrieval baselines | Fine-tuning is not a first resort; prove prompting, RAG, or tool use cannot meet the target |
+| Whether style adaptation is enough | LoRA with a small, high-quality instruction set | Style transfer can look successful while factual behavior remains unchanged |
+| Whether a large model fits available hardware | QLoRA memory budget and sequence-length math | 4-bit weights do not eliminate activation, optimizer, or KV-cache costs |
+| Whether schema following needs SFT | Failure examples from structured-output evals | Prefer constrained decoding first when the schema is hard and finite |
+| Whether preference alignment is needed | DPO pairs from real ranking disagreements | Preference data must encode the policy tradeoff; weak pairs teach noise |
+| Whether ORPO or SimPO is attractive | Training-pipeline complexity and reference-model constraints | Simpler objectives still need rigorous held-out preference evals |
+| Whether domain vocabulary is the issue | Error analysis on terminology, not broad accuracy | Domain corpus SFT can memorize phrasing without improving reasoning |
+| Whether multiple adapters are safe | Adapter-by-task eval matrix before merge | Adapter merging can create interference; test combinations, not just individual adapters |

@@ -93,7 +93,7 @@ laboratory analysis — and remains contested at multiple points.
   ┌────────────────────────────────────────────────────────┐
   │ BIPEDAL FEATURES:                                      │
   │ - Reduced big toe divergence vs. other apes            │
-  │ - Pelvis intermediate between chimp and Australopithecus│
+  │ - Pelvis between chimp and Australopith.               │
   │ - Foramen magnum position more ventral                 │
   │                                                        │
   │ ARBOREAL FEATURES:                                     │
@@ -324,12 +324,12 @@ laboratory analysis — and remains contested at multiple points.
   │ the Middle East (~60-50 ka).                           │
   │                                                        │
   │ Functional effects: some Neanderthal variants affect   │
-  │ immune function (HLA region), skin/hair characteristics,│
+  │ immune function and skin/hair traits,                  │
   │ and potentially COVID-19 susceptibility (both risk and │
-  │ protective alleles identified in different populations) │
+  │ protective alleles in populations)                     │
   │                                                        │
-  │ Africans: ~0.3% Neanderthal ancestry (Chen et al. 2020, │
-  │ Cell) — acquired indirectly via Eurasian back-migration │
+  │ Africans: ~0.3% Neanderthal ancestry via               │
+  │ Eurasian back-migration                                │
   │ into Africa, not direct contact. Neanderthals never    │
   │ lived in Africa; the signal is a secondary effect of   │
   │ later gene flow from admixed populations returning.    │
@@ -610,19 +610,27 @@ D-STATISTICS (ABBA-BABA TEST) → HYPOTHESIS TESTING ON TREES
 
 ## Decision Cheat Sheet
 
-| I want to understand... | Key evidence / site |
-|------------------------|---------------------|
-| Earliest bipedalism | Ardipithecus (4.4 Ma), Laetoli footprints (3.66 Ma) |
-| Why bipedalism evolved | Energetics, thermoregulation, carrying, display — contested |
-| First stone tools | Lomekwi (3.3 Ma, contested), Ledi-Geraru (2.8 Ma) |
-| First fire control | Wonderwerk Cave (~1 Ma confirmed) |
-| First exit from Africa | H. erectus, Dmanisi Georgia (1.85 Ma) |
-| Neanderthal interbreeding | Paabo 2010 genome; non-Africans carry 1-4% Neanderthal DNA |
-| Denisovans | Siberian finger bone genome; Tibetan EPAS1 introgression |
-| Oldest modern human skulls | Jebel Irhoud, Morocco (315 ka) |
-| Oldest symbolic behavior | Pinnacle Point ochre (165 ka), Blombos engravings (75 ka) |
-| Out of Africa 2 timing | ~60-70 ka via southern coastal route |
-| Why behavioral modernity looks sudden | Small populations + isolation; connectivity drove innovation |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Earliest bipedalism | Compare pelvis, femur, foot, foramen magnum, Ardipithecus, Laetoli footprints, and habitat context. | One trait rarely proves full human-like bipedalism. |
+| Why bipedalism evolved | Evaluate energetics, thermoregulation, carrying, display, provisioning, and mosaic habitats. | The cause is contested because multiple selective pressures can coexist. |
+| Earliest stone tools | Check Lomekwi, Ledi-Geraru, cut marks, stratigraphy, dating, and association with makers. | Tool evidence can predate confident assignment to Homo. |
+| Fire control | Separate burnt sediment, hearth structure, repeated use, spatial patterning, and natural fire alternatives. | Charcoal alone is weaker than controlled, repeated hearth evidence. |
+| First exit from Africa | Use Dmanisi, H. erectus morphology, dating, route, ecology, and dispersal pulses. | "First exit" may be a series of expansions and contractions. |
+| Archaic-human interbreeding | Compare ancient DNA, introgression segments, population models, and phenotypic effects. | Percent ancestry is population history, not a direct identity category. |
+| Denisovan evidence | Start with genome-first fossils, Siberian/Asian signal, EPAS1, and sparse morphology. | Genetic presence can outrun the fossil record. |
+| Early Homo sapiens | Check Jebel Irhoud, cranial mosaic, dating, regional variation, and species concept. | Modern humans emerge as a mosaic, not one sudden package. |
+| Symbolic behavior | Evaluate ochre, engraving, beads, burials, context, repetition, and alternative functional explanations. | Symbolism requires patterned meaning evidence, not just unusual objects. |
+| Out-of-Africa timing | Combine genetics, fossils, archaeology, routes, climate windows, and population replacement/admixture. | A dominant dispersal does not mean no earlier failed dispersals. |
+| Behavioral modernity | Examine population size, connectivity, teaching, symbolic systems, ecology, and preservation bias. | Apparent suddenness can reflect network effects and archaeological visibility. |
+
+---
+
+## Cross-References
+
+- `03-PRIMATOLOGY.md` supplies the comparative ape baseline for hominin evolution.
+- `04-EVOLUTIONARY-ANTHROPOLOGY.md` connects fossils to life history, cooperation, and selection pressures.
+- `../archaeology/01-DATING-STRATIGRAPHY.md` gives the chronological tools used to place fossil and tool assemblages.
 
 ---
 

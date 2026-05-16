@@ -358,17 +358,24 @@ Carbon pricing is the Pigouvian tax from microeconomics applied at planetary sca
 
 ## Decision Cheat Sheet
 
-| Scenario question | Answer |
-|---|---|
-| Current trajectory without new policy | ~2.5-3°C (UNEP 2023) |
-| Current pledges (NDCs) fully implemented | ~2.0-2.4°C |
-| Remaining CO₂ budget for 1.5°C (50%) | ~380 GtCO₂ from 2023 |
-| Years at current rate for 1.5°C budget | ~9-10 years |
-| Fastest sector to decarbonize | Electricity (solar/wind cost collapse) |
-| Hardest sector to decarbonize | Aviation, shipping, cement, beef |
-| Net zero requires | CDR to offset residual hard-sector emissions |
-| Carbon price signal in EU | EU ETS: ~60-100 EUR/tCO₂ (2022-2024) |
-| Border carbon adjustment | EU CBAM: steel/cement/aluminum/fertilizer |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Current-policy trajectory | Compare implemented policy, announced policy, NDCs, technology trends, and land-use assumptions. | Temperature estimates move as policy and cost curves change. |
+| Pledge credibility | Check legal status, financing, sector coverage, methane, land sinks, and near-term delivery. | Long-term targets are weak without interim emissions cuts. |
+| Remaining carbon budget | Separate probability level, start year, non-CO2 forcing, Earth-system feedbacks, and accounting boundary. | A budget is a risk choice, not a physical deadline. |
+| Years at current emissions | Use annual CO2 rate, budget definition, growth/decline trend, and non-CO2 treatment. | Linear "years left" framing hides mitigation pathway shape. |
+| Fast decarbonization sector | Inspect cost curve, grid integration, permitting, transmission, storage, and demand growth. | Cheap generation does not automatically decarbonize final energy. |
+| Hard-to-abate sector | Compare process emissions, energy density, heat level, feedstock, substitutes, and demand reduction. | Hard-to-abate means residual emissions planning, not exemption. |
+| Net-zero claim | Check residuals, removals type, permanence, monitoring, additionality, and timing. | Net zero depends on credible CDR, not accounting symmetry alone. |
+| Carbon price or border adjustment | Examine coverage, allowance supply, leakage risk, free allocation, CBAM scope, and trade effects. | Price signals work through institutions and coverage, not headline price alone. |
+
+---
+
+## Cross-References
+
+- `01-CARBON-CYCLE.md` explains why cumulative CO2 controls warming.
+- `02-CLIMATE-MODELS.md` separates scenario uncertainty from model and internal variability.
+- `06-MITIGATION-GEO.md` turns emissions pathways into sectoral mitigation and removal choices.
 
 ---
 

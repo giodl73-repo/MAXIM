@@ -379,17 +379,23 @@ RODRIK'S PRESCRIPTION: Preserve option 3.
 
 ---
 
+## Cross-References
+
+- `02-GROWTH-THEORY.md` supplies the growth-model baseline behind trade debates.
+- `04-INSTITUTIONS.md` explains why trade gains depend on state capacity and rules.
+- `08-GENDER.md` shows how trade and labor markets distribute effects unevenly.
+
 ## Decision Cheat Sheet
 
-| Question | Answer | Key evidence |
-|----------|--------|-------------|
-| Free trade or protection for development? | Export-disciplined industrial policy, not either extreme | East Asian miracle vs. ISI failure |
-| What is infant industry argument? | Temporary protection justified by learning-by-doing, coordination failures | Hamilton, List; theoretical (market failure) |
-| Did East Asian states intervene? | Yes — directed credit, export requirements, strategic sectors | Amsden, Wade, contra World Bank 1993 |
-| What is structural transformation? | Labor from agriculture → manufacturing → services | Lewis dual sector; Kuznets |
-| Did China's WTO entry hurt US workers? | Yes, 2M+ manufacturing jobs, regionally concentrated | Autor-Dorn-Hanson 2013 |
-| What is the flying geese model? | Technology ladder: Japan → Korea → China → Vietnam | Akamatsu; regional supply chain integration |
-| What is Rodrik's trilemma? | Cannot have hyper-globalization + democracy + national sovereignty simultaneously | Rodrik 2011 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Free trade versus protection | Export-disciplined industrial policy | The useful contrast is governance and performance discipline, not pure openness versus closure. |
+| Infant-industry claim | Learning-by-doing and coordination-failure rationale | Protection must be temporary and disciplined or it becomes rent extraction. |
+| East Asian development | Directed credit, export requirements, and strategic-sector intervention | The World Bank 1993 framing softened how much states actually intervened. |
+| Structural transformation | Labor shift from agriculture to manufacturing to services | Movement alone is not upgrading if productivity and wages do not rise. |
+| China shock | Regional labor-market effects after WTO integration | Trade gains can coexist with severe concentrated losses. |
+| Flying-geese pattern | Technology ladder and regional supply-chain sequencing | The model can obscure coercion, dependency, or policy conflict inside supply chains. |
+| Globalization trilemma | Tension among hyper-globalization, democracy, and sovereignty | You can optimize two; claiming all three usually hides a political tradeoff. |
 
 ---
 

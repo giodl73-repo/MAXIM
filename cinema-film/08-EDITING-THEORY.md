@@ -373,20 +373,26 @@ DAVINCI RESOLVE: industry-standard color grading tool
 
 ---
 
+## Cross-References
+
+- `cinema-film/03-NARRATIVE-GRAMMAR.md` — scene grammar that editing operationalizes.
+- `cognitive-science/02-ATTENTION-MEMORY.md` — attention and memory constraints exploited by cuts.
+- `rhetoric/01-CLASSICAL-RHETORIC.md` — arrangement and emphasis as pre-film editing analogues.
+
 ## Decision Cheat Sheet
 
-| Concept | Definition | Key Use |
-|---------|-----------|---------|
-| Kuleshov effect | Same shot + different context = different meaning | Meaning is constructed by juxtaposition, not inherent |
-| Match on action | Cut mid-movement for continuity | Makes cuts invisible |
-| Jump cut | Cut within scene without continuity match | Time ellipsis, stylistic rupture |
-| Graphic match | Cut between visually similar images | Visual/thematic connection across time/space |
-| Smash cut | Unexpected hard cut at dramatic moment | Psychological impact through surprise |
-| ASL | Average Shot Length = runtime / number of shots | Pacing metric |
-| NLE | Non-Linear Editing; software timeline editing | Standard since early 1990s |
-| LUT | Look-Up Table; maps input color to output | Technical conversion or creative "look" |
-| Avid | Professional NLE; dominant in broadcast/features | Bin-based, collaboration-focused |
-| DaVinci Resolve | NLE + Color grading; node-based | Industry standard for color; growing as NLE |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| How a shot's meaning changes in sequence | Kuleshov effect | Juxtaposition constructs meaning; the shot is not semantically self-contained. |
+| Why a cut disappears | Match on action | Invisible cutting serves continuity, not every aesthetic program. |
+| Why time feels skipped or ruptured | Jump cut | It may signal ellipsis, instability, documentary roughness, or deliberate anti-continuity. |
+| How two spaces become visually linked | Graphic match | Visual similarity can imply theme without preserving time or place. |
+| Why a transition shocks | Smash cut | Surprise works when expectation has been built first. |
+| How to quantify pacing | Average Shot Length | ASL is a metric, not an interpretation; scene function and rhythm still matter. |
+| Why professional editing is more than cutting | NLE workflow | NLEs manage media, metadata, collaboration, sync, color, and delivery. |
+| Why a color transform changes the image | LUT | A LUT can be technical conversion or creative look; misuse bakes in errors. |
+| Why Avid persists in high-end workflows | Bin-based collaborative NLE model | Dominance comes from workflow reliability, not simply interface preference. |
+| Why Resolve spans edit and finish | Node-based grading plus NLE tools | Resolve's color strength does not remove the need for conform and pipeline discipline. |
 
 ---
 

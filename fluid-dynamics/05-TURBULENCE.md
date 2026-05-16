@@ -259,17 +259,27 @@ Turbulent Prandtl/Schmidt numbers:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Vorticity stretching and conservation foundations | `fluid-dynamics/01-CONTINUUM-MECHANICS.md` |
+| Boundary-layer transition and wall laws | `fluid-dynamics/04-BOUNDARY-LAYERS.md` |
+| Computational turbulence modeling context | `fluid-dynamics/09-CFD.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Situation | Approach |
-|----------|---------|
-| Engineering prediction of turbulent flow | RANS with k-ε or k-ω SST |
-| Adverse pressure gradient, separation | k-ω SST or RSM; k-ε will fail |
-| Turbulent heat transfer coefficient | Nu ~ Re^{0.8}Pr^{0.4} (Dittus-Boelter, turbulent pipe) |
-| Estimate Kolmogorov scale | η = (ν³/ε)^{1/4}; need ε from experiment/RANS |
-| High-fidelity turbulence prediction | LES (Re < 10⁶) or DNS (Re < 10⁴) |
-| Energy spectrum slope | E(k) ~ k^{-5/3} in inertial range |
-| Scale of turbulent structures | L/η ~ Re^{3/4} — rapidly grows with Re |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Engineering turbulent-flow prediction | RANS with `k-epsilon` or `k-omega SST` | RANS predicts mean fields, not instantaneous turbulence. |
+| Adverse pressure gradient or separation | `k-omega SST` or Reynolds-stress models | Standard `k-epsilon` often fails near walls/separation. |
+| Turbulent heat transfer | Dittus-Boelter-style `Nu ~ Re^0.8 Pr^0.4` correlation | Correlations are geometry/regime-specific. |
+| Kolmogorov scale | `eta = (nu^3/epsilon)^(1/4)` | Need credible dissipation `epsilon`; it is often modeled, not measured. |
+| High-fidelity prediction | LES for moderate Re, DNS only for low Re | Cost grows explosively with Reynolds number. |
+| Energy-spectrum slope | `E(k) ~ k^(-5/3)` in inertial range | Requires a developed inertial range, not just any turbulent signal. |
+| Turbulent structure scale separation | `L/eta ~ Re^(3/4)` | Scale explosion is why closure/modeling is unavoidable in engineering. |
 
 ---
 

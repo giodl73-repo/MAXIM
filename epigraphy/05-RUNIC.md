@@ -303,20 +303,24 @@ MAGIC SPECIALISTS vs. MONUMENT CARVERS:
 
 ---
 
+## Cross-References
+
+- `02-GREEK-LATIN.md` contrasts runic literacy with Mediterranean epigraphic habits.
+- `08-MEDIEVAL.md` connects runes to Christian and vernacular inscription cultures.
+- `09-MODERN-METHODS.md` covers documentation of worn and weathered inscriptions.
+
 ## Decision Cheat Sheet
 
-| Script | Period | Signs | Language | Key use |
-|--------|--------|-------|---------|---------|
-| Elder Futhark | 2nd-8th c. CE | 24 | Proto-Germanic | Ownership, amulets, early memorial |
-| Younger Futhark | 8th-12th c. CE | 16 | Old Norse | Memorial runestones, Viking age |
-| Futhorc | 5th-11th c. CE | 28-33 | Old English | Ownership, crosses, limited literary |
-
-| Term | Meaning |
-|------|---------|
-| Aett | Group of 8 runes (three aettir in Elder Futhark) |
-| Bind rune | Two runes merged into one carved sign |
-| Runristare | Runic carver/rune master |
-| Boustrophedon | Alternating direction per line ("as the ox plows") |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Elder Futhark inscription | 24-rune system, Proto-Germanic language, ownership/amulet/memorial context | Early runic material is sparse and often formulaic. |
+| Younger Futhark inscription | 16-rune Viking-age system and Old Norse context | The script simplified while the language became more complex. |
+| Anglo-Saxon Futhorc inscription | 28-33 rune system, Old English, crosses, and limited literary use | Christian and literary use is central, not an exception to "pagan runes." |
+| Rune grouping | Aettir: three groups of eight in Elder Futhark | Later systems do not preserve the same inventory cleanly. |
+| Ligatured rune | Bind rune combining signs | Decorative or magical appearance does not guarantee lexical meaning. |
+| Carver attribution | Runristare formula and style | The named carver may be part of patronage display. |
+| Directionality anomaly | Boustrophedon or irregular layout | Reading order must be established before transliteration. |
+| Modern myth claim | Christian runestones, Bluetooth logo, and Romantic reception | Popular symbolism often detaches runes from their historical usage. |
 
 ---
 

@@ -48,8 +48,8 @@ THE PARADOX:
   Vodka is legally defined as having NO CHARACTER
   Yet vodka marketing is built around DIFFERENTIATION of character
   "Smooth", "clean", "crisp", "pure" -- marketing words for absence of something
-  Blind tastings consistently show drinkers CANNOT reliably distinguish premium
-  from value vodkas
+  Many blind tastings show drinkers struggle to distinguish premium from value
+  vodkas once branding and bottle cues are removed
 ```
 
 ### Base Materials and Their Actual Effect
@@ -366,11 +366,17 @@ Pink Gin cocktail revival uses sloe gin as ingredient
 
 ---
 
+## Cross-References
+
+- [Distillation](03-DISTILLATION.md) explains rectification, purity, and cuts before neutral-spirit styling.
+- [Whiskey](04-WHISKEY.md) contrasts neutral spirits with grain spirits where congeners and wood are central.
+- [Cocktail Culture](09-COCKTAIL-CULTURE.md) shows how gin and vodka became high-leverage base spirits.
+
 ## Common Confusion Points
 
 **"Premium vodka tastes better because of the base ingredient."**
-Verified by blind tasting research: most people cannot distinguish premium from
-value vodka consistently. Smooth = low congener content = good distillation +
+Blind tasting research repeatedly shows many drinkers cannot distinguish premium
+from value vodka consistently. Smooth = low congener content = good distillation +
 filtration process, not necessarily expensive grain. The differentiation is
 primarily marketing.
 
@@ -401,13 +407,13 @@ health difference is negligible when consumed in equivalent amounts.
 
 ## Decision Cheat Sheet
 
-| I want... | Category | Examples |
-|---|---|---|
-| Classic juniper-forward gin (cocktails) | London Dry | Tanqueray, Beefeater, Sipsmith VJOP |
-| Contemporary/botanical gin | New Western | Hendrick's, Aviation, The Botanist |
-| Historical Dutch-style gin | Oude Genever | Bols Barrel Aged Genever |
-| High-proof gin (G&T, mixing) | Navy Strength | Hayman's Royal Dock, Gunpowder |
-| Sweetened historical style | Old Tom | Hayman's Old Tom, Jensen's Old Tom |
-| Vodka with grain provenance | Polish rye | Belvedere, Wyborowa |
-| Vodka with potato richness | Polish potato | Chopin, Luksusowa |
-| Understand gin-vodka relation | This file | Think: vodka + juniper botanicals = gin |
+| If you need to diagnose... | Start With | Typical Signal |
+|----------------------------|------------|----------------|
+| Classic cocktail gin | London Dry rules and juniper dominance | Tanqueray, Beefeater, Sipsmith VJOP-style structure |
+| Contemporary gin | Whether non-juniper botanicals still leave juniper dominant | Hendrick's, Aviation, The Botanist-style profile |
+| Genever | Malt wine percentage and GI origin | Grainy, malty, whisky-like Dutch/Belgian ancestor |
+| Navy strength | 57%+ ABV and dilution behavior | Plymouth Navy Strength / Hayman's Royal Dock for high-impact mixing |
+| Old Tom | Sweetening and historical bridge position | Softer pre-London-Dry cocktail style |
+| Vodka provenance claim | Base material plus residual congener/mouthfeel evidence | Rye spice, potato texture, wheat softness only if not fully neutral |
+| Vodka premium claim | Distillation, filtration, water, and blind tasting | Branding often exceeds sensory separation |
+| Gin-vodka relationship | Neutral spirit plus legally dominant juniper | Gin is not "flavored vodka" when botanical redistillation and juniper structure matter |

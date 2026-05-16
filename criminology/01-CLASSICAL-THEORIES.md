@@ -353,18 +353,27 @@ Classical rational choice assumes full rationality (utility maximization with st
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Social strain alternatives to rational-choice models | `criminology/02-STRAIN-ANOMIE.md` |
+| Informal control explanations | `criminology/03-SOCIAL-CONTROL.md` |
+| Comparative system variation | `criminology/09-COMPARATIVE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Concept | Key Insight | Policy Application |
-|---------|-------------|-------------------|
-| Beccaria's first principle | Certainty > severity | Invest in detection, not sentence length |
-| Bentham's calculus | Pain must exceed pleasure | Proportional punishment |
-| Specific deterrence | Punishment of offenders | Rehabilitation also works |
-| General deterrence | Punishment of examples | High visible police presence |
-| Routine activity | Opportunity = crime | Target hardening, CCTV |
-| Situational prevention | Fix places, not people | CPTED, hot spots policing |
-| Rational choice scripts | Crime-specific decisions | Crime-specific interventions |
-| Hyperbolic discounting | Future punishment discounted | Swift, certain, moderate |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether deterrence is plausible | Certainty of detection before severity of punishment | Marginal severity often has weak effects once punishment is already meaningful. |
+| Whether proportional punishment follows utility logic | Benthamite pain/pleasure calculus | Perceived risk and time discounting matter more than formal sentence schedules. |
+| Specific versus general deterrence | Whether the target is the punished offender or observing public | Incapacitation and deterrence are different mechanisms. |
+| Opportunity-driven crime | Routine activity: motivated offender, suitable target, weak guardianship | Opportunity reduction can displace crime, diffuse benefits, or both. |
+| Place-based intervention | Situational prevention and environmental design | Fixing places does not explain offender motivation by itself. |
+| Crime-specific decision-making | Rational choice scripts for a particular offense | "Rational" means purposive, not smart, informed, or long-term optimizing. |
+| Swift/moderate sanction design | Hyperbolic discounting and immediacy | Delayed severe punishment may deter less than swift credible consequences. |
 
 ---
 

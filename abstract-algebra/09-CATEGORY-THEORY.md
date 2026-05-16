@@ -360,19 +360,25 @@ HOMOTOPY TYPE THEORY (HoTT) AND ∞-CATEGORIES:
 
 ---
 
+## Cross-References
+
+- `logic/01-FORMAL-LOGIC.md` — categorical language connects naturally to syntax, semantics, and proof structure.
+- `topology/02-TOPOLOGICAL-SPACES.md` — categories organize spaces, continuous maps, limits, and universal properties.
+- `programming-language-theory/01-TYPE-SYSTEMS.md` — functors and adjunctions provide a bridge into type-theoretic structure.
+
 ## Decision Cheat Sheet
 
-| Concept | What it does |
-|---------|-------------|
-| Category | Organizes objects and their relationships (morphisms) |
-| Functor | Structure-preserving map between categories |
-| Natural transformation | Morphism between functors (coherent family) |
-| Adjunction F⊣G | Hom(F-,−) ≅ Hom(-,G-); universal properties |
-| Yoneda | Objects are their "probes" (representable functors) |
-| Limit | Universal cone; includes products, pullbacks, equalizers |
-| Colimit | Universal cocone; includes coproducts, pushouts, quotients |
-| Monad | Monoid in endofunctor category; models effects in PL |
-| Cartesian closed | Has products and exponentials; models typed lambda calculus |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether objects should be studied through arrows | Category | The morphisms define the structure being preserved |
+| Whether structure moves between categories | Functor | Functors must preserve identities and composition |
+| Whether two functorial constructions are coherently related | Natural transformation | Naturality squares are the content |
+| Whether a construction is universal | Adjunction `F ⊣ G` | Hom-set bijections must be natural in both variables |
+| Whether an object is determined by probes | Yoneda lemma | Representability is a strong condition |
+| Whether a construction is a universal receiver | Limit | Products, pullbacks, and equalizers are special cases |
+| Whether a construction is a universal sender | Colimit | Quotients and pushouts encode identifications |
+| Whether effects are algebraic structure | Monad | A monad needs unit and multiplication laws |
+| Whether typed lambda calculus fits the category | Cartesian closed category | Exponentials are function types only with the right universal property |
 
 ---
 

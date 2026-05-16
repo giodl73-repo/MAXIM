@@ -4,7 +4,7 @@
 
 ---
 
-## Big Picture: Genetic Disease Taxonomy
+## The Big Picture
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -502,17 +502,23 @@ After 8 weeks: growth + function affected, not gross morphology
 
 ---
 
+## Cross-References
+
+- `genomics/09-PERSONALIZED-MEDICINE.md` - genotype-to-treatment reasoning.
+- `developmental-biology/05-ORGANOGENESIS.md` - developmental systems affected by congenital disease.
+- `disease/10-EPIDEMIOLOGY.md` - population-level disease measurement.
+
 ## Decision Cheat Sheet
 
-| Pattern | Key Features | Example Diseases |
-|---------|-------------|-----------------|
-| AD | Every generation; 50% risk; variable expressivity | HD, Marfan, NF1, ADPKD, achondroplasia |
-| AR | Carrier parents; 25% affected; consanguinity ↑ | CF, PKU, sickle cell, Tay-Sachs, Gaucher |
-| XLR | Males affected; no male-to-male; carrier mothers | DMD, hemophilia A/B, G6PD, fragile X |
-| Mitochondrial | Maternal only; heteroplasmy; all children affected (variable) | MELAS, MERRF, LHON, KSS |
-| Imprinting | Parent-of-origin matters; same locus, different parent | PWS (paternal loss 15q11), AS (maternal loss 15q11) |
-| Trinucleotide | Anticipation; premutation → full mutation | HD (CAG), fragile X (CGG), DM1 (CTG), Friedreich's (GAA) |
-| Chromosomal | Non-disjunction; ↑ maternal age for trisomies | Trisomy 21/18/13, Turner (45X), Klinefelter (XXY) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Autosomal dominant pattern | Vertical transmission and 50% risk | Penetrance and expressivity can obscure pattern. |
+| Autosomal recessive pattern | Carrier parents and 25% affected risk | Consanguinity raises prior probability. |
+| X-linked recessive pattern | Affected males, no male-to-male transmission | Female carriers can manifest via skewed X-inactivation. |
+| Mitochondrial pattern | Maternal inheritance and heteroplasmy | Severity depends on tissue threshold. |
+| Imprinting disorder | Parent-of-origin effect at same locus | Deletion, UPD, and methylation defects can converge. |
+| Trinucleotide-repeat disease | Anticipation and premutation/full mutation | Repeat behavior depends on gene and parent sex. |
+| Chromosomal aneuploidy | Nondisjunction and karyotype | Robertsonian translocation changes recurrence counseling. |
 
 ---
 

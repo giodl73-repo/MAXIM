@@ -331,14 +331,23 @@ THEORY → METHOD → INTERPRETATION CHAIN:
 
 ---
 
+## Cross-References
+
+- `archaeology/01-FIELD-METHODS.md` — theory applied to excavation practice.
+- `anthropology/01-PHYSICAL-ANTHROPOLOGY.md` — disciplinary neighbor and contrast.
+- `historiography/09-PHILOSOPHY-OF-HIST.md` — evidence, explanation, and historical knowledge.
+
 ## Decision Cheat Sheet
 
-| School | Key question | Core method | Key weakness |
-|--------|-------------|-------------|-------------|
-| Culture History | What? When? Where? | Typology + seriation | Artifact ≠ ethnic group |
-| Processualism | Why? How? | Hypothesis testing + systems | Ignored meaning, agency |
-| Post-Processualism | Whose meaning? Whose past? | Contextual, reflexive | Extreme relativism; hard to test |
-| Current pluralism | All of the above | Mixed methods | No unifying framework |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A culture-history interpretation | Typology, seriation, and what/when/where questions | Artifact style does not equal ethnicity or political identity. |
+| A processual interpretation | Hypothesis testing, systems, ecology, adaptation, and quantification | Claims of neutrality can hide assumptions about equilibrium, gender, and function. |
+| A post-processual interpretation | Meaning, agency, power, reflexivity, and context | Evidence still constrains interpretation; not every reading is equally valid. |
+| A pluralist current approach | Mixed methods across chronology, systems, meaning, and politics | Lack of one grand framework is productive but can obscure methodological commitments. |
+| Whether a paradigm shift erased earlier work | Look for which older tools remain in use | Archaeology layers paradigms; it rarely deletes useful methods wholesale. |
+| Whether politics belongs in interpretation | Ask whose past, whose evidence, and whose institution controls access | Ethics and law differ by jurisdiction; NAGPRA is not a universal repatriation framework. |
+| Whether finds directly mirror behavior | Formation processes, taphonomy, discard, burial, and disturbance | The archaeological record is filtered, not a Pompeii-like snapshot. |
 
 ---
 

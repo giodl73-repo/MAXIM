@@ -234,19 +234,25 @@ provides standard biquad coefficient formulas for peaking EQ, shelving, notch, a
 
 ---
 
+## Cross-References
+
+- `signal-processing/01-FOURIER-ANALYSIS.md` — frequency response is the design language of filters.
+- `signal-processing/02-SAMPLING-THEORY.md` — sampling systems require anti-alias and reconstruction filters.
+- `electronics/01-CIRCUITS.md` — analog filter prototypes and circuit intuition behind IIR design.
+
 ## Decision Cheat Sheet
 
-| Requirement | Choice | Why |
-|-------------|--------|-----|
-| Linear phase essential | FIR (symmetric) | Only way to guarantee linear phase |
-| Minimum latency (group delay) | FIR (low order) or Bessel IIR | |
-| Minimum coefficient count | Elliptic IIR | Steepest transition / order |
-| Smooth, no ripple | Butterworth | Maximally flat magnitude |
-| Phase integrity (pulses) | Bessel or FIR | Maximally linear group delay |
-| Audio EQ (parametric) | Biquad IIR | Standard implementation |
-| Antialiasing filter (cheap hardware) | Butterworth analog | Simple pole placement |
-| Sharp FIR without ripple | Kaiser window | Control sidelobe/BW trade-off |
-| Minimum FIR taps for specs | Parks-McClellan | Optimal Chebyshev equiripple |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether linear phase is mandatory | Symmetric FIR | Linear phase usually costs more taps and delay |
+| Whether latency must be minimal | Low-order FIR or Bessel IIR | Low delay weakens selectivity |
+| Whether coefficient count must be minimized | Elliptic IIR | Sharp transitions come with ripple and nonlinear phase |
+| Whether smooth magnitude is the goal | Butterworth filter | Flat magnitude does not mean sharp cutoff |
+| Whether pulse shape must be preserved | Bessel or linear-phase FIR | Bessel preserves group delay but rolls off slowly |
+| Whether parametric audio EQ is needed | Biquad IIR sections | Coefficient quantization and stability matter |
+| Whether cheap analog antialiasing is enough | Butterworth analog filter | Real hardware tolerances shift poles |
+| Whether FIR sidelobe/bandwidth tradeoff is explicit | Kaiser-window FIR | Window methods are not minimum order |
+| Whether minimum FIR taps for ripple specs matter | Parks-McClellan equiripple design | Equiripple optimality assumes the specified bands/weights are right |
 
 ---
 

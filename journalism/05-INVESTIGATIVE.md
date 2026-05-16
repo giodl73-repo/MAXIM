@@ -1,6 +1,6 @@
 # Investigative Journalism: Documents, Sources, Legal Exposure
 
-## The Investigative Framework
+## The Big Picture
 
 Investigative journalism differs from beat reporting in time horizon, methodology, and risk. Beat reporting is reactive (news happens, reporter covers it); investigative journalism is proactive (reporter identifies a problem, builds the evidence case over months or years). The defining characteristic: the story would not have come to light without the journalist's effort.
 
@@ -311,18 +311,24 @@ DEFAMATION LAW BASICS (US)
 
 ---
 
+## Cross-References
+
+- `03-REPORTING-WRITING.md` supplies reporting and story structure.
+- `04-EDITORIAL-STANDARDS.md` supplies verification and source rules.
+- `06-PRESS-FREEDOM.md` covers legal pressure, leaks, and state constraints.
+
 ## Decision Cheat Sheet
 
-| Investigative Situation | Approach |
-|------------------------|---------|
-| Anonymous tip about wrongdoing | Assess motive, document it, seek documentary corroboration |
-| Whistleblower with documents | Establish secure comms first (SecureDrop/Signal); verify docs |
-| FOIA request denied | Appeal administratively; contact media lawyer; consider litigation |
-| Subject threatens lawsuit before publication | Document threat; legal review; do not suppress true information |
-| Documents tell a story but subject denies | Give full opportunity to respond; document denial; publish with response |
-| Story involves private individual | Apply stricter harm test; extra accuracy review |
-| International investigation | Partner with ICIJ or equivalent; local journalist partnership |
-| Very long timeline (months/years) | Build chronology database; track all documents centrally |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Anonymous tip | Motive assessment, documentation, and independent corroboration | Background repetition is not independent corroboration. |
+| Whistleblower documents | Secure communications, source-risk assessment, document verification | Protect the channel before evaluating the payload in detail. |
+| FOIA denial | Administrative appeal, media-law advice, litigation path | Delay can be part of the institution's strategy. |
+| Pre-publication lawsuit threat | Document the threat, run legal review, keep verifying | Legal review reduces avoidable exposure; it does not immunize publication. |
+| Documentary record versus denial | Full subject opportunity to respond and publish denial context | The subject response is evidence handling, not veto power. |
+| Private individual exposure | Stricter harm test and extra accuracy review | Legal and ethical thresholds are lower/higher respectively than for public figures. |
+| Cross-border investigation | Local partners, security model, jurisdiction map | Local journalists may bear the highest retaliation risk. |
+| Months-long evidence build | Chronology database and centralized document control | The investigation fails if the evidence trail cannot be audited. |
 
 ---
 

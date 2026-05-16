@@ -253,16 +253,23 @@ PVD INSTALLATION PATTERN:
 
 ## Decision Cheat Sheet
 
-| Problem | Formula | Key Parameters |
-|---------|---------|---------------|
-| NC clay settlement | Sc = Cc/(1+eo) × H × log(σ'f/σ'vo) | Cc from oedometer; check stress range |
-| OC clay (OC range) | Sc = Cs/(1+eo) × H × log(σ'f/σ'vo) | Use Cs not Cc; confirm σ'f < σ'p |
-| OC crossing σ'p | Two-part formula (OC range + NC range) | σ'p from Casagrande construction |
-| Time to achieve U% | t = Tv × Hdr² / Cv | Tv from chart; Hdr depends on drainage |
-| Is primary or secondary important? | Compare tp (primary) to structure life | Secondary matters for organic soils, long service life |
-| Reduce time by PVDs | Radial consolidation theory | Barron; spacing controls Hdr and time |
+| Design / Diagnosis Question | Use This Model | Watch-Out |
+|---|---|---|
+| How much will a normally consolidated clay settle? | Virgin compression line with Cc | Confirm final stress is beyond preconsolidation pressure |
+| How much will an overconsolidated clay settle? | Recompression with Cs until sigma'p, then Cc if crossed | A wrong sigma'p estimate changes settlement by multiples |
+| How long will settlement take? | Terzaghi time factor: t = Tv x Hdr^2 / Cv | Drainage length dominates because it is squared |
+| Why is field settlement faster/slower than lab prediction? | Compare settlement plates and piezometers to theory | Sand seams, fissures, smear, and anisotropic permeability break 1D assumptions |
+| Is secondary compression material? | Calpha after primary consolidation | Peat/organic clay and long service lives make creep a design issue |
+| Should preloading/PVDs be used? | Radial consolidation plus staged embankment stability | Accelerating drainage does not remove the need to check undrained stability during filling |
+| When can surcharge be removed? | Target U%, pore-pressure dissipation, and settlement-rate threshold | Calendar time alone is not evidence of consolidation completion |
 
 ---
+
+## Cross-References
+
+- [Effective Stress](02-EFFECTIVE-STRESS.md) supplies the Terzaghi stress framework consolidation depends on.
+- [Shallow Foundations](06-SHALLOW-FOUNDATIONS.md) applies consolidation to settlement control under mats and footings.
+- [Ground Improvement](09-GROUND-IMPROVEMENT.md) shows how preloading and drains accelerate consolidation.
 
 ## Common Confusion Points
 

@@ -155,7 +155,7 @@ You know FOL from MIT. The verification-relevant concepts:
 
   Key fragments that ARE decidable:
   +----------------------------+---------------------+-----------+
-  | Fragment                   | Decidability        | Complexity |
+  | Fragment                   | Decidability        | Complexity|
   +----------------------------+---------------------+-----------+
   | Propositional logic        | Decidable           | NP-complete|
   | Monadic FOL (1-var preds)  | Decidable           | 2-EXPTIME  |
@@ -247,7 +247,7 @@ theories with known decision procedures.
   │  Assigns T-atoms:   --->|   by T-constraints         │
   │  (x + y <= 5)           |                            │
   │  (a[i] = b[j])          |   Theory conflict:         │
-  │  (f(a) = f(b))      <---|   return explanation clause |
+  │  (f(a) = f(b))      <---|  return explanation clause |
   │                                                      │
   │  If T-consistent: continue                           │
   │  If T-conflict:   learn clause, backjump             │
@@ -521,6 +521,18 @@ You know the theorems. Here is the precise implication for formal verification:
 | Prove an algorithm correct for all inputs | FOL + proof assistant (Lean, Coq) |
 | Reason about what an agent knows | Epistemic logic (S5 + K_i operators) |
 | Determine if two programs have the same behavior | Bisimulation (process algebra) |
+
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Propositional and predicate logic basics | `logic/01-PROPOSITIONAL.md` | Formal methods operationalize logic in tools and proof systems |
+| Programming-language semantics | `programming-language-theory/01-LAMBDA-CALCULUS.md` | Verification depends on formal semantics of programs and specifications |
+| Distributed-system safety properties | `distributed-systems/03-CONSENSUS.md` | Consensus is often specified and checked as safety/liveness properties |
+| Security properties as invariants | `security-engineering/01-THREAT-MODELING.md` | High-assurance security work turns threats into properties and counterexamples |
+| Algebraic structures in specifications | `abstract-algebra/01-GROUPS.md` | Many proof systems reason over structures, signatures, models, and equations |
 
 ---
 

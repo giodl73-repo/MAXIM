@@ -391,15 +391,23 @@ ICC rendering intents (perceptual, relative colorimetric, absolute colorimetric,
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why is rgb(128,128,128) not 50% gray? | sRGB is gamma-encoded. 128/255 after gamma decoding: ((128/255 + 0.055)/1.055)^2.4 ≈ 21.6% luminance. 50% luminance gray ≈ rgb(186,186,186). |
-| What causes banding in gradients? | Insufficient bit depth — visible quantization steps in smooth transitions. Fix: 16-bit editing workflow; add dithering noise before export to 8-bit. |
-| When should I use OKLCh instead of HSL in CSS? | When color manipulation needs to be perceptually uniform: OKLCh adjusting L doesn't shift hue; HSL's L is not perceptually uniform (cyan at 50% L appears much lighter than blue at 50% L). |
-| What is the "gamma bug" in 3D rendering? | Using sRGB-encoded (gamma) texture values directly in lighting calculations (which need linear light). Result: incorrect midtone darkness, wrong specularity. Fix: decode gamma before lighting; re-encode for output. |
-| When to use HDR10 vs Dolby Vision? | HDR10: universal baseline, static metadata. Dolby Vision: dynamic per-scene metadata → better highlight/shadow retention. Netflix/Apple TV+/Disney+ all offer DV where available. |
-| What ICC rendering intent for photos? | Perceptual: compresses all colors, preserves relationships — best for photographs with large gamut. Relative Colorimetric: only clips out-of-gamut — best for logo/spot colors. |
-| What is Display P3 and when does it matter? | Apple's wide-gamut display standard (iPhone 7+, MacBook 2016+). ~26% wider than sRGB. Use color(display-p3) in CSS for P3-native content on Apple devices. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A "50% gray" mismatch | Decode transfer function, compare linear luminance, encoded RGB value, and display assumptions. | Numeric midpoint in sRGB is not perceptual or physical midpoint. |
+| Gradient banding | Check bit depth, working space, compression, quantization, display pipeline, and dithering. | Dithering hides quantization; it does not add real precision. |
+| CSS color manipulation | Compare HSL, Lab, OKLab/OKLCh, gamut clipping, lightness uniformity, and browser support. | Perceptual uniformity helps algorithms more than manual taste decisions. |
+| A 3D rendering gamma bug | Audit which textures are color data, which maps are linear data, lighting space, and output encoding. | Only color textures should be decoded from sRGB; normal/roughness/metallic maps are data. |
+| HDR delivery | Compare HDR10, Dolby Vision, metadata, mastering display, tone mapping, and target devices. | Better metadata matters only when the playback chain honors it. |
+| Print or cross-device conversion | Select ICC profile, rendering intent, gamut boundary, black point, and image vs logo needs. | Perceptual and relative colorimetric preserve different things. |
+| Wide-gamut web color | Check Display P3 support, color management, fallback color, content gamut, and user device. | P3 content can look wrong or washed out without correct tagging and color management. |
+
+---
+
+## Cross-References
+
+- `03-COLOR-SYSTEMS.md` explains RGB, CMYK, Lab, and device-independent color spaces.
+- `06-MIXING-THEORY.md` distinguishes additive screen color from subtractive print color.
+- `../typography/00-OVERVIEW.md` connects digital color to display, print, and design-system constraints.
 
 ---
 

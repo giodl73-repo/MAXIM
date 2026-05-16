@@ -508,17 +508,23 @@ BIM is a database of building objects with properties, not just geometry. A wall
 
 ---
 
+## Cross-References
+
+- `architecture/01-SPATIAL-DESIGN.md` — spatial reasoning substrate for design decisions.
+- `architecture/04-BUILDING-SYSTEMS.md` — coordination complexity that increases through SD, DD, CDs, and CA.
+- `systems-engineering/01-REQUIREMENTS.md` — requirements and verification bridge for architecture process governance.
+
 ## Decision Cheat Sheet
 
-| Design situation | Process response | Phase |
-|------------------|------------------|-------|
-| Client wants to change the structural grid at 50% CDs | Hard stop — this is a SD decision. Show cost: redesign fees + schedule delay | SD must be locked before DD starts |
-| RFIs are excessive during construction | Root cause: incomplete or ambiguous CDs. Fix the spec process. | CD quality review before issue |
-| Contractor's price is 40% over budget | VE (Value Engineering) in DD, not CDs. If at CDs, expect scope reductions | SD cost estimate must validate against program |
-| BIM clash count is very high in DD | Run clash detection at SD. Find the structural-MEP conflict early. | Coordination should start at DD, catch at SD |
-| Client wants design-build to save time | Architect works for contractor. Set design standards upfront in RFP. | Before contract: get owner-controlled design criteria |
-| Post-occupancy: energy use 30% over model | Audit occupant behavior, HVAC controls, envelope airtightness | POE 12 months after occupancy |
-| Specification too tight, limits bidders | Specify performance, not manufacturer. "Equal substitution" clauses. | CDs |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a late structural-grid change is acceptable | Phase boundary, redesign cost, and schedule impact | Grid changes belong before DD; at CDs they are project resets disguised as revisions |
+| Whether excessive RFIs indicate poor documents | RFI taxonomy against drawings, specs, and coordination gaps | Some RFIs are contractor diligence; repeated ambiguity points to CD quality |
+| Whether pricing is over budget | Cost estimate history from SD through DD | Value engineering at CDs usually means scope deletion, not elegant optimization |
+| Whether BIM coordination is late | Clash trend and unresolved structure-MEP conflicts | Clash detection must inform design, not merely document conflicts after DD |
+| Whether design-build protects owner intent | RFP criteria, bridging documents, and review rights | Faster delivery shifts leverage to the contractor unless standards are explicit upfront |
+| Whether post-occupancy energy drift is design or operation | Metered use, controls settings, envelope tests, and occupant behavior | Models are hypotheses; POE turns performance into evidence |
+| Whether specifications are overrestrictive | Performance requirements versus named products | Tight specs can reduce bids; performance specs need clear acceptance tests |
 
 ---
 

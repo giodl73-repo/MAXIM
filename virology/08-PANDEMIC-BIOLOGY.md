@@ -334,16 +334,22 @@ Before vaccines or drugs, NPIs modify β (transmission rate):
 
 ---
 
+## Cross-References
+
+- `public-health/01-EPIDEMIOLOGY.md` — population-level spread and control concepts.
+- `virology/06-QUASISPECIES.md` — viral evolution during transmission.
+- `immunology/06-VACCINES.md` — vaccine deployment as pandemic control.
+
 ## Decision Cheat Sheet
 
-| Parameter | Formula | Implication |
-|-----------|---------|-------------|
-| R₀ | β × D | >1 = epidemic grows |
-| Herd immunity threshold | 1 - 1/R₀ | Minimum immune fraction to stop spread |
-| Vaccination coverage needed | HIT / VE | Increases if vaccine imperfect |
-| R_eff with vaccination | R₀ × (1 - p·VE) | <1 = epidemic controlled |
-| Doubling time | ln(2)/(r) | r from initial growth curve |
-| Final epidemic size | Z: Z + e^(-R₀Z) = 1 | Fraction eventually infected |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Epidemic growth potential | R0 as transmission rate times infectious duration | R0 is context-dependent, not pathogen-intrinsic. |
+| Herd-immunity threshold | 1 - 1/R0 | Heterogeneity can move the realized threshold. |
+| Vaccination coverage | HIT divided by vaccine effectiveness | Waning and immune escape raise required coverage. |
+| Control under vaccination | Reff with susceptible fraction reduced | Clustering of unvaccinated people breaks simple averages. |
+| Early doubling time | Exponential growth rate from incidence curve | Reporting delays distort early estimates. |
+| Final epidemic size | SIR final-size relation | Behavior change and interventions violate fixed-parameter assumptions. |
 
 ---
 

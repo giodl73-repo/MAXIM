@@ -239,16 +239,23 @@ SUBALTERN STUDIES GROUP (1982)
 
 ---
 
+## Cross-References
+
+- `04-ANNALES-SCHOOL.md` supplies social history and long-duration context.
+- `06-POSTMODERN-CHALLENGE.md` pushes culture and language into epistemological critique.
+- `08-GLOBAL-HISTORY.md` broadens social and cultural methods across regions.
+
 ## Decision Cheat Sheet
 
-| School | Key Question | Key Method | Key Limitation |
-|--------|-------------|------------|----------------|
-| New Social History | What were ordinary people's lives like? | Quantification, aggregate data | Individual variation lost |
-| E.P. Thompson | How did class consciousness develop? | Experience as mediator | Class-centric; other identities? |
-| Microhistory | What was marginal people's experience? | Single case, thick documentation | Not generalizable; source-dependent |
-| Cultural history | What did events mean to participants? | Anthropological thick description | Over-reliance on elite texts |
-| Gender history | How does gender structure power? | Category analysis (Scott) | Risk of losing material conditions |
-| Subaltern studies | Can marginalized people's history be recovered? | Read against the grain | Self-critique: still speaking for |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Ordinary people's lives | New Social History and aggregate quantitative records | Aggregate recovery can lose individual variation. |
+| Class formation | E.P. Thompson's experience-mediated class consciousness | Class analysis can underplay gender, race, empire, or religion. |
+| Marginal experience in detail | Microhistory and thick documentation of an exceptional case | Exceptional cases illuminate structure but do not generalize automatically. |
+| Meaning inside practice | Cultural history and anthropological thick description | Thick means interpretive layers, not just more detail. |
+| Gendered power | Scott-style gender as relational analytic category | Gender history is not merely women's history. |
+| Subaltern recovery | Reading colonial/elite records against the grain | The method must confront the risk of speaking for the marginalized. |
+| History-from-below claim | Group scale, source type, and political subject | It is not the same scale or method as microhistory. |
 
 ---
 

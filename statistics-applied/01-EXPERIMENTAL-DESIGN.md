@@ -398,17 +398,27 @@ ALPHA-SPENDING FOR ONLINE A/B TESTS:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Online randomized experiments | `statistics-applied/02-AB-TESTING.md` |
+| Bayesian updating in applied inference | `statistics-applied/04-BAYESIAN-PRACTICE.md` |
+| Population-health measurement contexts | `public-health/10-HEALTH-METRICS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What sample size for d=0.3, α=0.05, 80% power? | n ≈ 2 × (1.96+0.84)² / 0.3² ≈ 175 per group. Or use pwr.t.test(d=0.3, sig=0.05, power=0.80) |
-| What is allocation concealment? | Preventing investigators from knowing future assignments before enrollment. Distinct from blinding (post-randomization). Essential for all trials, even unblinded ones. |
-| What is ITT analysis and why? | Analyze all randomized units in assigned group regardless of compliance. Preserves causal validity of randomization. Per-protocol analysis introduces selection bias. |
-| What is the design effect in cluster RCT? | 1 + (cluster_size - 1) × ICC. ICC=0.05, m=50 → design effect ≈ 3.45 → need 3.45× more total observations. |
-| What is a resolution V factorial design? | 2ᵏ⁻ᵖ fractional factorial where all main effects AND all two-factor interactions are estimable without aliasing with each other. |
-| When is crossover design inappropriate? | When treatment effect is permanent (surgery, gene therapy), when adequate washout is not possible, or when sequence effects are likely confounded with treatment. |
-| What is α-spending? | Mechanism to allocate type I error budget across multiple interim looks. O'Brien-Fleming spending: conservative early (saves α for late looks). Total α preserved at planned level. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Sample-size adequacy | MDE, alpha, power, variance, and allocation ratio | Power analysis should use the minimum meaningful effect, not the hoped-for effect. |
+| Allocation concealment | Prevent future assignment knowledge before enrollment | Concealment is pre-randomization; blinding is post-randomization. |
+| ITT versus per-protocol | Analyze all randomized units in assigned groups | ITT preserves randomization; per-protocol reintroduces selection bias. |
+| Cluster RCT power loss | Design effect `1 + (m - 1) * ICC` | Small ICCs can dominate power when clusters are large. |
+| Fractional factorial aliasing | Resolution V when main effects and two-factor interactions must be separated | Lower-resolution designs trade estimability for run economy. |
+| Crossover suitability | Washout, reversibility, and sequence/carryover risk | Permanent effects or learning effects break crossover logic. |
+| Interim monitoring | Alpha-spending or anytime-valid sequential methods | Repeated unplanned peeking inflates type I error. |
 
 ---
 

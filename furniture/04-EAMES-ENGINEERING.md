@@ -344,14 +344,22 @@ This maps directly to software product management: user need (guest), engineerin
 
 ## Decision Cheat Sheet
 
-| Chair | Material Innovation | Engineering Problem Solved | Production Method |
-|-------|--------------------|-----------------------------|-------------------|
-| DCW/DCM (1945) | Molded plywood shells | Compound curve + shock mount | Plywood layup over mold |
-| Fiberglass Shell (1950) | One-piece fiberglass | Arbitrary 3D organic form | Fiberglass mold layup |
-| Lounge 670 (1956) | Plywood + leather | Comfort + emotional resonance | 3 shells + die-cast base |
-| Aluminum Group (1958) | Aluminum extrusion sling | Pressure distribution in tension | Extrusion + fabric weld |
+| If the design problem is... | Eames Move | Engineering Tradeoff |
+|-----------------------------|------------|----------------------|
+| Molded plywood cannot take a comfortable compound body curve in one shell | Split the chair into separate seat and back shells | More parts and shock mounts, but manufacturable curves and useful compliance |
+| A rigid shell will crack where rigid legs attach | Insert rubber shock mounts between shell and base | Adds a hidden component, but distributes load and absorbs tolerance mismatch |
+| One expensive organic shell mold must support many products | Keep shell common; vary bases and use cases | Platform strategy: high tooling cost amortized across DAW, DAR, DAX, LAR, LAX, RAR variants |
+| A luxury lounge chair must feel emotionally warm, not merely efficient | Use segmented plywood shells, leather cushions, and precise recline geometry | Moves away from low-cost democratization toward high craft and comfort symbolism |
+| Reception seating must distribute pressure without bulky upholstery | Suspend a sling between aluminum extrusions | Comfort comes from tension and profile control rather than foam compression |
+| A design process stalls on aesthetics alone | Reframe as guest/host/sponsor constraint alignment | Forces user need, designer capability, and manufacturer economics into the same decision |
 
 ---
+
+## Cross-References
+
+- [Bauhaus and Modernist Furniture](03-BAUHAUS-MODERNISM.md) gives the design lineage Eames inherited and transformed.
+- [Modern Furniture Materials](06-MATERIALS-MODERN.md) explains molded plywood, fiberglass, aluminum, and plastic as design constraints.
+- [Ergonomics of Seating](08-ERGONOMICS-SEATING.md) connects Eames seating to posture, anthropometrics, and comfort engineering.
 
 ## Common Confusion Points
 

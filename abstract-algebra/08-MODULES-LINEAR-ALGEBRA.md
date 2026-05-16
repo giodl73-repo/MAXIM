@@ -300,18 +300,24 @@ PERSISTENT HOMOLOGY — THE STRUCTURE THEOREM IN DATA SCIENCE:
 
 ---
 
+## Cross-References
+
+- `mathematics/06-LINEAR-ALGEBRA.md` — vector spaces are modules over fields, the rigid special case.
+- `abstract-algebra/04-RINGS-IDEALS.md` — modules depend on ring actions and ideals as submodules of the ring.
+- `abstract-algebra/10-APPLICATIONS.md` — modules appear in representations, coding theory, and lattice cryptography.
+
 ## Decision Cheat Sheet
 
-| Task | Structure |
-|------|-----------|
-| Generalize vector spaces to ring scalars | R-module |
-| Classify abelian groups | Structure theorem over Z (PID) |
-| Understand Jordan form | k[x]-module structure theorem |
-| Decompose a finitely generated module | Invariant factor form |
-| Detect projective module | Direct summand of free |
-| Detect injective (Z-module) | Divisible abelian group |
-| Compute M⊗N for Z-modules | Use Z/m⊗Z/n ≅ Z/gcd(m,n) |
-| Understand representations as modules | k[G]-modules where G is the group |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether vector-space intuition generalizes | `R`-module | Ring scalars need not have inverses |
+| Whether abelian groups can be classified | Structure theorem over `Z` | The theorem uses `Z` as a PID |
+| Whether Jordan form is module theory | `k[x]`-module structure | Requires viewing a linear operator as scalar action by `x` |
+| Whether a finitely generated module decomposes | Invariant factor form | Clean classification depends on PID hypotheses |
+| Whether a module is projective | Direct summand of a free module | Projective need not mean free over general rings |
+| Whether a `Z`-module is injective | Divisible abelian group | This criterion is special to abelian groups |
+| Whether tensor products over `Z` are computable | `Z/m tensor Z/n` formula | Tensor products can kill torsion unexpectedly |
+| Whether representations are modules | Group algebra `k[G]`-modules | Field characteristic relative to group order changes behavior |
 
 ---
 

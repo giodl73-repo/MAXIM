@@ -312,17 +312,24 @@ PES programs compensate landowners for maintaining ecosystem services beyond tim
 
 ---
 
+## Cross-References
+
+- `07-SILVICULTURE.md` supplies the management levers economics prices.
+- `09-CONSERVATION.md` explains biodiversity and carbon constraints.
+- `04-FOREST-ECOLOGY.md` supplies the ecological services being valued.
+
 ## Decision Cheat Sheet
 
-| Question | Answer/Concept |
-|----------|----------------|
-| What is stumpage? | Net value of standing timber: retail price minus all harvesting + processing costs |
-| Why does economic rotation differ from biological rotation? | Opportunity cost of capital tied in standing timber shortens optimal harvest age |
-| What is 1 VCU worth? | 1 tonne CO2 equivalent; market price $5–40 depending on quality, co-benefits |
-| Why do REDD+ credits have low integrity concerns? | Additionality is hard to prove; baselines inflated; leakage unaccounted |
-| What is the buffer pool? | Reserve of unissued credits to cover non-permanence events (fire, harvest) |
-| How do carbon payments change rotation age decisions? | By monetizing additional carbon sequestration of longer rotations, they increase NPV of delay |
-| What is LEV (Land Expectation Value)? | NPV of all future timber rotations on a site; the maximum price to pay for bare land |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Standing timber value | Stumpage: delivered value minus harvest/transport/processing costs | Stumpage can be zero or negative on marginal sites. |
+| Harvest-age economics | Opportunity cost of capital in standing timber | Economic rotation can be shorter than biological or carbon-optimal rotation. |
+| Carbon-credit unit | VCU as one tonne CO2 equivalent | Price depends on quality, co-benefits, and market credibility. |
+| REDD+ integrity concern | Additionality, inflated baselines, leakage, governance | Payments often go to governments, not necessarily local owners. |
+| Non-permanence insurance | Buffer pool of unissued credits | Fire/harvest reversal still means credits are not permanent guarantees. |
+| Carbon payment effect | Longer rotations where carbon sequestration raises delayed-harvest NPV | Protocol assumptions decide whether delay is real climate benefit. |
+| Land price for forestry | Land Expectation Value across all future rotations | LEV is sensitive to discount rate and product-price assumptions. |
+| Unit conversion | Board feet versus cubic meters | Conversion varies by species, grade, and mill recovery. |
 
 ---
 

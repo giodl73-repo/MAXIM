@@ -335,6 +335,18 @@ The Le Chatelier principle you know from equilibrium chemistry has a climate-sca
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Atmospheric physics around greenhouse forcing | `meteorology/01-ATMOSPHERIC-THERMODYNAMICS.md` | Carbon-cycle changes become climate forcing through atmospheric radiation and thermodynamics |
+| Earth-system reservoirs and weathering | `geochemistry/01-ELEMENT-DISTRIBUTION.md` | Long carbon-cycle sinks depend on rocks, oceans, weathering, and burial |
+| Physical geography feedbacks | `geography/01-PHYSICAL-GEOGRAPHY.md` | Relief, soils, rivers, and oceans shape carbon storage and transport |
+| Biological carbon fixation | `ecology/01-POPULATION-DYNAMICS.md` | Ecosystem productivity and land-use change alter biological carbon fluxes |
+| Mitigation and policy levers | `climate-science/06-MITIGATION-GEO.md` | The carbon-cycle budget is the substrate for mitigation choices |
+
+---
+
 ## Common Confusion Points
 
 **Atmospheric CO₂ lifetime vs perturbation lifetime**: An individual CO₂ molecule cycles through the atmosphere every ~4 years. But the *perturbation* (net addition above pre-industrial) lasts because emissions exceed sinks. ~10% of each emission pulse lasts >100,000 years. "CO₂ lasts 100 years" is a common figure that actually refers to ~half-life, not full lifetime.

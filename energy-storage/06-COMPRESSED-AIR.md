@@ -2,10 +2,11 @@
 
 ## The Big Picture
 
-Compressed air and gravity storage are the "mechanical alternatives" to pumped hydro --
-using the same gravitational potential or pressure potential but without the geographical
-constraints of a water reservoir. Each variant has a distinct thermodynamic design point
-and economic niche.
+Compressed air and gravity storage are the "mechanical alternatives" to pumped hydro:
+they use pressure potential, cold thermal storage, or gravitational potential without
+requiring two large water reservoirs. They reduce some pumped-hydro constraints, but
+replace them with cavern, thermal, mine-shaft, machinery, permitting, or bankability
+constraints of their own.
 
 ```
 MECHANICAL STORAGE TAXONOMY (non-pumped hydro)
@@ -319,17 +320,22 @@ VRFB           $400-800     $150-400      65-80%  4-12 hr   Commercial
 
 ## Decision Cheat Sheet
 
-| Context | Best Mechanical Storage Option |
-|---------|-------------------------------|
-| Near abandoned salt cavern, short duration | Diabatic CAES (if gas acceptable) |
-| Near cavern, want no gas combustion | A-CAES (Hydrostor) |
-| No geology available, medium duration | LAES (Highview) |
-| Near abandoned mine, fast response needed | Gravitricity |
-| Geography-free, modular deployment | Energy Vault |
-| Long duration (>10 hr), geography available | Pumped hydro (still best economics) |
-| All options vs. Li-ion for 4-hour storage | Li-ion wins (cheaper, faster to deploy) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether diabatic CAES fits | Check cavern geology, gas availability/emissions, heat-rate accounting, duration need, turbine configuration, and market rules. | Diabatic CAES is not pure electricity storage; fuel input and carbon policy determine the comparison. |
+| Whether adiabatic CAES is credible | Examine thermal-store design, compressor/expander integration, cavern pressure window, round-trip efficiency, and project track record. | Avoid treating modeled 70%+ RTE as bankable until plant-scale operations support it. |
+| Whether LAES fits | Check liquefaction efficiency, cold/heat integration, tank cost, siting, waste-heat or cold-source availability, and discharge duration. | Geography freedom trades for thermodynamic losses and process complexity. |
+| Whether gravity storage fits | Identify mine shaft or lifting structure, mass, height, cycle count, mechanical wear, safety, and local permitting. | Simple physics does not imply simple project finance or low installed cost. |
+| Whether mechanical storage beats Li-ion | Compare duration, response speed, degradation, construction time, warranty risk, revenue stack, and permitting. | Li-ion often wins short-duration deployment; mechanical options need longer duration, site value, or durability to win. |
+| Whether pumped hydro remains the better choice | Test head, reservoir, environmental constraints, transmission, lifetime, and required energy volume. | Pumped hydro can dominate where geography works; many loads do not have that geography nearby. |
 
 ---
+
+## Cross-References
+
+- `05-PUMPED-HYDRO.md` gives the closest large-scale mechanical-storage comparison.
+- `08-GRID-ECONOMICS.md` explains why capacity factor, duration, and cycling shape value.
+- `../mechanical/01-THERMODYNAMICS.md` supplies the compression, heat, and efficiency vocabulary.
 
 ## Common Confusion Points
 

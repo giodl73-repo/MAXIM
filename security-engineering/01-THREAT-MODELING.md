@@ -315,3 +315,15 @@ PASTA's rigor has diminishing returns for most service-level threat models. STRI
 | Quick team threat brainstorm | STRIDE categories on whiteboard |
 | Prioritizing 20 threats for backlog | DREAD scoring (relative, same reviewer) |
 | Validating mitigations in production | Pen test (08-RED-BLUE-TEAM.md) |
+
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Cryptographic controls used as mitigations | `cryptography/01-SYMMETRIC.md` | Spoofing, tampering, and disclosure controls often reduce to keys, signatures, and encryption |
+| Distributed-system failure and trust boundaries | `distributed-systems/03-CONSENSUS.md` | Threat models and consensus protocols both begin by naming adversaries and failure modes |
+| Cloud identity and network surfaces | `cloud-architecture/01-CLOUD-MODELS.md` | Most modern DFDs cross IAM, network, storage, and deployment trust zones |
+| Formal verification of security claims | `formal-methods/01-LOGIC-FOUNDATIONS.md` | High-assurance systems turn mitigations into properties and proofs |
+| Red-team validation after design | `security-engineering/08-RED-BLUE-TEAM.md` | Threat modeling predicts attack paths; red-team work tests whether mitigations hold |

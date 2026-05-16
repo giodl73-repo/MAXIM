@@ -595,20 +595,22 @@ For large-scale compute facilities (data centers, HPC centers), these structural
 
 ---
 
+## Cross-References
+
+- `structural/01-STATICS.md` — engineering equilibrium and free-body foundations behind architectural load paths.
+- `materials/01-CRYSTAL-STRUCTURE.md` — material behavior that shapes structural expression and limits.
+- `architecture/04-BUILDING-SYSTEMS.md` — coordination layer where structure competes with MEP space.
+
 ## Decision Cheat Sheet
 
-| Design condition | Structural logic to consider | Key constraint |
-|-----------------|------------------------------|----------------|
-| Column-free span 20–40 ft | Steel W-shape beam or PT concrete slab | Depth vs floor-to-floor |
-| Column-free span 40–80 ft | Glulam / steel truss / long-span concrete | Structural depth requirement |
-| Column-free span 80–200 ft | Steel truss, space frame, cable-stayed | Lateral stability of long elements |
-| Building in seismic zone | Ductile moment frame or shear wall/core | Drift limits, connection ductility |
-| Masonry building, seismic zone | Confined or reinforced masonry | URM is extremely dangerous |
-| Tall building (20–40 stories) | Core + shear walls, moment frames | Wind governs above ~25 stories |
-| Tall building (40+ stories) | Core + outrigger, tube, diagrid | Overturning moment critical |
-| Expressing structure aesthetically | Tight fabrication tolerances | 3–5× cost premium on connections |
-| Data center computer room floor | 100–250 psf minimum, check point loads | Column grid must accommodate rack rows |
-| Mass timber project | CLT floor, glulam beams, fire char design | Check jurisdiction fire code approval |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a span is structurally plausible | Span range, material family, and structural depth | Long-span solutions often fail by floor-to-floor depth before they fail by strength |
+| Whether seismic design governs | Lateral system, ductility, and drift limits | Unreinforced masonry is a life-safety problem, not just an inefficient structure |
+| Whether wind governs a tall building | Height, slenderness, core stiffness, and occupant comfort | Above mid-rise scale, serviceability can drive design before member strength does |
+| Whether an expressive structure is affordable | Connection tolerance, fabrication sequence, and erection access | Exposed structure moves cost from hidden repetition into bespoke detailing |
+| Whether a data-center floor works | Live load, point load, rack layout, and column grid | Average psf is not enough; concentrated loads and cable/airflow paths can govern |
+| Whether mass timber is viable | Fire rating, span, vibration, and jurisdictional approval | Char design is rational, but code acceptance and connection fire protection can dominate |
 
 ---
 

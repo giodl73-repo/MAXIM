@@ -268,16 +268,22 @@ The Sturm-Liouville eigenvalue problem has a natural variational formulation:
 
 ---
 
+## Cross-References
+
+- `variational-calculus/02-EULER-LAGRANGE.md` — unconstrained Euler-Lagrange baseline.
+- `control-theory/03-OPTIMAL-CONTROL.md` — constrained trajectory optimization and adjoint logic.
+- `numerical-methods/08-OPTIMIZATION.md` — finite-dimensional Lagrange multiplier and KKT analogues.
+
 ## Decision Cheat Sheet
 
-| Constraint type | Method | Multiplier |
-|----------------|--------|------------|
-| Integral constraint ∫G dx = C | Isoperimetric: E-L for F − λG | λ = constant |
-| Pointwise constraint g(x,u,u')=0 | Holonomic: E-L for F + λ(x)g | λ(x) = function |
-| Velocity constraint, integrable | Holonomic (convert) | reduces DOF |
-| Velocity constraint, non-integrable | Lagrange-d'Alembert | Constraint forces |
-| Eigenvalue problem | Rayleigh quotient minimization | λ = eigenvalue |
-| Approximate constraint | Penalty method / augmented Lagrangian | Automatic |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a global integral constraint is active | Isoperimetric E-L for `F - lambda G` | One scalar constraint gives one constant multiplier |
+| Whether a pointwise constraint holds everywhere | Holonomic E-L for `F + lambda(x) g` | Infinitely many point constraints require a multiplier function |
+| Whether a velocity constraint can be integrated | Convert to holonomic coordinates | Integrability reduces degrees of freedom only when Frobenius conditions hold |
+| Whether a velocity constraint is genuinely non-integrable | Lagrange-d'Alembert principle | Constraint forces do no virtual work but are not arbitrary multipliers |
+| Whether an eigenvalue problem is variational | Rayleigh quotient minimization | The multiplier is the eigenvalue only after normalization constraints are set |
+| Whether an approximate constraint is acceptable | Penalty or augmented Lagrangian method | Large penalties create ill-conditioning; augmented methods need parameter control |
 
 ---
 

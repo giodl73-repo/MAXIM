@@ -1,6 +1,6 @@
 # Stonework: Ashlar, Rubble, Dry-Stone, and Quarrying
 
-## The Stone Masonry Landscape
+## The Big Picture
 
 Stone masonry spans an enormous range: from highly engineered, precision-cut ashlar in classical temples to unmodified field stone piled dry in a pasture wall. The structural principles remain the same (compression, interlocking, gravity), but the skill and tooling required vary by an order of magnitude.
 
@@ -253,18 +253,24 @@ When specifying stone for a project, the key parameters are:
 
 ---
 
+## Cross-References
+
+- `01-MASONRY-UNITS.md` compares stone with brick, CMU, adobe, and terra cotta.
+- `02-MORTAR-GROUT.md` explains bedding and pointing compatibility.
+- `06-ARCHES-VAULTS.md` extends stonework into compression structures.
+
 ## Decision Cheat Sheet
 
-| Situation | Stone Masonry Type |
-|-----------|-------------------|
-| Classical architectural facade | Coursed ashlar — limestone or granite |
-| Rustic exterior wall | Random coursed ashlar or coursed rubble |
-| Agricultural boundary wall | Dry-stone — local field stone |
-| Garden retaining wall, no mortar | Dry-stone with batter (1" per 2' per face) |
-| Seismic zone, historic stone structure | Cyclopean joints analyzed; do not add mortar to historic dry-stone |
-| Interior flooring | Polished granite or marble (verify slip resistance) |
-| Exterior plaza paving | Flamed or bush-hammered granite (non-slip) |
-| Historic restoration | Match quarry, finish, and bedding orientation of original |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Classical facade | Coursed ashlar in limestone or granite | Ashlar/rubble describes dressing, not stone species. |
+| Rustic exterior wall | Random coursed ashlar or coursed rubble | Irregular appearance still needs drainage and stable bearing. |
+| Agricultural boundary wall | Dry-stone local field stone | Through-stones and hearting make it one wall, not two faces. |
+| Mortarless retaining wall | Dry-stone with batter, about 1 inch per 2 feet per face | Failure often starts inside as hearting settles. |
+| Historic stone in seismic zone | Analyze cyclopean joints and existing dry-stone behavior | Do not add mortar to historic dry-stone without understanding movement. |
+| Interior stone flooring | Polished granite or marble with slip check | Marble is usually an interior material unless thickness/detailing justify exterior exposure. |
+| Exterior plaza paving | Flamed or bush-hammered granite | Texture and drainage matter as much as compressive strength. |
+| Historic restoration | Match quarry, finish, and bedding orientation | Sedimentary stone must be bedded on natural bed outdoors. |
 
 ---
 

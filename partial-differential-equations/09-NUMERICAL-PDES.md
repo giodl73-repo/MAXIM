@@ -473,20 +473,26 @@ The practical sweet spot: use classical solvers to generate training data, train
 
 ---
 
+## Cross-References
+
+- `partial-differential-equations/08-VARIATIONAL-WEAK.md` — weak formulation behind finite elements.
+- `numerical-methods/07-PDES.md` — broader numerical-methods treatment of PDE solvers.
+- `fluid-dynamics/09-CFD.md` — finite-volume and stability issues in computational fluid dynamics.
+
 ## Decision Cheat Sheet
 
-| Problem | Recommended Method |
-|---------|-------------------|
-| Poisson on regular grid | FD (5-point stencil) + multigrid |
-| Poisson on complex geometry | FEM (P1 or P2) + AMG |
-| Heat equation, moderate time | FD Crank-Nicolson; or Method of Lines + BDF2 |
-| Heat equation, stiff (α large) | Implicit FD/FEM |
-| Wave equation, explicit | FD leapfrog + CFL |
-| Hyperbolic conservation laws | FV Godunov + MUSCL; WENO for high accuracy |
-| Smooth solution, periodic | Fourier spectral + pseudospectral |
-| Smooth solution, non-periodic | Chebyshev collocation |
-| Infinite domain, constant coeff | BEM + FMM |
-| Large sparse elliptic system | AMG or multigrid preconditioned CG |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether Poisson on a regular grid should be simple | Finite differences plus multigrid | Boundary geometry and coefficient jumps can dominate stencil elegance |
+| Whether complex geometry drives the discretization | FEM with AMG | Mesh quality and element order control accuracy and conditioning |
+| Whether heat evolution is moderately stiff | Crank-Nicolson or method of lines with BDF | A-stability is not monotonicity; oscillations can remain |
+| Whether diffusion stiffness dominates | Implicit FD/FEM | Implicit solves move cost from time step count to linear algebra |
+| Whether wave evolution can be explicit | Leapfrog under a CFL condition | CFL violation is catastrophic, and dispersion errors accumulate |
+| Whether shocks/conservation dominate | Finite volume Godunov/MUSCL or WENO | Conservation and limiters matter more than formal order at discontinuities |
+| Whether a smooth periodic solution justifies spectral methods | Fourier pseudospectral method | Aliasing and nonperiodicity can destroy spectral convergence |
+| Whether a smooth nonperiodic interval needs high order | Chebyshev collocation | Endpoint clustering can worsen conditioning |
+| Whether an infinite-domain linear problem fits boundary integrals | BEM with FMM acceleration | Green's functions and dense operators limit generality |
+| Whether the bottleneck is a large elliptic solve | AMG or multigrid-preconditioned CG | Solver performance depends on operator structure, not size alone |
 
 ---
 

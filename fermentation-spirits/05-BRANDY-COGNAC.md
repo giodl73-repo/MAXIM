@@ -73,7 +73,7 @@ call "rancio" -- the nutty, cheese-rind, mushroom character that develops with a
 UGNI BLANC PROFILE:
   ABV at harvest: 7-9% (very low alcohol -- stressed, acidic)
   Acidity: Very high (pH 2.8-3.1; TA 8-10 g/L tartaric)
-  Flavor as wine: Thin, harsh, barely drinkable
+  Flavor as wine: Thin, high-acid, neutral table wine
   As distillation substrate: IDEAL
 
   Why ideal:
@@ -150,7 +150,7 @@ AGE DESIGNATIONS (minimum age of youngest component):
   VSOP (Very Superior Old Pale): minimum 4 years
   XO (Extra Old): minimum 10 years (raised from 6 years in 2018)
   Hors d'Age / Extra: beyond official classification; often 20-30+ years
-  Vintage Cognac: single year; rare; not a legal category but practiced
+  Vintage Cognac: single year; rare; tightly controlled niche category
 ```
 
 ### Major Cognac Houses
@@ -280,7 +280,7 @@ PERUVIAN PISCO:
   Bottled at distillation strength (38-48%)
 
 CHILEAN PISCO:
-  Aconcagua + Atacama regions (north Chile)
+  Atacama and Coquimbo regions (north Chile)
   Pedro Jimenez, Moscatel, Torontel, Muscat varieties
   Can be aged in oak
   Water addition permitted (for strength adjustment)
@@ -374,6 +374,12 @@ PEAR IN BOTTLE technique (Poire William):
 
 ---
 
+## Cross-References
+
+- [Wine](02-WINE.md) supplies the grape-growing and vinification base for brandy.
+- [Distillation](03-DISTILLATION.md) explains the pot-still and cut decisions that concentrate wine into spirit.
+- [Cocktail Culture](09-COCKTAIL-CULTURE.md) shows brandy's role in punch, sours, sidecars, and classic bar history.
+
 ## Common Confusion Points
 
 **"Cognac is aged in Limousin oak, which is what makes it special."**
@@ -404,13 +410,13 @@ be rough. Grappa made from freshly pressed wet pomace is entirely different.
 
 ## Decision Cheat Sheet
 
-| I want... | Category | Examples |
-|---|---|---|
-| Classic prestige cognac, XO | Cognac Grande Champagne | Remy Martin XO, Hennessy XO |
-| Single-vintage cognac experience | Cognac millésime | Hine Vintage, Delamain Vintage |
-| Rustic, older-vintage French brandy | Armagnac | Chateau de Laubade, Castarede Vintage |
-| Apple spirit, Norman tradition | Calvados Pays d'Auge | Pere Magloire XO, Dupont Réserve |
-| Italian digestivo (unaged, intense) | Young Grappa | Nonino Monovitigno, Nardini Bianca |
-| South American grape spirit | Pisco (Peruvian) | Barsol Puro Quebranta, La Caravedo |
-| Cherry fruit spirit, pure expression | Kirschwasser | Schladerer Black Forest, Etter Zuger |
-| Plum spirit, Balkan tradition | Slivovitz | Maraska 5-Year, Stock Plum |
+| If you need to diagnose... | Start With | Typical Signal |
+|----------------------------|------------|----------------|
+| Prestige Cognac | Cru, house style, youngest component, and blend aim | Grande/Petite Champagne, XO+, rancio, polish |
+| Vintage Cognac | Documented harvest year and sealed aging control | Millesime bottlings from Hine/Delamain-style houses |
+| Armagnac vs Cognac | Single continuous distillation vs double Charentais pot distillation | More rustic/prune/spice vs more polished/floral profile |
+| Calvados | Apple/pear blend, Pays d'Auge vs broader AOC, still type | Tannin, apple skin, cider, oak, Norman identity |
+| Grappa quality | Freshness of pomace and producer discipline | Clean grape intensity vs harsh spent-pomace roughness |
+| Pisco claim | Peruvian vs Chilean rules | No oak/no water/single distillation vs Chilean aging/dilution options |
+| Eau de vie | Fruit identity and dryness | Clear, intense kirsch/pear/plum aroma without liqueur sweetness |
+| Pomace brandy | Press residue rather than fermented juice | Grappa, marc, bagaceira; texture and rusticity vary widely |

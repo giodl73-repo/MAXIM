@@ -1,6 +1,6 @@
 # Chronic Disease / Non-Communicable Diseases (NCDs)
 
-## NCD Burden Overview
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -243,18 +243,28 @@ PREVENTION: Smoking cessation is the only proven intervention that slows
 | COPD FEV1 trajectory (dose-response of smoking) | Cumulative degradation model: each pack-year of smoking accelerates FEV1 decline; the dose-response is approximately linear in pack-years with threshold effects — identical to a wear-out failure model where cumulative stress determines remaining lifetime |
 | Population-level tobacco/alcohol/salt policy | Platform-level constraint vs. per-user opt-in: policy changes upstream inputs (price, availability, formulation) shifting the entire risk distribution rather than relying on individual behavior change — the most cost-effective interventions operate on the distribution, not on individual high-risk cases |
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Aging populations and chronic burden | `demography/06-AGING.md` |
+| Environmental drivers of disease risk | `public-health/06-ENVIRONMENTAL-HEALTH.md` |
+| Measuring burden with DALYs and QALYs | `public-health/10-HEALTH-METRICS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| NCD prevention question | Approach |
-|---|---|
-| Reduce population CVD at lowest cost | Population strategy: salt reduction, tobacco tax, trans-fat ban |
-| Identify high-risk individuals | Screen with validated risk score (Framingham, PCE) |
-| Prevent colorectal cancer in average-risk adult | Colonoscopy every 10yr from age 45 |
-| Prevent type 2 diabetes in prediabetes | DPP-style lifestyle program (weight loss + activity) |
-| Reduce lung cancer mortality | Low-dose CT screening for heavy smokers age 50-80 |
-| Prevent HPV-related cancers | HPV vaccine at age 11-12 (before exposure) |
-| Why PSA screening controversial | Overdiagnosis, overtreatment outweigh benefit except targeted use |
-| Reduce COPD burden | Tobacco control policy (primary prevention at population level) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Low-cost population CVD prevention | Salt reduction, tobacco tax, and trans-fat bans | Rose's prevention paradox makes benefits politically invisible. |
+| High-risk individual targeting | Validated risk scores such as Framingham or PCE | Absolute risk matters more than relative risk reduction. |
+| Colorectal-cancer prevention | Screening strategy by age/risk, often colonoscopy from midlife | Test choice depends on adherence, access, and follow-up capacity. |
+| Type 2 diabetes prevention | DPP-style weight loss and physical-activity programs | Efficacy in trials depends on real-world retention and social context. |
+| Lung-cancer mortality reduction | Low-dose CT for heavy smokers in eligible age ranges | Screening is justified by mortality reduction, not survival-time artifacts. |
+| HPV-related cancer prevention | HPV vaccination before exposure | Coverage and timing determine population impact. |
+| PSA screening controversy | Overdiagnosis and overtreatment versus targeted benefit | Risk-stratified use differs from population-wide screening. |
+| COPD burden reduction | Tobacco control as primary prevention | Treatment helps patients; population burden falls mainly through exposure reduction. |
 
 ## Common Confusion Points
 

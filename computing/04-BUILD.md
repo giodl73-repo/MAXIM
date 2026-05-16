@@ -875,20 +875,23 @@ The same DAG contract applies: Rollup won't call `generateBundle` until all `tra
 
 ---
 
+## Cross-References
+
+- `computing/03-JS-TS.md` — language and transpilation inputs to the build.
+- `computing/13-CICD.md` — build automation inside release pipelines.
+- `computing/18-TESTING.md` — test stages that should be wired into builds.
+
 ## Decision Cheat Sheet
 
-| I want to... | Use |
-|---|---|
-| Start a new React / Vue app | Vite (`npm create vite@latest`) |
-| Start a new Next.js app | Next.js (`npx create-next-app@latest`) |
-| Build a library to publish on npm | Rollup (or Vite in lib mode) |
-| Work on an existing Webpack app | Stay on Webpack; migrate to Vite when opportunity arises |
-| Speed up TypeScript compilation | esbuild or SWC (replace tsc for emit, keep tsc for type-check) |
-| Replace Babel | SWC |
-| Type-check in CI without emitting | `tsc --noEmit` |
-| See what's making my bundle large | rollup-plugin-visualizer (Vite) or webpack-bundle-analyzer |
-| Lazy-load a route | `import()` dynamic import — bundler handles the split |
-| Configure path aliases (@/components) | `resolve.alias` in vite.config or `paths` in tsconfig |
-| Add CSS Modules to Vite | Built-in: name files `.module.css`, import as object |
-| Understand a Webpack config I inherited | Read the `entry`, `output`, `module.rules`, `plugins` sections in that order |
-| Know if Vite or Webpack is being used | Check `package.json` devDependencies and scripts |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| New SPA build stack | Compare Vite, framework plugin, dev-server speed, SSR need, test setup, and deployment target. | Vite is ideal for many SPAs, not a full application framework by itself. |
+| Next.js app choice | Check SSR/SSG, routing, API routes, caching model, hosting, and team React maturity. | Framework defaults become architecture. |
+| Library publishing | Use Rollup or Vite library mode, package exports, type declarations, CJS/ESM targets, and tree-shaking. | App bundling and library bundling optimize different consumers. |
+| Existing Webpack system | Inspect entry, output, module rules, plugins, loaders, aliases, and migration cost. | Working Webpack may be cheaper to stabilize than rewrite. |
+| TypeScript build speed | Split emit from type check with esbuild/SWC plus `tsc --noEmit`. | Fast transpilers can ship code that fails type checking. |
+| Babel replacement | Compare SWC plugin coverage, target browsers, JSX transform, macros, and sourcemaps. | Babel ecosystem compatibility can matter more than speed. |
+| Bundle-size problem | Use analyzer output, dependency graph, code splitting, tree-shaking, and polyfill audit. | The biggest bundle is often an accidental dependency boundary. |
+| Lazy loading | Use dynamic `import()`, route boundaries, suspense/loading UX, and chunk naming. | Splitting too much can trade bytes for network waterfalls. |
+| Path alias setup | Align bundler alias, tsconfig paths, test runner, IDE, and runtime resolution. | One resolver mismatch creates "works in dev, fails in CI." |
+| Inherited config | Read scripts, devDependencies, entry/output, loaders/rules, plugins, and environment modes. | Build configs are executable architecture; change them cautiously. |

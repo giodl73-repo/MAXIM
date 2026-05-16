@@ -446,18 +446,24 @@ Molecular motors are physical machines whose behavior can be understood entirely
 
 ---
 
+## Cross-References
+
+- `biology/01-MOLECULAR-MACHINERY.md` — motors as molecular machines.
+- `biophysics/01-THERMODYNAMICS-BIO.md` — energy conversion and free-energy budgets.
+- `mechanical/01-THERMODYNAMICS.md` — work and efficiency concepts.
+
 ## Decision Cheat Sheet
 
-| Question | Answer | Motor |
-|----------|--------|-------|
-| Which motor carries cargo toward cell periphery? | Kinesin (+end) | Kinesin-1/2/3 |
-| Which motor brings cargo to nucleus/centrosome? | Dynein (-end) | Cytoplasmic dynein |
-| How many nm does kinesin move per ATP? | 8 nm | Kinesin-1 |
-| How does ATP synthase synthesize ATP? | Proton gradient drives γ rotation | F₀F₁ binding change mechanism |
-| What drives bacterial flagellar motor? | Proton motive force (not ATP) | Flagellar motor |
-| Why is kinesin processive but myosin II not? | Kinesin: hand-over-hand; head stays bound during detachment | Duty ratio differences |
-| What is stall force of kinesin? | ~7 pN | Measured by optical tweezers |
-| What did single-molecule rotation confirm about ATP synthase? | 120° steps, one per ATP | Noji et al. 1997 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Peripheral cargo transport | Plus-end kinesins | Microtubule polarity defines direction. |
+| Nuclear/centrosomal cargo transport | Minus-end cytoplasmic dynein | Dynactin and adaptors regulate processivity. |
+| Kinesin step size | 8 nm hand-over-hand stepping | Load and nucleotide state change stepping behavior. |
+| ATP synthase mechanism | Proton-gradient-driven rotation | Binding-change catalysis couples rotation to chemistry. |
+| Bacterial flagellar motor energy | Proton motive force | Some species use sodium motive force instead. |
+| Kinesin versus myosin II processivity | Duty ratio and head coordination | Muscle myosin is ensemble-designed, not cargo-designed. |
+| Kinesin stall force | Optical-tweezer force near 7 pN | Stall force depends on assay geometry and isoform. |
+| ATP synthase rotation evidence | Single-molecule 120-degree steps | Step observation validates coupling, not every in vivo load condition. |
 
 ---
 

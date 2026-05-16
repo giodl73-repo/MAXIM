@@ -286,20 +286,26 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
 
 ---
 
+## Cross-References
+
+- `immunology/02-ADAPTIVE-IMMUNITY.md` — adaptive immune context for B-cell responses.
+- `immunology/06-VACCINES.md` — antibody memory and neutralization as vaccine goals.
+- `immunology/07-IMMUNOTHERAPY.md` — monoclonal antibodies and engineered humoral tools.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| First antibody in primary response | IgM (pentamer, complement activator) |
-| Most abundant serum antibody | IgG |
-| Only antibody crossing placenta | IgG (via FcRn) |
-| Best mucosal protection | IgA (sIgA at mucosal surfaces) |
-| Allergy/anaphylaxis mediator | IgE (FcεRI on mast cells) |
-| What generates antibody diversity? | VDJ recombination + N-nucleotides + somatic hypermutation |
-| What improves antibody quality over time? | Affinity maturation in germinal centers |
-| How does rituximab kill B cells? | Anti-CD20 → ADCC + complement |
-| What is a bispecific antibody? | Two specificities: one target + one effector cell (CD3/CD19) |
-| Why do polysaccharide vaccines generate poor memory? | T-independent → no germinal center → mainly IgM, no class switch |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Primary antibody response | IgM pentamer and complement activation | IgM is early, not necessarily high-affinity. |
+| Serum antibody burden | IgG abundance | Subclass changes function and tissue distribution. |
+| Placental antibody transfer | IgG via FcRn | Maternal timing and subclass affect neonatal protection. |
+| Mucosal protection | Secretory IgA | Serum IgA and secretory IgA behave differently. |
+| Allergy/anaphylaxis | IgE bound to Fc epsilon RI on mast cells | Sensitization precedes degranulation. |
+| Antibody diversity generation | VDJ recombination, N-addition, and SHM | Diversity also creates autoreactivity risk. |
+| Antibody quality improvement | Germinal-center affinity maturation | Narrow high affinity can reduce breadth. |
+| Rituximab B-cell depletion | Anti-CD20 ADCC and complement | Plasma cells lack CD20, so antibodies can persist. |
+| Bispecific antibody logic | Target plus effector-cell specificity | T-cell engagement raises cytokine-release risk. |
+| Poor polysaccharide memory | T-independent response without germinal center | Conjugation converts the response to T-dependent memory. |
 
 ---
 

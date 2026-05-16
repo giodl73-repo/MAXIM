@@ -237,19 +237,25 @@ The B9 cirrus band (1.374 um) is elegant: at 1.38 um, atmospheric water vapor ab
 
 ---
 
+## Cross-References
+
+- `02-PASSIVE-SENSORS.md` uses reflected and emitted radiation.
+- `03-ACTIVE-SENSORS-SAR.md` contrasts passive sensing with transmitted energy.
+- `04-LIDAR.md` applies active optical wavelengths to range measurement.
+
 ## Decision Cheat Sheet
 
-| Question | Band Region | Why |
-|----------|-------------|-----|
-| What is the vegetation health? | Red + NIR (NDVI) | Chlorophyll absorbs red; healthy plants reflect NIR |
-| How wet is the vegetation? | SWIR-1 + NIR | Liquid water absorbs at 1.4 and 1.9 um edges |
-| Is that cloud or snow/ice? | SWIR-1 (1.6 um) | Ice absorbs at 1.6; cloud reflects it |
-| What minerals are in the rock? | SWIR-2 (2.0-2.5 um) | Clay and carbonate specific absorption features |
-| How hot is the surface? | TIR (10-12 um) | Peak thermal emission from ~300K surface |
-| Is there a fire? | MIR (3.7 um) | High temperature -> thermal emission in MIR |
-| Does it penetrate cloud? | Microwave (cm) | Cloud droplets << microwave wavelength = transparent |
-| What is the atmospheric haze? | Blue (0.45 um) | Rayleigh scattering maximized at short wavelengths |
-| Can I see shallow water bottom? | Blue-Green (0.5-0.6 um) | Best water penetration before absorption increases |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Vegetation vigor | Red plus NIR indices such as NDVI | NDVI saturates in dense canopy. |
+| Vegetation water stress | SWIR-1 plus NIR | Liquid-water absorption depends on canopy structure and atmosphere. |
+| Cloud versus snow/ice | SWIR-1 near 1.6 um | Ice absorbs where cloud stays reflective. |
+| Rock/mineral composition | SWIR-2 from 2.0-2.5 um | Spectral fingerprints require atmospheric and illumination correction. |
+| Surface temperature | TIR around 10-12 um | Thermal retrieval needs emissivity assumptions. |
+| Active fire | MIR around 3.7 um | Saturation and sub-pixel fire fraction complicate estimates. |
+| Cloud penetration | Microwave centimeter wavelengths | Radar penetrates cloud, not every material or heavy rain equally. |
+| Atmospheric haze | Blue band near 0.45 um | Rayleigh path radiance can dominate dark-surface signal. |
+| Shallow-water bottom | Blue-green around 0.5-0.6 um | Turbidity and depth quickly defeat bottom visibility. |
 
 ---
 

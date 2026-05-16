@@ -305,18 +305,24 @@ A CNN with pooling layers is literally a block-spin RG: each convolutional layer
 
 ---
 
+## Cross-References
+
+- `statistical-mechanics/05-PHASE-TRANSITIONS.md` — critical phenomena that renormalization explains.
+- `statistical-mechanics/07-ISING-MODELS.md` — Ising model as the canonical RG laboratory.
+- `quantum-computing/04-HARDWARE-COMPLEXITY.md` — scale and error behavior as an engineering analogy.
+
 ## Decision Cheat Sheet
 
-| Need to... | Approach |
-|-----------|---------|
-| Understand why universality holds | RG flow; different systems → same fixed point |
-| Find critical exponents from RG | Linearize RG around fixed point; eigenvalues y_t, y_h → exponents |
-| Check if mean-field is valid | Is d > d_c = 4 for Ising (n=1)? Then mean-field exact |
-| Determine if perturbation is relevant | y_a > 0 → relevant; grows under coarse-graining |
-| Epsilon expansion for Ising | d = 4−ε; Wilson-Fisher fixed point at u* ~ ε |
-| 1D Ising: does it order at T > 0? | No — K flows to 0 under decimation RG |
-| Relate stat mech to QFT | Z_stat = ∫Dφ e^{-S_E}; imaginary-time path integral |
-| Scaling relation from y_t, y_h | ν = 1/y_t, η = 2+d−2y_h; all others follow |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Universality | RG flow to shared fixed points | Different microscopic systems share exponents only within a universality class. |
+| Critical exponents from RG | Linearize near fixed point; eigenvalues `y_t`, `y_h` set exponents | Sign conventions differ between stat mech RG and QFT beta functions. |
+| Mean-field validity | Compare dimension with upper critical dimension, e.g. `d_c = 4` for Ising | Below `d_c`, fluctuations invalidate mean-field exponents. |
+| Relevant perturbations | `y_a > 0` grows under coarse-graining | Relevance depends on the fixed point being perturbed. |
+| Epsilon expansion | Work near `d = 4 - epsilon` and Wilson-Fisher fixed point | The series is asymptotic; resummation matters at `epsilon = 1`. |
+| 1D Ising ordering | Decimation RG sends coupling toward zero at `T > 0` | No finite-temperature order does not generalize to higher dimensions. |
+| Stat mech to QFT bridge | Imaginary-time path integral `Z = integral Dphi exp(-S_E)` | Same formalism, but RG-flow direction conventions can invert language. |
+| Scaling relations | Use `nu = 1/y_t`, `eta = 2 + d - 2y_h`, then derive others | Hyperscaling can fail above the upper critical dimension. |
 
 ---
 

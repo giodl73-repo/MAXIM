@@ -4,7 +4,7 @@
 
 ---
 
-## Big Picture: Contract Law Landscape
+## The Big Picture: Contract Law Landscape
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -405,6 +405,18 @@ DUAL LICENSING:
 | GPL vs Apache 2.0 license compatibility | GPL v3 + Apache 2.0 = compatible; GPL v2 + Apache 2.0 = incompatible |
 | SaaS product using GPL library | No copyleft triggered (not distributing); AGPL triggers for network use |
 | Non-compete enforceability | Generally valid if reasonable scope/time; void in California |
+
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Incentives and efficient breach | `economics/01-MICROECONOMICS.md` | Remedies make parties internalize costs and choose performance or breach rationally |
+| Risk allocation in firms and markets | `finance/01-PORTFOLIO-THEORY.md` | Contracts distribute downside, optionality, and exposure under uncertainty |
+| Software licensing and IP boundaries | `law/02-IP-LAW.md` | Modern software contracts mix license, service, warranty, privacy, and IP terms |
+| Negotiation as strategic interaction | `game-theory/01-NORMAL-FORM.md` | Offer, acceptance, renegotiation, and breach are strategic moves under payoffs |
+| Organizational enforcement systems | `organizational-behavior/01-MOTIVATION.md` | Contracts formalize incentives that organizations otherwise handle through trust and norms |
 
 ---
 

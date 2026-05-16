@@ -332,16 +332,22 @@ When host and parasite speciate together, their phylogenies should be congruent.
 
 ---
 
+## Cross-References
+
+- `ecology/01-POPULATION-DYNAMICS.md` — interacting populations as the ecological substrate.
+- `virology/06-QUASISPECIES.md` — host-pathogen arms races at high mutation rates.
+- `immunology/02-ADAPTIVE-IMMUNITY.md` — immune recognition as a coevolutionary pressure.
+
 ## Decision Cheat Sheet
 
-| Scenario | Framework | Key prediction |
-|----------|-----------|---------------|
-| Why does toxin-resistance evolve? | Arms race, geographic mosaic | Resistance where toxin is high |
-| Why is sex maintained? | Red Queen + parasites | Sex more common in high-parasite environments |
-| Why is MHC so diverse? | Frequency-dep. selection | Rare allele advantage |
-| Why don't pathogens always kill hosts? | Transmission-virulence tradeoff | Intermediate virulence optimal |
-| Do parasite/host phylogenies match? | Cospeciation analysis | Congruent if cospeciated |
-| Why is this flower tube so long? | Plant-pollinator coevolution | Pollinator with matching morphology |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Toxin-resistance evolution | Arms race plus geographic mosaic | Resistance should track local toxin pressure. |
+| Maintenance of sex | Red Queen parasite pressure | Sex has multiple benefits and costs beyond parasites. |
+| High MHC diversity | Frequency-dependent selection | Balancing selection can have several mechanisms. |
+| Pathogen virulence level | Transmission-virulence tradeoff | Contact ecology changes the optimum. |
+| Host-parasite tree congruence | Cospeciation analysis | Host switching can mimic or erase congruence. |
+| Long flower-tube morphology | Plant-pollinator matching | Trait matching may reflect filtering, not pairwise coevolution. |
 
 ---
 

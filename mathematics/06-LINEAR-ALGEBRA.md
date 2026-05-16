@@ -1,5 +1,7 @@
 # 06 — Linear Algebra: Vectors, Matrices, Eigenstructure, and SVD
 
+## The Big Picture
+
 ```
 THE LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
@@ -892,4 +894,12 @@ The condition number measures how much the output can amplify input perturbation
 
 ---
 
-*Next: `mathematics/07-DIFFEQ.md` — ODEs, PDEs, phase planes, Fourier solutions, and the equations that appear throughout physics.*
+## Cross-References
+
+| If you need... | Go to |
+|---|---|
+| Vector calculus applications of linear maps | [Vector Calculus](01-VECTOR-CALC.md) |
+| Differential equations built from eigensystems | [Differential Equations](07-DIFFEQ.md) |
+| Fourier analysis as orthogonal decomposition | [Fourier Analysis](12-FOURIER.md) |
+| Optimization, least squares, and convex geometry | [Optimization](15-OPTIMIZATION.md) |
+| Numerical stability and matrix algorithms | [Numerical Methods](19-NUMERICAL-METHODS.md) |

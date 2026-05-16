@@ -371,17 +371,23 @@ Kraak (from "carrack" ships) is a specific type of late Ming blue-and-white with
 
 ---
 
+## Cross-References
+
+- `ceramics/01-CLAY-TYPES.md` — kaolin and porcelain body foundations.
+- `ceramics/04-GLAZES.md` — high-fire glaze chemistry.
+- `economic-history/03-TRADE-NETWORKS.md` — porcelain as global trade object.
+
 ## Decision Cheat Sheet
 
-| When You See... | Likely Identification |
-|----------------|----------------------|
-| Sky-blue glaze, Song dynasty | Ru ware |
-| Two-scale crackle, gray body | Ge ware |
-| Blue-and-white, pre-1644 China | Yuan or Ming dynasty |
-| Crossed swords mark | Meissen (18th century) |
-| Soft-paste, English, pre-1800 | Chelsea, Worcester, Derby, Bow |
-| Bone ash formula | English bone china (Spode/Wedgwood/Royal Doulton) |
-| Bleu céleste ground color | Sèvres |
-| Chicken cup design | Ming Chenghua doucai |
-| Orange-peel surface, heaping/piling | Xuande blue-and-white |
-| Dragon Vase style | Wanli kraak or earlier Yuan |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether sky-blue Song porcelain is Ru ware | Glaze color, body, foot, and provenance | Color alone is insufficient; Ru attribution is rare and heavily faked. |
+| Whether crackle suggests Ge ware | Two-scale crackle with gray body | Crackle can be intentional or later damage; body and glaze chemistry matter. |
+| Whether early blue-and-white is Yuan or Ming | Motif, cobalt behavior, body, and pre-1644 context | Dynasty labels require form, foot, pigment, and provenance, not color alone. |
+| Whether crossed swords identify Meissen | Mark, paste, glaze, and decoration | Marks are often copied; date and authenticity need whole-object evidence. |
+| Whether English pre-1800 porcelain is soft-paste | Paste translucency, glaze, firing flaws, and factory style | Chelsea/Worcester/Derby/Bow distinctions are specialist attribution problems. |
+| Whether bone ash identifies English bone china | Formula plus whiteness, translucency, and factory context | Bone china chemistry supports identification but does not name maker by itself. |
+| Whether bleu celeste points to Sevres | Ground color plus gilding, mark, paste, and shape | Sevres-style color was imitated; provenance and mark scrutiny matter. |
+| Whether a chicken cup design is Chenghua doucai | Motif, enamels, body, foot, and reign context | Famous designs are among the most copied. |
+| Whether orange peel/heaping-piling indicates Xuande | Surface texture and cobalt pooling | These are clues, not proof; later revival wares imitate them. |
+| Whether a dragon vase is Wanli kraak or earlier Yuan | Form, panel layout, cobalt, body, and kiln context | "Dragon" is generic; style periodization needs multiple features. |

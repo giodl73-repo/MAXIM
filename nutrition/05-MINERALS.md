@@ -529,18 +529,24 @@ TOXICITY:
 AI: 3–4 mg/day adults; UL: 10 mg/day
 ```
 
+## Cross-References
+
+- `nutrition/04-VITAMINS.md` - paired micronutrient physiology.
+- `human-biology/01-MUSCULOSKELETAL.md` - calcium, phosphate, and bone structure.
+- `natural-sciences/07-ENZYMES.md` - metal cofactors in enzyme systems.
+
 ## Decision Cheat Sheet
 
-| Concern | Mineral action |
-|---------|---------------|
-| Iron deficiency anemia | Heme iron sources (meat); vitamin C with non-heme; check ferritin + TIBC |
-| Calcium absorption from plants | Choose low-oxalate sources (kale > spinach); adequate vitamin D |
-| Maximize non-heme iron from vegan diet | Vitamin C with every iron-rich meal; avoid tea/coffee with meals |
-| Magnesium deficiency (cramps, arrhythmia) | Increase nuts, seeds, leafy greens; supplement Mg glycinate |
-| Zinc on plant-based diet | Soak/ferment legumes; consider supplementation |
-| Iodine on vegan diet | Use iodized salt; consider supplement (seaweed variable and unreliable) |
-| Selenium adequacy globally | Brazil nuts (1/day); OR seafood; supplement 100-200µg if concerned |
-| Potassium and blood pressure | Fruits (bananas, avocado), potatoes, legumes; low-sodium diet simultaneously |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Iron deficiency anemia | Ferritin/TIBC panel plus heme or vitamin-C paired non-heme iron | Ferritin rises with inflammation. |
+| Plant calcium source | Low-oxalate greens and vitamin D adequacy | Spinach calcium is poorly absorbed. |
+| Vegan non-heme iron | Vitamin C with iron-rich meals | Tea/coffee phytates/polyphenols inhibit absorption. |
+| Magnesium deficiency | Nuts, seeds, greens, or glycinate supplement | Symptoms are nonspecific; renal function matters for supplements. |
+| Plant-based zinc adequacy | Soaking/fermentation and possible supplement | Phytate lowers bioavailability. |
+| Vegan iodine adequacy | Iodized salt or controlled supplement | Seaweed iodine is variable and can overshoot. |
+| Selenium adequacy | Brazil nuts, seafood, or measured supplement dose | Selenium has a narrow excess-toxicity margin. |
+| Potassium for blood pressure | Fruits, potatoes, legumes plus low sodium | CKD or RAAS drugs can make high potassium unsafe. |
 
 ---
 

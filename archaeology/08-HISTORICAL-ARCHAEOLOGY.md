@@ -293,17 +293,24 @@ DIGITAL HERITAGE:
 
 ---
 
+## Cross-References
+
+- `archaeology/07-MEDIEVAL-ARCHAEOLOGY.md` — premodern material-record transition.
+- `historiography/05-SOCIAL-CULTURAL-TURN.md` — cultural-history questions for material evidence.
+- `social-history/08-MEMORY-HISTORY.md` — memory, place, and contested remains.
+
 ## Decision Cheat Sheet
 
-| Use this when... | Method / approach | Notes |
-|-----------------|------------------|-------|
-| The written record is exclusively from the dominating group's perspective | Plantation archaeology / archaeology of the enslaved | Documents are authored by enslavers; slave quarter excavation recovers the material record of enslaved people's own lives — spiritual objects, food supplementation, personal items, evidence of resistance |
-| Troop movements and battle dynamics need reconstruction beyond official accounts | Conflict archaeology: metal detecting + GIS + projectile scatter analysis | Spent cartridge and bullet distribution maps troop positions and movement; official battle accounts are often post-hoc narratives |
-| Self-reported consumption data seems unreliable | Garbage Project methodology (material discard vs. self-report) | Material record corrects for social desirability bias; works for food, alcohol, household consumption patterns |
-| Contact-era cultural mixing needs to be understood | Colonoware and hybrid material culture analysis | Mixed-tradition ceramics (African + European techniques) reveal cultural synthesis that neither African nor European documentary sources describe |
-| Industrial processes need reconstruction | Industrial archaeology: fabric analysis + experimental replication | Machinery, production waste, spatial layout of factory floors preserve process knowledge not recorded in manuals |
-| Mass grave evidence is needed for legal proceedings | Forensic archaeology: chain-of-custody recording + aDNA identification | Methods identical to standard excavation but with legal evidentiary standards; supports war crimes tribunals |
-| The gap between official account and material record is the finding | Documents-vs-material cross-analysis | When they agree: corroboration; when they diverge: the divergence is the data — what was systematically omitted or misrepresented |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Dominating-group documentary bias | Plantation archaeology and archaeology of the enslaved | Material evidence recovers lives that documents systematically filtered or erased. |
+| Battle dynamics beyond official accounts | Conflict archaeology, metal detection, GIS, projectile scatters | Scatter maps reconstruct movement, but recovery bias and post-battle cleanup matter. |
+| Self-report versus actual consumption | Garbage Project discard analysis | Discard reflects behavior plus disposal systems, not intention directly. |
+| Contact-era cultural mixing | Colonoware and hybrid material culture | Hybrid objects can reflect coercion, adaptation, resistance, and exchange simultaneously. |
+| Industrial process reconstruction | Fabric analysis, waste streams, layout, and experimental replication | Manuals omit tacit process knowledge; ruins preserve process constraints. |
+| Mass graves for legal proceedings | Forensic archaeology with chain-of-custody and aDNA identification | Legal standards add documentation requirements beyond ordinary excavation. |
+| Document/material divergence | Cross-analysis of official account and material record | Divergence is evidence, but must be separated from preservation and sampling bias. |
+| The scope of "historical" archaeology | Written-record contexts plus critique of that record | The field is not subordinate to documents; it often tests them. |
 
 ---
 

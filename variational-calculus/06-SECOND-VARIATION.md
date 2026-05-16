@@ -279,17 +279,23 @@ The second variation connects to deep topology:
 
 ---
 
+## Cross-References
+
+- `variational-calculus/02-EULER-LAGRANGE.md` — first variation gives stationarity before second variation tests stability.
+- `numerical-methods/08-OPTIMIZATION.md` — Hessian and second-order optimality analogues in finite dimensions.
+- `statistical-mechanics/05-PHASE-TRANSITIONS.md` — stability and bifurcation intuition in energy landscapes.
+
 ## Decision Cheat Sheet
 
-| Question | Tool |
-|----------|------|
-| Is the E-L solution a minimum? | Check second variation > 0 |
-| Necessary condition for minimum? | Legendre: F_{u'u'} ≥ 0 |
-| Sufficient condition for weak local min? | Strict Legendre + no conjugate points |
-| Conjugate point exists? | Jacobi equation has a zero in (a,b) |
-| Stability of equilibrium? | Second variation of potential > 0 |
-| Global minimum vs. local? | Need coercivity + lower semicontinuity (direct methods) |
-| Multiple solutions to E-L? | Morse theory counts them via Morse index |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Euler-Lagrange extremal minimum | Positive second variation | Positivity is local, not global. |
+| Necessary minimum condition | Legendre condition | Necessary conditions do not certify minimizers. |
+| Weak local minimum | Strict Legendre plus no conjugate points | Endpoint and regularity assumptions matter. |
+| Conjugate point | Jacobi-field zero in the interval | Conjugate points reveal loss of local minimality. |
+| Equilibrium stability | Second variation of potential energy | Linear stability and nonlinear stability can differ. |
+| Global versus local minimum | Coercivity and lower semicontinuity | This is the bridge to direct methods. |
+| Multiple extremals | Morse index/Morse theory | Topology counts critical points under hypotheses. |
 
 ---
 

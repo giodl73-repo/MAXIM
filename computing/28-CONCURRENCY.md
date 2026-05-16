@@ -889,34 +889,35 @@ private volatile Singleton instance;
 
 ---
 
+## Cross-References
+
+- `distributed-systems/03-CONSENSUS.md` — concurrency problems across machines.
+- `os/01-CHEATSHEET.md` — threads, processes, scheduling, and kernel concepts.
+- `languages/10-GO.md` — goroutine model as a concrete concurrency design.
+
 ## Decision Cheat Sheet
 
-```
-Problem:                                     Solution:
-────────────────────────────────────────     ──────────────────────────────────────────
-Short critical section, low contention       Spinlock (TTAS) or std::mutex
-Long critical section, many waiters          Blocking mutex + condition variable
-Fair queuing under high contention           CLH/MCS queue lock (Java ReentrantLock/AQS)
-Readers >> writers                           RwLock (shared_mutex)
-Need composable atomic multi-object ops      STM (Clojure refs, Haskell STM)
-Avoid locks entirely, high read throughput   Lock-free data structure (skip list, LCRQ)
-I/O-bound concurrent work                   Async/await (tokio, asyncio, .NET Tasks)
-CPU-bound parallel work                      Thread pool (rayon, .NET ThreadPool, Java FJ)
-Independent concurrent tasks                 Goroutines (Go) or async tasks
-Message-based component isolation            Actor model (Akka, Erlang)
-Producer/consumer pipeline in C#            System.Threading.Channels (Channel<T>)
-Distributed shared state                     CRDTs or consensus-based log
-Fine-grained parallel list/tree traversal    RCU (Linux), hazard pointers, EBR
-Guarantee no data races at compile time      Rust ownership + Arc<Mutex<T>>
-Child tasks must not outlive parent scope    Structured concurrency (Kotlin coroutineScope,
-                                             Swift TaskGroup, Python TaskGroup)
-
-Consistency model needed?
-  One operation atomic on one object         CAS / fetch_add (hardware atomic)
-  Multiple objects atomic                    STM or fine-grained locking with order
-  One thread safe to share data to another   std::atomic + release/acquire
-  Any order, just no corruption              Relaxed atomics (counters, flags)
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a short critical section needs a heavy primitive | TTAS spinlock or `std::mutex` | Spin only when hold time is tiny and cores are not oversubscribed. |
+| Why many waiters waste CPU | Blocking mutex plus condition variable | Blocking avoids burn but can introduce wakeup ordering and convoy behavior. |
+| Whether high contention needs fairness | CLH/MCS queue lock or Java `ReentrantLock`/AQS | Fairness reduces starvation but may reduce throughput. |
+| Whether reads dominate writes | `RwLock` / `shared_mutex` | Reader locks can starve writers and are slower than mutexes for write-heavy paths. |
+| Whether multiple objects need composable atomic updates | STM in Clojure refs or Haskell STM | STM requires a runtime model; side effects inside transactions are dangerous. |
+| Whether locks are the bottleneck | Lock-free data structure such as skip list or LCRQ | Lock-free is hard to verify and may still livelock under contention. |
+| Whether work is mostly waiting on I/O | Async/await in tokio, asyncio, or .NET Tasks | Async improves concurrency, not CPU parallelism. |
+| Whether work is CPU-bound | Thread pool such as rayon, .NET ThreadPool, or Java ForkJoin | CPU parallelism needs bounded workers or it oversubscribes the machine. |
+| Whether tasks are independent but cheap to spawn | Goroutines or async tasks | Cheap tasks still need cancellation, backpressure, and lifecycle ownership. |
+| Whether components should isolate mutable state | Actor model such as Akka or Erlang | Actors serialize local state but distributed actor systems still face ordering and failure. |
+| Whether a producer/consumer pipeline is the real shape | `System.Threading.Channels` / `Channel<T>` | Channels need bounded capacity or producers can outrun consumers. |
+| Whether distributed shared state can avoid coordination | CRDTs or consensus-backed log | CRDTs need mergeable semantics; consensus trades availability for ordering. |
+| Whether fine-grained traversal must avoid global locks | RCU, hazard pointers, or epoch-based reclamation | Memory reclamation correctness is the hard part, not just pointer reads. |
+| Whether data races must be ruled out at compile time | Rust ownership plus `Arc<Mutex<T>>` | The type system prevents races, not deadlocks or bad lock granularity. |
+| Whether child tasks can outlive their parent | Structured concurrency (`coroutineScope`, `TaskGroup`) | Scope discipline simplifies cancellation but requires APIs to expose task lifetime. |
+| Whether one object needs atomic mutation | CAS or `fetch_add` | Atomicity alone does not establish visibility ordering. |
+| Whether multiple objects need atomic consistency | STM or ordered fine-grained locks | Lock ordering must be global or deadlocks reappear. |
+| Whether one thread must safely publish data to another | `std::atomic` with release/acquire | Pairing matters: release without matching acquire is not a handoff. |
+| Whether only corruption must be prevented | Relaxed atomics for counters or flags | Relaxed ordering is for non-causal statistics, not synchronization protocols. |
 
 ---
 

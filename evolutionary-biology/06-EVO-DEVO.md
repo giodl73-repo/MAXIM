@@ -281,16 +281,22 @@ can evolve independently.
 
 ---
 
+## Cross-References
+
+- `developmental-biology/04-HOX-GENES.md` — Hox genes as the core developmental patterning bridge.
+- `evolutionary-biology/03-MOLECULAR-EVOLUTION.md` — sequence change behind developmental toolkit evolution.
+- `developmental-biology/03-SIGNALING-PATHWAYS.md` — conserved signaling modules reused across body plans.
+
 ## Decision Cheat Sheet
 
-| Question | Framework | Example |
-|----------|-----------|---------|
-| Why do different animals share body plan? | HOX colinearity | Lab→Abd-B = ant→post |
-| Why do same toolkit genes control different structures? | Deep homology | Pax6 in eye |
-| Where do most morphological evo changes come from? | Enhancer/cis-reg evolution | ZRS in Shh |
-| How can big morphological jumps occur? | Heterochrony / HOX mutation | Neoteny, antennapedia |
-| Why does evolution repeat similar solutions? | Toolkit constraint + adaptive landscape | Convergent eyes |
-| What makes a lineage evolvable? | Modularity | Limb digit identity module |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Shared animal body-plan logic | HOX colinearity and axial patterning | Conservation of toolkit does not imply identical outputs. |
+| Same gene, different structures | Deep homology | Homologous control genes can build non-homologous organs. |
+| Morphological evolution source | Enhancer/cis-regulatory change | Coding mutations matter too, but are often pleiotropic. |
+| Large morphological shift | Heterochrony, heterotopy, or toolkit mutation | Developmental viability constrains possible jumps. |
+| Repeated evolutionary solutions | Toolkit constraint plus adaptive landscape | Convergence can arise without shared recent ancestry. |
+| Evolvability of a lineage | Modularity and reusable regulatory circuits | Modularity enables change but can also constrain it. |
 
 ---
 

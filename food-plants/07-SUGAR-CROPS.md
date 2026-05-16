@@ -306,17 +306,23 @@ CLAIM: HFCS is uniquely harmful → NOT WELL-SUPPORTED
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Where was sugarcane domesticated? | New Guinea, ~8,000 BP |
-| What forced European beet sugar development? | Napoleon's Continental Blockade (1806) cut off Caribbean cane sugar |
-| Is beet sugar different from cane sugar chemically? | No — both are pure sucrose; identical after refining |
-| What enzyme creates HFCS? | Glucose isomerase (converts glucose → fructose) |
-| Why is HFCS preferred in US (not elsewhere)? | US sugar tariffs + corn subsidies make HFCS cheaper; other countries use cane sugar |
-| Is HFCS uniquely harmful vs sucrose? | No good evidence; the harm is excess fructose regardless of source |
-| What is blackstrap molasses? | Byproduct of sugar refining; residual sugars + minerals (iron, calcium, potassium) |
+| Sugar-System Question | Use This Frame | Watch-Out |
+|---|---|---|
+| Why did sugar become a geopolitical commodity? | Tropical cane + immediate processing + plantation scale | Cheap sweetness was built on coerced labor and trade protection, not just agronomy |
+| Cane or beet? | Same refined sucrose, different climate and political economy | "Cane sugar" branding is mostly marketing after refining |
+| Why did beet sugar matter strategically? | Temperate substitute for colonial cane | Napoleon's blockade proved supply security could drive crop adoption |
+| Why did HFCS win in the US? | Corn wet milling plus sugar tariffs/quotas and liquid handling | The advantage is policy/logistics as much as chemistry |
+| Is HFCS uniquely harmful? | Compare fructose dose from HFCS and sucrose | Excess sweetener intake is the issue; HFCS correlation is not causation |
+| What does molasses indicate? | Refining stage and residual mineral/flavor load | Blackstrap is a byproduct, not a health counterweight to sugar |
+| What should a supply-chain reader track? | Labor regime, land use, water, tariffs, coproducts | Sweetness systems externalize costs differently by crop and region |
 
 ---
+
+## Cross-References
+
+- [Food Plants Overview](00-OVERVIEW.md) places sugar crops in the larger domestication and trade landscape.
+- [Tree Crops](06-TREE-CROPS.md) contrasts perennial plantation crops with annual and biennial sugar systems.
+- [Stimulant Crops](08-STIMULANT-CROPS.md) follows another commodity-crop pathway where taste, empire, and processing align.
 
 ## Common Confusion Points
 

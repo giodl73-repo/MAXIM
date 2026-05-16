@@ -322,16 +322,26 @@ White-collar offenders are adept at rationalizing violations before and during t
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Organized crime comparison | `criminology/05-ORGANIZED-CRIME.md` |
+| Policing and enforcement strategy | `criminology/06-POLICING.md` |
+| Comparative legal-system handling | `criminology/09-COMPARATIVE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Topic | Key Concept | Source |
-|-------|-------------|--------|
-| Why is white-collar crime overlooked? | Class bias in research + enforcement | Sutherland (1939) |
-| What enables individual fraud? | Fraud Triangle: Pressure + Opportunity + Rationalization | Cressey |
-| Why do organizations offend? | Performance pressure + diffuse responsibility + weak oversight | Vaughan, Coleman |
-| How do offenders justify it? | Neutralization techniques | Sykes & Matza |
-| Why is prosecution rare? | Detection cost + DPAs + TBTF logic | Garrett |
-| How does corporate crime differ from street crime? | Organizational vs. individual; diffuse victims | Clinard & Quinney |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why white-collar crime is overlooked | Sutherland's class bias in research and enforcement | Visibility and respectability distort both data and prosecution priorities. |
+| Individual fraud pathway | Cressey's pressure, opportunity, rationalization triangle | The triangle is a heuristic; opportunity architecture often matters most. |
+| Organizational offending | Performance pressure, diffuse responsibility, weak oversight | Corporate crime can emerge without one mastermind ordering it. |
+| Offender justification | Neutralization techniques and "no real victim" narratives | Diffuse victims are still victims; invisibility is not harmlessness. |
+| Rare prosecution | Detection cost, DPAs, TBTF logic, evidentiary complexity | Deferred prosecution is not exoneration; it is contested accountability. |
+| Corporate versus occupational crime | Organization-benefiting versus role-enabled individual crime | White-collar, occupational, and corporate crime overlap but are not synonyms. |
 
 ---
 

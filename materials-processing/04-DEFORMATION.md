@@ -338,18 +338,24 @@ Skin pass / tension leveling:
 
 ---
 
+## Cross-References
+
+- `materials/04-METALS-ALLOYS.md` - metal strengthening and deformation mechanisms.
+- `materials-processing/02-HEAT-TREATMENT.md` - annealing and recovery after cold work.
+- `materials-processing/05-FRACTURE-MECHANICS.md` - damage and failure after deformation.
+
 ## Decision Cheat Sheet
 
-| I want to achieve... | Process |
-|---------------------|---------|
-| Increase yield strength without heat treatment | Cold work (rolling, drawing, shot peen) |
-| Improve fatigue life of critical surface | Shot peen or laser peen (compressive residual stress) |
-| Soften work-hardened metal for more forming | Recrystallization anneal |
-| Grain refinement via hot working | Hot rolling/forging with DRX (high reduction, controlled T) |
-| Remove processing texture | Anneal above recrystallization T with appropriate conditions |
-| Maximize deep drawability (Al/steel sheet) | High n, high R-value alloy; texture control |
-| Very high strength wire | Heavy cold drawing (no intermediate anneal) |
-| Titanium complex formed shape | Superplastic forming (SPF) at 850°C |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Strength without heat treatment | Cold work by rolling, drawing, or peening | Strength gain trades against ductility. |
+| Fatigue-critical surface | Shot peening or laser peening | Compressive residual stress can be removed by later heat exposure. |
+| Work-hardened metal needing more forming | Recrystallization anneal | Recovery and recrystallization are distinct stages. |
+| Grain refinement by hot work | Hot rolling/forging with DRX control | Temperature, strain, and strain rate set the final grain size. |
+| Processing texture removal | Anneal above recrystallization temperature | Texture may not fully reset without proper reduction history. |
+| Deep drawability | High n, high R-value sheet and texture control | Drawability is anisotropic, not just tensile strength. |
+| Very high strength wire | Heavy cold drawing without intermediate anneal | Residual stress and low ductility become limiting. |
+| Complex titanium forming | Superplastic forming near 850 deg C | SPF requires fine stable grains and slow strain rate. |
 
 ---
 

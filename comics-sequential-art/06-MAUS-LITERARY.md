@@ -294,15 +294,22 @@ produces imitation, not equivalent depth.
 
 ---
 
+## Cross-References
+
+- `02-MCCLOUD-THEORY.md` explains how simplified icons can carry complex emotional and historical meaning.
+- `08-GRAPHIC-NOVEL.md` places Maus inside the literary graphic-novel canon and publication history.
+- `../literature/00-OVERVIEW.md` connects testimony, genre, memory, and narrative ethics.
+
+---
+
 ## Decision Cheat Sheet
 
-| I want to understand...                           | Key aspect of Maus                |
-|---------------------------------------------------|-----------------------------------|
-| Why the animal metaphor works                     | Externalizes racial categories;   |
-|                                                   | then critiques itself             |
-| The dual narrative structure                      | Past (Vladek) + present (Art) = both in reader's NOW|
-| Spiegelman's self-interrogation                   | Chapter 2, Volume 2 (metacommentary)|
-| How Maus addresses Holocaust representation ethics| Three removes; gutter = unspeakable|
-| Why the Pulitzer mattered                         | American literary legitimation    |
-| What Maus made possible                           | Persepolis, Fun Home, March, etc. |
-| The 2022 Tennessee incident                       | Censorship; opposite effect; still charged|
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| The animal metaphor | Examine racial categorization, mask instability, species switching, visual distance, and self-critique. | The metaphor works because it exposes categories while undermining them. |
+| The dual narrative | Track Vladek's past, Art's present interviews, father/son conflict, memory mediation, and page-time overlap. | The present frame is not scaffolding; it is part of the subject. |
+| Spiegelman's self-interrogation | Read metacommentary, guilt, commercial success, representation anxiety, and author-as-character scenes. | The book critiques its own authority while using that authority. |
+| Holocaust representation ethics | Analyze visual reduction, testimony, absence, gutters, documentary evidence, and refusal of spectacle. | The comic form makes absence visible without pretending full access. |
+| Pulitzer/literary status | Compare awards, bookstore classification, criticism, school adoption, and graphic-novel legitimacy. | Literary legitimation changed reception; it did not make comics valuable for the first time. |
+| Later graphic memoir influence | Trace Persepolis, Fun Home, March, memoir/documentary comics, and institutional reception. | Influence is formal and market/institutional, not one simple lineage. |
+| Censorship controversies | Separate content objections, school-board politics, media amplification, and readership effects. | Removing the book often increases attention while confirming its stakes. |

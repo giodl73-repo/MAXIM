@@ -445,19 +445,25 @@ INDICATIVE SPAN RANGES (commercial/institutional loading ~3–5 kPa)
 
 ---
 
+## Cross-References
+
+- `construction-materials/03-MEDIEVAL-TIMBER.md` — traditional timber baseline.
+- `woodworking/01-WOOD-ANATOMY.md` — wood anatomy behind engineered products.
+- `composite-materials/01-FUNDAMENTALS.md` — composite logic applied to wood systems.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| LVL vs glulam — which for beam? | LVL: consistent, shallower depth options, off-the-shelf. Glulam: curved forms, larger sections, exposed appearance. |
-| CLT vs RC flat slab — trade-offs? | CLT: faster erection, lower carbon, lighter. RC: better thermal mass, acoustic, no moisture sensitivity. |
-| CLT floor vibration — when does it govern? | Above ~6–7 m span in residential. Check f₁ ≥ 8 Hz and unit point load deflection ≤ 0.5 mm |
-| Best adhesive for outdoor glulam? | PRF (phenol-resorcinol formaldehyde) — EN 301 Type I, fully waterproof |
-| Mass timber + RC core hybrid — why? | CLT/glulam efficient for gravity; RC core reliable for lateral (seismic, wind); complies with codes more easily |
-| Fire: exposed CLT beam, REI60 required? | Add char allowance: 0.65 mm/min × 60 min + 7 mm = ~46 mm per exposed face to structural section |
-| CLT connection at panel edge to panel edge? | LVL spline in groove; or self-tapping screws (inclined or surface-mounted); or half-lapped joint |
-| Plywood exterior — which bond class? | Bond class 3 (exterior, boil-proof): phenol formaldehyde (PF) adhesive (WBP) |
-| Glulam cambering — what for and how much? | To offset dead load deflection; typically L/200 to L/300 pre-camber; pressed in curved form |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether LVL or glulam fits a beam | LVL for consistent shallow off-the-shelf beams; glulam for larger, curved, or exposed members | Architecture, depth, fire exposure, availability, and connection detailing can dominate material choice. |
+| Whether CLT can replace an RC flat slab | Compare speed, carbon, weight, thermal mass, acoustics, and moisture sensitivity | CLT is not a drop-in slab; serviceability and envelope sequencing often govern. |
+| Whether CLT floor vibration governs | Check spans above roughly 6-7 m, `f1 >= 8 Hz`, and point-load deflection | Vibration can govern before strength, especially in residential floors. |
+| Which adhesive fits outdoor glulam | PRF to EN 301 Type I | Adhesive durability does not remove the need for drainage and end-grain protection. |
+| Why mass timber often pairs with an RC core | Timber for gravity, RC core for lateral wind/seismic stability | Hybrid systems simplify code compliance but create interface and tolerance details. |
+| Whether exposed CLT can meet REI60 | Char allowance around `0.65 mm/min x 60 min + 7 mm` per exposed face | Char design preserves residual section; connections and penetrations also need fire detailing. |
+| How CLT panel edges connect | LVL spline, self-tapping screws, or half-lapped joint | Connection stiffness and diaphragm/shear transfer matter as much as panel capacity. |
+| Which plywood bond fits exterior exposure | Bond class 3 with phenol-formaldehyde/WBP adhesive | Bond class resists water; face durability and edge sealing still matter. |
+| Why glulam is cambered | Pre-camber about L/200 to L/300 to offset dead-load deflection | Camber must match long-term creep expectations and visual tolerances. |
 
 ---
 

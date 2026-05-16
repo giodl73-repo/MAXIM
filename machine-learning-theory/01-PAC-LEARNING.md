@@ -298,12 +298,24 @@ costs almost nothing in samples.
 
 | Situation | Sample bound | Notes |
 |-----------|-------------|-------|
-| Finite H, realizable | O(log|H| / ε) | Occam bound |
-| Finite H, agnostic | O(log|H| / ε²) | Agnostic costs 1/ε² |
+| Finite H, realizable | O(log\|H\| / ε) | Occam bound |
+| Finite H, agnostic | O(log\|H\| / ε²) | Agnostic costs 1/ε² |
 | Infinite H, realizable | O(d log(1/ε) / ε) | d = VCdim(H) |
 | Infinite H, agnostic | Θ(d / ε²) | Tight up to constants |
 | With membership queries | Can be much smaller | Problem-dependent |
 | Efficient PAC required | Need poly time + poly samples | Often open for neural nets |
+
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Probability bounds and sampling | `probability-statistics/01-PROBABILITY-FOUNDATIONS.md` | PAC learning is concentration of empirical error around true error |
+| Optimization versus generalization | `machine-learning-theory/02-VC-DIMENSION.md` | Learnability depends on hypothesis class capacity, not only training loss |
+| Practical ML engineering gap | `ai-engineering/01-LLM-CONCEPTS.md` | PAC gives theory; modern model training adds scale, architecture, and data pipelines |
+| Statistical experimental design | `statistics-applied/01-EXPERIMENTAL-DESIGN.md` | Train/test splits and confidence are experimental-design problems |
+| Computational hardness | `programming-language-theory/01-LAMBDA-CALCULUS.md` | Efficient PAC adds algorithmic tractability to sample complexity |
 
 ---
 

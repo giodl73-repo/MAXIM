@@ -318,17 +318,23 @@ VACUITY ISSUE
 
 ---
 
+## Cross-References
+
+- `machine-learning-theory/02-VC-DIMENSION.md` — worst-case combinatorial capacity baseline.
+- `machine-learning-theory/08-INFORMATION-THEORETIC.md` — alternate generalization bounds through information and compression.
+- `probability-statistics/03-LIMIT-THEOREMS.md` — concentration and empirical averages behind complexity bounds.
+
 ## Decision Cheat Sheet
 
-| Task | Tool | Bound |
-|------|------|-------|
-| Binary classifiers, arbitrary D | VC bound | O(√(d/m)) |
-| Real-valued losses | Rademacher bound | O(R_m(H) + √(log/m)) |
-| Kernel classifiers | RKHS Rademacher | O(B√(tr(K)/m)) |
-| Large-margin classifiers | Margin bound | O(1/(γ√m)) |
-| Finite hypothesis class | Log bound | O(√(log N/m)) |
-| Neural nets | Spectral norm bound | Often vacuous |
-| Checking if class generalizes | Estimate R̂_S(H) empirically | Data-dependent |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Binary-classifier capacity | VC-style bound | Distribution-free bounds can be pessimistic. |
+| Real-valued loss class | Rademacher complexity | Requires loss contraction assumptions. |
+| Kernel classifier bound | RKHS norm and kernel trace | Norm control is doing the work. |
+| Large-margin classifier | Margin bound | Margin depends on scaling conventions. |
+| Finite hypothesis class | Log-cardinality bound | Enumeration must reflect the actual class. |
+| Neural-net guarantee | Spectral/path norm bounds | These are often still vacuous in practice. |
+| Data-dependent generalization | Empirical Rademacher estimate | Estimation itself can be computationally hard. |
 
 ---
 

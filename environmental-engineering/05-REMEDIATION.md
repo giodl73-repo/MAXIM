@@ -469,18 +469,24 @@ exposure pathways. This is **probabilistic safety analysis** — the same framew
 
 ## Decision Cheat Sheet
 
-| Scenario | Recommended Approach |
-|----------|---------------------|
-| Petroleum (LNAPL) contamination at UST site | Free product skimming + SVE for vadose; biostimulation for dissolved plume; MNA for residual |
-| Chlorinated solvent (DNAPL) source zone — accessible | ERH or ISCO (permanganate) for source zone mass reduction; then biostimulation/bioaugmentation for dissolved phase |
-| Chlorinated solvent — DHC absent in aquifer | Bioaugmentation (KB-1 or SDC-9) after biostimulation to establish reducing conditions |
-| Dissolved plume, no active source, stable boundaries | MNA with monitoring network and ICs; submit three lines of evidence to regulator |
-| PFAS plume at former airfield | P&T with PFAS-selective IX resin or GAC; concentrated brine to SCWO or permitted incineration; no in-situ options yet proven at scale |
-| Need to evaluate site before purchase | Phase I ESA (ASTM E1527-21) — provides CERCLA innocent landowner defense |
-| Site has clear RECs — former dry cleaner | Phase II ESA — soil borings + GW monitoring wells; PCE/TCE analysis (SW-846 8260) |
-| What cleanup standard should I use? | RBCA: industrial use standard if land use stays commercial; residential if residential receptor possible |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Petroleum LNAPL site | Free product, vadose vapor, dissolved plume, receptors | Skimming removes mobile product; residual saturation can persist |
+| Chlorinated DNAPL site | Source-zone access, geology, vapor intrusion, and daughter products | DNAPL source zones rarely "pump out" cleanly |
+| Bioremediation claim | Electron donor/acceptor, DHC presence, redox, and daughter-product trend | Stalling at vinyl chloride can worsen risk |
+| MNA claim | Stable/shrinking plume, geochemistry, degradation products, and monitoring network | MNA is active documentation, not abandonment |
+| PFAS remediation claim | Source control, pump-and-treat media, brine/spent-media fate, and destruction option | Proven in-situ destruction remains limited |
+| Site-acquisition claim | Phase I ESA, RECs, Phase II scope, and continuing obligations | Phase I is liability defense, not proof of clean soil/groundwater |
+| Cleanup-standard claim | Land use, receptor, exposure pathway, and state/federal program | Industrial standards may fail if future residential use is plausible |
+| Remedy-selection claim | Effectiveness, implementability, cost, permanence, and community acceptance | The "best" technology can fail if geology blocks contact |
 
 ---
+
+## Cross-References
+
+- `03-AIR-QUALITY.md` covers atmospheric pollutant transport and control.
+- `04-SOLID-WASTE.md` explains source materials and disposal systems that can create contaminated sites.
+- `../hydrology/06-GROUNDWATER.md` supplies the aquifer-flow context for plume migration.
 
 ## Common Confusion Points
 

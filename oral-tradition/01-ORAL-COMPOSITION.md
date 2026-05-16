@@ -302,16 +302,23 @@ Evidence: Iliad (24 books, ~15,700 lines) is longer than
 
 ---
 
+## Cross-References
+
+- `03-MEMORY-TECHNIQUES.md` explains the cognitive machinery supporting performance.
+- `04-WORLD-EPIC.md` applies oral composition to major epic traditions.
+- `07-PERFORMANCE.md` shows composition in live social context.
+
 ## Decision Cheat Sheet
 
-| Concept | Precise meaning |
-|---------|----------------|
-| Formula | Metrically useful phrase in fixed syntactic slot; reused to express same essential idea |
-| Theme | Recurring narrative unit (typical scene); variable length, invariant structure/order |
-| Formula density | % of text consisting of exact or type-formula repetitions |
-| Oral-derived text | Written text whose composition was shaped by oral tradition |
-| Composition-in-performance | Recomposition using toolkit, not recitation of memorized text |
-| Economy | Formula system property: each idea has one formula per metrical slot, no duplicates |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Formulaic phrase | Metrically useful phrase in a fixed syntactic slot | Formula density shows oral habit, not direct proof of live performance. |
+| Typical scene | Theme as recurring narrative unit with variable length and stable order | Lord's theme is not the same level as a folklore motif. |
+| Oral-derived written text | Formula density, economy, and metrical fit | Literate poets can imitate formulae; the whole system matters. |
+| Live composition | Composition-in-performance using inherited toolkit | It is disciplined recomposition, not free improvisation or rote memorization. |
+| Singer's memory claim | Subjective retrieval experience and embodied toolkit | Singers may truthfully feel they repeat word-for-word while recomposing. |
+| Formula-system economy | One efficient formula per idea/metre slot | Economy is an argument about system design, not isolated repeated phrases. |
+| Exceptional long performance | Medjedovic-style expansion from formula/theme mechanism | Exceptional performance proves possibility, not average capacity. |
 
 ---
 

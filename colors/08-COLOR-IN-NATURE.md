@@ -326,15 +326,23 @@ BATESIAN vs MÜLLERIAN MIMICRY:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why do flamingos lose color in captivity? | Diet: flamingos can't synthesize carotenoids; they get canthaxanthin/astaxanthin from algae and crustaceans. Without the right diet, no pigment, feathers go pale/white. |
-| Does the morpho butterfly have blue pigment? | No — zero blue pigment. Color from periodic lamellar nanostructure on wing scales (thin-film/photonic crystal interference). Iridescent because angle-dependent. |
-| What is GFP and why did it win a Nobel Prize? | Green Fluorescent Protein from Aequorea jellyfish; engineered as genetically encoded fluorescent tag for proteins in living cells. Shimomura/Chalfie/Tsien, Nobel 2008. |
-| Why are leaves green? | Chlorophyll absorbs the most useful photosynthetic wavelengths (red ~680 nm + blue ~430 nm). Green is reflected because it's the least useful. Chlorophyll doesn't absorb green efficiently. |
-| Why are bird eggshells blue-green? | Biliverdin — a porphyrin pigment from heme degradation, deposited in the eggshell during formation. Robin blue = biliverdin. |
-| What makes structural color different from pigment color? | No chromophore: color from periodic nanostructure (thin-film interference, photonic crystal). No absorption → no fade. Often iridescent (angle-dependent). Cannot be mixed like pigments. |
-| What is Thayer's countershading principle? | Animals dark on top, light on bottom cancel illumination gradient → appear less three-dimensional → harder to see against background. Explains coloration of most large vertebrates. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Diet-derived animal color | Check carotenoid source, metabolism, molt timing, captive diet, and signaling function. | Color loss can reflect missing diet rather than genetic inability to make feathers. |
+| Blue or iridescent animal color | Look for pigment absorption, nanostructure, scattering, thin-film interference, and viewing angle. | Structural color can be blue without any blue pigment. |
+| Fluorescence | Identify excitation wavelength, emission wavelength, protein/pigment source, and biological function or lab use. | Fluorescence requires absorbed light; it is not the same as reflection. |
+| Leaf color | Compare chlorophyll absorption, accessory pigments, light environment, senescence, and masking/unmasking. | Green reflection is a byproduct of photosynthetic absorption curves, not a design goal. |
+| Eggshell or porphyrin color | Trace pigment biosynthesis, deposition timing, shell structure, camouflage, signaling, and species ecology. | Similar colors can come from different pigments or structures. |
+| Pigment vs structural color | Test for chromophore, nanostructure, angle dependence, fading, and mixing behavior. | Structural colors are physical optics and do not mix like paints. |
+| Camouflage/countershading | Analyze illumination gradient, body shape, habitat background, predator vision, and movement. | Countershading reduces 3D cues; it is not universal invisibility. |
+
+---
+
+## Cross-References
+
+- `01-COLOR-PHYSICS.md` explains the absorption, scattering, and structural-color mechanisms used in nature.
+- `07-PSYCHOLOGY-CULTURE.md` connects biological color signals to perception and meaning.
+- `../biology/04-EVOLUTION.md` supplies the selection logic behind camouflage, warning color, and sexual display.
 
 ---
 

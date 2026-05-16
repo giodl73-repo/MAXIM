@@ -324,15 +324,22 @@ Social status:
 
 ---
 
+## Cross-References
+
+- `02-GREEK-LATIN.md` contrasts cuneiform archives with alphabetic civic epigraphy.
+- `04-DECIPHERMENT.md` explains how multilingual inscriptions unlock scripts.
+- `09-MODERN-METHODS.md` shows how damaged inscriptions are documented now.
+
 ## Decision Cheat Sheet
 
-| Script | Language | Period | Signs | Type |
-|--------|----------|--------|-------|------|
-| Proto-Cuneiform | Sumerian (no phonetics) | 3400-3000 BCE | ~900 | Logographic |
-| Classic Cuneiform | Sumerian | 2500-2000 BCE | 600+ | Logo-syllabic |
-| Akkadian Cuneiform | Akkadian (Semitic) | 2400-75 CE | ~300 | Logo-syllabic |
-| Ugaritic | Ugaritic (Semitic) | 1400-1200 BCE | 30 | Abjad (consonantal) |
-| Old Persian | Old Persian (Iranian) | 520-400 BCE | 36 | Quasi-alphabetic |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Early administrative writing | Proto-cuneiform signs, commodities, and accounting context | It is not phonetic writing in the later cuneiform sense. |
+| Mature Sumerian cuneiform | Logo-syllabic signs and scribal school context | The script is not the language; Sumerian signs can appear in Akkadian texts. |
+| Akkadian imperial records | Semitic language written with adapted cuneiform | Sumerograms may be read in Akkadian rather than pronounced as Sumerian. |
+| Alphabetic-looking wedge writing | Ugaritic sign count and consonantal structure | It uses cuneiform technique but is not descended from Mesopotamian logosyllabic cuneiform. |
+| Royal Old Persian inscription | Behistun-style formula and quasi-alphabetic signs | Old Persian is a deliberately simplified royal script, not a full Mesopotamian system. |
+| Tablet survival bias | Archive fire, palace destruction, and clay firing conditions | Preservation often reflects accident, not ancient archival intent. |
 
 ---
 

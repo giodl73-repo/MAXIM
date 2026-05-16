@@ -400,6 +400,18 @@ C. difficile risk: clindamycin > fluoroquinolones > cephalosporins/penicillins >
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Bacterial cell structure and replication | `microbiology/01-BACTERIAL-BIOLOGY.md` | Antibiotic targets are bacterial machinery: cell wall, ribosome, DNA enzymes, membranes |
+| Host immune clearance | `immunology/01-INNATE-IMMUNITY.md` | Static vs. cidal distinctions matter only in the context of immune competence |
+| Drug receptor and dose-response logic | `pharmacology/01-RECEPTOR-THEORY.md` | MIC, AUC/MIC, Cmax/MIC, and T>MIC are pharmacodynamic target models |
+| Infectious syndromes and pathogens | `disease/01-BACTERIAL.md` | Clinical choice starts from syndrome plus likely organism before narrowing by cultures |
+| Population-level resistance control | `public-health/01-EPIDEMIOLOGY-FUNDAMENTALS.md` | Stewardship is evolutionary pressure management at population scale |
+
+---
+
 ## Common Confusion Points
 
 **Cephalosporins and penicillin allergy:** Cross-reactivity is ~1–2% based on side-chain similarity, not the β-lactam ring. Cefazolin is safe in most penicillin allergies (different side chain from amoxicillin). Most "penicillin allergies" are not IgE-mediated — allergy testing/delabeling is underutilized.

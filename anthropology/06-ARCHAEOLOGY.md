@@ -547,18 +547,26 @@ in an argument about behavior, cognition, society, and change over time.
 
 ## Decision Cheat Sheet
 
-| I need to... | Method |
-|-------------|--------|
-| Find sites without digging | Pedestrian survey + LiDAR + magnetometry + GPR |
-| Date organic material < 50,000 yr | Radiocarbon AMS + OxCal calibration |
-| Date burned sediment or ceramics | TL or OSL |
-| Date volcanic contexts at hominin sites | K-Ar or Ar-Ar |
-| Get precise calendar year from wood | Dendrochronology |
-| Improve precision of multiple 14C dates | Bayesian modeling with stratigraphic priors |
-| Record stratigraphic relationships | Harris Matrix (directed graph) |
-| Date artifacts relatively without chemistry | Seriation (battleship curve) |
-| Comply with federal construction law | CRM: Section 106 + NHPA process |
-| Return tribal human remains | NAGPRA process + tribal consultation |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Site discovery without excavation | Combine pedestrian survey, LiDAR, magnetometry, GPR, surface collection, and landscape model. | Remote sensing finds anomalies; ground truth still matters. |
+| Organic-material dating | Use radiocarbon AMS, sample context, contamination control, calibration curve, and OxCal model. | Radiocarbon date is not automatically the event date. |
+| Burned sediment or ceramics | Compare TL, OSL, heat exposure, light exposure, dose rate, and stratigraphic context. | Dating the last heating/exposure may not date the human activity you care about. |
+| Volcanic hominin context | Use K-Ar or Ar-Ar, tephra correlation, stratigraphic bracketing, and uncertainty range. | Volcanic dates often bracket fossils rather than date bones directly. |
+| Wood calendar date | Use dendrochronology, regional master sequence, species, preserved rings, and reuse risk. | A tree-ring date can predate the structure if timber was reused. |
+| Multiple radiocarbon dates | Apply Bayesian modeling with stratigraphic priors and outlier handling. | More dates improve precision only when contexts are sound. |
+| Stratigraphic relationships | Build a Harris Matrix from cuts, fills, layers, interfaces, and superposition. | Stratigraphy records sequence, not absolute calendar time by itself. |
+| Relative artifact dating | Use seriation, typology, frequency curves, context, and cross-dating. | Style sequence can be disrupted by trade, reuse, or curation. |
+| Construction compliance | Start with CRM, Section 106, NHPA, area of potential effects, and consultation. | Compliance is a legal process, not just archaeology after discovery. |
+| Tribal remains return | Use NAGPRA, affiliation evidence, consultation, inventory, and respectful handling. | Repatriation is governance with descendant communities, not only curation. |
+
+---
+
+## Cross-References
+
+- `02-PALEOANTHROPOLOGY.md` connects archaeological evidence to hominin fossils and behavioral evolution.
+- `../archaeology/00-OVERVIEW.md` expands the discipline-specific method stack for material evidence.
+- `../archaeology/01-DATING-STRATIGRAPHY.md` details the chronological framework behind archaeological inference.
 
 ---
 

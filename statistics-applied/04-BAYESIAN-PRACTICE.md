@@ -429,17 +429,27 @@ MODEL COMPARISON:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Randomized evidence and causal design | `statistics-applied/01-EXPERIMENTAL-DESIGN.md` |
+| Sequential online testing context | `statistics-applied/02-AB-TESTING.md` |
+| Uncertainty in health metrics | `public-health/10-HEALTH-METRICS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is a weakly informative prior? | Prior that constrains parameters to plausible range without strong commitment. Normal(0, 2.5) for standardized regression coefficients. Prevents pathological posteriors while letting data dominate. |
-| What does R̂ > 1.01 mean? | Chains are not well-mixed — they haven't converged to the same distribution. Diagnose: trace plots, look for stuck chains, reparameterize or run longer. |
-| What is NUTS? | No-U-Turn Sampler: HMC variant that auto-tunes trajectory length by detecting when trajectory starts doubling back. Stan's default sampler. |
-| What do divergences in Stan indicate? | Pathological posterior geometry (funnels, hard constraints). Not numerical noise — they're informative. Fix by reparameterizing (non-centered parameterization for hierarchical models). |
-| What is partial pooling? | Hierarchical model shrinks group-level estimates toward the grand mean. Amount of shrinkage inversely proportional to group sample size. Better than both no-pooling (overfit) and complete-pooling (underfit). |
-| How do you compute P(treatment > control) in Bayesian A/B? | Sample N draws from both posteriors; count fraction of draws where θ_B > θ_A. Conjugate: direct simulation from Beta posteriors. |
-| LOO-CV vs WAIC — which to use? | LOO-CV (PSIS-LOO) is preferred. More robust to model misspecification. WAIC is asymptotically equivalent but less stable. Both implemented in ArviZ. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Prior strength | Weakly informative priors that constrain plausible scale without dominating | "Weak" is model-scale dependent; prior predictive checks are mandatory. |
+| Chain convergence | `Rhat`, ESS, trace plots, and stuck-chain diagnostics | MCMC draws are autocorrelated; total iterations are not effective sample size. |
+| Sampler choice | NUTS/HMC for gradient-guided posterior exploration | Auto-tuning trajectory length does not rescue bad posterior geometry. |
+| Stan divergences | Funnels, hard constraints, and ill-conditioned geometry | Divergences are correctness warnings, not harmless numerical noise. |
+| Partial pooling | Hierarchical shrinkage toward a grand mean | Amount of shrinkage depends on group sample size and prior structure. |
+| Bayesian A/B probability | Posterior draws and `P(theta_B > theta_A)` | Repeated variant mining still needs hierarchy/shrinkage; Bayes does not erase multiplicity. |
+| Model comparison | PSIS-LOO before WAIC for practical robustness | High Pareto `k` flags influential observations and unreliable approximation. |
 
 ---
 

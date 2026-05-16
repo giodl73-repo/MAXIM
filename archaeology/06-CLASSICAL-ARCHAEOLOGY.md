@@ -236,17 +236,24 @@ MAJOR WRECKS:
 
 ---
 
+## Cross-References
+
+- `archaeology/05-ANCIENT-CIVILIZATIONS.md` — broader ancient-state context.
+- `architecture-history/01-ANCIENT.md` — built forms preserved in the classical record.
+- `art-history/02-BYZANTINE-MEDIEVAL.md` — later transformations of classical visual traditions.
+
 ## Decision Cheat Sheet
 
-| Use this when... | Method / concept | Notes |
-|-----------------|-----------------|-------|
-| Dating a historical-period layer with no organic material | Numismatics (coins as TPQ) | Latest coin in a sealed layer gives terminus post quem; layer cannot predate that coin's minting |
-| Recovering names, dates, legal texts, dedications | Epigraphy | Study of inscriptions on stone, metal, pottery; Corpus Inscriptionum Latinarum (CIL) is the standard database |
-| Understanding everyday life, not just elite history | Pompeii-type sites (volcanic seal) | Preserved organic material, wall graffiti, food remains, tools in use — freezes a moment rather than a gradual accumulation |
-| Establishing a city's street plan without excavation | LiDAR + ground-penetrating radar over known sites | Roman grids are highly regular; anomalies map easily |
-| Dating a shipwreck's construction | Dendrochronology of hull timbers (where surviving) | Combined with amphora typology for cargo date |
-| Understanding an underwater site's formation process | Photogrammetry + site plans + sediment analysis | Same stratigraphic principles apply; anoxic conditions give extraordinary preservation (Black Sea wrecks) |
-| Distinguishing Greek from Roman urban form | Comparative urbanism: agora vs. forum, orthogonal vs. radial | Greek agora is flexible open space; Roman forum is more formally bounded and institutionally defined |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Historical layer with no organics | Numismatics as terminus post quem | Latest coin dates the earliest possible deposition, not the deposition event itself. |
+| Names, dates, laws, dedications | Epigraphy and inscription corpora | Inscriptions are curated public acts; they are not neutral transcripts of society. |
+| Everyday life beyond elite texts | Pompeii-type sealed contexts | Exceptional preservation can distort typicality. |
+| City plan without broad excavation | LiDAR, ground-penetrating radar, and geophysics | Regular Roman grids are legible, but later disturbance and utilities can mimic anomalies. |
+| Shipwreck construction date | Dendrochronology of hull timbers plus cargo typology | Hull repair, reused wood, and cargo residuality can split construction from wreck date. |
+| Underwater formation process | Photogrammetry, site plans, sediment, and stratigraphic reasoning | Same stratigraphic logic applies, but water movement and anoxia change preservation. |
+| Greek versus Roman urban form | Agora/forum roles and street-plan geometry | Urban form varies by period, province, and local adaptation; avoid textbook stereotypes. |
+| Classical text versus material record | Source criticism plus archaeological context | Ancient authors had patrons, genres, and agendas; texts are evidence, not truth. |
 
 ---
 

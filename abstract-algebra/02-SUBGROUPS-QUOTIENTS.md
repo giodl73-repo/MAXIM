@@ -311,18 +311,24 @@ CATEGORY-THEORETIC PERSPECTIVE ON QUOTIENTS:
 
 ---
 
+## Cross-References
+
+- `abstract-algebra/04-RINGS-IDEALS.md` — quotient construction reappears as ideals and quotient rings.
+- `abstract-algebra/06-GALOIS-THEORY.md` — normal subgroups control the Galois correspondence and quotient groups.
+- `mathematics/06-LINEAR-ALGEBRA.md` — kernel/image structure in vector spaces as the linear prototype.
+
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Check N ◁ G | gNg^{-1}=N, or N=ker(φ), or index 2 |
-| Build G/N | N must be normal; cosets under multiplication |
-| Use First Isom. Theorem | Find homomorphism, identify kernel and image |
-| Decompose G as product | Find two normal subgroups with G=N₁N₂, N₁∩N₂={e} |
-| Decompose G as semidirect | N ◁ G, H complement, find conjugation action φ |
-| Show G solvable | Derived series reaches {e} |
-| Show G NOT solvable | Derived series stabilizes at non-trivial simple group |
-| Find composition factors | Jordan-Hölder: compute composition series |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a subgroup is normal | Conjugation invariance, kernel test, or index-2 shortcut | Normality is not elementwise commutativity |
+| Whether a quotient group is defined | Cosets modulo a normal subgroup | Multiplication of cosets is well-defined only for normal subgroups |
+| Whether an isomorphism theorem applies | Homomorphism, kernel, and image | The theorem identifies structure after quotienting by the kernel |
+| Whether a product decomposition is direct | Normal subgroups with trivial intersection and full product | Internal direct products require compatibility inside `G` |
+| Whether a decomposition is semidirect | Normal subgroup, complement, and conjugation action | The action is part of the data |
+| Whether a group is solvable | Derived series reaching the identity | Solvable is weaker than abelian |
+| Whether a group is not solvable | Derived series stabilizing nontrivially or simple obstruction | Need a structural obstruction, not just computational failure |
+| Whether composition factors are determined | Jordan-Holder composition series | Factors are unique up to order/isomorphism, not the series itself |
 
 ---
 

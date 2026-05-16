@@ -41,7 +41,8 @@ LAYER 5: RESTORATION
   Synchronization of isolated islands back to interconnection
   Storm restoration (physical repair)
 
-The layers must work in sequence — each provides time and options for the next.
+The layers usually work as defense in depth: earlier layers prevent or slow the
+event, later layers contain damage or restore service.
 If layer 2 (situational awareness) fails, layer 4 fails. This is exactly what
 happened in the 2003 Northeast Blackout.
 ```
@@ -50,7 +51,7 @@ happened in the 2003 Northeast Blackout.
 
 ## N-1 Security Criterion
 
-**Definition:** The grid must remain stable and serve all load even if any single element fails — any one generator, transmission line, or transformer, regardless of which one.
+**Definition:** The planned grid should remain stable and serve firm load for defined single-element contingencies -- a generator, line, transformer, or other specified element -- under the assumptions in the applicable reliability standard.
 
 This is the fundamental transmission planning and operations standard in North America (NERC TPL standards) and most of the world.
 
@@ -685,20 +686,24 @@ MUTUAL AID:
 
 ## Decision Cheat Sheet
 
-| Question | Short Answer |
-|----------|-------------|
-| What is N-1 criterion? | System must remain stable and serve all load after any single element (generator, line, or transformer) fails |
-| How does a cascade start? | Line trips → power redistributes (Kirchhoff) → parallel lines overload → more trips → exponential cascade |
-| What stops a cascade? | Either prevention (N-1 security margin) or automatic load shedding (UFLS) that matches supply to load; after the tipping point, nothing can stop it — must restore from scratch |
-| What caused the 2003 blackout? | Three simultaneous failures: (1) vegetation contact with untrimmed ROW, (2) EMS alarm system software race condition, (3) no cross-utility real-time situational awareness |
-| What is a black start unit? | Generator that can start without external power (hydro, gas CT with batteries, large diesel); forms the foundation for grid restoration |
-| How long does restoration take? | Regional outage (2003 scale): 12-24 hours. Complete infrastructure destruction (Maria): months to a year. |
-| What is intentional islanding? | Microgrid disconnects from main grid at PCC, runs autonomously with local generation/storage; requires grid-forming source |
-| Why is anti-islanding required? | Unintentional island energizes a feeder linemen think is dead → electrocution risk; also out-of-phase reconnection risk |
-| What is LOLE? | Loss of Load Expectation — expected hours/year where demand exceeds available supply; NERC target: 0.1 days/year (2.4 hours/year) |
-| What was wrong with Puerto Rico's grid pre-Maria? | Aging, single-source architecture, deferred maintenance, no distributed generation, island isolation — extreme fragility exposed by direct hit |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether N-1 is satisfied | Identify contingency class, base case, firm load, thermal limits, voltage limits, transient stability, and allowed corrective actions. | N-1 is standard-defined; it is not a promise that all real-world combinations of failures preserve service. |
+| How a cascade begins | Trace initiating trip, power redistribution, relay settings, overload timing, voltage support, operator awareness, and neighboring-system coordination. | Kirchhoff redistribution is automatic; whether it becomes a cascade depends on margins and protection action. |
+| Whether a cascade can be stopped | Look for remaining controllable resources: redispatch, switching, UVLS/UFLS, controlled separation, and emergency imports. | After loss of synchronism or widespread collapse, restoration replaces prevention. |
+| A blackout root-cause story | Separate vegetation/equipment, software/alarms, operator visibility, reliability coordination, protection action, and post-event institutional fixes. | Major blackouts are coupled socio-technical failures, not single-bullet explanations. |
+| A black-start plan | Check cranking paths, black-start units, station service, reactive support, load pickup blocks, synchronization points, and communications. | A unit that can start itself still needs a viable energized path and stable load sequence. |
+| A restoration-duration claim | Classify outage scale: intact grid trip, damaged equipment, storm access constraints, fuel logistics, or island-wide infrastructure failure. | Restoration time is dominated by damage mode, not only by the electrical black-start sequence. |
+| A microgrid/islanding claim | Verify PCC controls, grid-forming source, protection settings, load/generation balance, grounding, and resynchronization procedure. | Intentional islanding is engineered; accidental islanding is a safety and equipment risk. |
+| An adequacy metric claim | Separate LOLE, LOLH, EUE, reserve margin, weather correlation, fuel constraints, and transmission import assumptions. | A single adequacy metric can hide tail-risk shape and correlated outage exposure. |
 
 ---
+
+## Cross-References
+
+- `04-DISTRIBUTION.md` covers the local network where most outages occur.
+- `07-SMART-GRID.md` explains sensing and automation used for fault isolation and recovery.
+- `../infrastructure-systems/01-CLASSIFICATION.md` places grid resilience inside critical infrastructure.
 
 ## Common Confusion Points
 

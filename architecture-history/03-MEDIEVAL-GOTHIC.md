@@ -550,19 +550,25 @@ WHY THIS MATTERS FOR CONSERVATION:
 
 ---
 
+## Cross-References
+
+- `architecture-history/02-BYZANTINE-ISLAMIC.md` — parallel medieval sacred traditions.
+- `structural/01-STATICS.md` — load path and equilibrium behind vaulting.
+- `glassmaking/01-GLASS-SCIENCE.md` — stained glass as material and light technology.
+
 ## Decision Cheat Sheet: Medieval and Gothic
 
-| Question | Answer |
-|----------|--------|
-| Why are Romanesque interiors dark? | Thick walls needed for stability → small windows only |
-| What is a flying buttress doing structurally? | Carrying vault thrust over the side aisle roof to the outer pier |
-| Why are pinnacles on Gothic piers? | They add vertical load to keep the thrust resultant inside the pier cross-section |
-| Why are Gothic arches pointed? | Lower horizontal thrust than semicircular for same span; can equalize heights across different spans |
-| What is a rib vault vs a groin vault? | Rib vault has structural ribs concentrating loads to piers; groin vault distributes load across the surface |
-| Why did Beauvais choir collapse? | Pushed vault height beyond what the structural system could handle — empirical limits |
-| What is a fan vault? | Vault where all ribs have identical curvature (conoid surface) — purely mathematical geometry |
-| Why use lime mortar? | Allows micro-movement without catastrophic cracking; self-healing through recarbonation |
-| What three innovations define Gothic? | Pointed arch + ribbed vault + flying buttress — must work together |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Dark Romanesque interiors | Thick walls and mass-resistance strategy | Small windows are structural consequence plus atmosphere, not lack of ambition. |
+| Flying buttress function | Vault thrust carried over aisle roof to outer pier | Buttress, vault, pier, and pinnacle form one structural system. |
+| Pinnacle purpose | Added vertical load keeping thrust inside pier cross-section | Many pinnacles that read as decoration are structurally active. |
+| Pointed Gothic arch behavior | Reduced horizontal thrust and flexible height matching | Pointed arches alone do not make Gothic; the system matters. |
+| Rib vault versus groin vault | Load-concentrating ribs versus surface-distributed masonry | Ribs guide construction and load paths, but webs still participate. |
+| Beauvais-type failure | Empirical height/thrust limits pushed too far | Gothic engineering learned from failures before modern analysis existed. |
+| Fan vault geometry | Identical-curvature ribs and conoid surfaces | Mathematical regularity does not mean purely decorative. |
+| Lime mortar behavior | Micro-movement and recarbonation self-healing | Flexibility can be an advantage in masonry; stiffness is not always better. |
+| Gothic as a system | Pointed arch, ribbed vault, and flying buttress together | Romanesque-to-Gothic is a strategy shift, not just style evolution. |
 
 ---
 

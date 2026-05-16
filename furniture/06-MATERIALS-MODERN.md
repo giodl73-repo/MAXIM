@@ -346,15 +346,15 @@ INJECTION MOLDING PROCESS:
   Mold closed; part forms; mold opened
   Cycle time: 15–60 seconds per part
 
-  VERNER PANTON CHAIR (1960/1967):
-  First single-material, single-piece cantilevered chair.
-  The entire chair — legs, body, seat, back — is one injection-molded
-  polypropylene piece. No joints; no fasteners; no separate parts.
+  VERNER PANTON CHAIR (designed 1960; first serial production 1967):
+  First famous single-form cantilevered plastic chair.
+  Early production was not the current polypropylene injection-molded
+  version; it moved through fiberglass-reinforced polyester and other
+  plastic/process variants before later polypropylene production.
 
-  Why it took until 1967: the tooling cost and material science
-  for a cantilevered PP chair required significant development.
-  The cantilever in plastic depends on the stiffness of PP at
-  exactly the right wall thickness — too thin = breaks; too thick = heavy.
+  Why it was hard: the tooling, resin choice, wall thickness, and
+  cantilever stiffness all had to align. Too thin = creep or failure;
+  too thick = heavy, slow to cool, and expensive.
 
 KARTELL (Italian, 1950s–present):
   Specialized in plastic furniture from the beginning.
@@ -410,23 +410,29 @@ CNC TURNING (lathework):
 
 ## Decision Cheat Sheet
 
-| Material | Best For | Avoid For | Cost Index |
-|----------|---------|-----------|-----------|
-| Solid wood | High-end furniture, longevity, repairs | Wide panels without movement allowance | High |
-| Plywood | Load-bearing panels, drawer bottoms, backs | Fine visible surfaces (unless veneered) | Medium |
-| MDF | Painted surfaces, CNC-profiled ornament | Load-bearing spans, moisture exposure | Low |
-| Particleboard | Cabinet carcasses in dry interiors | Outdoor, high-load, high-quality applications | Lowest |
-| Tubular steel | Frames, cantilevers, structural members | Where weight matters; uncoated in humid conditions | Medium |
-| Fiberglass | One-piece organic shells, boat-like forms | High volume (too labor-intensive) | Medium-high |
-| Polypropylene (injection) | High-volume simple chairs, outdoor | Complex 3D forms without expensive tooling | Low at volume |
-| Polyurethane foam | Modern upholstery | Where long-term durability or repair matters | Low |
-| Die-cast aluminum | Complex base castings, structural connection | Very low volume (die too expensive) | Medium at volume |
+| If the constraint is... | Material/Process to Consider | Watch-Out |
+|-------------------------|------------------------------|-----------|
+| Wide, flat, stable panels with decent screw-holding | Plywood | Edges need treatment; visible faces usually need veneer or finish strategy |
+| Cheap, dead-flat painted surfaces | MDF | Poor edge screw-holding and moisture swelling; avoid structural spans |
+| Lowest-cost dry interior carcasses | Particleboard with melamine/veneer | Sag, edge failure, and limited repairability drive the quality ceiling |
+| Light exposed structural frames or cantilevers | Tubular steel | Bend radius, fatigue, weld quality, and finish determine durability |
+| Organic one-piece shells at moderate volumes | Fiberglass/GRP | Labor-intensive layup, styrene/environmental issues, and UV yellowing |
+| Very high-volume plastic seating | Injection-molded polypropylene | Tooling cost dominates; wall thickness and creep control the design |
+| Fast modern upholstery | Polyurethane foam | Specify density/ILD; expect degradation and replacement rather than heirloom repair |
+| Complex metal bases or connector geometries | Die-cast aluminum | Excellent at volume; uneconomic for low runs and constrained by die geometry |
+| Custom flat-pack precision | CNC-cut plywood/MDF | Design file, tolerance stack, and edge finishing become the product architecture |
 
 ---
 
+## Cross-References
+
+- [Wood and Joinery](01-WOOD-JOINERY.md) supplies the preindustrial material and connection baseline.
+- [Eames Engineering](04-EAMES-ENGINEERING.md) shows modern materials in a concrete design-engineering program.
+- [Contemporary Furniture](09-CONTEMPORARY.md) follows materials into CNC, digital fabrication, and hybrid manufacturing.
+
 ## Common Confusion Points
 
-**Plywood does not warp**: this is approximately true for normal interior use. But plywood exposed to one-sided moisture (e.g., concrete floor moisture on one face) will bow toward the drier side. Always use moisture barrier under plywood in floor applications.
+**Plywood is stable, not magic**: plywood is dimensionally stable for normal interior use, but one-sided moisture (e.g., concrete floor moisture on one face) will bow it toward the drier side. Always use a moisture barrier under plywood in floor applications.
 
 **MDF cannot hold screws in its edge**: the edge of MDF (perpendicular to the panel face) has very low screw-holding capacity. Use threaded inserts, dowel reinforcement, or redesign the joint. Face-screwing into MDF works acceptably.
 

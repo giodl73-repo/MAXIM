@@ -259,18 +259,24 @@ L-BAND ADVANTAGE (ALOS-2, NISAR):
 
 ---
 
+## Cross-References
+
+- `03-ACTIVE-SENSORS-SAR.md` supplies the radar phase measurements.
+- `05-SATELLITE-ORBITS.md` explains baselines, repeat cycles, and geometry.
+- `09-APPLICATIONS.md` shows deformation, volcano, and infrastructure uses.
+
 ## Decision Cheat Sheet
 
-| Application | InSAR Approach | Sensor | Time Baseline |
-|-------------|----------------|--------|---------------|
-| Coseismic slip map | Single pair | Sentinel-1 | Shortest after quake |
-| Volcanic inflation | Single pair or time series | Sentinel-1 / ALOS-2 | Days to weeks |
-| Urban subsidence | PS-InSAR | Sentinel-1 | 5+ years archive |
-| Infrastructure monitoring | PS-InSAR | Sentinel-1, TerraSAR-X | Annual |
-| Agricultural deformation | SBAS | Sentinel-1 | Season-scale |
-| Global DEM | TanDEM-X simultaneous | TanDEM-X | Same pass |
-| Landslide early warning | Coherence change + PS | Sentinel-1 | 6-12 day pairs |
-| Post-disaster damage map | Coherence ratio before/after | Sentinel-1 | Pre + immediate post |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Coseismic slip | Short-baseline single-pair Sentinel-1 | Phase unwrapping can fail under rapid deformation. |
+| Volcanic inflation | Single pair or time-series Sentinel-1/ALOS-2 | Atmosphere can mimic broad deformation. |
+| Urban subsidence | PS-InSAR with long Sentinel-1 archive | Persistent scatterers bias toward built surfaces. |
+| Infrastructure motion | PS-InSAR with Sentinel-1 or TerraSAR-X | Annual millimeter claims need geometry and atmosphere checks. |
+| Agricultural deformation | SBAS Sentinel-1 | Vegetation and tillage cause temporal decorrelation. |
+| Global DEM | Same-pass TanDEM-X | DEM height is not surface displacement through time. |
+| Landslide warning | Coherence change plus persistent scatterers | Coherence loss is not uniquely landslide motion. |
+| Post-disaster damage | Before/after coherence ratio | Damage maps are proxies and need validation. |
 
 ---
 

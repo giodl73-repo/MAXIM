@@ -977,32 +977,21 @@ New projects should use LangGraph.
 
 ---
 
+## Cross-References
+
+- `ai-engineering/03-ORCHESTRATION.md` — framework substrate for tool use, state, and graph control.
+- `ai-engineering/02-EVALS-HARNESS.md` — trajectory evals for agent behavior, not just final answers.
+- `security-engineering/01-THREAT-MODELING.md` — prompt injection, tool trust boundaries, and side-effect control.
+
 ## Decision Cheat Sheet
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  TASK                          │  PATTERN                           │
-├────────────────────────────────┼───────────────────────────────────┤
-│  Fixed N steps, predictable    │  Prompt chain (not an agent)      │
-│  Unknown steps, tool use       │  Single ReAct agent               │
-│  Independent parallel tasks    │  Parallelization / fan-out        │
-│  High-stakes, needs review     │  Evaluator-optimizer loop         │
-│  Complex routing, branching    │  LangGraph StateGraph             │
-│  Human approval required       │  LangGraph + interrupt_before     │
-│  Multiple specialist roles     │  Orchestrator + subagents         │
-│  Long-running, resumable       │  LangGraph + checkpointer         │
-│  Zero framework overhead       │  Direct SDK tool-use loop         │
-├────────────────────────────────┼───────────────────────────────────┤
-│  MEMORY                        │                                   │
-│  < 10 conversation turns       │  In-context (messages array)      │
-│  Long sessions, sparse history │  Selective vector retrieval       │
-│  Session must survive restarts │  External store (Redis/Postgres)  │
-│  Procedural knowledge          │  System prompt (baked in)         │
-├────────────────────────────────┼───────────────────────────────────┤
-│  SAFETY                        │                                   │
-│  Always                        │  max_iterations cap               │
-│  Always                        │  Tool error → return, not raise   │
-│  Destructive actions           │  Require human confirmation       │
-│  Tool results from web/user    │  Sanitize before appending        │
-└────────────────────────────────┴───────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether the workload needs an agent | Count unknown steps and tool decisions | Fixed workflows should stay prompt chains; autonomy is for runtime branching |
+| Why an agent loops or stalls | Tool-call trace plus max-iteration boundary | A higher iteration cap masks ambiguity; fix goals, observations, or stop criteria |
+| Whether memory is helping | Compare in-context, retrieved, and persisted state separately | "Memory" is several mechanisms; mixing them hides which state caused the behavior |
+| Whether multi-agent design is justified | Role boundaries and handoff contracts | Subagents help when expertise or context differs, not when one prompt could branch |
+| Whether LangGraph is the right substrate | Stateful routing, resumability, and approvals | Graph structure should reflect actual control states, not framework enthusiasm |
+| Whether a tool should be exposed | Capability, input schema, and blast radius | Tool access is an authorization surface; narrow it before relying on model judgment |
+| Whether human approval is required | Destructive, external, or irreversible actions | Approval must interrupt before action, not merely log after the tool fires |
+| Whether production traces are actionable | Step-level spans with prompt, tool, and observation data | Aggregate success rates will not explain which loop decision failed |

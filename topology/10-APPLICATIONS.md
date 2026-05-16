@@ -623,21 +623,27 @@ HOMOTOPY TYPE THEORY — TOPOLOGY AS A FOUNDATION FOR MATHEMATICS:
 
 ---
 
+## Cross-References
+
+- `topology/08-COHOMOLOGY.md` — persistent homology and cohomological invariants drive many applications.
+- `robotics/01-KINEMATICS.md` — configuration spaces connect topology to robot motion planning.
+- `materials/01-CRYSTAL-STRUCTURE.md` — topological phases of matter connect topology to material behavior.
+
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Analyze "shape" of data cloud | Persistent homology (Vietoris-Rips filtration, Ripser) |
-| Find clusters in data | H₀ persistence = connected components at each scale |
-| Find loops in data | H₁ persistence = long-lived 1-cycles |
-| Summarize multi-scale topology | Persistence diagram or barcode (birth-death pairs) |
-| Compute Hall conductance | Chern number = (1/2π)∬ Berry curvature over Brillouin zone |
-| Check if topological insulator | Z/2 invariant via parity of occupied states at TRIM points |
-| Count edge modes | Bulk-boundary correspondence: Chern number = # edge modes |
-| Plan robot motion | Build roadmap in C_free; complexity bounded by TC(C_free) |
-| Count independent paths | π₁(C_free) = fundamental group of free configuration space |
-| Analyze multi-robot planning | Braid groups Bₙ (n robots in plane) |
-| Lower bound on motion planners | Topological complexity TC(C_free) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a data cloud has multiscale shape | Persistent homology with Vietoris-Rips filtration | Scale choice and noise control the barcode |
+| Whether clusters persist across scales | `H_0` persistence | Long-lived components can reflect sampling density, not semantic clusters |
+| Whether loops are real features | `H_1` persistence | Sparse sampling can create spurious cycles |
+| Whether topology needs a compact summary | Persistence diagram or barcode | Stability helps, but interpretation is domain-specific |
+| Whether Hall conductance is topological | Chern number over the Brillouin zone | Requires the relevant band/gap hypotheses |
+| Whether a system is a topological insulator | `Z/2` invariant | Symmetry assumptions are part of the invariant |
+| Whether edge modes are forced | Bulk-boundary correspondence | Disorder and boundary details affect observation |
+| Whether robot motion planning is topological | Roadmap in free configuration space | Geometry and obstacles determine the actual configuration space |
+| Whether independent path classes matter | `pi_1(C_free)` | Homotopy classes do not by themselves produce feasible trajectories |
+| Whether multi-robot exchange matters | Braid groups | Applies cleanly to planar noncollision configuration spaces |
+| Whether planner complexity has a lower bound | Topological complexity `TC(C_free)` | It is a lower-bound invariant, not a full algorithm |
 
 ---
 

@@ -326,20 +326,26 @@ AUTOIMMUNITY: WHEN TOLERANCE FAILS
 
 ---
 
+## Cross-References
+
+- `immunology/04-T-CELLS.md` — tolerance failure and autoreactive T-cell mechanisms.
+- `immunology/05-CYTOKINES.md` — inflammatory mediators in autoimmune pathology.
+- `pharmacology/01-RECEPTOR-THEORY.md` — receptor-targeted immunomodulatory therapies.
+
 ## Decision Cheat Sheet
 
-| Feature | Suggests Autoimmunity? | Notable Example |
-|---------|----------------------|-----------------|
-| ANA+ + anti-dsDNA | SLE | Highly specific for SLE |
-| RF+ + ACPA+ | RA | Predicts erosive disease |
-| HLA-B27+ | AS, SpA | Ankylosing spondylitis |
-| Thyroid peroxidase Ab | Hashimoto's thyroiditis | Most common in women |
-| Anti-GAD65 + anti-insulin | T1D | Predict future T1D |
-| Anti-acetylcholine receptor | Myasthenia gravis | Neuromuscular junction |
-| Anti-Hu/Yo (paraneoplastic) | Paraneoplastic syndrome | Cancer trigger |
-| FoxP3 mutation | IPEX syndrome | Fatal multi-organ autoimmunity |
-| AIRE mutation | APECED | Polyendocrinopathy syndrome |
-| Biologic therapy needed | After methotrexate failure in RA | Anti-TNF first-line biologic |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| SLE-like systemic autoimmunity | ANA plus anti-dsDNA | ANA alone is nonspecific. |
+| Erosive rheumatoid arthritis risk | RF plus ACPA | Seronegative RA still exists. |
+| Spondyloarthritis pattern | HLA-B27 association | HLA-B27 is risk, not diagnosis. |
+| Autoimmune thyroiditis | Thyroid peroxidase antibody | Antibodies can precede dysfunction. |
+| Type 1 diabetes risk | Anti-GAD65 and anti-insulin antibodies | Prediction improves with multiple autoantibodies. |
+| Myasthenia gravis | Anti-acetylcholine receptor antibody | Seronegative and MuSK-positive cases require other tests. |
+| Paraneoplastic autoimmunity | Anti-Hu/Yo pattern | Search for cancer trigger, not just immune suppression. |
+| IPEX-like severe autoimmunity | FoxP3/Treg failure | Monogenic disease differs from common polygenic autoimmunity. |
+| APECED pattern | AIRE central-tolerance failure | Polyendocrinopathy reflects broad antigen escape. |
+| RA biologic escalation | Methotrexate failure and anti-TNF option | Infection risk and phenotype guide biologic choice. |
 
 ---
 

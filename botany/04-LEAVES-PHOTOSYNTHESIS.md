@@ -283,17 +283,23 @@ Shade adaptation in rainforest understory:
 
 ---
 
+## Cross-References
+
+- `natural-sciences/08-METABOLISM.md` - photosynthetic inputs to cellular metabolism.
+- `botany/02-ROOTS-SOILS.md` - water and mineral uptake feeding leaf function.
+- `ecology/03-ECOSYSTEM-ENERGETICS.md` - primary production at ecosystem scale.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is photorespiration? | RuBisCO fixing O₂ instead of CO₂ → wastes ~25% of fixed carbon |
-| What is the advantage of C4 over C3? | CO₂ concentrating pump → no photorespiration; better at high temp/light |
-| What is CAM? | Night CO₂ fixation, stored as malate; day Calvin cycle with stomata closed |
-| Why is maize more productive than wheat in summer? | Maize is C4; wheat is C3; C4 has no photorespiration at high temperatures |
-| What molecule opens stomata? | K⁺ influx → osmotic water influx → guard cell turgor increases |
-| What closes stomata? | Abscisic acid (drought signal); K⁺ efflux |
-| Why is O₂ a product of photosynthesis? | Water splitting in Photosystem II |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Photorespiration losses | RuBisCO oxygenase activity | Loss magnitude depends on temperature, CO2, and water stress. |
+| C4 advantage | CO2-concentrating pump | C4 pays extra ATP and is context-specific. |
+| CAM adaptation | Night CO2 fixation as malate | CAM trades growth speed for water conservation. |
+| Maize versus wheat summer productivity | C4 maize versus C3 wheat physiology | Crop outcome still depends on water, nutrients, and cultivar. |
+| Stomatal opening | Potassium influx and guard-cell turgor | Light, CO2, humidity, and hormones all interact. |
+| Stomatal closing | ABA drought signal and K efflux | Closure protects water status but limits CO2 uptake. |
+| Oxygen production | Water splitting in Photosystem II | O2 comes from water, not CO2. |
 
 ---
 

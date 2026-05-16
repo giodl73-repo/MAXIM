@@ -418,21 +418,19 @@ Astronomy is the only science that uses the *entire* electromagnetic spectrum pl
 
 ## Decision Cheat Sheet — Which Guide First?
 
-| You want to understand... | Start here |
-|---------------------------|-----------|
-| Why Earth has seasons, ice ages, and a wobbling axis | `01-EARTH-MOTIONS.md` → `02-MILANKOVITCH.md` |
-| How orbits work — Kepler, perturbations, resonances, tides | `03-CELESTIAL-MECHANICS.md` |
-| How stars are born, live, die, and make elements | `04-STELLAR-PHYSICS.md` |
-| The origin and fate of the universe — Big Bang to heat death | `05-COSMOLOGY.md` |
-| What the Milky Way looks like and how it assembled | `06-GALACTIC-STRUCTURE.md` |
-| How the Solar System formed from a gas cloud | `07-SOLAR-SYSTEM-FORMATION.md` |
-| What's inside planets — cores, mantles, dynamos | `08-PLANETARY-INTERIORS.md` |
-| Why Venus is 460 C and Mars has 6 mbar — atmosphere physics | `09-PLANETARY-ATMOSPHERES.md` |
-| How we find and characterize exoplanets | `10-EXOPLANETS.md` |
-| Asteroids, comets, Kuiper Belt, Oort Cloud, impacts | `11-SMALL-BODIES.md` |
-| Life beyond Earth — where, how, and the Fermi paradox | `12-ASTROBIOLOGY.md` |
-| The deep-time sequence (clocks all the way down) | `01` → `02` → `04` → `05` (Earth → orbit → stellar → cosmic) |
-| How astronomical time connects to geological time | This file → `geology/00-OVERVIEW.md` → `paleontology/00-OVERVIEW.md` |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Seasons, precession, or ice-age timing | Use Earth motions, axial tilt, orbital cycles, insolation geometry, and Milankovitch forcing. | Orbital forcing paces climate; feedbacks determine amplitude. |
+| Orbital behavior | Check Keplerian baseline, perturbations, resonance, tides, angular momentum, and reference frame. | The two-body answer is often only the first approximation. |
+| Stellar life cycle | Trace mass, fusion stage, hydrostatic balance, opacity, nucleosynthesis, and endpoint. | Mass controls the branch; metallicity and binarity complicate it. |
+| Cosmological claim | Separate expansion, CMB, nucleosynthesis, dark matter, dark energy, and horizon/flatness evidence. | Cosmology is parameter inference from multiple probes, not one origin story. |
+| Milky Way structure | Check disk, bulge, halo, spiral arms, stellar populations, dark matter, and merger history. | The Galaxy is assembled history, not a static diagram. |
+| Solar-system formation | Start with nebular disk, condensation sequence, accretion, migration, differentiation, and late bombardment. | Present order preserves formation clues but not a simple original layout. |
+| Planet interior or atmosphere | Combine density, gravity, magnetic field, spectra, pressure-temperature profile, and escape history. | Surface appearance can mislead without interior and atmospheric physics. |
+| Exoplanet characterization | Compare transit, radial velocity, direct imaging, spectra, selection bias, and host-star context. | Detection method shapes the population you think exists. |
+| Small-body or impact question | Inspect orbit family, composition, volatile content, collisional history, and resonance delivery route. | Small bodies are both leftovers and dynamically processed records. |
+| Astrobiology link | Separate habitability, biosignature, origin-of-life chemistry, target access, and Fermi constraints. | "Life beyond Earth" spans astronomy, chemistry, geology, and biology. |
+| Astronomical-to-geological time | Chain orbital clocks, stellar clocks, radiometric clocks, stratigraphy, and fossil calibration. | Deep-time arguments are strongest when independent clocks agree. |
 
 ---
 
@@ -486,6 +484,14 @@ Each row is a before/after boundary. Before Leavitt, we had no extragalactic dis
 **Solar System age vs. age of the universe** — The Solar System (4.567 Gyr) formed roughly 9.2 Gyr after the Big Bang. The Sun is a third-generation (Population I) star — its heavy elements were forged in earlier stellar generations that lived and died before our nebula collapsed. The carbon in your body, the iron in your blood, the uranium in the mantle — all of it was synthesized in stars that predated the Solar System. When we date a zircon crystal to 4.4 Gyr, we are measuring when *this* particular clock started ticking, not when clocks in general became possible. The first stars (Population III, z ~ 10-20) formed ~200 Myr after the Big Bang. The elements needed for rocky planets and biology required at least one or two stellar generations — roughly 1-3 Gyr — before a solar system like ours could assemble.
 
 **Apparent brightness vs. intrinsic luminosity** — A star's apparent brightness (flux at Earth, measured in magnitudes) depends on both its intrinsic luminosity (total power output in watts) and its distance squared. The magnitude system is logarithmic and inverted: brighter = lower number. A difference of 5 magnitudes = factor of 100 in flux. Sirius (apparent mag -1.46) appears bright because it is close (2.64 pc) and moderately luminous. Deneb (apparent mag 1.25) appears fainter but is ~200,000 times more luminous than the Sun at ~800 pc distance. The distance modulus (m - M = 5 log d - 5) connects apparent magnitude m, absolute magnitude M, and distance d in parsecs — and this is how every standard candle method works.
+
+---
+
+## Cross-References
+
+- `01-EARTH-MOTIONS.md` anchors observational astronomy in celestial reference frames and timekeeping.
+- `04-STELLAR-EVOLUTION.md` explains how stars become clocks, chemical factories, and distance indicators.
+- `../geology/00-OVERVIEW.md` connects astronomical time to terrestrial deep-time evidence.
 
 ---
 

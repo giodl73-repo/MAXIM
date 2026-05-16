@@ -263,17 +263,24 @@ The Convention on Wetlands of International Importance (Ramsar, Iran, 1971) is t
 
 ---
 
+## Cross-References
+
+- `02-RIVER-ECOLOGY.md` supplies flood-pulse and riparian context.
+- `05-NUTRIENT-CYCLES.md` explains wetland nutrient retention and transformation.
+- `08-CONSERVATION.md` covers restoration and protection priorities.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What are the three criteria for wetland delineation (US)? | Hydric soils + hydrophytic vegetation + wetland hydrology (all three required) |
-| What distinguishes a bog from a fen? | Bog = ombrotrophic (rain-fed only); fen = minerotrophic (groundwater input) |
-| Why is peatland drainage a climate emergency? | Peat = ~500 Gt C (30% of soil C); drainage oxidizes it; SE Asia peat = ~5% of global fossil emissions |
-| How much flood storage does a wetland provide? | ~3,000 m³/ha; economically the most cost-effective flood control |
-| What is blue carbon? | Carbon sequestered in coastal and freshwater wetland peat and soils |
-| Why are wetlands the largest natural CH4 source? | Anoxic water-saturated soils drive methanogenesis; CH4 escapes through plant aerenchyma |
-| What is the hydroperiod's ecological significance? | Master variable: controls plant species, invertebrate life cycles, fish exclusion, nutrient cycling timing |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| US wetland delineation | Hydric soils, hydrophytic vegetation, and wetland hydrology | All three criteria are normally required. |
+| Bog versus fen | Bog as ombrotrophic; fen as minerotrophic | Popular "swamp" usage is not technical classification. |
+| Peatland climate risk | Stored peat carbon and oxidation after drainage | Draining peatland reverses millennial carbon accumulation. |
+| Flood-storage value | Approximate storage around 3,000 m3/ha | Storage depends on basin setting, connectivity, and hydroperiod. |
+| Blue carbon claim | Carbon in coastal and freshwater wetland soils and peat | Carbon value does not substitute for biodiversity function. |
+| Methane emission | Anoxic saturated soils and plant aerenchyma pathways | Methane does not negate long-term peatland carbon value. |
+| Hydroperiod significance | Plant species, invertebrate life cycles, fish exclusion, nutrient timing | Hydroperiod is the master variable, not a minor descriptor. |
+| Ramsar protection claim | Treaty designation and diplomatic pressure | Ramsar has no direct enforcement mechanism. |
 
 ---
 

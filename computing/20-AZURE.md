@@ -994,34 +994,40 @@ Bicep is not a replacement for ARM — it compiles to ARM. Same resource model, 
 
 ---
 
+## Cross-References
+
+- `cloud-architecture/01-CLOUD-MODELS.md` — service-model framing for Azure.
+- `cloud-architecture/04-NETWORKING.md` — cloud networking primitives.
+- `cloud-architecture/08-COST-OPTIMIZATION.md` — FinOps layer for Azure operations.
+
 ## Decision Cheat Sheet
 
-| I want to run... | Use |
-|---|---|
-| A web app / API, no containers | App Service |
-| Containers, scale to zero | Azure Container Apps |
-| K8s workloads with full control | AKS |
-| Short event-triggered functions | Azure Functions |
-| Legacy app on a VM | Azure Virtual Machines |
-| Object storage (files, images, backups) | Blob Storage |
-| Shared file system for VMs | Azure Files |
-| SQL Server workloads | Azure SQL Database / SQL Managed Instance |
-| Postgres | Azure Database for PostgreSQL Flexible Server |
-| Global, low-latency NoSQL | Cosmos DB |
-| Session cache / rate limiting / pub-sub | Azure Cache for Redis |
-| Reliable messaging, queues, pub-sub | Azure Service Bus |
-| High-throughput event streaming (Kafka) | Azure Event Hubs |
-| Trigger reactions to Azure resource events | Azure Event Grid |
-| Secrets, keys, certificates | Azure Key Vault |
-| Azure-to-Azure auth without credentials | Managed Identity |
-| Employee / B2B identity | Entra ID (corporate tenant) |
-| Customer identity (B2C) | Entra External ID |
-| Private Docker registry | Azure Container Registry |
-| Global HTTP routing + CDN + WAF | Azure Front Door |
-| Regional HTTP routing + WAF | Application Gateway |
-| GPT-4o / o1 in Azure with private networking | Azure OpenAI Service |
-| Semantic / hybrid search for RAG | Azure AI Search |
-| Cost savings on steady workloads | Reserved Instances or Savings Plans |
-| Cost savings on existing SQL licenses | Azure Hybrid Benefit |
-| Hybrid / multi-cloud unified management | Azure Arc |
-| IaC for Azure resources | Bicep (compiles to ARM) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a web app/API needs containers | App Service | App Service is fastest for managed web hosting; container control is intentionally limited. |
+| Whether containers need serverless operations | Azure Container Apps | Scale-to-zero works best for stateless or carefully idempotent workloads. |
+| Whether Kubernetes control is worth owning | AKS | AKS gives cluster power; platform operations become your responsibility. |
+| Whether an event handler should be code-first | Azure Functions | Functions optimize triggers and burst; long-running services usually need another host. |
+| Whether a legacy app should move unchanged | Azure Virtual Machines | VMs preserve control and compatibility but keep OS patching and capacity work. |
+| How unstructured files should be stored | Blob Storage | Blob is object storage, not a shared POSIX file system. |
+| Whether VMs need shared file semantics | Azure Files | File shares trade simplicity for latency, protocol, and locking constraints. |
+| Where SQL Server workloads fit | Azure SQL Database or SQL Managed Instance | Choose Managed Instance for compatibility; choose database for lighter managed operations. |
+| Where managed Postgres fits | Azure Database for PostgreSQL Flexible Server | Managed Postgres still requires schema, index, and connection-pool discipline. |
+| Whether global NoSQL is justified | Cosmos DB | Cosmos buys distribution and latency at the cost of partition-key and RU design. |
+| Whether ephemeral state belongs outside the app | Azure Cache for Redis | Cache failures must be survivable; do not turn cache into primary storage accidentally. |
+| Whether commands/events need reliable broker semantics | Azure Service Bus | Service Bus optimizes durable enterprise messaging, not raw telemetry firehose throughput. |
+| Whether event streams need high throughput | Azure Event Hubs | Event Hubs is a stream ingestion service; consumers own interpretation and replay logic. |
+| Whether Azure resource changes should trigger reactions | Azure Event Grid | Event Grid delivers notifications; handlers still need idempotency. |
+| Where secrets, keys, and certificates belong | Azure Key Vault | Key Vault centralizes secrets but adds latency, identity, and rotation design. |
+| How Azure services authenticate without app secrets | Managed Identity | Managed identity removes stored credentials but still needs explicit RBAC scoping. |
+| Where workforce/B2B identity belongs | Entra ID corporate tenant | Tenant governance matters as much as protocol choice. |
+| Where customer identity belongs | Entra External ID | Customer identity has product, consent, and lifecycle semantics beyond login. |
+| Where private container images belong | Azure Container Registry | Registry security depends on image scanning, provenance, and pull identity. |
+| How global HTTP entry should be fronted | Azure Front Door | Global routing is edge-first; regional private routing may need Application Gateway. |
+| How regional HTTP ingress and WAF should work | Application Gateway | Application Gateway is regional and network-integrated, not a CDN replacement. |
+| Whether Azure-hosted frontier models are required | Azure OpenAI Service | Private networking and enterprise controls help, but model behavior still needs evaluation. |
+| Whether RAG needs managed hybrid retrieval | Azure AI Search | Search quality depends on chunking, metadata, ranking, and evaluation loops. |
+| How steady compute spend should be reduced | Reserved Instances or Savings Plans | Commitments save money only when utilization is predictable. |
+| Whether existing SQL Server licensing changes cost | Azure Hybrid Benefit | License benefit is commercial optimization, not an architecture pattern. |
+| Whether hybrid/multi-cloud inventory needs one control plane | Azure Arc | Arc extends management; it does not make non-Azure platforms operationally identical. |
+| How Azure resources should be described as code | Bicep | Bicep is excellent for Azure-native IaC; multi-cloud abstractions need Terraform/Pulumi tradeoffs. |

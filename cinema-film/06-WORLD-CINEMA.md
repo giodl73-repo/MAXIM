@@ -342,17 +342,23 @@ LEGACY:
 
 ---
 
+## Cross-References
+
+- `cinema-film/05-CLASSICAL-HOLLYWOOD.md` — Hollywood as comparison class.
+- `media-studies/09-GLOBAL-MEDIA.md` — global flows, counter-flows, and cultural power.
+- `translation/01-EQUIVALENCE-PROBLEM.md` — language and cultural transfer problems in film circulation.
+
 ## Decision Cheat Sheet
 
-| Movement | Period | Key Innovation | Representative Film |
-|----------|--------|----------------|---------------------|
-| German Expressionism | 1919-1933 | Painted distortion, shadow as meaning | Cabinet of Dr. Caligari (1920) |
-| Soviet Montage | 1920s | Intellectual montage, collision editing | Battleship Potemkin (1925) |
-| French Poetic Realism | 1930s | Working-class fatalism, atmosphere | Rules of the Game (1939) |
-| Italian Neorealism | 1945-1952 | Location shooting, non-professional actors | Bicycle Thieves (1948) |
-| Japanese Golden Age | 1950s | Long takes (Ozu), ensemble action (Kurosawa) | Tokyo Story (1953) / Seven Samurai (1954) |
-| French New Wave | 1958-1968 | Jump cuts, handheld, auteur theory in practice | Breathless (1960) |
-| New Hollywood | 1967-1982 | Adult themes, anti-hero, downbeat endings | The Godfather (1972) / Taxi Driver (1976) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why image distortion becomes meaning | German Expressionism, 1919-1933 | Painted sets and shadows externalize psychology, not just low-budget design. |
+| Why cutting can make an argument | Soviet Montage, 1920s | Collision editing aims at concept formation, not invisible continuity. |
+| Why atmosphere can carry social fatalism | French Poetic Realism, 1930s | Its lyric mood is still scripted fiction, not documentary realism. |
+| Why postwar Italian films feel documentary | Italian Neorealism, 1945-1952 | Location shooting and non-professional actors serve fictional narrative. |
+| Why Japanese postwar cinema is not one style | Ozu long takes and Kurosawa ensemble action | "Japanese Golden Age" names an ecosystem, not a single formal recipe. |
+| Why French New Wave looks deliberately rough | Jump cuts, handheld shooting, auteur practice | It critiques literary French cinema while loving Hollywood genre. |
+| Why New Hollywood changed mainstream tone | Adult themes, anti-heroes, and downbeat endings | The blockbuster shift displaced the business model before erasing the aesthetic. |
 
 ---
 

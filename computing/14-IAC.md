@@ -607,21 +607,23 @@ Both track what was created. Pulumi defaults to Pulumi Cloud backend; Terraform 
 
 ---
 
+## Cross-References
+
+- `computing/13-CICD.md` — deployment automation for infrastructure changes.
+- `cloud-architecture/01-CLOUD-MODELS.md` — cloud responsibility model for provisioned resources.
+- `systems-engineering/01-REQUIREMENTS.md` — requirements-to-implementation traceability.
+
 ## Decision Cheat Sheet
 
-| I want to... | Use |
-|---|---|
-| Provision Azure resources, Azure-only shop | Bicep |
-| Provision across Azure + AWS + GCP | Terraform |
-| Write infrastructure in TypeScript/Python I already know | Pulumi |
-| Write infrastructure in C# with typed Azure SDK objects | Pulumi C# (`Pulumi.AzureNative`) |
-| Manage servers/config (not just provisioning) | Ansible (not IaC per se) |
-| Preview changes before applying | `terraform plan` / `az deployment what-if` / `pulumi preview` |
-| Store state safely for a team | Remote backend (Azure Blob + lock) |
-| Reuse infrastructure patterns across projects | Terraform modules / Bicep modules |
-| Apply infra changes via CI/CD on PR merge | GitOps pipeline pattern |
-| Import existing Azure resource into Terraform | `terraform import` |
-| Convert existing ARM JSON to Bicep | `az bicep decompile` |
-| Protect a critical resource from accidental destroy | `lifecycle { prevent_destroy = true }` |
-| Manage multiple environments (dev/staging/prod) | Workspaces (TF) / stacks (Pulumi) / parameter files (Bicep) |
-| Look up ARM resource type → Terraform resource name | registry.terraform.io/providers/hashicorp/azurerm |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Azure-only provisioning | Compare Bicep, ARM parity, modules, what-if, policy, and team Azure skill. | Bicep is Azure-native; multi-cloud portability is not its goal. |
+| Multi-cloud provisioning | Use Terraform with provider maturity, state backend, module discipline, and drift detection. | Provider abstraction does not make clouds equivalent. |
+| Programming-language IaC | Evaluate Pulumi language fit, typed APIs, secrets, state, previews, and team reviewability. | General-purpose languages can hide infrastructure intent in code flow. |
+| Server configuration | Use Ansible for OS/package/config tasks and separate it from cloud resource provisioning. | Configuration management and IaC overlap but solve different lifecycle layers. |
+| Change preview | Run plan/what-if/preview, inspect destructive changes, and require review before apply. | A plan is only as accurate as provider state and drift knowledge. |
+| Team state storage | Use remote backend, locking, encryption, access control, and backup. | Local state is a production risk. |
+| Reusable patterns | Use modules with versioning, inputs/outputs, examples, and policy guardrails. | Bad modules standardize bad architecture. |
+| CI/CD for infra | Use PR plan, approval, apply, drift checks, and environment promotion. | Infra pipelines can destroy production faster than app pipelines. |
+| Existing-resource import | Map real resource, import state, reconcile config, and run no-op plan. | Import records state; it does not generate correct desired configuration. |
+| Environment separation | Compare workspaces, stacks, parameter files, subscriptions/accounts, and blast radius. | Environments need isolation, not just variable names. |

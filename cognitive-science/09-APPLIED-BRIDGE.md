@@ -445,19 +445,25 @@ ZERO TRUST:
 
 ---
 
+## Cross-References
+
+- `cognitive-science/05-PROBLEM-SOLVING.md` — cognition as an applied design substrate.
+- `ai-engineering/01-LLM-CONCEPTS.md` — AI systems as cognitive-science comparison class.
+- `organizational-behavior/01-MOTIVATION.md` — applied cognition in organizational settings.
+
 ## Decision Cheat Sheet
 
-| Applied Problem | Cognitive Science Framework | Action |
-|----------------|---------------------------|--------|
-| Design a more usable button | Fitts' Law | Larger target, closer to current cursor position |
-| Simplify a complex menu | Hick's Law | Reduce choices per level; use search for large sets |
-| Train someone new on a complex system | Cognitive Load Theory | Segment; worked examples; reduce extraneous load |
-| Improve long-term knowledge retention | Spacing + testing effect | Spaced repetition with active recall |
-| Improve debugging speed | Expertise + chunking | Build pattern library; deliberate practice on failure modes |
-| Run a better post-mortem | Hindsight bias + SA | Timeline reconstruction; "what was known at the time" |
-| Make a more realistic project estimate | Planning fallacy | Reference class; outside view; pre-mortem |
-| Evaluate a psychology claim | Replication crisis checklist | Pre-registered? Large N? Multi-lab? Large effect? |
-| Increase team adoption of a practice | Nudge theory | Default it on; show peer norm; simplify the process |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why a button is slow to acquire | Fitts' Law | Larger and closer targets help, but the law is quantitative; measure distance and width. |
+| Why a menu feels cognitively expensive | Hick's Law | Reduce choices per level or add search; do not hide expert paths behind excess nesting. |
+| Why onboarding overloads a learner | Cognitive Load Theory | Reduce extraneous load with segmentation and worked examples; intrinsic complexity remains. |
+| Why knowledge does not stick | Spacing plus testing effect | Active recall feels harder than review but improves durable retention. |
+| Why debugging speed varies by expertise | Chunking and deliberate practice | Build pattern libraries through feedback on real failure modes, not passive exposure. |
+| Why a post-mortem becomes hindsight theater | Hindsight bias plus situation awareness | Reconstruct what was knowable at the time, not what became obvious later. |
+| Why project estimates are optimistic | Planning fallacy | Use reference classes, outside view, and pre-mortems rather than team confidence. |
+| Whether a psychology claim is trustworthy | Replication-crisis checklist | Prefer pre-registration, large N, multi-lab replication, and plausible effect size. |
+| Why a team practice is not adopted | Nudge theory and choice architecture | Defaults and peer norms help only when the practice genuinely reduces friction and preserves agency. |
 
 ---
 

@@ -281,6 +281,18 @@ STOCHASTIC RISKS:
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Differential-equation foundations | `mathematics/01-VECTOR-CALC.md` | Growth, stability, and phase portraits are calculus and dynamical systems |
+| Feedback and stability analogies | `control-theory/01-PID-CLASSICAL.md` | Density dependence and predator-prey cycles are ecological feedback loops |
+| Epidemiological population models | `public-health/01-EPIDEMIOLOGY-FUNDAMENTALS.md` | SIR models reuse the same compartment and rate-equation structure |
+| Evolutionary pressure and life history | `evolutionary-biology/01-NATURAL-SELECTION.md` | r/K selection and tradeoffs connect population dynamics to adaptation |
+| Conservation and ecosystem context | `ecology/02-COMMUNITIES-ECOSYSTEMS.md` | Single-population models extend into communities, food webs, and habitat networks |
+
+---
+
 ## Common Confusion Points
 
 **Logistic growth "carrying capacity K" is not a law of nature** — K is an emergent property of resource availability. Human infrastructure can change K (agriculture raises K for humans; deforestation lowers K for many species). K is not a magic number built into a species — it's a population × environment interaction.

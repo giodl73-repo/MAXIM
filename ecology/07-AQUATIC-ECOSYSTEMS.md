@@ -341,17 +341,23 @@ BLEACHING SEVERITY:
 
 ---
 
+## Cross-References
+
+- `freshwater-biology/01-RIVERS-LAKES.md` - freshwater ecosystems in detail.
+- `oceanography/01-OCEAN-PHYSICS.md` - physical structure of marine systems.
+- `ecology/04-BIOGEOCHEMICAL-CYCLES.md` - nutrient cycling in aquatic systems.
+
 ## Decision Cheat Sheet
 
-| Aquatic observation | Interpretation |
-|--------------------|---------------|
-| Lake epilimnion warm, hypolimnion cold + anoxic | Stratified summer lake; nutrients trapped below thermocline |
-| Fall algal bloom in lake | Fall overturn mixing nutrients to surface |
-| Lake turns green/turbid, fish dying | Eutrophication + hypoxia; check P and N inputs |
-| Cyanobacteria bloom, blue-green scum | Hypereutrophic; possible cyanotoxins; public health hazard |
-| Stream headwaters dominated by shredder invertebrates | Allochthonous-dominated; leaf litter input critical |
-| Coral turned white but alive | Thermal bleaching; need temperature relief within weeks-months |
-| Estuarine fish nursery function lost | Check turbidity, dissolved O₂, salinity changes from upstream alteration |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Warm epilimnion and anoxic hypolimnion | Summer stratification and thermocline nutrient trapping | Mixing regime differs by lake depth and climate. |
+| Fall algal bloom | Overturn mixing nutrients to surface | Light and temperature can still limit response. |
+| Green/turbid lake with fish deaths | Eutrophication plus hypoxia | Green water is symptom; oxygen depletion is lethal mechanism. |
+| Blue-green scum | Cyanobacterial bloom and cyanotoxin risk | Treat as public-health hazard until tested. |
+| Shredder-dominated headwaters | Allochthonous leaf-litter food base | River continuum shifts downstream. |
+| White but living coral | Thermal bleaching and symbiont loss | Recovery window depends on heat duration and repeat stress. |
+| Lost estuarine nursery function | Turbidity, dissolved oxygen, and salinity alteration | Estuaries are naturally variable; baseline matters. |
 
 ---
 

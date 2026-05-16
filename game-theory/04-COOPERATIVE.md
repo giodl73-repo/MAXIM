@@ -23,6 +23,7 @@ can guarantee itself.
 |                                  allocation (4 axioms)           |
 |  TU game: transferable utility  Nucleolus — minimizes worst-     |
 |  (money can flow freely)         case excess; unique; in core    |
+|                                  if core is non-empty            |
 |                                                                  |
 |  BARGAINING (2-player):         NASH BARGAINING:                 |
 |  Disagreement point d           Maximizes (u₁-d₁)(u₂-d₂)         |
@@ -447,17 +448,17 @@ from losing to winning.
 
 ## Decision Cheat Sheet
 
-| Question | Concept | Notes |
-|----------|---------|-------|
-| Is this allocation stable? | Core | Check Σᵢ∈S xᵢ ≥ v(S) for all S |
-| Does a stable allocation exist? | Bondareva-Shapley | Balanced game ↔ non-empty core |
-| What is the "fair" allocation? | Shapley value | Unique under 4 axioms; average marginal contribution |
-| Need a unique stable point | Nucleolus | Always in core; lex-min excess; compute via LP sequence |
-| Two-player bargaining axiomatics | Nash bargaining | Max (u₁-d₁)(u₂-d₂); 4 axioms |
-| Two-player bargaining strategically | Rubinstein | Unique SPE; δ → 1 gives NBS |
-| Measuring voting power | Shapley-Shubik or Banzhaf | SS = probability pivotal; Bz = swing counting |
-| Explain ML model features | SHAP values | Shapley value applied to feature coalitions |
-| Cost sharing problem | Airport game / Shapley | Shapley allocates marginal costs fairly |
+| If the question is... | Use | What It Tests |
+|-----------------------|-----|---------------|
+| Can any coalition profitably defect from this allocation? | Core | Stability: every coalition receives at least its standalone worth |
+| Does a stable allocation exist at all? | Bondareva-Shapley | Balancedness / LP feasibility for the core constraints |
+| What is the canonical fairness allocation? | Shapley value | Average marginal contribution under efficiency, symmetry, null-player, and additivity axioms |
+| Need one point even when the core is empty or large? | Nucleolus | Lexicographically minimizes the worst coalition complaints |
+| Two players bargain over a feasible utility set | Nash bargaining | Axiomatic split from disagreement point and Pareto frontier |
+| Need a strategic foundation for bargaining | Rubinstein alternating offers | Patience, first-mover advantage, and convergence to Nash bargaining |
+| Need voting power rather than seat count | Shapley-Shubik or Banzhaf | Pivotal probability/orderings vs. critical-coalition swing counts |
+| Need feature attribution in ML | SHAP values | Feature coalitions using Shapley marginal-contribution logic |
+| Need shared-infrastructure cost allocation | Airport game / Shapley | Marginal-cost responsibility across nested capacity requirements |
 
 ---
 
@@ -473,6 +474,12 @@ from losing to winning.
 | Nash bargaining solution | Geometric: maximizes product of utility gains from disagreement point — same structure as maximizing a log-sum objective in constrained optimization |
 | Rubinstein bargaining → δ → 1 | Continuous-time limit of a discrete protocol: as δ → 1 the unique SPE converges to the Nash bargaining solution; same limiting argument as discounted reward → average reward in MDP theory |
 | Cost sharing (airport game) | Shared-infrastructure billing: how to allocate Azure Reserved Instance costs or CDN capacity costs across teams with different usage profiles — Shapley is the standard fair-division answer |
+
+## Cross-References
+
+- [Normal Form Games](01-NORMAL-FORM.md) contrasts coalition value with individual strategic choice.
+- [Mechanism Design](03-MECHANISM-DESIGN.md) shows how institutions can induce or constrain cooperative outcomes.
+- [Evolutionary and Algorithmic Game Theory](05-EVOLUTIONARY.md) extends cooperation into dynamics, networks, and computational limits.
 
 ## Common Confusion Points
 

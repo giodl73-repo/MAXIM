@@ -257,18 +257,22 @@ EXAMPLE: 2/2 twill on 4 shafts, 4 treadles
 
 ## Decision Cheat Sheet
 
-| Goal | Weave Structure | Sett | Loom |
-|------|-----------------|------|------|
-| Sturdy dish towels | Plain weave | WPI/2 (balanced) | Rigid heddle or 4-shaft |
-| Denim-style fabric | 3/1 twill warp-faced | WPI * 0.8 | 4-shaft floor loom |
-| Drapey garment fabric | 2/2 twill | WPI/1.5 | 4-shaft floor loom |
-| Smooth silk scarves | Satin (8-shaft) | WPI/1.2 | 8-shaft loom |
-| Pictorial wall hanging | Tapestry (plain weave weft-faced) | 8-12 EPI, pack weft | Any warp-controlling loom |
-| Andean bands | Backstrap warp-faced | WPI | Backstrap loom |
-| Beginners / sampling | Plain weave | WPI/2 | Rigid heddle |
-| Complex pattern weaves | Overshot, huck, M's and O's | WPI/1.5 | 4+ shaft floor loom |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A fabric-hand problem | Identify fiber, yarn size, twist, sett, weave structure, beat, and finishing. | The same yarn can produce stiff or drapey cloth depending on sett and interlacement. |
+| A sett decision | Start with WPI, then adjust for plain weave, twill, warp-faced, weft-faced, or lace structures. | WPI rules of thumb are sampling starts, not guarantees. |
+| A loom choice | Match shaft count, shed quality, width, tension needs, portability, and pattern complexity. | A simple loom can make complex cloth slowly; a complex loom mainly expands control and repeatability. |
+| A twill or satin claim | Check float length, interlacement frequency, abrasion risk, drape, and shaft requirements. | Longer floats improve sheen/drape but reduce snag resistance. |
+| A tapestry or band-weaving project | Decide whether image/detail comes from weft dominance, warp dominance, pickup, or color order. | Tapestry is structure plus design process, not just a heavy wall fabric. |
+| A production defect | Look for uneven tension, wrong sett, skipped threads, draw-in, beat inconsistency, and finishing shrinkage. | Many "weave structure" problems are actually tension or finishing problems. |
 
 ---
+
+## Cross-References
+
+- `05-SPINNING.md` explains how yarn structure constrains weaving behavior.
+- `07-PRINTING.md` contrasts surface patterning with woven structure.
+- `../textiles/01-NATURAL-FIBERS-PLANT.md` gives the fiber baseline for warp and weft performance.
 
 ## Common Confusion Points
 

@@ -271,16 +271,24 @@ Tropical hardwoods differ from temperate in several consistent ways:
 
 ---
 
+## Cross-References
+
+- `01-TREE-ANATOMY.md` provides the baseline anatomy tropical forms modify.
+- `04-FOREST-ECOLOGY.md` explains diversity, competition, and nutrient cycling.
+- `09-CONSERVATION.md` covers fragmentation and deforestation pressures.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why do large tropical trees have buttresses but temperate trees rarely do? | Shallow tropical soils + large crown area; load-spreading and nutrient foraging |
-| Why does dipterocarp masting occur irregularly, not annually? | ENSO-triggered; predator satiation requires long intervals to reset predator populations |
-| What makes teak the benchmark outdoor wood? | Oil content + silica = Class 1 durability; dimensional stability; silica damages tools |
-| Why is Janzen-Connell important for conservation? | Diverse forests need dispersal distances; fragmentation isolates trees from dispersers, collapses the mechanism |
-| Why is balsa classified as a hardwood? | It is an angiosperm (has vessels) = hardwood by definition; density/hardness are separate properties |
-| Why are tropical ring-porous species rare? | Strong seasonal signal needed for annual rings; few tropical species have strong enough seasonality |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Buttress roots | Shallow tropical soils, large crowns, load spreading, nutrient foraging | Buttresses are structural/ecological adaptations, not defects. |
+| Dipterocarp masting | ENSO-triggered irregular flowering and predator satiation | Annual reproduction would not reset predator populations. |
+| Teak durability | Oils, silica, dimensional stability, Class 1 durability | Silica makes teak hard on tools. |
+| Fragmentation risk | Janzen-Connell dispersal and density-dependent mortality | Breaking disperser distance can collapse diversity maintenance. |
+| Balsa as hardwood | Angiosperm vessels define hardwood | Hardwood/softwood is botanical, not a density claim. |
+| Tropical ring rarity | Weak seasonality and unreliable annual ring boundaries | Ring-porous anatomy needs strong annual growth signal. |
+| Tropical timber legality | CITES appendix and true species identity | "Mahogany" and other trade names can hide different species. |
+| Rainforest soil fertility | Biomass/surface organic matter nutrient capital | The forest is rich; the mineral soil often is not. |
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## The Big Picture
 
-AI is transforming the tools available for teaching and learning -- intelligent tutors, generative AI writing assistants, automated feedback systems, adaptive content generation. The question is not whether AI will affect education (it will, already is) but which functions it can genuinely improve vs. which require human judgment, relationship, and institutional legitimacy that AI cannot replicate.
+AI is expanding the tools available for teaching and learning -- intelligent tutors, generative AI writing assistants, automated feedback systems, adaptive content generation. The question is not whether AI will affect education; it already does. The harder question is which functions it can genuinely improve, which functions require human judgment and relationship, and which institutional decisions should not be automated merely because they can be predicted.
 
 ```
 +------------------------------------------------------------------+
@@ -201,7 +201,8 @@ The emergence of GPT-4, Claude, Gemini, and similar models created a new categor
     "What do you think the next step might be?"
     Tracks conversation in session; helps teachers see
     what students asked.
-    Early evidence: positive engagement; learning outcomes TBD.
+    Early evidence: positive engagement; learning outcomes still
+    depend on domain, implementation, and study design.
 ```
 
 ### Academic Integrity Challenge
@@ -212,8 +213,9 @@ The emergence of GPT-4, Claude, Gemini, and similar models created a new categor
 
   THE PROBLEM:
     GPT-4 writes college-level essays in seconds.
-    No tool reliably detects AI-generated text.
-    (Turnitin, GPTZero: ~80-85% accuracy at best)
+    No tool reliably detects AI-generated text across settings.
+    Public claims of detector accuracy vary by corpus, model,
+    language background, prompt style, and threshold.
     False positive rate unacceptably high for punitive use.
     AI detectors discriminate against non-native speakers
     (their writing looks more like AI to detectors).
@@ -446,16 +448,22 @@ The emergence of GPT-4, Claude, Gemini, and similar models created a new categor
 
 ## Decision Cheat Sheet
 
-| Question | Current Evidence | Recommendation |
-|----------|-----------------|----------------|
-| Do AI tutors work? | d ~0.4-0.8 for well-designed ITS in specific domains | Use for procedural skills; not as general teacher replacement |
-| Will generative AI replace teachers? | No -- addresses content delivery, not relational/motivational functions | Teachers should learn to use AI tools |
-| How to handle AI-generated work? | Detection unreliable; redesign assessment | Process portfolios, in-class writing, oral defense |
-| Does personalized learning work? | Pace + difficulty personalization: yes. Pathway: mixed | Use for adaptive practice; don't overclaim |
-| Is mastery learning valid? | Strong evidence: d = 0.5-1.0 | Use formative assessment + corrective loops |
-| What credentials matter? | Depends on employer and field | Traditional degrees + domain certificates for most |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether an AI tutor is appropriate | Check whether the domain has decomposable steps, frequent practice items, observable errors, and reliable feedback. | ITS evidence is strongest for procedural domains; open-ended judgment, motivation, and belonging still need humans. |
+| Whether generative AI should be allowed | Classify the task: generic drafting, idea generation, feedback, coding help, personal reflection, observed performance, or final assessment. | A single ban/allow rule collapses different pedagogical purposes; policy has to name the learning objective. |
+| How to respond to AI-written work | Prefer assessment redesign: process artifacts, oral defense, in-class work, local data, version history, and explicit AI-use disclosure. | Detector-centered enforcement is brittle and can punish non-native speakers or unusual writing styles. |
+| Whether personalized learning will work | Separate pace, difficulty, feedback, pathway choice, project mentorship, and social support. | Technology scales pace/difficulty/feedback better than it scales relationship or deep curriculum design. |
+| Whether mastery learning is the right model | Look for clear standards, formative assessment, corrective instruction, enrichment, and time flexibility. | Mastery learning is powerful but operationally expensive when teachers must supply all feedback and corrections. |
+| Whether a credential has value | Ask who recognizes it, what skill it signals, whether it stacks, and whether it transfers outside one vendor or employer. | Alternative credentials work best when tied to specific labor-market pathways; they do not replace all functions of degrees. |
 
 ---
+
+## Cross-References
+
+- `07-MOOCS-DIGITAL.md` gives the digital-learning platform baseline.
+- `03-COGNITIVE-SCIENCE-EDU.md` anchors future tools in durable memory and practice effects.
+- `../ai-engineering/04-AGENTS.md` connects AI tutors to agentic workflow patterns.
 
 ## Common Confusion Points
 

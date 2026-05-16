@@ -358,21 +358,31 @@ VEIL OF IGNORANCE THOUGHT EXPERIMENT FOR AI DESIGN:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Deontological/Kantian background | `ethics/03-DEONTOLOGY.md` |
+| Consequentialist contrast to justice as fairness | `ethics/02-CONSEQUENTIALISM.md` |
+| Public-policy applications | `ethics/06-APPLIED-ETHICS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Concept | Definition | Where in Rawls |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Original position | Hypothetical choice situation for deriving principles | A Theory of Justice, ch. 3 |
-| Veil of ignorance | Remove knowledge of one's position to ensure impartiality | ATJ, ch. 3 |
-| Primary goods | Things any rational person wants: liberties, opportunities, income, self-respect | ATJ, ch. 5 |
-| First principle | Equal basic liberties; lexically prior | ATJ, §11 |
-| Fair equality of opportunity | Similar talents have similar prospects regardless of origin | ATJ, §14 |
-| Difference principle | Inequalities just only if they benefit the worst-off | ATJ, §13 |
-| Maximin | Strategy: maximize the worst possible outcome | ATJ, §26 |
-| Reflective equilibrium | Method: iterate between principles and considered judgments | ATJ, §9 |
-| Separateness of persons | Can't trade off across persons like across time | ATJ, §5 |
-| Overlapping consensus | Diverse doctrines agree on political conception | Political Liberalism |
-| Public reason | Political justifications must be acceptable to all reasonable citizens | Political Liberalism |
+| Original-position reasoning | Hypothetical choice situation for deriving principles | It is a device of representation, not an actual contract event. |
+| Veil of ignorance | Remove knowledge of social position, talents, and doctrine | The unrealism is intentional; it tests bias in principles. |
+| Primary goods | Liberties, opportunities, income, wealth, and self-respect | Rawls uses a political metric, not a complete theory of welfare. |
+| First principle | Equal basic liberties with lexical priority | Liberty priority limits welfare tradeoffs even for the worst-off. |
+| Fair equality of opportunity | Similar talents should have similar prospects regardless of origin | More demanding than formal legal equality. |
+| Difference principle | Inequalities just only if they benefit the worst-off | Not equal outcomes and not trickle-down; actual benefit matters. |
+| Maximin | Maximize the worst possible outcome behind the veil | Rawls defends it under special uncertainty and high-stakes conditions. |
+| Reflective equilibrium | Iterate between principles and considered judgments | Equilibrium can be narrow or wide; coherence alone is not proof. |
+| Separateness of persons | Do not trade off across persons as if one aggregate life | Blocks utilitarian aggregation but does not by itself pick Rawls's two principles. |
+| Overlapping consensus | Diverse doctrines endorse a political conception | Consensus must be moral and stable, not mere strategic compromise. |
+| Public reason | Public justifications accessible to reasonable citizens | Restricts justificatory form on constitutional essentials, not private motivation. |
 
 ---
 

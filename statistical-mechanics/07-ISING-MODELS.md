@@ -329,24 +329,27 @@ GENERALIZATIONS:
 
 ---
 
+## Cross-References
+
+- `statistical-mechanics/05-PHASE-TRANSITIONS.md` — phase-transition concepts instantiated by the Ising model.
+- `statistical-mechanics/06-RENORMALIZATION.md` — coarse-graining and universality analysis.
+- `probability-statistics/04-STOCHASTIC-PROCESSES.md` — Markov chains and random fields behind simulation and inference.
+
 ## Decision Cheat Sheet
 
-| Model | Dimension | Phase transition | Method |
-|-------|-----------|-----------------|--------|
-| 1D Ising | 1D | No (T>0) | Transfer matrix; ξ = −1/ln(tanh K) |
-| 2D Ising | 2D | Yes, T_c = 2.269 J/k_B | Onsager exact; β=1/8 |
-| 3D Ising | 3D | Yes, T_c ≈ 4.51 J/k_B | Monte Carlo; β≈0.326 |
-| Mean-field (Curie-Weiss) | any | Yes, T_c = zJ/k_B | Saddle-point; β=1/2 |
-| Hopfield (p < 0.14N) | — | Retrieves patterns | Energy minimization |
-| Hopfield (p > 0.14N) | — | Spin glass phase | Replica method |
-| 2D XY | 2D | BKT topological | Vortex unbinding |
-
-| Monte Carlo step | Formula / Rule |
-|----------------|---------------|
-| Metropolis acceptance | min(1, e^{-β ΔE}) |
-| Energy change for one flip | ΔE = 2J sᵢ Σ_{j∈nbrs} sⱼ + 2h sᵢ |
-| Critical slowing down | τ ~ ξ^z, z≈2 |
-| Wolff cluster add probability | P_add = 1 − e^{-2βJ} |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| 1D Ising behavior | Transfer matrix; no finite-temperature transition | Domain walls destroy long-range order at any `T > 0`. |
+| 2D Ising criticality | Onsager exact solution; `T_c = 2.269 J/k_B`, `beta = 1/8` | Exact square-lattice result is not mean-field. |
+| 3D Ising criticality | Monte Carlo and RG estimates; `beta approx 0.326` | No closed-form Onsager-style solution exists. |
+| Mean-field Curie-Weiss | Saddle-point approximation; `beta = 1/2` | Mean-field overestimates `T_c` by ignoring fluctuations. |
+| Hopfield retrieval | Energy minimization below capacity around `0.14N` patterns | Memories are local minima; spurious states compete. |
+| Hopfield overload | Spin-glass behavior above capacity | Retrieval failure is a phase-structure issue, not just bad optimization. |
+| 2D XY transition | BKT vortex-antivortex unbinding | Topological transition has no local Landau order parameter. |
+| Metropolis simulation | Acceptance `min(1, exp(-beta * DeltaE))` | Detailed balance also needs ergodicity. |
+| Single-spin flip energy | `DeltaE = 2J s_i sum_neighbors s_j + 2h s_i` | Boundary conditions and lattice geometry enter the neighbor sum. |
+| Critical slowing down | `tau ~ xi^z`, often `z approx 2` for local updates | Cluster algorithms change the dynamic exponent. |
+| Wolff cluster updates | Add aligned neighbors with `P_add = 1 - exp(-2 beta J)` | Designed for ferromagnetic Ising-like cases; not universal. |
 
 ---
 

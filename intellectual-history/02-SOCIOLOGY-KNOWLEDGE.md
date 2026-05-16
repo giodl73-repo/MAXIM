@@ -344,16 +344,26 @@ Merton's four norms of science (1942) describe exactly the normative structure o
 
 **Bourdieu's field theory** explains why "meritocracy" in engineering is not neutral: field-specific capital (GitHub stars, conference talks, popular libraries) is accumulated through social position, not just technical quality. The "free-floating intelligentsia" analogue is the staff engineer who can synthesize across organizational silos precisely because they are not fully captured by any single team's interests.
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Poststructuralist knowledge critique | `intellectual-history/07-POSTSTRUCTURALISM.md` |
+| History from below as social-knowledge method | `social-history/03-HISTORY-FROM-BELOW.md` |
+| Memory as social construction | `social-history/08-MEMORY-HISTORY.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| I want to understand... | Go to |
-|---|---|
-| How economic conditions shape ideas | Marx: base-superstructure |
-| How all thought is perspectival | Mannheim: total ideology / relationism |
-| How scientific institutions work | Merton: CUDOS, Matthew effect, priority disputes |
-| How scientific "facts" are constructed | Strong Programme (Bloor), Latour (ANT) |
-| How social position shapes intellectual work | Bourdieu: field theory, habitus |
-| What the "reflexivity problem" is | Mannheim's paradox / Strong Programme tenet 4 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| How economic conditions shape ideas | Marx's base/superstructure and ideology critique | "Ideology" means distortion tied to material relations, not just any belief system. |
+| How thought can be perspectival without nihilism | Mannheim's relationism and total ideology | Relationism is not simple relativism; it tries to locate thought socially. |
+| How scientific institutions regulate behavior | Merton's CUDOS norms, priority, and Matthew effect | The norms are prescriptive ideals, not a literal description of lab behavior. |
+| How scientific facts are socially produced | Strong Programme symmetry and Latour's actor-network theory | Explaining construction is not the same as denying that science works. |
+| How social position shapes intellectual work | Bourdieu's field, habitus, capital, and position-taking | Field analysis explains constraints and incentives, not individual thought mechanically. |
+| Why reflexivity is a problem | Mannheim's paradox and Strong Programme tenet 4 | Sociology of knowledge must also explain its own knowledge claims. |
 
 ---
 

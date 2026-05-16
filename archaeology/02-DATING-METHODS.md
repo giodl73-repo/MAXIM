@@ -387,19 +387,25 @@ Stonehenge phasing study (Darvill/Parker Pearson 2012, Bayesian):
 
 ---
 
+## Cross-References
+
+- `archaeology/01-FIELD-METHODS.md` — excavation context that creates dating samples.
+- `archaeology/03-MATERIAL-ANALYSIS.md` — lab methods paired with chronological control.
+- `geochemistry/03-GEOCHRONOLOGY.md` — isotope-system logic behind absolute dating.
+
 ## Decision Cheat Sheet
 
-| Situation | Preferred Method |
-|-----------|-----------------|
-| Charred wood or grain, 0–50 ka | AMS ¹⁴C + Bayesian calibration |
-| Single-year precision for timber structure | Dendrochronology |
-| Sediment burial date, 10–500 ka | OSL (single-grain for partial bleaching risk) |
-| Fired ceramics authentication or dating | TL |
-| East African hominin site with volcanic tuff | K-Ar / ⁴⁰Ar/³⁹Ar on tuff |
-| Cave site with speleothem sealing archaeology | U-series on flowstone |
-| Medieval British sequence with hearths | Archaeomagnetic dating |
-| Multiple ¹⁴C dates + stratigraphy | Bayesian modelling in OxCal |
-| No organic material, known artifact type | Typological dating (TPQ/TAQ) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether organic remains can be dated directly | AMS radiocarbon with calibration | Raw C14 ages are not calendar dates; short-lived samples beat old wood. |
+| Whether timber can reach annual precision | Dendrochronology against a master chronology | Ring counting alone is not dendrochronology; provenience and species matter. |
+| Whether sediment burial is the target | OSL, preferably single-grain when bleaching is uncertain | OSL dates last light exposure of sediment, not artifact manufacture. |
+| Whether fired material can be dated | TL for heated ceramics or burned flint | Heating event and environmental dose assumptions drive uncertainty. |
+| Whether volcanic layers bracket a site | K-Ar or Ar-Ar on volcanic minerals | These date tuffs/lavas, not bones or artifacts directly. |
+| Whether cave sealing provides a minimum/maximum | U-series on speleothem or flowstone | The dated carbonate brackets archaeology only if stratigraphic relation is secure. |
+| Whether hearths preserve magnetic direction | Archaeomagnetic dating | Requires regional calibration curves and in-situ heated features. |
+| Whether multiple dates and stratigraphy need integration | Bayesian modelling in OxCal or equivalent | Model assumptions can over-precision bad stratigraphy. |
+| Whether no datable material remains | Typological TPQ/TAQ reasoning | Typology gives relational constraints, not absolute dates by itself. |
 
 ---
 

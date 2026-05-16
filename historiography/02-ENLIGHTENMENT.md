@@ -234,16 +234,22 @@ SCOTTISH STADIAL THEORY (Adam Smith, Adam Ferguson, John Millar)
 
 ---
 
+## Cross-References
+
+- `01-ANCIENT-MEDIEVAL.md` supplies the classical and providential background.
+- `03-RANKEAN-POSITIVISM.md` reacts against speculative history with source discipline.
+- `08-GLOBAL-HISTORY.md` revises Enlightenment universal history after empire critique.
+
 ## Decision Cheat Sheet
 
-| Thinker | Key Contribution | Where It Led |
-|---------|-----------------|--------------|
-| Voltaire | Civilization as subject; secular causation | Cultural history; comparative history |
-| Gibbon | Archival scholarship + literary prose; religion as factor | Model for English historical writing |
-| Hume | Epistemological skepticism applied to sources; custom vs. reason | Historical probabilism; testimony theory |
-| Vico | Verum-factum; three ages; imaginative understanding | Hermeneutics; Dilthey; interpretation theory |
-| Herder | Each culture has own Geist; historicism; no universal scale | Historical relativism; romanticism |
-| Scottish stadialism | Stages of civilization; material conditions matter | Marx; anthropology; development theory |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Civilization as historical subject | Voltaire's secular, comparative cultural history | Anti-providential history can still carry Enlightenment hierarchy. |
+| Literary archival synthesis | Gibbon's prose, documentation, and multi-causal decline account | His Rome argument is subtler than "Christianity caused the fall." |
+| Source skepticism | Hume on testimony, probability, custom, and reason | Skepticism disciplines belief; it is not blanket disbelief. |
+| Imaginative historical understanding | Vico's verum-factum and three ages | Vico is pluralist, not nihilistically relativist. |
+| Culture-specific development | Herder's Geist and internal standards | Rejecting one universal scale does not make every claim equally valid. |
+| Material stages of society | Scottish stadialism: hunting, pastoral, agricultural, commercial | Stadialism influenced Marx but is not Marxism. |
 
 ---
 

@@ -310,18 +310,24 @@ Memory is not a recording. It is **reconstructive** — filled in from knowledge
 
 ---
 
+## Cross-References
+
+- `cognitive-science/01-PERCEPTION.md` — perceptual inputs attention selects from.
+- `cognitive-science/03-REASONING-JUDGMENT.md` — memory and attention as reasoning constraints.
+- `media-studies/08-ALGORITHMS.md` — attention capture in algorithmic media systems.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why do I lose the unattended channel? | Early selection bottleneck (Broadbent), or spare capacity consumed (Lavie high load) |
-| Why can I hear my name across the room? | Attenuation model (Treisman) — unattended channel weakened, not blocked; your name has a low threshold |
-| Why does the gorilla go unnoticed? | Inattentional blindness — task demands consume all capacity; gorilla never gets selected |
-| Why do I forget after massed cramming? | No spacing — memories not reactivated at the right interval; no consolidation advantage |
-| Why do eyewitnesses make errors? | Reconstructive memory + misinformation effect; post-event info alters the trace |
-| How many items can WM hold? | 3–4 chunks (without rehearsal); more with chunking via LTM knowledge |
-| Why can't H.M. form new memories? | Hippocampus required for episodic encoding; intact for procedural and semantic |
-| Why does testing work better than re-reading? | Retrieval practice — see 09-APPLIED-BRIDGE.md |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why an unattended channel disappears | Broadbent early selection or Lavie high-load capacity consumption | The right model depends on perceptual load and task demands. |
+| Why a name cuts through background conversation | Treisman attenuation model | Unattended signals are weakened, not always blocked; personal relevance lowers threshold. |
+| Why an obvious gorilla goes unnoticed | Inattentional blindness | Attention selects task-relevant information; visibility alone is not selection. |
+| Why massed cramming fades quickly | Missing spacing and reactivation intervals | Consolidation benefits depend on retrieval timing, not total exposure alone. |
+| Why eyewitnesses confidently err | Reconstructive memory plus misinformation effect | Confidence is not accuracy; post-event information can alter the trace. |
+| Why working memory feels so small | 3-4 chunks without rehearsal | Chunking borrows structure from long-term memory; it is not free capacity. |
+| Why H.M. could not form new episodic memories | Hippocampal encoding role | Procedural and some semantic abilities can remain intact, so "memory" is not one system. |
+| Why testing beats rereading | Retrieval practice | Retrieval strengthens access paths; rereading often produces familiarity without recall. |
 
 ---
 

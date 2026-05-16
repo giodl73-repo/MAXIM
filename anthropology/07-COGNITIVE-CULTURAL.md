@@ -10,16 +10,14 @@
 +------------------------------------------------------------------+
          |              |              |              |
          v              v              v              v
-  +-----------+ +-----------+ +-----------+ +-----------+
-  | DISTRIBUTED| | MATERIAL  | | NICHE     | | CULTURAL |
-  | COGNITION  | | CULTURE   | | CONSTRUC- | | EVOLUTION |
-  |            | | & MIND    | | TION      | |          |
-  +-----------+ +-----------+ +-----------+ +-----------+
-  | Hutchins   | | Malafouris| | Odling-   | | Richerson |
-  | Clark/Cha  | | Object    | | Smee      | | /Boyd     |
-  | lmers      | | agency    | | Laland    | | Henrich   |
-  | Suchman    | | Latour    | | Gene-cult | | WEIRD     |
-  +-----------+ +-----------+ +-----------+ +-----------+
+  +------------+ +------------+ +------------+ +------------+
+  | DISTRIBUT. | | MATERIAL   | | NICHE      | | CULTURAL   |
+  | COGNITION  | | CULTURE    | | CONSTRUCT. | | EVOLUTION  |
+  | Hutchins   | | Malafouris | | Odling-    | | Richerson  |
+  | Clark/Chal | | Object     | | Smee       | | /Boyd      |
+  | mers       | | agency     | | Laland     | | Henrich    |
+  | Suchman    | | Latour     | | Gene-cult  | | WEIRD      |
+  +------------+ +------------+ +------------+ +------------+
 
          +----------------------------------+
          | COGNITIVE ARCHAEOLOGY            |
@@ -276,8 +274,8 @@
   CANONICAL CASES:
   ┌────────────────────────────────────────────────────────┐
   │ FIRE AND COOKING (~1 Ma):                              │
-  │ Fire -> cooking -> more caloric extractable from food  │
-  │ -> supports larger brain -> larger brain enables better │
+  │ Fire -> cooking -> more calories from food             │
+  │ -> supports larger brain -> better fire control        │
   │ fire management. And: cooking -> softer food ->        │
   │ reduced jaw muscle -> smaller jaw -> face shape change │
   │ -> further changes in social signaling.                │
@@ -520,18 +518,26 @@
 
 ## Decision Cheat Sheet
 
-| I want to understand... | Framework |
-|------------------------|-----------|
-| Why team knowledge > individual knowledge | Distributed cognition (Hutchins) |
-| Why wikis/docs are part of the cognitive system | Extended mind (Clark/Chalmers) |
-| Why engineering plans are always revised | Situated action (Suchman) |
-| Why drawing/writing clarifies thinking | Material engagement (Malafouris) |
-| Why "the code fights back" | Actants and sociotechnical systems (Latour) |
-| Why gene-culture coevolution happened | Niche construction (Odling-Smee/Laland) |
-| Why lactase persistence is a cultural product | Dual inheritance theory (Richerson/Boyd) |
-| Why WEIRD psychology is not universal | Henrich 2020 — historical Catholic Church hypothesis |
-| Why orgs split at ~150 people | Dunbar's number — cognitive load of relationship tracking |
-| What ancient tools tell us about ancient minds | Cognitive archaeology (Mithen, Renfrew) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Team knowledge exceeding individual knowledge | Use distributed cognition, task ecology, artifacts, roles, communication, and coordination history. | The unit of cognition may be the system, not the person. |
+| Docs or wikis as cognition | Apply extended mind: storage, retrieval, trust, update cadence, and workflow integration. | External memory helps only if maintained and actually used. |
+| Plans changing in practice | Use situated action, improvisation, local constraints, and real-time feedback. | Plan revision is often competence, not failure. |
+| Thinking through drawing/writing | Examine material engagement, external representation, iteration, and perceptual feedback. | Tools shape thought without determining it. |
+| Sociotechnical resistance | Map actants, code, tools, standards, incentives, infrastructure, and human roles. | "The system fights back" means agency is distributed across the network. |
+| Gene-culture coevolution | Use niche construction, selection pressures created by practice, and feedback loops. | Culture is not just downstream of genes. |
+| Lactase persistence | Combine dairying archaeology, allele frequencies, selection, demography, and diet practice. | The trait is biological, but the selection regime is cultural. |
+| WEIRD psychology | Check institutional history, kinship, literacy, markets, religion, and sampling frame. | "Universal" psychology often reflects unusual populations. |
+| Organizational size limit | Compare Dunbar layers, relationship tracking, communication overhead, and formal structure. | Cognitive load is one constraint among incentives and process design. |
+| Ancient cognition from tools | Use chaîne opératoire, material skill, planning depth, teaching, and experimental replication. | Tool complexity is indirect evidence for mind, not a transparent readout. |
+
+---
+
+## Cross-References
+
+- `04-EVOLUTIONARY-ANTHROPOLOGY.md` frames culture as an evolutionary and life-history problem.
+- `05-CULTURAL-ANTHROPOLOGY.md` gives the ethnographic evidence base behind meaning, ritual, and norms.
+- `../cognitive-science/00-OVERVIEW.md` connects cultural cognition to perception, memory, language, and learning.
 
 ---
 

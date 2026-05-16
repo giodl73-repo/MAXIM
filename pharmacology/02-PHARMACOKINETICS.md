@@ -372,18 +372,24 @@ THERAPEUTIC DRUG MONITORING (TDM) DRUGS
 
 ---
 
+## Cross-References
+
+- `pharmacology/03-PHARMACODYNAMICS.md` — PK says concentration over time; PD says effect from concentration.
+- `pharmacology/04-CYP-METABOLISM.md` — metabolism as a key clearance pathway.
+- `pharmacology/09-PERSONALIZED.md` — individual variation in dose and exposure.
+
 ## Decision Cheat Sheet
 
-| PK Question | Parameter | Formula |
-|-------------|-----------|---------|
-| How long does drug stay in body? | Half-life t½ | 0.693 × Vd / CL |
-| How broadly does drug distribute? | Vd | Dose / C₀ |
-| How fast is drug removed? | Clearance CL | Rate/Concentration |
-| How much drug reached circulation? | Bioavailability F | AUC_oral / AUC_IV |
-| How long to reach steady state? | 5 × t½ | — |
-| What loading dose to reach target quickly? | Loading dose | Vd × Css_target |
-| Effect of hepatic impairment? | CL_H → ↓ | Dose reduction for high-extraction |
-| Effect of renal impairment? | CL_renal → ↓ | Dose reduction for renally cleared |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Drug persistence | Half-life from Vd and clearance | Half-life changes if Vd or clearance changes. |
+| Distribution extent | Apparent volume of distribution | Vd is not a real anatomical volume. |
+| Removal speed | Clearance | Clearance is volume/time, not amount/time. |
+| Oral exposure | Bioavailability from AUC ratio | First-pass metabolism and absorption both affect F. |
+| Time to steady state | Roughly five half-lives | Dose size changes concentration, not time to steady state. |
+| Rapid target concentration | Loading dose using Vd and target Css | Loading dose does not fix maintenance clearance. |
+| Hepatic impairment effect | Hepatic clearance and extraction ratio | High-extraction drugs are flow-sensitive. |
+| Renal impairment effect | Renal clearance contribution | Active metabolites can matter even when parent drug is hepatic. |
 
 ---
 

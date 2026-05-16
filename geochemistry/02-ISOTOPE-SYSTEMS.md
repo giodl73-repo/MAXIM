@@ -288,17 +288,23 @@ SHORT-LIVED NUCLIDE CHRONOMETRY
 
 ---
 
+## Cross-References
+
+- `geochemistry/03-GEOCHRONOLOGY.md` - radiogenic isotope clocks.
+- `geochemistry/04-STABLE-ISOTOPE-PALEO.md` - stable isotopes as environmental proxies.
+- `planetary-science/09-PLANETARY-INTERIORS.md` - isotope constraints on planetary histories.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| What is εNd and what does it mean? | Deviation of ¹⁴³Nd/¹⁴⁴Nd from chondrite in parts per 10,000; positive = depleted mantle source; negative = old crustal material |
-| Why is the Sm-Nd system useful for old rocks? | Long half-life (106 Gyr); Sm and Nd are REEs so they're immobile compared to Rb/Sr; less susceptible to hydrothermal alteration |
-| What is δ¹⁸O measuring? | Deviation of ¹⁸O/¹⁶O from standard (SMOW or V-PDB) in per mille; reflects temperature (equilibrium fractionation) or water source |
-| Why is ²⁶Al important for the early solar system? | It heated early-accreted bodies (bodies that accreted <2-3 Myr after CAIs melted due to ²⁶Al decay); also a high-precision chronometer for first Myr of solar system |
-| What does a high initial ⁸⁷Sr/⁸⁶Sr tell you? | The magma interacted with old crust (high Rb/Sr history over long time generates high ⁸⁷Sr/⁸⁶Sr) — diagnostic of crustal contamination |
-| What is the Hf-W chronometer good for? | Core formation timing in planets and asteroids — Hf lithophile, W siderophile; excess ¹⁸²W in silicate records Hf decay after core separation |
-| How does boron isotope ratio record ocean pH? | Boron speciation (B(OH)₃ vs B(OH)₄⁻) is pH-dependent; different δ¹¹B; carbonates record ambient seawater B speciation → paleoacidity proxy |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Mantle versus crust source | Epsilon Nd relative to CHUR | Epsilon zero means chondritic, not absence of Nd. |
+| Old-rock isotope robustness | Sm-Nd long half-life and REE immobility | Isochron ages can still record later homogenization. |
+| Oxygen isotope meaning | Delta 18O relative to SMOW or V-PDB | Temperature and water source can produce similar signals. |
+| Early solar-system heating | Aluminum-26 decay | Timing depends on accretion within first few Myr after CAIs. |
+| Crustal contamination | High initial 87Sr/86Sr | Rb/Sr history over time, not just current composition, drives ratio. |
+| Core-formation timing | Hf-W lithophile/siderophile separation | Interpretation assumes metal-silicate fractionation history. |
+| Ocean pH proxy | Boron isotope speciation in carbonates | Vital effects and seawater delta 11B history require calibration. |
 
 ---
 

@@ -21,7 +21,7 @@ It is the foundation everything else builds on.
 |                                     V(x,y,z)       ∇²V = -ρ/ε₀         |
 |                                     scalar field   (Poisson)           |
 |                                                    ∇²V = 0             |
-|                                                    (Laplace, no charge) |
+|                                                    (Laplace, no rho)   |
 +------------------------------------------------------------------------+
 ```
 
@@ -425,6 +425,18 @@ is physically real and carries energy.
 ---
 
 **Forward connections**: The electrostatic energy density u = epsilon_0 E^2 / 2 has a quantum analog: each EM mode carries zero-point energy 1/2 hbar omega (see `09-ZERO-POINT-ENERGY.md`). The macroscopic dielectric constant epsilon arises from the microscopic polarizability of atoms/molecules in a material — the connection to semiconductor physics and band theory is covered in `08-QUANTUM-BRIDGE.md`.
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Circuits as lumped-field approximations | `electronics/01-CIRCUITS.md` | KVL, KCL, capacitance, and voltage all compress electrostatics into circuit abstractions |
+| Optics as the high-frequency EM limit | `optics/01-GEOMETRIC-OPTICS.md` | Rays and lenses sit above Maxwell-field behavior |
+| Materials and dielectric behavior | `materials/01-CRYSTAL-STRUCTURE.md` | Permittivity, polarization, and insulation depend on material structure |
+| Signal propagation and waves | `signal-processing/01-FOURIER-ANALYSIS.md` | Static fields become time-varying fields, waves, and spectra once dynamics enter |
+| Semiconductor device physics | `semiconductor-manufacturing/01-SILICON-SUBSTRATE.md` | Junctions, gates, and depletion regions are engineered electrostatics |
+
+---
 
 ## Common Confusion Points
 

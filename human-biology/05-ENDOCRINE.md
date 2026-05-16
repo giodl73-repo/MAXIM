@@ -331,16 +331,22 @@ The HPA axis (CRH → ACTH → cortisol → feedback inhibition) is a three-stag
 **Insulin signaling as RTK cascade with memory**
 The insulin receptor is a receptor tyrosine kinase: ligand binding → autophosphorylation → IRS-1 phosphorylation → PI3K → PIP₃ → Akt/PKB. Akt is the central node: it phosphorylates dozens of substrates in parallel (GLUT4 translocation, glycogen synthase, mTOR). This is a branching tree of phosphorylation events — rapid, reversible, dose-dependent. Insulin resistance (Type 2 DM) is a desensitized receiver: the signal is present but the downstream cascade fails to respond. Mechanistically it involves IRS-1 serine phosphorylation (by inflammatory kinases) blocking normal tyrosine phosphorylation — a signal-to-noise problem.
 
+## Cross-References
+
+- `disease/06-METABOLIC-ENDOCRINE.md` - endocrine feedback failures.
+- `medicine/05-ENDOCRINE-METABOLIC.md` - endocrine and metabolic therapies.
+- `nutrition/06-METABOLISM-ENERGY.md` - energy balance regulated by endocrine axes.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Peptide vs steroid hormone: which acts faster? | Peptide (membrane receptor, 2nd messenger, seconds-min); steroid (nuclear, gene transcription, hours) |
-| TSH high or low in primary hypothyroidism? | TSH high (pituitary not suppressed, trying to stimulate a failing thyroid) |
-| What does cortisol do to the immune system? | Suppresses it — ↓ prostaglandins, ↓ cytokines, ↓ leukocyte trafficking (steroids = anti-inflammatory) |
-| Aldosterone vs ADH: what each controls? | Aldosterone: Na⁺ (and therefore volume). ADH: water (and therefore osmolality) |
-| Why does insulin drive K⁺ into cells? | Na/K-ATPase activation in skeletal muscle — major clinical use: give insulin in hyperkalemia |
-| PTH net effect on serum phosphate? | ↓ (phosphaturic effect at kidney dominates over bone resorption release) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Fast versus slow hormone action | Peptide membrane signaling versus steroid nuclear signaling | Some steroid effects are nongenomic and faster. |
+| Primary hypothyroidism | High TSH with low thyroid output | Pituitary response distinguishes primary from central disease. |
+| Cortisol immune effect | Suppressed prostaglandins, cytokines, and trafficking | Anti-inflammatory benefit trades off infection risk. |
+| Aldosterone versus ADH | Sodium/volume versus water/osmolality | Both can affect measured serum sodium indirectly. |
+| Insulin in hyperkalemia | Na/K-ATPase activation in skeletal muscle | Must pair with glucose unless hyperglycemic. |
+| PTH phosphate effect | Renal phosphaturia dominates | Bone resorption releases phosphate but kidney effect wins. |
 
 ---
 

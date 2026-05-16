@@ -1,6 +1,8 @@
 # 01 — Engineering Statics
 
-## Equilibrium, Free Bodies, Trusses, Frames, Distributed Loads
+## The Big Picture
+
+### Equilibrium, Free Bodies, Trusses, Frames, Distributed Loads
 
 ```
 THE STATICS WORKFLOW
@@ -281,6 +283,12 @@ Virtual displacement δ: consistent with constraints (don't violate supports)
 **Truss assumption validity:** Real gusset plates add moment capacity → real members carry some bending. The pinned joint assumption is acceptable for preliminary design; FEM analysis for final design.
 
 ---
+
+## Cross-References
+
+- `mechanical/01-THERMODYNAMICS.md` — companion engineering foundation for energy balance, cycles, and irreversibility.
+- `materials/01-CRYSTAL-STRUCTURE.md` — material structure that determines stiffness, yield, and failure modes.
+- `control-theory/01-PID-CLASSICAL.md` — feedback framing for dynamic systems after the static equilibrium case.
 
 ## Decision Cheat Sheet
 

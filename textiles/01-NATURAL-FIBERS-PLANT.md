@@ -329,6 +329,18 @@ RAMIE (China grass):
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Plant cell walls | `botany/01-PLANT-CELL-PHYSIOLOGY.md` | Cellulose fiber behavior begins in plant-cell wall structure |
+| Dye chemistry | `dyeing-fiber/01-NATURAL-DYE-SOURCES.md` | Dye uptake depends on fiber chemistry and surface accessibility |
+| Polymer structure | `plastics-polymers/01-POLYMER-CHEMISTRY.md` | Cellulose is a natural polymer with crystallinity and hydrogen bonding |
+| Textile history | `textiles/02-SPINNING-WEAVING.md` | Fiber properties shape spinning, weaving, and cloth performance |
+| Agriculture of fiber crops | `agriculture/01-SOILS-FERTILITY.md` | Cotton, flax, hemp, and jute are agricultural systems |
+
+---
+
 ## Common Confusion Points
 
 **Cotton gin didn't reduce the need for enslaved labor**: Whitney's gin mechanized the seed separation (1 person = 50-person output). But it made cotton so profitable that cultivation expanded massively — and cultivation (planting, tending, picking) remained entirely hand labor. More cotton land = more enslaved labor, not less.

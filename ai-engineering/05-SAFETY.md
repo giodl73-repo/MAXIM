@@ -1096,36 +1096,24 @@ relevant for normal application development.
 
 ---
 
+## Cross-References
+
+- `security-engineering/01-THREAT-MODELING.md` — classical threat-model discipline applied to LLM systems.
+- `ai-engineering/02-EVALS-HARNESS.md` — safety evals as CI gates and regression detectors.
+- `ai-engineering/04-AGENTS.md` — agent-specific risk from tools, loops, and external observations.
+
 ## Decision Cheat Sheet
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  CONCERN                        │  APPROACH                         │
-├─────────────────────────────────┼──────────────────────────────────┤
-│  Hallucination in RAG           │  RAGAS faithfulness eval         │
-│  Hallucination in open-ended    │  SelfCheckGPT + citation forcing │
-│  Prompt injection from users    │  Structural delimiters + validate│
-│  Indirect injection from tools  │  Wrap all tool results in XML    │
-│  Jailbreak resistance           │  Rely on model alignment +       │
-│                                 │  output classification           │
-│  Automated red-teaming          │  PromptFoo redteam / Garak       │
-│  Multi-turn attack simulation   │  PyRIT RedTeamingOrchestrator    │
-│  Output toxicity blocking       │  Guardrails AI / Llama Guard     │
-│  Topic restriction / rails      │  NeMo Guardrails (Colang)        │
-│  PII detection + redaction      │  Microsoft Presidio              │
-│  Azure-native safety            │  Azure Content Safety API        │
-│  Bias measurement               │  Counterfactual eval suite       │
-│  EU AI Act compliance           │  Risk tier classification first  │
-│  Monitoring production          │  LangSmith / OTel traces +       │
-│                                 │  anomaly detection on output dist│
-├─────────────────────────────────┼──────────────────────────────────┤
-│  ALWAYS                         │                                  │
-│  Run safety evals in CI         │  PromptFoo --ci on prompt changes│
-│  Treat tool results as untrusted│  Wrap + validate before appending│
-│  Cap agent capabilities         │  Minimal tool set + confirmation │
-│  Monitor refusal rate both ways │  Under- and over-refusal         │
-└─────────────────────────────────┴──────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a RAG answer hallucinated | Faithfulness evals plus cited-source inspection | Grounded wording can still answer the wrong question if retrieval missed the target |
+| Whether prompt injection is viable | Structural delimiter tests and adversarial tool-output fixtures | Delimiters are containment hints, not security boundaries; validate instructions by trust zone |
+| Whether jailbreak resistance is adequate | PromptFoo redteam or Garak suites | Passing public jailbreak sets is baseline hygiene, not a proof of safety |
+| Whether multi-turn attacks matter | PyRIT scenarios over realistic conversation state | Single-turn tests miss escalation through memory, tool results, and accumulated concessions |
+| Whether output filtering is enough | Llama Guard, Guardrails, or policy classifiers after generation | Post-filters cannot prevent unsafe tool calls that already happened |
+| Whether PII risk is controlled | Presidio-style detection before logging or retrieval insertion | Redaction after persistence still leaves copies in traces, caches, or embeddings |
+| Whether compliance changes design | Risk-tier classification before architecture choices | Regulation attaches to use case and deployment context, not just model family |
+| Whether production drift is unsafe | Trace distributions, refusal rates, and confirmed incident exemplars | Monitor both under-refusal and over-refusal; safety failure includes blocking legitimate work |
 
 ---
 

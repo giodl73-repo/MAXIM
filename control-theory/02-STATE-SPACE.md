@@ -408,19 +408,25 @@ CONTROLLABILITY/OBSERVABILITY:
 
 ---
 
+## Cross-References
+
+- `control-theory/01-PID-CLASSICAL.md` — classical frequency-domain control baseline.
+- `control-theory/04-KALMAN-FILTER.md` — state estimation for state-space models.
+- `partial-differential-equations/02-FIRST-ORDER.md` — first-order dynamics analogy for state evolution.
+
 ## Decision Cheat Sheet
 
-| Task | Method |
-|------|--------|
-| Model a system with multiple inputs/outputs | State-space (A,B,C,D) |
-| Check if all states can be controlled | Rank of controllability matrix 𝒞 |
-| Check if all states can be inferred from outputs | Rank of observability matrix 𝒪 |
-| Place closed-loop poles (full state) | State feedback K via Ackermann or place() |
-| Estimate states from outputs | Luenberger observer (pole placement on A-LC) |
-| Combine observer + state feedback | Separation principle: design independently |
-| Analyze stability of nonlinear system | Lyapunov function V(x) > 0, V̇ < 0 |
-| Convert continuous to digital control | Zero-order hold discretization |
-| Find transfer function from state-space | G(s) = C(sI-A)⁻¹B + D |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a MIMO model needs state-space rather than transfer functions | Build the `(A,B,C,D)` realization | The chosen states are not unique; poor coordinates can hide structure |
+| Whether inputs can move every internal mode | Rank the controllability matrix `C` | Stabilizability is enough if only stable modes are unreachable |
+| Whether outputs reveal every internal mode | Rank the observability matrix `O` | Detectability is enough if only stable modes are hidden |
+| Whether full-state feedback can place poles | Use `K` from pole placement or Ackermann's formula | Pole placement assumes accurate state access and a controllable pair |
+| Whether measured outputs can support state feedback | Add a Luenberger observer on `A - LC` | Observer poles amplify noise if pushed too fast |
+| Whether controller and observer can be designed separately | Apply the separation principle | The principle is linear-model local; constraints and nonlinearities can break it |
+| Whether a nonlinear state model is stable | Search for a Lyapunov function `V(x)` | Finding `V` is the hard part; failure to find one is not instability |
+| Whether continuous design survives digital implementation | Discretize with zero-order hold | Sampling, delay, and actuator saturation can dominate the continuous design |
+| Whether state-space matches an old transfer-function view | Compute `G(s) = C(sI-A)^-1B + D` | Pole-zero cancellations can erase internal unstable modes from `G(s)` |
 
 ## Common Confusion Points
 

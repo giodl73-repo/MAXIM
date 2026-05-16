@@ -6,7 +6,7 @@
 
 ---
 
-## The Systems Biology Shift
+## The Big Picture
 
 ```
 REDUCTIONIST VIEW:           SYSTEMS VIEW:
@@ -396,19 +396,25 @@ APPLICATIONS:
 
 ---
 
+## Cross-References
+
+- `systems-engineering/01-SYSTEMS-THINKING.md` - system-level design concepts.
+- `control-theory/01-PID-CLASSICAL.md` - feedback and stability analogies.
+- `biology/01-MOLECULAR-MACHINERY.md` - biological components as engineered modules.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Answer |
-|----------|---------|--------|
-| Circuit produces two stable states | Bistability | Mutual repression (toggle switch) or positive feedback |
-| Circuit produces oscillation | Limit cycle | Odd-numbered ring of repressors; delayed negative feedback |
-| Filter out transient signal inputs | Network motif | Coherent FFL with AND logic |
-| Model metabolic capability of organism | FBA | S·v = 0 LP; maximize biomass subject to exchange constraints |
-| Gene shows bursty expression | Noise | Negative binomial distribution; single mRNA → protein burst |
-| Control a single neuron in a circuit | Optogenetics | ChR2 (activate), Halorhodopsin/Arch (silence) |
-| Repress gene without editing sequence | CRISPRi | dCas9-KRAB guided by sgRNA to promoter region |
-| Activate silent endogenous gene | CRISPRa | dCas9-VPR/SAM guided to promoter |
-| Test if gene is essential in metabolism | FBA KO | Set v=0, reoptimize; essential if biomass → 0 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Two stable circuit states | Bistability via mutual repression or positive feedback | Parameter regime determines whether bistability exists. |
+| Oscillatory circuit | Limit cycle with delayed negative feedback | Delay and degradation rates set oscillation. |
+| Transient-input filtering | Coherent feed-forward loop with AND logic | Motif behavior depends on kinetic timing. |
+| Organism metabolic capability | Flux balance analysis, S*v = 0 | Objective choice and constraints shape prediction. |
+| Bursty gene expression | Stochastic noise and negative-binomial models | Bulk averages hide single-cell bursts. |
+| Single-neuron control | Optogenetics with ChR2 or inhibitory opsins | Light delivery and expression specificity matter. |
+| Gene repression without editing | CRISPRi dCas9-KRAB | It changes expression, not genome sequence. |
+| Endogenous gene activation | CRISPRa dCas9-VPR/SAM | Promoter context affects activation strength. |
+| Metabolic gene essentiality | FBA knockout and biomass reoptimization | In silico essentiality depends on medium and model curation. |
 
 ---
 

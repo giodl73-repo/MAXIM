@@ -333,18 +333,24 @@ A24 MODEL (2012-):
 
 ---
 
+## Cross-References
+
+- `cinema-film/05-CLASSICAL-HOLLYWOOD.md` — studio-system historical baseline.
+- `cinema-film/10-DIGITAL-REVOLUTION.md` — platform economics after digital distribution.
+- `finance/01-PORTFOLIO-THEORY.md` — risk, portfolio, and return logic behind film slates.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is the theatrical split? | ~70% distributor / 30% exhibitor (Week 1); converges to ~50/50 over time |
-| What is P&A? | Prints & Advertising; marketing + distribution cost; typically $50-150M for major studio release |
-| What is a distribution window? | Sequential release in different formats; temporal price discrimination |
-| What is the 2.5x rule? | Film needs ~2.5x production budget in theatrical gross to break even (after exhibitor split + P&A) |
-| What did Star Wars change? | Established franchise model + merchandise as major revenue stream; proved IP long-tail value |
-| Why do studios buy IP? | Pre-sold brand = lower marketing cost per dollar earned; sequel predictability |
-| What is a completion bond? | Insurance guaranteeing film gets finished; required by all investors |
-| What is a pre-sale? | Selling distribution rights by territory before production to fund it |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why headline box office is not studio revenue | Theatrical split: early distributor-heavy terms drifting toward 50/50 | Gross receipts arrive before exhibitor split, P&A recoupment, and backend participation. |
+| Why a film can gross a lot and still lose money | P&A marketing/distribution spend, often $50-150M for majors | Production budget alone is not the investment base. |
+| Why release order changes price | Distribution windows as temporal price discrimination | Window strategy shifts with streaming, but the pricing logic remains. |
+| Whether theatrical break-even is plausible | Rough 2.5x production-budget rule | It is a heuristic; P&A, splits, foreign terms, merchandise, and streaming rights alter the math. |
+| Why Star Wars changed studio strategy | Franchise model plus merchandise long-tail | It did not invent sequels; it proved IP ecosystems could dominate profit. |
+| Why studios buy known IP | Pre-sold brand and sequel predictability | IP lowers some marketing risk while adding franchise-management constraints. |
+| Why investors require completion protection | Completion bond | The bond protects delivery, not box-office success. |
+| How independent films finance before shooting | Territory pre-sales | Pre-sales transfer market risk and can constrain casting, genre, and delivery terms. |
 
 ---
 

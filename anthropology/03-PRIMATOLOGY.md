@@ -15,7 +15,7 @@
 |  Lorises (Asia/Africa)                       +                     |
 |  Galagos ("bush babies")              ANTHROPOIDEA                 |
 |                                              |                     |
-|                               ┌──────────────┴──────────────┐     |
+|                               branching split                    |
 |                               |                             |     |
 |                        PLATYRRHINI                    CATARRHINI  |
 |                        (New World monkeys)            (Old World) |
@@ -23,7 +23,7 @@
 |                        broad nasal septum             all females |
 |                        3-color polymorphism           trichromats |
 |                               |                             |     |
-|                         Capuchins,            ┌─────────────┴──┐  |
+|                         Capuchins,            branching split     |
 |                         Spider monkeys,       |                |  |
 |                         Howler monkeys,  Old World           APES  |
 |                         Squirrel monkeys Monkeys                |  |
@@ -122,7 +122,7 @@
   |          | resolution. Same DNA distance as chimp.    |
   +----------+--------------------------------------------+
   | Human    | Global. Obligate bipedal. Language.        |
-  |          | Extreme encephalization. Cumulative culture.|
+  |          | Big brain. Cumulative culture.             |
   +----------+--------------------------------------------+
 
   Chimp and bonobo diverged from each other ~2 Ma.
@@ -460,18 +460,26 @@ typical company size before bureaucracy sets in.
 
 ## Decision Cheat Sheet
 
-| I want to understand... | Key research |
-|------------------------|-------------|
-| Primate phylogeny | Molecular clocks: chimp/human split ~7 Ma, bonobo/chimp ~2 Ma |
-| Why chimps have more color polymorphism | New World monkey ecology (platyrrhine females) |
-| Group size and brain size | Dunbar's social brain hypothesis — neocortex ratio |
-| Vervet alarm calls | Seyfarth/Cheney 1980 — referential, not language |
-| Chimp tool use | Goodall 1960 (Gombe); Matsuzawa nut-cracking (Bossou) |
-| Chimp cultures | Whiten et al. 1999 — 39 variants, 7 sites |
-| Great ape language | Kanzi (best comprehension); Nim Chimpsky (imitation limits) |
-| Self-recognition | Gallup 1970 MSR test; great apes + dolphins + elephants pass |
-| Theory of mind in apes | Krupenye 2016 (implicit); Call/Tomasello on shared intentionality |
-| Bonobo vs. chimp | Same genome, different ecology -> different social structure |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Primate phylogeny | Compare molecular clocks, fossils, morphology, divergence estimates, and calibration points. | Split dates are ranges, not exact speciation events. |
+| Color-vision variation | Check platyrrhine ecology, sex-linked opsins, foraging, predation, and polymorphism by sex. | Color vision is an ecological tradeoff, not a simple progress ladder. |
+| Group size and brain size | Use neocortex ratio, social network complexity, diet, predation, and life-history constraints. | Dunbar-style correlations do not prove one causal pathway. |
+| Vervet alarm calls | Examine call specificity, receiver response, learning, reference, and syntax absence. | Referential calls are not the same as human language. |
+| Chimp tool use | Compare site tradition, material availability, learning, ecological payoff, and observation history. | Tool absence can reflect ecology or tradition, not cognitive incapacity. |
+| Chimp culture | Look for socially learned variants across sites, ecological controls, and transmission stability. | Cultural variation requires excluding simple environmental explanation. |
+| Great ape language claims | Separate comprehension, production, imitation, syntax, prompting, and training context. | Symbol use under training is not equivalent to open-ended language. |
+| Self-recognition | Use mirror self-recognition, species sensory ecology, motivation, and task design. | Failing MSR does not prove absence of self-model. |
+| Ape theory of mind | Compare false-belief tasks, gaze following, shared intentionality, and competitive/cooperative context. | Implicit sensitivity is weaker than full human-like belief reasoning. |
+| Bonobo/chimp contrast | Start with ecology, female alliances, aggression, food distribution, and developmental patterns. | Similar genomes can support different social systems under different ecology. |
+
+---
+
+## Cross-References
+
+- `02-PALEOANTHROPOLOGY.md` uses primate comparison to interpret hominin anatomy and behavior.
+- `04-EVOLUTIONARY-ANTHROPOLOGY.md` extends primate sociality into human cooperation and life-history models.
+- `../animal-phylogeny/08-VERTEBRATES.md` situates primates inside the broader vertebrate tree.
 
 ---
 

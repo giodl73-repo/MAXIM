@@ -306,17 +306,23 @@ The titin protein acts as a passive elastic restoring force (negative feedback s
 
 ---
 
+## Cross-References
+
+- `nutrition/05-MINERALS.md` - calcium, phosphate, and mineral physiology.
+- `biomedical-engineering/01-BIOMECHANICS.md` - force, motion, and tissue mechanics.
+- `human-biology/05-ENDOCRINE.md` - hormonal regulation of bone and muscle.
+
 ## Decision Cheat Sheet
 
-| Scenario | What to think | Key mechanism |
-|----------|---------------|---------------|
-| Need fine motor control (writing, surgery) | Small motor units, Type I fibers, high innervation ratio | Henneman's size principle; few fibers per neuron |
-| Need explosive power (sprint, jump) | Type IIx recruited on top of Type I; glycolytic fueling | Rate coding at high frequency → fused tetanus |
-| ATP depleted (rigor mortis) | Myosin locked onto actin; can't release without ATP | ATP binding step is the release step, not the power step |
-| Ca²⁺ absent (relaxation) | Tropomyosin blocks actin binding sites; no cycling | SERCA pump restores SR; troponin I re-engages |
-| Cartilage needs repair | Problem: avascular tissue can't deliver progenitors | No healing without blood supply; rely on synovial fluid diffusion only |
-| Bone fracture after menopause | Osteoporosis: resorption > formation; low estrogen removes brake on osteoclasts | T-score < −2.5; DEXA quantifies; bisphosphonates inhibit osteoclasts |
-| Distinguishing MI from rhabdomyolysis | Both ↑ CK; use troponin I/T specificity for cardiac | CK-MM = skeletal; CK-MB + troponin = cardiac |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Fine motor control | Small motor units and Type I fibers | High innervation ratio means fewer fibers per neuron. |
+| Explosive power | Type IIx recruitment and high-frequency rate coding | Glycolytic power fatigues quickly. |
+| Rigor mortis | ATP absence locking myosin to actin | ATP binding releases, not powers, the crossbridge. |
+| Muscle relaxation | Calcium removal and tropomyosin blockade | SERCA function is required to restore SR calcium. |
+| Cartilage repair failure | Avascular matrix and poor progenitor delivery | Synovial diffusion cannot replace blood supply. |
+| Postmenopausal fracture risk | Estrogen loss, osteoclast activity, DEXA T-score | Bisphosphonates reduce resorption, not every fracture cause. |
+| MI versus rhabdomyolysis labs | Troponin specificity over CK alone | CK can rise from skeletal or cardiac muscle. |
 
 ---
 

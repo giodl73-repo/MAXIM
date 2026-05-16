@@ -567,26 +567,23 @@ IEA NZE 2050 ELECTRICITY TARGET:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Convert EJ → TWh? | × 277.8 |
-| Global primary energy? | ~600 EJ/yr (~167,000 TWh) |
-| Global electricity? | ~30,000 TWh/yr |
-| Electricity as % of final energy? | ~20% (heading to ~50% by 2050 in NZE) |
-| Cheapest new generation (2024)? | Onshore wind / utility solar: $25-55/MWh |
-| Most efficient thermal plant? | CCGT: 58-63% (Brayton + Rankine combined) |
-| Nuclear efficiency and why? | 32-34%; T_hot deliberately limited by materials/safety |
-| Why electrify heating? | Heat pump COP 3 beats 90% gas furnace even with 50% gas-plant electricity |
-| LCOE's fatal weakness? | Ignores dispatchability, integration cost, value deflation |
-| Carbon budget for 1.5°C? | ~250 GtCO₂ remaining (~6-7 years at current pace) |
-| Why hydrogen round-trip is awful? | Electrolyze (70%) × compress (85%) × fuel cell (55%) ≈ 33% |
-| When is hydrogen justified? | Seasonal storage, aviation/shipping fuel, steel DRI, ammonia |
-| NZE 2050 electricity volume? | ~90,000 TWh (3× today) |
-| Best storage for 4 hours? | Li-ion (LFP for cost, NMC for density) |
-| Best storage for seasonal? | Hydrogen (33% RT loss beats 0% from curtailment) |
-| Capacity factor of 1 GW solar? | 15-30% → 1,300-2,600 GWh/yr (vs 7,900 for nuclear) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| An energy-unit claim | Convert consistently between EJ, TWh, primary energy, final energy, and useful work. | Primary-energy accounting can make fossil systems look larger because rejected heat is counted. |
+| A "cheapest generation" claim | Compare LCOE, capacity factor, dispatchability, interconnection, curtailment, financing, and local resource quality. | Cheap MWh are not automatically valuable MWh at the hour and node needed. |
+| A thermal-efficiency claim | Identify thermodynamic cycle, temperature limits, materials, safety margin, heat sink, and combined-cycle recovery. | Efficiency is constrained by physics and engineering, not just turbine quality. |
+| An electrification claim | Compare direct electric efficiency, heat-pump COP, grid emissions, equipment turnover, peak load, and end-use temperature. | Electrification benefits depend on both device efficiency and marginal electricity supply. |
+| A carbon-budget or NZE claim | Check probability level, non-CO2 gases, land-use assumptions, overshoot, and update vintage. | Budget numbers are scenario-dependent and decay with every year of emissions. |
+| A hydrogen or storage claim | Match duration and end use: daily shifting, seasonal storage, industrial feedstock, shipping fuel, or steel reduction. | Low round-trip efficiency can be acceptable only when the alternative is worse or impossible. |
+| A capacity-factor comparison | Multiply nameplate by 8,760 hours and capacity factor, then ask whether the output is dispatchable. | Annual energy equivalence does not imply equal reliability contribution. |
 
 ---
+
+## Cross-References
+
+- `01-SOLAR-PV.md` gives the solar conversion baseline.
+- `02-WIND-POWER.md` covers the other major variable renewable resource.
+- `05-GRID-INTEGRATION.md` explains how generation, storage, and demand meet the grid.
 
 ## Common Confusion Points
 

@@ -2,11 +2,13 @@
 
 ## The Big Picture
 
-Nuclear is the only large-scale technology that provides firm, zero-carbon, high-capacity-factor
-electricity. It does not depend on weather. A single 1 GW nuclear plant generates more
-electricity in a year (~7.9 TWh) than ~4-5 GW of solar. The engineering is solved; the
-economics are broken. Understanding why requires separating the physics from the finance,
-and the existing fleet from new construction.
+Nuclear is one of the few large-scale technologies that provides firm,
+zero-carbon, high-capacity-factor electricity without weather dependence. A
+single 1 GW nuclear plant can generate roughly as much annual electricity as
+several GW of solar, but the comparison is only meaningful once capacity value,
+construction risk, financing, and grid role are separated. The physics is mature;
+the hard part is project delivery, cost, licensing, waste siting, and political
+durability.
 
 Note: Nuclear physics (fission reaction, neutron cross-sections, reactor criticality,
 radioactive decay chains) is covered in `nuclear/`. This guide covers engineering,
@@ -291,7 +293,7 @@ custom ships. The thesis is credible but unproven at commercial scale.
   Operating temp: 650°C (high-efficiency steam cycle)
   STATUS: NRC licensing, Hermes demo (10 MW thermal) construction started 2023
   Google PPA: signed for 500 MW starting 2035 (6-7 × KP-FHR units)
-  Interesting: same TRISO fuel as X-energy; different coolant
+  Interesting: same TRISO fuel family as X-energy; different coolant
 
   TerraPower Natrium (SFR):
   Described above. 345/500 MWe. Most advanced Gen IV in US. 2030 target.
@@ -452,42 +454,45 @@ Fusion power (combining light nuclei, typically D-T, releasing energy) has been
   Mixed/pragmatic: USA (Vogtle complete, some SMR interest), UK (Hinkley Point C, SMR)
   Japan: restarting fleet post-Fukushima (political challenge, progress slow)
 
-  MICROSOFT CONTEXT:
-  Microsoft + TerraPower (Bill Gates) — connection to Natrium
-  Microsoft + Helion PPA (fusion, 2028)
-  Microsoft + Kairos Google PPA (nuclear)
-  Hyperscalers need 24/7 CFE → nuclear is the natural complement to wind/solar
-  Data center siting near nuclear plant: direct co-location being explored
+  DATA-CENTER CONTEXT:
+  Hyperscalers need 24/7 CFE, not just annual renewable-energy matching.
+  Nuclear, geothermal, hydro, long-duration storage, and firm clean imports
+  are all candidates for the "always-on clean capacity" slot.
+  Data-center siting near firm clean generation is being explored, but the
+  model must clear transmission, reliability, regulatory, and market hurdles.
 ```
 
 ---
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Existing US nuclear LCOE? | $25-40/MWh (capital paid off, marginal fuel cost low) |
-| New nuclear LCOE (US, Gen III+)? | $100-200/MWh (capital cost + financing dominate) |
-| Nuclear capacity factor? | 90-95% — highest of any generation source |
-| Why did nuclear costs go UP? | Lost learning: regulatory ratchet + 30yr hiatus + FOAK |
-| AP1000 in US? | Vogtle 3&4, Georgia — online 2023/2024, first in 40 years |
-| NuScale SMR status? | CANCELLED (UAMPS 2023) — cost overruns |
-| Most advanced US Gen IV? | TerraPower Natrium (SFR + molten salt storage), Kemmerer WY ~2030 |
-| Google nuclear PPA? | Kairos Power KP-FHR, 500 MW starting 2035 |
-| Microsoft fusion PPA? | Helion Energy, 50 MW by 2028 (ambitious) |
-| ITER: will it generate electricity? | No — purely a physics experiment; proves Q>10 |
-| NIF ignition: commercial relevance? | Proves physics; enormous engineering gap remains |
-| Nuclear waste volume (all US)? | ~90,000 tonnes — fits in one building; political problem, not volume |
-| Where does nuclear win vs wind/solar? | Firm capacity, 24/7 CFE, high-density land use, no weather dependence |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Existing fleet value | Avoided emissions plus operating cost and license-extension risk | Retiring paid-off plants destroys clean firm capacity immediately |
+| New-build economics | Overnight cost, interest during construction, and schedule risk | LCOE alone misses capacity value; capacity value alone cannot erase overruns |
+| SMR claims | FOAK cost vs nth-of-a-kind factory learning | Smaller reactors are not automatically cheaper per kW |
+| Gen IV claims | Coolant, fuel form, outlet temperature, and safety case | Higher temperature helps efficiency but complicates licensing and materials |
+| Waste objections | Volume, heat load, repository geology, and institutional trust | Engineering storage is solvable; siting and governance are the bottleneck |
+| Fusion claims | Plasma gain vs plant net electricity | Physics milestones are not commercial power plants |
+| Nuclear vs renewables | Firm clean capacity, land use, transmission, and storage duration | Annual MWh equivalence is not hourly reliability equivalence |
+| Data-center nuclear demand | 24/7 clean-energy matching and local grid constraints | Co-location is a market/regulatory problem as much as a reactor problem |
 
 ---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places nuclear inside the full energy conversion and exergy chain.
+- `08-THERMAL-CYCLES.md` explains the steam-cycle physics shared with thermal generation.
+- `../nuclear/01-NUCLEAR-PHYSICS.md` supplies the reactor-physics foundation.
 
 ## Common Confusion Points
 
 **"Nuclear can't be a climate solution because of waste"**
-The waste volume is tiny and manageable. Finland is building a working geological repository.
-Coal waste (fly ash, bottom ash) is orders of magnitude larger in volume and contains heavy metals.
-The nuclear waste objection is political, not engineering. Engineers consider it solvable.
+The waste volume is small relative to fossil waste streams, and deep geological
+disposal is an engineered solution with active deployment in Finland. But the
+objection is not "fake" just because the physics is manageable: repository siting,
+intergenerational governance, transport, and public trust are real system
+requirements.
 
 **"SMRs will be cheap because they're small"**
 Smallness creates economies of scale problems (smaller means higher $/kW, not lower).

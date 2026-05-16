@@ -205,20 +205,26 @@ WorldView-3 unique: 8 SWIR bands (1195-2365nm) at 7.5m for mineralogy.
 
 ---
 
+## Cross-References
+
+- `05-SATELLITE-ORBITS.md` explains why platform orbit controls revisit and resolution.
+- `02-PASSIVE-SENSORS.md` maps platforms to optical and thermal payloads.
+- `03-ACTIVE-SENSORS-SAR.md` maps platforms to radar payloads.
+
 ## Decision Cheat Sheet
 
-| Need | Mission | Why |
-|------|---------|-----|
-| Historical change 1972+ | Landsat 1-9 | Only 50-year archive with consistent sensor calibration |
-| Free 10m optical time series | Sentinel-2 A+B | 5-day revisit, free, 13 bands including red-edge |
-| All-weather C-band SAR free | Sentinel-1 | 6-day revisit, free archive 2014+ |
-| Daily global monitoring | MODIS, VIIRS | Wide swath, daily, 36 bands |
-| Daily 3-5m global | Planet Dove | Constellation = daily everywhere |
-| Sub-meter commercial | WorldView, Pleiades | 0.3-0.5m PAN, tasking |
-| Vegetation biomass (SAR) | NISAR L-band | Deep penetration, 12-day global |
-| Mineral mapping hyperspectral | EMIT, PRISMA, EnMAP | 30-60m, SWIR to 2.5 um |
-| Weather + storm tracking | GOES-18, Meteosat | GEO, 5 min refresh, 16 channels |
-| Global DEM free | Copernicus DEM (GLO-30) | 30m, from TanDEM-X, free since 2021 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Historical land change | Landsat 1-9 archive | Do not mix Collection 1 and Collection 2 without calibration awareness. |
+| Free 10 m optical time series | Sentinel-2 A+B | Five-day revisit is not five-day cloud-free observation. |
+| Free all-weather C-band SAR | Sentinel-1 | Platform outages changed revisit in the 2021-2023 period. |
+| Daily global moderate-resolution monitoring | MODIS or VIIRS | Wide swath trades against spatial detail. |
+| Daily 3-5 m global imaging | Planet Dove constellation | Radiometric consistency and licensing differ from public missions. |
+| Sub-meter mapping | WorldView or Pleiades | Tasking, off-nadir angle, and cost control feasibility. |
+| SAR vegetation biomass | NISAR L-band | L-band penetration helps but can saturate. |
+| Hyperspectral minerals | EMIT, PRISMA, or EnMAP | SWIR spectra require careful atmospheric correction. |
+| Weather/storm tracking | GOES-18 or Meteosat | GEO refresh is excellent but geometry worsens toward limb/high latitude. |
+| Free global DEM | Copernicus DEM GLO-30 | DEM source and vertical datum matter for differencing. |
 
 ---
 

@@ -381,19 +381,25 @@ The ensemble probability swamps the abiotic alternatives.
 
 ---
 
+## Cross-References
+
+- `astrobiology/03-HABITABLE-ENVIRONMENTS.md` — environmental contexts for biosignature interpretation.
+- `astrobiology/05-JWST-DETECTION.md` — observational pipeline for atmospheric signatures.
+- `geochemistry/04-STABLE-ISOTOPE-PALEO.md` — isotope-signature logic from Earth systems.
+
 ## Decision Cheat Sheet
 
-| Biosignature | Detection method | Strongest false positive concern | Confidence with ensemble |
-|---|---|---|---|
-| O2 | Transmission spectrum, direct imaging | Photolysis, desiccation | High if paired with CH4, N2O |
-| O3 | Mid-IR 9.6 micron | Same as O2 | Proxy for O2 |
-| CH4 + O2 | Transmission spectrum | CH4 alone = abiotic | Very high pair |
-| N2O | Mid-IR 8.5, 17 micron | Lightning (minor) | Good standalone |
-| DMS | Mid-IR ~9.5 micron | Unknown | Currently weak (K2-18b) |
-| Red edge | Reflectance spectrum | Mineral reflectance | Medium; needs variability |
-| Circular polar. | Polarimetry | Minerals | Not feasible with JWST |
-| Carbon isotopes | Mass spec (in-situ) | FTT abiotic synthesis | Good in context |
-| MA index | Mass spec | Validation needed | Promising, unproven |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether atmospheric oxygen is biological | O2 by transmission spectrum or direct imaging | Photolysis and ocean loss can make abiotic O2; context is mandatory. |
+| Whether ozone can stand in for oxygen | O3 mid-IR 9.6 micron band | O3 is a proxy for O2 and inherits many O2 false-positive pathways. |
+| Whether chemical disequilibrium is strong | CH4 plus O2 together | Methane alone has abiotic sources; the pair is the stronger signal. |
+| Whether N2O is meaningful | Mid-IR bands near 8.5 and 17 microns | Abiotic lightning flux is a concern, but large sustained flux is harder to explain. |
+| Whether DMS is a candidate biosignature | Mid-IR near 9.5 microns | Current K2-18b-style claims are tentative and chemically uncertain. |
+| Whether surface vegetation-like structure is visible | Red-edge reflectance | Minerals and clouds can mimic; temporal/seasonal variability strengthens the case. |
+| Whether chirality can be remotely detected | Circular polarimetry | Promising in principle but not feasible with JWST. |
+| Whether in-situ organics show biological fractionation | Carbon isotope mass spectrometry | Fischer-Tropsch-type abiotic synthesis can fractionate; geological context decides. |
+| Whether molecular complexity itself is diagnostic | Molecular assembly index | Promising but not yet validated as a stand-alone life detector. |
 
 ---
 

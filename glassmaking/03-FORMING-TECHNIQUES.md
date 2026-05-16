@@ -318,6 +318,12 @@ Applications:
 
 ---
 
+## Cross-References
+
+- [Glass Science](01-GLASS-SCIENCE.md) supplies the viscosity-temperature logic forming techniques exploit.
+- [Float Glass](04-FLOAT-GLASS.md) covers the dominant flat-glass forming process.
+- [Historical Glassmaking](08-HISTORICAL-GLASSMAKING.md) shows how hand processes evolved before industrial forming.
+
 ## Common Confusion Points
 
 **Mold-blown vs pressed glass**:
@@ -336,15 +342,15 @@ Glassblowing (offhand) uses a furnace and a blowpipe; lampworking uses a bench t
 
 ## Decision Cheat Sheet
 
-| Product | Forming Technique |
-|---------|-----------------|
-| Wine/beer bottle | IS machine (blow-blow) |
-| Wide-mouth jar | IS machine (press-blow) |
-| Architectural flat glass | Float process |
-| Studio art vessel | Offhand freeblown |
-| Hand-cut crystal decanter | Mold blown (or free blown) |
-| Cast glass sculpture | Lost wax kiln casting |
-| Thin pharmaceutical vials | Danner/Vello tube drawing + tubing conversion |
-| Kiln-formed bowl | Slumping over a mold |
-| Glass art bead | Lampworking on mandrel |
-| Optical lens blank | Precision pressing (PGM) |
+| Product / Constraint | Use This Forming Route | Why |
+|---|---|---|
+| Narrow-neck bottle at high volume | IS machine, blow-blow | Air forms the parison and final cavity efficiently |
+| Wide-mouth jar with uniform wall | IS machine, press-blow | Plunger controls parison geometry better than air alone |
+| Architectural flat glass | Float process | Molten tin creates optical flatness at continuous ribbon scale |
+| Thin tubing for pharma vials | Danner/Vello draw, then tubing conversion | Continuous tube stock gives dimensional repeatability before vial forming |
+| Studio vessel with unique form | Offhand free blowing | Human control of rotation, gravity, and reheating matters more than repeatability |
+| Relief-pattern vessel | Mold blowing | Mold controls exterior while interior remains blown |
+| Solid/aspheric optical blank | Precision pressing / PGM | Near-net-shape optics reduce grinding and polishing burden |
+| Sculptural thick glass | Lost-wax or kiln casting | Mold geometry and annealing schedule dominate shape retention |
+| Kiln-formed bowl/panel | Fusing plus slumping | Works below furnace temperatures using compatible sheet glass |
+| Small bead/scientific repair | Lampworking/flameworking | Local torch heat is enough for rod/tube-scale work |

@@ -460,19 +460,25 @@ CRYSTAL PALACE: MODULAR PREFABRICATION SYSTEM
 
 ---
 
+## Cross-References
+
+- `architecture-history/05-INDUSTRIAL-AGE.md` — architectural consequences of metal structures.
+- `materials/04-METALS-ALLOYS.md` — metal and alloy behavior.
+- `manufacturing/01-GDT-TOLERANCING.md` — industrial precision and fabrication context.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| Cast iron beam — safe to use? | No: brittle in tension; use only in compression (column, arch) |
-| Identify cast iron vs steel on site? | Spark test (steel → bright stars; cast iron → dull red sparks) or fibrous fracture (wrought iron) |
-| High-strength steel saves material — but when not to use? | Long columns: Euler buckling depends on E (=200 GPa all grades); Fy doesn't help |
-| Slip-critical vs bearing bolt connection? | Slip-critical: seismic, vibration, high shear reversal; bearing: normal static connection |
-| EAF steel vs BOF steel — why specify? | EAF from scrap = 60–80% lower embodied carbon; specify recycled content % |
-| Pre-heat required for site weld? | Check CE value: CE > 0.40 → pre-heat; consult welding engineer |
-| W-beam vs S-beam — which for modern construction? | W-beam (parallel flanges): simpler bolting, better for welded connections |
-| Rivets — when to retain in historic structure? | Leave in place unless loose (tap test) or corroded through; replacement difficult |
-| A992 vs A36 — seismic design? | A992 specifies Fy/Fu ≤ 0.85 → ductile plastic hinge behaviour; use A992 for seismic moment frames |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether an old cast-iron member can work as a beam | Treat cast iron as compression-only until proven otherwise | Brittle tension failure makes beam use dangerous; columns and arches fit its strengths better. |
+| Whether site metal is cast iron, wrought iron, or steel | Spark test plus fracture/section evidence | Field identification is screening; structural decisions need material testing. |
+| Whether high-strength steel reduces a long column size | Check Euler buckling before yield strength | Slender columns depend on `E` and section geometry; higher `Fy` may not help. |
+| Whether a bolted joint must be slip-critical | Use slip-critical for seismic, vibration, or shear reversal | Ordinary bearing connections are fine for many static loads but allow slip before bearing. |
+| Whether steelmaking route matters to embodied carbon | Specify EAF recycled-content steel where appropriate | Carbon claims need EPDs and supply-chain verification, not furnace label alone. |
+| Whether a site weld needs preheat | Check carbon equivalent, especially `CE > 0.40` | Preheat decisions belong with the welding procedure and engineer, not rule-of-thumb alone. |
+| Whether modern framing should use W or S beams | W-beams with parallel flanges | Historic S-shapes may appear in assessment; do not assume modern connection details fit. |
+| Whether historic rivets should be replaced | Retain unless loose or corroded through | Riveted load paths are not automatically improved by adding welds. |
+| Whether seismic moment frames should use A992 instead of A36 | A992 for ductile plastic hinge behavior | Ductility depends on system detailing as well as `Fy/Fu` limits. |
 
 ---
 

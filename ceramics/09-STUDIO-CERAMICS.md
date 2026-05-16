@@ -394,16 +394,22 @@ University ceramics MFA programs are art programs where ceramics is the medium. 
 
 ---
 
+## Cross-References
+
+- `ceramics/05-DECORATION.md` — surface treatment vocabulary for studio work.
+- `ceramics/07-EARTHENWARE-TRADITIONS.md` — craft lineage behind contemporary studio practice.
+- `art-history/11-ART-MARKET.md` — studio ceramics in gallery, market, and craft institutions.
+
 ## Decision Cheat Sheet
 
-| If You're Interested In... | Look At |
-|---------------------------|---------|
-| Historical craft + Japanese tradition | Hamada, Kawai, Leach (1920-60s work) |
-| Austere modernist vessels | Lucie Rie, Hans Coper |
-| Ceramics as sculptural fine art | Peter Voulkos, Ken Price |
-| Contemporary African + global synthesis | Magdalene Odundo |
-| Conceptual ceramics (text/narrative) | Grayson Perry, Edmund de Waal |
-| Community firing experience | Western raku firing event |
-| Tea ceremony tradition | Japanese raku (Raku Museum, Kyoto) |
-| Learning to throw efficiently | Production studio/community class |
-| Understanding folk pottery philosophy | Mingei movement (Yanagi's writings) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether studio pottery is framed through craft revival | Hamada, Kawai, and Leach | Mingei lineage is influential but not the whole field. |
+| Whether austere modernist vessels are the target | Lucie Rie and Hans Coper | Minimal forms rely on proportion, surface, and firing precision. |
+| Whether ceramics is operating as sculptural fine art | Peter Voulkos and Ken Price | The shift is institutional and formal, not just bigger pots. |
+| Whether contemporary global synthesis is central | Magdalene Odundo | Avoid treating African/global references as surface style detached from form and history. |
+| Whether text and narrative drive the work | Grayson Perry or Edmund de Waal | Conceptual ceramics still depends on material, display, and vessel conventions. |
+| Whether firing is a communal event | Western raku firing | Western raku differs sharply from Japanese tea-ceremony raku. |
+| Whether tea-ceremony lineage is the focus | Japanese raku and the Raku Museum, Kyoto | The tradition is aesthetic, ritual, and familial, not just a firing technique. |
+| Whether efficient throwing is the learning goal | Production studio or community class | Speed follows repetition and body mechanics, not shortcut recipes. |
+| Whether folk pottery philosophy is the question | Mingei movement and Yanagi's writings | Mingei contains both craft insight and contested romanticization. |

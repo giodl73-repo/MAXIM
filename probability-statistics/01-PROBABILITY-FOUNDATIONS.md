@@ -350,6 +350,18 @@ If nu is absolutely continuous with respect to mu (nu << mu — nu assigns zero 
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Statistical inference on top of probability | `statistics-applied/01-EXPERIMENTAL-DESIGN.md` | Probability is the model layer; inference is how evidence updates beliefs |
+| Random variables in machine learning theory | `machine-learning-theory/01-PAC-LEARNING.md` | PAC bounds depend on sampling, concentration, and failure probability |
+| Information and entropy | `information-theory/01-ENTROPY-INFORMATION.md` | Entropy is a probability functional with communication and uncertainty meaning |
+| Finance and risk models | `finance/01-PORTFOLIO-THEORY.md` | Expected return, variance, covariance, and tail risk are probability applied to assets |
+| Population and epidemic stochasticity | `ecology/01-POPULATION-DYNAMICS.md` | Demographic and environmental stochasticity are probabilistic population dynamics |
+
+---
+
 ## Common Confusion Points
 
 **"The sigma-algebra is the sigma-algebra of events — why does it matter which one?"**

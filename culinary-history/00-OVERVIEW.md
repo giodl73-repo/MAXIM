@@ -220,17 +220,24 @@ Without preservation, there is no long-distance trade, no off-season food supply
 
 ## Decision Cheat Sheet
 
-| You want to understand... | Go to... |
-|---------------------------|----------|
-| Why cooking made us human | 01-PREHISTORIC (Wrangham) |
-| Ancient food as economy | 02-ANCIENT-CIVILIZATIONS |
-| Where spices fit historically | 03-MEDIEVAL |
-| Why "Italian" tomato is recent | 04-COLUMBIAN-EXCHANGE |
-| Professional kitchen structure | 05-FRENCH-CUISINE |
-| Why canning was revolutionary | 06-INDUSTRIAL-FOOD |
-| Non-European culinary frameworks | 07-GLOBAL-TRADITIONS |
-| The chemistry of flavor | 08-FOOD-SCIENCE |
-| Food systems critique | 09-CONTEMPORARY |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Cooking as human technology | Examine fire control, digestibility, energy extraction, anatomy, social eating, and evidence gaps. | Wrangham's timing claim is plausible but not directly proven by hearth evidence. |
+| Food in early states | Track grain storage, taxation, irrigation, labor control, famine risk, and cuisine formation. | Staple crops are political infrastructure, not just diet. |
+| Medieval spice systems | Separate preservation myths, status display, trade routes, humoral theory, and elite consumption. | Spices mattered culturally and commercially even when they were not required for preservation. |
+| A "traditional cuisine" claim | Check Columbian Exchange ingredients, colonial routes, adoption timing, and national identity formation. | Many iconic traditions are post-1500 recombinations. |
+| Professional kitchen hierarchy | Use brigade roles, service timing, menu structure, labor specialization, and restaurant economics. | French terminology can hide broader industrial organization patterns. |
+| Industrial food change | Diagnose canning, refrigeration, pasteurization, milling, logistics, brands, and regulation. | Preservation technologies changed scale and trust, not just shelf life. |
+| Global culinary comparison | Compare staple ecology, technique, ritual, trade, diaspora, and colonial power. | Avoid treating European sequences as the default world history of food. |
+| Food-science or contemporary-system claims | Link chemistry, flavor, processing, supply chains, labor, sustainability, and health outcomes. | Technical optimization and social consequences must be analyzed together. |
+
+---
+
+## Cross-References
+
+- `01-PREHISTORIC.md` starts with cooking as energy technology and human adaptation.
+- `04-COLUMBIAN-EXCHANGE.md` shows the largest global ingredient redistribution in food history.
+- `08-FOOD-SCIENCE.md` connects historical technique to chemistry, preservation, and industrial process.
 
 ---
 

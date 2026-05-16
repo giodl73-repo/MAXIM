@@ -215,7 +215,7 @@ PRE-1950: "Gros Michel" was THE commercial banana
   Standard banana flavor = Gros Michel (banana-flavored candy still mimics it)
 
 1950s-1965: Fusarium oxysporum f.sp. cubense Race 1 ("Panama disease")
-  Soil-borne water mold; persists for decades in soil
+  Soil-borne fungus; persists for decades in soil
   No chemical treatment effective
   Destroyed virtually all commercial Gros Michel plantations worldwide
 
@@ -228,7 +228,8 @@ CURRENT THREAT: TR4 (Tropical Race 4) strain
   Emerged ~1990 in Taiwan, spread to SE Asia, Australia, Middle East,
   Africa, Latin America (Colombia confirmed 2019 — CATASTROPHIC)
   TR4 kills Cavendish exactly as Race 1 killed Gros Michel
-  TR4 resistant banana varieties: under development but not commercially ready
+  TR4-resistant banana varieties are under development, but no widely accepted
+  global Cavendish replacement has solved taste, logistics, and market adoption
   2023: TR4 spreading through major banana-producing regions
 ```
 
@@ -288,7 +289,8 @@ ETHYLENE APPLICATIONS:
   Commercial ripening rooms (bananas): ethylene gas applied
   "Keeping apples away from bananas": banana ethylene ripens apples faster
   Tomato: commercial tomatoes picked green, ethylene-treated → red
-    (this is why commercial tomatoes lack flavor — never vine-ripened)
+    (one reason many commercial tomatoes lack flavor; breeding, storage, and
+     harvest timing also matter)
   Avocado: picked firm, softened with ethylene in distribution
 ```
 
@@ -296,17 +298,23 @@ ETHYLENE APPLICATIONS:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Where did apple originate? | Tian Shan mountains, Kazakhstan (*Malus sieversii*) |
-| Why are apples propagated by grafting? | Extremely heterozygous — seeds produce variable offspring; grafting preserves cultivar identity |
-| Are oranges a real species? | No — sweet orange = pomelo × mandarin hybrid |
-| Why are Cavendish bananas all identical? | Triploid → sterile → vegetative propagation only → clones |
-| What's threatening Cavendish bananas? | TR4 (*Fusarium oxysporum* f.sp. cubense Tropical Race 4) — same mechanism that killed Gros Michel |
-| What is ethylene? | Plant hormone that triggers ripening; autocatalytic in climacteric fruits |
-| What is the strawberry's origin? | Accidental hybrid (~1740s France) of *F. virginiana* (NA) × *F. chiloensis* (Chile) |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| Apple identity | Grafting and *Malus sieversii* ancestry | Seed-grown apples do not preserve cultivar traits |
+| Citrus "species" | Hybrid ancestry among pomelo, mandarin, citron, and papeda | Common names predate genetics |
+| Banana vulnerability | Triploid sterility and clonal propagation | Monoculture makes disease risk systemic |
+| TR4 threat | *Fusarium oxysporum* Tropical Race 4 | Replacement must satisfy biology, shipping, taste, and market expectations |
+| Strawberry origin | *F. virginiana* x *F. chiloensis* hybridization | Accessory-fruit botany differs from culinary intuition |
+| Ripening behavior | Climacteric vs non-climacteric physiology | Ethylene can ripen some fruits after harvest, not all |
+| Commercial flavor loss | Breeding, shipping, storage, and harvest timing | "Not vine-ripened" is only one mechanism |
 
 ---
+
+## Cross-References
+
+- [Food Plants Overview](00-OVERVIEW.md) connects fruits to domestication, sweetness, and seed-dispersal tradeoffs.
+- [Tree Crops](06-TREE-CROPS.md) covers perennial orchard systems that produce many major fruits.
+- [Modern Breeding](09-MODERN-BREEDING.md) explains selection for flavor, shelf life, disease resistance, and uniformity.
 
 ## Common Confusion Points
 

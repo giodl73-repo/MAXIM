@@ -246,15 +246,23 @@ THE HISTORIANS' RESPONSE
 
 ---
 
+## Cross-References
+
+- `05-SOCIAL-CULTURAL-TURN.md` supplies the cultural and linguistic turn background.
+- `09-PHILOSOPHY-OF-HIST.md` evaluates realism, narrative, and objectivity.
+- `08-GLOBAL-HISTORY.md` shows how critique reshapes scale and perspective.
+
 ## Decision Cheat Sheet
 
-| Position | On Evidence | On Narrative | On Objectivity | Best Represents |
-|----------|-------------|--------------|----------------|-----------------|
-| Naive positivism | Documents recover past | Neutral vessel | Achievable | No one current |
-| White (strong) | Evidence underdetermines; tropes pre-scientific | Constitutes reality | Impossible | Metahistory |
-| Foucault | Power constitutes knowledge | Genealogical strategy | Not claimed | Archaeology |
-| Practical realism | Constrains but doesn't determine | Shapes content; facts constrain | Regulative ideal | Appleby, Evans |
-| Total relativism | Not privileged | Fiction equivalent | Absent | Straw man position |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Naive positivist caricature | Claim that documents recover the past through neutral narration | Few current historians actually hold this position. |
+| Hayden White's challenge | Evidence underdetermination and narrative tropes | White did not license inventing facts or equate history with fiction. |
+| Foucauldian genealogy | Power/knowledge formation and archival discontinuities | Foucault made evidence-based historical claims, not total relativist gestures. |
+| Practical realist response | Evidence constrains narrative; objectivity as regulative ideal | Narrative form matters, but factual constraint remains binding. |
+| Total relativism accusation | Check whether evidence is treated as unprivileged fiction | Often a straw man rather than the working postmodern position. |
+| Holocaust-denial misuse | Separate factual denial from narrative-form debate | Denial is primarily an evidence problem, not a tropology problem. |
+| Linguistic-turn impact | Cultural tools added to social/material analysis | The linguistic turn did not abolish social history. |
 
 ---
 

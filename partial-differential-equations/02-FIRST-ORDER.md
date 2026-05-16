@@ -304,18 +304,24 @@ The fully nonlinear first-order PDE connecting characteristics to optimal contro
 
 ---
 
+## Cross-References
+
+- `partial-differential-equations/01-CLASSIFICATION.md` — PDE type and well-posedness context.
+- `variational-calculus/02-EULER-LAGRANGE.md` — Hamilton-Jacobi and characteristic methods connect PDEs to variational mechanics.
+- `fluid-dynamics/02-INVISCID-FLOW.md` — shocks and characteristic crossing in conservation-law systems.
+
 ## Decision Cheat Sheet
 
-| Situation | Method |
-|-----------|--------|
-| Linear first-order PDE | Method of characteristics (ODE system) |
-| Quasilinear first-order PDE | Method of characteristics; watch for shock formation |
-| When do shocks form? | When characteristics cross (t_b = 1/max(−u₀')) |
-| Multiple shocks / complex data | Weak solutions with entropy condition |
-| Smooth expansion regions | Rarefaction wave (self-similar solution) |
-| Fully nonlinear first-order | Hamilton-Jacobi theory; viscosity solutions |
-| Analytic coefficients + analytic data | Cauchy-Kovalevskaya theorem (local existence) |
-| Conservation law u_t + f(u)_x = 0 | Rankine-Hugoniot condition for shock speed |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a linear first-order PDE can be reduced to ODEs | Method of characteristics | Characteristic curves can leave the domain or hit incompatible data |
+| Whether quasilinear transport stays classical | Characteristics plus slope evolution | Crossing characteristics create shocks and break classical solutions |
+| When a Burgers-like shock forms | Blow-up time from the most negative initial slope | The formula depends on the flux and smooth pre-shock data |
+| How to handle multiple shocks or discontinuities | Weak solutions with an entropy condition | Weak solutions are nonunique without the entropy selection rule |
+| Whether expansion data should form a fan | Rarefaction self-similar solution | Rarefactions apply to diverging characteristics, not compression |
+| Whether the equation is fully nonlinear | Hamilton-Jacobi and viscosity solutions | Viscosity solutions encode comparison, not pointwise differentiability |
+| Whether analytic local existence applies | Cauchy-Kovalevskaya theorem | Analytic hypotheses are strong and do not provide stability |
+| How to diagnose conservation-law shock speed | Rankine-Hugoniot condition | The jump speed must still satisfy the entropy condition |
 
 ---
 

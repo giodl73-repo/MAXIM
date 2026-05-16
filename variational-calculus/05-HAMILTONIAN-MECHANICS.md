@@ -297,19 +297,25 @@ Liouville's theorem connects Hamiltonian mechanics to thermodynamics:
 
 ---
 
+## Cross-References
+
+- `variational-calculus/04-LAGRANGIAN-MECHANICS.md` — Lagrangian formulation linked by Legendre transform.
+- `variational-calculus/08-OPTIMAL-CONTROL.md` — Hamiltonian structure reappears in Pontryagin's principle.
+- `quantum-computing/02-ALGORITHMS.md` — Hamiltonians as generators of quantum evolution.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Legendre transform L → H? | H = Σp_i q̇_i − L, with q̇ expressed via p_i = ∂L/∂q̇_i |
-| Hamilton's equations? | q̇_i = ∂H/∂p_i, ṗ_i = −∂H/∂q_i |
-| Time evolution of observable f? | df/dt = {f,H} + ∂f/∂t |
-| When is f conserved? | {f,H} = 0 (f Poisson-commutes with H) |
-| Canonical brackets? | {q_i,p_j} = δ_{ij}, {q_i,q_j} = {p_i,p_j} = 0 |
-| Phase space volume preserved? | Yes — Liouville's theorem |
-| Completely integrable system? | n conserved quantities in involution → action-angle variables |
-| H-J equation? | ∂S/∂t + H(q,∇S) = 0 (connects to eikonal equation) |
-| Classical → quantum? | {f,g} → [F̂,Ĝ]/(iℏ); S → phase of wavefunction |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Legendre transform validity | Momentum map p = dL/dqdot | Singular Lagrangians require constraints. |
+| Hamiltonian equations | qdot = dH/dp and pdot = -dH/dq | First-order form doubles state dimension. |
+| Observable evolution | Poisson bracket with H plus explicit time term | Explicit time dependence breaks simple conservation. |
+| Conserved quantity | Poisson-commutation with H | Conservation is along flow, not arbitrary phase-space invariance. |
+| Canonical coordinates | Standard q,p brackets | Noncanonical coordinates need symplectic form. |
+| Phase-space volume | Liouville theorem | Volume preservation is not attraction/stability. |
+| Complete integrability | n commuting conserved quantities | Generic perturbations can destroy integrability. |
+| Hamilton-Jacobi link | Principal function solving H-J PDE | Solving H-J can be as hard as original dynamics. |
+| Quantum correspondence | Poisson bracket to commutator heuristic | Quantization has ordering and domain subtleties. |
 
 ---
 

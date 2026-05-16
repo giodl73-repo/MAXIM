@@ -75,7 +75,7 @@ humans have settled and why.
   │                                                                │
   │ TRANSFORM: plates slide laterally; no creation/destruction     │
   │ Examples: San Andreas Fault (Pacific-N America), North         │
-  │   Anatolian Fault (Turkey — seismically analogous to SA Fault)│
+  │   Anatolian Fault (Turkey — seismically analogous to SA Fault) │
   │ Hazards: large strike-slip earthquakes; no volcanism           │
   └────────────────────────────────────────────────────────────────┘
 
@@ -148,7 +148,7 @@ humans have settled and why.
   │ Hazard: lava flow property destruction; rarely kills directly  │
   │                                                                │
   │ STRATOVOLCANOES (COMPOSITE):                                   │
-  │ Felsic/andesitic magma (high silica, high viscosity, high gas)│
+  │ Felsic/andesitic magma (high silica, high viscosity, high gas) │
   │ Steep sides; explosive eruptions; pyroclastic flows            │
   │ Examples: Mt. Fuji, Mt. St. Helens, Pinatubo, Rainier          │
   │ Hazard: most dangerous — pyroclastic flow, lahar, ashfall      │
@@ -156,8 +156,8 @@ humans have settled and why.
   │ CALDERAS / SUPERVOLCANOES:                                     │
   │ Collapse feature after large magma chamber evacuation          │
   │ Yellowstone (640k years ago eruption — VEI 8)                  │
-  │ Toba (74k BP — nearly caused human extinction per some models)│
-  │ Hazard: global cooling from sulfur aerosols (nuclear winter-like│
+  │ Toba (74k BP — nearly caused human extinction per some models) │
+  │ Hazard: sulfur aerosols can cool climate globally              │
   └────────────────────────────────────────────────────────────────┘
 
   VOLCANIC EXPLOSIVITY INDEX (VEI):
@@ -190,7 +190,7 @@ humans have settled and why.
   │   Rhyolite, Obsidian (felsic volcanic)                         │
   │   Pumice: vesicular (gas bubbles) → floats on water            │
   │                                                                │
-  │ SEDIMENTARY: lithified erosion products or chemical precipitates│
+  │ SEDIMENTARY: lithified erosion products or precipitates        │
   │                                                                │
   │ Clastic: fragments of other rocks                              │
   │   Conglomerate (gravel), Sandstone (sand), Shale (silt/clay)   │
@@ -224,9 +224,9 @@ humans have settled and why.
   │ Limestone: cement feedstock (CaCO₃ → CaO + CO₂ at 900°C);      │
   │   karst aquifer; building stone (Paris Basin limestone)        │
   │ Coal: organic accumulation + burial; Carboniferous swamps      │
-  │ Oil/gas: organic-rich shale buried to "oil window" (~60-120°C)│
+  │ Oil/gas: shale buried to "oil window" (~60-120°C)              │
   │   migration to porous reservoir; trap + seal required          │
-  │ Evaporites: potash (fertilizer; K is a critical crop nutrient)│
+  │ Evaporites: potash fertilizer; K is a critical crop nutrient   │
   │   halite (chemical feedstock); gypsum (drywall/plaster)        │
   │ Iron formation (BIF): world's largest iron ore deposits;       │
   │   Proterozoic age (Hamersley Basin Australia; Carajas Brazil)  │
@@ -361,6 +361,18 @@ humans have settled and why.
 | Why are there sinkholes here? | Karst (limestone dissolution) — check for karst region |
 | Why does this earthquake area have no volcanoes? | Transform boundary (San Andreas) — no magma generation |
 | Why are tsunami warnings relevant far away? | Ocean travel speed; wave amplitude grows as water shallows |
+
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Mineral and rock chemistry | `geology/01-MINERALS.md` | Physical geography's surface template is built from rock type and weathering behavior |
+| Water-cycle and watershed dynamics | `hydrology/01-PRECIPITATION-RUNOFF.md` | Drainage basins connect relief, climate, erosion, and settlement patterns |
+| Climate controls on landforms | `climate-science/01-CARBON-CYCLE.md` | External energy and water availability shape soils, erosion, glaciers, and vegetation |
+| Soil horizons and fertility | `soil-science/01-SOIL-FORMATION.md` | CLORPT turns parent material and climate into agricultural possibility |
+| Human settlement geography | `historical-geography/01-FEUDAL-MECHANICS.md` | Political and economic geography sit on the physical template |
 
 ---
 

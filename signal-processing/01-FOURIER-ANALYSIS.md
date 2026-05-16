@@ -256,18 +256,24 @@ by the actual signal length T, not N. Zero-padding is for display/interpolation 
 
 ---
 
+## Cross-References
+
+- `signal-processing/02-SAMPLING-THEORY.md` — Fourier-domain aliasing is the core of sampling theory.
+- `acoustics/01-WAVE-PHYSICS.md` — acoustic waves are analyzed naturally in frequency space.
+- `information-theory/02-SOURCE-CODING.md` — transform coding compresses signals by moving energy into sparse frequency coefficients.
+
 ## Decision Cheat Sheet
 
-| Situation | Choice | Reason |
-|-----------|--------|--------|
-| Analyzing a finite buffer of data | DFT / FFT | Only computable form |
-| Design continuous-time system | CT Fourier Transform | Rational H(jω) |
-| Periodic signal, spectral lines | Fourier Series | Exact representation |
-| Need lowest sidelobes | Blackman-Harris or Kaiser | 90+ dB rejection |
-| Need finest frequency resolution | Rectangular window | Narrowest main lobe |
-| General spectral analysis | Hann window | Good balance |
-| Amplitude-accurate measurement | Flat-top window | Minimizes amplitude error |
-| Non-power-of-2 length N | FFTW or Bluestein | Auto-selects algorithm |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether finite sampled data can be analyzed | DFT/FFT | The DFT assumes periodic extension of the buffer |
+| Whether a continuous-time system is being designed | Continuous-time Fourier transform | Ideal transforms ignore sampling and implementation constraints |
+| Whether the signal is truly periodic | Fourier series | Spectral lines smear when periodicity is only approximate |
+| Whether sidelobe rejection dominates | Blackman-Harris or Kaiser window | Lower sidelobes widen the main lobe |
+| Whether frequency resolution dominates | Rectangular window | Narrow main lobe comes with high sidelobes |
+| Whether general spectral analysis needs balance | Hann window | It is a compromise, not a universally optimal window |
+| Whether amplitude measurement is the priority | Flat-top window | Amplitude accuracy trades away frequency resolution |
+| Whether FFT length is awkward | FFTW planning or Bluestein algorithm | Algorithm choice affects speed, not spectral assumptions |
 
 ---
 

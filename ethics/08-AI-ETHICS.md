@@ -602,22 +602,30 @@ DATASHEETS FOR DATASETS (Gebru et al. 2018):
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Applied ethics foundations | `ethics/06-APPLIED-ETHICS.md` |
+| Research ethics and human-subject safeguards | `ethics/07-RESEARCH-ETHICS.md` |
+| AI understanding and mind debates | `philosophy-of-mind/04-CHINESE-ROOM.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Problem | Core issue | Key concept | Where to look |
-|---|---|---|---|
-| Alignment | Goodhart's Law in AI systems | Reward misspecification | Christiano, Bostrom |
-| Instrumental convergence | Subgoals emerge regardless of terminal goal | Self-preservation, resource acquisition | Bostrom, Russell |
-| RLHF | Human feedback trains reward model | Scalable oversight problem | Leike et al. |
-| Fairness impossibility | Calibration + FPR parity + FNR parity can't coexist when base rates differ | Chouldechova 2016 | ProPublica/COMPAS |
-| Demographic parity | Equal positive rates across groups | p(Ŷ=1\|A) = p(Ŷ=1\|B) | Hardt et al. 2016 |
-| Equalized odds | Equal TPR and FPR | Both error rates equal | Hardt et al. 2016 |
-| Individual fairness | Similar people treated similarly | Requires similarity metric | Dwork et al. 2012 |
-| LIME | Local linear approximation | Post-hoc explanation | Ribeiro et al. 2016 |
-| SHAP | Shapley value attribution | Axiomatically fair attribution | Lundberg & Lee 2017 |
-| EU AI Act | Risk-tiered regulation | Prohibited/high/limited/minimal | 2024 |
-| NIST RMF | Voluntary risk management | GOVERN/MAP/MEASURE/MANAGE | NIST AI RMF 2023 |
-| LAWS | Accountability gap in autonomous weapons | Meaningful human control | CCW negotiations |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Alignment failures | Goodhart's Law and reward misspecification | Better proxies can still fail under scale, distribution shift, or gaming. |
+| Instrumental convergence | Subgoals such as self-preservation and resource acquisition | Applies conditionally; architecture, constraints, and deployment context matter. |
+| RLHF limits | Human feedback reward models and scalable oversight | RLHF improves behavior but can train reward hacking or superficial compliance. |
+| Fairness impossibility | Calibration, false-positive parity, false-negative parity, and base rates | Fairness conflicts are normative, not just statistical bugs. |
+| Demographic parity | Equal positive rates across groups | Can be inappropriate when outcome base rates or intervention harms differ. |
+| Equalized odds | Equal true-positive and false-positive rates | May trade calibration or utility for error-rate parity. |
+| Individual fairness | Similar people treated similarly | The similarity metric encodes the moral and domain assumptions. |
+| Explainability tools | LIME, SHAP, and local/post-hoc attribution | Explanation approximations are not guaranteed causal accounts. |
+| AI regulation | EU AI Act risk tiers and NIST RMF governance cycle | Compliance categories do not settle ethical adequacy. |
+| Autonomous weapons | Meaningful human control and accountability gaps | The hardest cases concern target selection/engagement of humans, not every automation. |
 
 ---
 

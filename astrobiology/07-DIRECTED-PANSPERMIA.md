@@ -366,14 +366,20 @@ and avoid potential (unlikely but non-zero) planetary protection.
 
 ---
 
+## Cross-References
+
+- `astrobiology/01-ORIGIN-OF-LIFE.md` — origin versus transport distinction.
+- `astrobiology/06-FERMI-PARADOX.md` — panspermia as one class of cosmic-life hypothesis.
+- `space-exploration/01-ORBITAL-MECHANICS.md` — transfer dynamics behind interplanetary transport.
+
 ## Decision Cheat Sheet
 
-| Type | Feasibility | Key constraint | Tested? |
-|---|---|---|---|
-| Lithopanspermia (Mars-Earth) | Plausible | Entry heating, radiation | Partially (lab simulations) |
-| Radiopanspermia | Implausible | UV exposure during transit | Theoretically ruled out |
-| Directed panspermia | Unfalsifiable | No evidence | No |
-| Interstellar lithopanspermia | Very low rate | Distance, speed, timescale | Not directly |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether rock transfer between Mars and Earth could move life | Lithopanspermia | Plausible in principle; entry heating, shock, radiation, and survival times all matter. |
+| Whether radiation pressure can move naked spores | Radiopanspermia | UV exposure during transit makes it largely implausible for known life. |
+| Whether life was intentionally seeded | Directed panspermia | Moves the origin problem elsewhere and lacks positive evidence. |
+| Whether life can move between star systems naturally | Interstellar lithopanspermia | Rates are extremely low and timescales are biologically punishing. |
 
 ---
 

@@ -381,6 +381,18 @@ The concepts in this module are not abstract — they describe the operating dyn
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Individual cognition and groups | `psychology/01-SOCIAL-PSYCHOLOGY.md` | Social structure emerges through roles, norms, identity, and interaction |
+| Demographic structure | `demography/01-POPULATION-DYNAMICS.md` | Class, family, migration, age, and institutions are population-structure variables |
+| Economic stratification | `economics/01-MICROECONOMICS.md` | Markets, labor, capital, and inequality interact with social hierarchy |
+| Political institutions | `political-science/01-IR-THEORY.md` | Power and legitimacy structure social order at institutional scale |
+| Media and culture | `media-studies/01-MEDIUM-IS-MESSAGE.md` | Communication systems reproduce or disrupt norms and social categories |
+
+---
+
 ## Common Confusion Points
 
 **Ascribed vs achieved is not a binary — it's a spectrum that varies by society and historical period**

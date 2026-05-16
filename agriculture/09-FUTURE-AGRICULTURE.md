@@ -491,16 +491,22 @@ BIOFORTIFICATION:
 
 ---
 
+## Cross-References
+
+- `remote-sensing/01-SATELLITE-IMAGING.md` — precision-agriculture sensing and spatial decision support.
+- `genomics/01-DNA-SEQUENCING.md` — crop biotechnology and CRISPR breeding substrate.
+- `climate-science/01-CARBON-CYCLE.md` — carbon, methane, and soil-emissions constraints on food systems.
+
 ## Decision Cheat Sheet
 
-| Future ag question | Assessment |
-|-------------------|------------|
-| What is precision agriculture's actual ROI? | Clear: RTK autosteer (1-3 yr payback), variable rate N (5-15% savings), smart sprayers (50-80% herbicide savings in low-weed fields). Worth it at 500+ ha operations. |
-| Is vertical farming going to replace field agriculture? | No, for calorie crops. Energy economics prohibit scaling to grains. Niche role: leafy greens in urban premium markets, food-desert supply chains, space (NASA). |
-| When will cultivated meat be at price parity? | Optimistic: mid-2030s. More likely: late 2030s-2040s for ground meat. Whole cuts: uncertain. Key bottleneck is media cost + bioreactor scale. |
-| Is regenerative agriculture scientifically validated? | Core practices (no-till, cover crops, rotation) are well-validated for soil health. "Regenerative" as a brand system: variable; some claims exceed evidence. Carbon sequestration is real but modest. |
-| CRISPR vs GMO: what's the regulatory difference? | CRISPR with no foreign DNA = deregulated in US, moving to deregulation in EU. Transgenic GMO: still full regulatory review both jurisdictions. CRISPR enables faster breeding without GMO regulatory burden for many traits. |
-| Where does the most leverage lie for 2050 food security? | Reducing food waste (30-40% lost before consumption) + dietary shift away from ruminant meat + yield gap closure in Africa/South Asia via existing technology + precision N management. Technology moonshots help but the obvious gaps are large. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether precision agriculture has ROI | Farm scale, input cost, and operation-specific savings | RTK autosteer is often clearer than variable-rate prescriptions; bundle effects carefully |
+| Whether vertical farming can replace field crops | Calories per kWh and crop value | It fits leafy greens and controlled niches, not commodity grains or staple calories |
+| Whether cultivated meat is near parity | Media cost, bioreactor scale, and product form | Ground products are easier than whole cuts; timelines depend on manufacturing learning curves |
+| Whether regenerative claims are evidence-based | Specific practices: no-till, cover crops, rotation, grazing plan | "Regenerative" is not a single standard; carbon claims often exceed measured sequestration |
+| Whether CRISPR changes deployment speed | Trait type and jurisdictional rule set | Regulatory relief applies most clearly when no foreign DNA remains; market acceptance is separate |
+| Where food-security leverage is largest | Waste, diets, yield gaps, and nitrogen efficiency | Moonshots help at the margin; current-system losses and inequities are already large |
 
 ---
 

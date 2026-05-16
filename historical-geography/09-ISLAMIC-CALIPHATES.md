@@ -363,6 +363,12 @@ ALMOHAD DYNASTY (1121–1269):
 
 ---
 
+## Cross-References
+
+- [South Asia Medieval](14-SOUTH-ASIA-MEDIEVAL.md) follows Islamic political forms into Sultanate and Mughal contexts.
+- [Eastern Europe](07-EASTERN-EUROPE.md) gives a contrasting frontier zone between Latin, Orthodox, steppe, and Islamic powers.
+- [Americas Pre-Columbian](16-AMERICAS-PRE-COLUMBIAN.md) provides a non-Eurasian comparison for empire, tribute, and regional integration.
+
 ## Common Confusion Points
 
 **Sunni vs Shia is not just political**

@@ -301,6 +301,18 @@ OCEAN HEAT CONTENT (OHC):
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Atmospheric forcing | `meteorology/01-ATMOSPHERIC-THERMODYNAMICS.md` | Winds, heat flux, and pressure drive upper-ocean behavior |
+| Climate carbon exchange | `climate-science/01-CARBON-CYCLE.md` | Ocean circulation controls heat and carbon uptake |
+| Marine ecosystems above physics | `marine-biology/01-OCEAN-ZONES.md` | Stratification and light set biological zones |
+| Fluid dynamics fundamentals | `fluid-dynamics/01-CONTINUUM-MECHANICS.md` | Ocean motion is rotating stratified fluid mechanics |
+| Global physical geography | `geography/01-PHYSICAL-GEOGRAPHY.md` | Ocean basins and coasts are part of Earth's surface system |
+
+---
+
 ## Common Confusion Points
 
 **Thermocline vs. pycnocline vs. halocline**: They're defined by which variable creates the stratification (T, S, ρ). In most of the ocean, the pycnocline and thermocline coincide because temperature dominates density. In the Arctic, a halocline (freshwater from sea ice melt) overlies saltier water, making S the dominant stratification control — temperature may even increase with depth (because cold freshwater floats over slightly warmer saltier water).

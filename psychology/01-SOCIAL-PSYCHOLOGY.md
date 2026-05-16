@@ -19,7 +19,7 @@ The core lesson: never underestimate context.
 |  Informational SI        Diffusion of resp.     Social influence     |
 |                                                                      |
 |  ATTRIBUTION             SOCIAL IDENTITY        PROSOCIAL BEHAVIOR   |
-|  FAE: overattribute      Tajfel/Turner           Altruism vs reciprocal|
+|  FAE: overattribute      Tajfel/Turner          Altruism/reciprocal  |
 |  to disposition          In-group bias          Bystander effect     |
 |  Actor-observer          Minimal groups         Empathy-altruism     |
 |  asymmetry               Contact hypothesis                          |
@@ -86,7 +86,7 @@ The core lesson: never underestimate context.
   SITUATIONAL FACTORS THAT EXPLAIN COMPLIANCE:
   ┌────────────────────────────────────────────────────────────────┐
   │ 1. LEGITIMATE AUTHORITY: Yale University, experimenter in lab  │
-  │    coat; institutional legitimacy makes authority seem justified│
+  │    coat; lab setting legitimizes authority                     │
   │                                                                │
   │ 2. INCREMENTAL ESCALATION: Started at 15V; each step only 15V  │
   │    more; foot-in-the-door; commitment compounds                │
@@ -336,6 +336,18 @@ by collapsing the categorization that drives the bias.
 | Cognitive dissonance | Robust | Post-commitment behavior change; foot-in-door |
 | Minimal group discrimination | Very robust | Any categorization → bias; not just race/politics |
 | IAT predicting discrimination | Weak | Individual IAT score is not a reliable predictor |
+
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Social structures above individuals | `sociology/01-SOCIAL-STRUCTURE.md` | Influence, identity, and norms scale from experiments to institutions |
+| Persuasion as rhetorical craft | `rhetoric/01-CLASSICAL-RHETORIC.md` | Attitude change is the experimental psychology counterpart of rhetoric |
+| Behavioral economics | `behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md` | Biases, framing, and social preferences challenge rational-agent assumptions |
+| Organizational behavior | `organizational-behavior/01-MOTIVATION.md` | Motivation, conformity, authority, and identity shape teams and firms |
+| Neuroscience substrate | `neuroscience/01-NEURONS-SIGNALS.md` | Social cognition ultimately runs on perception, affect, memory, and reward systems |
 
 ---
 

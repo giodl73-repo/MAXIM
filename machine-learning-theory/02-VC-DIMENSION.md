@@ -258,17 +258,23 @@ MULTICLASS SAMPLE COMPLEXITY (agnostic)
 
 ---
 
+## Cross-References
+
+- `machine-learning-theory/01-PAC-LEARNING.md` — PAC sample complexity uses VC dimension as its core capacity measure.
+- `machine-learning-theory/03-RADEMACHER.md` — data-dependent complexity bounds refine worst-case VC analysis.
+- `machine-learning-theory/04-BIAS-VARIANCE.md` — capacity control as the structural side of generalization.
+
 ## Decision Cheat Sheet
 
-| Task | Approach | Notes |
-|------|----------|-------|
-| Prove H is PAC-learnable | Show VCdim(H) < ∞ | Sufficient and necessary |
-| Get sample complexity bound | m = O(d/ε²) agnostic | d = VCdim(H) |
-| Prove H is NOT learnable | Show VCdim(H) = ∞ | Or show shattering of all sizes |
-| Lower bound sample complexity | Exhibit shattered set of size d | Show d points truly shattered |
-| VC dim of neural net | O(W·L·log W) | W = weights, L = layers |
-| Deep learning theory | VC bounds are vacuous | Need NTK or double descent theory |
-| Multiclass | Use Natarajan dimension | Not VC directly |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| PAC learnability of H | Finite VC dimension | Equivalence is for binary classification under standard assumptions. |
+| Sample-complexity scale | VC dimension in the agnostic bound | Constants and log factors matter in finite samples. |
+| Non-learnability | Infinite shattering sequence | Show all sizes, not just one large set. |
+| Lower-bound construction | Explicit shattered set | Every labeling must be realized. |
+| Neural-net VC scale | Weight/layer upper bounds | Worst-case capacity bounds are often loose. |
+| Deep-learning generalization | Beyond-VC tools such as NTK or double descent | Classical VC bounds are usually vacuous at modern scale. |
+| Multiclass capacity | Natarajan dimension | Binary VC does not transfer directly. |
 
 ---
 

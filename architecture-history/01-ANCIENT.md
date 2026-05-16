@@ -535,17 +535,24 @@ Arch cost: You must resist horizontal thrust with abutments
 
 ---
 
+## Cross-References
+
+- `archaeology/05-ANCIENT-CIVILIZATIONS.md` — ancient urban and material context.
+- `architecture/02-STRUCTURAL-LOGIC.md` — structural reasoning behind monumental form.
+- `construction-materials/02-ANCIENT-MASONRY.md` — material basis for ancient construction.
+
 ## Decision Cheat Sheet: Ancient Architecture
 
-| Question | Answer |
-|----------|--------|
-| Why are Karnak's columns so massive and close? | Stone can only span ~3m safely; must use many short beams |
-| Why does the Pantheon dome have an oculus? | Reduces dead weight; the ring is a compression edge |
-| What makes Roman concrete special? | Pozzolana (volcanic ash) — hydraulic, strong, cheap |
-| Why does the Colosseum have three different column orders stacked? | Hierarchical grammar; Doric = heaviest/base, Corinthian = lightest/top |
-| What is entasis and why? | Slight column shaft bulge — optical correction + structural expression |
-| What's the structural difference between barrel vault and groin vault? | Groin vault concentrates thrust to 4 points → allows windows between piers |
-| Why did the Egyptians build pyramids rather than temples? | Pyramid = solid mass (no spanning problem); tomb = permanent symbol, not usable space |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Massive close-set Egyptian columns | Stone lintel span limits and hypostyle compression logic | Monumental density is structural necessity plus ritual effect, not primitive overbuilding. |
+| Pantheon oculus and dome geometry | Dead-load reduction, compression ring, and coffering | The oculus is structural, luminous, and symbolic at once. |
+| Roman concrete advantage | Pozzolanic hydraulic binder and compression-only mass construction | It is not Portland cement and cannot be mapped directly to reinforced modern concrete. |
+| Stacked Colosseum orders | Hierarchical visual grammar from heavy/base to light/top | Orders are communicative syntax as much as structural decoration. |
+| Entasis in Greek columns | Subtle shaft swelling and optical/structural expression | The effect is barely visible; conscious notice is not the design target. |
+| Barrel versus groin vault behavior | Continuous thrust versus four-point concentration | Groin vaults open wall zones but require reliable pier/thrust handling. |
+| Pyramid versus occupiable temple mass | Solid tomb mass avoids spanning problems | Pyramids are permanent symbolic/ritual machines, not ordinary usable rooms. |
+| Roman arch innovation claims | Industrialized arch, vault, dome, and concrete deployment | Rome did not invent the arch; it scaled an architectural system around it. |
 
 ---
 

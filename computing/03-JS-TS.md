@@ -849,22 +849,23 @@ This file controls the TypeScript compiler. Key settings:
 
 ---
 
+## Cross-References
+
+- `computing/04-BUILD.md` — transpilation, bundling, and build pipeline context.
+- `computing/05-FRONTEND.md` — browser application surface where JS/TS dominates.
+- `programming-language-theory/02-TYPE-THEORY.md` — type-system concepts behind TypeScript.
+
 ## Decision Cheat Sheet
 
-| I want to... | Use |
-|---|---|
-| Write type-safe code | TypeScript (always, for non-trivial projects) |
-| Type-check only (no emit) | `tsc --noEmit` |
-| Fast transpile (CI/bundler) | esbuild or SWC |
-| Share types between packages | `.d.ts` declarations or shared types package |
-| Type an API response | `interface` + Zod for runtime validation |
-| Handle null safely | Enable `strictNullChecks` (via `strict: true`) |
-| Use a library with no types | `npm install @types/<library>` |
-| Represent a value that could be multiple things | Union type: `type X = A \| B` |
-| Make all properties optional | `Partial<T>` |
-| Pick just a few fields from a type | `Pick<T, "field1" \| "field2">` |
-| Call browser APIs from TypeScript | Add `"DOM"` to `lib` in tsconfig |
-| Write for Node.js | Add `@types/node`, set `lib` without DOM |
-| Use import/export in Node.js | `"type": "module"` in package.json or `.mjs` |
-| Import a CJS package in ESM | `esModuleInterop: true` + default import |
-| Write an enum-like thing | String union type (avoid TS `enum`) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Type-safety need | Use TypeScript with `strict`, clear module settings, and no untyped boundary leaks. | TypeScript protects compile-time shapes, not runtime data. |
+| Type-checking pipeline | Run `tsc --noEmit` separately from bundler transpilation. | Fast emit tools do not replace semantic type checking. |
+| Fast transpilation | Compare esbuild, SWC, Babel, target syntax, source maps, and plugin needs. | Speed gains can drop type checking and transform compatibility. |
+| Shared package types | Use declarations, project references, or a shared types package with version discipline. | Shared types become API surface and need compatibility rules. |
+| API response typing | Pair interfaces/types with runtime validation such as Zod at the boundary. | Trusting JSON to match TypeScript is a common production bug. |
+| Null handling | Enable strict null checks and model optional/nullable values explicitly. | Optional property, `undefined`, and `null` are different contracts. |
+| Missing library types | Check bundled types, DefinitelyTyped, ambient declarations, and maintenance status. | `@types` can lag the library version. |
+| Variant values | Use unions, discriminants, exhaustiveness checks, and narrowing. | Broad unions without discriminants can become hard to reason about. |
+| Browser vs Node target | Align `lib`, module resolution, globals, bundler, and runtime APIs. | Including `"DOM"` can hide accidental browser-only assumptions in Node code. |
+| ESM/CJS interop | Check package `"type"`, file extension, export map, `esModuleInterop`, and runtime loader. | Module syntax and runtime module format are related but not identical. |

@@ -366,17 +366,22 @@ direction) shaped digital comics differently than McCloud expected.
 
 ---
 
+## Cross-References
+
+- `03-PANEL-GRAMMAR.md` provides the page grammar digital formats stretch or abandon.
+- `08-GRAPHIC-NOVEL.md` contrasts book-format legitimacy with platform-native publication.
+- `../digital-media/00-OVERVIEW.md` connects webcomics to platforms, feeds, monetization, and audience loops.
+
+---
+
 ## Decision Cheat Sheet
 
-| Situation | Approach | Why |
-|-----------|----------|-----|
-| Primary audience is mobile-first | Vertical-scroll Webtoon format | Natural phone orientation; one panel per screen width; Webtoon/Tapas platforms |
-| Niche audience that values creator relationship | Patreon direct model + merchandise | Parasocial monetization; creator retains IP and pricing control |
-| Audience demonstrates purchase willingness | Print-on-demand backend (Kickstarter / TopatoCo) | Physical product = premium revenue; validates demand before inventory risk |
-| Maximizing reach on existing platform | Webtoon Originals / Tapas contract | Platform provides audience but takes revenue share and may own adaptation rights |
-| Experimental form / non-linear narrative | Infinite canvas or interactive format | McCloud's vision; limited commercial viability but high artistic potential |
-| Building audience from zero | Free weekly schedule + social media + archive | Consistency and backlog are the growth engine; monetize after audience exists |
-| The dominant digital comics format today         | Webtoon vertical scroll          | |
-| Largest webtoon platform                         | Naver Webtoon (100M+ users)      | |
-| What happened to comiXology                      | Amazon acquired; merged to Kindle| |
-| Why motion comics don't work                     | Neither comics nor animation     | |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A mobile-first comic | Evaluate vertical-scroll pacing, phone width, panel spacing, thumb rhythm, and platform norms. | Webtoon form changes timing and page-turn grammar, not just aspect ratio. |
+| Direct creator monetization | Compare Patreon, merch, subscriptions, parasocial relationship, IP control, and fulfillment burden. | Creator control also means creator operations work. |
+| Print conversion | Test audience demand, Kickstarter/POD economics, page reformats, shipping risk, and inventory exposure. | A scrolling comic may need redesign, not simple export, for print. |
+| Platform contract strategy | Inspect discoverability, revenue split, exclusivity, adaptation rights, audience ownership, and algorithm dependence. | Platform reach can cost long-term control. |
+| Experimental digital form | Consider infinite canvas, interaction, branching, animation, accessibility, and commercial discoverability. | High formal potential often comes with limited audience habit and tooling support. |
+| Audience building | Use update cadence, archive depth, social channels, email/RSS, community, and analytics. | Consistency grows trust, but it does not guarantee monetization. |
+| Motion-comics proposal | Compare comics pacing, animation timing, voice/sound, production cost, and reader control. | Motion comics often fail because they remove comics' pacing control without becoming full animation. |

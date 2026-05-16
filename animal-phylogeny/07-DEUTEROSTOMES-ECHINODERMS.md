@@ -398,35 +398,24 @@ HELICOPLACUS (Cambrian):
 
 ---
 
+## Cross-References
+
+- `animal-phylogeny/08-CHORDATA-ORIGINS.md` — deuterostome path toward chordates.
+- `marine-biology/02-MARINE-INVERTEBRATES.md` — echinoderms as marine ecosystem actors.
+- `developmental-biology/02-GASTRULATION.md` — embryological basis for deuterostome/protostome contrast.
+
 ## Decision Cheat Sheet
 
-```
-ECHINODERM OR HEMICHORDATE IDENTIFICATION
-
-Has 5-fold radial symmetry, calcite endoskeleton?
-  → ECHINODERMATA
-
-  Star-shaped, flexible arms grading into disc?
-    → ASTEROIDEA (sea star)
-    Venomous, 12+ arms? → Crown of thorns (Acanthaster)
-
-  Star-shaped, arms sharply distinct from disc?
-    → OPHIUROIDEA (brittle star)
-
-  Spherical/oval, rigid test, long spines?
-    → ECHINOIDEA (sea urchin)
-    Flattened, no spines? → Sand dollar
-
-  Elongated, no spines, tentacles around mouth?
-    → HOLOTHUROIDEA (sea cucumber)
-
-  Stalked or free-swimming feathers?
-    → CRINOIDEA (feather star / sea lily)
-
-Worm-shaped, buried in sand, with gill slits?
-  → HEMICHORDATA (acorn worm)
-  Colonial, in tubes, lophophore-like? → Pterobranchia
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether adult radial symmetry means echinoderm | Five-fold radial symmetry plus calcite endoskeleton | Echinoderm larvae are bilateral; adult radial symmetry is secondary. |
+| Whether a star-shaped echinoderm is asteroid | Flexible arms grading into central disc | Crown-of-thorns traits are ecological/venomous specializations, not the sea-star template. |
+| Whether a star-shaped echinoderm is ophiuroid | Arms sharply distinct from the disc | Brittle-star abundance matters ecologically, especially in deep-sea detrital systems. |
+| Whether a rigid oval echinoderm is echinoid | Rigid test, spines, Aristotle's lantern lineage | Sand dollars are flattened echinoids; absence of long spines can mislead. |
+| Whether an elongated soft echinoderm is holothuroid | Body elongation, oral tentacles, reduced spines | Sea-cucumber respiration and defensive ecology are tied to cloacal anatomy. |
+| Whether a feathered stalked animal is crinoid | Stalked or free-swimming filter-feeding arms | "Sea lily" is animal morphology, not plant identity. |
+| Whether a wormlike deuterostome is hemichordate | Buried worm body and pharyngeal gill slits | Hemichordate gill slits are homologous to chordate pharyngeal slits. |
+| Whether tube-dwelling colonies are pterobranchs | Colonial tubes and lophophore-like feeding | Superficial resemblance to bryozoans does not erase deuterostome affinity. |
 
 ---
 

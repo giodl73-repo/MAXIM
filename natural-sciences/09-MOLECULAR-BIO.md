@@ -6,7 +6,7 @@
 
 ---
 
-## The Central Dogma
+## The Big Picture
 
 ```
               Replication
@@ -442,20 +442,26 @@ Selenocysteine / pyrrolysine:
 
 ---
 
+## Cross-References
+
+- `biology/03-GENETICS.md` - heredity and gene expression foundations.
+- `genomics/01-SEQUENCING-TECH.md` - measuring molecular information.
+- `microbiology/08-MICROBIAL-GENETICS.md` - gene regulation in microbes.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Key detail |
-|----------|---------|-----------|
-| Why does lagging strand need Okazaki fragments? | 5'→3' synthesis constraint | DNA pol can only add to 3'-OH; lagging template runs wrong way |
-| What prevents re-replication of origins? | MCM licensing | ORC/MCM loaded at G1; Geminin inhibits re-loading in S/G2 |
-| Why does eukaryotic Pol II need cap before elongation? | CTD phosphorylation | TFIIH phosphorylates Ser5 → triggers capping enzyme recruitment |
-| What does the TATA box do? | TBP binding | Positions RNA Pol II at +1; not all promoters have TATA box |
-| Why is alternative splicing important? | Proteome diversity | ~20,000 genes → >100,000 proteins via differential exon inclusion |
-| What stops translation at stop codons? | Release factors | No tRNA recognizes stop; eRF1 mimics tRNA shape |
-| How does miRNA silence genes? | RISC complex | miRNA:mRNA base pairing → deadenylation, decapping, or repression |
-| Why does CRISPR need PAM? | Cas9 mechanism | PAM recognition triggers R-loop; prevents Cas9 cutting its own CRISPR array |
-| What is the Kozak sequence? | Eukaryotic initiation | Context around AUG affects 43S scanning efficiency |
-| Why do retroviruses integrate? | Proviral strategy | dsDNA copy inserted by integrase; expressed by host RNA Pol II |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Okazaki-fragment need | 5' to 3' polymerase constraint | Lagging strand is discontinuous because template orientation conflicts. |
+| Re-replication prevention | Origin licensing by ORC/MCM and Geminin | Licensing differs across cell-cycle phases. |
+| Pol II capping timing | CTD Ser5 phosphorylation recruiting capping enzyme | Capping is coupled to early elongation. |
+| TATA-box function | TBP positioning of Pol II | Many promoters lack a canonical TATA box. |
+| Alternative-splicing value | Differential exon inclusion | Protein counts depend on tissue, condition, and annotation. |
+| Stop-codon recognition | Release factors, not tRNAs | eRF1 mimics tRNA shape but carries no amino acid. |
+| miRNA silencing | RISC-guided base pairing | Outcome can be repression, deadenylation, decapping, or cleavage. |
+| CRISPR PAM requirement | Cas9 PAM recognition before R-loop | PAM also protects host CRISPR arrays from self-cutting. |
+| Kozak-sequence effect | Eukaryotic AUG context for scanning | It modulates initiation efficiency, not genetic code meaning. |
+| Retroviral integration | Proviral dsDNA insertion by integrase | Host Pol II then expresses integrated viral DNA. |
 
 ---
 

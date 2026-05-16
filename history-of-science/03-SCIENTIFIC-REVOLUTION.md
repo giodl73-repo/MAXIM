@@ -459,6 +459,12 @@ Pre-1600: natural philosophers depended on court or church patronage (individual
 **Newton's *Principia* → type system that resolves prior debates**
 Newton's achievement was not just deriving better formulas — it was providing a framework (laws of motion + universal gravitation) that made previously contested questions (Kepler's laws, tides, cometary orbits, precession of equinoxes) derivable consequences. The framework ended debates not by argument but by absorption: competing theories became approximations or special cases. This is what a well-designed type system or framework does: it doesn't just solve the problem at hand, it reframes the problem space so that whole classes of prior disputes dissolve.
 
+## Cross-References
+
+- [Islamic Golden Age](02-ISLAMIC-GOLDEN-AGE.md) supplies the transmission and transformation layer before early modern science.
+- [Chemical Revolution](04-CHEMISTRY-REVOLUTION.md) shows the next major reorganization around measurement, oxygen, and conservation.
+- [19th-Century Physics](05-PHYSICS-19TH-CENTURY.md) follows the mathematical and experimental style into thermodynamics and electromagnetism.
+
 ## Common Confusion Points
 
 **Copernicus did not improve astronomical predictions.** His system still used epicycles and predicted positions about as well as Ptolemy. Kepler's ellipses (1609) gave the first genuine improvement.

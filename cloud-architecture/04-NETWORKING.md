@@ -313,19 +313,25 @@ Private Endpoint removes the public IP from the access path — connections come
 
 ---
 
+## Cross-References
+
+- `cloud-architecture/01-CLOUD-MODELS.md` — cloud responsibility boundaries.
+- `cloud-architecture/05-MICROSERVICES.md` — service-to-service communication patterns.
+- `telecommunications/01-ELECTROMAGNETIC-SPECTRUM.md` — lower-layer communication substrate.
+
 ## Decision Cheat Sheet
 
-| Need | Azure Service |
-|------|--------------|
-| Regional HTTP/S with WAF, URL routing | Application Gateway (v2 WAF tier) |
-| Global HTTP/S with CDN, multi-region failover | Azure Front Door Standard/Premium |
-| TCP/UDP regional load balancing | Azure Load Balancer Standard |
-| DNS-based global routing (non-HTTP) | Azure Traffic Manager |
-| Connect two VNets (same region) | VNet Peering |
-| Connect two VNets (different regions) | Global VNet Peering |
-| Connect on-prem to Azure over VPN | VPN Gateway |
-| Connect on-prem to Azure (dedicated, high-bandwidth) | ExpressRoute |
-| Public DNS hosting | Azure DNS |
-| Internal DNS for private resources | Private DNS Zones |
-| Remove public IP from Azure service | Private Endpoint |
-| Hub-spoke at scale (many VNets, branches) | Azure Virtual WAN |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether regional HTTP/S needs WAF and path routing | Application Gateway v2 WAF tier | Regional ingress is not CDN or global failover. |
+| Whether global HTTP/S needs edge routing | Azure Front Door Standard/Premium | Front Door is HTTP-centric; private regional ingress may still need Application Gateway. |
+| Whether TCP/UDP traffic needs regional load balancing | Azure Load Balancer Standard | Layer 4 balancing has no URL or WAF semantics. |
+| Whether global non-HTTP routing can be DNS-based | Azure Traffic Manager | DNS routing is coarse and client/cache dependent. |
+| Whether two same-region VNets should connect directly | VNet Peering | Peering is non-transitive; hub routing needs explicit design. |
+| Whether cross-region VNets should connect directly | Global VNet Peering | Latency, egress cost, and failure-domain boundaries still matter. |
+| Whether on-prem connectivity can use encrypted internet | VPN Gateway | VPN is faster to start but less predictable than dedicated circuits. |
+| Whether on-prem connectivity needs dedicated bandwidth | ExpressRoute | ExpressRoute improves private connectivity but does not replace routing/security design. |
+| Whether Azure-hosted public zones are enough | Azure DNS | Public DNS does not solve private name resolution. |
+| Whether private resources need internal names | Private DNS Zones | Split-horizon and linked VNet governance become operational concerns. |
+| Whether a PaaS service should lose its public IP | Private Endpoint | Private endpoints change DNS and network paths; plan resolution before cutover. |
+| Whether many VNets and branches need a managed hub | Azure Virtual WAN | Virtual WAN simplifies scale but imposes platform conventions and cost structure. |

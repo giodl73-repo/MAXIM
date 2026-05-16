@@ -413,20 +413,26 @@ ANTIPLATELETS
 
 ---
 
+## Cross-References
+
+- `medicine/03-CARDIOVASCULAR-DRUGS.md` - cardiovascular therapeutics by target.
+- `disease/05-CARDIOVASCULAR-DISEASE.md` - disease mechanisms these drugs modulate.
+- `human-biology/02-CARDIOVASCULAR.md` - cardiovascular physiology substrate.
+
 ## Decision Cheat Sheet
 
-| Clinical Scenario | Preferred Drug Class | Key Drug |
-|------------------|---------------------|----------|
-| HTN + heart failure (reduced EF) | ACE-I or ARB + β-blocker | Lisinopril + metoprolol |
-| HTN + CKD + diabetes | RAAS inhibitor | ACE-I or ARB |
-| HTN + angina | β-blocker or CCB | Metoprolol or amlodipine |
-| HTN + pregnancy | Methyldopa, labetalol, nifedipine | NOT ACE-I/ARB (teratogenic) |
-| AF rate control | β-blocker or non-DHP CCB | Metoprolol or diltiazem |
-| AF rhythm control | Amiodarone, flecainide (no struct disease) | Amiodarone if structural disease |
-| Acute SVT termination | Adenosine → if fails: verapamil IV | Adenosine first |
-| Post-MI LDL lowering | High-intensity statin | Atorvastatin 40-80 mg |
-| Acute heart failure edema | Loop diuretic | Furosemide IV |
-| Resistant HTN | Add spironolactone | Loop diuretic if fluid overloaded |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| HTN with HFrEF | ACE-I/ARB plus evidence beta-blocker | Start beta-blocker only when stable, not acutely decompensated. |
+| HTN with CKD/diabetes | RAAS inhibition | Monitor creatinine and potassium. |
+| HTN with angina | Beta-blocker or calcium-channel blocker | Non-DHP CCBs can worsen reduced EF. |
+| HTN in pregnancy | Methyldopa, labetalol, or nifedipine | ACE-I/ARB are teratogenic. |
+| Atrial-fibrillation rate control | Beta-blocker or non-DHP CCB | Choose around EF, blood pressure, and comorbidities. |
+| Atrial-fibrillation rhythm control | Amiodarone or flecainide when appropriate | Flecainide is avoided in structural heart disease. |
+| Acute SVT termination | Adenosine first | Requires correct rhythm diagnosis and monitoring. |
+| Post-MI LDL lowering | High-intensity statin | Dose intensity matters more than brand. |
+| Acute heart-failure edema | IV loop diuretic | Diuresis treats congestion, not the underlying trigger. |
+| Resistant hypertension | Add spironolactone | Check potassium; use loop diuretic if volume overloaded. |
 
 ---
 

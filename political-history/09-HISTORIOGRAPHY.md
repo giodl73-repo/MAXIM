@@ -405,16 +405,26 @@ This was politically constructed and contested but has generally been credited w
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Revolution theory as interpretive problem | `political-history/01-REVOLUTION-THEORY.md` |
+| Imperialism and decolonization debates | `political-history/02-IMPERIALISM.md` |
+| Postwar order interpretations | `political-history/06-POSTWAR-ORDER.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What did Ranke establish? | Primary source criticism, archive as foundation, history as a profession with methodological standards; separating history from politics |
-| What is the linguistic turn? | History is a narrative form; language structures what can be said; sources should be read critically; strong version (all accounts equally constructed) was mostly rejected |
-| What is the counterfactual rule? | Minimum necessary change — alter one contingent variable, hold everything else constant; used to discipline causal claims, not to write alternative histories |
-| How do archives distort history? | Privilege what was written by literate elites; survive through state institutions; deliberately destroyed documents (colonial period); recent re-restriction of Soviet/Chinese archives |
-| What can digital history do? | Topic modeling over corpora, semantic change over time, network analysis of political actors, GIS for spatial patterns — all standard data engineering + NLP |
-| What is memory vs. history? | Memory (individual/collective) shapes political present; history (critical scholarly inquiry) disciplines memory; the tension between them is permanent |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Professional historical method | Ranke: primary-source criticism, archive, professional standards | "Archive as foundation" does not mean archives are neutral containers. |
+| Linguistic-turn claims | Narrative form, language constraints, source criticism | Strong "all accounts equally constructed" claims were mostly rejected. |
+| Counterfactual causation | Minimum necessary change while holding context constant | Counterfactuals discipline causal claims; they are not free-form alternate history. |
+| Archival distortion | Elite literacy, state survival, destruction, restriction, classification | Absence in an archive can be evidence of power, not absence of events. |
+| Digital history methods | Topic models, semantic drift, networks, GIS, corpus-scale source criticism | Computational scale does not remove sampling, OCR, and provenance bias. |
+| Memory versus history | Collective memory shaping politics versus critical scholarly inquiry | History disciplines memory but never fully escapes present political stakes. |
 
 ---
 

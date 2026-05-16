@@ -278,17 +278,23 @@ HH = high-high (diagonal edges)
 
 ---
 
+## Cross-References
+
+- `signal-processing/01-FOURIER-ANALYSIS.md` — Fourier analysis is the global-frequency baseline wavelets refine.
+- `signal-processing/07-SPECTRAL-ESTIMATION.md` — time-frequency tradeoffs in finite observed records.
+- `signal-processing/09-APPLICATIONS.md` — wavelet compression and multiscale analysis in applied DSP.
+
 ## Decision Cheat Sheet
 
-| Application | Wavelet Choice | Why |
-|-------------|---------------|-----|
-| Image compression | Biorthogonal CDF 9/7 or 5/3 | Linear phase, good compression |
-| Edge detection | Haar | Compact support, step-response |
-| Audio analysis | Morlet | Time-frequency localization |
-| Biomedical (ECG/EEG) | Daubechies D-4 to D-8 | Regularity matches signal |
-| Geophysics | Mexican hat (Ricker) | Matches seismic wavelet shape |
-| Denoising | Daubechies + thresholding | Energy compaction |
-| Want Fourier-like interpretation | Morlet CWT | Frequency axis intuitive |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Image compression | Biorthogonal CDF 9/7 or 5/3 | Linear phase matters for edge artifacts; orthogonality is traded away. |
+| Edge detection | Haar wavelet | Compact support gives step sensitivity but poor smoothness. |
+| Audio analysis | Morlet or related CWT wavelets | Time-frequency localization still obeys uncertainty limits. |
+| Biomedical ECG/EEG | Daubechies D-4 to D-8 | Wavelet regularity should match morphology and sampling constraints. |
+| Geophysical reflection signals | Mexican hat/Ricker wavelet | Best when the assumed wavelet shape matches the acquisition physics. |
+| Denoising | Daubechies basis plus thresholding | Shrinkage is strongest for sparse/piecewise-smooth signals, not arbitrary noise. |
+| Fourier-like interpretation | Morlet CWT | Intuitive frequency axes come with redundancy and higher compute. |
 
 ---
 

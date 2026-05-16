@@ -227,16 +227,22 @@ NBP (Net Biome Production) = NEP ± disturbance fluxes (fire, harvest, etc.)
 
 ---
 
+## Cross-References
+
+- `botany/04-LEAVES-PHOTOSYNTHESIS.md` - primary production at plant scale.
+- `ecology/04-BIOGEOCHEMICAL-CYCLES.md` - matter cycling coupled to energy flow.
+- `biology/05-ECOLOGY.md` - energy and nutrients as ecological currencies.
+
 ## Decision Cheat Sheet
 
-| Ecological question | Key concept |
-|--------------------|-------------|
-| How much energy available at level 3? | NPP × 10% × 10% = 1% of NPP |
-| Why is beef more resource-intensive than chicken? | Cattle are endotherms with large body mass → high thermoregulation cost → low net production efficiency (~5%); also longer time to market than broiler chickens |
-| Why do tropical forests have high NPP? | Warm + wet = high photosynthetic rate year-round |
-| Why is lake phytoplankton biomass lower than zooplankton? | High turnover rate; biomass ≠ production |
-| Which pathway processes most terrestrial NPP? | Detrital; ~90% of NPP enters via dead organic matter |
-| Is old-growth forest a carbon sink? | Generally NEP ≈ 0; carbon inputs ≈ outputs |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Energy at trophic level 3 | NPP times two 10% transfers | Rule applies to production, not standing biomass. |
+| Beef versus chicken resource intensity | Net production efficiency and thermoregulation cost | Feed, time-to-market, and management also matter. |
+| High tropical-forest NPP | Warm, wet year-round photosynthesis | High NPP does not mean nutrient-rich soil. |
+| Inverted lake biomass pyramid | Phytoplankton high turnover | Biomass and production can diverge sharply. |
+| Terrestrial NPP processing path | Detrital food web | Grazing importance varies by ecosystem. |
+| Old-growth carbon sink status | NEP near zero | Disturbance and soil accumulation can shift balance. |
 
 ---
 

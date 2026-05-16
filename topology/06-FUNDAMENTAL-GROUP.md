@@ -305,18 +305,24 @@ KNOT GROUPS — π₁ APPLIED TO KNOT THEORY:
 
 ---
 
+## Cross-References
+
+- `topology/05-CONNECTEDNESS.md` — simply connected means path-connected plus trivial loop structure.
+- `abstract-algebra/02-SUBGROUPS-QUOTIENTS.md` — fundamental groups are algebraic invariants of spaces.
+- `topology/10-APPLICATIONS.md` — configuration spaces and motion planning use fundamental-group information.
+
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Compute π₁ of simple space | Use homotopy equivalences + known π₁ |
-| Compute π₁ of union | Van Kampen's theorem (amalgamated free product) |
-| Classify covering spaces | Subgroups of π₁ (Galois correspondence for covers) |
-| Find deck transformations | π₁(X)/H for H-covering; π₁(X) for universal |
-| Prove fixed point theorem | No retraction D² → S¹ (from π₁(D²)=0, π₁(S¹)=Z) |
-| Prove winding number integers | Lift to universal cover R of S¹ |
-| Understand branch cuts | Multi-valued function = section of covering p: C → C* |
-| Compute π₁ of genus-g surface | ⟨a₁,b₁,...,aₘ,bₘ : ∏[aᵢ,bᵢ]=1⟩ via van Kampen |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a simple space has known `pi_1` | Homotopy equivalence to standard spaces | Homotopy equivalence preserves `pi_1`, homeomorphism is not required |
+| Whether a union's fundamental group can be assembled | Van Kampen theorem | Intersection hypotheses and basepoint choices matter |
+| Whether coverings are classified by algebra | Subgroups of `pi_1` | Classification assumes connected, locally path-connected, semilocally simply connected spaces |
+| Whether deck transformations are quotient-like | Normalizer/quotient logic for the covering subgroup | Only normal covers give the clean quotient picture |
+| Whether a fixed-point theorem follows topologically | No-retraction argument `D^2 -> S^1` | The contradiction uses induced maps on `pi_1` |
+| Whether winding number is integral | Lift loops to the universal cover of `S^1` | The lift depends on basepoint but endpoint displacement is invariant |
+| Whether branch cuts encode topology | Covering map viewpoint for multivalued functions | Branch points are where ordinary covering behavior fails |
+| Whether a surface group presentation is needed | Van Kampen on polygon identifications | The single relation encodes orientable genus structure |
 
 ---
 

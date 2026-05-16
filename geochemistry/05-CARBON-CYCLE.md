@@ -287,18 +287,24 @@ GEOCARB MODEL AND CO₂ HISTORY
 
 ---
 
+## Cross-References
+
+- `climate-science/01-CARBON-CYCLE.md` - climate-facing carbon-cycle view.
+- `ecology/04-BIOGEOCHEMICAL-CYCLES.md` - ecosystem nutrient-cycle context.
+- `mineralogy/05-CARBONATES-PHOSPHATES.md` - carbonate reservoir and mineral record.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| What is the Urey reaction? | CaSiO₃ + CO₂ → CaCO₃ + SiO₂; the net silicate weathering reaction that consumes CO₂; the key long-term climate thermostat |
-| What does a positive δ¹³C excursion in marine carbonates mean? | Enhanced organic carbon burial; ¹²C removed from ocean/atmosphere → residual DIC becomes ¹³C enriched; often associated with OAEs |
-| What does a negative δ¹³C excursion mean? | Release of ¹³C-depleted carbon from organic reservoir (kerogen, methane hydrates, permafrost); e.g., PETM |
-| What is the CCD? | Carbonate Compensation Depth — below this, carbonate dissolves faster than it rains from surface; no carbonate in deep sediments below CCD |
-| How does organic carbon burial oxygenate the atmosphere? | Photosynthesis produces O₂ + organic C; if organic C is buried instead of oxidized, the O₂ is not consumed → net O₂ accumulation |
-| What is vitrinite reflectance? | Optical reflectance of vitrinite particles in sediment; increases with thermal maturity; Ro 0.5-0.9% = oil generation window |
-| Why do Large Igneous Provinces trigger OAEs? | LIP volcanism injects CO₂ → ocean acidification → collapse of carbonate buffer → plus nutrient runoff → productivity spike → organic burial → anoxia |
-| What is kerogen type III? | Woody/terrestrial organic matter; high C/H; gas-prone; associated with coals and deltaic/terrigenous sequences |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Long-term CO2 drawdown | Urey silicate weathering reaction | Thermostat response is geological, not human-timescale. |
+| Positive marine delta 13C | Enhanced organic carbon burial | Local diagenesis can overprint global signals. |
+| Negative marine delta 13C | Release of 13C-depleted carbon | Source attribution needs mass balance, not sign alone. |
+| Carbonate preservation depth | Carbonate Compensation Depth | CCD varies by basin, time, and carbonate supply. |
+| Atmospheric oxygenation | Organic carbon burial after photosynthesis | Burial must prevent later oxidation. |
+| Thermal maturity | Vitrinite reflectance | Ro is calibrated for organic matter type and burial history. |
+| LIP-driven anoxia | Volcanic CO2, nutrients, carbonate-buffer stress | Multiple coupled mechanisms, not volcanism alone. |
+| Gas-prone source rock | Kerogen type III | Kerogen type reflects source material and maturation path. |
 
 ---
 

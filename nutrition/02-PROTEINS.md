@@ -389,17 +389,23 @@ UPPER LIMIT:
 
 ---
 
+## Cross-References
+
+- `biophysics/02-PROTEIN-FOLDING.md` - protein structure and folding logic.
+- `natural-sciences/06-BIOMOLECULES.md` - biomolecular chemistry context.
+- `nutrition/06-METABOLISM-ENERGY.md` - protein use in energy and nitrogen balance.
+
 ## Decision Cheat Sheet
 
-| Goal | Strategy |
-|------|----------|
-| Maximize muscle protein synthesis (MPS) | ≥3g leucine per meal (~25–40g high-quality protein) |
-| Maximize MPS with plant protein | Higher doses; add leucine or combine proteins |
-| Preserve muscle while cutting | 2.2–3.1 g/kg; distribute across 4–5 meals |
-| Optimize recovery post-workout | Whey: 20–40g within 1–2 hours |
-| Anti-catabolic overnight | 40g casein before bed |
-| Prevent sarcopenia after 60 | 1.2–1.6 g/kg/day; resistance train |
-| Vegan athlete complete protein | Combine grains + legumes; consider pea/rice blend |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Muscle protein synthesis target | Leucine threshold around 3 g per meal | Training stimulus is required for hypertrophy. |
+| Plant-protein MPS | Higher dose, leucine addition, or complementary blend | Digestibility and amino-acid profile vary by source. |
+| Cutting while preserving muscle | Higher daily protein and meal distribution | Energy deficit and resistance training set the context. |
+| Post-workout recovery | Whey 20-40 g near training | Total daily protein usually matters more than narrow timing. |
+| Overnight anti-catabolic support | Slow casein before bed | Useful mainly when total intake/distribution need support. |
+| Sarcopenia prevention | 1.2-1.6 g/kg/day plus resistance training | Protein alone cannot replace loading. |
+| Vegan athlete completeness | Grain-legume or pea/rice combinations | Complementarity across the day is sufficient. |
 
 ---
 

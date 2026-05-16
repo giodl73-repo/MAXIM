@@ -234,16 +234,22 @@ Exotic smooth structures: A topological manifold can admit multiple non-diffeomo
 
 ---
 
+## Cross-References
+
+- `topology/09-MANIFOLDS.md` — topological manifold intuition before smooth structure.
+- `differential-geometry/02-TANGENT-BUNDLES.md` — tangent spaces bundled into the machinery for calculus on manifolds.
+- `differential-geometry/03-DIFFERENTIAL-FORMS.md` — coordinate-free integration and Stokes' theorem on manifolds.
+
 ## Decision Cheat Sheet
 
-| Situation | Tool | Notes |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Define "function on M is smooth" | Charts + compatibility | f smooth iff f o phi^{-1} smooth in R^n |
-| Work with tangent vectors | Derivations or velocity curves | Derivations better for computation |
-| Verify something is a submanifold | Regular value theorem | Check Jacobian of defining equations |
-| Move smoothly between charts | Transition maps | Must be C^inf for smooth structure |
-| Define global objects from local data | Partition of unity | Sum up local pieces with smooth cutoffs |
-| Show two manifolds are "the same" | Construct a diffeomorphism | Smooth bijection with smooth inverse |
+| Whether a function on `M` is smooth | Charts and compatible coordinate expressions | Smoothness must be chart-independent |
+| Whether tangent vectors are being used correctly | Derivations or velocity classes of curves | Coordinates represent tangent vectors; they are not the vectors themselves |
+| Whether a subset is a submanifold | Regular value theorem | The Jacobian rank condition must hold on the level set |
+| Whether charts define a smooth structure | Smooth transition maps | Compatible atlases can still encode different global topology |
+| Whether local constructions glue globally | Partition of unity | Requires paracompact smooth manifolds; cutoffs are not automatic everywhere |
+| Whether two manifolds are the same smoothly | Diffeomorphism | Homeomorphism is weaker than diffeomorphism |
 
 ---
 

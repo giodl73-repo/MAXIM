@@ -229,18 +229,24 @@ The forward pass in a CNN is cross-correlation, not convolution — `torch.nn.Co
 
 ---
 
+## Cross-References
+
+- `signal-processing/03-FILTERS.md` — convolution is the time-domain operation behind FIR filtering.
+- `signal-processing/01-FOURIER-ANALYSIS.md` — convolution in time becomes multiplication in frequency.
+- `partial-differential-equations/07-GREENS-FUNCTIONS.md` — Green's functions are convolution kernels for linear PDEs.
+
 ## Decision Cheat Sheet
 
-| Task | Method |
-|------|--------|
-| Apply FIR filter to short signal | Direct convolution (sum products) |
-| Apply FIR filter to long streaming signal | Overlap-save or overlap-add |
-| Long filter × long signal | FFT × FFT, IFFT |
-| Detect known signal in noise | Matched filter (correlate with replica) |
-| Estimate time delay between two signals | Cross-correlation peak |
-| Measure signal energy | Autocorrelation at lag 0 |
-| Detect periodicity in a signal | Autocorrelation for recurring peaks |
-| Implement 2D image filtering | 2D convolution (separable if possible) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Short FIR filtering | Direct convolution by sum products | Simpler and often faster than FFT once setup overhead dominates. |
+| Long streaming FIR filtering | Overlap-save or overlap-add | Block boundaries require correct padding and discard/keep rules. |
+| Long filter by long signal | FFT-domain multiply followed by IFFT | Zero-pad to at least `M + L - 1` or circular wrap aliases the result. |
+| Known signal in noise | Matched filter by correlating with the replica | Maximizes output SNR, not range/time resolution. |
+| Time-delay estimation | Cross-correlation peak | High correlation indicates predictability at lag, not causality. |
+| Signal energy measurement | Autocorrelation at lag 0 | Scaling convention determines whether the value is energy, power, or biased estimate. |
+| Periodicity detection | Autocorrelation recurring peaks | Periodic peaks can also arise from repeated artifacts or windowing. |
+| 2D image filtering | 2D convolution, separable when kernel permits | Convolution flips the kernel; correlation-like implementations may differ at asymmetric edges. |
 
 ---
 

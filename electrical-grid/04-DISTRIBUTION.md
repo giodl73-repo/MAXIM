@@ -536,20 +536,23 @@ IEEE 1547-2018: Standard for interconnection of DERs
 
 ## Decision Cheat Sheet
 
-| Question | Short Answer |
-|----------|-------------|
-| Most common US primary distribution voltage? | 12.47 kV (phase-to-phase); 7.2 kV phase-to-neutral |
-| Why 12.47 kV and not 25 kV everywhere? | Legacy infrastructure investment; 25 kV has longer feeder reach but requires complete system replacement |
-| What is SAIDI? | System Average Interruption Duration Index — total customer outage minutes divided by total customers; units: minutes/customer/year |
-| Best achievable SAIDI? | Japan achieves ~4 min/yr; US top quartile ~30-60 min; US average ~110 min |
-| Overhead vs underground cost ratio? | Underground typically 3-8× more expensive per mile; but better reliability, resilience, aesthetics |
-| What is FDIR? | Fault Detection, Isolation, Restoration — automated switching that restores unfaulted feeder sections in seconds rather than minutes |
-| What limits voltage at end of feeder? | I×R and I×X drops in feeder impedance; managed by LTC, line regulators, capacitor banks |
-| What voltages does residential service use? | 120/240V split-phase single-phase; L1 and L2 are 120V to neutral, 240V to each other |
-| What voltages does commercial service use? | 208/120V three-phase 4-wire wye (small commercial) or 480/277V three-phase 4-wire wye (larger commercial/industrial) |
-| What does IEEE 1547 require of DERs? | Fault ride-through, voltage/frequency support, anti-islanding protection |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A primary-voltage decision | Compare existing assets, feeder length, load density, loss, voltage drop, insulation class, and conversion outage cost. | Higher primary voltage can extend feeders, but legacy conversion is a capital and operational program, not a nameplate swap. |
+| A reliability claim | Separate SAIDI, SAIFI, CAIDI, MAIFI, major-event exclusion, vegetation exposure, automation, and customer density. | Cross-country or utility averages are not directly comparable without event definitions and geography. |
+| Whether undergrounding is justified | Compare storm exposure, fault repair time, lateral density, trenching cost, flood risk, aesthetics, and regulatory cost recovery. | Underground improves some outage modes but can be slower and costlier to repair when faults occur. |
+| Whether FDIR helps | Identify normally-open tie points, remote switches, fault indicators, feeder capacity, communications, and protection coordination. | Automation restores unfaulted sections; it cannot eliminate the faulted segment outage. |
+| An end-of-feeder voltage problem | Check load current, conductor impedance, regulator/LTC settings, capacitor placement, DER backfeed, and voltage standard. | DER can create overvoltage and reverse-flow problems in feeders designed for one-way voltage drop. |
+| A service-voltage question | Determine customer class, phase count, transformer connection, service size, and local utility standard. | Nominal service voltages are standardized, but actual delivered voltage is regulated within tolerance bands. |
+| A DER interconnection issue | Review IEEE 1547 settings, anti-islanding, ride-through, fault current, grounding, voltage regulation, and protection coordination. | DER compliance is necessary but not sufficient; feeder-level hosting capacity still depends on local topology. |
 
 ---
+
+## Cross-References
+
+- `03-TRANSMISSION.md` contrasts the high-voltage bulk system with local delivery networks.
+- `07-SMART-GRID.md` adds sensors, automation, and distributed control to distribution.
+- `09-RESILIENCE.md` covers outage hardening and recovery at the local grid edge.
 
 ## Common Confusion Points
 

@@ -384,20 +384,26 @@ The classical morphogen gradient model predicts pattern by concentration thresho
 
 ---
 
+## Cross-References
+
+- `developmental-biology/07-STEM-CELLS.md` - cellular sources for tissue replacement.
+- `developmental-biology/08-IPSCS.md` - reprogrammed cells as regenerative substrate.
+- `biomedical-engineering/01-BIOMECHANICS.md` - tissue mechanics and repair context.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Best organism for studying whole-body regeneration? | Planaria (*Schmidtea mediterranea*) — neoblasts tractable genetically |
-| Best for limb regeneration mechanism? | Axolotl — genetics advancing (genome published 2018, 32 Gb) |
-| Best mammalian cardiac model? | Neonatal mouse (P1–P7) or zebrafish (genetic tractability) |
-| What's the single rate-limiting step in mammalian regen? | Fibrotic response (myofibroblast activation, TGF-β signaling) |
-| Why can liver regenerate but heart can't? | Hepatocytes remain mitotically competent; CMs exit cell cycle permanently at birth |
-| Is dedifferentiation to pluripotency required? | No — lineage-restricted progenitors sufficient; full dedifferentiation is rare |
-| What's the key salamander advantage? | Wound epidermis forms without scar; suppresses immune response locally |
-| Can mammalian regeneration be induced? | Partially — neonatal window, digit tip, Hippo manipulation in heart (preclinical) |
-| What signals positional identity? | Muscle (planaria), HOX gene state (vertebrates), RA gradient |
-| Key model for human regenerative medicine? | Liver (working model), heart (target), spinal cord (research frontier) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whole-body regeneration model | Planaria and neoblast genetics | Planarian rules do not transfer directly to vertebrate organs. |
+| Limb-regeneration mechanism | Axolotl blastema biology | Giant genome complicates but no longer blocks genetics. |
+| Mammalian cardiac regeneration | Neonatal mouse P1-P7 or zebrafish comparison | Adult mammalian heart rapidly loses regenerative window. |
+| Mammalian regeneration bottleneck | Fibrotic myofibroblast/TGF-beta response | Scarring is protective acutely but blocks patterned regrowth. |
+| Liver versus heart regeneration | Hepatocyte mitotic competence versus CM cell-cycle exit | Liver restores mass better than exact geometry. |
+| Dedifferentiation requirement | Lineage-restricted progenitors | Pluripotent dedifferentiation is rare and dangerous. |
+| Salamander advantage | Scar-free wound epidermis and immune modulation | Immune suppression is local and context-specific. |
+| Induced mammalian regeneration | Neonatal window, digit tip, Hippo manipulation | Most interventions remain preclinical or partial. |
+| Positional identity | Muscle cues, HOX state, and RA gradient | Positional memory must match tissue and axis. |
+| Human regenerative model | Liver as working model; heart/spinal cord as targets | Clinical translation differs sharply by organ. |
 
 ---
 

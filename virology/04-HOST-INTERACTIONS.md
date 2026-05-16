@@ -239,16 +239,22 @@ Distinct from innate immune signaling; cell-intrinsically expressed:
 
 ---
 
+## Cross-References
+
+- `immunology/02-ADAPTIVE-IMMUNITY.md` — host immune response to viral infection.
+- `virology/05-IMMUNE-EVASION.md` — viral countermeasures against host defenses.
+- `microbiology/06-PATHOGEN-MECHANISMS.md` — general pathogen-host interaction mechanisms.
+
 ## Decision Cheat Sheet
 
-| Question | Key concept |
-|----------|-------------|
-| Why does flu affect the respiratory tract? | α-2,6 sialic acid distribution |
-| Why is HIV specifically immunosuppressive? | CD4+ T cell tropism |
-| What prevents HIV from infecting most cells? | TRIM5α + other restriction factors |
-| How does a new virus emerge in humans? | Receptor compatibility + restriction factor evasion |
-| Why does rabies cause encephalitis? | Retrograde axonal transport to CNS |
-| What determines avian flu pandemic risk? | Switch from α-2,3 to α-2,6 sialic acid binding |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Influenza tissue tropism | Alpha-2,6 sialic-acid distribution | Receptor binding is necessary but not sufficient. |
+| HIV immunosuppression | CD4+ T-cell tropism | Depletion also reflects immune activation and reservoirs. |
+| HIV host restriction | TRIM5alpha and other restriction factors | Restriction differs by host species and viral capsid. |
+| Human emergence risk | Receptor compatibility plus restriction-factor evasion | Transmission efficiency must also evolve. |
+| Rabies encephalitis | Retrograde axonal transport to CNS | Neural spread delays immune detection. |
+| Avian flu pandemic risk | Shift from alpha-2,3 to alpha-2,6 binding | Polymerase adaptation and transmission traits also matter. |
 
 ---
 

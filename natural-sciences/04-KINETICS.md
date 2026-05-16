@@ -6,7 +6,7 @@
 
 ---
 
-## Landscape
+## The Big Picture
 
 ```
 ┌───────────────────────────────────────────────────────────────────┐
@@ -412,19 +412,25 @@ Cl• (from CFC photolysis) catalytically destroys O₃:
 
 ---
 
+## Cross-References
+
+- `natural-sciences/03-THERMOCHEM.md` - thermodynamics says if; kinetics says how fast.
+- `natural-sciences/07-ENZYMES.md` - biological catalysis as kinetic control.
+- `chemical-eng/01-THERMO.md` - process-scale reaction constraints.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Key tool |
-|----------|---------|----------|
-| What is the rate law? | Must measure — not from stoichiometry | Method of initial rates |
-| Does rate double with temperature? | Arrhenius | Rule of thumb for Ea ≈ 50 kJ/mol |
-| Why do enzymes work? | TST: lower ΔH‡ AND ΔS‡ | Eyring equation components |
-| What's the overall rate law from mechanism? | Identify RDS | rate = rate of RDS (in terms of observables) |
-| Why does pressure increase rate of gas reactions? | Collision frequency | Z ∝ concentration → rate ∝ [A][B] |
-| Does catalyst change equilibrium? | No | K unchanged; Ea lowered for both directions equally |
-| First-order diagnostic? | Plot | ln[A] vs t → straight line |
-| Second-order diagnostic? | Plot | 1/[A] vs t → straight line |
-| Why does radical inhibitor stop a chain? | Termination | Inhibitor scavenges chain-carrying radicals |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Rate law | Initial-rate measurements | Stoichiometry only gives order for elementary steps. |
+| Temperature sensitivity | Arrhenius relation | "Doubles per 10 C" is only a rough Ea-dependent rule. |
+| Enzyme acceleration | Transition-state stabilization | Enzymes affect kinetics, not thermodynamic equilibrium. |
+| Mechanism-derived rate law | Rate-determining step and intermediates | Express rate in observable species, not hidden intermediates. |
+| Gas pressure rate increase | Collision frequency from concentration | Only applies when gas-phase collision is rate-relevant. |
+| Catalyst equilibrium effect | Lower barriers both directions | K is unchanged even when equilibrium is reached faster. |
+| First-order behavior | Linear ln[A] versus t | Requires isolated single-process kinetics. |
+| Second-order behavior | Linear 1/[A] versus t | Competing pathways can mask ideal plots. |
+| Radical-chain inhibition | Termination by radical scavenging | Inhibitor effectiveness depends on chain length and concentration. |
 
 ---
 

@@ -474,20 +474,26 @@ ATMOSPHERE CONTROL:
 
 ---
 
+## Cross-References
+
+- `materials-processing/01-PHASE-TRANSFORMATIONS.md` - phase changes that heat treatment controls.
+- `materials/04-METALS-ALLOYS.md` - alloy systems and strengthening context.
+- `materials-processing/09-CHARACTERIZATION.md` - verifying microstructure after treatment.
+
 ## Decision Cheat Sheet
 
-| I need to... | Heat treatment |
-|--------------|---------------|
-| Soften steel for machining | Full anneal (furnace cool) |
-| Achieve maximum hardness | Quench (exceed critical cooling rate) → martensite |
-| Reduce quench brittleness | Temper (temperature depends on required hardness) |
-| Uniform, moderate properties on structural steel | Normalize (air cool from austenite) |
-| Hard surface, tough core (gears, cams) | Carburize + quench + low temper |
-| Very hard surface, no distortion | Nitride (after finishing machining) |
-| Selective surface hardening (journals) | Induction harden |
-| Relieve weld residual stress | Stress relief anneal (600–650°C, 1h/inch) |
-| Aluminum maximum strength | Solution treat + artificial age (T6) |
-| Titanium maximum strength | Solution treat + age (STA) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Machining softness in steel | Full anneal with furnace cooling | Normalizing is not annealing; air cooling gives different properties. |
+| Maximum steel hardness | Quench past critical cooling rate to martensite | Untempered martensite is brittle and must be tempered promptly. |
+| Quench brittleness | Temper at hardness-appropriate temperature | Tempering trades hardness for toughness. |
+| Moderate structural properties | Normalize from austenite | Grain refinement and air cooling drive the property balance. |
+| Hard surface/tough core | Carburize, quench, and low temper | Specify effective case depth, not just total carbon case. |
+| Distortion-sensitive hard surface | Nitriding after finish machining | Nitriding requires compatible alloy chemistry. |
+| Selective hardening | Induction hardening | Frequency sets case depth through skin effect. |
+| Weld residual stress | Stress relief anneal around 600-650 deg C | Overheating can change strength or microstructure. |
+| Aluminum maximum strength | Solution treat plus artificial age, T6 | Temper designations are not interchangeable in corrosion/SCC service. |
+| Titanium maximum strength | Solution treat and age | Alloy class controls whether STA is appropriate. |
 
 ---
 

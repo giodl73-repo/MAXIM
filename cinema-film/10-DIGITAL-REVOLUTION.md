@@ -353,19 +353,25 @@ CDN FOR STREAMING:
 
 ---
 
+## Cross-References
+
+- `cinema-film/09-INDUSTRY-ECONOMICS.md` — distribution and revenue model transition.
+- `digital-media/02-SOCIAL-PLATFORMS.md` — platform logic around attention and circulation.
+- `cloud-architecture/07-DATA-PLATFORMS.md` — data infrastructure behind streaming platforms.
+
 ## Decision Cheat Sheet
 
-| Milestone | Year | Significance |
-|-----------|------|-------------|
-| Tron | 1982 | First significant CGI; Academy refused Oscar for "cheating" |
-| Terminator 2 | 1991 | Photo-real CGI character interacting with real world |
-| Jurassic Park | 1993 | Photo-real creatures; CGI crosses uncanny valley for creatures |
-| Toy Story | 1995 | First fully CGI feature film |
-| O Brother Where Art Thou | 2000 | First digital intermediate |
-| MASSIVE software | 2001 | Crowd simulation for Lord of the Rings |
-| Avatar | 2009 | Performance capture + stereoscopic 3D at scale |
-| DCI standard | 2002+ | DCP format for digital theater distribution |
-| AV1 | 2018 | Royalty-free codec; Netflix/YouTube dominant |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| When CGI became visible as a production category | Tron, 1982 | Early significance is historical, not photorealistic success. |
+| When CGI characters entered live-action credibility | Terminator 2, 1991 | Photoreal shots work when lighting, physics, and editorial integration align. |
+| When creatures crossed mainstream believability | Jurassic Park, 1993 | Creature realism is easier than human realism; uncanny-valley risk differs. |
+| When fully CGI features became viable | Toy Story, 1995 | Feature viability required pipeline, rendering, story, and production management together. |
+| When film color timing moved into digital finishing | O Brother, Where Art Thou?, 2000 digital intermediate | DI changed control surfaces, not just storage medium. |
+| How large synthetic crowds became feasible | MASSIVE software, 2001 | Simulation creates plausible agents; art direction still governs readability. |
+| When performance capture and 3D scaled together | Avatar, 2009 | Performance capture is not automatic acting transfer; cleanup and animation remain central. |
+| Why theaters standardized digital files | DCI and DCP distribution | Standards solved interoperability and security, but also changed exhibition economics. |
+| Why codec choice affects streaming scale | AV1 royalty-free compression | Codec gains depend on device support, encode cost, bitrate ladder, and CDN economics. |
 
 ---
 

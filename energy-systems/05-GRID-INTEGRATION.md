@@ -2,7 +2,7 @@
 
 ## The Big Picture
 
-The electrical grid is the largest real-time distributed consensus system in existence. Grid frequency (60.00 Hz / 50.00 Hz) is the implicit consensus signal — every generator and load must agree on this shared state without a central coordinator, and deviations are the equivalent of clock skew or split-brain events in distributed systems.
+The electrical grid is a real-time distributed physical system whose synchronous areas coordinate around a shared frequency target. The consensus analogy is useful, but it is physics-mediated rather than message-mediated: generators, inverters, protection, and loads interact through voltage, frequency, impedance, and controls.
 
 ```
 ENGINEERING BRIDGE: GRID STABILITY AS DISTRIBUTED CONSENSUS
@@ -508,22 +508,24 @@ IEEE 1547-2018 (Standard for Interconnection and Interoperability of DERs):
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why does frequency change? | Generation ≠ load → surplus/deficit shows as f rise/fall |
-| What is grid inertia? | Stored rotational KE in synchronous generators; resists ROCOF |
-| What reduces grid inertia? | More inverter-based resources (solar, wind); fewer synchronous machines |
-| Primary vs secondary frequency regulation? | Primary: droop, 1-30s; Secondary: AGC restores to 60 Hz |
-| Duck curve: what and why? | Midday solar surplus + steep evening ramp; 4h BESS is the fix |
-| Why HVDC for offshore or long-distance? | Lower losses, asynchronous interconnect, submarine cables |
-| What is LMP? | Locational marginal price = energy + congestion + loss; can go negative |
-| Capacity market vs energy market? | Energy = what power costs; capacity = being available for peak reliability |
-| ELCC of solar? | Varies by penetration; first solar has high ELCC; marginal falls as penetration grows |
-| FERC 2222: what does it do? | Lets aggregated DERs (VPPs) participate in wholesale markets |
-| Grid-forming vs grid-following inverter? | GFM creates voltage reference; GFL locks to existing grid |
-| What firm clean capacity completes 100%? | Nuclear, geothermal, or long-duration storage (no consensus) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A frequency-stability claim | Separate imbalance size, inertia, ROCOF, primary response, fast inverter response, AGC, and load shedding. | Frequency is a system outcome; no single device "sets" it for a large interconnection alone. |
+| A low-inertia claim | Check online synchronous mass, inverter penetration, grid-forming controls, contingency size, and protection settings. | Inverters do not provide synchronous inertia by default, but controls can provide fast active-power support. |
+| A duck-curve claim | Look at net load, ramp rate, minimum generation, curtailment, storage duration, flexible demand, and transmission export. | Four-hour batteries often help; they are not the universal fix for every renewable-integration problem. |
+| An HVDC proposal | Diagnose distance, cable vs overhead, asynchronous tie, controllability, converter cost, losses, and outage consequences. | HVDC is valuable for specific transfer problems, not a default replacement for meshed AC grids. |
+| A market-integration claim | Separate LMP, capacity/resource adequacy, ancillary services, congestion, negative prices, and local rules. | Market signals can reveal constraints, but they do not by themselves build transmission or flexibility. |
+| An ELCC/resource-adequacy claim | Model penetration, coincidence with peak, weather correlation, storage pairing, forced outages, and neighboring imports. | Marginal ELCC declines as similar resources saturate the same hours. |
+| A DER/VPP claim | Check aggregation telemetry, dispatch authority, customer opt-out, baseline method, distribution constraints, and FERC/state rules. | Wholesale participation still has to respect distribution-grid physics. |
+| A 100% clean-grid claim | Compare firm clean generation, LDES, transmission, demand flexibility, overbuild, curtailment, and reliability standard. | There is no consensus single completion resource; portfolios close the last gap. |
 
 ---
+
+## Cross-References
+
+- `01-SOLAR-PV.md` and `02-WIND-POWER.md` provide the variable generation inputs.
+- `03-ENERGY-STORAGE.md` covers flexibility resources.
+- `../electrical-grid/05-GRID-STABILITY.md` gives the detailed stability and control model.
 
 ## Common Confusion Points
 

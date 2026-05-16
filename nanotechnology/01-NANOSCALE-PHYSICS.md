@@ -374,6 +374,12 @@ PLASMONICS:
 
 ---
 
+## Cross-References
+
+- `semiconductor-manufacturing/01-SILICON-SUBSTRATE.md` — industrial nanoscale control in integrated circuits.
+- `materials/01-CRYSTAL-STRUCTURE.md` — bulk lattice baseline before surface and quantum effects dominate.
+- `quantum-computing/01-QUBITS.md` — quantum-state engineering as an adjacent nanoscale control problem.
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

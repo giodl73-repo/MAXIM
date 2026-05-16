@@ -253,16 +253,23 @@ Only in thin cross-section. A standard dinner plate of porcelain is not visibly 
 
 ---
 
+## Cross-References
+
+- `01-CLAY-TYPES.md` grounds ceramic behavior in mineral structure and plasticity.
+- `05-FIRING-KILNS.md` explains how heat work converts formed clay into durable ceramic.
+- `10-CERAMIC-TRADES.md` connects materials and firing to the labor systems that make ceramic production possible.
+
+---
+
 ## Decision Cheat Sheet
 
-| Use Case | Ceramic Type |
-|----------|-------------|
-| Outdoor pots, frost resistance | Stoneware (dense, vitrified) |
-| Traditional Italian hand-painted tableware | Majolica (earthenware + tin glaze) |
-| Fine white tableware | Porcelain or bone china |
-| Industrial high-temp component | Technical ceramic (alumina, SiC, zirconia) |
-| Dental crown | Zirconia (CAD-milled) |
-| Hip joint | Alumina or zirconia femoral head |
-| Decorative art piece | Any type depending on aesthetic |
-| Wood-fired natural ash glaze | Stoneware or porcelain in anagama |
-| High fire studio bowl | Stoneware Cone 10 (1,285°C) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Outdoor frost resistance | Check porosity, vitrification, water absorption, body maturity, glaze fit, and freeze-thaw cycling. | Stoneware helps only if the fired body is actually dense. |
+| Majolica or tin glaze | Separate earthenware body, opaque tin glaze, decoration sequence, firing temperature, and regional tradition. | The white surface comes from glaze chemistry, not porcelain body. |
+| Fine white tableware | Compare porcelain, bone china, translucency, strength, firing temperature, glaze, and cost. | "White" can come from different bodies with different durability. |
+| High-temperature industrial component | Start with alumina, silicon carbide, zirconia, thermal shock, creep, corrosion, and manufacturing route. | Technical ceramics are strong in compression but unforgiving in flaw control. |
+| Dental or biomedical ceramic | Check zirconia/alumina toughness, wear, biocompatibility, CAD/CAM fit, aging, and opposing-material damage. | Bioinert does not mean mechanically risk-free. |
+| Decorative art ceramic | Diagnose body, surface, firing atmosphere, scale, handling, and aesthetic intent together. | Any ceramic type can be art; material choice still constrains the object. |
+| Wood-fired ash effect | Inspect kiln type, clay body, ash chemistry, flame path, firing duration, and placement. | Natural ash is a process record, not a guaranteed glaze recipe. |
+| High-fire studio ware | Check cone, body maturity, glaze fit, kiln atmosphere, thermal expansion, and intended use. | Cone number alone does not certify food safety or durability. |

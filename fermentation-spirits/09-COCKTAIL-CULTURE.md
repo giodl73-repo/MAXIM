@@ -327,7 +327,7 @@ DEATH & CO (2007, NYC - still operating)
   Systematic bar program; detailed cocktail book "Death & Co" (2014)
   Seasonal menus, creative originals alongside classics
 
-PDT (Please Don't Tell, Brian Kreiger, 2007, NYC)
+  PDT (Please Don't Tell, 2007, NYC)
   Through a phone booth in a hot dog shop (Crif Dogs)
   Reservation only; 30-person capacity
   Jim Meehan: one of the premier systematizers of cocktail craft
@@ -437,7 +437,7 @@ FLIP:
 
 JULEP:
   Spirit + Sugar + Mint + Crushed Ice
-  Mint Julep (bourbon), Mojito (rum + mint + lime = Julian sour hybrid)
+  Mint Julep (bourbon), Mojito (rum + mint + lime = julep-sour hybrid)
 ```
 
 ---
@@ -476,6 +476,12 @@ COMPETITIVE BARTENDING:
 
 ---
 
+## Cross-References
+
+- [Distillation](03-DISTILLATION.md) explains why base-spirit production choices matter in mixed drinks.
+- [Gin and Vodka](06-GIN-VODKA.md) covers the neutral and botanical spirits central to modern cocktails.
+- [Rum and Sugarcane Spirits](07-RUM-SUGARCANE.md) connects cocktail culture to punch, tiki, and sugarcane trade history.
+
 ## Common Confusion Points
 
 **"A Dry Martini has no vermouth."**
@@ -508,19 +514,14 @@ codification, and showmanship that elevated bartending from servitude to profess
 
 ## Decision Cheat Sheet
 
-| Goal / Question | Approach | Formula / Reference |
-|----------------|----------|---------------------|
-| Build any sour-family cocktail | Apply the Sour template | 2 spirit + 0.75 acid + 0.75 sweet; adjust to taste |
-| Build a spirit-forward stirred cocktail | Manhattan/Martini/Negroni template | 2 base spirit + modifier(s) + bitters; stir, strain |
-| Make a Daiquiri | Rum sour | 2 white rum + 0.75 lime + 0.75 sugar syrup (Havana Club 3yr) |
-| Make a Margarita | Tequila sour | 2 blanco tequila + 0.75 lime + 0.75 triple sec; salt rim optional |
-| Make an Old Fashioned | Whiskey + sugar + bitters | 2 rye or bourbon + 0.25 sugar + 2 dashes Angostura; stir |
-| Make a Negroni | Equal-parts bitter stirred | 1 London Dry gin + 1 Campari + 1 sweet vermouth; stir |
-| Make a Penicillin | Modern sour with smoke float | 2 blended Scotch + 0.75 lemon + 0.75 honey-ginger + 0.25 Islay float |
-| Make a Paper Plane | Equal-parts modern | Equal parts bourbon + Aperol + Amaro Nonino + lemon |
-| Make a Last Word | Equal-parts classic | Equal parts gin + green Chartreuse + maraschino + lime |
-| Find historical context for a classic | Reference | David Wondrich "Imbibe" |
-| Master modern technique (carbonation, clarification, etc.) | Reference | Dave Arnold "Liquid Intelligence" |
-| Set up a professional or home bar | Reference | Jim Meehan "The PDT Cocktail Book" |
-| Go deep on Tiki | Reference | Jeff Berry "Beachbum Berry's Remixed" |
-| Make low-ABV cocktails | Aperitif + wine base | Aperol/Campari + sparkling wine; Seedlip for non-alcoholic |
+| If you need to diagnose... | Start With | Control Lever |
+|----------------------------|------------|---------------|
+| A sour-family drink | Spirit + acid + sweetener | Balance acid/sugar before changing the base spirit |
+| A stirred spirit-forward drink | Spirit + modifier + bitters + dilution | Vermouth/liqueur choice and dilution are the architecture |
+| A classic formula | Template, not rote recipe | Daiquiri/Margarita/Sidecar are sour variants; Manhattan/Martini are modifier variants |
+| An Old Fashioned problem | Sugar, bitters, dilution, and base proof | Too sweet, too hot, or under-diluted are different failures |
+| A tiki drink | Rum blend, citrus, spice syrup, crushed ice | Complexity comes from layered rums and syrups, not random juice |
+| A modern equal-parts drink | Bitter/sweet/acid balance | Paper Plane and Last Word work because components self-balance |
+| Historical authenticity | Period source and ingredient availability | Wondrich/Thomas/Craddock/Beachbum Berry distinguish myth from reconstruction |
+| Advanced technique | What problem the technique solves | Clarification, carbonation, fat-washing, and rotovap are tools, not decorations |
+| Low-ABV or N/A program | Occasion, bitterness, body, and adult flavor | Aperitivo, vermouth, tea, acid, and texture often matter more than fake spirit mimicry |

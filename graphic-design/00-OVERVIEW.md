@@ -346,6 +346,12 @@ Use when: physical ink       Use when: pixels on screens
 
 ---
 
+## Cross-References
+
+- [Bauhaus](01-BAUHAUS.md) starts the modern design-school lineage behind much of the field map.
+- [Swiss Style](02-SWISS-STYLE.md) develops grid, typography, and objectivity into a mature visual system.
+- [Contemporary Graphic Design](09-CONTEMPORARY.md) follows the landscape into current tools, platforms, and practice.
+
 ## Common Confusion Points
 
 **"Design vs. Art"** -- Art is self-expression; graphic design is communication

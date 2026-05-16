@@ -281,16 +281,24 @@ This is the discrete-time counterpart of Laplace poles in the s-plane. Complex a
 
 ## Decision Cheat Sheet
 
-| Task | Method |
-|------|--------|
-| Compute ∮ f dz | Residue theorem: 2πi × Σ Res(f, interior poles) |
-| Find residue at simple pole | lim_{z→a}(z−a)f(z) |
-| Find residue at simple pole f=g/h | g(a)/h'(a) |
-| Find residue at pole of order n | Differentiate (z−a)^n f(z) n−1 times |
-| Evaluate ∫_{-∞}^{∞} R(x) dx | Close UHP, sum residues in UHP |
-| Evaluate ∫ R(cos θ, sin θ) dθ | z = e^{iθ} substitution, unit circle |
-| Count zeros inside C | Argument principle or Rouché's theorem |
-| Identify singularity type | Look at Laurent series principal part |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A contour integral | Identify singularities inside the contour, residue at each, orientation, and contour hypotheses. | Only the `c_-1` Laurent coefficient contributes to the closed contour integral. |
+| A simple pole | Use `lim_{z->a} (z-a)f(z)` and verify the singularity is actually simple. | A removable singularity can make the same limit finite but not a pole. |
+| A quotient pole | If `f=g/h`, check `h(a)=0`, `h'(a) != 0`, and `g` holomorphic; then use `g(a)/h'(a)`. | Multiple zeros of `h` require higher-order analysis. |
+| A higher-order pole | Multiply by `(z-a)^n`, differentiate `n-1` times, and divide by `(n-1)!`. | First confirm the pole order; overestimating order can add unnecessary work. |
+| A real integral by residues | Choose upper/lower contour, decay estimate, branch cuts if needed, and included poles. | The arc contribution must vanish or be accounted for. |
+| A trigonometric integral | Substitute `z=e^{i theta}`, convert sine/cosine, include `dz/(iz)`, and use unit-circle poles. | Poles on the unit circle need indentation or principal-value handling. |
+| Zero counting | Compare argument principle vs Rouché, check contour nonvanishing and strict inequalities. | Rouché requires strict inequality on the entire contour. |
+| Singularity classification | Inspect Laurent principal part: none, finite, or infinite negative terms. | Residue zero does not imply removable. |
+
+---
+
+## Cross-References
+
+- `02-COMPLEX-INTEGRATION.md` supplies the contour-integral machinery residues exploit.
+- `06-ENTIRE-MEROMORPHIC.md` generalizes poles and residues to global meromorphic function behavior.
+- `09-APPLICATIONS.md` shows residue methods in real integrals, transforms, and physics problems.
 
 ---
 

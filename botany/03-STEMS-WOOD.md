@@ -245,8 +245,8 @@ Longest continuous chronologies:
 
 ### Applications
 
-| Application | Principle |
-|-------------|-----------|
+| Dendrochronology use | Signal read |
+|---|---|
 | **Dating archaeological wood** | Match ring pattern to master chronology → calendar year |
 | **Calibrating radiocarbon dating** | Known ring years → known ¹⁴C values → calibration curve |
 | **Climate reconstruction** | Ring width/density → past temperature/precipitation |
@@ -285,17 +285,23 @@ MOISTURE MOVEMENT:
 
 ---
 
+## Cross-References
+
+- `botany/06-TREES-FORESTS.md` - woody stems scaled to forest structure.
+- `woodworking/01-WOOD-ANATOMY.md` - wood anatomy as material culture.
+- `plant-physiology/01-WATER-TRANSPORT.md` - vascular transport where available.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What produces wood? | Vascular cambium (lateral meristem) dividing inward |
-| Why can't grasses grow into trees? | No vascular cambium → no secondary growth (palms are exception via primary thickening) |
-| Heartwood vs sapwood function? | Sapwood = active water conduction; heartwood = dead core with secondary metabolites |
-| What is the Janka hardness of Douglas fir? | 620 lbf — main structural timber |
-| What is crossdating? | Matching ring patterns across overlapping tree lifespans to build master chronology |
-| How old is the longest tree ring chronology? | ~12,500 years (German oak/pine master chronology) |
-| Why is ring-porous vs diffuse-porous wood different to work? | Ring-porous (oak) has visible open pores → needs filling before finishing; diffuse-porous more uniform |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Wood production | Vascular cambium dividing inward | Secondary growth is absent in most monocots. |
+| Grass versus tree growth | Lack of vascular cambium in grasses | Palms use primary thickening, not true wood. |
+| Heartwood versus sapwood | Sapwood conducts water; heartwood stores extractives | Heartwood durability varies by species. |
+| Structural timber hardness | Janka hardness and species use | Hardness is not the same as strength or stiffness. |
+| Tree-ring dating | Crossdating overlapping ring patterns | Rings must be validated; tropical and drought-stressed trees can mislead. |
+| Long chronology depth | Master chronologies such as German oak/pine | Chronology length depends on preservation and overlap. |
+| Wood finishing behavior | Ring-porous versus diffuse-porous anatomy | Pore filling matters for finish, not necessarily structural performance. |
 
 ---
 

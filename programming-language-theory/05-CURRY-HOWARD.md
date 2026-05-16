@@ -324,19 +324,25 @@ SESSION TYPES (Honda 1993) as linear logic propositions:
 
 ---
 
+## Cross-References
+
+- `01-LAMBDA-CALCULUS.md` supplies proof terms as programs.
+- `02-TYPE-THEORY.md` supplies the type systems that carry logical content.
+- `06-DEPENDENT-TYPES.md` pushes propositions-as-types into full specifications.
+
 ## Decision Cheat Sheet
 
-| Concept | Type theory counterpart | Production example |
-|---------|------------------------|--------------------|
-| Implication P → Q | Function type A → B | Every function in every language |
-| Conjunction P ∧ Q | Product type A × B | Tuples, structs |
-| Disjunction P ∨ Q | Sum type A + B | Rust enum, Haskell Either |
-| Falsehood ⊥ | Empty type Void | Rust !, Haskell Void |
-| Classical double negation | CPS transform | Compiler IR |
-| Callcc / Peirce's law | First-class continuations | Scheme, Delimited continuations |
-| Linear implication A ⊸ B | Affine/linear function types | Rust ownership |
-| !A (of course) | Unrestricted use | Haskell default (pure functions) |
-| Normalization = computation | β-reduction terminates | Coq terms always terminate |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Implication-as-program | Function type A -> B | Total proof terms differ from general production functions with effects. |
+| Both-values evidence | Product type A x B | Tuples/structs are proof of conjunction only under typed discipline. |
+| Either-case evidence | Sum type A + B | Exhaustive pattern matching is the operational counterpart. |
+| Impossible state | Empty type such as Void or `!` | Bottom and exceptions can inhabit "empty" types in partial languages. |
+| Classical control | CPS transform and double negation | Classical logic enters through control effects, not free intuitionistic reasoning. |
+| Peirce's law in programs | First-class continuations | Call/cc changes equational reasoning and optimization assumptions. |
+| Resource-sensitive proof | Linear implication and affine types | Rust is affine ownership, not full linear logic. |
+| Reusable assumption | The `!` modality for unrestricted use | Linear systems must mark where duplication/discarding is allowed. |
+| Proof normalization | Beta-reduction termination | Coq enforces termination; general-purpose languages do not. |
 
 ---
 

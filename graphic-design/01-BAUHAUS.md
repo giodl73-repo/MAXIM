@@ -274,6 +274,12 @@ using visual means.
 
 ---
 
+## Cross-References
+
+- [Graphic Design Overview](00-OVERVIEW.md) places Bauhaus inside the broader design discipline.
+- [Swiss Style](02-SWISS-STYLE.md) follows Bauhaus rationalism into grid-based international typography.
+- [Grid Systems](04-GRID-SYSTEMS.md) turns Bauhaus composition principles into repeatable layout architecture.
+
 ## Common Confusion Points
 
 **"Bauhaus was a style"** -- It was first a pedagogy and thesis. The aesthetic

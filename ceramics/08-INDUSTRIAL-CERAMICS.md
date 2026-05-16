@@ -405,19 +405,25 @@ Same molecule; dramatically different form. Abrasive SiC: macro-grain (coarse gr
 
 ---
 
+## Cross-References
+
+- `ceramics/03-DRYING-FIRING.md` — sintering and firing control.
+- `materials/03-CERAMICS-POLYMERS-COMPOSITES.md` — engineering material class comparison.
+- `semiconductor-manufacturing/01-SILICON-SUBSTRATE.md` — high-purity ceramic-adjacent manufacturing logic.
+
 ## Decision Cheat Sheet
 
-| Application Need | Ceramic Choice |
-|-----------------|---------------|
-| Hip/knee joint bearing surface | Zirconia (Y-TZP) or alumina |
-| Dental crown (posterior) | Zirconia (CAD-milled) |
-| Dental crown (anterior, aesthetic) | High-translucency zirconia or lithium disilicate |
-| Gas turbine blade coating | YSZ thermal barrier coating |
-| Oxygen sensor in car | Yttria-stabilized zirconia |
-| Cutting tool insert (steel) | Carbide or SiC whisker-reinforced Al₂O₃ |
-| Lightweight armor plate | SiC or B₄C + composite |
-| High-speed precision bearings | Si₃N₄ hybrid bearings |
-| Steel furnace lining | MgO (basic) or high alumina (neutral) |
-| Ultrasound transducer | PZT piezoelectric ceramic |
-| Capacitor in electronics | MLCC (BaTiO₃) |
-| Kiln heating element (high temp) | SiC globar |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a joint bearing needs ceramic wear resistance | Y-TZP zirconia or alumina | Toughness, phase stability, wear debris, and pairing decide implant behavior. |
+| Whether a posterior dental crown needs strength | CAD-milled zirconia | Strength trades against translucency and antagonist wear. |
+| Whether an anterior dental crown needs aesthetics | High-translucency zirconia or lithium disilicate | Aesthetics, occlusal load, preparation thickness, and bonding all matter. |
+| Whether a turbine blade needs heat insulation | YSZ thermal barrier coating | Coating failure is about thermal cycling, bond coat, and spallation, not just low conductivity. |
+| Whether an oxygen sensor needs ion conduction | Yttria-stabilized zirconia | YSZ conducts oxygen ions only at high temperature. |
+| Whether cutting steel needs hard tool ceramic | Carbide or SiC-whisker-reinforced alumina | Toughness and thermal shock limit feed/speed choices. |
+| Whether lightweight armor needs ceramic strike face | SiC or B4C with composite backing | Ceramic stops penetration only as part of a layered armor system. |
+| Whether high-speed bearings need low density and wear | Si3N4 hybrid bearings | Hybrid bearing performance depends on lubrication, cage, and failure mode. |
+| Whether steel furnace lining needs basic or neutral refractory | MgO basic or high-alumina neutral lining | Slag chemistry selects refractory; wrong chemistry dissolves the lining. |
+| Whether ultrasound needs electromechanical coupling | PZT piezoelectric ceramic | Lead content, poling, matching layers, and damping shape performance. |
+| Whether electronics need high capacitance density | MLCC using BaTiO3 | MLCC capacity depends on dielectric class, voltage bias, and temperature stability. |
+| Whether a kiln needs high-temperature resistive heating | SiC globar | SiC elements age, oxidize, and change resistance over time. |

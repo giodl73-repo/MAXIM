@@ -1,6 +1,6 @@
 # Photojournalism: Ethics of Image, Decisive Moment, Staged vs. Candid
 
-## The Photojournalism Landscape
+## The Big Picture
 
 Photojournalism is the practice of making photographs that tell news stories — with the evidentiary expectation that the image accurately represents what occurred. The field rests on a foundational claim: the photograph is a record of reality, not an interpretation of it. Every departure from that claim — staging, cropping for meaning rather than framing, digital manipulation — erodes the contract between image and viewer.
 
@@ -426,19 +426,25 @@ CONSENT FRAMEWORK
 
 ---
 
+## Cross-References
+
+- `04-EDITORIAL-STANDARDS.md` supplies manipulation and ethics constraints.
+- `08-BROADCAST.md` shows moving-image and live visual journalism.
+- `09-DIGITAL-JOURNALISM.md` covers verification and platform distribution.
+
 ## Decision Cheat Sheet
 
-| Photojournalism Situation | Standard |
-|--------------------------|----------|
-| Opportunity to photograph decisive moment | Wait and capture; do not direct; framing is editorial, not staging |
-| Photo subject asks you to "set up" shot | Decline for news; label clearly as portrait/illustration if you proceed |
-| Digital edit: removing intrusive background element | Prohibited — any content removal violates no-pixel-editing standard |
-| Caption: can't identify everyone in crowd photo | Describe visible role/action; do not guess names |
-| Archival photo repurposed for new story | Must label "File photo" with original date |
-| War zone: wounded person, no consent possible | Apply public interest test; consider identifiability and dignity |
-| AI-generated image | Label explicitly; do not present as photographic documentation |
-| World Press Photo submission post-2015 | RAW file required; forensic analysis conducted; excessive dodging/burning disqualifies |
-| Photograph of juvenile in crisis | Consider harm to child; apply publication standards even if capture is legal |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Decisive moment opportunity | Wait, frame, and capture without direction | Framing is editorial; staging changes the evidentiary status. |
+| Subject asks to set up shot | Decline for news or label as portrait/illustration | Subject awareness is not staging; photographer direction is. |
+| Digital content edit | No-pixel-removal standard and RAW/original comparison | Removing an "intrusive" element is still factual alteration. |
+| Uncertain caption identity | Visible role/action description only | A true image with a false caption becomes misinformation. |
+| Archival reuse | "File photo" label and original date | Recontextualization can mislead even when the image is authentic. |
+| War-zone injury image | Public-interest, dignity, identifiability, and consent test | Legal capture does not automatically justify publication. |
+| AI-generated image | Explicit label and non-documentary placement | Provenance labels do not solve ethics or public-interest judgment. |
+| Contest/submission integrity | RAW file, forensic review, and edit-threshold rules | Tonal edits can become disqualifying when they alter meaning. |
+| Juvenile in crisis | Child-harm standard above ordinary legality | Publication may create durable harm long after news value fades. |
 
 ---
 

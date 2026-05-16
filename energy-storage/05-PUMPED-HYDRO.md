@@ -3,19 +3,19 @@
 ## The Big Picture
 
 Pumped hydroelectric storage is the oldest, most proven, and by far the most deployed
-form of grid-scale energy storage. It represents 96% of all installed grid storage energy
-worldwide. Despite being 19th-century technology, it is not replaceable at scale by
-anything currently available.
+form of grid-scale energy storage. Recent global surveys still place it at the large
+majority of installed grid-storage energy capacity, though exact shares vary by source
+and by whether power or energy capacity is counted. Its advantage is not novelty; it is
+site-specific, long-lived civil infrastructure at GW/GWh scale.
 
 ```
 PUMPED HYDRO GLOBAL CONTEXT
 =============================
 
-GLOBAL STORAGE INSTALLED (2024):
-  Total grid storage: ~1,700 GW / ~9,500 GWh
-  Pumped hydro:       ~1,600 GW / ~9,100 GWh  = 96% by energy
-  Li-ion BESS:        ~    70 GW / ~  150 GWh  =  2% by energy
-  All others:         ~    30 GW / ~  250 GWh  =  2% by energy
+GLOBAL STORAGE INSTALLED (approximate, source-dependent):
+  Pumped hydro:       dominant by installed energy capacity
+  Li-ion BESS:        fastest-growing new-build category
+  Flow/CAES/thermal:  smaller installed base, targeted niches
 
 LARGEST PUMPED HYDRO PLANTS:
   Bath County (VA, USA): 3,003 MW / 24,000 MWh (30-year payback, paid off)
@@ -257,18 +257,23 @@ Response time:
 
 ## Decision Cheat Sheet
 
-| Storage Requirement | Pumped Hydro Role |
-|--------------------|------------------|
-| >100 MWh, >8 hours duration | Primary technology, most cost-effective |
-| Black start after grid failure | Essential (designed for this) |
-| Frequency regulation (<1 minute) | Can do (spinning reserve) but Li-ion faster |
-| Rapid deployment (1-2 year) | Not suitable (10-20 year build time) |
-| Geography-constrained area (flat) | Not feasible -- use flow battery or BESS |
-| 50+ year asset lifetime | Ideal (civil structure lasts >100 years) |
-| Island or isolated grid | If mountains exist: ideal; otherwise alternatives |
-| Seasonal energy storage | Pumped hydro is the only proven option at GWh+ |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether pumped hydro fits a storage need | Check required MW, MWh, duration, cycle frequency, ramp rate, black-start need, and transmission location. | Pumped hydro is excellent for large/long assets, but it is not a rapid modular deployment tool. |
+| Whether a site is feasible | Examine head height, reservoir volume, geology, water rights, environmental impact, land ownership, and grid interconnection. | The limiting constraint is usually site/permitting, not turbine physics. |
+| Whether it beats batteries | Compare duration, lifetime, degradation, round-trip efficiency, construction time, financing risk, and market revenue. | Batteries often win short-duration speed and modularity; pumped hydro can win long life and large energy volume. |
+| Whether it can provide black start | Verify auxiliary power, start sequence, cranking path, reactive support, governor behavior, and load-pickup plan. | A plant may be black-start capable only if the restoration path and grid conditions are engineered. |
+| Whether it provides frequency regulation | Check fixed-speed vs variable-speed machines, operating point, reserve headroom, governor controls, and market rules. | Li-ion can respond faster; pumped hydro brings rotating mass and large sustained capability. |
+| Whether it works for an island or isolated grid | Map terrain, reservoirs, rainfall/evaporation, seismic risk, land constraints, and backup generation. | Mountainous geography helps, but island permitting, water, and environmental constraints can dominate. |
+| Whether it solves seasonal storage | Compare reservoir size, inflow, evaporation, environmental limits, multi-week energy need, and competing water uses. | It is proven at GWh scale, but "seasonal" requires enormous reservoirs and favorable geography. |
 
 ---
+
+## Cross-References
+
+- `08-GRID-ECONOMICS.md` compares pumped hydro economics with battery and long-duration storage.
+- `06-COMPRESSED-AIR.md` gives another geography-dependent bulk-storage technology.
+- `../hydrology/00-OVERVIEW.md` supplies the water-system context behind reservoirs and siting.
 
 ## Common Confusion Points
 

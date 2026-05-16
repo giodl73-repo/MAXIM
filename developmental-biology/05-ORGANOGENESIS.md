@@ -373,17 +373,23 @@ EYE DEVELOPMENT: THE TEXTBOOK INDUCTION
 
 ---
 
+## Cross-References
+
+- `developmental-biology/02-GASTRULATION.md` - germ-layer origins of organ systems.
+- `human-biology/06-IMMUNE.md` - mature immune-system anatomy and function.
+- `disease/09-GENETIC-DEVELOPMENTAL.md` - developmental defects as disease.
+
 ## Decision Cheat Sheet
 
-| Organ | Germ Layer Origin | Master Regulator | Key Inductive Signal |
-|-------|-----------------|-----------------|---------------------|
-| Heart | Lateral plate mesoderm | Nkx2.5, GATA4 | BMP2/4 from pharyngeal endoderm |
-| Lungs | Foregut endoderm (surface) + splanchnic mesoderm | Nkx2.1/TTF-1 | FGF10 from mesenchyme |
-| Kidney | Intermediate mesoderm (mesenchyme + ureteric bud) | Six2, WT1 | GDNF → RET + Wnt9b |
-| Liver | Foregut endoderm | Foxa2, HNF4α | FGF1/2 from cardiac mesoderm |
-| Pancreas | Foregut endoderm | Pdx1, Ptf1a, Ngn3 | Notch repression → Ngn3 |
-| Limb | Lateral plate + surface ectoderm | Tbx4/5 (leg/arm identity) | FGF10/Wnt2b (bud initiation) |
-| Eye | Surface ectoderm (lens) + diencephalon (retina) | Pax6 | Optic vesicle FGF/BMP |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Heart induction | Lateral plate mesoderm with Nkx2.5/GATA4 and BMP | Early patterning occurs before a visible heart. |
+| Lung branching | Foregut endoderm plus mesenchymal FGF10 | Branch termination uses active inhibitory signals. |
+| Kidney formation | Intermediate mesoderm, Six2/WT1, GDNF-RET/Wnt9b | Reciprocal induction requires both bud and mesenchyme. |
+| Liver specification | Foregut endoderm with Foxa2/HNF4a and cardiac FGF | Competence window constrains response. |
+| Pancreas endocrine fate | Pdx1/Ptf1a/Ngn3 and Notch repression | Notch timing shapes endocrine versus exocrine outcome. |
+| Limb bud identity | Lateral plate/surface ectoderm and Tbx4/Tbx5 | AER/ZPA interactions refine growth and pattern. |
+| Eye induction | Pax6 with optic-vesicle FGF/BMP | Lens and retina have different tissue origins. |
 
 ---
 

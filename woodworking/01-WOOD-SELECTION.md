@@ -274,20 +274,26 @@ TIP: Buy 20–30% extra (waste from defect cutoff, jointing, planing)
 
 ---
 
+## Cross-References
+
+- `02-HAND-TOOLS.md` shows how species choice changes tool behavior.
+- `05-SURFACE-PREPARATION.md` turns grain and figure into surface strategy.
+- `06-FINISHING.md` connects wood porosity and color to finish selection.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Best species for tabletop (stability + wear)? | Quartersawn hard maple or white oak |
-| Best species for visible joinery (crisp)? | Cherry, walnut, hard maple |
-| Best species for bent parts (steam bending)? | Ash, white oak, walnut (straight grain required) |
-| What sawn orientation is most stable? | Quartersawn (radial movement ~half tangential) |
-| What MC target for fine indoor furniture? | 6–8% MC |
-| What does 12% MC wood do in 30% RH interior? | Shrinks ~3–5% in width (releases moisture to dry air) |
-| What is FAS grade hardwood? | ≥83.3% clear face (best grade hardwood) |
-| Bird's eye vs. curly figure: what's the risk? | Curly = reversing grain → tear-out when planing |
-| How do you detect twist in a board? | Winding sticks (see 05-SURFACE-PREPARATION.md) |
-| What is tension wood? | Reaction wood in hardwoods; woolly surface; severe warping; avoid |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Stable tabletop stock | Quartersawn hard maple or white oak | Kiln-dried wood still moves with ambient humidity. |
+| Crisp visible joinery | Cherry, walnut, or hard maple with predictable grain | Janka hardness does not predict workability by itself. |
+| Steam-bent parts | Ash, white oak, or walnut with straight grain | Figure and runout can turn bendable species into failures. |
+| Movement risk | Sawn orientation and tangential/radial shrinkage | Quartersawn reduces movement but does not eliminate it. |
+| Indoor furniture moisture | 6-8% moisture content target | Acclimate in the actual shop environment before milling. |
+| Dry-interior shrinkage | Wood above equilibrium MC in low RH | Width change is the design problem; length change is usually negligible. |
+| Clear-face grading | FAS grade hardwood for yield planning | Grade predicts clear cuttings, not color match or grain behavior. |
+| Figured-board machining | Curly/reversing grain and scraper/sanding plan | Beauty often trades off against plane-friendly stability. |
+| Board twist | Winding sticks before layout | Flatten before joinery; layout cannot rescue twisted stock. |
+| Reaction wood | Tension wood in hardwoods and compression wood in softwoods | Avoid for precision work because internal stress moves after cutting. |
 
 ---
 

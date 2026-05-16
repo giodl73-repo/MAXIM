@@ -368,20 +368,26 @@ HASH FUNCTIONS:
 
 ---
 
+## Cross-References
+
+- `cryptography/01-SYMMETRIC.md` — implementation-facing cryptography counterpart.
+- `number-theory/09-COMPUTATIONAL-NUMBER-THEORY.md` — complexity of factoring, discrete log, and primality.
+- `quantum-computing/02-ALGORITHMS.md` — quantum algorithms that break RSA/DH/ECDH assumptions.
+
 ## Decision Cheat Sheet
 
-| Cryptographic context | Number theory needed |
-|-----------------------|---------------------|
-| RSA security | IFP hardness, Euler φ(n), modular inverse |
-| RSA correctness | Euler's theorem, CRT for speedup |
-| RSA padding (OAEP) | Not NT — hash + XOR mask |
-| DH security | DLP in (Z/pZ)*, safe prime parameters |
-| ECDH/ECDSA security | ECDLP in E(F_p), Hasse's theorem, prime group order |
-| Post-quantum KEM | LWE/Ring-LWE ← SVP/CVP hardness |
-| Post-quantum signatures | SIS (Short Integer Solution) ← LWE variant |
-| Error-correcting codes | Polynomial arithmetic over GF(2^m) |
-| AES internals | GF(2^8) arithmetic, irreducible polynomials |
-| Quantum attack | Shor: period-finding ← breaks IFP and DLP |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether RSA security is number-theoretic | Integer factorization hardness | Padding, key generation, and side channels are separate security layers |
+| Whether RSA decryption is correct and fast | Euler theorem plus CRT | CRT speeds decryption but increases fault-attack sensitivity |
+| Whether OAEP is number theory | Hash-based masking construction | Padding security is not implied by RSA arithmetic alone |
+| Whether finite-field DH is safe | Discrete log in `(Z/pZ)*` with safe parameters | Small subgroups and weak primes break assumptions |
+| Whether elliptic-curve protocols rely on arithmetic geometry | ECDLP over `E(F_p)` | Curve choice, subgroup order, and implementation are security-critical |
+| Whether a KEM is post-quantum lattice-based | LWE or Ring-LWE hardness | Concrete parameter choices and ring structure matter |
+| Whether signatures use lattice relations | SIS-style hardness | Variants have different leakage and norm constraints |
+| Whether coding theory enters crypto | Polynomial arithmetic over finite fields | Code choice determines both efficiency and attack surface |
+| Whether AES uses number theory internally | `GF(2^8)` arithmetic | AES security is not reducible to finite-field arithmetic alone |
+| Whether quantum algorithms break classical assumptions | Shor period-finding | Shor breaks IFP/DLP, not symmetric crypto at the same scale |
 
 ---
 

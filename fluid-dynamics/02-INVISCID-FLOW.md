@@ -257,18 +257,28 @@ Potential flow over a sinusoidal hill: use conformal map to transform flat surfa
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Continuum assumptions and vorticity definitions | `fluid-dynamics/01-CONTINUUM-MECHANICS.md` |
+| Boundary-layer correction to inviscid predictions | `fluid-dynamics/04-BOUNDARY-LAYERS.md` |
+| Compressible departures from Bernoulli intuition | `fluid-dynamics/06-COMPRESSIBLE-FLOW.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Situation | Approach |
-|----------|---------|
-| 2D inviscid irrotational flow | Complex potential W(z) = φ + iψ |
-| Find velocity from potential | **v** = ∇φ, or dW/dz = u − iv |
-| Pressure distribution | Bernoulli: p = p_∞ + ½ρ(U∞² − v²) |
-| Flow around cylinder | W = U∞(z + R²/z) |
-| Lift on airfoil (inviscid) | Kutta-Joukowski: L = ρU∞Γ |
-| Prove no drag (inviscid) | D'Alembert's paradox |
-| Check if vorticity is conserved | Kelvin's theorem (inviscid, barotropic) |
-| Check if potential flow is valid | Need ∇ × **v** = 0, no separation, no shock |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| 2D inviscid irrotational flow | Complex potential `W(z) = phi + i psi` | Requires incompressible, 2D, irrotational conditions together. |
+| Velocity from potential | `v = grad phi` or `dW/dz = u - iv` | Singularities and branch cuts carry physical circulation/source meaning. |
+| Pressure distribution | Bernoulli relation from local speed | Bernoulli is global only for irrotational flow; otherwise streamline constants differ. |
+| Cylinder flow | `W = U_infty(z + R^2/z)` | Inviscid solution misses separation and drag. |
+| Inviscid lift | Kutta-Joukowski `L = rho U_infty Gamma` | Circulation selection needs the Kutta condition/viscous starting process. |
+| Zero-drag paradox | D'Alembert's paradox | The paradox disappears once boundary layers separate and wake vorticity forms. |
+| Vorticity conservation | Kelvin's theorem | Requires inviscid, barotropic flow with conservative body forces. |
+| Potential-flow validity | `curl v = 0`, no separation, no shock | Real flows often violate validity near walls and wakes. |
 
 ---
 

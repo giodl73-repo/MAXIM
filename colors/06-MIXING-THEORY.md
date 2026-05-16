@@ -322,17 +322,27 @@ PHYSICS EXPLANATION:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Spectral physics of color | `colors/01-COLOR-PHYSICS.md` |
+| Color systems and coordinates | `colors/03-COLOR-SYSTEMS.md` |
+| Historical pigment behavior | `colors/05-HISTORICAL-SHADES.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Red + Green light = ? | Yellow (additive mixing — L + M cone stimulation) |
-| Red + Green paint = ? | Dark brownish-orange (subtractive — each absorbs different wavelengths; combined absorption leaves limited reflection) |
-| Why does CMYK use K in addition to CMY? | CMY inks are impure; combined CMY gives muddy brown, not black. Black ink provides true black and saves expensive CMY ink costs. |
-| Why are Seurat's colors more vivid than mixed paint? | Optical/partitive mixing: juxtaposed pure pigment dots blend in the eye approximately additively → higher perceived luminance than physical subtractive mixing of same pigments |
-| What are the four ICC rendering intents? | Perceptual (compress all, preserve relationships), Relative Colorimetric (clip only out-of-gamut), Saturation (maximize vividness), Absolute Colorimetric (exact, no white point compensation) |
-| Why do shadows in sunlight look blue? | Shadowed areas receive only diffuse sky light (~10,000K, blue-violet) rather than direct sunlight. Impressionists were the first Western painters to consistently paint this observation rather than using gray shadows. |
-| What is gamut? | The full range of colors reproducible by a given system (display/printer/film). sRGB = ~35% of all visible colors. Out-of-gamut colors must be mapped (clipped or compressed) when converting to a smaller-gamut system. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Red plus green light | Additive mixing and L/M cone stimulation | Emitted-light mixing does not predict pigment mixing. |
+| Red plus green paint | Subtractive absorption by combined pigments | Actual result depends on pigment spectra, not ideal color-wheel labels. |
+| Why CMYK needs black | Impure CMY inks, cost, density, and registration | K is practical print engineering, not a separate visual primary. |
+| Seurat/pointillist vividness | Optical or partitive mixing from juxtaposed dots | Partitive mixing approximates additive behavior but still uses reflected light. |
+| ICC conversion choice | Perceptual, relative colorimetric, saturation, absolute colorimetric intents | Rendering intent is task-specific; no intent is universally "most accurate." |
+| Blue shadows in sunlight | Diffuse sky illumination dominating shadowed areas | Impressionist color observation depends on environment and adaptation. |
+| Gamut limits | Reproducible color volume for a device/process | Out-of-gamut mapping changes colors; clipping and compression fail differently. |
 
 ---
 

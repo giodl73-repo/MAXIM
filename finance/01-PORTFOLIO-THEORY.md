@@ -469,6 +469,20 @@ MULTI-PERIOD PORTFOLIO CONSTRUCTION (practical):
 | Decompose portfolio variance | Factor model: systematic + idiosyncratic |
 | Test if a manager adds alpha | Fama-French regression, check α significance |
 
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Utility, risk preference, and equilibrium | `economics/01-MICROECONOMICS.md` | Portfolio theory is consumer choice under uncertainty with tradable assets |
+| Optimization and numerical stability | `numerical-methods/01-FLOATING-POINT.md` | Mean-variance optimization is sensitive to covariance conditioning and estimation error |
+| Probability model assumptions | `probability-statistics/01-PROBABILITY-FOUNDATIONS.md` | Expected return, covariance, beta, and factor models are statistical objects |
+| Strategic market behavior | `game-theory/01-NORMAL-FORM.md` | Equilibrium pricing depends on how investors' optimal choices clear the market |
+| Behavioral departures from CAPM | `behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md` | Anomalies and factor premia often expose limits of rational-agent assumptions |
+
+---
+
 ## Common Confusion Points
 
 **Markowitz optimizes in-sample but often fails out-of-sample.** The optimizer treats

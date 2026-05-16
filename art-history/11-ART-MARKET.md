@@ -593,14 +593,22 @@ ART FREEPORTS (GENEVA, SINGAPORE, LUXEMBOURG)
 
 ## Decision Cheat Sheet
 
-| Situation | Key mechanism | Key risk |
-|-----------|--------------|---------|
-| Buying at auction | Buyer's premium ~28% on top of hammer | Bought something attributed to X; X is reattributed |
-| Consigning to auction | Seller's commission + reserve setting | Work bought-in = failed publicly, damages price |
-| Buying from gallery (primary) | One price, no haggling; relationship matters | Gallery goes out of business; no aftermarket support |
-| Collecting as investment | Long-term hold, illiquid | Authentication problem discovered after purchase |
-| Acquiring from estate / heirs | Provenance research critical | Nazi-era gap in ownership history |
-| Museum acquisition | Donor restrictions, provenance check | Repatriation claim after acquisition |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Auction purchase | Check hammer price, buyer premium, condition report, guarantee, attribution language, and provenance. | The public price is not the total cost or the final attribution risk. |
+| Auction consignment | Examine estimate range, reserve, seller commission, guarantee, timing, and buy-in history. | A failed public sale can damage future price expectations. |
+| Primary-gallery purchase | Assess artist trajectory, gallery support, placement strategy, resale restrictions, and relationship terms. | One posted price hides allocation power and after-market support. |
+| Art as investment | Model holding period, liquidity, transaction costs, authenticity, condition, tax, and concentration risk. | The market is thin, opaque, and reputation-driven. |
+| Estate or heir acquisition | Prioritize provenance chain, title, export history, Nazi-era gaps, family disputes, and documentation. | A clean-looking object can carry title or restitution risk. |
+| Museum acquisition | Check donor restrictions, accession policy, conservation burden, provenance, repatriation, and public mission fit. | Acquisition creates stewardship obligations, not just ownership. |
+
+---
+
+## Cross-References
+
+- `00-OVERVIEW.md` separates artistic period, style, patronage, and institutional context.
+- `10-MUSEUMS-CONSERVATION.md` connects market value to provenance, conservation, acquisition, and display.
+- `../law/08-INTELLECTUAL-PROPERTY.md` gives the copyright and ownership layer behind reproduction, resale, and NFTs.
 
 ---
 

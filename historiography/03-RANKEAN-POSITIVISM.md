@@ -216,16 +216,23 @@ SOCIAL SCIENCE HISTORY (1950s-1970s)
 
 ---
 
+## Cross-References
+
+- `02-ENLIGHTENMENT.md` supplies the philosophical backdrop Ranke narrowed.
+- `04-ANNALES-SCHOOL.md` reacts against event-and-state history with long duration.
+- `09-PHILOSOPHY-OF-HIST.md` examines objectivity and explanation claims.
+
 ## Decision Cheat Sheet
 
-| Concept | Ranke's Position | Later Critique |
-|---------|-----------------|----------------|
-| Primary sources | Archives are the gold standard | Archives survive unequally; not neutral |
-| Source criticism | Systematic external + internal criticism | Accepted but expanded (material, oral) |
-| Historicism | Each epoch on its own terms | Risk of relativism; paralysis of judgment |
-| Detachment | Historian can transcend their own time | Impossible; better to acknowledge perspective |
-| Political history | Kings, diplomats, battles, treaties | Neglects structure, society, economy |
-| German archives | Accessible, well-organized, central | Most of world history has no such archives |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Archival authority claim | Primary sources and archive provenance | Archives survive unequally and are not neutral mirrors of the past. |
+| Document reliability | External and internal source criticism | Quellenkritik predates Ranke and later expands beyond written documents. |
+| Past-on-its-own-terms method | Historicism and contextual interpretation | Historicism is methodological caution, not "all claims are equal." |
+| Historian neutrality claim | Detachment ideal and present-mindedness control | Perspective cannot be transcended; it must be disciplined and disclosed. |
+| State-centered narrative | Political history of rulers, diplomacy, war, treaties | This misses social, economic, gender, colonial, and material structures. |
+| German seminar/archive model | Professional training and centralized records | The model exported unevenly and does not fit all historical archives. |
+| "Just the facts" reading | `Wie es eigentlich gewesen` as interpretive discipline | Ranke was not naive about interpretation. |
 
 ---
 

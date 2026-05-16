@@ -358,17 +358,27 @@ The dominant evidence-based framework in corrections:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Social control and life-course bonds | `criminology/03-SOCIAL-CONTROL.md` |
+| Incarceration effects on exit pathways | `criminology/07-INCARCERATION.md` |
+| Comparative rehabilitation models | `criminology/09-COMPARATIVE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer | Source |
-|----------|--------|--------|
-| Do people naturally age out of crime? | Yes -- the age-crime curve | Universal finding |
-| What accelerates desistance? | Quality social bonds: marriage, employment | Sampson & Laub |
-| Is desistance just external bonds? | No -- identity change required | Giordano, Maruna |
-| What happens to people leaving prison? | Housing, employment, supervision crises | Reentry literature |
-| What rehabilitation works? | CBT (strongest), education, drug treatment | RNR model, RAND |
-| Should we target everyone with programs? | No -- risk principle: match intensity to risk | Andrews & Bonta |
-| What about victims? | Restorative justice addresses their needs better | Braithwaite, Umbreit |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Aging out of crime | Age-crime curve and natural desistance patterns | Desistance is a process with relapses, not a single clean event. |
+| Accelerated desistance | Quality social bonds: marriage, employment, stable roles | Bonds matter when they are meaningful, not merely present on paper. |
+| Identity change | Giordano/Maruna cognitive transformation and redemption scripts | External bonds and internal narrative change interact. |
+| Reentry failure points | Housing, employment, supervision, treatment continuity | Technical violations are not equivalent to new serious crime. |
+| Rehabilitation program choice | CBT, education, drug treatment, RNR model | Match program intensity to risk; over-treating low-risk people can increase harm. |
+| Risk targeting | Andrews/Bonta risk principle | Risk tools must be audited for bias and actual intervention fit. |
+| Victim needs | Restorative justice and repair processes | Restorative models require safeguards, voluntariness, and power-balance attention. |
 
 ---
 

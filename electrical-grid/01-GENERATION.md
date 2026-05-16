@@ -3,7 +3,9 @@
 
 ---
 
-## The Big Picture: Generation Technologies
+## The Big Picture
+
+### Generation Technologies
 
 ```
 HEAT SOURCE              MECHANICAL CONVERSION         ELECTRICAL CONVERSION
@@ -458,6 +460,12 @@ Wind/Solar:
 ```
 
 ---
+
+## Cross-References
+
+- `energy-systems/01-SOLAR-PV.md` — one generation technology expanded from module physics to grid output.
+- `energy-storage/01-ELECTROCHEMICAL.md` — dispatch and intermittency partner for variable generation.
+- `infrastructure-systems/01-CLASSIFICATION.md` — places power generation inside broader infrastructure dependencies.
 
 ## Decision Cheat Sheet
 

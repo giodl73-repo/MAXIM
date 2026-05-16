@@ -332,17 +332,23 @@ genotype — the same mathematics as L2-regularized regression in any ML framewo
 
 ---
 
+## Cross-References
+
+- `evolutionary-biology/01-NATURAL-SELECTION.md` — selection as the force acting on allele-frequency variation.
+- `genomics/06-GWAS.md` — population structure and allele frequencies in association studies.
+- `probability-statistics/04-STOCHASTIC-PROCESSES.md` — drift as stochastic process logic.
+
 ## Decision Cheat Sheet
 
-| Question | Tool | Formula/threshold |
-|----------|------|-------------------|
-| Are genotype freqs at equilibrium? | Chi-squared test on H-W | p² + 2pq + q² |
-| How much drift per generation? | Var(Δp) = p(1-p)/(2N) | Scales 1/N |
-| Is selection effective vs. drift? | 4Nes criterion | >> 1 for selection |
-| How differentiated are populations? | FST | 0 = none, 1 = complete |
-| How much migration? | Island model | FST ≈ 1/(1+4Nm) |
-| What is coalescence time? | Coalescent | E[T] = 2Ne generations |
-| Can we predict phenotype from SNPs? | Genomic BLUP | Ridge regression |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Hardy-Weinberg departure | Chi-squared test on genotype counts | Violations can reflect structure, inbreeding, selection, or genotyping error. |
+| Drift strength | Variance scaling with 1/(2N) | Effective population size, not census size, controls drift. |
+| Selection versus drift | 4Nes criterion | Small effects behave nearly neutral in small populations. |
+| Population differentiation | F_ST comparison | F_ST is sensitive to within-population diversity. |
+| Migration level | Island-model F_ST approximation | Real population structure rarely matches island assumptions. |
+| Coalescent timescale | Expected pairwise coalescence near 2Ne generations | Selection and demography distort neutral expectations. |
+| Phenotype prediction from SNPs | Genomic BLUP or polygenic score | Prediction is population- and environment-dependent. |
 
 ---
 

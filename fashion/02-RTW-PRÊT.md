@@ -253,6 +253,12 @@ WHY IT DECLINED:
 
 ---
 
+## Cross-References
+
+- `01-COUTURE-SYSTEM.md` gives the elite craft system ready-to-wear scaled and transformed.
+- `03-FASHION-HISTORY.md` follows industrial and cultural shifts in fashion production.
+- `../manufacturing/00-OVERVIEW.md` connects ready-to-wear to standardization, sizing, and throughput.
+
 ## Common Confusion Points
 
 **"Pret-a-Porter = affordable"** -- Pret-a-Porter means ready-to-wear. Chanel
@@ -280,12 +286,12 @@ Size standardization in RTW is the same coordination problem as any domain stand
 
 ## Decision Cheat Sheet
 
-| When you need to...                                      | Strategy / Key point                    | Because                                               |
-|----------------------------------------------------------|-----------------------------------------|-------------------------------------------------------|
-| Maximize margin in luxury RTW                            | Lean into accessories over garments     | No sizing risk; Veblen signaling; 80-90% gross margin |
-| Reduce demand forecasting risk                           | Made-to-order or see-now-buy-now model  | Eliminates inventory markdown; requires DTC channel    |
-| Choose between wholesale and DTC distribution            | DTC: 2x margin; wholesale: broader reach| DTC costs more per customer acquisition               |
-| Understand why contemporary segment exists               | Better RTW at $100-$500 price point     | Bridge between fast fashion and designer; professional wear|
-| Diagnose sizing inconsistency across brands              | Each brand owns its fit block           | No binding industry standard; vanity sizing incentives |
-| Plan a 52-week production calendar                       | Buyer orders 6 months ahead of season   | Fabric sourcing lead time drives the constraint        |
-| Evaluate department store channel viability              | DTC + Amazon + luxury flagships eroded it| Multi-brand aggregation value declined with e-commerce |
+| If you need to diagnose... | Start With | Key Caveat |
+|----------------------------|------------|------------|
+| RTW vs couture claim | Standard sizing, factory production, and inventory risk | Designer RTW can be luxury without being made-to-measure |
+| Margin claim | Apparel fit/return risk vs accessories scalability | Accessories often subsidize brand theater and apparel image |
+| Forecasting claim | Lead time, wholesale orders, markdown risk, and DTC signal | See-now-buy-now reduces lag but shifts execution risk |
+| Channel claim | Wholesale reach vs DTC margin/control | DTC margin is not free; customer acquisition and inventory costs move in-house |
+| Sizing claim | Fit block, vanity sizing, body diversity, and returns | Size labels are brand conventions, not measurements |
+| Contemporary segment claim | Price architecture, material quality, distribution, and workwear use | "Contemporary" is a market tier, not a construction method |
+| Calendar claim | Fabric sourcing, sampling, buyer market, production, and delivery | Fast fashion compresses the cycle by changing the operating model |

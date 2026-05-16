@@ -501,18 +501,26 @@ a constraint on product architecture for any engineering org shipping globally.
 
 ## Decision Cheat Sheet
 
-| I want to understand... | Use this framework |
-|-------------------------|-------------------|
-| Human biological variation across populations | Biological anthropology, population genetics |
-| Why humans cooperate in large groups | Evolutionary anthropology (Hamilton, Trivers, Bowles) |
-| How a culture works "from the inside" | Ethnography, thick description (Geertz) |
-| Why cross-cultural psych experiments fail | WEIRD problem (Henrich/Heine/Norenzayan 2010) |
-| Why ancient tools look the way they do | Archaeology + cognitive archaeology |
-| Why gift-giving creates social obligation | Mauss exchange theory |
-| Why organizational "culture" resists change | Bourdieu — habitus and field |
-| How language shapes (not determines) thought | Sapir-Whorf (weak version) |
-| How to run ethical user research globally | AAA code + FPIC + CARE principles |
-| Why users do the opposite of what they say | Suchman "Plans and Situated Actions" |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Human biological variation | Use population genetics, clines, adaptation, migration, and sampling history. | Biological variation does not map cleanly to folk racial categories. |
+| Large-scale cooperation | Compare kin selection, reciprocity, costly signaling, institutions, norms, and group competition. | No single mechanism explains all human cooperation. |
+| Culture from the inside | Use ethnography, participant observation, thick description, language, and local categories. | Insider meaning is evidence, not automatic explanation. |
+| Cross-cultural experiment failure | Check WEIRD sampling, translation, task framing, local norms, and measurement equivalence. | A failed replication may reveal cultural assumptions in the instrument. |
+| Ancient tools | Combine archaeology, chaîne opératoire, raw material, use-wear, cognition, and social learning. | Tool form reflects both function and learned tradition. |
+| Gift obligation | Use Mauss, reciprocity, prestige, alliance, debt, and moral economy. | Gifts can be economic without being market transactions. |
+| Resistant organizational culture | Analyze habitus, field, incentives, ritual, informal practice, and power. | Culture is not just declared values or employee sentiment. |
+| Language and thought | Compare weak Sapir-Whorf effects, categories, metaphors, cognition, and practice. | Language shapes attention more plausibly than it determines reality. |
+| Ethical global research | Start with consent, FPIC, reciprocity, CARE principles, data governance, and harm review. | "User research" can reproduce extractive fieldwork if power is ignored. |
+| Situated user behavior | Use Suchman, observation, workflow, improvisation, artifacts, and context of action. | What people say and what the situation affords can diverge legitimately. |
+
+---
+
+## Cross-References
+
+- `02-PALEOANTHROPOLOGY.md` anchors the biological and fossil record of human origins.
+- `05-CULTURAL-ANTHROPOLOGY.md` develops ethnography, meaning, ritual, and social organization.
+- `06-ARCHAEOLOGY.md` connects anthropological questions to material evidence and deep time.
 
 ---
 

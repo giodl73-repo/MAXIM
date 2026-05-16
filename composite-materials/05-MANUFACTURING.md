@@ -380,16 +380,24 @@ Continuous profile production — the most cost-efficient composite process per 
 
 ## Decision Cheat Sheet
 
-| Application | Process | Vf | Cost |
-|-------------|---------|----|----|
-| Aerospace primary structure | Prepreg + autoclave | 60% | Very high |
-| Aerospace secondary | RTM or prepreg OOA | 55% | High |
-| Wind turbine blade | Infusion (VARTM) | 50% | Medium |
-| Automotive CFRP structural | HP-RTM or press | 55% | Medium-high |
-| Marine hull (large) | Hand lay-up or infusion | 35–50% | Low-medium |
-| Pressure vessel / pipe | Filament winding | 65% | Low |
-| Structural profile (long) | Pultrusion | 55% | Very low |
-| Complex fuselage/wing | AFP + autoclave | 60% | Very high |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Aerospace primary structure | Compare prepreg, autoclave pressure, fiber volume, void target, certification, and tooling cost. | Autoclave quality is high but capital and part-size limits matter. |
+| Aerospace secondary structure | Evaluate RTM, OOA prepreg, geometry, void tolerance, tooling, and inspection burden. | OOA quality depends on resin design and vacuum discipline, not just skipping the autoclave. |
+| Wind turbine blades | Use VARTM/infusion, resin viscosity, fill distance, exotherm, dry spots, and labor scale. | Large parts are dominated by flow control and defect detection. |
+| Automotive CFRP | Compare HP-RTM, compression molding, cycle time, preform automation, cost, and crash validation. | Cycle time can dominate material performance. |
+| Large marine hulls | Consider hand lay-up, infusion, laminate thickness, worker exposure, voids, and repairability. | Low process cost often trades against repeatability. |
+| Pressure vessels or pipes | Use filament winding, geodesic paths, mandrel removal, fiber angle, and end-cap geometry. | Winding cannot freely turn convex corners. |
+| Long structural profiles | Use pultrusion, constant cross-section, resin bath, die cure, fiber alignment, and cut length. | Pultrusion is cheap because geometry is constrained. |
+| Complex fuselage or wing | Combine AFP, tow steering, gaps/overlaps, autoclave cure, NDI, and rate capability. | Automation reduces labor but introduces machine-path defects. |
+
+---
+
+## Cross-References
+
+- `03-MATRIX-SYSTEMS.md` explains cure chemistry, viscosity, and thermoplastic processing constraints.
+- `06-DESIGN-ANALYSIS.md` links manufacturability to allowable defects, tolerances, and inspection needs.
+- `08-DAMAGE-INSPECTION.md` follows manufacturing defects into field damage detection.
 
 ---
 

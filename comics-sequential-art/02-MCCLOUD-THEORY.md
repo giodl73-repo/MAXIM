@@ -387,14 +387,22 @@ The taxonomy is ordered by increasing reader effort (closure demand): moment-to-
 
 ---
 
+## Cross-References
+
+- `01-HISTORY-FORM.md` places McCloud's theory inside the longer history of sequential images.
+- `03-PANEL-GRAMMAR.md` operationalizes closure, time, and transitions at page scale.
+- `08-GRAPHIC-NOVEL.md` shows how sequential-art theory supports long-form literary argument.
+
+---
+
 ## Decision Cheat Sheet
 
-| McCloud concept                           | Application in practice                 |
-|-------------------------------------------|-----------------------------------------|
-| Closure                                   | Leave readers space to participate      |
-| Blood in the gutter                       | Don't show violence -- imply it         |
-| Panel transition choice                   | Vary type; avoid all action-to-action   |
-| Time as space                             | Panel size signals importance/duration  |
-| Image triangle                            | Simplified icons = wider identification |
-| Interdependent word-image combination     | Highest comics-specific achievement     |
-| Aspect-to-aspect transitions              | Atmosphere; pause; Japanese aesthetic   |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Reader participation | Analyze closure demand, omitted action, gutter inference, and how much event logic the reader supplies. | Leaving gaps works only when the reader has enough cues to bridge them. |
+| Implied violence or action | Use blood-in-the-gutter, before/after panels, sound effects, reaction shots, and pacing. | Implied action can be stronger than depiction, but ambiguity can also confuse causality. |
+| Panel transition choice | Compare moment, action, subject, scene, aspect, and non-sequitur transitions. | Too much action-to-action can flatten rhythm; too much abstraction can lose narrative drive. |
+| Time as space | Look at panel size, gutter width, page position, repeated figures, and reading path. | Spatial duration is conventional, not a precise clock. |
+| Iconic abstraction | Place image on McCloud's triangle: realistic, iconic, abstract, and reader identification. | Simpler icons can widen identification but reduce specificity. |
+| Word-image relation | Distinguish duo-specific, additive, parallel, montage, interdependent, and picture/word-specific modes. | Interdependence is powerful because neither channel is redundant. |
+| Atmosphere and pause | Use aspect-to-aspect transitions, environmental detail, quiet panels, and non-plot texture. | A pause still needs emotional or thematic work. |

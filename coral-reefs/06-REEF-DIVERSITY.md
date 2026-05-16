@@ -293,20 +293,26 @@ Current state:
 
 ---
 
+## Cross-References
+
+- `04-REEF-ECOLOGY.md` supplies zonation and trophic structure.
+- `01-REEF-FORMATION.md` explains habitat-building across reef types.
+- `05-BLEACHING.md` shows how climate stress reshapes diversity patterns.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| How many coral species in Coral Triangle? | ~600 (76% of world's hard coral species) |
-| How many in Caribbean? | ~60–70 hard coral species |
-| When did Indo-Pacific/Caribbean split? | ~3.5 million years ago (Panama Isthmus closed) |
-| Which depth has peak coral diversity? | Fore-reef slope, 5–20 m |
-| What is the Center of Origin hypothesis? | New species originate in Coral Triangle and disperse outward |
-| What killed Caribbean Acropora mostly? | White band disease (1980s–1990s); combined with bleaching |
-| What was the 1983 Caribbean catastrophe? | Diadema antillarum mass mortality → macroalgal bloom |
-| What is SCTLD? | Stony coral tissue loss disease; emerged 2014; spreading rapidly |
-| Which region has highest coral endemism? | Caribbean (~70–80% endemic; entirely distinct from Indo-Pacific genera) |
-| What is the diversity gradient pattern? | Peaks at Coral Triangle; decreases with distance in all directions |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Coral Triangle richness | Around 600 hard coral species, about 76% of world total | Sampling effort still biases exact counts. |
+| Caribbean richness | Roughly 60-70 hard coral species | Lower richness predates modern human damage. |
+| Indo-Pacific/Caribbean split | Panama Isthmus closure around 3.5 million years ago | The provinces now have mostly different genera. |
+| Peak depth diversity | Fore-reef slope around 5-20 m | Depth peak varies with light, waves, and local habitat. |
+| Center of Origin model | New species originating in the Coral Triangle and dispersing outward | Competing models explain different taxa better. |
+| Caribbean Acropora collapse | White band disease plus bleaching stress | Species loss was disease-driven, not only warming-driven. |
+| 1983 Caribbean catastrophe | Diadema antillarum mortality and macroalgal bloom | Grazer loss triggered ecosystem reorganization. |
+| SCTLD threat | Stony coral tissue loss disease since 2014 | Spread is rapid and species susceptibility differs. |
+| Highest endemism | Caribbean around 70-80% endemic | Endemism can coexist with low species richness. |
+| Global diversity gradient | Peak at Coral Triangle, declining outward | Range-size and sampling biases complicate the pattern. |
 
 ---
 

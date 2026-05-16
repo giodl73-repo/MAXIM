@@ -925,22 +925,23 @@ Before reaching for any library, ask: **can this state live lower?**
 
 ---
 
+## Cross-References
+
+- `computing/05-FRONTEND.md` — UI state surfaces.
+- `computing/08-BACKEND.md` — server-side state and API boundaries.
+- `distributed-systems/03-CONSENSUS.md` — consistency problems at distributed scale.
+
 ## Decision Cheat Sheet
 
-| State scenario | Use |
-|---|---|
-| Toggle, local counter, form field in one component | `useState` |
-| Complex related state in one component | `useReducer` |
-| Theme, locale, auth user (low-frequency shared data) | `useContext` |
-| Cart, preferences, wizard steps (shared, changes often) | Zustand |
-| Data from an API / database | TanStack Query |
-| Large enterprise app, team needs strict conventions | Redux Toolkit |
-| Fine-grained atom-level reactivity | Jotai |
-| Complex async state flows / state machines | XState |
-| Form state, validation | React Hook Form + Zod |
-| Current route / URL params | Next.js `useRouter` / React Router |
-| State that survives page refresh | Zustand + persist middleware |
-| State shared between React and non-React code | Zustand (works outside React) |
-| Optimistic UI updates | TanStack Query `onMutate` |
-| Prefetch data before navigation | TanStack Query `prefetchQuery` |
-| High-frequency fine-grained updates, minimal JS overhead | Consider SolidJS (signals-first) or Angular 16+ signals |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Local component state | Use `useState` or `useReducer` based on update coupling, invariants, and readability. | Do not globalize state just because two components can see it. |
+| Low-frequency shared state | Use context for theme, locale, auth snapshot, or dependency injection-style values. | Context re-renders consumers; it is not a general event bus. |
+| Shared client state | Compare Zustand, Redux Toolkit, Jotai, ownership, update frequency, and debugging needs. | The hard problem is state ownership, not library syntax. |
+| Server data | Use TanStack Query for fetch, cache, invalidation, retries, prefetch, and optimistic updates. | Server state has freshness and authority rules client state lacks. |
+| Enterprise convention need | Consider Redux Toolkit, action discipline, devtools, testability, and team onboarding. | Strict conventions cost boilerplate but reduce ambiguity at scale. |
+| Async workflow or state machine | Use XState when legal transitions, cancellation, retries, or orchestration matter. | A state machine is overkill for simple field updates. |
+| Form state | Use React Hook Form plus schema validation, accessibility, dirty/touched state, and submit lifecycle. | Form state is specialized state with UX semantics. |
+| URL or route state | Use router/search params when state must be shareable, bookmarkable, or navigable. | URL state is public interface; treat it as serialized API. |
+| Persisted browser state | Check storage backend, versioning, migration, privacy, and hydration behavior. | Persisting stale state can create bugs that survive reload. |
+| High-frequency fine-grained updates | Evaluate signals, atom stores, rendering granularity, and JS overhead. | Fine-grained reactivity changes the mental model of updates. |

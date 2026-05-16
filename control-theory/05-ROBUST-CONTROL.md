@@ -1,6 +1,6 @@
 # Robust Control
 
-## Big Picture: Nominal Model vs Reality
+## The Big Picture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -310,31 +310,22 @@ WHEN TO USE EACH:
 
 ---
 
+## Cross-References
+
+- `control-theory/01-PID-CLASSICAL.md` — classical gain and phase margins as the SISO precursor.
+- `control-theory/02-STATE-SPACE.md` — MIMO plant models used in robust synthesis.
+- `control-theory/07-MPC.md` — constraint handling versus uncertainty handling in advanced control.
+
 ## Decision Cheat Sheet
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                     │ RECOMMENDATION                        │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Single uncertain gain        │ Gain/phase margins (classical), or   │
-│ in SISO plant                │ H∞ sensitivity minimization          │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Multiple independent         │ μ-synthesis (D-K iteration)           │
-│ parametric uncertainties     │ Model as structured Δ                 │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ High-frequency dynamics      │ H∞ with output multiplicative        │
-│ unmodeled (rolloff needed)   │ uncertainty weight; W₂T bound        │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Want intuitive design        │ Loop shaping (McFarlane-Glover):      │
-│ + automatic robustification  │ shape L₀, then run coprime synthesis  │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Robust stability only        │ Small gain theorem:                  │
-│ (no performance spec)        │ ‖T_zw‖∞ · l(ω) < 1 sufficient      │
-├──────────────────────────────┼───────────────────────────────────────┤
-│ Real parametric uncertainty  │ μ with real scalings (harder, non-    │
-│ (physical parameter ranges)  │ convex); robust LMI methods           │
-└──────────────────────────────┴───────────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a SISO gain uncertainty is tolerable | Classical margins or `H∞` sensitivity minimization | Margins summarize only certain uncertainty shapes |
+| Whether multiple independent uncertainties matter | `μ`-synthesis with structured `Δ` | D-K iteration is nonconvex and can settle at a local design |
+| Whether unmodeled high-frequency dynamics threaten stability | Output multiplicative uncertainty with `W2 T` bound | Weight choice encodes engineering judgment; bad weights give false comfort |
+| Whether loop-shaping intuition should be preserved | McFarlane-Glover coprime loop shaping | The guarantee is for coprime uncertainty, not arbitrary plant error |
+| Whether robust stability alone is enough | Small-gain theorem | Small gain is sufficient and conservative unless uncertainty is unstructured |
+| Whether real parameter ranges dominate | Real-`μ` analysis or robust LMI methods | Real uncertainty is harder than complex uncertainty and often computationally conservative |
 
 ---
 

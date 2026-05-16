@@ -282,17 +282,24 @@ Weaving yarns are specified in: yards per pound, meters per 100g, Nm count.
 
 ---
 
+## Cross-References
+
+- `04-FIBER-PREPARATION.md` supplies cleaned and aligned fibers.
+- `06-WEAVING.md` uses yarn structure as loom input.
+- `03-DYE-CHEMISTRY.md` explains whether dyeing happens before or after spinning.
+
 ## Decision Cheat Sheet
 
-| Goal | Preparation | Draft | Tool | Yarn Type |
-|------|-------------|-------|------|-----------|
-| Soft warm knitting | Card to rolag | Long draw | Treadle wheel | Woolen, airy |
-| Smooth weaving warp | Comb to top | Short draw worsted | Treadle wheel | Worsted, strong |
-| Fine lace | Comb to top | Short draw, long attenuation | High-ratio wheel | Fine worsted singles |
-| Beginner practice | Card (any) | Park and draft | Drop spindle | Woolen singles |
-| Very fine yarn (Merino) | Comb top | Short draw | Fine ratio wheel | Fine worsted |
-| Rustic character | Torn locks | Long draw | Walking wheel | Thick-thin woolen |
-| Balanced knitting yarn | Any prep | Singles + ply opposite dir | Any wheel | Balanced 2-ply |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Soft warm knitting yarn | Carded rolags and long draw | Woolen structure traps air but sacrifices abrasion strength. |
+| Smooth weaving warp | Combed top and short-draw worsted spinning | Warp needs tensile strength and low fuzz more than loft. |
+| Fine lace yarn | Combed top, short draw, high-ratio wheel | Fine singles magnify every drafting inconsistency. |
+| Beginner practice | Carded prep with park-and-draft drop spindle | The tool slows feedback enough to see twist entering fiber. |
+| Very fine Merino yarn | Combed top and controlled short draw | Fine fibers still need enough twist to hold together. |
+| Rustic character | Torn locks, long draw, or walking wheel | Irregularity is a design choice only when controlled. |
+| Balanced knitting yarn | Singles plied in the opposite direction | Plying balances torque; it does not automatically increase strength per unit weight. |
+| Weaving skew or bias | S/Z twist direction and residual torque | Twist direction can distort fabric geometry. |
 
 ---
 

@@ -2,7 +2,7 @@
 
 ---
 
-## Big Picture
+## The Big Picture
 
 ```
 INFORMATION THEORY
@@ -308,26 +308,28 @@ SURFACE CODE (topological):
 
 ---
 
+## Cross-References
+
+- `machine-learning-theory/01-PAC-LEARNING.md` — learning-theory side of entropy, cross-entropy, and generalization.
+- `cryptography/01-SYMMETRIC.md` — cryptographic use of entropy, randomness, and secrecy.
+- `information-theory/08-QUANTUM-INFORMATION.md` — quantum extension of information-theoretic limits.
+
 ## Decision Cheat Sheet
 
-| ML Concept | IT Foundation | Connection |
-|------------|--------------|------------|
-| Cross-entropy loss | Cross-entropy H(p,q) = H(p) + KL(p\|\|q) | Minimizing loss = minimizing KL = MLE |
-| VAE ELBO | Rate-distortion + KL | ELBO = -reconstruction - KL to prior |
-| InfoNCE contrastive | Mutual information I(X;Y) | Lower bound on MI |
-| MDL / BIC | Kolmogorov complexity | Shortest description = best model |
-| IB principle | I(T;X), I(T;Y) | Compress X to keep Y |
-| GAN training | JS divergence | min max = minimizing JSD between distributions |
-| DDPM (denoising diffusion) | Variational bound (forward KL) | ELBO on data log-likelihood; loss = weighted denoising MSE |
-| Score-based models (Song) | Score matching (Hyvärinen) | min E[‖∇log p_θ - ∇log p_data‖²]; equivalent to denoising at each noise level |
-
-| Crypto Concept | IT Foundation | Connection |
-|----------------|--------------|------------|
-| Perfect secrecy | I(M;C) = 0 | OTP achieves; requires H(K)≥H(M) |
-| Semantic security | Computational indistinguishability | Poly-time I(M;C) ≈ 0 |
-| AES S-box | Shannon confusion | Nonlinear, high algebraic degree |
-| AES MixColumns | Shannon diffusion | Linear diffusion across bytes |
-| QBER threshold | Fano inequality | Error rate bounds Eve's information |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether cross-entropy is an information objective | `H(p,q) = H(p) + KL(p||q)` | The empirical distribution and model class define what is minimized |
+| Whether a VAE objective is compression-like | ELBO as reconstruction plus KL rate term | Posterior collapse and decoder strength can hide latent information |
+| Whether contrastive learning estimates mutual information | InfoNCE lower bound | The bound can be loose and batch-size dependent |
+| Whether model selection is compression | MDL/BIC and Kolmogorov intuition | Kolmogorov complexity is uncomputable; MDL is an approximation |
+| Whether representation learning is an information bottleneck | `I(T;X)` versus `I(T;Y)` | Deep-network compression claims are architecture/training dependent |
+| Whether GAN theory is divergence minimization | Jensen-Shannon game at optimal discriminator | Practical training rarely keeps the discriminator optimal |
+| Whether diffusion training is variational likelihood | DDPM ELBO / weighted denoising objective | The practical loss is a reweighted surrogate |
+| Whether score models learn distributions through gradients | Score matching across noise levels | Score accuracy is local and depends on noise schedule |
+| Whether cryptographic secrecy is information-theoretic | Perfect secrecy `I(M;C)=0` | One-time-pad secrecy requires key entropy at least message entropy |
+| Whether computational secrecy is comparable | Semantic security / indistinguishability | It is bounded-adversary security, not small mutual information |
+| Whether block-cipher design echoes Shannon | Confusion and diffusion layers | These are design principles, not proofs of security |
+| Whether QKD error rates bound adversary information | QBER threshold plus Fano-style reasoning | Device assumptions and finite-key effects matter |
 
 ---
 

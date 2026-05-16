@@ -319,21 +319,27 @@ Dirichlet convolution: (f*g)(n) = Σ_{d|n} f(d)g(n/d)
 
 ---
 
+## Cross-References
+
+- `abstract-algebra/04-RINGS-IDEALS.md` — divisibility becomes ideal structure in rings.
+- `number-theory/04-QUADRATIC-RECIPROCITY.md` — prime modular structure underlies quadratic residues.
+- `cryptography/01-SYMMETRIC.md` — number-theoretic primitives complement symmetric cryptographic design.
+
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Compute gcd(a,b) | Euclidean algorithm |
-| Find modular inverse of a mod n | Extended Euclidean |
-| Factor n quickly (small) | Trial division up to √n |
-| Factor n (medium, ~20 digits) | Pollard rho |
-| Factor n (large, ~200+ digits) | Number field sieve |
-| Test if n is prime (quick) | Miller-Rabin (probabilistic) |
-| Test if n is prime (certain) | AKS (deterministic, slower) |
-| Count primes ≤ x | PNT: π(x) ≈ Li(x) ≈ x/ln(x) |
-| Find all primes ≤ N | Sieve of Eratosthenes |
-| Sum over divisors | Dirichlet convolution / Möbius inversion |
-| Prove primes in AP | Dirichlet L-functions |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether two integers share a divisor | Euclidean algorithm | Runtime depends on bit length |
+| Whether a modular inverse exists | Extended Euclidean algorithm | Requires coprimality with the modulus |
+| Whether small factors are enough | Trial division up to `sqrt(n)` | Becomes infeasible quickly |
+| Whether medium factors might be found probabilistically | Pollard rho | Runtime depends on factor size and randomness |
+| Whether a large general integer must be factored | Number field sieve | This is major computation, not a routine operation |
+| Whether primality can be tested quickly | Miller-Rabin | Probabilistic unless deterministic base bounds apply |
+| Whether primality certainty is theoretical | AKS | Deterministic polynomial time is not practical speed |
+| Whether prime counts need approximation | Prime number theorem | Error terms matter for finite ranges |
+| Whether all primes up to `N` are needed | Sieve of Eratosthenes | Memory and cache layout dominate large sieves |
+| Whether divisor sums are algebraic convolutions | Dirichlet convolution / Mobius inversion | Multiplicativity assumptions must be checked |
+| Whether primes in arithmetic progressions are guaranteed | Dirichlet L-functions | Requires coprime residue class and analytic machinery |
 
 ---
 

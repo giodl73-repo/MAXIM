@@ -300,22 +300,28 @@ Compact chain:
 
 ---
 
+## Cross-References
+
+- `abstract-algebra/01-GROUPS.md` — algebraic group structure before smooth matrix groups.
+- `differential-geometry/01-MANIFOLDS.md` — Lie groups are manifolds with compatible multiplication.
+- `lie-groups/02-LIE-ALGEBRAS.md` — tangent-space linearization of Lie groups.
+
 ## Decision Cheat Sheet
 
-| You need... | Use this group |
-|------------|----------------|
-| All invertible linear transformations on R^n | GL(n,R) |
-| Volume-preserving linear maps | SL(n,R) |
-| Rotations in R^n | SO(n) |
-| Rotations + reflections | O(n) |
-| Unitary transformations on C^n | U(n) |
-| Unitary + det=1 | SU(n) |
-| Gauge group of electromagnetism | U(1) |
-| Gauge group of weak force | SU(2) |
-| Gauge group of strong force (QCD) | SU(3) |
-| Rigid body motion in 3D | SE(3) = SO(3) semi-direct R^3 |
-| Hamiltonian mechanics linear symmetry | Sp(2n,R) |
-| Spacetime symmetry (special relativity) | SO(3,1) or its cover SL(2,C) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Invertible real linear maps | `GL(n,R)` | Includes scale, shear, rotation, reflection; determinant can be any nonzero value. |
+| Volume-preserving real maps | `SL(n,R)` | Determinant one preserves oriented volume, not lengths. |
+| Pure rotations in `R^n` | `SO(n)` | Connected identity component; excludes reflections. |
+| Rotations plus reflections | `O(n)` | Determinant sign separates orientation-preserving and reversing components. |
+| Complex unitary transformations | `U(n)` | Preserves Hermitian inner product; real dimension is `n^2`. |
+| Special unitary symmetry | `SU(n)` | Removes determinant phase, but global quotient/center issues remain. |
+| Electromagnetic gauge symmetry | `U(1)` | Abelian phase symmetry; local gauge field is the photon. |
+| Weak interaction gauge symmetry | `SU(2)` | Physical electroweak theory mixes with hypercharge `U(1)`. |
+| Strong interaction gauge symmetry | `SU(3)` | Eight real generators correspond to gluon color directions. |
+| Rigid 3D motion | `SE(3) = SO(3) semi-direct R^3` | Translations and rotations do not commute. |
+| Hamiltonian linear symmetry | `Sp(2n,R)` | Notation varies; verify whether author writes `Sp(n)` or `Sp(2n)`. |
+| Special-relativistic spacetime symmetry | `SO(3,1)` or cover `SL(2,C)` | Spinor representations require the double cover, not just Lorentz matrices. |
 
 ---
 

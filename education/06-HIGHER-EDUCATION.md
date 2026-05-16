@@ -317,16 +317,23 @@ Higher education in the United States is an extraordinarily fragmented, decentra
 
 ## Decision Cheat Sheet
 
-| Question | Key Analysis | Key Issue |
-|----------|-------------|----------|
-| What type of institution for what purpose? | Carnegie classification | R1 vs. teaching college |
-| Why is college so expensive? | State disinvestment + competition + subsidies | Cost shift to students |
-| What is the student debt crisis? | $1.7T+ debt; wage growth didn't keep up | Policy: IBR, forgiveness, cost control |
-| Why are there so many adjuncts? | PhD overproduction + market incentives | Academic labor exploitation |
-| What do for-profits do? | Federal aid extraction; poor outcomes | Gainful employment regulation |
-| Is college worth it? | Average yes (wage premium); variation huge | Institution + major + completion |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Institutional mission fit | Compare Carnegie type, selectivity, research intensity, teaching load, credential mix, and student population. | "College" hides very different production functions. |
+| Rising college cost | Separate state disinvestment, labor intensity, amenities competition, administrative growth, subsidies, and price discrimination. | Sticker price, net price, and institutional cost are different numbers. |
+| Student debt distress | Segment by completion, institution type, credential, graduate/professional debt, income, and repayment plan. | Small debts without degrees can be more dangerous than large professional-school debts. |
+| Adjunct labor growth | Inspect PhD supply, tenure-line scarcity, enrollment volatility, budget incentives, and bargaining power. | The adjunct problem is structural labor-market design, not just individual career choice. |
+| For-profit college outcomes | Check federal-aid dependence, completion, default, labor-market value, recruitment, and regulation. | The core issue is incentive alignment around aid extraction and student outcomes. |
+| College ROI | Compare major, completion probability, institution quality, debt load, labor market, and non-wage benefits. | Average wage premium is real but masks large variance. |
+| Research-vs-teaching tradeoff | Look at tenure incentives, grant funding, prestige metrics, advising load, and undergraduate contact. | Research reputation is not the same thing as undergraduate teaching quality. |
 
 ---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places higher education inside the full education system architecture.
+- `04-CURRICULUM.md` explains the program and course-design layer universities deliver.
+- `../economic-history/07-BRETTON-WOODS.md` gives institutional context for postwar expansion and public finance.
 
 ## Common Confusion Points
 

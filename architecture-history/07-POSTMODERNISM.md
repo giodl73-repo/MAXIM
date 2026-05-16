@@ -535,18 +535,26 @@ HONG KONG + SHANGHAI BANK (1985, Norman Foster)
 
 ## Decision Cheat Sheet: Postmodernism and After
 
-| Question | Answer |
-|----------|--------|
-| What is the duck vs decorated shed distinction? | Duck: building's form IS its symbol. Decorated shed: conventional building + applied symbol. |
-| What was Venturi's core argument? | Good architecture has complexity and contradiction; modernism's exclusions are impoverishments |
-| Why is AT&T building's pediment significant? | First major skyscraper with a historical crown since 1940 — restoration of urban identity |
-| What enabled Gehry's complex forms? | CATIA (aerospace CAD software) + CNC fabrication of unique panels |
-| What is the Bilbao effect? | Cultural building as urban economic regeneration engine — tourist attraction regenerating a declining city |
-| What is Critical Regionalism? | Modernist techniques + local climate/topography/material — not historical imitation |
-| What is deconstructivism? | Fragmented, non-orthogonal geometry as architectural expression of philosophical uncertainty |
-| What is Koolhaas's "junkspace"? | The generic built environment produced by commercial real estate — malls, airports, hotel lobbies |
-| What is High-Tech architecture? | Structure and services expressed as primary ornament — inside-out building (Pompidou, Lloyd's) |
-| Why did postmodernism emerge? | Reaction to International Style's placelessness and monotony; Pruitt-Igoe as symbol of modernism's social failure |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Duck vs decorated shed | Identify whether form itself carries symbol or a conventional box receives applied sign. | Venturi's distinction diagnoses communication strategy, not quality. |
+| Venturi's argument | Check complexity, contradiction, ambiguity, popular signs, historical reference, and modernist exclusions. | The critique is against reduction, not against rigor. |
+| AT&T pediment significance | Read skyscraper crown, corporate identity, historical quotation, urban legibility, and backlash. | Historical reference can be communicative or superficial. |
+| Gehry's complex forms | Trace CATIA, digital model, CNC fabrication, panelization, structure, and cost control. | Software enables geometry; it does not guarantee architecture. |
+| Bilbao effect | Compare cultural icon, tourism, urban policy, economic context, replication attempts, and local spillover. | One museum cannot mechanically regenerate every city. |
+| Critical Regionalism | Examine modern construction, climate, topography, material, tactile experience, and anti-pastiche stance. | It is not vernacular imitation or nationalist nostalgia. |
+| Deconstructivism | Analyze fragmentation, non-orthogonal geometry, instability, philosophy reference, and buildability. | Formal dislocation is a design language, not literal structural failure. |
+| Junkspace | Look at commercial interior, circulation, signage, HVAC, retail logic, and generic globalization. | The critique targets systems of production, not just ugly malls. |
+| High-Tech architecture | Inspect exposed structure, services, modularity, maintenance, and industrial imagery. | Expressing systems can become ornament too. |
+| Postmodernism's emergence | Connect International Style monotony, urban renewal failure, historical memory, pop culture, and Pruitt-Igoe symbolism. | Pruitt-Igoe is a symbol, not a single-cause proof. |
+
+---
+
+## Cross-References
+
+- `06-MODERNISM.md` is the necessary foil: Postmodernism responds to modernism's abstraction and universalism.
+- `08-VERNACULAR.md` develops the local, regional, and climate-responsive traditions postmodern critics often revalued.
+- `../architecture/00-OVERVIEW.md` connects style debates to delivery, clients, users, and practice constraints.
 
 ---
 

@@ -528,14 +528,14 @@
   THIRD GENDERS (documented across cultures):
   ┌──────────────────┬──────────────────────────────────────┐
   │ Hijra (India)    │ Third gender; ritual role at births  │
-  │                  │ and weddings; neither male nor female │
+  │                  │ weddings; neither male nor female    │
   ├──────────────────┼──────────────────────────────────────┤
   │ Two-Spirit       │ Indigenous North America (~150+       │
   │                  │ documented nations); spiritual role;  │
   │                  │ Western "berdache" term is rejected  │
   ├──────────────────┼──────────────────────────────────────┤
   │ Fa'afafine       │ Samoa; "in the manner of a woman"    │
-  │                  │ — male-assigned, feminine expression; │
+  │                  │ male-assigned, feminine expression   │
   │                  │ socially recognized and integrated   │
   ├──────────────────┼──────────────────────────────────────┤
   │ Muxe (Mexico)    │ Zapotec third gender; valued in      │
@@ -619,18 +619,26 @@ The inline connections throughout this file deserve consolidation. Any senior en
 
 ## Decision Cheat Sheet
 
-| I want to understand... | Framework |
-|------------------------|-----------|
-| How to do good field research / user research | Participant observation principles |
-| Why surveys don't capture real behavior | Observer effect; front/back stage (Goffman) |
-| Why gifts are never "free" | Mauss — obligation to give/receive/reciprocate |
-| Why some exchange seems irrational (potlatch) | Prestige economy; capital conversion (Bourdieu) |
-| Why organizational rituals matter | Durkheim — collective effervescence, sacred/profane |
-| Why "team off-sites" work | Turner — liminality, communitas, anti-structure |
-| Why rules of marriage are complex | Alliance theory, descent groups, exogamy/endogamy |
-| Why kinship terms differ by society | Morgan's systems — terminology reflects social logic |
-| Why interpretive research is valid | Geertz — thick description as rigorous interpretation |
-| Why culture change is hard | Bourdieu — habitus is pre-reflective, embodied |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Field or user research quality | Check participant observation, rapport, reflexivity, sampling, note discipline, and positionality. | Observation is systematic evidence, not casual immersion. |
+| Survey/behavior mismatch | Compare observer effect, front/back stage, task context, incentives, and situated action. | Stated preference can diverge from practice without anyone lying. |
+| Gift obligation | Use Mauss: giving, receiving, reciprocating, prestige, alliance, and debt. | "Free gift" may hide durable social obligation. |
+| Potlatch or prestige exchange | Trace capital conversion, public display, redistribution, status, and rivalry. | Economic rationality depends on the local value system. |
+| Organizational ritual | Analyze collective effervescence, sacred/profane boundary, repetition, and group identity. | Ritual can coordinate behavior even when its stated purpose seems thin. |
+| Team off-site effect | Use liminality, communitas, anti-structure, role suspension, and reintegration. | Temporary solidarity often fades without structural follow-through. |
+| Marriage rules | Compare alliance, descent, residence, exogamy/endogamy, inheritance, and political economy. | Kinship rules organize resources and obligations, not only romance. |
+| Kinship terminology | Map terms to social roles, descent logic, marriage rules, and obligations. | Words for relatives encode social structure. |
+| Interpretive validity | Use thick description, local meanings, triangulation, and disciplined inference. | Interpretation is rigorous when evidence and context constrain it. |
+| Cultural change resistance | Analyze habitus, field, embodied practice, incentives, and material environment. | Culture is reproduced through practice, not just belief. |
+
+---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places cultural anthropology beside biological, archaeological, and applied branches.
+- `07-COGNITIVE-CULTURAL.md` connects culture to cognition, transmission, and population-level dynamics.
+- `08-APPLIED-ANTHROPOLOGY.md` shows how ethnographic methods operate in design, health, policy, and organizations.
 
 ---
 

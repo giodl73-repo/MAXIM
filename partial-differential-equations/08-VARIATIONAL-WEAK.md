@@ -325,19 +325,25 @@ The key insight: FEM trades expressiveness for guarantees (piecewise polynomials
 
 ---
 
+## Cross-References
+
+- `variational-calculus/01-FUNCTIONALS.md` — functionals as the language behind weak formulations.
+- `partial-differential-equations/09-NUMERICAL-PDES.md` — FEM as discretized weak formulation.
+- `differential-geometry/03-DIFFERENTIAL-FORMS.md` — integration by parts and weak structure in coordinate-free form.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why use weak formulations? | Less regularity required; foundation of FEM; handles non-smooth data |
-| What is H₀¹(Ω)? | H¹ functions with zero trace on ∂Ω; the natural space for Dirichlet problems |
-| What is the stiffness matrix A? | A_{ij} = ∫_Ω ∇φ_i·∇φ_j dx (also: A_{ij} = a(φ_j,φ_i)) |
-| Is A symmetric? | Yes, if a(u,v) = a(v,u) (always for Laplace/Poisson) |
-| Is A positive definite? | Yes, from coercivity of a(u,u) ≥ α‖u‖² |
-| FEM error order for P1? | O(h) in H¹, O(h²) in L² |
-| Weak solution for conservation law? | Integral form; non-unique without entropy condition |
-| What is the Poincaré inequality? | ‖u‖_L² ≤ C‖∇u‖_L² for u ∈ H₀¹ on bounded Ω |
-| What is Lax-Milgram used for? | Proving existence/uniqueness of weak solutions |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether classical differentiability is too strong | Weak formulation by multiplying test functions and integrating by parts | Weak solutions still need the right function space and boundary trace |
+| Whether Dirichlet data should be built into the space | `H_0^1(Omega)` | Zero trace is boundary behavior, not pointwise zero at every boundary point |
+| Whether the discrete matrix is the stiffness matrix | `A_ij = integral grad phi_i dot grad phi_j` | Assembly order and basis convention can transpose notation |
+| Whether symmetry should hold | Symmetric bilinear form `a(u,v)=a(v,u)` | Advection or nonsymmetric operators break symmetry |
+| Whether positive definiteness is guaranteed | Coercivity of the bilinear form | Pure Neumann problems have constant nullspaces |
+| Whether P1 FEM error rates are plausible | `O(h)` in `H^1`, `O(h^2)` in `L^2` | Rates require regularity; corners and singularities degrade them |
+| Whether a conservation-law weak solution is unique | Integral weak form plus entropy condition | Weak form alone admits nonphysical shocks |
+| Whether `L^2` norm is controlled by gradient norm | Poincare inequality on bounded domains | Constants depend on domain geometry and boundary conditions |
+| Whether existence/uniqueness follows abstractly | Lax-Milgram theorem | Requires continuity and coercivity of the bilinear form |
 
 ---
 

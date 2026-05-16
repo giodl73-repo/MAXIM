@@ -2,7 +2,9 @@
 
 ## The Big Picture
 
-Plant domestication is the most consequential technological act in human history. More than fire, more than the wheel, more than writing — the ability to grow predictable, abundant food was the precondition for everything else.
+Plant domestication is one of the most consequential technological acts in human
+history: the ability to grow predictable, abundant food was the precondition for
+surplus, specialization, cities, writing, law, and states.
 
 ```
 FOOD PLANT LANDSCAPE — FAMILIES, VAVILOV CENTERS, AND KEY CROPS
@@ -204,19 +206,24 @@ Modern plant breeders and CGIAR institutes maintain **germplasm banks** (seed ba
 
 ## Decision Cheat Sheet
 
-| If you want to understand... | Start with | Because |
-|------------------------------|------------|---------|
-| Why wheat has 42 chromosomes (and why that matters) | 01-GRAINS | Polyploidy section explains the emmer × einkorn × wild grass hybridization chain — the best example of how genome doubling can be selected for |
-| How legumes chemically fix atmospheric nitrogen | 02-LEGUMES | Nitrogenase biochemistry and the root nodule symbiosis — the only agronomically significant nitrogen fixation outside Haber-Bosch |
-| Why the Irish Famine was a systems failure, not just a disease | 03-ROOT-TUBERS | Phytophthora infestans + genetic monoculture + British colonial policy — the supply chain fragility case study |
-| Why there is no natural "orange" fruit species | 04-FRUITS | Citrus genetics section: all cultivated citrus are hybrids of 3 ancestral species; "orange" is a cross between pomelo and mandarin |
-| How kale, broccoli, cabbage, and cauliflower are the same species | 05-VEGETABLES | Brassica oleracea domestication — single species, different organs selected in different landraces |
-| Why olive oil was the petroleum of ancient Mediterranean civilization | 06-TREE-CROPS | Olive section: caloric density, lamp fuel, trade commodity, sacred symbol — covers all dimensions |
-| How sugar transformed the Atlantic world | 07-SUGAR-CROPS | Sugar-slavery-triangle trade nexus; Caribbean plantation economy as the first industrial agriculture |
-| Why coffee houses were prerequisite for the Enlightenment | 08-STIMULANT-CROPS | Coffeehouses as sober information exchange replacing alcohol — caffeine's cognitive effect and the social institution it enabled |
-| What CRISPR actually changes vs. conventional GMO | 09-MODERN-BREEDING | Precision comparison: random mutagenesis → Agrobacterium insertion → CRISPR edit — each generation increased specificity |
+| If you need to diagnose... | Start With | Best Follow-Up |
+|----------------------------|------------|----------------|
+| A crop-origin claim | Vavilov center vs current production geography | `01-GRAINS.md`, `02-LEGUMES.md`, `04-FRUITS.md` |
+| A domestication trait | Seed size, shattering, dormancy, toxicity, architecture | `09-MODERN-BREEDING.md` for modern selection tools |
+| A monoculture vulnerability | Genetic bottleneck plus propagation mode | Potato, banana, and tree-crop examples across this section |
+| A calorie-system claim | Staple crop family and storage organ | Grains, roots/tubers, sugar crops |
+| A protein/nitrogen claim | Legume symbiosis and grain-legume complementarity | `02-LEGUMES.md` |
+| A culinary-vs-botanical category | Plant organ and family, not kitchen name | `04-FRUITS.md`, `05-VEGETABLES.md` |
+| A perennial-crop economics claim | Time to production, grafting, and land tenure | `06-TREE-CROPS.md` |
+| A biotechnology comparison | Conventional crossing vs mutation vs transgenesis vs editing | `09-MODERN-BREEDING.md` |
 
 ---
+
+## Cross-References
+
+- [Grains](01-GRAINS.md) covers the grass-family staple crops that dominate calories.
+- [Legumes](02-LEGUMES.md) explains nitrogen fixation and protein architecture in food systems.
+- [Modern Breeding](09-MODERN-BREEDING.md) follows domestication into hybrids, Green Revolution crops, GMO, and CRISPR.
 
 ## Common Confusion Points
 

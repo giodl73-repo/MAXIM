@@ -1,6 +1,6 @@
 # Digital Journalism: Social Media, Newsletters, Podcast, Platform Dependence
 
-## The Digital Journalism Landscape
+## The Big Picture
 
 Digital journalism is not simply print journalism on screens. The distribution infrastructure changed from publisher-controlled (printing presses, broadcast licenses) to platform-controlled (Facebook, Google, Apple News), and with it the economics, discovery mechanics, and incentive structures of the entire field. The core problem is that the platforms that distribute journalism do not employ journalists, do not have editorial standards, and do not share revenue equitably — while capturing the majority of digital advertising revenue that formerly sustained newsrooms.
 
@@ -459,19 +459,25 @@ LOCAL NEWS CRISIS
 
 ---
 
+## Cross-References
+
+- `01-HISTORY.md` gives the institutional baseline before platform dependency.
+- `04-EDITORIAL-STANDARDS.md` supplies verification and correction rules.
+- `05-INVESTIGATIVE.md` connects OSINT and data reporting to accountability work.
+
 ## Decision Cheat Sheet
 
-| Digital Journalism Situation | Approach |
-|-----------------------------|----------|
-| Building on platform traffic | Maintain own subscriber/email relationship as primary; platform as secondary |
-| Viral social claim to cover | Apply OSINT verification: reverse image search, geolocation, source account history |
-| SEO team pushes headline changes | SEO optimization must not compromise accuracy or attribution; decline if it misrepresents |
-| Facebook algorithm deprioritizes news | Do not chase engagement signals by making journalism more inflammatory |
-| Paywall decision | Metered or freemium builds audience; hard paywall maximizes revenue; decision is business model, not editorial |
-| Substack/newsletter launch | No institutional backstop: plan for legal exposure, corrections process, archival |
-| Screenshot as source | Never primary source; find original post independently; screenshots fabricated easily |
-| Local story no outlet will cover | Consider nonprofit/civic-funded models; university partnerships; direct-to-reader |
-| AI-generated image in source material | Verify provenance: C2PA metadata, reverse search, direct source inquiry |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Platform traffic dependence | First-party subscriber/email relationship as durable asset | Platform reach is not the same as article reading or civic impact. |
+| Viral social claim | OSINT verification: reverse image search, geolocation, account history | Public-source verification is not license to surveil private people. |
+| SEO pressure | Accuracy, attribution, and headline-faithfulness test | Optimization that misrepresents the story is an editorial failure. |
+| Algorithmic deprioritization | Distribution risk and engagement-incentive analysis | Do not make journalism more inflammatory to appease engagement systems. |
+| Paywall model | Metered/freemium/hard paywall business-model fit | This is primarily a revenue/audience decision, not proof of editorial quality. |
+| Newsletter launch | Legal exposure, corrections process, archive, and audience economics | Independence removes institutional backstop. |
+| Screenshot evidence | Original post retrieval and provenance check | Screenshots are easy to fabricate and should not be primary evidence. |
+| Local coverage gap | Nonprofit, civic-funded, university, or direct-reader model | Niche newsletter economics do not replace metro-newsroom coverage. |
+| AI image in source material | C2PA metadata, reverse search, and direct source inquiry | Provenance is necessary but not sufficient for editorial judgment. |
 
 ---
 

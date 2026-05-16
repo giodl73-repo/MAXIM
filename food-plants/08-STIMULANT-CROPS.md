@@ -202,7 +202,8 @@ BRITISH EAST INDIA COMPANY:
   Solution (catastrophic): opium
   Bengal → opium → China
   Trade: opium from India → China; silver + tea → Britain
-  Two Opium Wars (1839-42, 1856-60): Britain forces China to accept opium trade
+  Two Opium Wars (1839-42, 1856-60): Britain forces treaty ports,
+    indemnities, and commercial concessions
 
 BRITISH TEA CULTURE:
   Tea in Britain: 1650s via Dutch, popularized by 1700s
@@ -359,17 +360,24 @@ CHOCOLATE TYPES:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What region was the original coffee house? | Ottoman (Istanbul, Cairo); spread to Europe from Venice ~1600s |
-| What is the difference between arabica and robusta? | Arabica: complex, ~1.2% caffeine, altitude; Robusta: bitter, ~2.7% caffeine, disease-resistant |
-| What determines green vs black tea? | Oxidation level (enzyme activation); green = no oxidation; black = full oxidation |
-| Why does tea feel different from coffee? | L-theanine (unique to tea) + caffeine → alert but calm; coffee = caffeine only |
-| What did conching invent? | Rodolphe Lindt, 1879: prolonged grinding → smooth chocolate; modern chocolate texture |
-| What is chocolate tempering? | Controlled crystallization to Form V cocoa butter polymorph → snap, sheen, mouth-melt |
-| Why does cacao need fermentation? | Kills embryo; enzymatic reactions create flavor precursors; unfermented = earthy, bitter, no chocolate flavor |
+| Crop / Commodity Question | Use This Frame | Watch-Out |
+|---|---|---|
+| Why did coffeehouses matter socially? | Cheap stimulant plus public discussion infrastructure | The institution mattered as much as the beverage |
+| Arabica or robusta? | Altitude/flavor/disease-resistance tradeoff | "Better" depends on product: specialty cup, espresso body, instant coffee, or climate resilience |
+| Why does processing dominate coffee flavor? | Natural, washed, and honey processes change fermentation and defect risk | Terroir is filtered through processing control |
+| Why does green tea differ from black tea? | Enzyme deactivation vs full oxidation | "Fermentation" is often used loosely; most tea color is oxidation, not microbial fermentation |
+| Why does tea feel different from coffee? | Caffeine plus L-theanine and slower consumption pattern | It still contains caffeine; calm alertness is not absence of stimulant load |
+| Why does cacao need fermentation? | Microbial fermentation kills embryo and creates flavor precursors | Roasting cannot fully rescue unfermented beans |
+| Why does chocolate require tempering? | Cocoa-butter polymorph control | Form V gives snap/sheen; wrong crystals cause bloom |
+| What makes the stimulant-crop supply chain ethically loaded? | Plantation labor, colonial trade, poverty-price squeeze | Taste culture often hides coercive commodity history |
 
 ---
+
+## Cross-References
+
+- [Food Plants Overview](00-OVERVIEW.md) situates coffee, tea, and cacao in domestication geography.
+- [Sugar Crops](07-SUGAR-CROPS.md) supplies the companion commodity history behind sweetened stimulant consumption.
+- [Modern Breeding](09-MODERN-BREEDING.md) shows how disease resistance, yield, and quality traits reshape plantation crops.
 
 ## Common Confusion Points
 

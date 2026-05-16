@@ -301,6 +301,18 @@ ZOOM LENS: Multiple groups that translate to change focal length while maintaini
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Geometric optics foundation | `optics/01-GEOMETRIC-OPTICS.md` | Camera lenses are applied ray optics plus aberration control |
+| Spatial frequency view | `signal-processing/01-FOURIER-ANALYSIS.md` | Sharpness, MTF, blur, and diffraction are signal-processing concepts |
+| Glass and lens materials | `glassmaking/01-GLASS-SCIENCE.md` | Refractive index and dispersion are material properties |
+| Color perception | `colors/01-COLOR-PHYSICS.md` | Cameras encode light spectra into color channels and appearance |
+| Cinematography | `cinema-film/01-OPTICAL-PERSISTENCE.md` | Lens choices become motion-picture framing, focus, and visual grammar |
+
+---
+
 ## Common Confusion Points
 
 **Focal length doesn't change with sensor size**

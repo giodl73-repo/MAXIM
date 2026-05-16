@@ -6,7 +6,7 @@
 
 ---
 
-## The Four Classes — Quick Map
+## The Big Picture
 
 ```
 BIOMOLECULE     MONOMER           POLYMER              PRIMARY FUNCTION
@@ -396,20 +396,26 @@ Peptidoglycan: bacterial cell wall — β(1→4) linked alternating NAG-NAM, cro
 
 ---
 
+## Cross-References
+
+- `biophysics/02-PROTEIN-FOLDING.md` - protein structure from amino-acid sequence.
+- `nutrition/02-PROTEINS.md` - dietary proteins as biomolecular input.
+- `biology/01-MOLECULAR-MACHINERY.md` - biomolecules as cellular machines.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Answer |
-|----------|---------|--------|
-| Why is His the key catalytic residue? | pKa near pH 7 | Can donate or accept protons at physiological pH |
-| Why do proteins fold hydrophobic core inward? | Hydrophobic effect | Burying nonpolar residues releases ordered water → ΔS > 0 |
-| Why does more GC content raise DNA melting temp? | H-bond count | G≡C has 3 H-bonds vs A=T with 2 |
-| Why is saturated fat solid at room temp? | Fatty acid packing | No kinks → tight van der Waals packing → higher Tm |
-| Why can't humans digest cellulose? | Glycosidic bond specificity | β(1→4) linkage requires β-glucosidase; humans lack it |
-| Why are disulfide bonds rare in cytoplasm? | Redox environment | Cytoplasm is reducing (GSH); ER is oxidizing |
-| What distinguishes DNA from RNA structurally? | 2'-OH and base | DNA: 2'-H, thymine; RNA: 2'-OH, uracil |
-| Why is the major groove preferred for protein binding? | Groove geometry | Wider with more H-bond donor/acceptor patterns |
-| Why does cholesterol "buffer" membrane fluidity? | Rigid ring intercalation | Prevents both crystallization (low T) and excess fluidity (high T) |
-| Why is Gly found at helix-breaking positions? | No R-group → φ,ψ unrestricted | Too flexible to maintain regular helix geometry |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Histidine catalytic role | pKa near physiological pH | Local environment shifts residue pKa. |
+| Hydrophobic core formation | Entropic release of ordered water | Folding pathway and chaperones can still matter. |
+| DNA melting temperature | GC content and base stacking | H-bond count is not the only contributor. |
+| Saturated fat solidity | Straight-chain packing and van der Waals contact | Mixtures have broad melting ranges. |
+| Cellulose indigestibility | beta(1->4) glycosidic specificity | Gut microbes, not human enzymes, can break it. |
+| Cytoplasmic disulfide rarity | Reducing cytosol versus oxidizing ER | Secreted proteins are the major disulfide context. |
+| DNA versus RNA structure | 2'-H/thymine versus 2'-OH/uracil | RNA chemistry enables structure and catalysis. |
+| Major-groove protein binding | Wider groove with readable H-bond pattern | Some proteins bind minor groove or backbone. |
+| Cholesterol fluidity buffering | Rigid-ring intercalation | Effect depends on temperature and lipid composition. |
+| Glycine as helix breaker | Flexible phi/psi angles | Glycine can also fit tight turns and special motifs. |
 
 ---
 

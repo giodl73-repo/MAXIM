@@ -285,16 +285,24 @@ SUBGROUP LATTICE OF S_4:
 
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Find order of permutation | lcm of cycle lengths |
-| Compute σ∘τ | Trace each element through τ first, then σ |
-| Find sign of σ | Count transpositions in decomposition; or (-1)^{n-c} where c=#cycles |
-| Show σ,τ conjugate in S_n | Same cycle type |
-| Generate A_n | Products of 3-cycles |
-| Count orbits | Burnside's lemma: (1/|G|)Σ|Fix(g)| |
-| Embed G in S_n | Cayley: left regular representation |
-| Cycle index for counting | Pólya enumeration theorem |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Permutation order | Decompose into disjoint cycles and take the lcm of cycle lengths. | Disjoint-cycle form is doing the real work; arbitrary notation obscures it. |
+| Composition direction | Trace each element through the rightmost permutation first, then the left one. | Convention matters; state it before comparing answers. |
+| Permutation parity | Count transpositions or use `(-1)^{n-c}` from cycle structure. | Parity is invariant even though transposition decompositions are not unique. |
+| Conjugacy in `S_n` | Compare cycle type and build the relabeling permutation if needed. | This clean criterion is special to full symmetric groups. |
+| Alternating-group generation | Use 3-cycles and parity constraints. | `A_n` is simple only for `n >= 5`; small cases are exceptional. |
+| Orbit counting | Apply Burnside by averaging fixed points over the group action. | Burnside counts orbits, not necessarily representatives or structures with weights. |
+| Embedding an abstract group | Use Cayley's left regular action on group elements. | The embedding is faithful but often far from minimal. |
+| Coloring/enumeration problem | Use cycle index and Pólya enumeration with the action on positions. | The answer depends on the action, not just the abstract group. |
+
+---
+
+## Cross-References
+
+- `01-GROUPS.md` supplies the axioms, homomorphisms, and subgroup language behind permutation groups.
+- `06-GALOIS-THEORY.md` uses permutation groups as the obstruction calculus for polynomial solvability.
+- `07-REPRESENTATION-THEORY.md` converts permutation actions into linear representations and character decompositions.
 
 ---
 

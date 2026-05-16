@@ -261,16 +261,23 @@ Gauss-Bonnet applied to the hyperbolic metric gives: Area(S) = −2π χ(S) = 2�
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---------|--------|
-| Why does log z need a branch cut? | It's multi-valued; Riemann surface makes it single-valued on two-sheet cover |
-| How many sheets does √z need? | 2 (quadratic equation → 2 roots) |
-| How many sheets does z^{1/3} need? | 3 |
-| What is the genus of a smooth plane curve of degree d? | g = (d−1)(d−2)/2 |
-| What is the genus of w² = P_{2g+2}(z)? | g |
-| Universal cover of genus-g Riemann surface (g≥2)? | Upper half-plane ℍ |
-| What is an elliptic function? | Doubly periodic meromorphic function on ℂ/Λ |
-| What does Riemann-Roch compute? | dim of spaces of meromorphic functions with bounded poles |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A multi-valued function | Track analytic continuation, branch points, monodromy, sheets, and chosen domain. | Branch cuts are bookkeeping on the plane; the surface is the natural domain. |
+| A square-root or nth-root surface | Count local branches, ramification points, sheet gluing, and behavior at infinity. | Sheet count alone does not determine global topology. |
+| Genus of an algebraic curve | Use degree formula, singularity corrections, hyperelliptic form, and compactification. | `g=(d-1)(d-2)/2` assumes a smooth projective plane curve. |
+| A hyperelliptic example | Analyze `w^2=P(z)`, branch points, degree, infinity behavior, and Riemann-Hurwitz. | Repeated roots or odd degree change the branch structure. |
+| Universal cover | Classify by genus and punctures: sphere, plane/disk, torus, or upper half-plane. | Compactness and genus determine broad type, but punctures change the cover. |
+| Elliptic functions | View them as meromorphic functions on `C/Lambda`, with periods, fundamental parallelogram, and poles. | Doubly periodic holomorphic functions are constant; nontrivial elliptic functions are meromorphic. |
+| Riemann-Roch use | Identify divisor, allowed poles/zeros, genus, canonical divisor, and dimension correction. | It computes dimensions; it does not explicitly construct the functions. |
+
+---
+
+## Cross-References
+
+- `04-CONFORMAL-MAPS.md` supplies the local angle-preserving maps that become charts on Riemann surfaces.
+- `07-ANALYTIC-CONTINUATION.md` explains why multi-valued functions need new domains.
+- `../topology/00-OVERVIEW.md` provides the surface, covering, and genus language underneath.
 
 ---
 

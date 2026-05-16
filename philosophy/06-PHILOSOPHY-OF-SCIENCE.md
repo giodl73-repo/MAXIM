@@ -7,22 +7,21 @@
 ## Big Picture: Philosophy of Science
 
 ```
-┌──────────────────────────────────────────────────────────────────────────┐
-│                    PHILOSOPHY OF SCIENCE                                 │
-├─────────────────────────────┬────────────────────────────────────────────┤
-│  EPISTEMOLOGY OF SCIENCE    │  METAPHYSICS OF SCIENCE                   │
-│  ──────────────────         │  ─────────────────────                    │
-│  How does science justify?  │  What do scientific theories say exist?   │
-│  Demarcation                │  Scientific realism vs instrumentalism    │
-│  Confirmation               │  Laws of nature                           │
-│  Underdetermination         │  Natural kinds                            │
-│  Induction (Hume)           │  Causation and explanation                │
-│  Theory change              │  Reductionism                             │
-├─────────────────────────────┴────────────────────────────────────────────┤
-│  SCIENTIFIC RATIONALITY                                                  │
-│  Kuhn's paradigm shifts, Lakatos's research programs,                    │
-│  Feyerabend's anarchism, Bayesian confirmation, inference to best expl.  │
-└──────────────────────────────────────────────────────────────────────────┘
++------------------------------------------------------------------------+
+|  PHILOSOPHY OF SCIENCE                                                 |
+|                                                                        |
+|  EPISTEMOLOGY OF SCIENCE        METAPHYSICS OF SCIENCE                 |
+|  How does science justify?      What do scientific theories say exist? |
+|  Demarcation                    Scientific realism vs instrumentalism  |
+|  Confirmation                   Laws of nature                         |
+|  Underdetermination             Natural kinds                          |
+|  Induction (Hume)               Causation and explanation              |
+|  Theory change                  Reductionism                           |
+|                                                                        |
+|  SCIENTIFIC RATIONALITY                                                |
+|  Kuhn paradigms, Lakatos research programs, Feyerabend anarchism,      |
+|  Bayesian confirmation, inference to best explanation                  |
++------------------------------------------------------------------------+
 ```
 
 ---
@@ -640,3 +639,15 @@ theory).                            efficiency, interpretability,
 **Structural realism vs full realism:** You don't have to choose between "theoretical entities definitely exist" and "science is purely instrumental." Structural realism offers a middle path: what's preserved across theory change is mathematical structure; specific physical interpretation may change, but the relations are approximately correct.
 
 **The no-miracles argument cuts both ways:** Realists say: scientific success would be miraculous without approximate truth. Anti-realists say: the no-miracles argument is circular (uses an inference-to-best-explanation to validate science's own inference-to-best-explanation). The argument's probative force depends on your background epistemology.
+
+---
+
+## Cross-References
+
+| If you need... | Go to |
+|---|---|
+| Formal structure behind confirmation and inference | [Logic](01-LOGIC.md) |
+| Knowledge, justification, and skepticism more generally | [Epistemology](02-EPISTEMOLOGY.md) |
+| Ontology behind laws, causation, and natural kinds | [Metaphysics](03-METAPHYSICS.md) |
+| Historical development of scientific institutions | [History of Science](../history-of-science/00-OVERVIEW.md) |
+| Scientific realism in live research practice | [Philosophy of Mind](04-PHILOSOPHY-OF-MIND.md) |

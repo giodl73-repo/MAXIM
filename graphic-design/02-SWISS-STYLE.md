@@ -317,6 +317,12 @@ Meaning, culture, and emotion are also communicative.
 
 ---
 
+## Cross-References
+
+- [Bauhaus](01-BAUHAUS.md) supplies the school and modernist lineage Swiss Style sharpened.
+- [Grid Systems](04-GRID-SYSTEMS.md) explains the structural layout method at the heart of International Style.
+- [Typography in Graphic Design](05-TYPOGRAPHY-DESIGN.md) expands the typographic discipline behind Helvetica-era design.
+
 ## Common Confusion Points
 
 **"Swiss Style = Helvetica"** -- Helvetica was one tool. The underlying system

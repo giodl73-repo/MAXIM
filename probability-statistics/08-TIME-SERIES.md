@@ -344,19 +344,25 @@ For financial time series: variance clustering (periods of high/low volatility).
 
 ---
 
+## Cross-References
+
+- `probability-statistics/04-STOCHASTIC-PROCESSES.md` — process theory behind temporal dependence.
+- `signal-processing/01-FOURIER-ANALYSIS.md` — spectral analysis of periodic and stationary structure.
+- `control-theory/04-KALMAN-FILTER.md` — state-space filtering for time-indexed latent systems.
+
 ## Decision Cheat Sheet
 
-| Situation | Method | Notes |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Stationary, short memory | ARMA(p,q) | Use AIC/BIC for order |
-| Non-stationary, trending | ARIMA(p,1,q) | ADF test first |
-| Seasonality present | SARIMA | m = season length |
-| Irregular seasonality | STL + ETS | Loess-based decomposition |
-| Missing data | State space / Kalman | Handles gaps naturally |
-| Multivariate time series | VAR(p) | Vector autoregression |
-| Volatility clustering (finance) | GARCH(1,1) | Financial returns |
-| Latent structure | State space model | Flexible, subsumes ARIMA |
-| Long-range dependence | ARFIMA | Fractional differencing |
+| Whether a stationary short-memory series is enough | ARMA model | Order selection by AIC/BIC is only a starting point |
+| Whether trending nonstationarity dominates | ARIMA with differencing | Unit-root tests have low power and structural breaks mislead them |
+| Whether fixed seasonality is present | SARIMA | The season length must be known or well estimated |
+| Whether seasonality changes over time | STL plus ETS | Decomposition can leak trend into seasonal components |
+| Whether gaps and measurement noise matter | State-space model with Kalman filtering | State specification controls what "missing" means |
+| Whether several series interact dynamically | VAR | Parameter count grows quickly with variables and lags |
+| Whether volatility clusters | GARCH | Mean dynamics and distributional tails still need checking |
+| Whether latent components structure the series | State-space model | Flexibility can hide weak identification |
+| Whether autocorrelation decays hyperbolically | ARFIMA | Fractional differencing is not the same as a unit root |
 
 **Long memory and ARFIMA**: Fractional integration (1−B)^d with d ∈ (0, 0.5) produces long-range dependence — autocorrelations that decay as a power law γ(h) ~ h^{2d−1} rather than exponentially. The Hurst exponent H = d + 0.5 characterizes the memory: H = 0.5 for short memory, H > 0.5 for long memory (persistent), H < 0.5 for anti-persistent. ARFIMA(p,d,q) fits when ACF decays hyperbolically — common in internet traffic, volatility, and hydrology. Use ARFIMA over ARIMA when the ACF decays too slowly for any ARMA and the series is not unit-root non-stationary.
 

@@ -386,20 +386,26 @@ The bridge: periods ∫_σ ω pair de Rham cohomology with singular homology.
 
 ---
 
+## Cross-References
+
+- `topology/06-FUNDAMENTAL-GROUP.md` — cohomology generalizes loop-level invariants into graded algebra.
+- `differential-geometry/01-MANIFOLDS.md` — de Rham cohomology bridges topology and smooth differential forms.
+- `topology/10-APPLICATIONS.md` — cohomology powers TDA, phase classification, and obstruction theory.
+
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Compute Hⁿ(X;Z) from Hₙ | Universal Coefficient Theorem |
-| Distinguish spaces with same groups | Compute cup product ring H*(X;R) |
-| Show two spaces are not homeomorphic | Find cohomology ring distinguishing them |
-| Work on smooth manifold | Use de Rham cohomology (closed/exact forms) |
-| Prove a form is not exact | Show its period (integral over cycle) is nonzero |
-| Apply Poincaré duality | Need compact, oriented manifold; Hᵏ ≅ Hₙ₋ₖ |
-| Detect orientability | H^n(M;Z)=Z (orientable), 0 (non-orientable) |
-| Classify vector bundles | Use characteristic classes (Chern, Stiefel-Whitney) |
-| Compute cohomology of fibration | Serre spectral sequence |
-| Apply Gauss-Bonnet | χ(M) = ∫_M e(TM) (Euler class of tangent bundle) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether cohomology follows from homology | Universal coefficient theorem | Extension and torsion terms can matter |
+| Whether group ranks miss structure | Cup-product ring `H*(X;R)` | Ring structure distinguishes spaces with same additive groups |
+| Whether homeomorphism is impossible | Cohomology ring invariant | Equal rings still do not prove homeomorphism |
+| Whether smooth methods apply | de Rham cohomology | de Rham uses real coefficients and smooth manifolds |
+| Whether a closed form is non-exact | Integrate over a cycle | Nonzero period obstructs exactness |
+| Whether Poincare duality applies | Compact oriented manifold hypothesis | Noncompact or nonorientable cases need modified statements |
+| Whether orientability is detected cohomologically | Top cohomology with integer coefficients | Boundary and noncompact cases change the test |
+| Whether vector bundles need invariants | Characteristic classes | Classes obstruct/trivialize only within their scope |
+| Whether a fibration's cohomology can be computed | Serre spectral sequence | Differentials and extensions must be resolved |
+| Whether curvature integrates to topology | Gauss-Bonnet / Euler class | Hypotheses depend on dimension, orientation, and boundary terms |
 
 ---
 

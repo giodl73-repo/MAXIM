@@ -336,20 +336,26 @@ DESIGN RULE: KD hardware is a legitimate engineering solution,
 
 ---
 
+## Cross-References
+
+- `04-JOINERY.md` supplies the structural connections.
+- `01-WOOD-SELECTION.md` determines movement and strength constraints.
+- `06-FINISHING.md` completes the object for wear, moisture, and appearance.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Face frame vs. frameless — which is harder? | Face frame (requires fitting inset/overlay doors precisely) |
-| What must never be glued in frame-and-panel? | The panel (must float to allow wood movement) |
-| What is a haunched tenon? | Tenon with a step to fill panel groove; prevents open groove at corner |
-| How do you attach a solid wood tabletop? | Figure-8 clips, Z-clips, or slotted screws — never glue cross-grain |
-| What is the most stressed joint in a chair? | Rear leg to seat rail junction (rearward thrust from leaning) |
-| What glue is best for chair repair? | Hot hide glue (reversible; strongest in tight-fitting joints) |
-| What is the 32mm system? | European frameless cabinet with hardware holes on 32mm centers |
-| What prevents tenons from overlapping in a shared leg? | Miter the inner tenon ends at 45° inside the leg |
-| What is a traditional drawer bottom attachment? | Slides in groove (not glued); one screw through bottom into back |
-| How do breadboard ends work correctly? | Center mortise glued; outer mortises elongated; pins in slots (not glued) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Cabinet system choice | Face-frame fitting versus frameless drilling precision | Frameless is not inferior; each system moves the difficulty. |
+| Frame-and-panel failure | Floating panel, never glued in the groove | Solid panels need room for seasonal movement. |
+| Groove-at-corner problem | Haunched tenon filling the panel groove | The haunch solves both appearance and anti-twist support. |
+| Solid tabletop attachment | Figure-8 clips, Z-clips, or slotted screws | Never glue a solid top cross-grain to a base. |
+| Chair stress point | Rear leg to seat rail junction | Leaning creates rearward thrust concentrated at that joint. |
+| Chair repair glue | Hot hide glue for reversible, tight-fitting repairs | Poorly fitted chair joints are a geometry problem before a glue problem. |
+| Frameless cabinet layout | 32 mm system hardware grid | Precision drilling replaces face-frame fitting work. |
+| Shared-leg tenon collision | Miter inner tenon ends at 45 degrees | Internal geometry must be planned before cutting mortises. |
+| Drawer bottom movement | Groove plus one screw into back | Glued drawer bottoms split sides/fronts as humidity changes. |
+| Breadboard-end movement | Center glue only, elongated outer mortises, slotted pins | Breadboards fail when outer joints are immobilized. |
 
 ---
 

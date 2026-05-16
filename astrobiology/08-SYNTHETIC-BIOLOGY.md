@@ -359,16 +359,22 @@ UNDERSTANDING EXTREMOPHILE MECHANISMS:
 
 ---
 
+## Cross-References
+
+- `astrobiology/07-DIRECTED-PANSPERMIA.md` — deliberate life transfer and engineering ethics.
+- `genomics/09-SYNTHETIC-BIOLOGY.md` — synthetic-biology design principles.
+- `ethics/08-AI-ETHICS.md` — governance analogies for high-consequence technologies.
+
 ## Decision Cheat Sheet
 
-| Question | Answer | Key ref |
+| If you need to diagnose... | Start With | Key Caveat |
 |---|---|---|
-| Can non-DNA polymers store and evolve information? | Yes — HNA, FANA shown to evolve in vitro | Pinheiro 2012 |
-| What is the minimum number of genes for life? | ~473 (JCVI-syn3.0) | Hutchison 2016 |
-| Is water the only possible biochemical solvent? | Formamide and ammonia are alternatives; speculative | Saladino 2012 |
-| Can we build a cell from scratch? | Partial — gene expression in vesicles yes; full cell no | BaSyC consortium |
-| Can we add new amino acids to the genetic code? | Yes — >150 ncAAs incorporated in bacteria | Chin/Schultz labs |
-| Can we make organisms for Mars? | Engineering experiments ongoing, not space-ready | Rothschild NASA |
+| Whether non-DNA polymers can store evolvable information | XNA systems such as HNA/FANA | In-vitro evolution proves possibility, not alien prevalence. |
+| What a minimal free-living genome looks like | JCVI-syn3.0 around 473 genes | Minimal genome work uses a natural cell chassis and still has unknown essential genes. |
+| Whether water is the only plausible solvent | Formamide and ammonia alternatives | Alternatives are speculative and must satisfy temperature, solvation, and reaction-rate constraints. |
+| Whether cells can be built bottom-up | Vesicle gene-expression systems and BaSyC-style work | Partial cell functions exist; a full self-maintaining synthetic cell does not. |
+| Whether the genetic code can be expanded | Noncanonical amino acid incorporation | Expanded codes work in engineered contexts and require containment/translation control. |
+| Whether Mars-ready organisms are feasible | Space bioengineering experiments | Engineering tolerance is not the same as ecological readiness or planetary-protection approval. |
 
 ---
 

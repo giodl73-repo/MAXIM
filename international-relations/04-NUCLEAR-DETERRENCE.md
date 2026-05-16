@@ -311,16 +311,26 @@ MINIMUM DETERRENCE vs. WARFIGHTING
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Realist security dilemma foundations | `international-relations/01-REALISM.md` |
+| Power transition and great-power risk | `international-relations/05-POWER-TRANSITION.md` |
+| Institutions and arms-control regimes | `international-relations/06-INTERNATIONAL-INSTITUTIONS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What is MAD? | Both sides have secure second-strike capability; no rational first strike possible; strategic stability follows |
-| What is the credibility problem? | Whether a nuclear state would really use weapons on behalf of allies; extended deterrence is inherently less credible than homeland deterrence |
-| Why did the ABM Treaty matter? | ABM systems reduce second-strike survivability; if one side has ABM, they can strike first and intercept reduced retaliation; ABM breaks MAD stability |
-| What is the INF Treaty and why did it die? | Eliminated ground-launched missiles 500-5,500 km; US claimed Russian violations (9M729 cruise missile); also: didn't cover China → US wanted unconstrained capability in Asia |
-| How does multipolarity complicate deterrence? | Three-player nuclear game is much harder to stabilize; no existing arms control framework includes China; each dyad affects the others |
-| What do hypersonic weapons change? | Compress decision time (30 min → 5-15 min); evade current ABM; increase pressure to delegate launch authority → crisis instability |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| MAD conditions | Secure second-strike capability on both sides | MAD is a condition, not an official policy preference. |
+| Extended-deterrence credibility | Whether a state would risk homeland attack for allies | Allied deterrence is less credible than homeland deterrence by structure. |
+| ABM Treaty logic | Missile defense can undermine second-strike survivability | Defensive technology can be strategically destabilizing. |
+| INF Treaty collapse | 500-5,500 km missiles, Russian 9M729 claims, China exclusion | Arms-control scope becomes unstable when key actors sit outside it. |
+| Multipolar deterrence | Three-player nuclear interaction and cross-dyad coupling | Bilateral stability assumptions do not scale cleanly. |
+| Hypersonic weapons | Compressed decision time and ABM evasion | Faster warning can push delegation and launch-on-warning instability. |
 
 ---
 

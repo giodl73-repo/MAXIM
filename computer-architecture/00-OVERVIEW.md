@@ -186,16 +186,24 @@ Computer architecture describes the interface between hardware and software. Und
 
 ## Decision Cheat Sheet
 
-| Question | Answer | See |
-|----------|--------|-----|
-| Why is my loop slow? | Cache miss, branch misprediction, or memory bandwidth | 05, 06 |
-| What makes Apple Silicon fast for single-thread? | Wide OOO, massive caches, high memory bandwidth, package integration | 03, 07 |
-| Why doesn't adding pipeline stages always help? | Deeper pipeline → longer misprediction penalty; more stages to fill | 04 |
-| Why does SIMD speed up array processing 8–16x? | One instruction processes 8–16 elements simultaneously | 07 |
-| Why do GPUs need thousands of threads? | To hide DRAM latency — while one warp stalls, others run | 08 |
-| What is the ISA/microarch split? | ISA = visible contract; microarch = implementation | 01 |
-| Why did ARM win mobile? | Load-store RISC simplicity = power efficiency; no complex decode | 03 |
-| What causes false sharing? | Two threads writing different variables in the same cache line | 06 |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A slow loop | Check cache misses, branch mispredicts, vectorization, memory bandwidth, and dependency chains. | Big-O can be irrelevant when locality and branch behavior dominate. |
+| Single-thread CPU speed | Compare decode width, OOO window, branch predictor, cache hierarchy, memory bandwidth, and package integration. | ISA branding alone does not explain modern performance. |
+| Pipeline depth | Analyze clock target, branch penalty, forwarding, hazards, fill/drain cost, and workload branchiness. | Deeper pipelines raise frequency only if misprediction and hazard costs stay controlled. |
+| SIMD opportunity | Look for data parallelism, alignment, vector width, memory stride, reductions, and compiler auto-vectorization. | SIMD speedup is limited by memory and dependency structure. |
+| GPU throughput | Check occupancy, warp scheduling, memory coalescing, shared memory, divergence, and latency hiding. | GPUs win throughput workloads, not arbitrary scalar control-heavy code. |
+| ISA vs microarchitecture | Separate programmer-visible contract from decoder, execution units, caches, predictors, and implementation choices. | Same ISA can have radically different performance and power. |
+| ARM vs x86 claims | Compare process node, power target, decode cost, micro-op backend, cache, and SoC integration. | "RISC vs CISC" is too coarse for current CPUs. |
+| False sharing | Inspect cache-line layout, write patterns, thread ownership, padding, and coherence traffic. | Different variables can still contend if they share a cache line. |
+
+---
+
+## Cross-References
+
+- `01-ISA-FUNDAMENTALS.md` defines the hardware/software contract every architecture implements.
+- `05-MEMORY-HIERARCHY.md` explains why performance is dominated by locality and movement, not just compute.
+- `08-GPU-ARCHITECTURE.md` contrasts CPU generality with throughput-oriented parallel execution.
 
 ---
 

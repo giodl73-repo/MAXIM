@@ -314,17 +314,23 @@ VERIFIED COMPILERS (CompCert):
 
 ---
 
+## Cross-References
+
+- `03-OPERATIONAL-SEM.md` contrasts machine steps with semantic domains.
+- `05-CURRY-HOWARD.md` connects semantic structure to logic.
+- `07-EFFECT-SYSTEMS.md` shows why pure denotations need effect structure.
+
 ## Decision Cheat Sheet
 
-| Concept | What it gives you | Key theorem |
-|---------|-------------------|-------------|
-| Scott domain (dcpo + ⊥) | Meaning of partial/non-terminating computations | Kleene fixed point |
-| Scott continuity | Types of computable functions | Every computable function is continuous |
-| Fixed-point semantics | Meaning of recursion | fix(f) = ⊔{fⁿ(⊥)} |
-| Adequacy theorem | Operational ↔ denotational agreement | ⟦e⟧ ≠ ⊥ iff e →* v |
-| Full abstraction | Denotational identifies exactly what operational can't distinguish | Milner's PCF problem |
-| Game semantics | Solves full abstraction for PCF | Abramsky-Hyland-Ong |
-| CCC correspondence | Types = objects; terms = morphisms | Lambek-Scott |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Nontermination in meaning | Scott domains with bottom | Haskell exceptions require effects beyond pure bottom. |
+| Computability constraint | Scott continuity | Continuity is semantic structure, not just topological decoration. |
+| Recursive definitions | Least fixed-point semantics | The approximation chain starts from bottom. |
+| Operational/denotational agreement | Adequacy theorem | Adequacy is weaker than full abstraction. |
+| Too-fine semantic distinctions | Full abstraction | The denotation must match observational equivalence exactly. |
+| PCF full abstraction | Game semantics | It solves a precise problem, not all language-semantics design. |
+| Typed lambda/category bridge | CCC correspondence | Types-as-objects works for pure typed structure first. |
 
 ---
 

@@ -371,6 +371,12 @@ STRUCTURAL REASONS:
 
 ---
 
+## Cross-References
+
+- [Eastern Europe](07-EASTERN-EUROPE.md) shows the Mongol impact on Rus, Hungary, and borderland polities.
+- [South Asia Medieval](14-SOUTH-ASIA-MEDIEVAL.md) connects Mongol and post-Mongol dynamics to Delhi and Mughal horizons.
+- [Islamic Caliphates](09-ISLAMIC-CALIPHATES.md) supplies the Islamic political landscape transformed by Mongol conquest.
+
 ## Common Confusion Points
 
 **Tatars ≠ Mongols**

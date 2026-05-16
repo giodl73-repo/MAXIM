@@ -355,19 +355,25 @@ The connection to attention mechanisms: self-attention computes a kernel regress
 
 ---
 
+## Cross-References
+
+- `signal-processing/01-FOURIER-ANALYSIS.md` — transform vocabulary and spectral intuition.
+- `partial-differential-equations/03-WAVE-EQUATION.md` — separation of variables and Fourier modes in wave problems.
+- `partial-differential-equations/09-NUMERICAL-PDES.md` — spectral and pseudospectral discretizations.
+
 ## Decision Cheat Sheet
 
-| Domain / Problem | Method | Eigenfunctions |
-|-----------------|--------|----------------|
-| Rectangle with Dirichlet BCs | Fourier sine series | sin(nπx/L) |
-| Rectangle with Neumann BCs | Fourier cosine series | cos(nπx/L) |
-| Disk / cylinder | Bessel functions | J_m(α_{mn}r/a) × sin/cos(mθ) |
-| Sphere / ball | Spherical harmonics | Y_ℓᵐ(θ,φ) × r^ℓ or r^{−ℓ−1} |
-| Whole line (−∞,∞) | Fourier transform | e^{ikx} (continuous) |
-| Half-line (0,∞) | Fourier sine/cosine transform | |
-| Time-only initial data | Laplace transform | e^{st} |
-| Periodic domain | Fourier series | e^{i2πnx/L} |
-| Non-periodic, smooth | Chebyshev expansion | T_n(x) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Which basis fits a rectangle with Dirichlet data | Fourier sine series | Geometry and BCs, not the PDE name alone, choose the basis |
+| Which basis fits a rectangle with Neumann data | Fourier cosine series | Constant modes require separate treatment |
+| Whether radial/angular separation is needed | Bessel functions and angular modes | Eigenvalues come from boundary conditions at the radius |
+| Whether spherical geometry dominates | Spherical harmonics | Radial regularity or decay selects allowed powers |
+| Whether the domain is unbounded | Fourier transform | Continuous spectra require integrability/distribution care |
+| Whether a half-line can use symmetry | Fourier sine or cosine transform | The transform encodes Dirichlet or Neumann reflection |
+| Whether time-only evolution should be transformed | Laplace transform | Initial conditions become algebraic terms, not disappearances |
+| Whether periodicity is exact | Fourier series | Artificial periodicity creates wraparound artifacts |
+| Whether a smooth nonperiodic interval needs spectral accuracy | Chebyshev expansion | Endpoint behavior controls convergence rate |
 
 ---
 

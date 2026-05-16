@@ -257,18 +257,24 @@ A notion of convergence for functionals, handling dimension reduction and homoge
 
 ---
 
+## Cross-References
+
+- `variational-calculus/06-SECOND-VARIATION.md` — local optimality conditions versus existence methods.
+- `partial-differential-equations/08-VARIATIONAL-WEAK.md` — weak spaces and compactness in PDE existence.
+- `differential-geometry/01-MANIFOLDS.md` — compactness and lower-semicontinuity as geometric/analytic constraints.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Does a minimizer exist? | Check coercivity + weak lower semicontinuity |
-| F convex in ∇u → wlsc? | Yes (Tonelli-Morrey) |
-| F non-convex → wlsc? | Need quasiconvexity (stronger condition) |
-| Minimizing sequence bounded? | Yes, from coercivity |
-| Weak convergence + wlsc → ? | J[u*] ≤ lim inf J[u_n] → u* is a minimizer |
-| Minimizer doesn't exist — what then? | Relaxation (quasiconvex envelope); microstructure |
-| Perturbed/scaled functionals → limit? | Γ-convergence gives the right limit problem |
-| Sobolev embedding in 3D? | H¹ ↪ L^6, H² ↪ C⁰ |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Existence of a minimizer | Coercivity plus weak lower semicontinuity | Boundary conditions and function space matter. |
+| Convex integrand in gradient | Tonelli-Morrey lower semicontinuity | Convexity is sufficient, not always necessary. |
+| Nonconvex integrand | Quasiconvexity | Nonconvex problems may develop microstructure. |
+| Bounded minimizing sequence | Coercivity estimate | Boundedness is in the chosen norm. |
+| Weak limit as minimizer | Lower semicontinuity under weak convergence | Need compactness to extract the subsequence first. |
+| No classical minimizer | Relaxation or quasiconvex envelope | Relaxed minimizer may encode fine-scale oscillation. |
+| Limit of scaled functionals | Gamma-convergence | Recovery sequence is as important as liminf bound. |
+| Sobolev regularity in 3D | Embedding theorem | Embedding depends on dimension and exponent. |
 
 ---
 

@@ -2,7 +2,7 @@
 
 ---
 
-## Big Picture
+## The Big Picture
 
 ```
 THE CELL AS A SYSTEM:
@@ -379,19 +379,25 @@ BCL-2 FAMILY:
 
 ---
 
+## Cross-References
+
+- `natural-sciences/10-CELL-BIOLOGY.md` - broader cell-biology foundations.
+- `biology/03-GENETICS.md` - information flow inside the cell.
+- `developmental-biology/03-SIGNALING-PATHWAYS.md` - cellular signaling in development.
+
 ## Decision Cheat Sheet
 
-| Function | Organelle / structure | Key molecule |
-|----------|----------------------|-------------|
-| Protein synthesis (secretory) | Rough ER → Golgi → vesicles | SRP, translocon, COPII |
-| ATP production | Mitochondria (inner membrane) | ATP synthase, cytochromes |
-| Lysosomal degradation | Lysosome (pH 4.5) | Cathepsins, V-ATPase |
-| Cell movement | Actin + myosin | Arp2/3, profilin, cofilin |
-| Chromosome segregation | Microtubules (spindle) | Kinesin, dynein, Eg5 |
-| Extracellular signal → gene expression | GPCR/RTK cascade | Ras-ERK, PKA-CREB, PI3K-Akt |
-| DNA damage response | Checkpoint kinases | ATM/ATR → Chk1/2 → p53 |
-| Cell cycle progression | Cyclin-CDK complexes | Rb/E2F, securin, APC/C |
-| Apoptosis commitment | Mitochondria (MOMP) | Bcl-2 family, caspase cascade |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Secretory protein routing | Rough ER to Golgi to vesicles via SRP/translocon/COPII | Cytosolic proteins use different targeting logic. |
+| ATP production | Mitochondrial inner membrane and ATP synthase | ATP yield per glucose is approximate. |
+| Lysosomal degradation | Acidic lysosome with cathepsins and V-ATPase | Lysosomal failure often causes storage phenotypes. |
+| Cell movement | Actin/myosin with Arp2/3, profilin, cofilin | Microtubules also position and traffic cargo. |
+| Chromosome segregation | Mitotic spindle microtubules and motors | Checkpoint failure causes aneuploidy. |
+| Signal-to-gene response | GPCR/RTK cascades to ERK/CREB/Akt | Same pathway can mean different outcomes by cell type. |
+| DNA damage response | ATM/ATR to Chk1/2 and p53 | Repair choice depends on cell-cycle phase. |
+| Cell-cycle progression | Cyclin-CDK, Rb/E2F, securin, APC/C | Checkpoints gate transitions; they are not timers alone. |
+| Apoptosis commitment | Mitochondrial MOMP and caspase cascade | Pyroptosis and necrosis are distinct death modes. |
 
 ---
 

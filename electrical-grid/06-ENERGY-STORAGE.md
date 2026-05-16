@@ -8,7 +8,8 @@
 ```
 THE FUNDAMENTAL GRID PROBLEM (revisited):
 
-  Generation must equal consumption at every instant.
+  Generation and consumption must stay balanced within tight tolerance
+  at every instant.
   Mismatches → frequency deviation → cascade risk.
 
 WITHOUT STORAGE:          WITH STORAGE:
@@ -21,7 +22,8 @@ WITHOUT STORAGE:          WITH STORAGE:
 HISTORICALLY: Storage wasn't economical, so the grid was designed around
   dispatchable thermal generators that could match demand.
 
-NOW: High-penetration renewables (variable output) need storage to:
+NOW: High-penetration renewables (variable output) often need storage or
+other flexibility to:
   1. Time-shift generation (solar at noon → discharge at 6pm)
   2. Provide backup (2-week Dunkelflaute)
   3. Provide ancillary services (frequency regulation, voltage support)
@@ -56,7 +58,7 @@ Power (MW)        Discharge Duration → 0.01s ... 1s ... 1min ... 1h ... 4h ...
 
 ### By the Numbers
 
-Pumped hydro accounts for ~93% of worldwide grid-scale energy storage by installed capacity (~170 GW globally, ~43 GW in the US as of 2024). It is the only storage technology that has been economical at GW-scale for decades.
+Pumped hydro accounts for the large majority of worldwide grid-scale energy storage capacity (roughly 90%+ by energy capacity in recent surveys). It is the storage technology with the longest operating record at GW scale, though new projects are highly site- and permitting-constrained.
 
 ```
 PUMPED HYDRO CONFIGURATION:
@@ -550,20 +552,24 @@ Revenue stacking across energy, capacity, and ancillary services is required.
 
 ## Decision Cheat Sheet
 
-| Question | Short Answer |
-|----------|-------------|
-| What is the dominant grid storage technology by installed capacity? | Pumped hydro (~93% of global grid storage by GWh) |
-| Why is pumped hydro dominant? | 80-90% efficiency, 50-100 year life, $100-200/kWh, proven at GW scale — unmatched for large long-duration storage |
-| Why 4-hour batteries? | Matches California duck curve arbitrage window; capacity market standard; economically optimized for daily cycle |
-| LFP vs NMC for grid? | LFP wins: longer cycle life (3,000-6,000 vs 1,500-3,000), thermally safer, similar cost; energy density irrelevant for stationary |
-| What is the advantage of flow batteries? | Decouple power (stack) from energy (tanks) — scale each independently; longer cycle life than Li-ion |
-| Why is hydrogen round-trip efficiency so poor? | Electrolysis (~65%) × fuel cell (~55%) = ~36%; vs pumped hydro 85%, Li-ion 90% |
-| What is LDES? | Long-Duration Energy Storage — >10 hours, addresses multi-day events; iron-air, CAES, hydrogen are candidates |
-| Why do flywheels excel at frequency regulation? | Millisecond response, essentially unlimited cycles, no degradation — ideal for high-frequency small-magnitude AGC signals |
-| What is revenue stacking? | BESS earns from multiple markets simultaneously (energy arbitrage + capacity + regulation) — required for project economics |
-| What is virtual inertia? | Grid-forming BESS that measures ROCOF and responds like a synchronous generator's inertia, but faster and software-controlled |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Which storage technology fits | Separate power rating, energy duration, cycle frequency, response time, siting, degradation, safety, permitting, and revenue source. | "Storage" is not one resource; a flywheel, 4-hour BESS, pumped hydro plant, and hydrogen cavern solve different problems. |
+| Whether pumped hydro is plausible | Check elevation difference, reservoir volume, water rights, geology, environmental permitting, transmission access, and construction duration. | Pumped hydro is mature and long-lived, but site scarcity and permitting dominate new-build feasibility. |
+| Whether a 4-hour BESS is enough | Match discharge duration to net-load ramp, capacity-accreditation rules, outage duration, congestion window, and market products. | Four hours is an economic-market convention in many grids, not a universal physics optimum. |
+| Whether LFP or NMC fits grid storage | Compare cycle life, thermal safety, cost, energy density, supply chain, operating temperature, and enclosure constraints. | Stationary systems care less about volumetric energy density than EVs, but site footprint and balance-of-system still matter. |
+| Whether flow batteries or LDES are useful | Look for long duration, frequent cycling, energy/power decoupling, electrolyte cost, footprint, and bankability. | Technical fit does not guarantee financeability; warranties, vendors, and market products matter. |
+| Whether hydrogen storage makes sense | Test for seasonal duration, cheap surplus energy, cavern/storage availability, electrolyzer utilization, end-use flexibility, and round-trip loss tolerance. | Hydrogen is usually a poor daily battery; it may matter where duration and fuel-like storage outweigh efficiency. |
+| Whether revenue stacking is credible | List energy arbitrage, capacity, ancillary services, congestion relief, resource adequacy, black start, and contract constraints. | Some revenue streams conflict operationally or contractually; they cannot always be stacked at full value. |
+| Whether "virtual inertia" solves stability | Check grid-forming controls, headroom/state of charge, ROCOF measurement, protection settings, and system studies. | Fast inverter response can emulate useful behavior, but it is control-dependent and not identical to synchronous rotating mass. |
 
 ---
+
+## Cross-References
+
+- `05-GRID-STABILITY.md` explains the stability services storage can provide.
+- `08-MARKETS.md` shows how storage earns revenue through arbitrage and ancillary services.
+- `../energy-storage/01-ELECTROCHEMICAL.md` covers battery chemistry and cell-level fundamentals.
 
 ## Common Confusion Points
 

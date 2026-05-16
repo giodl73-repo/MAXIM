@@ -436,6 +436,18 @@ THE RHETORICAL USE:
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Argument form and validity | `logic/01-PROPOSITIONAL.md` | Rhetoric persuades audiences; logic isolates validity from persuasion |
+| Meaning, audience, and speech acts | `philosophy-of-language/01-FREGE.md` | Rhetorical force depends on sense, reference, implication, and context |
+| Translation of persuasive effect | `translation/01-EQUIVALENCE-PROBLEM.md` | Dynamic equivalence is rhetoric under another name: preserve effect across audience |
+| Literary devices and narrative persuasion | `literature/01-NARRATIVE-THEORY.md` | Rhetorical figures operate inside genres, plots, and reader expectations |
+| Public discourse and media | `media-studies/01-MEDIUM-IS-MESSAGE.md` | Medium and distribution channel reshape rhetorical effect |
+
+---
+
 ## Common Confusion Points
 
 **"Sophist" is not an insult in the historical sense**

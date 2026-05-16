@@ -677,6 +677,12 @@ Without a feature store, this often silently diverges.
 
 ---
 
+## Cross-References
+
+- `04-PYTORCH.md` shows the training-loop artifacts MLOps must package and govern.
+- `06-AZURE-ML.md` provides a concrete managed-platform implementation of these concepts.
+- `../cloud-architecture/01-CLOUD-MODELS.md` gives the infrastructure layer behind hosted ML workflows.
+
 ## Common Confusion Points
 
 **Experiment tracking vs. model registry**: Tracking captures every run (params,
@@ -706,28 +712,12 @@ prediction drift and actual performance, not just model age.
 
 ## Decision Cheat Sheet
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  TASK                           │  TOOL                             │
-├─────────────────────────────────┼──────────────────────────────────┤
-│  Experiment tracking (Azure)    │  MLflow (Azure ML backend)       │
-│  Experiment tracking (DL/GPU)   │  W&B                             │
-│  Hyperparameter sweep           │  W&B Sweeps or Optuna            │
-│  Data versioning                │  DVC + S3/Azure Blob             │
-│  Data validation                │  Great Expectations              │
-│  Model registry                 │  MLflow Model Registry           │
-│  Serving (quick/simple)         │  FastAPI + MLflow load_model     │
-│  Serving (production grade)     │  BentoML or Seldon Core          │
-│  Portable inference format      │  ONNX + ONNX Runtime             │
-│  Batch scoring (large scale)    │  Azure ML pipelines (06-AZURE-ML)│
-│  Drift detection                │  Evidently                       │
-│  Feature store                  │  Feast or Azure ML Feature Store │
-│  Retraining trigger             │  Drift alert → GitHub Actions    │
-├─────────────────────────────────┼──────────────────────────────────┤
-│  MONITORING                     │                                  │
-│  Infrastructure metrics         │  Prometheus + Grafana            │
-│  Prediction distribution        │  Evidently / Arize               │
-│  Data quality in production     │  Great Expectations + scheduling │
-│  Model performance (w/ labels)  │  MLflow custom metrics on sample │
-└─────────────────────────────────┴──────────────────────────────────┘
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| An experiment-tracking problem | Decide what must be reproducible: code version, data version, parameters, metrics, artifacts, environment, and random seeds. | Tracking metrics without data/environment lineage is not reproducibility. |
+| A model-promotion decision | Compare candidate vs current model on held-out data, slice metrics, latency, cost, drift risk, and rollback plan. | "Best validation score" is not enough for production promotion. |
+| A data-versioning need | Check dataset size, change frequency, storage backend, lineage DAG, privacy, and whether raw data can leave the platform. | Git tracks pointers well; object storage holds the data. |
+| A serving choice | Separate online latency, batch throughput, hardware target, framework dependency, autoscaling, and operational ownership. | FastAPI is fine for simple service boundaries; production ML serving also needs monitoring and rollback. |
+| A drift alert | Distinguish data drift, concept drift, label delay, seasonality, instrumentation change, and population shift. | Drift is a triage signal, not automatic proof that retraining will help. |
+| A feature-store decision | Look for online/offline consistency, point-in-time correctness, feature ownership, freshness, and reuse. | Feature stores solve training/serving skew only if teams adopt the same definitions. |
+| A retraining trigger | Tie trigger to drift, performance decay, data arrival, regulatory schedule, or product change. | Automatic retraining without evaluation gates can automate regressions. |

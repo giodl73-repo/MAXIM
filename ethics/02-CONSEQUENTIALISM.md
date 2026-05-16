@@ -301,18 +301,28 @@ OBJECTIONS TO CONSEQUENTIALISM
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Metaethical status of moral claims | `ethics/01-METAETHICS.md` |
+| Duty-based contrast | `ethics/03-DEONTOLOGY.md` |
+| Applied ethics tradeoffs | `ethics/06-APPLIED-ETHICS.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Version | Maximize | Key figure | Key problem |
-|---|---|---|---|
-| Hedonistic utilitarianism | Pleasure - pain | Bentham | Pleasure commensurable? |
-| Mill's utilitarianism | Happiness (quality counts) | Mill | Who judges quality? |
-| Act utilitarianism | Expected utility per act | Sidgwick | Can justify anything |
-| Rule utilitarianism | Utility of general rule adoption | Brandt | Collapses to act U? |
-| Preference utilitarianism | Preference satisfaction | Singer | Whose preferences? |
-| Two-level theory | Intuitive + critical levels | Hare | When to switch levels? |
-| Effective altruism | Cost-effective welfare improvement | Singer, MacAskill | Demandingness, neglects justice |
-| Longtermism | Existential risk reduction | Ord, MacAskill | Speculative, present bias |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Hedonistic utilitarianism | Bentham: maximize pleasure minus pain | Commensurability of pleasures is the pressure point. |
+| Mill's qualitative utilitarianism | Happiness with higher/lower qualitative distinctions | The theory needs a non-circular judge of quality. |
+| Act utilitarianism | Sidgwick: expected utility of each act | Local maximization can justify rights-violating acts. |
+| Rule utilitarianism | Utility of general rule adoption | Must avoid collapsing back into act utilitarianism. |
+| Preference utilitarianism | Singer-style preference satisfaction | Preferences can be adaptive, uninformed, or morally suspect. |
+| Two-level theory | Hare's intuitive rules plus critical reflection | The switch condition between levels carries much of the theory. |
+| Effective altruism | Cost-effective welfare improvement | Demandingness and justice objections are not implementation details. |
+| Longtermism | Future people and existential-risk reduction | Strong versions rely on speculative expected-value reasoning. |
 
 ---
 

@@ -1,6 +1,6 @@
 # The Mechanical Era — Babbage, Lovelace, Hollerith
 
-## Era Overview
+## The Big Picture
 
 ```
 MECHANICAL COMPUTING: 1820–1900
@@ -248,6 +248,31 @@ The IBM card defined the default column width of early computer terminals (80 co
 | Punched-card data encoding and tabulation | Hollerith |
 | Origin of IBM | Hollerith |
 | 80-column convention | Hollerith (via IBM card) |
+
+---
+
+## Decision Cheat Sheet
+
+| Question | Best Answer | Why |
+|---|---|---|
+| Who supplied the architectural concept of a general-purpose computer? | Babbage | The Analytical Engine separated store, mill, input, output, control flow, and operation cards |
+| Who supplied the conceptual leap from arithmetic to symbolic computation? | Lovelace | Note A frames the Engine as manipulating symbols under rules, not merely numbers |
+| Who made punched-card data processing operational at scale? | Hollerith | The census system combined encoding, sensing, counting, sorting, and workflow |
+| What is the modern bridge to the Difference Engine? | Table generation by finite differences | A specialized pipeline exploits structure to remove expensive operations |
+| What is the modern bridge to the Analytical Engine? | CPU + memory + instruction stream | Store/mill/cards map cleanly to RAM/ALU/instructions/data |
+| What is the modern bridge to Hollerith? | Batch data processing | Cards were physical records; tabulators were group-by/count machines |
+
+---
+
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| The architecture Babbage anticipated | `computer-architecture/01-ISA-FUNDAMENTALS.md` | Store/mill/control maps into ISA, memory, and execution model |
+| The language layer Lovelace prefigured | `programming-language-theory/01-LAMBDA-CALCULUS.md` | General symbol manipulation becomes the theory of computation and programming |
+| The data-processing lineage from Hollerith | `data-science/01-NUMPY.md` | Punched-card tabulation is the ancestor of modern tabular computation |
+| Broader history of scientific instrumentation | `history-of-science/01-ANCIENT-NATURAL-PHILOSOPHY.md` | Mechanical computation sits inside the long arc from instruments to automated reasoning |
+| Later computing biographies | `computing-pioneers/02-ELECTRONIC-ERA.md` | Shows how mechanical ideas reappear in electromechanical and electronic machines |
 
 ---
 

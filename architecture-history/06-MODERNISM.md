@@ -555,20 +555,25 @@ WHAT THIS REVEALS:
 
 ---
 
+## Cross-References
+
+- `architecture-history/05-INDUSTRIAL-AGE.md` — industrial preconditions for modernism.
+- `architecture/01-SPATIAL-DESIGN.md` — modern spatial logic as design system.
+- `industrial-design/01-HISTORY-MOVEMENTS.md` — Bauhaus bridge between architecture, objects, and production.
+
 ## Decision Cheat Sheet: Modernism
 
-| Question | Answer |
-|----------|--------|
-| What are Le Corbusier's Five Points? | Pilotis, free plan, free façade, horizontal windows, roof garden — all enabled by the concrete frame |
-| What is "béton brut"? | Raw/unfinished concrete — gives "Brutalism" its name |
-| What is the International Style? | Flat roof, glass curtain wall, regular grid, no ornament — named in 1932 MoMA exhibition |
-| What is Mies's "less is more"? | Reduction to structural and spatial essentials; every detail carries its weight |
-| What is the free plan? | Structural columns only — partitions can be placed anywhere, each floor can be different |
-| What did the Bauhaus teach? | Fine art + craft + technology unified; workshops with parallel artist/craftsman instruction |
-| Why was Pruitt-Igoe demolished? | Complex mix of design (no street), management failure, economic defunding, racial segregation — not design alone |
-| What is the Seagram Building's innovation? | First glass tower with public plaza (voluntarily set back from street); bronze mullion cladding |
-| What is a curtain wall (modernist)? | Non-structural glass/metal cladding hung from the structural frame |
-| What is Team X's critique of modernism? | Too abstract; ignores human patterns of community, street life, and identity |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Le Corbusier's Five Points | Pilotis, free plan, free facade, horizontal windows, roof garden | They are enabled by the concrete frame; they are not simply minimalism. |
+| Brutalism | Beton brut, honest material display, and heavy massing | Ethical material directness can fail when execution, weathering, or scale is poor. |
+| International Style | Flat roof, glass curtain wall, grid, and no applied ornament | It is a MoMA-framed subset of modernism, not the whole movement. |
+| Miesian reduction | Structural/spatial essentials and precise detail burden | "Less is more" means disciplined detail, not cheap simplification. |
+| Free plan | Columns carry structure; partitions can vary | Freedom depends on services, circulation, code, and facade constraints too. |
+| Bauhaus pedagogy | Art, craft, technology, and workshop instruction | Bauhaus was politically charged as well as pedagogically innovative. |
+| Pruitt-Igoe's demolition | Design, management, defunding, segregation, and policy context | It is not proof that modernism alone failed. |
+| Seagram and curtain wall logic | Public plaza, glass/metal cladding, and structural frame separation | Curtain wall expression can be symbolic; mullions may not reveal actual structure. |
+| Team X critique | Human patterns, community, street life, and identity | The critique targets abstraction, not all modern construction or planning. |
 
 ---
 

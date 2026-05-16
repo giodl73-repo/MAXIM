@@ -698,26 +698,23 @@ They're base64-encoded in etcd. Treat K8s Secrets as a transport mechanism, not 
 
 ---
 
+## Cross-References
+
+- `computing/11-DOCKER.md` — container image and runtime substrate.
+- `computing/15-OBSERVABILITY.md` — operating Kubernetes systems in production.
+- `cloud-architecture/05-MICROSERVICES.md` — service architecture commonly deployed on Kubernetes.
+
 ## Decision Cheat Sheet
 
-| I want to... | Use |
-|---|---|
-| Run containers at scale with automatic restarts | Kubernetes Deployment |
-| Expose a service inside the cluster | Service (ClusterIP) |
-| Expose a service to the internet | Service (LoadBalancer) or Ingress |
-| Route traffic to multiple services via URL paths | Ingress |
-| Store non-secret config (env vars) | ConfigMap |
-| Store secrets (DB passwords, API keys) | Secret (+ Key Vault in prod) |
-| Persist database data across pod restarts | PersistentVolumeClaim + StatefulSet |
-| Auto-scale based on CPU | HorizontalPodAutoscaler |
-| Deploy without downtime | Rolling update (default Deployment strategy) |
-| Roll back a bad deploy | `kubectl rollout undo` |
-| Package and version K8s manifests | Helm chart |
-| Isolate teams or environments in one cluster | Namespaces |
-| Run K8s without managing control plane | AKS / EKS / GKE |
-| Run K8s serverlessly (no node management) | AKS with Virtual Nodes / Fargate |
-| Container hosting with App Service simplicity | Azure Container Apps (ACA) |
-| Scale-to-zero (pay only when traffic exists) | Azure Container Apps |
-| Keep SF Reliable Services / stateful partitions | SF Managed Cluster (K8s migration is architectural rework) |
-| Use Azure App Gateway as K8s ingress | AGIC (Application Gateway Ingress Controller) |
-| Debug a crashing pod | `kubectl logs --previous` + `kubectl describe pod` |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Scaled stateless workload | Use Deployment, replica count, readiness/liveness probes, resource requests, and rollout strategy. | Kubernetes restarts containers; it does not fix broken app semantics. |
+| Internal or external exposure | Compare ClusterIP, LoadBalancer, Ingress, DNS, TLS, and network policy. | Service discovery and internet ingress are different concerns. |
+| URL/path routing | Use Ingress/controller choice, host/path rules, TLS termination, and backend health. | Ingress behavior depends heavily on the controller. |
+| Config and secrets | Separate ConfigMap, Secret, external secret store, rotation, and RBAC. | Kubernetes Secret is base64 by default; use Key Vault or encryption in production. |
+| Stateful workload | Use PVC, StatefulSet, storage class, backup, identity, and failure recovery. | Running databases on Kubernetes adds operational burden. |
+| Autoscaling | Check HPA metric, resource requests, startup time, queue depth, and scale limits. | CPU autoscaling can miss IO-bound or queue-backed services. |
+| Safe rollout or rollback | Inspect Deployment strategy, readiness gates, image tags, rollout history, and migration compatibility. | Rollback cannot undo incompatible database migrations. |
+| Manifest packaging | Use Helm/Kustomize/GitOps based on templating, environment overlays, and release ownership. | Packaging tools can obscure the actual Kubernetes objects. |
+| Cluster tenancy | Use namespaces, RBAC, quotas, network policy, and cost labels. | Namespaces are isolation boundaries, not security sandboxes by themselves. |
+| Platform choice | Compare AKS/EKS/GKE, ACA, Fargate/virtual nodes, operational team, and stateful-service needs. | If you want App Service simplicity, Kubernetes may be the wrong layer. |

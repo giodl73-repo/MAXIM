@@ -280,18 +280,24 @@ many report the intuitive answer "felt right" first.
 
 **Why this matters**: The dual-process model is not S1-makes-errors / S2-corrects-them. It is S1-makes-judgments / S2-usually-rubber-stamps-them. The engineering implication is that checklists, pre-mortems, and structured decision protocols work *because they force S2 engagement* — not because people naturally exercise S2 oversight. Without procedural forcing functions, S2 rationalizes rather than overrides.
 
+## Cross-References
+
+- `cognitive-science/02-ATTENTION-MEMORY.md` — cognitive resource limits behind judgment.
+- `behavioral-economics/03-HEURISTICS-BIASES.md` — applied decision-bias framework.
+- `logic/01-CLASSICAL-LOGIC.md` — formal reasoning contrast class.
+
 ## Decision Cheat Sheet
 
-| Phenomenon | What's happening | Correction strategy |
-|------------|-----------------|-------------------|
-| Availability bias | Vivid/recent examples inflate probability estimates | Ask for base rate statistics; use outside view |
-| Representativeness | Category match overrides base rate | Force yourself to compute base rates explicitly |
-| Anchoring | First number distorts all subsequent estimates | Deliberate "de-anchoring": generate independent estimate first |
-| Framing effect | Gain vs loss presentation flips choice | Reframe the same problem both ways; check if choice changes |
-| Confirmation bias | Seeking confirming evidence | Pre-mortems; adversarial collaboration; red team |
-| Planning fallacy | Inside view is too optimistic | Reference class forecasting; distribution of similar project outcomes |
-| Sunk cost | Counting irrecoverable costs | Ask: "If we hadn't spent anything yet, would we proceed?" |
-| Loss aversion | Losses dominate decision-making | Reframe as opportunity cost; compute expected value explicitly |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Why vivid examples dominate probability estimates | Availability bias | Use base rates and outside view; availability helps only when memory frequency tracks world frequency. |
+| Why a category match overrides statistics | Representativeness | Force base-rate computation before judging similarity. |
+| Why the first number contaminates estimates | Anchoring | Generate an independent estimate before seeing anchors or negotiate from multiple anchors. |
+| Why gain/loss wording flips choices | Framing effect | Reframe the same options both ways and check whether preference changes. |
+| Why teams seek only supporting evidence | Confirmation bias | Use pre-mortems, adversarial collaboration, or red-team review. |
+| Why project estimates are too optimistic | Planning fallacy | Reference-class forecasting beats inside-view narratives. |
+| Why irrecoverable costs keep driving decisions | Sunk cost effect | Ask whether you would start the project today with no prior spend. |
+| Why losses dominate the decision | Loss aversion | Reframe as opportunity cost and compute expected value explicitly. |
 
 ---
 

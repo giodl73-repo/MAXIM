@@ -321,18 +321,24 @@ LIFTING AND OPENING:
 
 ---
 
+## Cross-References
+
+- `02-TYPE-THEORY.md` turns untyped terms into disciplined calculi.
+- `03-OPERATIONAL-SEM.md` shows how lambda terms become executable machines.
+- `05-CURRY-HOWARD.md` connects lambda terms to proofs.
+
 ## Decision Cheat Sheet
 
-| Concept | Why it matters | Where it shows up |
-|---------|---------------|-------------------|
-| Capture-avoiding substitution | Every interpreter is built on this | All language implementations |
-| Church-Rosser | CBV = CBN for pure programs (same results) | Why Haskell and OCaml can share a formal semantics |
-| WHNF | Haskell's evaluation strategy | Understanding seq, deepseq, laziness bugs |
-| Church numerals | Data in pure λ-calculus (Turing completeness) | Theory; not production |
-| Scott encoding | O(1) predecessor; lazy-friendly | Coq inductives, Haskell data types |
-| Y combinator | General recursion from anonymous calculus | Compiler treatment of let rec |
-| De Bruijn indices | Canonical nameless terms; no α-renaming | Coq, Agda, Lean internals |
-| CBV vs. CBNeed | Performance and evaluation order | Haskell (lazy) vs. OCaml/Rust (eager) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Variable-capture bug | Capture-avoiding substitution | Every interpreter eventually pays this debt. |
+| Evaluation-order equivalence | Church-Rosser for terminating pure programs | It does not say CBV and CBN both terminate. |
+| Haskell forcing surprise | WHNF versus normal form | `seq` reaches the outer constructor, not deep normal form. |
+| Data from pure functions | Church numerals and encodings | Elegant but operationally poor for many operations. |
+| Lazy-friendly data encoding | Scott encoding | It changes case analysis costs, not the calculus's expressiveness. |
+| Anonymous recursion | Y combinator | Real compilers usually implement named recursion directly. |
+| Alpha-equivalence bookkeeping | De Bruijn indices | Index shifting replaces names with precise but error-prone arithmetic. |
+| Lazy versus eager performance | CBV, CBN, and CBNeed | Sharing is the difference between CBN and production laziness. |
 
 ---
 

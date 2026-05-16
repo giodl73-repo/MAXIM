@@ -299,17 +299,23 @@ Measures the ability to find distant semantic associations — empirically linke
 
 ---
 
+## Cross-References
+
+- `cognitive-science/03-REASONING-JUDGMENT.md` — reasoning architecture used in problem solving.
+- `game-theory/01-NORMAL-FORM.md` — formal decision and strategy spaces.
+- `ai-engineering/04-AGENTS.md` — computational agents as problem-solving systems.
+
 ## Decision Cheat Sheet
 
-| Problem Type | Best Approach |
-|-------------|--------------|
-| Well-defined, solution space small | Systematic search (BFS/DFS) |
-| Well-defined, large state space | Means-ends analysis, heuristic search |
-| Ill-defined, stuck with functional fixedness | Representational change: list all objects' possible functions |
-| Stuck with mental set | Deliberate meta-cognitive break; try completely different approach |
-| Novel problem with known analog | Explicit analogical mapping (don't rely on spontaneous transfer) |
-| Requires creative leap | Incubation: deliberately step away after preparation phase |
-| Skill development | Deliberate practice at the edge of ability, not comfort zone |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a small well-defined space can be solved directly | Systematic search such as BFS or DFS | Exhaustive search works only when state space and operators are explicit and bounded. |
+| Whether a large defined space needs guidance | Means-ends analysis or heuristic search | Heuristics trade completeness for tractability unless carefully bounded. |
+| Why an ill-defined problem feels stuck | Representational change | List alternate object functions and problem framings; the obstacle may be the representation. |
+| Why a familiar strategy keeps failing | Mental set | Deliberate meta-cognitive break helps only if you try a genuinely different representation. |
+| Whether a known analog can transfer | Explicit analogical mapping | Spontaneous transfer is weak; map relations, not surface features. |
+| Whether a creative leap is likely | Incubation after preparation | Stepping away works after serious preparation, not instead of it. |
+| How expertise develops | Deliberate practice at the edge of ability | Time-on-task without feedback mostly automates current habits. |
 
 ---
 

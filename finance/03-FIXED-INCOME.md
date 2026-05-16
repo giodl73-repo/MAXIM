@@ -104,11 +104,11 @@ YIELD CURVE SHAPES:
   Flat: similar rates across maturities
   Humped: intermediate maturities highest — transition
 
-BOOTSTRAP — extracting spot curve from coupon bonds:
-  1. 3m, 6m: already zero-coupon (T-bills) → spot rates directly
-  2. 2yr bond: P = c·d(0.5) + c·d(1.0) + (100+c)·d(1.5) → solve for d(1.5)
-     given d(0.5), d(1.0) from step 1
-  3. Continue: each new maturity uses all previously computed spot rates.
+  BOOTSTRAP — extracting spot curve from coupon bonds:
+   1. 3m, 6m: already zero-coupon (T-bills) → spot rates directly
+   2. 1.5yr bond: P = c·d(0.5) + c·d(1.0) + (100+c)·d(1.5)
+      → solve for d(1.5) given d(0.5), d(1.0)
+   3. Continue: each new maturity uses all previously computed spot rates.
 ```
 
 ---
@@ -353,8 +353,8 @@ REAL YIELD vs NOMINAL YIELD:
   y_nominal ≈ y_real + π^e   (Fisher equation; approximate)
   TIPS yields are real yields: investor is compensated for actual, not expected, inflation
 
-  TIPS real yield:  currently ~2.0-2.5% (2024); negative real yields 2020-2021
-  Nominal 10yr:     ~4.0-4.5% (2024)
+  TIPS real yield:  example 2024 range ~2.0-2.5%; negative real yields 2020-2021
+  Nominal 10yr:     example 2024 range ~4.0-4.5%
   Breakeven inflation = y_nominal − y_real ≈ π^e (market-implied expected inflation)
 
 BREAKEVEN INFLATION RATE:
@@ -465,19 +465,25 @@ TERM STRUCTURE MODELS = STOCHASTIC DIFFERENTIAL EQUATIONS:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why do bond prices fall when yields rise? | P = Σ CF/(1+y)^t — higher denominator → lower price |
-| What's the most important risk metric for bond? | DV01 (dollar value of 1 basis point) |
-| How do I hedge interest rate risk? | Match DV01 with Treasury futures or swaps |
-| What's duration of a zero coupon bond? | Exactly T years (Macaulay duration = maturity) |
-| Why does convexity matter? | Second-order effect; positive convexity = gains more/loses less |
-| What model for interest rate derivatives? | Hull-White (simple, widely used) or LMM (caps/swaptions) |
-| How to extract spot rates? | Bootstrap from Treasury prices |
-| What's OAS vs Z-spread? | OAS removes embedded option value; Z-spread doesn't |
-| What's CDS spread approximately? | ≈ λ(1−R) where λ = hazard rate, R = recovery |
+| If you need to diagnose... | Start With | Caveat |
+|----------------------------|------------|--------|
+| Price/yield direction | Discounted cash-flow denominator | Yield is a summary; spot curve prices the cash flows |
+| Bond rate risk | DV01 and modified duration | Duration is local and assumes a parallel shift |
+| Curve-shape risk | Key-rate durations | Non-parallel shifts require bucketed hedges, not one DV01 |
+| Zero-coupon sensitivity | Maturity equals Macaulay duration | Coupon bonds have shorter duration than maturity |
+| Convexity value | Second derivative of price/yield curve | Positive convexity helps; callable/MBS convexity can turn negative |
+| Rate-derivative model | Product and curve object | Hull-White for tractable short-rate work; LMM/SOFR models for market-rate products |
+| Spot-rate extraction | Bootstrapping in maturity order | Bad input bonds or liquidity distortions contaminate later maturities |
+| OAS vs Z-spread | Embedded-option removal | OAS depends on the option/prepayment model |
+| Credit spread | Hazard rate and recovery | CDS spread roughly equals λ(1-R), but liquidity and risk premia matter |
 
 ---
+
+## Cross-References
+
+- [Portfolio Theory](01-PORTFOLIO-THEORY.md) frames bonds as allocation, duration, and diversification instruments.
+- [Derivatives](02-DERIVATIVES.md) extends yield curves into swaps, caps, floors, and convex payoff structures.
+- [Risk Models](04-RISK-MODELS.md) turns duration, spread, and curve exposure into VaR, stress, and scenario tests.
 
 ## Common Confusion Points
 

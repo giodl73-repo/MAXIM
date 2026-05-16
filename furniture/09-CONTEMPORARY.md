@@ -76,7 +76,7 @@ CNC ROUTER CAPABILITY FOR FURNITURE:
     Foam (hot wire or end mill)
 
   ACCURACY: ±0.1mm typical
-  CYCLE TIME: 20×8' sheet of 18mm plywood: 15–45 min
+  CYCLE TIME: one 4'×8' sheet of 18mm plywood: 15–45 min
   OPERATOR SKILL: moderate (CAM programming is learnable)
 
 SHOPBOT:
@@ -383,8 +383,9 @@ RONAN & ERWAN BOUROULLEC (French, b.1971/1976):
   Work: textile partitions, modular systems, organic seating.
   Approach: combine craft vocabulary with industrial production.
   Key piece: Vegetal Chair (Vitra, 2008) — injection-molded
-             polypropylene chair that looks like grown branches.
-             400 molds required to produce the complex organic form.
+             polyamide chair that looks like grown branches.
+             Required years of engineering and tool iteration to
+             make the organic lattice moldable and structurally reliable.
 
 JASPER MORRISON (British, b.1959):
   "Super Normal" aesthetic: objects that perform their function
@@ -451,17 +452,23 @@ BIOPHILIC DESIGN (from Greek: bio = life, philos = love):
 
 ## Decision Cheat Sheet
 
-| Technology | Best Application | Current Limitations | Where It's Mature |
-|-----------|-----------------|--------------------|--------------------|
-| CNC routing | Custom flat-material furniture | Requires design file, machine access | Standard in custom furniture shops |
-| Parametric design | Configure-to-order with complex variation | Requires Grasshopper/Fusion competency | Design studios, custom manufacturers |
-| FDM 3D printing | Hardware, small components, prototypes | Structural weakness across layers, size | Wide (hardware/components) |
-| Large-format FDM | Concept models, one-off sculptural pieces | Surface finish, cost, structural limits | Niche design studios |
-| Robot welding | Metal frame production | High setup cost | Standard in contract furniture |
-| Mass customization | Direct-to-consumer premium-mid segment | Lead time vs. stock availability | Growing (20+ companies) |
-| Open-source furniture | Maker culture, developing markets | Requires local CNC access | FabLab networks globally |
+| If the contemporary claim is... | Ask This First | Gold-Standard Evidence |
+|---------------------------------|----------------|------------------------|
+| "Digitally fabricated" | Which process: CNC routing, laser cutting, 3D printing, robot welding, or hybrid? | Process choice matches material, tolerance, scale, and structural load |
+| "Parametric" | What parameters actually regenerate geometry and toolpaths? | Design file produces valid parts across the promised variation range |
+| "3D printed furniture" | Is it structural furniture or a prototype/component? | Layer orientation, reinforcement, surface finish, and joining strategy are named |
+| "Mass customized" | Is inventory really eliminated or just configured late? | Order-to-production workflow, lead time, and platform components are explicit |
+| "Open source" | Is the file free, the production local, or both? | License, material cost, machine access, and build instructions are clear |
+| "Sustainable" | Which metric: carbon, recycled content, repairability, disassembly, VOCs, or landfill diversion? | Independent certification or lifecycle data, not only natural-looking finishes |
+| "Biophilic" | Is it actual natural material/pattern exposure or simulated nature? | Distinguishes psychological/nature-response claims from environmental claims |
 
 ---
+
+## Cross-References
+
+- [Furniture Overview](00-OVERVIEW.md) provides the field map for contemporary furniture's inherited categories.
+- [IKEA Model](07-IKEA-MODEL.md) supplies the mass-industrial baseline contemporary designers react to or extend.
+- [Ergonomics of Seating](08-ERGONOMICS-SEATING.md) connects contemporary work furniture to human factors and workplace design.
 
 ## Common Confusion Points
 

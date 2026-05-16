@@ -495,19 +495,25 @@ VERNACULAR STRATEGIES → MODERN RELEVANCE
 
 ---
 
+## Cross-References
+
+- `architecture-history/01-ANCIENT.md` — early monumental architecture after vernacular systems.
+- `materials/01-CRYSTAL-STRUCTURE.md` — material behavior vocabulary.
+- `archaeology/04-PREHISTORY.md` — prehistoric material culture context.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---|---|
-| Hot-dry climate, no mechanical cooling? | Adobe/rammed earth walls 400 mm+ for thermal lag; small windows |
-| Temperate climate, wet winters? | Timber frame + waterproof render/cladding; steep roof pitch |
-| Limited skilled labor; abundant clay soil? | Adobe: simple tools, high thermal performance, very low cost |
-| Need breathable wall construction (historic building)? | Lime plaster + natural fiber infill; no cement or impermeables |
-| Retaining wall, no mortar, natural stone available? | Dry-stone; battered face; throughstones every 600 mm vertically |
-| Vernacular repair — which mortar? | Lime putty mortar, not OPC — matches original flexibility and vapour |
-| Maximum unbraced span for solid sawn softwood floor beam? | ~5–6 m for 250 × 75 mm section; truss or engineered wood beyond |
-| Why does thatched roof need 45°+ pitch? | Gravity + capillary drainage — water must run off faster than it penetrates |
-| Wattle-and-daub cracking — why? | Too much clay in daub; insufficient fiber; apply in cooler weather |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether earthen mass can cool a hot-dry building | Adobe or rammed earth walls 400 mm+ with small openings | Thermal lag works in high diurnal swing; it is not insulation for cold humid climates. |
+| Whether wet temperate weather changes the wall strategy | Timber frame plus waterproof render/cladding and steep roof | Keep water away from vulnerable infill; detailing matters more than nominal material. |
+| Whether abundant clay and limited tools are enough | Adobe with simple molds and earthen/lime mortar | Low skill at forming bricks does not remove the need for maintenance and erosion protection. |
+| Whether a historic wall must breathe | Lime plaster plus natural fiber infill | Cement and impermeable layers trap moisture and move failure into the substrate. |
+| Whether a mortarless stone retaining wall is viable | Dry-stone with battered face and throughstones | Stability, drainage, and interlock dominate; stone compressive strength is rarely limiting. |
+| Which mortar belongs in vernacular repair | Lime putty mortar | Mortar should be the sacrificial element; OPC is usually too hard and impermeable. |
+| Whether solid sawn softwood can span the floor | Roughly 5-6 m for 250 x 75 mm section | Loads, species, grade, and deflection limits decide; beyond that use truss or engineered wood. |
+| Whether thatch pitch is adequate | 45 degree or steeper roof pitch | Pitch manages capillary drainage; material and ridge detailing still govern lifespan. |
+| Why wattle-and-daub cracks | Reduce clay, add fiber, and apply in cooler weather | Movement is normal; rigid modern coatings make the cracking worse. |
 
 ---
 

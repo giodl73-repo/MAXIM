@@ -441,28 +441,23 @@ CHYTRIDIOMYCOSIS:
 
 ---
 
+## Cross-References
+
+- `animal-phylogeny/09-FISH.md` — aquatic vertebrate ancestry.
+- `animal-phylogeny/11-REPTILIA-BIRDS.md` — amniote solution to terrestrial reproduction.
+- `ecology/07-AQUATIC-ECOSYSTEMS.md` — amphibians as boundary organisms between water and land.
+
 ## Decision Cheat Sheet
 
-```
-AMPHIBIAN IDENTIFICATION
-
-Frog or toad (squat body, 4 legs, no tail as adult)?
-  → ANURA
-  Smooth moist skin, slim? → likely "true frog" (Ranidae)
-  Dry warty skin, robust?  → likely "true toad" (Bufonidae)
-  Bright colors, tiny (<5cm)? → possibly poison dart frog
-  Found frozen solid?       → possibly wood frog (Rana sylvatica)
-
-Has tail + 4 limbs (slender body)?
-  → URODELA (salamander or newt)
-  External gills as adult?    → neotenic (axolotl, mudpuppy)
-  In water during breeding?   → newt (Salamandridae)
-  No lungs, cave/forest floor?→ Plethodontidae
-
-No limbs, no tail, tropical, burrowing?
-  → GYMNOPHIONA (caecilian)
-  Has tentacle between eye + nostril → definitive caecilian
-```
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a tailless amphibian is anuran | Squat body, four limbs, no adult tail | "Toad" is mostly colloquial; all toads are frogs but not all frogs are Bufonidae. |
+| Whether an anuran is frog-like, toad-like, toxic, or freeze-tolerant | Moist slim skin, dry warty body, bright small body, or freeze survival | Surface traits are ecological hints, not clean family boundaries. |
+| Whether a tailed amphibian is salamander/newt | Tail, four limbs, slender body | Salamanders are amphibians, not lizards; skin, claws, scales, and reproduction differ. |
+| Whether external gills imply neoteny | Sexually mature adult with larval-looking aquatic traits | Neoteny is heterochrony, not failed development. |
+| Whether lung absence matters | Plethodontid-style cutaneous respiration | Permeable skin is a trade-off system, not a primitive defect. |
+| Whether a limbless burrower is caecilian | Tropical burrowing body and tentacle between eye and nostril | Caecilians are vertebrate amphibians, not worms; annuli are not true segments. |
+| Whether the tetrapod transition was a land leap | Incremental limb, breath, skull, and habitat changes | Limbs and air breathing had aquatic advantages before terrestrial life. |
 
 ---
 

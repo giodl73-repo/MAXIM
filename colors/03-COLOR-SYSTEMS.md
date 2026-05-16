@@ -417,17 +417,27 @@ All XYZ-to-RGB and RGB-to-XYZ transformations are 3x3 matrix multiplications —
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Physical light and spectra | `colors/01-COLOR-PHYSICS.md` |
+| Historical pigment shade systems | `colors/05-HISTORICAL-SHADES.md` |
+| Mixing systems and subtractive/additive models | `colors/06-MIXING-THEORY.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What's the difference between CIE XY and CIELAB? | CIE xy: device-independent measurement; not perceptually uniform. CIELAB: derived from XYZ but cube-root transformed for perceptual uniformity; use for ΔE color difference |
-| What ΔE value indicates "acceptable" color match? | ΔE < 2.0 is acceptable for most commercial applications. ΔE < 1.0 is barely perceptible even to experts. CIEDE2000 formula is more accurate than ΔE*ab |
-| Why does sRGB cover only 35% of visible colors? | sRGB primaries form a triangle in CIE chromaticity space; the most saturated visible colors (spectral locus) are outside that triangle. It's a gamut limitation of the chosen primaries. |
-| When to use Pantone vs CMYK? | Pantone: logo/brand color needing exact reproduction; vivid out-of-gamut colors; metallic. CMYK: full-color print where Pantone budget isn't justified; photos always CMYK. |
-| What is RAL 7016? | Anthracite Grey — the dominant European window frame, door, and architectural metal color. If you've been in a modern European building, you've seen RAL 7016. |
-| What's the key innovation of Munsell? | Equal perceptual spacing (empirically calibrated from observer experiments) in all three dimensions (Hue/Value/Chroma), before colorimetry existed. Still used in soil science. |
-| What's the relationship between L* and brightness? | L* = 116 × (Y/Yn)^(1/3) − 16. The cube root makes it perceptually uniform. L*=50 is not 50% luminance — it's the luminance value that appears half-bright. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Measurement versus perceptual uniformity | CIE xy for device-independent chromaticity; CIELAB for perceptual differences | CIELAB is better than XYZ but not perfectly uniform, especially in blue regions. |
+| Whether a color match is acceptable | Delta E thresholds and CIEDE2000 | Acceptability depends on industry, viewing condition, material, and observer tolerance. |
+| sRGB gamut limits | Triangle of primaries inside CIE chromaticity space | sRGB is a display standard, not the boundary of human vision. |
+| Pantone versus CMYK choice | Spot-color precision versus process-print economics | Pantone numbers do not carry directly into screen color without conversion. |
+| RAL-style architectural color | Standardized industrial/architectural color catalog | Catalog identity is about reproducibility and procurement, not perceptual theory. |
+| Munsell's innovation | Empirical hue/value/chroma spacing | Munsell predates modern colorimetry but remains domain-useful, especially in soils. |
+| L* and brightness | Cube-root transform of relative luminance | L*=50 is perceptual half-brightness, not 50% physical luminance. |
 
 ---
 

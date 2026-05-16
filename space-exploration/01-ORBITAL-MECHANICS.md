@@ -319,6 +319,18 @@ CUMULATIVE Δv BUDGET (km/s from Earth surface)
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Newtonian mechanics behind orbits | `physics/02-NEWTONIAN-MECHANICS.md` | Kepler, vis-viva, and conics are Newtonian mechanics in inverse-square gravity |
+| Control loops and station-keeping | `control-theory/01-PID-CLASSICAL.md` | Halo orbits and attitude control are continuous correction problems |
+| Launch systems and mission architecture | `space-exploration/02-ROCKETS.md` | The rocket equation constrains vehicle design, staging, and payload fraction |
+| Satellite communications constraints | `telecommunications/01-ELECTROMAGNETIC-SPECTRUM.md` | GEO/LEO choices affect FSPL, latency, pointing, and spectrum selection |
+| Optimization framing for trajectory design | `numerical-methods/01-FLOATING-POINT.md` | Real mission design is numerical optimization over continuous state and discrete burns |
+
+---
+
 ## Engineering Parallels
 
 **Δv budget as a resource-allocation problem.** Total mission Δv is a fixed budget; every maneuver is a withdrawal. The planner allocates burns across mission phases to minimize total cost subject to constraints (launch vehicle capability, arrival conditions, mission duration). This is integer programming on a manifold — the state space is continuous, the decision points are discrete maneuvers, and the objective is the sum of |Δv| terms. Gravity assists add negative-cost arcs to the graph.

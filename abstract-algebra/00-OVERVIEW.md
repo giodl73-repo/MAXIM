@@ -48,13 +48,13 @@ S_n, GL(n,F), Z/nZ, elliptic curve groups, Galois groups — simultaneously.
   MODULES / VECTOR SPACES             POLYNOMIAL RINGS
       (R-modules)                       (F[x], ideals)
           |                                    |
-          +──────── Structure Theorem ────────+
-          |         (over PIDs: Z, F[x])       |
-          |                                    |
-  abelian groups ←──────── Z-modules          |
-  Jordan form    ←──────── k[x]-modules       |
-          |                                    |
-          └──────── CATEGORY THEORY ──────────┘
+                   Structure Theorem
+                  (over PIDs: Z, F[x])
+                            |
+  abelian groups <---------- Z-modules
+  Jordan form    <---------- k[x]-modules
+                            |
+                    CATEGORY THEORY
                   (unifies all via functors,
                    adjunctions, Yoneda)
 ```
@@ -261,18 +261,26 @@ COMPUTATIONAL ALGEBRA AND COMPLEXITY:
 
 ## Decision Cheat Sheet
 
-| You want to... | Structure needed |
-|---------------|-----------------|
-| Understand symmetry | Groups |
-| Solve polynomial equations | Galois theory (field extensions + groups) |
-| Work with integers mod n | Ring theory (Z/nZ) |
-| Understand error-correcting codes | Field theory, polynomial rings, ideals |
-| Understand representations (physics) | Representation theory |
-| Unify all mathematics | Category theory |
-| Understand RSA/AES | Ring/field theory (Z/nZ, GF(2^8)) |
-| Post-quantum crypto (NTRU/LWE) | Module theory over rings of integers |
-| Haskell/functional programming | Category theory (functors, monads) |
-| Classify manifolds (topology) | Homology groups (abelian group theory) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A symmetry problem | Identify the transformations, composition law, identity, inverses, and what is invariant. | A group is the symmetry structure, not the object being acted on. |
+| Polynomial solvability | Check field extensions, automorphisms, splitting field, and the Galois group. | The obstruction lives in symmetry of roots, not just algebraic manipulation. |
+| Modular arithmetic behavior | Use rings, ideals, units, zero divisors, and quotient structure. | `Z/nZ` behaves like a field only when `n` is prime. |
+| Error-correcting code structure | Start with finite fields, polynomial rings, ideals, distance, and decoding algorithm. | Code performance depends on both algebra and noise model. |
+| Physics representation claim | Separate abstract group, vector space, action, irreducible pieces, and character data. | Representation turns symmetry into linear operators; it is not optional decoration. |
+| Cross-domain abstraction | Use category theory for objects, morphisms, functors, naturality, and universal properties. | Category theory clarifies structure only after the concrete examples are known. |
+| Classical cryptosystem algebra | Inspect ring/field choice, units, factorization/discrete log hardness, and implementation constraints. | Algebraic hardness assumptions can fail through protocol or side-channel mistakes. |
+| Post-quantum algebra | Compare lattices, modules, rings of integers, error distributions, and reduction assumptions. | More algebraic structure can improve efficiency while adding attack surface. |
+| Functional-programming analogy | Map types, functions, functors, monads, laws, and composition discipline. | The analogy is useful only when the laws are enforced or tested. |
+| Topological classification | Look at homology groups, chain complexes, exact sequences, and invariance under deformation. | Algebraic invariants summarize topology but rarely classify everything alone. |
+
+---
+
+## Cross-References
+
+- `01-GROUPS.md` develops symmetry, quotienting, and homomorphism as the first algebraic template.
+- `04-RINGS-IDEALS.md` and `05-POLYNOMIALS-FIELDS.md` show how two-operation algebra supports arithmetic, coding, and field extensions.
+- `09-CATEGORY-THEORY.md` connects algebraic structure to modern abstraction patterns used across topology, logic, and programming language theory.
 
 ---
 

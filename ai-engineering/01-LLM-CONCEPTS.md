@@ -596,6 +596,18 @@ Cohere      Command R+      128k      RAG-optimized,         Enterprise RAG,
 
 ---
 
+## Cross-References
+
+| If you want to understand... | Go to | Why |
+|---|---|---|
+| Generalization theory beneath model scale | `machine-learning-theory/01-PAC-LEARNING.md` | LLM behavior still sits inside learnability, capacity, and distribution-shift questions |
+| Vector retrieval around LLMs | `ai-engineering/09-VECTOR-DATABASES.md` | RAG turns token prediction into a retrieval-plus-generation system |
+| Deployment and serving constraints | `ai-engineering/08-INFERENCE-DEPLOYMENT.md` | Latency, batching, KV cache, and cost shape real LLM systems |
+| Cloud hosting substrate | `cloud-architecture/01-CLOUD-MODELS.md` | LLM APIs and self-hosting differ mainly in responsibility boundaries and operations |
+| Security and prompt threat models | `security-engineering/01-THREAT-MODELING.md` | Prompt injection, data exfiltration, and tool use need explicit adversary models |
+
+---
+
 ## Common Confusion Points
 
 **Hallucination is not a bug to be fixed — it's a property of the architecture.**

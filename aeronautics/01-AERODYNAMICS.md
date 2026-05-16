@@ -4,7 +4,9 @@
 
 ---
 
-## Big Picture: Aerodynamic Flow Regimes
+## The Big Picture
+
+### Aerodynamic Flow Regimes
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -314,6 +316,12 @@ TOTAL CL_max:
 ```
 
 ---
+
+## Cross-References
+
+- `fluid-dynamics/01-NAVIER-STOKES.md` — deeper PDE and continuum mechanics foundation for aerodynamic flow.
+- `transportation/01-RAIL.md` — contrast rail guideway constraints with aircraft lift/drag constraints.
+- `control-theory/01-PID-CLASSICAL.md` — flight-control bridge from aerodynamic forces to closed-loop stability.
 
 ## Decision Cheat Sheet
 

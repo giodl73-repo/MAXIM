@@ -363,3 +363,15 @@ Every concurrent programmer needs to map: language ordering guarantee → ISA fe
 **Thumb/Thumb2 are NOT RISC**: ARM's 16-bit Thumb encoding and mixed 16/32-bit Thumb2 encoding sacrifice the fixed-width property for code density. Most ARM embedded code runs in Thumb2 mode; AArch64 is fixed-width 32-bit only.
 
 **ISA specifies atomicity guarantees**: The memory model part of the ISA matters enormously for concurrent programming. x86 TSO gives you near-sequential consistency for free; ARM's weak model requires explicit fences (`DMB`, `DSB`). C# `Interlocked` operations compile to different instruction sequences on each architecture.
+
+---
+
+## Cross-References
+
+| If you need... | Go to |
+|---|---|
+| Concrete x86 legacy and decode details | [x86 Architecture](02-X86-ARCHITECTURE.md) |
+| Clean RISC designs and open ISA tradeoffs | [ARM & RISC-V](03-ARM-RISC-V.md) |
+| How ISA choices affect pipeline design | [Pipelining](04-PIPELINING.md) |
+| Cache and memory behavior below ISA loads/stores | [Memory Hierarchy](05-MEMORY-HIERARCHY.md) |
+| Coherence protocols behind atomic operations | [Cache Coherence](06-CACHE-COHERENCE.md) |

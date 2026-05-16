@@ -3,9 +3,10 @@
 ## The Big Picture
 
 The critical gap in the current energy storage landscape is long-duration storage (LDES):
-more than 10 hours, ideally 100+ hours, at costs that make renewable grids economically
-viable without backup fossil generation. Li-ion solves 1-4 hour storage. The 10-100+
-hour gap is the central unsolved problem in clean energy.
+more than 10 hours, and in some systems 100+ hours, at costs that make low-carbon grids
+reliable without leaning heavily on unabated fossil backup. Li-ion is strong for 1-4 hour
+storage. The 10-100+ hour range is a portfolio and market-design problem, not a single
+technology vacancy waiting for one winner.
 
 ```
 STORAGE DURATION GAP
@@ -312,18 +313,22 @@ GRID STORAGE SPECIFIC:
 
 ## Decision Cheat Sheet
 
-| Future storage goal | Technology path |
-|--------------------|----------------|
-| 1-4 hour grid (2025-2030) | Li-ion LFP (current) |
-| 8-24 hour grid (2025-2030) | VRFB or LAES (emerging commercial) |
-| 100+ hour grid (2025-2030) | Iron-air if Form Energy delivers; pumped hydro (new) |
-| Seasonal storage | Hydrogen cavern or ETES at scale |
-| Ultra-high energy density EV (2030+) | Solid-state Li metal (if timeline holds) |
-| Grid with very cheap electricity | ETES (electric rock thermal) -- resistance heating cheap |
-| Island grid (100% renewable) | Mix: Li-ion + pumped hydro + H2 seasonal |
-| Steel/industry heat + storage | SOEC + H2 or ETES with industrial heat integration |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether LDES is needed | Compare renewable penetration, weather correlation, transmission diversity, demand flexibility, dispatchable clean capacity, and reliability target. | A system may need less storage if it has firm clean generation, broad interconnection, or flexible load. |
+| Whether Li-ion is still the answer | Match duration, cycle frequency, degradation, fire safety, augmentation cost, and capacity-accreditation rules. | Li-ion dominates short duration; stretching it to multi-day duty can be economically wrong even if technically possible. |
+| Whether VRFB, LAES, or iron-air is credible | Check pilot history, vendor bankability, warranty, round-trip efficiency, siting, footprint, supply chain, and contracted deployments. | Emerging commercial does not mean proven at fleet scale. |
+| Whether hydrogen or thermal storage fits seasonal duty | Look for cavern/thermal medium availability, conversion losses, end-use flexibility, and months-long energy volume. | Seasonal storage tolerates low efficiency only when energy would otherwise be curtailed or unavailable. |
+| Whether a future roadmap date is trustworthy | Separate lab cell, pilot, first commercial plant, financed fleet, and standardized insurance/warranty market. | Energy infrastructure adoption is constrained by permitting, interconnection, and finance as much as physics. |
+| Whether an island grid can reach high renewables | Model resource diversity, outage duration, fuel logistics, storage duration stack, grid-forming controls, and reserve margin. | Islands expose tail risk sharply; one storage technology rarely covers all time scales. |
 
 ---
+
+## Cross-References
+
+- `03-ADVANCED-BATTERIES.md` covers near- and mid-term electrochemical innovation.
+- `07-HYDROGEN.md` represents the long-duration molecular-storage pathway.
+- `../energy-systems/05-GRID-INTEGRATION.md` connects future storage to renewable-grid integration.
 
 ## Common Confusion Points
 

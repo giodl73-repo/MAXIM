@@ -361,30 +361,27 @@ APPLICATIONS:
 
 ---
 
+## Cross-References
+
+- `cryptography/01-SYMMETRIC.md` — algebraic structures underlie finite fields, groups, and cryptographic primitives.
+- `materials/01-CRYSTAL-STRUCTURE.md` — crystallography uses group actions and symmetry classification.
+- `information-theory/03-CHANNEL-CODING.md` — error-correcting codes are algebraic structure applied to noisy communication.
+
 ## Decision Cheat Sheet
 
-| Need reliability under errors? | Use Reed-Solomon or BCH codes (polynomial rings over F_q) |
-|--------------------------------|----------------------------------------------------------|
-| Need crystal structure? | Apply space group classification (230 groups) |
-| Need efficient key exchange? | ECC (elliptic curve groups) |
-| Need post-quantum security? | Ring-LWE (modules over Z_q[x]/(x^n+1)) |
-| Need to protect data in storage? | RAID-6 (Reed-Solomon), or erasure codes |
-| Need quantum gates? | Topological QC (quantum group representations) |
-| Need to classify crystal? | X-ray diffraction + space group determination |
-
-| Problem Domain | Algebraic Tool | Key Result |
-|----------------|---------------|------------|
-| Reliable data storage/transmission | Reed-Solomon codes (F_q[x] evaluation) | MDS: achieves Singleton bound |
-| Crystal structure determination | Space group classification (230 groups) | Diffraction ↔ Fourier of atom positions |
-| Efficient key exchange | Elliptic curve groups E(F_p) | 256-bit ECC ≈ 3072-bit DH |
-| Post-quantum encryption | Module-LWE over Z_q[x]/(x^n+1) | Kyber/ML-KEM (NIST standard) |
-| Aggregate signatures | Pairing-based (BLS on BN curves) | One verification for N signatures |
-| Zero-knowledge proofs | Bilinear pairing groups (Groth16, PLONK) | O(1) proof size, one pairing check |
-| Identity-based encryption | Weil/Tate pairings | Public key = any string |
-| Quantum error correction | Stabilizer codes over GF(4) | Classical GF(4) codes → quantum codes |
-| Codes beating GV bound | Algebraic geometry codes (Goppa/AG) | Rate + distance ≥ 1 - 1/√q for q ≥ 49 |
-| Quantum gates | Topological QC (quantum group reps) | Braiding of anyons = fault-tolerant gates |
-| Data in RAID-6 / cloud | Erasure codes (systematic RS, LRC) | Survive 2+ disk failures |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether storage or transmission needs erasure/error correction | Reed-Solomon or BCH codes over finite fields | Code parameters control distance, rate, and decoding cost |
+| Whether crystal symmetry is the organizing structure | Space group classification | Physical diffraction data must still be interpreted |
+| Whether key exchange uses finite algebraic groups | Elliptic curve groups over finite fields | Curve and subgroup selection are security-critical |
+| Whether post-quantum encryption uses algebraic lattices | Module-LWE over quotient polynomial rings | Ring/module structure is part of both efficiency and assumptions |
+| Whether storage parity is algebraic | Reed-Solomon-style erasure coding | Implementation layout determines fault tolerance |
+| Whether quantum gates use algebraic topology | Quantum group / topological representation ideas | Hardware realization is separate from algebraic design |
+| Whether aggregate signatures need pairings | Bilinear pairing groups | Pairing-friendly curves come with specialized security assumptions |
+| Whether succinct ZK uses algebraic commitments | Pairing-based proof systems | Trusted setup and arithmetization choices matter |
+| Whether identity-based encryption is pairing-based | Weil/Tate pairings | Security model and key escrow are central caveats |
+| Whether quantum error correction is algebraic | Stabilizer codes over finite fields | Physical noise model still drives code choice |
+| Whether algebraic-geometry codes improve rate/distance | Goppa/AG code construction | Benefits require large enough finite fields and curve data |
 
 ---
 

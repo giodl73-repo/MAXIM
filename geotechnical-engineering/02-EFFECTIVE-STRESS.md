@@ -166,6 +166,14 @@ A varies during shearing:
 
 **Practical use**: If you know A and B from lab tests, you can estimate pore pressure changes in the field during construction.
 
+**Field reality:** σ' = σ - u is exact as a governing concept, but field inputs
+are not exact. Piezometers measure u at instrumented points, not everywhere.
+Lab A/B values depend on sampling disturbance and saturation. Permeability is
+often anisotropic and fabric-controlled, so a clean one-dimensional estimate can
+miss a sand seam, fissure, drain path, or perched water table. Treat the formula
+as the model spine, then close the loop with instrumentation during staged
+excavation, embankment loading, dewatering, or preload/surcharge work.
+
 ---
 
 ## Capillary Rise and Negative Pore Pressure
@@ -270,16 +278,25 @@ Or provide drainage to reduce pore pressure
 
 ## Decision Cheat Sheet
 
-| Problem | Principle | Key Calculation |
-|---------|-----------|----------------|
-| Vertical effective stress at depth z below water table | σ' = σ - u | σ' = γ' × z (using buoyant unit weight γ' = γsat - γw) |
-| Lateral stress at rest | Ko × σ'v | Ko = 1 - sinφ' (NC), apply OCR factor for OC |
-| Pore pressure during undrained loading | Skempton B and A | Δu = B[Δσ3 + A(Δσ1 - Δσ3)] |
-| Seepage flow quantity | Darcy + flow net | q = k × (Nf/Nd) × Δh |
-| Is piping occurring? | Critical gradient | ic = (Gs-1)/(1+e) ≈ 1.0; if iexit > ic: failure |
-| Will lowering water table cause settlement? | σ' increases → consolidation | Use consolidation theory (03-CONSOLIDATION) |
+| Field Question | Use This Model | What To Calculate | Design / Monitoring Action |
+|---|---|---|---|
+| What stress controls strength and settlement at depth? | Effective vertical stress | σ'v = σv - u; below water table use γ' = γsat - γw for increments | Build the stress profile before choosing shear strength or consolidation parameters |
+| A water table is being lowered for excavation or pumping | Drawdown -> u decreases -> σ' increases | Change in σ' from old u to new u | Estimate consolidation settlement; instrument nearby structures and piezometric response |
+| A fill, tank, or embankment is loaded quickly on saturated clay | Undrained pore-pressure response | Δu = B[Δσ3 + A(Δσ1 - Δσ3)] | Stage construction; watch piezometers and inclinometers until excess u dissipates |
+| A retaining wall or basement is designed before movement occurs | At-rest lateral effective stress | σ'h = Ko σ'v; Ko = 1 - sinφ' for NC soils, OCR correction for OC soils | Use Ko for initial condition; switch to active/passive only after wall movement is credible |
+| Water flows under a sheet pile, dam, or excavation base | Darcy + flow net | q = k(Nf/Nd)Δh; exit gradient iexit | Add cutoff, drainage blanket, relief wells, or filters if piping margin is low |
+| Is the downstream soil about to boil or pipe? | Critical hydraulic gradient | ic = (Gs - 1)/(1 + e) ≈ γ'/γw; FS = ic/iexit | Require appropriate FS; design filters so base soil cannot migrate |
+| Field data disagree with the clean calculation | Observational method | Compare predicted u, settlement, and movement to instruments | Revise k, stratigraphy, drainage path, or construction sequence before continuing |
 
 ---
+
+## Cross-References
+
+- [Soil Classification](01-SOIL-CLASSIFICATION.md) supplies the grain-size and plasticity context for stress behavior.
+- [Consolidation](03-CONSOLIDATION.md) follows effective stress into settlement and time-rate analysis.
+- [Shear Strength](04-SHEAR-STRENGTH.md) connects effective stress to Mohr-Coulomb strength and critical state.
+- [Shallow Foundations](06-SHALLOW-FOUNDATIONS.md) turns effective stress and shear strength into bearing-capacity and settlement decisions.
+- [Hydrology](../hydrology/01-PRECIPITATION-RUNOFF.md) gives the watershed-scale water context that eventually appears as groundwater boundary conditions.
 
 ## Common Confusion Points
 

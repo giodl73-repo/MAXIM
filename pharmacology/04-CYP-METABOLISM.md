@@ -339,16 +339,22 @@ DDI MATRIX (selected)
 
 ---
 
+## Cross-References
+
+- `pharmacology/02-PHARMACOKINETICS.md` - metabolism as a clearance pathway.
+- `pharmacology/09-PERSONALIZED.md` - genotype and interaction effects on metabolism.
+- `medicine/05-ENDOCRINE-METABOLIC.md` - metabolic drug classes where interactions matter.
+
 ## Decision Cheat Sheet
 
-| Situation | CYP Question | Action |
-|-----------|-------------|--------|
-| Starting new drug with warfarin patient | Is it CYP2C9 inhibitor or inducer? | Check; adjust warfarin dose + INR |
-| Statin not working at usual dose | Is patient on CYP3A4 inducer (rifampin)? | Increase statin dose or switch to pravastatin |
-| Transplant patient starting new antibiotic | Is antibiotic CYP3A4 inhibitor? (erythromycin, clarithromycin) | Use azithromycin instead or monitor cyclosporine |
-| Clopidogrel patient needing PPI | Is omeprazole CYP2C19 inhibitor? | Use pantoprazole instead |
-| Patient taking codeine with no analgesia | CYP2D6 poor metabolizer? | Consider alternative opioid (not tramadol) |
-| Clozapine patient starts smoking | CYP1A2 induced by tobacco? | Expect drop in clozapine levels → may need dose ↑ |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Warfarin interaction | CYP2C9 inhibitor or inducer check | Dose response must be followed with INR. |
+| Statin underexposure | CYP3A4 induction such as rifampin | Switching to pravastatin can be cleaner than chasing dose. |
+| Transplant antibiotic interaction | CYP3A4 inhibition by macrolides | Azithromycin is safer for CYP but still check full regimen. |
+| Clopidogrel plus PPI | CYP2C19 inhibition by omeprazole | Pantoprazole avoids much of the interaction concern. |
+| Codeine nonresponse | CYP2D6 poor metabolizer | Avoid tramadol for the same activation problem. |
+| Clozapine level drop after smoking | CYP1A2 induction by tobacco smoke | Nicotine replacement does not reproduce smoke induction. |
 
 ---
 

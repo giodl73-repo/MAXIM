@@ -2,7 +2,7 @@
 
 ## The Big Picture
 
-The sociology of education examines how educational institutions interact with social stratification -- why children from different class, racial, and gender backgrounds have systematically different educational outcomes. The central finding: education does not equalize opportunity; it largely reproduces the social structure that existed before students arrived. This is one of the most replicated and politically contested findings in social science.
+The sociology of education examines how educational institutions interact with social stratification -- why children from different class, racial, gender, disability, language, and geographic backgrounds have systematically different educational outcomes. The central finding is not that schools can never enable mobility; it is that, absent deliberate countermeasures, schools often reproduce much of the social structure that existed before students arrived. This is one of the most replicated and politically contested findings in social science.
 
 ```
 +------------------------------------------------------------------+
@@ -362,7 +362,9 @@ Pierre Bourdieu's framework is the most influential sociological account of educ
     with white flight to suburbs.
 
     Current: Resegregation ongoing.
-    Schools more racially segregated today than 1988.
+    Many U.S. districts and regions are more racially and
+    economically isolated than in the late 1980s, though the
+    pattern varies by metro area and policy regime.
 
   WHAT THE RESEARCH SHOWS:
     Wells, Frankenberg, Orfield:
@@ -387,17 +389,22 @@ Pierre Bourdieu's framework is the most influential sociological account of educ
 
 ## Decision Cheat Sheet
 
-| Concept | Key Insight | Policy Lever |
-|---------|-------------|-------------|
-| Cultural capital | Schools reward middle-class cultural forms | Cultural responsiveness; expand what's valued |
-| Opportunity gap | Outcomes reflect input differences | Equalize inputs: funding, teachers, preschool |
-| Teacher quality distribution | Best teachers in most advantaged schools | Incentives, working conditions, staffing policy |
-| Stereotype threat | Performance impaired by identity threat | Identity-safe classrooms, growth mindset |
-| Tracking | Reproduction of inequality in school | Detracking + high expectations for all |
-| School funding | Property tax system entrenches inequality | Adequacy standards + equalization formulas |
-| Resegregation | Integration improves outcomes for all | Housing policy, inter-district programs |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether an outcome gap is an opportunity gap | Compare inputs before interpreting test scores: funding, teachers, course access, preschool, health, housing stability, and exclusionary discipline. | Outcome data can reveal inequity, but it does not identify the causal pathway by itself. |
+| Whether cultural-capital theory applies | Ask what behaviors, language registers, credentials, and parental navigation skills the institution rewards. | The point is institutional fit, not a deficit claim about working-class or minoritized cultures. |
+| Whether funding reform is equity or adequacy | Separate equal dollars, weighted student need, local property wealth, categorical grants, and state equalization formulas. | Equal funding can still be inequitable when students need unequal resources to reach common standards. |
+| Whether tracking is causing inequity | Examine placement criteria, race/SES composition, teacher assignment, curriculum depth, and movement between tracks. | Flexible grouping can help; rigid early tracks often convert initial differences into durable opportunity differences. |
+| Whether stereotype threat is the main mechanism | Look for identity salience, high-stakes evaluation, ambiguity about belonging, and stereotype-linked domains. | Identity-safe design helps, but it is not a substitute for material resources or structural access. |
+| Whether integration policy is the lever | Diagnose the scale: classroom, school, district boundary, metro housing market, or state finance system. | Integration evidence is strong, but implementation choices determine whether it becomes durable opportunity or symbolic sorting. |
 
 ---
+
+## Cross-References
+
+- `00-OVERVIEW.md` places equity inside the full education system architecture.
+- `05-ASSESSMENT.md` explains how measurement choices can reveal or amplify inequity.
+- `../sociology/04-STRATIFICATION.md` supplies the broader class, race, and status framework.
 
 ## Common Confusion Points
 

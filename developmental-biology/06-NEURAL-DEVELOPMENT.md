@@ -437,18 +437,24 @@ CLINICAL RELEVANCE
 
 ---
 
+## Cross-References
+
+- `human-biology/04-NERVOUS-SYSTEM.md` - mature nervous-system organization.
+- `neuroscience/01-NEURONS-SIGNALS.md` - neuronal signaling substrate.
+- `disease/09-GENETIC-DEVELOPMENTAL.md` - neurodevelopmental disease context.
+
 ## Decision Cheat Sheet
 
-| Event | Timing | Key Signal | Defect If Fails |
-|-------|--------|-----------|----------------|
-| Neural induction | Week 3 | BMP inhibition | No neural plate |
-| Neural tube closure | Week 3-4 | Folate/Wnt-PCP | Anencephaly, spina bifida |
-| AP brain regionalization | Week 4-8 | FGF8 from organizers, RA, HOX | Absent brain regions |
-| DV spinal cord patterning | Week 4-8 | Shh (ventral), BMP (dorsal) | Wrong motor/sensory subtypes |
-| Cortical layering | Week 6-29 | Reelin (stopping signal) | Lissencephaly, heterotopia |
-| Neural crest migration | Week 3-5 | Chemoattractants/repellents | Waardenburg, Hirschsprung, DiGeorge |
-| Synaptogenesis | Week 23 - 2yr | Neurexin/neuroligin, activity | ASD-related changes |
-| Synaptic pruning | Birth - adulthood | Complement, BDNF, activity | Schizophrenia, ASD |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Neural induction failure | Week-3 BMP inhibition | BMP is also needed elsewhere. |
+| Neural tube defect | Folate and Wnt-PCP closure mechanics | Closure has multiple sites and timing windows. |
+| AP brain regionalization defect | FGF8, RA, and HOX organizers | Missing regions can reflect earlier patterning defects. |
+| DV spinal cord subtype error | Ventral Shh and dorsal BMP gradients | Timing and concentration both encode fate. |
+| Cortical-layering defect | Reelin-mediated migration stop | Inside-out layering depends on radial glia scaffold. |
+| Neural crest disorder | Migration cues and derivatives | Neural crest produces craniofacial bone and peripheral neurons. |
+| Synaptogenesis disorder | Neurexin/neuroligin and activity | Association with ASD is mechanistic but heterogeneous. |
+| Pruning abnormality | Complement, BDNF, and activity-dependent selection | Pruning refines circuits; it is not regression. |
 
 ---
 

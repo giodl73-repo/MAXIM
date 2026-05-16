@@ -228,18 +228,24 @@ ULTRAFILTERS AND NONSTANDARD ANALYSIS:
 
 ---
 
+## Cross-References
+
+- `topology/01-METRIC-SPACES.md` — sequential compactness and total boundedness are metric-space specializations.
+- `topology/03-CONTINUITY-HOMEOMORPHISM.md` — continuous images preserve compactness.
+- `logic/01-FORMAL-LOGIC.md` — logical compactness is the model-theoretic cousin of the topological idea.
+
 ## Decision Cheat Sheet
 
-| Task | Tool |
-|------|------|
-| Show X compact (abstract) | Find finite subcover for every open cover |
-| Show subset of Rⁿ compact | Check closed + bounded (Heine-Borel) |
-| Show f attains max/min | X compact + f continuous → use extreme value theorem |
-| Show f uniformly continuous | X compact metric + f continuous → uniform continuity |
-| Show F ⊆ C([a,b]) compact | Arzelà-Ascoli: uniformly bounded + equicontinuous |
-| Show operator compact | Bounded sequences → precompact images |
-| Product of compacts | Tychonoff (requires AC for infinite products) |
-| Compactness in ∞-dim Banach | Need equicontinuity or more (closed ball not compact) |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether compactness holds abstractly | Every open cover has a finite subcover | Sequential compactness may not be equivalent without hypotheses |
+| Whether a Euclidean subset is compact | Heine-Borel closed and bounded | This is finite-dimensional Euclidean logic |
+| Whether extrema must exist | Continuous function on compact domain | Continuity and compact domain are both required |
+| Whether continuity is automatically uniform | Continuous map on compact metric space | Metric compactness is doing the work |
+| Whether a family of functions is compact | Arzela-Ascoli boundedness and equicontinuity | Pointwise boundedness alone is not enough |
+| Whether an operator is compact | Images of bounded sequences are precompact | Compact operators need not be small-norm operators |
+| Whether products preserve compactness | Tychonoff theorem | Infinite products rely on choice and product topology |
+| Whether closed bounded means compact in Banach spaces | Look for total boundedness/equicontinuity | Infinite-dimensional closed balls are not compact |
 
 ---
 

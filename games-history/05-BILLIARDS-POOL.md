@@ -349,8 +349,8 @@ Requires: potting every single ball on the table in one visit.
   That's 36 consecutive pot-and-control shots.
 
 FASTEST 147 IN HISTORY:
-  Ronnie O'Sullivan at the 1997 UK Championships:
-  Time: 5 minutes and 20 seconds.
+  Ronnie O'Sullivan at the 1997 World Championship:
+  Official time: 5 minutes and 8 seconds.
   Commentator Mike Hallett: "That's just extraordinary."
   Ronnie used his left hand for some shots (he's right-handed).
   The BBC broadcast showed it live; audiences watched in disbelief.
@@ -514,20 +514,23 @@ PHYSICS OF SPIN DECAY:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| First documented billiard table? | Louis XI of France, ~1470 |
-| When did cue replace mace? | Gradual transition ~1700; mace totally replaced by ~1800 |
-| What is "pool" etymology? | Betting pool — players bet into a communal pool, winner takes all |
-| Where was snooker invented? | Jabalpur, India, 1875 — British Army officers |
-| What does "snooker" mean? | British Army slang for inexperienced newcomer |
-| Maximum snooker break? | 147 (15 reds × 7 with blacks + 6 colors in order) |
-| Who holds the fastest 147? | Ronnie O'Sullivan, 5:20 at 1997 UK Championships |
-| World Snooker Championship venue since 1977? | The Crucible Theatre, Sheffield |
-| Mosconi's straight pool high run record? | 526 balls, 1954, never broken in official competition |
-| Cue ball after center-ball hit? | 90° from object ball's path (90-degree rule) |
+| If you need to explain... | Start With | What To Distinguish |
+|---------------------------|------------|---------------------|
+| Why billiards and croquet share ancestry | Outdoor ground billiards | Indoor table billiards and outdoor mallet games diverged from related lawn-game practice |
+| Why cue sports split into families | Pockets vs. no pockets | Carom, English billiards, pool, and snooker reward different scoring geometries |
+| Why "pool" means American pocket billiards | Betting-pool culture | The name comes from wagering institutions, not from pockets or tables |
+| Why snooker is distinct from pool | 12-foot table, small pockets, red/color sequence | Precision and safety dominate differently from 8-ball/9-ball |
+| Why a 147 matters | Perfect red-black sequencing plus color clearance | It is a maximum break, not merely a high score |
+| Why straight pool was the skill standard | Continuous racks and call-shot position play | High runs test full-table control more than short-rack tactics |
+| Why billiards is a physics example | Collision, spin, cushions, throw, and masse | Mathematical billiards abstracts away real friction and cushion deformation |
 
 ---
+
+## Cross-References
+
+- [Games History Overview](00-OVERVIEW.md) places cue sports in the transition from courtly games to commercial leisure.
+- [Poker](04-POKER.md) compares another tavern, club, and gambling-associated game culture.
+- [Modern Board Games](07-BOARD-GAMES-MODERN.md) contrasts physical-skill games with designed tabletop systems.
 
 ## Common Confusion Points
 

@@ -431,16 +431,23 @@ Structure of Observed Learning Outcomes -- an alternative to Bloom's with differ
 
 ## Decision Cheat Sheet
 
-| Design Question | Framework | Tool |
-|----------------|-----------|------|
-| What should students be able to do? | Bloom's/SOLO taxonomy | Write specific objectives |
-| What does understanding look like? | Wiggins/McTighe UbD | Enduring understandings + essential questions |
-| How should I order the curriculum? | Scope/sequence + spiral | Prerequisite map; revisiting spiral |
-| How do I write a good objective? | Mager ABCD format | Observable verb + condition + criterion |
-| How do I plan a unit? | Backward design | Stage 1 goals --> Stage 2 assessment --> Stage 3 instruction |
-| How do I accommodate diverse learners? | UDL | Multiple representations, expressions, engagement |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| A vague learning-goal problem | Use Bloom/SOLO to identify cognitive demand and write observable outcomes. | Taxonomy verbs are proxies; the task context determines rigor. |
+| An "understanding" claim | Apply UbD: enduring understanding, essential question, evidence of transfer, and misconception. | Understanding must be visible through performance, not asserted by coverage. |
+| A sequencing problem | Map prerequisites, dependencies, spiral returns, cognitive load, and transfer points. | Spiral design requires increased depth, not simple repetition. |
+| A weak objective | Use audience, behavior, condition, and criterion to make success observable. | Over-specified objectives can narrow richer aims if used mechanically. |
+| A unit-plan problem | Run backward design from goals to assessment evidence to instruction. | Backward design is alignment discipline, not test-prep reduction. |
+| A diverse-learner design problem | Use UDL to vary representation, expression, engagement, supports, and access barriers. | Flexibility should preserve the same learning target, not dilute it. |
+| A standards-alignment claim | Check objective, assessment, activity, standard, and cognitive demand side by side. | Nominal alignment is not enough if the assessment tests a lower-level skill. |
 
 ---
+
+## Cross-References
+
+- `03-COGNITIVE-SCIENCE-EDU.md` supplies memory, retrieval, and cognitive-load constraints for curriculum design.
+- `05-ASSESSMENT.md` aligns learning objectives with evidence of mastery.
+- `06-HIGHER-EDUCATION.md` shows curriculum operating inside institutional constraints.
 
 ## Common Confusion Points
 

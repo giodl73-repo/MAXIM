@@ -278,20 +278,26 @@ BRAIDED THREAD:
 
 ---
 
+## Cross-References
+
+- `03-PATTERN-MAKING.md` defines stitch lines and seam allowance.
+- `04-CUTTING-SKIVING.md` prepares edges and folded areas for stitching.
+- `08-HARDWARE-ASSEMBLY.md` combines stitching with rivets, snaps, and buckles.
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why is saddle stitch stronger than machine lock stitch? | No single point of failure — if one thread breaks, others stay locked |
-| How long should the thread be for saddle stitch? | 2.5–3× the stitch length |
-| Why wax thread? | Reduces friction; adds water resistance; makes thread slightly tacky |
-| What needle for leather on a machine? | Wedge-point leather needle (cuts rather than tears) |
-| What is a walking foot? | Sewing machine foot with synchronized top feed; required for leather to avoid slipping |
-| What is Tiger thread / Ritza? | Bonded polyester thread; extremely popular professional choice |
-| What does needle #2 pass through in saddle stitch? | The same hole as #1, in front of (not behind) the first needle's thread |
-| What stitch spacing for 6 oz leather? | 4mm (standard medium-weight leather) |
-| What is pre-punching for machine sewing? | Punch all holes with stitching chisel before machine stitching heavy leather |
-| What is a stitching groover? | Tool that cuts a channel for the thread to sit below the leather surface |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Maximum seam durability | Saddle stitch with independent locking geometry | Hand stitching is a durability choice, not an inferior fallback. |
+| Thread length | 2.5-3 times stitch length | Excess thread tangles and abrades; too little forces splices. |
+| Thread handling | Wax to reduce friction, add water resistance, and increase tack | Over-tension can cut leather at hole edges. |
+| Machine needle | Wedge-point leather needle | It cuts a slit; ordinary needles tear/push unpredictably. |
+| Layer feeding | Walking foot or compound-feed machine | Standard presser feet let leather layers creep. |
+| Professional thread | Bonded polyester such as Tiger/Ritza | Thread choice must match stitch spacing and item use. |
+| Saddle-stitch lock path | Needle #2 through same hole in front of needle #1 thread | Behind-thread path changes the locking geometry. |
+| Medium leather spacing | About 4 mm for 6 oz leather | Spacing is visual and structural; too close perforates the seam line. |
+| Heavy machine sewing | Pre-punch holes before machine stitching heavy leather | Holes carry the needle; do not force needles through thick leather. |
+| Recessed thread | Stitching groover channel | Grooving protects thread but removes surface material. |
 
 ---
 

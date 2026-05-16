@@ -364,16 +364,23 @@ Vansina, "Oral Tradition as History" (1985):
 
 ---
 
+## Cross-References
+
+- `01-ORAL-COMPOSITION.md` uses memory as a compositional system.
+- `06-TRANSMISSION.md` explains how memory changes across retellings.
+- `09-DIGITAL-PRESERVATION.md` contrasts embodied memory with archival capture.
+
 ## Decision Cheat Sheet
 
-| Technique | Mechanism | Best use |
-|-----------|-----------|---------|
-| Method of loci | Spatial encoding + sequential retrieval | Ordered list, speech structure |
-| Rhythm/meter | Phonological constraint reduces alternatives | Long text, formulaic content |
-| Narrative embedding | Episodic memory + causal chain | Facts with story context |
-| Formula compression | Pattern + slot reduces storage requirement | Recurring argument types |
-| Social distribution | Community as distributed memory | Knowledge too large for one person |
-| Repetition | Rehearsal consolidates to long-term | Short-term to long-term transfer |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Ordered recall | Method of loci: spatial encoding plus sequential retrieval | The spatial component is cognitive mechanism, not metaphor. |
+| Long-text stability | Rhythm and meter as phonological constraint | Meter narrows options but does not freeze every word. |
+| Context-rich facts | Narrative embedding with episodic memory and causal chain | Story aids recall but can also reshape emphasis. |
+| Recurrent argument storage | Formula compression using pattern plus slot | Compression works when the tradition has stable reusable structures. |
+| Community-scale knowledge | Social distribution across specialists and performances | Distributed memory is vulnerable to social disruption. |
+| Short-to-long transfer | Repetition and rehearsal | Bartlett-style drift applies unevenly across genres. |
+| Literacy-effect claim | Goody/Ong/Scribner-Cole distinction | Writing enables practices; it is not a simple cognitive evolution. |
 
 ---
 

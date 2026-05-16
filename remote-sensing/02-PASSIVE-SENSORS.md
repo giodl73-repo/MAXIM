@@ -226,20 +226,26 @@ STEP 3: TOA -> Surface reflectance (atmospheric correction)
 
 ---
 
+## Cross-References
+
+- `01-EM-SPECTRUM.md` explains the wavelength windows passive sensors exploit.
+- `06-IMAGE-PROCESSING.md` turns sensor measurements into usable products.
+- `09-APPLICATIONS.md` shows how passive data supports domain decisions.
+
 ## Decision Cheat Sheet
 
-| Need | Sensor Choice | Reason |
-|------|---------------|--------|
-| Global vegetation monitoring daily | MODIS (Terra/Aqua) | Daily global, 36 bands, free |
-| 10m land cover with time series | Sentinel-2 | 5-day revisit, free, 13 bands |
-| 50-year change detection | Landsat (OLI) | Archive from 1972, consistent calibration |
-| Sub-meter commercial mapping | WorldView-3, Maxar | 0.31m PAN, commercial |
-| Mineral / geology mapping | Hyperspectral (EMIT, PRISMA) | SWIR spectral fingerprinting |
-| Land surface temperature | Landsat TIRS, ECOSTRESS | Split-window LST algorithms |
-| Fire monitoring global daily | MODIS, VIIRS | MIR bands, daily, global |
-| Cloud-free coverage tropics | SAR (not passive) | Passive optical fails in cloud |
-| Vegetation water stress | ECOSTRESS TIR | Evapotranspiration from LST |
-| Daily global snow cover | MODIS MOD10 | NDSI algorithm, daily |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Daily global vegetation | MODIS Terra/Aqua | Coarse resolution trades against revisit. |
+| 10 m land-cover time series | Sentinel-2 | Clouds and bidirectional reflectance still need handling. |
+| Long historical change | Landsat OLI and archive | Sensor generations require calibration awareness. |
+| Sub-meter mapping | WorldView-3 or Maxar | Commercial tasking and licensing drive availability. |
+| Mineral/geology mapping | Hyperspectral EMIT or PRISMA | Atmospheric correction is often the limiting step. |
+| Land surface temperature | Landsat TIRS or ECOSTRESS | LST is not air temperature and needs emissivity. |
+| Global daily fire | MODIS or VIIRS MIR bands | Coarse pixels miss small or cool fires. |
+| Cloud-free tropics | SAR instead of passive optical | SAR backscatter is different physics, not optical replacement. |
+| Vegetation water stress | ECOSTRESS TIR evapotranspiration | Thermal stress can reflect water, canopy, and meteorology together. |
+| Daily snow cover | MODIS MOD10 and NDSI | Forest canopy and cloud contamination complicate snow mapping. |
 
 ---
 

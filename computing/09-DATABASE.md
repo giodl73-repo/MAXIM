@@ -855,28 +855,23 @@ Redis (Remote Dictionary Server) is an in-memory data structure store. "Cache" u
 
 ---
 
+## Cross-References
+
+- `query-languages/01-SQL.md` — query language foundation for relational systems.
+- `computing/08-BACKEND.md` — application layer that owns data access.
+- `cloud-architecture/07-DATA-PLATFORMS.md` — analytical and platform-scale data architecture.
+
 ## Decision Cheat Sheet
 
-| I need... | Use |
-|---|---|
-| A relational database (new project) | PostgreSQL |
-| An ORM with EF Core-like experience | Prisma |
-| An ORM with SQL-first, edge support | Drizzle |
-| Complex joins and SQL control | Prisma `$queryRaw` or Drizzle |
-| Schema version control | Prisma migrate / Drizzle Kit |
-| Managed Postgres (Azure) | Azure Database for PostgreSQL |
-| Managed Postgres (Vercel/serverless) | Neon or Supabase |
-| Serverless-friendly Postgres | Neon (HTTP driver), Supabase |
-| Caching API responses | Redis (Upstash for serverless) |
-| Session storage | Redis |
-| Background job queue | BullMQ (Redis-backed) |
-| Rate limiting | Redis INCR + EXPIRE |
-| Real-time events / pub-sub | Redis Pub/Sub or Supabase Realtime |
-| Flexible schema / embedded documents | Postgres JSONB |
-| Full-text search with ranking | Typesense or Meilisearch (+ Postgres as source of truth) |
-| Graph traversal queries | Neo4j or Postgres recursive CTEs (simple) |
-| Time-series / metrics data | TimescaleDB (Postgres extension) |
-| Mobile offline-first sync | Firestore or PocketBase |
-| A dev database, zero setup | SQLite (via Prisma or Drizzle) |
-| Visualize / edit data in browser | Prisma Studio (`npx prisma studio`) |
-| Avoid serverless connection exhaustion | PgBouncer / Neon serverless driver / Prisma Accelerate |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| New relational database | Choose PostgreSQL after checking relational shape, transactions, hosting, extensions, and team skill. | Postgres is a strong default, not proof every problem is relational. |
+| ORM fit | Compare Prisma, Drizzle, SQL control, migrations, type generation, edge runtime, and query complexity. | ORMs simplify common paths and obscure some performance paths. |
+| Complex SQL need | Inspect joins, indexes, execution plan, raw SQL escape hatch, and maintainability. | Raw SQL is power; it also bypasses some ORM safety rails. |
+| Schema evolution | Use migrations, review generated SQL, data backfills, rollback plan, and deploy ordering. | Schema versioning is production choreography. |
+| Managed Postgres choice | Compare Azure, Neon, Supabase, backups, pooling, extensions, region, and operational responsibility. | Serverless-friendly does not mean connection-free or latency-free. |
+| Cache or session store | Use Redis with explicit TTLs, invalidation, persistence choice, and failure behavior. | Cache correctness is an application invariant. |
+| Jobs and rate limiting | Check queue durability, retries, idempotency, Redis commands, and abuse model. | Queues and counters need operational monitoring. |
+| Flexible document fields | Use Postgres JSONB with constraints, indexes, and query patterns. | JSONB can become an ungoverned schema hidden inside a relational table. |
+| Search, graph, or time-series | Compare specialized stores/extensions, source of truth, sync path, and query complexity. | Extra databases add consistency and operations cost. |
+| Local/dev database | Use SQLite only when concurrency, SQL dialect, and production parity are acceptable. | Zero setup can hide production differences. |

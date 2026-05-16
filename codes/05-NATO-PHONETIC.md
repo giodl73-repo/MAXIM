@@ -352,18 +352,24 @@ Amateur radio emergency:
 
 ## Decision Cheat Sheet
 
-| Situation | What to say |
-|-----------|-------------|
-| Spell out a letter | "Alfa", "Bravo", etc. |
-| Say the number 9 | "Niner" |
-| Acknowledge receipt | "Roger" |
-| Acknowledge + will comply | "Wilco" |
-| Ask to repeat | "Say again" (NOT "repeat") |
-| End of over, expect reply | "Over" |
-| End of all comms | "Out" |
-| Ask for signal quality | "Radio check, how do you read, over?" |
-| Report all good | "Loud and clear" or "Five by five" |
-| Report distress at sea | "Mayday, Mayday, Mayday — [vessel name] — [position] — [nature of distress] — [persons aboard] — [other info] — Over" |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Letter spelling over voice | Use the ICAO/NATO word, speak slowly, and separate ambiguous letters. | The point is intelligibility across accents and noise, not mnemonic charm. |
+| Number transmission | Use standardized pronunciations such as `niner`, digit grouping, and readback when needed. | Number errors are often more dangerous than letter errors. |
+| Receipt acknowledgement | Use `Roger` only for received/understood. | `Roger` does not mean yes or will comply. |
+| Compliance acknowledgement | Use `Wilco` when you understand and will comply. | `Roger Wilco` is redundant in disciplined procedure. |
+| Repetition request | Use `Say again` with the missing part if known. | Avoid `repeat` in contexts where it can mean fire again. |
+| Turn-taking | Use `Over` when expecting a reply and `Out` when ending communications. | `Over and out` contradicts the procedure. |
+| Signal-quality check | Ask "Radio check, how do you read, over?" and expect a readability/strength response. | "Loud and clear" is qualitative; formal nets may require numeric reports. |
+| Distress call | Use `Mayday` three times, identity, position, distress nature, persons, and assistance needed. | Distress format prioritizes location and actionable risk over completeness. |
+
+---
+
+## Cross-References
+
+- `01-MORSE.md` gives the continuous-wave radio code that preceded modern voice procedure.
+- `00-OVERVIEW.md` separates phonetic alphabets from encryption, compression, and error-correcting codes.
+- `../telecommunications/00-OVERVIEW.md` places radio procedure inside the larger communications stack.
 
 ---
 

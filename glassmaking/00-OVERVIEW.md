@@ -203,6 +203,12 @@ GLASS HISTORY MILESTONES
 
 ---
 
+## Cross-References
+
+- [Glass Science](01-GLASS-SCIENCE.md) explains the silicate network, viscosity, annealing, and Tg behind all glassmaking.
+- [Raw Materials](02-RAW-MATERIALS.md) follows silica, soda ash, lime, cullet, and colorants into batch chemistry.
+- [Forming Techniques](03-FORMING-TECHNIQUES.md) connects glass state and viscosity to blowing, casting, drawing, and pressing.
+
 ## Common Confusion Points
 
 **"Glass is a slow-moving liquid"**:
@@ -224,15 +230,14 @@ Float glass as it comes off the line is annealed flat glass — the highest-risk
 
 ## Decision Cheat Sheet
 
-| When You Need... | See Module |
-|-----------------|-----------|
-| Why glass doesn't melt sharply | 01-GLASS-SCIENCE (Tg, viscosity ladder) |
-| Silica sand, soda ash, cullet specs | 02-RAW-MATERIALS |
-| How bottles are made at 500/minute | 03-FORMING-TECHNIQUES (IS machine) |
-| Float glass process, low-E coatings | 04-FLOAT-GLASS |
-| Gorilla Glass, borosilicate, glass-ceramics | 05-SPECIALTY-GLASS |
-| Tempered vs laminated glass | 06-SAFETY-GLASS |
-| How optical fiber works, DWDM | 07-OPTICAL-FIBER |
-| Venice, Rome, core-formed glass | 08-HISTORICAL-GLASSMAKING |
-| Tiffany, stained glass, studio movement | 09-ART-GLASS |
-| Gaffer, glazier, optical fabricator | 10-GLASS-TRADES |
+| Product / System Question | Use This Frame | Follow-On Module |
+|---|---|---|
+| Why does glass soften gradually instead of melt sharply? | Glass transition and viscosity ladder | `01-GLASS-SCIENCE` |
+| Why do raw-material specs dominate product quality? | Network former + flux + stabilizer + contaminant control | `02-RAW-MATERIALS` |
+| How do bottles scale to industrial throughput? | Gob control, IS machine sections, blow-blow/press-blow | `03-FORMING-TECHNIQUES` |
+| Why did float glass replace drawn sheet? | Continuous ribbon on tin gives optical flatness at scale | `04-FLOAT-GLASS` |
+| When is soda-lime not enough? | Thermal shock, chemical durability, strength, optical, or ion-exchange requirements | `05-SPECIALTY-GLASS` |
+| Which safety mechanism is needed? | Tempering for blunt fracture; laminating for retention after breakage | `06-SAFETY-GLASS` |
+| Why can glass carry the internet? | Low-loss silica, total internal reflection, doped cores, DWDM | `07-OPTICAL-FIBER` |
+| How did process history change access? | Core-forming -> blowing -> automation -> float | `08-HISTORICAL-GLASSMAKING` |
+| When is glass an art medium rather than commodity material? | Color, light, craft process, and architectural setting | `09-ART-GLASS` / `10-GLASS-TRADES` |

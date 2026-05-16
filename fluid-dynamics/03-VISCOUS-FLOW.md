@@ -238,18 +238,28 @@ For completeness, beyond Newtonian:
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Conservation laws behind Navier-Stokes | `fluid-dynamics/01-CONTINUUM-MECHANICS.md` |
+| Boundary-layer approximations at high Reynolds number | `fluid-dynamics/04-BOUNDARY-LAYERS.md` |
+| Turbulent closure when laminar viscous solutions fail | `fluid-dynamics/05-TURBULENCE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Situation | Solution/Approach |
-|----------|-----------------|
-| Steady viscous flow between parallel plates | Plane Couette (u = Uy/h) or Poiseuille (u ∝ y(h-y)) |
-| Pressure drop in pipe | Hagen-Poiseuille: ΔP = 128μLQ/(πD⁴) |
-| Drag on small sphere | Stokes: F = 6πμaU |
-| Re << 1 (creeping flow) | Stokes equations (linearize N-S) |
-| Re >> 1 | Boundary layer theory + inviscid outer flow |
-| Check if laminar in pipe | Re < 2300 |
-| Check if viscosity matters | Compare viscous time L²/ν to flow time L/U |
-| Scale model to real flow | Match Reynolds number |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Viscous flow between plates | Plane Couette or plane Poiseuille profiles | Assumes steady, laminar, simple geometry and Newtonian viscosity. |
+| Laminar pipe pressure drop | Hagen-Poiseuille law | Fails for turbulent pipe flow; use friction-factor methods there. |
+| Small-sphere drag | Stokes drag `F = 6 pi mu a U` | Requires creeping-flow Reynolds number and negligible inertia. |
+| Creeping-flow regime | Linearized Stokes equations | Time reversibility creates low-Re swimming constraints. |
+| High-Re attached flow | Boundary layer theory plus inviscid outer flow | Separation invalidates simple attached-layer assumptions. |
+| Pipe laminar check | Reynolds number below about 2300 | Transition depends on disturbances and roughness. |
+| Whether viscosity matters | Compare viscous time `L^2/nu` to flow time `L/U` | Local boundary layers can matter even when bulk Re is large. |
+| Model-to-prototype scaling | Match Reynolds number | Other dimensionless groups can matter simultaneously. |
 
 ---
 

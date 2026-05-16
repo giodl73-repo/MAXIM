@@ -314,16 +314,26 @@ WHY SOME DEMOCRACIES SURVIVE AUTHORITARIAN PRESSURE
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Democratic backsliding mechanics | `political-history/07-DEMOCRATIC-BACKSLIDING.md` |
+| Revolutionary instability and counterrevolution | `political-history/01-REVOLUTION-THEORY.md` |
+| Cold War and post-Cold War regime politics | `political-history/05-COLD-WAR.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| How is 21st-century authoritarianism different from 20th-century totalitarianism? | Demobilizing not mobilizing; legitimacy through performance not ideology; selective coercion not mass terror; market-integrated not autarkic |
-| What is competitive authoritarianism? | Levitsky-Way: elections held and potentially loseable, but systematically tilted in incumbent's favor through media, resources, selective harassment |
-| What does the Great Firewall actually do technically? | IP blocking, DNS poisoning, DPI, keyword filtering, real-name identity linkage — layered architecture, not a single mechanism |
-| Is China's social credit a unified citizen score? | No — fragmented system: blacklists for debtors, corporate compliance, local pilots; the unified dystopian score is largely a Western misunderstanding |
-| What is authoritarian diffusion? | Regimes learn from each other: ideological inspiration (Putin → Orbán), technical assistance (China → Africa), institutional cooperation (SCO), economic dependence |
-| Why is the Russian information operations model effective? | Goal is not persuasion but polarization: amplify existing divisions, undermine trust in institutions, make democracies doubt themselves |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| 21st-century authoritarianism | Demobilization, performance legitimacy, selective coercion, market integration | Do not map it mechanically onto 20th-century totalitarian mobilization. |
+| Competitive authoritarian regimes | Levitsky-Way: real elections tilted by media, resources, and selective harassment | Elections may be loseable in theory while systematically unfair in practice. |
+| China's censorship architecture | IP blocking, DNS poisoning, DPI, keyword filtering, real-name identity linkage | The Great Firewall is layered infrastructure, not a single switch. |
+| Social credit claims | Fragmented blacklists, corporate compliance systems, and local pilots | A unified national citizen score is mostly a Western misunderstanding so far. |
+| Authoritarian diffusion | Ideological inspiration, technical assistance, institutional cooperation, dependence | Diffusion is not command-and-control; regimes adapt borrowed tools locally. |
+| Russian information operations | Polarization, institutional distrust, and amplification of existing divisions | The goal is often demoralization and doubt, not belief conversion. |
 
 ---
 

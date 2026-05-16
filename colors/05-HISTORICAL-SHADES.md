@@ -339,16 +339,26 @@ THE DISTINCTION (rough):
 
 ---
 
+## Cross-References
+
+| To deepen... | See |
+|---|---|
+| Color physics behind material appearance | `colors/01-COLOR-PHYSICS.md` |
+| Color systems for classification | `colors/03-COLOR-SYSTEMS.md` |
+| Cultural color meanings | `colors/07-PSYCHOLOGY-CULTURE.md` |
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| What did Perkin accidentally discover in 1856? | Mauveine — the first synthetic coal tar dye. He was attempting to synthesize quinine; got a purple precipitate that dyed silk brilliantly. Founded synthetic organic chemistry. |
-| What battle was magenta named after? | Battle of Magenta, June 4, 1859, Lombardy — French/Piedmontese defeat of Austria. The dye (rosaniline) was named after the battle in the same year it was commercialized. |
-| What is the etymology of "ultramarine"? | Latin "ultramarinus" = "beyond the sea" — the lapis lazuli came from Badakhshan (Afghanistan), across the Mediterranean from Europe. The origin, not the color. |
-| What is the color of puce, officially? | Disputed — the color of a flea (brownish-red/brownish-purple). Different dictionaries give different answers. Named allegedly by Marie Antoinette describing a fabric at Versailles. |
-| Why are there so many blues with "named" differences? | Historical pigments with different sources produce distinctly different blues: Prussian blue (greenish), cobalt blue (warm), ultramarine (reddish-warm). Each source had a name; names became color categories. |
-| What is gamboge? | Yellow-orange resin from Garcinia trees (Cambodia/Vietnam), used as a semi-transparent watercolor yellow. Also a violent purgative. Replaced by cadmium yellow and synthetic equivalents. |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Synthetic dye history | Perkin's mauveine and coal-tar chemistry | Modern "mauve" shifted semantically from Perkin's original reddish purple. |
+| Color names tied to events | Magenta/rosaniline and the Battle of Magenta | Commercial naming can preserve politics more than visual mechanism. |
+| Geographic etymology | Ultramarine as "beyond the sea" lapis lazuli supply chain | The name describes origin from Europe's perspective, not hue structure. |
+| Ambiguous historical shade terms | Puce and contested dictionary/fashion usage | Historical color terms often lack stable spectral definitions. |
+| Proliferation of named blues | Pigment source, chemistry, warmth/coolness, and trade history | Names became categories because materials differed, not because language needed synonyms. |
+| Obsolete natural pigments | Gamboge resin, watercolor use, and replacement by safer synthetics | Historical pigments can have medicinal/toxic histories independent of color use. |
 
 ---
 

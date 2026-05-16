@@ -348,19 +348,25 @@ PATENT PROTECTION AND DATA EXCLUSIVITY
 
 ---
 
+## Cross-References
+
+- `pharmacology/02-PHARMACOKINETICS.md` - exposure evidence used in development.
+- `pharmacology/03-PHARMACODYNAMICS.md` - effect evidence used in development.
+- `disease/10-EPIDEMIOLOGY.md` - evidence hierarchy and population measurement.
+
 ## Decision Cheat Sheet
 
-| Development Stage | Key Question | Key Measure |
-|------------------|-------------|-------------|
-| Target ID | Does target cause disease? | Genetic/functional validation |
-| Lead discovery | Does compound bind target? | IC50, Kd |
-| Lead optimization | Is oral bioavailability acceptable? | Lipinski's rules, F% in animals |
-| Preclinical safety | NOAEL in two species | mg/kg starting dose for Phase I |
-| Phase I | What's the maximum safe dose? | MTD, DLT rate |
-| Phase II | Is there an efficacy signal? | ORR, PFS, biomarker |
-| Phase III | Better than standard of care? | OS or PFS, powered RCT |
-| FDA review | Does benefit outweigh risk? | Complete response vs approval |
-| Post-marketing | What rare events emerge at scale? | FAERS reports, REMS programs |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Target validity | Genetic and functional disease causality | Target association is not proof of druggability. |
+| Lead discovery hit quality | IC50, Kd, and binding mode | Potency without selectivity is not enough. |
+| Lead optimization readiness | Bioavailability, ADME, and Lipinski-style filters | Animal exposure does not guarantee human PK. |
+| Preclinical safety bridge | NOAEL in two species | Human starting dose uses conservative safety factors. |
+| Phase I dose finding | MTD and dose-limiting toxicity | Oncology and healthy-volunteer designs differ. |
+| Phase II signal | ORR, PFS, biomarker response | Surrogate signal may not predict survival. |
+| Phase III proof | Powered RCT versus standard of care | Endpoint choice drives interpretation. |
+| FDA review decision | Benefit-risk balance | Complete response letter is not the same as permanent rejection. |
+| Post-marketing risk | FAERS, REMS, rare-event surveillance | Spontaneous reports are signal detection, not incidence rates. |
 
 ---
 

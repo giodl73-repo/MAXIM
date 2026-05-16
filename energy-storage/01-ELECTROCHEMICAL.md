@@ -350,6 +350,12 @@ STATE OF CHARGE (SOC) ESTIMATION:
 
 ---
 
+## Cross-References
+
+- `electrical-grid/01-GENERATION.md` — storage value depends on generation mix, dispatchability, and load shape.
+- `energy-systems/01-SOLAR-PV.md` — canonical variable-generation partner for batteries.
+- `chemical-eng/01-THERMO.md` — electrochemical potential and phase behavior foundation.
+
 ## Decision Cheat Sheet
 
 | Electrochemical concept | What it determines |

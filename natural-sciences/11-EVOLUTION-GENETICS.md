@@ -6,7 +6,7 @@
 
 ---
 
-## The Conceptual Hierarchy
+## The Big Picture
 
 ```
 LEVELS OF ANALYSIS:
@@ -421,19 +421,25 @@ Developmental constraints:
 
 ---
 
+## Cross-References
+
+- `biology/04-EVOLUTION.md` - evolution overview.
+- `evolutionary-biology/02-POPULATION-GENETICS.md` - allele-frequency mechanics.
+- `biology/03-GENETICS.md` - heredity and molecular genetics foundations.
+
 ## Decision Cheat Sheet
 
-| Question | Concept | Key tool |
-|----------|---------|----------|
-| Carrier frequency of recessive disease? | Hardy-Weinberg | q = √(disease freq); carrier = 2pq |
-| Is locus under positive selection? | dN/dS | ω > 1 → positive selection |
-| What maintains sickle cell allele? | Overdominance | Heterozygote advantage in malaria zones |
-| Why do small populations lose diversity? | Genetic drift | Var(Δp) = p(1−p)/2Ne; fixation by chance |
-| Why can't male mules reproduce? | Post-zygotic isolation | Hybrid sterility — Haldane's rule applies |
-| Which tree-building method gives confidence intervals? | Bayesian | BEAST/MrBayes → posterior credible intervals |
-| Why are Hox mutations homeotic (not lethal)? | Modularity | Regional specification genes — change identity, not viability |
-| What does a bottleneck do to Ne? | Harmonic mean | Single generation of N=10 dominates Ne even if usually N=10,000 |
-| Are synonymous mutations really neutral? | Nearly neutral | Codon usage affects translation speed, mRNA stability — not truly neutral |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Recessive carrier frequency | Hardy-Weinberg q = sqrt(disease frequency) | Assumes random mating and allele-frequency equilibrium. |
+| Positive selection at locus | dN/dS greater than 1 | Averaging across sites can hide episodic selection. |
+| Sickle-cell allele maintenance | Overdominance in malaria zones | Fitness is environment-dependent. |
+| Small-population diversity loss | Genetic drift variance and Ne | Effective population size, not census size, controls drift. |
+| Mule sterility | Post-zygotic isolation and Haldane's rule | Hybrid sterility is not the same as hybrid inviability. |
+| Phylogeny uncertainty | Bayesian tree methods such as BEAST/MrBayes | Posterior intervals depend on priors and model fit. |
+| Homeotic Hox mutation | Modularity of regional specification | Identity changes can be viable or lethal depending on context. |
+| Bottleneck effect on Ne | Harmonic mean population size | One severe bottleneck can dominate long-run Ne. |
+| Synonymous mutation effect | Nearly neutral theory | Codon usage and mRNA stability can make "silent" changes non-neutral. |
 
 ---
 

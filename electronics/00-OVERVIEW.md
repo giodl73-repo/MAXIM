@@ -350,20 +350,23 @@ Impedance matching in RF replaces the Thévenin max-power-transfer condition: co
 
 ## Decision Cheat Sheet
 
-| You want to understand... | Go to module |
-|--------------------------|-------------|
-| Kirchhoff's laws, op-amp fundamentals, transistor operation | 01-CIRCUITS |
-| Capacitor/inductor behavior, RC/LC transients, phasors | 02-REACTIVE |
-| Filter design, Bode plots, pole-zero analysis | 03-FILTERS |
-| Amplifier gain, bandwidth, noise, stability in feedback | 04-AMPLIFIERS |
-| LTI systems, convolution, Laplace/z-domain theory | 05-SIGNALS-SYSTEMS |
-| Sampling theorem, FFT, FIR/IIR filter design, quantization | 06-DSP |
-| Image processing, 2D convolution, wavelets, compression | 07-2D-DSP |
-| Boolean logic, flip-flops, FSMs, FPGA architecture, HDL | 08-DIGITAL-LOGIC |
-| MCU programming, RTOS, peripheral interfaces, VLSI flow | 09-EMBEDDED-VLSI |
-| PCIe/DDR electrical specs, power delivery, signal integrity | This overview |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether the lumped-circuit model applies | Compare physical length to signal wavelength, edge rate, parasitic inductance/capacitance, and return path. | A board trace becomes a transmission line because of edge rate and geometry, not because the schematic changed. |
+| Whether a problem is analog, digital, or mixed-signal | Identify whether information is represented by continuous voltage/current, logic thresholds, timing, or sampled values. | Digital failures often have analog causes: noise margins, ground bounce, jitter, and power integrity. |
+| A filter or frequency-response problem | Locate poles/zeros, bandwidth, phase margin, sampling rate, aliasing risk, and load/source impedance. | The same math appears in analog filters, DSP, feedback amplifiers, and control loops. |
+| An amplifier or feedback issue | Check gain-bandwidth, noise, input/output impedance, stability margin, slew rate, and supply headroom. | High DC gain is useless if the loop oscillates or saturates under real load. |
+| A signal-integrity problem | Inspect impedance control, termination, return current, crosstalk, eye diagram, jitter, and connector/package discontinuities. | At high speed, the interconnect is part of the circuit, not a wire annotation. |
+| A power-integrity problem | Map load transient current, regulator bandwidth, decoupling hierarchy, plane impedance, and package inductance. | Capacitors are a distributed energy-delivery network; "more capacitance" in the wrong place may not help. |
+| Where to go next in the module set | Pick by failure mode: circuit laws, reactive transients, filtering, amplification, systems/DSP, digital logic, embedded/VLSI, or SI/PI. | Module boundaries are pedagogical; real electronics failures often cross several layers. |
 
 ---
+
+## Cross-References
+
+- `01-CIRCUITS.md` supplies the circuit-law foundation.
+- `02-SEMICONDUCTORS.md` explains the device physics behind diodes and transistors.
+- `../computer-architecture/00-OVERVIEW.md` connects electronics upward into digital systems and processors.
 
 ## Common Confusion Points
 

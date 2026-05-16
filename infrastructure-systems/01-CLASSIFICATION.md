@@ -270,6 +270,12 @@ NIPP (National Infrastructure Protection Plan):
 
 ---
 
+## Cross-References
+
+- `electrical-grid/01-GENERATION.md` — power infrastructure as a dependency layer for every other system.
+- `transportation/01-RAIL.md` — corridor, capacity, and right-of-way infrastructure in one concrete mode.
+- `urban-planning/01-LAND-USE.md` — governance and spatial controls that shape infrastructure deployment.
+
 ## Decision Cheat Sheet
 
 | Sector question | Answer |

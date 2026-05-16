@@ -379,18 +379,24 @@ NEURAL TUBE DEFECTS (Folate deficiency):
 
 ---
 
+## Cross-References
+
+- `nutrition/05-MINERALS.md` - micronutrient partner systems.
+- `natural-sciences/07-ENZYMES.md` - cofactors and enzyme function.
+- `disease/06-METABOLIC-ENDOCRINE.md` - deficiency and metabolic disease context.
+
 ## Decision Cheat Sheet
 
-| Concern | Key information |
-|---------|----------------|
-| Vegan diet adequacy | B12 must supplement; vitamin D common deficiency; omega-3 EPA/DHA from algae oil |
-| Sun exposure and vitamin D | 10-20 min noon summer sun adequate for most; supplement 1000-2000 IU/day if limited |
-| Pregnancy | Folate 400µg/day before conception; D; avoid excess vitamin A (preformed retinol) |
-| Fat-soluble vitamin toxicity risk | A and D at high supplement doses; E controversial at high dose; K very safe |
-| Drug-nutrient interaction | Warfarin ↔ vitamin K (stable intake preferred); methotrexate ↔ folate |
-| Beriberi prevention | Avoid prolonged milled white rice as sole staple; supplement in at-risk alcoholism |
-| Pellagra prevention | Nixtamalization of corn; varied protein intake (tryptophan → niacin) |
-| Population most at risk for D deficiency | Dark skin + indoor work + high latitude + elderly + obese |
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Vegan vitamin adequacy | B12 supplementation, vitamin D, algae EPA/DHA | Folate can mask B12 anemia while neuro injury continues. |
+| Vitamin D from sun | Latitude/season/skin exposure estimate | Magnesium status can affect response to supplementation. |
+| Pregnancy vitamin priority | Folate before conception and avoid excess retinol | Timing matters because neural tube closes early. |
+| Fat-soluble toxicity risk | Vitamins A and D supplement dose | K is safer; E high-dose evidence is mixed. |
+| Drug-nutrient interaction | Warfarin-vitamin K and methotrexate-folate | Stable vitamin K intake beats avoidance. |
+| Beriberi risk | Thiamine in rice/alcohol-risk contexts | Alcohol use increases deficiency risk beyond diet alone. |
+| Pellagra risk | Nixtamalized corn and tryptophan intake | Niacin can come from diet or tryptophan conversion. |
+| Vitamin D deficiency risk | Dark skin, indoor life, latitude, age, obesity | Risk stacking matters more than one factor alone. |
 
 ---
 
