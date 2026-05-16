@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "06-RENDERING.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:computing-software:rendering-patterns
 kind: guide

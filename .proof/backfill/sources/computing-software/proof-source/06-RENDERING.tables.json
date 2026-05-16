@@ -1,0 +1,147 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing\\06-RENDERING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 742,
+      "heading_context": "## Old World → New World Bridge",
+      "headers": [
+        "ASP.NET concept",
+        "Modern web rendering equivalent",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Razor Pages / MVC Views",
+          "SSR (Next.js)",
+          "Same model: server renders HTML per request"
+        ],
+        [
+          "ASPX / WebForms",
+          "SSR + heavy client JS",
+          "WebForms had server-side state; closest modern = SSR + RSC"
+        ],
+        [
+          "Response caching / OutputCache",
+          "ISR / CDN caching",
+          "Cache rendered output, invalidate on change"
+        ],
+        [
+          "`[OutputCache(Duration=60)]`",
+          "`export const revalidate = 60`",
+          "ISR stale-while-revalidate; direct equivalent"
+        ],
+        [
+          "`[OutputCache(VaryByParam=\"id\")]`",
+          "ISR per route segment",
+          "Per-URL caching with revalidation"
+        ],
+        [
+          "CDN / Azure CDN",
+          "SSG served from CDN",
+          "Same concept, now HTML instead of just assets"
+        ],
+        [
+          "Blazor Server",
+          "SSR + SignalR",
+          "Server renders, client updates via WebSocket; state stays server-side"
+        ],
+        [
+          "Blazor WASM",
+          "SPA/CSR",
+          "Full .NET runtime in browser, like React SPA"
+        ],
+        [
+          "`@Html.RenderPartial()`",
+          "React components",
+          "Composable server-rendered units"
+        ],
+        [
+          "View Components",
+          "React Server Components (closest analog)",
+          "Server-rendered, data-fetching components — but RSC has no JS sent at all, which View Components do not claim"
+        ],
+        [
+          "Ajax UpdatePanel",
+          "React state + fetch",
+          "Partial page update without full reload"
+        ],
+        [
+          "JavaScript bundling (System.Web.Optimization)",
+          "Vite / Next.js bundling",
+          "Same problem, modern solution"
+        ],
+        [
+          "Azure Static Web Apps",
+          "Vercel / Netlify (SSG hosting)",
+          "Deploy SSG output to global CDN"
+        ],
+        [
+          "Azure App Service (Node.js)",
+          "Vercel / Railway / Fly.io",
+          "Host SSR Next.js server"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 763,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I'm building...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Blog / docs / marketing site",
+          "SSG (Next.js, Astro)"
+        ],
+        [
+          "Blog with frequent author updates",
+          "ISR with on-demand revalidation"
+        ],
+        [
+          "E-commerce product pages (semi-static)",
+          "ISR"
+        ],
+        [
+          "E-commerce cart / checkout (dynamic)",
+          "SSR or CSR"
+        ],
+        [
+          "Dashboard / internal tool (behind auth)",
+          "CSR/SPA or SSR"
+        ],
+        [
+          "News site (real-time content)",
+          "SSR"
+        ],
+        [
+          "Page that must rank in Google",
+          "SSR or SSG (not CSR)"
+        ],
+        [
+          "App where users have slow connections",
+          "SSG or SSR (not CSR — too much JS)"
+        ],
+        [
+          "Page with lots of user interaction after load",
+          "SSR + client components"
+        ],
+        [
+          "Page that's mostly static with a few widgets",
+          "Islands (Astro)"
+        ],
+        [
+          "I'm using Next.js App Router",
+          "Default = server component + SSG, opt into SSR/ISR per route"
+        ],
+        [
+          "I want the simplest possible setup",
+          "Vite SPA (accept the SEO trade-off)"
+        ]
+      ]
+    }
+  ]
+}
