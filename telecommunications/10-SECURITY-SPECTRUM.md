@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:telecommunications:security-spectrum
+kind: guide
+module: telecommunications
+section: telecommunications
+title: Spectrum Security - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: telecommunications/10-SECURITY-SPECTRUM.md
+canonical_path: telecommunications/10-SECURITY-SPECTRUM.md
+backsource_ids: [proof-backfill:telecommunications:10-security-spectrum, git-history:telecommunications:10-security-spectrum]
+concepts: [security, spectrum]
+root_concepts: [security, spectrum]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Spectrum Security — A Layered Guide
 
 ## The Big Picture

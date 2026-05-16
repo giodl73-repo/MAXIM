@@ -1,0 +1,825 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-semiconductor-manufacturing-packaging",
+  "source": "../../semiconductor-manufacturing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-PACKAGING.md#000",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "# Packaging — A Layered Guide"
+    },
+    {
+      "id": "07-PACKAGING.md#001",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-PACKAGING.md#002",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Packaging connects the die to the outside world — power, signals, cooling — while\nprotecting it physically. Modern packaging has evolved from simple wire bonding to\ncomplex 3D stacks with TSVs, hybrid bonding, and chiplet architectures that are\nnow a core part of the performance scaling roadmap."
+    },
+    {
+      "id": "07-PACKAGING.md#003",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nPACKAGING HIERARCHY\n════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "07-PACKAGING.md#004",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "DIE LEVEL (bare silicon chip)\n  │\n  ▼ First-level interconnect (connects die to package)\nPACKAGE (IC package)\n  Wire bond / Flip-chip / Embedded / Fan-out WLP\n  │\n  ▼ Second-level interconnect (connects package to PCB)\nPCB (Printed Circuit Board)\n  BGA solder balls / LGA pads / QFP leads\n  │\n  ▼ System-level\nSYSTEM (server, phone, car module)"
+    },
+    {
+      "id": "07-PACKAGING.md#005",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "ADVANCED PACKAGING (2.5D / 3D):\n  Interposer or bridge connects multiple dies in same package\n  → \"System in Package\" (SiP): near-die integration of memory + logic\n  → Near-chiplet performance with mix-and-match fabrication\n```"
+    },
+    {
+      "id": "07-PACKAGING.md#006",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-PACKAGING.md#007",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Wire Bonding"
+    },
+    {
+      "id": "07-PACKAGING.md#008",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nWIRE BONDING — LEGACY, STILL DOMINANT FOR COST SEGMENTS"
+    },
+    {
+      "id": "07-PACKAGING.md#009",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "MECHANISM:\n  Gold (Au) or copper (Cu) or aluminum (Al) wire (15-75 µm diameter)\n  Thermosonic bonding (heat + ultrasonic + pressure):\n    Ball bond: wire melts → gold ball → bonded to die pad (Al bond pad)\n    Stitch bond: wedge bond to package substrate or leadframe\n    Result: electrical connection from die pad to package terminal"
+    },
+    {
+      "id": "07-PACKAGING.md#010",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "PROCESS:\n  Die flip face-up → attach to substrate (epoxy or solder)\n  Capillary tool: form ball → position over die pad → press + ultrasonic\n  → Pull wire arc → form stitch on substrate pad → clip wire\n  High-speed: 10-20 bonds/second per machine head"
+    },
+    {
+      "id": "07-PACKAGING.md#011",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "PITCH LIMITATION:\n  Bond pad pitch: 40-60 µm (fine pitch) down to ~25 µm (ultra-fine)\n  Wire span: up to 5 mm (longer → sagging, cross-shorting risk)"
+    },
+    {
+      "id": "07-PACKAGING.md#012",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "ADVANTAGES:\n  Simple, low cost, mature, robust\n  Suitable for: commodity DRAM, mobile processors in cost-sensitive designs,\n               microcontrollers, power ICs, analog, automotive"
+    },
+    {
+      "id": "07-PACKAGING.md#013",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "DISADVANTAGES:\n  Long wire = inductance (bad for RF, high-speed)\n  Pad area on die = wasted silicon\n  Not suitable for >1000 I/O at fine pitch\n  Single-sided (die face up → wire out)\n```"
+    },
+    {
+      "id": "07-PACKAGING.md#014",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-PACKAGING.md#015",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Flip-Chip (C4 Bumps)"
+    },
+    {
+      "id": "07-PACKAGING.md#016",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nFLIP-CHIP — THE DOMINANT HIGH-PERFORMANCE PACKAGE INTERCONNECT"
+    },
+    {
+      "id": "07-PACKAGING.md#017",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "CONCEPT:\n  Die flipped face-down → solder bumps directly on die surface → attach to substrate\n  No wire: solder bump = shortest possible electrical path"
+    },
+    {
+      "id": "07-PACKAGING.md#018",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "C4 BUMPS (Controlled Collapse Chip Connection — IBM, 1964):\n  Solder bumps on die: SnPb (old) → lead-free SnAgCu (SAC) solder\n  Bump diameter: 50-250 µm (area-array across full die surface)\n  Pitch: 100-200 µm (peripheral) or 150-250 µm (area array) for traditional FC\n  Micro-bumps (advanced): 20-50 µm diameter at 40-100 µm pitch"
+    },
+    {
+      "id": "07-PACKAGING.md#019",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "PROCESS:\n  Wafer-level: deposit UBM (Under-Bump Metallurgy: Ti/NiV/Cu) → electro-plate SnAg\n  Reflow: solder wets to substrate pads → self-aligns (surface tension)\n  Underfill: capillary-fill epoxy between die and substrate → CTE mismatch relief"
+    },
+    {
+      "id": "07-PACKAGING.md#020",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "UNDERFILL:\n  Die: Si, CTE = 3 ppm/°C\n  Organic substrate: CTE = 14-18 ppm/°C\n  Temperature cycles (−40 to +125°C): 100+ ppm strain differential → solder fatigue\n  Underfill epoxy distributes stress across entire die-substrate interface → reliability"
+    },
+    {
+      "id": "07-PACKAGING.md#021",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "ADVANTAGES OVER WIRE BOND:\n  Much higher I/O count (area array, not perimeter only) → 10,000+ I/O on large die\n  Lower inductance (shorter path)\n  Better electrical performance (signal integrity, power delivery)\n  Smaller package footprint"
+    },
+    {
+      "id": "07-PACKAGING.md#022",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "SUBSTRATE (flip-chip BGA):\n  Organic laminate: FR4 or ABF (Ajinomoto Build-up Film)\n  Fine lines: 8/8 µm (line/space) → 2/2 µm (advanced ABF)\n  RDL (redistribution layer): routes from bump pitch to BGA ball pitch\n```"
+    },
+    {
+      "id": "07-PACKAGING.md#023",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-PACKAGING.md#024",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Fan-Out Wafer-Level Packaging (FOWLP)"
+    },
+    {
+      "id": "07-PACKAGING.md#025",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nFAN-OUT WLP (FOWLP) — THIN, SUBSTRATE-FREE PACKAGING"
+    },
+    {
+      "id": "07-PACKAGING.md#026",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "CONCEPT:\n  No traditional substrate — RDL built directly around die\n  \"Fan-out\": I/O extends beyond die footprint using embedded routing"
+    },
+    {
+      "id": "07-PACKAGING.md#027",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "PROCESS:\n  1. Pick dies → embed in molding compound (reconstituted wafer)\n  2. CMP flatten to expose die back + mold compound surface\n  3. Build RDL (redistribution layers) directly on top of die + mold\n  4. Solder balls on RDL\n  5. Dice into individual packages"
+    },
+    {
+      "id": "07-PACKAGING.md#028",
+      "path": [
+        "07-PACKAGING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]",
+        "canonical_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "concepts": "[packaging]",
+        "current_path": "semiconductor-manufacturing/07-PACKAGING.md",
+        "id": "maxim:semiconductor-manufacturing:packaging",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "semiconductor-manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[packaging]",
+        "section": "semiconductor-manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Packaging - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "InFO (Integrated Fan-Out, TSMC):\n  Apple A12-A17 iPhones: logic die + memory in same mold compound\n  No PCB substrate: ultra-thin package (good for phone form factor)\n  Advanced InFO: 2-4 RDL layers, sub-10 µm line/space on top RDL"
+    }
+  ],
+  "refs": [
+    "07-PACKAGING.md"
+  ]
+}

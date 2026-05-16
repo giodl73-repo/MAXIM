@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "telecommunications\\05-SATELLITE-COMMUNICATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SATELLITE ORBIT COMPARISON\n════════════════════════════════════════════════════════════════════\n\n                           GEO\n                        ●─────────────────────────────────────\n                        │ 35,786 km altitude (Clarke orbit)\n                        │ ~500 ms round-trip latency\n                        │ 3 satellites cover most of Earth\n                        │ Fixed position relative to Earth\n                        │ High FSPL (~200 dB at Ku-band)\n                        │\n\n              MEO ─────────────────────────────────────────────\n                   2,000–20,000 km altitude\n                   20–200 ms latency\n                   GPS (20,200 km), Galileo, O3b (8,000 km)\n\n     LEO ─────────────────────────────────────────────────────\n          160–2,000 km altitude\n          ~20–40 ms latency (Starlink: 20-40 ms)\n          Lower FSPL (~180 dB) but need many satellites\n          Starlink: 1,584 (Phase 1) → 12,000+ planned\n\nEARTH\n\n                        ←──── EARTH'S RADIUS = 6,371 km ────►",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## GEO Satellites",
+      "confidence": "candidate",
+      "text": "GEO (Geostationary Orbit) DETAILS:\n\nPHYSICS: Orbital period = Earth's rotation period = 23h 56m 4s (sidereal day)\n         Altitude = 35,786 km above equator\n         Velocity: 3.07 km/s\n\nCoverage: One GEO satellite sees ~42% of Earth's surface.\n          Three GEOs at 120° spacing: near-global coverage (except poles > ~75°).\n\nKEY SERVICES:\n  Direct-to-home (DTH) TV: DirecTV, DISH, BSkyB, Astra\n  VSAT (Very Small Aperture Terminal): enterprise data, oil platforms, ships\n  Weather satellites: GOES (US), Meteosat (EU), Himawari (Japan)\n  Fixed Satellite Service (FSS): broadcast contribution feeds, international telephony\n\nFREQUENCY BANDS FOR GEO:\n  C-band (4/6 GHz): 3.7-4.2 GHz down, 5.925-6.425 GHz up\n    Robust to rain, widely deployed, 500 MHz bandwidth\n  Ku-band (11-14 GHz): 10.7-12.75 GHz down, 14-14.5 GHz up\n    Higher bandwidth, smaller dishes (0.6-1.2 m), dominant for DTH\n  Ka-band (26.5-40 GHz): consumer broadband (HughesNet, ViaSat)\n    High bandwidth (500 MHz+), small dish, but significant rain fade\n\nHIGH THROUGHPUT SATELLITES (HTS):\n  Traditional GEO: 1-5 Gbps total capacity\n  HTS (ViaSat-3, Hughes Jupiter-3): 100-1000 Gbps via spot beam reuse\n  Uses many narrow spot beams → high frequency reuse (each beam = new spectrum allocation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "## LEO Constellation: Starlink",
+      "confidence": "candidate",
+      "text": "STARLINK ARCHITECTURE\n\nSpaceX Starlink: largest commercial satellite constellation\n\nPHASE 1: 1,584 satellites, 550 km altitude, 72 orbital planes × 22 satellites\nPHASE 2: Additional shells at different inclinations and altitudes (12,000 planned, 42,000 filed)\n\nTERMINAL (user):\n  \"Dishy\" — flat-panel phased array antenna\n  500-600 mm flat dish\n  Electronically steers beam → tracks moving satellites\n  No mechanical pointing required\n\nLINK:\n  Ku-band downlink (10.7–12.75 GHz)\n  Ka-band uplink (17.8–18.6 GHz)\n  Between satellites: inter-satellite links (ISL) via laser (v2 satellites)\n    → Routes packets via ISL, bypasses terrestrial internet backbone\n\nLATENCY: 20–40 ms (vs 500 ms GEO)\n  Orbital period: ~90 min → handover to new satellite every ~90 seconds\n  Phased array tracks seamlessly\n\nCAPACITY: ~100 Mbps per beam (shared among users in beam)\n          Typical user: 50–200 Mbps downlink, 10–30 Mbps uplink\n\nAPPLICATIONS:\n  Rural/maritime/aviation broadband\n  Enterprise backup links\n  Government/emergency services\n  Aviation (in-flight WiFi replacing GEO VSAT Ku-band)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "## GPS as Telecom Infrastructure",
+      "confidence": "candidate",
+      "text": "GPS (NAVSTAR GPS)\n\nCONSTELLATION: 30 satellites, 6 orbital planes, 20,200 km altitude (MEO)\n  At any location: 4-12 satellites visible simultaneously (need min 4 for 3D fix)\n  Orbital period: 12 hours\n\nSIGNAL:\n  L1 (1575.42 MHz): civilian C/A code + P(Y) code\n  L2 (1227.6 MHz): P(Y) code only → now L2C for civilian\n  L5 (1176.45 MHz): higher power, civil aviation\n\nRANGING (pseudoranging):\n  Each satellite broadcasts precise timing signal and ephemeris (position data)\n  Receiver measures time of arrival → range = c × (tₐᵣᵣᵢᵥₐₗ - tₜₓ)\n  4 unknowns: x, y, z, receiver clock error → need 4 satellites\n  Accuracy: civilian ~2-5 m; military P(Y) code: ~0.3 m\n\nTIMING PRECISION:\n  GPS is a global, free, open timing infrastructure\n  Each satellite has atomic clock (Cs or Rb), maintained to ~100 ns accuracy\n  Telecom uses: 4G/5G base station synchronization (timing-critical MIMO coordination)\n  Financial markets: high-frequency trading timestamps, audit trails\n  Power grid: phasor measurement units (PMUs) sync'd to GPS\n  Internet: NTP servers (stratum 1) reference GPS\n\nGNSS (Global Navigation Satellite System): umbrella term\n  GPS (USA) + GLONASS (Russia) + Galileo (EU) + BeiDou (China) + IRNSS (India) + QZSS (Japan)\n  Multi-GNSS receiver: 40+ satellites → much better accuracy, reliability, availability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 169,
+      "heading_context": "## Satellite Link Budget Example",
+      "confidence": "candidate",
+      "text": "VSAT (Ku-BAND SATELLITE) LINK BUDGET\n\nUplink (terminal to satellite):\n  Terminal EIRP: +57 dBW  (1.8 m dish, 2 W amp, Gt ≈ 44 dBi)\n  Free-space path loss (14 GHz, 36,000 km): -207 dB\n  Pointing loss + margin: -1 dB\n  ────────────────────────────────────\n  Power at satellite input: -151 dBW\n\n  Satellite receive G/T = 0 dB/K  (older satellite)\n  Noise in receiver: kTB = -228.6 + 10·log(T) + 10·log(B)\n  For T=350K, B=36 MHz: noise = -228.6 + 25.4 + 75.6 = -127.6 dBW\n  Uplink C/N = -151 - (-127.6) = -23.4 dB  (from satellite perspective)\n\nThis analysis shows you need to trade off dish size, transmit power, and EIRP.\nVSAT with 0.6 m dish is marginal; 1.8 m works well.\n\nEFFECTIVE ISOTROPIC RADIATED POWER (EIRP):\n  EIRP = Pt + Gt - cable_loss   (dBW or dBm)\n  This is the key figure for satellite transmitter performance.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "## VSAT Networks",
+      "confidence": "candidate",
+      "text": "VSAT TOPOLOGY\n\nHUB (Master):                        REMOTE (VSAT terminal):\nLarge dish (3-9 m)                   Small dish (0.6-2.4 m)\nHigh-power amplifier                 Low-power (2-16 W)\nManages the network                  Remote site (ship, store, office)\n                │                              │\n                │         Satellite            │\n                └──────────────●───────────────┘\n                              GEO\n\nTOPOLOGIES:\n1. Star (most common): remote → hub via satellite → hub → remote (double hop)\n   Latency: 2 × 500ms + processing = ~1.1 s (unacceptable for real-time voice)\n   Used for: data, slow SCADA, credit card terminals, backup internet\n\n2. Mesh: remote ↔ remote directly (single hop via satellite)\n   Latency: 500 ms (acceptable for voice if echo cancelled)\n   Used for: rural telephony, remote area telephony\n\nACCESS SCHEMES:\n  FDMA: each remote gets dedicated frequency slot (efficient, no contention)\n  TDMA: remotes share time slots, hub assigns on demand\n  DAMA (demand assigned MA): slots assigned based on traffic demand\n  MF-TDMA: modern standard, flexible, bandwidth on demand",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

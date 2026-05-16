@@ -1,0 +1,2340 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-semiconductor-manufacturing-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-semiconductor-manufacturing-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-semiconductor-manufacturing-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-semiconductor-manufacturing-source-corpus.json",
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-semiconductor-manufacturing-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-semiconductor-manufacturing-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-semiconductor-manufacturing-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-semiconductor-manufacturing-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-semiconductor-manufacturing-overview.json",
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-semiconductor-manufacturing-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.silicon-substrate.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-semiconductor-manufacturing-silicon-substrate.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/01-SILICON-SUBSTRATE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-semiconductor-manufacturing-silicon-substrate.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/01-SILICON-SUBSTRATE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.silicon-substrate.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-semiconductor-manufacturing-silicon-substrate.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.silicon-substrate.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-semiconductor-manufacturing-silicon-substrate.json",
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-semiconductor-manufacturing-silicon-substrate.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/01-SILICON-SUBSTRATE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.silicon-substrate.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/01-SILICON-SUBSTRATE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.silicon-substrate.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/01-SILICON-SUBSTRATE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/01-SILICON-SUBSTRATE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/01-SILICON-SUBSTRATE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.silicon-substrate.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/01-SILICON-SUBSTRATE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.silicon-substrate.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/01-SILICON-SUBSTRATE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/01-SILICON-SUBSTRATE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/01-SILICON-SUBSTRATE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.silicon-substrate.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/01-SILICON-SUBSTRATE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.silicon-substrate.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/01-SILICON-SUBSTRATE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/01-SILICON-SUBSTRATE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/01-SILICON-SUBSTRATE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.lithography.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-semiconductor-manufacturing-lithography.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/02-LITHOGRAPHY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-semiconductor-manufacturing-lithography.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/02-LITHOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.lithography.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-semiconductor-manufacturing-lithography.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.lithography.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-semiconductor-manufacturing-lithography.json",
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-semiconductor-manufacturing-lithography.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/02-LITHOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.lithography.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/02-LITHOGRAPHY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.lithography.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/02-LITHOGRAPHY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/02-LITHOGRAPHY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/02-LITHOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.lithography.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/02-LITHOGRAPHY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.lithography.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/02-LITHOGRAPHY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/02-LITHOGRAPHY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/02-LITHOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.lithography.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/02-LITHOGRAPHY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.lithography.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/02-LITHOGRAPHY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/02-LITHOGRAPHY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/02-LITHOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.deposition.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-semiconductor-manufacturing-deposition.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/03-DEPOSITION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-semiconductor-manufacturing-deposition.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/03-DEPOSITION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.deposition.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-semiconductor-manufacturing-deposition.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.deposition.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-semiconductor-manufacturing-deposition.json",
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-semiconductor-manufacturing-deposition.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/03-DEPOSITION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.deposition.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/03-DEPOSITION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.deposition.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/03-DEPOSITION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/03-DEPOSITION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/03-DEPOSITION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.deposition.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/03-DEPOSITION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.deposition.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/03-DEPOSITION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/03-DEPOSITION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/03-DEPOSITION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.deposition.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/03-DEPOSITION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.deposition.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/03-DEPOSITION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/03-DEPOSITION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/03-DEPOSITION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.etching.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-semiconductor-manufacturing-etching.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/04-ETCHING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-semiconductor-manufacturing-etching.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/04-ETCHING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.etching.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-semiconductor-manufacturing-etching.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.etching.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-semiconductor-manufacturing-etching.json",
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-semiconductor-manufacturing-etching.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/04-ETCHING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.etching.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/04-ETCHING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.etching.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/04-ETCHING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/04-ETCHING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/04-ETCHING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.etching.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/04-ETCHING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.etching.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/04-ETCHING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/04-ETCHING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/04-ETCHING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.etching.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/04-ETCHING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.etching.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/04-ETCHING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/04-ETCHING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/04-ETCHING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.transistor-scaling.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-semiconductor-manufacturing-transistor-scaling.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/05-TRANSISTOR-SCALING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-semiconductor-manufacturing-transistor-scaling.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/05-TRANSISTOR-SCALING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.transistor-scaling.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-semiconductor-manufacturing-transistor-scaling.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.transistor-scaling.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-semiconductor-manufacturing-transistor-scaling.json",
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-semiconductor-manufacturing-transistor-scaling.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/05-TRANSISTOR-SCALING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.transistor-scaling.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/05-TRANSISTOR-SCALING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.transistor-scaling.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/05-TRANSISTOR-SCALING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/05-TRANSISTOR-SCALING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/05-TRANSISTOR-SCALING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.transistor-scaling.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/05-TRANSISTOR-SCALING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.transistor-scaling.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/05-TRANSISTOR-SCALING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/05-TRANSISTOR-SCALING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/05-TRANSISTOR-SCALING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.transistor-scaling.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/05-TRANSISTOR-SCALING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.transistor-scaling.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/05-TRANSISTOR-SCALING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/05-TRANSISTOR-SCALING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/05-TRANSISTOR-SCALING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.process-integration.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-semiconductor-manufacturing-process-integration.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/06-PROCESS-INTEGRATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-semiconductor-manufacturing-process-integration.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/06-PROCESS-INTEGRATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.process-integration.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-semiconductor-manufacturing-process-integration.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.process-integration.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-semiconductor-manufacturing-process-integration.json",
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-semiconductor-manufacturing-process-integration.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/06-PROCESS-INTEGRATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.process-integration.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/06-PROCESS-INTEGRATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.process-integration.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/06-PROCESS-INTEGRATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/06-PROCESS-INTEGRATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/06-PROCESS-INTEGRATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.process-integration.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/06-PROCESS-INTEGRATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.process-integration.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/06-PROCESS-INTEGRATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/06-PROCESS-INTEGRATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/06-PROCESS-INTEGRATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.process-integration.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/06-PROCESS-INTEGRATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.process-integration.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/06-PROCESS-INTEGRATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/06-PROCESS-INTEGRATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/06-PROCESS-INTEGRATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.packaging.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-semiconductor-manufacturing-packaging.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/07-PACKAGING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-semiconductor-manufacturing-packaging.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/07-PACKAGING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.packaging.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-semiconductor-manufacturing-packaging.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.packaging.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-semiconductor-manufacturing-packaging.json",
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-semiconductor-manufacturing-packaging.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/07-PACKAGING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.packaging.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/07-PACKAGING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.packaging.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/07-PACKAGING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/07-PACKAGING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/07-PACKAGING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.packaging.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/07-PACKAGING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.packaging.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/07-PACKAGING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/07-PACKAGING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/07-PACKAGING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.packaging.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/07-PACKAGING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.packaging.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/07-PACKAGING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/07-PACKAGING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/07-PACKAGING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.yield-economics.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-semiconductor-manufacturing-yield-economics.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/08-YIELD-ECONOMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-semiconductor-manufacturing-yield-economics.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/08-YIELD-ECONOMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.yield-economics.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-semiconductor-manufacturing-yield-economics.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.yield-economics.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-semiconductor-manufacturing-yield-economics.json",
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-semiconductor-manufacturing-yield-economics.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/08-YIELD-ECONOMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.yield-economics.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/08-YIELD-ECONOMICS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.yield-economics.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/08-YIELD-ECONOMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/08-YIELD-ECONOMICS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/08-YIELD-ECONOMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.yield-economics.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/08-YIELD-ECONOMICS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.yield-economics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/08-YIELD-ECONOMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/08-YIELD-ECONOMICS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/08-YIELD-ECONOMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.yield-economics.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/08-YIELD-ECONOMICS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.yield-economics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/08-YIELD-ECONOMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/08-YIELD-ECONOMICS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/08-YIELD-ECONOMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.supply-chain-geopolitics.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-semiconductor-manufacturing-supply-chain-geopolitics.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/09-SUPPLY-CHAIN-GEOPOLITICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-semiconductor-manufacturing-supply-chain-geopolitics.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/09-SUPPLY-CHAIN-GEOPOLITICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.supply-chain-geopolitics.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-semiconductor-manufacturing-supply-chain-geopolitics.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.supply-chain-geopolitics.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.semiconductor-manufacturing.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-semiconductor-manufacturing-supply-chain-geopolitics.json",
+            "module": "semiconductor-manufacturing",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-semiconductor-manufacturing-supply-chain-geopolitics.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/09-SUPPLY-CHAIN-GEOPOLITICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.supply-chain-geopolitics.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/09-SUPPLY-CHAIN-GEOPOLITICS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.supply-chain-geopolitics.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/09-SUPPLY-CHAIN-GEOPOLITICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/09-SUPPLY-CHAIN-GEOPOLITICS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/09-SUPPLY-CHAIN-GEOPOLITICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.supply-chain-geopolitics.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/09-SUPPLY-CHAIN-GEOPOLITICS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.supply-chain-geopolitics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/09-SUPPLY-CHAIN-GEOPOLITICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/09-SUPPLY-CHAIN-GEOPOLITICS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/09-SUPPLY-CHAIN-GEOPOLITICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.semiconductor-manufacturing.supply-chain-geopolitics.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/09-SUPPLY-CHAIN-GEOPOLITICS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.semiconductor-manufacturing.supply-chain-geopolitics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "semiconductor-manufacturing",
+            "guide": "semiconductor-manufacturing/09-SUPPLY-CHAIN-GEOPOLITICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/semiconductor-manufacturing/proof-source/09-SUPPLY-CHAIN-GEOPOLITICS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "semiconductor-manufacturing",
+        "guide": "semiconductor-manufacturing/09-SUPPLY-CHAIN-GEOPOLITICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

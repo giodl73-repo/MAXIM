@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiconductor-manufacturing:packaging
+kind: guide
+module: semiconductor-manufacturing
+section: semiconductor-manufacturing
+title: Packaging - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: semiconductor-manufacturing/07-PACKAGING.md
+canonical_path: semiconductor-manufacturing/07-PACKAGING.md
+backsource_ids: [proof-backfill:semiconductor-manufacturing:07-packaging, git-history:semiconductor-manufacturing:07-packaging]
+concepts: [packaging]
+root_concepts: [packaging]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Packaging — A Layered Guide
 
 ## The Big Picture

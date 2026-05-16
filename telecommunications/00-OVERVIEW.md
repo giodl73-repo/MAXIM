@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:telecommunications:overview
+kind: guide
+module: telecommunications
+section: telecommunications
+title: Telecommunications - Overview
+status: source-custody
+source_custody: partial
+current_path: telecommunications/00-OVERVIEW.md
+canonical_path: telecommunications/00-OVERVIEW.md
+backsource_ids: [proof-backfill:telecommunications:00-overview, git-history:telecommunications:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Telecommunications — Overview
 
 ## The Big Picture

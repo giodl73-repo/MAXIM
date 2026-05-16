@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiconductor-manufacturing:transistor-scaling
+kind: guide
+module: semiconductor-manufacturing
+section: semiconductor-manufacturing
+title: Transistor Scaling - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: semiconductor-manufacturing/05-TRANSISTOR-SCALING.md
+canonical_path: semiconductor-manufacturing/05-TRANSISTOR-SCALING.md
+backsource_ids: [proof-backfill:semiconductor-manufacturing:05-transistor-scaling, git-history:semiconductor-manufacturing:05-transistor-scaling]
+concepts: [transistor, scaling]
+root_concepts: [transistor, scaling]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Transistor Scaling — A Layered Guide
 
 ## The Big Picture

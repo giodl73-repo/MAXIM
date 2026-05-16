@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiconductor-manufacturing:deposition
+kind: guide
+module: semiconductor-manufacturing
+section: semiconductor-manufacturing
+title: Deposition - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: semiconductor-manufacturing/03-DEPOSITION.md
+canonical_path: semiconductor-manufacturing/03-DEPOSITION.md
+backsource_ids: [proof-backfill:semiconductor-manufacturing:03-deposition, git-history:semiconductor-manufacturing:03-deposition]
+concepts: [deposition]
+root_concepts: [deposition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Deposition — A Layered Guide
 
 ## The Big Picture

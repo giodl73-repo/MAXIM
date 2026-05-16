@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "semiconductor-manufacturing\\05-TRANSISTOR-SCALING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "TRANSISTOR ARCHITECTURE EVOLUTION\n════════════════════════════════════════════════════════════════════\n\nPLANAR MOSFET (1960-2011, 10 µm → 22 nm):\n  Gate\n   │\n───┴─── Gate oxide (SiO₂ → high-k HfO₂)\n───────  Channel (Si, p-type for NMOS)\n  S/D   Bulk Si\n\n  One gate surface controls channel\n  Short-channel effects: gate loses control as L shrinks\n\nFINFET (2011-2022, 22 nm → 3 nm):\n    ┌──────┐\n    │ Gate │\n    │ ┌──┐ │\n    │ │Fi│ │\n    │ │n │ │\n    │ └──┘ │\n    └──────┘\n  Gate wraps 3 sides of fin (top + two sides)\n  Enhanced gate control\n  Source ───── Drain through fin\n\nGAA NANOSHEET (2022+, 3 nm and below):\n  Gate wraps ALL FOUR sides of multiple Si nanosheets\n  Stacked 3-5 nanosheets per transistor → multiple channels in parallel\n  → Maximum electrostatic control, lowest leakage\n\n  [Gate surrounds each nanosheet completely]\n  ────────────────────────────────── ← Nanosheet 3\n  [Gate surrounds each nanosheet completely]\n  ────────────────────────────────── ← Nanosheet 2\n  [Gate surrounds each nanosheet completely]\n  ────────────────────────────────── ← Nanosheet 1\n  Source                              Drain",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 75,
+      "heading_context": "## MOSFET Fundamentals",
+      "confidence": "candidate",
+      "text": "NMOS MOSFET OPERATION\n\nSTRUCTURE:\n  p-type Si substrate\n  n+ source (S), n+ drain (D) — heavily doped\n  Thin gate insulator (SiO₂ or HfO₂) over channel\n  Gate electrode (poly-Si or metal)\n\n           Gate (G)\n              │\n  S ─── [gate oxide] ─── D\n        p-Si channel\n        ──────────────\n\nTHRESHOLD VOLTAGE Vt:\n  Vt = flat-band voltage + charge terms + 2φ_F\n  At V_GS < Vt: channel depleted, minimal current (subthreshold leakage)\n  At V_GS > Vt: inversion layer forms (electrons) → conducting channel\n\nCHANNEL CURRENT (long channel):\n  Linear region (V_DS < V_GS - Vt):\n    I_D = µn·Cox·(W/L)·[(V_GS - Vt)·V_DS - V_DS²/2]\n\n  Saturation (V_DS ≥ V_GS - Vt):\n    I_D = ½·µn·Cox·(W/L)·(V_GS - Vt)²\n\n  Cox = ε_ox / t_ox   (gate capacitance per area)\n  µn = electron mobility (~450 cm²/V·s in channel vs bulk 1350)\n  W/L = width-to-length ratio (design parameter)\n\nKEY DESIGN PARAMETERS:\n  Vt: threshold voltage (sets speed vs leakage trade-off)\n  Ion: on-state current (determines drive strength, speed)\n  Ioff: off-state leakage (determines standby power)\n  SS (subthreshold slope): mV/decade to turn transistor on/off\n    Ideal: 60 mV/decade at room temperature (Boltzmann limit)\n    FinFET/GAA: 65-70 mV/decade (near-ideal)\n    Planar short-channel: 80-120 mV/decade (degraded by short-channel effects)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "## Short-Channel Effects: Why Planar Scaling Hit a Wall",
+      "confidence": "candidate",
+      "text": "SHORT-CHANNEL EFFECTS (SCE)\n\nAs gate length L shrinks:\n  Drain depletion region approaches source depletion region\n  → Source and drain \"share\" electrostatic control with gate\n  → Gate loses ability to fully shut off the channel\n\nKEY SHORT-CHANNEL EFFECTS:\n\n1. DRAIN-INDUCED BARRIER LOWERING (DIBL):\n   High V_DS lowers source-end barrier → threshold voltage drops\n   DIBL = ΔVt / ΔV_DS (mV/V) — ideally 0; SCE causes 50-200 mV/V\n   → Vt depends on V_DS → circuit design complications\n\n2. THRESHOLD VOLTAGE ROLLOFF:\n   Vt decreases as L decreases (for fixed doping/oxide)\n   → Can't reduce L without compensating (higher doping, thinner oxide, body bias)\n   → Higher doping → worse mobility + variability\n\n3. SUBTHRESHOLD SLOPE DEGRADATION:\n   SS > 60 mV/decade as SCE worsens\n   → Higher Voff for same Ion → more power waste\n\n4. PUNCH-THROUGH:\n   Source and drain depletion regions merge at high V_DS\n   → Uncontrolled current flows deep in bulk → catastrophic\n\n5. GATE OXIDE LEAKAGE:\n   SiO₂ thinner than ~1.2 nm → direct tunneling → substantial gate current\n   → Intel: 90 nm node (2003), SiO₂ ≈ 1.2 nm → switched to HfO₂ + metal gate\n\nNATURAL LENGTH λ (screening length):\n  λ = √(ε_Si/ε_ox · t_Si · t_ox)\n  SCE under control when L > 3λ\n  To scale L, must reduce t_ox (→ high-k) AND t_Si (→ SOI or FinFET/GAA)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "## FinFET: 3D Gate Geometry",
+      "confidence": "candidate",
+      "text": "FINFET (Fin Field-Effect Transistor)\n\nINVENTION: Chenming Hu + UC Berkeley team, ~1998 (patented 2001)\nFIRST HVM: Intel 22 nm Ivy Bridge (2011) — \"tri-gate transistor\"\n\nKEY GEOMETRY:\n  Si fin: thin vertical slab, width W_fin (typically 5-7 nm at 7 nm node)\n  Gate wraps over top + two sides (tri-gate = 3 surfaces)\n  Effective W = 2·H_fin + W_fin (counting all gate-controlled surfaces)\n\nWHY BETTER THAN PLANAR:\n  The fin itself is thin (W_fin = 5-7 nm) → natural length λ is small\n  Gate controls channel from 3 sides → much better electrostatic control\n  Can scale L aggressively (down to ~7 nm gate length) without losing control\n\nMULTIPLE FINS PER TRANSISTOR:\n  To increase drive current: multiple parallel fins\n  Width = n_fins × (2·H_fin + W_fin)\n  Digital logic: 1-4 fins per transistor\n\nFINFET PROCESS CHALLENGES:\n  Fin formation: RIE + SADP → fins at tight pitch (<30 nm)\n  Fin height H_fin: typically 40-60 nm (creates 3D topography for all subsequent steps)\n  Isolation: SiO₂ fill between fins; fin dipping (recess STI to expose fin sides)\n  Epitaxial S/D merging: adjacent fins merge S/D regions → lower resistance\n  Gate last (HKMG-last) process: sacrificial poly gate → remove → replace with HKMG\n    Critical: prevents high-k gate from seeing high-temperature dopant anneal\n\nFINFET SCALING LIMITS:\n  Fin width can't go below ~5 nm: quantum confinement changes band structure\n  At 3 nm node, fin pitch ≈ 25-30 nm → fins start to be quantum-mechanically coupled\n  Multiple independent fins → GAA nanosheets become better",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "## GAA Nanosheet Transistors",
+      "confidence": "candidate",
+      "text": "GAA (GATE-ALL-AROUND) NANOSHEET TRANSISTORS\n\nWHY:\n  At 2 nm / 3 nm: need even better gate control than FinFET\n  GAA = gate surrounds all 4 sides of channel → perfect electrostatic control\n  Multiple nanosheets = increase drive current (parallel channels)\n\nNANOSHEET DIMENSIONS (TSMC N2, Samsung 3GAE):\n  Nanosheet width: 15-25 nm (tunable — different for PMOS/NMOS optimization)\n  Nanosheet thickness: 4-6 nm (thinner → better electrostatic control)\n  Nanosheet count: 3-5 per transistor\n  Vertical spacing between sheets: ~10 nm (for inner spacer + gate)\n\nFABRICATION SEQUENCE (SiGe/Si superlattice approach):\n\n  1. Grow alternating Si/SiGe superlattice (3-5 pairs) on substrate\n     SiGe: sacrificial (will be removed)\n     Si: nanosheets (will be channels)\n\n  2. Pattern fins (same as FinFET start)\n\n  3. Inner spacer formation:\n     Laterally etch SiGe between sheets (selective SiGe etch: Cl₂/HBr)\n     ALD spacer material fills recesses → inner spacers isolate gate from S/D\n\n  4. Epitaxial source/drain (surrounds all nanosheets)\n\n  5. Gate last (HKMG): remove sacrificial poly gate\n     ↓\n     Selective etch SiGe nanosheets (HCl gas or wet etchant → only SiGe removed)\n     ↓\n     Si nanosheets suspended (inner spacers hold them)\n     ↓\n     ALD high-k + metal gate wraps around each nanosheet completely\n\nFORKSHEET TRANSISTOR (next step):\n  Intel and imec concept: NMOS and PMOS forksheets separated by dielectric wall\n  Side-by-side instead of FinFET n/p pair → smaller cell area\n  Still research (2025)\n\nCFET (Complementary FET):\n  PMOS stacked directly above NMOS on same footprint\n  Extreme density: 1 CFET ≈ 2 standard nanosheet transistors area\n  Requires wafer bonding or complex NMOS-first + PMOS-on-top process\n  Intel 14A / TSMC N1 era (2027-2028 roadmap)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "## Doping and Ion Implantation",
+      "confidence": "candidate",
+      "text": "ION IMPLANTATION\n\nHOW IT WORKS:\n  Dopant ions (As, P, B, BF₂, In) accelerated at 1-200 keV\n  Implanted into Si → penetrate to defined depth\n  Energy → depth profile; dose (ions/cm²) → concentration\n\nSTOPPING MECHANISMS:\n  Nuclear stopping: ion collides with Si nuclei → scatter, displace atoms → damage\n  Electronic stopping: ion loses energy to electron excitation → ionization\n  Range distribution: Gaussian approximation\n    Rp = projected range (peak depth, depends on energy + mass)\n    ΔRp = straggle (standard deviation of range)\n\nANNEALING:\n  Post-implant damage must be repaired: rapid thermal anneal (RTA) or laser anneal\n  RTA: 1000-1100°C for 1-10 s → electrically activates dopants, repairs crystal\n  Spike anneal: <1 s at high T → minimize dopant diffusion while maximizing activation\n  Laser (millisecond or nanosecond): melt-recrystallization → ultra-shallow junctions\n\nULTRA-SHALLOW JUNCTIONS (USJ):\n  Source/drain extensions at <10 nm depth required for sub-10 nm MOSFETs\n  BF₂ implant (heavier → shallower range than B)\n  Cluster ion implantation (B₁₀H₁₄⁺): spreads dose → shallower, lower damage\n  Plasma doping (PLAD): alternative to beamline implant for conformal doping\n\nHALO (POCKET) IMPLANTS:\n  Tilted implant of same type as body (e.g., p-type for NMOS)\n  Creates higher-doped regions under S/D → reduces DIBL\n  Critical for planar down to FinFET transition; FinFET reduces need (better geometry)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 290,
+      "heading_context": "## High-k/Metal Gate (HKMG)",
+      "confidence": "candidate",
+      "text": "HIGH-k/METAL GATE (HKMG)\n\nTHE PROBLEM (Intel 90 nm node, 2003):\n  SiO₂ gate oxide below 1.2 nm → direct tunneling leakage unacceptable\n  P = A·e^(-B·tox) → gate leakage 10-100 A/cm² at <1.2 nm SiO₂\n\nHIGH-k SOLUTION:\n  Replace SiO₂ (k=3.9) with HfO₂ (k=22) or HfSiO (k=12-16)\n  Same EOT (electrical thickness) but physically thicker → less tunneling\n\n  EOT = t_high-k × (ε_SiO₂ / ε_high-k)\n  EOT = 2 nm HfO₂ × (3.9/22) = 0.35 nm equivalent\n  Physical thickness 2 nm → tunneling negligible (tunneling ∝ exp(-2 nm))\n\nMETAL GATE:\n  Old poly-Si gate: Fermi-level pinning on high-k → wrong Vt for CMOS\n  Fix: replace poly-Si with metals\n  NMOS: low work function metal (TiN, TaC, La₂O₃-doped TiN) → low Vt\n  PMOS: high work function metal (TiN with Al-free anneal, MoN, TiAlN) → correct Vt\n\nGATE-FIRST vs GATE-LAST:\n  Gate-first: deposit HKMG early → high-T anneal damages high-k\n  Gate-last (replacement metal gate, RMG): deposit sacrificial poly → do all high-T →\n    remove poly → deposit HKMG in completed structure → ALD to backfill\n  Gate-last is now universal at 14 nm and below\n  Challenge: HKMG fills into tight space left by removed poly gate\n\nWORK FUNCTION ENGINEERING:\n  V_t ≈ WF_metal - WF_Si - fixed charge terms - Qinv/Cox\n  Tune Vt by: metal composition, aluminum content in TiN, La/Al interfacial layers\n  Multi-Vt: same metal, different anneal/thin film → 4-5 Vt options per node\n  Low-Vt: fast/power-hungry; High-Vt: slow/low-leakage",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 351,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "poly-Si gate requires: poly removal (CMP + wet), HKMG ALD + metal deposition, CMP planarization.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:telecommunications:internet-backbone
+kind: guide
+module: telecommunications
+section: telecommunications
+title: Internet Backbone - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: telecommunications/07-INTERNET-BACKBONE.md
+canonical_path: telecommunications/07-INTERNET-BACKBONE.md
+backsource_ids: [proof-backfill:telecommunications:07-internet-backbone, git-history:telecommunications:07-internet-backbone]
+concepts: [internet, backbone]
+root_concepts: [internet, backbone]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Internet Backbone — A Layered Guide
 
 ## The Big Picture

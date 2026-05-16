@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "semiconductor-manufacturing\\08-YIELD-ECONOMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SEMICONDUCTOR COST EQUATION\n════════════════════════════════════════════════════════════════════\n\nWafer cost\n──────────── × (1/Yield) = Cost per die\nDies per wafer\n\nDRIVERS:\n                   ┌─── Fab depreciation (~$20B / 10 yr → $2B/yr)\nWafer Cost ────────┤─── Materials (chemicals, gases, slurries)\n                   └─── Labor, energy, maintenance\n\n                   ┌─── Die area (larger die → fewer per wafer)\nDies per Wafer ────┤─── Wafer diameter (300 mm → ~700 gross 1 cm² dies)\n                   └─── Edge exclusion (15-20 mm perimeter unusable)\n\n                   ┌─── Defect density (D₀ defects/cm²)\nYield ─────────────┤─── Die area (larger die → more chances for defect)\n                   └─── Process maturity (improves over time)\n\nTYPICAL NUMBERS (3 nm node, 1 cm² die, 2024):\n  Wafer cost:        ~$20,000\n  Dies per wafer:    ~450 (gross ~630, edge loss ~180)\n  Yield:             ~80% at mature N3, lower at introduction\n  Cost per die:      $20,000 / (450 × 0.80) = ~$56 per die\n  (Plus assembly/test/packaging: +$5-30 more for total finished cost)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## Yield Models",
+      "confidence": "candidate",
+      "text": "DEFECT DENSITY BASICS\n\nDEFECT TYPES:\n  Critical defects: cause immediate failure (short, open, wrong Vt)\n  Non-critical: don't affect functionality at first (may affect reliability)\n  Random defects: particles, contamination — distributed across wafer\n  Systematic defects: design-rule violations, process interactions — location-specific\n\nDEFECT DENSITY D₀:\n  D₀ = total critical defects per unit area (defects/cm²)\n  Modern leading-edge: D₀ ≈ 0.05-0.5 defects/cm² (depending on process maturity)\n  New process introduction: D₀ may start at 2-5 defects/cm²\n\nCRITICAL AREA ANALYSIS (Ac):\n  Not all area is equally vulnerable — only regions where a defect causes failure\n  Ac(r) = area where defect of radius r causes failure\n  Integrate over defect size distribution → effective critical area per layer\n\nYIELD MODELS:\n\n1. POISSON MODEL (simple, theoretical):\n   Y = e^(-D₀·A)\n   Assumes: Poisson-distributed defects; uniform sensitivity\n   Problem: overestimates yield impact (actual defects cluster → some dies have many, most have none)\n\n2. MURPHY'S MODEL (1964, industry standard):\n   Y = [(1 - e^(-D₀·A)) / (D₀·A)]²\n   Accounts for: defect clustering (Gaussian distribution of defect density)\n   Better fit to real data; widely used for yield projection\n\n3. SEEDS MODEL:\n   Y = 1 / (1 + D₀·A)\n   Simple form; good for early yield estimate\n\n4. NEGATIVE BINOMIAL MODEL (more accurate):\n   Y = (1 + D₀·A/α)^(-α)\n   α = clustering parameter (α→∞ → Poisson; α small → highly clustered)\n   Widely used by yield engineers, fits real data well\n\nEXAMPLE CALCULATION (Murphy's):\n  D₀ = 0.1 defects/cm², A = 2 cm² (large GPU die)\n  D₀·A = 0.2\n  Y = [(1 - e^(-0.2)) / 0.2]² = [(1 - 0.819) / 0.2]² = [0.905]² ≈ 82%\n\n  Same D₀, A = 4 cm²:\n  D₀·A = 0.4\n  Y = [(1 - e^(-0.4)) / 0.4]² = [(0.33) / 0.4]² ≈ 68%\n  → Yield drops fast with die area",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 119,
+      "heading_context": "## Dies Per Wafer",
+      "confidence": "candidate",
+      "text": "DIES PER WAFER\n\nFORMULA:\n  DPW = (π·(d/2)² - π·d·e) / A_die\n\n  Simplified with edge exclusion:\n  DPW = π·(d - 2e)² / (4·A_die) - π·(d - 2e) / √(2·A_die)\n\n  d = wafer diameter (300 mm)\n  e = edge exclusion (typically 3 mm)\n  A_die = die area (cm²)\n\nAPPROXIMATE (for rough estimates):\n  DPW ≈ (Wafer area - Edge loss) / Die area\n  Usable 300 mm wafer area ≈ 706 cm² - 15 cm² edge ≈ 690 cm²\n\nDIE AREA vs DPW TABLE (300 mm wafer, 3 mm edge):\n  A_die    Gross DPW    Edge-corrected DPW\n  ─────────────────────────────────────\n  0.1 cm²  ~7,000       ~6,800\n  0.5 cm²  ~1,400       ~1,300\n  1.0 cm²  ~700         ~630\n  2.0 cm²  ~350         ~300\n  4.0 cm²  ~175         ~145\n  8.0 cm²  ~87          ~70\n  15 cm²   ~47          ~38\n  35 cm²   ~20          ~16   (H100 die)\n  50 cm²   ~14          ~11   (theoretical maximum reticle = 26×33 mm ≈ 8.6 cm²)\n\nRETICLE LIMIT:\n  Maximum single die: reticle field = 26 mm × 33 mm = 8.58 cm²\n  Larger dies: use stitching (seams visible) — not standard for logic\n  Intel Ponte Vecchio: >50 cm² equivalent via chiplets (not monolithic)\n  Cerebras WSE-3: ~8,400 cm² — the entire 300 mm wafer as one chip\n\nAREA EFFICIENCY:\n  Not all die area is active — bond pads, power rings, guard rings, PHY\n  Core utilization: 60-80% of die area actually doing computation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "## Cost Per Die",
+      "confidence": "candidate",
+      "text": "COST PER DIE — DETAILED MODEL\n\nTOTAL COST PER GOOD DIE:\n  Cpd = (Wafer Cost) / (DPW × Die Yield × Test Yield × Package Yield)\n\nWAFER COST COMPONENTS:\n  Capital depreciation: $20B fab / 8 yr / 50,000 WPM ≈ $4,000/wafer\n  Materials: chemicals, gases, photoresist, CMP slurries ≈ $1,500-3,000/wafer\n  Labor, energy, facility: ≈ $1,000-2,000/wafer\n  Mask set amortized: 80-100 masks × $10K-20K each = $1M-2M per design\n    Spread over 50,000 wafers → $20-40 per wafer per product\n\nMASK COST (non-recurring engineering, NRE):\n  Leading-edge mask set (3 nm): $20-30M total NRE\n  This is why low-volume products (ASICs) are expensive\n  A 5,000-unit run at 3 nm: $20M NRE ÷ 5,000 = $4,000 per chip NRE alone\n\nTEST COST:\n  Wafer sort (probe): ~$500-2,000/wafer at leading-edge\n  Package final test: $0.50-5 per device depending on speed grade testing\n  Burn-in (reliability screen): additional $1-3 per device\n\nBINNING:\n  Same wafer → grade devices by frequency (fmax) and power\n  Premium bin (fastest): highest price, limited supply\n  Standard bin: volume product\n  Downbin: slower/higher voltage → sold as cheaper part\n  Example: TSMC N3 CPU wafer → i9 (>4 GHz), i7 (>3.5 GHz), i5 (>3 GHz) from same silicon\n  Binning monetizes the yield distribution: not all dies are equal\n\nECONOMICS EXAMPLE (GPU, $25K compute card):\n  NVIDIA H100:\n    Die: 4.1 nm TSMC, ~80 cm² equivalent (SXM5)\n    Actually GH100 ≈ 35 cm² SoC die\n    Wafer cost: ~$20,000\n    DPW: ~35-40\n    Die yield: ~70% (early, large die)\n    Good dies per wafer: ~25-28\n    Die cost: ~$700\n    CoWoS packaging + HBM: ~$2,000-3,000\n    Total COGS: ~$3,500-4,000\n    Sale price: $25,000 → ~6-7× margin (covers R&D amortization, support, etc.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## Learning Curves",
+      "confidence": "candidate",
+      "text": "LEARNING CURVES\n\nCONCEPT:\n  Yield improves as cumulative production increases\n  New process: high defect density → yield starts low (60-70%)\n  After 12-18 months: yield typically reaches maturity (90-95%)\n\nDEFECT REDUCTION SOURCES:\n  Equipment cleaning: identify and eliminate contamination sources\n  Recipe optimization: fine-tune process parameters (pressure, T, gas flows)\n  Design rules refinement: fix layout patterns that cause systematic failures\n  Metrology improvements: better measurement → faster feedback\n  Equipment engineering: identify tool-specific yield losers\n\nWRIGHT'S LAW (production learning):\n  Cost per unit decreases by a fixed percentage for every doubling of cumulative output\n  Semiconductor industry: ~20-30% cost reduction per doubling\n  Applies across generations: each new node starts expensive, gets cheaper over time\n\nRAMP TIMELINE:\n  Quarter 0 (risk production): first product wafers, yield ~50-70%\n  Quarter 2-4: yield ramp, process stabilization\n  Quarter 6-8: yield maturity, volume production\n  Quarter 12+: sustained production, yield plateau, eventual node end-of-life\n\nTSMC N5 EXAMPLE:\n  Introduction: 2020, Apple A14\n  Ramp: ~6 months to high volume\n  Mature yield: reached ~95% by 2021\n  Multiple customers: NVIDIA, Qualcomm, AMD joined after Apple's node-exclusive ended\n\nN+1 NODE ECONOMICS:\n  Each new node: wafer cost +30-50% (EUV adoption, more process steps)\n  Die area shrinks ~30-40% → offset higher wafer cost\n  Net: cost per transistor improves ~20-30% per node\n  But: improvement slowing (was 50% per node pre-EUV era)\n  TSMC N3 → N2: less area reduction than past transitions → economics tightening",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 257,
+      "heading_context": "## Test and Reliability",
+      "confidence": "candidate",
+      "text": "TEST STRATEGY\n\nWAFER SORT (probe test):\n  Probe card contacts each die on wafer\n  Functional test: does device work? (logic, memory, I/O)\n  Parametric: Vt, leakage, frequency\n  Marks good/bad dies (ink or map file)\n  Capital: probe station ~$500K; test equipment (ATE) ~$2-10M\n\nATE (Automated Test Equipment):\n  Teradyne, Advantest dominate\n  SoC tester: $5-10M for leading-edge (high-frequency, high pin count)\n  Load board: custom PCB for each device type → $50-200K per design\n\nFINAL TEST (packaged device):\n  Speed/frequency binning: run at different frequencies → grade\n  Power measurement: verify power management\n  Memory test: BIST (built-in self-test) helps reduce external test time\n  Hot/cold test: some applications test at -40°C and +125°C\n\nBUILT-IN SELF-TEST (BIST):\n  Logic BIST: on-chip test pattern generation + response comparison\n  Memory BIST: on-chip memory test engine (walks patterns through all cells)\n  Reduces: test time (parallel self-test), pin count needed, ATE cost\n\nBURN-IN:\n  Apply elevated voltage + temperature for 8-48 hours\n  Accelerated aging: screens out \"infant mortality\" (early failures)\n  Arrhenius acceleration: temp increase 10°C → 2× failure rate for some defects\n  Used for: automotive (AEC-Q100), mil-spec, server chips\n\nRELIABILITY SPECIFICATIONS:\n  Consumer: 1000 h at 85°C / 85% RH (JEDEC JESD22)\n  Automotive: AEC-Q100 Grade 0 (−40 to +150°C junction)\n  MTTF (mean time to failure): 10⁶-10⁸ hours design goal for data center chips",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

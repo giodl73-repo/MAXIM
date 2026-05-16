@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiconductor-manufacturing:yield-economics
+kind: guide
+module: semiconductor-manufacturing
+section: semiconductor-manufacturing
+title: Yield and Economics - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: semiconductor-manufacturing/08-YIELD-ECONOMICS.md
+canonical_path: semiconductor-manufacturing/08-YIELD-ECONOMICS.md
+backsource_ids: [proof-backfill:semiconductor-manufacturing:08-yield-economics, git-history:semiconductor-manufacturing:08-yield-economics]
+concepts: [yield, economics]
+root_concepts: [yield, economics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Yield and Economics — A Layered Guide
 
 ## The Big Picture

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "semiconductor-manufacturing\\01-SILICON-SUBSTRATE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "FROM SAND TO WAFER\n════════════════════════════════════════════════════════════════════\n\nQuartz sand (SiO₂)\n    │\n    ▼ Carbon arc furnace at 1800°C\nMetallurgical-grade Si (98% pure, ~10¹⁶ impurities/cm³)\n    │\n    ▼ Siemens process (trichlorosilane distillation + CVD)\nElectronic-grade (EG) Si: 11 nines pure (99.999999999%)\n    ≈ 10¹⁰ impurities/cm³ — one alien atom per 100 billion Si\n    │\n    ▼ Czochralski (CZ) crystal growth\nSingle-crystal Si ingot (boule)\n    300 mm diameter, 2 m long, ~250 kg\n    │\n    ▼ Diamond wire saw → slicing\nRaw wafers (775 µm thick at 300 mm)\n    │\n    ▼ Lapping → edge grinding → CMP → cleaning\nPolished production wafer: surface roughness <0.15 nm RMS\n    Ready for lithography",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## Czochralski Process",
+      "confidence": "candidate",
+      "text": "CZOCHRALSKI (CZ) CRYSTAL GROWTH\n\n               ┌─────────────────────────┐\n               │     Pulling rod         │\n               │          │              │\n               │     [Seed crystal]      │\n               │          │              │\n               │     Crystal boule       │\n               │    (growing upward)     │\n               │         ╱╲              │\n               │   Melt puddle           │\n               │ (polycrystalline Si     │\n               │  + controlled dopants)  │\n               │                         │\n               │     Quartz crucible     │\n               │     in vacuum/inert     │\n               │     atmosphere, RF      │\n               │     heated to 1420°C    │\n               └─────────────────────────┘\n\nPROCESS:\n1. Melt EG polysilicon in quartz crucible (~1420°C)\n2. Lower single-crystal seed crystal to melt surface\n3. Seed crystal wets melt; atoms align with seed lattice\n4. Pull slowly upward (few mm/hr) + rotate:\n   → Crystal solidifies epitaxially onto seed\n   → Diameter controlled by pull rate + temperature\n5. Neck (very thin) grown first → eliminates dislocations from seed\n   (Dash necking technique)\n6. Shoulder growth → expand to target diameter\n7. Body growth → maintain diameter for 1-2 meters\n8. Tail taper → prevent dislocation back-propagation\n9. Result: dislocation-free single crystal boule\n\nDIAMETER HISTORY:\n  25 mm (1960s) → 100 mm → 150 mm → 200 mm (1990s) → 300 mm (2000s)\n  450 mm: stalled (industry couldn't justify retooling cost for marginal gain)\n  300 mm is current standard for leading-edge logic\n\nPULL RATE vs DIAMETER:\n  Pull rate: 1-5 mm/min\n  Crystal length: 1,000-2,000 mm\n  Total growth time: 24-48 hours per boule",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "## Doping: n-Type and p-Type Silicon",
+      "confidence": "candidate",
+      "text": "SILICON DOPING\n\nIntrinsic Si: 4 valence electrons, forms covalent lattice\n  ni ≈ 1.5 × 10¹⁰ carriers/cm³ at 300 K (both electrons and holes)\n\nN-TYPE (adding donor atoms):\n  Group V elements: phosphorus (P), arsenic (As), antimony (Sb)\n  Each donor contributes 1 extra electron (majority carrier)\n  n ≈ ND (donor concentration)\n  Typical: 10¹⁵ - 10¹⁷ atoms/cm³\n  Fermi level shifts toward conduction band\n\nP-TYPE (adding acceptor atoms):\n  Group III elements: boron (B)\n  Each acceptor contributes 1 hole (majority carrier)\n  p ≈ NA (acceptor concentration)\n  Typical: 10¹⁵ - 10¹⁷ atoms/cm³\n  Fermi level shifts toward valence band\n\nRESISTIVITY vs DOPING CONCENTRATION:\n  ρ = 1/(q·n·µn + q·p·µp)   [Ω·cm]\n  µn ≈ 1350 cm²/V·s (electron mobility)\n  µp ≈ 480 cm²/V·s (hole mobility)\n\n  Doping (cm⁻³)   Resistivity (Ω·cm)   Type\n  ────────────────────────────────────────\n  10¹³             ~100-500             intrinsic-like\n  10¹⁵             ~5                  lightly doped\n  10¹⁷             ~0.05               moderately doped\n  10¹⁹             ~0.001              heavily doped (ohmic contact)\n\nCZ DOPING:\n  Boron (p-type) or phosphorus (n-type) added to melt\n  Segregation coefficient k₀ < 1: dopants concentrate in melt as crystal grows\n  → Concentration gradient from seed end to tail\n  → Target: uniform axial resistivity across usable wafer region",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "## Float Zone (FZ) Silicon",
+      "confidence": "candidate",
+      "text": "FLOAT ZONE (FZ) vs CZOCHRALSKI (CZ)\n\nFZ PROCESS:\n  No crucible: polysilicon rod held vertically\n  RF coil heats small molten zone → moves along rod\n  Crystal grows behind melting front\n  Impurities segregate into advancing melt zone → driven off end\n  Result: highest-purity Si possible\n\nCOMPARISON:\n                        CZ                      FZ\n  ─────────────────────────────────────────────────────────────\n  Purity                Very high (10-20 ppb O)  Highest (<0.1 ppb O)\n  Oxygen content        High (Oi ~ 10¹⁸ cm⁻³)   Very low\n  Carbon                Low                       Very low\n  Max diameter          300+ mm                  200 mm (difficult larger)\n  Cost                  Lower                    Higher\n  Mechanical strength   Higher (O strengthens)   Lower\n  Yield in fab          Good                     More fragile\n\nFZ APPLICATIONS:\n  Power semiconductors (IGBT, power diodes): need high resistivity (>50 Ω·cm)\n  High-voltage: 5-20 kΩ·cm FZ Si\n  Radiation detectors, solar cell research\n  NOT used for leading-edge logic (CZ standard there)\n\nOXYGEN IN CZ:\n  O comes from quartz crucible dissolution at 1420°C\n  O at ~10¹⁸ cm⁻³: not intrinsically bad\n  Beneficial: oxide precipitates getter metallic impurities during processing\n  Harmful: oxygen donors form at 350-500°C anneal → unintended doping\n  Intrinsic gettering uses O precipitates in bulk to trap metals away from device region",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "## Silicon on Insulator (SOI)",
+      "confidence": "candidate",
+      "text": "SOI WAFER STRUCTURE\n\nStandard (bulk) Si:\n  [Device layer Si — 775 µm thick]\n\nSOI structure:\n  [Device layer Si — 5-100 nm thin Si film]\n  [Buried Oxide (BOX) — 50-150 nm SiO₂]\n  [Handle wafer Si — 750 µm thick]\n\nSOI MANUFACTURING:\n  SIMOX: implant O⁺ ions at high energy → form buried oxide → anneal\n  Smart Cut (Soitec process — dominant):\n    1. Oxidize donor Si wafer → grow SiO₂ (future BOX)\n    2. Implant H⁺ at controlled depth → hydrogen-rich layer (cleavage plane)\n    3. Bond to handle wafer (oxide-oxide bonding)\n    4. Anneal: hydrogen layer causes exfoliation → top Si film transfers\n    5. CMP: smooth transferred Si surface → production SOI wafer\n\nSOI ADVANTAGES:\n  Full isolation: device layer fully surrounded by insulator\n    → No latch-up (parasitic thyristor action in bulk CMOS)\n    → No soft errors from bulk leakage\n  Reduced junction capacitance → faster switching at lower voltage\n  Better subthreshold slope → lower Vt at same off-state current\n\nFD-SOI (Fully Depleted SOI):\n  Si device layer thin enough (5-10 nm) to be fully depleted → no partial depletion\n  Very well controlled Vt; low leakage\n  STMicroelectronics/Samsung: 28 nm and 22 nm FD-SOI (FD-SOI-28, FD-SOI-22)\n  Competing approach to FinFET for some applications (IoT, automotive, RF)\n\nDISADVANTAGES:\n  Wafer cost: 3-5× bulk Si wafer\n  Thermal conductivity lower (SiO₂ is thermal insulator) → self-heating\n  History: IBM led SOI for Power CPUs; Intel uses SOI only for specialty; TSMC logic is bulk",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

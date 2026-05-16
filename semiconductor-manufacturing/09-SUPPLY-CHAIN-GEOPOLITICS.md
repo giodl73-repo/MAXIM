@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiconductor-manufacturing:supply-chain-geopolitics
+kind: guide
+module: semiconductor-manufacturing
+section: semiconductor-manufacturing
+title: Supply Chain and Geopolitics - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: semiconductor-manufacturing/09-SUPPLY-CHAIN-GEOPOLITICS.md
+canonical_path: semiconductor-manufacturing/09-SUPPLY-CHAIN-GEOPOLITICS.md
+backsource_ids: [proof-backfill:semiconductor-manufacturing:09-supply-chain-geopolitics, git-history:semiconductor-manufacturing:09-supply-chain-geopolitics]
+concepts: [supply, chain, geopolitics]
+root_concepts: [supply, chain]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Supply Chain and Geopolitics — A Layered Guide
 
 ## The Big Picture

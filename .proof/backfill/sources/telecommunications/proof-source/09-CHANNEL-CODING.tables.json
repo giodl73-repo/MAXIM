@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "telecommunications\\09-CHANNEL-CODING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 287,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Application",
+        "Code Choice",
+        "Reason"
+      ],
+      "rows": [
+        [
+          "3G/4G LTE data",
+          "Turbo codes (4G)",
+          "Near-Shannon, proven"
+        ],
+        [
+          "5G NR data",
+          "LDPC",
+          "Better at long blocks"
+        ],
+        [
+          "5G NR control",
+          "Polar codes",
+          "Best at short blocks"
+        ],
+        [
+          "WiFi 802.11n/ac/ax",
+          "LDPC",
+          "Flexible, standard"
+        ],
+        [
+          "Satellite broadcast (DVB-S2)",
+          "LDPC + BCH outer code",
+          "Excellent threshold"
+        ],
+        [
+          "Deep space (Voyager era)",
+          "Convolutional + Viterbi",
+          "Long constraint length"
+        ],
+        [
+          "Storage (NAND flash, HDD)",
+          "LDPC",
+          "Low complexity at target BER"
+        ],
+        [
+          "Quick and dirty implementation",
+          "Convolutional + Viterbi",
+          "Well-understood, libraries available"
+        ],
+        [
+          "Ultra-reliable (URLLC 5G)",
+          "Polar + CRC + retransmission",
+          "Block error rate focus"
+        ]
+      ]
+    }
+  ]
+}

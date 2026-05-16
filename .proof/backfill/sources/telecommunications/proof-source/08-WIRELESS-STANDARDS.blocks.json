@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "telecommunications\\08-WIRELESS-STANDARDS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "WIRELESS STANDARDS LANDSCAPE\n════════════════════════════════════════════════════════════════════\n\nData Rate\n(Mbps)\n│\n10,000 ─   WiFi 7 (802.11be)\n           ─────────────────────────────────●\n 1,000 ─   WiFi 6E (802.11ax, 6 GHz)\n           ──────────────────────────●\n  100 ─    WiFi 5 (802.11ac/5G)\n           ──────────────────────●\n           Bluetooth BR/EDR 2-3 Mbps  ●\n   10 ─    Zigbee (250 kbps) ●   UWB ●─\n    1 ─\n  0.1 ─    NFC 424 kbps ●\n0.01 ─     LoRa 0.3-50 kbps ●\n0.001 ─    NB-IoT ●\n           │\n           └─────────────────────────────────────────────────────►\n           1 cm  10 cm  1 m   10 m  100 m  1 km  10 km  100 km\n                                                     Range",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## WiFi (802.11 Series)",
+      "confidence": "candidate",
+      "text": "WIFI GENERATION HISTORY\n\nGen    Standard  Year   Band        Max PHY   Key Innovation\n───────────────────────────────────────────────────────────────────────\n─      802.11    1997   2.4 GHz     2 Mbps    Original standard (FHSS/DSSS)\n─      802.11b   1999   2.4 GHz     11 Mbps   CCK modulation, cheap chipsets\nWiFi 1 802.11a   1999   5 GHz       54 Mbps   OFDM, 5 GHz, 8 channels\nWiFi 2 802.11g   2003   2.4 GHz     54 Mbps   OFDM at 2.4 GHz, backward compat\nWiFi 4 802.11n   2009   2.4/5 GHz   600 Mbps  MIMO (4×4), 40 MHz channels, beamforming\nWiFi 5 802.11ac  2013   5 GHz       6.9 Gbps  256-QAM, 80/160 MHz channels, MU-MIMO DL\nWiFi 6 802.11ax  2019   2.4/5 GHz   9.6 Gbps  OFDMA, MU-MIMO UL+DL, BSS coloring, TWT\nWiFi 6E 802.11ax 2021   6 GHz       9.6 Gbps  6 GHz band (1.2 GHz new spectrum)\nWiFi 7 802.11be  2024   2.4/5/6 GHz 46 Gbps   4096-QAM, 320 MHz, multi-link operation\n───────────────────────────────────────────────────────────────────────\n\nKEY INNOVATIONS:\n\n802.11n / WiFi 4: MIMO\n  Multiple spatial streams: 2×2, 3×3, 4×4 MIMO\n  Uses multipath reflections as independent channels (just like LTE MIMO)\n  40 MHz bonding: combines two 20 MHz channels → 2× throughput\n\n802.11ac / WiFi 5:\n  160 MHz channel (4× wider than 802.11n in 5 GHz)\n  MU-MIMO downlink: AP serves 4 clients simultaneously (different beams)\n  802.11ac Wave 2: 8 spatial streams for AP, up to 8 clients simultaneously\n\n802.11ax / WiFi 6/6E:\n  OFDMA: divide each channel into multiple resource units (RUs)\n    → 9 to 74 simultaneous users per channel (vs. 1 at a time in earlier WiFi)\n    → Key for dense environments (stadium, apartment building)\n  Target Wake Time (TWT): IoT devices agree on wake schedule → battery savings\n  BSS Coloring: spatial reuse by color-coding Basic Service Sets → fewer defer transmissions\n  UL MU-MIMO: 8 clients can transmit simultaneously (vs DL-only in ac)\n\n802.11be / WiFi 7:\n  Multi-Link Operation (MLO): use multiple bands simultaneously per connection\n  320 MHz channels: double WiFi 6 channel width\n  4096-QAM: 12 bits/symbol (vs 10 in WiFi 6)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## WiFi (802.11 Series)",
+      "confidence": "candidate",
+      "text": "2.4 GHz CHANNELS (North America, 20 MHz wide):\n  Channels 1-13, spacing 5 MHz\n  Only 3 non-overlapping: 1, 6, 11 (each 22 MHz wide with rolloff)\n\n5 GHz CHANNELS (20 MHz, non-overlapping, US):\n  UNII-1: ch 36,40,44,48 (indoor low power)\n  UNII-2A: ch 52,56,60,64 (DFS required, radar detection)\n  UNII-2C: ch 100-144 (DFS required)\n  UNII-3: ch 149-177 (outdoor ok)\n  24 non-overlapping 20 MHz channels → bonded to 40/80/160 MHz\n\n6 GHz CHANNELS (WiFi 6E):\n  1.2 GHz of new spectrum in US (5.925-7.125 GHz)\n  59 non-overlapping 20 MHz channels, 14× 80 MHz, 7× 160 MHz\n  No DFS required, much less interference (legacy WiFi excluded)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "## Bluetooth",
+      "confidence": "candidate",
+      "text": "BLUETOOTH VERSIONS\n\nCLASSIC BLUETOOTH (BR/EDR):\n  Frequency: 2.4 GHz ISM band\n  Frequency hopping: 1600 hops/sec over 79 channels (spread spectrum anti-interference)\n  Basic Rate (BR): 1 Mbps (GFSK)\n  Enhanced Data Rate (EDR): 2 Mbps (π/4-DQPSK) or 3 Mbps (8DPSK)\n  Range: ~10 m (Class 2, 2.5 mW) to ~100 m (Class 1, 100 mW)\n  Use: audio (headphones, speakers), data transfer, serial port profile\n\nBLUETOOTH LOW ENERGY (BLE / Bluetooth 4.0+):\n  Frequency: 2.402-2.480 GHz, 40 channels, 2 MHz spacing\n  Advertising channels: 3 (ch 37, 38, 39) → announce presence\n  Data channels: 37 channels for connected data\n  PHY options:\n    LE 1M: 1 Mbps (original BLE)\n    LE 2M: 2 Mbps (Bluetooth 5)\n    LE Coded (125k / 500k bps): long range, up to 4× range (Bluetooth 5)\n  Tx power: 0.01–100 mW, typical 1 mW\n  Current in deep sleep: µA range → years on coin cell battery\n\nBLUETOOTH VERSIONS:\n  5.0 (2016): LE 2M, LE Coded, advertising extensions\n  5.1 (2019): Direction finding (AoA/AoD) → cm-level indoor positioning\n  5.2 (2020): LE Audio (LC3 codec), isochronous channels\n  5.3 (2021): Power improvements, connection subrating\n  5.4 (2023): Periodic Advertising with Responses (PAwR) for large-scale IoT\n\nLE AUDIO (Bluetooth 5.2+):\n  New codec: LC3 (Low Complexity Communication Codec) → better quality at lower bitrate than SBC\n  Auracast broadcast audio: one source → unlimited BLE receivers (like FM radio but digital)\n  Multi-stream: separate streams to each ear → better stereo sync, hearing aids",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## Zigbee / Z-Wave / Matter",
+      "confidence": "candidate",
+      "text": "LOW-RATE WPAN (Wireless Personal Area Network)\n\nZIGBEE (IEEE 802.15.4):\n  Frequency: 2.4 GHz (16 ch) or 868/915 MHz\n  Data rate: 250 kbps (2.4 GHz)\n  Range: 10-100 m (mesh extends further)\n  Mesh networking: each node acts as router → self-healing network\n  Power: sleep current ~µA → years on batteries\n  Stack: Zigbee PRO, Zigbee 3.0 (unified profile)\n  Use: smart home (lighting, sensors), industrial automation, medical monitors\n\nZ-WAVE:\n  Frequency: 900 MHz (US: 908.42 MHz, EU: 868.42 MHz)\n  Rate: 9.6 / 40 / 100 kbps\n  Range: 30 m indoor, 100 m outdoor\n  Always uses mesh\n  Max network: 232 devices per controller\n  Advantage: operates at 900 MHz → less congested than 2.4 GHz (no WiFi/BT interference)\n  Certification: stricter interoperability than Zigbee\n  Use: smart home security, thermostats, door locks\n\nMATTER (formerly CHIP — 2022):\n  Application-layer protocol, not a radio protocol\n  Runs over: WiFi, Thread (802.15.4 based), Ethernet\n  Backed by: Apple, Google, Amazon, Samsung, chip vendors\n  Goal: unified smart home standard across ecosystems\n  Apple HomeKit, Google Home, Amazon Alexa — all Matter-compatible\n  Thread: low-power IPv6 mesh (similar to Zigbee PHY but IP stack)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "## LoRa / LoRaWAN",
+      "confidence": "candidate",
+      "text": "LORA / LORAWAN — Low Power Wide Area Network (LPWAN)\n\nLORA (Long Range):\n  Physical layer: Chirp Spread Spectrum (CSS) modulation\n  Frequency: 433/868/915 MHz (regional specific)\n  Data rate: 0.3–50 kbps (depends on spreading factor)\n  Range: 5–15 km urban, 15–45 km rural, 100+ km LoS\n  Sensitivity: -137 dBm → enables very long range\n\nSPREADING FACTOR (SF):\n  SF7-SF12: trade-off between range and data rate\n  SF7: 5 kbps, shorter range\n  SF12: 0.3 kbps, maximum range, >1000x SF7 signal capture\n  Different SFs are orthogonal (can coexist in same channel)\n\nLORAWAN (Network Protocol):\n  End device → LoRa gateway → LoRaWAN Network Server → Application Server\n  Class A (default): end device initiates, 2 receive windows after each uplink\n  Class B: scheduled receive windows (lower latency downlink)\n  Class C: always listening (highest latency, highest power)\n\nCAPACITY:\n  Each SF/channel combination: duty cycle limited (0.1-1% in Europe per ETSI)\n  Gateway: 8-16 channels simultaneously; can serve 1000s of devices\n  Scalable: multiple gateways for coverage, network server deduplicates\n\nUSE CASES:\n  Smart metering (water, gas, electricity) — monthly read interval fine\n  Environmental sensors (weather, air quality)\n  Asset tracking (slow-moving: pallets, bikes)\n  Smart agriculture (soil moisture, livestock tracking)\n  Building automation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "## NFC and RFID",
+      "confidence": "candidate",
+      "text": "NFC (Near Field Communication):\n  Frequency: 13.56 MHz (ISM)\n  Range: <4 cm (magnetic induction, not propagating wave)\n  Rates: 106, 212, 424 kbps\n  Modes:\n    Reader/Writer: phone reads/writes NFC tag\n    Peer-to-peer: two NFC devices exchange data\n    Card emulation: phone emulates credit card, transit card (Apple Pay, Google Pay)\n  Standards: ISO 14443 (contactless card), ISO 18092 (NFC), ISO 15693 (vicinity)\n  Security: NFC inherently short-range → reduces eavesdropping risk; payment secured by EMV\n\nRFID VARIANTS:\n  LF (125-134 kHz): 1-3 cm range, animal ID, old access cards\n  HF (13.56 MHz): NFC range, smart cards, library books (NFC is a subset)\n  UHF (860-960 MHz): 1-10 m range, warehouse logistics, retail inventory\n    EPC Gen 2 (ISO 18000-6C): global standard, billions of tags shipped\n    100s of reads/sec, simultaneous (anti-collision)\n  SHF (2.45/5.8 GHz): vehicle tolling, personnel access\n    EZ-Pass: 5.8 GHz, 915 MHz backup, read at 100+ mph\n    Passive tags get power from reader field; active tags have batteries",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

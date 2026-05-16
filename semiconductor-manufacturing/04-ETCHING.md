@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiconductor-manufacturing:etching
+kind: guide
+module: semiconductor-manufacturing
+section: semiconductor-manufacturing
+title: Etching - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: semiconductor-manufacturing/04-ETCHING.md
+canonical_path: semiconductor-manufacturing/04-ETCHING.md
+backsource_ids: [proof-backfill:semiconductor-manufacturing:04-etching, git-history:semiconductor-manufacturing:04-etching]
+concepts: [etching]
+root_concepts: [etching]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Etching — A Layered Guide
 
 ## The Big Picture

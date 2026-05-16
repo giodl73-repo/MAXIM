@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiconductor-manufacturing:lithography
+kind: guide
+module: semiconductor-manufacturing
+section: semiconductor-manufacturing
+title: Lithography - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: semiconductor-manufacturing/02-LITHOGRAPHY.md
+canonical_path: semiconductor-manufacturing/02-LITHOGRAPHY.md
+backsource_ids: [proof-backfill:semiconductor-manufacturing:02-lithography, git-history:semiconductor-manufacturing:02-lithography]
+concepts: [lithography]
+root_concepts: [lithography]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lithography — A Layered Guide
 
 ## The Big Picture

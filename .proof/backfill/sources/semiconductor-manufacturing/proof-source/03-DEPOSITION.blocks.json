@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "semiconductor-manufacturing\\03-DEPOSITION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "DEPOSITION METHODS — SELECTION MAP\n════════════════════════════════════════════════════════════════════\n\n                    CONFORMAL?        THICKNESS CONTROL\n                    ──────────────    ────────────────────\nCVD (thermal)       Good              Continuous (rate × time)\nPECVD               Moderate-Good     Continuous (rate × time)\nALD                 Excellent         Atomic-layer exact (cycles × layer thickness)\nPVD/Sputtering      Line-of-sight     Continuous (rate × time)\nEpitaxy             Crystalline       Atomic monolayers\n\n                    BEST USE\n                    ────────────────────────────────────────\nCVD (thermal)       SiO₂, Si₃N₄, poly-Si, HDP oxide gap fill\nPECVD               Low-k ILD, SiN hardmask, lower temp allowed\nALD                 High-k gate oxide, barrier/liner layers, conformal everywhere\nPVD/Sputtering      Metals (Ti/Ta/TaN/W seed), aluminum, copper seed\nMBE/CVD Epitaxy     Strained SiGe source/drain, Si channel, III-V for RF/optoelectronics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Chemical Vapor Deposition (CVD)",
+      "confidence": "candidate",
+      "text": "CVD FUNDAMENTALS\n\nPRINCIPLE:\n  Gas-phase precursors flow over heated wafer\n  Chemical reaction at surface deposits solid film + volatile byproducts\n\nGENERIC REACTION:\n  SiH₄ + 2H₂O → SiO₂ + 4H₂   (silane oxidation — TEOS variant common)\n  3SiH₂Cl₂ + 4NH₃ → Si₃N₄ + 6HCl + 6H₂   (LPCVD silicon nitride)\n\nREACTION REGIMES:\n  Surface-reaction limited (lower T):\n    Rate controlled by surface chemistry\n    Excellent uniformity (wafer rotates; uniform gas supply)\n    Better step coverage/conformality\n  Mass-transport limited (higher T):\n    Rate controlled by gas diffusion to surface\n    Non-uniform (center vs edge differences)\n    Preferred for thick films needing speed\n\nCVD VARIANTS:\n\nAPCVD (Atmospheric Pressure CVD):\n  Simple, fast, mass-transport limited\n  Poor uniformity and step coverage\n  Used: BPSG (borophosphosilicate glass) reflow layers at older nodes\n\nLPCVD (Low Pressure CVD):\n  10-100 Pa vacuum\n  Batch process: 100-200 wafers vertical tube furnace at 550-900°C\n  Surface-reaction limited → excellent uniformity and conformality\n  Films: poly-Si (gate), Si₃N₄ (hardmask, spacer), TEOS-SiO₂\n  Downside: high temperature (not CMOS-compatible for back end)\n\nHDP-CVD (High Density Plasma CVD):\n  Simultaneous deposition + ion bombardment (sputter-etch)\n  Net deposition where deposition > etch rate\n  → Self-planarizing void-free gap fill in narrow trenches\n  Fills aspect ratio 4:1+ without voids\n  Used for: STI (Shallow Trench Isolation) fill, pre-metal dielectric\n\nSACVD (Sub-Atmospheric CVD):\n  TEOS + ozone at 200-600°C, ~40 kPa\n  Excellent conformality without plasma\n  USG (undoped silicate glass) or BPSG fill between metal lines",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 106,
+      "heading_context": "## Plasma-Enhanced CVD (PECVD)",
+      "confidence": "candidate",
+      "text": "PECVD\n\nMOTIVATION:\n  Many back-end materials can't withstand 600°C+ LPCVD temperatures\n  (Copper melts at 1084°C but interconnect dielectrics must deposit on Cu at <400°C)\n  Plasma provides energy to drive reactions at 200-400°C\n\nMECHANISM:\n  RF plasma (13.56 MHz typical) dissociates precursor gases into reactive radicals\n  Radicals react at wafer surface at much lower temperature than thermal CVD\n  Ion bombardment can increase film density\n\nFILMS DEPOSITED:\n  SiO₂:  SiH₄ + N₂O → SiO₂   (PECVD oxide, fast, low-temp)\n  SiN:   SiH₄ + NH₃ → SiNx   (etch stop, diffusion barrier, passivation)\n  SiCN:  Used as barrier layer between Cu and dielectric\n  Low-k SiCOH: carbon-doped oxide (k = 2.7-3.0); 193i PMD, ULKD (k ≈ 2.4)\n  SiC:   Hard mask for EUV/193i patterning\n  a-Si:  Amorphous silicon (sacrificial), TFTs for displays\n\nPLASMA TYPES:\n  CCP (Capacitively Coupled Plasma): simple, moderate density\n  ICP (Inductively Coupled Plasma): higher density, better conformality\n  HDPCVD: densest plasma, simultaneous sputter-etch capability\n\nCONFORMAL DEPOSITION:\n  PECVD films moderate conformality — sidewall coverage 70-80% of top coverage\n  Not ideal for high-aspect-ratio features → ALD fills that role",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 141,
+      "heading_context": "## Atomic Layer Deposition (ALD)",
+      "confidence": "candidate",
+      "text": "ALD — ATOMIC LAYER DEPOSITION\n\nTHE KEY INNOVATION:\n  Self-limiting surface chemistry → exactly one atomic monolayer per cycle\n  Cycle precision: 0.05-0.20 nm per cycle depending on material\n  Conformal to any geometry: 100:1 aspect ratio trenches still get uniform coating\n\nHALF-REACTION CYCLE:\n  Film: Al₂O₃ from TMA + H₂O (the textbook example)\n\n  Pulse A: TMA (trimethylaluminum) — Al(CH₃)₃\n    ─ TMA adsorbs on OH-terminated surface: Al bonds to surface O\n    ─ Methyl groups remain attached (self-limiting: no more reaction after monolayer)\n    ─ Purge excess TMA and CH₄ byproduct with N₂\n\n  Pulse B: H₂O (water)\n    ─ H₂O reacts with surface methyl groups: −Al-CH₃ + H₂O → −Al-OH + CH₄\n    ─ Surface returned to OH state, ready for next cycle\n    ─ Purge excess H₂O and CH₄\n\n  One cycle ≈ 0.1 nm Al₂O₃\n  100 cycles = 10 nm Al₂O₃ (uniform, conformal, pinhole-free)\n\nTHERMAL ALD vs PLASMA ALD:\n  Thermal ALD: both pulses are just precursor gases + purge; requires higher T\n  PEALD (Plasma-Enhanced ALD): oxidant is O₂ plasma or N₂ plasma\n    → Lower temperature, higher reactivity, used for metals and nitrides\n\nCRITICAL APPLICATIONS IN LEADING-EDGE LOGIC:\n\nHIGH-k GATE DIELECTRIC (HfO₂):\n  Gate oxide SiO₂ can't scale below ~0.8 nm (leakage + reliability)\n  ALD HfO₂: k = 22 vs SiO₂ k = 3.9\n  Equivalent oxide thickness (EOT) achieved with physically thicker HfO₂\n    Physical 2 nm HfO₂ → EOT = 2 × (3.9/22) = 0.35 nm\n  ALD control essential: must be exactly the right thickness, uniform\n\nBARRIER LAYERS (TaN/Ta for Cu damascene):\n  Cu diffuses into SiO₂ and Si at room temperature → killer contamination\n  ALD TaN (0.5-2 nm): conformal barrier lining all Cu trenches and vias\n  Followed by ALD Ta or PVD Ta → Cu seed layer\n\nSPACER/LINER DIELECTRICS:\n  Transistor spacers (Si₃N₄, SiO₂) now deposited by ALD for conformality\n  Etch stop layers: SiN or SiCN by ALD\n\nCONFORMAL FILL:\n  ALD in combination with ATOMIC LAYER ETCH (ALE):\n  ALD fills bottom-up; ALE trims sides → true 3D structure control\n  Key for GAA nanosheet fabrication (inner spacers between nanosheets)\n\nALD THROUGHPUT:\n  Cycle time: 0.5-2 seconds per cycle (purge time dominates)\n  To deposit 5 nm HfO₂: ~50 cycles = 25-100 seconds per wafer\n  Single-wafer ALD tool: 100-200 wafers/hour depending on target thickness\n  Spatial ALD: multiple zones, wafer moves through instead of purging → higher throughput",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "## Physical Vapor Deposition (PVD) / Sputtering",
+      "confidence": "candidate",
+      "text": "PVD / SPUTTERING\n\nPRINCIPLE:\n  Physical ejection of atoms from a target material; no chemical reaction\n  Target material atom-for-atom becomes film\n\nSPUTTERING PROCESS:\n  1. Chamber evacuated to ~10⁻⁸ Torr base pressure\n  2. Ar gas admitted (~10⁻³ Torr)\n  3. DC or RF power ionizes Ar → plasma\n  4. Ar⁺ ions accelerated to target (at high negative voltage)\n  5. Ar⁺ physically knocks out target atoms (sputtering yield ~1-3 atoms/ion)\n  6. Target atoms travel in nearly straight lines → deposit on wafer\n  7. Result: thin film of target material on wafer\n\nLINE-OF-SIGHT LIMITATION:\n  PVD is directional → poor step coverage in high-aspect-ratio features\n  Solution: collimated PVD (long mean free path) or ionized metal PVD (IMPVD)\n  IMPVD: metal atoms ionized → directed by substrate bias → fills vias better\n\nKEY PVD APPLICATIONS:\n\nTITANIUM / TITANIUM NITRIDE (Ti/TiN):\n  Ti: adhesion + contact layer for W plugs in FEOL\n  TiN: diffusion barrier (old node), hard mask, gate metal (in HKMG)\n  Deposited by PVD; TiN also by reactive sputtering (Ti target + N₂)\n\nTANTALUM / TANTALUM NITRIDE (Ta/TaN):\n  Combined ALD TaN (barrier) + PVD Ta (wetting) + PVD Cu seed\n  TaN by reactive PVD (Ta target + N₂) or ALD; Ta by PVD\n\nALUMINUM (Al):\n  Top-level bond pads still Al (easier wire bonding than Cu)\n  Al sputter deposition: reflowed at 400-450°C to fill contacts\n\nCOPPER SEED:\n  ALD/PVD barrier → thin PVD Cu seed layer → electroplating (ECD) for bulk Cu fill\n  PVD Cu seed: 20-50 nm conformal seed for subsequent electroplating\n\nREACTICE SPUTTERING:\n  Target + reactive gas → compound film\n  TiN: Ti + N₂ → TiN\n  TaN: Ta + N₂ → TaN\n  ZrO₂: Zr + O₂ → ZrO₂ (gate dielectric in older processes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "## Epitaxy",
+      "confidence": "candidate",
+      "text": "EPITAXIAL DEPOSITION\n\nPRINCIPLE:\n  Atomic layer by layer deposition that maintains crystalline alignment with substrate\n  Homo-epitaxy: same material (Si on Si)\n  Hetero-epitaxy: different material on substrate (SiGe on Si, GaAs on Si)\n\nWHY EPITAXY MATTERS FOR TRANSISTORS:\n  Source/drain STRAIN ENGINEERING (critical since 90 nm node):\n    SiGe has 4.2% larger lattice constant than Si\n    Compressively strained SiGe in p-MOS S/D → compresses Si channel laterally\n    → Increases hole mobility 50-100% → faster p-MOS\n    Tensile SiP (Si:P) in n-MOS S/D → stretches Si channel\n    → Increases electron mobility ~20%\n    Intel introduced this at 90 nm (2003): \"Strained Si\" — one of the biggest\n    single-generation performance leaps\n\nCVD EPITAXY PROCESS:\n  Si and SiGe: reduced pressure CVD (RPCVD) at 650-800°C\n  Precursors: SiH₂Cl₂ (dichlorosilane, DCS) or SiH₄ + GeH₄ (for SiGe)\n  H₂ carrier gas\n  Selective epitaxy: grows only on exposed Si, not on SiO₂ spacers\n    → Epitaxial raised source/drain without depositing everywhere\n\nMOLECULAR BEAM EPITAXY (MBE):\n  Ultra-high vacuum (10⁻¹⁰ Torr)\n  Effusion cells evaporate source materials → molecular beams → substrate\n  Shutter control: monolayer-by-monolayer growth\n  Very slow, very controlled\n  Used for: III-V semiconductors (GaAs, InP, AlGaAs), research, RF/optoelectronics\n  NOT used in CMOS production (too slow, batch size 1)\n\nIII-V EPITAXY FOR RF:\n  GaN-on-SiC: AlGaN/GaN heterostructure HEMT (high-electron-mobility transistor)\n  GaAs pHEMT: power amplifiers in mobile phones\n  InP HBT: millimeter-wave circuits, Ethernet lasers\n  All grown by MOCVD (Metal-Organic CVD) or MBE on semi-insulating substrates",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

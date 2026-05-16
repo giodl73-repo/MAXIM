@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:telecommunications:cellular-networks
+kind: guide
+module: telecommunications
+section: telecommunications
+title: Cellular Networks - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: telecommunications/04-CELLULAR-NETWORKS.md
+canonical_path: telecommunications/04-CELLULAR-NETWORKS.md
+backsource_ids: [proof-backfill:telecommunications:04-cellular-networks, git-history:telecommunications:04-cellular-networks]
+concepts: [cellular, networks]
+root_concepts: [cellular, networks]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cellular Networks — A Layered Guide
 
 ## The Big Picture

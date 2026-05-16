@@ -1,0 +1,153 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-telecommunications-channel-coding",
+  "source": "../../telecommunications",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-CHANNEL-CODING.md#000",
+      "path": [
+        "09-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:telecommunications:09-channel-coding, git-history:telecommunications:09-channel-coding]",
+        "canonical_path": "telecommunications/09-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "telecommunications/09-CHANNEL-CODING.md",
+        "id": "maxim:telecommunications:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "telecommunications",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "telecommunications",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "# Channel Coding — A Layered Guide"
+    },
+    {
+      "id": "09-CHANNEL-CODING.md#001",
+      "path": [
+        "09-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:telecommunications:09-channel-coding, git-history:telecommunications:09-channel-coding]",
+        "canonical_path": "telecommunications/09-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "telecommunications/09-CHANNEL-CODING.md",
+        "id": "maxim:telecommunications:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "telecommunications",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "telecommunications",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "09-CHANNEL-CODING.md#002",
+      "path": [
+        "09-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:telecommunications:09-channel-coding, git-history:telecommunications:09-channel-coding]",
+        "canonical_path": "telecommunications/09-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "telecommunications/09-CHANNEL-CODING.md",
+        "id": "maxim:telecommunications:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "telecommunications",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "telecommunications",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Channel coding adds redundancy to information to detect and correct errors introduced by\na noisy channel. Shannon's theorem proves a capacity limit exists; modern codes approach it."
+    },
+    {
+      "id": "09-CHANNEL-CODING.md#003",
+      "path": [
+        "09-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:telecommunications:09-channel-coding, git-history:telecommunications:09-channel-coding]",
+        "canonical_path": "telecommunications/09-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "telecommunications/09-CHANNEL-CODING.md",
+        "id": "maxim:telecommunications:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "telecommunications",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "telecommunications",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nCHANNEL CODING IN THE COMMUNICATION CHAIN\n════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "09-CHANNEL-CODING.md#004",
+      "path": [
+        "09-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:telecommunications:09-channel-coding, git-history:telecommunications:09-channel-coding]",
+        "canonical_path": "telecommunications/09-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "telecommunications/09-CHANNEL-CODING.md",
+        "id": "maxim:telecommunications:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "telecommunications",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "telecommunications",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Source ──► Source   ──► Channel ──► Modulate ──► [Channel] ──► Demod ──► Channel ──► Source ──► User\n           Compress     Encoder     (BPSK/QAM)    + Noise       (soft      Decoder     Decomp\n           (ZIP, MP3)   (add         carry          added       outputs)   (correct\n                         redundancy)  bits over              FEC)        errors)\n                         FEC code     air\n                         ▲\n                         │\n                    THIS MODULE\n                    (Forward Error Correction: FEC)"
+    }
+  ],
+  "refs": [
+    "09-CHANNEL-CODING.md"
+  ]
+}
