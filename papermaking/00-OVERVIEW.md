@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:papermaking:overview
+kind: guide
+module: papermaking
+section: papermaking
+title: Papermaking - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: papermaking/00-OVERVIEW.md
+canonical_path: papermaking/00-OVERVIEW.md
+backsource_ids: [proof-backfill:papermaking:00-overview, git-history:papermaking:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Papermaking — Landscape and Taxonomy
 
 ## The Big Picture
@@ -16,14 +35,12 @@ Agricultural          CTMP, GW)      ───►  Press section      Cutting / 
   residue       ───►  Semi-chemical  ───►  Dryer section ──►  [PRODUCT FAMILIES]
 Recycled fiber  ───►  De-inking (OCC)                         Printing/writing
                                                               Packaging board
-                      ┌──────────────────────────────┐        Tissue/hygiene
-                      │  CHEMISTRY LAYER (wet end)   │        Specialty/technical
-                      │  Sizing (AKD/ASA/rosin)      │        Security paper
-                      │  Filler (CaCO3, clay, TiO2)  │
-                      │  Retention/drainage aids      │
-                      │  Wet strength (PAE)           │
-                      │  OBA brighteners              │
-                      └──────────────────────────────┘
+                      [ CHEMISTRY LAYER (wet end) ]       Tissue/hygiene
+                      - Sizing (AKD/ASA/rosin)            Specialty/technical
+                      - Filler (CaCO3, clay, TiO2)        Security paper
+                      - Retention/drainage aids
+                      - Wet strength (PAE)
+                      - OBA brighteners
                               │
                               ▼
                       Fiber bonds (H-bond network)
@@ -148,30 +165,30 @@ SPECIALTY
 
 ```
 +----------------------------------------------------------+
-|  GRAMMAGE (basis weight):  g/m²  (gsm)                  |
-|    Tissue: 14–20 gsm    Copy: 75–90    Kraft: 70–150    |
-|    Board: 170–350+      Corrugated medium: 80–190       |
+|  GRAMMAGE (basis weight):  g/m²  (gsm)                   |
+|    Tissue: 14–20 gsm    Copy: 75–90    Kraft: 70–150     |
+|    Board: 170–350+      Corrugated medium: 80–190        |
 |                                                          |
-|  THICKNESS:  µm (microns)                               |
-|    Tissue: 50–100 µm   Copy: 100 µm   Board: 350–700   |
+|  THICKNESS:  µm (microns)                                |
+|    Tissue: 50–100 µm   Copy: 100 µm   Board: 350–700     |
 |                                                          |
-|  DENSITY = grammage / thickness (g/cm³)                 |
-|    Soft tissue: 0.20 g/cm³   Supercalendered: 1.3       |
+|  DENSITY = grammage / thickness (g/cm³)                  |
+|    Soft tissue: 0.20 g/cm³   Supercalendered: 1.3        |
 |                                                          |
-|  TENSILE:  kN/m (tensile index: Nm/g)                   |
-|    Machine direction (MD) stronger than CD              |
-|    MD/CD ratio: 2:1 to 3:1 (machine anisotropy)        |
+|  TENSILE:  kN/m (tensile index: Nm/g)                    |
+|    Machine direction (MD) stronger than CD               |
+|    MD/CD ratio: 2:1 to 3:1 (machine anisotropy)          |
 |                                                          |
 |  TEAR:  mN (Elmendorf tear)                              |
-|    Inversely related to tensile: high-yield = better tear|
+|    High-yield pulps generally give better tear           |
 |                                                          |
-|  BRIGHTNESS:  % ISO (457 nm reflectance)                |
-|    Newsprint: 55–60   Office: 85–92   Optical brightened: 96+ |
+|  BRIGHTNESS:  % ISO (457 nm reflectance)                 |
+|    Newsprint: 55–60   Office: 85–92   OBA: 96+           |
 |                                                          |
-|  SMOOTHNESS:  Sheffield units or Bekk seconds           |
+|  SMOOTHNESS:  Sheffield units or Bekk seconds            |
 |                                                          |
-|  AIR PERMEABILITY:  ml/min (Gurley)                     |
-|    Critical for filter paper, cigarette paper           |
+|  AIR PERMEABILITY:  ml/min (Gurley)                      |
+|    Critical for filter paper, cigarette paper            |
 +----------------------------------------------------------+
 ```
 

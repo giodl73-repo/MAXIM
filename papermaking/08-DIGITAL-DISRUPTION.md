@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:papermaking:digital-disruption
+kind: guide
+module: papermaking
+section: papermaking
+title: Digital Disruption and the Paper Industry
+status: source-custody
+source_custody: partial
+current_path: papermaking/08-DIGITAL-DISRUPTION.md
+canonical_path: papermaking/08-DIGITAL-DISRUPTION.md
+backsource_ids: [proof-backfill:papermaking:08-digital-disruption, git-history:papermaking:08-digital-disruption]
+concepts: [digital, disruption]
+root_concepts: [digital, disruption]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Disruption and the Paper Industry
 
 ## The Big Picture

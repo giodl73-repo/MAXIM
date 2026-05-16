@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plastics-polymers:elastomers
+kind: guide
+module: plastics-polymers
+section: plastics-polymers
+title: Elastomers: Natural and Synthetic Rubber
+status: source-custody
+source_custody: partial
+current_path: plastics-polymers/04-ELASTOMERS.md
+canonical_path: plastics-polymers/04-ELASTOMERS.md
+backsource_ids: [proof-backfill:plastics-polymers:04-elastomers, git-history:plastics-polymers:04-elastomers]
+concepts: [elastomers]
+root_concepts: [elastomers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Elastomers: Natural and Synthetic Rubber
 
 ## The Big Picture

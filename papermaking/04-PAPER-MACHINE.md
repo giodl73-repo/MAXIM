@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:papermaking:paper-machine
+kind: guide
+module: papermaking
+section: papermaking
+title: The Paper Machine: Forming, Pressing, Drying
+status: source-custody
+source_custody: partial
+current_path: papermaking/04-PAPER-MACHINE.md
+canonical_path: papermaking/04-PAPER-MACHINE.md
+backsource_ids: [proof-backfill:papermaking:04-paper-machine, git-history:papermaking:04-paper-machine]
+concepts: [paper, machine]
+root_concepts: [paper, machine]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Paper Machine: Forming, Pressing, Drying
 
 ## The Big Picture

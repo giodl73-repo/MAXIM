@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:papermaking:paper-chemistry
+kind: guide
+module: papermaking
+section: papermaking
+title: Paper Chemistry: Sizing, Coating, and Finishing
+status: source-custody
+source_custody: partial
+current_path: papermaking/05-PAPER-CHEMISTRY.md
+canonical_path: papermaking/05-PAPER-CHEMISTRY.md
+backsource_ids: [proof-backfill:papermaking:05-paper-chemistry, git-history:papermaking:05-paper-chemistry]
+concepts: [paper, chemistry]
+root_concepts: [paper, chemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Paper Chemistry: Sizing, Coating, and Finishing
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plastics-polymers:environmental
+kind: guide
+module: plastics-polymers
+section: plastics-polymers
+title: Environmental Impact and Microplastics
+status: source-custody
+source_custody: partial
+current_path: plastics-polymers/07-ENVIRONMENTAL.md
+canonical_path: plastics-polymers/07-ENVIRONMENTAL.md
+backsource_ids: [proof-backfill:plastics-polymers:07-environmental, git-history:plastics-polymers:07-environmental]
+concepts: [environmental]
+root_concepts: [environmental]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Environmental Impact and Microplastics
 
 ## The Big Picture

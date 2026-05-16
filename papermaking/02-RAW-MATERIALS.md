@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:papermaking:raw-materials
+kind: guide
+module: papermaking
+section: papermaking
+title: Raw Materials: Wood Pulp, Cotton, and Alternatives
+status: source-custody
+source_custody: partial
+current_path: papermaking/02-RAW-MATERIALS.md
+canonical_path: papermaking/02-RAW-MATERIALS.md
+backsource_ids: [proof-backfill:papermaking:02-raw-materials, git-history:papermaking:02-raw-materials]
+concepts: [raw, materials]
+root_concepts: [raw, materials]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Raw Materials: Wood Pulp, Cotton, and Alternatives
 
 ## The Big Picture

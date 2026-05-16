@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plastics-polymers:overview
+kind: guide
+module: plastics-polymers
+section: plastics-polymers
+title: Plastics and Polymers - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: plastics-polymers/00-OVERVIEW.md
+canonical_path: plastics-polymers/00-OVERVIEW.md
+backsource_ids: [proof-backfill:plastics-polymers:00-overview, git-history:plastics-polymers:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Plastics & Polymers — Landscape and Taxonomy
 
 ## The Big Picture
@@ -10,13 +29,13 @@
 |   ---------------               -----------------                |
 |   Cellulose, Starch             +-------------+                  |
 |   Silk, Wool, Lignin            |             |                  |
-|   Natural Rubber (NR)       THERMO-       THERMO-    ELASTO-    |
+|   Natural Rubber (NR)       THERMO-       THERMO-    ELASTO-     |
 |   DNA, Proteins              PLASTICS       SETS       MERS      |
-|                                  |             |          |       |
+|                                  |             |          |      |
 |                              Melt &       Cross-    Stretch &    |
 |                              reprocess    linked    recover      |
-|                                  |             |          |       |
-|                          PE,PP,PET      Epoxy,PU   NR,SBR,      |
+|                                  |             |          |      |
+|                          PE,PP,PET      Epoxy,PU   NR,SBR,       |
 |                          PS,PVC,ABS     Phenolic   EPDM,         |
 |                          Nylon,PC       Melamine   Silicone      |
 +------------------------------------------------------------------+
@@ -80,27 +99,27 @@ LOW   |   [LDPE film, LLDPE, PP, PVC, GPPS, EPS, PET bottle]
 
 ```
 +--------------------------------------------------------------+
-|  CRITICAL PARAMETERS FOR ANY POLYMER                        |
+|  CRITICAL PARAMETERS FOR ANY POLYMER                         |
 |                                                              |
-|  Tg  — Glass Transition Temperature                         |
-|         Below Tg: glassy / brittle / stiff                  |
-|         Above Tg: rubbery / leathery / ductile              |
-|         PET: 80°C   PC: 147°C   PMMA: 105°C                |
+|  Tg  — Glass Transition Temperature                          |
+|         Below Tg: glassy / brittle / stiff                   |
+|         Above Tg: rubbery / leathery / ductile               |
+|         PET: 80°C   PC: 147°C   PMMA: 105°C                  |
 |                                                              |
-|  Tm  — Melt Temperature (crystalline polymers only)         |
-|         Amorphous polymers have no sharp Tm                 |
-|         PP: 160–170°C   HDPE: 130–135°C   PET: 260°C       |
+|  Tm  — Melt Temperature (crystalline polymers only)          |
+|         Amorphous polymers have no sharp Tm                  |
+|         PP: 160–170°C   HDPE: 130–135°C   PET: 260°C         |
 |                                                              |
-|  Mw  — Weight-average Molecular Weight                      |
-|  Mn  — Number-average Molecular Weight                      |
-|         HDPE: Mw ~ 100,000–500,000 g/mol                   |
-|         Ultra-high: UHMWPE ~ 3,000,000–6,000,000 g/mol     |
+|  Mw  — Weight-average Molecular Weight                       |
+|  Mn  — Number-average Molecular Weight                       |
+|         HDPE: Mw ~ 100,000–500,000 g/mol                     |
+|         Ultra-high: UHMWPE ~ 3,000,000–6,000,000 g/mol       |
 |                                                              |
-|  PDI — Polydispersity Index = Mw/Mn                        |
-|         PDI ~ 1.0: perfectly monodisperse (theoretical)     |
-|         PDI ~ 1.1: living polymerization (anionic, ATRP)    |
-|         PDI ~ 2.0: free radical (most commodity plastics)   |
-|         PDI > 5: controlled degradation or branching        |
+|  PDI — Polydispersity Index = Mw/Mn                          |
+|         PDI ~ 1.0: perfectly monodisperse (theoretical)      |
+|         PDI ~ 1.1: living polymerization (anionic, ATRP)     |
+|         PDI ~ 2.0: free radical (most commodity plastics)    |
+|         PDI > 5: controlled degradation or branching         |
 +--------------------------------------------------------------+
 ```
 

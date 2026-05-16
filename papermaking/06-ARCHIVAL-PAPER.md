@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:papermaking:archival-paper
+kind: guide
+module: papermaking
+section: papermaking
+title: Archival and Conservation Paper
+status: source-custody
+source_custody: partial
+current_path: papermaking/06-ARCHIVAL-PAPER.md
+canonical_path: papermaking/06-ARCHIVAL-PAPER.md
+backsource_ids: [proof-backfill:papermaking:06-archival-paper, git-history:papermaking:06-archival-paper]
+concepts: [archival, paper]
+root_concepts: [archival, paper]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Archival and Conservation Paper
 
 ## The Big Picture
@@ -313,7 +332,7 @@ PAPER DEGRADATION ↔ DIGITAL PRESERVATION PARALLELS
 ====================================================
 
 PROBLEM                PAPER                      DIGITAL
-=======                =====                      =======
+-------                -----                      -------
 Media decay            Acid hydrolysis of          Bit rot (magnetic flip,
                        cellulose → brittle         capacitor charge loss,
                        failure                     optical pit degradation)

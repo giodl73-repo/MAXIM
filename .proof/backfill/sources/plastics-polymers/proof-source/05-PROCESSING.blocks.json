@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "plastics-polymers\\05-PROCESSING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              POLYMER PROCESSING LANDSCAPE                        |\n|                                                                  |\n|   PELLETS/GRANULES          PROCESSES           PRODUCTS         |\n|   ───────────────           ─────────           ────────         |\n|   PP, PE, ABS, etc.         Injection mold  →   Parts, housings  |\n|   Dried (if hygroscopic)    Extrusion       →   Film, pipe, rod  |\n|   Colorant / additive       Blow molding    →   Bottles, drums   |\n|   masterbatch               Thermoforming   →   Trays, cups      |\n|                             Compression     →   Thermoset parts  |\n|                             Transfer mold   →   Precision TS     |\n|                             Rotomolding     →   Large hollow     |\n|                             Foam            →   Structural/pack  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 52,
+      "heading_context": "## Melt Rheology — The Foundation",
+      "confidence": "candidate",
+      "text": "   VISCOSITY vs. SHEAR RATE (log-log)\n\n   η (Pa·s)\n   |\n   1000 |──────\\         (Newtonian plateau at low shear)\n        |       \\\n    100 |        \\____   (power-law shear thinning region)\n        |              \\__\n     10 |                  (high shear: near-Newtonian again)\n        |\n        +──────────────────────────────────> γ̇ (shear rate)\n        0.01              100        10,000 s⁻¹",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 85,
+      "heading_context": "### Machine Layout",
+      "confidence": "candidate",
+      "text": "   HOPPER → BARREL → SCREW → NOZZLE → MOLD (clamped)\n     |          |                          |\n   Pellets   Heater    Reciprocating    Cavity fills,\n             bands     screw melts      cools, part ejects",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 116,
+      "heading_context": "### Process Parameters and Defects",
+      "confidence": "candidate",
+      "text": "   PARAMETER        EFFECT                  DEFECT IF WRONG\n   ─────────        ──────                  ───────────────\n   Melt temperature  Viscosity (↑T → ↓η)   Too low: short shots, weld lines\n                                             Too high: degradation, splay marks\n\n   Injection speed   Fill rate              Too slow: premature freeze-off\n                                             Too fast: jetting, burn marks\n\n   Pack pressure     Shrinkage compensation Too low: sink marks, warpage\n                                             Too high: flash, residual stress\n\n   Mold temperature  Crystallinity, Tg      Too low: poor surface, warpage\n                                             Too high: long cycle, sticking\n\n   Cooling time      Dimensional stability  Too short: distortion on eject",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "### Mold Temperature: Critical for Crystallinity",
+      "confidence": "candidate",
+      "text": "   PP Mold Temperature Effect:\n   ────────────────────────────\n   Cold mold (25°C):   fast quench → small crystallites, lower χ_c\n                        → lower modulus, hazy, dimensional issues later\n   Hot mold (80–100°C): slow cooling → large crystallites, higher χ_c\n                          → higher modulus, higher shrinkage (must be\n                            accounted for in tool dimensions)\n\n   For PEEK: mold at 160–190°C mandatory for crystallization\n   Amorphous PEEK at cold mold: low Tg (~143°C) — unacceptable\n   Crystallized PEEK: continuous use to 250°C",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "### Screw Design",
+      "confidence": "candidate",
+      "text": "   FEED ZONE → COMPRESSION ZONE → METERING ZONE\n   ──────────   ─────────────────   ─────────────\n   Deep channel  Decreasing depth   Shallow, constant\n   Takes solid   Melts and          Pumps at controlled\n   pellets       compresses         rate and pressure\n\n   L/D ratio: 20:1 to 30:1 (length to diameter)\n   Compression ratio: 2:1 to 4:1 (feed depth / metering depth)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "### Die Shapes and Products",
+      "confidence": "candidate",
+      "text": "   FLAT DIE (sheet / film)          ANNULAR DIE (blown film)\n   ───────────────────────          ────────────────────────\n   ┌──────────────────────┐         Tube of melt rises vertically\n   │   manifold           │         Internal air pressure inflates\n   │   choker bar         │         bubble (2–5× die diameter)\n   │   lip gap             │         Frost line: where melt solidifies\n   └──────────────────────┘         Take-up nips flatten bubble\n   → Sheet (>0.5mm)                 → LDPE/LLDPE film for bags, wrap\n   → Film (<0.5mm biaxially later)\n\n   PIPE/TUBE DIE                    PROFILE EXTRUSION\n   ─────────────                    ─────────────────\n   Mandrel inside die               Window profiles, deck boards\n   Calibration sleeve sizes OD      Complex cross-sections\n   Water cooling                    PVC, HDPE, WPC",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "### Blown Film Bubble Stability",
+      "confidence": "candidate",
+      "text": "   Key parameters:\n   BUR (Blow-up ratio) = bubble diameter / die diameter\n      Typical: 2:1 to 4:1\n   TUR (Take-up ratio) = line speed / extrusion rate\n      Controls machine-direction orientation\n\n   LDPE: stable bubble, lower crystallization point (low MFI LCB grades)\n   LLDPE: higher melt strength needed (blend with LDPE 20–30% for bubble)\n   mLLDPE: narrow PDI → poor bubble stability → typically blended",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 223,
+      "heading_context": "### Extrusion Blow Molding (EBM)",
+      "confidence": "candidate",
+      "text": "   DIE HEAD\n      │\n      │ parison drops (100–300 mm/s)\n      ↓\n   [==parison==]\n      │\n      ↓ MOLD CLOSES (pinch bottom, seal top)\n   ┌──────────┐\n   │ air →    │\n   │ [bottle] │\n   └──────────┘\n   Air inflates parison to mold shape\n   Mold cooling water sets shape\n      │\n      ↓ MOLD OPENS — part ejected",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "### Injection Stretch Blow Molding (ISBM) — PET Bottles",
+      "confidence": "candidate",
+      "text": "   STAGE 1: INJECTION MOLDING PREFORM\n   Melt PET → inject into preform mold → cool to solid \"test tube\"\n   Stored or immediately transferred.\n\n   STAGE 2: BLOW MOLDING\n   Reheat preform to Tg + 30–50°C (110–130°C for PET)\n   Insert stretch rod → extends axially (×2.5)\n   Air (1.5–4 MPa) → expands radially (×3.5)\n   Biaxial orientation: aligns chains → χ_c 20–30% → barrier + strength\n   Total stretch: (axial) × (hoop) ~ 8–10× area ratio",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 271,
+      "heading_context": "## Thermoforming",
+      "confidence": "candidate",
+      "text": "   VACUUM FORMING           PRESSURE FORMING\n   ──────────────           ────────────────\n   Sheet + vacuum           Sheet + air pressure (up to 4 bar)\n   Simple, one-sided        Better detail, sharper corners\n   Thin sheet only          Thicker sheet, better draw\n\n   PLUG-ASSISTED: mechanical plug pre-stretches sheet before vacuum\n   → more uniform wall thickness in deep draws\n\n   MATERIALS: ABS, PS, PET, HDPE, PP, PMMA, PC\n   PRODUCTS: Trays, blister packs, cups, auto door panels, spa baths",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 292,
+      "heading_context": "## Rotational Molding (Rotomolding)",
+      "confidence": "candidate",
+      "text": "   ROTATIONAL MOLDING PROCESS\n   ──────────────────────────\n   1. Load: powdered resin charged into hollow mold (typically LLDPE powder)\n   2. Heat: mold placed in oven (260–370°C); rotated on two perpendicular axes\n            simultaneously (biaxial rotation: 2–20 rpm)\n   3. Melt and coat: powder melts and sinters onto inner mold wall;\n                     gravity + rotation ensures even coverage\n   4. Cool: mold transferred to cooling station; continued rotation during\n            cooling to prevent sagging\n   5. Demold: part removed; hollow, seamless, uniform wall thickness\n\n   MATERIALS:\n   LLDPE: ~80% of rotomolding market (easy powder form, wide processing window)\n   HDPE, PP, plastisol PVC (liquid), nylon 6 (anionic polymerization in-mold)\n   Crosslinked PE (XLPE): for large storage tanks requiring UV/chemical resistance\n\n   KEY CHARACTERISTICS:\n   ┌──────────────────────────────────────────────────────────────┐\n   │  + Large hollow parts: impossible by injection or blow mold  │\n   │  + Uniform wall thickness (controlled by powder distrib.)    │\n   │  + Low tooling cost: aluminum molds ~$5K–$50K vs injection   │\n   │    steel molds $50K–$500K                                    │\n   │  + No weld lines, no gates, no sink marks                    │\n   │  – Slow cycle: 20–45 minutes (limited by thermal mass)       │\n   │  – Material must be powder-form or liquid                    │\n   │  – Dimensional tolerance: ±0.5–1% (worse than injection)     │\n   └──────────────────────────────────────────────────────────────┘\n\n   APPLICATIONS:\n   Large liquid storage tanks (500–20,000 L)\n   Kayaks, canoes, playground equipment\n   Fuel tanks, septic tanks, chemical storage\n   Traffic barriers (water-fillable; bright colors)\n   Industrial bins, pallets, large housings\n\n   WALL THICKNESS CONTROL:\n   Determined by powder charge weight and mold surface area\n   Typical: 3–10 mm; can design double-wall hollow parts by\n   loading two materials in sequence (foam + skin)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 336,
+      "heading_context": "## Compression and Transfer Molding (Thermosets)",
+      "confidence": "candidate",
+      "text": "   COMPRESSION MOLDING (thermosets / rubber)\n   ──────────────────────────────────────────\n   Charge (preform or powder) placed in open mold\n   Mold closes under press (10–50 MPa)\n   Heat from mold (150–200°C) cures material\n   Open — demold\n\n   Suitable: rubber compounds, phenolic, BMC, SMC\n   Cycle: 1–10 minutes (cure-limited, not cool-limited)\n\n   TRANSFER MOLDING\n   ─────────────────\n   Material in pot → ram forces through runners into closed cavities\n   Better dimensional control than compression\n   Used: precision electronic encapsulation, connectors",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 358,
+      "heading_context": "## Shrinkage, Warpage, and Dimensional Control",
+      "confidence": "candidate",
+      "text": "   VOLUMETRIC SHRINKAGE by material:\n\n   Material      Mold shrinkage (%/mm)\n   ──────────    ──────────────────────\n   LDPE          1.5–4.0\n   HDPE          1.5–3.5\n   PP            1.0–2.5\n   PVC rigid     0.2–0.6   (low – amorphous)\n   PS            0.2–0.6   (low – amorphous)\n   ABS           0.3–0.8   (low – amorphous)\n   PC            0.5–0.7   (low – amorphous)\n   Nylon 66      1.5–2.0   (higher – semi-xtal)\n   POM           2.0–3.5   (highest – high xtal)\n   PEEK          1.2–1.5\n\n   Amorphous polymers: shrink ~0.5–1% (no density change from crystallization)\n   Semi-crystalline:   shrink 1.5–4% (crystallization = densification)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
