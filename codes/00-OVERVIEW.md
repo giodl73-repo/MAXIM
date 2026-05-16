@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:codes:overview
+kind: guide
+module: codes
+section: codes
+title: Codes and Symbolic Systems - Overview
+status: source-custody
+source_custody: partial
+current_path: codes/00-OVERVIEW.md
+canonical_path: codes/00-OVERVIEW.md
+backsource_ids: [proof-backfill:codes:00-overview, git-history:codes:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Codes & Symbolic Systems — Overview
 
 ## The Big Picture
@@ -104,7 +123,7 @@ Shannon entropy also explains **why Morse code works**: E (.) and T (-) are the 
 │                  │ NATO phonetic — message across a       │
 │                  │ constrained channel (wire/light/radio) │
 ├──────────────────┼───────────────────────────────────────┤
-│ ACCESSIBILITY    │ Braille, Moon type, ASL fingerspelling,│
+│ ACCESSIBILITY    │ Braille, Moon type, ASL signing       │
 │                  │ tactile paving — same information for │
 │                  │ different sensory modalities          │
 ├──────────────────┼───────────────────────────────────────┤

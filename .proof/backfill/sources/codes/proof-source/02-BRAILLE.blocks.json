@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "codes\\02-BRAILLE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                      BRAILLE SYSTEM MAP                          │\n│                                                                  │\n│  Grade 1 (Uncontracted)     Grade 2 (Contracted/UEB)             │\n│  ┌──────────────────┐       ┌─────────────────────┐              │\n│  │ 26 letters       │       │ Grade 1 +            │             │\n│  │ 10 digits        │  ──→  │ 189 contractions     │             │\n│  │ Punctuation      │       │ Short forms          │             │\n│  │ Basic indicators │       │ More efficient        │             │\n│  └──────────────────┘       └─────────────────────┘             │\n│                                                                  │\n│  Nemeth Code            Computer Braille (8-dot)                │\n│  ┌──────────────┐       ┌──────────────────────┐               │\n│  │ Mathematics  │       │ ASCII (256 chars)    │               │\n│  │ Science      │       │ Programming code     │               │\n│  │ Technical    │       │ Braille display out  │               │\n│  └──────────────┘       └──────────────────────┘               │\n│                                                                  │\n│  Music Braille          Braille versions exist for:             │\n│  ┌──────────────┐       Chess, Shorthand, Korean, Japanese      │\n│  │ Pitch, rhythm│       Arabic, Hebrew, Chinese, Thai...        │\n│  │ Dynamics     │       (each script has a Braille mapping)     │\n│  └──────────────┘                                               │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "## The 6-Dot Cell",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────┐\n│                  BRAILLE CELL LAYOUT                     │\n│                                                          │\n│    Left column    Right column                           │\n│                                                          │\n│       ● ●         Dot 1  Dot 4                           │\n│       ● ●         Dot 2  Dot 5                           │\n│       ● ●         Dot 3  Dot 6                           │\n│                                                          │\n│    Dots are named by number:                             │\n│    ·  ·  = no dots (space)                               │\n│    ●  ·  = dot 1 only → letter 'a'                       │\n│    ●  ●  = dots 1,4 → letter 'c'                         │\n│    ● ● ● = dots 1,2,3 (left column full) → 'l'           │\n│                                                          │\n│  Physical specs (BANA standard):                         │\n│  Cell width:  6.35mm    Cell height:  10.16mm            │\n│  Dot spacing: 2.34mm (center-to-center within cell)      │\n│  Inter-cell:  6.35mm (center-to-center horizontally)     │\n│  Dot height:  0.48mm above paper surface                 │\n│  Paper:       120–160 lb index stock (holds embossing)   │\n└──────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "## Grade 1: The Full Alphabet",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│               GRADE 1 ALPHABET — DOT NUMBERS                 │\n│                                                              │\n│  a=1       b=12      c=14      d=145     e=15                │\n│  f=124     g=1245    h=125     i=24      j=245               │\n│                                                              │\n│  k=13      l=123     m=134     n=1345    o=135               │\n│  p=1234    q=12345   r=1235    s=234     t=2345              │\n│                                                              │\n│  u=136     v=1236    w=2456    x=1346    y=13456   z=1356    │\n│                                                              │\n│  PATTERN: letters a–j use only dots 1,2,4,5 (top 4 dots)     │\n│           letters k–t = corresponding a–j + dot 3            │\n│           letters u–z = corresponding k–t + dot 6            │\n│           (w is irregular: j+6 would be 2456, which IS w)    │\n│           (w was added for English; French Braille had no w) │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "## Computer Braille (8-Dot)",
+      "confidence": "candidate",
+      "text": "Standard 6-dot cell:  ● ●    Computer 8-dot cell:  ● ●\n                      ● ●                           ● ●\n                      ● ●                           ● ●\n                                                    ● ●  ← dots 7 and 8",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "### Physical Production",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│            BRAILLE EMBOSSING METHODS                         │\n│                                                              │\n│  Personal embosser (home/office):                            │\n│  — Interpoint embosser: dots on both sides, interlaced       │\n│  — Single-sided: less efficient, easier to produce           │\n│  — Speed: 10–50 pages/minute                                 │\n│  — Cost: $1,000–$5,000                                       │\n│                                                              │\n│  Industrial embosser:                                        │\n│  — High-volume: textbook production                          │\n│  — Speed: 800+ pages/hour                                    │\n│                                                              │\n│  Braille paper:                                              │\n│  — Weight: 90–160 gsm (heavier than copier paper)            │\n│  — Dots last ~2 years with heavy use before flattening       │\n│  — Wet conditions collapse dots faster                       │\n│                                                              │\n│  Braille slate and stylus (manual):                          │\n│  — Metal or plastic template with 6-dot wells                │\n│  — Punch from right to left (mirror image)                   │\n│  — Turn over to read left-to-right                           │\n│  — The pencil-and-paper equivalent for Braille               │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:codes:fingerspelling-sign
+kind: guide
+module: codes
+section: codes
+title: Fingerspelling and Sign Language
+status: source-custody
+source_custody: partial
+current_path: codes/06-FINGERSPELLING-SIGN.md
+canonical_path: codes/06-FINGERSPELLING-SIGN.md
+backsource_ids: [proof-backfill:codes:06-fingerspelling-sign, git-history:codes:06-fingerspelling-sign]
+concepts: [fingerspelling, sign]
+root_concepts: [fingerspelling, sign]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fingerspelling & Sign Language
 
 ## The Big Picture
@@ -242,7 +261,7 @@ ASL:      MOVIE ME SEE YESTERDAY  (topic first, then comment)
           or: YESTERDAY, MOVIE, ME SEE  (time → topic → comment)
 
 The topic is established in space, then commented on.
-This is analogous to Japanese/Korean topic markers (wa は).
+This is analogous to Japanese/Korean topic markers (wa particle).
 ```
 
 ### Spatial Grammar
@@ -289,7 +308,7 @@ NMMs and their grammatical roles:
 │                                                          │
 │  Puffed cheeks: "large" modifier                         │
 │  Sucked-in cheeks: "small/thin" modifier                 │
-│  Mouth pattern "CHA": intensifier ("really big/extreme")│
+│  Mouth pattern "CHA": intensifier ("really big/extreme") │
 │                                                          │
 │  Mouth patterns (mouthing): Some signs have associated   │
 │  mouth movements borrowed from English (not all do).     │
@@ -348,7 +367,7 @@ A key question in sign linguistics:
 │  transparent today).                                         │
 │                                                              │
 │  Key point from linguistics: iconicity does not prevent a    │
-│  system from being a language. ASL is a full natural language │
+│  system from being a language. ASL is a full language.       │
 │  whether or not its signs resemble their meanings.           │
 └──────────────────────────────────────────────────────────────┘
 ```

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:overview
+kind: guide
+module: world-languages
+section: world-languages
+title: World Languages - Overview and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: world-languages/00-OVERVIEW.md
+canonical_path: world-languages/00-OVERVIEW.md
+backsource_ids: [proof-backfill:world-languages:00-overview, git-history:world-languages:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # World Languages — Overview & Taxonomy
 
 ## The Big Picture: Language Family Tree

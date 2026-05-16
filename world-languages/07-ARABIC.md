@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:arabic
+kind: guide
+module: world-languages
+section: world-languages
+title: Arabic - Language Reference
+status: source-custody
+source_custody: partial
+current_path: world-languages/07-ARABIC.md
+canonical_path: world-languages/07-ARABIC.md
+backsource_ids: [proof-backfill:world-languages:07-arabic, git-history:world-languages:07-arabic]
+concepts: [arabic]
+root_concepts: [arabic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Arabic — Language Reference
 
 ## Profile at a Glance

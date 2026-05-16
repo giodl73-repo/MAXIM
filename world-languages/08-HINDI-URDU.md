@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:hindi-urdu
+kind: guide
+module: world-languages
+section: world-languages
+title: Hindi–Urdu - Language Reference
+status: source-custody
+source_custody: partial
+current_path: world-languages/08-HINDI-URDU.md
+canonical_path: world-languages/08-HINDI-URDU.md
+backsource_ids: [proof-backfill:world-languages:08-hindi-urdu, git-history:world-languages:08-hindi-urdu]
+concepts: [hindi, urdu]
+root_concepts: [hindi, urdu]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hindi–Urdu — Language Reference
 
 ## Profile at a Glance

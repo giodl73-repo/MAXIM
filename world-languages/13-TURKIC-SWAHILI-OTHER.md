@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:turkic-swahili-other
+kind: guide
+module: world-languages
+section: world-languages
+title: Turkish, Persian, Swahili, Polish, Tamil - Language Profiles
+status: source-custody
+source_custody: partial
+current_path: world-languages/13-TURKIC-SWAHILI-OTHER.md
+canonical_path: world-languages/13-TURKIC-SWAHILI-OTHER.md
+backsource_ids: [proof-backfill:world-languages:13-turkic-swahili-other, git-history:world-languages:13-turkic-swahili-other]
+concepts: [turkic, swahili, other]
+root_concepts: [turkic, swahili]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Turkish, Persian, Swahili, Polish, Tamil — Language Profiles
 
 ## Overview

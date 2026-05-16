@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:cheatsheet
+kind: guide
+module: world-languages
+section: world-languages
+title: World Languages - Universal Phrase Cheatsheet
+status: source-custody
+source_custody: partial
+current_path: world-languages/01-CHEATSHEET.md
+canonical_path: world-languages/01-CHEATSHEET.md
+backsource_ids: [proof-backfill:world-languages:01-cheatsheet, git-history:world-languages:01-cheatsheet]
+concepts: [cheatsheet]
+root_concepts: [cheatsheet]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # World Languages — Universal Phrase Cheatsheet
 
 ```

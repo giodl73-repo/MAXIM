@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:codes:historical-ciphers
+kind: guide
+module: codes
+section: codes
+title: Historical Ciphers - From Caesar to Enigma
+status: source-custody
+source_custody: partial
+current_path: codes/08-HISTORICAL-CIPHERS.md
+canonical_path: codes/08-HISTORICAL-CIPHERS.md
+backsource_ids: [proof-backfill:codes:08-historical-ciphers, git-history:codes:08-historical-ciphers]
+concepts: [historical, ciphers]
+root_concepts: [historical, ciphers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Historical Ciphers — From Caesar to Enigma
 
 ## The Big Picture
@@ -22,7 +41,7 @@ Classical cryptography is the prehistory of modern cryptographic theory. The arc
 │            → mathematical proof OTP is perfectly secure          │
 │            → framework for all modern cryptography               │
 │  1977      DES (first public standard cipher)                    │
-│  2001      AES (current standard) → see computing/25-SECURITY.md│
+│  2001      AES (current standard) → see computing/25-SECURITY.md │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -139,7 +158,7 @@ Still breakable with sufficient ciphertext.
 │  KASISKI (1863):                                             │
 │  1. Scan ciphertext for repeated trigrams                    │
 │  2. Distance between repeats is likely a multiple of key len │
-│     (because same plaintext + same key position = same cipher)│
+│     (same plaintext + same key position = same cipher)       │
 │  3. GCD of all repeat-distances ≈ key length                 │
 │  4. Once key length known: divide into key-length columns    │
 │  5. Each column is a simple Caesar cipher → frequency-analyze│
@@ -188,7 +207,7 @@ Charles Wheatstone invented it; Lord Playfair popularized it. Encrypts **pairs**
 │                                                              │
 │  PREPROCESSING:                                              │
 │  — J → I (or Q → K, depends on variant)                      │
-│  — Double letters: insert X between (HELLO → HE LX LO)      │
+│  — Double letters: insert X between (HELLO → HE LX LO)       │
 │  — Odd-length plaintext: add X at end                        │
 │                                                              │
 │  Security: breaks frequency analysis of single letters,      │

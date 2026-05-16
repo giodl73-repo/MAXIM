@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:spanish
+kind: guide
+module: world-languages
+section: world-languages
+title: Spanish - Language Reference
+status: source-custody
+source_custody: partial
+current_path: world-languages/02-SPANISH.md
+canonical_path: world-languages/02-SPANISH.md
+backsource_ids: [proof-backfill:world-languages:02-spanish, git-history:world-languages:02-spanish]
+concepts: [spanish]
+root_concepts: [spanish]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Spanish — Language Reference
 
 ## Profile at a Glance

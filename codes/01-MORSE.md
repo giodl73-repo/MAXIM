@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:codes:morse
+kind: guide
+module: codes
+section: codes
+title: Morse Code - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: codes/01-MORSE.md
+canonical_path: codes/01-MORSE.md
+backsource_ids: [proof-backfill:codes:01-morse, git-history:codes:01-morse]
+concepts: [morse]
+root_concepts: [morse]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Morse Code — Complete Reference
 
 ## The Big Picture

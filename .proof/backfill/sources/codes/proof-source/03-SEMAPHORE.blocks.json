@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "codes\\03-SEMAPHORE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                    SEMAPHORE SYSTEM MAP                          │\n│                                                                  │\n│  FLAG SEMAPHORE (most familiar)                                  │\n│  Two handheld flags, arm positions encode letters                │\n│  Range: ~3 km with flags; ~10 km with Aldis lamp                 │\n│  Speed: ~20–30 characters/min (trained operator)                 │\n│  Context: maritime, military, emergency signaling                │\n│                                                                  │\n│  CHAPPE OPTICAL TELEGRAPH (historical, 1793)                     │\n│  Mechanical semaphore towers, 556 km network across France       │\n│  Forerunner of all telecommunications                            │\n│                                                                  │\n│  RAILWAY SEMAPHORE (operational, 1830s–present)                  │\n│  Fixed mechanical arm signals; 2 or 3 positions                  │\n│  Controls train movement on single-track lines                   │\n│                                                                  │\n│  HELIOGRAPH (optical, 1870s–1944)                                │\n│  Reflected sunlight using mirror and shutter                     │\n│  Encodes Morse, not semaphore positions                          │\n│  Range: 50–100+ km in clear conditions                           │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 55,
+      "heading_context": "## Flag Semaphore — Position System",
+      "confidence": "candidate",
+      "text": "The operator holds one flag in each hand and extends arms to one of **8 positions**, 45° apart. With two independent arms, the theoretical capacity is 8 × 8 = 64 combinations (minus same-position for both arms = 56 usable). The 26 letters + digits + procedural signals use a subset.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "### Position Reference Grid",
+      "confidence": "candidate",
+      "text": "                        EIGHT ARM POSITIONS\n                     (from receiver's perspective)\n\n                            UP (8)\n                           /\n              UL (7)      |        UR (1)\n             /            |         \\\n            /             |          \\\nLEFT (6) ──────────── CENTER (body) ──────── RIGHT (2)\n            \\             |          /\n             \\            |         /\n              LL (5)      |        LR (3)\n                           \\\n                            DOWN (4)\n\n  Number key: 1=upper-right, 2=right, 3=lower-right, 4=down,\n              5=lower-left, 6=left, 7=upper-left, 8=up\n\n  Each arm can be in any of these 8 positions.\n  \"Down\" (4) is the rest/neutral position.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "## The Complete Flag Semaphore Alphabet",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────┐\n│        FLAG SEMAPHORE ALPHABET — LEFT/RIGHT ARM POSITIONS       │\n│        Position key: 8=up, 7=UL, 6=L, 5=LL, 4=down,             │\n│                      3=LR, 2=R, 1=UR                            │\n├─────┬───────┬───────────────────────────────────────────────────┤\n│  A  │ L:4   │ R:1    \"L down, R upper-right\"                   │\n│  B  │ L:4   │ R:2    \"L down, R right\"                         │\n│  C  │ L:4   │ R:3    \"L down, R lower-right\"                   │\n│  D  │ L:4   │ R:5    \"L down, R lower-left\" (crossing)         │\n│  E  │ L:4   │ R:6    \"L down, R left\"                          │\n│  F  │ L:4   │ R:7    \"L down, R upper-left\"                    │\n│  G  │ L:4   │ R:8    \"L down, R up\"                            │\n├─────┼───────┼──────────────────────────────────────────────────┤\n│  H  │ L:1   │ R:2    \"L upper-right, R right\"                  │\n│  I  │ L:1   │ R:3    \"L upper-right, R lower-right\"            │\n│  J  │ L:6   │ R:8    \"L left, R up\"   [special – J]            │\n│  K  │ L:1   │ R:5    \"L upper-right, R lower-left\"             │\n│  L  │ L:1   │ R:6    \"L upper-right, R left\"                   │\n│  M  │ L:1   │ R:7    \"L upper-right, R upper-left\"             │\n│  N  │ L:1   │ R:8    \"L upper-right, R up\"                     │\n├─────┼───────┼──────────────────────────────────────────────────┤\n│  O  │ L:2   │ R:3    \"L right, R lower-right\"                  │\n│  P  │ L:2   │ R:5    \"L right, R lower-left\"                   │\n│  Q  │ L:2   │ R:6    \"L right, R left\"                         │\n│  R  │ L:2   │ R:7    \"L right, R upper-left\"                   │\n│  S  │ L:2   │ R:8    \"L right, R up\"                           │\n├─────┼───────┼──────────────────────────────────────────────────┤\n│  T  │ L:3   │ R:5    \"L lower-right, R lower-left\"             │\n│  U  │ L:3   │ R:6    \"L lower-right, R left\"                   │\n│  V  │ L:5   │ R:8    \"L lower-left, R up\"                      │\n│  W  │ L:6   │ R:7    \"L left, R upper-left\"                    │\n│  X  │ L:3   │ R:7    \"L lower-right, R upper-left\"             │\n│  Y  │ L:3   │ R:8    \"L lower-right, R up\"  [variant: 3/1]     │\n│  Z  │ L:5   │ R:6    \"L lower-left, R left\"                    │\n├─────┴───────┴──────────────────────────────────────────────────┤\n│  Numbers: signal NUMERALS flag first (L:6/R:7 = W = nums on),  │\n│  then:  1=A, 2=B, 3=C, 4=D, 5=E, 6=F, 7=G, 8=H, 9=I, 0=K     │\n│  (The J position stays the \"numerals\" indicator for digits 10=J)│\n│                                                                 │\n│  Attention/Ready: Both arms down (L:4, R:4)                    │\n│  Error/Cancel:    Both arms overhead waving side to side        │\n│  Numerals cancel: J position (L:6, R:8) again to exit nums mode │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 152,
+      "heading_context": "### ASCII Alphabet Gallery (selected letters)",
+      "confidence": "candidate",
+      "text": "A: right arm up-right     B: right arm right        G: right arm up\n     /                         ─ ─                       |\n  o/                         o                          o|\n  |                           |                          |\n  ↓                           ↓                          ↓\n\nK: arms mirror diagonal    M: arms spread upper      Q: arms horizontal\n    \\  /                        \\ /                    ─ o ─\n      o                          o                       |\n      |                          |                       |\n      ↓                          ↓                       ↓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "## Procedural Signals",
+      "confidence": "candidate",
+      "text": "Signal         Description\n────────────   ────────────────────────────────────────────────\nAttention      Both arms down at sides (ready position)\nReady/OK       L:4, R:4 then receiver raises flag to confirm\nError          Both arms waved overhead repeatedly\nNumerals on    W position (L:6, R:7) — signals following are digits\nNumerals off   J position again\nInterval       Receiver unable to copy — resend last group\nEnd of word    Small pause\nEnd of message Both arms crossed overhead",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "## Chappe Optical Telegraph (1793)",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│              CHAPPE OPTICAL TELEGRAPH SYSTEM                 │\n│                                                              │\n│  Tower structure:                                            │\n│                                                              │\n│         R  (regulator arm, 3 positions: /, |, \\)             │\n│        /|                                                    │\n│  ──────┤├─────  (horizontal beam = regulator)                │\n│        \\|                                                    │\n│         R                                                    │\n│         |                                                    │\n│     ════╬════  (mast)                                        │\n│         |                                                    │\n│  Indicator arms on each end of horizontal beam:              │\n│  Each has 7 positions (45° increments, 0°–270°)              │\n│                                                              │\n│  Capacity: 196 distinct configurations                       │\n│  Codebook: 92 pages × 92 signals = 8,464 vocabulary entries  │\n│  Speed: Paris to Lille (225 km, 15 towers): ~10 min          │\n│  Paris to Toulon (765 km, 50+ towers): ~20 min               │\n│  Paris to Strasbourg (556 km): ~7 min (demonstrated 1798)    │\n│                                                              │\n│  Operation:                                                  │\n│  Relay operator reads predecessor tower through telescope,   │\n│  reproduces configuration, successor reads and continues.    │\n│  Network: ~556 towers across France by 1820                  │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 232,
+      "heading_context": "## Murray/Shutter Telegraph (British, 1795)",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────┐\n│  MURRAY SHUTTER TELEGRAPH                  │\n│                                            │\n│  ┌──┬──┬──┐                                │\n│  │  │  │  │  Each shutter: OPEN or CLOSED  │\n│  ├──┼──┼──┤  6 shutters → 2⁶ = 64 codes   │\n│  │  │  │  │                                │\n│  └──┴──┴──┘                               │\n│                                            │\n│  Operated 1796–1847 across Britain         │\n│  Chains: London–Deal, London–Portsmouth,  │\n│  London–Yarmouth                           │\n│  Replaced by electric telegraph 1847       │\n└────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 257,
+      "heading_context": "## Railway Semaphore (1830s–Present)",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│                RAILWAY SEMAPHORE SIGNALS                     │\n│                                                              │\n│  Two-position (lower quadrant, UK classic):                  │\n│                                                              │\n│  HORIZONTAL arm (90°):  STOP / Danger (red light at night)   │\n│         ──────                                               │\n│         |                                                    │\n│                                                              │\n│  INCLINED arm (45° down):  CLEAR / Proceed (green at night)  │\n│           \\                                                  │\n│            \\                                                 │\n│            |                                                 │\n│                                                              │\n│  Three-position (upper quadrant, US common):                 │\n│  Horizontal: STOP                                            │\n│  45° up:     CAUTION (approach next signal at reduced speed) │\n│  Vertical:   CLEAR                                           │\n│                                                              │\n│  Color lights eventually replaced physical semaphore arms    │\n│  in most countries (UK kept semaphore on heritage lines)     │\n│  UK national network: mostly color light since 1970s         │\n│  US: color light dominant; some semaphores remain on         │\n│      Class 1 railroad systems                                │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 293,
+      "heading_context": "## Heliograph (1870s–1944)",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│                HELIOGRAPH PRINCIPLE                          │\n│                                                              │\n│  Sunlight → Mirror (aimed at receiver)                       │\n│             Shutter/wink mechanism opens/closes beam         │\n│             Long flash = dash, Short flash = dot             │\n│             Receiver reads Morse by eye or telescope         │\n│                                                              │\n│  Equipment: British Mance heliograph (1869 Henry Christopher │\n│             Mance, British Army India)                       │\n│             Weight: ~5 lbs field instrument                  │\n│                                                              │\n│  Range: 50–100 km in good conditions (clear sky, no dust)    │\n│         Record: 288 km (Rocky Mountain US Army survey)       │\n│                                                              │\n│  Used in:                                                    │\n│  — British Army, India and Afghanistan (1880s–1900s)         │\n│  — US Army, Southwest (Apache Wars 1880s)                    │\n│  — Boer War (1899–1902)                                      │\n│  — WWI (still in use for field communications)               │\n│  — WWII: Last known military use, Burma campaign 1944        │\n│                                                              │\n│  Limitation: Requires direct sunlight. Useless at night,     │\n│  in overcast weather, or in dense forest/terrain.            │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 329,
+      "heading_context": "## Aldis Lamp (Optical Morse, Navy)",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│  ALDIS LAMP                                                  │\n│                                                              │\n│  Focused directional spotlight with a shutter/key            │\n│  Short flash = dot, Long flash = dash (Morse encoding)       │\n│                                                              │\n│  Range: ~6–10 km ship-to-ship (day)                          │\n│         Longer at night (up to 15+ km)                       │\n│                                                              │\n│  Advantages over radio:                                      │\n│  — Directional: intercept requires being in line-of-sight    │\n│  — No radio frequency to allocate or detect passively        │\n│  — Useful under radio silence conditions                     │\n│                                                              │\n│  Speed: trained naval signaller: 8–10 WPM (receiving);       │\n│         ~5–6 WPM transmitting with lamp key                  │\n│                                                              │\n│  Still in active use: NATO navies train on Aldis lamp as     │\n│  backup to radio communications                              │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

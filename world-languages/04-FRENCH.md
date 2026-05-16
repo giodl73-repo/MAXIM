@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:french
+kind: guide
+module: world-languages
+section: world-languages
+title: French - Language Reference
+status: source-custody
+source_custody: partial
+current_path: world-languages/04-FRENCH.md
+canonical_path: world-languages/04-FRENCH.md
+backsource_ids: [proof-backfill:world-languages:04-french, git-history:world-languages:04-french]
+concepts: [french]
+root_concepts: [french]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # French — Language Reference
 
 ## Profile at a Glance

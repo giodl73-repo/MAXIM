@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "codes\\08-HISTORICAL-CIPHERS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│           CLASSICAL CIPHER EVOLUTION                             │\n│                                                                  │\n│  ~100 BCE  Caesar cipher         monoalphabetic substitution     │\n│  ~600 BCE  Atbash               Hebrew mirror alphabet           │\n│  1467      Alberti cipher        first polyalphabetic (disc)     │\n│  1553      Vigenère              keyword polyalphabetic          │\n│  1854      Playfair              digraph substitution            │\n│  1918      ADFGVX                WWI German field cipher         │\n│  1917      Vernam (OTP)          one-time pad (provably secure)  │\n│  1918      Enigma concept        first mechanical cipher machine │\n│  1920s     Enigma production     electromechanical, naval/army   │\n│  1941–45   Bletchley Park breaks Enigma, Lorenz                  │\n│  1949      Shannon: \"Communication Theory of Secrecy Systems\"    │\n│            → mathematical proof OTP is perfectly secure          │\n│            → framework for all modern cryptography               │\n│  1977      DES (first public standard cipher)                    │\n│  2001      AES (current standard) → see computing/25-SECURITY.md │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Caesar Cipher (Monoalphabetic Shift)",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                    CAESAR CIPHER (ROT-N)                         │\n│                                                                  │\n│  ROT-3 (Caesar's alleged preference):                            │\n│  Plaintext:   A B C D E F G H I J K L M N O P Q R S T U V W X Y Z│\n│  Ciphertext:  D E F G H I J K L M N O P Q R S T U V W X Y Z A B C│\n│                                                                  │\n│  Mathematical form:                                              │\n│  E(x) = (x + n) mod 26    (encryption, shift right by n)         │\n│  D(y) = (y - n) mod 26    (decryption, shift left by n)          │\n│                                                                  │\n│  Example (ROT-3): \"HELLO\" → \"KHOOR\"                              │\n│  H(7)+3=10=K, E(4)+3=7=H, L(11)+3=14=O, O(14)+3=17=R             │\n│                                                                  │\n│  ROT-13: special case n=13; applying twice decodes (symmetric)   │\n│  Still used: USENET spoiler hiding, obfuscated puzzle hints      │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "## Caesar Cipher (Monoalphabetic Shift)",
+      "confidence": "candidate",
+      "text": "Security analysis:\n  Key space: 25 (excluding no-op ROT-0)\n  Brute force: trivial by hand, microseconds by computer\n  Frequency analysis: single most frequent ciphertext letter → 'E'\n  Use: education, childproofing, puzzle games only",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "## Vigenère Cipher (Polyalphabetic)",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                    VIGENÈRE CIPHER                               │\n│                                                                  │\n│  Key: LEMON   (repeated for length of message)                   │\n│  Plaintext:   A  T  T  A  C  K  A  T  D  A  W  N                 │\n│  Key:         L  E  M  O  N  L  E  M  O  N  L  E                 │\n│  Key (0-idx): 11  4 12 14 13 11  4 12 14 13 11  4                │\n│  Ciphertext:  L  X  F  O  P  V  E  F  R  N  H  R                 │\n│                                                                  │\n│  Rule: C_i = (P_i + K_i) mod 26                                  │\n│  Decryption: P_i = (C_i - K_i) mod 26                            │\n│                                                                  │\n│  TABULA RECTA: 26×26 table of Caesar shifts                      │\n│  Row label = key letter, Column label = plaintext letter         │\n│  Cell = ciphertext letter                                        │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "### Autokey Variant",
+      "confidence": "candidate",
+      "text": "Instead of repeating the keyword, append the plaintext itself as key:\n  Key:         LEMON ATTACKATDAWN...\n  Plaintext:   ATTACKATDAWN\n  → Key = L E M O N A T T A C K A (starts with keyword, extends with plaintext)\n\nStronger than repeating keyword because no periodic pattern.\nStill breakable with sufficient ciphertext.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 152,
+      "heading_context": "### Autokey Variant",
+      "confidence": "candidate",
+      "text": "### Breaking Vigenère — Kasiski Attack (1863)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "### Breaking Vigenère — Kasiski Attack (1863)",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│               KASISKI / FRIEDMAN ATTACK                      │\n│                                                              │\n│  KASISKI (1863):                                             │\n│  1. Scan ciphertext for repeated trigrams                    │\n│  2. Distance between repeats is likely a multiple of key len │\n│     (same plaintext + same key position = same cipher)       │\n│  3. GCD of all repeat-distances ≈ key length                 │\n│  4. Once key length known: divide into key-length columns    │\n│  5. Each column is a simple Caesar cipher → frequency-analyze│\n│                                                              │\n│  FRIEDMAN (1922) — Index of Coincidence method:              │\n│  IC = Σ(f_i × (f_i-1)) / (N × (N-1))                         │\n│  For English random text: IC ≈ 0.065                         │\n│  For random uniform: IC ≈ 0.038                              │\n│  Vigenère with key length k → IC ≈ 0.038 + (0.027/k)         │\n│  → IC tells you the key length                               │\n│  → Then Kasiski columns + frequency analysis = broken        │\n│                                                              │\n│  KEY INSIGHT: polyalphabetic != immune to statistics         │\n│  Long-enough ciphertext always reveals key-length periodicity│\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "## Playfair Cipher (Digraph Substitution, 1854)",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│                PLAYFAIR CIPHER                               │\n│                                                              │\n│  5×5 grid: fill with keyword (no duplicate letters),         │\n│  then remaining alphabet (I and J share a cell)              │\n│                                                              │\n│  Example key: MONARCH                                        │\n│  M O N A R                                                   │\n│  C H Y B D                                                   │\n│  E F G I K                                                   │\n│  L P Q S T                                                   │\n│  U V W X Z                                                   │\n│                                                              │\n│  RULES for encrypting letter pair (X, Y):                    │\n│  1. Same row: each slides right one (wrap)                   │\n│     (M,O) → (O,N)                                            │\n│  2. Same column: each slides down one (wrap)                 │\n│     (M,C) → (C,E)                                            │\n│  3. Rectangle: each takes the other's column in same row     │\n│     (E,R) → E in row 3 col 1, R in row 1 col 5               │\n│           → take row 3 col 5, row 1 col 1 = (K,M)            │\n│                                                              │\n│  PREPROCESSING:                                              │\n│  — J → I (or Q → K, depends on variant)                      │\n│  — Double letters: insert X between (HELLO → HE LX LO)       │\n│  — Odd-length plaintext: add X at end                        │\n│                                                              │\n│  Security: breaks frequency analysis of single letters,      │\n│  but digraph frequency analysis (25² = 625 combinations)     │\n│  is still feasible with moderate ciphertext length.          │\n│  British military used it in WWI and WWII.                   │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "## ADFGVX Cipher (WWI German, 1918)",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│                ADFGVX CIPHER                                 │\n│                                                              │\n│  Step 1: Polybius square with alphabet + digits (36 chars)   │\n│  Uses the 6 letters A, D, F, G, V, X as coordinates          │\n│  (chosen because these letters are distinct in Morse code)   │\n│                                                              │\n│  Example ADFGVX grid (key \"CAFE\"):                           │\n│      A  D  F  G  V  X                                        │\n│  A [ C  A  F  E  B  D ]                                      │\n│  D [ G  H  I  J  K  L ]                                      │\n│  F [ M  N  0  1  2  3 ]                                      │\n│  G [ 4  5  6  7  8  9 ]                                      │\n│  V [ O  P  Q  R  S  T ]                                      │\n│  X [ U  V  W  X  Y  Z ]                                      │\n│                                                              │\n│  Each plaintext letter → 2-letter coordinate                 │\n│  \"ATTACK\" → AA DD GG AA AC VA AX                             │\n│              A   T  T  A  C  K                               │\n│                                                              │\n│  Step 2: Columnar transposition                              │\n│  Write output rows under a numeric keyword                   │\n│  Read columns in keyword-number order                        │\n│                                                              │\n│  Security: combined substitution + transposition was         │\n│  difficult for 1918 cryptanalysts. Broken by Georges Painvin │\n│  (French) in June 1918 during the Spring Offensive — one     │\n│  of the most important cryptanalytic feats of WWI.           │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 264,
+      "heading_context": "## One-Time Pad / Vernam Cipher (1917)",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│                ONE-TIME PAD (OTP)                            │\n│                                                              │\n│  Requirements for perfect secrecy:                           │\n│  1. Key must be as long as the message                       │\n│  2. Key must be truly random (not pseudorandom)              │\n│  3. Key must never be reused (hence \"one-time\")              │\n│  4. Key must be kept secret                                  │\n│                                                              │\n│  Encryption: C_i = (P_i + K_i) mod 26 (or XOR for binary)    │\n│  Decryption: P_i = (C_i - K_i) mod 26                        │\n│  (Same formula as Vigenère, but key length = message length  │\n│   and key is random — this is what makes it unbreakable)     │\n│                                                              │\n│  Shannon's proof (1949):                                     │\n│  I(P; C) = 0  (mutual information between plaintext and      │\n│                 ciphertext is zero)                          │\n│  For every possible plaintext p and ciphertext c:            │\n│  P(P=p | C=c) = P(P=p)                                       │\n│  → Observing ciphertext gives NO information about plaintext │\n│  → Breaking the cipher requires the key, period.             │\n│                                                              │\n│  Historical use:                                             │\n│  — USSR/US hotline (Moscow-Washington) used OTP              │\n│  — \"Number stations\" broadcast OTP key consumption           │\n│  — Diplomatic traffic for highest-security messages          │\n│                                                              │\n│  Why not universally used:                                   │\n│  KEY DISTRIBUTION PROBLEM — how do you securely share a      │\n│  key as long as all future messages you'll ever send?        │\n│  This is the central problem of pre-public-key cryptography. │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 307,
+      "heading_context": "### Physical Architecture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                    ENIGMA ARCHITECTURE                           │\n│                                                                  │\n│  KEYBOARD ──→ PLUGBOARD ──→ ROTORS (3 or 4) ──→ REFLECTOR        │\n│               (Steckerbrett)   (Scrambler)      (Umkehrwalze)    │\n│                    ↑                                ↓            │\n│                    └───────── return path ──────────┘            │\n│                                                                  │\n│  Each key press:                                                 │\n│  1. Signal enters plugboard (swaps pairs of letters)            │\n│  2. Passes through 3 (or 4 Navy) rotors left-to-right          │\n│  3. Hits reflector — routes signal back through rotors          │\n│  4. Returns through plugboard                                   │\n│  5. Lights up a lamp on the lampboard                           │\n│  6. Rightmost rotor advances one step (others cascade)          │\n│                                                                  │\n│  ROTORS (Walzen):                                                │\n│  Each rotor: 26-letter substitution + notch for advancement     │\n│  Wehrmacht had 5 standard rotors (I–V), each with unique wiring │\n│  Kriegsmarine (Navy Enigma M4): 4 rotors (added Enigma M4 1942) │\n│  Right rotor steps every keypress                               │\n│  Middle rotor steps when right passes notch (odometer-like)     │\n│  Left rotor steps when middle passes notch                      │\n│                                                                  │\n│  REFLECTOR (Umkehrwalze):                                        │\n│  Fixed rotor — pairs letters (A↔Y, B↔S, etc.)                  │\n│  Key property: reflector ensures E(E(x)) = x                   │\n│  → Enigma is self-reciprocal (same machine settings decrypt)    │\n│  → ALSO: a letter can never encrypt to itself                   │\n│     (This was a critical cryptanalytic exploit)                 │\n│                                                                  │\n│  PLUGBOARD (Steckerbrett):                                       │\n│  Swaps up to 13 letter pairs before/after rotors                │\n│  Wehrmacht: 10 pairs typically; Luftwaffe: same                  │\n│  Adds enormous key space: C(26,2)×C(24,2)×...÷10! combinations  │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 364,
+      "heading_context": "### Breaking Enigma",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│              HOW ENIGMA WAS BROKEN                           │\n│                                                              │\n│  STRUCTURAL WEAKNESS: no letter can encrypt to itself        │\n│  (because reflector returns signal through rotors)           │\n│  This gave cryptanalysts a \"crib\" test: if proposed key      │\n│  produces a ciphertext letter that equals the plaintext,     │\n│  that key setting is IMPOSSIBLE.                             │\n│                                                              │\n│  CRIBS: known/guessed plaintext snippets                     │\n│  — \"Keine besonderen Ereignisse\" (nothing to report)         │\n│  — Weather reports with predictable format/phrases           │\n│  — \"An die Gruppe\" (to the group) in message headers         │\n│  — Operators lazy: AAAAAAA, or \"Hitler\" in known position    │\n│                                                              │\n│  BOMBE (Turing/Welchman machine):                            │\n│  Electromechanical analog computer                           │\n│  Tests crib hypothesis against all rotor/ring combinations   │\n│  Uses \"menu\" of crib letter chains to eliminate settings     │\n│  Thousands of Bombe machines by 1944 at Bletchley Park       │\n│                                                              │\n│  ADDITIONAL ATTACKS:                                         │\n│  — Polish mathematicians (Rejewski, Różycki, Zygalski):      │\n│    broke early Enigma using algebraic group theory (1932)    │\n│    — Before WWII, before the bombe!                          │\n│  — Captured key sheets from U-boats (pinch operations)       │\n│  — Indicators repeated → provided known plaintext            │\n│  — Operator errors: messages enciphered with same key        │\n│                                                              │\n│  LORENZ CIPHER (Tunny): German high command teleprinter      │\n│  Even more complex; broken by Bill Tutte analyzing structure │\n│  without ever seeing the machine.                            │\n│  → Led to Colossus (first programmable electronic computer)  │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 407,
+      "heading_context": "## Frequency Analysis",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│              ENGLISH LETTER FREQUENCIES                      │\n│                                                              │\n│  E  12.7%   T   9.1%   A   8.2%   O   7.5%                   │\n│  I   7.0%   N   6.7%   S   6.3%   H   6.1%                   │\n│  R   6.0%   D   4.3%   L   4.0%   C   2.8%                   │\n│  U   2.8%   M   2.4%   W   2.4%   F   2.2%                   │\n│  G   2.0%   Y   2.0%   P   1.9%   B   1.5%                   │\n│  V   1.0%   K   0.8%   J   0.15%  X   0.15%                  │\n│  Q   0.10%  Z   0.07%                                        │\n│                                                              │\n│  DIGRAPH FREQUENCIES (most common):                          │\n│  TH  HE  IN  ER  AN  RE  ON  EN  AT  ES  ST  NT              │\n│                                                              │\n│  TRIGRAPH FREQUENCIES:                                       │\n│  THE  AND  ING  ION  ENT  ION  FOR  HER  HAT  THA            │\n│                                                              │\n│  ATTACK STRATEGY for monoalphabetic ciphertext:              │\n│  1. Count ciphertext letter frequencies                      │\n│  2. Most frequent → E (especially if clearly dominant)       │\n│  3. Second → T; also look for single-letter words (A, I)     │\n│  4. Look for two-letter words: he, is, it, of, to, do...     │\n│  5. Look for \"THE\" pattern: most common trigraph             │\n│  6. Each identification constrains remaining letters         │\n│  7. Pattern-match against common English words               │\n│  8. Complete by context inference                            │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 439,
+      "heading_context": "### Index of Coincidence",
+      "confidence": "candidate",
+      "text": "IC = Σ(n_i × (n_i - 1)) / (N × (N-1))\n\nWhere n_i = count of letter i in the ciphertext, N = total letters\n\nEnglish text:   IC ≈ 0.065\nRandom cipher:  IC ≈ 0.038 (1/26)\nVigenère key-2: IC ≈ 0.052\nVigenère key-5: IC ≈ 0.044\n\nInterpretation:\n  IC near 0.065 → monoalphabetic (substituted English-like)\n  IC near 0.038 → uniform distribution (OTP or long polyalphabetic)\n  Intermediate → polyalphabetic with short key\n  Key length estimate: k ≈ (0.027 × N) / ((N-1)×IC - 0.038×N + 0.065)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 460,
+      "heading_context": "## Cipher vs. Code vs. Steganography",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│              SECRECY TECHNIQUE TAXONOMY                      │\n│                                                              │\n│  CIPHER: transforms plaintext algorithmically                │\n│  — Security comes from key secrecy, not algorithm secrecy    │\n│  — Kerckhoffs's principle: assume attacker knows the cipher  │\n│  — Example: AES, RSA, Caesar                                 │\n│                                                              │\n│  CODE: replaces words/phrases from a codebook                │\n│  — \"VICTOR\" means \"attack at dawn\"                           │\n│  — Security from codebook secrecy                            │\n│  — WWII Japan Naval Code JN-25 = codebook cipher             │\n│  — One-time codebooks + super-encryption (encipher the code) │\n│                                                              │\n│  STEGANOGRAPHY: hides existence of message                   │\n│  — Invisible ink, microdots, least-significant bit in image  │\n│  — \"The spy's message is in the 2nd letter of each sentence\" │\n│  — Security from not knowing a message exists                │\n│  — Modern: watermarking, stego in image files                │\n│                                                              │\n│  Real-world systems combine all three:                       │\n│  Enigma = cipher (rotor algorithm) + codebook (Schlüssel)    │\n│  + operational security protocols                            │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 493,
+      "heading_context": "## Bridge to Modern Cryptography",
+      "confidence": "candidate",
+      "text": "Classical crypto problem:                Modern crypto solution:\n─────────────────────────────────────────────────────────────────\n\"How do two parties communicate         Public-key cryptography (1976)\n securely without meeting first          Diffie-Hellman key exchange\n to exchange a key?\"                     RSA key exchange/encryption\n                                         → No pre-shared secret needed\n\n\"How do you prove identity              Digital signatures (RSA/ECDSA)\n over an insecure channel?\"             Zero-knowledge proofs\n\n\"How do you authenticate a             HMAC / AES-GCM authenticated\n message without encrypting it?\"        encryption\n\n\"One-time pad is perfect but           Pseudo-random key streams from\n key distribution is impossible\"        PRF/PRG + computationally secure\n                                         assumptions (AES-CTR mode)\n\n\"Enigma's key space was huge           Structural attacks matter more\n but it was still broken\"               than key space; algorithm design\n                                         determines security",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 524,
+      "heading_context": "## Bridge to Modern Cryptography",
+      "confidence": "candidate",
+      "text": "   → Still the design principles behind modern block ciphers (AES's SubBytes = confusion, ShiftRows/MixColumns = diffusion)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    }
+  ]
+}

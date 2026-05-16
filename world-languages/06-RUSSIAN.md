@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:russian
+kind: guide
+module: world-languages
+section: world-languages
+title: Russian - Language Reference
+status: source-custody
+source_custody: partial
+current_path: world-languages/06-RUSSIAN.md
+canonical_path: world-languages/06-RUSSIAN.md
+backsource_ids: [proof-backfill:world-languages:06-russian, git-history:world-languages:06-russian]
+concepts: [russian]
+root_concepts: [russian]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Russian — Language Reference
 
 ## Profile at a Glance

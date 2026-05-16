@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:codes:semaphore
+kind: guide
+module: codes
+section: codes
+title: Semaphore - Visual Distance Signaling
+status: source-custody
+source_custody: partial
+current_path: codes/03-SEMAPHORE.md
+canonical_path: codes/03-SEMAPHORE.md
+backsource_ids: [proof-backfill:codes:03-semaphore, git-history:codes:03-semaphore]
+concepts: [semaphore]
+root_concepts: [semaphore]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Semaphore — Visual Distance Signaling
 
 ## The Big Picture
@@ -87,7 +106,7 @@ Standard International Semaphore (most widely used; variations exist):
 │        FLAG SEMAPHORE ALPHABET — LEFT/RIGHT ARM POSITIONS       │
 │        Position key: 8=up, 7=UL, 6=L, 5=LL, 4=down,             │
 │                      3=LR, 2=R, 1=UR                            │
-├─────┬───────┬──────────────────────────────────────────────────┤
+├─────┬───────┬───────────────────────────────────────────────────┤
 │  A  │ L:4   │ R:1    "L down, R upper-right"                   │
 │  B  │ L:4   │ R:2    "L down, R right"                         │
 │  C  │ L:4   │ R:3    "L down, R lower-right"                   │
@@ -125,7 +144,7 @@ Standard International Semaphore (most widely used; variations exist):
 │  Attention/Ready: Both arms down (L:4, R:4)                    │
 │  Error/Cancel:    Both arms overhead waving side to side        │
 │  Numerals cancel: J position (L:6, R:8) again to exit nums mode │
-└─────────────────────────────────────────────────────────────────┘
+└──────────────────────────────────────────────────────────────────┘
 ```
 
 ### ASCII Alphabet Gallery (selected letters)

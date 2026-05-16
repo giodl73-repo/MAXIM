@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "codes\\09-MODERN-CODES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│              MODERN CODE TAXONOMY                                │\n│                                                                  │\n│  1D LINEAR BARCODES                                              │\n│  ┌──────────────────────────────────────────────────────────┐    │\n│  │ UPC-A, UPC-E, EAN-13, EAN-8 — retail products            │   │\n│  │ Code 128, Code 39 — industrial/logistics                  │   │\n│  │ ITF-14 — outer cartons and pallets                        │   │\n│  │ ISBN barcode — books (EAN-13 + price EAN-5 supplement)    │   │\n│  └──────────────────────────────────────────────────────────┘   │\n│                                                                  │\n│  2D MATRIX CODES                                                 │\n│  ┌──────────────────────────────────────────────────────────┐   │\n│  │ QR Code — URLs, contact cards, payments                  │   │\n│  │ Data Matrix — manufacturing, small parts, pharmaceuticals│   │\n│  │ Aztec Code — transport tickets (Eurostar, Amtrak)        │   │\n│  │ PDF417 — ID documents, shipping labels                   │   │\n│  │ MaxiCode — UPS sorting system                            │   │\n│  └──────────────────────────────────────────────────────────┘   │\n│                                                                  │\n│  PROXIMITY/WIRELESS                                              │\n│  ┌──────────────────────────────────────────────────────────┐   │\n│  │ NFC (ISO 18092) — payments, access, tags                 │   │\n│  │ RFID (ISO 15693) — passive tags, supply chain            │   │\n│  │ Bluetooth LE — proximity sensing                         │   │\n│  │ iBeacon / Eddystone — location beacons                   │   │\n│  └──────────────────────────────────────────────────────────┘   │\n│                                                                  │\n│  COMPONENT MARKING                                               │\n│  ┌──────────────────────────────────────────────────────────┐   │\n│  │ Resistor color bands — resistance + tolerance            │   │\n│  │ Capacitor markings — capacitance + voltage rating        │   │\n│  │ Wire color codes — circuit function identification       │   │\n│  └──────────────────────────────────────────────────────────┘   │\n│                                                                  │\n│  REGULATORY/SAFETY                                               │\n│  ┌──────────────────────────────────────────────────────────┐   │\n│  │ ISO 7010 — safety pictograms                             │   │\n│  │ MUTCD — US road sign system                              │   │\n│  │ Vienna Convention — international road sign system       │   │\n│  │ Tactile paving — pedestrian navigation                   │   │\n│  └──────────────────────────────────────────────────────────┘   │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "## EAN-13 Barcode",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                    EAN-13 STRUCTURE                              │\n│                                                                  │\n│  13 digits total: [GS1 Prefix][Company Code][Item Ref][Check]    │\n│                   ─────────────────────────────────────────────  │\n│                   D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 | D13   │\n│                                                                  │\n│  GS1 prefix (2–3 digits): country/organization of GS1 member     │\n│  — 0xx = USA/Canada                                              │\n│  — 3xx = France                                                  │\n│  — 400–440 = Germany                                             │\n│  — 45x/49x = Japan                                               │\n│  — 690–699 = China                                               │\n│  — 978/979 = Books (ISBN)                                        │\n│  — 977 = Periodicals (ISSN)                                      │\n│                                                                  │\n│  Company code + Item reference: variable split based on          │\n│  GS1 membership tier                                             │\n│                                                                  │\n│  Check digit (D13): calculated by algorithm:                     │\n│  1. Multiply alternate digits by 1 and 3                         │\n│     (positions 1,3,5,7,9,11 × 1; positions 2,4,6,8,10,12 × 3)    │\n│  2. Sum all 12 weighted values                                   │\n│  3. Find what makes sum + check_digit divisible by 10            │\n│     check = (10 - (sum mod 10)) mod 10                           │\n│                                                                  │\n│  Example: 978-0-306-40615-? (a book ISBN → EAN-13)               │\n│  9×1 + 7×3 + 8×1 + 0×3 + 3×1 + 0×3 + 6×1 + 4×3 + 0×1 + 6×3       │\n│  + 1×1 + 5×3 = 9+21+8+0+3+0+6+12+0+18+1+15 = 93                  │\n│  Check = (10 - (93 mod 10)) mod 10 = (10-3) mod 10 = 7           │\n│  → 9780306406157                                                 │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 131,
+      "heading_context": "### Physical Barcode Encoding",
+      "confidence": "candidate",
+      "text": "### UPC-A vs. EAN-13",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "### Structure",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                    QR CODE ANATOMY                               │\n│                                                                  │\n│  ┌─────┐  . . . . . .  ┌─────┐                                   │\n│  │■■■■■│  . . . . . .  │■■■■■│   FINDER PATTERNS (3 corners)    │\n│  │■   ■│  . . . . . .  │■   ■│   7×7 squares with white border  │\n│  │■ ■ ■│  . . . . . .  │■ ■ ■│   Unique pattern; tells scanner  │\n│  │■   ■│  . . . . . .  │■   ■│   orientation and scale          │\n│  │■■■■■│  . . . . . .  │■■■■■│                                  │\n│  └─────┘  . . . . . .  └─────┘                                  │\n│  . . . . . FORMAT INFO . . . . .   FORMAT INFORMATION STRIP      │\n│  . ■■■■■ . ─────────── . ■■■■■ .  (error level + mask pattern)  │\n│  . . . . . . . . . . . . . . . .                                 │\n│  . . . . . . . . . . . . . . . .  DATA AREA (variable)          │\n│  . . . . . . . . . . . . . . . .                                 │\n│  . . . . ■ . . . . . . . . . . .  ALIGNMENT PATTERN             │\n│  . . . . . . . . . . . . . . . .  (larger QR codes have more)   │\n│  ┌─────┐  . . . . . . . . . . .                                  │\n│  │■■■■■│  . . . . . . . . . . .  TIMING PATTERNS                │\n│  │■   ■│  (alternating ■·■·■ strips for coordinate reference)   │\n│  │■ ■ ■│                                                        │\n│  │■   ■│  ── QUIET ZONE: 4-module white border on all sides     │\n│  │■■■■■│                                                        │\n│  └─────┘                                                        │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 178,
+      "heading_context": "### Versions and Capacity",
+      "confidence": "candidate",
+      "text": "Version = size, from 1 (21×21 modules) to 40 (177×177 modules)\n\n┌──────────────────────────────────────────────────────────────┐\n│         QR CODE CAPACITY vs. VERSION                         │\n├─────────┬──────────────┬─────────────────────────────────────┤\n│ Version │  Size        │  Max numeric / alphanumeric / byte  │\n├─────────┼──────────────┼────────────────────────────────────┤\n│    1    │  21×21       │  41 / 25 / 17                      │\n│    3    │  29×29       │  127 / 77 / 53                     │\n│    5    │  37×37       │  277 / 167 / 115                   │\n│   10    │  57×57       │  652 / 395 / 271                   │\n│   20    │  97×97       │  1817 / 1096 / 754                 │\n│   30    │  137×137     │  3057 / 1985 / 1367                │\n│   40    │  177×177     │  7089 / 4296 / 2953                │\n└─────────┴──────────────┴────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "## Data Matrix",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│                DATA MATRIX OVERVIEW                          │\n│                                                              │\n│  Structure:                                                  │\n│  ┌─────────────────────┐                                     │\n│  │■■■■■■■■■■■■■■       │  Solid \"L\" border (finder)         │\n│  │■                ·   │  Alternating border (clock)        │\n│  │■   DATA AREA    ·   │  Data in interior cells            │\n│  │■                ·   │                                    │\n│  │■■■■■■■■■■■■■■       │                                    │\n│  └─────────────────────┘                                     │\n│                                                              │\n│  Shape: typically square but rectangular also supported      │\n│  Range: 10×10 to 144×144 cells                              │\n│  Capacity (max): 2335 alphanumeric / 3116 numeric chars     │\n│  Error correction: Reed-Solomon (up to 25% damage recovery)  │\n│                                                              │\n│  Advantages over QR:                                         │\n│  — Smaller physical size for same data capacity              │\n│  — Can be laser-etched or dot-peened directly on metal parts │\n│  — ISO 16022 standard                                        │\n│  — GS1 Data Matrix: standard for pharma unit-of-sale codes  │\n│                                                              │\n│  Common uses:                                                │\n│  — Direct part marking on aerospace/medical/defense parts    │\n│  — FDA UDI (Unique Device Identification) on medical devices │\n│  — Pharmaceutical serialization (track-and-trace)           │\n│  — US DOD MIL-STD-130 component marking                     │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 279,
+      "heading_context": "## NFC (Near Field Communication)",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                    NFC SYSTEM MAP                                │\n│                                                                  │\n│  Frequency: 13.56 MHz (ISM band, globally available)             │\n│  Range: 1–4 cm (security through proximity)                      │\n│  Data rate: 106, 212, 424, or 848 kbps                           │\n│  Standard: ISO/IEC 18092, ISO/IEC 14443                          │\n│                                                                  │\n│  THREE OPERATING MODES:                                          │\n│  ┌───────────────────────────────────────────────────────────┐   │\n│  │ Card Emulation Mode:                                      │  │\n│  │ Device behaves like a passive NFC tag                    │  │\n│  │ Use case: contactless payment (Apple Pay, Google Pay)    │  │\n│  │ Secure Element stores payment credentials                │  │\n│  ├───────────────────────────────────────────────────────────┤  │\n│  │ Reader/Writer Mode:                                       │  │\n│  │ Device powers and reads passive NFC tags                  │  │\n│  │ Use case: scanning product tags, transit cards, posters   │  │\n│  │ Android/iOS apps can read NDEF-formatted tags             │  │\n│  ├───────────────────────────────────────────────────────────┤  │\n│  │ Peer-to-Peer Mode:                                        │  │\n│  │ Two powered devices exchange data                        │  │\n│  │ Use case: Android Beam (deprecated), contact sharing     │  │\n│  │ Less common; Bluetooth used instead for larger transfers │  │\n│  └───────────────────────────────────────────────────────────┘  │\n│                                                                  │\n│  NDEF (NFC Data Exchange Format):                                │\n│  Standard record format for NFC content                         │\n│  Record types: URL, text, vCard, MIME type, launch app          │\n│  Max tag capacity: depends on tag type (NTAG215 = 504 bytes)    │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 315,
+      "heading_context": "### NFC Tag Types",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────┐\n│  NFC TAG TYPES (ISO/IEC standards)                   │\n├───────────┬──────────────┬────────────────────────── ┤\n│ Type 1    │ ISO 14443A   │ 96B–2kB; read/write; low cost│\n│ Type 2    │ ISO 14443A   │ 48B–2kB; NXP MIFARE Ultra  │\n│ Type 3    │ JIS X 6319-4 │ FeliCa (Sony); transit in  │\n│           │              │ Japan (Suica, Pasmo)        │\n│ Type 4    │ ISO 14443A/B │ 32kB; Java Card; high sec  │\n│ Type 5    │ ISO 15693    │ 1m range (actually RFID)   │\n│           │              │ Inventory, library tags     │\n└───────────┴──────────────┴────────────────────────── ┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 331,
+      "heading_context": "### NFC vs. RFID",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│  NFC vs. RFID — COMPARISON                                   │\n├─────────────────────┬────────────────────────────────────────┤\n│  NFC                │ RFID                                   │\n├─────────────────────┼────────────────────────────────────────┤\n│ 13.56 MHz only      │ LF (125kHz), HF (13.56MHz), UHF        │\n│                     │ (860–960MHz), microwave (2.45GHz)      │\n│ ≤4 cm range         │ LF: 10cm; HF: 1m; UHF: 1–12m           │\n│ Bidirectional (P2P) │ Unidirectional (reader → tag)          │\n│ Peer-to-peer mode   │ No peer-to-peer                        │\n│ Smart devices built-│ Requires dedicated reader hardware     │\n│ in (phones/watches) │                                        │\n│ ISO 18092           │ ISO 15693 (HF); ISO 18000-6 (UHF)      │\n│ Payment, transit,   │ Supply chain, inventory, animal tag,   │\n│ access control      │ vehicle tracking (EZPass/FastTrack)    │\n└─────────────────────┴────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 356,
+      "heading_context": "## Resistor Color Code",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                RESISTOR COLOR CODE                               │\n│                                                                  │\n│  COLOR BAND TABLE:                                               │\n│                                                                  │\n│  Color      Digit  Multiplier      Tolerance (5th band)          │\n│  ─────────  ─────  ────────────    ────────────────────          │\n│  Black        0      ×1 (10⁰)      —                             │\n│  Brown        1      ×10 (10¹)     ±1%  (F)                      │\n│  Red          2      ×100 (10²)    ±2%  (G)                      │\n│  Orange       3      ×1k (10³)     ±0.05% (rare)                 │\n│  Yellow       4      ×10k (10⁴)   ±0.02% (rare)                  │\n│  Green        5      ×100k (10⁵)  ±0.5% (D)                      │\n│  Blue         6      ×1M (10⁶)    ±0.25% (C)                     │\n│  Violet       7      ×10M (10⁷)   ±0.1% (B)                      │\n│  Gray         8      ×100M (10⁸)  ±0.05% (A)                     │\n│  White        9      ×1G (10⁹)    —                              │\n│  Gold         —      ×0.1          ±5%  (J)                      │\n│  Silver       —      ×0.01         ±10% (K)                      │\n│  (no band)   —      —              ±20% (M)                      │\n│                                                                  │\n│  4-BAND RESISTOR: [Band1][Band2][Multiplier][Tolerance]          │\n│  Example: Red-Red-Brown-Gold = 2,2,×10, ±5% = 220Ω ±5%           │\n│                                                                  │\n│  5-BAND RESISTOR: [Band1][Band2][Band3][Multiplier][Tolerance]   │\n│  Example: Brown-Black-Black-Brown-Brown = 1,0,0,×10,±1%          │\n│           = 1000Ω = 1kΩ ±1%                                      │\n│                                                                  │\n│  6-BAND RESISTOR: adds temperature coefficient                   │\n│  (6th band, usually on precision resistors)                      │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 408,
+      "heading_context": "## Wire Color Standards",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│           WIRE COLOR CODES BY CONTEXT                            │\n│                                                                  │\n│  AC MAINS POWER (IEC 60446 — EU standard, adopted 2003+):        │\n│  Phase (Live):    Brown                                          │\n│  Neutral:         Blue                                           │\n│  Earth (Ground):  Green/Yellow stripe                            │\n│                                                                  │\n│  AC MAINS POWER (Pre-2004 UK / old British standard):            │\n│  Phase:    Red                                                   │\n│  Neutral:  Black                                                 │\n│  Earth:    Green (no stripe)                                     │\n│                                                                  │\n│  AC MAINS POWER (US/Canada, NEC):                                │\n│  Hot (Line 1):     Black                                         │\n│  Hot (Line 2):     Red (in 240V circuits)                        │\n│  Neutral:          White or Gray                                 │\n│  Ground:           Green or Bare                                 │\n│  * Single-phase: Black(hot), White(neutral), Green/Bare(ground)  │\n│  * 3-phase: Black, Red, Blue (L1, L2, L3) + White(N) + Green(G)  │\n│                                                                  │\n│  DC AUTOMOTIVE (12V/24V vehicle systems):                        │\n│  Positive (+):     Red                                           │\n│  Negative (─):     Black                                         │\n│  Ground:           Black (same as negative in single-ground)     │\n│  (Additional colors vary by vehicle manufacturer)                │\n│                                                                  │\n│  DC ELECTRONICS (typical PCB/breadboard convention):             │\n│  Positive:         Red                                           │\n│  Negative/Ground:  Black                                         │\n│  Signal:           Other colors (application-specific)           │\n│                                                                  │\n│  ETHERNET (TIA/EIA-568):                                         │\n│  568A: W-Green/Green, W-Orange/Blue, W-Blue/Orange, W-Brown/Brown│\n│  568B: W-Orange/Orange, W-Green/Blue, W-Blue/Green, W-Brown/Brown│\n│  (T568B more common in US commercial installations)              │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 454,
+      "heading_context": "## Road Sign Systems",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│              ROAD SIGN SYSTEMS COMPARISON                        │\n├─────────────────────────────┬────────────────────────────────────┤\n│  MUTCD (USA/Canada)         │  Vienna Convention (150+ countries) │\n├─────────────────────────────┼────────────────────────────────────┤\n│  Text-based primarily       │  Symbol-based primarily            │\n│  Sign shapes carry meaning  │  Sign shapes + colors carry meaning│\n│  Specific fonts mandated    │  No specific font standard         │\n│  (Highway Gothic, Clearview)│                                    │\n├─────────────────────────────┼────────────────────────────────────┤\n│  SHAPES:                    │  SHAPES:                           │\n│  Octagon = STOP             │  Red inverted triangle = YIELD      │\n│  Triangle (US) = YIELD      │  Red circle + bar = prohibition    │\n│  Diamond = WARNING           │  Triangle = warning (yellow/white) │\n│  Rectangle = regulatory info│  Rectangle = information           │\n│  Pentagon = school zone     │  Circular blue = positive command  │\n│  Pennant = no passing zone  │                                    │\n├─────────────────────────────┼────────────────────────────────────┤\n│  COLORS:                    │  COLORS:                           │\n│  Red = STOP/PROHIBITION     │  Red = STOP/PROHIBITION            │\n│  Yellow = WARNING           │  Yellow/Orange = WARNING           │\n│  Orange = construction      │  Blue = mandatory instruction      │\n│  Green = guide/direction    │  Green = direction/guide           │\n│  Blue = services/info       │  Brown = tourist/cultural          │\n│  Brown = recreational/cultural│                                  │\n│  White = regulatory         │                                    │\n└─────────────────────────────┴────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 484,
+      "heading_context": "## Road Sign Systems",
+      "confidence": "candidate",
+      "text": "### ISO 7010 Safety Pictograms",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 488,
+      "heading_context": "### ISO 7010 Safety Pictograms",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│              ISO 7010 SIGN CATEGORIES                        │\n│                                                              │\n│  PROHIBITION (circular, red border, red diagonal bar):       │\n│  P001 = No smoking                                           │\n│  P003 = No open flame                                        │\n│  P002 = No naked flame; fire, open ignition source           │\n│                                                              │\n│  WARNING (triangular, yellow/amber, black symbol):           │\n│  W001 = Flammable material                                   │\n│  W004 = Corrosive substance                                  │\n│  W011 = High voltage                                         │\n│  W027 = Radiation hazard                                     │\n│                                                              │\n│  MANDATORY (circular, blue, white symbol):                   │\n│  M001 = Eye protection must be worn                          │\n│  M003 = Safety helmet must be worn                           │\n│  M010 = Wear safety footwear                                 │\n│                                                              │\n│  SAFE CONDITION (rectangular/square, green, white symbol):   │\n│  E001 = Emergency exit left/right                            │\n│  E003 = First aid                                            │\n│  E004 = Stretcher                                            │\n│                                                              │\n│  FIRE EQUIPMENT (rectangular, red background):               │\n│  F001 = Fire extinguisher                                    │\n│  F002 = Fire hose reel                                       │\n│  F003 = Fire ladder                                          │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 526,
+      "heading_context": "## Tactile Paving",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                TACTILE PAVING PATTERNS                           │\n│                                                                  │\n│  HAZARD WARNING (Blister/Truncated dome pattern):                │\n│  ○ ○ ○ ○ ○ ○    Small round bumps (domes)                        │\n│  ○ ○ ○ ○ ○ ○    Grid pattern                                     │\n│  ○ ○ ○ ○ ○ ○                                                     │\n│                                                                  │\n│  Meaning: STOP — hazard ahead                                    │\n│  Used at: curb ramps, road crossings, platform edges, stairs,    │\n│           escalator approaches, hazardous level changes          │\n│                                                                  │\n│  DIRECTIONAL (Bar/Corduroy pattern):                             │\n│  ─────────────────────────────────                               │\n│  ─────────────────────────────────    Parallel bars/ribs         │\n│  ─────────────────────────────────    perpendicular to walk dir  │\n│  ─────────────────────────────────                               │\n│                                                                  │\n│  Meaning: SAFE — walkable direction, follow bars                 │\n│  Used at: transit platforms, pedestrian paths, shopping areas    │\n│                                                                  │\n│  COLOR:                                                          │\n│  Yellow preferred (contrast against most ground surfaces)        │\n│  Some countries: brick red or high-contrast to surrounding floor │\n│                                                                  │\n│  Standards:                                                      │\n│  ISO 23599 — general standard                                    │\n│  ADA (US): dome dimensions, placement at curb ramps              │\n│  JASSO (Japan): pioneered tactile paving (Seiichi Miyake 1965)   │\n│  BS 8300 (UK), DIN 32984 (Germany)                               │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 566,
+      "heading_context": "## Hazmat Placards (DOT/UN/GHS)",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│          HAZMAT CODING SYSTEMS                               │\n├──────────────────────────────────────────────────────────────┤\n│  DOT (US Department of Transportation):                     │\n│  — Orange diamond placard on vehicles                       │\n│  — UN number (4-digit, 1001–3520+) identifies substance     │\n│  — Hazard class (1–9) on top half of placard                │\n│  — 9 hazard classes: Explosives(1), Gases(2), Flammable     │\n│    liquids(3), Flammable solids(4), Oxidizers(5), Toxics(6),│\n│    Radioactive(7), Corrosives(8), Misc(9)                   │\n│                                                             │\n│  GHS (Globally Harmonized System, UN/OSHA):                 │\n│  — 9 physical, 10 health, 2 environmental hazard pictograms │\n│  — Used on chemical SDS (Safety Data Sheets) and labels     │\n│  — Flame symbol, skull, exclamation, health hazard, etc.   │\n│                                                             │\n│  NFPA 704 \"Fire Diamond\" (US):                              │\n│  — Square rotated 45° (diamond shape)                       │\n│  — 4 quadrants: Blue=Health, Red=Flammability,              │\n│                  Yellow=Instability/Reactivity, White=Special│\n│  — 0–4 severity scale for each quadrant                    │\n│  — Special codes: W (water reactive), OX (oxidizer),        │\n│                   SA (simple asphyxiant)                    │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
