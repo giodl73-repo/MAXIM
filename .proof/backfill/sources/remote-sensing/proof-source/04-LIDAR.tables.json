@@ -1,0 +1,100 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\04-LIDAR.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 96,
+      "heading_context": "## Airborne LiDAR: System Architecture",
+      "headers": [
+        "Parameter",
+        "Typical Range",
+        "Trade-off"
+      ],
+      "rows": [
+        [
+          "Flying altitude",
+          "500-2000m AGL",
+          "Low = dense pts, small swath; High = sparse pts, wide swath"
+        ],
+        [
+          "Pulse repetition freq (PRF)",
+          "50-400 kHz",
+          "High PRF = more pulses = higher density OR higher speed"
+        ],
+        [
+          "Scan angle (half-angle)",
+          "15-25 deg",
+          "Wide = wider swath but lower density at edges"
+        ],
+        [
+          "Scan frequency",
+          "50-200 Hz",
+          "High = denser across-track points"
+        ],
+        [
+          "Point density",
+          "1-50 pts/m2",
+          "Specification depends on application"
+        ],
+        [
+          "Swath width",
+          "200-1000m",
+          "Function of altitude and scan angle"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 314,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Bare-earth hydrology DEM",
+          "Airborne discrete-return LiDAR",
+          "Ground filtering, not return number alone, defines bare earth."
+        ],
+        [
+          "Forest canopy height/AGB",
+          "Full-waveform airborne LiDAR, ICESat-2, or GEDI",
+          "Biomass models are calibration-dependent and can saturate."
+        ],
+        [
+          "Coral reef bathymetry",
+          "532 nm bathymetric LiDAR",
+          "Clear water and bottom reflectance limit depth."
+        ],
+        [
+          "Building 3D model",
+          "TLS or dense airborne LiDAR",
+          "Occlusion and scan geometry can dominate nominal point density."
+        ],
+        [
+          "Road or powerline corridor",
+          "Mobile laser scanning",
+          "Accuracy depends on GNSS/IMU trajectory quality."
+        ],
+        [
+          "Global vegetation structure",
+          "ICESat-2 or GEDI sampling",
+          "Spaceborne LiDAR is sampled, not wall-to-wall coverage."
+        ],
+        [
+          "Rockfall/cliff change",
+          "Repeat TLS multi-epoch scans",
+          "Registration error sets the detection floor."
+        ],
+        [
+          "Archaeological mapping",
+          "Dense airborne LiDAR under canopy",
+          "Dense vegetation can still block ground returns."
+        ]
+      ]
+    }
+  ]
+}

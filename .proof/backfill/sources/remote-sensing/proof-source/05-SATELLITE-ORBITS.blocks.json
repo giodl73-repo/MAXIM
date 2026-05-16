@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\05-SATELLITE-ORBITS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ORBIT ALTITUDE CLASSES\n\n  GEO 35,786 km  +-----------+  Full disk coverage, fixed position\n                 |  GOES     |  5 min refresh, ~2km resolution\n                 |  Meteosat |  Cannot see poles well\n  +-----------+  |  Himawari |\n                 +-----------+\n\n   MEO 2,000-   +-----------+  GPS, GLONASS (nav, not EO)\n   35,786 km    |  GPS      |\n                +-----------+\n\n   SSO 400-     +-----------+  Most EO missions\n   1000 km      |  Landsat  |  Near-polar sun-synchronous\n                |  Sentinel |  10-16 day full coverage\n                |  Planet   |\n                +-----------+\n\n   ISS 408 km   +-----------+  Inclined orbit (51.6 deg)\n                |  ISS      |  Not sun-synchronous\n                |  EMIT     |  Limited to 51.6 deg N/S latitude\n                |  GEDI     |\n                +-----------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "## Sun-Synchronous Orbit: The Engineering",
+      "confidence": "candidate",
+      "text": "NATURAL PRECESSION (J2 effect)\n\n  For a satellite at inclination i and altitude h:\n  dRAAN/dt = -3/2 * (R_E/a)^2 * (J2/T) * cos(i)\n\n  where J2 = 1.08263e-3 (Earth's oblateness coefficient)\n\n  To match Earth's orbital rate around Sun: dRAAN/dt = +360 deg/year\n    = +0.9856 deg/day (eastward)\n\n  For prograde orbits (i < 90 deg), precession is westward (-cos).\n  Need RETROGRADE orbit (i > 90 deg) to get positive precession.\n\n  Typical SSO parameters:\n    h = 705 km, i = 98.2 deg -> precession = +0.986 deg/day  [Landsat]\n    h = 786 km, i = 98.6 deg -> precession = +0.986 deg/day  [Sentinel-2]\n    h = 693 km, i = 98.2 deg -> precession = +0.986 deg/day  [Sentinel-1]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "## Sun-Synchronous Orbit: The Engineering",
+      "confidence": "candidate",
+      "text": "WHY SAME LOCAL SOLAR TIME MATTERS\n\nWithout SSO:\n  Pass 1: 10:30 AM -- shadows point southwest, sun angle 45 deg\n  Pass 2 (3 months later): 4:00 PM -- shadows point east, sun angle 30 deg\n  -> Images incomparable due to different illumination geometry\n\nWith SSO (e.g., 10:30 AM descending node):\n  Every pass: 10:30 AM local solar time\n  Sun angle, shadow length, illumination direction: consistent\n  -> Time series analysis is valid\n  -> Seasonal changes not confused with illumination changes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 158,
+      "heading_context": "### Revisit Time vs. Resolution: Fundamental Trade-off",
+      "confidence": "candidate",
+      "text": "+------------------+--------+----------+---------+\n| Sensor           | GSD    | Swath    | Revisit |\n+------------------+--------+----------+---------+\n| MODIS            | 250m   | 2330km   | daily   |\n| Sentinel-2 A+B   | 10m    | 290km    | 5 days  |\n| Landsat 9        | 30m    | 185km    | 16 days |\n| SPOT-6/7         | 6m     | 60km     | 26 days |\n| Planet Dove      | 3-5m   | 24km     | daily*  |\n| SkySat           | 0.5m   | 6km      | 2-7 days*|\n| WorldView-3      | 0.31m  | 13km     | 1-4 days*|\n+------------------+--------+----------+---------+\n* Constellation: many satellites, not single-orbit coverage",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 183,
+      "heading_context": "## Geostationary Orbit (GEO)",
+      "confidence": "candidate",
+      "text": "GEO SATELLITES FOR REMOTE SENSING\n\n  GOES (Geostationary Operational Environmental Satellites):\n    GOES-West (135.4 W): covers western Americas + Pacific\n    GOES-East (75.2 W):  covers eastern Americas + Atlantic\n    Sensor: ABI (Advanced Baseline Imager), 16 channels\n    Full disk every 15 min, CONUS every 5 min, mesoscale 60 sec\n\n  ADVANTAGES:\n    - Continuous temporal coverage (minutes to seconds)\n    - Severe weather monitoring, hurricane tracking\n    - Diurnal cycle resolved (watch clouds form and dissipate)\n    - No revisit gap -- always staring at same area\n\n  DISADVANTAGES:\n    - Pixel size at nadir: 500m (visible), 2km (thermal)\n    - Polar areas poorly observed (high off-nadir angle)\n    - Parallax error for clouds at altitude (cloud top vs. bottom different position)\n    - High orbit = weak signal -> requires large telescope for same SNR\n    - Cannot do InSAR or lidar from GEO (not yet operational)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 212,
+      "heading_context": "## Orbit Determination and GPS in Orbit",
+      "confidence": "candidate",
+      "text": "GNSS-based POD for EO satellites\n\n  Onboard GPS receiver: records pseudorange + carrier phase\n  Post-processing (ground): precise orbit determination\n  Accuracy: 1-5 cm (for InSAR-quality orbits, key for Sentinel-1)\n\n  Sentinel-1 POD specifications:\n    Restituted orbit (3h after pass): 5 cm RMS\n    Precise orbit (20 days after): 1 cm RMS\n    -> Used for InSAR processing where orbit error = phase error\n\n  Orbit error effect on InSAR:\n    1 cm orbit error at 700km altitude -> ~0.5 mm phase error\n    For mm-level deformation detection: precise orbits required",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

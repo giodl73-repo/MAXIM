@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:remote-sensing:platforms
+kind: guide
+module: remote-sensing
+section: remote-sensing
+title: Earth Observation Platforms: Missions, Sensors, Archives
+status: source-custody
+source_custody: partial
+current_path: remote-sensing/08-PLATFORMS.md
+canonical_path: remote-sensing/08-PLATFORMS.md
+backsource_ids: [proof-backfill:remote-sensing:08-platforms, git-history:remote-sensing:08-platforms]
+concepts: [platforms]
+root_concepts: [platforms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Earth Observation Platforms: Missions, Sensors, Archives
 
 ## The Big Picture

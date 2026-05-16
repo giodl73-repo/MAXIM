@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\09-APPLICATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "### Soil Moisture",
+      "confidence": "candidate",
+      "text": "ACTIVE:  Sentinel-1 (C-band backscatter)\n  sigma0 ~ dielectric constant ~ soil moisture (rough empirical relationship)\n  Change detection approach: temporal relative soil moisture\n  Works at 20-40m scale (field level)\n  Limitation: only surface (~5cm), vegetation mask required\n\nPASSIVE: SMAP (Soil Moisture Active Passive, L-band passive microwave)\n  L-band (1.4 GHz) brightness temperature -> soil moisture inversion\n  ~40km spatial resolution (microwave footprint)\n  Global daily coverage\n  Depth: ~5cm, with freeze/thaw product\n  SMAP Enhanced: 9km (with Sentinel-1 downscaling algorithm)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "### Above-Ground Biomass (AGB) Estimation",
+      "confidence": "candidate",
+      "text": "DATA FUSION APPROACH (current best practice)\n\n  ICESat-2 + GEDI (LiDAR):\n    Accurate canopy height at sample locations\n    Along-track only, sampling gaps\n\n  Sentinel-1 (SAR):\n    L-band backscatter ~ biomass (saturates ~100 t/ha for C-band)\n    Continuous spatial coverage\n\n  Sentinel-2 (Optical):\n    Spectral features (NDVI, red-edge): proxy for canopy structure\n    Cloud masking limitation in tropical forests\n\n  FUSION:\n    Train ML model: ICESat-2/GEDI height -> AGB (using allometric equations)\n    Extrapolate to full coverage using Sentinel-1/2 as wall-to-wall predictors\n    Current global maps: ESA CCI Biomass, GEDI L4B, Lang et al. 2022 (Nature)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 138,
+      "heading_context": "### Deforestation Alerts",
+      "confidence": "candidate",
+      "text": "GLAD ALERT SYSTEM (Global Land Analysis and Discovery, UMD):\n  Sentinel-1 + Landsat: 30m daily-to-weekly alerts\n  Decision tree: anomaly in time series -> loss flag\n  Amazon, tropics primary application\n  Available: Global Forest Watch (globalforestwatch.org)\n\nRADD ALERT (Radar for Detecting Deforestation):\n  Sentinel-1 only: works in cloud-covered tropics\n  C-band backscatter change: forest loss visible even through clouds\n  Detects forest -> non-forest conversion within 1-3 weeks\n\nBURN SEVERITY: dNBR\n  dNBR = NBR_prefire - NBR_postfire\n  NBR = (NIR - SWIR2) / (NIR + SWIR2)\n  Threshold dNBR: high severity > 0.66; low severity 0.1-0.27\n  USGS burn severity mapping uses Landsat dNBR",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 163,
+      "heading_context": "### Impervious Surface Mapping",
+      "confidence": "candidate",
+      "text": "SPECTRAL APPROACH:\n  Impervious = concrete, asphalt, metal: high SWIR reflectance, low NIR\n  Confusion with bare soil (both bright in red/SWIR)\n\n  V-I-S model (Ridd 1995): urban = Vegetation + Impervious + Soil\n  Spectral unmixing: endmembers = pure veg, pure impervious, pure soil\n  Fractional impervious cover at subpixel level from Landsat 30m\n\nSAR APPROACH:\n  Double-bounce scattering from building walls + ground = bright\n  Urban texture: high backscatter variation (PolSAR decomposition)\n  Sentinel-1 urban extent maps at 10m",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "### Thermal Urban Heat Islands",
+      "confidence": "candidate",
+      "text": "UHI MAPPING:\n  Landsat TIRS LST (100m): daytime surface temperature\n  ECOSTRESS (70m): multiple times per day (ISS orbit)\n\n  Urban core vs. rural reference:\n    Typical UHI intensity: 2-10 K\n    Parks: 2-5 K cooler than surrounding urban\n    Green roofs: detectable 1-3 K cooling\n    Water bodies: strong cooling effect\n\n  Application: city planning, heat-related health risk mapping\n  Diurnal cycle: ECOSTRESS captures peak afternoon heat stress\n\nBUILDING HEIGHT AND 3D CITY MODEL:\n  LiDAR (airborne, 10-20 pts/m2):\n    Building segmentation, height extraction, LoD2 3D models\n  SAR (TerraSAR-X spotlight, 1m):\n    Building shadow + layover -> height estimation\n    SAR tomography: 3D reconstruction from multiple angles",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 208,
+      "heading_context": "### Flood Mapping",
+      "confidence": "candidate",
+      "text": "SAR FLOOD DETECTION (C-band, VV):\n\n  PHYSICS: Open water -> very smooth surface -> specular reflection\n    Near-nadir incidence: specular -> radar signal bounces away\n    Sentinel-1 VV over water: sigma0 < -20 dB (very low)\n    Vegetation/soil: -15 to -5 dB (brighter)\n\n  ALGORITHM:\n    1. Threshold sigma0: water if < -18 dB (simple thresholding)\n    2. Change detection: water_t - water_ref (flood = newly dark)\n    3. Machine learning: trained on labeled flood events\n\n  CHALLENGES:\n    Flooded vegetation: double-bounce -> BRIGHT (not dark!)\n    Wind on water: increases roughness -> less dark\n    Urban flooding: complex scattering patterns\n\n  SYSTEMS:\n    Copernicus Emergency Management Service (CEMS): automated SAR-based flood maps\n    ARIA Team (JPL): automatic Sentinel-1 flood products\n    GFM (Global Flood Monitoring): automated near-real-time\n\nOPTICAL (clear sky only):\n  MNDWI thresholding from Sentinel-2\n  Accurate, higher resolution, but requires cloud-free image (problematic during floods)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "### Earthquake Damage Proxy Maps",
+      "confidence": "candidate",
+      "text": "SAR COHERENCE CHANGE DETECTION\n\n  Before earthquake: high coherence in urban areas (stable buildings)\n  After earthquake: low coherence where buildings collapsed (random scattering)\n\n  Damage Proxy Map = coherence_before - coherence_after\n  High coherence change -> likely damage\n\n  Sentinel-1 pair (6-day repeat):\n    Before pair: coherence ~0.6-0.8 (stable urban)\n    After pair: coherence ~0.1-0.3 (damaged buildings collapsed)\n    Detection rate: moderate damage detectable; total collapse = strong signal\n\n  ARIA damage proxy maps: automated, available within 24-48hr of event\n  Limitations:\n    False positives: construction, agriculture\n    Cannot distinguish structural damage type\n    Optical inspection needed for confirmation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 306,
+      "heading_context": "### Sea Surface Temperature (SST)",
+      "confidence": "candidate",
+      "text": "TIR SST RETRIEVAL:\n\n  AVHRR split-window algorithm (NOAA operational):\n    SST = a0 + a1*T11 + a2*(T11-T12) + a3*(T11-T12)^2 + ...\n\n  MODIS Level-3 SST: 4km daily, 9km monthly\n  GOES ABI: hourly SST, 2km (US coastal waters)\n\n  Accuracy: ~0.3-0.5 K (bulk SST)\n  Skin SST (0.1mm depth): what TIR measures; bulk T slightly warmer\n\n  DIURNAL WARMING:\n    Near-surface layer can warm 1-5 K during calm sunny days\n    GOES captures diurnal SST cycle completely",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 325,
+      "heading_context": "### Ocean Color",
+      "confidence": "candidate",
+      "text": "OCEAN COLOR (chlorophyll-a):\n\n  Algorithm (NASA OC4/OC3):\n    Chl-a = 10^(a0 + a1*X + a2*X^2 + ...) where X = log10(max(Rrs443,Rrs490)/Rrs555)\n    Rrs = remote sensing reflectance in blue-green ratio\n\n  Product: MODIS Aqua OCx, VIIRS, Sentinel-3 OLCI (300m)\n  Application: phytoplankton bloom detection, eutrophication, HABs\n\n  CHALLENGES: Coastal (Case 2) water = non-algal particles + CDOM + suspended sediment\n    Standard ocean color algorithms fail in turbid coastal water\n    Need specialized algorithms (Mixture Density Networks, POLYMER, C2RCC)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 342,
+      "heading_context": "### Ocean Surface Wind and Wave",
+      "confidence": "candidate",
+      "text": "SAR OCEAN APPLICATIONS:\n\n  Oil spills: dampen capillary waves -> dark patch in SAR image\n    Detection: threshold sigma0 in C-band VV\n    Risk: dark spots from natural surfactants, rain cells\n\n  Ship detection: bright targets on dark background\n    Automatic ship detection (CFAR algorithm) in Sentinel-1\n    AIS cross-reference: confirm, identify dark vessels\n\n  Wind speed: CMOD5/CMOD7 geophysical model function\n    sigma0 = f(U10, chi) where chi = wind direction relative to look angle\n    C-band scatterometers (MetOp ASCAT): dedicated wind measurement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

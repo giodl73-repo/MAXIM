@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:remote-sensing:image-processing
+kind: guide
+module: remote-sensing
+section: remote-sensing
+title: Image Processing: Geometric Correction, Atmospheric Correction, Classification
+status: source-custody
+source_custody: partial
+current_path: remote-sensing/06-IMAGE-PROCESSING.md
+canonical_path: remote-sensing/06-IMAGE-PROCESSING.md
+backsource_ids: [proof-backfill:remote-sensing:06-image-processing, git-history:remote-sensing:06-image-processing]
+concepts: [image, processing]
+root_concepts: [image, processing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Image Processing: Geometric Correction, Atmospheric Correction, Classification
 
 ## The Big Picture

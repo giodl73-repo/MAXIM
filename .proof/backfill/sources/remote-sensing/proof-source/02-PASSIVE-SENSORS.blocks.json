@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\02-PASSIVE-SENSORS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SPECTRAL SAMPLING STRATEGIES\n                                              Spectral resolution\nBROAD BANDS                                  NARROW CONTIGUOUS\n(multispectral)                              (hyperspectral)\n    |          |     |    |                  ||||||||||||||||||||||||\n    |   Blue   | NIR | SW |                  ||||||||||||||||||||||||\n    |          |     |    |                  ||||||||||||||||||||||||\n  0.4         0.7   1.0  2.5 um           0.4                     2.5 um\n  4-12 bands typical                      200-400 bands typical\n  30-100m spatial resolution              10-30m spatial resolution\n  Large swath, frequent revisit           Smaller swath, less frequent\n\nTHERMAL BANDS\n   |     |\n   | 10  | 12 um        2-8 TIR bands (ASTER: 5; Landsat TIRS: 2; ECOSTRESS: 8)\n   TIR window",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 51,
+      "heading_context": "## Multispectral Sensors: Resolution Taxonomy",
+      "confidence": "candidate",
+      "text": "+----------------+----------+------+--------+---------+--------+\n| Sensor         | Platform | GSD  | Bands  | Swath   | Revisit|\n+----------------+----------+------+--------+---------+--------+\n| OLI-2 / TIRS-2 | Landsat 9| 30m  | 9+2TIR | 185 km  | 16 day |\n| MSI            | Sent-2   | 10m  | 13     | 290 km  | 5 day  |\n| MODIS          | Terra/   | 250m | 36     | 2330 km | daily  |\n|                | Aqua     |-1km  |        |         |        |\n| SuperDove      | Planet   | 3-5m | 8      | 24 km   | daily  |\n| WV-3 MS        | Maxar WV3| 1.24m| 8+8SWIR| 13 km   | 1-4 day|\n| SPOT-7         | SPOT-7   | 6m   | 4      | 60 km   | 26 day |\n| RapidEye       | retired  | 5m   | 5+RedE | 77 km   | daily  |\n+----------------+----------+------+--------+---------+--------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "### Land Surface Temperature (LST) Retrieval",
+      "confidence": "candidate",
+      "text": "INPUTS:\n  - At-sensor TIR radiance (from Level 1)\n  - Atmospheric water vapor profile (from NWP: NCEP, ERA5)\n  - Surface emissivity (from ASTER emissivity database, or estimated)\n\nSTEP 1: Atmospheric correction\n  Remove upwelling and downwelling atmospheric emission\n  Correct for atmospheric absorption (transmittance)\n  -> At-surface radiance\n\nSTEP 2: Emissivity correction\n  L_surface = emissivity * B(lambda, T_surface)\n  Invert for T_surface using Planck function\n  -> Land Surface Temperature\n\nACCURACY:\n  Standard algorithms: ~1-2 K absolute\n  ECOSTRESS: <1.5 K target\n  Factors: emissivity uncertainty, atmospheric column water",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

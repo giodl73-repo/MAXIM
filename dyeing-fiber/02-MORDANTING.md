@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dyeing-fiber:mordanting
+kind: guide
+module: dyeing-fiber
+section: dyeing-fiber
+title: Mordanting: Chemistry of Color Fixation
+status: source-custody
+source_custody: partial
+current_path: dyeing-fiber/02-MORDANTING.md
+canonical_path: dyeing-fiber/02-MORDANTING.md
+backsource_ids: [proof-backfill:dyeing-fiber:02-mordanting, git-history:dyeing-fiber:02-mordanting]
+concepts: [mordanting]
+root_concepts: [mordanting]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mordanting: Chemistry of Color Fixation
 
 ## The Big Picture

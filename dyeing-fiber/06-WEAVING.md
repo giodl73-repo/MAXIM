@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dyeing-fiber:weaving
+kind: guide
+module: dyeing-fiber
+section: dyeing-fiber
+title: Weaving: Loom Taxonomy, Weave Structures, Sett, Tapestry
+status: source-custody
+source_custody: partial
+current_path: dyeing-fiber/06-WEAVING.md
+canonical_path: dyeing-fiber/06-WEAVING.md
+backsource_ids: [proof-backfill:dyeing-fiber:06-weaving, git-history:dyeing-fiber:06-weaving]
+concepts: [weaving]
+root_concepts: [weaving]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Weaving: Loom Taxonomy, Weave Structures, Sett, Tapestry
 
 ## The Big Picture

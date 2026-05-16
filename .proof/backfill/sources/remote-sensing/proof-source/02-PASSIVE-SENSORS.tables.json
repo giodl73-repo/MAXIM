@@ -1,0 +1,284 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\02-PASSIVE-SENSORS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 70,
+      "heading_context": "## Multispectral Sensors: Resolution Taxonomy",
+      "headers": [
+        "Product",
+        "Bands Used",
+        "Algorithm"
+      ],
+      "rows": [
+        [
+          "MOD13 Vegetation Index",
+          "B1 Red (620-670), B2 NIR (841-876)",
+          "NDVI and EVI"
+        ],
+        [
+          "MOD11 Land Surface Temp",
+          "B31 (10.78-11.28 um), B32 (11.77-12.27 um)",
+          "Split-window"
+        ],
+        [
+          "MOD09 Surface Reflectance",
+          "7-band (B1-B7)",
+          "6S radiative transfer"
+        ],
+        [
+          "MOD14 Active Fire",
+          "B21 (3.96 um), B22 (3.96 um), B32",
+          "Thermal anomaly"
+        ],
+        [
+          "MYD28 Sea Surface Temp",
+          "TIR bands",
+          "Split-window retrieval"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 103,
+      "heading_context": "## Vegetation Indices: The Band Ratio Arsenal",
+      "headers": [
+        "Index",
+        "Formula",
+        "Physical Target",
+        "Key Application"
+      ],
+      "rows": [
+        [
+          "NDVI",
+          "(NIR-Red)/(NIR+Red)",
+          "Chlorophyll contrast",
+          "Vegetation cover, biomass"
+        ],
+        [
+          "EVI",
+          "2.5*(NIR-Red)/(NIR+6*Red-7.5*Blue+1)",
+          "Canopy structure",
+          "Reduces aerosol, saturation issues vs. NDVI"
+        ],
+        [
+          "NDWI (Gao)",
+          "(NIR-SWIR1)/(NIR+SWIR1)",
+          "Canopy water content",
+          "Vegetation moisture stress"
+        ],
+        [
+          "NDWI (McFeeters)",
+          "(Green-NIR)/(Green+NIR)",
+          "Open water",
+          "Lake/river mapping"
+        ],
+        [
+          "MNDWI",
+          "(Green-SWIR1)/(Green+SWIR1)",
+          "Open water + built",
+          "Urban water detection"
+        ],
+        [
+          "NBR",
+          "(NIR-SWIR2)/(NIR+SWIR2)",
+          "Burn severity",
+          "dNBR = pre-fire minus post-fire"
+        ],
+        [
+          "NDSI",
+          "(Green-SWIR1)/(Green+SWIR1)",
+          "Snow vs. cloud",
+          "Snow cover mapping"
+        ],
+        [
+          "SAVI",
+          "(NIR-Red)/(NIR+Red+L)*(1+L) L=0.5",
+          "Sparse veg",
+          "Low vegetation cover adjustment"
+        ],
+        [
+          "BSI",
+          "(SWIR1+Red-NIR-Blue)/(SWIR1+Red+NIR+Blue)",
+          "Bare soil",
+          "Agriculture, erosion mapping"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 137,
+      "heading_context": "## Hyperspectral Sensors: The Spectral Fingerprint Machine",
+      "headers": [
+        "Sensor",
+        "Platform",
+        "Bands",
+        "Range (um)",
+        "GSD",
+        "Status"
+      ],
+      "rows": [
+        [
+          "AVIRIS-NG",
+          "Aircraft",
+          "432",
+          "0.38-2.51",
+          "3-10m",
+          "NASA JPL, operational"
+        ],
+        [
+          "DESIS",
+          "ISS",
+          "235",
+          "0.40-1.00",
+          "30m",
+          "DLR/Teledyne, operational"
+        ],
+        [
+          "PRISMA",
+          "Satellite",
+          "250",
+          "0.40-2.50",
+          "30m",
+          "ASI (Italy), free archive"
+        ],
+        [
+          "EnMAP",
+          "Satellite",
+          "228",
+          "0.42-2.45",
+          "30m",
+          "DLR, 2022--, free"
+        ],
+        [
+          "EMIT",
+          "ISS",
+          "285",
+          "0.38-2.50",
+          "60m",
+          "NASA JPL, 2022--, free"
+        ],
+        [
+          "HyspIRI",
+          "Proposed",
+          "213",
+          "0.38-2.50",
+          "60m",
+          "NASA concept"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 169,
+      "heading_context": "## Thermal Infrared (TIR) Sensors",
+      "headers": [
+        "Sensor",
+        "Platform",
+        "Bands (um)",
+        "GSD",
+        "Key Science"
+      ],
+      "rows": [
+        [
+          "TIRS-2",
+          "Landsat 9",
+          "10.9, 12.0",
+          "100m",
+          "LST, urban heat, agriculture"
+        ],
+        [
+          "ASTER TIR",
+          "Terra",
+          "8.125-11.65 (5 bands)",
+          "90m",
+          "Emissivity, geology, volcanoes"
+        ],
+        [
+          "ECOSTRESS",
+          "ISS",
+          "8.28-12.05 (8 bands)",
+          "38x69m",
+          "ET, plant water stress, LST"
+        ],
+        [
+          "VIIRS",
+          "S-NPP/JPSS",
+          "10.76-12.27 (2 bands)",
+          "750m",
+          "LST, fire, daily global"
+        ],
+        [
+          "ABI",
+          "GOES",
+          "10.3, 11.2, 12.3, 13.3 um",
+          "2km",
+          "Cloud, SST, storm tracking"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 256,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Daily global vegetation",
+          "MODIS Terra/Aqua",
+          "Coarse resolution trades against revisit."
+        ],
+        [
+          "10 m land-cover time series",
+          "Sentinel-2",
+          "Clouds and bidirectional reflectance still need handling."
+        ],
+        [
+          "Long historical change",
+          "Landsat OLI and archive",
+          "Sensor generations require calibration awareness."
+        ],
+        [
+          "Sub-meter mapping",
+          "WorldView-3 or Maxar",
+          "Commercial tasking and licensing drive availability."
+        ],
+        [
+          "Mineral/geology mapping",
+          "Hyperspectral EMIT or PRISMA",
+          "Atmospheric correction is often the limiting step."
+        ],
+        [
+          "Land surface temperature",
+          "Landsat TIRS or ECOSTRESS",
+          "LST is not air temperature and needs emissivity."
+        ],
+        [
+          "Global daily fire",
+          "MODIS or VIIRS MIR bands",
+          "Coarse pixels miss small or cool fires."
+        ],
+        [
+          "Cloud-free tropics",
+          "SAR instead of passive optical",
+          "SAR backscatter is different physics, not optical replacement."
+        ],
+        [
+          "Vegetation water stress",
+          "ECOSTRESS TIR evapotranspiration",
+          "Thermal stress can reflect water, canopy, and meteorology together."
+        ],
+        [
+          "Daily snow cover",
+          "MODIS MOD10 and NDSI",
+          "Forest canopy and cloud contamination complicate snow mapping."
+        ]
+      ]
+    }
+  ]
+}

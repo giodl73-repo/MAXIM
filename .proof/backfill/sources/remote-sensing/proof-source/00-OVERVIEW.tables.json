@@ -1,0 +1,389 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 142,
+      "heading_context": "## The Four Resolutions: Fundamental Trade-offs",
+      "headers": [
+        "Resolution Type",
+        "Definition",
+        "Range",
+        "Trade-off"
+      ],
+      "rows": [
+        [
+          "**Spatial**",
+          "Ground footprint per pixel",
+          "0.3m (WorldView) to 40km (SMAP)",
+          "Finer pixels = narrower swath = longer revisit"
+        ],
+        [
+          "**Spectral**",
+          "Number and width of bands",
+          "4 bands (PAN+RGB) to 285 (EMIT)",
+          "More bands = less light per band = lower SNR"
+        ],
+        [
+          "**Temporal**",
+          "Time between repeat observations",
+          "5 min (GOES) to 91 days (ICESat-2)",
+          "Faster revisit = wider swath = coarser spatial"
+        ],
+        [
+          "**Radiometric**",
+          "Sensitivity to signal differences",
+          "8-bit (256 DN) to 14-bit (16384 DN)",
+          "Higher bit depth = better faint-signal detection"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 225,
+      "heading_context": "## Key Missions at a Glance",
+      "headers": [
+        "Mission",
+        "Agency",
+        "Type",
+        "Spatial Res",
+        "Bands",
+        "Revisit",
+        "Archive",
+        "Access"
+      ],
+      "rows": [
+        [
+          "Landsat 9",
+          "USGS/NASA",
+          "Multispectral + TIR",
+          "30m / 100m",
+          "11",
+          "16 day",
+          "1972–",
+          "Free"
+        ],
+        [
+          "Sentinel-2 A/B",
+          "ESA",
+          "Multispectral",
+          "10/20/60m",
+          "13",
+          "5 day",
+          "2015–",
+          "Free"
+        ],
+        [
+          "Sentinel-1 A/B",
+          "ESA",
+          "C-band SAR",
+          "5×20m (IW)",
+          "Dual pol",
+          "6 day",
+          "2014–",
+          "Free"
+        ],
+        [
+          "MODIS (Terra/Aqua)",
+          "NASA",
+          "Spectroradiometer",
+          "250m–1km",
+          "36",
+          "Daily",
+          "2000–",
+          "Free"
+        ],
+        [
+          "NISAR",
+          "NASA/ISRO",
+          "L+S band SAR",
+          "3–10m",
+          "Dual pol",
+          "12 day",
+          "2024–",
+          "Free"
+        ],
+        [
+          "Planet Dove/SuperDove",
+          "Planet Labs",
+          "Multispectral",
+          "3–5m",
+          "8",
+          "Daily",
+          "—",
+          "Commercial"
+        ],
+        [
+          "ICESat-2",
+          "NASA",
+          "Photon-counting LiDAR",
+          "17m footprint",
+          "532nm",
+          "91 day",
+          "2018–",
+          "Free"
+        ],
+        [
+          "GOES-18",
+          "NOAA",
+          "16-channel imager",
+          "500m–2km",
+          "16",
+          "5–15 min",
+          "2022–",
+          "Free"
+        ],
+        [
+          "WorldView-3",
+          "Maxar",
+          "Multi+SWIR+CAVIS",
+          "0.31m PAN",
+          "29",
+          "1–4 day",
+          "—",
+          "Commercial"
+        ],
+        [
+          "EMIT",
+          "NASA/JPL",
+          "Hyperspectral (ISS)",
+          "60m",
+          "285",
+          "Varies",
+          "2022–",
+          "Free"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 268,
+      "heading_context": "## Vegetation Indices: Band Math as Feature Engineering",
+      "headers": [
+        "Index",
+        "Formula",
+        "Range",
+        "What It Measures"
+      ],
+      "rows": [
+        [
+          "**NDVI**",
+          "(NIR − Red) / (NIR + Red)",
+          "−1 to +1",
+          "Green vegetation density. Saturates at LAI ~3."
+        ],
+        [
+          "**EVI**",
+          "2.5 × (NIR − Red) / (NIR + 6×Red − 7.5×Blue + 1)",
+          "−1 to +1",
+          "Canopy structure. Reduces soil/atmosphere noise."
+        ],
+        [
+          "**NDWI**",
+          "(Green − NIR) / (Green + NIR)",
+          "−1 to +1",
+          "Open water detection."
+        ],
+        [
+          "**MNDWI**",
+          "(Green − SWIR) / (Green + SWIR)",
+          "−1 to +1",
+          "Modified water index. Better in urban areas."
+        ],
+        [
+          "**NBR**",
+          "(NIR − SWIR2) / (NIR + SWIR2)",
+          "−1 to +1",
+          "Burn severity. ΔNBR = pre-fire minus post-fire."
+        ],
+        [
+          "**NDSI**",
+          "(Green − SWIR1) / (Green + SWIR1)",
+          "−1 to +1",
+          "Snow cover (snow reflects green, absorbs SWIR)."
+        ],
+        [
+          "**SAVI**",
+          "1.5 × (NIR − Red) / (NIR + Red + 0.5)",
+          "−1 to +1",
+          "Soil-adjusted veg index. For sparse canopy."
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 380,
+      "heading_context": "## Section Map",
+      "headers": [
+        "File",
+        "Topic"
+      ],
+      "rows": [
+        [
+          "01-EM-SPECTRUM.md",
+          "Atmospheric windows, scattering regimes, Planck function, solar vs. thermal crossover"
+        ],
+        [
+          "02-PASSIVE-SENSORS.md",
+          "Multispectral, hyperspectral, thermal — calibration through to products"
+        ],
+        [
+          "03-ACTIVE-SENSORS-SAR.md",
+          "SAR principles: range/azimuth resolution, polarimetry, backscatter physics"
+        ],
+        [
+          "04-LIDAR.md",
+          "Time-of-flight, point clouds, airborne/terrestrial/bathymetric/space LiDAR"
+        ],
+        [
+          "05-SATELLITE-ORBITS.md",
+          "Sun-synchronous, geostationary, repeat cycles, revisit vs. resolution"
+        ],
+        [
+          "06-IMAGE-PROCESSING.md",
+          "Geometric correction, atmospheric correction, classification algorithms"
+        ],
+        [
+          "07-INSAR.md",
+          "Interferometric SAR: DEM generation, surface deformation, PS-InSAR"
+        ],
+        [
+          "08-PLATFORMS.md",
+          "Landsat, Sentinel, MODIS, NISAR, Planet — detailed specs and data access"
+        ],
+        [
+          "09-APPLICATIONS.md",
+          "Agriculture, forestry, urban, disaster response, cryosphere, ocean"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 398,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Sensor / Mission",
+        "Band",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Vegetation health / greenness?",
+          "Sentinel-2, Landsat 9",
+          "Red + NIR (NDVI)",
+          "Chlorophyll absorbs red; healthy plants reflect NIR"
+        ],
+        [
+          "Crop type at field scale?",
+          "Sentinel-2 time series",
+          "VIS/NIR/red-edge",
+          "Phenological profiles unique per crop"
+        ],
+        [
+          "Vegetation moisture stress?",
+          "Sentinel-2",
+          "SWIR + NIR",
+          "Liquid water absorbs SWIR"
+        ],
+        [
+          "Burn severity?",
+          "Landsat 9",
+          "NIR + SWIR2 (dNBR)",
+          "Fire destroys NIR reflectance, increases SWIR"
+        ],
+        [
+          "Land surface temperature?",
+          "Landsat TIRS, ECOSTRESS",
+          "TIR (10–12 μm)",
+          "Peak Planck emission at ~300K"
+        ],
+        [
+          "Active fire detection?",
+          "MODIS, VIIRS",
+          "MIR (3.7 μm)",
+          "Hot targets radiate strongly at short TIR"
+        ],
+        [
+          "Snow vs. cloud?",
+          "Sentinel-2, Landsat",
+          "SWIR (1.6 μm)",
+          "Snow absorbs SWIR; cloud reflects it"
+        ],
+        [
+          "Mineral / lithology mapping?",
+          "ASTER, EMIT, Sentinel-2",
+          "SWIR (2.0–2.5 μm)",
+          "Clay, carbonate, iron-oxide absorption features"
+        ],
+        [
+          "Flood extent (any weather)?",
+          "Sentinel-1 SAR",
+          "C-band (5.6 cm)",
+          "Water = specular = dark in radar. All-weather."
+        ],
+        [
+          "Earthquake / volcano deformation?",
+          "Sentinel-1 InSAR",
+          "C-band phase",
+          "mm-scale surface displacement from phase diff"
+        ],
+        [
+          "Forest biomass?",
+          "NISAR (L-band), GEDI LiDAR",
+          "L-band + 1064nm",
+          "Deep canopy penetration + direct height measurement"
+        ],
+        [
+          "Sea ice classification?",
+          "Sentinel-1, RADARSAT",
+          "C-band HH/VV",
+          "Multi-year ice vs. first-year ice backscatter"
+        ],
+        [
+          "Ocean chlorophyll / color?",
+          "MODIS Aqua, Sentinel-3 OLCI",
+          "Blue/Green ratio",
+          "Phytoplankton absorb blue, reflect green"
+        ],
+        [
+          "Sea surface temperature?",
+          "MODIS, VIIRS, GOES ABI",
+          "TIR split-window",
+          "Dual-band atmospheric correction for SST"
+        ],
+        [
+          "Atmospheric aerosol / haze?",
+          "Sentinel-2 B1, MODIS",
+          "Blue (0.44 μm)",
+          "Rayleigh scattering maximized at short λ"
+        ],
+        [
+          "Topography / 3D structure?",
+          "Airborne LiDAR, ICESat-2",
+          "1064nm / 532nm",
+          "Direct range measurement → DEM + canopy height"
+        ],
+        [
+          "Soil moisture (global)?",
+          "SMAP, NISAR",
+          "L-band (passive/active)",
+          "Deep microwave penetration to soil surface"
+        ],
+        [
+          "Daily global monitoring?",
+          "MODIS, VIIRS, Planet",
+          "VIS/NIR/TIR",
+          "Wide swath + daily revisit at moderate resolution"
+        ],
+        [
+          "Sub-meter urban detail?",
+          "WorldView-3, Pleiades",
+          "PAN + multispectral",
+          "0.3m commercial; building-level discrimination"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:remote-sensing:passive-sensors
+kind: guide
+module: remote-sensing
+section: remote-sensing
+title: Passive Sensors: Multispectral, Hyperspectral, Thermal
+status: source-custody
+source_custody: partial
+current_path: remote-sensing/02-PASSIVE-SENSORS.md
+canonical_path: remote-sensing/02-PASSIVE-SENSORS.md
+backsource_ids: [proof-backfill:remote-sensing:02-passive-sensors, git-history:remote-sensing:02-passive-sensors]
+concepts: [passive, sensors]
+root_concepts: [passive, sensors]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Passive Sensors: Multispectral, Hyperspectral, Thermal
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dyeing-fiber:overview
+kind: guide
+module: dyeing-fiber
+section: dyeing-fiber
+title: Dyeing and Fiber Arts - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: dyeing-fiber/00-OVERVIEW.md
+canonical_path: dyeing-fiber/00-OVERVIEW.md
+backsource_ids: [proof-backfill:dyeing-fiber:00-overview, git-history:dyeing-fiber:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Dyeing and Fiber Arts — Landscape and Taxonomy
 
 ## The Big Picture
@@ -17,9 +36,9 @@ THE FIBER-TO-CLOTH PIPELINE
   | Silk     |  degumming  |          |           |        |
   +----------+             +----------+           +--------+
                                                        |
-       +------------------------------------------------+
-       |
-       v
+       -------------------------------------------------+
+                                                        |
+                                                        v
   DYEING                                    WEAVING
   +-----------+         +-----------+      +---------+
   | Mordant   |  color  | Dye bath  |      | Loom    |

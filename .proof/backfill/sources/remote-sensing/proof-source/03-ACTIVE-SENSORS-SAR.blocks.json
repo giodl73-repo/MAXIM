@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\03-ACTIVE-SENSORS-SAR.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SAR GEOMETRY\n                      SATELLITE MOVING ->\n                        |\n            ............v............     AZIMUTH direction\n          ..  SATELLITE TRACK         ..  (along-track, Doppler processed)\n        ..                              ..\n       | <---- RANGE direction -------> |  (cross-track, time delay)\n       |        (slant range)           |\n       |          /                     |\n       |         /   LOOK ANGLE         |\n       |        / theta                 |\n       v       v                        v\n  ----+-------+----------+-----------+-----   GROUND\n      |NEAR   |          |           |FAR|\n      |RANGE  |          |           |   |\n      +-------+----------+-----------+---+\n              <------- SWATH WIDTH ------>",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 52,
+      "heading_context": "## Range vs. Azimuth Resolution",
+      "confidence": "candidate",
+      "text": "RANGE RESOLUTION (cross-track)\n  Determined by pulse bandwidth (chirp rate):\n  delta_r_slant = c / (2 * BW)\n  delta_r_ground = c / (2 * BW * sin(theta))\n\n  where BW = transmitted bandwidth, theta = incidence angle\n  Sentinel-1: BW = 100 MHz -> delta_r_slant = 1.5m\n  Can be improved freely by increasing bandwidth -- no orbital constraint\n\nAZIMUTH RESOLUTION (along-track)\n  Real aperture: delta_az = lambda * R / D_real  (terrible: km scale)\n  where lambda = wavelength, R = range, D_real = antenna length\n\n  Synthetic aperture: delta_az = D_real / 2  (half the physical antenna length)\n  INDEPENDENT OF RANGE AND WAVELENGTH\n  Sentinel-1: antenna ~12m -> delta_az = 6m\n  This is the key SAR magic: longer wavelength -> larger real aperture\n  needed BUT azimuth resolution stays fixed at D_real/2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 79,
+      "heading_context": "## SAR Frequency Bands: Penetration vs. Resolution Trade-off",
+      "confidence": "candidate",
+      "text": "BAND    WAVELENGTH    FREQUENCY    PENETRATION       RESOLUTION    SENSORS\n-----------------------------------------------------------------------\nKa      0.8 cm        35 GHz      Surface only       Very fine     Experimental\nKu      1.7 cm        18 GHz      Surface            Fine          TerraSAR-X mode\nX       3.1 cm        9.6 GHz     Low penetration    Fine (1-3m)   TerraSAR-X, COSMO\nC       5.6 cm        5.3 GHz     Moderate           Moderate (5m) Sentinel-1, RADARSAT\nS       9.4 cm        3.2 GHz     Moderate+          Moderate      NISAR (S-band)\nL       24 cm         1.2 GHz     Deep (vegetation)  Coarser       ALOS-2, NISAR (L)\nP       70 cm         0.43 GHz    Very deep (soil)   Coarser       BIOMASS (ESA)\n\nKEY TRADE-OFF:\n  Longer wavelength -> deeper penetration -> worse azimuth resolution\n                    -> less affected by temporal decorrelation\n                    -> larger antenna required for same delta_az\n\n  C-band (Sentinel-1): balance of penetration, resolution, and hardware cost\n  L-band (NISAR): deep vegetation penetration for biomass estimation;\n                  also better coherence over forests for InSAR\n  X-band: excellent for urban mapping and DEM generation (TanDEM-X)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "## Backscatter Coefficient Sigma-0",
+      "confidence": "candidate",
+      "text": "sigma^0 depends on:\n\n1. SURFACE ROUGHNESS (relative to wavelength)\n   Smooth (water at low wind): specular reflection away from sensor -> LOW sigma^0\n   Rough (urban, vegetation): diffuse scattering toward sensor -> HIGH sigma^0\n   Bragg resonance: periodic surface roughness matching lambda -> sharp peak\n\n2. DIELECTRIC CONSTANT (permittivity)\n   High water content -> high dielectric constant -> stronger reflection\n   Dry soil: epsilon_r ~ 3-5\n   Wet soil: epsilon_r ~ 15-25\n   Water: epsilon_r ~ 80\n   Ice (fresh): epsilon_r ~ 3.2 (low -- transparent to radar)\n   Sea ice (multiyear): complex mixture\n\n3. GEOMETRY / INCIDENCE ANGLE\n   Steep incidence: more surface scattering\n   Shallow incidence: more volume scattering from canopy\n\n4. SCATTERING MECHANISM\n   Surface scattering: direct bounce off ground\n   Volume scattering: multiple bounces within canopy or snowpack\n   Double-bounce: tree trunk + ground corner reflector -> very bright",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 133,
+      "heading_context": "## Backscatter Coefficient Sigma-0",
+      "confidence": "candidate",
+      "text": "### Sigma-0 Typical Values (C-band, VV polarization, ~35 deg incidence)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 150,
+      "heading_context": "## Polarimetry: The Information Multiplier",
+      "confidence": "candidate",
+      "text": "       | S_HH  S_HV |   | E_H_received |      | E_H_transmitted |\n  [S] =|             | = |              | from |                 |\n       | S_VH  S_VV |   | E_V_received |      | E_V_transmitted |\n\nFor monostatic SAR: S_HV = S_VH (reciprocity theorem)\nQuad-pol data: HH, VV, HV (= VH) -- 3 independent channels\nDual-pol (Sentinel-1 IW default): VV + VH, or HH + HV\nSingle-pol: VV or HH",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 173,
+      "heading_context": "### Pauli Decomposition",
+      "confidence": "candidate",
+      "text": "### Freeman-Durden 3-Component Decomposition",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 177,
+      "heading_context": "### Freeman-Durden 3-Component Decomposition",
+      "confidence": "candidate",
+      "text": "sigma_0 = f_s * (surface scatter)  + f_d * (double-bounce) + f_v * (volume)\n\nSurface: modeled as rough surface Bragg scatter\nDouble: modeled as dihedral corner reflector (trunk+ground)\nVolume: modeled as randomly oriented dipoles (vegetation canopy)\n\nOutputs: power fractions f_s, f_d, f_v summing to total power\nApplications: forest cover, wetland detection, urban structure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 194,
+      "heading_context": "## SAR Acquisition Modes",
+      "confidence": "candidate",
+      "text": "+----------------------+--------+----------+-------+---------------------+\n| Mode                 | Swath  | Res(range| Looks | Use Case            |\n|                      | (km)   | x azimuth)|      |                     |\n+----------------------+--------+----------+-------+---------------------+\n| StripMap             | 80km   | 5x5m     | 1     | Standard mapping    |\n| ScanSAR (Sentinel IW)| 250km  | 5x20m    | 3-5   | Wide area, time     |\n|                      |        |          |       | series (InSAR)      |\n| Spotlight            | 10km   | 1-2m     | 1     | High-res urban,     |\n|                      |        |          |       | ship detection      |\n| Wide Swath (EW)      | 400km  | 20x40m   | 5     | Sea ice, ocean      |\n| ScanSAR (RADARSAT-2) | 500km  | 25-100m  | 4+    | Global ocean        |\n+----------------------+--------+----------+-------+---------------------+\n\nLooks = number of independent looks averaged for speckle reduction\nMulti-look: reduces speckle (coherent noise) at cost of resolution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 218,
+      "heading_context": "## Coherence and Temporal Decorrelation",
+      "confidence": "candidate",
+      "text": "gamma = |<S1 * conj(S2)>| / sqrt(<|S1|^2> * <|S2|^2>)\n\nRange: 0 (incoherent, no phase relationship) to 1 (perfectly coherent)\n\nDECORRELATION SOURCES:\n  Temporal: surface changes between acquisitions -> decorrelates\n  Spatial (baseline): slightly different viewing geometry -> geometry decorrel\n  Thermal: noise in each SAR system -> small, usually negligible\n  Volume: random scatterers in canopy -> volume decorrelation\n\nTYPICAL COHERENCE VALUES (C-band, 6-day repeat):\n  Urban (stable buildings): 0.7-0.9  (high: stable corner reflectors)\n  Bare rock / dry soil:     0.5-0.8  (moderate-high)\n  Agricultural crops:       0.1-0.4  (low: plants grow, move in wind)\n  Tropical forest:          0.0-0.2  (very low: canopy motion + rain)\n  Water surface:            ~0.0     (completely decorrelated each pass)\n\nL-band penetrates to stable branches/trunks -> higher coherence in forest\nC-band scatters from leaf canopy -> more temporal decorrelation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

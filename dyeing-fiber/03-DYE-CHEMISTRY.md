@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dyeing-fiber:dye-chemistry
+kind: guide
+module: dyeing-fiber
+section: dyeing-fiber
+title: Dye Chemistry: Chromophores, Auxochromes, Fiber-Dye Bonding, Fastness
+status: source-custody
+source_custody: partial
+current_path: dyeing-fiber/03-DYE-CHEMISTRY.md
+canonical_path: dyeing-fiber/03-DYE-CHEMISTRY.md
+backsource_ids: [proof-backfill:dyeing-fiber:03-dye-chemistry, git-history:dyeing-fiber:03-dye-chemistry]
+concepts: [dye, chemistry]
+root_concepts: [dye, chemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Dye Chemistry: Chromophores, Auxochromes, Fiber-Dye Bonding, Fastness
 
 ## The Big Picture

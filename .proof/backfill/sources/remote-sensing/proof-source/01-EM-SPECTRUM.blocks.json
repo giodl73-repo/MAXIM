@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\01-EM-SPECTRUM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "WAVELENGTH (log scale)\n\n  UV       VISIBLE      NIR    SWIR  MIR   TIR     FIR  MICROWAVE   RADIO\n  |          |    |      |       |    |     |        |       |         |\n  0.1um   0.4 0.7um    1.3um  2.5um 4um   14um   1mm   10cm      1m\n  |          +====+======+====+==+===+====+====+====+===+=========+\n  |[XXXXX]   |    |      |    |  |   |    |    |    |   |         |\n  |O3 blocks |VIS |  NIR |    |  SWIR|MIR |TIR |    |   MICRO    |\n  |          |[1] | [2]  |    | [3]  | [4]| [5]|    |   [6]      |\n\n [X] = absorption / blocked by atmosphere\n  =  = atmospheric window (transparent)\n\n[1] Visible (0.4-0.7 um):  Blue (0.45), Green (0.55), Red (0.65)\n[2] NIR (0.7-1.0 um):      Vegetation red edge, near-infrared plateau\n[3] SWIR (1.0-2.5 um):     Two windows: 1.0-1.3 um and 1.5-1.8 um and 2.0-2.5 um\n[4] MIR (3-5 um):          Hot fires, volcanoes. Transition zone solar/thermal\n[5] TIR (8-14 um):         Land surface temperature. Emitted, not reflected\n[6] Microwave (1mm-1m):    SAR, passive microwave. Penetrates cloud and rain",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 80,
+      "heading_context": "## Scattering: Three Regimes",
+      "confidence": "candidate",
+      "text": "SIZE PARAMETER x = 2*pi*r / lambda\n\n  x << 1 (r << lambda):    RAYLEIGH SCATTERING\n  x ~ 1  (r ~ lambda):     MIE SCATTERING\n  x >> 1 (r >> lambda):    NON-SELECTIVE (GEOMETRIC) SCATTERING\n\n+------------------+------------------+-------------------+\n|  RAYLEIGH        |  MIE             |  NON-SELECTIVE    |\n+------------------+------------------+-------------------+\n| Scatterer: gas   | Scatterer:       | Scatterer: large  |\n| molecules (N2,O2)| aerosols, haze   | droplets, dust    |\n| r ~ 0.1-0.3 nm  | r ~ 0.1-10 um   | r >> 1 um         |\n|                  |                  |                   |\n| Wavelength dep:  | Wavelength dep:  | Wavelength dep:   |\n| sigma ~ lambda^-4| sigma ~ lambda^-1| ~ independent     |\n|                  |                  |                   |\n| Blue sky:        | Hazy conditions: | Clouds, fog:      |\n| scatters blue 16x| mutes color,     | scatter all       |\n| more than red    | reduces contrast | wavelengths equal |\n+------------------+------------------+-------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "## Atmospheric Windows: Detailed Breakdown",
+      "confidence": "candidate",
+      "text": "WINDOW      RANGE        DOMINANT PHYSICS        KEY SENSORS\n----------------------------------------------------------------------\nUV window   0.32-0.4 um  Surface UV, O3 Raman    Ozone sensors (OMI, TROPOMI)\n                         scattering above ozone  Not used for Earth imaging\n\nVisible     0.4-0.7 um   Solar reflection         All optical sensors\n                         Rayleigh + Mie scatter   Blue: ocean color\n                         Specular reflectance     Green: chlorophyll\n                         from vegetation          Red: vegetation absorption\n\nRed edge    0.68-0.75 um Sharp chlorophyll        Sentinel-2 B5/B6/B7\n(transition)             absorption edge          WorldView vegetation index\n                         -> NIR reflectance       Key for plant stress early detect\n\nNIR         0.75-1.3 um  Solar reflection         Landsat B5, Sentinel B8\n                         Cell wall scattering     NDVI red-NIR contrast\n                         No chlorophyll absorb    Biomass estimation\n\nSWIR-1      1.5-1.8 um   Solar reflection         Landsat B6, Sentinel B11\n                         Liquid water absorption  Snow/ice distinction\n                         at 1.4 (blocked) edges   Soil moisture (indirect)\n                         Mineral absorption       Lithology mapping\n\nSWIR-2      2.0-2.5 um   Solar reflection         Landsat B7, Sentinel B12\n                         Clay mineral features    Hydrothermal mineral mapping\n                         Carbonate features       Burn scar detection (NBR)\n                         Cellulose absorption     Canopy water content\n\nMIR/MWIR    3.5-5.0 um   CROSSOVER ZONE           Fire detection (MODIS B21/B22)\n                         Solar + thermal both     VIIRS I4 band\n                         contribute equally       Volcanic hot spots\n                         Very sensitive to fire   Not used for reflectance\n\nTIR         8-14 um      Planck emission          MODIS B31/B32, Landsat TIRS\n                         from surface/atmos       ECOSTRESS, ASTER TIR\n                         Emissivity differences   Land surface temperature\n                         H2O + O3 absorb at edges Urban heat islands\n\nMicrowave   1mm-1m        Thermal emission         SSM/I, AMSR-2 (passive)\n(passive)   (discrete     (weak, requires          Soil moisture (L-band passive)\n            channels)     large antennas)          Sea ice concentration\n\nMicrowave   1mm-1m        Coherent backscatter     Sentinel-1 (C, 5.6cm)\n(active SAR)(any chosen   from surface features   ALOS-2 (L, 24cm)\n            wavelength)   All-weather capable      NISAR (L+S bands)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 192,
+      "heading_context": "## Planck Function and Temperature-Wavelength Relationships",
+      "confidence": "candidate",
+      "text": "SOLAR vs. EARTH EMISSION CROSSOVER\n\nEnergy     |\nemitted    |    Sun spectrum (attenuated)\nor         | \\\nreflected  |  \\\nat         |   \\        Earth emission\nsurface    |    \\      ___/\\___\n           |     \\___/         \\\n           |                    \\\n           +-----+------+--------+----- wavelength\n           0.1  0.5   4 um      20 um\n                        ^\n                   CROSSOVER ~4 um",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

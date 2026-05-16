@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dyeing-fiber:natural-dye-sources
+kind: guide
+module: dyeing-fiber
+section: dyeing-fiber
+title: Natural Dye Sources: Plants, Insects, Lichens, Tannins
+status: source-custody
+source_custody: partial
+current_path: dyeing-fiber/01-NATURAL-DYE-SOURCES.md
+canonical_path: dyeing-fiber/01-NATURAL-DYE-SOURCES.md
+backsource_ids: [proof-backfill:dyeing-fiber:01-natural-dye-sources, git-history:dyeing-fiber:01-natural-dye-sources]
+concepts: [natural, dye, sources]
+root_concepts: [natural, dye]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Natural Dye Sources: Plants, Insects, Lichens, Tannins
 
 ## The Big Picture

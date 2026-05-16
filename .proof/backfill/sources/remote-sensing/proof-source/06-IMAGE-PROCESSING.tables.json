@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\06-IMAGE-PROCESSING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 342,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Quick atmospheric correction",
+          "Dark Object Subtraction",
+          "Crude but useful when auxiliary data is missing."
+        ],
+        [
+          "Production surface reflectance",
+          "LaSRC for Landsat or Sen2Cor for Sentinel-2",
+          "Standard products still encode algorithm assumptions."
+        ],
+        [
+          "Aquatic correction",
+          "ACOLITE or C2RCC",
+          "Water algorithms are specialized because water-leaving radiance is small."
+        ],
+        [
+          "Rapid land-cover map",
+          "Random Forest",
+          "Training sample quality matters more than algorithm name."
+        ],
+        [
+          "High-accuracy urban map",
+          "CNN/U-Net",
+          "Requires large labeled data and transfer checks."
+        ],
+        [
+          "Consistent global class layer",
+          "ESA WorldCover or similar product",
+          "Pre-existing products may not match local class definitions."
+        ],
+        [
+          "Long time-series change",
+          "CCDC or LandTrendr",
+          "Needs dense archive and seasonal model awareness."
+        ],
+        [
+          "Rapid disaster mapping",
+          "SAR coherence ratio",
+          "Coherence loss is a proxy for disruption, not damage truth."
+        ],
+        [
+          "Accuracy reporting",
+          "Confusion matrix + F1",
+          "Independent test set required"
+        ]
+      ]
+    }
+  ]
+}

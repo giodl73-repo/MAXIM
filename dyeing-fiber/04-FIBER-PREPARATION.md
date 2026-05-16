@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dyeing-fiber:fiber-preparation
+kind: guide
+module: dyeing-fiber
+section: dyeing-fiber
+title: Fiber Preparation: Scouring, Carding, Combing, Retting
+status: source-custody
+source_custody: partial
+current_path: dyeing-fiber/04-FIBER-PREPARATION.md
+canonical_path: dyeing-fiber/04-FIBER-PREPARATION.md
+backsource_ids: [proof-backfill:dyeing-fiber:04-fiber-preparation, git-history:dyeing-fiber:04-fiber-preparation]
+concepts: [fiber, preparation]
+root_concepts: [fiber, preparation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fiber Preparation: Scouring, Carding, Combing, Retting
 
 ## The Big Picture

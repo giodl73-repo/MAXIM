@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:remote-sensing:em-spectrum
+kind: guide
+module: remote-sensing
+section: remote-sensing
+title: Electromagnetic Spectrum and Atmospheric Windows
+status: source-custody
+source_custody: partial
+current_path: remote-sensing/01-EM-SPECTRUM.md
+canonical_path: remote-sensing/01-EM-SPECTRUM.md
+backsource_ids: [proof-backfill:remote-sensing:01-em-spectrum, git-history:remote-sensing:01-em-spectrum]
+concepts: [em, spectrum]
+root_concepts: [em, spectrum]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electromagnetic Spectrum and Atmospheric Windows
 
 ## The Big Picture

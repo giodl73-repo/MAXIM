@@ -1,0 +1,2057 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-remote-sensing-lidar",
+  "source": "../../remote-sensing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-LIDAR.md#000",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "# LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space"
+    },
+    {
+      "id": "04-LIDAR.md#001",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-LIDAR.md#002",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "LiDAR (Light Detection and Ranging) measures range by timing laser pulses. Unlike SAR's coherent microwave, LiDAR uses short-wavelength laser pulses (532nm-1064nm) to measure 3D structure at centimeter-level accuracy. The output is a point cloud: millions of (x, y, z) coordinate triplets with intensity and sometimes RGB color."
+    },
+    {
+      "id": "04-LIDAR.md#003",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "```\nLIDAR TAXONOMY"
+    },
+    {
+      "id": "04-LIDAR.md#004",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "LIDAR splits three ways by platform:\n    AIRBORNE (ALB)\n    TERRESTRIAL (TLS / MLS)\n    SPACE-BASED (ICESat-2, GEDI)"
+    },
+    {
+      "id": "04-LIDAR.md#005",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Airborne further splits by recording mode:\n    Discrete return:  1-5 pulses recorded per outgoing pulse.\n    Full waveform:    entire return waveform digitized.\n    Photon counting:  ICESat-2; single-photon events, ~20 photons/m.\n```"
+    },
+    {
+      "id": "04-LIDAR.md#006",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-LIDAR.md#007",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "## Physics: Time-of-Flight Ranging"
+    },
+    {
+      "id": "04-LIDAR.md#008",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "LiDAR measures distance using the travel time of a laser pulse:"
+    },
+    {
+      "id": "04-LIDAR.md#009",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "```\nLASER fires pulse at time t=0\n         |\n         | pulse travels at c = 3e8 m/s\n         v\n    TARGET (ground, tree, building, water surface)\n         |\n         | reflected pulse returns to detector\n         v\nDETECTOR records return at time t = 2R/c"
+    },
+    {
+      "id": "04-LIDAR.md#010",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Range: R = c * t / 2"
+    },
+    {
+      "id": "04-LIDAR.md#011",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "EXAMPLE:\n  Return time: 6.67 microseconds\n  Range: (3e8 m/s * 6.67e-6 s) / 2 = 1000 m exactly"
+    },
+    {
+      "id": "04-LIDAR.md#012",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "RANGE RESOLUTION:\n  Timing accuracy ~ 1 nanosecond -> range precision ~ 15 cm\n  State-of-art: < 1 cm range accuracy\n  Position accuracy: limited by GPS/IMU accuracy (typically 5-15cm absolute)\n```"
+    },
+    {
+      "id": "04-LIDAR.md#013",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "**Pulsed vs. continuous wave**:\n- Pulsed (most LiDAR): single pulse, measure round-trip time. Unambiguous range up to c/(2*PRF). At PRF=200kHz: max range = 750m. Above this: range ambiguity.\n- Continuous wave (phase-based): modulate CW laser, measure phase difference. Works for close-range TLS (< 100m). Cannot handle multiple simultaneous returns."
+    },
+    {
+      "id": "04-LIDAR.md#014",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-LIDAR.md#015",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "## Airborne LiDAR: System Architecture"
+    },
+    {
+      "id": "04-LIDAR.md#016",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "```\nAIRBORNE LIDAR SYSTEM (ALS / ALB)"
+    },
+    {
+      "id": "04-LIDAR.md#017",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Optical chain:\n    Laser (1064 nm) -> Scanner (rotating mirror, polygon, or MEMS)\n                    -> Optics (beam expand) -> Detector (APD: avalanche\n                    photodiode) -> Waveform digitizer (discrete return\n                    or full waveform)."
+    },
+    {
+      "id": "04-LIDAR.md#018",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Position chain:\n    GNSS (GPS / GLONASS) -> IMU (3-axis accel + gyro)\n      -> position and attitude."
+    },
+    {
+      "id": "04-LIDAR.md#019",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Direct georeferencing combines position + attitude with the digitized\n  waveform to produce a POINT CLOUD: (x, y, z, intensity, return#).\n```"
+    },
+    {
+      "id": "04-LIDAR.md#020",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "### Survey Design Parameters"
+    },
+    {
+      "id": "04-LIDAR.md#021",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "| Parameter | Typical Range | Trade-off |\n|-----------|---------------|-----------|\n| Flying altitude | 500-2000m AGL | Low = dense pts, small swath; High = sparse pts, wide swath |\n| Pulse repetition freq (PRF) | 50-400 kHz | High PRF = more pulses = higher density OR higher speed |\n| Scan angle (half-angle) | 15-25 deg | Wide = wider swath but lower density at edges |\n| Scan frequency | 50-200 Hz | High = denser across-track points |\n| Point density | 1-50 pts/m2 | Specification depends on application |\n| Swath width | 200-1000m | Function of altitude and scan angle |"
+    },
+    {
+      "id": "04-LIDAR.md#022",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "**Required point density by application**:\n- Vegetation structure (canopy height model): 2-8 pts/m2\n- Topographic mapping (bare earth DEM): 1-2 pts/m2\n- Building extraction: 10-20 pts/m2\n- Powerline detection: 30-50 pts/m2"
+    },
+    {
+      "id": "04-LIDAR.md#023",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-LIDAR.md#024",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "## Discrete Return vs. Full-Waveform"
+    },
+    {
+      "id": "04-LIDAR.md#025",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "When a laser pulse hits vegetation, the return is not a single sharp spike -- it is a temporal distribution of energy corresponding to the vertical distribution of surfaces hit."
+    },
+    {
+      "id": "04-LIDAR.md#026",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "```\nSINGLE PULSE FIRING INTO CANOPY"
+    },
+    {
+      "id": "04-LIDAR.md#027",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Outgoing pulse                   Return waveform"
+    },
+    {
+      "id": "04-LIDAR.md#028",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "|                              Top of canopy\n     |   |                             /\\\n     |   |  sharp                     /  \\      Mid-canopy\n     |   |  pulse      ->            /    \\/\\ /\\\n     |                              /         \\/  \\\n                                   /               \\\n                                  /                 \\_ Ground return\n                                  time -->"
+    },
+    {
+      "id": "04-LIDAR.md#029",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "DISCRETE RETURN: firmware detects peaks, records time+intensity of each\n  First return: top of canopy\n  Last return: ground surface (if pulse penetrates canopy)\n  Intermediate: mid-canopy layers"
+    },
+    {
+      "id": "04-LIDAR.md#030",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "FULL WAVEFORM: digitizes entire return at 1-2 ns sample rate\n  More information but larger data volumes\n  Enables retrieval of sub-pulse structure\n  Standard for research platforms (LVIS, G-LiHT)\n  Becoming standard for commercial systems\n```"
+    },
+    {
+      "id": "04-LIDAR.md#031",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "### DEM/DSM/CHM Derivation"
+    },
+    {
+      "id": "04-LIDAR.md#032",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Three key surfaces extracted from airborne LiDAR:"
+    },
+    {
+      "id": "04-LIDAR.md#033",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "```\nDSM (Digital Surface Model): Highest return = top of everything\n  Includes buildings, trees, anything above bare ground"
+    },
+    {
+      "id": "04-LIDAR.md#034",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "DEM (Digital Elevation Model): Lowest return after ground filtering\n  = Bare earth. Penetrates vegetation to ground."
+    },
+    {
+      "id": "04-LIDAR.md#035",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "CHM (Canopy Height Model): DSM - DEM\n  = Height of vegetation above ground\n  Used for forest biomass estimation, tree species discrimination"
+    },
+    {
+      "id": "04-LIDAR.md#036",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "CHM\n              /\\  Trees  /\\\nDSM ====/\\====/  ========/  \\====  Building\nDEM ___/  \\_____________________/  ______\n```"
+    },
+    {
+      "id": "04-LIDAR.md#037",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "**Ground filtering algorithms**: Separate ground points from above-ground points:\n- **Progressive Morphological Filter (PMF)**: iteratively erodes non-ground points using morphological operators. Zhang et al. 2003.\n- **Cloth Simulation Filter (CSF)**: simulates cloth draping over inverted point cloud. Effective on complex terrain.\n- **LASGROUND (LAStools)**: commercial implementation, widely used in production."
+    },
+    {
+      "id": "04-LIDAR.md#038",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-LIDAR.md#039",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "## Terrestrial LiDAR (TLS / MLS)"
+    },
+    {
+      "id": "04-LIDAR.md#040",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Ground-based scanners map 3D structure at centimeter resolution from fixed or mobile platforms."
+    },
+    {
+      "id": "04-LIDAR.md#041",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "### TLS (Tripod-Mounted)"
+    },
+    {
+      "id": "04-LIDAR.md#042",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "```\nSCANNER AT FIXED STATION"
+    },
+    {
+      "id": "04-LIDAR.md#043",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "360-degree horizontal scan\n         +/- 30-90 degree vertical scan\n         Range: 5m to 1000m (depends on reflectivity)\n         Point spacing: 1cm at 20m range"
+    },
+    {
+      "id": "04-LIDAR.md#044",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "SCAN REGISTRATION: Multiple stations required for complete coverage\n  Overlap between scans: >30%\n  Registration targets: spheres, checkerboards\n  Algorithm: ICP (Iterative Closest Point)\n    1. Find nearest-neighbor correspondences\n    2. Solve for rigid transformation (R, t) minimizing point distance\n    3. Iterate until convergence\n    4. Error: typically 3-10mm RMSE between scans"
+    },
+    {
+      "id": "04-LIDAR.md#045",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "APPLICATIONS:\n  Forest inventory: stem diameter, tree positions, crown shape\n  Architecture/heritage: mm-level building surveys (point cloud to BIM)\n  Industrial: as-built documentation, deformation monitoring\n  Geomorphology: rockfall volumes, cliff erosion rates\n```"
+    },
+    {
+      "id": "04-LIDAR.md#046",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "### MLS (Mobile Laser Scanning)"
+    },
+    {
+      "id": "04-LIDAR.md#047",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Scanner mounted on vehicle/backpack. GNSS+IMU provides trajectory. Yields continuous corridor mapping at 5-20cm accuracy. Used for road inventory, powerline mapping, urban modeling."
+    },
+    {
+      "id": "04-LIDAR.md#048",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-LIDAR.md#049",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "## Bathymetric LiDAR"
+    },
+    {
+      "id": "04-LIDAR.md#050",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Standard 1064nm infrared laser cannot penetrate water (absorbed in top mm). Green 532nm wavelength penetrates to ~2-5 Secchi depths:"
+    },
+    {
+      "id": "04-LIDAR.md#051",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "```\nBATHYMETRIC LIDAR PHYSICS"
+    },
+    {
+      "id": "04-LIDAR.md#052",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Infrared (1064nm) ----> surface return\n  Green (532nm) ----+---> surface return\n                    |\n                    v  refraction at water surface (Snell's law)\n                   |\\\n                   | \\  beam bends toward vertical\n                   |  \\\n                   v   \\\n              BOTTOM RETURN"
+    },
+    {
+      "id": "04-LIDAR.md#053",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Depth determination:\n    t_total = time to surface + time through water + time back\n    depth = (t_bottom - t_surface) * c_water / 2\n    c_water ~ 2.25e8 m/s (refractive index n = 1.33)"
+    },
+    {
+      "id": "04-LIDAR.md#054",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Depth limit:\n    Clear tropical water (attenuation k ~ 0.05/m): depth ~ 40-50m\n    Turbid coastal water (k ~ 0.5/m): depth ~ 5-10m\n    Rule of thumb: ~3 Secchi depths maximum"
+    },
+    {
+      "id": "04-LIDAR.md#055",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "SYSTEMS:\n  SHOALS / CZMIL: USACE survey workhorse\n  Chiroptera (Leica): up to 50m depth in clear water\n  EAARL (NASA): research, coral reef mapping\n```"
+    },
+    {
+      "id": "04-LIDAR.md#056",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-LIDAR.md#057",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "## Spaceborne LiDAR: ICESat-2"
+    },
+    {
+      "id": "04-LIDAR.md#058",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "ICESat-2 (Ice, Cloud, and land Elevation Satellite-2) uses a photon-counting approach that is qualitatively different from traditional pulsed LiDAR:"
+    },
+    {
+      "id": "04-LIDAR.md#059",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "```\nICESat-2 ATLAS INSTRUMENT"
+    },
+    {
+      "id": "04-LIDAR.md#060",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Laser: 532nm, 10kHz pulse rate\n  Photon-counting detectors: single photon sensitivity\n  Ground footprint: 17m diameter per beam\n  6 beams: 3 pairs (strong+weak) in 3 ground tracks\n  Cross-track spacing: 3.3km between pairs\n  Along-track spacing: 70cm (10kHz = one pulse per 70cm along track)"
+    },
+    {
+      "id": "04-LIDAR.md#061",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "Returns per meter: ~20 photons (canopy surface), ~2 (ground)"
+    },
+    {
+      "id": "04-LIDAR.md#062",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "ATL08 PRODUCT (land/vegetation):\n    100m segment height statistics\n    Terrain elevation (after noise photon filtering)\n    Canopy height (98th percentile return height minus terrain)\n    Canopy photon fraction\n    RH metrics (relative height percentiles: RH25, RH50, RH75, RH98)"
+    },
+    {
+      "id": "04-LIDAR.md#063",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "NOISE CHALLENGE:\n    Solar background photons ~10,000x signal during daytime\n    Statistical filtering (ATLAS_SOC algorithm) separates signal from noise\n    Night passes have much lower noise floor\n```"
+    },
+    {
+      "id": "04-LIDAR.md#064",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "**GEDI** (Global Ecosystem Dynamics Investigation): waveform LiDAR on ISS (2019-2023). Full-waveform at 25m footprint, global (51.6 deg latitude), 60m along-track spacing between footprints. Primary product: forest canopy height and above-ground biomass estimates globally."
+    },
+    {
+      "id": "04-LIDAR.md#065",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-LIDAR.md#066",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "## Point Cloud Processing Pipeline"
+    },
+    {
+      "id": "04-LIDAR.md#067",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "```\nRAW POINT CLOUD\n  (x, y, z, intensity, return_number, gps_time)\n        |\n        v  COORDINATE TRANSFORMATION\n  Projection to map coordinates (UTM, etc.)\n  Requires trajectory (GNSS/IMU), flight parameters\n        |\n        v  NOISE REMOVAL\n  Statistical outlier removal (k-NN distance threshold)\n  Low-noise filter (isolated points below terrain)\n        |\n        v  GROUND CLASSIFICATION\n  PMF / CSF algorithms\n  Labels each point: ground (class 2) or non-ground\n        |\n        v  SURFACE GENERATION\n  DEM from ground points (IDW or TIN interpolation)\n  DSM from highest points (first returns)\n  CHM = DSM - DEM\n        |\n        v  FEATURE EXTRACTION\n  Individual tree segmentation (watershed on CHM)\n  Building detection (height + planarity)\n  Power line extraction (cylinder fitting)\n```"
+    },
+    {
+      "id": "04-LIDAR.md#068",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-LIDAR.md#069",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "04-LIDAR.md#070",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "- `01-EM-SPECTRUM.md` frames LiDAR in the optical active-sensing band.\n- `06-IMAGE-PROCESSING.md` connects point clouds to derived products.\n- `09-APPLICATIONS.md` shows terrain, forestry, and urban uses."
+    },
+    {
+      "id": "04-LIDAR.md#071",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "04-LIDAR.md#072",
+      "path": [
+        "04-LIDAR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:remote-sensing:04-lidar, git-history:remote-sensing:04-lidar]",
+        "canonical_path": "remote-sensing/04-LIDAR.md",
+        "concepts": "[lidar]",
+        "current_path": "remote-sensing/04-LIDAR.md",
+        "id": "maxim:remote-sensing:lidar",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lidar]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "LiDAR Systems: Airborne, Terrestrial, Bathymetric, and Space",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Bare-earth hydrology DEM | Airborne discrete-return LiDAR | Ground filtering, not return number alone, defines bare earth. |\n| Forest canopy height/AGB | Full-waveform airborne LiDAR, ICESat-2, or GEDI | Biomass models are calibration-dependent and can saturate. |\n| Coral reef bathymetry | 532 nm bathymetric LiDAR | Clear water and bottom reflectance limit depth. |\n| Building 3D model | TLS or dense airborne LiDAR | Occlusion and scan geometry can dominate nominal point density. |\n| Road or powerline corridor | Mobile laser scanning | Accuracy depends on GNSS/IMU trajectory quality. |\n| Global vegetation structure | ICESat-2 or GEDI sampling | Spaceborne LiDAR is sampled, not wall-to-wall coverage. |\n| Rockfall/cliff change | Repeat TLS multi-epoch scans | Registration error sets the detection floor. |\n| Archaeological mapping | Dense airborne LiDAR under canopy | Dense vegetation can still block ground returns. |"
+    }
+  ],
+  "refs": [
+    "04-LIDAR.md"
+  ]
+}

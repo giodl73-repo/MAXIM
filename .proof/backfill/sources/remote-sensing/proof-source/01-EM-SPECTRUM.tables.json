@@ -1,0 +1,154 @@
+{
+  "schema_version": "1",
+  "source_markdown": "remote-sensing\\01-EM-SPECTRUM.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 241,
+      "heading_context": "## Why Landsat Chose Its Bands",
+      "headers": [
+        "Band",
+        "Center (um)",
+        "Width (um)",
+        "Target Feature",
+        "Reason"
+      ],
+      "rows": [
+        [
+          "B1 Coastal",
+          "0.443",
+          "0.016",
+          "Coastal/aerosol",
+          "Shallow water, aerosol correction"
+        ],
+        [
+          "B2 Blue",
+          "0.483",
+          "0.065",
+          "Water penetration",
+          "Urban/vegetation mapping"
+        ],
+        [
+          "B3 Green",
+          "0.563",
+          "0.075",
+          "Vegetation peak",
+          "Chlorophyll reflectance maximum"
+        ],
+        [
+          "B4 Red",
+          "0.655",
+          "0.038",
+          "Chlorophyll absorption",
+          "Vegetation discrimination"
+        ],
+        [
+          "B5 NIR",
+          "0.865",
+          "0.028",
+          "Vegetation/water",
+          "NDVI reference band; water boundary"
+        ],
+        [
+          "B6 SWIR-1",
+          "1.609",
+          "0.085",
+          "Snow/ice/cloud",
+          "Distinguish ice from cloud"
+        ],
+        [
+          "B7 SWIR-2",
+          "2.201",
+          "0.200",
+          "Geology/minerals",
+          "Clay, carbonate mineral mapping"
+        ],
+        [
+          "B8 Pan",
+          "0.590",
+          "0.172",
+          "Panchromatic",
+          "15m pansharpening"
+        ],
+        [
+          "B9 Cirrus",
+          "1.374",
+          "0.020",
+          "Cirrus detection",
+          "1.38 um absorbed by water vapor -> cirrus only"
+        ],
+        [
+          "B10 TIR-1",
+          "10.90",
+          "0.600",
+          "Land surface temp",
+          "Split-window algorithm"
+        ],
+        [
+          "B11 TIR-2",
+          "12.00",
+          "1.000",
+          "Land surface temp",
+          "Split-window algorithm"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 267,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Vegetation vigor",
+          "Red plus NIR indices such as NDVI",
+          "NDVI saturates in dense canopy."
+        ],
+        [
+          "Vegetation water stress",
+          "SWIR-1 plus NIR",
+          "Liquid-water absorption depends on canopy structure and atmosphere."
+        ],
+        [
+          "Cloud versus snow/ice",
+          "SWIR-1 near 1.6 um",
+          "Ice absorbs where cloud stays reflective."
+        ],
+        [
+          "Rock/mineral composition",
+          "SWIR-2 from 2.0-2.5 um",
+          "Spectral fingerprints require atmospheric and illumination correction."
+        ],
+        [
+          "Surface temperature",
+          "TIR around 10-12 um",
+          "Thermal retrieval needs emissivity assumptions."
+        ],
+        [
+          "Active fire",
+          "MIR around 3.7 um",
+          "Saturation and sub-pixel fire fraction complicate estimates."
+        ],
+        [
+          "Cloud penetration",
+          "Microwave centimeter wavelengths",
+          "Radar penetrates cloud, not every material or heavy rain equally."
+        ],
+        [
+          "Atmospheric haze",
+          "Blue band near 0.45 um",
+          "Rayleigh path radiance can dominate dark-surface signal."
+        ],
+        [
+          "Shallow-water bottom",
+          "Blue-green around 0.5-0.6 um",
+          "Turbidity and depth quickly defeat bottom visibility."
+        ]
+      ]
+    }
+  ]
+}

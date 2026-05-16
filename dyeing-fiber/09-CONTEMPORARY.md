@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dyeing-fiber:contemporary
+kind: guide
+module: dyeing-fiber
+section: dyeing-fiber
+title: Contemporary Practice: Natural Dye Revival, Slow Fashion, Fiber Arts
+status: source-custody
+source_custody: partial
+current_path: dyeing-fiber/09-CONTEMPORARY.md
+canonical_path: dyeing-fiber/09-CONTEMPORARY.md
+backsource_ids: [proof-backfill:dyeing-fiber:09-contemporary, git-history:dyeing-fiber:09-contemporary]
+concepts: [contemporary]
+root_concepts: [contemporary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Contemporary Practice: Natural Dye Revival, Slow Fashion, Fiber Arts
 
 ## The Big Picture
@@ -12,7 +31,7 @@ CONTEMPORARY PRACTICE LANDSCAPE
   | Fashion designers  |               | Home dyer (yarn,   |
   | using natural dyes |               |  fabric, fiber)    |
   | (Eileen Fisher,    |               | Indigo club dyers  |
-  |  some independents)|               | Natural dye class  |
+  | some independents) |               | Natural dye class  |
   +--------------------+               +--------------------+
            |                                    |
            v                                    v
@@ -27,7 +46,7 @@ CONTEMPORARY PRACTICE LANDSCAPE
   |  Foraged: Japanese indigo (invasive), mugwort |
   |                                               |
   |  Knowledge: guild archives, Catharine Ellis,  |
-  |             Jenny Dean, India Flint (eco print)|
+  |             Jenny Dean, India Flint (eco)     |
   |             Aboubakar Fofana (indigo Mali)    |
   +-----------------------------------------------+
            |
