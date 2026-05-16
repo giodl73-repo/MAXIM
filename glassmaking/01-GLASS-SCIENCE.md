@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:glassmaking:glass-science
+kind: guide
+module: glassmaking
+section: glassmaking
+title: Glass Science - Silicate Networks, Viscosity, Annealing, Tg
+status: source-custody
+source_custody: partial
+current_path: glassmaking/01-GLASS-SCIENCE.md
+canonical_path: glassmaking/01-GLASS-SCIENCE.md
+backsource_ids: [proof-backfill:glassmaking:01-glass-science, git-history:glassmaking:01-glass-science]
+concepts: [glass, science]
+root_concepts: [glass, science]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Glass Science — Silicate Networks, Viscosity, Annealing, Tg
 
 ## The Big Picture

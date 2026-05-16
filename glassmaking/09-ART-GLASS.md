@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:glassmaking:art-glass
+kind: guide
+module: glassmaking
+section: glassmaking
+title: Art Glass - Stained Glass, Tiffany, Studio Glass Movement (Littleton 1962)
+status: source-custody
+source_custody: partial
+current_path: glassmaking/09-ART-GLASS.md
+canonical_path: glassmaking/09-ART-GLASS.md
+backsource_ids: [proof-backfill:glassmaking:09-art-glass, git-history:glassmaking:09-art-glass]
+concepts: [art, glass]
+root_concepts: [art, glass]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Art Glass — Stained Glass, Tiffany, Studio Glass Movement (Littleton 1962)
 
 ## The Big Picture

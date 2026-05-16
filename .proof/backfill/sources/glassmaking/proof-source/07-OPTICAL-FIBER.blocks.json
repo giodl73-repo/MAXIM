@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "glassmaking\\07-OPTICAL-FIBER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "OPTICAL FIBER SYSTEM ARCHITECTURE\n====================================\n\nTRANSMITTER → FIBER → AMPLIFIER → FIBER → RECEIVER\n  (laser)      (SMF)    (EDFA)     (SMF)    (photodetector)\n\nSINGLE FIBER SPAN:\n Core (8-10μm, SMF): light travels here\n Cladding (125μm OD): lower RI → TIR keeps light in core\n Primary coating (250μm OD): soft acrylate; bend protection\n Secondary coating/buffer: mechanical protection\n\nMODERN SYSTEM BANDWIDTH:\n One fiber pair (Tx + Rx): 100+ Tb/s (DWDM, C-band)\n 96+ wavelength channels at 100-400 Gb/s each\n One transoceanic cable: 8-16 fiber pairs\n Total cable capacity: 1+ Pb/s (petabits/second)\n\nNETWORK CONTEXT:\n Long-haul: SMF; 1,550nm; EDFA amplifiers every 80-100km\n Metro/access: SMF or MMF; shorter spans\n Data center: MMF for 100m-300m; SMF for longer DCI\n Premises/FTTH: SMF to the home (G.657 bend-insensitive fiber)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Total Internal Reflection (TIR) — The Physics",
+      "confidence": "candidate",
+      "text": "TIR FUNDAMENTALS\n=================\n\nSNELL'S LAW: n₁ sin(θ₁) = n₂ sin(θ₂)\n n₁, n₂: refractive indices of medium 1 and 2\n θ₁, θ₂: angles from normal (perpendicular to interface)\n\nCRITICAL ANGLE (θ_c):\n When light travels from denser → less dense medium\n At θ_c: refracted ray travels along the interface (θ₂ = 90°)\n n₁ sin(θ_c) = n₂ sin(90°) = n₂\n θ_c = arcsin(n₂/n₁)\n\n For silica glass (n≈1.444) to air (n=1.0):\n  θ_c = arcsin(1.0/1.444) = arcsin(0.693) ≈ 43.7°\n  Above 43.7° angle of incidence: total reflection; no refraction\n\nFIBER GEOMETRY:\n Core (n₁ = higher): guides light\n Cladding (n₂ = lower): surrounds core; TIR at core-cladding interface\n Core-cladding RI difference: small (~0.3-1%)\n  achieved by DOPING:\n   Core: add GeO₂ (germanium dioxide) → increases RI\n   Cladding: add fluorine → decreases RI\n   Or: pure silica cladding + Ge-doped core (most common SMF)\n\nNUMERICAL APERTURE (NA):\n NA = sin(half-angle of acceptance cone) = √(n₁² - n₂²)\n SMF typical NA: 0.12-0.14\n MMF typical NA: 0.20-0.30\n Higher NA → accepts light from wider angle → easier coupling to LED\n  but: higher NA = more modes → more modal dispersion",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## Single-Mode vs Multimode Fiber",
+      "confidence": "candidate",
+      "text": "FIBER TYPE COMPARISON\n======================\n\nSINGLE-MODE (SMF):\n Core diameter: 8-10μm (standard SMF G.652)\n Cladding: 125μm\n Color jacket: yellow (OS1, OS2)\n Operation: only the fundamental mode propagates\n  → no modal dispersion\n  → can carry very high bandwidth over very long distances\n Light source: laser (DFB laser, external-cavity laser) — must be narrow linewidth\n  to avoid chromatic dispersion issues; expensive\n Wavelength windows:\n  O-band: 1,260-1,360nm (~0.35 dB/km)\n  E-band: 1,360-1,460nm (water peak band; reduced in low-water-peak fiber)\n  S-band: 1,460-1,530nm\n  C-band: 1,530-1,565nm (minimum loss ~0.18 dB/km; primary DWDM window)\n  L-band: 1,565-1,625nm (extended DWDM)\n Applications: all long-haul telecom, submarine cables, metro rings,\n               data center long-haul interconnect\n\nMULTIMODE (MMF):\n Core diameter: 50μm (OM3, OM4, OM5) or 62.5μm (OM1, OM2 — legacy)\n Cladding: 125μm\n Color jacket: aqua (OM3/OM4) or lime green (OM5)\n Operation: multiple modes travel simultaneously\n  → modal dispersion: modes travel at slightly different velocities\n  → pulse spreading over distance → bandwidth-distance product limited\n OM3: 2,000 MHz·km bandwidth (50μm core)\n OM4: 4,700 MHz·km\n OM5: 28,000 MHz·km (at 953nm for short-wavelength SWDM)\n Light source: LED or VCSEL (vertical-cavity surface-emitting laser)\n  VCSEL: 850nm; inexpensive; powers modern MMF data center links\n Applications: data center (top-of-rack to end-of-row, typically <100m)\n               SAN (storage area networks); campus backbone\n\nKEY DISTINCTION:\n SMF: one mode → no modal dispersion → long distance + high bandwidth\n MMF: many modes → modal dispersion → limited distance; lower cost\n In data centers: MMF at 100m-300m with short-wavelength VCSELs is\n  economically optimal; SMF for longer connections (>300m or inter-building)\n\nGRADED-INDEX vs STEP-INDEX:\n Step-index MMF: sharp RI boundary between core and cladding\n  → severe modal dispersion (outer modes slower than center modes)\n Graded-index MMF: RI varies continuously (parabolic profile) through core\n  → higher modes travel faster (lower RI path) → modes arrive simultaneously\n  → dramatically reduces modal dispersion (enabled MMF for 1 Gb/s+)\n All modern OM3/OM4/OM5 are graded-index (α-profile core)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "## Attenuation — Loss Mechanisms",
+      "confidence": "candidate",
+      "text": "FIBER ATTENUATION\n==================\n\nUNIT: dB/km  (decibels per kilometer)\n Each 10 dB = power reduced by 10×\n System budget: total power budget ÷ loss per km = max span length\n\nLOSS MECHANISMS:\n\nRAYLEIGH SCATTERING (dominant at short wavelengths):\n Light scattered by refractive index fluctuations at molecular scale\n (composition fluctuations \"frozen in\" during fiber drawing)\n Scales as λ⁻⁴ (shorter wavelength = much more scattering)\n Irreducible in silica at any practical temperature\n At 1,550nm: ~0.12 dB/km Rayleigh contribution\n At 850nm: ~1.2 dB/km Rayleigh contribution (10× worse)\n This is why long-haul uses 1,550nm not 850nm\n\nIR ABSORPTION (dominant at long wavelengths):\n Si-O bond vibrations (molecular phonons) absorb IR\n Fundamental absorption: ~9μm (mid-IR)\n Overtones and combination bands extend into telecom window\n At 1,550nm: ~0.06 dB/km IR absorption contribution\n\nWATER PEAK (OH⁻ ions):\n OH⁻ ions dissolved in glass during manufacturing (from moisture)\n Absorb strongly at 2.73μm; overtone at 1.38μm (\"water peak\")\n The 1,383nm water peak limits the E-band window\n Standard SMF (G.652D): very low OH⁻ → E-band usable (\"low-water-peak\")\n Old fiber (pre-1990): significant water peak → only O and C/L bands usable\n\nMINIMUM LOSS:\n Rayleigh + IR absorption cross at ~1,550nm\n Standard SMF at 1,550nm: ~0.18-0.20 dB/km (world record: 0.142 dB/km)\n The 1,550nm minimum defines the C-band DWDM window\n 80km unrepeatered span → ~14-16 dB total loss → within EDFA launch budget\n\nBENDING LOSSES:\n Macro-bend: radius below critical bend radius → light escapes\n  Standard SMF: R > 30mm (typical installation) → negligible loss\n  G.657.A1/B1 bend-insensitive SMF: R down to 10mm/5mm → FTTH use\n  (installation in conduits, tight corners requires bend tolerance)\n Micro-bend: micron-scale surface perturbations (from coating pressure,\n  installation friction) → scattering losses; cumulative over km\n  Modern fiber coating designed to minimize micro-bend contribution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 203,
+      "heading_context": "## Fiber Fabrication — Preform and Draw",
+      "confidence": "candidate",
+      "text": "MANUFACTURING PROCESS\n======================\n\nSTEP 1: PREFORM MANUFACTURE\n Cylindrical glass rod with designed core/cladding RI profile\n Typical dimensions: 10-15 cm diameter; 1 meter long\n Mass: 5-15 kg\n One preform → 1,000-5,000 km of fiber (draw ratio: 1/10,000+ in length)\n\nMCVD (Modified Chemical Vapor Deposition):\n Silica tube (starting substrate) rotated and traversed by oxy-hydrogen torch\n Gas phase: SiCl₄ + GeCl₄ + O₂ (or fluorine-containing gas for cladding)\n Oxidation reaction: SiCl₄ + O₂ → SiO₂ + 2Cl₂\n  Occurs INSIDE the tube → oxide soot deposits on inner wall\n Layer by layer deposition → multiple passes with varying compositions\n Core: GeO₂-doped SiO₂ layers; cladding: pure or F-doped SiO₂\n Collapse: final heating → tube collapses to solid rod (the preform)\n Inside deposition = core at center, cladding as surrounding tube\n Used by: Corning, OFS, many others\n\nOVD (Outside Vapor Deposition) / VAD (Vapor-phase Axial Deposition):\n Flame hydrolysis: SiCl₄ + 2H₂O → SiO₂ + 4HCl\n  (in oxyhydrogen flame; soot deposited onto target)\n OVD: deposits layers on outside of rotating mandrel (seed rod)\n VAD: deposits on end of rotating rod (axially); no mandrel to remove\n Both: glass soot deposited → sintered at high temperature → dense glass preform\n Used by: Fujikura, Sumitomo (VAD) ; Corning (OVD) as primary large-scale method\n\nSTEP 2: DRAW TOWER\n Tower: 20-30m tall; preform feeds down from top\n Preform neck-down zone: ~2,000-2,100°C; zirconia furnace or CO₂ laser\n Glass neck down → fiber forms at bottom\n Drawing speed: 10-30 m/s\n Diameter control: laser micrometer measures fiber OD continuously\n  → feedback to drawing speed: faster pull = thinner fiber\n  Target: 125.0 ± 0.1μm (tight tolerance)\n Coating application: UV-cured acrylate applied immediately after drawing\n  Two layers: soft inner primary (protects glass); hard outer secondary\n UV cure: mercury lamp banks; cure in <0.1 second\n Take-up spools: fiber wound at drawing speed\n Typical spool: 25km of fiber",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 251,
+      "heading_context": "## DWDM and Amplification",
+      "confidence": "candidate",
+      "text": "DENSE WAVELENGTH DIVISION MULTIPLEXING\n=========================================\n\nPRINCIPLE:\n Different wavelengths of light travel independently in the same fiber\n Combine (multiplex) multiple channels → transmit → separate (demultiplex)\n Each channel: independent data stream at different λ\n Capacity multiplication: 96 channels × 400 Gb/s = 38.4 Tb/s per fiber pair\n\nITU GRID:\n C-band: 1,530-1,565nm; divided into channels\n 100 GHz grid: 40 channels (~0.8nm spacing)\n 50 GHz grid: 80 channels (~0.4nm spacing)\n 25 GHz grid: 160 channels (~0.2nm spacing)\n Flex grid (G.694.1): variable width channels for optical superchannels\n\nEDFA (ERBIUM-DOPED FIBER AMPLIFIER):\n Revolutionized long-haul transmission (introduced ~1987; deployed early 1990s)\n Previously: optical → electrical → optical regeneration required every 20-30km\n EDFA: purely optical amplification; no OEO conversion\n Physics: Er³⁺ ions in glass fiber; pump laser (980nm or 1,480nm) excites Er³⁺\n  → population inversion → stimulated emission at ~1,550nm\n  Signal photons → stimulated emission → amplified\n Bandwidth: amplifies entire C-band simultaneously\n  → all DWDM channels amplified in single amplifier\n Span: 80-100km between EDFAs; multiple EDFAs per submarine cable\n Noise: EDFA adds ASE (amplified spontaneous emission) noise; accumulated\n\nCOHERENT MODULATION:\n Modern long-haul: coherent detection with DP-QPSK, DP-16QAM\n Modulates phase and amplitude; digital signal processing recovers signal\n DSP compensates: chromatic dispersion, PMD, nonlinearities\n This enabled 100G → 400G → 800G and beyond per channel\n The fiber itself hasn't fundamentally changed; the signaling has\n (Same physics of fiber; different modulation formats and DSP chips)\n\nSUBMARINE CABLES:\n Longest: FLAG cable (Asia-Europe-US, ~28,000km); 2Africa (~45,000km)\n Fiber: multiple pairs (8-24 pairs in modern cables)\n Repeaters (EDFAs): every 50-80km; powered from shore via DC on armor wire\n Capacity: 2Africa = 180+ Tb/s design capacity\n Reliability: designed for 25-year life; landing station locations = geopolitical\n The internet's physical foundation: ~400 submarine cables carry ~99% of\n international internet traffic (not satellite — not even close by capacity)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

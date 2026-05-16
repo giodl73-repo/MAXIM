@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:glassmaking:optical-fiber
+kind: guide
+module: glassmaking
+section: glassmaking
+title: Optical Fiber - Total Internal Reflection, Drawing, Attenuation, Modes
+status: source-custody
+source_custody: partial
+current_path: glassmaking/07-OPTICAL-FIBER.md
+canonical_path: glassmaking/07-OPTICAL-FIBER.md
+backsource_ids: [proof-backfill:glassmaking:07-optical-fiber, git-history:glassmaking:07-optical-fiber]
+concepts: [optical, fiber]
+root_concepts: [optical, fiber]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Optical Fiber — Total Internal Reflection, Drawing, Attenuation, Modes
 
 ## The Big Picture

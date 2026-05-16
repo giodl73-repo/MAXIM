@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:glassmaking:specialty-glass
+kind: guide
+module: glassmaking
+section: glassmaking
+title: Specialty Glass - Borosilicate, Lead Crystal, Optical, Glass-Ceramics
+status: source-custody
+source_custody: partial
+current_path: glassmaking/05-SPECIALTY-GLASS.md
+canonical_path: glassmaking/05-SPECIALTY-GLASS.md
+backsource_ids: [proof-backfill:glassmaking:05-specialty-glass, git-history:glassmaking:05-specialty-glass]
+concepts: [specialty, glass]
+root_concepts: [specialty, glass]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Specialty Glass — Borosilicate, Lead Crystal, Optical, Glass-Ceramics
 
 ## The Big Picture

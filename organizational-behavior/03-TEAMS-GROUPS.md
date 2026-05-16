@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:organizational-behavior:teams-groups
+kind: guide
+module: organizational-behavior
+section: organizational-behavior
+title: Teams and Groups - Dynamics, Groupthink, Psychological Safety, Effectiveness
+status: source-custody
+source_custody: partial
+current_path: organizational-behavior/03-TEAMS-GROUPS.md
+canonical_path: organizational-behavior/03-TEAMS-GROUPS.md
+backsource_ids: [proof-backfill:organizational-behavior:03-teams-groups, git-history:organizational-behavior:03-teams-groups]
+concepts: [teams, groups]
+root_concepts: [teams, groups]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Teams and Groups — Dynamics, Groupthink, Psychological Safety, Effectiveness
 
 ## The Big Picture

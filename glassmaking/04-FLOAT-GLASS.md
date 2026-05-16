@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:glassmaking:float-glass
+kind: guide
+module: glassmaking
+section: glassmaking
+title: Float Glass - Pilkington Process, Flat Glass Revolution, Coatings
+status: source-custody
+source_custody: partial
+current_path: glassmaking/04-FLOAT-GLASS.md
+canonical_path: glassmaking/04-FLOAT-GLASS.md
+backsource_ids: [proof-backfill:glassmaking:04-float-glass, git-history:glassmaking:04-float-glass]
+concepts: [float, glass]
+root_concepts: [float, glass]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Float Glass — Pilkington Process, Flat Glass Revolution, Coatings
 
 ## The Big Picture

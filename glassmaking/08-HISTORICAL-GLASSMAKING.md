@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:glassmaking:historical-glassmaking
+kind: guide
+module: glassmaking
+section: glassmaking
+title: Historical Glassmaking - Egyptian Core-Formed, Roman, Venice/Murano, Bohemia
+status: source-custody
+source_custody: partial
+current_path: glassmaking/08-HISTORICAL-GLASSMAKING.md
+canonical_path: glassmaking/08-HISTORICAL-GLASSMAKING.md
+backsource_ids: [proof-backfill:glassmaking:08-historical-glassmaking, git-history:glassmaking:08-historical-glassmaking]
+concepts: [historical, glassmaking]
+root_concepts: [historical, glassmaking]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Historical Glassmaking — Egyptian Core-Formed, Roman, Venice/Murano, Bohemia
 
 ## The Big Picture

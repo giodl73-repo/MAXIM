@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:organizational-behavior:org-design
+kind: guide
+module: organizational-behavior
+section: organizational-behavior
+title: Organizational Design - Mintzberg, Matrix vs Hierarchy, Conway's Law
+status: source-custody
+source_custody: partial
+current_path: organizational-behavior/04-ORG-DESIGN.md
+canonical_path: organizational-behavior/04-ORG-DESIGN.md
+backsource_ids: [proof-backfill:organizational-behavior:04-org-design, git-history:organizational-behavior:04-org-design]
+concepts: [org, design]
+root_concepts: [org, design]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Organizational Design — Mintzberg, Matrix vs Hierarchy, Conway's Law
 
 ## The Big Picture

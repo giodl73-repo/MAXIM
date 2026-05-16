@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:glassmaking:overview
+kind: guide
+module: glassmaking
+section: glassmaking
+title: Overview - Supercooled Liquid: Glass Science and Industry
+status: source-custody
+source_custody: partial
+current_path: glassmaking/00-OVERVIEW.md
+canonical_path: glassmaking/00-OVERVIEW.md
+backsource_ids: [proof-backfill:glassmaking:00-overview, git-history:glassmaking:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Overview — Supercooled Liquid: Glass Science and Industry
 
 ## The Big Picture

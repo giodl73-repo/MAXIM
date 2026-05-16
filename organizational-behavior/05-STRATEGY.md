@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:organizational-behavior:strategy
+kind: guide
+module: organizational-behavior
+section: organizational-behavior
+title: Strategy - Porter Five Forces, RBV, OKRs, Platform Strategy
+status: source-custody
+source_custody: partial
+current_path: organizational-behavior/05-STRATEGY.md
+canonical_path: organizational-behavior/05-STRATEGY.md
+backsource_ids: [proof-backfill:organizational-behavior:05-strategy, git-history:organizational-behavior:05-strategy]
+concepts: [strategy]
+root_concepts: [strategy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Strategy — Porter Five Forces, RBV, OKRs, Platform Strategy
 
 ## The Big Picture
