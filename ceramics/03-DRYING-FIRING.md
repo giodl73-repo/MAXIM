@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ceramics:drying-firing
+kind: guide
+module: ceramics
+section: ceramics
+title: Drying and Firing - Greenware, Bisque, Cone System, Kiln Types
+status: source-custody
+source_custody: partial
+current_path: ceramics/03-DRYING-FIRING.md
+canonical_path: ceramics/03-DRYING-FIRING.md
+backsource_ids: [proof-backfill:ceramics:03-drying-firing, git-history:ceramics:03-drying-firing]
+concepts: [drying, firing]
+root_concepts: [drying, firing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Drying & Firing — Greenware, Bisque, Cone System, Kiln Types
 
 ## The Big Picture

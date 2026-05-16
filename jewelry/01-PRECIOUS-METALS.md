@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:jewelry:precious-metals
+kind: guide
+module: jewelry
+section: jewelry
+title: Precious Metals - Gold, Silver, Platinum, Alloys
+status: source-custody
+source_custody: partial
+current_path: jewelry/01-PRECIOUS-METALS.md
+canonical_path: jewelry/01-PRECIOUS-METALS.md
+backsource_ids: [proof-backfill:jewelry:01-precious-metals, git-history:jewelry:01-precious-metals]
+concepts: [precious, metals]
+root_concepts: [precious, metals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Precious Metals — Gold, Silver, Platinum, Alloys
 
 ## The Big Picture

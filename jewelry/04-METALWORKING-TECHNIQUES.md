@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:jewelry:metalworking-techniques
+kind: guide
+module: jewelry
+section: jewelry
+title: Metalworking Techniques - Lost Wax, Forging, Filigree, Granulation
+status: source-custody
+source_custody: partial
+current_path: jewelry/04-METALWORKING-TECHNIQUES.md
+canonical_path: jewelry/04-METALWORKING-TECHNIQUES.md
+backsource_ids: [proof-backfill:jewelry:04-metalworking-techniques, git-history:jewelry:04-metalworking-techniques]
+concepts: [metalworking, techniques]
+root_concepts: [metalworking, techniques]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Metalworking Techniques — Lost Wax, Forging, Filigree, Granulation
 
 ## The Big Picture

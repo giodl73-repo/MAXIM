@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:jewelry:gemstones
+kind: guide
+module: jewelry
+section: jewelry
+title: Gemstones - Classification, Crystal Systems, the 4Cs
+status: source-custody
+source_custody: partial
+current_path: jewelry/02-GEMSTONES.md
+canonical_path: jewelry/02-GEMSTONES.md
+backsource_ids: [proof-backfill:jewelry:02-gemstones, git-history:jewelry:02-gemstones]
+concepts: [gemstones]
+root_concepts: [gemstones]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Gemstones — Classification, Crystal Systems, the 4Cs
 
 ## The Big Picture

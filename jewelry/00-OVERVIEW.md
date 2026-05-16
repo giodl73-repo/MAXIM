@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:jewelry:overview
+kind: guide
+module: jewelry
+section: jewelry
+title: Jewelry - Overview: Metal, Stone, Fire: The Jewelry Supply Chain
+status: source-custody
+source_custody: partial
+current_path: jewelry/00-OVERVIEW.md
+canonical_path: jewelry/00-OVERVIEW.md
+backsource_ids: [proof-backfill:jewelry:00-overview, git-history:jewelry:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Jewelry — Overview: Metal, Stone, Fire: The Jewelry Supply Chain
 
 ## The Big Picture

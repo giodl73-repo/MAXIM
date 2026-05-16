@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:jewelry:cutting-faceting
+kind: guide
+module: jewelry
+section: jewelry
+title: Cutting and Faceting - Lapidary, Brilliant Cut, Cabochon
+status: source-custody
+source_custody: partial
+current_path: jewelry/03-CUTTING-FACETING.md
+canonical_path: jewelry/03-CUTTING-FACETING.md
+backsource_ids: [proof-backfill:jewelry:03-cutting-faceting, git-history:jewelry:03-cutting-faceting]
+concepts: [cutting, faceting]
+root_concepts: [cutting, faceting]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cutting & Faceting — Lapidary, Brilliant Cut, Cabochon
 
 ## The Big Picture

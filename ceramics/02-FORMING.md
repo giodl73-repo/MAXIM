@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ceramics:forming
+kind: guide
+module: ceramics
+section: ceramics
+title: Forming - Hand Building, Wheel Throwing, Slip Casting, Industrial
+status: source-custody
+source_custody: partial
+current_path: ceramics/02-FORMING.md
+canonical_path: ceramics/02-FORMING.md
+backsource_ids: [proof-backfill:ceramics:02-forming, git-history:ceramics:02-forming]
+concepts: [forming]
+root_concepts: [forming]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Forming — Hand Building, Wheel Throwing, Slip Casting, Industrial
 
 ## The Big Picture

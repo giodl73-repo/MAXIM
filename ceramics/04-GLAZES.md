@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ceramics:glazes
+kind: guide
+module: ceramics
+section: ceramics
+title: Glazes - Chemistry, Colorants, Surface Types, Firing Atmosphere
+status: source-custody
+source_custody: partial
+current_path: ceramics/04-GLAZES.md
+canonical_path: ceramics/04-GLAZES.md
+backsource_ids: [proof-backfill:ceramics:04-glazes, git-history:ceramics:04-glazes]
+concepts: [glazes]
+root_concepts: [glazes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Glazes — Chemistry, Colorants, Surface Types, Firing Atmosphere
 
 ## The Big Picture

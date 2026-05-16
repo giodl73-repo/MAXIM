@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ceramics:clay-types
+kind: guide
+module: ceramics
+section: ceramics
+title: Clay Types - Earthenware, Stoneware, Porcelain, Kaolin
+status: source-custody
+source_custody: partial
+current_path: ceramics/01-CLAY-TYPES.md
+canonical_path: ceramics/01-CLAY-TYPES.md
+backsource_ids: [proof-backfill:ceramics:01-clay-types, git-history:ceramics:01-clay-types]
+concepts: [clay, types]
+root_concepts: [clay, types]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Clay Types — Earthenware, Stoneware, Porcelain, Kaolin
 
 ## The Big Picture

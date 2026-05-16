@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:jewelry:jewelry-trades
+kind: guide
+module: jewelry
+section: jewelry
+title: Jewelry Trades - Goldsmith, Silversmith, Lapidary, Gemologist
+status: source-custody
+source_custody: partial
+current_path: jewelry/10-JEWELRY-TRADES.md
+canonical_path: jewelry/10-JEWELRY-TRADES.md
+backsource_ids: [proof-backfill:jewelry:10-jewelry-trades, git-history:jewelry:10-jewelry-trades]
+concepts: [jewelry, trades]
+root_concepts: [jewelry, trades]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Jewelry Trades — Goldsmith, Silversmith, Lapidary, Gemologist
 
 ## The Big Picture

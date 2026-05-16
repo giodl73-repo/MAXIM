@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:jewelry:synthetic-simulants
+kind: guide
+module: jewelry
+section: jewelry
+title: Synthetic and Simulants - Lab-Grown Diamonds, CVD, HPHT, CZ, Moissanite
+status: source-custody
+source_custody: partial
+current_path: jewelry/09-SYNTHETIC-SIMULANTS.md
+canonical_path: jewelry/09-SYNTHETIC-SIMULANTS.md
+backsource_ids: [proof-backfill:jewelry:09-synthetic-simulants, git-history:jewelry:09-synthetic-simulants]
+concepts: [synthetic, simulants]
+root_concepts: [synthetic, simulants]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Synthetic & Simulants — Lab-Grown Diamonds, CVD, HPHT, CZ, Moissanite
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ceramics:overview
+kind: guide
+module: ceramics
+section: ceramics
+title: Ceramics - Overview: Clay to Ceramic: Earth, Fire, and Form
+status: source-custody
+source_custody: partial
+current_path: ceramics/00-OVERVIEW.md
+canonical_path: ceramics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:ceramics:00-overview, git-history:ceramics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ceramics — Overview: Clay to Ceramic: Earth, Fire, and Form
 
 ## Engineering Entry Point

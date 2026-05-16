@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ceramics:industrial-ceramics
+kind: guide
+module: ceramics
+section: ceramics
+title: Industrial Ceramics - Technical Ceramics, Refractories, Bioceramics
+status: source-custody
+source_custody: partial
+current_path: ceramics/08-INDUSTRIAL-CERAMICS.md
+canonical_path: ceramics/08-INDUSTRIAL-CERAMICS.md
+backsource_ids: [proof-backfill:ceramics:08-industrial-ceramics, git-history:ceramics:08-industrial-ceramics]
+concepts: [industrial, ceramics]
+root_concepts: [industrial, ceramics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Industrial Ceramics — Technical Ceramics, Refractories, Bioceramics
 
 ## The Big Picture

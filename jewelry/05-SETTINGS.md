@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:jewelry:settings
+kind: guide
+module: jewelry
+section: jewelry
+title: Settings - Prong, Bezel, Pavé, Channel, Tension
+status: source-custody
+source_custody: partial
+current_path: jewelry/05-SETTINGS.md
+canonical_path: jewelry/05-SETTINGS.md
+backsource_ids: [proof-backfill:jewelry:05-settings, git-history:jewelry:05-settings]
+concepts: [settings]
+root_concepts: [settings]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Settings — Prong, Bezel, Pavé, Channel, Tension
 
 ## The Big Picture
