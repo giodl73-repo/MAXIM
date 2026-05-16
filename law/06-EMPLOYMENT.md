@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:law:employment
+kind: guide
+module: law
+section: law
+title: 06 - Employment Law
+status: source-custody
+source_custody: partial
+current_path: law/06-EMPLOYMENT.md
+canonical_path: law/06-EMPLOYMENT.md
+backsource_ids: [proof-backfill:law:06-employment, git-history:law:06-employment]
+concepts: [employment]
+root_concepts: [employment]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 06 — Employment Law
 
 ## At-Will Employment, Discrimination, Wage/Hour, Non-Competes, Trade Secrets

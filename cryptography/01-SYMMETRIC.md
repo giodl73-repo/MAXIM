@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cryptography:symmetric
+kind: guide
+module: cryptography
+section: cryptography
+title: 01 - Symmetric Cryptography
+status: source-custody
+source_custody: partial
+current_path: cryptography/01-SYMMETRIC.md
+canonical_path: cryptography/01-SYMMETRIC.md
+backsource_ids: [proof-backfill:cryptography:01-symmetric, git-history:cryptography:01-symmetric]
+concepts: [symmetric]
+root_concepts: [symmetric]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 01 — Symmetric Cryptography
 
 ## AES Internals, Modes of Operation, Authenticated Encryption, Hash Functions, KDFs

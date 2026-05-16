@@ -1,0 +1,73 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cryptography\\03-PROTOCOLS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 616,
+      "heading_context": "## 9. Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "TLS 1.3 vs TLS 1.2 key exchange?",
+          "TLS 1.3: ephemeral ECDHE always; no static RSA or DH; always forward-secret"
+        ],
+        [
+          "0-RTT TLS security limitation?",
+          "Not forward-secret; replay vulnerable; only for idempotent requests"
+        ],
+        [
+          "OCSP stapling benefit?",
+          "Server fetches own OCSP; client doesn't query CA; privacy preserved + faster"
+        ],
+        [
+          "Certificate Transparency requirement?",
+          "Chrome requires SCTs from 2+ independent CT logs (since 2018)"
+        ],
+        [
+          "SSH host key TOFU risk?",
+          "First connection unauthenticated; MITM possible; use CA-signed host certs in org"
+        ],
+        [
+          "Signal Double Ratchet advantage?",
+          "Per-message forward secrecy + break-in recovery; no other messaging protocol has both"
+        ],
+        [
+          "Why X3DH uses one-time prekeys?",
+          "Prevents replay of session establishment; each OPK used once then discarded"
+        ],
+        [
+          "WireGuard = which Noise pattern?",
+          "Noise_IKpsk2; both parties have pre-registered static keys + optional PSK"
+        ],
+        [
+          "SRP vs OPAQUE?",
+          "SRP: server stores verifier (offline attack possible if breached); OPAQUE: server never sees password"
+        ],
+        [
+          "FIDO2 vs TOTP?",
+          "FIDO2: phishing-resistant (origin-bound); TOTP: phishable (attacker can relay code in real-time)"
+        ],
+        [
+          "Needham-Schroeder lesson?",
+          "Always include intended recipient identity in authenticated messages"
+        ],
+        [
+          "TLS 1.3 key schedule based on?",
+          "HKDF with labeled Expand-Label; separate secrets for handshake + application data"
+        ],
+        [
+          "PKCS#11 API purpose?",
+          "Standard interface for HSMs and crypto tokens; applications talk to token via PKCS#11"
+        ],
+        [
+          "Double Ratchet: what triggers DH ratchet?",
+          "Receiving a new DH public key from the other party"
+        ]
+      ]
+    }
+  ]
+}

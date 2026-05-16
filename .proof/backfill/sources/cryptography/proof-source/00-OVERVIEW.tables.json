@@ -1,0 +1,106 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cryptography\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 286,
+      "heading_context": "## 6a. Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "Encrypt + authenticate data at rest?",
+          "AEAD (AES-256-GCM or ChaCha20-Poly1305); target IND-CCA2 + INT-CTXT"
+        ],
+        [
+          "Need only integrity, not confidentiality?",
+          "HMAC-SHA256 or Poly1305; target EUF-CMA"
+        ],
+        [
+          "Protocol providing authenticated channel?",
+          "TLS 1.3; target forward secrecy + IND-CCA2 per session"
+        ],
+        [
+          "Sign data for non-repudiation?",
+          "Ed25519 (EUF-CMA); sUF-CMA if malleability matters"
+        ],
+        [
+          "ROM proofs acceptable?",
+          "Yes for deployed protocols with no standard-model alternative; ROM proofs are strong evidence — attacks typically require breaking the hash directly"
+        ],
+        [
+          "Standard model required?",
+          "When protocol must be proven secure without hash-function assumptions (e.g., some regulatory contexts); accept less efficient schemes"
+        ],
+        [
+          "Hardness assumption for new KEM?",
+          "Module-LWE (ML-KEM) for PQC-ready systems; ECDH (X25519) for classical-only; hybrid for transition"
+        ],
+        [
+          "Hardness assumption for new signatures?",
+          "Ed25519 (ECDLP) for classical; ML-DSA (Module-LWE + SIS) for PQC; hybrid both"
+        ],
+        [
+          "Key length for 128-bit security?",
+          "AES-128, SHA-256, P-256/X25519, RSA-3072 (classical); ML-KEM-768, ML-DSA-65 (PQC)"
+        ],
+        [
+          "Key length for 256-bit classical / 128-bit quantum?",
+          "AES-256, SHA-512, P-521, RSA-15360; ML-KEM-768 already ~192-bit quantum"
+        ],
+        [
+          "Algorithm agility requirement?",
+          "Always: version field + algorithm ID in any persistent format or protocol wire format"
+        ],
+        [
+          "Which security definition does CBC achieve?",
+          "IND-CPA only (not IND-CCA2); padding oracle attacks break it under active adversaries"
+        ],
+        [
+          "Which security definition does AEAD achieve?",
+          "IND-CCA2 + INT-CTXT simultaneously; the gold standard for symmetric encryption"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 451,
+      "heading_context": "## 8. Module Map",
+      "headers": [
+        "Module",
+        "Core Content",
+        "Key Assumption"
+      ],
+      "rows": [
+        [
+          "01-SYMMETRIC",
+          "AES internals, GCM, ChaCha20, hash, KDF",
+          "PRF/PRP security of AES"
+        ],
+        [
+          "02-ASYMMETRIC",
+          "RSA-OAEP, DH, ECC, pairings",
+          "Factoring, ECDLP, DDH"
+        ],
+        [
+          "03-PROTOCOLS",
+          "TLS 1.3, SSH, Signal/X3DH/Double Ratchet, Noise",
+          "Composition theorems, UC security"
+        ],
+        [
+          "04-ZK-MPC",
+          "Interactive proofs, Schnorr, SNARKs/STARKs, garbled circuits",
+          "DL, collision resistance, LWE"
+        ],
+        [
+          "05-POST-QUANTUM",
+          "LWE/SIS/NTRU, Kyber/Dilithium/SPHINCS+, migration",
+          "Lattice hardness; hash OWF"
+        ]
+      ]
+    }
+  ]
+}

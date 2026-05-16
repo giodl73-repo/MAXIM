@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:law:overview
+kind: guide
+module: law
+section: law
+title: 00 - Law Overview
+status: source-custody
+source_custody: partial
+current_path: law/00-OVERVIEW.md
+canonical_path: law/00-OVERVIEW.md
+backsource_ids: [proof-backfill:law:00-overview, git-history:law:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 00 — Law Overview
 
 ## Legal System Taxonomy, Legal Reasoning, Sources of Law

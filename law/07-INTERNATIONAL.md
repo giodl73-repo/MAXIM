@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:law:international
+kind: guide
+module: law
+section: law
+title: 07 - International Law
+status: source-custody
+source_custody: partial
+current_path: law/07-INTERNATIONAL.md
+canonical_path: law/07-INTERNATIONAL.md
+backsource_ids: [proof-backfill:law:07-international, git-history:law:07-international]
+concepts: [international]
+root_concepts: [international]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 07 — International Law
 
 ## Treaties, WTO/GATT, Sovereign Immunity, Cross-Border Enforcement, Arbitration

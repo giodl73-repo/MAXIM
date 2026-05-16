@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cryptography:protocols
+kind: guide
+module: cryptography
+section: cryptography
+title: 03 - Cryptographic Protocols
+status: source-custody
+source_custody: partial
+current_path: cryptography/03-PROTOCOLS.md
+canonical_path: cryptography/03-PROTOCOLS.md
+backsource_ids: [proof-backfill:cryptography:03-protocols, git-history:cryptography:03-protocols]
+concepts: [protocols]
+root_concepts: [protocols]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03 — Cryptographic Protocols
 
 ## TLS 1.3, SSH, Signal Protocol, Noise Framework, Key Management

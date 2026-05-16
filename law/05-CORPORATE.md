@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:law:corporate
+kind: guide
+module: law
+section: law
+title: 05 - Corporate Law
+status: source-custody
+source_custody: partial
+current_path: law/05-CORPORATE.md
+canonical_path: law/05-CORPORATE.md
+backsource_ids: [proof-backfill:law:05-corporate, git-history:law:05-corporate]
+concepts: [corporate]
+root_concepts: [corporate]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05 — Corporate Law
 
 ## Entity Types, Fiduciary Duties, M&A Mechanics, Securities Basics, Governance

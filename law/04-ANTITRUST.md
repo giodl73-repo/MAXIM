@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:law:antitrust
+kind: guide
+module: law
+section: law
+title: 04 - Antitrust Law
+status: source-custody
+source_custody: partial
+current_path: law/04-ANTITRUST.md
+canonical_path: law/04-ANTITRUST.md
+backsource_ids: [proof-backfill:law:04-antitrust, git-history:law:04-antitrust]
+concepts: [antitrust]
+root_concepts: [antitrust]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — Antitrust Law
 
 ## Sherman/Clayton Acts, EU Competition Law, Tech Antitrust Live Cases

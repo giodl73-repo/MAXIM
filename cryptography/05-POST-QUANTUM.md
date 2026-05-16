@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cryptography:post-quantum
+kind: guide
+module: cryptography
+section: cryptography
+title: 05 - Post-Quantum Cryptography
+status: source-custody
+source_custody: partial
+current_path: cryptography/05-POST-QUANTUM.md
+canonical_path: cryptography/05-POST-QUANTUM.md
+backsource_ids: [proof-backfill:cryptography:05-post-quantum, git-history:cryptography:05-post-quantum]
+concepts: [post, quantum]
+root_concepts: [post, quantum]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05 — Post-Quantum Cryptography
 
 ## Quantum Threat, Lattice Problems, NIST PQC Standards, Migration

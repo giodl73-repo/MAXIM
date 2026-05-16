@@ -1,0 +1,75 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cryptography\\05-POST-QUANTUM.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 550,
+      "heading_context": "## 9. Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "What does Shor's algorithm break?",
+          "RSA, DH, ECDH, ECDSA, EdDSA — all public-key based on factoring or discrete log"
+        ],
+        [
+          "What does Grover's break?",
+          "Symmetric (squares workload, doubles required key length); AES-128 → use AES-256"
+        ],
+        [
+          "HNDL urgency means?",
+          "Migrate key exchange (TLS ECDHE) NOW for long-lived secrets — attackers already capturing traffic"
+        ],
+        [
+          "NIST PQC primary KEM?",
+          "ML-KEM (Kyber), FIPS 203; use ML-KEM-768 for 192-bit equiv security"
+        ],
+        [
+          "NIST PQC primary signatures?",
+          "ML-DSA (Dilithium) FIPS 204; SLH-DSA (SPHINCS+) FIPS 205; FN-DSA (FALCON)"
+        ],
+        [
+          "LWE worst-case reduction significance?",
+          "Hardness of LWE ← hardness of SVP; average-case hard → much stronger than NP-hard"
+        ],
+        [
+          "Hybrid KEM construction?",
+          "KDF(classical_secret",
+          "",
+          "pqc_secret); if either component secure → combined secure"
+        ],
+        [
+          "Kyber-768 public key size vs X25519?",
+          "ML-KEM-768: 1184 bytes vs X25519: 32 bytes — ~37× larger but acceptable"
+        ],
+        [
+          "Dilithium-65 signature size vs Ed25519?",
+          "ML-DSA-65: 3293 bytes vs Ed25519: 64 bytes — ~51× larger"
+        ],
+        [
+          "SPHINCS+ vs Dilithium trade-off?",
+          "SPHINCS+: conservative (hash-only assumption); large sigs (8-50KB); Dilithium: smaller sigs; lattice assumption"
+        ],
+        [
+          "QKD vs PQC recommendation?",
+          "PQC (NSA/NIST position); QKD doesn't scale and still needs classical auth"
+        ],
+        [
+          "Rejection sampling in Dilithium purpose?",
+          "Prevent information leakage about secret key s through signature response distribution"
+        ],
+        [
+          "Module-LWE vs Ring-LWE vs plain LWE?",
+          "Module (k-rank) ⊃ Ring (k=1) ⊃ LWE (module over ℤ); efficiency/assumption tradeoff"
+        ],
+        [
+          "CNSA 2.0 full transition target year?",
+          "2033 for most NSS (national security systems)"
+        ]
+      ]
+    }
+  ]
+}

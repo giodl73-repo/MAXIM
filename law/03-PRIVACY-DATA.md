@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:law:privacy-data
+kind: guide
+module: law
+section: law
+title: 03 - Privacy and Data Law
+status: source-custody
+source_custody: partial
+current_path: law/03-PRIVACY-DATA.md
+canonical_path: law/03-PRIVACY-DATA.md
+backsource_ids: [proof-backfill:law:03-privacy-data, git-history:law:03-privacy-data]
+concepts: [privacy, data]
+root_concepts: [privacy, data]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03 — Privacy & Data Law
 
 ## GDPR, CCPA, HIPAA, Data Breach Notification, Cross-Border Transfers
