@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "digital-media\\09-FUTURE-TRENDS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "DIGITAL MEDIA HORIZON (2025-2030)\n===================================\n\n+------------------------------------------------------------------+\n|  TREND                  CURRENT STATE        TRAJECTORY          |\n|  -----                  -------------        ----------          |\n|  Generative media       Proliferating        Ubiquitous          |\n|  (text/image/video/voice)                                        |\n|                                                                  |\n|  AI-native interfaces   Emerging             Dominant            |\n|  (chat as navigation)                                            |\n|                                                                  |\n|  Spatial computing      Niche (Vision Pro)   Slow uptake         |\n|  (AR/VR/MR)                                                      |\n|                                                                  |\n|  Decentralized social   Small but real       Growing slowly      |\n|  (ActivityPub, AT Proto)                                         |\n|                                                                  |\n|  Synthetic voice/video  Widespread           Proliferating fast  |\n|  (text-to-speech/video)                                          |\n|                                                                  |\n|  Robot journalism       Operational          Expanding scope     |\n|  (automated reporting)                                           |\n+------------------------------------------------------------------+\n\nOVERARCHING DYNAMIC:\n  Generative AI is compressing the content production cost curve\n  toward zero, which has second-order effects on:\n  - Misinformation (supply-side explosion)\n  - Attention economy (content abundance -> attention scarcer)\n  - Journalism (business model disruption + production opportunity)\n  - Platform trust (can't trust any content without provenance)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "### LLM-Written Content at Scale",
+      "confidence": "candidate",
+      "text": "LLM CONTENT PROLIFERATION (2025 state)\n========================================\n\nSCALE:\n  2024-2025: AI-generated text content estimated at\n    ~40-60% of new low-quality web content\n  Major SEO spam operations: generating thousands of\n    articles per day per domain\n  Google's Helpful Content Update (2023-2024):\n    explicitly targets scaled AI content production\n    Sites using AI primarily for search manipulation\n    (\"Parasite SEO\") heavily penalized\n\nDETECTION ARMS RACE:\n  AI writing detectors (Turnitin, ZeroGPT, GPTZero):\n    Rely on: statistical patterns (perplexity, burstiness)\n    Problem: LLMs improve; perplexity scores normalize\n    Current accuracy: ~75-85% for pure AI text\n    But: human-edited AI text frequently evades detection\n    False positive rate: 8-15% on student essays\n\n  WHY DETECTION IS FUNDAMENTALLY HARD:\n    Discriminating AI text from human text is equivalent to:\n    \"Does this text look like it was drawn from the LLM's distribution?\"\n    As LLMs improve, their distribution approaches human text\n    Eventually: the problem is undecidable (any text COULD be LLM-generated)\n\n  CRYPTOGRAPHIC WATERMARKING:\n    OpenAI, Google: developing watermarks embedded in generation\n    Statistical patterns detectable algorithmically but not visibly\n    Problem: paraphrasing a watermarked text removes the watermark\n    Problem: won't work on open-source models (no central enforcement)\n\nJOURNALISM IMPLICATIONS:\n  AI assistance: research, transcription, data extraction -> beneficial\n  AI generation: financial reports, sports summaries, weather -> operational\n  AI replacement of investigative judgment -> not yet; reliability problems\n  AP: has published AI-generated earnings reports since 2014\n  Bloomberg: Cyborg tool (AI draft + human edit)\n  Washington Post: Heliograf (auto-generates local election results)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "## Text-to-Image and Video Proliferation",
+      "confidence": "candidate",
+      "text": "SYNTHETIC VISUAL MEDIA (2025 state)\n======================================\n\nTEXT-TO-IMAGE:\n  DALL-E 3, Midjourney v6, Stable Diffusion 3, Adobe Firefly\n  Photorealistic images: standard capability\n  Detection: increasingly difficult\n  C2PA provenance metadata: when signed, detectable\n  But: most synthetic images are not C2PA signed\n\n  Cultural/media use:\n    Stock photography: disrupted (Shutterstock, Getty both pivoting)\n    News illustration: AI-generated images appearing in publications\n    Advertising: widely adopted for asset creation\n    Misinformation: \"evidence\" images easily manufactured\n\nTEXT-TO-VIDEO:\n  Sora (OpenAI, 2024): short clips with high realism\n  Gen-2 (Runway), Pika, Kling, Veo (Google DeepMind)\n  Current state: impressive short clips; longer videos still inconsistent\n  Timeline: 30-60 second quality video standard by 2026; 5-minute by 2028\n\n  Watermarking challenge: C2PA for video; industry adopting slowly\n  Detection: specific GAN artifacts increasingly absent in diffusion\n  DeepMind's SynthID: embedded in generated video; partially adopted\n\nTEXT-TO-VOICE:\n  ElevenLabs, PlayHT, OpenAI TTS, Microsoft Azure Neural\n  Voice cloning: from 3-30 seconds of audio sample\n  Current quality: indistinguishable to most listeners\n  Use cases: audiobooks, accessibility, translation dubbing\n  Harm vector: voice phishing (\"CEO fraud\"), political deepfakes\n\nTHE PROVENANCE IMPERATIVE:\n  Without provenance infrastructure, all media is untrustable\n  C2PA/CAI adoption is the industry's proposed solution\n  Full effectiveness requires: camera/phone/platform all signing\n  -> Years from complete coverage",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 258,
+      "heading_context": "## AI-Native Interfaces",
+      "confidence": "candidate",
+      "text": "CHAT AS NAVIGATION\n==================\n\nTHE SHIFT:\n  Traditional web: URL-based navigation; page-based\n  App era: gesture/tap interface; discrete screens\n  AI-native: natural language query -> answer\n\nCURRENT AI INTERFACES:\n  ChatGPT: conversational; document chat; code\n  Perplexity: search + AI synthesis; citation-heavy\n  Google AI Overviews (SGE): AI summary at top of search\n  Microsoft Copilot: integrated into Office, Windows\n  Cursor / GitHub Copilot: developer tools\n\nIMPLICATIONS FOR CONTENT:\n  If users get answers from AI (not clicking to content):\n    Traffic to content creators: reduced\n    Investment in SEO/content: lower ROI\n  But: AI needs to cite sources -> citation traffic\n  And: AI gets things wrong -> verification traffic\n  Net effect on content economics: currently negative for\n    high-volume informational content; unclear for premium\n\nTHE \"RETRIEVAL PROBLEM\":\n  Current LLMs: knowledge cutoff; can be outdated\n  RAG (Retrieval Augmented Generation): connects to live sources\n  This is the architecture behind Perplexity, SGE, Copilot\n  Content must be structured for machine consumption\n    (schema.org, structured data, clean HTML)\n  to be retrieved and cited by AI\n\nCONVERSATIONAL INTERFACE DESIGN:\n  Slash commands evolving into natural language\n  Error recovery: more important in voice/chat\n  Context management: multimodal context within conversation\n  The UX writing principles (04-UX-WRITING.md) apply\n  but at a different level of abstraction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:epigraphy:decipherment
+kind: guide
+module: epigraphy
+section: epigraphy
+title: Decipherment Methods: Bilingual Texts, Statistical Analysis, Linear B, Maya
+status: source-custody
+source_custody: partial
+current_path: epigraphy/04-DECIPHERMENT.md
+canonical_path: epigraphy/04-DECIPHERMENT.md
+backsource_ids: [proof-backfill:epigraphy:04-decipherment, git-history:epigraphy:04-decipherment]
+concepts: [decipherment]
+root_concepts: [decipherment]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Decipherment Methods: Bilingual Texts, Statistical Analysis, Linear B, Maya
 
 ## The Big Picture

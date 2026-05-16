@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:epigraphy:modern-methods
+kind: guide
+module: epigraphy
+section: epigraphy
+title: Modern Methods: RTI, 3D Scanning, Multispectral, Corpus Databases
+status: source-custody
+source_custody: partial
+current_path: epigraphy/09-MODERN-METHODS.md
+canonical_path: epigraphy/09-MODERN-METHODS.md
+backsource_ids: [proof-backfill:epigraphy:09-modern-methods, git-history:epigraphy:09-modern-methods]
+concepts: [modern, methods]
+root_concepts: [modern, methods]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Methods: RTI, 3D Scanning, Multispectral, Corpus Databases
 
 ## The Big Picture

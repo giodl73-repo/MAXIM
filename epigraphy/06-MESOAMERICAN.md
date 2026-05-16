@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:epigraphy:mesoamerican
+kind: guide
+module: epigraphy
+section: epigraphy
+title: Mesoamerican Writing: Maya Glyphs, Aztec Pictography, Zapotec
+status: source-custody
+source_custody: partial
+current_path: epigraphy/06-MESOAMERICAN.md
+canonical_path: epigraphy/06-MESOAMERICAN.md
+backsource_ids: [proof-backfill:epigraphy:06-mesoamerican, git-history:epigraphy:06-mesoamerican]
+concepts: [mesoamerican]
+root_concepts: [mesoamerican]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mesoamerican Writing: Maya Glyphs, Aztec Pictography, Zapotec
 
 ## The Big Picture
@@ -77,7 +96,7 @@ Each block = typically 2-3 signs combined
 | SIGN  |
 |  [T]  |
 +--+----+
-|Af|  Af|
+|Af| Af |
 +--+----+
 
   MAIN SIGN — usually the logogram or main syllable

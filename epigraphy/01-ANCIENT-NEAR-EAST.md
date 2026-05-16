@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:epigraphy:ancient-near-east
+kind: guide
+module: epigraphy
+section: epigraphy
+title: Ancient Near East: Cuneiform, Sumerian, Akkadian, Ugaritic
+status: source-custody
+source_custody: partial
+current_path: epigraphy/01-ANCIENT-NEAR-EAST.md
+canonical_path: epigraphy/01-ANCIENT-NEAR-EAST.md
+backsource_ids: [proof-backfill:epigraphy:01-ancient-near-east, git-history:epigraphy:01-ancient-near-east]
+concepts: [ancient, near, east]
+root_concepts: [ancient, near]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient Near East: Cuneiform, Sumerian, Akkadian, Ugaritic
 
 ## The Big Picture

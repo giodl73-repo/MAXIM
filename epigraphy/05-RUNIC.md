@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:epigraphy:runic
+kind: guide
+module: epigraphy
+section: epigraphy
+title: Runic Scripts: Elder Futhark, Younger Futhark, Anglo-Saxon Futhorc
+status: source-custody
+source_custody: partial
+current_path: epigraphy/05-RUNIC.md
+canonical_path: epigraphy/05-RUNIC.md
+backsource_ids: [proof-backfill:epigraphy:05-runic, git-history:epigraphy:05-runic]
+concepts: [runic]
+root_concepts: [runic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Runic Scripts: Elder Futhark, Younger Futhark, Anglo-Saxon Futhorc
 
 ## The Big Picture

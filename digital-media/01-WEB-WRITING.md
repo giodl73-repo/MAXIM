@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:digital-media:web-writing
+kind: guide
+module: digital-media
+section: digital-media
+title: Web Writing: Scanability, Hypertext, SEO, Readability
+status: source-custody
+source_custody: partial
+current_path: digital-media/01-WEB-WRITING.md
+canonical_path: digital-media/01-WEB-WRITING.md
+backsource_ids: [proof-backfill:digital-media:01-web-writing, git-history:digital-media:01-web-writing]
+concepts: [web, writing]
+root_concepts: [web, writing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Web Writing: Scanability, Hypertext, SEO, Readability
 
 ## The Big Picture

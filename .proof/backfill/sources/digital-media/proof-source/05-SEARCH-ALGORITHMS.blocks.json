@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "digital-media\\05-SEARCH-ALGORITHMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SEARCH SYSTEM ARCHITECTURE\n============================\n\nQUERY -> QUERY UNDERSTANDING -> RETRIEVAL -> RANKING -> RESULTS\n\n+------------------------------------------------------------------+\n|  QUERY UNDERSTANDING         RANKING SIGNALS                     |\n|                                                                  |\n|  Named entity recognition     RELEVANCE:                         |\n|  Intent classification         Keyword match                     |\n|  Query rewriting               Semantic similarity               |\n|  Spell correction              Topic modeling                    |\n|  Language detection                                              |\n|                                AUTHORITY:                        |\n|                                 Backlink graph (PageRank)        |\n|                                 E-E-A-T signals                  |\n|                                 Brand mentions                   |\n|                                                                  |\n|                                FRESHNESS:                        |\n|                                 Last modified date               |\n|                                 Query freshness need             |\n|                                                                  |\n|                                UX SIGNALS:                       |\n|                                 Click-through rate (CTR)         |\n|                                 Dwell time / pogo-sticking       |\n|                                 Core Web Vitals                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 60,
+      "heading_context": "## PageRank: The Original Algorithm",
+      "confidence": "candidate",
+      "text": "PAGERANK CONCEPT\n=================\n\nINSIGHT: The web is a citation network.\n  Academic papers: a paper cited by many important papers\n    is more authoritative than one cited by few.\n  Web pages: a page linked to by many important pages\n    is more authoritative.\n\nFORMULATION:\n  PR(A) = (1-d) + d * (PR(T1)/C(T1) + ... + PR(Tn)/C(Tn))\n\n  Where:\n  PR(A) = PageRank of page A\n  d = damping factor (typically 0.85)\n  T1...Tn = pages that link to A\n  C(Ti) = number of outbound links from Ti\n\n  Intuition:\n  A link from a high-PageRank page is worth more\n  A page with many outbound links passes less value per link\n  The damping factor represents the probability a random\n  surfer continues clicking (vs. starting a new URL)\n\nITERATIVE COMPUTATION:\n  Initialize all pages to PR=1\n  Iterate: each page's PR = sum of incoming link contributions\n  Repeat until convergence (usually ~50 iterations)\n  Result: steady-state distribution (random walk stationary dist.)\n\nANALOGY (for a graph theory audience):\n  PageRank = stationary distribution of a random walk\n  on the directed web graph\n  The \"damping factor\" prevents the walk from getting stuck\n  in sink nodes (pages with no outbound links)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "## Modern Ranking: Beyond PageRank",
+      "confidence": "candidate",
+      "text": "GOOGLE RANKING SIGNAL EVOLUTION\n=================================\n\n1998-2000: PageRank + keyword match\n  -> Easily gamed with link farms\n\n2003: Florida Update\n  -> Penalized excessive keyword optimization\n  -> Anchor text manipulation targeted\n\n2011: Panda Update\n  -> Targeted thin content, duplicate content, content farms\n  -> Quality of the page's content matters\n\n2012: Penguin Update\n  -> Targeted manipulative link schemes\n  -> Quality of inbound links matters, not just quantity\n\n2013: Hummingbird\n  -> Semantic understanding of queries\n  -> Can interpret \"what's the capital of the country\n     Napoleon was exiled to?\" -> synonym/concept inference\n\n2015: RankBrain (first ML ranking factor)\n  -> Machine learning to interpret ambiguous queries\n  -> Learns from click behavior to improve query interpretation\n\n2019: BERT (Bidirectional Encoder Representations from Transformers)\n  -> Deep language understanding for long-tail queries\n  -> Context within the query (\"not\" matters)\n\n2021: MUM (Multitask Unified Model)\n  -> Understands text, images, video simultaneously\n  -> Can answer complex multi-step information needs\n\nCurrent state: ~200+ ranking signals\n  Machine learning decides their relative weights\n  Google does not publish the exact formula",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "### Named Entity Recognition and Query Rewriting",
+      "confidence": "candidate",
+      "text": "NER AND QUERY REWRITING\n========================\n\nNER: Google identifies entities in queries\n  \"Satya Nadella Microsoft CEO\" ->\n  Entities: [person: Satya Nadella], [org: Microsoft], [role: CEO]\n  Connects to Knowledge Graph entries for each entity\n\nQUERY REWRITING:\n  \"capital of France\" -> \"Paris\"\n  (Google can answer without leaving results page)\n  \"Paris\" with geographic intent -> Paris, France (not Paris, Texas)\n  \"Apple\" -> disambiguation: fruit or company? (context decides)\n\nSYNONYM EXPANSION:\n  \"car repair\" -> \"auto repair\", \"vehicle maintenance\"\n  \"heart attack\" -> \"myocardial infarction\"\n  Google understands synonyms; doesn't require exact match\n\nSPELL CORRECTION:\n  \"googel\" -> \"google\"\n  \"microsooft\" -> \"microsoft\"\n  \"Did you mean\" for less confident corrections",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 228,
+      "heading_context": "## Featured Snippets and Zero-Click Search",
+      "confidence": "candidate",
+      "text": "FEATURED SNIPPETS (Position Zero)\n===================================\n\nWhat: A box above organic results answering the query directly\nTypes:\n  PARAGRAPH: 40-50 words answering \"what is\" or \"how to\" questions\n  LIST: numbered or bulleted (steps, rankings)\n  TABLE: comparative data\n  VIDEO: YouTube clip answering the query\n\nHOW GOOGLE SELECTS:\n  Takes content from a ranking page in the top ~10\n  Identifies the text that best directly answers the query\n  Reformats (sometimes truncates) for the snippet box\n\nSEO IMPLICATION:\n  You can rank #1 AND have the featured snippet taken\n  from a lower-ranking competitor\n  The snippet is the answer to the question -- it may replace\n  the #1 click because users get the answer without clicking\n\nZERO-CLICK SEARCHES:\n  SparkToro (2022): ~65% of Google searches end without a click\n  Featured snippets, Knowledge Graph panels, direct answers\n  all contribute to zero-click\n  Implication: traffic from informational queries is declining\n  Brand searches (\"Microsoft\" -> Knowledge Panel): rarely clicked\n\nSTRUCTURED SNIPPETS FOR FEATURED SNIPPET ELIGIBILITY:\n  Format content to answer questions directly:\n    \"What is [X]? [X] is ...\"\n    Use the question as a header\n    Follow immediately with a direct answer\n    FAQPage schema increases featured snippet likelihood",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 288,
+      "heading_context": "## Core Web Vitals (Technical Ranking Factors)",
+      "confidence": "candidate",
+      "text": "CORE WEB VITALS (2021+ ranking factor)\n========================================\n\nLCP (Largest Contentful Paint):\n  Time for the largest visible content element to load\n  Target: < 2.5 seconds\n  Measures: perceived load speed (when does it look ready?)\n\nFID (First Input Delay) / INP (Interaction to Next Paint):\n  Time from first user interaction to browser response\n  Target FID: < 100ms\n  Target INP (2024 replacement): < 200ms\n  Measures: interactivity responsiveness\n\nCLS (Cumulative Layout Shift):\n  Unexpected layout shifts while loading\n  Target: < 0.1\n  Problem: content loads and pushes other content (ads injecting)\n  Measures: visual stability\n\nWHY THESE MATTER:\n  Google's hypothesis: fast, stable, interactive pages\n  produce better user experience -> better user signals\n  -> better for search users -> should rank better\n\nMEASUREMENT:\n  Google Search Console (free): shows CWV data for your site\n  PageSpeed Insights: per-URL analysis\n  Chrome User Experience Report (CrUX): real-user data",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:digital-media:content-strategy
+kind: guide
+module: digital-media
+section: digital-media
+title: Content Strategy: Audit, Taxonomy, Governance, Voice and Tone
+status: source-custody
+source_custody: partial
+current_path: digital-media/03-CONTENT-STRATEGY.md
+canonical_path: digital-media/03-CONTENT-STRATEGY.md
+backsource_ids: [proof-backfill:digital-media:03-content-strategy, git-history:digital-media:03-content-strategy]
+concepts: [content, strategy]
+root_concepts: [content, strategy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Content Strategy: Audit, Taxonomy, Governance, Voice and Tone
 
 ## The Big Picture

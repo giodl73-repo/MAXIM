@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:epigraphy:overview
+kind: guide
+module: epigraphy
+section: epigraphy
+title: Epigraphy: Inscriptions, Scripts, and Decipherment - Landscape
+status: source-custody
+source_custody: partial
+current_path: epigraphy/00-OVERVIEW.md
+canonical_path: epigraphy/00-OVERVIEW.md
+backsource_ids: [proof-backfill:epigraphy:00-overview, git-history:epigraphy:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Epigraphy: Inscriptions, Scripts, and Decipherment — Landscape
 
 ## The Big Picture
@@ -14,13 +33,11 @@ EPIGRAPHY AND RELATED DISCIPLINES
 |  Stone, metal, clay, wood, bone                                  |
 |  Survives when organic media does not                            |
 |                                                                  |
-|  +------------------+ +------------------+ +------------------+ |
-|  | PALEOGRAPHY      | | NUMISMATICS      | | SIGILLOGRAPHY    | |
-|  | Handwriting on   | | Coins, medals    | | Seals, stamps    | |
-|  | perishable media | | Legends + images | | Wax, clay, metal | |
-|  | (papyrus, vellum)| | Controlled by    | | Administrative   | |
-|  | Close to epig.   | | mint authority   | | authentication   | |
-|  +------------------+ +------------------+ +------------------+ |
+|  PALEOGRAPHY          NUMISMATICS          SIGILLOGRAPHY         |
+|  Handwriting on       Coins, medals        Seals, stamps         |
+|  perishable media     Legends + images     Wax, clay, metal      |
+|  (papyrus, vellum)    Controlled by        Administrative        |
+|  Close to epig.       mint authority       authentication        |
 |                                                                  |
 |  SUPPORTING DISCIPLINES:                                         |
 |  Linguistics (script decipherment)                               |
@@ -226,10 +243,10 @@ INSCRIPTION LIFECYCLE
   COMMISSION          CARVE / CAST        DISPLAY
   ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
   │ Patron:      │    │ Stonecutter  │    │ Temple wall  │
-  │  state, cult,│ →  │ or scribe    │ →  │ Agora pillar │
+  │  state cult, │ →  │ or scribe    │ →  │ Agora pillar │
   │  private     │    │ Drafts →     │    │ Tomb face    │
   │ Content:     │    │ incises /    │    │ Road marker  │
-  │  decree, ded-│    │ casts / molds│    │ Coin in      │
+  │  decree ded- │    │ casts / molds│    │ Coin in      │
   │  ication,    │    │              │    │ circulation  │
   │  epitaph     │    │ Material:    │    │              │
   │              │    │ stone, bronze│    │ PUBLIC or    │
@@ -248,15 +265,15 @@ INSCRIPTION LIFECYCLE
   │ recovery     │    │ (epigraphic  │    │ Historical   │
   │              │    │  convention: │    │ analysis     │
   │ WEATHER:     │    │  [ ] = lost  │    │              │
-  │ erosion,     │    │  ( ) = editor│    │ Now: digital │
+  │ erosion,     │    │  () = editor │    │ Now: digital │
   │ reuse, war   │    │  addition)   │    │ RTI, 3D scan │
   └──────────────┘    └──────────────┘    └──────────────┘
 
   KEY FAILURE MODES:
   ┌────────────────────────────────────────────────────────┐
-  │ • Stone reused as building material (spolia) — text   │
+  │ • Stone reused as building material (spolia) — text    │
   │   preserved but decontextualized                       │
-  │ • Bronze melted for reuse — most bronze inscriptions  │
+  │ • Bronze melted for reuse — most bronze inscriptions   │
   │   are lost; stone survives because it is worthless     │
   │ • Clay tablets: only survive if accidentally fired     │
   │   (palace destruction = archive preservation)          │

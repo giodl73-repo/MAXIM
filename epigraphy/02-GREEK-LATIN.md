@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:epigraphy:greek-latin
+kind: guide
+module: epigraphy
+section: epigraphy
+title: Greek and Latin Inscriptions: Votive, Funerary, Official, Graffiti
+status: source-custody
+source_custody: partial
+current_path: epigraphy/02-GREEK-LATIN.md
+canonical_path: epigraphy/02-GREEK-LATIN.md
+backsource_ids: [proof-backfill:epigraphy:02-greek-latin, git-history:epigraphy:02-greek-latin]
+concepts: [greek, latin]
+root_concepts: [greek, latin]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Greek and Latin Inscriptions: Votive, Funerary, Official, Graffiti
 
 ## The Big Picture

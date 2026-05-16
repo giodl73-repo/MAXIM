@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "epigraphy\\04-DECIPHERMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "DECIPHERMENT PROBLEM SPACE\n============================\n\nWHAT YOU HAVE:         WHAT YOU NEED TO KNOW:\n  Signs on material      What language?\n  Sign inventory         What script type? (logo/syllabic/alpha)\n  Distribution data      What sounds do signs represent?\n  Possible bilingual     What do the words mean?\n  texts\n\nDECIPHERMENT STRATEGIES:\n+------------------------------------------------------------------+\n|  STRATEGY              REQUIRES                EXAMPLE           |\n|  ------------------    --------                -------           |\n|  Bilingual text        Known language partner  Rosetta Stone     |\n|  Named entity anchor   Proper names in both    Cartouches        |\n|  Statistical analysis  Large corpus            Sign frequency    |\n|  Known language        Related lang. known     Linear B (Greek)  |\n|  Typological inference Sign count tells type   Alphabetic guess  |\n+------------------------------------------------------------------+\n\nSUCCESS RATE: ~10 known decipherments of major scripts\nFAILURES: ~5 major scripts still undeciphered (see 07)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Principle 1: Sign Count as Script-Type Hypothesis",
+      "confidence": "candidate",
+      "text": "SIGN COUNT DIAGNOSTIC\n======================\n\n< 30 signs  -> Almost certainly ABJAD or ALPHABET\n              (Ugaritic: 30; Greek: 24; Phoenician: 22)\n              -> Each sign = one consonant (or phoneme)\n\n30-100 signs -> SYLLABARY\n              (Linear B: ~87; Cypriot syllabic: ~55)\n              -> Each sign = a syllable (CV or V)\n\n> 200 signs -> LOGO-SYLLABIC or LOGOGRAPHIC\n              (Akkadian cuneiform: ~300; Chinese: thousands)\n              -> Mix of word-signs and syllabic signs\n\nAPPLICATION:\n  When you find a new script, COUNT THE SIGNS FIRST.\n  This tells you what kind of system you're looking for\n  before you can read a single word.\n\nCAVEAT:\n  Some scripts have variable corpus counts:\n    Indus Valley: 400-600 signs\n    -> Could be logo-syllabic (sign count consistent with that)\n    -> Or an alphabet with many allographs (sign variants)\n    -> This ambiguity is one reason Indus remains undeciphered",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "## Principle 2: Bilingual and Trilingual Texts",
+      "confidence": "candidate",
+      "text": "BILINGUAL TEXT REQUIREMENTS\n=============================\n\nIdeal conditions:\n  1. Text A: unknown script\n  2. Text B: same content, known script\n  3. Long text (more data = more constraints)\n  4. Fixed proper nouns (names don't change across languages)\n\nROSETTA STONE (Ptolemy V, 196 BCE):\n  Hieroglyphic + Demotic + Greek\n  Greek was known; provided content\n  Proper names (Ptolemy, Berenice) = anchor points\n  Greek phrase count vs. hieroglyphic sign group count\n  -> Approximately equal -> each group = a word\n  Key limitation: short; many gaps in hieroglyphic section\n\nBEHISTUN INSCRIPTION (Darius I, ~520 BCE):\n  Old Persian + Elamite + Akkadian (Babylonian)\n  Old Persian partially guessable from Zoroastrian texts\n  -> bootstrapped Akkadian\n\nBILINGUAL STELA FROM MESHA (MOABITE STONE):\n  Not a true bilingual but parallels to Hebrew OT\n  -> Allowed verification of Phoenician script readings\n\nLYCIAN / CARIAN / LYDIAN:\n  Greek-bilingual gravestones in Anatolia\n  -> Deciphered in 20th c. with Greek help",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 129,
+      "heading_context": "## Principle 3: Proper Names as Entry Points",
+      "confidence": "candidate",
+      "text": "PROPER NAME METHOD\n===================\n\nStep 1: Identify named entities in the known text\n  \"Ptolemy,\" \"Berenice,\" \"Alexander\" -- in Greek\n\nStep 2: Find the same named entities in the unknown text\n  They should appear at the same frequency\n  They should appear in structurally parallel positions\n  Royal names may be in cartouches (visual marker helps)\n\nStep 3: Extract phonetic values from name spellings\n  P-T-O-L-E-M-A-I-O-S: each sign = a sound value\n  Cross-reference with CLEOPATRA if available:\n  K-L-E-O-P-A-T-R-A\n  Shared sign for P, T, O, A, L = validated phonetic values\n\nStep 4: Plug values into other words\n  Try to read words using the extracted values\n  Check against known language vocabulary if language identified\n  Check for self-consistent readings (no contradictions)\n\nStep 5: Extend to common vocabulary\n  Frequently occurring sequences = likely common words\n  Try substituting phonetic values\n  Look for patterns consistent with known language family\n\nWORKED EXAMPLE: Champollion on Cleopatra + Ptolemy\n  P: same in both names -> one sign = 'p'\n  T: shared -> sign = 't'\n  O: shared -> sign = 'o'\n  L: shared -> sign = 'l'\n  A: shared in different positions -> sign = 'a'\n  New signs from Cleopatra: K, E, R, A (end)\n  Total after two names: 9 consonant/vowel values",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "### The Syllabic Grid Method",
+      "confidence": "candidate",
+      "text": "VENTRIS'S SYLLABIC GRID METHOD\n================================\n\nAssumption: Linear B is a syllabary (sign count ~87 confirmed this)\nFramework: create a grid of signs organized by their\n           phonological relationships\n\nStep 1: COMMUTATION ANALYSIS\n  Find signs that appear in the same positions in different words\n  Signs that alternate in same position = share a vowel (same V)\n  Signs that appear together frequently = may share a consonant\n\nStep 2: BUILD THE GRID\n  Rows = consonants (C1, C2, C3...)\n  Columns = vowels (a, e, i, o, u)\n  Each cell = a CV syllable sign\n  Fill cells by commutation and distribution patterns\n\n  First grid (incomplete):\n    The grid could not be filled from statistics alone\n    -> Required testing hypotheses about values\n\nStep 3: PLACENAME HYPOTHESIS\n  Knossos tablets likely mention Knossos and other Cretan places\n  If Linear B records a language used in Crete, placenames\n  should appear and should correspond to known place names\n  -> Three signs appear frequently together as a proper noun\n  -> Hypothesis: these three signs = ko-no-so (Knossos)\n\nStep 4: LANGUAGE IDENTIFICATION\n  Plugging values from placenames into other words:\n  They started producing sequences that looked like Greek\n  June 1952: Ventris identified Linear B as Greek\n  (an archaic Greek dialect -- now called \"Mycenaean Greek\")\n\nVALIDATION:\n  Blegan's Pylos tablets (1953): one tablet listed vessels\n  with words reading: ti-ri-po = tripod? (ti-ri-podes)\n  tri-po-de = three-legged\n  Homeric word: tripous = tripod\n  \"With this text, Ventris's decipherment is proven\"\n  (John Chadwick, who became Ventris's collaborator)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "### Why Linear B Could Be Deciphered",
+      "confidence": "candidate",
+      "text": "FAVORABLE CONDITIONS FOR LINEAR B\n===================================\n\n1. Known language (Greek) was identified -> vocabulary available\n2. Sign count (~87) -> confirmed syllabary\n3. Large corpus: ~5,000 tablets total\n4. Administrative content: numbers, lists, inventories\n   -> predictable vocabulary (grain, wine, sheep, people)\n5. Placenames in both Linear B and later Greek sources\n   -> proper name anchors\n6. Related script: Linear A (Minoan, undeciphered) and Cypriot syllabic\n   (Greek, deciphered from bilingual Phoenician) share some signs\n   -> structural clues",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "## Maya Decipherment: A Case Study in Resistance",
+      "confidence": "candidate",
+      "text": "MAYA DECIPHERMENT TIMELINE\n============================\n\n1566: Diego de Landa's \"Relacion de las Cosas de Yucatan\"\n  Spanish bishop describes Maya writing\n  Includes an \"alphabet\" -- actually a syllabary excerpt\n  AND burns Maya books (only 4 survive: Dresden, Madrid, Paris, Grolier)\n  De Landa's alphabet was misunderstood for 400 years\n  (He wrote the sign for the sound \"b\" when asked for \"b\",\n   not the word \"b\" -- key confusion about what the alphabet was)\n\n1880s-1940s: Western scholarly consensus\n  Maya glyphs are NOT phonetic\n  They are \"symbolic\" or \"ideographic\"\n  Primary use: calendar and astronomical notation\n  The \"calendar school\" dominated -- Goodman, Morley, Thompson\n\n1952: Yuri Knorozov (Soviet linguist)\n  Published: Maya glyphs ARE phonetic (syllabic)\n  Evidence: applied de Landa's \"alphabet\" correctly\n            as a syllabary, not a letter alphabet\n  Result: readings of some signs confirmed\n  Western reaction: dismissed (Cold War politics)\n  \"A Soviet who has never been to Mesoamerica\n   cannot possibly understand Maya writing\"\n  (Thompson's response -- essentially ad hominem)\n\n1960s-1970s: Tatiana Proskouriakoff\n  Maya inscriptions are HISTORICAL (not just astronomical)\n  Identified birth/death/accession dates for specific rulers\n  -> Proved that texts record historical narratives\n  This did not directly advance phonetic decipherment\n  but broke the \"calendar only\" consensus\n\n1973: Palenque Round Table (preliminary signs)\n  Collaboration among scholars; phonetic principle gaining ground\n\n1986: Dumbarton Oaks and Copan Workshop\n  David Stuart (17 years old) presents analysis\n  Linda Schele, Peter Mathews, Floyd Lounsbury collaborate\n  Phonetic substitution principle confirmed:\n    Different sign combinations can write the same word\n    (if they produce the same sounds -- syllabic equivalence)\n  This is the crucial methodological breakthrough\n\n1990s: Decipherment accelerates\n  Glyph blocks: paired columns, read left-to-right within pair,\n                then down to next pair level\n  ~70-80% of the corpus now readable\n  Remaining ~20-30%: rare signs, dialect variation, damaged texts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 322,
+      "heading_context": "## The General Decipherment Algorithm",
+      "confidence": "candidate",
+      "text": "DECIPHERMENT ALGORITHM (summary)\n==================================\n\nINPUT: corpus of inscriptions in unknown script\n\nPHASE 1: INVENTORY\n  Count signs -> script type hypothesis\n  Map sign distribution (which signs appear where)\n  Identify formal features (cartouches, determinatives, word dividers)\n\nPHASE 2: STRUCTURE\n  Find repeating sequences (words?)\n  Find short sequences in predictable positions (articles? prepositions?)\n  Find long sequences that appear in lists (names?)\n\nPHASE 3: LANGUAGE HYPOTHESIS\n  What language family is plausible from geography/archaeology?\n  Any known related languages?\n  Sign count consistent with that language's phonology?\n\nPHASE 4: ANCHOR\n  Find bilingual text -> extract values from proper names\n  OR\n  Identify probable placenames -> test against known geography\n  OR\n  Use sign distribution to build phonological grid (Ventris method)\n\nPHASE 5: TEST AND EXTEND\n  Plug extracted values into other words\n  Check for self-consistency\n  Check against known vocabulary of hypothesized language\n  Look for new confirmations (predictive success)\n\nVALIDATION:\n  New undeciphered text translated BEFORE examining\n  -> If prediction holds, decipherment is confirmed\n  Chadwick's Pylos tablet with \"tripod\" is the model",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
