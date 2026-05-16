@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nutrition:proteins
+kind: guide
+module: nutrition
+section: nutrition
+title: Proteins
+status: source-custody
+source_custody: partial
+current_path: nutrition/02-PROTEINS.md
+canonical_path: nutrition/02-PROTEINS.md
+backsource_ids: [proof-backfill:nutrition:02-proteins, git-history:nutrition:02-proteins]
+concepts: [proteins]
+root_concepts: [proteins]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Proteins
 
 ## The Big Picture

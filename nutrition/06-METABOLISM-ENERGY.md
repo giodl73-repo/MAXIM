@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nutrition:metabolism-energy
+kind: guide
+module: nutrition
+section: nutrition
+title: Metabolism and Energy
+status: source-custody
+source_custody: partial
+current_path: nutrition/06-METABOLISM-ENERGY.md
+canonical_path: nutrition/06-METABOLISM-ENERGY.md
+backsource_ids: [proof-backfill:nutrition:06-metabolism-energy, git-history:nutrition:06-metabolism-energy]
+concepts: [metabolism, energy]
+root_concepts: [metabolism, energy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Metabolism and Energy
 
 ## The Big Picture

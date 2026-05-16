@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sociology:globalization-digital
+kind: guide
+module: sociology
+section: sociology
+title: Globalization and the Digital
+status: source-custody
+source_custody: partial
+current_path: sociology/08-GLOBALIZATION-DIGITAL.md
+canonical_path: sociology/08-GLOBALIZATION-DIGITAL.md
+backsource_ids: [proof-backfill:sociology:08-globalization-digital, git-history:sociology:08-globalization-digital]
+concepts: [globalization, digital]
+root_concepts: [globalization, digital]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Globalization and the Digital
 
 ## The Big Picture

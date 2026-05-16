@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nutrition:fats
+kind: guide
+module: nutrition
+section: nutrition
+title: Fats
+status: source-custody
+source_custody: partial
+current_path: nutrition/03-FATS.md
+canonical_path: nutrition/03-FATS.md
+backsource_ids: [proof-backfill:nutrition:03-fats, git-history:nutrition:03-fats]
+concepts: [fats]
+root_concepts: [fats]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fats
 
 ## The Big Picture

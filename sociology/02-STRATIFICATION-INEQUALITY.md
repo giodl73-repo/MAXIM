@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sociology:stratification-inequality
+kind: guide
+module: sociology
+section: sociology
+title: Stratification and Inequality
+status: source-custody
+source_custody: partial
+current_path: sociology/02-STRATIFICATION-INEQUALITY.md
+canonical_path: sociology/02-STRATIFICATION-INEQUALITY.md
+backsource_ids: [proof-backfill:sociology:02-stratification-inequality, git-history:sociology:02-stratification-inequality]
+concepts: [stratification, inequality]
+root_concepts: [stratification, inequality]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stratification and Inequality
 
 ## The Big Picture
