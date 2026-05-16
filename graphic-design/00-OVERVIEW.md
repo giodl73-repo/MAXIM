@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:graphic-design:overview
+kind: guide
+module: graphic-design
+section: graphic-design
+title: Graphic Design - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: graphic-design/00-OVERVIEW.md
+canonical_path: graphic-design/00-OVERVIEW.md
+backsource_ids: [proof-backfill:graphic-design:00-overview, git-history:graphic-design:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Graphic Design — Landscape and Taxonomy
 
 ## The Editor's Principle

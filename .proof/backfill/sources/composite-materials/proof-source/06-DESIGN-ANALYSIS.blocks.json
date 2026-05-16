@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "composite-materials\\06-DESIGN-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              COMPOSITE STRUCTURAL DESIGN FRAMEWORK               |\n|                                                                  |\n|   DESIGN DRIVERS          ANALYSIS TOOLS        FAILURE MODES    |\n|   ─────────────           ──────────────        ────────────     |\n|   Stiffness/strength       CLT                  Fiber failure    |\n|   Weight                   Tsai-Wu, Max stress  Matrix cracking  |\n|   Damage tolerance         FEA (progressive)    Delamination     |\n|   Certification            Buckle analysis      Buckling         |\n|   Manufacturability        Fatigue (S-N, DFB)   Bearing/pull-out |\n|                                                                  |\n|   BUILDING BLOCK APPROACH (aerospace):                           |\n|   Coupon → Element → Detail → Component → Full-scale test        |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 49,
+      "heading_context": "### In-Plane Failure Modes",
+      "confidence": "candidate",
+      "text": "   FIBER TENSION FAILURE:\n   ─────────────────────────\n   Individual fiber fracture, propagates across bundle\n   Failure strain: 1.2–2.0% (CF), 4–5% (GF)\n   Net section failure (like metal fracture but brittle)\n   Strain concentration: notches, holes → stress concentration factor Kt\n   Open hole tension (OHT): σ_net ≈ σ_UTS/Kt_notch\n   Typical OHT allowable ≈ 60–70% of unnotched tensile\n\n   FIBER COMPRESSION FAILURE (microbuckling):\n   ──────────────────────────────────────────\n   Fiber kinking at ~20–25° to fiber direction\n   Matrix shear modulus (G12) critical: σ_1C ≈ G12 / (1 + φ0/γ12)\n   Most moisture/temperature sensitive mode → drive design allowables\n   Open hole compression (OHC): typically lowest strength allowable\n\n   MATRIX CRACKING:\n   ─────────────────\n   Transverse tension (σ2) or shear (τ12) → matrix micro-cracks\n   Onset at ~40–70% of ultimate (first ply failure)\n   Crack density increases with load → stiffness degradation, moisture ingress\n   Not immediate structural failure but precursor to delamination\n\n   DELAMINATION:\n   ──────────────\n   Crack growing between plies\n   Driven by interlaminar normal stress (σ3) or shear (τ13, τ23)\n   Mode I (opening) or Mode II (sliding) — or mixed\n   Critical at ply drop-offs, free edges, holes, impact damage\n   Arrest by: interlaminar toughening (rubber particles, thermoplastic interleaves)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 88,
+      "heading_context": "## Design Allowables",
+      "confidence": "candidate",
+      "text": "   FAA AC 25.613 — MATERIAL STRENGTH PROPERTIES:\n   ──────────────────────────────────────────────\n   B-basis allowable: 90% probability of exceeding at 95% confidence\n   A-basis allowable: 99% probability of exceeding at 95% confidence\n   S-basis: specification minimum (no statistical basis)\n\n   TYPICAL DEVELOPMENT:\n   ─────────────────────\n   Test 30+ specimens per condition per property\n   Statistical fit (Weibull or normal distribution)\n   Compute B-basis: lower 90% confidence bound on 10th percentile\n   Common: CF/epoxy B-basis tension ≈ 85–90% of mean\n           CF/epoxy B-basis compression ≈ 80–85% of mean (more scatter)\n\n   ENVIRONMENTAL KNOCKDOWNS:\n   ──────────────────────────\n   ETW (elevated temperature, wet): lowest allowable\n   RTD (room temperature, dry): highest allowable\n   Apply most severe environment for each structural location\n\n   EXAMPLE KNOCKDOWN FACTORS FOR CF/EPOXY:\n   ──────────────────────────────────────────\n   Property          RTD    ETW (180°C wet)\n   Fiber tension     1.0    0.90\n   Fiber compression 1.0    0.75\n   Matrix tension    1.0    0.65\n   ILSS              1.0    0.50",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "## Stability: Buckling of Thin Composite Plates",
+      "confidence": "candidate",
+      "text": "   ORTHOTROPIC PLATE BUCKLING (simply supported):\n   ──────────────────────────────────────────────────\n   Nx_cr = (π²/b²) · [D11·(b/a)²·m⁴ + 2(D12+2D66)·m²·n² + D22·(a/b)²·n⁴] / m²\n   m,n = number of half-waves in x, y\n\n   For a square plate (a = b), minimum:\n   Nx_cr = (π²/b²) · [4·D11 + 4(D12+2D66) + D22] / 4\n\n   Simplified for quasi-isotropic laminate:\n   Nx_cr ≈ 3.6 · D11 / b²    (for a ≈ b, worst case)\n\n   KEY DESIGN IMPLICATION:\n   ─────────────────────────\n   D11 = (1/3) · Q̄11_outer_ply · (h³ - (h-2t)³) / 4  (outer ply dominates!)\n   → Outer 0° plies drive bending stiffness → critical for buckling resistance\n   → Wing skin: 0° plies on outside, ±45° in middle",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "### Mechanical Fastening",
+      "confidence": "candidate",
+      "text": "   BEARING / PULL-THROUGH FAILURE:\n   ─────────────────────────────────\n   Bolt bearing stress: σ_b = F / (d · t)\n   CF/epoxy allowable bearing stress: ~500–700 MPa (B-basis)\n   Vs. aluminum: ~600–900 MPa\n   → CFRP comparable to aluminum for bearing\n\n   HOLE DESIGN RULES (empirical):\n   ────────────────────────────────\n   Edge distance (e): e/d ≥ 3 (to prevent shear-out)\n   Pitch: p/d ≥ 4 (row of fasteners)\n   Fastener fit: interference fit → improves fatigue (like metal)\n   Bolt material: titanium or stainless preferred\n     → Galvanic corrosion: Al and CF = galvanic couple → NO Al fasteners in CFRP!\n\n   LAMINATES FOR BEARING (empirical optimum):\n   ────────────────────────────────────────────\n   0° content: 25–50%\n   ±45° content: ≥ 40%\n   Avoid 100% 0° or 90° at hole (very low bearing)\n   [0/±45/90]s is a good starting point",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 184,
+      "heading_context": "### Adhesive Bonding",
+      "confidence": "candidate",
+      "text": "   JOINT GEOMETRIES:\n   ──────────────────\n   SINGLE LAP: simple, asymmetric, peel moment → worst for composites\n   DOUBLE LAP: symmetric, better, but peel stress at end\n   SCARF JOINT: tapered — most efficient (uniform shear), complex to make\n   STEPPED SCARF: approximation of scarf, practical for thick section\n\n   STRESS DISTRIBUTION IN SINGLE LAP:\n   ─────────────────────────────────────\n   Shear stress peak at overlap ends (not uniform!)\n   Peak/average = depends on overlap length, adherend stiffness\n   → Short overlap: high peak/average → peel → failure\n   → Long overlap: peak unchanged but average low → better efficiency\n\n   PEEL STRESS (σ3 at end of bond):\n   ──────────────────────────────────\n   Composites cannot tolerate through-thickness tension well\n   ILSS ~ 80 MPa, GIc ~ 300 J/m²\n   Design rule: peel stress < 20 MPa in composite bondline\n\n   DESIGN PRINCIPLE FOR COMPOSITES:\n   ──────────────────────────────────\n   Preferred: scarf or stepped scarf\n   Minimize peel stress (chamfer ends, use rubber toughened adhesive)\n   Hybrid: bond + fasteners (belt + suspenders for primary structure)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 218,
+      "heading_context": "## Fatigue of Composites",
+      "confidence": "candidate",
+      "text": "   METAL FATIGUE:                    COMPOSITE FATIGUE:\n   ──────────────                    ──────────────────\n   Single crack initiates            Distributed damage\n   Crack grows → fracture            Matrix cracking → delamination\n   S-N curve: steep slope            S-N curve: shallower slope\n   Fatigue limit (some alloys)       No fatigue limit in most composites\n   R-ratio critical                  R-ratio critical (compression worse)\n\n   COMPOSITE FATIGUE DAMAGE:\n   ──────────────────────────\n   Stage 1: Matrix microcracking (onset at ~20–40% UTS)\n   Stage 2: Crack coupling, fiber-matrix debonding\n   Stage 3: Delamination, fiber fracture → sudden failure\n\n   S-N CURVES FOR CF/EPOXY (typical):\n   ────────────────────────────────────\n   Tension-tension (R=0.1): σ at 10⁷ cycles ≈ 40–50% static UTS\n   Tension-compression (R=-1): ≈ 30–40% static UTS (worst case)\n   Compression-compression (R=10): ≈ 25–35% static UTS\n\n   DESIGN APPROACH (FAA):\n   ───────────────────────\n   Static allowables already conservative (A or B-basis)\n   Fatigue testing (typically: DFB = damage-free design, or damage tolerance)\n   Spectrum loading (variable amplitude) — rainflow counting\n   Primary: no detectable damage should accumulate to failure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "## Impact and Damage Tolerance",
+      "confidence": "candidate",
+      "text": "   IMPACT DAMAGE MECHANISMS:\n   ───────────────────────────\n   Low velocity impact (tools, runway debris, hail):\n   → Matrix cracking, delamination\n   → Barely Visible Impact Damage (BVID): ≤ 0.3 mm dent depth\n   → Visible Impact Damage (VID): > 0.3 mm, > 6.35 mm (FAA definition)\n\n   HIGH VELOCITY (bird strike, debris):\n   → Fiber fracture + delamination\n   → Penetration in severe cases\n\n   COMPRESSION AFTER IMPACT (CAI):\n   ──────────────────────────────────\n   Key certification test (FAA, EASA)\n   Impact panel, then load in compression to failure\n   CAI strength ≈ 30–50% of undamaged compression strength\n   Driven by: delamination buckling under compression\n\n   WHY CFRP IS BRITTLE TO IMPACT:\n   ────────────────────────────────\n   Brittle fibers → energy not absorbed by plastic deformation\n   Matrix: also brittle → cracks and delaminations absorb energy inefficiently\n   GFRP and AFRP: much better impact tolerance (glass/Kevlar more ductile)\n   Toughened epoxy (interleaved): improves CAI by 30–50% vs. brittle epoxy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 286,
+      "heading_context": "## Building Block Approach (Aerospace)",
+      "confidence": "candidate",
+      "text": "   PYRAMID:\n   ─────────\n              [FULL SCALE]\n            [COMPONENTS: wing box, fuselage barrel]\n          [DETAILS: joints, cutouts, frames]\n        [ELEMENTS: stiffened panels, shear webs]\n      [COUPONS: flat plates, OHT, OHC, CAI, fatigue]\n\n   Each level: ~10–100× more specimens than level above\n   Coupon: 1,000–10,000 specimens (statistical basis)\n   Full scale: 1 (very expensive)\n\n   EACH LEVEL verifies:\n   ─────────────────────\n   Coupon: material properties, allowables, environmental effects\n   Element: stiffened panel buckling, joint efficiency\n   Detail: local geometry effects, cutout behavior\n   Component: load redistribution, combined loading\n   Full scale: structural proof, fail-safe demonstration\n\n   COST DISTRIBUTION:\n   ───────────────────\n   Coupon testing: ~15% of total certification test cost\n   Full-scale: ~50% (one test rig can cost > $100M for aircraft)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

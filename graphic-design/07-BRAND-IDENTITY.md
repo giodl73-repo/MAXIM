@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:graphic-design:brand-identity
+kind: guide
+module: graphic-design
+section: graphic-design
+title: Brand Identity Systems
+status: source-custody
+source_custody: partial
+current_path: graphic-design/07-BRAND-IDENTITY.md
+canonical_path: graphic-design/07-BRAND-IDENTITY.md
+backsource_ids: [proof-backfill:graphic-design:07-brand-identity, git-history:graphic-design:07-brand-identity]
+concepts: [brand, identity]
+root_concepts: [brand, identity]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Brand Identity Systems
 
 ## The Big Picture

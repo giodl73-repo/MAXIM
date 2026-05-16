@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "composite-materials\\01-FUNDAMENTALS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              COMPOSITE STRUCTURE — THREE LEVELS                  |\n|                                                                  |\n|   CONSTITUENT LEVEL         PLY LEVEL           LAMINATE LEVEL   |\n|   ──────────────────        ─────────           ──────────────   |\n|   Fiber properties          Fiber orientation   Stacking sequence|\n|   Matrix properties         Vf (vol fraction)   Thickness        |\n|   Interface/interphase      UD or woven         Symmetry         |\n|                             thickness           Balance          |\n|                                                                  |\n|   ↓ Rule of Mixtures        ↓ Classical Laminate Theory (CLT)    |\n|   Ply properties            Laminate properties                  |\n|   E1, E2, G12, ν12         [A][B][D] matrices                    |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "### Transverse Modulus (Reuss Bound — lower bound approximation)",
+      "confidence": "candidate",
+      "text": "   1/E2 = Vf/Ef + (1-Vf)/Em   (Reuss, isostress — exact lower bound)\n\n   More accurate Halpin-Tsai (empirical correction):\n   E2 = Em · (1 + ξ·η·Vf) / (1 - η·Vf)\n   η = (Ef/Em - 1) / (Ef/Em + ξ)\n   ξ = 2 for circular fibers in transverse direction\n\n   For CF/epoxy: E2 ≈ 9–11 GPa (vs. Em = 3.5 GPa)\n   → 3× matrix modulus, but not fiber-dominated",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "### The Interface: Often the Limiting Factor",
+      "confidence": "candidate",
+      "text": "   FIBER            INTERPHASE           MATRIX\n   ─────            ──────────           ──────\n   Carbon fiber     Sizing layer on      Epoxy (or other)\n   surface          fiber surface        bulk polymer\n   typically\n   chemically       Chemical/physical\n   treated          bonding\n   (oxidized,       Sizing: 0.2–0.5 µm\n    anodized,       polymeric film\n    sized)          Graded properties\n                    fiber→matrix",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "### Fiber Surface Treatment for Adhesion",
+      "confidence": "candidate",
+      "text": "   UNTREATED CF:     ILSS ~ 20–40 MPa (matrix cracks easily at interface)\n   OXIDIZED CF:      ILSS ~ 60–80 MPa (oxygen groups → H-bond sites)\n   EPOXY-SIZED CF:   ILSS ~ 80–100 MPa (chemical compatibility)\n\n   SURFACE TREATMENT METHODS:\n   ────────────────────────────\n   Electrochemical oxidation (anodization): most common for carbon\n      HNO3, H2SO4, or ammonium bicarbonate electrolyte\n      Creates –COOH, –OH, –C=O groups on surface\n      Increases surface energy from ~45 to ~70 mJ/m²\n\n   Sizing (sizing agent):\n      Thin polymer film applied over oxidized fiber\n      Epoxy-compatible size for epoxy matrix\n      PEEK-compatible size for thermoplastic matrix\n      Functions: fiber handling protection + matrix compatibility",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "### Fiber Volume Fraction and Its Measurement",
+      "confidence": "candidate",
+      "text": "   Vf = volume of fiber / total volume of composite\n\n   MEASUREMENT METHODS:\n   ─────────────────────\n   Acid digestion (ASTM D3171 Method A):\n   Dissolve matrix in acid (H2SO4, HNO3)\n   Weigh remaining fiber\n   Calculate from density measurements\n   Accurate for carbon/epoxy, not for reactive fibers\n\n   Burnout (ASTM D3171 Method B):\n   Burn off polymer matrix in furnace\n   Weigh remaining fiber (works for GF — CF may oxidize slightly)\n\n   Optical microscopy:\n   Polish cross section → point count or image analysis\n   Most accurate for Vf and void content simultaneously\n\n   TYPICAL Vf BY PROCESS:\n   ────────────────────────\n   Hand lay-up: 25–45%\n   Resin infusion: 45–55%\n   RTM: 50–60%\n   Prepreg autoclave: 55–65%\n   Filament winding: 55–70%",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "## Void Content and Its Effects",
+      "confidence": "candidate",
+      "text": "   HOW VOIDS FORM:\n   ────────────────\n   Insufficient vacuum in bag molding → dissolved gas not removed\n   Trapped air at ply overlaps or changes in geometry\n   Volatiles from resin cure (solvent, water from moisture)\n   Incomplete resin flow at high Vf during infusion\n\n   EFFECTS ON PROPERTIES:\n   ──────────────────────\n   Each 1% void content:\n   → ILSS (interlaminar shear strength): -3 to -5%\n   → Tensile strength: -0.5 to -1%\n   → Compressive strength: -1 to -3%\n   → Fatigue life: can be catastrophic (void = crack initiation site)\n\n   VOID CONTENT LIMITS:\n   ────────────────────\n   Aerospace primary structure: < 0.5%\n   Aerospace secondary: < 1%\n   Automotive: < 2–3%\n   Marine/civil: < 5% (typical hand lay-up)\n\n   MEASUREMENT:\n   ─────────────\n   Optical microscopy (direct)\n   Ultrasonic C-scan (signal attenuation — indirect, non-destructive)\n   X-ray microtomography (3D, expensive)\n   Density comparison: actual vs. theoretical",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 224,
+      "heading_context": "### Engineering Constants of a UD Ply",
+      "confidence": "candidate",
+      "text": "   TYPICAL IM7/977-3 CF/EPOXY UD PLY PROPERTIES:\n   ──────────────────────────────────────────────\n   Vf ~ 60%\n\n   E1   = 165 GPa    (fiber direction tensile modulus)\n   E2   = 9.5 GPa    (transverse modulus)\n   G12  = 5.7 GPa    (in-plane shear modulus)\n   ν12  = 0.34       (major Poisson's ratio)\n\n   X1T  = 2,500 MPa  (fiber direction tensile strength)\n   X1C  = 1,200 MPa  (fiber direction compressive strength)\n   X2T  = 65 MPa     (transverse tensile strength — matrix-dominated)\n   X2C  = 200 MPa    (transverse compressive strength)\n   S12  = 80 MPa     (in-plane shear strength)\n\n   ρ    = 1.55 g/cm³\n   α1   = 0.1 × 10⁻⁶/°C    (CTE — near zero!)\n   α2   = 28 × 10⁻⁶/°C     (CTE transverse — large)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 254,
+      "heading_context": "### The Compression Problem",
+      "confidence": "candidate",
+      "text": "   FIBER MICROBUCKLING (kinking):\n   ────────────────────────────────\n   Individual fibers, if slightly misaligned, buckle under compression\n   Matrix must resist lateral buckling: G12 of matrix critical\n   Failure mode: \"kink band\" at ~20–25° to fiber direction\n\n   Kink band initiation: local fiber misalignment (±0.5–2° typical)\n   Critical:  σ1C_kink ≈ G12 / (1 + φ0/γ12)\n   φ0 = initial fiber misalignment angle\n\n   CONSEQUENCE: moisture absorption reduces Em and G12\n   → Compressive strength is moisture/temperature sensitive\n   Design: use lower design allowables at elevated temperature/wet (ETW)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 276,
+      "heading_context": "## Interlaminar Properties",
+      "confidence": "candidate",
+      "text": "   INTERLAMINAR SHEAR STRENGTH (ILSS / ISS):\n   ────────────────────────────────────────────\n   Three-point short beam shear test (ASTM D2344)\n   Typical CF/epoxy: 80–100 MPa\n   Controlled by matrix and fiber-matrix interface\n\n   MODE I FRACTURE TOUGHNESS (GIc — opening mode):\n   ────────────────────────────────────────────────────\n   Double cantilever beam (DCB) test (ASTM D5528)\n   Typical CF/epoxy: 200–600 J/m²\n   Toughened epoxy: 400–1,000 J/m² (rubber particles, thermoplastic interleaves)\n\n   MODE II FRACTURE TOUGHNESS (GIIc — shear mode):\n   ─────────────────────────────────────────────────\n   End-Notched Flexure (ENF) or 4ENF test\n   Typical CF/epoxy: 600–2,000 J/m²\n\n   MODE MIXITY in real structures: delaminations involve both Mode I and II\n   Mixed mode failure criterion: (GI/GIc)^m + (GII/GIIc)^n = 1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

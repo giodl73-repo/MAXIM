@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:composite-materials:laminate-theory
+kind: guide
+module: composite-materials
+section: composite-materials
+title: Classical Laminate Theory (CLT)
+status: source-custody
+source_custody: partial
+current_path: composite-materials/04-LAMINATE-THEORY.md
+canonical_path: composite-materials/04-LAMINATE-THEORY.md
+backsource_ids: [proof-backfill:composite-materials:04-laminate-theory, git-history:composite-materials:04-laminate-theory]
+concepts: [laminate, theory]
+root_concepts: [laminate, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Classical Laminate Theory (CLT)
 
 ## The Big Picture

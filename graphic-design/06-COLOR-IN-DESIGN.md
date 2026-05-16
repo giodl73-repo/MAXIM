@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:graphic-design:color-in-design
+kind: guide
+module: graphic-design
+section: graphic-design
+title: Color Theory and Brand
+status: source-custody
+source_custody: partial
+current_path: graphic-design/06-COLOR-IN-DESIGN.md
+canonical_path: graphic-design/06-COLOR-IN-DESIGN.md
+backsource_ids: [proof-backfill:graphic-design:06-color-in-design, git-history:graphic-design:06-color-in-design]
+concepts: [color, in, design]
+root_concepts: [color, in]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Color Theory and Brand
 
 ## The Big Picture

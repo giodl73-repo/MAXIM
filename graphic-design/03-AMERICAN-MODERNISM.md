@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:graphic-design:american-modernism
+kind: guide
+module: graphic-design
+section: graphic-design
+title: American Modernism: Rand, Bass, and Glaser
+status: source-custody
+source_custody: partial
+current_path: graphic-design/03-AMERICAN-MODERNISM.md
+canonical_path: graphic-design/03-AMERICAN-MODERNISM.md
+backsource_ids: [proof-backfill:graphic-design:03-american-modernism, git-history:graphic-design:03-american-modernism]
+concepts: [american, modernism]
+root_concepts: [american, modernism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # American Modernism: Rand, Bass, and Glaser
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:composite-materials:overview
+kind: guide
+module: composite-materials
+section: composite-materials
+title: Composite Materials - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: composite-materials/00-OVERVIEW.md
+canonical_path: composite-materials/00-OVERVIEW.md
+backsource_ids: [proof-backfill:composite-materials:00-overview, git-history:composite-materials:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Composite Materials — Landscape and Taxonomy
 
 ## The Big Picture
@@ -6,17 +25,17 @@
 +------------------------------------------------------------------+
 |                  THE COMPOSITES UNIVERSE                         |
 |                                                                  |
-|   MATRIX               REINFORCEMENT        COMPOSITE           |
-|   ──────               ─────────────        ─────────           |
-|   Polymer              Carbon fiber    ──►  CFRP (carbon)       |
-|   (thermoset or        Glass fiber     ──►  GRP/GFRP (glass)    |
+|   MATRIX               REINFORCEMENT        COMPOSITE            |
+|   ──────               ─────────────        ─────────            |
+|   Polymer              Carbon fiber    ──►  CFRP (carbon)        |
+|   (thermoset or        Glass fiber     ──►  GRP/GFRP (glass)     |
 |    thermoplastic)      Aramid          ──►  Kevlar composite     |
 |                        Natural fiber   ──►  Bio-composite        |
-|   Metal (Al, Ti, Mg)   Particles/short ──►  Short-fiber         |
+|   Metal (Al, Ti, Mg)   Particles/short ──►  Short-fiber          |
 |   Ceramic (SiC, Al2O3) Continuous      ──►  Continuous-fiber     |
 |                                                                  |
-|   HYBRID COMPOSITES: multiple fiber types in one structure      |
-|   SANDWICH STRUCTURE: thin face sheets + low-density core       |
+|   HYBRID COMPOSITES: multiple fiber types in one structure       |
+|   SANDWICH STRUCTURE: thin face sheets + low-density core        |
 +------------------------------------------------------------------+
 ```
 

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:composite-materials:fundamentals
+kind: guide
+module: composite-materials
+section: composite-materials
+title: Composite Fundamentals: Matrix, Fiber, Interface
+status: source-custody
+source_custody: partial
+current_path: composite-materials/01-FUNDAMENTALS.md
+canonical_path: composite-materials/01-FUNDAMENTALS.md
+backsource_ids: [proof-backfill:composite-materials:01-fundamentals, git-history:composite-materials:01-fundamentals]
+concepts: [fundamentals]
+root_concepts: [fundamentals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Composite Fundamentals: Matrix, Fiber, Interface
 
 ## The Big Picture

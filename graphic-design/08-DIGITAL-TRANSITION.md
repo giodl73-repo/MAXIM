@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:graphic-design:digital-transition
+kind: guide
+module: graphic-design
+section: graphic-design
+title: Digital Transition: Screen and Web Design
+status: source-custody
+source_custody: partial
+current_path: graphic-design/08-DIGITAL-TRANSITION.md
+canonical_path: graphic-design/08-DIGITAL-TRANSITION.md
+backsource_ids: [proof-backfill:graphic-design:08-digital-transition, git-history:graphic-design:08-digital-transition]
+concepts: [digital, transition]
+root_concepts: [digital, transition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Transition: Screen and Web Design
 
 ## The Big Picture

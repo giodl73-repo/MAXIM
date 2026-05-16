@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "graphic-design\\09-CONTEMPORARY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|               CONTEMPORARY GRAPHIC DESIGN (2015-2026)            |\n|                                                                  |\n|  STRUCTURAL SHIFTS                                               |\n|  - Design systems replace one-off deliverables                   |\n|  - Figma as dominant collaboration platform                      |\n|  - AI tools enter the workflow (generation, variation, copy)     |\n|  - Motion design required for all digital brand                  |\n|  - Design engineering: designer-coders as hybrid role            |\n|  - Accessibility from compliance checkbox to design principle    |\n|                                                                  |\n|  TOOL LANDSCAPE (2025)                                           |\n|  Figma     -- UI design, prototyping, design systems             |\n|  Adobe CC  -- Print, photo, illustration (Ps, Ai, Id)            |\n|  Framer    -- Code-based web design / prototyping                |\n|  Webflow   -- No-code web build with design intent               |\n|  Midjourney/Firefly -- AI image generation                       |\n|  After Effects -- Motion graphics, broadcast                     |\n|  Rive       -- Interactive animation for apps/web                |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 74,
+      "heading_context": "### Anatomy of a Design System",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------+\n|  DESIGN SYSTEM LAYERS                     |\n|                                           |\n|  1. FOUNDATIONS                           |\n|     Color tokens, type scale, spacing,    |\n|     grid, motion, iconography             |\n|     (The variables / constants of design) |\n|                                           |\n|  2. COMPONENTS                            |\n|     Button, Input, Card, Modal,           |\n|     Navigation, Table, Form...            |\n|     (Reusable functional units)           |\n|                                           |\n|  3. PATTERNS                              |\n|     Forms, data tables, sign-up flows,    |\n|     empty states, error recovery          |\n|     (Solved interaction patterns)         |\n|                                           |\n|  4. GUIDELINES                            |\n|     When to use what, voice/tone,         |\n|     accessibility, localization           |\n|     (The decisions behind the artifacts)  |\n+-------------------------------------------+\n\nEXAMPLES: Google Material Design, Apple HIG,\n          IBM Carbon, Atlassian Design System,\n          Microsoft Fluent Design",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "## Figma: The Platform Shift",
+      "confidence": "candidate",
+      "text": "FIGMA'S TECHNICAL DIFFERENTIATORS (vs Sketch, Illustrator)\n-----------------------------------------------------------\n\nCloud-native\n  Files live in the cloud; always current version\n  No \"send me the latest file\" -- there is one file\n  Real-time collaboration: multiple designers in same file\n  analogous to: Google Docs vs Word email attachments\n\nAuto-layout\n  Frames that respond to content like CSS flexbox\n  Add a word to a button -> button grows; padding maintained\n  Stack multiple items -> spacing maintained automatically\n  Build responsive components without code\n\nComponents and Variants\n  Master component defined once; instances everywhere\n  Change master -> all instances update\n  Variants: one component with different states/types\n  (Button/Primary, Button/Secondary, Button/Disabled)\n\nVariables (2023)\n  True design tokens in Figma\n  Color modes (light/dark/high-contrast)\n  Semantic token mapping (--color-button = brand-blue)\n  Export to JSON -> Style Dictionary pipeline\n\nDev Mode\n  Engineers inspect any frame/component\n  See: exact measurements, CSS equivalents, assets\n  Eliminates \"what's the padding on that?\" redline docs\n\nPrototyping\n  Define interactions (tap -> navigate; hover -> tooltip)\n  Animated transitions (smart animate)\n  Variable-driven prototypes (simulate real app logic)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "## Motion Design in Contemporary Practice",
+      "confidence": "candidate",
+      "text": "MOTION IN THE DESIGN SYSTEM\n-----------------------------\n\nMICRO-INTERACTIONS\n  Button state change: 150-200ms ease-out\n  Menu open: 250-300ms cubic-bezier slide\n  Toast notification: in 300ms, out 250ms\n  Modal overlay: fade in 200ms\n  These are brand expression moments.\n\nPRINCIPLES FOR MOTION\n  Duration: faster for small elements; longer for full-screen\n  Easing: ease-out (elements entering); ease-in (leaving)\n  Purpose: motion should communicate, not entertain\n  Reduction: respect prefers-reduced-motion (CSS media query)\n\nTOOLS\n  After Effects + Lottie (JSON animation for web/app)\n  Rive (interactive animation; responds to app state)\n  CSS transitions / keyframes (micro-interaction standard)\n  Framer (component-level animation with code)\n  Figma Smart Animate (prototype motion; not production code)\n\nLOTTIE PIPELINE:\n  Designer: animate in After Effects\n  Export: Bodymovin plugin -> .lottie / .json file\n  Engineer: render with Lottie library (iOS, Android, Web)\n  Result: resolution-independent, small-file animation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

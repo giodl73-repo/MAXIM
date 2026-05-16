@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:composite-materials:design-analysis
+kind: guide
+module: composite-materials
+section: composite-materials
+title: Structural Design and Analysis
+status: source-custody
+source_custody: partial
+current_path: composite-materials/06-DESIGN-ANALYSIS.md
+canonical_path: composite-materials/06-DESIGN-ANALYSIS.md
+backsource_ids: [proof-backfill:composite-materials:06-design-analysis, git-history:composite-materials:06-design-analysis]
+concepts: [design, analysis]
+root_concepts: [design, analysis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Structural Design and Analysis
 
 ## The Big Picture

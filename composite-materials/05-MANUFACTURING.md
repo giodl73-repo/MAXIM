@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:composite-materials:manufacturing
+kind: guide
+module: composite-materials
+section: composite-materials
+title: Manufacturing: Prepreg, Autoclave, and Infusion
+status: source-custody
+source_custody: partial
+current_path: composite-materials/05-MANUFACTURING.md
+canonical_path: composite-materials/05-MANUFACTURING.md
+backsource_ids: [proof-backfill:composite-materials:05-manufacturing, git-history:composite-materials:05-manufacturing]
+concepts: [manufacturing]
+root_concepts: [manufacturing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Manufacturing: Prepreg, Autoclave, and Infusion
 
 ## The Big Picture

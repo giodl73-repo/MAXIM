@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:graphic-design:grid-systems
+kind: guide
+module: graphic-design
+section: graphic-design
+title: Grid Systems and Layout
+status: source-custody
+source_custody: partial
+current_path: graphic-design/04-GRID-SYSTEMS.md
+canonical_path: graphic-design/04-GRID-SYSTEMS.md
+backsource_ids: [proof-backfill:graphic-design:04-grid-systems, git-history:graphic-design:04-grid-systems]
+concepts: [grid, systems]
+root_concepts: [grid, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Grid Systems and Layout
 
 ## The Big Picture

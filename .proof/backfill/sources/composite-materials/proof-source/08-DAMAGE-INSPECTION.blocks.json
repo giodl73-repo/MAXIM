@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "composite-materials\\08-DAMAGE-INSPECTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              COMPOSITE DAMAGE AND INSPECTION LANDSCAPE           |\n|                                                                  |\n|   DAMAGE TYPES            NDT METHODS           DECISIONS        |\n|   ────────────            ───────────           ─────────        |\n|   Impact (BVID/VID)       Ultrasonic C-scan      Repair          |\n|   Delamination            Tap test               No action       |\n|   Matrix cracking         Thermography           Monitor         |\n|   Fiber fracture          Shearography           Remove from svc |\n|   Bond failure            X-ray (CT)                             |\n|   Disbond                 Eddy current           REPAIR TYPES:   |\n|   Moisture ingress        Acoustic emission      Resin injection |\n|                                                                  |\n|   BARELY VISIBLE IMPACT DAMAGE (BVID) — the critical concept     |\n|   Definition: damage not detectable in normal walk-around        |\n|   Design must tolerate BVID for entire service life              |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 50,
+      "heading_context": "### Impact Damage — Primary Concern",
+      "confidence": "candidate",
+      "text": "   LOW-VELOCITY IMPACT (< 10 m/s):\n   ─────────────────────────────────\n   Source: tools dropped during maintenance, runway debris, hail\n   Typical mass × velocity: 1 kg × 5 m/s, 2.3 kg × 6 m/s (FAA requirement)\n\n   DAMAGE SEQUENCE:\n   ──────────────────\n   Initial contact: compressive through-thickness stress cone\n   → Matrix cracks propagate radially from impact point\n   → Delaminations grow at ply interfaces (driven by interlaminar shear)\n   → Conical delamination pattern (each ply interface, growing with depth)\n   → Fiber fracture at back face (tension) when contact force high\n\n   SURFACE APPEARANCE:\n   ────────────────────\n   Small dent (0.1–3 mm depth for BVID threshold)\n   Subsurface: large delamination (~3–10× projected surface damage area)\n   \"Iceberg effect\": most damage invisible from surface\n\n   BVID DEFINITION (FAA AC 20-107B):\n   ───────────────────────────────────\n   Damage not found during walk-around / preflight inspection\n   ≤ 0.3 in. (7.6 mm) dent depth → BVID\n   > 0.3 in. and visible from 1.5 m → VID (Visible Impact Damage)\n   Structure must sustain BVID for full design service life\n   Structure must sustain limit load with VID",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 81,
+      "heading_context": "### Delamination",
+      "confidence": "candidate",
+      "text": "   DELAMINATION SOURCES:\n   ──────────────────────\n   Impact damage (see above)\n   Manufacturing defects (incorrect cure, poor consolidation, trapped air)\n   Fatigue cracking from cyclic loads at ply interfaces\n   Free edge interlaminar stresses (CLT analysis misses this)\n   Ply drop-offs: thickness change → interlaminar stress concentration\n   Joints and fastener holes: peel stresses\n\n   DELAMINATION GROWTH:\n   ─────────────────────\n   Static: above critical G > GIc or GIIc (fracture mechanics)\n   Fatigue: Paris law: da/dN = C · ΔG^m\n   Mixed mode: interaction (GI/GIc + GII/GIIc)^n = 1 or similar\n\n   COMPRESSION AFTER IMPACT (CAI):\n   ──────────────────────────────────\n   Delamination buckling under compressive load\n   Buckled delamination → propagation → catastrophic\n   Critical: delamination orthogonal to load direction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 106,
+      "heading_context": "### Matrix Cracking",
+      "confidence": "candidate",
+      "text": "   TRANSVERSE MATRIX CRACKS:\n   ───────────────────────────\n   Grow perpendicular to fiber direction in off-axis plies\n   Onset: σ2 > X2T or τ12 > S12 at ply level\n   Detectable by: X-ray with dye penetrant, edge replication, CT\n   Not immediately structural failure but:\n   → Reduce ply stiffness\n   → Provide moisture ingress path to fiber-matrix interface\n   → Initiate delamination at crack tips\n\n   CRACK DENSITY:\n   ───────────────\n   Increases with applied load\n   Saturates at \"characteristic damage state\" (CDS) — matrix crack spacing\n   equal to ply thickness\n   Beyond CDS: delaminations connect transverse cracks → rapid degradation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "### Ultrasonic Testing (UT) — Gold Standard",
+      "confidence": "candidate",
+      "text": "   PULSE-ECHO METHOD (single transducer):\n   ──────────────────────────────────────\n   Transducer emits ultrasonic pulse (2–10 MHz typical for CFRP)\n   Pulse travels through material\n   Echoes from defects (delaminations, voids) detected\n   Time of flight → depth of defect\n   Signal amplitude → defect severity\n\n   THROUGH-TRANSMISSION (TTU — two transducers):\n   ───────────────────────────────────────────────\n   Transmitter on one side, receiver on other\n   Signal attenuation → defect presence\n   Cannot determine depth — only presence\n   Faster than pulse-echo for large panels\n\n   C-SCAN:\n   ───────\n   Automated scanning of transducer across part\n   Amplitude or TOF mapped as grayscale image\n   Shows plan-view map of defect location\n   Resolution: 1–5 mm depending on frequency and scan resolution\n   Result: C-scan image with defect areas shown dark (attenuation)\n\n   WATER COUPLING:\n   ───────────────\n   Ultrasound requires coupling medium (air has huge impedance mismatch)\n   Water squirter (jet of water between transducer and part)\n   Immersion tank (for small parts)\n   Phased array (electronic scanning — faster, better for complex geometry)\n\n   AUTOMATED UT FOR 787 BARRELS:\n   ────────────────────────────────\n   Robotic C-scan systems: ~8 m × 6 m barrel scanned in ~2–4 hours\n   Every barrel inspected before assembly\n   Typical reject rate: ~2–5% of barrels need repair or reject",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "### Tap Test",
+      "confidence": "candidate",
+      "text": "   TAP TEST:\n   ──────────\n   Tap composite surface with coin, hammer, or calibrated device\n   Sound:\n   - \"Solid\" (high pitch): good laminate, no delamination\n   - \"Dull/hollow\" (lower pitch): delamination below surface\n\n   PHYSICS:\n   ────────\n   Bonded area: high bending stiffness → high resonant frequency\n   Delaminated area: reduced stiffness → lower frequency (dull sound)\n\n   LIMITATIONS:\n   ─────────────\n   Only detects surface-parallel delaminations\n   Not quantitative (depth, size not determinable)\n   Operator-dependent (subjective interpretation)\n   Effective for thin laminates and accessible surfaces\n\n   DIGITAL TAP HAMMER:\n   ────────────────────\n   Accelerometer in tip: measures contact duration\n   Short contact: good laminate\n   Long contact: delamination (softer surface)\n   Provides quantitative indication, printable record\n   Used: Boeing, Airbus repair stations for routine inspection",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "### Thermography (Infrared Thermography)",
+      "confidence": "candidate",
+      "text": "   PULSED THERMOGRAPHY:\n   ──────────────────────\n   Flash lamp: 1–5 ms pulse heats composite surface\n   IR camera records surface temperature vs. time\n   Heat diffuses into material: T(x,t) ~ Gaussian diffusion\n\n   AT DELAMINATION:\n   ──────────────────\n   Air gap (delamination): blocks heat diffusion\n   Above delamination: surface stays hotter longer → \"hot spot\" in IR image\n   Image at appropriate time delay → defect map\n\n   LOCK-IN (MODULATED) THERMOGRAPHY:\n   ─────────────────────────────────────\n   Periodic heating at frequency f\n   Lock-in amplifier: detect amplitude and phase of surface temperature\n   Phase image: less sensitive to surface emissivity variations\n   Better for thick materials\n\n   ADVANTAGES:\n   ────────────\n   Full-field, fast inspection (large area in one shot)\n   Non-contact\n   One-sided access only needed\n\n   LIMITATIONS:\n   ─────────────\n   Depth resolution limited (d_max ~ few mm for CFRP)\n   Less sensitive than UT for deep or small defects\n   Emissivity variation: surface paint, contamination affects result\n\n   APPLICATIONS:\n   ──────────────\n   Aircraft maintenance inspection (wings, empennage)\n   Production inspection of large panels\n   Honeycomb structure: excellent for skin/core disbond detection",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "### Shearography",
+      "confidence": "candidate",
+      "text": "   DIGITAL SHEAROGRAPHY:\n   ──────────────────────\n   Laser illuminates composite surface\n   Camera captures speckle pattern\n   Load applied (vacuum, thermal, vibration)\n   Subtract before/after speckle patterns → differential displacement map\n\n   PHYSICS:\n   ─────────\n   Defect (delamination, void): changes local deformation under load\n   → Anomalous displacement gradient → shearogram shows fringe anomaly\n\n   ADVANTAGES:\n   ────────────\n   Full-field, fast\n   Not sensitive to rigid body motion (gradient measurement)\n   Can inspect curved surfaces\n   Used in industry: aircraft, wind blade inspection\n\n   LIMITATIONS:\n   ─────────────\n   Requires access to apply load (not always possible in service)\n   Depth: moderate sensitivity\n   Quantitative calibration: complex\n\n   AEROSPACE USE:\n   ───────────────\n   Airbus inspection of large aircraft panels\n   Wind turbine blade delamination mapping",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 279,
+      "heading_context": "### X-Ray Computed Tomography (CT)",
+      "confidence": "candidate",
+      "text": "   INDUSTRIAL X-RAY CT:\n   ──────────────────────\n   Rotate sample through 360° while X-ray source scans\n   Reconstruct 3D volume from 2D projection images\n   Resolution: 5–200 µm (depending on part size vs. focal spot)\n\n   CAN DETECT:\n   ────────────\n   Voids (void content, shape, distribution)\n   Delaminations (3D crack map)\n   Fiber architecture (misalignment, fiber waviness)\n   Matrix cracks (at high resolution)\n   Internal metallic inclusions\n\n   APPLICATIONS IN COMPOSITES:\n   ────────────────────────────\n   Coupon characterization (research, development)\n   Failure analysis: post-test damage mapping\n   Production: spot check for critical parts\n   Not used for large structures (size limit: ~300mm diameter typically)\n\n   SYNCHROTRON CT:\n   ────────────────\n   Very high resolution (sub-micron)\n   Can visualize individual fiber fracture\n   Only at synchrotron facilities\n   Research tool, not production inspection",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 315,
+      "heading_context": "### Damage Assessment Framework",
+      "confidence": "candidate",
+      "text": "   DAMAGE CLASSIFICATION:\n   ──────────────────────\n   Category 1: Normal degradation (superficial)\n   → No repair needed\n   Category 2: Allowable damage limits (ADL)\n   → Repair allowed later / monitor\n   Category 3: Repairable within AMM (Aircraft Maintenance Manual)\n   → Repair per Boeing/Airbus approved procedure\n   Category 4: Repairable by manufacturer/specialized shop\n   → Part removal + factory repair\n   Category 5: Replace the component\n   → Beyond repair limits",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 332,
+      "heading_context": "### Repair Methods",
+      "confidence": "candidate",
+      "text": "   RESIN INJECTION:\n   ──────────────────\n   Delamination with accessible edge or through-hole\n   Low-viscosity epoxy injected under vacuum\n   → Re-bonds delamination plane\n   Strength recovery: ~80–90% of original (depending on surface quality)\n   Use: shallow delaminations, matrix cracks\n\n   BONDED PATCH (FLUSH OR EXTERNAL):\n   ────────────────────────────────────\n   Material removed / cleaned around damage\n   CFRP or woven CF/epoxy patch bonded with structural adhesive (FM300, EA9696)\n\n   EXTERNAL (bolted or bonded):\n   Over-ply patch\n   → Quick, no removal of parent material\n   → Aerodynamic surface disturbed (only for non-critical applications)\n\n   FLUSH REPAIR (step or taper):\n   → Remove damaged material in tapered/stepped region\n   → Wet lay-up or prepreg scarf repair\n   → Vacuum cure or heat blanket cure\n   → Restore original contour\n   → Required for primary aerodynamic structure\n\n   SCARF RATIO: typically 1:20 to 1:50 for repairs\n   1:20 = for every 1 mm depth, 20 mm scarf radius\n   → Large repair footprint for thick structure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 367,
+      "heading_context": "## Inspection Intervals and Regulations",
+      "confidence": "candidate",
+      "text": "   FAA/EASA REGULATORY BASIS:\n   ─────────────────────────────\n   14 CFR 25.571: Damage Tolerance requirements for transport category\n   → Structure must sustain limit load with maximum damage not\n     detectable by inspection (BVID)\n   → Fail-safe: no catastrophic failure before detection (VID)\n\n   787 INSPECTION PROGRAM (sample):\n   ──────────────────────────────────\n   Pre-flight walk-around: visual for VID\n   \"A\" check (~500 flight hours): detailed visual inspection\n   \"C\" check (~3,000–5,000 hours): tap test + UT scan critical areas\n   Structural inspection plan: specific UT zones at defined intervals\n   Impact event report: any impact → mandatory inspection\n\n   WIND TURBINE BLADES:\n   ──────────────────────\n   Annual visual inspection (BVID threshold ~1 mm depth)\n   Thermography scan: every 2–5 years\n   UT shear wave scan: specific zones at 5–10 year intervals\n   Drone-based visual inspection: becoming standard",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

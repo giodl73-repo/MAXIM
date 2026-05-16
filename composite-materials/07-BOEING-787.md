@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:composite-materials:boeing-787
+kind: guide
+module: composite-materials
+section: composite-materials
+title: Case Study: Boeing 787 Dreamliner
+status: source-custody
+source_custody: partial
+current_path: composite-materials/07-BOEING-787.md
+canonical_path: composite-materials/07-BOEING-787.md
+backsource_ids: [proof-backfill:composite-materials:07-boeing-787, git-history:composite-materials:07-boeing-787]
+concepts: [boeing, 787]
+root_concepts: [boeing, 787]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Case Study: Boeing 787 Dreamliner
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:graphic-design:swiss-style
+kind: guide
+module: graphic-design
+section: graphic-design
+title: Swiss / International Style: Grid and Helvetica
+status: source-custody
+source_custody: partial
+current_path: graphic-design/02-SWISS-STYLE.md
+canonical_path: graphic-design/02-SWISS-STYLE.md
+backsource_ids: [proof-backfill:graphic-design:02-swiss-style, git-history:graphic-design:02-swiss-style]
+concepts: [swiss, style]
+root_concepts: [swiss, style]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Swiss / International Style: Grid and Helvetica
 
 ## The Big Picture

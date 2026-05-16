@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:composite-materials:end-of-life
+kind: guide
+module: composite-materials
+section: composite-materials
+title: End-of-Life: Recycling and Sustainability
+status: source-custody
+source_custody: partial
+current_path: composite-materials/09-END-OF-LIFE.md
+canonical_path: composite-materials/09-END-OF-LIFE.md
+backsource_ids: [proof-backfill:composite-materials:09-end-of-life, git-history:composite-materials:09-end-of-life]
+concepts: [end, of, life]
+root_concepts: [end, of]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # End-of-Life: Recycling and Sustainability
 
 ## The Big Picture

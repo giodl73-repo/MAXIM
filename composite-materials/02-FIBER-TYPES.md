@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:composite-materials:fiber-types
+kind: guide
+module: composite-materials
+section: composite-materials
+title: Fiber Types: Carbon, Glass, Aramid, Natural
+status: source-custody
+source_custody: partial
+current_path: composite-materials/02-FIBER-TYPES.md
+canonical_path: composite-materials/02-FIBER-TYPES.md
+backsource_ids: [proof-backfill:composite-materials:02-fiber-types, git-history:composite-materials:02-fiber-types]
+concepts: [fiber, types]
+root_concepts: [fiber, types]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fiber Types: Carbon, Glass, Aramid, Natural
 
 ## The Big Picture
