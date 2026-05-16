@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\14-SWIFT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## Type System Snapshot",
+      "headers": [
+        "Axis",
+        "Swift"
+      ],
+      "rows": [
+        [
+          "Binding",
+          "Early + protocol witness tables (dispatch)"
+        ],
+        [
+          "Typing",
+          "Static"
+        ],
+        [
+          "Strength",
+          "Strong"
+        ],
+        [
+          "Type system",
+          "Nominal + protocol-based structural-ish"
+        ],
+        [
+          "Type inference",
+          "Partial (bidirectional, strong)"
+        ],
+        [
+          "Memory model",
+          "**ARC** — Automatic Reference Counting (compiler-inserted retain/release)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 525,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "Xcode",
+          "Primary IDE (macOS/iOS development)"
+        ],
+        [
+          "Swift Package Manager",
+          "Package management"
+        ],
+        [
+          "SwiftUI",
+          "Declarative UI framework"
+        ],
+        [
+          "UIKit / AppKit",
+          "Traditional UI (iOS/macOS)"
+        ],
+        [
+          "Combine",
+          "Reactive programming"
+        ],
+        [
+          "Foundation",
+          "Standard library extensions"
+        ],
+        [
+          "XCTest",
+          "Testing"
+        ],
+        [
+          "Vapor",
+          "Server-side Swift"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 540,
+      "heading_context": "## Gotchas from C#",
+      "headers": [
+        "C# behavior",
+        "Swift behavior",
+        "Consequence"
+      ],
+      "rows": [
+        [
+          "Classes are reference types",
+          "Structs (value types) are the default",
+          "Copies instead of shared refs"
+        ],
+        [
+          "`null` with `?:` coalesce",
+          "`nil` with `??` coalesce",
+          "Same concept, different syntax"
+        ],
+        [
+          "`string` length = char count",
+          "`string.count` = grapheme count (can differ!)",
+          "\"é\" = 1 Character but 2 Unicode scalars"
+        ],
+        [
+          "`using` for IDisposable",
+          "`defer` for cleanup",
+          "`defer` is statement-based, not scope-based"
+        ],
+        [
+          "`interface` declared separately",
+          "Protocol conformance in `extension`",
+          "Retroactive conformance is normal"
+        ],
+        [
+          "Generics at runtime",
+          "Generics at compile time (monomorphized)",
+          "Can't use `T` at runtime for type checks"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 553,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Decision",
+        "Use X",
+        "When Y"
+      ],
+      "rows": [
+        [
+          "**`struct` vs `class` vs `actor`**",
+          "`struct`",
+          "Value semantics; no shared mutable state; default choice for data models"
+        ],
+        [
+          "",
+          "`class`",
+          "Shared identity across multiple owners; inheritance needed; Objective-C interop"
+        ],
+        [
+          "",
+          "`actor`",
+          "Shared mutable state accessed from concurrent contexts; replaces class + lock"
+        ],
+        [
+          "**`weak` vs `unowned`**",
+          "`weak var`",
+          "Reference may become nil during its lifetime; delegate patterns; Optional required"
+        ],
+        [
+          "",
+          "`unowned let/var`",
+          "Reference outlives current object and will never be nil; parent-child ownership where child can't outlive parent; crash if assumption violated"
+        ],
+        [
+          "**`throws` vs `Result<T,E>`**",
+          "`throws` / `try` / `catch`",
+          "Synchronous error propagation; integrates with `async throws`; most Swift APIs"
+        ],
+        [
+          "",
+          "`Result<T,E>`",
+          "Storing errors as values; callbacks/completion handlers; explicit error type needed at call site without do/catch"
+        ],
+        [
+          "**`async let` vs `TaskGroup`**",
+          "`async let`",
+          "Fixed number of parallel tasks known at compile time; bind results directly"
+        ],
+        [
+          "",
+          "`TaskGroup`",
+          "Dynamic number of tasks (loop-generated); collecting results from variable-count work items"
+        ],
+        [
+          "**protocol with `associatedtype` vs generic constraint**",
+          "generic constraint `<T: Protocol>`",
+          "Caller chooses the concrete type; static dispatch; preferred when type is known at call site"
+        ],
+        [
+          "",
+          "`associatedtype` protocol",
+          "Protocol defines a family of related types; type is determined by the conforming type, not the caller; use with `some Protocol` or `any Protocol` (Swift 5.7+)"
+        ]
+      ]
+    }
+  ]
+}

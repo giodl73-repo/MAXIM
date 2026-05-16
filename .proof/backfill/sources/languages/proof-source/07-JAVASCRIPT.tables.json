@@ -1,0 +1,289 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\07-JAVASCRIPT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## Type System Snapshot",
+      "headers": [
+        "Axis",
+        "JavaScript"
+      ],
+      "rows": [
+        [
+          "Binding",
+          "Late — prototype chain lookup at runtime"
+        ],
+        [
+          "Typing",
+          "Dynamic"
+        ],
+        [
+          "Strength",
+          "**Weak** — implicit type coercions everywhere"
+        ],
+        [
+          "Type system",
+          "Duck typing"
+        ],
+        [
+          "Type inference",
+          "None at runtime"
+        ],
+        [
+          "Memory model",
+          "GC (V8: incremental mark-sweep + compaction)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 100,
+      "heading_context": "## JavaScript Runtime Landscape",
+      "headers": [
+        "Aspect",
+        "JavaScript event loop",
+        "C# async/await"
+      ],
+      "rows": [
+        [
+          "Threading model",
+          "**Single thread** — one call stack, ever",
+          "**Thread pool** — `await` can resume on a different thread"
+        ],
+        [
+          "Blocking danger",
+          "Any synchronous CPU work blocks the whole runtime",
+          "Blocking one thread wastes a pool thread, but others keep running"
+        ],
+        [
+          "`await` mechanics",
+          "Suspends the current microtask; event loop picks up next work",
+          "Suspends the method, posts a continuation to the scheduler"
+        ],
+        [
+          "Parallelism",
+          "Not available in one JS process (need Worker threads)",
+          "Task.WhenAll runs continuations in parallel on the pool"
+        ],
+        [
+          "I/O model",
+          "Callbacks handed to platform; single thread handles results",
+          "Overlapped I/O (IOCP on Windows); thread pool continuations"
+        ],
+        [
+          "`ConfigureAwait(false)`",
+          "N/A — no synchronization context problem",
+          "Needed to avoid deadlocks in UI/ASP.NET classic contexts"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 428,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "Node.js / Deno / Bun",
+          "Runtime"
+        ],
+        [
+          "npm / yarn / pnpm",
+          "Package management"
+        ],
+        [
+          "Express / Fastify / Hono",
+          "Web frameworks"
+        ],
+        [
+          "React / Vue / Svelte",
+          "UI frameworks"
+        ],
+        [
+          "Jest / Vitest",
+          "Testing"
+        ],
+        [
+          "Webpack / Vite / esbuild",
+          "Bundlers"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 441,
+      "heading_context": "## Gotchas from C#",
+      "headers": [
+        "C# behavior",
+        "JavaScript behavior",
+        "Consequence"
+      ],
+      "rows": [
+        [
+          "`==` is value equality (for strings)",
+          "`==` coerces types",
+          "Use `===` always"
+        ],
+        [
+          "`null` — one null",
+          "Two: `null` AND `undefined`",
+          "Check with `== null`"
+        ],
+        [
+          "No automatic type coercions",
+          "`\"5\" - 3 = 2`",
+          "Arithmetic coercions are quiet"
+        ],
+        [
+          "`Dictionary<K,V>` has only string-compatible keys",
+          "`{}` keys are strings/symbols; use `Map` for anything else",
+          "Object keys coerce to string"
+        ],
+        [
+          "Non-virtual methods are stable",
+          "`this` can change based on call site",
+          "Arrow functions or `.bind(this)`"
+        ],
+        [
+          "Integer division: `5/2 = 2`",
+          "`5/2 = 2.5` (one number type)",
+          "Use `Math.floor(5/2)` for int division"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 456,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "`===`",
+          "Always, for equality checks"
+        ],
+        [
+          "`==`",
+          "Only one valid idiom: `x == null` to check for null-or-undefined in one shot"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 465,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "`const`",
+          "Default — for any binding you don't reassign (objects/arrays can still mutate internally)"
+        ],
+        [
+          "`let`",
+          "When you need to reassign the binding (loop counter, accumulated result)"
+        ],
+        [
+          "`var`",
+          "Never in new code — function-scoped and hoisted to the top of the function, causing non-obvious bugs"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 475,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "Arrow `() => {}`",
+          "Default for callbacks, methods passed as values, anything that needs lexical `this`"
+        ],
+        [
+          "`function` declaration",
+          "Top-level named functions you want hoisted; methods that need their own `this` (e.g. event handlers that reference `this.element`)"
+        ],
+        [
+          "`function` expression",
+          "Rarely — named function expressions for recursion or stack traces"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 493,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "`{}` plain object",
+          "Keys are known strings/identifiers, shape is fixed, JSON serialization needed"
+        ],
+        [
+          "`Map`",
+          "Keys are dynamic, non-string keys (objects, numbers), need insertion-order iteration, need `.size`"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 502,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "`async/await`",
+          "Default — reads as sequential code, error handling via try/catch"
+        ],
+        [
+          "`.then()` chains",
+          "Parallel fan-out patterns (`Promise.all`, `Promise.race`); piping transformations without needing intermediate variables"
+        ],
+        [
+          "Mixed",
+          "`async` function calling `await Promise.all([...])` — best of both"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 525,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Value",
+        "Meaning",
+        "When you produce it"
+      ],
+      "rows": [
+        [
+          "`undefined`",
+          "Not set — JS default",
+          "Uninitialized variable, missing object property, missing function argument, function with no `return`"
+        ],
+        [
+          "`null`",
+          "Intentional absence — you set this",
+          "Explicitly clearing a value, API responses signaling \"no value\""
+        ]
+      ]
+    }
+  ]
+}

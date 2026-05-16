@@ -1,0 +1,272 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\15-SCALA.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## Type System Snapshot",
+      "headers": [
+        "Axis",
+        "Scala"
+      ],
+      "rows": [
+        [
+          "Binding",
+          "Late (virtual default, JVM)"
+        ],
+        [
+          "Typing",
+          "Static"
+        ],
+        [
+          "Strength",
+          "Strong"
+        ],
+        [
+          "Type system",
+          "Nominal + some structural (structural typing exists)"
+        ],
+        [
+          "Type inference",
+          "Partial — strong local inference; complex types need annotation"
+        ],
+        [
+          "Memory model",
+          "GC (JVM)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 279,
+      "heading_context": "## Syntax Reference Card",
+      "headers": [
+        "`for` syntax",
+        "Desugars to"
+      ],
+      "rows": [
+        [
+          "`x <- expr`",
+          "`expr.flatMap(x => ...)` (last generator uses `map`)"
+        ],
+        [
+          "`if guard`",
+          "`expr.withFilter(x => guard)`"
+        ],
+        [
+          "`y = expr`",
+          "val binding — no method call, just a `let`"
+        ],
+        [
+          "`yield result`",
+          "the final `map`'s body"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 528,
+      "heading_context": "## Scala 2 vs Scala 3 Key Differences",
+      "headers": [
+        "Feature",
+        "Scala 2",
+        "Scala 3"
+      ],
+      "rows": [
+        [
+          "Typeclass instance",
+          "`implicit val`",
+          "`given`"
+        ],
+        [
+          "Use typeclass",
+          "`implicit` parameter",
+          "`using` parameter"
+        ],
+        [
+          "Extension methods",
+          "`implicit class`",
+          "`extension (x: T)`"
+        ],
+        [
+          "ADT",
+          "`sealed trait` + case classes",
+          "`enum`"
+        ],
+        [
+          "Indentation",
+          "Braces required",
+          "Significant indentation (optional)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 540,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "sbt / Mill / Gradle",
+          "Build systems"
+        ],
+        [
+          "scalafmt",
+          "Formatter"
+        ],
+        [
+          "Cats / Scalaz",
+          "Functional programming"
+        ],
+        [
+          "ZIO",
+          "Effect system (like Haskell IO + concurrency)"
+        ],
+        [
+          "Akka / Pekko",
+          "Actor model"
+        ],
+        [
+          "Spark",
+          "Big data (Scala is dominant)"
+        ],
+        [
+          "http4s / Play",
+          "HTTP servers"
+        ],
+        [
+          "circe",
+          "JSON"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 555,
+      "heading_context": "## Gotchas from C#",
+      "headers": [
+        "C# behavior",
+        "Scala behavior",
+        "Consequence"
+      ],
+      "rows": [
+        [
+          "`array[0]`",
+          "`array(0)` — parens!",
+          "Very easy to confuse"
+        ],
+        [
+          "`==` on strings is value",
+          "Same — `==` is value",
+          "Fine"
+        ],
+        [
+          "`null` exists (C# 8+ optional)",
+          "`null` exists but Option is idiomatic",
+          "Need discipline"
+        ],
+        [
+          "`interface` + `class`",
+          "`trait` + `class` (multiple trait mixin)",
+          "More flexible but complex"
+        ],
+        [
+          "`delegate` / `Func<T,R>`",
+          "`Int => Int` (function type literal)",
+          "Cleaner syntax"
+        ],
+        [
+          "`List<T>` is mutable",
+          "`List(...)` is immutable",
+          "Import mutable explicitly"
+        ],
+        [
+          "`T._` accessed via `.field`",
+          "`case class` fields via `.field`",
+          "Same, but fields are methods"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 569,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Decision",
+        "Use X",
+        "When Y"
+      ],
+      "rows": [
+        [
+          "`List` vs `Vector`",
+          "`List`",
+          "Prepend-heavy workloads; pattern matching with `head :: tail`; short lists"
+        ],
+        [
+          "`List` vs `Vector`",
+          "`Vector`",
+          "Random access; large collections; append or update operations (O(log n) vs O(n))"
+        ],
+        [
+          "`Option` vs `Try` vs `Either`",
+          "`Option`",
+          "Value might be absent and the reason is irrelevant — `Map.get`, optional config"
+        ],
+        [
+          "`Option` vs `Try` vs `Either`",
+          "`Try`",
+          "Wrapping a Java API that throws exceptions; you want Success/Failure as values"
+        ],
+        [
+          "`Option` vs `Try` vs `Either`",
+          "`Either[E, A]`",
+          "Typed, domain-specific errors that callers must handle — validation, parsing, business rules"
+        ],
+        [
+          "Scala 2 `implicit` vs Scala 3 `given`/`using`",
+          "`implicit`",
+          "You're on Scala 2 or maintaining a Scala 2 codebase; no choice"
+        ],
+        [
+          "Scala 2 `implicit` vs Scala 3 `given`/`using`",
+          "`given`/`using`",
+          "Scala 3 — cleaner, explicit, better tooling support; use for all new code"
+        ],
+        [
+          "`sealed trait` + case classes vs Scala 3 `enum`",
+          "`sealed trait`",
+          "Scala 2 compatibility required; variants carry complex logic or multiple type parameters"
+        ],
+        [
+          "`sealed trait` + case classes vs Scala 3 `enum`",
+          "Scala 3 `enum`",
+          "Scala 3 only; cleaner syntax; variants are simple data; compiler enforces exhaustiveness equally"
+        ],
+        [
+          "`Future` vs ZIO `Task`",
+          "`Future`",
+          "Simple async in a small service; existing Akka/Play codebase; no need for resource management"
+        ],
+        [
+          "`Future` vs ZIO `Task`",
+          "ZIO `Task`",
+          "Complex effectful programs; dependency injection via ZEnvironment; structured concurrency; retry/timeout as first-class concerns"
+        ],
+        [
+          "`for` comprehension vs `flatMap` chains",
+          "`for` comprehension",
+          "Three or more monadic steps; intermediate values need names; readability matters"
+        ],
+        [
+          "`for` comprehension vs `flatMap` chains",
+          "`flatMap`/`map` chains",
+          "One or two steps; composing in a pipeline; point-free style preferred"
+        ]
+      ]
+    }
+  ]
+}

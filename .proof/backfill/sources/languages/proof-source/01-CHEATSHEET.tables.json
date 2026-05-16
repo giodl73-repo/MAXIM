@@ -1,0 +1,1232 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\01-CHEATSHEET.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 43,
+      "heading_context": "## Part A — Comparison Tables",
+      "headers": [
+        "Language",
+        "Mutable",
+        "Immutable",
+        "Type annotation",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "C",
+          "`int x = 5;`",
+          "`const int x = 5;`",
+          "mandatory",
+          "no type inference"
+        ],
+        [
+          "C++",
+          "`int x = 5;`",
+          "`const int x = 5;`",
+          "`auto x = 5;`",
+          "`constexpr` = compile-time const"
+        ],
+        [
+          "Java",
+          "`int x = 5;`",
+          "`final int x = 5;`",
+          "`var x = 5;` (Java 10+)",
+          "primitives vs boxed"
+        ],
+        [
+          "C#",
+          "`var x = 5;`",
+          "`const int x=5;` / `readonly`",
+          "`int x = 5;`",
+          "`readonly` = runtime const"
+        ],
+        [
+          "Python",
+          "`x = 5`",
+          "(convention: UPPER)",
+          "`x: int = 5` (hint only)",
+          "no enforcement"
+        ],
+        [
+          "JavaScript",
+          "`let x = 5`",
+          "`const x = 5`",
+          "(no annotations)",
+          "avoid `var`"
+        ],
+        [
+          "TypeScript",
+          "`let x: number = 5`",
+          "`const x = 5`",
+          "explicit or inferred",
+          "`as const` for literal types"
+        ],
+        [
+          "Rust",
+          "`let mut x = 5;`",
+          "`let x = 5;`",
+          "`let x: i32 = 5;`",
+          "**immutable by default**"
+        ],
+        [
+          "Go",
+          "`x := 5`",
+          "`const x = 5`",
+          "`var x int = 5`",
+          "`:=` short form in functions only"
+        ],
+        [
+          "Haskell",
+          "(no mutation)",
+          "`let x = 5`",
+          "`x :: Int`",
+          "everything is a binding"
+        ],
+        [
+          "F#",
+          "`let mutable x = 5`",
+          "`let x = 5`",
+          "`let x: int = 5`",
+          "immutable by default"
+        ],
+        [
+          "Kotlin",
+          "`var x = 5`",
+          "`val x = 5`",
+          "`val x: Int = 5`",
+          "immutable by default idiom"
+        ],
+        [
+          "Swift",
+          "`var x = 5`",
+          "`let x = 5`",
+          "`let x: Int = 5`",
+          "immutable by default"
+        ],
+        [
+          "Scala",
+          "`var x = 5`",
+          "`val x = 5`",
+          "`val x: Int = 5`",
+          "prefer `val`"
+        ],
+        [
+          "Ruby",
+          "`x = 5`",
+          "(convention: UPPER for constants)",
+          "(none; dynamic)",
+          "`$x` global, `@x` instance"
+        ],
+        [
+          "SQL",
+          "varies by dialect",
+          "—",
+          "`DECLARE @x INT` (T-SQL)",
+          "procedural extensions only"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 66,
+      "heading_context": "## Part A — Comparison Tables",
+      "headers": [
+        "Language",
+        "Value equality",
+        "Reference/identity",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "C",
+          "`==`",
+          "`==` (pointer address)",
+          "same op; pointers ARE addresses"
+        ],
+        [
+          "C++",
+          "`==` (overloadable)",
+          "`==` on raw pointers",
+          "`std::is_same<T,U>` for type equality"
+        ],
+        [
+          "Java",
+          "`.equals()`",
+          "`==`",
+          "**classic trap**: `==` is ALWAYS reference for objects"
+        ],
+        [
+          "C#",
+          "`==` / `.Equals()`",
+          "`Object.ReferenceEquals()`",
+          "`==` is overloadable; `string ==` is value"
+        ],
+        [
+          "Python",
+          "`==` (calls `__eq__`)",
+          "`is`",
+          "`is None` not `== None` (PEP 8)"
+        ],
+        [
+          "JavaScript",
+          "`===`",
+          "`===`",
+          "`==` coerces types — almost never use it"
+        ],
+        [
+          "TypeScript",
+          "`===`",
+          "`===`",
+          "compiler nudges toward `===`"
+        ],
+        [
+          "Rust",
+          "`==` (requires `PartialEq`)",
+          "`std::ptr::eq()`",
+          "no coercion ever; must derive/impl PartialEq"
+        ],
+        [
+          "Go",
+          "`==`",
+          "`==`",
+          "works on comparable types; slices/maps cannot be `==`"
+        ],
+        [
+          "Haskell",
+          "`==` (Eq typeclass)",
+          "(no concept — pure)",
+          "reference equality is meaningless in pure FP"
+        ],
+        [
+          "F#",
+          "`=`",
+          "`LanguagePrimitives.PhysicalEquality`",
+          "structural by default (unlike C#)"
+        ],
+        [
+          "Kotlin",
+          "`==` (calls `.equals()`)",
+          "`===`",
+          "`==` is null-safe structural"
+        ],
+        [
+          "Swift",
+          "`==` (Equatable protocol)",
+          "`===`",
+          "`===` only for `AnyObject` (class references)"
+        ],
+        [
+          "Scala",
+          "`==` (calls `.equals()`)",
+          "`eq`",
+          "`==` is null-safe; avoid `eq`"
+        ],
+        [
+          "Ruby",
+          "`==`",
+          "`equal?`",
+          "also: `eql?` (type+value), `===` (case equality)"
+        ],
+        [
+          "SQL",
+          "`=`",
+          "IS IDENTICAL TO (rare)",
+          "`NULL = NULL` is **false**; use `IS NULL`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 89,
+      "heading_context": "## Part A — Comparison Tables",
+      "headers": [
+        "Language",
+        "AND",
+        "OR",
+        "NOT",
+        "Bitwise AND/OR",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "C",
+          "`&&`",
+          "`\\|\\|`",
+          "`!`",
+          "`&` / `\\|`",
+          "`&`/`\\|` don't short-circuit"
+        ],
+        [
+          "C++",
+          "`&&`",
+          "`\\|\\|`",
+          "`!`",
+          "`&` / `\\|`",
+          "`and`/`or`/`not` keywords also valid"
+        ],
+        [
+          "Java",
+          "`&&`",
+          "`\\|\\|`",
+          "`!`",
+          "`&` / `\\|`",
+          "`&`/`\\|` = non-short-circuit logical"
+        ],
+        [
+          "C#",
+          "`&&`",
+          "`\\|\\|`",
+          "`!`",
+          "`&` / `\\|`",
+          "`^` = XOR (not exponent)"
+        ],
+        [
+          "Python",
+          "`and`",
+          "`or`",
+          "`not`",
+          "`&` / `\\|`",
+          "`and`/`or` return operands, not bool"
+        ],
+        [
+          "JavaScript",
+          "`&&`",
+          "`\\|\\|`",
+          "`!`",
+          "`&` / `\\|`",
+          "`??` nullish coalescing; `&&` returns value"
+        ],
+        [
+          "TypeScript",
+          "`&&`",
+          "`\\|\\|`",
+          "`!`",
+          "`&` / `\\|`",
+          "`&` and `\\|` also type operators"
+        ],
+        [
+          "Rust",
+          "`&&`",
+          "`\\|\\|`",
+          "`!`",
+          "`&` / `\\|`",
+          "`!` also macro invocation"
+        ],
+        [
+          "Go",
+          "`&&`",
+          "`\\|\\|`",
+          "`!`",
+          "`&` / `\\|`",
+          "`&^` = bit clear (AND NOT)"
+        ],
+        [
+          "Haskell",
+          "`&&`",
+          "`\\|\\|`",
+          "`not`",
+          "`.&.` / `.\\|.`",
+          "operators from `Data.Bits`"
+        ],
+        [
+          "F#",
+          "`&&`",
+          "`\\|\\|`",
+          "`not`",
+          "`&&&` / `\\|\\|\\|`",
+          "triple-char bitwise"
+        ],
+        [
+          "Kotlin",
+          "`&&`",
+          "`\\|\\|`",
+          "`!`",
+          "`.and()` / `.or()`",
+          "bitwise = named infix functions"
+        ],
+        [
+          "Swift",
+          "`&&`",
+          "`\\|\\|`",
+          "`!`",
+          "`&` / `\\|`",
+          "standard"
+        ],
+        [
+          "Scala",
+          "`&&`",
+          "`\\|\\|`",
+          "`!`",
+          "`&` / `\\|`",
+          "standard"
+        ],
+        [
+          "Ruby",
+          "`&&` / `and`",
+          "`\\|\\|` / `or`",
+          "`!` / `not`",
+          "`&` / `\\|`",
+          "`and`/`or` have **lower precedence** than `&&`/`\\|\\|`"
+        ],
+        [
+          "SQL",
+          "`AND`",
+          "`OR`",
+          "`NOT`",
+          "bitwise varies",
+          "keywords only; three-valued logic (NULL)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 112,
+      "heading_context": "## Part A — Comparison Tables",
+      "headers": [
+        "Language",
+        "`{ }`",
+        "`[ ]`",
+        "`( )`",
+        "`\\|`"
+      ],
+      "rows": [
+        [
+          "C",
+          "block; struct/array initializer",
+          "array subscript",
+          "grouping; call; cast",
+          "bitwise OR"
+        ],
+        [
+          "C++",
+          "block; aggregate init; lambda `[cap](){}`",
+          "array subscript; **lambda capture**",
+          "grouping; call; cast",
+          "bitwise OR; `std::variant` pattern"
+        ],
+        [
+          "Java",
+          "block; array initializer",
+          "array type suffix; subscript",
+          "grouping; call; cast",
+          "bitwise OR"
+        ],
+        [
+          "C#",
+          "block; object/collection initializer `{k,v}`",
+          "array; indexer; attribute `[Attr]`",
+          "grouping; call; cast",
+          "bitwise OR; switch arm `\\| pat`"
+        ],
+        [
+          "Python",
+          "**dict** `{\"k\":v}`; **set** `{v}` (not block!)",
+          "list literal; subscript; slice",
+          "grouping; call; **tuple** `(a,b)`",
+          "bitwise OR; union type `int \\| str` (3.10+)"
+        ],
+        [
+          "JavaScript",
+          "block; **object literal** `{k:v}`",
+          "array literal; subscript",
+          "grouping; call",
+          "bitwise OR"
+        ],
+        [
+          "TypeScript",
+          "block; object literal; type `{x: T}`",
+          "array; tuple type `[T,U]`; type index `T[\"k\"]`",
+          "grouping; call",
+          "union type `T \\| U`; bitwise OR"
+        ],
+        [
+          "Rust",
+          "block (expression!); struct literal; match arm",
+          "array literal `[1,2,3]`; slice type `&[T]`; subscript",
+          "grouping; call; **tuple** `(a,b)`",
+          "pattern OR `\\| pat`; bitwise OR; closure `\\|x\\| x`"
+        ],
+        [
+          "Go",
+          "block; struct/map/array/slice literal",
+          "array/slice type prefix `[]T`; subscript",
+          "grouping; call",
+          "bitwise OR"
+        ],
+        [
+          "Haskell",
+          "explicit layout (rare); record `{field=val}`",
+          "list literal `[1,2,3]`; index `list !! i`",
+          "grouping; **tuple** `(a,b)`; call",
+          "pattern match arm `\\| guard`; type `Either a b`"
+        ],
+        [
+          "F#",
+          "record `{f=v}`; computation `{ }`",
+          "list `[1;2;3]`; array `[\\|1;2;3\\|]`",
+          "grouping; tuple",
+          "discriminated union case `\\| Foo \\| Bar`"
+        ],
+        [
+          "Kotlin",
+          "block; lambda `{ x -> x }`",
+          "subscript",
+          "grouping; call",
+          "bitwise OR; when-arm `\\| val`"
+        ],
+        [
+          "Swift",
+          "block; closure `{ x in x }`",
+          "array literal; subscript; array type `[T]`; dict type `[K:V]`",
+          "grouping; call",
+          "bitwise OR"
+        ],
+        [
+          "Scala",
+          "block; case body; function literal",
+          "subscript `a(i)` not `a[i]`!; type param `Array[T]`",
+          "**array subscript** `a(0)`; grouping; call; tuple",
+          "pattern match `\\| pat`; bitwise OR"
+        ],
+        [
+          "Ruby",
+          "hash `{\"k\"=>v}`; block `do\\|x\\| \\|x\\|`",
+          "array literal; subscript",
+          "grouping; call",
+          "block parameter `\\|x\\|`; bitwise OR"
+        ],
+        [
+          "SQL",
+          "—",
+          "`ARRAY[1,2]` (PostgreSQL)",
+          "grouping; subquery",
+          "UNION (not same as `\\|`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 139,
+      "heading_context": "## Part A — Comparison Tables",
+      "headers": [
+        "Language",
+        "Array / List",
+        "Map / Dict",
+        "Set",
+        "Tuple"
+      ],
+      "rows": [
+        [
+          "C",
+          "`int a[]={1,2,3};`",
+          "(none built-in)",
+          "(none)",
+          "struct"
+        ],
+        [
+          "C++",
+          "`std::vector<int>{1,2,3}`",
+          "`std::map<K,V>{{k,v}}`",
+          "`std::set<T>{v}`",
+          "`std::make_tuple(a,b)`"
+        ],
+        [
+          "Java",
+          "`new int[]{1,2,3}`",
+          "`Map.of(k,v)`",
+          "`Set.of(v)`",
+          "(none native)"
+        ],
+        [
+          "C#",
+          "`new[]{1,2,3}` / `[1,2,3]` (C#12)",
+          "`new Dictionary<K,V>{{k,v}}`",
+          "`new HashSet<T>{v}`",
+          "`(a,b)` (C#7+)"
+        ],
+        [
+          "Python",
+          "`[1, 2, 3]`",
+          "`{\"k\": v}`",
+          "`{1, 2, 3}`",
+          "`(1, 2, 3)`"
+        ],
+        [
+          "JavaScript",
+          "`[1, 2, 3]`",
+          "`{\"key\": v}`",
+          "`new Set([v])`",
+          "(none)"
+        ],
+        [
+          "TypeScript",
+          "`[1, 2, 3]`",
+          "`{\"key\": v}`",
+          "`new Set<T>([v])`",
+          "type: `[T, U]`"
+        ],
+        [
+          "Rust",
+          "`[1,2,3]` (arr) / `vec![1,2,3]` (Vec)",
+          "`HashMap::from([(k,v)])`",
+          "`HashSet::from([v])`",
+          "`(1, 2, 3)`"
+        ],
+        [
+          "Go",
+          "`[]int{1,2,3}` (slice)",
+          "`map[string]int{\"k\":1}`",
+          "(none)",
+          "(none)"
+        ],
+        [
+          "Haskell",
+          "`[1, 2, 3]`",
+          "`Map.fromList [(\"k\",1)]`",
+          "`Set.fromList [1,2,3]`",
+          "`(1, 2, 3)`"
+        ],
+        [
+          "F#",
+          "`[1; 2; 3]` (list) / `[|1;2;3|]` (array)",
+          "`Map.ofList [(\"k\",1)]`",
+          "`Set.ofList [1,2,3]`",
+          "`(1, 2, 3)`"
+        ],
+        [
+          "Kotlin",
+          "`listOf(1,2,3)`",
+          "`mapOf(\"k\" to 1)`",
+          "`setOf(1,2,3)`",
+          "`Pair(a,b)`"
+        ],
+        [
+          "Swift",
+          "`[1, 2, 3]`",
+          "`[\"k\": 1]`",
+          "`Set([1,2,3])`",
+          "`(1, 2, 3)`"
+        ],
+        [
+          "Scala",
+          "`List(1,2,3)` / `Vector(1,2,3)`",
+          "`Map(\"k\" -> 1)`",
+          "`Set(1,2,3)`",
+          "`(1, 2, 3)`"
+        ],
+        [
+          "Ruby",
+          "`[1, 2, 3]`",
+          "`{\"k\" => v}` / `{k: v}` (sym key)",
+          "`Set.new([v])`",
+          "(none)"
+        ],
+        [
+          "SQL",
+          "`ARRAY[1,2,3]` (PG)",
+          "(none)",
+          "(none)",
+          "`ROW(a,b)`"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 162,
+      "heading_context": "## Part A — Comparison Tables",
+      "headers": [
+        "Language",
+        "If",
+        "Ternary",
+        "Pattern match / switch"
+      ],
+      "rows": [
+        [
+          "C",
+          "`if (cond) { }`",
+          "`cond ? t : f`",
+          "`switch(x) { case v: ... }`"
+        ],
+        [
+          "C++",
+          "`if (cond) { }`",
+          "`cond ? t : f`",
+          "`if constexpr (cond)`"
+        ],
+        [
+          "Java",
+          "`if (cond) { }`",
+          "`cond ? t : f`",
+          "`switch(x) { case v -> ...}` (Java 14+)"
+        ],
+        [
+          "C#",
+          "`if (cond) { }`",
+          "`cond ? t : f`",
+          "`x switch { pat => val }`"
+        ],
+        [
+          "Python",
+          "`if cond:`",
+          "`t if cond else f`",
+          "`match x: case pat:` (3.10+)"
+        ],
+        [
+          "JavaScript",
+          "`if (cond) { }`",
+          "`cond ? t : f`",
+          "`switch(x) { case v: }`"
+        ],
+        [
+          "TypeScript",
+          "`if (cond) { }`",
+          "`cond ? t : f`",
+          "`switch(x)` + type narrowing"
+        ],
+        [
+          "Rust",
+          "`if cond { }`",
+          "(if is expr: `let x = if c { a } else { b }`)",
+          "`match x { pat => expr }`"
+        ],
+        [
+          "Go",
+          "`if cond { }`",
+          "(none — no ternary)",
+          "`switch x { case v: }`"
+        ],
+        [
+          "Haskell",
+          "`if c then a else b`",
+          "(if is expr)",
+          "`case x of { pat -> expr }`"
+        ],
+        [
+          "F#",
+          "`if cond then a [else b]`",
+          "(if is expr)",
+          "`match x with \\| pat -> expr`"
+        ],
+        [
+          "Kotlin",
+          "`if (cond) { }` (also expr)",
+          "`if (c) a else b`",
+          "`when(x) { v -> ... }`"
+        ],
+        [
+          "Swift",
+          "`if cond { }`",
+          "`cond ? t : f`",
+          "`switch x { case pat: }`"
+        ],
+        [
+          "Scala",
+          "`if (cond) a [else b]` (expr)",
+          "(if is expr)",
+          "`x match { case pat => expr }`"
+        ],
+        [
+          "Ruby",
+          "`if cond; end`",
+          "`cond ? t : f`",
+          "`case x when pat then...end`"
+        ],
+        [
+          "SQL",
+          "`WHERE cond`",
+          "`CASE WHEN c THEN v END`",
+          "`CASE` expression"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 189,
+      "heading_context": "## Part A — Comparison Tables",
+      "headers": [
+        "Language",
+        "String type",
+        "Mutable?",
+        "Char type",
+        "Interpolation",
+        "Multiline"
+      ],
+      "rows": [
+        [
+          "C",
+          "`char*` (null-term)",
+          "yes (array)",
+          "`char` (1 byte)",
+          "`printf(\"%s\", s)`",
+          "`\\n` escape"
+        ],
+        [
+          "C++",
+          "`std::string`",
+          "yes",
+          "`char` / `char32_t`",
+          "`std::format(\"{}\", s)`",
+          "raw `R\"(...)\"`"
+        ],
+        [
+          "Java",
+          "`String`",
+          "no",
+          "`char` (UTF-16 code unit)",
+          "`.formatted()`",
+          "`\"\"\"` text block (Java 15+)"
+        ],
+        [
+          "C#",
+          "`string`",
+          "no",
+          "`char` (UTF-16 code unit)",
+          "`$\"{var}\"`",
+          "`@\"verbatim\"` / `\"\"\"` (C# 11)"
+        ],
+        [
+          "Python",
+          "`str`",
+          "no",
+          "(no char — use 1-char string)",
+          "`f\"{var}\"`",
+          "`\"\"\"triple\"\"\"`"
+        ],
+        [
+          "JavaScript",
+          "`string`",
+          "no",
+          "(no char)",
+          "`` `${var}` ``",
+          "template literal"
+        ],
+        [
+          "TypeScript",
+          "`string`",
+          "no",
+          "(no char)",
+          "`` `${var}` ``",
+          "template literal"
+        ],
+        [
+          "Rust",
+          "`String` (owned) / `&str` (slice)",
+          "`String` yes",
+          "`char` (4 bytes, Unicode scalar)",
+          "`format!(\"{var}\")`",
+          "raw `r#\"...\"#`"
+        ],
+        [
+          "Go",
+          "`string` (bytes, UTF-8)",
+          "no",
+          "`rune` = `int32` (code point)",
+          "`fmt.Sprintf(\"%s\", s)`",
+          "backtick `` `raw` ``"
+        ],
+        [
+          "Haskell",
+          "`String` = `[Char]` (use `Text`)",
+          "no",
+          "`Char` (Unicode code point)",
+          "`\"Hello \" ++ name`",
+          "string literal spans lines"
+        ],
+        [
+          "F#",
+          "`string` (.NET String)",
+          "no",
+          "`char` (UTF-16 code unit)",
+          "`$\"{var}\"`",
+          "`@\"verbatim\"`"
+        ],
+        [
+          "Kotlin",
+          "`String`",
+          "no",
+          "`Char` (UTF-16 code unit)",
+          "`\"$var\"` / `\"${expr}\"`",
+          "`\"\"\"triple\"\"\"`"
+        ],
+        [
+          "Swift",
+          "`String` (value type!)",
+          "yes (var)",
+          "`Character` (grapheme cluster!)",
+          "`\"\\(var)\"`",
+          "`\"\"\"multi\"\"\"`"
+        ],
+        [
+          "Scala",
+          "`String` (Java String)",
+          "no",
+          "`Char` (UTF-16 code unit)",
+          "`s\"$var\"`",
+          "`\"\"\"triple\"\"\"`"
+        ],
+        [
+          "Ruby",
+          "`String`",
+          "**yes (mutable)**",
+          "(no char type)",
+          "`\"#{var}\"` (double quotes only)",
+          "heredoc `<<~EOS`"
+        ],
+        [
+          "SQL",
+          "`VARCHAR` / `TEXT`",
+          "(column)",
+          "`CHAR(n)`",
+          "concat or dialect format",
+          "multi-line literal"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 217,
+      "heading_context": "## Part A — Comparison Tables",
+      "headers": [
+        "Language",
+        "Null literal",
+        "Nullable type",
+        "Safe access",
+        "Coalesce / default"
+      ],
+      "rows": [
+        [
+          "C",
+          "`NULL` (0 cast)",
+          "`T*` (any pointer)",
+          "(manual null check)",
+          "`x ? x : default`"
+        ],
+        [
+          "C++",
+          "`nullptr`",
+          "`std::optional<T>`",
+          "`.value_or(default)`",
+          "`.value_or(default)`"
+        ],
+        [
+          "Java",
+          "`null`",
+          "`Optional<T>` (not enforced)",
+          "`optional.map()`",
+          "`Optional.orElse()`"
+        ],
+        [
+          "C#",
+          "`null`",
+          "`T?` (nullable ref, C# 8+)",
+          "`?.`",
+          "`??`"
+        ],
+        [
+          "Python",
+          "`None`",
+          "`Optional[T]` (hint only)",
+          "(check `is None`)",
+          "`x or default`"
+        ],
+        [
+          "JavaScript",
+          "`null` / `undefined`",
+          "`T \\| null` / `T \\| undefined`",
+          "`?.`",
+          "`??`"
+        ],
+        [
+          "TypeScript",
+          "`null` / `undefined`",
+          "`T \\| null` / `T?`",
+          "`?.`",
+          "`??`"
+        ],
+        [
+          "Rust",
+          "(none — no null)",
+          "`Option<T>` = `Some(v)` / `None`",
+          "`?` operator / `.map()`",
+          "`.unwrap_or(default)`"
+        ],
+        [
+          "Go",
+          "`nil`",
+          "pointer, interface, slice, map",
+          "(manual `if v != nil`)",
+          "(manual `if v == nil { v = def }`)"
+        ],
+        [
+          "Haskell",
+          "(none — no null)",
+          "`Maybe a` = `Just a` / `Nothing`",
+          "`>>=` / `do` notation",
+          "`fromMaybe default`"
+        ],
+        [
+          "F#",
+          "`None`",
+          "`'a option` = `Some v` / `None`",
+          "`Option.bind`",
+          "`Option.defaultValue default`"
+        ],
+        [
+          "Kotlin",
+          "`null`",
+          "`T?`",
+          "`?.`",
+          "`?:` (Elvis)"
+        ],
+        [
+          "Swift",
+          "`nil`",
+          "`Optional<T>` / `T?`",
+          "`?.` / `if let`",
+          "`??`"
+        ],
+        [
+          "Scala",
+          "`null` (discouraged)",
+          "`Option[T]` = `Some(v)` / `None`",
+          "`.map()` / `flatMap()`",
+          "`.getOrElse(default)`"
+        ],
+        [
+          "Ruby",
+          "`nil`",
+          "(no type system)",
+          "`&.` safe navigation",
+          "`\\|\\| default`"
+        ],
+        [
+          "SQL",
+          "`NULL`",
+          "nullable column",
+          "`COALESCE(x, default)`",
+          "`COALESCE(x, default)`"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 244,
+      "heading_context": "## Part A — Comparison Tables",
+      "headers": [
+        "Language",
+        "Named function",
+        "Arrow / Lambda",
+        "Multi-arg curried"
+      ],
+      "rows": [
+        [
+          "C",
+          "`int f(int x) { return x; }`",
+          "(function pointers only)",
+          "manual"
+        ],
+        [
+          "C++",
+          "`int f(int x) { return x; }`",
+          "`[=](int x) { return x; }`",
+          "`std::bind` / lambda"
+        ],
+        [
+          "Java",
+          "`int f(int x) { return x; }`",
+          "`x -> x` (as `Function<T,R>`)",
+          "`f.andThen(g)`"
+        ],
+        [
+          "C#",
+          "`int F(int x) => x;`",
+          "`x => x` (as `Func<T,R>`)",
+          "`Func<int,Func<int,int>>`"
+        ],
+        [
+          "Python",
+          "`def f(x): return x`",
+          "`lambda x: x`",
+          "manual / `functools.partial`"
+        ],
+        [
+          "JavaScript",
+          "`function f(x) { return x }`",
+          "`x => x` / `(x) => x`",
+          "manual / lodash"
+        ],
+        [
+          "TypeScript",
+          "`function f(x: T): R { }`",
+          "`(x: T): R => expr`",
+          "manual"
+        ],
+        [
+          "Rust",
+          "`fn f(x: i32) -> i32 { x }`",
+          "`\\|x\\| x` / `move \\|x\\| x`",
+          "manual / combinators"
+        ],
+        [
+          "Go",
+          "`func f(x int) int { return x }`",
+          "`func(x int) int { return x }`",
+          "manual"
+        ],
+        [
+          "Haskell",
+          "`f x = x`",
+          "`\\x -> x`",
+          "**auto-curried** (all functions)"
+        ],
+        [
+          "F#",
+          "`let f x = x`",
+          "`fun x -> x`",
+          "**auto-curried** (all functions)"
+        ],
+        [
+          "Kotlin",
+          "`fun f(x: Int): Int = x`",
+          "`{ x: Int -> x }`",
+          "manual / Arrow-kt"
+        ],
+        [
+          "Swift",
+          "`func f(x: Int) -> Int { x }`",
+          "`{ (x: Int) -> Int in x }` / `{ $0 }`",
+          "manual"
+        ],
+        [
+          "Scala",
+          "`def f(x: Int): Int = x`",
+          "`(x: Int) => x` / `x => x`",
+          "manual or curried `def f(x)(y)`"
+        ],
+        [
+          "Ruby",
+          "`def f(x); x; end`",
+          "`lambda {\\|x\\| x}` / `->(x){ x }`",
+          "manual / curry"
+        ],
+        [
+          "SQL",
+          "`CREATE FUNCTION f(x T) RETURNS T`",
+          "(none)",
+          "(none)"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 271,
+      "heading_context": "## Part A — Comparison Tables",
+      "headers": [
+        "Language",
+        "Primary mechanism",
+        "Catch / handle",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "C",
+          "Return code + `errno`",
+          "`if (ret < 0) { }`",
+          "no exceptions; UB on some errors"
+        ],
+        [
+          "C++",
+          "Exceptions",
+          "`try { } catch (T& e) { }`",
+          "zero-cost model (no throw = no cost)"
+        ],
+        [
+          "Java",
+          "Checked exceptions",
+          "`try { } catch (E e) { }`",
+          "checked must be declared in `throws`"
+        ],
+        [
+          "C#",
+          "Exceptions (unchecked)",
+          "`try { } catch (E e) { }`",
+          "no checked exceptions (unlike Java)"
+        ],
+        [
+          "Python",
+          "Exceptions (EAFP style)",
+          "`try: except E as e:`",
+          "exceptions are objects"
+        ],
+        [
+          "JavaScript",
+          "Exceptions",
+          "`try { } catch (e) { }`",
+          "`e` is `unknown` shape"
+        ],
+        [
+          "TypeScript",
+          "Exceptions",
+          "`try { } catch (e) { }`",
+          "`e` is `unknown` type — narrow before using"
+        ],
+        [
+          "Rust",
+          "`Result<T, E>` + `?`",
+          "`match result { Ok(v) => \\| Err(e) => }`",
+          "no exceptions; `?` propagates"
+        ],
+        [
+          "Go",
+          "Multiple return values",
+          "`if err != nil { }`",
+          "explicit; no exceptions"
+        ],
+        [
+          "Haskell",
+          "`Either e a` / `Maybe a` / `IO` exceptions",
+          "`case result of Left e -> \\| Right v ->`",
+          "pure code can't throw"
+        ],
+        [
+          "F#",
+          "Exceptions + `Result` type",
+          "`try with \\| :? ExnType as e ->`",
+          "both styles coexist"
+        ],
+        [
+          "Kotlin",
+          "Exceptions (unchecked)",
+          "`try { } catch (e: E) { }`",
+          "no checked exceptions (unlike Java)"
+        ],
+        [
+          "Swift",
+          "`throws` / `Result`",
+          "`do { try f() } catch E { }`",
+          "checked at call site"
+        ],
+        [
+          "Scala",
+          "`Try[T]` / `Either` / exceptions",
+          "`Try(expr)` / `match { case Failure(e) =>}`",
+          "multiple styles; prefer `Either` in FP"
+        ],
+        [
+          "Ruby",
+          "Exceptions",
+          "`begin; rescue E => e; end`",
+          "`raise`/`rescue` not throw/catch"
+        ],
+        [
+          "SQL",
+          "(n/a in standard)",
+          "`BEGIN...EXCEPTION` (PL/pgSQL)",
+          "varies by dialect"
+        ]
+      ]
+    }
+  ]
+}

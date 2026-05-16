@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:ruby
+kind: guide
+module: languages
+section: languages
+title: Language: Ruby
+status: source-custody
+source_custody: partial
+current_path: languages/16-RUBY.md
+canonical_path: languages/16-RUBY.md
+backsource_ids: [proof-backfill:languages:16-ruby, git-history:languages:16-ruby]
+concepts: [ruby]
+root_concepts: [ruby]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language: Ruby
 
 > Everything is an object, everything is open — dynamic, expressive, optimized for developer happiness. Rails made it famous; its metaprogramming makes it powerful and dangerous.

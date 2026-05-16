@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\13-KOTLIN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 43,
+      "heading_context": "## Kotlin Ecosystem Landscape",
+      "confidence": "candidate",
+      "text": "KOTLIN SOURCE → COMPILER MAGIC → JVM BYTECODE → SAME RUNTIME AS JAVA\n\n  Kotlin source (.kt)\n       │\n       ▼\n  ┌─────────────────────────────────────────────────────────┐\n  │               Kotlin Compiler (kotlinc)                 │\n  │                                                         │\n  │  Null safety checks ──────────────────┐                 │\n  │  (T vs T? enforced at compile time)   │                 │\n  │                                       ▼                 │\n  │  data class codegen ──────────► .class files            │\n  │  (equals/hashCode/toString/copy)      │  (standard JVM  │\n  │                                       │   bytecode)     │\n  │  Coroutine transformation ────────────┘                 │\n  │  (suspend fun → state machine)                          │\n  └─────────────────────────────────────────────────────────┘\n       │\n       ▼\n  .class files (identical format to javac output)\n       │\n       ▼\n  ┌───────────────────────────────────┐\n  │           JVM Runtime             │\n  │  Class Loader → JIT → GC → Exec   │\n  └───────────────────────────────────┘\n\n  Kotlin also compiles to: Kotlin/JS (browser) · Kotlin/Native (LLVM, no JVM)\n  Kotlin Multiplatform (KMP): share business logic across JVM / iOS / Web",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "## Kotlin Ecosystem Landscape",
+      "confidence": "candidate",
+      "text": "  Kotlin feature          Compiler output (JVM bytecode level)\n  ──────────────────────────────────────────────────────────\n  String? (nullable)   →  null checks inserted at call sites\n                          @Nullable annotation on method sig\n  data class           →  equals() + hashCode() + toString()\n                          copy() + componentN() methods\n  extension fun        →  static method, receiver as first param\n                          (zero runtime cost — pure syntax)\n  object (singleton)   →  class with static INSTANCE field\n  sealed class         →  abstract class + exhaustiveness info\n  suspend fun          →  state machine class (CPS transform)\n                          each suspension point = a resume case",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "## Kotlin Ecosystem Landscape",
+      "confidence": "candidate",
+      "text": "  suspend fun fetchAndProcess(): String {\n      val data = fetchData()    // suspend point 1\n      val result = process(data) // suspend point 2\n      return result\n  }\n\n  Compiler transforms to:\n  ┌──────────────────────────────────────────────────┐\n  │  State machine with label (continuation)         │\n  │                                                  │\n  │  label=0 → call fetchData(), suspend, save state │\n  │  label=1 → resume, call process(), suspend       │\n  │  label=2 → resume, return result                 │\n  │                                                  │\n  │  No OS thread blocked — just a heap object       │\n  │  Resumed by the coroutine dispatcher when ready  │\n  └──────────────────────────────────────────────────┘\n\n  C# async/await does the same CPS transform.\n  Kotlin coroutines generalize it further — composable,\n  structured, cancellable, with explicit dispatcher control.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "### Control Flow",
+      "confidence": "candidate",
+      "text": "// If — expression in Kotlin\nval max = if (a > b) a else b   // ternary replacement\n\nif (cond) {\n} else if (cond2) {\n} else {\n}\n\n// When (replaces switch — exhaustive when used as expression)\nval result = when (x) {\n    0 -> \"zero\"\n    1, 2 -> \"one or two\"\n    in 3..10 -> \"small\"\n    is String -> \"it's a string: $x\"\n    else -> \"other\"\n}\n\n// When without argument (replaces if-else chain)\nwhen {\n    x < 0 -> \"negative\"\n    x == 0 -> \"zero\"\n    else -> \"positive\"\n}\n\n// Null checks\nif (s != null) {\n    s.length    // smart cast — compiler knows s: String here\n}\n\n// Loops\nfor (i in 1..10) { }\nfor (i in 0 until list.size) { }\nfor (item in list) { }\nfor ((index, value) in list.withIndex()) { }\nfor ((key, value) in map) { }\nwhile (cond) { }\ndo { } while (cond)\nlist.forEach { println(it) }\nrepeat(5) { println(it) }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\16-RUBY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 41,
+      "heading_context": "## Ruby Method Lookup & Object Model Landscape",
+      "confidence": "candidate",
+      "text": "METHOD LOOKUP: obj.some_method\n─────────────────────────────────────────────────────────────────────────\n\n  obj  ──►  obj's singleton class (eigenclass)\n             │   (methods defined directly on obj: def obj.foo; end)\n             │\n             ▼\n            obj's class  (e.g., Dog)\n             │\n             ├─ prepended modules (reverse insertion order — searched FIRST)\n             │    module M1 prepended → M1 searched before Dog's own methods\n             │    use for decoration / before-hooks\n             │\n             ├─ Dog's own methods  ◄─── open class additions land here\n             │\n             └─ included modules (reverse insertion order — searched AFTER class)\n                  module M2 included last → M2 searched first among includes\n                  │\n                  ▼\n                 Dog's superclass  (e.g., Animal)\n                  │\n                  ├─ Animal's prepended modules\n                  ├─ Animal's own methods\n                  └─ Animal's included modules\n                       │\n                       ▼\n                      ... (up the chain) ...\n                       │\n                       ▼\n                      Object  ──►  Kernel (included)  ──►  BasicObject\n                                    (puts, require, etc.)    (== ! object_id)\n\n─────────────────────────────────────────────────────────────────────────\ninclude vs extend vs prepend:\n\n  include M   → M's methods become INSTANCE methods, inserted AFTER class\n  extend  M   → M's methods become CLASS methods on the receiver\n  prepend M   → M's methods inserted BEFORE class's own methods (wrapping)\n\n─────────────────────────────────────────────────────────────────────────\nOPEN CLASS CONSEQUENCE:\n\n  class String          # reopens built-in String — not a new class\n    def palindrome?\n      self == self.reverse\n    end\n  end\n\n  \"racecar\".palindrome?   # => true  (ALL String instances affected globally)\n\n  This is monkey-patching. Refinements (using/refine) scope it to a file.\n\n─────────────────────────────────────────────────────────────────────────\nC# COMPARISON:\n  C#: classes are sealed by default; extension methods are non-invasive\n  Ruby: every class is open; all instances are affected immediately\n  Risk: two gems adding conflicting methods to String = silent collision",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 389,
+      "heading_context": "### Functions / Methods",
+      "confidence": "candidate",
+      "text": "# Methods (all methods return value of last expression)\ndef add(a, b)\n  a + b             # implicit return\nend\n\ndef add(a, b) = a + b   # one-liner (Ruby 3.0+)\n\n# Default arguments\ndef greet(name, greeting = \"Hello\")\n  \"#{greeting}, #{name}!\"\nend\n\n# Keyword arguments\ndef connect(host:, port: 8080)  # host: required, port: has default\nend\nconnect(host: \"localhost\")\nconnect(host: \"localhost\", port: 3000)\n\n# Splat arguments\ndef sum(*nums)\n  nums.sum\nend\nsum(1, 2, 3, 4)\n\n# Double splat (keyword args)\ndef f(**opts)\n  opts[:verbose]\nend\n\n# Blocks — the Ruby closure mechanism\ndef call_twice\n  yield if block_given?\n  yield if block_given?\nend\ncall_twice { puts \"hello\" }   # prints twice\n\n# Explicit block parameter\ndef transform(arr, &block)\n  arr.map(&block)\nend\ntransform([1,2,3]) { |x| x * 2 }\n\n# Proc and Lambda\nadd = Proc.new { |x, y| x + y }\nadd = proc { |x, y| x + y }\nadd = lambda { |x, y| x + y }\nadd = ->(x, y) { x + y }   # stabby lambda\n\n# Symbol to proc\n[1,2,3].map(&:to_s)         # [\"1\",\"2\",\"3\"]\n# equivalent to: [1,2,3].map { |x| x.to_s }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

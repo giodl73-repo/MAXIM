@@ -1,0 +1,315 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\17-SQL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## Type System Snapshot",
+      "headers": [
+        "Axis",
+        "SQL"
+      ],
+      "rows": [
+        [
+          "Binding",
+          "N/A — query planner decides execution"
+        ],
+        [
+          "Typing",
+          "Static (schema-defined), strong within a query"
+        ],
+        [
+          "Strength",
+          "Strong within types; casting required across types"
+        ],
+        [
+          "Type system",
+          "Nominal (by column definition)"
+        ],
+        [
+          "Type inference",
+          "Minimal — expressions infer from operands"
+        ],
+        [
+          "Memory model",
+          "Server-managed (MVCC, buffer pool, WAL)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 594,
+      "heading_context": "## T-SQL vs PostgreSQL Quick Differences",
+      "headers": [
+        "Feature",
+        "T-SQL (SQL Server)",
+        "PostgreSQL"
+      ],
+      "rows": [
+        [
+          "Top N",
+          "`SELECT TOP 10 *`",
+          "`LIMIT 10`"
+        ],
+        [
+          "String concat",
+          "`+`",
+          "`||` or `CONCAT()`"
+        ],
+        [
+          "If/else",
+          "`IF ... BEGIN END`",
+          "`DO $$ IF ... END IF; $$`"
+        ],
+        [
+          "Identity column",
+          "`IDENTITY(1,1)`",
+          "`SERIAL` or `GENERATED ALWAYS AS IDENTITY`"
+        ],
+        [
+          "String interpolation",
+          "None",
+          "None (use `format()` in PL/pgSQL)"
+        ],
+        [
+          "GUID",
+          "`UNIQUEIDENTIFIER`",
+          "`UUID`"
+        ],
+        [
+          "JSON",
+          "`JSON` (text)",
+          "`JSON` (text) + `JSONB` (binary, indexed)"
+        ],
+        [
+          "Regex",
+          "`LIKE` only",
+          "`~` (POSIX), `SIMILAR TO`, `regexp_match()`"
+        ],
+        [
+          "Array type",
+          "`TABLE` type",
+          "`integer[]`, `text[]`, etc."
+        ],
+        [
+          "CTE",
+          "`WITH cte AS (...)`",
+          "Same — both support recursive CTEs"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 613,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Approach",
+        "Use when",
+        "Trade-off"
+      ],
+      "rows": [
+        [
+          "CTE (`WITH`)",
+          "Query is complex; intermediate step needs a readable name; recursive traversal",
+          "Optimizer may inline it (not always materialized) — same performance as subquery in most engines"
+        ],
+        [
+          "Subquery (`SELECT ... FROM (SELECT ...)`)",
+          "Simple one-off derivation; no reuse needed",
+          "Can be harder to read when nested 3+ levels deep"
+        ],
+        [
+          "Temp table (`CREATE TABLE #t` / `CREATE TEMP TABLE`)",
+          "Result set is large and reused multiple times in the same session; need an index on the intermediate result",
+          "Explicit materialization — always written to disk/memory; can add indexes; ideal for multi-step ETL"
+        ],
+        [
+          "CTE with `MATERIALIZED` hint (PG)",
+          "Force CTE to be computed once even if optimizer would inline it",
+          "Use when CTE has side effects or when re-execution is expensive"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 622,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Pattern",
+        "Use when",
+        "NULL behavior"
+      ],
+      "rows": [
+        [
+          "`WHERE id IN (SELECT id FROM b)`",
+          "Small, static list; subquery has no NULLs",
+          "Dangerous if subquery can return NULL — NOT IN becomes empty"
+        ],
+        [
+          "`WHERE EXISTS (SELECT 1 FROM b WHERE b.id = a.id)`",
+          "Correlated existence check; subquery may return NULLs",
+          "Safe — EXISTS returns TRUE/FALSE, not UNKNOWN"
+        ],
+        [
+          "`INNER JOIN`",
+          "You also need columns from the joined table",
+          "Produces duplicates if b has multiple matches per a.id — use DISTINCT or EXISTS instead"
+        ],
+        [
+          "`LEFT JOIN ... WHERE b.id IS NULL`",
+          "Anti-join (rows in a NOT in b)",
+          "Explicit; works reliably; common pattern"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 633,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Approach",
+        "Use when",
+        "What you get"
+      ],
+      "rows": [
+        [
+          "`GROUP BY` + aggregate",
+          "You want one summary row per group",
+          "Collapses rows — you lose individual row data"
+        ],
+        [
+          "Window function `OVER (PARTITION BY ...)`",
+          "You want the aggregate value AND the individual row",
+          "Retains all rows; aggregate is a new column alongside originals"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 642,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Operator",
+        "Behavior",
+        "Use when"
+      ],
+      "rows": [
+        [
+          "`UNION`",
+          "Deduplicates rows (implicit DISTINCT)",
+          "You genuinely need unique rows across two sets; accept sort/hash cost"
+        ],
+        [
+          "`UNION ALL`",
+          "Returns all rows including duplicates",
+          "Default — use unless dedup is required; significantly faster"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 651,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Clause",
+        "Filters",
+        "Runs after",
+        "Use when"
+      ],
+      "rows": [
+        [
+          "`WHERE`",
+          "Individual rows",
+          "Row scan (before GROUP BY)",
+          "Filtering on base column values; can use indexes"
+        ],
+        [
+          "`HAVING`",
+          "Groups / aggregates",
+          "GROUP BY + aggregation",
+          "Filtering on aggregate results (`HAVING COUNT(*) > 5`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 660,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Index type",
+        "Use when",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "B-tree (default)",
+          "Equality, range, ORDER BY, LIKE 'prefix%'",
+          "Default in every DB; handles most cases"
+        ],
+        [
+          "Hash index (PG)",
+          "Equality-only lookups; no range queries needed",
+          "Faster for pure equality; no range support; smaller"
+        ],
+        [
+          "Partial index",
+          "Only a subset of rows is queried (e.g., `WHERE status = 'active'`)",
+          "Much smaller index; high selectivity gains"
+        ],
+        [
+          "Covering index (`INCLUDE`)",
+          "Query reads only indexed columns — avoids heap fetch",
+          "Index-only scans; reduces I/O significantly for frequent queries"
+        ],
+        [
+          "GIN (PG)",
+          "Full-text search, JSONB containment (`@>`), array membership",
+          "Inverted index — multiple keys per row"
+        ],
+        [
+          "GiST (PG)",
+          "Geometric types, range types, full-text (tsvector)",
+          "Generalized search tree"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 721,
+      "heading_context": "## Bridge: SQL → Power Query M",
+      "headers": [
+        "Dimension",
+        "SQL",
+        "Power Query M"
+      ],
+      "rows": [
+        [
+          "Evaluation",
+          "Set-based; optimizer chooses physical plan",
+          "Lazy functional pipeline; evaluated top-to-bottom"
+        ],
+        [
+          "State",
+          "Stateless queries; transactions handle state",
+          "Immutable steps — each `let` binding is a new table"
+        ],
+        [
+          "Extensibility",
+          "UDFs, stored procedures",
+          "Custom functions, `List.Accumulate`"
+        ],
+        [
+          "Streaming",
+          "Cursor / row-by-row in procedural",
+          "M folds steps into source query pushdown where possible"
+        ],
+        [
+          "Null handling",
+          "Three-valued logic (UNKNOWN)",
+          "`null` propagates; use `Value.ReplaceErrorWith`"
+        ]
+      ]
+    }
+  ]
+}

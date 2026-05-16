@@ -1,0 +1,268 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\03-CPP.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## Type System Snapshot",
+      "headers": [
+        "Axis",
+        "C++"
+      ],
+      "rows": [
+        [
+          "Binding",
+          "Early (non-virtual) + vtable (virtual)"
+        ],
+        [
+          "Typing",
+          "Static"
+        ],
+        [
+          "Strength",
+          "Weak-ish — many implicit conversions (narrowing, pointer coercions)"
+        ],
+        [
+          "Type system",
+          "Nominal; templates add structural-ish behavior"
+        ],
+        [
+          "Type inference",
+          "Partial — `auto`, `decltype`, template deduction"
+        ],
+        [
+          "Memory model",
+          "RAII (destructors) + smart pointers + manual fallback"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 418,
+      "heading_context": "## Bridge: C++ Templates → C# Generics",
+      "headers": [
+        "Aspect",
+        "C# Generics",
+        "C++ Templates (pre-C++20)",
+        "C++20 Concepts"
+      ],
+      "rows": [
+        [
+          "Constraint enforcement",
+          "Definition time",
+          "Instantiation time",
+          "Definition time"
+        ],
+        [
+          "Error location",
+          "Call site, readable",
+          "Instantiation site, cryptic",
+          "Call site, readable"
+        ],
+        [
+          "Mechanism",
+          "Interface/delegate matching",
+          "Duck typing — any type that compiles",
+          "Named constraints (`concept`)"
+        ],
+        [
+          "Reification",
+          "One IL method, boxing for value types",
+          "Separate machine code per type (monomorphization)",
+          "Same as templates — separate code per type"
+        ],
+        [
+          "Analog to `where T : IComparable<T>`",
+          "Native syntax",
+          "Write SFINAE (arcane)",
+          "`requires std::totally_ordered<T>`"
+        ],
+        [
+          "Runtime cost",
+          "Possible boxing overhead",
+          "Zero — fully inlined/specialized",
+          "Zero"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 433,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Decision",
+        "Use When",
+        "Avoid When / Watch Out For"
+      ],
+      "rows": [
+        [
+          "**`std::unique_ptr<T>`**",
+          "Single, clear owner; ownership transfers via move; no sharing needed",
+          "Sharing across threads or callbacks that outlive the owner; use `shared_ptr` then"
+        ],
+        [
+          "**`std::shared_ptr<T>`**",
+          "Shared ownership; lifetime uncertain; multiple holders",
+          "Default choice \"because it's safe\" — ref-counting has cost; prefer `unique_ptr` when ownership is clear"
+        ],
+        [
+          "**Raw pointer `T*`**",
+          "Non-owning observer (you know owner outlives you); C interop; performance-critical inner loops",
+          "Owning a heap allocation — use smart pointers; uninitialized raw pointers = UB"
+        ],
+        [
+          "**`std::vector<T>`**",
+          "Dynamic-size contiguous storage; most collections",
+          "When size is truly fixed at compile time (`std::array` is better); when you need non-contiguous storage"
+        ],
+        [
+          "**`std::array<T, N>`**",
+          "Fixed-size stack-allocated array; know size at compile time",
+          "When size varies; prefer over raw arrays — has `.size()`, range-for, no decay"
+        ],
+        [
+          "**`std::span<T>`**",
+          "Non-owning view over contiguous data (vector, array, raw array); function parameter that shouldn't copy",
+          "Storing — span does not own; dangling span if underlying container is destroyed"
+        ],
+        [
+          "**Virtual dispatch**",
+          "Runtime polymorphism; set of types not known at compile time; plugin/extension points",
+          "Performance-critical hot paths (vtable = indirect call + cache miss); when all types are known at compile time"
+        ],
+        [
+          "**Templates**",
+          "Compile-time polymorphism; all types known at compile time; zero-overhead abstractions",
+          "When binary size matters (each instantiation = separate code); deeply recursive templates (compile time cost)"
+        ],
+        [
+          "**`std::variant<A,B,C>` + `std::visit`**",
+          "Closed set of types known at compile time; want exhaustive pattern matching; value semantics preferred",
+          "Open-ended extension (use virtual then); when types share no common behavior"
+        ],
+        [
+          "**RAII via destructor**",
+          "The default — any resource with clear ownership (file, lock, connection, memory)",
+          "When cleanup order across objects is complex (carefully consider destruction order)"
+        ],
+        [
+          "**`unique_ptr` custom deleter**",
+          "Non-memory resources (file descriptors, C library handles) needing RAII wrapping",
+          "When you need the deleter to be stateful and shared — `shared_ptr` custom deleter instead"
+        ],
+        [
+          "**`std::string`**",
+          "Owning, mutable string data; building/modifying strings",
+          "Passing read-only string to a function — use `std::string_view` to avoid copies"
+        ],
+        [
+          "**`std::string_view`**",
+          "Non-owning read-only view of string data; function parameters; parsing",
+          "Storing — does not own memory; dangling view if source string is destroyed or reallocated"
+        ],
+        [
+          "**C++17**",
+          "Conservative target; widely supported (GCC 7+, Clang 5+, MSVC 2017+); `if constexpr`, `std::optional`, structured bindings",
+          "Cutting-edge features — use C++20/23 only if your toolchain guarantees it"
+        ],
+        [
+          "**C++20**",
+          "Modern baseline for new projects; Concepts, `std::span`, `std::format`, coroutines",
+          "Embedded or constrained toolchains still on C++14/17"
+        ],
+        [
+          "**C++23**",
+          "`std::expected`, `std::print`, `std::flat_map`; opt in feature by feature",
+          "Broad deployment — compiler support still catching up as of 2025"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 456,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "gcc / clang / MSVC",
+          "Compilers"
+        ],
+        [
+          "CMake",
+          "Build system (the default)"
+        ],
+        [
+          "Conan / vcpkg",
+          "Package managers"
+        ],
+        [
+          "AddressSanitizer / UBSan",
+          "Sanitizers (build with -fsanitize=address)"
+        ],
+        [
+          "clang-tidy / cppcheck",
+          "Static analysis"
+        ],
+        [
+          "Catch2 / GoogleTest",
+          "Testing"
+        ],
+        [
+          "Abseil / Boost",
+          "Extended standard library"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 470,
+      "heading_context": "## Gotchas from C#",
+      "headers": [
+        "C# behavior",
+        "C++ behavior",
+        "Consequence"
+      ],
+      "rows": [
+        [
+          "`new` returns managed object",
+          "`new` returns raw pointer (memory leak if not deleted)",
+          "Use `make_unique`/`make_shared`"
+        ],
+        [
+          "`foreach` is safe",
+          "`for (auto x : v)` — modifying `v` during iteration = UB",
+          "Never modify while iterating"
+        ],
+        [
+          "`string` is immutable",
+          "`std::string` is mutable",
+          "Thread safety differs"
+        ],
+        [
+          "Virtual by default",
+          "Virtual must be opted in with `virtual`",
+          "Forgetting `virtual` = wrong method called"
+        ],
+        [
+          "Interfaces are clean",
+          "Multiple inheritance creates diamond problem",
+          "Understand virtual inheritance"
+        ],
+        [
+          "Integer overflow is defined",
+          "Signed overflow is **undefined behavior**",
+          "Use unsigned or check first"
+        ],
+        [
+          "`null` is safe to assign",
+          "Uninitialized pointer is UB to read",
+          "Always initialize: `T* p = nullptr;`"
+        ]
+      ]
+    }
+  ]
+}

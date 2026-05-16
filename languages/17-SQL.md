@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:sql
+kind: guide
+module: languages
+section: languages
+title: Language: SQL
+status: source-custody
+source_custody: partial
+current_path: languages/17-SQL.md
+canonical_path: languages/17-SQL.md
+backsource_ids: [proof-backfill:languages:17-sql, git-history:languages:17-sql]
+concepts: [sql]
+root_concepts: [sql]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language: SQL
 
 > Declarative relational data manipulation — set-based logic, relational algebra in practice, three-valued logic (NULL), and window functions. You tell it WHAT, not HOW.

@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\03-CPP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 43,
+      "heading_context": "## Conceptual Map",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│                    C++ COMPLEXITY AXES                              │\n└─────────────────────────────────────────────────────────────────────┘\n\nAXIS 1 — OOP LAYER (runtime polymorphism)\n─────────────────────────────────────────\n  Base class                   Derived class\n  ┌──────────────────┐         ┌────────────────────────┐\n  │ class Shape {    │◄────────│ class Circle : Shape { │\n  │   virtual draw();│         │   void draw() override │\n  │   virtual ~Shape │         │ };                     │\n  │ }                │         └────────────────────────┘\n  └────────┬─────────┘\n           │ vtable pointer (one per object instance)\n           ▼\n  ┌────────────────────────────────────────────────────┐\n  │  vtable for Circle — one per concrete type         │\n  │  [0] → Circle::draw()     ~8 bytes per object      │\n  │  [1] → Circle::~Circle()  virtual call = ptr chase │\n  └────────────────────────────────────────────────────┘\n\nAXIS 2 — TEMPLATE LAYER (compile-time polymorphism)\n────────────────────────────────────────────────────\n  template<typename T>          Instantiation at compile time:\n  T max(T a, T b) {             max<int>   → separate machine code\n    return a > b ? a : b;       max<double> → separate machine code\n  }                             Zero runtime overhead — no vtable, no boxing\n                                Code bloat tradeoff: N types = N copies\n\n  Pre-C++20: duck-typed (no constraint enforcement until instantiation error)\n  C++20 Concepts: explicit constraints, checked at point of call\n\nAXIS 3 — RAII LAYER (deterministic resource cleanup)\n─────────────────────────────────────────────────────\n  Constructor acquires          Destructor releases\n  ┌─────────────────────┐       ┌─────────────────────┐\n  │ MyFile(path) {      │       │ ~MyFile() {         │\n  │   fd = open(path);  │  ←──→ │   close(fd);        │\n  │ }                   │       │ }                   │\n  └─────────────────────┘       └─────────────────────┘\n         │                              ▲\n         │  object lifetime             │\n         └──────────────────────────────┘\n  Works through exceptions — destructor called on stack unwind\n  C# parallel: IDisposable + using() is RAII with manual trigger;\n               C++ destructor fires automatically at scope exit\n\nAXIS 4 — VALUE CATEGORIES (move semantics)\n───────────────────────────────────────────\n\n  Every expression has a value category:\n\n  lvalue — has a persistent address; can appear on left of =\n  ┌─────────────────────────────────────┐\n  │  int x = 5;    x is an lvalue       │\n  │  std::string s = \"hello\";           │\n  │  s is an lvalue (has address &s)    │\n  └─────────────────────────────────────┘\n\n  rvalue — temporary; no persistent address; right side of =\n  ┌─────────────────────────────────────┐\n  │  5           — integer literal      │\n  │  std::string(\"hello\") — temporary   │\n  │  getStr()    — return value         │\n  └─────────────────────────────────────┘\n\n  move — transfer ownership of rvalue resource (no copy)\n  ┌──────────────────────────────────────────────────────┐\n  │  std::vector<int> a = {1,2,3};                       │\n  │  std::vector<int> b = std::move(a);  // a now empty  │\n  │  // O(1) — no element copy; just pointer swap        │\n  └──────────────────────────────────────────────────────┘\n\n  T&    — lvalue reference (alias to existing object)\n  T&&   — rvalue reference (binds to temporaries; enables move)\n  const T& — binds to both lvalues and rvalues (universal const ref)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "### Equality & Comparison",
+      "confidence": "candidate",
+      "text": "x == y                  // value equality (overloadable)\nx != y\nx < y  x > y  x <= y  x >= y\nx <=> y                 // spaceship (C++20) — returns std::strong_ordering\n\n// Pointer equality\np == q                  // same address\n*p == *q                // pointed-to values\n\n// User-defined equality\nstruct Point {\n    int x, y;\n    bool operator==(const Point& o) const { return x==o.x && y==o.y; }\n    auto operator<=>(const Point& o) const = default; // C++20: all comparisons\n};\n\n// Type traits (not runtime equality)\nstd::is_same_v<int, int32_t>   // true (on most platforms)\nstd::is_same_v<int, long>      // likely false",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 220,
+      "heading_context": "### Control Flow",
+      "confidence": "candidate",
+      "text": "if (cond) { }\nif (int n = getValue(); n > 0) { }   // init-if (C++17)\n\n// Ternary\nauto x = (a > b) ? a : b;\n\n// Switch\nswitch (x) {\n    case 1: break;\n    [[fallthrough]];        // explicit fallthrough (C++17)\n    default: break;\n}\n\n// Range-based for (C++11)\nfor (const auto& elem : container) { }\nfor (auto& [key, val] : map) { }     // structured bindings\n\n// if constexpr (compile-time branch)\nif constexpr (std::is_integral_v<T>) {\n    // only compiled when T is integral\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 245,
+      "heading_context": "### Strings & Characters",
+      "confidence": "candidate",
+      "text": "#include <string>\nstd::string s = \"hello\";\ns += \" world\";              // mutable\ns.size();  s.empty();\ns.substr(1, 3);\ns.find(\"lo\");\n\n// String view (non-owning reference)\nstd::string_view sv = s;    // no copy\n\n// Formatting (C++20)\n#include <format>\nauto msg = std::format(\"Hello, {}! Age: {}\", name, age);\n\n// Raw string literal\nauto raw = R\"(no \\n \\t escapes here)\";\nauto delimited = R\"---(contains ) brackets)---\";\n\n// Char types\nchar    c = 'A';            // typically 1 byte\nwchar_t w = L'A';           // wide char (platform-dependent)\nchar8_t u8 = u8'A';        // UTF-8 code unit (C++20)\nchar16_t u16 = u'A';       // UTF-16 code unit\nchar32_t u32 = U'A';       // UTF-32 code point",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 320,
+      "heading_context": "### Error Handling",
+      "confidence": "candidate",
+      "text": "#include <stdexcept>\n\n// Exceptions\ntry {\n    throw std::runtime_error(\"something went wrong\");\n} catch (const std::invalid_argument& e) {\n    std::cerr << e.what();\n} catch (const std::exception& e) {\n    std::cerr << e.what();\n} catch (...) {\n    // catch all\n}\n\n// std::expected (C++23) — Result-like type\n#include <expected>\nstd::expected<int, std::string> divide(int a, int b) {\n    if (b == 0) return std::unexpected(\"division by zero\");\n    return a / b;\n}\nauto result = divide(10, 2);\nif (result) { use(*result); }\nelse { log(result.error()); }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 351,
+      "heading_context": "## What Makes It Distinct",
+      "confidence": "candidate",
+      "text": "3. **Undefined behavior** — C++'s major footgun. Signed overflow, out-of-bounds access, null deref, use-after-move — the compiler assumes these don't happen and optimizes accordingly.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 359,
+      "heading_context": "## Bridge: C++ Templates → C# Generics",
+      "confidence": "candidate",
+      "text": "You know C# generics deeply. C++ templates look similar but operate on a fundamentally different model. The key distinction: **C# generics are constrained at definition time; C++ templates are duck-typed at instantiation time.**",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 380,
+      "heading_context": "### The Same Constraint, Three Ways",
+      "confidence": "candidate",
+      "text": "**C++ pre-C++20 — no constraint; error appears at instantiation, not definition:**",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 393,
+      "heading_context": "### The Same Constraint, Three Ways",
+      "confidence": "candidate",
+      "text": "// Define a concept (like a C# interface constraint)\ntemplate<typename T>\nconcept Addable = requires(T a, T b) {\n    { a + b } -> std::convertible_to<T>;   // T must support +, result convertible to T\n};\n\n// Apply it — error fires at call site with a readable message\ntemplate<Addable T>\nT add(T a, T b) {\n    return a + b;\n}\n\n// Shorthand with standard library concepts\ntemplate<std::integral T>           // std::integral is a built-in concept\nT addInts(T a, T b) { return a + b; }\n\n// Or with requires clause inline\ntemplate<typename T>\n    requires std::floating_point<T> || std::integral<T>\nT addNumeric(T a, T b) { return a + b; }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 427,
+      "heading_context": "### Mental Model Comparison",
+      "confidence": "candidate",
+      "text": "> **Key insight**: C++ templates are more powerful than C# generics (they can constrain on arbitrary syntactic properties, not just interface membership), but pre-C++20 the error messages are famously terrible. C++20 Concepts close most of that gap. If you're writing modern C++, use Concepts wherever you'd use `where` in C#.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 487,
+      "heading_context": "## When to Choose C++",
+      "confidence": "candidate",
+      "text": "- Interop with existing C++ libraries (Qt, OpenCV, TensorFlow C++ API)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 490,
+      "heading_context": "## When to Choose C++",
+      "confidence": "candidate",
+      "text": "**Not for**: web services, business applications, rapid prototyping. Use Rust if you want C++-level performance with memory safety.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

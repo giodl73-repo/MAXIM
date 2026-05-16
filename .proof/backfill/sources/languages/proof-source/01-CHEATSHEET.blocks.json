@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\01-CHEATSHEET.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 25,
+      "heading_context": "# Universal Language Cheat Sheet",
+      "confidence": "candidate",
+      "text": "> [C](#c-1) · [C++](#c-2) · [Java](#java-1) · [C# (Home Base)](#c-home-base) · [Python](#python-1) · [JavaScript](#javascript-1) · [TypeScript](#typescript-1)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 28,
+      "heading_context": "# Universal Language Cheat Sheet",
+      "confidence": "candidate",
+      "text": "> [Rust](#rust-1) · [Go](#go-1) · [Haskell](#haskell-1) · [F#](#f-1) · [Kotlin](#kotlin-1) · [Swift](#swift-1) · [Scala](#scala-1) · [Ruby](#ruby-1) · [SQL](#sql-1)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 41,
+      "heading_context": "## Part A — Comparison Tables",
+      "confidence": "candidate",
+      "text": "### 1. Variable Declaration",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 64,
+      "heading_context": "### 1. Variable Declaration",
+      "confidence": "candidate",
+      "text": "### 2. Equality & Comparison",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 87,
+      "heading_context": "### 2. Equality & Comparison",
+      "confidence": "candidate",
+      "text": "### 3. Logical & Bitwise Operators",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 110,
+      "heading_context": "### 3. Logical & Bitwise Operators",
+      "confidence": "candidate",
+      "text": "### 4. Delimiter Semantics",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 137,
+      "heading_context": "### 4. Delimiter Semantics",
+      "confidence": "candidate",
+      "text": "### 5. Collection Literals",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 160,
+      "heading_context": "### 5. Collection Literals",
+      "confidence": "candidate",
+      "text": "### 6. If / Conditional / Pattern Match",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 187,
+      "heading_context": "### 6. If / Conditional / Pattern Match",
+      "confidence": "candidate",
+      "text": "### 7. String & Character Rules",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 215,
+      "heading_context": "### 7. String & Character Rules",
+      "confidence": "candidate",
+      "text": "### 8. Null / None / Option",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 242,
+      "heading_context": "### 8. Null / None / Option",
+      "confidence": "candidate",
+      "text": "### 9. Function Definition",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 269,
+      "heading_context": "### 9. Function Definition",
+      "confidence": "candidate",
+      "text": "### 10. Error Handling",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 329,
+      "heading_context": "### C++",
+      "confidence": "candidate",
+      "text": "BINDING  early + vtable (virtual)   TYPING  static, weak-ish\nMEMORY   RAII + manual              NULL    nullptr\n\nDECLARE  int x = 5;  auto x = 5;   CONST   const int x = 5; constexpr\nEQUAL    == (overloadable)          ID-EQ   == on raw pointers\nNOT-EQ   !=                         COMPARE < > <= >= <=>  (spaceship C++20)\nLOGICAL  && || !     (also: and or not)    BITWISE & | ^ ~ << >>\n\nARRAY    std::array<int,3>{1,2,3}   VECTOR  std::vector<int>{1,2,3}\nMAP      std::map<K,V>{{k,v}}       SET     std::set<T>{v}\nTUPLE    std::make_tuple(a,b)       PAIR    std::make_pair(a,b)\n\nIF       if (cond) { }              TERNARY cond ? t : f\nIF-INIT  if (auto p = f(); p) { }  CONSTIF if constexpr (cond) { }\n\nSTRING   std::string                CHAR    char / char32_t\nINTERP   std::format(\"{}\", x)  (C++20)     RAW    R\"(raw string)\"\nLITERAL  \"hello\"s  (std::string literal)\n\nNULL     nullptr                    OPTIONAL std::optional<T>\n\nFUNC     int f(int x) { return x; }\nLAMBDA   [=](int x) { return x; }  CLOSURE [&](int x){ }\nGENERIC  template<typename T> T f(T x) { return x; }\nERROR    exceptions  try{} catch(std::exception& e){}\n         or: std::expected<T,E>  (C++23)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 561,
+      "heading_context": "### Rust",
+      "confidence": "candidate",
+      "text": "BINDING  early (static) + dyn (late)   TYPING  static, strong, nominal\nMEMORY   ownership (no GC)             NULL    (none — use Option<T>)\n\nDECLARE  let x = 5;  (immutable)       MUT     let mut x = 5;\nTYPE     let x: i32 = 5;               CONST   const X: i32 = 5;\nSTATIC   static X: i32 = 5;           SHADOW  let x = 5; let x = x + 1; (rebind)\n\nEQUAL    ==  (requires PartialEq trait) ID-EQ  std::ptr::eq(a, b)\nNOT-EQ   !=                             COMPARE PartialOrd: < > <= >=\nLOGICAL  && || !                        BITWISE & | ^ ! << >>\n\nARRAY    [1, 2, 3]  (fixed-size)        VEC     vec![1, 2, 3]\nSLICE    &[1, 2, 3]  (reference)        HASH    HashMap::from([(\"k\", 1)])\nTUPLE    (1, 2, 3)   access: t.0 t.1   STRUCT  struct Point { x: i32, y: i32 }\nENUM     enum Dir { North, South, East(i32) }\n\nIF       if cond { }  (no parens — compiler warns)   IF-EXPR let x = if c { a } else { b };\nIF-LET   if let Some(v) = opt { }      WHILE-L while let Some(v) = iter.next() { }\nMATCH    match x { pat => expr, _ => default }\nGUARD    match x { n if n > 0 => ..., }\n\nSTRING   &str  (borrowed slice, stack/static)   STRING  String  (owned, heap)\nLITERAL  \"hello\"  is &str               OWN    String::from(\"hello\")  or  \"hello\".to_string()\nINTERP   format!(\"{x}\")  format!(\"{x:.2}\")    RAW    r#\"no \\escape\"#\nCHAR     char  (4 bytes — Unicode scalar value, NOT byte)\nBYTE     b'A'  = u8 = 65\n\nNULL     (no null)                      OPTION  Option<T> = Some(v) | None\nUNWRAP   opt.unwrap()  (panic if None)  SAFE    opt.unwrap_or(default)\nCHAIN    opt.map(|v| v+1).unwrap_or(0)  PROP   result?  (propagate Err/None)\n\nFUNC     fn f(x: i32) -> i32 { x }    SHORT  fn f(x: i32) -> i32 { return x; }\nCLOSURE  |x| x                          MOVE   move |x| x  (captures by value)\nTRAIT    trait Foo { fn bar(&self); }   IMPL   impl Foo for MyType { }\nGENERIC  fn f<T: Display>(x: T) { println!(\"{x}\"); }\nASYNC    async fn f() -> i32 { ... }   AWAIT  let v = future.await;\nERROR    Result<T, E> = Ok(v) | Err(e)\n         fn f() -> Result<T, Box<dyn Error>> { let v = might_fail()?; Ok(v) }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 919,
+      "heading_context": "### SQL",
+      "confidence": "candidate",
+      "text": "PARADIGM declarative; set-based; relational algebra\nBINDING  (not applicable — query optimizer decides)\nTYPES    static (schema-defined); strong within query\n\nTYPES    INT  BIGINT  DECIMAL(p,s)  FLOAT  BOOLEAN  VARCHAR(n)  TEXT  DATE  TIMESTAMP  UUID\nNULL     NULL  (three-valued logic: TRUE / FALSE / UNKNOWN)\n         NULL = NULL  →  UNKNOWN  (use IS NULL, not = NULL)\n\nEQUAL    =  (not ==)                          NOT-EQ  <>  or  !=\nCOMPARE  < > <= >=                            NULL-EQ IS NULL  /  IS NOT NULL\nLOGICAL  AND  OR  NOT                         IN      x IN (1,2,3)\nBETWEEN  x BETWEEN 1 AND 10  (inclusive)      LIKE    s LIKE 'foo%'\nCOALESCE COALESCE(x, default)                 NULL-IF NULLIF(x, 0)  (returns NULL if equal)\n\nQUERY    SELECT cols FROM table WHERE cond GROUP BY col HAVING cond ORDER BY col LIMIT n\nJOIN     INNER JOIN  /  LEFT JOIN  /  RIGHT JOIN  /  FULL JOIN  /  CROSS JOIN\nSUBQ     SELECT * FROM (SELECT ...) sub\nCTE      WITH cte AS (SELECT ...) SELECT * FROM cte\nWINDOW   ROW_NUMBER() OVER (PARTITION BY x ORDER BY y)\nUNION    UNION ALL  (keep dupes)  UNION  (dedupe)\n\nINSERT   INSERT INTO t (cols) VALUES (vals)   MULTI   INSERT INTO t SELECT ...\nUPDATE   UPDATE t SET col=val WHERE cond\nDELETE   DELETE FROM t WHERE cond             UPSERT  INSERT ... ON CONFLICT DO UPDATE\n\nTYPE-C   CAST(x AS INT)  or  x::INT  (PostgreSQL)\nCASE     CASE WHEN cond THEN v WHEN cond2 THEN v2 ELSE default END\nSTRING   UPPER(s)  LOWER(s)  LENGTH(s)  SUBSTRING(s, start, len)  TRIM(s)\nCONCAT   s1 || s2  (ANSI)  or  CONCAT(s1, s2)  (MySQL/SQL Server)\nDATE     NOW()  CURRENT_DATE  DATEADD  DATEDIFF  (dialect varies!)\nAGGR     COUNT(*)  SUM(x)  AVG(x)  MAX(x)  MIN(x)  STRING_AGG(x, ',')\n\nINDEX    CREATE INDEX idx ON t(col)\nEXPLAIN  EXPLAIN (ANALYZE, BUFFERS) SELECT ...  (PostgreSQL)\n\nTRANS    BEGIN;  COMMIT;  ROLLBACK;\nISOLATION READ COMMITTED (default) / REPEATABLE READ / SERIALIZABLE",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

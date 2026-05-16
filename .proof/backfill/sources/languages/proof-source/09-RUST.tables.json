@@ -1,0 +1,264 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\09-RUST.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## Type System Snapshot",
+      "headers": [
+        "Axis",
+        "Rust"
+      ],
+      "rows": [
+        [
+          "Binding",
+          "Early (static) default; `dyn Trait` for late binding"
+        ],
+        [
+          "Typing",
+          "Static"
+        ],
+        [
+          "Strength",
+          "Strong — no implicit conversions, ever"
+        ],
+        [
+          "Type system",
+          "Nominal + trait-based polymorphism"
+        ],
+        [
+          "Type inference",
+          "Partial — local bidirectional, Hindley-Milner-inspired"
+        ],
+        [
+          "Memory model",
+          "**Ownership** — compile-time, zero GC overhead"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 568,
+      "heading_context": "## C# Bridge: Exception Propagation vs `Result<T,E>` + `?`",
+      "headers": [
+        "Aspect",
+        "C# exceptions",
+        "Rust `Result` + `?`"
+      ],
+      "rows": [
+        [
+          "Error visibility",
+          "Hidden — not in signature",
+          "Explicit — in return type"
+        ],
+        [
+          "Propagation cost",
+          "Stack unwinding (runtime)",
+          "Zero — just a return"
+        ],
+        [
+          "Unhandled errors",
+          "Uncaught exception = crash at runtime",
+          "Compiler error — must handle"
+        ],
+        [
+          "Error composition",
+          "`catch (A\\|B)` or multi-catch",
+          "Enum variants, `map_err`, `anyhow`"
+        ],
+        [
+          "At call site",
+          "`try { }` or ignore (dangerous)",
+          "`?` to propagate, `match` to handle"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 592,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "cargo",
+          "Build system + package manager (excellent)"
+        ],
+        [
+          "rustfmt",
+          "Formatter"
+        ],
+        [
+          "clippy",
+          "Linter"
+        ],
+        [
+          "rust-analyzer",
+          "LSP (IDE integration)"
+        ],
+        [
+          "tokio / async-std",
+          "Async runtimes"
+        ],
+        [
+          "serde",
+          "Serialization/deserialization"
+        ],
+        [
+          "reqwest / axum",
+          "HTTP"
+        ],
+        [
+          "rayon",
+          "Data parallelism"
+        ],
+        [
+          "anyhow / thiserror",
+          "Error handling"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 608,
+      "heading_context": "## Gotchas from C#",
+      "headers": [
+        "C# behavior",
+        "Rust behavior",
+        "Consequence"
+      ],
+      "rows": [
+        [
+          "Variables are mutable by default",
+          "Variables are **immutable** by default",
+          "Add `mut` or compiler error"
+        ],
+        [
+          "`string` is managed, always safe",
+          "`&str` vs `String` are different types",
+          "Learn the difference early"
+        ],
+        [
+          "`null` is nullable",
+          "No null — use `Option<T>`",
+          "Forces explicit handling"
+        ],
+        [
+          "`foreach` borrows the collection",
+          "`for x in v` **moves** v by default",
+          "Use `for x in &v` to borrow"
+        ],
+        [
+          "Generic `List<T>` works at runtime",
+          "Generics monomorphize — larger binary",
+          "Trade-off: performance vs size"
+        ],
+        [
+          "`async Task<T>` runs on ThreadPool",
+          "`async fn` returns a Future — must be driven by a runtime",
+          "Choose tokio/async-std"
+        ],
+        [
+          "`try/catch` exceptions",
+          "`Result<T,E>` + `?` operator",
+          "Different mental model but explicit"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 622,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Decision",
+        "Use X",
+        "When Y"
+      ],
+      "rows": [
+        [
+          "**`&T` vs `&mut T` vs `T`**",
+          "`&T`",
+          "Read-only access; function doesn't need to modify or own"
+        ],
+        [
+          "",
+          "`&mut T`",
+          "Need to mutate in place; caller retains ownership"
+        ],
+        [
+          "",
+          "`T` (owned)",
+          "Function needs to store, return, or consume the value"
+        ],
+        [
+          "**`Box<T>` vs `Rc<T>` vs `Arc<T>`**",
+          "`Box<T>`",
+          "Single owner on heap; recursive types; trait objects"
+        ],
+        [
+          "",
+          "`Rc<T>`",
+          "Shared ownership within a single thread (graph, tree with back-refs)"
+        ],
+        [
+          "",
+          "`Arc<T>`",
+          "Shared ownership across threads; pair with `Mutex<T>` for mutation"
+        ],
+        [
+          "**`impl Trait` vs `dyn Trait`**",
+          "`impl Trait`",
+          "Static dispatch — monomorphized at compile time; zero overhead; preferred"
+        ],
+        [
+          "",
+          "`dyn Trait`",
+          "Dynamic dispatch — heterogeneous collections; plugin patterns; runtime polymorphism"
+        ],
+        [
+          "**`String` vs `&str`**",
+          "`&str`",
+          "Function parameter that just reads a string; string literals"
+        ],
+        [
+          "",
+          "`String`",
+          "Owned, growable string; return value; storing in structs"
+        ],
+        [
+          "**`unwrap()` vs `?` vs `match` on Result**",
+          "`unwrap()`",
+          "Tests, examples, or genuinely impossible error (document why)"
+        ],
+        [
+          "",
+          "`?`",
+          "Error propagation — caller should handle; most production code"
+        ],
+        [
+          "",
+          "`match`",
+          "Need to handle both `Ok` and `Err` differently at this call site"
+        ],
+        [
+          "**`Vec<T>` vs `[T; N]` vs `&[T]`**",
+          "`Vec<T>`",
+          "Dynamic size; building collections; owning a list"
+        ],
+        [
+          "",
+          "`[T; N]`",
+          "Fixed size known at compile time; stack allocation preferred"
+        ],
+        [
+          "",
+          "`&[T]`",
+          "Function parameter accepting any contiguous sequence (array or Vec)"
+        ]
+      ]
+    }
+  ]
+}

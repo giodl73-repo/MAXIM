@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\07-JAVASCRIPT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 43,
+      "heading_context": "## JavaScript Runtime Landscape",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                        JAVASCRIPT RUNTIME (V8 + Platform)                   │\n│                                                                             │\n│  ┌──────────────────┐       ┌──────────────────────────────────────────┐    │\n│  │   CALL STACK     │       │   WEB APIs (browser) / Node.js C++ APIs  │    │\n│  │  (synchronous)   │ ───── │                                          │    │\n│  │                  │ offld │  setTimeout(cb, t)   ──────────────────┐ │    │\n│  │  main()          │       │  fetch(url)           HTTP/network      │ │   │\n│  │  ├─ foo()        │       │  readFile(path, cb)   libuv I/O         │ │   │\n│  │  │   └─ bar()    │       │  addEventListener()   DOM events        │ │   │\n│  │  │       ...     │       │                                         │ │   │\n│  │  └─ [returns]    │       │  When work completes, push cb ──────────┘ │   │\n│  │                  │       │  to the appropriate queue                 │   │\n│  └──────────────────┘       └──────────────────────────────────────────┘    │\n│           ▲                               │                                 │\n│           │                               ▼                                 │\n│           │          ┌────────────────────────────────────────────┐         │\n│           │          │           QUEUES                           │         │\n│           │          │                                            │         │\n│           │          │  ┌──────────────────────────────────────┐  │         │\n│           │          │  │  MICROTASK QUEUE  (higher priority)  │  │         │\n│           │          │  │  • Promise .then() / .catch()        │  │         │\n│           │          │  │  • async/await continuations         │  │         │\n│           │          │  │  • queueMicrotask()                  │  │         │\n│           │          │  └──────────────────────────────────────┘  │         │\n│           │          │                                            │         │\n│           │          │  ┌──────────────────────────────────────┐  │         │\n│           │          │  │  MACROTASK QUEUE (lower priority)    │  │         │\n│           │          │  │  • setTimeout / setInterval cbs      │  │         │\n│           │          │  │  • I/O callbacks (Node)              │  │         │\n│           │          │  │  • UI rendering events (browser)     │  │         │\n│           │          │  └──────────────────────────────────────┘  │         │\n│           │          └────────────────────────────────────────────┘         │\n│           │                               │                                 │\n│           │          ┌───────────────────────────────────────────┐          │\n│           └──────────│           EVENT LOOP TICK                 │          │\n│                      │                                           │          │\n│                      │  1. Is call stack empty?  (if not, wait)  │          │\n│                      │  2. Drain ALL microtasks (until empty)    │          │\n│                      │  3. Pick ONE macrotask → push to stack    │          │\n│                      │  4. Repeat                                │          │\n│                      └───────────────────────────────────────────┘          │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "### Functions",
+      "confidence": "candidate",
+      "text": "// Function declaration (hoisted)\nfunction add(a, b) { return a + b; }\n\n// Function expression\nconst add = function(a, b) { return a + b; };\n\n// Arrow function (no own this, no arguments object)\nconst add = (a, b) => a + b;           // implicit return for single expression\nconst double = x => x * 2;            // parens optional for single param\nconst getObj = () => ({ key: val });   // return object: wrap in parens\n\n// Default parameters\nfunction f(x, y = 5) { }\n\n// Rest parameters\nfunction f(...args) { }\n\n// Destructuring parameters\nfunction f({ name, age = 0 }) { }\n\n// Async/await\nasync function fetch(url) {\n    const response = await fetch(url);\n    return response.json();\n}\n\n// Generators\nfunction* gen() {\n    yield 1;\n    yield 2;\n}\n\n// this context — arrow functions capture lexical this\nclass Timer {\n    start() {\n        setTimeout(() => this.tick(), 1000);  // [OK] arrow captures this\n        setTimeout(function() { this.tick(); }, 1000);  // [NO] this is undefined\n    }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 419,
+      "heading_context": "## What Makes It Distinct",
+      "confidence": "candidate",
+      "text": "2. **Event loop** — single-threaded, non-blocking I/O via event loop + microtask queue + macrotask queue. Blocking the event loop blocks everything.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 483,
+      "heading_context": "### Arrow function vs `function` declaration",
+      "confidence": "candidate",
+      "text": "class Foo {\n    value = 42;\n    broken()  { setTimeout(function()  { console.log(this.value); }, 0); } // undefined\n    working() { setTimeout(() =>       { console.log(this.value); }, 0); } // 42\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\15-SCALA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 43,
+      "heading_context": "## Type Hierarchy and Implicits/Givens",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────┐\n│                         SCALA TYPE HIERARCHY                            │\n│                                                                         │\n│                              Any                                        │\n│                             /    \\                                      │\n│                        AnyVal   AnyRef  (≈ java.lang.Object)            │\n│                       /  | | \\     |  \\  \\  \\                           │\n│                    Int Double  \\  String List  custom classes           │\n│                   Boolean Char  \\                                       │\n│                   Long Float  Unit  (≈ void — the one-value type)       │\n│                                 |                                       │\n│                               Null  (subtype of all AnyRef only)        │\n│                                 |    null literal has this type         │\n│                                 |                                       │\n│                             Nothing  (BOTTOM — subtype of everything)   │\n│                                                                         │\n│  Nothing enables:                                                       │\n│    throw new Exception(\"msg\")  :: Nothing  — fits anywhere              │\n│    ???                         :: Nothing  — unimplemented stub         │\n│    def loop: Nothing = loop    — diverging computation                  │\n│                                                                         │\n│  Why this matters: List[Nothing] <: List[Int] (if List is covariant)    │\n│  Nil (the empty list) has type List[Nothing] — it fits any List[T]      │\n└─────────────────────────────────────────────────────────────────────────┘\n\n┌─────────────────────────────────────────────────────────────────────────┐\n│                    IMPLICIT / GIVEN RESOLUTION ORDER                    │\n│                                                                         │\n│  Call site: def sort[T](list: List[T])(using ord: Ordering[T])          │\n│  You write: sort(points)   — compiler must find Ordering[Point]         │\n│                                                                         │\n│  Search order (first match wins):                                       │\n│                                                                         │\n│  1. Local scope                                                         │\n│     given myOrd: Ordering[Point] = ...  // in current block/method      │\n│         ↓ not found                                                     │\n│  2. Imported scope                                                      │\n│     import MyOrderings.given            // explicit import              │\n│         ↓ not found                                                     │\n│  3. Companion object of the type argument (Point)                       │\n│     object Point { given Ordering[Point] = ... }  // idiomatic home     │\n│         ↓ not found                                                     │\n│  4. Companion object of the typeclass (Ordering)                        │\n│     object Ordering { given Ordering[Int] = ... } // stdlib instances   │\n│         ↓ not found → COMPILE ERROR                                     │\n│                                                                         │\n│  Scala 2 syntax:  implicit val myOrd: Ordering[Point] = ...             │\n│  Scala 3 syntax:  given Ordering[Point] with { def compare(...) }       │\n│                                                                         │\n│  Derived instances: compiler can synthesize Ordering[List[T]]           │\n│  from Ordering[T] via implicit/given functions — this is how            │\n│  scalaz/cats/magnolia generate instances for case classes.              │\n└─────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 250,
+      "heading_context": "### Bridge: C# LINQ / F# Computation Expressions → Scala `for`",
+      "confidence": "candidate",
+      "text": "C# LINQ query syntax:\n  from x in list\n  where x > 0\n  select x * 2\n  ≡  list.Where(x => x > 0).Select(x => x * 2)\n\nF# computation expression (option builder):\n  option {\n      let! x = Some 5\n      let! y = Some 3\n      return x + y\n  }\n  ≡  Some 5 |> Option.bind (fun x ->\n     Some 3 |> Option.map  (fun y -> x + y))\n\nScala for comprehension:\n  for {\n      x <- Some(5)\n      y <- Some(3)\n      if x > 0\n  } yield x + y\n  ≡  Some(5).flatMap(x =>\n     Some(3).withFilter(_ => x > 0).map(y =>\n     x + y))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 308,
+      "heading_context": "### Control Flow",
+      "confidence": "candidate",
+      "text": "// If — expression in Scala\nval result = if (x > 0) \"positive\" else \"non-positive\"\n\nif (cond) {\n} else if (cond2) {\n} else {\n}\n\n// Match (exhaustive pattern matching — the star feature)\nx match {\n    case 0 => \"zero\"\n    case 1 | 2 => \"one or two\"\n    case n if n < 0 => s\"negative: $n\"\n    case _ => \"other\"\n}\n\n// Algebraic data type matching\nshape match {\n    case Circle(r) => math.Pi * r * r\n    case Rectangle(w, h) => w * h\n}\n\n// Type matching\nx match {\n    case s: String => s.length\n    case n: Int => n\n    case _ => 0\n}\n\n// For loops (imperative — use for comprehension for functional)\nfor (i <- 1 to 10) println(i)\nfor (item <- list) println(item)\nfor ((k, v) <- map) println(s\"$k -> $v\")\n\nwhile (cond) { }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 346,
+      "heading_context": "### Control Flow",
+      "confidence": "candidate",
+      "text": "### Algebraic Data Types (Scala 3 / Scala 2 enum)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 347,
+      "heading_context": "### Algebraic Data Types (Scala 3 / Scala 2 enum)",
+      "confidence": "candidate",
+      "text": "// Scala 2 — sealed trait hierarchy (the ADT pattern)\nsealed trait Shape\ncase class Circle(radius: Double) extends Shape\ncase class Rectangle(w: Double, h: Double) extends Shape\ncase object Point extends Shape\n\n// Scala 3 — enum (cleaner)\nenum Shape:\n    case Circle(radius: Double)\n    case Rectangle(w: Double, h: Double)\n    case Point\n\n// Pattern matching is exhaustive on sealed types\ndef area(s: Shape): Double = s match\n    case Shape.Circle(r) => math.Pi * r * r\n    case Shape.Rectangle(w, h) => w * h\n    case Shape.Point => 0.0",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 395,
+      "heading_context": "### Null / Option",
+      "confidence": "candidate",
+      "text": "// Option[T] — the right way (avoid null)\nval x: Option[Int] = Some(42)\nval y: Option[Int] = None\n\n// Pattern matching\nx match {\n    case Some(v) => use(v)\n    case None => handleMissing()\n}\n\n// map / flatMap / filter\nx.map(_ * 2)                    // Some(84) or None\nx.filter(_ > 0)\nx.flatMap(findUser)             // avoid Option[Option[T]]\nx.getOrElse(0)\nx.orElse(Some(99))\nx.isDefined  x.isEmpty\nx.toList                        // List(42) or Nil\nx.foreach(println)              // side effect if Some\n\n// For comprehension on Option\nval result: Option[Int] = for {\n    a <- Some(5)\n    b <- Some(3)\n    if a > 0\n} yield a + b   // Some(8)\n\n// null exists but avoid it\n// In interop with Java: Option.apply(javaMethod()) converts null to None\nOption(javaMethod())            // Some(v) or None",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 475,
+      "heading_context": "### Error Handling",
+      "confidence": "candidate",
+      "text": "// Try[T] — Success or Failure\nimport scala.util.{Try, Success, Failure}\nval result = Try(riskyOperation())\nresult match {\n    case Success(v) => use(v)\n    case Failure(e) => log(e)\n}\nresult.getOrElse(defaultValue)\nresult.map(v => v * 2)\nresult.recover { case _: IOException => 0 }\n\n// Either[E, A] — Left = error, Right = success\ndef divide(a: Int, b: Int): Either[String, Int] =\n    if (b == 0) Left(\"division by zero\")\n    else Right(a / b)\n\ndivide(10, 2) match {\n    case Right(v) => println(v)\n    case Left(e) => println(s\"Error: $e\")\n}\n\n// For comprehension on Either\nval result: Either[String, Int] = for {\n    x <- divide(10, 2)\n    y <- divide(x, 3)\n} yield x + y\n\n// Exceptions (Java-compatible)\ntry {\n    riskyOperation()\n} catch {\n    case e: IOException => handle(e)\n    case e: Exception => throw new RuntimeException(\"wrapped\", e)\n} finally {\n    cleanup()\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

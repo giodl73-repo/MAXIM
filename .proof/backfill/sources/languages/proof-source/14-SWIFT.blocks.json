@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\14-SWIFT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 41,
+      "heading_context": "## Memory Models — Conceptual Landscape",
+      "confidence": "candidate",
+      "text": "SWIFT'S THREE MEMORY MODELS\n┌─────────────────────────────────────────────────────────────────────┐\n│  struct / enum / tuple — VALUE SEMANTICS                            │\n│                                                                     │\n│  let a = Point(x: 1, y: 2)                                          │\n│  var b = a         ← COPY on assignment (independent value)         │\n│  b.x = 99          ← a.x is still 1                                 │\n│                                                                     │\n│  Storage: stack or inline in containing type                        │\n│  Lifetime: deterministic — freed when binding goes out of scope     │\n│  Collections (Array, Dict, String): copy-on-write (COW)             │\n│    var c = a  ← shares buffer until either mutates                  │\n│    c.append(x) ← NOW a copy is made (O(n) at mutation, not assign)  │\n│                                                                     │\n│  C# comparison: like C# struct, but ALL collections are value types │\n└─────────────────────────────────────────────────────────────────────┘\n┌─────────────────────────────────────────────────────────────────────┐\n│  class — REFERENCE SEMANTICS + ARC                                  │\n│                                                                     │\n│  let a = Node(val: 1)   refcount=1                                  │\n│  let b = a              refcount=2  ← b and a point to same object  │\n│  b.val = 99             ← a.val is now 99!                          │\n│                                                                     │\n│  ARC lifecycle (compiler-inserted):                                 │\n│  ┌──────────┐  assign   ┌──────────────────┐  last ref gone         │\n│  │  object  │──────────►│  retain (rc++)   │                        │\n│  │  on heap │  release  │  release (rc--)  │ ──────►  deinit()      │\n│  └──────────┘ ◄──────────│  rc==0 → dealloc │         deallocate    │\n│                          └──────────────────┘                       │\n│                                                                     │\n│  Retain cycles: A → B → A  neither rc ever reaches 0               │\n│  Fix: break with weak var (Optional) or unowned (non-Optional)      │\n│                                                                     │\n│  C# comparison: like C# class (GC handles cycles; ARC does not)    │\n└─────────────────────────────────────────────────────────────────────┘\n┌─────────────────────────────────────────────────────────────────────┐\n│  actor — ARC + SERIAL EXECUTOR ISOLATION                            │\n│                                                                     │\n│  actor Counter { var value = 0 }                                    │\n│                                                                     │\n│  External access must go through actor's serial queue:              │\n│                                                                     │\n│  Task 1 ──► await counter.increment() ─┐                            │\n│  Task 2 ──► await counter.get()       ─┼─► serial executor          │\n│  Task 3 ──► await counter.increment() ─┘   (one at a time)          │\n│                                              ↓                      │\n│                                         counter.value (safe)        │\n│                                                                     │\n│  ARC manages lifetime (same as class)                               │\n│  Serial executor prevents data races (no locks needed!)             │\n│                                                                     │\n│  C# comparison: like a class protected by a SemaphoreSlim(1),       │\n│  but enforced by the compiler via async/await protocol              │\n└─────────────────────────────────────────────────────────────────────┘\n\nDECISION FLOWCHART — which memory model?\n┌─────────────────────────────────────────────────────────────────────┐\n│                                                                     │\n│  Does it need to be shared across multiple owners?                  │\n│         │                                                           │\n│        YES ──────────────────────────────────────────────────────►  │\n│         │                        Does it need thread-safe           │\n│         │                        isolated mutable state?            │\n│         │                              │                            │\n│         │                             YES ──────────► actor         │\n│         │                              │                            │\n│         │                              NO ───────────► class        │\n│         │                                                           │\n│        NO                                                           │\n│         │                                                           │\n│         └──────────────────────────────────────────────► struct     │\n│                                                          (default)  │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 372,
+      "heading_context": "### Functions",
+      "confidence": "candidate",
+      "text": "func add(_ a: Int, _ b: Int) -> Int {    // _ = no external label\n    return a + b\n}\nadd(1, 2)               // called without label\n\nfunc greet(name: String) -> String {     // with external label\n    return \"Hello, \\(name)!\"\n}\ngreet(name: \"Alice\")    // must use label!\n\nfunc greet(to name: String) -> String {  // external/internal label\n    return \"Hello, \\(name)!\"\n}\ngreet(to: \"Alice\")\n\n// Default parameters\nfunc connect(host: String = \"localhost\", port: Int = 8080) { }\n\n// Variadic\nfunc sum(_ nums: Double...) -> Double { nums.reduce(0, +) }\n\n// inout (pass by reference)\nfunc swap(_ a: inout Int, _ b: inout Int) {\n    (a, b) = (b, a)\n}\nswap(&x, &y)\n\n// Closures\nlet double = { (x: Int) -> Int in x * 2 }\nlet double: (Int) -> Int = { $0 * 2 }    // shorthand argument $0\n[1,2,3].map { $0 * 2 }                  // trailing closure\n\n// Generics\nfunc identity<T>(_ x: T) -> T { x }\nfunc max<T: Comparable>(_ a: T, _ b: T) -> T { a > b ? a : b }\n\n// Protocols (structural-ish polymorphism)\nprotocol Describable {\n    func describe() -> String\n}\nextension Int: Describable {\n    func describe() -> String { \"the number \\(self)\" }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 419,
+      "heading_context": "### Memory: ARC",
+      "confidence": "candidate",
+      "text": "// Strong reference (default) — increments ref count\nlet a = MyClass()           // ref count = 1\n\n// Weak reference — doesn't increment ref count (must be Optional)\nweak var delegate: MyDelegate?\n\n// Unowned — doesn't increment, assumes non-nil (crash if nil)\nunowned let owner: Owner\n\n// Common ARC pattern to avoid retain cycles\nclass ViewController {\n    var completion: (() -> Void)?\n\n    func setup() {\n        completion = { [weak self] in    // capture list\n            self?.updateUI()             // self is Optional here\n        }\n    }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 483,
+      "heading_context": "### Error Handling",
+      "confidence": "candidate",
+      "text": "### Concurrency (Swift 5.5+)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 484,
+      "heading_context": "### Concurrency (Swift 5.5+)",
+      "confidence": "candidate",
+      "text": "// async/await\nfunc fetchUser(id: Int) async throws -> User {\n    let data = try await URLSession.shared.data(from: url).0\n    return try JSONDecoder().decode(User.self, from: data)\n}\n\n// Task\nTask {\n    let user = try? await fetchUser(id: 42)\n}\n\n// async let (parallel)\nasync let a = fetchA()\nasync let b = fetchB()\nlet (ra, rb) = try await (a, b)\n\n// Actor (data race safety)\nactor Counter {\n    private var value = 0\n    func increment() { value += 1 }\n    func get() -> Int { value }\n}\nlet counter = Counter()\nawait counter.increment()",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 517,
+      "heading_context": "## What Makes It Distinct",
+      "confidence": "candidate",
+      "text": "3. **Protocol-Oriented Programming** — \"prefer protocols over classes.\" Protocols + extensions + generics with constraints replaces deep class hierarchies. Similar to Rust traits.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\17-SQL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 41,
+      "heading_context": "## SQL Execution Pipeline & Relational Model Landscape",
+      "confidence": "candidate",
+      "text": "QUERY EXECUTION PIPELINE\n─────────────────────────────────────────────────────────────────────────\n\n  SQL text           \"SELECT u.name, COUNT(o.id)\n  (your query)        FROM users u JOIN orders o ON u.id = o.user_id\n                       WHERE u.active = true GROUP BY u.name\"\n       │\n       ▼\n   Parser              Validates syntax; builds parse tree\n       │               Fails fast: syntax errors caught here\n       ▼\n   Binder /            Resolves names to schema objects\n   Name Resolution     (table refs → actual tables, column names → types)\n       │               Fails: \"column does not exist\", \"ambiguous column\"\n       ▼\n   Logical Plan        Relational algebra tree\n                       σ(active=true) ⋈ (users, orders) → π(name) → γ(COUNT)\n       │               Abstract — no physical decisions yet\n       ▼\n   Optimizer           The planner's job: find the cheapest physical plan\n   ┌────────────────────────────────────────────────────────────────┐\n   │  • Index selection: can we seek instead of scan?               │\n   │  • Join reordering: smaller table on the outer loop            │\n   │  • Predicate pushdown: filter early to reduce row count        │\n   │  • Join algorithm: nested loop vs hash join vs merge join      │\n   │  • Materialization: should a CTE be computed once or inlined?  │\n   └────────────────────────────────────────────────────────────────┘\n       │\n       ▼\n   Physical Plan       Concrete operators: IndexScan, HashJoin, Sort, Agg\n       │               EXPLAIN / EXPLAIN ANALYZE shows this tree\n       ▼\n   Executor            Runs the plan; pulls rows through operator tree\n       │\n       ▼\n   Result Set          Rows returned to client\n\n─────────────────────────────────────────────────────────────────────────\nC# / LINQ PARALLEL:\n\n  C# LINQ:  IQueryable<T> expression tree\n                │\n                ▼\n            EF Core / LINQ provider\n                │\n                ▼\n            SQL text generated  ──►  Same pipeline above\n                                     (you're writing logical intent;\n                                      provider + optimizer do the rest)\n\n  Key insight: IQueryable defers execution exactly like SQL defers HOW.\n  Both are declarative transformations over sets. The \"query object\" in\n  LINQ is the same as the logical plan — not yet physical.\n\n─────────────────────────────────────────────────────────────────────────\nRELATIONAL MODEL FOUNDATION:\n\n  Relation  = table (set of tuples with named attributes)\n  Tuple     = row\n  Attribute = column (has a domain / type)\n  Key       = minimal set of attributes that uniquely identifies a tuple\n  Foreign key = attribute(s) referencing a key in another relation\n\n  Relational algebra operators → SQL surface syntax:\n    σ (selection)     → WHERE\n    π (projection)    → SELECT col1, col2\n    ⋈ (join)          → JOIN\n    γ (grouping/agg)  → GROUP BY + aggregate functions\n    ∪ (union)         → UNION\n    − (difference)    → EXCEPT\n    ∩ (intersection)  → INTERSECT",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 675,
+      "heading_context": "## Bridge: SQL → Power Query M",
+      "confidence": "candidate",
+      "text": "SQL Operation          Power Query M Equivalent        Notes\n─────────────────────────────────────────────────────────────────────────\n\nSELECT col1, col2      Table.SelectColumns(           Projection — pick columns\nFROM t                   t, {\"col1\", \"col2\"})\n\nSELECT *               t                              No-op in M — table is already all columns\nFROM t\n\nWHERE col > 5          Table.SelectRows(              Filter — row predicate\n                         t, each [col] > 5)\n\nSELECT col1,           Table.Group(                   Grouping + aggregation\n  COUNT(*) AS n          t,\nFROM t                   {\"col1\"},\nGROUP BY col1            {{\"n\", each Table.RowCount(_),\n                              Int64.Type}})\n\nJOIN (INNER)           Table.Join(                    Join two tables\n                         t1, \"key_col\",\n                         t2, \"key_col\",\n                         JoinKind.Inner)\n                       -- or Table.NestedJoin + Table.ExpandTableColumn\n\nLEFT JOIN              Table.Join(... JoinKind.LeftOuter)\n\nORDER BY col ASC       Table.Sort(                    Sort\n                         t, {{\"col\", Order.Ascending}})\n\nSELECT TOP 10          Table.FirstN(t, 10)            Limit rows\n\nSELECT DISTINCT        Table.Distinct(t)              Deduplication\n\nUNION ALL              Table.Combine({t1, t2})        Append tables\n\nWITH cte AS (...)      let cte = ... in ...           Named intermediate step — M's let..in\nSELECT * FROM cte        (M's let block is the CTE pattern)\n\nCASE WHEN ... THEN     if ... then ... else ...       M uses functional if expression\n  ELSE END               (inside Table.AddColumn or Table.TransformColumns)\n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

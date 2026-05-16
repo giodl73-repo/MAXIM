@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:scala
+kind: guide
+module: languages
+section: languages
+title: Language: Scala
+status: source-custody
+source_custody: partial
+current_path: languages/15-SCALA.md
+canonical_path: languages/15-SCALA.md
+backsource_ids: [proof-backfill:languages:15-scala, git-history:languages:15-scala]
+concepts: [scala]
+root_concepts: [scala]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language: Scala
 
 > FP + OOP fusion on the JVM — algebraic types, higher-kinded types, implicits/givens, and a rich type system. The language where Haskell-style FP meets industrial Java interop.

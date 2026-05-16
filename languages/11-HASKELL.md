@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:haskell
+kind: guide
+module: languages
+section: languages
+title: Language: Haskell
+status: source-custody
+source_custody: partial
+current_path: languages/11-HASKELL.md
+canonical_path: languages/11-HASKELL.md
+backsource_ids: [proof-backfill:languages:11-haskell, git-history:languages:11-haskell]
+concepts: [haskell]
+root_concepts: [haskell]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language: Haskell
 
 > Pure functional programming — lazy evaluation, Hindley-Milner type inference, typeclasses, and monads. The language where type theory from MIT TCS is the everyday idiom.

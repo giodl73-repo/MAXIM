@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:typescript
+kind: guide
+module: languages
+section: languages
+title: Language: TypeScript
+status: source-custody
+source_custody: partial
+current_path: languages/08-TYPESCRIPT.md
+canonical_path: languages/08-TYPESCRIPT.md
+backsource_ids: [proof-backfill:languages:08-typescript, git-history:languages:08-typescript]
+concepts: [typescript]
+root_concepts: [typescript]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language: TypeScript
 
 > Structural types layered on JavaScript — the type system does heavy lifting at compile time, disappears at runtime. Microsoft's answer to JavaScript's type chaos.

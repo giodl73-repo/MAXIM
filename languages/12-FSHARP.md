@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:fsharp
+kind: guide
+module: languages
+section: languages
+title: Language: F#
+status: source-custody
+source_custody: partial
+current_path: languages/12-FSHARP.md
+canonical_path: languages/12-FSHARP.md
+backsource_ids: [proof-backfill:languages:12-fsharp, git-history:languages:12-fsharp]
+concepts: [fsharp]
+root_concepts: [fsharp]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language: F#
 
 > ML-family functional programming on .NET — algebraic types, pipeline operators, and type inference on the CLR. The C# developer's on-ramp to functional programming.

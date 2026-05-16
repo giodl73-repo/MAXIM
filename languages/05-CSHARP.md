@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:csharp
+kind: guide
+module: languages
+section: languages
+title: Language: C#
+status: source-custody
+source_custody: partial
+current_path: languages/05-CSHARP.md
+canonical_path: languages/05-CSHARP.md
+backsource_ids: [proof-backfill:languages:05-csharp, git-history:languages:05-csharp]
+concepts: [csharp]
+root_concepts: [csharp]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language: C#
 
 > The home base — .NET CLR, modern type system evolution, LINQ, async/await origin, and records. Used as the reference language throughout this series.

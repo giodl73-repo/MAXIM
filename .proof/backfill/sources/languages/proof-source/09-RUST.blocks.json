@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\09-RUST.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 41,
+      "heading_context": "## Ownership & Borrow Checker — Conceptual Landscape",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│                    THE 3 OWNERSHIP RULES                            │\n│                                                                     │\n│  1. Every value has exactly ONE owner (a binding, not a type)       │\n│  2. When the owner goes out of scope, the value is DROPPED (freed)  │\n│  3. Ownership TRANSFERS on assignment/pass — the old binding dies   │\n└─────────────────────────────────────────────────────────────────────┘\n\nMOVE vs COPY\n┌──────────────────────────────────┬──────────────────────────────────┐\n│  Heap types → MOVE semantics     │  Stack types → COPY semantics    │\n│                                  │                                  │\n│  let s1 = String::from(\"hi\");    │  let x: i32 = 5;                 │\n│  let s2 = s1;   // s1 is DEAD    │  let y = x;   // x still alive   │\n│  // use s1 → compile error       │  // use x → OK                   │\n│                                  │                                  │\n│  s1.clone() → explicit deep copy │  Copy types: i32, f64, bool,     │\n│  (heap allocation, O(n))         │  char, &T, tuples of Copy types  │\n└──────────────────────────────────┴──────────────────────────────────┘\n\nBORROW RULES (enforced at compile time by the borrow checker)\n┌─────────────────────────────────────────────────────────────────────┐\n│                                                                     │\n│   &T  shared borrow (immutable)     &mut T  exclusive borrow        │\n│  ┌──────────────────────┐          ┌──────────────────────┐         │\n│  │  &s  &s  &s  ... &s  │          │       &mut s          │        │\n│  │  many readers OK     │          │  ONE writer, no       │        │\n│  │  (read-only)         │          │  readers allowed      │        │\n│  └──────────────────────┘          └──────────────────────┘        │\n│                                                                     │\n│  Rule: ANY number of &T  OR  exactly ONE &mut T  — never both       │\n│  Rule: Borrows must not outlive the owner's scope (no dangling refs) │\n└─────────────────────────────────────────────────────────────────────┘\n\nLIFETIMES — a borrow cannot outlive its owner\n┌─────────────────────────────────────────────────────────────────────┐\n│                                                                     │\n│  fn main() {                                                        │\n│      let owner = String::from(\"hello\");   ← owner created           │\n│      {                                                              │\n│          let r = &owner;   ← borrow begins                          │\n│          println!(\"{r}\");  ← use borrow                             │\n│      }                     ← borrow ends                            │\n│      drop(owner);          ← owner dropped AFTER last borrow use    │\n│  }                                                                  │\n│                                                                     │\n│  Lifetime annotations <'a> appear when compiler can't infer         │\n│  which input ref determines how long the output ref lives:          │\n│  fn longest<'a>(s1: &'a str, s2: &'a str) -> &'a str                │\n│  = \"output lives no longer than the shorter input\"                  │\n└─────────────────────────────────────────────────────────────────────┘\n\nSMART POINTER HIERARCHY\n┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌──────────┐\n│     T       │    │   Box<T>    │    │    Rc<T>    │    │  Arc<T>  │\n│  owned val  │    │  heap alloc │    │ shared, 1   │    │ shared,  │\n│  on stack   │    │  single     │    │ thread only │    │ multi-   │\n│  or inline  │    │  owner      │    │ ref-counted │    │ thread   │\n└─────────────┘    └─────────────┘    └─────────────┘    └──────────┘\n   C# struct           C# new T()       C# shared obj    C# shared obj\n   value copy          on heap          single-thread     thread-safe",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 272,
+      "heading_context": "### Control Flow",
+      "confidence": "candidate",
+      "text": "// If — no parens, braces required\nif x > 0 {\n    println!(\"positive\");\n} else if x < 0 {\n    println!(\"negative\");\n} else {\n    println!(\"zero\");\n}\n\n// If is an expression\nlet msg = if x > 0 { \"positive\" } else { \"non-positive\" };\n\n// Match — exhaustive, every arm must be covered\nmatch shape {\n    Shape::Circle(r) => std::f64::consts::PI * r * r,\n    Shape::Rectangle { width, height } => width * height,\n    Shape::Point => 0.0,\n}\n\n// Match guards\nmatch x {\n    n if n < 0 => \"negative\",\n    0 => \"zero\",\n    n if n < 10 => \"small\",\n    _ => \"large\",\n}\n\n// Multiple patterns\nmatch x {\n    1 | 2 | 3 => \"small\",\n    4..=9 => \"medium\",\n    _ => \"large\",\n}\n\n// if let (pattern match on one variant)\nif let Some(v) = option_val {\n    use(v)\n}\n\n// while let\nwhile let Some(v) = iter.next() {\n    process(v)\n}\n\n// Loop (infinite, exit with break + value)\nlet result = loop {\n    if condition { break value; }\n};\n\n// For — iterators only (no C-style for)\nfor i in 0..10 { }          // 0..10 is Range\nfor i in 0..=10 { }         // inclusive\nfor item in &vec { }         // borrow\nfor item in vec { }          // consume\nfor (i, item) in vec.iter().enumerate() { }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 379,
+      "heading_context": "### Null / Option",
+      "confidence": "candidate",
+      "text": "// No null in Rust. Period.\n// Use Option<T>\nenum Option<T> {\n    Some(T),\n    None,\n}\n\nlet x: Option<i32> = Some(42);\nlet y: Option<i32> = None;\n\n// Unwrap — panics if None\nx.unwrap()\nx.expect(\"should have a value\")\n\n// Safe access\nx.unwrap_or(0)              // default value\nx.unwrap_or_else(|| compute_default())\nx.unwrap_or_default()       // T::default()\nx.is_some()  x.is_none()\n\n// Transforming\nx.map(|v| v * 2)            // Some(84) or None\nx.filter(|v| *v > 0)\nx.and_then(|v| if v > 0 { Some(v) } else { None })  // flatMap\n\n// Pattern matching\nmatch x {\n    Some(v) => println!(\"{v}\"),\n    None => println!(\"nothing\"),\n}\n\nif let Some(v) = x {\n    println!(\"{v}\");\n}\n\n// ? operator — propagates None (or Err) to caller\nfn find_user(id: u32) -> Option<User> {\n    let db = get_db()?;     // returns None if get_db() returns None\n    db.find(id)\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 465,
+      "heading_context": "### Error Handling",
+      "confidence": "candidate",
+      "text": "// Result<T, E> — the primary error mechanism\nenum Result<T, E> {\n    Ok(T),\n    Err(E),\n}\n\n// Pattern match\nmatch std::fs::read_to_string(\"file.txt\") {\n    Ok(content) => println!(\"{content}\"),\n    Err(e) => eprintln!(\"Error: {e}\"),\n}\n\n// ? operator — propagates Err to caller (like throw but explicit)\nfn read_file() -> Result<String, std::io::Error> {\n    let content = std::fs::read_to_string(\"file.txt\")?;  // returns Err if fails\n    Ok(content.trim().to_string())\n}\n\n// Chaining\nlet result = std::fs::read_to_string(\"file.txt\")\n    .map(|s| s.to_uppercase())\n    .map_err(|e| format!(\"failed: {e}\"));\n\n// Common error types\nuse std::error::Error;\nfn run() -> Result<(), Box<dyn Error>> {  // any error type\n    let v: i32 = \"42\".parse()?;\n    Ok(())\n}\n\n// anyhow crate (application code)\nuse anyhow::{Result, Context};\nfn run() -> Result<()> {\n    let s = std::fs::read_to_string(\"file\")?;\n    s.parse::<i32>().context(\"failed to parse as int\")?;\n    Ok(())\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 535,
+      "heading_context": "## C# Bridge: Exception Propagation vs `Result<T,E>` + `?`",
+      "confidence": "candidate",
+      "text": "// Error type is IN the signature — callers know what can fail\nfn read_config(path: &str) -> Result<String, io::Error> {\n    let raw = fs::read_to_string(path)?;   // ? = return Err(e) if Err\n    Ok(raw.trim().to_string())\n}\n\nfn load_settings(env: &str) -> Result<String, io::Error> {\n    let path = get_config_path(env)?;      // ? propagates — explicit in code\n    read_config(&path)                     // last expr, no ? needed\n}\n\n// Caller handles or propagates\nmatch load_settings(\"prod\") {\n    Ok(s)  => use_settings(s),\n    Err(e) => log_error(e),\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 555,
+      "heading_context": "## C# Bridge: Exception Propagation vs `Result<T,E>` + `?`",
+      "confidence": "candidate",
+      "text": "// This:\nlet content = fs::read_to_string(path)?;\n\n// Is exactly this:\nlet content = match fs::read_to_string(path) {\n    Ok(v)  => v,\n    Err(e) => return Err(e.into()),  // early return, type-converts error\n};",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

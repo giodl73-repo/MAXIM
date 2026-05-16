@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:python
+kind: guide
+module: languages
+section: languages
+title: Language: Python
+status: source-custody
+source_custody: partial
+current_path: languages/06-PYTHON.md
+canonical_path: languages/06-PYTHON.md
+backsource_ids: [proof-backfill:languages:06-python, git-history:languages:06-python]
+concepts: [python]
+root_concepts: [python]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language: Python
 
 > Readability first — dynamic typing, batteries included, and a culture that values clarity over cleverness. The dominant language for data science, scripting, and AI.

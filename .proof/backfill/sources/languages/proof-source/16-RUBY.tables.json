@@ -1,0 +1,372 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\16-RUBY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## Type System Snapshot",
+      "headers": [
+        "Axis",
+        "Ruby"
+      ],
+      "rows": [
+        [
+          "Binding",
+          "Late — method lookup via ancestor chain at runtime"
+        ],
+        [
+          "Typing",
+          "Dynamic"
+        ],
+        [
+          "Strength",
+          "Strong — no implicit coercions (`\"1\" + 1` raises TypeError)"
+        ],
+        [
+          "Type system",
+          "Duck typing"
+        ],
+        [
+          "Type inference",
+          "None (Sorbet / RBS for static analysis)"
+        ],
+        [
+          "Memory model",
+          "GC (incremental mark-sweep + compaction, MRI)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 549,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "Bundler / Gemfile",
+          "Dependency management"
+        ],
+        [
+          "RubyGems",
+          "Package repository"
+        ],
+        [
+          "Rails",
+          "Web framework (dominant)"
+        ],
+        [
+          "Sinatra / Hanami",
+          "Lightweight web"
+        ],
+        [
+          "RSpec / Minitest",
+          "Testing"
+        ],
+        [
+          "RuboCop",
+          "Linter + formatter"
+        ],
+        [
+          "Sorbet / Steep",
+          "Optional static typing"
+        ],
+        [
+          "Sidekiq",
+          "Background jobs"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 564,
+      "heading_context": "## Gotchas from C#",
+      "headers": [
+        "C# behavior",
+        "Ruby behavior",
+        "Consequence"
+      ],
+      "rows": [
+        [
+          "`string` is immutable",
+          "`String` is **mutable**",
+          "`.dup` to copy before mutating"
+        ],
+        [
+          "`0`, `\"\"` are truthy in C#",
+          "`0` and `\"\"` are **truthy** in Ruby!",
+          "Only `false` and `nil` are falsy"
+        ],
+        [
+          "`==` for value equality",
+          "`==` for value, `eql?` for strict, `equal?` for reference",
+          "Three levels of equality"
+        ],
+        [
+          "`array[0]` index",
+          "`array[0]` — same, but also `array.first`",
+          "Ruby is consistent here"
+        ],
+        [
+          "Integer overflow throws in checked",
+          "Ruby integers are arbitrary precision",
+          "No overflow, but boxing overhead"
+        ],
+        [
+          "Methods are not open by default",
+          "ALL classes are open — even String, Integer",
+          "Powerful but fragile"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 577,
+      "heading_context": "## When to Choose Ruby",
+      "headers": [
+        "Scenario",
+        "Ruby",
+        "Python / Other",
+        "Reason"
+      ],
+      "rows": [
+        [
+          "Rails web application (CRUD-heavy)",
+          "**Yes** — convention-over-configuration, ActiveRecord, mature ecosystem",
+          "Python (Django) works but Rails conventions are tighter",
+          "Rails remains one of the most productive frameworks for database-backed web apps. Strong tooling for migrations, routing, scaffolding."
+        ],
+        [
+          "DSL creation",
+          "**Yes** — open classes + blocks + `method_missing` = best-in-class DSL ergonomics",
+          "Python possible but more syntax noise",
+          "RSpec, Rake, Capistrano, and Rails routing are all Ruby DSLs. The language bends toward readable mini-languages."
+        ],
+        [
+          "Build automation / Rake",
+          "**Yes** — Rake is Makefile for Ruby, widely adopted",
+          "Python (invoke/fabric) or shell scripts",
+          "Rake is idiomatic for Ruby projects; Rakefile tasks compose well."
+        ],
+        [
+          "Scripting / glue code",
+          "Yes — expressive, fast to write",
+          "Python equally strong here",
+          "Coin-flip. Python has broader stdlib coverage; Ruby has cleaner block syntax. Choose based on ecosystem gravity of the project."
+        ],
+        [
+          "Data science / ML",
+          "No",
+          "**Python** — no competition",
+          "Ruby has no numpy/pandas/pytorch equivalent. Do not fight this gravity."
+        ],
+        [
+          "Large team, long-lived codebase",
+          "Caution — open classes + dynamic typing = fragile at scale",
+          "**Python + mypy** or **C#**",
+          "Without Sorbet and strict discipline, large Ruby codebases accumulate surprising behavior from monkey-patching and missing type checks."
+        ],
+        [
+          "Performance-critical code",
+          "No — MRI is slow; JRuby possible",
+          "**Go / C# / Rust** for CPU-bound",
+          "Ruby is slow. It's optimized for developer happiness, not throughput."
+        ],
+        [
+          "Strong static analysis",
+          "Limited — Sorbet is good but ecosystem adoption is partial",
+          "**C# / TypeScript / Go**",
+          "The open-class model inherently resists static analysis. Sorbet helps but can't cover everything."
+        ],
+        [
+          "Microservices / API backend",
+          "Yes (Sinatra, Hanami, Rails API mode)",
+          "Python (FastAPI) equally valid",
+          "Both work well. Choose based on team familiarity and whether you need ML integration."
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 597,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Type",
+        "Return behavior",
+        "Arity checking",
+        "Use when"
+      ],
+      "rows": [
+        [
+          "Block (`{ }` or `do..end`)",
+          "`return` exits enclosing method",
+          "Loose (extra args ignored)",
+          "Passing behavior to an iterator; `yield`"
+        ],
+        [
+          "`proc { }`",
+          "`return` exits enclosing method",
+          "Loose",
+          "Stored callable; don't care about strict arity"
+        ],
+        [
+          "`lambda { }` / `->(){}`",
+          "`return` exits only the lambda",
+          "Strict (wrong arity raises ArgumentError)",
+          "Stored callable that should behave like a method; use as default for new code"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 607,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Method",
+        "Where it inserts",
+        "Effect",
+        "Use when"
+      ],
+      "rows": [
+        [
+          "`include M`",
+          "After class in lookup chain",
+          "M's methods become instance methods",
+          "Sharing behavior across instances (the normal mixin)"
+        ],
+        [
+          "`extend M`",
+          "On the singleton class",
+          "M's methods become class-level methods on receiver",
+          "Adding class methods; can also call `extend` on an object instance"
+        ],
+        [
+          "`prepend M`",
+          "Before class in lookup chain",
+          "M's methods wrap the class's own methods",
+          "Decoration / AOP — intercept calls before they reach the class"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 615,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Method",
+        "Tests",
+        "Override for",
+        "Hash/Set key use"
+      ],
+      "rows": [
+        [
+          "`==`",
+          "Value equality (semantic)",
+          "Domain equality (Date == Date, Array == Array)",
+          "Not used for hashing"
+        ],
+        [
+          "`eql?`",
+          "Type + value equality",
+          "When `hash` is also overridden; used by Hash for key comparison",
+          "Yes — Hash keys use `eql?` + `hash`"
+        ],
+        [
+          "`equal?`",
+          "Object identity (same pointer)",
+          "Never override — it's `ReferenceEquals`",
+          "No"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 625,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Key type",
+        "Performance",
+        "Use when"
+      ],
+      "rows": [
+        [
+          "Symbol (`:name`)",
+          "Faster — symbols are interned (one object per name)",
+          "Internal code, options hashes, keyword args"
+        ],
+        [
+          "String (`\"name\"`)",
+          "Slower — each literal is a new object (unless frozen)",
+          "User-supplied data, JSON parsing output, external APIs"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 634,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Pattern",
+        "Effect",
+        "Use when"
+      ],
+      "rows": [
+        [
+          "`\"str\".freeze`",
+          "Makes one string immutable; returns same frozen object on repeat calls",
+          "Individual string constants"
+        ],
+        [
+          "`# frozen_string_literal: true` (file pragma)",
+          "All string literals in the file are frozen",
+          "New files — add to every file; significant memory reduction in large apps"
+        ],
+        [
+          "`.dup` on a frozen string",
+          "Returns unfrozen copy",
+          "When you need to mutate a frozen string"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 642,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Pattern",
+        "Generates",
+        "Use when"
+      ],
+      "rows": [
+        [
+          "`attr_reader :x`",
+          "`def x; @x; end`",
+          "Read-only external access; immutable-style objects"
+        ],
+        [
+          "`attr_writer :x`",
+          "`def x=(v); @x=v; end`",
+          "Write-only (rare)"
+        ],
+        [
+          "`attr_accessor :x`",
+          "Both reader and writer",
+          "Simple mutable field with no validation"
+        ],
+        [
+          "Manual `def x=(v)`",
+          "Custom setter",
+          "Need validation, coercion, or side effects on assignment"
+        ],
+        [
+          "`protected attr_writer`",
+          "Writer visible to subclasses",
+          "Controlled mutation within class hierarchy"
+        ]
+      ]
+    }
+  ]
+}

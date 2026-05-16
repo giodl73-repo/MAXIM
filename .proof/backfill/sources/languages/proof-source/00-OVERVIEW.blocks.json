@@ -1,0 +1,226 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 47,
+      "heading_context": "## Language Genealogy",
+      "confidence": "candidate",
+      "text": "ALGOL (1958) — block structure, lexical scope\n│\n├── LISP (1958) — homoiconicity, garbage collection, dynamic typing\n│   ├── Scheme → Racket\n│   ├── Common Lisp\n│   └── ──influenced──► ML (1973, Robin Milner)\n│                        ├── Standard ML\n│                        ├── OCaml (1996) ─── Reason/ReScript\n│                        └── Haskell (1990) ─── lazy, pure, typeclasses\n│                            └── ──influenced──► Rust traits, F# DUs, Scala implicits/givens\n│\n├── CPL → BCPL → B → C (1972, Ritchie)\n│   │\n│   ├── C++ (1983, Stroustrup) — classes on top of C\n│   │   └── ──influenced──► D, early Rust design\n│   │\n│   ├── Objective-C (1984) → Swift (2014, Apple)\n│   │   └── Swift influenced by: Rust ownership + Haskell types + C++ value semantics\n│   │\n│   ├── Java (1995, Gosling) — \"write once run anywhere\"\n│   │   ├── Kotlin (2011, JetBrains) — modern JVM\n│   │   ├── Scala (2004, Odersky) — FP + OOP fusion\n│   │   └── Clojure (2007, Hickey) — Lisp on JVM\n│   │\n│   └── C# (2000, Hejlsberg) — Java done right (Microsoft)\n│       └── F# (2005, Syme) — ML/Haskell spirit on .NET\n│\n├── SIMULA (1967) — invented OOP (classes, virtual methods)\n│   └── Smalltalk (1972, Kay) — \"everything is a message send\"\n│       └── Ruby (1995, Matz) — Smalltalk purity + Perl pragmatism\n│\n└── FORTRAN (1957) → COBOL (1959) → Pascal (1970) → Delphi\n    └── (less relevant lineage)\n\nINDEPENDENT ORIGINS:\n  JavaScript (1995, Eich) — 10 days: Scheme semantics + Self prototype OOP + Java syntax\n      └── TypeScript (2012, Hejlsberg) — structural types on top of JS\n  Python (1991, van Rossum) — ABC + Modula-3 influences; readability as core value\n  Go (2009, Google) — C + CSP + simplicity; reaction against C++ complexity\n  SQL (1974, IBM/Codd) — relational algebra → SEQUEL → SQL standard\n  Rust (2010, Mozilla) — linear/affine types + Cyclone regions + C++ performance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 95,
+      "heading_context": "## Paradigm Spectrum",
+      "confidence": "candidate",
+      "text": "> **C# sits here**: Multi-paradigm — primarily OOP (classes, interfaces, inheritance) with functional features layered in starting with C# 3 (LINQ, lambdas, expression trees) and accelerating through C# 9+ (records, pattern matching, immutability idioms). On the imperative/declarative axis, C# spans from imperative loops to declarative LINQ queries. Not purely anything.",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 97,
+      "heading_context": "## Paradigm Spectrum",
+      "confidence": "candidate",
+      "text": "IMPERATIVE ◄──────────────────────────────────────────────────────────► DECLARATIVE\n   │                                                                           │\n   C, Go     C++, Java,    Python,    Scala,      Haskell,     SQL, CSS,\n             C#, Kotlin    Ruby,      F#,          Erlang        Prolog\n                           JS, TS     Clojure\n   │                                                                           │\n \"how\"                    \"how + what\"                               \"what\"\n sequence                   mixed                                set/logic/relation\n\nPROCEDURAL → OBJECT-ORIENTED → FUNCTIONAL → DECLARATIVE/LOGIC\n     C         Java, C#, C++     Haskell, F#       SQL, Prolog\n               Python, Ruby      Scala (hybrid)\n               JavaScript        Rust (hybrid)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 113,
+      "heading_context": "## Paradigm Spectrum",
+      "confidence": "candidate",
+      "text": "C# occupies the same band as Java and C++ on the OOP axis, but has moved further toward functional than either — more so than Java (records, pattern matching, discriminated union emulation via sealed classes), less so than F# (which is functional-first with OOP as the secondary mode).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 121,
+      "heading_context": "## Type System — 6 Axes",
+      "confidence": "candidate",
+      "text": "### Axis 1: When Are Types Checked?",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "### Axis 1: When Are Types Checked?",
+      "confidence": "candidate",
+      "text": "STATIC (compile time)              GRADUAL                DYNAMIC (runtime)\n────────────────────────────────────────────────────────────────────────────\nC, C++, Java, C#, Rust,           TypeScript             Python, JavaScript,\nGo, Haskell, F#, Kotlin,          (any = escape hatch)   Ruby\nSwift, Scala\n\nImplication: static = errors at compile time; dynamic = errors at runtime",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 135,
+      "heading_context": "### Axis 1: When Are Types Checked?",
+      "confidence": "candidate",
+      "text": "### Axis 2: Typing Strength (implicit coercions?)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "### Axis 2: Typing Strength (implicit coercions?)",
+      "confidence": "candidate",
+      "text": "STRONG (no surprise coercions)     WEAK (implicit coercions)\n──────────────────────────────────────────────────────────────\nPython, Haskell, Rust,             C (int/pointer freely mix)\nJava, C#, F#, Kotlin,              C++ (extensive implicit conversions)\nSwift, Scala, Go, Ruby             JavaScript (\"1\" + 1 = \"11\"; \"1\" - 1 = 0)\n\n\"Strong\" means: if you want to add an int to a float, you must say so.\nJavaScript is both dynamically typed AND weakly typed — worst of both worlds.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 150,
+      "heading_context": "### Axis 2: Typing Strength (implicit coercions?)",
+      "confidence": "candidate",
+      "text": "### Axis 3: Nominal vs Structural vs Duck",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "### Axis 3: Nominal vs Structural vs Duck",
+      "confidence": "candidate",
+      "text": "NOMINAL                         STRUCTURAL                    DUCK\n(name determines type)          (shape determines type)       (runtime shape check)\n────────────────────────────────────────────────────────────────────────────\nC, C++, Java, C#,               TypeScript (primary),         Python,\nHaskell, Rust, Kotlin,          Go (interfaces only),         Ruby,\nSwift, Scala, F#                OCaml (objects)               JavaScript\n\nNominal: Dog and Cat are different types even if both have .name: string.\nStructural: if they both have .name: string they're compatible (TS does this).\nDuck: if it quacks it's a duck — discovered at runtime only.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 167,
+      "heading_context": "### Axis 3: Nominal vs Structural vs Duck",
+      "confidence": "candidate",
+      "text": "### Axis 4: Type Inference",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 169,
+      "heading_context": "### Axis 4: Type Inference",
+      "confidence": "candidate",
+      "text": "FULL HM INFERENCE               PARTIAL                        NONE\n(type flows both ways)          (local, one direction)         (always annotate)\n────────────────────────────────────────────────────────────────────────────\nHaskell, OCaml, F#,             C++ (auto), Java (var),       C (pre-C++11)\nRust (local+complex),           C# (var), TypeScript,\nScala (local)                   Go (:=), Kotlin, Swift\n\nHM = Hindley-Milner: bidirectional, whole-program inference\nC#/Java var: unidirectional, right-hand-side only",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 183,
+      "heading_context": "### Axis 4: Type Inference",
+      "confidence": "candidate",
+      "text": "### Axis 5: Subtyping / Polymorphism Model",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "### Axis 5: Subtyping / Polymorphism Model",
+      "confidence": "candidate",
+      "text": "NOMINAL SUBTYPING          STRUCTURAL SUBTYPING    TRAIT/TYPECLASS      PARAMETRIC\n(class hierarchy)          (shape matching)        (ad-hoc polymorphism) (generics)\n────────────────────────────────────────────────────────────────────────────────────\nJava extends/implements    TypeScript types,        Rust traits,         All typed\nC# class/interface,        Go interfaces,           Haskell typeclasses, languages\nKotlin, Scala, Swift       OCaml object types       F# interfaces,       (some better\n                                                     Scala givens/implicits than others)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 197,
+      "heading_context": "### Axis 5: Subtyping / Polymorphism Model",
+      "confidence": "candidate",
+      "text": "### Axis 6: Memory Model",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "### Axis 6: Memory Model",
+      "confidence": "candidate",
+      "text": "MANUAL              RAII/OWNERSHIP          REFERENCE COUNTING      GC (TRACING)\n(you manage)        (compiler manages)       (reference counted)     (runtime manages)\n────────────────────────────────────────────────────────────────────────────────\nC (malloc/free)    Rust (owned values,      Python (primary + cyclic Go (tricolor mark-sweep)\n                   zero-cost drop)           collector for cycles)   Java (G1, ZGC, Shenandoah)\n                   C++ (RAII, shared_ptr     Swift (ARC — compiler   C# (.NET GC, gen 0/1/2)\n                   is ref-counted)           inserts retain/release) Haskell (GHC generational)\n                                             C++ shared_ptr (manual  Kotlin/Scala/F# (JVM GC)\n                                             use of RC)              Ruby/JavaScript (V8/etc)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 223,
+      "heading_context": "### Early Binding (Static Dispatch)",
+      "confidence": "candidate",
+      "text": "SOURCE                    COMPILE TIME              MACHINE CODE\n─────────────────────────────────────────────────────────────────\nfoo(x);               ──► resolve foo to addr ──► CALL 0x7ff8_a3b2\n                                                   (direct jump)\n\nint add(int a, int b);   ──►  resolved immediately\nadd(1, 2);",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "ascii_table_candidate",
+      "line": 235,
+      "heading_context": "### Early Binding (Static Dispatch)",
+      "confidence": "candidate",
+      "text": "- C++ non-virtual methods: `Foo::method()` — direct call",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 244,
+      "heading_context": "### Late Binding (Dynamic Dispatch)",
+      "confidence": "candidate",
+      "text": "C++ VIRTUAL DISPATCH:\n\n  object ptr\n      │\n      ▼\n  ┌──────────────────────────────────────┐\n  │ vptr ──► vtable: [0]dtor [1]speak()  │\n  │ field1                               │\n  │ field2                               │\n  └──────────────────────────────────────┘\n  1 pointer load + 1 indirect call\n\nJAVA/C# INTERFACE DISPATCH:\n\n  object ref\n      │\n      ▼\n  ┌──────────────────────────────────────┐\n  │ typeptr ──► method table             │\n  │ field1                               │\n  └──────────────────────────────────────┘\n      │\n      ▼\n  ┌──────────────────────────────────────┐\n  │ interface slot ──► concrete method   │\n  └──────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "ascii_table_candidate",
+      "line": 274,
+      "heading_context": "### Late Binding (Dynamic Dispatch)",
+      "confidence": "candidate",
+      "text": "- C++ `virtual` methods: vtable lookup per call",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}
