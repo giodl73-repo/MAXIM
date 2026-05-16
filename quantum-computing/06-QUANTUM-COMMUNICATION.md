@@ -1,28 +1,47 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:quantum-computing:quantum-communication
+kind: guide
+module: quantum-computing
+section: quantum-computing
+title: Quantum Communication and QKD
+status: source-custody
+source_custody: partial
+current_path: quantum-computing/06-QUANTUM-COMMUNICATION.md
+canonical_path: quantum-computing/06-QUANTUM-COMMUNICATION.md
+backsource_ids: [proof-backfill:quantum-computing:06-quantum-communication, git-history:quantum-computing:06-quantum-communication]
+concepts: [quantum, communication]
+root_concepts: [quantum, communication]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantum Communication and QKD
 
 ## The Big Picture
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│              QUANTUM KEY DISTRIBUTION — PROTOCOL FAMILY             │
-│                                                                     │
-│  PREPARE-AND-MEASURE              ENTANGLEMENT-BASED                │
-│  ┌──────────────────────────┐     ┌────────────────────────────┐    │
-│  │  BB84 (1984)             │     │  E91 / Ekert (1991)        │   │
-│  │  Alice prepares qubits   │     │  Source emits entangled     │   │
-│  │  in 2 conjugate bases    │     │  pairs to Alice + Bob      │   │
-│  │  Bob measures randomly   │     │  Bell inequality violation  │   │
-│  │                          │     │  = security certificate    │   │
-│  │  Security: info-disturbance     │  Security: device-        │   │
-│  │  tradeoff                │     │  independent possible      │   │
-│  └──────────────────────────┘     └────────────────────────────┘   │
-│                                                                     │
-│  B92 (1992): 2 non-orthogonal states — simpler but lower rate      │
-│                                                                     │
-│  NETWORK LAYERS:                                                    │
-│  Physical ──► Entanglement ──► Network ──► Application             │
-│  (photons)   (Bell pairs)    (routing)   (QKD/teleport/sensing)    │
-└─────────────────────────────────────────────────────────────────────┘
+
+               QUANTUM KEY DISTRIBUTION — PROTOCOL FAMILY
+
+   PREPARE-AND-MEASURE              ENTANGLEMENT-BASED
+
+      BB84 (1984)                      E91 / Ekert (1991)
+      Alice prepares qubits            Source emits entangled
+      in 2 conjugate bases             pairs to Alice + Bob
+      Bob measures randomly            Bell inequality violation
+                                       = security certificate
+      Security: info-disturbance        Security: device-
+      tradeoff                         independent possible
+
+
+   B92 (1992): 2 non-orthogonal states — simpler but lower rate
+
+   NETWORK LAYERS:
+   Physical   ► Entanglement   ► Network   ► Application
+   (photons)   (Bell pairs)    (routing)   (QKD/teleport/sensing)
+
 
   Security model: INFORMATION-THEORETIC (unconditional)
   No assumption on Eve's computational power — security from physics
@@ -38,7 +57,7 @@
 ```
 TWO CONJUGATE BASES:
 
-  Rectilinear (Z) basis: |0⟩ = ↕  (vertical)    |1⟩ = ─ (horizontal)
+  Rectilinear (Z) basis: |0⟩ = ↕  (vertical)    |1⟩ =   (horizontal)
   Diagonal (X) basis:    |+⟩ = ↗  (45°)          |−⟩ = ↘ (135°)
 
   |+⟩ = (|0⟩ + |1⟩)/√2     |−⟩ = (|0⟩ − |1⟩)/√2
@@ -231,9 +250,9 @@ FUNDAMENTAL LIMIT WITHOUT REPEATERS:
   → Key rate drops exponentially with distance
 
 QUANTUM REPEATER CONCEPT:
-  ┌───────┐  entanglement  ┌────────┐  entanglement  ┌───────┐
-  │ Alice │◄──────────────►│ Repeat.│◄──────────────►│  Bob  │
-  └───────┘                └────────┘                └───────┘
+             entanglement              entanglement
+    Alice  ◄              ►  Repeat. ◄              ►   Bob
+
                              performs
                            entanglement
                              swapping
@@ -274,23 +293,23 @@ FREE-SPACE QKD:
 ```
 LAYERS (analogous to classical networking):
 
-┌──────────────────────────────────────────────────────────────────────┐
-│ LAYER 4: APPLICATION                                                 │
-│   QKD, blind quantum computing, quantum sensing, clock sync          │
-├──────────────────────────────────────────────────────────────────────┤
-│ LAYER 3: NETWORK                                                     │
-│   Quantum routing, multiplexing, resource management                 │
-│   (active research — no standard protocol yet)                       │
-├──────────────────────────────────────────────────────────────────────┤
-│ LAYER 2: ENTANGLEMENT                                                │
-│   Create, store, purify Bell pairs; entanglement swapping            │
-│   Requires: quantum memory (ms to s coherence), heralded generation  │
-├──────────────────────────────────────────────────────────────────────┤
-│ LAYER 1: PHYSICAL                                                    │
-│   Photon transmission (telecom fiber 1550 nm, free space)            │
-│   Bell state measurements at repeater nodes                          │
-│   Single-photon detectors (SNSPD)                                    │
-└──────────────────────────────────────────────────────────────────────┘
+
+  LAYER 4: APPLICATION
+    QKD, blind quantum computing, quantum sensing, clock sync
+
+  LAYER 3: NETWORK
+    Quantum routing, multiplexing, resource management
+    (active research — no standard protocol yet)
+
+  LAYER 2: ENTANGLEMENT
+    Create, store, purify Bell pairs; entanglement swapping
+    Requires: quantum memory (ms to s coherence), heralded generation
+
+  LAYER 1: PHYSICAL
+    Photon transmission (telecom fiber 1550 nm, free space)
+    Bell state measurements at repeater nodes
+    Single-photon detectors (SNSPD)
+
 
 STATUS (2025):
   Layer 1: Commercial (ID Quantique, Toshiba, MagiQ offer QKD systems)
@@ -331,22 +350,22 @@ STATUS (2025):
 ### QKD vs Post-Quantum Cryptography — Infrastructure Decision
 
 ```
-┌──────────────────────┬────────────────────────────┬────────────────────────────┐
-│ DIMENSION            │ QKD (BB84/E91)             │ PQC (ML-KEM, ML-DSA)       │
-├──────────────────────┼────────────────────────────┼────────────────────────────┤
-│ Security basis       │ Physics (info-theoretic)    │ Math (computational)       │
-│ Quantum-safe?        │ Yes — by definition         │ Yes — believed hard for QC │
-│ Deployment cost      │ $50K–$500K per link         │ Software update            │
-│ Range                │ ≤400 km fiber; satellite    │ Global (internet)          │
-│ Topology             │ Point-to-point only         │ Any (mesh, CDN, cloud)     │
-│ Key rate             │ ~kbps–Mbps (distance-dep)   │ Unlimited (CPU-bound)      │
-│ Needs new hardware?  │ Yes — photon sources, SNSPD │ No — software/firmware     │
-│ Standards            │ ETSI QKD ISG (limited)      │ NIST FIPS 203/204/205      │
-│ Integration          │ Dedicated fiber or free-    │ Drop-in TLS 1.3 upgrade    │
-│                      │ space optical link          │ (X25519Kyber768 deployed)  │
-│ Authentication       │ Requires pre-shared secret  │ Standard PKI               │
-│ Maturity             │ Commercial (limited vendors)│ Shipping (Chrome, CF, AWS) │
-└──────────────────────┴────────────────────────────┴────────────────────────────┘
+
+  DIMENSION              QKD (BB84/E91)               PQC (ML-KEM, ML-DSA)
+
+  Security basis         Physics (info-theoretic)      Math (computational)
+  Quantum-safe?          Yes — by definition           Yes — believed hard for QC
+  Deployment cost        $50K–$500K per link           Software update
+  Range                  ≤400 km fiber; satellite      Global (internet)
+  Topology               Point-to-point only           Any (mesh, CDN, cloud)
+  Key rate               ~kbps–Mbps (distance-dep)     Unlimited (CPU-bound)
+  Needs new hardware?    Yes — photon sources, SNSPD   No — software/firmware
+  Standards              ETSI QKD ISG (limited)        NIST FIPS 203/204/205
+  Integration            Dedicated fiber or free-      Drop-in TLS 1.3 upgrade
+                         space optical link            (X25519Kyber768 deployed)
+  Authentication         Requires pre-shared secret    Standard PKI
+  Maturity               Commercial (limited vendors)  Shipping (Chrome, CF, AWS)
+
 
 WHEN QKD MAKES SENSE:
   1. Information-theoretic security REQUIRED (not just computational)

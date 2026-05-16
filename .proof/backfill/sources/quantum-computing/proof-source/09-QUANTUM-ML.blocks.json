@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "quantum-computing\\09-QUANTUM-ML.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "### HHL Algorithm for Linear Systems",
+      "confidence": "candidate",
+      "text": "PROBLEM: Solve Ax = b (A is n×n Hermitian, b is n-vector)\nCLASSICAL: O(n³) (Gaussian elimination) or O(n²) (iterative, well-conditioned)\nQUANTUM (HHL, 2009): O(log n · κ² / ε)  where κ = condition number, ε = precision\n\nAPPARENT SPEEDUP: exponential in n (log n vs n)\n\nTHE CATCH — WHY HHL SPEEDUP IS LARGELY ILLUSORY:\n  1. INPUT PROBLEM (state preparation):\n     Classical vector b of n entries → quantum state |b⟩ = Σ bᵢ|i⟩/‖b‖\n     Creating this quantum state requires O(n) operations (you have to read all n entries)\n     → Bottleneck is state prep, not the algorithm\n     EXCEPTION: if b is already a quantum state (from quantum sensor, etc.)\n\n  2. OUTPUT PROBLEM (readout):\n     x is encoded as quantum state |x⟩\n     To read out all n entries: measure repeatedly → O(n/ε²) samples needed\n     → Destroys the exponential speedup\n\n  3. CONDITION NUMBER:\n     HHL runtime is O(κ²) — for ill-conditioned matrices (κ >> 1), slow even quantumly\n     Classical preconditioned iterative methods often achieve O(κ) or better\n\n  4. GATE COUNT IN PRACTICE:\n     HHL requires quantum phase estimation (expensive) + oracle for A (expensive)\n     Actual circuit depth for problem of interest >> T₁/T₂\n\nNET RESULT: HHL provides exponential speedup ONLY when:\n  - Input b is a quantum state (not classical data)\n  - You want a quantum state output (not classical numbers)\n  - κ is poly(log n)\n  → These conditions exclude almost all practical ML applications",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "### The Setup",
+      "confidence": "candidate",
+      "text": "CLASSICAL SVM KERNEL TRICK:\n  Map data x → φ(x) ∈ feature space F\n  Kernel: k(xᵢ, xⱼ) = ⟨φ(xᵢ), φ(xⱼ)⟩\n  SVM only needs kernel matrix K, not explicit φ\n  Power: k can be high/infinite-dimensional feature map\n         (RBF kernel: F is infinite-dimensional RKHS)\n\nQUANTUM KERNEL:\n  Map data x → quantum state via feature circuit: |φ(x)⟩ = U(x)|0⟩\n  Quantum kernel: k(xᵢ, xⱼ) = |⟨φ(xᵢ)|φ(xⱼ)⟩|² = |⟨0|U†(xᵢ)U(xⱼ)|0⟩|²\n  Evaluate via SWAP test or destructive SWAP:\n\n  SWAP TEST:\n    |0⟩   H  ●  H   measure\n    |φ(x)⟩  SWAP\n    |φ(x')⟩\n    P(0) = ½(1 + |⟨φ(x)|φ(x')⟩|²) → kernel value\n\n  INVERSION TEST (destructive, more efficient):\n    Apply U†(xᵢ)U(xⱼ)|0⟩ and measure probability of |0⟩ outcome",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 117,
+      "heading_context": "### The Setup",
+      "confidence": "candidate",
+      "text": "### Havlíček et al. (2019) — The Key Paper",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 119,
+      "heading_context": "### Havlíček et al. (2019) — The Key Paper",
+      "confidence": "candidate",
+      "text": "SETUP: Second-order Pauli feature map\n  x ∈ ℝⁿ → quantum state |φ(x)⟩ via:\n  U_φ(x) = exp(i Σ_{j<k} φⱼₖ(x) ZⱼZₖ) · exp(i Σⱼ xⱼ Zⱼ) repeated\n\n  where φⱼₖ(x) = (π - xⱼ)(π - xₖ)  (nonlinear feature encoding)\n\nCLAIM: This feature map is classically hard to simulate efficiently\n  (for appropriate parameter choices, evaluating k(x,x') classically\n   would require classical simulation of the quantum circuit, which is\n   assumed hard for deep enough circuits)\n\nEXPERIMENTAL RESULT:\n  Small dataset, few qubits, quantum kernel SVM matches classical SVM\n  → Proof of concept, not evidence of advantage\n\nDEQUANTIZATION CONCERN (Tang 2018 style):\n  Tang's key insight: the quantum recommendation algorithm's speedup relied on\n  efficient sampling from low-rank matrices — but classical algorithms can do\n  this too via Monte Carlo row sampling given \"sample access\" to the input.\n  The quantum hardware was performing a logical operation (low-rank sampling)\n  that didn't actually require quantum mechanics — like discovering a\n  distributed system's claimed advantage depended on a data structure the\n  single-node system could also use.\n\n  Classical \"quantum-inspired\" algorithms often match quantum kernel\n  performance using random features / low-rank approximations\n  → Classical SVMs with RBF / polynomial kernels often competitive\n\nGENUINE OPEN QUESTION:\n  Is there a practical dataset where quantum kernel provably outperforms\n  all classical kernels? No example demonstrated as of 2025.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "### Parameterized Quantum Circuits as Function Approximators",
+      "confidence": "candidate",
+      "text": "QNN STRUCTURE:\n  Input x → encode as initial state: |ψ_in(x)⟩\n  Apply parameterized circuit U(θ): |ψ(x,θ)⟩ = U(θ)|ψ_in(x)⟩\n  Measure observable: ŷ = ⟨ψ(x,θ)|O|ψ(x,θ)⟩\n  Loss: L(θ) = ΣΣ (yᵢ - ŷᵢ)²\n  Gradient: parameter-shift rule\n\nEXPRESSIBILITY:\n  n-qubit QNN with depth d: can represent any function in span of\n  exponentially many Fourier modes (data-encoding dependent)\n  BUT: Universal function approximation doesn't imply efficient learning\n\nTRAINING PROBLEMS:\n  Barren plateaus (see 05): gradients vanish exponentially\n  Local minima in loss landscape\n  No activation functions → hard to build deep representations\n  Shot noise: gradient estimates require many circuit evaluations\n\nCOMPARISON TO CLASSICAL NN:\n  Classical 2-layer MLP: universal approximator, trainable by SGD\n  QNN: also universal (in principle), but:\n    - Gradients vanish (barren plateaus)\n    - No demonstrated advantage over classical NN on any task\n    - Much more expensive to evaluate (quantum circuit vs GPU matmul)\n\nHONEST VERDICT: QNNs as classical data classifiers have no demonstrated\n  advantage over classical NNs and significant trainability disadvantages.\n  Not a promising near-term direction.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 194,
+      "heading_context": "## Quantum Sampling — The Strongest Near-Term Case",
+      "confidence": "candidate",
+      "text": "### Boson Sampling (Aaronson-Arkhipov 2011)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "### Boson Sampling (Aaronson-Arkhipov 2011)",
+      "confidence": "candidate",
+      "text": "SETUP: n photons through m-mode linear interferometer (beamsplitters, phase shifters)\nTASK: Sample from the output photon distribution\nCLASSICAL HARDNESS: Computing permanent of an n×n matrix is #P-hard\n  P(s₁,...,sₙ) ∝ |Perm(U_S)|²  where U_S is submatrix of unitary U\n\nCOMPLEXITY CLAIM:\n  If a classical computer could efficiently sample from boson sampling distribution,\n  the polynomial hierarchy collapses to the third level (very unlikely)\n  → Boson sampling is plausibly classically hard under standard complexity assumptions\n\nLIMITATIONS:\n  - Not a useful computation — sampling from permanent distribution\n  - Noise makes the output distinguishable from ideal distribution\n  - With enough noise, classical simulation becomes easier (noisy circuits lose hardness)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 240,
+      "heading_context": "### VQE Energies as ML Features",
+      "confidence": "candidate",
+      "text": "LEGITIMATE USE CASE:\n  VQE computes ground-state energies of molecules (quantum advantage expected\n  for fault-tolerant hardware with ~50-100 strongly correlated electrons)\n\n  These energies become FEATURES in classical ML pipeline:\n\n     Molecular structures → VQE energy per conformer\n          ↓\n     Classical ML: predict binding affinity, reactivity,\n     toxicity from VQE-derived quantum features\n\n\n  No quantum speedup for the ML part — classical SGD, random forests, etc.\n  Quantum provides BETTER INPUT FEATURES (more accurate energy surfaces)\n  This is a hybrid pipeline, not \"quantum ML\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "### Quantum Annealing for Combinatorial Subproblems (D-Wave)",
+      "confidence": "candidate",
+      "text": "D-WAVE ARCHITECTURE:\n  2000+ flux qubits (analog, not gate-based)\n  Implements Ising model: H = Σᵢ hᵢσᵢᶻ + Σ_{ij} Jᵢⱼσᵢᶻσⱼᶻ\n  Quantum annealing: start in superposition, slowly evolve to ground state\n\n  Physical Hamiltonian: H(t) = -A(t)·Σᵢ σᵢˣ + B(t)·H_Ising\n  A(t) → 0, B(t) → 1  (anneal from quantum to classical)\n\nMAPPING TO QUBO (Quadratic Unconstrained Binary Optimization):\n  Many combinatorial problems map to QUBO: min xᵀQx, x ∈ {0,1}ⁿ\n  Portfolio optimization, vehicle routing, job scheduling, MaxCut\n\nHONEST ASSESSMENT:\n  No proven quantum speedup over classical simulated annealing/SA\n  For dense connectivity, requires embedding (D-Wave is sparse Chimera/Pegasus)\n  Embedding overhead: 1 logical variable → 10-30 physical qubits\n  Classical SA or branch-and-bound often wins in practice\n\n  WHERE IT SOMETIMES WORKS: problems with natural sparse Ising structure,\n  short anneal times as a warm-start for classical refinement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 289,
+      "heading_context": "## QML Claim Evaluation Table",
+      "confidence": "candidate",
+      "text": "\n  CLAIM                          STATUS      WHY\n\n  HHL gives exponential          ILLUSORY    State prep + readout kill\n  speedup for classical linear               the speedup for classical\n  algebra                                    data; QRAM required\n\n  Quantum kernels beat           NO          Dequantization (Tang-style)\n  classical SVM on real data     EVIDENCE    often matches; no benchmark\n                                             showing real advantage\n\n  QNNs outperform classical      NO          Barren plateaus; training\n  NNs for image/NLP              EVIDENCE    harder; no GPU equivalent\n\n  Quantum speedup for            DEBUNKED    Grover: √N iterations —\n  database search (practical)    AS USEFUL   need quantum RAM, advantage\n                                             much smaller than expected\n\n  Boson sampling /               PLAUSIBLE   Theoretically hard to\n  GBS advantage                  BUT         simulate classically;\n                                 DISPUTED    classical algorithms improve\n\n  VQE → better molecular         SOLID for   FeMoco etc. genuinely hard\n  energies than classical        fault-      classically; NISQ VQE not\n  quantum chemistry              tolerant    yet better than CCSD(T)\n\n  Quantum ML for quantum         SOLID       Learning from quantum\n  data (quantum system output)               measurements / quantum\n                                             sensors — natural use case\n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 328,
+      "heading_context": "## QRAM — The Elephant in the Room",
+      "confidence": "candidate",
+      "text": "QRAM (Quantum Random Access Memory):\n  Classical:  RAM[i] → x_i  (read n-bit integer, linear time)\n  QRAM:       Σ aᵢ|i⟩ → Σ aᵢ|i⟩|x_i⟩  (superposition read)\n\nREQUIREMENT: Query QRAM in superposition to achieve quantum speedups\n  for data loading (state preparation)\n\nPROBLEM:\n  Building QRAM requires n qubits and poly(n) coherent operations\n  QRAM itself is a complex quantum circuit — error rates accumulate\n  Each read touches O(n) quantum gates → decoherence\n  No physical QRAM has been built at useful scale\n\nIMPACT:\n  Without QRAM: quantum speedups for classical data loading don't exist\n  Many complexity-theoretic QML speedup results assume QRAM — implicitly\n  stripping QRAM from the assumption invalidates the speedup claim",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

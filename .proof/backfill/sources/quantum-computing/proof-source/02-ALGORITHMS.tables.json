@@ -1,0 +1,151 @@
+{
+  "schema_version": "1",
+  "source_markdown": "quantum-computing\\02-ALGORITHMS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 398,
+      "heading_context": "## Algorithm Reference Table",
+      "headers": [
+        "Algorithm",
+        "Problem",
+        "Speedup",
+        "Key resource",
+        "Status"
+      ],
+      "rows": [
+        [
+          "Deutsch-Jozsa",
+          "Constant vs balanced",
+          "Exp (query)",
+          "1 query",
+          "Toy example"
+        ],
+        [
+          "Simon's",
+          "Period mod XOR",
+          "Exp",
+          "n queries",
+          "Historical; led to Shor"
+        ],
+        [
+          "Grover",
+          "Unstructured search",
+          "Quadratic (√N)",
+          "O(√N) oracle calls",
+          "Proven optimal"
+        ],
+        [
+          "Shor (factoring)",
+          "Integer factoring",
+          "Exponential",
+          "O((log N)³) gates",
+          "FTQC required"
+        ],
+        [
+          "Shor (DLog)",
+          "Discrete logarithm",
+          "Exponential",
+          "Same",
+          "FTQC required"
+        ],
+        [
+          "QFT",
+          "Fourier transform",
+          "Exponential",
+          "O(n²) gates",
+          "Subroutine"
+        ],
+        [
+          "QPE",
+          "Eigenvalue estimation",
+          "Exponential",
+          "O(n²) + controlled-U",
+          "Subroutine"
+        ],
+        [
+          "HHL",
+          "Linear systems",
+          "Conditional exp",
+          "QRAM, sparse access",
+          "Fine print kills it"
+        ],
+        [
+          "Ham. sim.",
+          "Simulate quantum H",
+          "Exponential",
+          "Trotter depth",
+          "Best near-term advantage"
+        ],
+        [
+          "VQE",
+          "Chemistry ground state",
+          "Unknown",
+          "Shallow parametric circuit",
+          "NISQ; beats classical? unclear"
+        ],
+        [
+          "QAOA",
+          "Combinatorial opt",
+          "Unknown",
+          "p-depth circuit",
+          "No proven advantage yet"
+        ],
+        [
+          "Quantum walk",
+          "Graph problems",
+          "Quadratic (some)",
+          "Coherent walk",
+          "Specific applications"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 423,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Grover applicability",
+          "Unstructured search and key-exhaustion style problems",
+          "Speedup is quadratic in search space, not polynomial in input size."
+        ],
+        [
+          "AES under Grover",
+          "AES-128 becomes roughly `2^64` quantum queries",
+          "Resource constants and parallelization matter; AES-256 is the conservative PQ choice."
+        ],
+        [
+          "Shor versus symmetric crypto",
+          "Factoring/discrete log structure versus symmetric brute force",
+          "Shor breaks RSA/ECC assumptions, not block-cipher structure."
+        ],
+        [
+          "NP-complete expectations",
+          "Grover-style square-root search over assignments",
+          "No known quantum polynomial-time algorithm for NP-complete problems."
+        ],
+        [
+          "Near-term advantage",
+          "Quantum chemistry/simulation heuristics such as VQE",
+          "Published VQE has not established practical quantum advantage."
+        ],
+        [
+          "HHL usefulness",
+          "Sparse, well-conditioned systems with QRAM and logarithmic readout",
+          "The input/output assumptions rarely hold in ordinary linear algebra workloads."
+        ],
+        [
+          "Variational algorithms",
+          "Heuristic approximation under noisy hardware",
+          "Trainability, barren plateaus, and classical baselines dominate credibility."
+        ]
+      ]
+    }
+  ]
+}

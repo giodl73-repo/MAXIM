@@ -1,43 +1,62 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:quantum-computing:qubits-circuits
+kind: guide
+module: quantum-computing
+section: quantum-computing
+title: Qubits, Quantum Gates and Circuits
+status: source-custody
+source_custody: partial
+current_path: quantum-computing/01-QUBITS-CIRCUITS.md
+canonical_path: quantum-computing/01-QUBITS-CIRCUITS.md
+backsource_ids: [proof-backfill:quantum-computing:01-qubits-circuits, git-history:quantum-computing:01-qubits-circuits]
+concepts: [qubits, circuits]
+root_concepts: [qubits, circuits]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Qubits, Quantum Gates & Circuits
 
 ## The Landscape
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│             CIRCUIT MODEL — BUILDING BLOCKS                         │
-│                                                                     │
-│  QUBIT MATH          GATES                MULTI-QUBIT               │
-│  ┌────────────┐      ┌──────────────┐     ┌──────────────────┐      │
-│  │ ℂ² state   │      │ Single-qubit │     │ Tensor products  │    │
-│  │ Bloch sphere│─────►│ X,Y,Z,H,S,T │────►│ Entanglement     │    │
-│  │ Born rule   │      │ Rotations    │     │ Bell states      │    │
-│  └────────────┘      ├──────────────┤     └────────┬─────────┘    │
-│                      │ Two-qubit    │              │               │
-│                      │ CNOT,CZ,SWAP │              │               │
-│                      ├──────────────┤              │               │
-│                      │ Three-qubit  │              │               │
-│                      │ Toffoli,     │              ▼               │
-│                      │ Fredkin      │     ┌──────────────────┐     │
-│                      └──────────────┘     │ CIRCUITS         │    │
-│                                           │ Width, depth,    │    │
-│  UNIVERSALITY          MEASUREMENT        │ T-count metrics  │    │
-│  ┌──────────────┐     ┌──────────────┐    └────────┬─────────┘    │
-│  │ {H,T,CNOT}   │     │ Projective   │             │              │
-│  │ Solovay-      │     │ Born rule    │             ▼             │
-│  │ Kitaev       │     │ Syndrome     │    ┌──────────────────┐    │
-│  │              │     │ (for QEC)    │    │ DENSITY MATRICES │    │
-│  │ Clifford+T   │     └──────────────┘    │ Mixed states     │    │
-│  │ Gottesman-   │                         │ Lindblad eqn     │    │
-│  │ Knill thm    │     NO-CLONING          │ Decoherence      │    │
-│  └──────────────┘     ┌──────────────┐    └──────────────────┘    │
-│                       │ Can't copy   │                             │
-│  PAULI/CLIFFORD       │ unknown |ψ⟩  │                             │
-│  ┌──────────────┐     │ → QEC must   │                             │
-│  │ Pauli group  │     │   spread info│                             │
-│  │ Clifford grp │     │ → QKD secure │                             │
-│  │ Normalizer   │     └──────────────┘                             │
-│  └──────────────┘                                                   │
-└─────────────────────────────────────────────────────────────────────┘
+
+              CIRCUIT MODEL — BUILDING BLOCKS
+
+   QUBIT MATH          GATES                MULTI-QUBIT
+
+     ℂ² state            Single-qubit         Tensor products
+     Bloch sphere      ►  X,Y,Z,H,S,T      ►  Entanglement
+     Born rule            Rotations            Bell states
+
+                         Two-qubit
+                         CNOT,CZ,SWAP
+
+                         Three-qubit
+                         Toffoli,                    ▼
+                         Fredkin
+                                              CIRCUITS
+                                              Width, depth,
+   UNIVERSALITY          MEASUREMENT          T-count metrics
+
+     {H,T,CNOT}           Projective
+     Solovay-              Born rule                  ▼
+     Kitaev               Syndrome
+                          (for QEC)           DENSITY MATRICES
+     Clifford+T                               Mixed states
+     Gottesman-                               Lindblad eqn
+     Knill thm          NO-CLONING            Decoherence
+
+                          Can't copy
+   PAULI/CLIFFORD         unknown |ψ⟩
+                          → QEC must
+     Pauli group            spread info
+     Clifford grp         → QKD secure
+     Normalizer
+
+
 ```
 
 ---
@@ -68,11 +87,11 @@ Every single-qubit pure state maps to a point on the unit sphere in ℝ³:
           |0⟩ (north pole, z=+1)
             ↑
             |  ← |ψ⟩ at (θ, φ)
-          ──┼──
+
            /|
           / |   θ ∈ [0,π]   polar (colatitude)
          /  |   φ ∈ [0,2π)  azimuthal
-|−⟩←────   ↑   ────→|+⟩
+|−⟩←       ↑       →|+⟩
         \   |
          \  |   |ψ⟩ = cos(θ/2)|0⟩ + e^(iφ)sin(θ/2)|1⟩
           \ |
@@ -123,7 +142,7 @@ Quantum gates are **unitary matrices** (U†U = I, probability-preserving, rever
 
 ```
 GATE   MATRIX                   BLOCH SPHERE         ACTION
-─────  ───────────────────────  ───────────────────  ──────────────────────────
+
 X      [0 1]                    π rotation around X  Bit flip: |0⟩↔|1⟩ (NOT)
        [1 0]
 
@@ -159,17 +178,17 @@ Key identities:
 
 ```
 GATE          OPERATION                                CIRCUIT SYMBOL
-────────────  ───────────────────────────────────────  ──────────────
-CNOT (CX)     If control=|1⟩, flip target             q₀:─●─
-              |00⟩→|00⟩, |01⟩→|01⟩                  q₁:─⊕─
+
+CNOT (CX)     If control=|1⟩, flip target             q₀: ●
+              |00⟩→|00⟩, |01⟩→|01⟩                  q₁: ⊕
               |10⟩→|11⟩, |11⟩→|10⟩
 
-CZ            If control=|1⟩, phase-flip target        q₀:─●─
-              |11⟩→−|11⟩                               q₁:─Z─
+CZ            If control=|1⟩, phase-flip target        q₀: ●
+              |11⟩→−|11⟩                               q₁: Z
               Symmetric: either qubit can be control
 
-SWAP          Exchange qubit states                    q₀:─╳─
-              |01⟩→|10⟩, |10⟩→|01⟩                  q₁:─╳─
+SWAP          Exchange qubit states                    q₀: ╳
+              |01⟩→|10⟩, |10⟩→|01⟩                  q₁: ╳
               = 3 CNOTs
 
 iSWAP         SWAP + phase i on swapped component      Native in superconducting
@@ -180,8 +199,8 @@ CPhase(θ)     Phase-kick target by e^(iθ) if ctrl=|1⟩ Used in QFT
 
 **Creating a Bell state** (H + CNOT):
 ```
-q₀: |0⟩ ─H─●─  →  (|0⟩+|1⟩)/√2 acts as control
-q₁: |0⟩ ───⊕─  →  (|00⟩+|11⟩)/√2 = |Φ⁺⟩  ← entangled!
+q₀: |0⟩  H ●   →  (|0⟩+|1⟩)/√2 acts as control
+q₁: |0⟩    ⊕   →  (|00⟩+|11⟩)/√2 = |Φ⁺⟩  ← entangled!
 
 Why: H creates |+⟩ = (|0⟩+|1⟩)/√2 on q₀.
      CNOT conditional on q₀ maps |0⟩→|00⟩ and |1⟩→|11⟩ by linearity.
@@ -193,7 +212,7 @@ Why: H creates |+⟩ = (|0⟩+|1⟩)/√2 on q₀.
 
 ```
 GATE         OPERATION                                   USE
-──────────── ────────────────────────────────────────    ────────────────────────
+
 Toffoli (CCX) Doubly controlled NOT: flip target iff     Classical reversible AND
               both controls are |1⟩                      Error correction primitives
               Universal for classical reversible logic
@@ -212,9 +231,9 @@ UNIVERSAL GATE SETS (approximate any unitary to ε precision):
   {Rx(θ), Rz(φ), CNOT} for irrational θ/π  ← also universal
 
 CLIFFORD GATES = {H, S, CNOT, X, Y, Z}:
-  ─ Map Pauli operators to Pauli operators under conjugation
-  ─ Efficiently classically simulable (Gottesman-Knill theorem, O(n²) time)
-  ─ NOT universal alone
+    Map Pauli operators to Pauli operators under conjugation
+    Efficiently classically simulable (Gottesman-Knill theorem, O(n²) time)
+    NOT universal alone
 
 T GATE BREAKS CLASSICAL SIMULABILITY:
   T ∉ Clifford group → adding T to Clifford makes set universal
@@ -229,7 +248,7 @@ T GATE BREAKS CLASSICAL SIMULABILITY:
 
 ```
 NOTATION:
-  ─────── = qubit wire (time flows left to right)
+          = qubit wire (time flows left to right)
   [gate]  = gate applied to qubit
     ●     = control (filled dot)
     ⊕     = CNOT target
@@ -238,9 +257,9 @@ NOTATION:
 Example: Quantum teleportation (three qubit lines)
   (Alice has q₀=|ψ⟩ and q₁; Bob has q₂)
 
-  q₀(|ψ⟩): ────────●──H──M─────────────── (→ classical bit b₀)
-  q₁(|0⟩): ──H──●──⊕──────M──────────────  (→ classical bit b₁)
-  q₂(|0⟩): ──────⊕─────────────X^b₁──Z^b₀─→ |ψ⟩ at Bob's end
+  q₀(|ψ⟩):         ●  H  M                (→ classical bit b₀)
+  q₁(|0⟩):   H  ●  ⊕      M                (→ classical bit b₁)
+  q₂(|0⟩):       ⊕             X^b₁  Z^b₀ → |ψ⟩ at Bob's end
 
   Step by step:
   1. Bell pair preparation: H on q₁, CNOT (q₁,q₂) → |Φ⁺⟩₁₂
@@ -383,7 +402,7 @@ GOTTESMAN-KNILL THEOREM:
 
 | Task | Tool |
 |------|------|
-| Create superposition from |0⟩ | Hadamard H gate |
+| Create superposition from \|0⟩ | Hadamard H gate |
 | Entangle two qubits | H on qubit 0, then CNOT(0→1) |
 | Bit flip | X gate |
 | Phase flip (relative sign) | Z gate |
@@ -391,7 +410,7 @@ GOTTESMAN-KNILL THEOREM:
 | Phase +45° | T gate (expensive in FTQC) |
 | Arbitrary rotation around Z | Rz(φ) gate |
 | Rotate around X axis | Rx(θ) = e^{-iθX/2} |
-| Measure qubit in Z basis | Born rule → collapses to |0⟩/|1⟩ |
+| Measure qubit in Z basis | Born rule → collapses to \|0⟩/\|1⟩ |
 | Measure qubit in X basis | Apply H, then Z-measure |
 | Show a gate set is universal | Must include non-Clifford gate (T or Toffoli) |
 | Simulate on classical computer efficiently | Use Clifford gates only |

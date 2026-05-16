@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biology:physiology
+kind: guide
+module: biology
+section: biology
+title: 06 - Physiology
+status: source-custody
+source_custody: partial
+current_path: biology/06-PHYSIOLOGY.md
+canonical_path: biology/06-PHYSIOLOGY.md
+backsource_ids: [proof-backfill:biology:06-physiology, git-history:biology:06-physiology]
+concepts: [physiology]
+root_concepts: [physiology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 06 — Physiology
 
 ## Organ Systems, Homeostasis, Neural Signaling, Immune System, Endocrinology

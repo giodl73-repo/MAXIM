@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "quantum-computing\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Engineering Bridge: Quantum Decoherence as Classical Channel Noise",
+      "confidence": "candidate",
+      "text": "CLASSICAL CHANNEL MODEL              QUANTUM DECOHERENCE\n\nSNR (signal-to-noise ratio)           Gate fidelity (1 - error rate)\n  signal degrades with channel use    → qubit state degrades with each gate\n\nChannel capacity C = B log₂(1+SNR)   Circuit depth limit ≈ T₂ / t_gate\n  max bits/sec through noisy channel  → max gates before noise dominates\n\nBit error rate (BER)                  T₁ (amplitude damping) / T₂ (dephasing)\n  probability a bit flips in transit  → T₁: |1⟩ decays to |0⟩ (energy loss, like signal attenuation)\n                                      → T₂: phase randomizes (like jitter destroying signal phase)\n\nError-correcting codes (Hamming,      Quantum error correction (surface code)\n  Reed-Solomon, LDPC)                 → same idea: redundancy buys reliability\n  overhead: r = k/n code rate         → overhead: ~1000 physical per logical qubit\n\nShannon limit: code rate vs BER       Threshold theorem: below p*, logical error → 0\n  below capacity → reliable comms     → same structure: a noise floor you must beat",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 54,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------------+\n|               QUANTUM COMPUTING LANDSCAPE                           |\n+---------------------------------------------------------------------+\n|                                                                     |\n|  FOUNDATIONS       HARDWARE           ALGORITHMS     APPLICATIONS  |\n|                                                                  |\n|    Circuit          Supercond.         Shor's        Crypto      |\n|    model            IBM Heron          Grover's      breaking    |\n|    (gate)           Google             QFT/QPE       RSA/ECC     |\n|                     Willow             HHL                       |\n|    Adiabatic                           VQE/QAOA      Quantum     |\n|    (anneal)         Trapped ion                      chemistry   |\n|                     IonQ,              Quantum       (sim)       |\n|   Topologic.        Quantinuum         walks,                    |\n|    Majorana                            QML           Optimiz.    |\n|    anyons           Neutral atom       (QSVM)        heuristic   |\n|                     Photonic                                     |\n|                     Spin qubit                                     |\n|                                                                    |\n|                                                                     |\n|  ERROR CORRECTION     COMPLEXITY          NISQ → FTQC ROADMAP     |\n|                                                                  |\n|    Stabilizer          BQP ⊆ QMA ⊆ PP      2024: ~1000 phys.    |\n|    codes               ⊆ PSPACE            qubits, no QEC       |\n|    Surface code                            2030+: logical QEC    |\n|    Threshold thm       NP ⊄ BQP           2035+: CRQC?         |\n|    T gate cost         (likely)                                  |\n|                                                                  |\n+---------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

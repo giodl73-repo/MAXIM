@@ -1,29 +1,48 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:quantum-computing:quantum-ml
+kind: guide
+module: quantum-computing
+section: quantum-computing
+title: Quantum Machine Learning - Honest Assessment
+status: source-custody
+source_custody: partial
+current_path: quantum-computing/09-QUANTUM-ML.md
+canonical_path: quantum-computing/09-QUANTUM-ML.md
+backsource_ids: [proof-backfill:quantum-computing:09-quantum-ml, git-history:quantum-computing:09-quantum-ml]
+concepts: [quantum, ml]
+root_concepts: [quantum, ml]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantum Machine Learning — Honest Assessment
 
 ## Big Picture: Hype vs Reality
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                 QML CLAIMS — CREDIBILITY SPECTRUM                   │
-│                                                                     │
-│   SOLID                PLAUSIBLE            SPECULATIVE  DEBUNKED   │
-│   ─────────────────────────────────────────────────────────────────│
-│   Quantum              Quantum kernels       Quantum NNs  HHL for   │
-│   simulation           (no dequantization)   speedup      classical │
-│   for molecular        over classical ML     over CNNs    data      │
-│   properties           verified                                     │
-│                                                                     │
-│   Quantum              QML for quantum       Quantum      Quantum   │
-│   sampling             data generated        speedup for  random    │
-│   (theoretically       by quantum systems    NLP/vision   forests   │
-│   hard classically)                                                 │
-│                                                                     │
-│   VQE energies         Grover-based          Quantum      "Quantum  │
-│   as ML features       speedup for           kernels beat GPU       │
-│                        database search       classical   training"  │
-│                        (polynomial only)     SVM on real            │
-│                                              data                   │
-└─────────────────────────────────────────────────────────────────────┘
+
+                  QML CLAIMS — CREDIBILITY SPECTRUM
+
+    SOLID                PLAUSIBLE            SPECULATIVE  DEBUNKED
+
+    Quantum              Quantum kernels       Quantum NNs  HHL for
+    simulation           (no dequantization)   speedup      classical
+    for molecular        over classical ML     over CNNs    data
+    properties           verified
+
+    Quantum              QML for quantum       Quantum      Quantum
+    sampling             data generated        speedup for  random
+    (theoretically       by quantum systems    NLP/vision   forests
+    hard classically)
+
+    VQE energies         Grover-based          Quantum      "Quantum
+    as ML features       speedup for           kernels beat GPU
+                         database search       classical   training"
+                         (polynomial only)     SVM on real
+                                               data
+
 ```
 
 ---
@@ -86,9 +105,9 @@ QUANTUM KERNEL:
   Evaluate via SWAP test or destructive SWAP:
 
   SWAP TEST:
-    |0⟩ ──H──●──H── measure
+    |0⟩   H  ●  H   measure
     |φ(x)⟩  SWAP
-    |φ(x')⟩──────
+    |φ(x')⟩
     P(0) = ½(1 + |⟨φ(x)|φ(x')⟩|²) → kernel value
 
   INVERSION TEST (destructive, more efficient):
@@ -224,12 +243,12 @@ LEGITIMATE USE CASE:
   for fault-tolerant hardware with ~50-100 strongly correlated electrons)
 
   These energies become FEATURES in classical ML pipeline:
-  ┌──────────────────────────────────────────────────────┐
-  │  Molecular structures → VQE energy per conformer     │
-  │       ↓                                              │
-  │  Classical ML: predict binding affinity, reactivity, │
-  │  toxicity from VQE-derived quantum features          │
-  └──────────────────────────────────────────────────────┘
+
+     Molecular structures → VQE energy per conformer
+          ↓
+     Classical ML: predict binding affinity, reactivity,
+     toxicity from VQE-derived quantum features
+
 
   No quantum speedup for the ML part — classical SGD, random forests, etc.
   Quantum provides BETTER INPUT FEATURES (more accurate energy surfaces)
@@ -268,36 +287,36 @@ HONEST ASSESSMENT:
 ## QML Claim Evaluation Table
 
 ```
-┌────────────────────────────────────────────────────────────────────────┐
-│ CLAIM                        │ STATUS    │ WHY                         │
-├──────────────────────────────┼───────────┼─────────────────────────────┤
-│ HHL gives exponential        │ ILLUSORY  │ State prep + readout kill   │
-│ speedup for classical linear │           │ the speedup for classical   │
-│ algebra                      │           │ data; QRAM required         │
-├──────────────────────────────┼───────────┼─────────────────────────────┤
-│ Quantum kernels beat         │ NO        │ Dequantization (Tang-style) │
-│ classical SVM on real data   │ EVIDENCE  │ often matches; no benchmark │
-│                              │           │ showing real advantage      │
-├──────────────────────────────┼───────────┼─────────────────────────────┤
-│ QNNs outperform classical    │ NO        │ Barren plateaus; training   │
-│ NNs for image/NLP            │ EVIDENCE  │ harder; no GPU equivalent   │
-├──────────────────────────────┼───────────┼─────────────────────────────┤
-│ Quantum speedup for          │ DEBUNKED  │ Grover: √N iterations —     │
-│ database search (practical)  │ AS USEFUL │ need quantum RAM, advantage │
-│                              │           │ much smaller than expected  │
-├──────────────────────────────┼───────────┼─────────────────────────────┤
-│ Boson sampling /             │ PLAUSIBLE │ Theoretically hard to       │
-│ GBS advantage                │ BUT       │ simulate classically;       │
-│                              │ DISPUTED  │ classical algorithms improve │
-├──────────────────────────────┼───────────┼─────────────────────────────┤
-│ VQE → better molecular       │ SOLID for │ FeMoco etc. genuinely hard  │
-│ energies than classical      │ fault-    │ classically; NISQ VQE not   │
-│ quantum chemistry            │ tolerant  │ yet better than CCSD(T)     │
-├──────────────────────────────┼───────────┼─────────────────────────────┤
-│ Quantum ML for quantum       │ SOLID     │ Learning from quantum       │
-│ data (quantum system output) │           │ measurements / quantum      │
-│                              │           │ sensors — natural use case  │
-└──────────────────────────────┴───────────┴─────────────────────────────┘
+
+  CLAIM                          STATUS      WHY
+
+  HHL gives exponential          ILLUSORY    State prep + readout kill
+  speedup for classical linear               the speedup for classical
+  algebra                                    data; QRAM required
+
+  Quantum kernels beat           NO          Dequantization (Tang-style)
+  classical SVM on real data     EVIDENCE    often matches; no benchmark
+                                             showing real advantage
+
+  QNNs outperform classical      NO          Barren plateaus; training
+  NNs for image/NLP              EVIDENCE    harder; no GPU equivalent
+
+  Quantum speedup for            DEBUNKED    Grover: √N iterations —
+  database search (practical)    AS USEFUL   need quantum RAM, advantage
+                                             much smaller than expected
+
+  Boson sampling /               PLAUSIBLE   Theoretically hard to
+  GBS advantage                  BUT         simulate classically;
+                                 DISPUTED    classical algorithms improve
+
+  VQE → better molecular         SOLID for   FeMoco etc. genuinely hard
+  energies than classical        fault-      classically; NISQ VQE not
+  quantum chemistry              tolerant    yet better than CCSD(T)
+
+  Quantum ML for quantum         SOLID       Learning from quantum
+  data (quantum system output)               measurements / quantum
+                                             sensors — natural use case
+
 ```
 
 ---
@@ -353,30 +372,30 @@ BE SKEPTICAL IF:
 ## Decision Cheat Sheet
 
 ```
-┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                      │ RECOMMENDATION                       │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Classical ML on classical data│ Use classical ML (torch, sklearn,   │
-│                               │ XGBoost) — no quantum advantage     │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Molecular property prediction │ Classical ML on DFT features NOW;   │
-│ (drug discovery, materials)   │ Plan for VQE features when fault-   │
-│                               │ tolerant hardware available         │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Combinatorial optimization    │ Classical SA / genetic algorithms;  │
-│ (logistics, scheduling)       │ try D-Wave for sparse QUBO as       │
-│                               │ warm-start heuristic only           │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Kernel SVM with quantum       │ Research only; compare rigorously   │
-│ feature map                   │ with classical RBF/polynomial kernel │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ "QML for LLMs / vision"       │ No — no evidence, no mechanism for  │
-│                               │ advantage; classical GPUs win       │
-├───────────────────────────────┼─────────────────────────────────────┤
-│ Learning from quantum data    │ Yes — natural and potentially       │
-│ (quantum sensors, quantum     │ advantageous; PennyLane useful here │
-│ system characterization)      │                                     │
-└──────────────────────────────┴──────────────────────────────────────┘
+
+  SCENARIO                        RECOMMENDATION
+
+  Classical ML on classical data  Use classical ML (torch, sklearn,
+                                  XGBoost) — no quantum advantage
+
+  Molecular property prediction   Classical ML on DFT features NOW;
+  (drug discovery, materials)     Plan for VQE features when fault-
+                                  tolerant hardware available
+
+  Combinatorial optimization      Classical SA / genetic algorithms;
+  (logistics, scheduling)         try D-Wave for sparse QUBO as
+                                  warm-start heuristic only
+
+  Kernel SVM with quantum         Research only; compare rigorously
+  feature map                     with classical RBF/polynomial kernel
+
+  "QML for LLMs / vision"         No — no evidence, no mechanism for
+                                  advantage; classical GPUs win
+
+  Learning from quantum data      Yes — natural and potentially
+  (quantum sensors, quantum       advantageous; PennyLane useful here
+  system characterization)
+
 ```
 
 ---

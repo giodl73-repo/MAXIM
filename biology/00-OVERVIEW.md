@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biology:overview
+kind: guide
+module: biology
+section: biology
+title: Biology - Overview
+status: source-custody
+source_custody: partial
+current_path: biology/00-OVERVIEW.md
+canonical_path: biology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:biology:00-overview, git-history:biology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biology — Overview
 
 ---
@@ -87,38 +106,20 @@ UNIFYING THEORIES:
 
 ```
 INFORMATION SUBSTRATE
-  ┌─────────────────────────────────────────────────────────────┐
-  │  01-MOLECULAR-MACHINERY — DNA, RNA, Proteins, Central Dogma │
-  │  Storage → transcription → translation → folding            │
-  │  Gene regulation, epigenetics, CRISPR                       │
-  └──────────────────────────┬──────────────────────────────────┘
-                             │ proteins are the machines
-             ┌───────────────┼───────────────────┐
-             ▼               ▼                   ▼
-  ┌──────────────────┐  ┌──────────────┐  ┌─────────────────┐
-  │ 02-CELL-BIOLOGY  │  │ 03-GENETICS  │  │ 06-PHYSIOLOGY   │
-  │ Membrane, signal │  │ Heredity,    │  │ Organ systems,  │
-  │ organelles,      │  │ genomics,    │  │ homeostasis,    │
-  │ cell cycle       │  │ epigenetics  │  │ neural/immune/  │
-  └──────────────────┘  └──────┬───────┘  │ endocrine       │
-                               │           └─────────────────┘
-                               │ allele frequencies change
-                               ▼
-                    ┌─────────────────────┐
-                    │ 04-EVOLUTION        │
-                    │ Selection, drift,   │
-                    │ speciation,         │
-                    │ phylogenetics       │
-                    └──────────┬──────────┘
-                               │ organism × environment
-                               ▼
-                    ┌─────────────────────┐
-                    │ 05-ECOLOGY          │
-                    │ Populations,        │
-                    │ communities,        │
-                    │ biogeochemical      │
-                    │ cycles              │
-                    └─────────────────────┘
+  01-MOLECULAR-MACHINERY — DNA, RNA, Proteins, Central Dogma
+    - Storage → transcription → translation → folding
+    - Gene regulation, epigenetics, CRISPR
+    - Proteins are the machines
+      -> 02-CELL-BIOLOGY: membranes, signaling, organelles, cell cycle
+      -> 03-GENETICS: heredity, genomics, epigenetics
+      -> 06-PHYSIOLOGY: organ systems, homeostasis, neural/immune/endocrine
+
+  03-GENETICS changes allele frequencies
+      -> 04-EVOLUTION: selection, drift, speciation, phylogenetics
+      -> 05-ECOLOGY: populations, communities, biogeochemical cycles
+
+  04-EVOLUTION connects organisms to environments
+      -> 05-ECOLOGY: population and ecosystem dynamics
 
 INFORMATION FLOWS DOWNWARD (molecular → system)
 SELECTION PRESSURE FLOWS UPWARD (ecology → evolution → genome)

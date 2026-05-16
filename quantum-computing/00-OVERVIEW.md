@@ -1,10 +1,29 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:quantum-computing:overview
+kind: guide
+module: quantum-computing
+section: quantum-computing
+title: Quantum Computing - Field Map and Orientation
+status: source-custody
+source_custody: partial
+current_path: quantum-computing/00-OVERVIEW.md
+canonical_path: quantum-computing/00-OVERVIEW.md
+backsource_ids: [proof-backfill:quantum-computing:00-overview, git-history:quantum-computing:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantum Computing — Field Map & Orientation
 
 ## Engineering Bridge: Quantum Decoherence as Classical Channel Noise
 
 ```
 CLASSICAL CHANNEL MODEL              QUANTUM DECOHERENCE
-──────────────────────────────────────────────────────────────────────────
+
 SNR (signal-to-noise ratio)           Gate fidelity (1 - error rate)
   signal degrades with channel use    → qubit state degrades with each gate
 
@@ -38,29 +57,29 @@ with no known classical equivalent for specific structured problems.
 +---------------------------------------------------------------------+
 |                                                                     |
 |  FOUNDATIONS       HARDWARE           ALGORITHMS     APPLICATIONS  |
-|  ┌──────────┐     ┌─────────────┐    ┌──────────┐  ┌───────────┐ |
-|  │ Circuit  │     │ Supercond.  │    │ Shor's   │  │ Crypto    │ |
-|  │ model    │     │ IBM Heron   │    │ Grover's │  │ breaking  │ |
-|  │ (gate)   │     │ Google      │    │ QFT/QPE  │  │ RSA/ECC   │ |
-|  │          │     │ Willow      │    │ HHL      │  │           │ |
-|  │ Adiabatic│     │             │    │ VQE/QAOA │  │ Quantum   │ |
-|  │ (anneal) │     │ Trapped ion │    │          │  │ chemistry │ |
-|  │          │     │ IonQ,       │    │ Quantum  │  │ (sim)     │ |
-|  │Topologic.│     │ Quantinuum  │    │ walks,   │  │           │ |
-|  │ Majorana │     │             │    │ QML      │  │ Optimiz.  │ |
-|  │ anyons   │     │ Neutral atom│    │ (QSVM)   │  │ heuristic │ |
-|  └──────────┘     │ Photonic    │    └──────────┘  └───────────┘ |
-|                   │ Spin qubit  │                                  |
-|                   └─────────────┘                                  |
+|                                                                  |
+|    Circuit          Supercond.         Shor's        Crypto      |
+|    model            IBM Heron          Grover's      breaking    |
+|    (gate)           Google             QFT/QPE       RSA/ECC     |
+|                     Willow             HHL                       |
+|    Adiabatic                           VQE/QAOA      Quantum     |
+|    (anneal)         Trapped ion                      chemistry   |
+|                     IonQ,              Quantum       (sim)       |
+|   Topologic.        Quantinuum         walks,                    |
+|    Majorana                            QML           Optimiz.    |
+|    anyons           Neutral atom       (QSVM)        heuristic   |
+|                     Photonic                                     |
+|                     Spin qubit                                     |
+|                                                                    |
 |                                                                     |
 |  ERROR CORRECTION     COMPLEXITY          NISQ → FTQC ROADMAP     |
-|  ┌──────────────┐    ┌────────────────┐  ┌────────────────────┐  |
-|  │ Stabilizer   │    │ BQP ⊆ QMA ⊆ PP │  │ 2024: ~1000 phys.  │ |
-|  │ codes        │    │ ⊆ PSPACE       │  │ qubits, no QEC     │ |
-|  │ Surface code │    │                │  │ 2030+: logical QEC  │ |
-|  │ Threshold thm│    │ NP ⊄ BQP      │  │ 2035+: CRQC?       │ |
-|  │ T gate cost  │    │ (likely)       │  │                    │  |
-|  └──────────────┘    └────────────────┘  └────────────────────┘  |
+|                                                                  |
+|    Stabilizer          BQP ⊆ QMA ⊆ PP      2024: ~1000 phys.    |
+|    codes               ⊆ PSPACE            qubits, no QEC       |
+|    Surface code                            2030+: logical QEC    |
+|    Threshold thm       NP ⊄ BQP           2035+: CRQC?         |
+|    T gate cost         (likely)                                  |
+|                                                                  |
 +---------------------------------------------------------------------+
 ```
 
@@ -70,7 +89,7 @@ with no known classical equivalent for specific structured problems.
 
 ```
 SUPERPOSITION                ENTANGLEMENT               INTERFERENCE
-─────────────────────────    ─────────────────────────  ────────────────────────
+
 A qubit is a unit vector     Two+ qubits share state    Probability amplitudes
 in ℂ²:                       that cannot be factored:   are complex numbers —
                                                         they add and cancel.
@@ -94,7 +113,7 @@ Quantum speedup comes from **interference-based amplitude amplification**, not f
 
 ```
 CIRCUIT (GATE) MODEL         ADIABATIC MODEL              TOPOLOGICAL MODEL
-────────────────────         ─────────────────────────    ─────────────────────────
+
 Standard model. Initialize   Evolve Hamiltonian slowly    Encode logical qubits in
 |0⟩^⊗n, apply unitary gates, from easy H_initial to hard  non-Abelian anyon braids.
 measure in computational     H_problem ground state.      Inherently fault-tolerant:
@@ -116,27 +135,27 @@ IBM, Google, IonQ            D-Wave uses this model.      If realized: threshold
 ## Complexity Hierarchy
 
 ```
-┌───────────────────────────────────────────────────────────────────┐
-│  PSPACE  (QIP = PSPACE = IP — quantum interactive proofs)         │
-│ ┌───────────────────────────────────────────────────────────┐    │
-│ │  PP  (PostBQP = PP — Aaronson 2005)                       │    │
-│ │ ┌─────────────────────────────────────────────────────┐   │    │
-│ │ │  QMA  (quantum Merlin-Arthur, quantum NP analog)     │   │    │
-│ │ │  QMA-complete: k-local Hamiltonian (k≥2)             │   │    │
-│ │ │ ┌───────────────────────────────────────────────┐   │   │    │
-│ │ │ │  BQP  (efficient quantum computation)          │   │   │    │
-│ │ │ │  Contains: factoring, discrete log, HSP       │   │   │    │
-│ │ │ │  BQP ⊆ QMA ∩ PP                               │   │   │    │
-│ │ │ │ ┌─────────────────────────────────────────┐   │   │   │    │
-│ │ │ │ │  BPP  (randomized polynomial time)       │   │   │   │    │
-│ │ │ │ │   ┌──────────────────────────────────┐   │   │   │   │    │
-│ │ │ │ │   │  P                               │   │   │   │   │    │
-│ │ │ │ │   └──────────────────────────────────┘   │   │   │   │    │
-│ │ │ │ └─────────────────────────────────────────┘   │   │   │    │
-│ │ │ └───────────────────────────────────────────────┘   │   │    │
-│ │ └─────────────────────────────────────────────────────┘   │    │
-│ └───────────────────────────────────────────────────────────┘    │
-└───────────────────────────────────────────────────────────────────┘
+
+   PSPACE  (QIP = PSPACE = IP — quantum interactive proofs)
+
+     PP  (PostBQP = PP — Aaronson 2005)
+
+       QMA  (quantum Merlin-Arthur, quantum NP analog)
+       QMA-complete: k-local Hamiltonian (k≥2)
+
+         BQP  (efficient quantum computation)
+         Contains: factoring, discrete log, HSP
+         BQP ⊆ QMA ∩ PP
+
+           BPP  (randomized polynomial time)
+
+               P
+
+
+
+
+
+
 
 NP: unknown relation to BQP — BQP ⊆ NP is FALSE (QC can solve problems
 outside NP like sampling problems), NP ⊆ BQP is unproven/unlikely.
@@ -164,7 +183,7 @@ Key facts:
 
 ```
 METRIC                DEFINITION                           TARGET FOR CRQC
-──────────────────    ──────────────────────────────────   ──────────────────
+
 Gate fidelity (2Q)    P(correct) per 2-qubit gate          >99.9%
 T1 (relaxation)       Energy decay timescale               Long vs gate time
 T2 (dephasing)        Phase coherence, T2 ≤ 2T1            Long vs gate time
@@ -180,7 +199,7 @@ Logical error rate    After QEC                            <10^-15 for Shor
 
 ```
 NOW (NISQ era)               EARLY FTQC (~2030–2035)       CRQC (~2035–2040+)
-─────────────────────────    ─────────────────────────     ──────────────────────
+
 100–1000 physical qubits     1M+ physical qubits           Full error-corrected
 No error correction          10s–1000s logical qubits      Logical qubits at scale
 
@@ -209,7 +228,7 @@ useful QEC overhead
 
 ```
 MYTH                                    REALITY
-──────────────────────────────────────  ────────────────────────────────────────────
+
 Solves all NP-hard problems             Grover gives √N — NP stays hard for QC
 Faster at everything than classical     Classical dominates for most real workloads
 More qubits = more power                Gate fidelity + coherence time matter more

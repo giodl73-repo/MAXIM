@@ -1,0 +1,123 @@
+{
+  "schema_version": "1",
+  "source_markdown": "quantum-computing\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 173,
+      "heading_context": "## Hardware Platforms Comparison",
+      "headers": [
+        "Platform",
+        "Leaders",
+        "Qubit Type",
+        "2Q Gate Fidelity",
+        "Coherence",
+        "Connectivity",
+        "Ops Temp"
+      ],
+      "rows": [
+        [
+          "Superconducting",
+          "IBM (Heron 133q), Google (Willow 105q)",
+          "Transmon",
+          "99.5–99.9%",
+          "100μs–1ms",
+          "Nearest-neighbor",
+          "10–20 mK"
+        ],
+        [
+          "Trapped ion",
+          "IonQ (Forte 36q), Quantinuum (H2 56q)",
+          "Yb⁺, Ba⁺",
+          "99.9%+",
+          ">10 s",
+          "All-to-all",
+          "Room temp"
+        ],
+        [
+          "Neutral atom",
+          "QuEra (256q), Atom Computing",
+          "Rb, Cs",
+          "99.5%",
+          "~1 s",
+          "Reconfigurable",
+          "Room temp"
+        ],
+        [
+          "Photonic",
+          "PsiQuantum, Xanadu (GBS)",
+          "Photon modes",
+          "High (loss issue)",
+          "—",
+          "Graph states",
+          "Room temp"
+        ],
+        [
+          "Spin qubit",
+          "Intel (Tunnel Falls)",
+          "Electron spin",
+          "99.5% 1Q",
+          "~ms",
+          "2D arrays",
+          "<1 K"
+        ],
+        [
+          "Topological",
+          "Microsoft (Majorana)",
+          "Non-Abelian anyon",
+          "Target 99.99%+",
+          "Very long",
+          "TBD",
+          "mK"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 264,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Goal",
+        "Relevant QC concept"
+      ],
+      "rows": [
+        [
+          "Break RSA-2048 / ECC",
+          "Shor's algorithm — requires CRQC (~millions of logical qubits)"
+        ],
+        [
+          "Speed up unstructured search",
+          "Grover's — √N speedup, useful for key search"
+        ],
+        [
+          "Simulate quantum chemistry",
+          "VQE, QPE — likely first practical advantage"
+        ],
+        [
+          "Solve combinatorial optimization",
+          "QAOA — heuristic, advantage not proven at scale"
+        ],
+        [
+          "Solve linear systems",
+          "HHL — exponential speedup with major input/output caveats"
+        ],
+        [
+          "Understand QC limits",
+          "BQP ⊈ NP, QMA-hardness of k-local Hamiltonians"
+        ],
+        [
+          "Assess encryption migration urgency",
+          "HNDL threat model, NIST PQC FIPS 203/204/205"
+        ],
+        [
+          "Evaluate hardware claims",
+          "Gate fidelity, EPLG, circuit depth, not qubit count"
+        ],
+        [
+          "Understand error correction cost",
+          "Surface code ~1000 physical per logical qubit"
+        ]
+      ]
+    }
+  ]
+}

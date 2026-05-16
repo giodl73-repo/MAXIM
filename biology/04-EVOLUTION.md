@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biology:evolution
+kind: guide
+module: biology
+section: biology
+title: 04 - Evolution
+status: source-custody
+source_custody: partial
+current_path: biology/04-EVOLUTION.md
+canonical_path: biology/04-EVOLUTION.md
+backsource_ids: [proof-backfill:biology:04-evolution, git-history:biology:04-evolution]
+concepts: [evolution]
+root_concepts: [evolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — Evolution
 
 ## Natural Selection, Population Genetics, Speciation, Phylogenetics, Evo-Devo

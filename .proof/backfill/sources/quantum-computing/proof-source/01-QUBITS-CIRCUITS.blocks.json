@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "quantum-computing\\01-QUBITS-CIRCUITS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Landscape",
+      "confidence": "candidate",
+      "text": "\n              CIRCUIT MODEL — BUILDING BLOCKS\n\n   QUBIT MATH          GATES                MULTI-QUBIT\n\n     ℂ² state            Single-qubit         Tensor products\n     Bloch sphere      ►  X,Y,Z,H,S,T      ►  Entanglement\n     Born rule            Rotations            Bell states\n\n                         Two-qubit\n                         CNOT,CZ,SWAP\n\n                         Three-qubit\n                         Toffoli,                    ▼\n                         Fredkin\n                                              CIRCUITS\n                                              Width, depth,\n   UNIVERSALITY          MEASUREMENT          T-count metrics\n\n     {H,T,CNOT}           Projective\n     Solovay-              Born rule                  ▼\n     Kitaev               Syndrome\n                          (for QEC)           DENSITY MATRICES\n     Clifford+T                               Mixed states\n     Gottesman-                               Lindblad eqn\n     Knill thm          NO-CLONING            Decoherence\n\n                          Can't copy\n   PAULI/CLIFFORD         unknown |ψ⟩\n                          → QEC must\n     Pauli group            spread info\n     Clifford grp         → QKD secure\n     Normalizer\n\n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "### Bloch Sphere",
+      "confidence": "candidate",
+      "text": "          |0⟩ (north pole, z=+1)\n            ↑\n            |  ← |ψ⟩ at (θ, φ)\n\n           /|\n          / |   θ ∈ [0,π]   polar (colatitude)\n         /  |   φ ∈ [0,2π)  azimuthal\n|−⟩←       ↑       →|+⟩\n        \\   |\n         \\  |   |ψ⟩ = cos(θ/2)|0⟩ + e^(iφ)sin(θ/2)|1⟩\n          \\ |\n            ↓\n          |1⟩ (south pole, z=−1)\n\nKey points:\n  |0⟩:  z=+1  (north)\n  |1⟩:  z=−1  (south)\n  |+⟩ = (|0⟩+|1⟩)/√2:  +x axis (θ=π/2, φ=0)\n  |−⟩ = (|0⟩−|1⟩)/√2:  −x axis (θ=π/2, φ=π)\n  |i⟩ = (|0⟩+i|1⟩)/√2: +y axis (θ=π/2, φ=π/2)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 119,
+      "heading_context": "## Multi-Qubit States",
+      "confidence": "candidate",
+      "text": "2 qubits: |ψ⟩ = α₀₀|00⟩ + α₀₁|01⟩ + α₁₀|10⟩ + α₁₁|11⟩,  Σ|αᵢⱼ|² = 1\n3 qubits: 8 complex amplitudes\nn qubits: 2^n complex amplitudes — exponential classical description\n\nPRODUCT STATE (separable):\n  |ψ_A⟩ ⊗ |ψ_B⟩ = (α|0⟩+β|1⟩) ⊗ (γ|0⟩+δ|1⟩)\n                 = αγ|00⟩ + αδ|01⟩ + βγ|10⟩ + βδ|11⟩\n\nENTANGLED STATE (not factorable as product):\n  Bell states (maximally entangled):\n    |Φ⁺⟩ = (|00⟩+|11⟩)/√2   ← same outcomes (correlated)\n    |Φ⁻⟩ = (|00⟩−|11⟩)/√2\n    |Ψ⁺⟩ = (|01⟩+|10⟩)/√2   ← opposite outcomes (anti-correlated)\n    |Ψ⁻⟩ = (|01⟩−|10⟩)/√2   ← singlet\n  Cannot be written as |ψ_A⟩⊗|ψ_B⟩ for any single-qubit states.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "## Two-Qubit Gates",
+      "confidence": "candidate",
+      "text": "GATE          OPERATION                                CIRCUIT SYMBOL\n\nCNOT (CX)     If control=|1⟩, flip target             q₀: ●\n              |00⟩→|00⟩, |01⟩→|01⟩                  q₁: ⊕\n              |10⟩→|11⟩, |11⟩→|10⟩\n\nCZ            If control=|1⟩, phase-flip target        q₀: ●\n              |11⟩→−|11⟩                               q₁: Z\n              Symmetric: either qubit can be control\n\nSWAP          Exchange qubit states                    q₀: ╳\n              |01⟩→|10⟩, |10⟩→|01⟩                  q₁: ╳\n              = 3 CNOTs\n\niSWAP         SWAP + phase i on swapped component      Native in superconducting\n              Common on superconducting processors\n\nCPhase(θ)     Phase-kick target by e^(iθ) if ctrl=|1⟩ Used in QFT",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 228,
+      "heading_context": "## Universality",
+      "confidence": "candidate",
+      "text": "UNIVERSAL GATE SETS (approximate any unitary to ε precision):\n  {H, T, CNOT}      ← standard; Solovay-Kitaev gives O(log^c(1/ε)) gates\n  {Rx(θ), Rz(φ), CNOT} for irrational θ/π  ← also universal\n\nCLIFFORD GATES = {H, S, CNOT, X, Y, Z}:\n    Map Pauli operators to Pauli operators under conjugation\n    Efficiently classically simulable (Gottesman-Knill theorem, O(n²) time)\n    NOT universal alone\n\nT GATE BREAKS CLASSICAL SIMULABILITY:\n  T ∉ Clifford group → adding T to Clifford makes set universal\n  Cost in fault-tolerant QC: each logical T gate requires ~100–1000 physical\n  T gates via magic state distillation (see 03-ERROR-CORRECTION.md)\n  T-count and T-depth are the primary resource metrics for FTQC algorithms",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "## Quantum Circuits",
+      "confidence": "candidate",
+      "text": "NOTATION:\n          = qubit wire (time flows left to right)\n  [gate]  = gate applied to qubit\n    ●     = control (filled dot)\n    ⊕     = CNOT target\n    M     = measurement (→ classical bit output)\n\nExample: Quantum teleportation (three qubit lines)\n  (Alice has q₀=|ψ⟩ and q₁; Bob has q₂)\n\n  q₀(|ψ⟩):         ●  H  M                (→ classical bit b₀)\n  q₁(|0⟩):   H  ●  ⊕      M                (→ classical bit b₁)\n  q₂(|0⟩):       ⊕             X^b₁  Z^b₀ → |ψ⟩ at Bob's end\n\n  Step by step:\n  1. Bell pair preparation: H on q₁, CNOT (q₁,q₂) → |Φ⁺⟩₁₂\n  2. Alice's Bell measurement: CNOT (q₀,q₁), H on q₀, measure both\n  3. Classical communication: Alice sends (b₀,b₁) to Bob\n  4. Bob's correction: X^b₁ then Z^b₀ on q₂\n  Result: q₂ in state |ψ⟩ — state teleported without physical qubit moving",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 286,
+      "heading_context": "## Measurement and Born Rule",
+      "confidence": "candidate",
+      "text": "PROJECTIVE MEASUREMENT in {|0⟩, |1⟩}:\n  P(outcome 0) = |α|² = ⟨ψ|P₀|ψ⟩    P₀ = |0⟩⟨0| (projector)\n  P(outcome 1) = |β|² = ⟨ψ|P₁|ψ⟩    P₁ = |1⟩⟨1|\n  Post-measurement state collapses to |0⟩ or |1⟩\n\nMEASURING IN X BASIS (Hadamard basis):\n  Apply H, then measure in Z basis\n  P(+) = |⟨+|ψ⟩|² = |(α+β)/√2|²\n\nGENERAL OBSERVABLE A (Hermitian):\n  ⟨A⟩ = ⟨ψ|A|ψ⟩  (expectation value)\n  Outcomes = eigenvalues of A; collapse to corresponding eigenstate\n\nSYNDROME MEASUREMENT (for error correction):\n  Measure Pauli operators on ancilla qubits, not data qubits\n  → extracts error information without disturbing logical qubit\n  (uses POVM / indirect measurement)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 314,
+      "heading_context": "## Density Matrices (Mixed States)",
+      "confidence": "candidate",
+      "text": "PURE STATE ρ = |ψ⟩⟨ψ|:\n  ρ² = ρ, Tr(ρ) = 1, Tr(ρ²) = 1, rank 1\n\nMIXED STATE ρ = Σᵢ pᵢ|ψᵢ⟩⟨ψᵢ|:\n  Tr(ρ) = 1, Tr(ρ²) < 1\n\nMAXIMALLY MIXED ρ = I/2:\n  No information about qubit state\n  Bloch vector = origin\n  Result of tracing over entangled partner or fully decohered qubit\n\nPARTIAL TRACE (tracing out subsystem B):\n  ρ_A = Tr_B(ρ_AB)\n  Bell state |Φ⁺⟩⟨Φ⁺|: ρ_A = I/2 (maximally mixed)\n\nTIME EVOLUTION:\n  Unitary: ρ(t) = U(t)ρ(0)U†(t)\n  With decoherence: Lindblad master equation\n    dρ/dt = -i[H,ρ] + Σⱼ Lⱼ ρ Lⱼ† - ½(Lⱼ†Lⱼ ρ + ρ Lⱼ†Lⱼ)\n    Lⱼ = jump operators (bit-flip, phase-flip, amplitude damping...)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
