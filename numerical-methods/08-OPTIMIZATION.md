@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:numerical-methods:optimization
+kind: guide
+module: numerical-methods
+section: numerical-methods
+title: Numerical Optimization
+status: source-custody
+source_custody: partial
+current_path: numerical-methods/08-OPTIMIZATION.md
+canonical_path: numerical-methods/08-OPTIMIZATION.md
+backsource_ids: [proof-backfill:numerical-methods:08-optimization, git-history:numerical-methods:08-optimization]
+concepts: [optimization]
+root_concepts: [optimization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Numerical Optimization
 
 ## The Big Picture
@@ -27,7 +46,7 @@ Optimization finds the minimum (or maximum) of an objective function, possibly s
 |  +---------------------------------------------+               |
 |  | SGD, Adam, RMSprop (ML training)            |               |
 |  | Simulated annealing, genetic algorithms     |               |
-|  | Bayesian optimization (expensive objectives) |              |
+|  | Bayesian opt. (expensive objectives)        |               |
 |  +---------------------------------------------+               |
 +------------------------------------------------------------------+
 ```

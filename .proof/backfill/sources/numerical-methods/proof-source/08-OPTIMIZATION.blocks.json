@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\08-OPTIMIZATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    OPTIMIZATION TAXONOMY                         |\n+------------------------------------------------------------------+\n|                                                                  |\n|  UNCONSTRAINED                    CONSTRAINED                   |\n|  +---------------------+          +----------------------+      |\n|  | CONVEX              |          | LINEAR PROGRAMMING   |      |\n|  | Gradient descent    |          | (Simplex, Interior   |      |\n|  | Conjugate gradient  |          |  Point)              |      |\n|  | Newton's method     |          +----------------------+      |\n|  | BFGS / L-BFGS       |          | CONVEX QP / SDP      |      |\n|  +---------------------+          | (Interior point)     |      |\n|  | NON-CONVEX          |          +----------------------+      |\n|  | Local minima only   |          | NONLINEAR CONSTRAINED|      |\n|  | Same methods but    |          | (SQP, IPM, ADMM)     |      |\n|  | no global guarantee |          +----------------------+      |\n|  +---------------------+                                        |\n|                                                                  |\n|  STOCHASTIC / GLOBAL                                            |\n|  +---------------------------------------------+               |\n|  | SGD, Adam, RMSprop (ML training)            |               |\n|  | Simulated annealing, genetic algorithms     |               |\n|  | Bayesian opt. (expensive objectives)        |               |\n|  +---------------------------------------------+               |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 91,
+      "heading_context": "## Gradient Descent and Variants",
+      "confidence": "candidate",
+      "text": "  Nesterov Accelerated Gradient (NAG):\n  y_k = x_k + (k-1)/(k+2) (x_k - x_{k-1})    (momentum step)\n  x_{k+1} = y_k - alpha nabla f(y_k)           (gradient step)\n\n  CONVERGENCE: O(1/k^2) instead of O(1/k) for convex smooth f.\n  Optimal for gradient methods (no first-order method does better for smooth convex).\n  The (k-1)/(k+2) factor is the \"momentum coefficient\" -- increases toward 1 over time.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 127,
+      "heading_context": "## Newton and Quasi-Newton Methods",
+      "confidence": "candidate",
+      "text": "  Approximate H by a positive-definite matrix B_k, updated cheaply:\n\n  BFGS UPDATE:\n  s_k = x_{k+1} - x_k     (step)\n  y_k = g_{k+1} - g_k     (gradient change)\n  B_{k+1} = B_k - (B_k s_k s_k^T B_k) / (s_k^T B_k s_k) + (y_k y_k^T) / (y_k^T s_k)\n\n  SECANT CONDITION: B_{k+1} s_k = y_k (approximate Hessian-vector product)\n  B_{k+1} remains positive definite if y_k^T s_k > 0 (guaranteed by Wolfe line search).\n\n  CONVERGENCE: Superlinear near x* (between linear and quadratic).\n  COST: O(n^2) per iteration (matrix-vector product).\n\n  L-BFGS (Limited-memory BFGS):\n  Don't store B_k explicitly (n x n matrix).\n  Store last m (s_k, y_k) pairs (m = 5-20 typically).\n  Compute H^{-1} g using two-loop recursion in O(mn) time.\n  Memory: O(mn) instead of O(n^2).\n  THE STANDARD for large-scale unconstrained optimization (n > 10^4).\n  scipy.optimize.minimize(method='L-BFGS-B').",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 178,
+      "heading_context": "## Stochastic Gradient Descent and ML Optimizers",
+      "confidence": "candidate",
+      "text": "  ADAGRAD: per-parameter adaptive learning rate.\n  G_k += g_k^2  (accumulate squared gradients, element-wise)\n  x_{k+1} = x_k - alpha / sqrt(G_k + eps) * g_k\n\n  Problem: G_k grows without bound -> learning rate shrinks to 0.\n\n  RMSPROP (Hinton): exponential moving average of squared gradients.\n  v_k = beta v_{k-1} + (1-beta) g_k^2\n  x_{k+1} = x_k - alpha / sqrt(v_k + eps) * g_k\n\n  ADAM (Adaptive Moment Estimation):\n  m_k = beta1 m_{k-1} + (1-beta1) g_k          (1st moment estimate)\n  v_k = beta2 v_{k-1} + (1-beta2) g_k^2         (2nd moment estimate)\n  m_hat = m_k / (1 - beta1^k)                   (bias correction)\n  v_hat = v_k / (1 - beta2^k)                   (bias correction)\n  x_{k+1} = x_k - alpha m_hat / (sqrt(v_hat) + eps)\n\n  Default: beta1=0.9, beta2=0.999, alpha=0.001, eps=1e-8.\n  CURRENT STANDARD for deep learning. Robust across architectures.\n  Connection to natural gradient: Adam approximates diagonal Fisher preconditioning.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 314,
+      "heading_context": "## Manifold Optimization (Riemannian SGD)",
+      "confidence": "candidate",
+      "text": "  RIEMANNIAN GRADIENT DESCENT:\n  1. Compute Euclidean gradient ∇f(x) in ambient space\n  2. Project to tangent space: grad_M f(x) = Proj_{T_x M}(∇f(x))\n  3. Move along geodesic: x_{k+1} = Retr_x(-α grad_M f(x))\n     (Retraction: cheap approximation to the exponential map)\n\n  KEY MANIFOLDS IN PRACTICE:\n  ──────────────────────────────────────────────────────────────────\n  MANIFOLD             CONSTRAINT              APPLICATION\n  ──────────────────────────────────────────────────────────────────\n  Stiefel St(n,p)      V^T V = I_p             Orthogonal constraints\n                        (p columns orthonormal)  PCA, subspace tracking\n  Grassmann Gr(n,p)    Subspace (equiv. class   Subspace learning,\n                        of orthonormal frames)   robust PCA\n  SPD(n)               X ≻ 0                    Covariance estimation,\n                        (symmetric pos. def.)    kernel learning\n  Hyperbolic H^n       -x_0^2 + x_1^2+...=−1   Hierarchical embeddings\n                        (Lorentz model)          (Poincaré embeddings)\n  Sphere S^{n-1}       ||x|| = 1                Normalized embeddings,\n                                                 directional statistics\n  Fixed-rank M(m,n,r)  rank(X) = r              Matrix completion,\n                                                 low-rank optimization\n  ──────────────────────────────────────────────────────────────────\n\n  RIEMANNIAN SGD for the Stiefel manifold:\n  G = ∇f(V)                           (Euclidean gradient)\n  grad = G - V(V^T G + G^T V)/2       (projection to tangent space)\n  V_{k+1} = qr(V_k - α grad)          (retraction via QR)\n\n  LIBRARIES:\n  Manopt (MATLAB), Pymanopt (Python), Manopt.jl (Julia),\n  Geoopt (PyTorch — Riemannian optimizers compatible with autograd),\n  McTorch (PyTorch fork with manifold layers).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

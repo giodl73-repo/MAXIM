@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\01-FLOATING-POINT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                   IEEE 754 FLOATING-POINT                        |\n+------------------------------------------------------------------+\n|                                                                  |\n|  A floating-point number x:                                      |\n|  x = (-1)^sign * mantissa * 2^exponent                         |\n|                                                                  |\n|  DOUBLE PRECISION (float64):                                     |\n|  +--------+--------------------+------------------------------+  |\n|  | 1 bit  | 11 bits            | 52 bits                      |  |\n|  | sign   | biased exponent    | fraction (significand)       |  |\n|  +--------+--------------------+------------------------------+  |\n|                                                                  |\n|  Range: ~5e-324 to ~1.8e308                                     |\n|  Machine epsilon: eps_mach = 2^{-52} = 2.22e-16                |\n|  (~16 significant decimal digits)                               |\n|                                                                  |\n|  SINGLE PRECISION (float32): eps_mach = 2^{-23} = 1.19e-7     |\n|  (~7 significant decimal digits)                                |\n|  Common in GPU ML (TPU uses bfloat16: exp=8 bits, frac=7 bits) |\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "## The IEEE 754 Standard",
+      "confidence": "candidate",
+      "text": "  Normalized number: x = +/- 1.f * 2^e\n  where f is the 52-bit fraction and e = exponent - 1023 (bias)\n\n  Subnormal numbers: gradual underflow near 0\n  x = +/- 0.f * 2^{-1022}  (no leading 1)\n  Allow gradual loss of precision near 0; avoid hard underflow to 0.\n\n  Special values:\n  +inf, -inf: overflow or division by nonzero / 0\n  NaN (Not a Number): 0/0, inf - inf, sqrt(-1), etc.\n  +0 and -0: same value, different bit pattern. (+0 == -0 is true)\n\n  IEEE GUARANTEES:\n  Each basic operation (+, -, *, /, sqrt) is \"correctly rounded\":\n  fl(x op y) = round(x op y)  where round rounds to nearest representable float.\n  This is the EXACT rounding guarantee — critical for reproducibility.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 123,
+      "heading_context": "## Rounding Modes",
+      "confidence": "candidate",
+      "text": "Note: Directed rounding (toward +∞ and −∞) is precisely the mechanism that makes interval arithmetic work — computing the lower bound with round-toward-−∞ and the upper bound with round-toward-+∞ guarantees enclosure of the true result. This connection is developed in the Interval Arithmetic section below.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 152,
+      "heading_context": "## Catastrophic Cancellation",
+      "confidence": "candidate",
+      "text": "  QUADRATIC FORMULA: roots of ax^2 + bx + c = 0\n  x = (-b +/- sqrt(b^2 - 4ac)) / (2a)\n\n  When b >> sqrt(4ac): sqrt(b^2 - 4ac) ≈ |b|\n  For x_small = (-b + sqrt(b^2-4ac)) / (2a) with b > 0:\n  -b + sqrt(b^2-4ac) = very small difference of large numbers. CANCELLATION.\n\n  FIX: use the numerically stable form\n  x_small = c / (a * x_large)   (from Vieta's formulas: x_small * x_large = c/a)\n\n  SAMPLE VARIANCE: (1/n) Sum (x_i - x_bar)^2\n  Naive computation: (1/n) Sum x_i^2 - x_bar^2\n  = (large) - (large) if x_i >> variation.\n  FIX: compute x_bar first, then Sum (x_i - x_bar)^2.\n  Or use Welford's online algorithm for numerically stable one-pass variance.\n\n  exp(x) - 1 near x = 0:\n  Direct: exp(x) = 1 + x + x^2/2 + ...  -> fl(exp(x)) - 1 = CANCELLATION.\n  FIX: use expm1(x) = x + x^2/2 + ... (standard library function, no cancellation).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "## Conditioning and Condition Numbers",
+      "confidence": "candidate",
+      "text": "  For a function f: R^n -> R^m, at input x:\n  kappa = ||J_f(x)|| * ||x|| / ||f(x)||   (relative condition number)\n\n  where J_f = Jacobian of f.\n\n  Large kappa: ill-conditioned. Small input perturbation -> large output change.\n  kappa ≈ 1: well-conditioned.\n\n  RULE OF THUMB:\n  If kappa = 10^k, expect to lose k significant digits of accuracy.\n  For float64 (16 digits): problems with kappa > 10^{16} are numerically meaningless.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 196,
+      "heading_context": "## Conditioning and Condition Numbers",
+      "confidence": "candidate",
+      "text": "  kappa(A) = ||A|| * ||A^{-1}||  (using any consistent matrix norm)\n  For 2-norm: kappa_2(A) = sigma_max(A) / sigma_min(A)   (largest / smallest singular value)\n\n  Sensitivity:\n  ||delta x|| / ||x|| <= kappa(A) * ||delta b|| / ||b||\n\n  Meaning: a small relative change in b causes at most kappa(A) times larger\n  relative change in x.\n\n  ILL-CONDITIONED EXAMPLES:\n  Hilbert matrix H_{ij} = 1/(i+j-1): kappa = 10^13 for n=8.\n  Vandermonde matrices for high-degree polynomial interpolation.\n  Near-singular covariance matrices in statistics.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

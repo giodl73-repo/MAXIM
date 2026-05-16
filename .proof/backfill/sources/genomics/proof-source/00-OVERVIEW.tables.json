@@ -1,0 +1,170 @@
+{
+  "schema_version": "1",
+  "source_markdown": "genomics\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 114,
+      "heading_context": "## Genomics vs. Related Omics Fields",
+      "headers": [
+        "Field",
+        "What It Measures",
+        "Snapshot Type",
+        "Key Tools"
+      ],
+      "rows": [
+        [
+          "**Genomics**",
+          "DNA sequence and variants",
+          "Stable (same in all cells)",
+          "BWA, GATK, Illumina"
+        ],
+        [
+          "**Transcriptomics**",
+          "RNA expression levels",
+          "Dynamic (varies by cell/time)",
+          "STAR, kallisto, DESeq2"
+        ],
+        [
+          "**Proteomics**",
+          "Protein abundance",
+          "Dynamic, post-translational",
+          "LC-MS/MS, MaxQuant"
+        ],
+        [
+          "**Epigenomics**",
+          "DNA/histone modifications",
+          "Semi-stable, heritable",
+          "bisulfite-seq, ChIP-seq"
+        ],
+        [
+          "**Metabolomics**",
+          "Small-molecule metabolites",
+          "Dynamic, systemic readout",
+          "NMR, mass spec"
+        ],
+        [
+          "**Metagenomics**",
+          "All genomes in a sample",
+          "Community snapshot",
+          "Kraken2, MetaPhlAn, MetaSPAdes"
+        ],
+        [
+          "**Single-cell**",
+          "Per-cell expression",
+          "Cell-type resolved",
+          "10x Genomics, Seurat, Scanpy"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 182,
+      "heading_context": "## File Roadmap",
+      "headers": [
+        "File",
+        "What It Covers"
+      ],
+      "rows": [
+        [
+          "01-SEQUENCING-TECH.md",
+          "How DNA gets read — Sanger → Illumina → nanopore generations"
+        ],
+        [
+          "02-GENOME-ASSEMBLY.md",
+          "Turning reads into genomes — graph algorithms, de Bruijn, phasing"
+        ],
+        [
+          "03-VARIANT-CALLING.md",
+          "Finding what differs — SNPs, indels, CNVs; GATK HaplotypeCaller"
+        ],
+        [
+          "04-GENE-EXPRESSION.md",
+          "RNA-seq: which genes active, in which cells, by how much"
+        ],
+        [
+          "05-EPIGENOMICS.md",
+          "Chemical layer above sequence — methylation, histone marks, ATAC"
+        ],
+        [
+          "06-GWAS.md",
+          "Association studies — connecting variants to traits in populations"
+        ],
+        [
+          "07-CRISPR.md",
+          "Genome editing — guide RNA as search string, Cas9 as editor"
+        ],
+        [
+          "08-BIOINFORMATICS-PIPELINE.md",
+          "Engineering layer — formats, workflows, cloud compute, databases"
+        ],
+        [
+          "09-PERSONALIZED-MEDICINE.md",
+          "Clinical applications — pharmacogenomics, cancer, rare disease"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 198,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Task",
+        "Best First Approach",
+        "Watch-Out"
+      ],
+      "rows": [
+        [
+          "Find inherited rare-disease variants",
+          "Trio WGS if possible; WES if budget/coverage constrained",
+          "WES misses noncoding, structural, repeat, and hard-to-capture regions"
+        ],
+        [
+          "Find protein-altering variants cheaply",
+          "WES at high depth",
+          "Good for coding SNVs/indels; weak for regulatory variants and structural variation"
+        ],
+        [
+          "Discover structural variants, repeat expansions, or hard assemblies",
+          "PacBio HiFi or Oxford Nanopore long reads",
+          "Higher analysis complexity; platform choice depends on accuracy vs read length"
+        ],
+        [
+          "Type common variants across huge cohorts",
+          "SNP array plus imputation",
+          "Cheap and scalable; only sees known/common variation well"
+        ],
+        [
+          "Measure expression state",
+          "Bulk RNA-seq for tissue average; scRNA-seq for cell types",
+          "RNA is dynamic; it is not a substitute for DNA variant calling"
+        ],
+        [
+          "Profile regulatory state",
+          "ATAC-seq for open chromatin; ChIP-seq for protein-DNA binding",
+          "Requires careful controls; cell-type mixture can dominate signal"
+        ],
+        [
+          "Analyze a microbial community",
+          "Shotgun metagenomics",
+          "Host contamination and reference bias can distort abundance estimates"
+        ],
+        [
+          "Find population disease associations",
+          "GWAS with thousands to millions of samples",
+          "Association is not causation; population stratification is a first-order confounder"
+        ],
+        [
+          "Interpret a tumor",
+          "Tumor-normal paired WGS/WES plus RNA/ctDNA when needed",
+          "Somatic calling needs matched normal and purity/copy-number modeling"
+        ],
+        [
+          "Edit a locus",
+          "CRISPR-Cas system matched to edit type",
+          "Delivery, off-targets, repair pathway, and mosaicism are the hard parts"
+        ]
+      ]
+    }
+  ]
+}

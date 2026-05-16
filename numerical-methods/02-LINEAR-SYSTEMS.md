@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:numerical-methods:linear-systems
+kind: guide
+module: numerical-methods
+section: numerical-methods
+title: Linear Systems
+status: source-custody
+source_custody: partial
+current_path: numerical-methods/02-LINEAR-SYSTEMS.md
+canonical_path: numerical-methods/02-LINEAR-SYSTEMS.md
+backsource_ids: [proof-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]
+concepts: [linear, systems]
+root_concepts: [linear, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Linear Systems
 
 ## The Big Picture
@@ -18,16 +37,16 @@ Solving Ax = b is the most common operation in scientific computing. Every PDE s
 |  | O(n^2) storage      |           | MINRES (sym.)     |        |
 |  +---------------------+           | Multigrid         |        |
 |  | QR factorization    |           +-------------------+        |
-|  | Least squares min   |           | O(n) to O(n^{4/3})         |
+|  | Least squares min   |           | O(n) to O(n^4/3)  |        |
 |  | ||Ax-b||^2          |           | for sparse A      |        |
 |  +---------------------+           +-------------------+        |
 |  | Cholesky (sym.PD)   |           PRECONDITIONING:             |
 |  | A = LL^T            |           Key to practical speed       |
 |  | Half the work of LU |                                        |
-|  +---------------------+                                        |
-   |                                                              |
-   |  WHEN DIRECT:          n < 10^4, dense, need exact solution  |
-   |  WHEN ITERATIVE:       n > 10^4, sparse, structured          |
+|  -----------------------                                        |
+|  WHEN DIRECT:          n < 10^4, dense, need exact solution     |
+|  WHEN ITERATIVE:       n > 10^4, sparse, structured             |
+|                                                                 |
 +------------------------------------------------------------------+
 ```
 

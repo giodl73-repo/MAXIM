@@ -1,0 +1,797 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-genomics-genome-assembly",
+  "source": "../../genomics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-GENOME-ASSEMBLY.md#000",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "# Genome Assembly"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#001",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#002",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "```\nGENOME ASSEMBLY AS A GRAPH PROBLEM\n===================================="
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#003",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "INPUT: Millions of short (or long) reads — fragments of the genome\n  OUTPUT: Contiguous sequences (contigs → scaffolds → chromosomes)"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#004",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "THE CORE CHALLENGE:\n  Genome = ~3.2 billion bp\n  Short reads = ~150 bp each\n  Ratio: 21 million reads to cover at 1x\n  With 30x coverage: ~640 million reads"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#005",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "Assembly is reconstruction from overlapping fragments:\n  Like reconstructing a 3-billion-character book from\n  640 million randomly-sampled 150-character snippets,\n  where some pages repeat verbatim hundreds of times."
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#006",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "ASSEMBLY APPROACHES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │                                                                 │\n  │  REFERENCE-GUIDED ASSEMBLY                                      │\n  │  ─────────────────────────                                      │\n  │  Align reads to existing reference genome                       │\n  │  Fast, reliable for known organisms                             │\n  │  Cannot find sequences absent from reference                    │\n  │  Tools: BWA-MEM2, minimap2                                      │\n  │                                                                 │\n  │  DE NOVO ASSEMBLY                                               │\n  │  ─────────────────                                              │\n  │  Build genome from scratch, no reference needed                 │\n  │  Harder: must solve the graph problem                           │\n  │  Required for: new species, large structural variants           │\n  │  Tools: Hifiasm (HiFi), Flye (ONT), SPAdes (Illumina)           │\n  └─────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#007",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#008",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "## The Three Assembly Paradigms"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#009",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "### 1. Overlap-Layout-Consensus (OLC) — Conceptual Baseline"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#010",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "```\n  OLC PARADIGM (original approach, still used in long-read assemblers)\n  ====================================================================="
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#011",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "STEP 1: OVERLAP\n  Find all pairs of reads that share a suffix/prefix\n  Read A: ATCGATCGATCG\n  Read B:       ATCGATCGATTT\n  Overlap: ATCGATCG (8 bp shared)"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#012",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "STEP 2: LAYOUT\n  Build overlap graph:\n  - Nodes = reads\n  - Edges = overlaps above threshold length"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#013",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "A ──────► B ──────► C ──────► D\n         ↘\n          E ──────► F"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#014",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "STEP 3: CONSENSUS\n  Walk the graph, call consensus sequence at each position\n  Output: contig sequences"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#015",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "PROBLEM: With millions of reads, all-vs-all overlap is O(n²) — infeasible.\n  Solution: de Bruijn graphs (next section) or minimap/MHAP heuristic overlap.\n```"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#016",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "### 2. de Bruijn Graph (DBG) — The Dominant Approach for Short Reads"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#017",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "```\n  DE BRUIJN GRAPH: THE CS DATA STRUCTURE AT THE HEART OF GENOME ASSEMBLY\n  ========================================================================"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#018",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "KEY IDEA: Decompose reads into k-mers (substrings of length k)\n  Build graph: k-mers are edges, (k-1)-mers are nodes"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#019",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "Example with k=4 (real assemblers use k=21–99):"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#020",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "Reads: ATCGATCG, TCGATCGT"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#021",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "All 4-mers from reads:\n    ATCG, TCGA, CGAT, GATC, ATCG (duplicate!)\n    TCGA (duplicate!), CGAT (duplicate!), GATC, ATCG, TCGT"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#022",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "Unique (k-1)=3-mers as nodes:\n    ATC, TCG, CGA, GAT, TCG, CGT"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#023",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "Edges (4-mers):\n    ATC → TCG  (from ATCG)\n    TCG → CGA  (from TCGA)\n    CGA → GAT  (from CGAT)\n    GAT → ATC  (from GATC)\n    TCG → CGT  (from TCGT)"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#024",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "GRAPH:\n         ATCG                ATCG\n  ATC ────────► TCG ────────► CGA ────────► GAT\n                │\n                │ TCGT\n                └────────────► CGT"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#025",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "GENOME RECONSTRUCTION: Follow Eulerian path through graph\n  This converts O(n²) all-vs-all comparison to O(n) graph traversal!"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#026",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "COMPLEXITY REDUCTION:\n  OLC approach: O(n²) comparisons\n  DBG approach: O(n·k) to build graph + O(n) traversal\n  For n=640 million reads, k=31: ~20 billion operations vs ~4×10¹⁷"
+    },
+    {
+      "id": "02-GENOME-ASSEMBLY.md#027",
+      "path": [
+        "02-GENOME-ASSEMBLY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]",
+        "canonical_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "concepts": "[genome, assembly]",
+        "current_path": "genomics/02-GENOME-ASSEMBLY.md",
+        "id": "maxim:genomics:genome-assembly",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[genome, assembly]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Genome Assembly",
+        "updated": "null"
+      },
+      "text": "WHY IT WORKS: The Eulerian path theorem guarantees a path using\n  every edge exactly once when in-degree = out-degree at each node.\n  In the genome, every k-mer should appear in a consistent context."
+    }
+  ],
+  "refs": [
+    "02-GENOME-ASSEMBLY.md"
+  ]
+}

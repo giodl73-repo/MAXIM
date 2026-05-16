@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:genomics:crispr
+kind: guide
+module: genomics
+section: genomics
+title: CRISPR Gene Editing
+status: source-custody
+source_custody: partial
+current_path: genomics/07-CRISPR.md
+canonical_path: genomics/07-CRISPR.md
+backsource_ids: [proof-backfill:genomics:07-crispr, git-history:genomics:07-crispr]
+concepts: [crispr]
+root_concepts: [crispr]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # CRISPR Gene Editing
 
 ## The Big Picture
@@ -16,7 +35,7 @@ CRISPR: PROGRAMMABLE GENOME EDITING
   │ guide RNA (gRNA)   = search string    (20 nucleotide sequence)   │
   │ PAM sequence       = anchor/constraint (NGG for SpCas9)          │
   │ Cas9 protein       = the search + cut engine                     │
-  │ DNA double-strand  = target data      (3 billion character string)│
+  │ DNA double-strand  = target data (3B character string)           │
   │                                                                  │
   │ System finds the first 20-nt match to gRNA adjacent to PAM,      │
   │ then cuts both strands of DNA. DNA repair mechanisms do the rest.│

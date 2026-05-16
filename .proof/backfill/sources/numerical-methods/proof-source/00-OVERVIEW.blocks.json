@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===================================================================+\n|              NUMERICAL METHODS LANDSCAPE                          |\n+===================================================================+\n|                                                                   |\n|  SCIENTIFIC COMPUTING STACK (09)                                  |\n|  NumPy/SciPy/Julia/MATLAB → LAPACK/BLAS → cuBLAS/cuSPARSE → HW  |\n|       ▲              ▲             ▲              ▲               |\n|       |              |             |              |               |\n|  +----------+  +----------+  +-----------+  +-------------+      |\n|  | LINEAR   |  | EIGEN /  |  | INTEGRA-  |  | DIFF. EQUNS |      |\n|  | SYSTEMS  |  | SVD      |  | TION      |  | ODE + PDE   |      |\n|  | Ax = b   |  | Av=λv    |  | ∫f dx     |  | y'=f, Lu=f  |      |\n|  | (02)     |  | (03)     |  | (05)      |  | (06, 07)    |      |\n|  +----------+  +----------+  +-----------+  +-------------+      |\n|    LU, QR,    Power iter,   Newton-Cotes,   RK4, BDF,            |\n|    Cholesky   QR algo,      Gauss quad,     FD, FEM,             |\n|    CG, GMRES  Lanczos, SVD  Monte Carlo     spectral             |\n|       ▲           ▲                ▲              ▲              |\n|       |     Cholesky               |         inner solves        |\n|       +---- reduction ----+       MC for       use (02)          |\n|       |                   |      high-d         + (03)           |\n|  +----+----------------------------------------------+           |\n|  | INTERPOLATION / APPROXIMATION (04)                |           |\n|  | Splines, Chebyshev, RBF, GP / Kriging             |           |\n|  +---------------------------------------------------+           |\n|       ▲                                                          |\n|  +---------------------------------------------------+           |\n|  | OPTIMIZATION (08)                                 |           |\n|  | GD, L-BFGS, SGD/Adam, convex, Bayesian opt        |           |\n|  | ← AD (reverse-mode = backprop) computes gradients |           |\n|  +---------------------------------------------------+           |\n|       ▲                                                          |\n|  +===================================================+           |\n|  | FOUNDATION (01)                                   |           |\n|  | IEEE 754, rounding, cancellation, conditioning,   |           |\n|  | backward stability, interval arithmetic           |           |\n|  +===================================================+           |\n+===================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 98,
+      "heading_context": "## The Critical Distinction: Stability, Conditioning, Accuracy",
+      "confidence": "candidate",
+      "text": "  +-------------------+------------------+------------------+\n  |                   | STABLE algorithm | UNSTABLE alg     |\n  +-------------------+------------------+------------------+\n  | WELL-CONDITIONED  | ACCURATE RESULT  | May be OK or bad |\n  | PROBLEM           |                  |                  |\n  +-------------------+------------------+------------------+\n  | ILL-CONDITIONED   | Best possible    | GARBAGE          |\n  | PROBLEM           | (inherent error) |                  |\n  +-------------------+------------------+------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "## Asymptotic Analysis: Order of Convergence",
+      "confidence": "candidate",
+      "text": "  An algorithm with error e(h) has ORDER OF CONVERGENCE p if:\n  e(h) = O(h^p) as h -> 0\n\n  This is the SAME Big-O notation from algorithm analysis (MIT TCS background).\n  But h is a step size, not input size. Smaller h = more accuracy but more work.\n\n  ERROR-WORK TRADEOFF:\n  For an algorithm using n evaluations with step h = 1/n:\n  Work = O(n), Error = O(h^p) = O(n^{-p})\n\n  To halve the error with a p-th order method: multiply work by 2^p.\n  p=1 (Euler): double work -> halve error\n  p=2: quadruple work -> halve error\n  p=4 (RK4): 16x work -> halve error\n  Spectral: exponential convergence for smooth functions\n\n  CONVERGENCE RATE COMPARISON (table for integration):\n  Method          Rate        Evaluations for 10^{-12} error\n  Midpoint rule   O(h^2)      ~10^6\n  Simpson's rule  O(h^4)      ~1000\n  Gaussian quad.  O(h^{2n})   ~20   (for smooth functions!)\n  Monte Carlo     O(n^{-1/2}) ~10^{24} ... but dim-independent",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 231,
+      "heading_context": "## Cross-Cutting Themes",
+      "confidence": "candidate",
+      "text": "  MODULE        AD CONNECTION\n  ──────────────────────────────────────────────────────────────────────\n  06-ODEs       Jacobian df/dy for implicit solvers (forward-mode AD)\n                Adjoint method = reverse-mode AD through ODE solve\n  07-PDEs       Adjoint-based sensitivity: dJ/dp via reverse-mode through PDE solver\n  08-OPTIM      Backpropagation = reverse-mode AD of loss w.r.t. parameters\n                Hessian-vector products via forward-over-reverse AD\n  09-SCI-COMP   JAX/PyTorch/Zygote implement AD; Enzyme does LLVM-level AD",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 244,
+      "heading_context": "## Cross-Cutting Themes",
+      "confidence": "candidate",
+      "text": "  OPERATION               GPU LIBRARY      WHEN GPU WINS\n  ──────────────────────────────────────────────────────────────────────\n  Dense GEMM (02,03)      cuBLAS           n > ~1000\n  Sparse SpMV (02,06,07)  cuSPARSE         HBM bandwidth dominates even at moderate n\n  FFT (07 spectral)       cuFFT            Large transforms\n  Dense factorizations    cuSOLVER         n > ~2000\n  Batched small GEMMs     cuBLAS batched   High parallelism over many small matrices",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

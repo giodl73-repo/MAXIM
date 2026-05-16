@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\03-EIGENVALUE-METHODS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                   EIGENVALUE ALGORITHM TAXONOMY                  |\n+------------------------------------------------------------------+\n|                                                                  |\n|  FIND ALL EIGENVALUES           FIND FEW EIGENVALUES/VECTORS    |\n|  +---------------------+        +------------------------+      |\n|  | QR ALGORITHM        |        | POWER ITERATION        |      |\n|  | Dense matrices      |        | Largest eigenvalue     |      |\n|  | O(n^3) work         |        | O(n k) per iteration   |      |\n|  | Industry standard   |        +------------------------+      |\n|  | (LAPACK DSYEV/DGEEV)|        | INVERSE ITERATION      |      |\n|  +---------------------+        | Smallest eigenvalue    |      |\n|                                  +------------------------+     |\n|  SVD                            | RAYLEIGH QUOTIENT ITER |      |\n|  +---------------------+        | Cubic convergence      |      |\n|  | A = U Sigma V^T     |        +------------------------+      |\n|  | Generalizes EVD     |        | LANCZOS / ARNOLDI      |      |\n|  | Rank, null space,   |        | Sparse large matrices  |      |\n|  | pseudoinverse       |        | Basis for ARPACK       |      |\n|  -----------------------        --------------------------      |\n|  RANDOMIZED SVD: approximate, very fast; foundation of many ML   |\n|                                                                  |\n|                                                                  |\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## Power Iteration",
+      "confidence": "candidate",
+      "text": "  Given A (n x n), find the dominant eigenvalue (largest |lambda|):\n\n  v^{(0)} = random unit vector\n  For k = 0, 1, 2, ...:\n    w = A v^{(k)}\n    v^{(k+1)} = w / ||w||           (normalize)\n    lambda^{(k)} = (v^{(k)})^T A v^{(k)}   (Rayleigh quotient)\n\n  CONVERGENCE: v^{(k)} -> v_1 (dominant eigenvector)\n  Rate: |lambda_2 / lambda_1|^k   (ratio of 1st and 2nd largest eigenvalue)\n\n  SLOW if |lambda_2| / |lambda_1| close to 1 (eigenvalues close together).\n\n  INVERSE ITERATION: Apply power iteration to A^{-1} -> finds smallest eigenvalue.\n  Solve (A - mu I) v^{(k+1)} = v^{(k)} at each step.\n  For mu near lambda_i: converges extremely fast to lambda_i.\n\n  SHIFTED INVERSE ITERATION:\n  Apply to (A - mu I)^{-1} with shift mu near target eigenvalue.\n  Convergence rate: |(lambda_i - mu)/(lambda_j - mu)| for nearest competitor lambda_j.\n  For mu close to lambda_i: this ratio is tiny -> superlinear convergence.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 172,
+      "heading_context": "## SVD: The Most Useful Matrix Decomposition",
+      "confidence": "candidate",
+      "text": "  DENSE MATRICES (LAPACK DGESVD):\n  1. Bidiagonalize A: A = U_1 B V_1^T  (B bidiagonal, O(mn^2) work)\n  2. Apply QR algorithm to B -> singular values\n  3. Total: O(mn^2) for m >= n.\n\n  DIVIDE-AND-CONQUER (DGESDD): faster in practice, O(mn^2) but smaller constant.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 220,
+      "heading_context": "## Randomized SVD",
+      "confidence": "candidate",
+      "text": "  RANDOMIZED RANGE FINDER:\n  1. Draw Omega: n x k random Gaussian matrix (k << n)\n  2. Compute Y = A Omega  (m x k matrix)\n  3. Y approximately spans the range of A (for rank-k approximation)\n\n  RANDOMIZED SVD (Halko-Martinsson-Tropp 2011):\n  1. Omega = randn(n, k+p)  (k = target rank, p = oversampling, typically p=5-10)\n  2. Y = A Omega\n  3. [Q, ~] = qr(Y)  (Q: m x (k+p) orthonormal)\n  4. B = Q^T A  ((k+p) x n)\n  5. [U_B, Sigma, V] = svd(B)  (small SVD: (k+p) x n)\n  6. U = Q U_B\n\n  TOTAL COST: O(mn k) instead of O(mn min(m,n)).\n  For k << min(m,n): MASSIVE speedup.\n\n  ACCURACY: With high probability:\n  ||A - U Sigma V^T|| <= (1 + eps) * sigma_{k+1}\n  (near-optimal for the target rank; oversampling p handles the probability guarantee)\n\n  POWER ITERATION VARIANT: Use Y = (AA^T)^q A Omega to improve accuracy for slowly\n  decaying singular values. q=2 usually sufficient.\n\n  In scikit-learn: TruncatedSVD uses randomized SVD.\n  PCA of large matrices: LinearSVC, text TF-IDF matrices, etc.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 252,
+      "heading_context": "## Randomized SVD",
+      "confidence": "candidate",
+      "text": "  SKETCHING FRAMEWORK:\n  ──────────────────────────────────────────────────────────\n  Johnson-Lindenstrauss lemma: a random projection R^n → R^k\n  (k = O(log(m) / eps^2)) preserves all pairwise distances\n  among m points to within factor (1 ± eps).\n\n  RandSVD's Ω IS a JL sketch: Y = AΩ maps n-dimensional columns\n  into k-dimensional space while preserving the column geometry\n  (distances, angles, rank structure).\n\n  SKETCH TYPES:\n  Gaussian Ω          Dense, strong guarantees, O(nk) to apply\n  SRHT (subsampled     Structured, O(n log k) to apply via FFT\n    randomized Hadamard)\n  CountSketch          Sparse (one nonzero per column), O(nnz) to apply\n  Leverage score       Sample rows proportional to statistical leverage\n    sampling             (rows that matter most for the column space)\n\n  STREAMING / ONE-PASS SKETCHING:\n  For data arriving in a stream (rows of A seen once):\n  Maintain sketch S = AΩ by updating S += a_i ω_i^T per row.\n  Final SVD of S gives approximate SVD of full A.\n  Memory: O(nk) instead of O(mn). Enables SVD of data too large for RAM.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "## Symmetric vs. Non-Symmetric Eigenvalue Problems",
+      "confidence": "candidate",
+      "text": "  ALGORITHM              GPU LIBRARY             WHEN GPU WINS\n  ──────────────────────────────────────────────────────────────────────\n  Dense SVD              cuSOLVER cusolverDn*gesvd   n > ~2000\n  Dense eigenvalues      cuSOLVER cusolverDn*syevd   n > ~2000\n  Sparse eigenvalues     cuSOLVER cusolverSp*        Large sparse with few target eigenvalues\n  Randomized SVD:\n    Y = A Ω (projection) cuBLAS DGEMM               Always (pure GEMM, naturally parallel)\n    QR of Y              cuSOLVER cusolverDn*geqrf   k > ~500\n    Small SVD of B       cuSOLVER cusolverDn*gesvd   Usually on CPU (B is small)\n  Batched small SVD      cuSOLVER batched routines   Many small matrices (e.g., per-element in FEM)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 399,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "Yes, with quantifiable error bounds. The error is at most (1 + eps) * sigma_{k+1} with high probability — the smallest retained singular value times a small constant. For matrices with rapidly decaying singular values (low-rank structure), the approximation is essentially exact. The oversampling parameter p=10 makes failure probability negligible.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

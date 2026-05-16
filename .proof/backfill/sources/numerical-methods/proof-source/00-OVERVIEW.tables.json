@@ -1,0 +1,93 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 287,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem",
+        "Standard Method",
+        "When to Use Iterative Instead"
+      ],
+      "rows": [
+        [
+          "Dense Ax=b, n < 10^4",
+          "LU factorization",
+          "—"
+        ],
+        [
+          "Dense Ax=b, A symmetric PD",
+          "Cholesky",
+          "—"
+        ],
+        [
+          "Sparse Ax=b, n > 10^4",
+          "CG / GMRES",
+          "Always for sparse large systems"
+        ],
+        [
+          "Top-k eigenvalues, large A",
+          "Lanczos / LOBPCG",
+          "—"
+        ],
+        [
+          "All eigenvalues, dense A",
+          "QR algorithm",
+          "—"
+        ],
+        [
+          "SVD of large matrix",
+          "RandSVD",
+          "Approximate SVD, huge matrices"
+        ],
+        [
+          "Smooth f(x) integral, 1D",
+          "Gaussian quadrature",
+          "—"
+        ],
+        [
+          "High-dimensional integral",
+          "Monte Carlo",
+          "d > 5 or so"
+        ],
+        [
+          "ODE, non-stiff",
+          "Runge-Kutta 4/5",
+          "—"
+        ],
+        [
+          "ODE, stiff",
+          "BDF / Rosenbrock",
+          "Stiffness ratio >> 1"
+        ],
+        [
+          "PDE on simple geometry",
+          "Finite differences",
+          "Complex geometry -> FEM"
+        ],
+        [
+          "PDE on complex geometry",
+          "Finite element method",
+          "—"
+        ],
+        [
+          "Convex optimization",
+          "Interior point",
+          "Global convergence needed"
+        ],
+        [
+          "Smooth non-convex",
+          "BFGS / L-BFGS",
+          "Large scale -> L-BFGS"
+        ],
+        [
+          "Discrete/combinatorial",
+          "Simulated annealing",
+          "Continuous -> gradient methods"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:numerical-methods:interpolation
+kind: guide
+module: numerical-methods
+section: numerical-methods
+title: Interpolation and Approximation
+status: source-custody
+source_custody: partial
+current_path: numerical-methods/04-INTERPOLATION.md
+canonical_path: numerical-methods/04-INTERPOLATION.md
+backsource_ids: [proof-backfill:numerical-methods:04-interpolation, git-history:numerical-methods:04-interpolation]
+concepts: [interpolation]
+root_concepts: [interpolation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Interpolation and Approximation
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:numerical-methods:eigenvalue-methods
+kind: guide
+module: numerical-methods
+section: numerical-methods
+title: Eigenvalue Methods
+status: source-custody
+source_custody: partial
+current_path: numerical-methods/03-EIGENVALUE-METHODS.md
+canonical_path: numerical-methods/03-EIGENVALUE-METHODS.md
+backsource_ids: [proof-backfill:numerical-methods:03-eigenvalue-methods, git-history:numerical-methods:03-eigenvalue-methods]
+concepts: [eigenvalue, methods]
+root_concepts: [eigenvalue, methods]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Eigenvalue Methods
 
 ## The Big Picture
@@ -24,11 +43,11 @@ Computing eigenvalues and singular values is central to data analysis, stability
 |  | Generalizes EVD     |        | LANCZOS / ARNOLDI      |      |
 |  | Rank, null space,   |        | Sparse large matrices  |      |
 |  | pseudoinverse       |        | Basis for ARPACK       |      |
-|  +---------------------+        +------------------------+      |
-|                                 | RANDOMIZED SVD         |      |
-|                                 | Approximate, very fast |      |
-|                                 | Foundation of many ML  |      |
-|                                  +------------------------+     |
+|  -----------------------        --------------------------      |
+|  RANDOMIZED SVD: approximate, very fast; foundation of many ML   |
+|                                                                  |
+|                                                                  |
+|                                                                  |
 +------------------------------------------------------------------+
 ```
 

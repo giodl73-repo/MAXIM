@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:genomics:gene-expression
+kind: guide
+module: genomics
+section: genomics
+title: Gene Expression and RNA-seq
+status: source-custody
+source_custody: partial
+current_path: genomics/04-GENE-EXPRESSION.md
+canonical_path: genomics/04-GENE-EXPRESSION.md
+backsource_ids: [proof-backfill:genomics:04-gene-expression, git-history:genomics:04-gene-expression]
+concepts: [gene, expression]
+root_concepts: [gene, expression]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Gene Expression and RNA-seq
 
 ## The Big Picture
@@ -37,7 +56,7 @@ FROM DNA TO EXPRESSION MEASUREMENT
   │  FASTQ files (paired-end 2×150 bp typical)                     │
   │       │ Quality control (FastQC, trimming)                     │
   │       ▼                                                        │
-  │  Alignment (STAR, HISAT2) or pseudo-alignment (kallisto, salmon)│
+  │ Alignment (STAR/HISAT2) or pseudo-align (kallisto/salmon)      │
   │       │                                                        │
   │       ▼                                                        │
   │  Read counts per gene/transcript                               │
@@ -169,7 +188,7 @@ FROM DNA TO EXPRESSION MEASUREMENT
 
   NORMALIZATION METHODS:
   ┌───────────────────────────────────────────────────────────────────┐
-  │ RPKM/FPKM (Reads/Fragments Per Kilobase per Million mapped reads)│
+  │ RPKM/FPKM (reads/fragments per kb per million mapped reads)       │
   │   Corrects for: library size + gene length                        │
   │   Problem: Not comparable across samples (sum ≠ same)             │
   │   Status: Deprecated for DGE; still used in some contexts         │

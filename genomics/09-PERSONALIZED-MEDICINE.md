@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:genomics:personalized-medicine
+kind: guide
+module: genomics
+section: genomics
+title: Personalized Medicine and Clinical Genomics
+status: source-custody
+source_custody: partial
+current_path: genomics/09-PERSONALIZED-MEDICINE.md
+canonical_path: genomics/09-PERSONALIZED-MEDICINE.md
+backsource_ids: [proof-backfill:genomics:09-personalized-medicine, git-history:genomics:09-personalized-medicine]
+concepts: [personalized, medicine]
+root_concepts: [personalized, medicine]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Personalized Medicine and Clinical Genomics
 
 ## The Big Picture

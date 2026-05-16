@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\02-LINEAR-SYSTEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                  LINEAR SYSTEM SOLVER TAXONOMY                   |\n+------------------------------------------------------------------+\n|                                                                  |\n|  DIRECT METHODS                    ITERATIVE METHODS             |\n|  (exact up to rounding)            (converge to solution)       |\n|  +---------------------+           +-------------------+        |\n|  | LU factorization    |           | CG (sym. PD)      |        |\n|  | Ax=b, dense         |           | GMRES (general)   |        |\n|  | O(n^3) work         |           | BiCGSTAB          |        |\n|  | O(n^2) storage      |           | MINRES (sym.)     |        |\n|  +---------------------+           | Multigrid         |        |\n|  | QR factorization    |           +-------------------+        |\n|  | Least squares min   |           | O(n) to O(n^4/3)  |        |\n|  | ||Ax-b||^2          |           | for sparse A      |        |\n|  +---------------------+           +-------------------+        |\n|  | Cholesky (sym.PD)   |           PRECONDITIONING:             |\n|  | A = LL^T            |           Key to practical speed       |\n|  | Half the work of LU |                                        |\n|  -----------------------                                        |\n|  WHEN DIRECT:          n < 10^4, dense, need exact solution     |\n|  WHEN ITERATIVE:       n > 10^4, sparse, structured             |\n|                                                                 |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "## Engineering Bridge: Iterative Solvers as Graph Propagation",
+      "confidence": "candidate",
+      "text": "GRAPH ALGORITHM                  ITERATIVE LINEAR SOLVER\n──────────────────────────────────────────────────────────────────────\nAdjacency matrix A               Sparse matrix A (same object!)\nNode values x                    Solution vector x\nMessage passing: x ← A x         Matrix-vector product: y = A x\nPageRank: x ← α A x + (1-α)e    Power iteration on stochastic A\nLabel propagation: x ← D⁻¹A x   Jacobi iteration: x ← D⁻¹(b - (A-D)x)\nLaplacian flow: L x = b          CG on graph Laplacian (SPD!)\n  L = D - A                        Solves network flow / equilibrium",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "## Preconditioning",
+      "confidence": "candidate",
+      "text": "  ORIGINAL: Ax = b\n  PRECONDITIONED: M^{-1} Ax = M^{-1} b  (left preconditioning)\n  Or: AM^{-1} (M x) = b  (right preconditioning)\n\n  IDEAL: M = A  => M^{-1}A = I  (one iteration, but then M = A is the problem)\n  PRACTICAL: Choose M that is:\n  - A good approximation to A (eigenvalues of M^{-1}A cluster near 1)\n  - Cheap to apply (solve My = c in O(n) or O(n log n))\n\n  COMMON PRECONDITIONERS:\n  DIAGONAL (Jacobi): M = diag(A). Trivial but often helps.\n  SSOR: symmetric SOR. Slightly better.\n  INCOMPLETE LU (ILU): LU factorization dropping fill-in beyond a threshold.\n  AMG (Algebraic Multigrid): optimal for elliptic PDEs. O(n) per iteration.\n  Sparse approximate inverse (SPAI): M^{-1} ≈ A^{-1} in sparse form.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 288,
+      "heading_context": "## Preconditioning",
+      "confidence": "candidate",
+      "text": "  CG INNER LOOP ON GPU:\n  ──────────────────────────────────────────────────────────\n  SpMV:  w = A p          cuSPARSE::csrmv (CSR stays on device)\n  dot:   r^T r            cuBLAS::ddot\n  axpy:  x += α p         cuBLAS::daxpy\n  axpy:  r -= α w         cuBLAS::daxpy\n  dot:   r_new^T r_new    cuBLAS::ddot\n  axpy:  p = r + β p      cuBLAS::daxpy + dscal\n  ──────────────────────────────────────────────────────────\n  Entire iteration: no CPU-GPU transfer (all vectors on device).\n  Speedup: 10-50x for large sparse systems (HBM bandwidth >> DDR5).\n  Libraries: NVIDIA AmgX (CG/GMRES + AMG preconditioner on GPU).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

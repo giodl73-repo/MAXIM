@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:genomics:gwas
+kind: guide
+module: genomics
+section: genomics
+title: Genome-Wide Association Studies (GWAS)
+status: source-custody
+source_custody: partial
+current_path: genomics/06-GWAS.md
+canonical_path: genomics/06-GWAS.md
+backsource_ids: [proof-backfill:genomics:06-gwas, git-history:genomics:06-gwas]
+concepts: [gwas]
+root_concepts: [gwas]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Genome-Wide Association Studies (GWAS)
 
 ## The Big Picture
@@ -134,7 +153,7 @@ GWAS: CONNECTING VARIANTS TO TRAITS AT POPULATION SCALE
 
   SOLUTION: PRINCIPAL COMPONENT ANALYSIS (PCA) OF GENOTYPES
   ┌─────────────────────────────────────────────────────────┐
-  │ 1. Compute covariance matrix of genotypes (samples × SNPs)│
+  │ 1. Compute genotype covariance matrix (samples x SNPs)  │
   │ 2. PCA decomposition: PC1, PC2, ... explain ancestry    │
   │ 3. In most studies:                                     │
   │    PC1 ≈ European vs. African ancestry axis             │
@@ -227,7 +246,7 @@ GWAS: CONNECTING VARIANTS TO TRAITS AT POPULATION SCALE
   │   Top percentile PRS + no BRCA1/2 → preventive measures │
   │                                                         │
   │ LIMITATIONS:                                            │
-  │   PRS trained on European ancestry → poor transferability│
+  │   European PRS transfers poorly across ancestries       │
   │   to non-European populations (LD patterns differ)      │
   │   Active research: multi-ancestry PRS methods           │
   └─────────────────────────────────────────────────────────┘

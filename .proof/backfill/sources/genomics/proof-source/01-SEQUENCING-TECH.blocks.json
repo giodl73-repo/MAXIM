@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "genomics\\01-SEQUENCING-TECH.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SEQUENCING TECHNOLOGY GENERATIONS\n===================================\n\n  GENERATION 1: SANGER (1977–present for Sanger, gold standard for short targets)\n  ─────────────────────────────────────────────────────────────────────────────────\n  Principle: Chain-termination — ddNTPs stop extension at known bases\n  Read length: 600–1,000 bp\n  Throughput: ~96 samples/run (capillary)\n  Cost: ~$0.50–1.00/read\n  Use today: Validation of specific variants, Sanger confirmation of CRISPR edits\n\n  GENERATION 2: SHORT-READ (Illumina, 2006–present, dominates market)\n  ─────────────────────────────────────────────────────────────────────\n  Principle: Bridge PCR amplification + sequencing by synthesis (SBS)\n  Read length: 75–300 bp (typically 2×150 bp paired-end)\n  Throughput: ~3.2 billion reads/run (NovaSeq X)\n  Cost: ~$6–10/Gb; $200–500/WGS genome\n  Error rate: ~0.1% per base\n  Weakness: Cannot span repetitive regions >300 bp\n\n  GENERATION 3: LONG-READ (Oxford Nanopore, PacBio, 2011–present)\n  ─────────────────────────────────────────────────────────────────\n  Oxford Nanopore (ONT):\n    Principle: Electrical signal as DNA threads through protein pore\n    Read length: N50 ~15–50 kb; individual reads up to 4 Mb\n    Cost: ~$50–100/Gb (PromethION)\n    Error rate: Raw ~5–10%; with Dorado basecalling ~2–5%\n    Unique: Real-time, can detect base modifications directly\n\n  PacBio HiFi (CCS):\n    Principle: Single molecule real-time (SMRT) + circular consensus\n    Read length: 10–25 kb (HiFi mode)\n    Accuracy: >99.9% (Phred Q30+) per base\n    Cost: ~$10–20/Gb (Revio platform)\n    Sweet spot: High accuracy + long reads → best of both worlds\n\n  SPECIALIZED (4th generation concepts)\n  ───────────────────────────────────────\n  Spatial transcriptomics (10x Visium): Gene expression with x,y coordinates\n  Single-cell (10x scRNA-seq): Per-droplet barcoding, one cell per barcode\n  Direct RNA sequencing (ONT): Sequence RNA without cDNA conversion step",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 74,
+      "heading_context": "## Illumina: Deep Dive on the Dominant Platform",
+      "confidence": "candidate",
+      "text": "  ILLUMINA WORKFLOW\n  =================\n\n  STEP 1: LIBRARY PREPARATION\n  ┌──────────────────────────────────────────────────────┐\n  │ Fragment DNA to ~300–500 bp (sonication or enzyme)   │\n  │ Repair ends, add A-tail                              │\n  │ Ligate adapters (P5 and P7 sequences)                │\n  │ Add sample-specific barcode (index) for multiplexing │\n  │ PCR amplify (6–12 cycles)                            │\n  └──────────────────────────────────────────────────────┘\n              │\n              ▼\n  STEP 2: CLUSTER GENERATION ON FLOW CELL\n  ┌──────────────────────────────────────────────────────┐\n  │ DNA fragments bind to complementary oligos on glass  │\n  │ Bridge PCR: fragment bends, hybridizes to neighbor,  │\n  │   amplifies in place → cluster of ~1,000 copies      │\n  │ Result: spatially isolated \"clonal cluster\"          │\n  │ ~3.2 billion clusters/NovaSeq X flowcell             │\n  └──────────────────────────────────────────────────────┘\n              │\n              ▼\n  STEP 3: SEQUENCING BY SYNTHESIS (SBS)\n  ┌──────────────────────────────────────────────────────┐\n  │ Add all 4 fluorescent, reversibly-terminated dNTPs   │\n  │ Polymerase incorporates one nucleotide               │\n  │ Laser excites: camera reads which color per cluster  │\n  │ Remove terminator, wash, repeat for next cycle       │\n  │ Each cycle = one base read                           │\n  │ 150 cycles = 150 bp per read                         │\n  └──────────────────────────────────────────────────────┘\n              │\n              ▼\n  STEP 4: BASE CALLING\n  ┌──────────────────────────────────────────────────────┐\n  │ Raw: fluorescence intensity images per cycle         │\n  │ Basecaller converts images → FASTQ file              │\n  │ Each base gets quality score Q = -10 log₁₀(P_error)  │\n  │ Q30 = 0.1% error, Q40 = 0.01% error                  │\n  └──────────────────────────────────────────────────────┘\n\n  KEY LIMITATION: Bridge PCR requires local amplification.\n  This means reads are short (polymerase falls off, signal\n  degrades), and repetitive sequences collapse (identical\n  clusters are indistinguishable).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "## Oxford Nanopore: Electrical Sequencing",
+      "confidence": "candidate",
+      "text": "  OXFORD NANOPORE TECHNOLOGY (ONT)\n  =================================\n\n  CONCEPT: Measure electrical current as single DNA molecule\n           threads through a protein pore in a membrane\n\n  ┌─────────────────────────────────────────────────────┐\n  │                  NANOPORE PORE                      │\n  │                                                     │\n  │  Upper chamber (+)                                  │\n  │  ─────────────────────────────                      │\n  │         A   T   G   C   C                           │\n  │          ╲  │  /  │  /                              │\n  │           ┌─┴──┴──┴──┘                              │\n  │           │  PROTEIN PORE  │                         │\n  │           └────────────────┘                         │\n  │  ─────────────────────────────                       │\n  │  Lower chamber (−)                                   │\n  │                                                      │\n  │  Each base in the pore produces a characteristic     │\n  │  electrical signal (picoampere level)                │\n  │  Neural network (Dorado) converts signal → sequence  │\n  └─────────────────────────────────────────────────────┘\n\n  ADVANTAGES:\n  - Real-time output (bases called as sequenced)\n  - No theoretical read length limit (record: ~4.2 Mb single read)\n  - Detects base modifications directly (5-methylcytosine changes signal)\n  - MinION: USB-stick sized, field-deployable, ~$1,000 device\n  - PromethION: 48 flow cells, production scale\n\n  DISADVANTAGE:\n  - Raw error rate ~5–10% (improving rapidly)\n  - Homopolymers (AAAAA) are hard to count precisely\n  - Needs high molecular weight input DNA (>10 kb preferred)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "## PacBio HiFi: High Accuracy Long-Read",
+      "confidence": "candidate",
+      "text": "  PACBIO SMRT SEQUENCING\n  =======================\n\n  STEP 1: Single molecule in zero-mode waveguide (ZMW)\n    - ZMW = tiny well, ~20 nm diameter\n    - Single DNA polymerase attached at bottom\n    - Each fluorescent base incorporation detected in real-time\n\n  STEP 2: Circular DNA template (SMRTbell)\n    - DNA ligated into circular library\n    - Polymerase reads same molecule multiple times (passes)\n\n  STEP 3: HiFi = Circular Consensus Sequencing (CCS)\n    ┌─────────────────────────────────────────────────┐\n    │ Polymerase circles 10-kb molecule ~10–15 times  │\n    │ Each pass has ~85% accuracy (raw)               │\n    │ Consensus of passes → >99.9% accuracy per base  │\n    │ Still gives ~15–25 kb average read length       │\n    └─────────────────────────────────────────────────┘\n\n  RESULT: \"Best of both worlds\" — long reads WITH high accuracy\n  Use cases: de novo genome assembly, phasing, structural variant calling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "## Single-Cell Sequencing (10x Genomics Chromium)",
+      "confidence": "candidate",
+      "text": "  10x GENOMICS DROPLET WORKFLOW\n  ==============================\n\n  STEP 1: GEL BEAD MICROFLUIDICS\n  ┌─────────────────────────────────────────────────┐\n  │ Cell suspension flows through microfluidic chip │\n  │ Each cell + gel bead encapsulated in oil droplet│\n  │ Gel bead carries 10-bp cell barcode + UMI oligos│\n  │ Throughput: ~10,000 cells per run               │\n  └─────────────────────────────────────────────────┘\n              │\n              ▼\n  STEP 2: REVERSE TRANSCRIPTION IN DROPLET\n  ┌─────────────────────────────────────────────────┐\n  │ Cell lyses in droplet                           │\n  │ mRNA captured by poly-T tail on oligo           │\n  │ Reverse transcriptase makes cDNA                │\n  │ Each mRNA molecule tagged with:                 │\n  │   - Cell barcode (which cell)                   │\n  │   - UMI (unique molecular identifier per mRNA)  │\n  └─────────────────────────────────────────────────┘\n              │\n              ▼\n  STEP 3: ILLUMINA SEQUENCING\n  ┌─────────────────────────────────────────────────┐\n  │ Droplets broken; cDNA pooled and amplified      │\n  │ Short reads sequenced on standard Illumina      │\n  │ Cell barcode identifies which cell each read    │\n  │ UMI allows deduplication (remove PCR duplicates)│\n  │ Output: sparse matrix: cells × genes            │\n  └─────────────────────────────────────────────────┘\n\n  DATA: Gene expression matrix, ~20,000 genes × ~10,000 cells\n  Typical sparsity: ~80–90% zeros (most genes not detected per cell)\n  Analysis: Seurat (R) or Scanpy (Python) for clustering, UMAP",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 240,
+      "heading_context": "## Spatial Transcriptomics",
+      "confidence": "candidate",
+      "text": "  SPATIAL TX CONCEPT\n  ==================\n\n  Problem: scRNA-seq destroys tissue architecture\n           (cells dissociated before sequencing)\n\n  Solution: Measure gene expression WITH spatial position in tissue\n\n  10x VISIUM (capture-array based):\n  ┌─────────────────────────────────────────────────────┐\n  │ Tissue section placed on array of ~5,000 spots      │\n  │ Each spot has oligos with spatial barcode + poly-T  │\n  │ mRNA diffuses down, captured at nearest spot        │\n  │ After library prep, Illumina sequencing             │\n  │ Result: gene expression at 55 μm spot resolution    │\n  └─────────────────────────────────────────────────────┘\n\n  XENIUM / MERFISH (in situ hybridization):\n  - Probes for specific genes hybridize in tissue slice\n  - Sequential fluorescence imaging reads gene identity\n  - Single-cell + single-molecule resolution\n  - But limited to pre-defined gene panel (~300–1,000 genes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 269,
+      "heading_context": "## Sequencing Generations as I/O Architecture Evolution",
+      "confidence": "candidate",
+      "text": "SEQUENCING GENERATION ↔ I/O ARCHITECTURE\n──────────────────────────────────────────────────────────────────────────────\nSANGER (Generation 1):\n  Capillary electrophoresis — one read per capillary lane\n  ~96 samples/run; serial output, low throughput\n  Analogy: synchronous serial I/O — one record at a time, blocking\n  Use case: high confidence, targeted (like a direct DB query for one key)\n\nILLUMINA (Generation 2):\n  Bridge PCR → 3.2 billion clusters on flow cell, all read simultaneously\n  Massively parallel: all clusters imaged each cycle\n  Analogy: batch-parallel processing — fork millions of workers,\n           process simultaneously, collect results\n  Constraint: Read length bounded by signal degradation (SBS cycle limit)\n              = like a batch job with a maximum window size\n  Output: petabyte-class at production (NovaSeq X: ~1 TB/run)\n\nNANOPORE / PACBIO (Generation 3):\n  Oxford Nanopore: DNA threads through pore in real-time, signal decoded continuously\n  Analogy: streaming architecture — continuous event stream, no batching\n           MinION writes bases to disk as they're produced\n  Real-time output: can terminate run early (adaptive sampling)\n                   = reactive stream with backpressure control\n  PacBio HiFi: circular consensus = multiple-pass read of same molecule\n               Analogy: read-repair / quorum read — redundant reads → high confidence\n\nTRADE-OFF TRIANGLE (same as distributed systems):\n  Accuracy ←→ Throughput ←→ Read length\n  (Pick two. Improving one degrades others without generational improvements.)\n  Sanger: max accuracy + max read length, minimal throughput\n  Illumina: max throughput + max accuracy, short reads\n  ONT: max read length + max throughput, lower per-base accuracy (improving)\n  PacBio HiFi: max accuracy + long reads, lower throughput\n──────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

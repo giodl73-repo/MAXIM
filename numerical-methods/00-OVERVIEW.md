@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:numerical-methods:overview
+kind: guide
+module: numerical-methods
+section: numerical-methods
+title: Numerical Methods - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: numerical-methods/00-OVERVIEW.md
+canonical_path: numerical-methods/00-OVERVIEW.md
+backsource_ids: [proof-backfill:numerical-methods:00-overview, git-history:numerical-methods:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Numerical Methods — Landscape Overview
 
 ## The Big Picture
@@ -33,7 +52,7 @@ Numerical methods are algorithms for approximating the solutions of mathematical
 |       ▲                                                          |
 |  +---------------------------------------------------+           |
 |  | OPTIMIZATION (08)                                 |           |
-|  | GD, L-BFGS, SGD/Adam, convex, Bayesian opt       |           |
+|  | GD, L-BFGS, SGD/Adam, convex, Bayesian opt        |           |
 |  | ← AD (reverse-mode = backprop) computes gradients |           |
 |  +---------------------------------------------------+           |
 |       ▲                                                          |

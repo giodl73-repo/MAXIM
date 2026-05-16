@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "genomics\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "GENOMICS LANDSCAPE\n==================\n\n  GENERATION 1 (1977–2003)       GENERATION 2 (2005–present)     GENERATION 3 (2011–present)\n  ========================       ============================     ===========================\n  Sanger Sequencing              Short-Read (Illumina)            Long-Read\n  ~1 kb/read                     ~150 bp reads                    ONT: 10 kb–Mb-length reads\n  Capillary electrophoresis      Bridge PCR amplification         PacBio: 15–25 kb HiFi reads\n  Human Genome Project           HiSeq/NovaSeq platforms          Telomere-to-telomere assembly\n  13 years, $2.7B                $1,000 genome achieved 2014      ~$200–400/genome (2024)\n  (1990–2003)                    ~90 GB/day on NovaSeq X          Complete sequences now possible\n\n                           DATA TYPES FROM SEQUENCING\n                           ==========================\n\n  WGS (whole-genome) ─────────── Full 3.2 Gb genome, all variants\n  WES (whole-exome) ──────────── Just the ~1.5% that codes protein\n  RNA-seq ─────────────────────── Which genes are expressed, how much\n  ChIP-seq ────────────────────── Where proteins bind to chromatin\n  ATAC-seq ────────────────────── Which chromatin regions are open\n  Hi-C ────────────────────────── 3D genome organization\n  scRNA-seq ───────────────────── Per-cell gene expression\n  Spatial TX ──────────────────── Expression + tissue location\n\n                         THE BIOINFORMATICS STACK (maps to software stack)\n                         ==================================================\n\n  ┌────────────────────────────────────────────────────────────────┐\n  │  APPLICATIONS                                                  │\n  │  Personalized medicine · GWAS · CRISPR target design           │\n  │  Clinical reporting · Drug discovery · Cancer monitoring       │\n  ├────────────────────────────────────────────────────────────────┤\n  │  ANALYSIS TOOLS (like application frameworks)                   │\n  │  GATK · DESeq2 · PLINK · Seurat · STAR · kallisto/salmon       │\n  ├────────────────────────────────────────────────────────────────┤\n  │  FILE FORMATS (data contracts — like .proto or OpenAPI spec)   │\n  │  FASTQ → BAM/CRAM → VCF/GVCF → BED/GTF                         │\n  ├────────────────────────────────────────────────────────────────┤\n  │  WORKFLOW ENGINES (like MSBuild/ADF pipelines)                  │\n  │  Snakemake · Nextflow · WDL/Cromwell · CWL                     │\n  ├────────────────────────────────────────────────────────────────┤\n  │  CLOUD COMPUTE (familiar territory)                            │\n  │  Terra · DNAnexus · AWS HealthOmics                            │\n  │  Azure Batch + Nextflow, Google Batch                          │\n  └────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 128,
+      "heading_context": "## Genomics Subdisciplines",
+      "confidence": "candidate",
+      "text": "  STRUCTURAL GENOMICS\n  ─ Chromosome organization, centromeres, telomeres, repeats\n  ─ Methods: Hi-C, optical mapping, long-read assembly\n  ─ Goal: Complete reference genome (T2T project closed all gaps)\n\n  FUNCTIONAL GENOMICS\n  ─ Which DNA sequences do what — regulatory elements, enhancers\n  ─ Methods: ENCODE, ATAC-seq, CRISPRi screens\n  ─ Goal: Annotate non-coding genome function\n\n  COMPARATIVE GENOMICS\n  ─ Evolution by comparing genomes across species\n  ─ Methods: LASTZ, MAFFT alignment; synteny analysis\n  ─ Goal: Identify conserved functional elements\n\n  POPULATION GENOMICS\n  ─ Genetic variation across individuals and populations\n  ─ Methods: GWAS, admixture, FST statistics\n  ─ Goal: Link variants to traits and disease risk\n\n  CLINICAL GENOMICS\n  ─ Variant interpretation for diagnosis and treatment\n  ─ Methods: ACMG classification guidelines, ClinVar, PharmGKB\n  ─ Goal: Return actionable results to patients\n\n  CANCER GENOMICS\n  ─ Somatic mutations acquired during tumor development\n  ─ Methods: Tumor-normal paired WGS/WES, ctDNA\n  ─ Goal: Identify driver mutations, guide therapy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "## The Central Dogma Connection",
+      "confidence": "candidate",
+      "text": "  DNA ──transcription──► RNA ──translation──► Protein ──► Function\n\n  Genomics studies:    ↑ this layer\n  Transcriptomics:              ↑ this layer\n  Proteomics:                            ↑ this layer\n\n  Key insight: DNA is the instruction set. RNA is the executing program.\n  Proteins are the running processes. Most disease variants alter DNA\n  in ways that affect RNA production or protein function downstream.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 217,
+      "heading_context": "## The Genomics Pipeline as a Data Engineering Problem",
+      "confidence": "candidate",
+      "text": "GENOMICS PIPELINE ↔ DATA ENGINEERING STACK\n──────────────────────────────────────────────────────────────────────────────\nRAW DATA ACQUISITION:\n  Sequencer output (FASTQ)          ↔  Raw event log (append-only stream)\n  Base quality scores (Q30)         ↔  Event confidence / reliability metadata\n  Paired-end reads                  ↔  Paired records in a message queue\n  Multiplexed samples on flow cell  ↔  Multi-tenant data in shared ingestion\n\nTRANSFORMATION PIPELINE:\n  Alignment (BWA, STAR)             ↔  ETL: map raw logs → structured records\n  SAM → BAM (sorted + indexed)      ↔  Columnar storage (Parquet/ORC + index)\n  CRAM (reference-anchored compress)↔  Delta encoding / reference compression\n  Mark duplicates (Picard)          ↔  Deduplication step in ETL\n  Base quality recalibration (BQSR) ↔  Calibration pass to correct systematic bias\n\nFORMAT CONTRACTS:\n  FASTQ                             ↔  Raw log format (unstructured, high volume)\n  BAM/CRAM                          ↔  Structured binary store (sorted, indexed)\n  VCF                               ↔  Change log / diff against reference\n  BED/GTF                           ↔  Region annotation (like partition metadata)\n  BCF                               ↔  Binary-encoded VCF (like compressed Parquet)\n\nORCHESTRATION:\n  Snakemake / Nextflow / WDL        ↔  MSBuild / ADF pipeline / Airflow DAG\n  Scatter-gather in WDL             ↔  Fan-out parallelism in ADF\n  cromwell on Terra                 ↔  Azure Batch + Data Factory\n\nSTORAGE:\n  gnomAD variant database           ↔  Reference data lake (population-scale)\n  dbSNP / ClinVar                   ↔  Lookup tables / dimension tables\n  RefSeq / Ensembl annotation       ↔  Metadata catalog\n\nQUERY / ANALYTICS:\n  PLINK (GWAS linear regression)    ↔  Statistical modeling on feature tables\n  DESeq2 (differential expression)  ↔  Group-by + hypothesis test on count data\n  GSEA pathway analysis             ↔  Feature enrichment / set intersection\n\nCOMPRESSION RATIOS:\n  Raw FASTQ: ~90 GB per 30x genome\n  BAM:       ~50 GB (10-15x compression vs raw)\n  CRAM:      ~15 GB (reference-anchored delta compression)\n  VCF:       ~1 GB  (just the variants — 90:1 from raw)\n  Equivalent: structured event data → columnar OLAP store → materialized summary\n──────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

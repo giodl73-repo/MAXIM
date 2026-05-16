@@ -1,0 +1,93 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\09-SCIENTIFIC-COMPUTING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 889,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Tool",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Dense matrix ops in Python",
+          "NumPy + SciPy",
+          "BLAS/LAPACK backend, near-C speed"
+        ],
+        [
+          "Sparse linear solve, SPD",
+          "scipy.sparse.linalg + CHOLMOD",
+          "Reordering essential for large problems"
+        ],
+        [
+          "Sparse linear solve, general",
+          "UMFPACK via scipy.sparse.linalg.spsolve",
+          "Or iterative (CG/GMRES + precond)"
+        ],
+        [
+          "ODE/PDE in Python",
+          "scipy.integrate.solve_ivp",
+          "RK45 default; Radau/BDF for stiff"
+        ],
+        [
+          "ODE/PDE with max performance",
+          "DifferentialEquations.jl (Julia)",
+          "Best ecosystem for diffeq anywhere"
+        ],
+        [
+          "GPU-accelerated dense linalg",
+          "CuPy or PyTorch",
+          "cuBLAS/cuSOLVER backend"
+        ],
+        [
+          "GPU-accelerated ML training",
+          "PyTorch or JAX",
+          "Half-precision Tensor Cores"
+        ],
+        [
+          "Auto-differentiation, ML",
+          "PyTorch (dynamic) or JAX (functional)",
+          "Both call cuBLAS for ops"
+        ],
+        [
+          "Performance-critical Python loops",
+          "Numba @njit",
+          "JIT to native, near-Fortran"
+        ],
+        [
+          "Large-scale distributed",
+          "PETSc (petsc4py) or ScaLAPACK",
+          "MPI-based, Azure HPC ready"
+        ],
+        [
+          "FFT (large, performance)",
+          "scipy.fft + pyfftw",
+          "FFTW backend ~2-4x faster"
+        ],
+        [
+          "Control systems / Simulink work",
+          "MATLAB",
+          "Still dominant for control eng"
+        ],
+        [
+          "Eigenvalue, sparse, large",
+          "scipy.sparse.linalg.eigsh (ARPACK)",
+          "Lanczos, module 03"
+        ],
+        [
+          "Optimization, general",
+          "scipy.optimize.minimize (L-BFGS-B)",
+          "Module 08"
+        ],
+        [
+          "Sparse format conversion path",
+          "COO -> CSR/CSC -> solve",
+          "Build in COO, compute in CSR/CSC"
+        ]
+      ]
+    }
+  ]
+}
