@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-mind:mind-body-problem
+kind: guide
+module: philosophy-of-mind
+section: philosophy-of-mind
+title: The Mind-Body Problem: Historical Overview
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-mind/01-MIND-BODY-PROBLEM.md
+canonical_path: philosophy-of-mind/01-MIND-BODY-PROBLEM.md
+backsource_ids: [proof-backfill:philosophy-of-mind:01-mind-body-problem, git-history:philosophy-of-mind:01-mind-body-problem]
+concepts: [mind, body, problem]
+root_concepts: [mind, body]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Mind-Body Problem: Historical Overview
 
 ## The Big Picture

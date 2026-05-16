@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-mind:functionalism
+kind: guide
+module: philosophy-of-mind
+section: philosophy-of-mind
+title: Functionalism and Multiple Realizability
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-mind/02-FUNCTIONALISM.md
+canonical_path: philosophy-of-mind/02-FUNCTIONALISM.md
+backsource_ids: [proof-backfill:philosophy-of-mind:02-functionalism, git-history:philosophy-of-mind:02-functionalism]
+concepts: [functionalism]
+root_concepts: [functionalism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Functionalism and Multiple Realizability
 
 ## The Big Picture

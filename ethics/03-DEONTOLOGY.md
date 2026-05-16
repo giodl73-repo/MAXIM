@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ethics:deontology
+kind: guide
+module: ethics
+section: ethics
+title: Deontology: Kant and the Categorical Imperative
+status: source-custody
+source_custody: partial
+current_path: ethics/03-DEONTOLOGY.md
+canonical_path: ethics/03-DEONTOLOGY.md
+backsource_ids: [proof-backfill:ethics:03-deontology, git-history:ethics:03-deontology]
+concepts: [deontology]
+root_concepts: [deontology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Deontology: Kant and the Categorical Imperative
 
 ## The Big Picture

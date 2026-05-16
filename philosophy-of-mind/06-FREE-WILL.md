@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-mind:free-will
+kind: guide
+module: philosophy-of-mind
+section: philosophy-of-mind
+title: Free Will, Determinism, and Moral Responsibility
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-mind/06-FREE-WILL.md
+canonical_path: philosophy-of-mind/06-FREE-WILL.md
+backsource_ids: [proof-backfill:philosophy-of-mind:06-free-will, git-history:philosophy-of-mind:06-free-will]
+concepts: [free, will]
+root_concepts: [free, will]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Free Will, Determinism, and Moral Responsibility
 
 ## The Big Picture
@@ -9,8 +28,8 @@
 |                                                                       |
 |                  Is determinism true?                                 |
 |                   YES           NO                                    |
-|                    |             |                                     |
-|         +----------+             +----------+                         |
+|                    v             v                                     |
+|         determinist path          libertarian path                     |
 |         |                                   |                         |
 |    Is free will                        LIBERTARIANISM                 |
 |    compatible                    (Kane, van Inwagen)                  |

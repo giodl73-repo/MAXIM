@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ethics:applied-ethics
+kind: guide
+module: ethics
+section: ethics
+title: Applied Ethics: Bioethics and Professional Ethics
+status: source-custody
+source_custody: partial
+current_path: ethics/06-APPLIED-ETHICS.md
+canonical_path: ethics/06-APPLIED-ETHICS.md
+backsource_ids: [proof-backfill:ethics:06-applied-ethics, git-history:ethics:06-applied-ethics]
+concepts: [applied, ethics]
+root_concepts: [applied, ethics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Applied Ethics: Bioethics and Professional Ethics
 
 ## The Big Picture

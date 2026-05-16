@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-mind:ai-consciousness
+kind: guide
+module: philosophy-of-mind
+section: philosophy-of-mind
+title: AI and Machine Consciousness
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-mind/09-AI-CONSCIOUSNESS.md
+canonical_path: philosophy-of-mind/09-AI-CONSCIOUSNESS.md
+backsource_ids: [proof-backfill:philosophy-of-mind:09-ai-consciousness, git-history:philosophy-of-mind:09-ai-consciousness]
+concepts: [ai, consciousness]
+root_concepts: [ai, consciousness]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # AI and Machine Consciousness
 
 ## The Big Picture
@@ -160,8 +179,8 @@ IIT AND LLMS
 
 FEED-FORWARD TRANSFORMER:
   +-------+    +-------+    +-------+    +-------+
-  | Input |-->| Layer  |-->| Layer  |-->| Output|
-  | tokens|    | 1      |    | N      |    |     |
+  | Input |    | Layer |    | Layer |    |Output |
+  |tokens |    | 1     |    | N     |    |       |
   +-------+    +-------+    +-------+    +-------+
 
   Strict feed-forward: phi = ~0.

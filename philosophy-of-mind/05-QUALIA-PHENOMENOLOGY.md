@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-mind:qualia-phenomenology
+kind: guide
+module: philosophy-of-mind
+section: philosophy-of-mind
+title: Qualia and Phenomenal Consciousness
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-mind/05-QUALIA-PHENOMENOLOGY.md
+canonical_path: philosophy-of-mind/05-QUALIA-PHENOMENOLOGY.md
+backsource_ids: [proof-backfill:philosophy-of-mind:05-qualia-phenomenology, git-history:philosophy-of-mind:05-qualia-phenomenology]
+concepts: [qualia, phenomenology]
+root_concepts: [qualia, phenomenology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Qualia and Phenomenal Consciousness
 
 ## The Big Picture
@@ -15,9 +34,9 @@
 |  | Intrinsic, private   |       | from first-person       |          |
 |  | The redness of red   |       | perspective             |          |
 |  | The painfulness of   |       | Husserl: intentionality |          |
-|  | pain                 |       | Heidegger: being-in-world|         |
+|  | pain                 |       | Heidegger: being-in     |          |
 |  +----------------------+       | Merleau-Ponty: body      |         |
-|                                 +-------------------------+          |
+|                                 ---------------------------          |
 |                                                                      |
 |  SHARED QUESTION: What is the structure of first-person experience?  |
 +-----------------------------------------------------------------------+

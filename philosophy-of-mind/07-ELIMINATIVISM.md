@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-mind:eliminativism
+kind: guide
+module: philosophy-of-mind
+section: philosophy-of-mind
+title: Eliminative Materialism and Folk Psychology
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-mind/07-ELIMINATIVISM.md
+canonical_path: philosophy-of-mind/07-ELIMINATIVISM.md
+backsource_ids: [proof-backfill:philosophy-of-mind:07-eliminativism, git-history:philosophy-of-mind:07-eliminativism]
+concepts: [eliminativism]
+root_concepts: [eliminativism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Eliminative Materialism and Folk Psychology
 
 ## The Big Picture
@@ -21,7 +40,7 @@
 |  | to neuroscience  |  | fictions; real   |  | false theory.    |   |
 |  | eventually.      |  | patterns exist.  |  | Will be replaced |   |
 |  +------------------+  +------------------+  | not reduced.     |   |
-|                                              +------------------+   |
+|                                              --------------------    |
 +-----------------------------------------------------------------------+
 ```
 

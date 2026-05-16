@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ethics:metaethics
+kind: guide
+module: ethics
+section: ethics
+title: Metaethics: Moral Realism and Anti-Realism
+status: source-custody
+source_custody: partial
+current_path: ethics/01-METAETHICS.md
+canonical_path: ethics/01-METAETHICS.md
+backsource_ids: [proof-backfill:ethics:01-metaethics, git-history:ethics:01-metaethics]
+concepts: [metaethics]
+root_concepts: [metaethics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Metaethics: Moral Realism and Anti-Realism
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-mind:chinese-room
+kind: guide
+module: philosophy-of-mind
+section: philosophy-of-mind
+title: Searle's Chinese Room Argument
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-mind/04-CHINESE-ROOM.md
+canonical_path: philosophy-of-mind/04-CHINESE-ROOM.md
+backsource_ids: [proof-backfill:philosophy-of-mind:04-chinese-room, git-history:philosophy-of-mind:04-chinese-room]
+concepts: [chinese, room]
+root_concepts: [chinese, room]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Searle's Chinese Room Argument
 
 ## The Big Picture
