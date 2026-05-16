@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ceramics:earthenware-traditions
+kind: guide
+module: ceramics
+section: ceramics
+title: Earthenware Traditions - Greek/Roman, Majolica, Faience, Delftware
+status: source-custody
+source_custody: partial
+current_path: ceramics/07-EARTHENWARE-TRADITIONS.md
+canonical_path: ceramics/07-EARTHENWARE-TRADITIONS.md
+backsource_ids: [proof-backfill:ceramics:07-earthenware-traditions, git-history:ceramics:07-earthenware-traditions]
+concepts: [earthenware, traditions]
+root_concepts: [earthenware, traditions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Earthenware Traditions — Greek/Roman, Majolica, Faience, Delftware
 
 ## The Big Picture

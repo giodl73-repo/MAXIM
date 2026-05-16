@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:jewelry:historical-traditions
+kind: guide
+module: jewelry
+section: jewelry
+title: Historical Traditions - Egyptian, Mughal, Byzantine, Art Nouveau/Deco
+status: source-custody
+source_custody: partial
+current_path: jewelry/07-HISTORICAL-TRADITIONS.md
+canonical_path: jewelry/07-HISTORICAL-TRADITIONS.md
+backsource_ids: [proof-backfill:jewelry:07-historical-traditions, git-history:jewelry:07-historical-traditions]
+concepts: [historical, traditions]
+root_concepts: [historical, traditions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Historical Traditions — Egyptian, Mughal, Byzantine, Art Nouveau/Deco
 
 ## The Big Picture

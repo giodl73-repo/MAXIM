@@ -1,0 +1,2569 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-ceramics-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.ceramics.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-ceramics-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-ceramics-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-ceramics-source-corpus.json",
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-ceramics-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-ceramics-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-ceramics-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-ceramics-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-ceramics-overview.json",
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-ceramics-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.clay-types.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-ceramics-clay-types.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/01-CLAY-TYPES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-ceramics-clay-types.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/01-CLAY-TYPES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.clay-types.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-ceramics-clay-types.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.clay-types.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-ceramics-clay-types.json",
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-ceramics-clay-types.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/01-CLAY-TYPES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.clay-types.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/01-CLAY-TYPES.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.clay-types.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/01-CLAY-TYPES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/01-CLAY-TYPES.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/01-CLAY-TYPES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.clay-types.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/01-CLAY-TYPES.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.clay-types.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/01-CLAY-TYPES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/01-CLAY-TYPES.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/01-CLAY-TYPES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.clay-types.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/01-CLAY-TYPES.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.clay-types.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/01-CLAY-TYPES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/01-CLAY-TYPES.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/01-CLAY-TYPES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.forming.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-ceramics-forming.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/02-FORMING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-ceramics-forming.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/02-FORMING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.forming.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-ceramics-forming.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.forming.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-ceramics-forming.json",
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-ceramics-forming.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/02-FORMING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.forming.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/02-FORMING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.forming.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/02-FORMING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/02-FORMING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/02-FORMING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.forming.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/02-FORMING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.forming.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/02-FORMING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/02-FORMING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/02-FORMING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.forming.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/02-FORMING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.forming.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/02-FORMING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/02-FORMING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/02-FORMING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.drying-firing.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-ceramics-drying-firing.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/03-DRYING-FIRING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-ceramics-drying-firing.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/03-DRYING-FIRING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.drying-firing.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-ceramics-drying-firing.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.drying-firing.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-ceramics-drying-firing.json",
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-ceramics-drying-firing.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/03-DRYING-FIRING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.drying-firing.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/03-DRYING-FIRING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.drying-firing.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/03-DRYING-FIRING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/03-DRYING-FIRING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/03-DRYING-FIRING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.drying-firing.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/03-DRYING-FIRING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.drying-firing.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/03-DRYING-FIRING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/03-DRYING-FIRING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/03-DRYING-FIRING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.drying-firing.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/03-DRYING-FIRING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.drying-firing.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/03-DRYING-FIRING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/03-DRYING-FIRING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/03-DRYING-FIRING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.glazes.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-ceramics-glazes.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/04-GLAZES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-ceramics-glazes.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/04-GLAZES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.glazes.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-ceramics-glazes.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.glazes.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-ceramics-glazes.json",
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-ceramics-glazes.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/04-GLAZES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.glazes.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/04-GLAZES.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.glazes.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/04-GLAZES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/04-GLAZES.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/04-GLAZES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.glazes.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/04-GLAZES.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.glazes.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/04-GLAZES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/04-GLAZES.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/04-GLAZES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.glazes.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/04-GLAZES.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.glazes.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/04-GLAZES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/04-GLAZES.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/04-GLAZES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.decoration.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-ceramics-decoration.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/05-DECORATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-ceramics-decoration.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/05-DECORATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.decoration.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-ceramics-decoration.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.decoration.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-ceramics-decoration.json",
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-ceramics-decoration.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/05-DECORATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.decoration.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/05-DECORATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.decoration.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/05-DECORATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/05-DECORATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/05-DECORATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.decoration.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/05-DECORATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.decoration.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/05-DECORATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/05-DECORATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/05-DECORATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.decoration.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/05-DECORATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.decoration.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/05-DECORATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/05-DECORATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/05-DECORATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.porcelain-history.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-ceramics-porcelain-history.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/06-PORCELAIN-HISTORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-ceramics-porcelain-history.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/06-PORCELAIN-HISTORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.porcelain-history.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-ceramics-porcelain-history.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.porcelain-history.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-ceramics-porcelain-history.json",
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-ceramics-porcelain-history.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/06-PORCELAIN-HISTORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.porcelain-history.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/06-PORCELAIN-HISTORY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.porcelain-history.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/06-PORCELAIN-HISTORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/06-PORCELAIN-HISTORY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/06-PORCELAIN-HISTORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.porcelain-history.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/06-PORCELAIN-HISTORY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.porcelain-history.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/06-PORCELAIN-HISTORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/06-PORCELAIN-HISTORY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/06-PORCELAIN-HISTORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.porcelain-history.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/06-PORCELAIN-HISTORY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.porcelain-history.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/06-PORCELAIN-HISTORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/06-PORCELAIN-HISTORY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/06-PORCELAIN-HISTORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.earthenware-traditions.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-ceramics-earthenware-traditions.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/07-EARTHENWARE-TRADITIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-ceramics-earthenware-traditions.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/07-EARTHENWARE-TRADITIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.earthenware-traditions.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-ceramics-earthenware-traditions.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.earthenware-traditions.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-ceramics-earthenware-traditions.json",
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-ceramics-earthenware-traditions.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/07-EARTHENWARE-TRADITIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.earthenware-traditions.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/07-EARTHENWARE-TRADITIONS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.earthenware-traditions.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/07-EARTHENWARE-TRADITIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/07-EARTHENWARE-TRADITIONS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/07-EARTHENWARE-TRADITIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.earthenware-traditions.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/07-EARTHENWARE-TRADITIONS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.earthenware-traditions.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/07-EARTHENWARE-TRADITIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/07-EARTHENWARE-TRADITIONS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/07-EARTHENWARE-TRADITIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.earthenware-traditions.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/07-EARTHENWARE-TRADITIONS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.earthenware-traditions.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/07-EARTHENWARE-TRADITIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/07-EARTHENWARE-TRADITIONS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/07-EARTHENWARE-TRADITIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.industrial-ceramics.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-ceramics-industrial-ceramics.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/08-INDUSTRIAL-CERAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-ceramics-industrial-ceramics.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/08-INDUSTRIAL-CERAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.industrial-ceramics.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-ceramics-industrial-ceramics.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.industrial-ceramics.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-ceramics-industrial-ceramics.json",
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-ceramics-industrial-ceramics.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/08-INDUSTRIAL-CERAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.industrial-ceramics.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/08-INDUSTRIAL-CERAMICS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.industrial-ceramics.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/08-INDUSTRIAL-CERAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/08-INDUSTRIAL-CERAMICS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/08-INDUSTRIAL-CERAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.industrial-ceramics.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/08-INDUSTRIAL-CERAMICS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.industrial-ceramics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/08-INDUSTRIAL-CERAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/08-INDUSTRIAL-CERAMICS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/08-INDUSTRIAL-CERAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.industrial-ceramics.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/08-INDUSTRIAL-CERAMICS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.industrial-ceramics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/08-INDUSTRIAL-CERAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/08-INDUSTRIAL-CERAMICS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/08-INDUSTRIAL-CERAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.studio-ceramics.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-ceramics-studio-ceramics.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/09-STUDIO-CERAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-ceramics-studio-ceramics.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/09-STUDIO-CERAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.studio-ceramics.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-ceramics-studio-ceramics.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.studio-ceramics.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-ceramics-studio-ceramics.json",
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-ceramics-studio-ceramics.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/09-STUDIO-CERAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.studio-ceramics.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/09-STUDIO-CERAMICS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.studio-ceramics.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/09-STUDIO-CERAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/09-STUDIO-CERAMICS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/09-STUDIO-CERAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.studio-ceramics.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/09-STUDIO-CERAMICS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.studio-ceramics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/09-STUDIO-CERAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/09-STUDIO-CERAMICS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/09-STUDIO-CERAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.studio-ceramics.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/09-STUDIO-CERAMICS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.studio-ceramics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/09-STUDIO-CERAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/09-STUDIO-CERAMICS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/09-STUDIO-CERAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.ceramic-trades.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-ceramics-ceramic-trades.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/10-CERAMIC-TRADES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-ceramics-ceramic-trades.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/10-CERAMIC-TRADES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.ceramic-trades.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-ceramics-ceramic-trades.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.ceramic-trades.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.ceramics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-ceramics-ceramic-trades.json",
+            "module": "ceramics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-ceramics-ceramic-trades.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/10-CERAMIC-TRADES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.ceramic-trades.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/10-CERAMIC-TRADES.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.ceramic-trades.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/10-CERAMIC-TRADES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/10-CERAMIC-TRADES.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/10-CERAMIC-TRADES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.ceramic-trades.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/10-CERAMIC-TRADES.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.ceramic-trades.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/10-CERAMIC-TRADES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/10-CERAMIC-TRADES.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/10-CERAMIC-TRADES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.ceramics.ceramic-trades.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/ceramics/proof-source/10-CERAMIC-TRADES.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.ceramics.ceramic-trades.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "ceramics",
+            "guide": "ceramics/10-CERAMIC-TRADES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/ceramics/proof-source/10-CERAMIC-TRADES.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "ceramics",
+        "guide": "ceramics/10-CERAMIC-TRADES.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

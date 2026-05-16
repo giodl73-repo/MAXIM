@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ceramics:porcelain-history
+kind: guide
+module: ceramics
+section: ceramics
+title: Porcelain History - Chinese Origins to Meissen 1708
+status: source-custody
+source_custody: partial
+current_path: ceramics/06-PORCELAIN-HISTORY.md
+canonical_path: ceramics/06-PORCELAIN-HISTORY.md
+backsource_ids: [proof-backfill:ceramics:06-porcelain-history, git-history:ceramics:06-porcelain-history]
+concepts: [porcelain, history]
+root_concepts: [porcelain, history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Porcelain History — Chinese Origins to Meissen 1708
 
 ## The Big Picture

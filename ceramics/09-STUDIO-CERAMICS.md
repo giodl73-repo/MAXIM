@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ceramics:studio-ceramics
+kind: guide
+module: ceramics
+section: ceramics
+title: Studio Ceramics - Bernard Leach, Mingei, Raku, Contemporary Practice
+status: source-custody
+source_custody: partial
+current_path: ceramics/09-STUDIO-CERAMICS.md
+canonical_path: ceramics/09-STUDIO-CERAMICS.md
+backsource_ids: [proof-backfill:ceramics:09-studio-ceramics, git-history:ceramics:09-studio-ceramics]
+concepts: [studio, ceramics]
+root_concepts: [studio, ceramics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Studio Ceramics — Bernard Leach, Mingei, Raku, Contemporary Practice
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ceramics:decoration
+kind: guide
+module: ceramics
+section: ceramics
+title: Decoration - Underglaze, Overglaze, Reduction, Luster, Majolica
+status: source-custody
+source_custody: partial
+current_path: ceramics/05-DECORATION.md
+canonical_path: ceramics/05-DECORATION.md
+backsource_ids: [proof-backfill:ceramics:05-decoration, git-history:ceramics:05-decoration]
+concepts: [decoration]
+root_concepts: [decoration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Decoration — Underglaze, Overglaze, Reduction, Luster, Majolica
 
 ## The Big Picture

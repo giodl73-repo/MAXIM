@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:jewelry:pearls
+kind: guide
+module: jewelry
+section: jewelry
+title: Pearls - Natural vs Cultured, Nacre Formation, Mikimoto, Grading
+status: source-custody
+source_custody: partial
+current_path: jewelry/08-PEARLS.md
+canonical_path: jewelry/08-PEARLS.md
+backsource_ids: [proof-backfill:jewelry:08-pearls, git-history:jewelry:08-pearls]
+concepts: [pearls]
+root_concepts: [pearls]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pearls — Natural vs Cultured, Nacre Formation, Mikimoto, Grading
 
 ## The Big Picture

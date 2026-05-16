@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:jewelry:hallmarks-standards
+kind: guide
+module: jewelry
+section: jewelry
+title: Hallmarks and Standards - Karat, Fineness, Assay Offices
+status: source-custody
+source_custody: partial
+current_path: jewelry/06-HALLMARKS-STANDARDS.md
+canonical_path: jewelry/06-HALLMARKS-STANDARDS.md
+backsource_ids: [proof-backfill:jewelry:06-hallmarks-standards, git-history:jewelry:06-hallmarks-standards]
+concepts: [hallmarks, standards]
+root_concepts: [hallmarks, standards]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hallmarks & Standards — Karat, Fineness, Assay Offices
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ceramics:ceramic-trades
+kind: guide
+module: ceramics
+section: ceramics
+title: Ceramic Trades - Potter, Kiln Master, Tile Maker, Porcelain Painter
+status: source-custody
+source_custody: partial
+current_path: ceramics/10-CERAMIC-TRADES.md
+canonical_path: ceramics/10-CERAMIC-TRADES.md
+backsource_ids: [proof-backfill:ceramics:10-ceramic-trades, git-history:ceramics:10-ceramic-trades]
+concepts: [ceramic, trades]
+root_concepts: [ceramic, trades]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ceramic Trades — Potter, Kiln Master, Tile Maker, Porcelain Painter
 
 ## The Big Picture
@@ -497,6 +516,7 @@ PROFESSIONAL PUBLICATIONS:
  Ceramic Review (UK): longest-running English-language ceramics magazine
  American Ceramics Society (technical/industrial side): JACS (Journal of the
   American Ceramic Society) — scientific, not studio focused
+```
 
 ---
 
