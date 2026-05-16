@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-language:overview
+kind: guide
+module: philosophy-of-language
+section: philosophy-of-language
+title: Philosophy of Language - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-language/00-OVERVIEW.md
+canonical_path: philosophy-of-language/00-OVERVIEW.md
+backsource_ids: [proof-backfill:philosophy-of-language:00-overview, git-history:philosophy-of-language:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Philosophy of Language — Landscape and Taxonomy
 
 ## The Big Picture
@@ -15,28 +34,28 @@ Philosophy of language asks: how do words, sentences, and utterances connect to 
 |  of language; eliminate ambiguity  of language use                    |
 |  Tool: formal logic / type theory  Tool: close conceptual analysis    |
 |                                                                       |
-|  +---------------------------+    +-------------------------------+   |
-|  | SEMANTIC CORE             |    | PRAGMATIC CORE                |   |
-|  | (meaning independent of   |    | (meaning in context)          |   |
-|  | utterance context)        |    |                               |   |
-|  |                           |    | speech acts                   |   |
-|  | sense / reference         |    |   locutionary / illocutionary |   |
-|  | truth conditions          |    |   / perlocutionary            |   |
-|  | compositionality          |    | implicature (Grice maxims)    |   |
-|  | possible worlds           |    | meaning as use                |   |
-|  | formal / Montague grammar |    | language games                |   |
-|  +---------------------------+    +-------------------------------+   |
+|  [---------------------------]    [-------------------------------]   |
+|  [ SEMANTIC CORE             ]    [ PRAGMATIC CORE                ]   |
+|  [ (meaning independent of   ]    [ (meaning in context)          ]   |
+|  [ utterance context)        ]    [                               ]   |
+|  [                           ]    [ speech acts                   ]   |
+|  [ sense / reference         ]    [   locutionary / illocutionary ]   |
+|  [ truth conditions          ]    [   / perlocutionary            ]   |
+|  [ compositionality          ]    [ implicature (Grice maxims)    ]   |
+|  [ possible worlds           ]    [ meaning as use                ]   |
+|  [ formal / Montague grammar ]    [ language games                ]   |
+|  [---------------------------]    [-------------------------------]   |
 |              |                                 |                      |
 |              +----------------+----------------+                      |
 |                               v                                       |
-|                 +---------------------------+                         |
-|                 | PHILOSOPHY OF MIND BRIDGE |                         |
-|                 | intentionality            |                         |
-|                 | propositional attitudes   |                         |
-|                 | semantic externalism      |                         |
-|                 | (Putnam: meanings not      |                         |
-|                 |  in the head)             |                         |
-|                 +---------------------------+                         |
+|                 [---------------------------]                         |
+|                 [ PHILOSOPHY OF MIND BRIDGE ]                         |
+|                 [ intentionality            ]                         |
+|                 [ propositional attitudes   ]                         |
+|                 [ semantic externalism      ]                         |
+|                 [ (Putnam: meanings not     ]                         |
+|                 [  in the head)             ]                         |
+|                 [---------------------------]                         |
 +-----------------------------------------------------------------------+
 ```
 
@@ -128,18 +147,15 @@ This one distinction reappears throughout philosophy of language and in type the
 ```
   EXPRESSION: "Hesperus"
 
-  +--------------------+
-  | SENSE (Sinn)       |   Mode of presentation.
-  | "the star visible  |   How the object is conceptualized.
-  | in the evening"    |   Different senses can pick out same referent.
-  +--------------------+
+  SENSE (Sinn): Mode of presentation.
+  "the star visible in the evening":
+  how the object is conceptualized.
+  Different senses can pick out same referent.
            |
            | determines (in the right circumstances)
            v
-  +--------------------+
-  | REFERENCE          |   The actual object in the world.
-  | (Bedeutung)        |   Venus.
-  +--------------------+
+  REFERENCE (Bedeutung): The actual object in the world.
+  Venus.
 
   KEY: "Hesperus" and "Phosphorus" have the SAME reference (Venus),
        but DIFFERENT senses (different descriptions).
@@ -186,7 +202,7 @@ This one distinction reappears throughout philosophy of language and in type the
 
   LAYER 1: LOCUTIONARY ACT
   +-----------------------------------------+
-  | Literal content: a yes/no question about |
+  | Literal content: yes/no question about  |
   | the hearer's physical ability to pass   |
   | salt.                                   |
   +-----------------------------------------+
@@ -228,7 +244,7 @@ This one distinction reappears throughout philosophy of language and in type the
   | ACTUAL WORLD      | POSSIBLE WORLD 1             |
   | Water = H₂O       | Water = XYZ ← impossible!    |
   | (this world)      | (Kripke: there IS no world   |
-  |                   | where water ≠ H₂O; it's rigid)|
+  |                   | where water ≠ H₂O; rigid)    |
   +--------------------------------------------------+
 
   □P   = P is true in ALL accessible worlds (necessity)

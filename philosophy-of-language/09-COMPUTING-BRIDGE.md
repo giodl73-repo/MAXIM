@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-language:computing-bridge
+kind: guide
+module: philosophy-of-language
+section: philosophy-of-language
+title: Language and Computing: Formal Semantics to Type Theory
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-language/09-COMPUTING-BRIDGE.md
+canonical_path: philosophy-of-language/09-COMPUTING-BRIDGE.md
+backsource_ids: [proof-backfill:philosophy-of-language:09-computing-bridge, git-history:philosophy-of-language:09-computing-bridge]
+concepts: [computing, bridge]
+root_concepts: [computing, bridge]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language and Computing: Formal Semantics to Type Theory
 
 ## The Deep Connection

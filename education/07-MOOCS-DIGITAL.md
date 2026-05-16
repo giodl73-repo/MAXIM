@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:education:moocs-digital
+kind: guide
+module: education
+section: education
+title: MOOCs, EdTech, and the Completion Crisis
+status: source-custody
+source_custody: partial
+current_path: education/07-MOOCS-DIGITAL.md
+canonical_path: education/07-MOOCS-DIGITAL.md
+backsource_ids: [proof-backfill:education:07-moocs-digital, git-history:education:07-moocs-digital]
+concepts: [moocs, digital]
+root_concepts: [moocs, digital]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # MOOCs, EdTech, and the Completion Crisis
 
 ## The Big Picture

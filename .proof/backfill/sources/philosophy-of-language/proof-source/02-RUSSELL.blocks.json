@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "philosophy-of-language\\02-RUSSELL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## Russell's Place in the Landscape",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                      RUSSELL'S KEY CONTRIBUTIONS                      |\n|                                                                       |\n|  LOGIC/FOUNDATIONS          PHILOSOPHY OF LANGUAGE                    |\n|  ------------------         -------------------------                 |\n|  Russell's Paradox (1902)   Theory of Descriptions (1905)             |\n|  {x : x ∉ x} → contradiction  \"On Denoting\"                           |\n|                             - Definite descriptions analyzed          |\n|  Principia Mathematica      - Names vs descriptions distinguished     |\n|  (with Whitehead, 1910-13)  - Eliminates Meinong's \"objects\"          |\n|  - Arithmetic from logic    - No reference failure problem            |\n|                                                                       |\n|  Theory of Types (1908)     Logical Atomism (1918)                    |\n|  - Hierarchical types to    - World = atomic facts                    |\n|    avoid Russell's Paradox  - Propositions = logical combinations     |\n|  - Ramified type theory     - Analysis = finding atomic forms         |\n|  - Ancestor of modern type  - Wittgenstein I = Russell + Frege        |\n|    systems                                                            |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 85,
+      "heading_context": "### Russell's Solution: Descriptions Are Not Names",
+      "confidence": "candidate",
+      "text": "  KEY MOVE: Definite descriptions are NOT names.\n  They are INCOMPLETE SYMBOLS that disappear under analysis.\n\n  \"The F is G\"    is    ∃x(F(x) ∧ ∀y(F(y) → y=x) ∧ G(x))\n\n  Three components:\n  1. EXISTENCE: ∃x F(x)       — at least one F exists\n  2. UNIQUENESS: ∀y(F(y) → y=x) — exactly one F exists\n  3. PREDICATION: G(x)         — that unique F is G\n\n  NO SINGLE REFERRING TERM for \"the F\" in the analysis.\n  The description is ELIMINATED, replaced by quantified variables.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "### The King of France Example",
+      "confidence": "candidate",
+      "text": "  SURFACE GRAMMAR:\n  \"The present king of France is bald.\"\n    appears to have the form:  Name-is-Predicate\n    like:  \"Obama is bald.\"\n\n  LOGICAL FORM (after analysis):\n  ∃x( King-of-France-now(x)\n      ∧ ∀y(King-of-France-now(y) → y = x)\n      ∧ Bald(x) )\n\n  Since France has no king:\n  The existential \"∃x King-of-France-now(x)\" is FALSE.\n  Therefore the whole conjunction is FALSE.\n\n  The sentence is FALSE, not meaningless. Problem solved.\n\n  ALSO SOLVED: \"The present king of France does not exist.\"\n  ¬∃x(King-of-France-now(x) ∧ ∀y(King-of-France-now(y) → y=x))\n  = there is no unique present king of France\n  TRUE. No ontological weirdness required.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## Primary vs Secondary Occurrence",
+      "confidence": "candidate",
+      "text": "  \"The present king of France is not bald.\"\n\n  TWO READINGS:\n\n  PRIMARY OCCURRENCE (description has wide scope):\n  ∃x(KoF(x) ∧ ∀y(KoF(y)→y=x) ∧ ¬Bald(x))\n  = \"There is a unique KoF and he is not bald.\"\n  → FALSE (no king)\n\n  SECONDARY OCCURRENCE (negation has wide scope):\n  ¬∃x(KoF(x) ∧ ∀y(KoF(y)→y=x) ∧ Bald(x))\n  = \"It is not the case that there is a unique KoF who is bald.\"\n  → TRUE (vacuously, no king exists)\n\n  SCOPE MATTERS:\n  The same surface sentence is true or false depending on\n  whether the description takes wide or narrow scope relative\n  to negation. This is a precursor to quantifier scope\n  ambiguities in formal semantics.\n\n  CS CONNECTION: Scope in lambda calculus / binding matters exactly\n  analogously. \"Not all\" vs \"all not\" — quantifier scope.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 191,
+      "heading_context": "## Logical Atomism",
+      "confidence": "candidate",
+      "text": "  CORE THESIS: The world is composed of ATOMIC FACTS.\n  Atomic facts = the simplest constituents of reality.\n  They cannot be further analyzed.\n\n  +--------------------------------------------------+\n  |          STRUCTURE OF LOGICAL ATOMISM            |\n  |                                                  |\n  |  WORLD                        LANGUAGE           |\n  |  -----                        --------           |\n  |  Atomic facts                 Atomic propositions|\n  |  (object has property F)      (elementary propns)|\n  |                                                  |\n  |  Complex facts                Molecular propns   |\n  |  (built from atoms by         (P ∧ Q, P ∨ Q,     |\n  |  logical operations)          P → Q, ¬P)         |\n  |                                                  |\n  |  The STRUCTURE of language    mirrors the        |\n  |  STRUCTURE of the world.                         |\n  |  (This is Wittgenstein's      picture theory.)   |\n  +--------------------------------------------------+\n\n  PHILOSOPHICAL PROGRAM = ANALYSIS:\n  Take a complex statement.\n  Analyze it until you reach atomic propositions.\n  Show how the meaning of the complex is built from atoms.\n\n  Example:\n  \"The average star has 2.5 planets\" — not an atomic fact.\n  Must be analyzed into statements about actual stars.\n  \"There are no centaurs\" — analyzed via descriptions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 228,
+      "heading_context": "## Russell vs Frege: Key Differences",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------+\n| TOPIC                  | FREGE                 | RUSSELL           |\n|------------------------|-----------------------|-------------------|\n| Definite descriptions  | Have sense + reference| Incomplete symbols|\n| (\"the F\")             | like other expressions| no reference at all|\n|------------------------|-----------------------|-------------------|\n| Non-referring terms    | Sentence has sense    | Sentence is FALSE |\n| (\"the king of France\") | but no truth value    | existential fails |\n|------------------------|-----------------------|-------------------|\n| Ordinary proper names  | Have sense            | Disguised         |\n| (\"Aristotle\")          | (mode of presentation)| descriptions      |\n|------------------------|-----------------------|-------------------|\n| Numbers                | Logical objects       | Logic constructs  |\n|                        | (extensions of        | (contextual       |\n|                        | concepts)             | definitions)      |\n|------------------------|-----------------------|-------------------|\n| Reference failure      | Truth value gap       | Eliminates the    |\n|                        |                       | problem entirely  |\n|------------------------|-----------------------|-------------------|\n| Types                  | Not explicitly        | Ramified type     |\n|                        | developed             | theory to avoid   |\n|                        |                       | Russell's Paradox |\n+--------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 258,
+      "heading_context": "## Russell's Paradox (Brief)",
+      "confidence": "candidate",
+      "text": "  In set theory, for any predicate P, we can form the set:\n  {x : P(x)} = the set of all things satisfying P.\n\n  LET P(x) = \"x is not a member of itself\"\n  Let R = {x : x ∉ x}\n\n  Is R ∈ R?\n  If R ∈ R: then R satisfies P (R ∉ R) — contradiction.\n  If R ∉ R: then R satisfies P, so R ∈ R — contradiction.\n\n  R ∈ R ↔ R ∉ R         ← contradiction\n\n  This is derivable from Frege's Basic Law V.\n  Frege received Russell's letter (1902) while Grundgesetze\n  was at the printer. He added a hasty appendix acknowledging\n  the problem. He never found a satisfactory solution.\n\n  Russell's fix: TYPE THEORY\n  Objects are stratified into types: individuals → sets of\n  individuals → sets of sets → ...\n  R = {x : x ∉ x} is ill-typed: x and R must be at the same\n  level for ∈ to apply, but sets of x are one level above x.\n  The offending set cannot even be formed.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "philosophy-of-language\\01-FREGE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## Why Frege Matters",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                         FREGE'S CONTRIBUTIONS                         |\n|                                                                       |\n|  LOGIC                          SEMANTICS               FOUNDATIONS   |\n|  -----                          ---------               -----------   |\n|  Begriffsschrift (1879)         Sense/Reference (1892)  Grundlagen    |\n|  - First-order predicate logic  - Sinn (mode of         (1884)        |\n|  - Quantifiers: ∀, ∃            presentation)          - Arithmetic   |\n|  - Function/argument form       - Bedeutung (referent)  from logic    |\n|  - Conditional strokes          - Compositionality                    |\n|  - Identity statements          - Sense determines      Grundgesetze  |\n|                                 reference (contextually)(1893/1903)   |\n|                                 - Sense ≠ reference     - Formal      |\n|                                                          derivation   |\n|                                 Concept and Object       - Doomed by  |\n|                                 (1892)                   Russell's    |\n|                                 - functions vs objects   Paradox      |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "### The Sense/Reference Diagram",
+      "confidence": "candidate",
+      "text": "  EXPRESSION\n  \"the morning star\"\n       |                    SENSE: mode of\n       |---→ SENSE ------→  presentation; how\n       |     (Sinn)         the object is\n       |                    conceptually accessed\n       |\n       +---→ REFERENCE ─→   OBJECT: Venus\n             (Bedeutung)    (the planet itself)\n\n  The sense DETERMINES the reference (when there is one).\n  The reference does NOT determine the sense uniquely.\n  Many senses can pick out the same reference.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "## Sense of Complex Expressions: Compositionality",
+      "confidence": "candidate",
+      "text": "  FREGE'S COMPOSITIONALITY PRINCIPLE:\n  The sense (and reference) of a complex expression is\n  determined by the senses (and references) of its parts.\n\n  REFERENCE OF A SENTENCE = its truth value (T or F)\n  (\"sentences refer to truth values\" — unusual claim)\n\n  SENSE OF A SENTENCE = the thought (Gedanke) it expresses\n\n  This principle is foundational for:\n  - Every formal semantics (Montague, Tarski, Davidson)\n  - Every type-theoretic semantics\n  - Compiler IR: meaning of compound expressions = f(subexpressions)\n  - Denotational semantics of programming languages\n\n  Structure:\n  \"The morning star is a planet\"\n   ↑ sense of whole = function of senses of parts\n         ↑ sense of \"morning star\" contributes to\n                ↑ sense of \"is a planet\" contributes to\n   → whole sentence expresses a thought (true or false)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 172,
+      "heading_context": "### What Frege Added",
+      "confidence": "candidate",
+      "text": "  OLD (Aristotelian):              NEW (Frege, 1879):\n  \"All men are mortal\"             ∀x(Man(x) → Mortal(x))\n  \"Socrates is a man\"              Man(Socrates)\n  \"Socrates is mortal\"             ∴ Mortal(Socrates)\n\n  Frege introduced:\n  - QUANTIFIERS: ∀ (universal), ∃ (existential)\n  - VARIABLES ranging over a domain\n  - PREDICATE LETTERS: properties and relations\n  - FUNCTION symbols: f(x), g(x,y)\n  - The conditional: P → Q\n  - Negation: ¬P\n  - Identity: a = b\n\n  This is the predicate calculus you used in TCS courses.\n  Every proof system in CS — Hoare logic, temporal logic,\n  type theory, modal logic — extends this base.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "### Function/Argument Form",
+      "confidence": "candidate",
+      "text": "  KEY INSIGHT: Propositions have function-argument structure.\n  This anticipates λ-calculus and type theory.\n\n  \"5 is a prime number\"  =  Prime(5)\n                                ↑        ↑\n                            concept   object\n                            (function) (argument)\n\n  Concept = unsaturated (has a gap)\n  Object  = saturated (fills the gap)\n\n  Frege: \"The concept 'prime' is essentially incomplete.\n          The name '5' completes it.\"\n\n  Compare:\n  λx. (prime x)  applied to  5  →  (prime 5)\n  This is exactly the λ-calculus that Church formalized.\n  Church's λ-calculus is Frege's function/argument formalized.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 221,
+      "heading_context": "## Concept and Object (1892)",
+      "confidence": "candidate",
+      "text": "  OBJECTS: complete, saturated\n  All individuals: Socrates, the number 7, the planet Venus,\n  truth values (T, F are objects for Frege), extensions of concepts.\n\n  CONCEPTS: incomplete, unsaturated, predicate-like\n  \"__ is prime\" — needs an argument\n  \"__ is taller than __\" — needs two arguments (a relation)\n\n  CRUCIAL: A concept is NOT an object.\n  \"The concept 'horse'\" — when you nominalize a concept,\n  you produce an OBJECT that refers to the concept,\n  but it is no longer the concept itself.\n  (Frege calls this the \"concept 'horse' paradox\".)\n\n  This distinction maps to:\n  TYPE THEORY:   a : Type   vs   f : Type → Type\n  Functions vs their values; types vs terms.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "## Frege on Identity",
+      "confidence": "candidate",
+      "text": "  METALINGUISTIC VIEW (early Frege):\n  \"a = b\" means: the signs \"a\" and \"b\" refer to the same thing.\n  Problem: makes identity a linguistic fact, not a worldly one.\n\n  OBJECT-LEVEL VIEW (later Frege, after Sense/Reference):\n  \"a = b\" states that the object referred to by \"a\" is\n  the same as the object referred to by \"b\".\n  The informativeness of \"a = b\" when a ≠ b (as descriptions)\n  is explained by their different SENSES.\n\n  This gives us:\n  a = a   →  trivially true (same sense, same reference)\n  a = b   →  potentially informative (different senses,\n              discovered to have same reference)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 288,
+      "heading_context": "## The Frege-Russell Connection",
+      "confidence": "candidate",
+      "text": "  Frege → Russell correspondence (1902):\n  Russell discovered that Frege's Basic Law V\n  (every concept has an extension = the set of\n  things falling under it) leads to contradiction.\n\n  Russell's Paradox:\n  Let R = {x : x ∉ x}   (\"the set of all sets not\n                          members of themselves\")\n  R ∈ R  ↔  R ∉ R        ← contradiction\n\n  This is derivable in Frege's system.\n  The Grundgesetze project collapsed.\n\n  But: the predicate calculus survived intact.\n  Russell and Whitehead built on Frege's logic (not on\n  Basic Law V) in Principia Mathematica.\n  Russell's theory of types was the repair.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

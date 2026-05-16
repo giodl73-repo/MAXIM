@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "education\\09-FUTURE-LEARNING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              FUTURE OF LEARNING LANDSCAPE                        |\n+------------------------------------------------------------------+\n|                                                                  |\n|  AI TOOLS IN EDUCATION           MASTERY-BASED MODELS           |\n|  --------------------            --------------------            |\n|  Intelligent tutoring systems    Competency-based ed            |\n|  Generative AI (LLMs)            Mastery learning (Bloom)       |\n|  AI feedback on writing          Khan Academy mastery model     |\n|  Automated essay scoring         Proficiency-based transcripts   |\n|  AI-powered search / synthesis   Micro-credentials / badges     |\n|  Personalized content gen        Stackable credentials          |\n|                                                                  |\n|  PERSONALIZED LEARNING           INSTITUTIONAL FUTURES           |\n|  --------------------            ---------------------           |\n|  Adaptive pathways               Higher ed cost crisis          |\n|  Learning analytics              Unbundling of degrees           |\n|  AI tutors (Bloom's 2 sigma)     Lifelong learning demand       |\n|  Early warning systems           Employer-led credentials       |\n|  Predictive models               Hybrid learning models         |\n|                                                                  |\n|  RISKS AND ETHICS                                                |\n|  ----------------                                                |\n|  Academic integrity              Equity in AI access            |\n|  Surveillance concerns           Algorithmic bias               |\n|  De-skilling of teachers         Teacher displacement fears     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 353,
+      "heading_context": "## Learning Analytics",
+      "confidence": "candidate",
+      "text": "  LEARNING ANALYTICS\n  ====================\n\n  Definition: Measurement, collection, analysis and\n  reporting of data about learners and their contexts,\n  with the purpose of understanding and optimizing\n  learning and the environments in which it occurs.\n  (LAK, 2011)\n\n  PIPELINE ARCHITECTURE:\n    Learning analytics is a BI/data engineering pipeline\n    applied to educational event streams:\n\n    Event sources (LMS, ITS, video player, forum)\n      → Event ingestion (Kafka / event bus)\n      → ETL / transformation (normalize to learning event schema)\n      → Dimensional model (fact: learning_event;\n          dims: learner, course, skill, time, resource)\n      → Aggregations (mastery estimates, at-risk scores)\n      → Dashboards (instructor view, advisor alert, student feedback)\n\n    This is the same ADF/Power BI pipeline for operational\n    analytics — different domain, identical architecture.\n    The \"student at-risk\" model is a classification model\n    trained on historical cohort data, deployed to score\n    current students in real-time — same as churn prediction\n    in a SaaS business.\n\n  DATA TYPES:\n    LMS activity: login frequency, time on task.\n    Assessment: quiz scores, time taken, error patterns.\n    Clickstream: navigation behavior.\n    Video engagement: pause points, replay points.\n    Social: forum posts, discussion participation.\n    Demographic: age, location, prior credentials.\n\n  APPLICATIONS:\n    Early alert systems:\n    Identify at-risk students early.\n    \"Students with this pattern of LMS activity\n    have 80% dropout probability.\"\n    Trigger advisor outreach.\n    Evidence: moderate effectiveness.\n\n    Personalized feedback:\n    Surface recommendations based on behavior.\n    \"Students who got this item wrong typically\n    benefit from reviewing Section 3.2.\"\n\n    Instructor dashboards:\n    Show where whole class is struggling.\n    Which concepts need re-teaching?\n\n  ETHICAL CONCERNS:\n    Surveillance: students tracked in granular detail.\n    Discrimination: models trained on biased historical data.\n    Label risk: being \"predicted\" to drop out can\n    affect how advisors treat you (self-fulfilling).\n    Algorithmic bias: racial/gender patterns in\n    prediction models.\n    Data privacy: who owns student behavioral data?",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

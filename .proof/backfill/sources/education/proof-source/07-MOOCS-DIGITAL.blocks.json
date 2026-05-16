@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "education\\07-MOOCS-DIGITAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                 MOOCs AND EDTECH LANDSCAPE                       |\n+------------------------------------------------------------------+\n|                                                                  |\n|  MOOC HISTORY                    EDTECH ECOSYSTEM               |\n|  ------------                    ---------------                 |\n|  2008: First cMOOC (Siemens)     LMS: Canvas, Blackboard, Moodle|\n|  2011: AI class (Thrun, Norvig)  Video: YouTube, Panopto         |\n|  2012: \"Year of the MOOC\" (NYT)  MOOC: Coursera, edX, Udacity   |\n|  Coursera, edX, Udacity          Adaptive: Khan, ALEKS, Carnegie |\n|  2013-15: Hype → Disillusion     AI Tutors: Khanmigo, Socratic   |\n|  2020: COVID → massive adoption  Assessment: Turnitin, Proctorio |\n|                                  OPM: 2U, Pearson Online         |\n|  COMPLETION CRISIS               Analytics: learning analytics   |\n|  -----------------               platforms                       |\n|  3-15% completion rates                                          |\n|  Who completes? Already educated POLICY QUESTIONS                |\n|  Dropout reasons: multifactorial Free vs. credentialed MOOCs     |\n|  Self-paced = harder to finish   Online vs. in-person outcomes   |\n|                                  AI in assessment (integrity)    |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 56,
+      "heading_context": "### The Two MOOC Models",
+      "confidence": "candidate",
+      "text": "  TWO MOOC PARADIGMS\n  ===================\n\n  cMOOC (Connectivist MOOC)\n  Origin: Siemens & Downes (2008)\n  \"Connectivism and Connective Knowledge\" course\n\n  PHILOSOPHY:\n    Learning is network-based.\n    Knowledge is distributed across participants.\n    Course = catalyst for connections between learners.\n    No central content repository.\n    Learners create, share, and build on each other's work.\n\n  STRUCTURE:\n    Loosely structured.\n    Participants blog, tweet, contribute resources.\n    Weekly themes, not strict lessons.\n    The community IS the curriculum.\n\n  LIMITATIONS:\n    Doesn't scale to hundreds of thousands.\n    Requires high learner initiative.\n    Not suitable for technical/procedural skills.\n\n  xMOOC (Extended MOOC)\n  Origin: Sebastian Thrun's AI class (Stanford, 2011)\n\n  PHILOSOPHY:\n    Distribute elite university content widely.\n    Same course to 160,000 students.\n    Lecture videos + quizzes + peer-graded assignments.\n\n  STRUCTURE:\n    Recorded lecture videos (10-15 min segments).\n    Auto-graded quizzes.\n    Forum discussions.\n    (Sometimes) peer-graded assignments.\n    Optional: proctored exam for certificate.\n\n  The xMOOC model is what \"MOOC\" typically means today.\n  Coursera, edX, Udacity = xMOOC platforms.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 101,
+      "heading_context": "### The Two MOOC Models",
+      "confidence": "candidate",
+      "text": "### The 2012 Explosion",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 245,
+      "heading_context": "## Adaptive Learning Systems",
+      "confidence": "candidate",
+      "text": "  ADAPTIVE LEARNING ARCHITECTURE\n  ================================\n\n  KNOWLEDGE GRAPH:\n    Learning content structured as directed acyclic graph (DAG).\n    Nodes: concepts/skills.\n    Edges: prerequisites (directed).\n    Topological sort gives valid learning sequences.\n    Multiple valid topological orderings = multiple valid curricula.\n\n    +--------+     +--------+     +----------+\n    |Fractions|---> |Ratios  |---> |Proportions|\n    +--------+     +--------+     +----------+\n        |\n        v\n    +--------+\n    |Decimals|\n    +--------+\n\n    Navigation problem: given current mastery state (subset of\n    nodes \"known\"), find the optimal next node to teach.\n    This is a shortest-path problem on the prerequisite DAG,\n    weighted by expected learning time per concept.\n\n  MASTERY ESTIMATION:\n    Bayesian Knowledge Tracing (BKT) is a Hidden Markov Model:\n    - Hidden state: binary knowledge (knows / doesn't know)\n    - Observable: correctness of responses (0/1)\n    - Transition: P(L0) = prior; P(T) = learning rate\n    - Emission: P(G) = guess rate; P(S) = slip rate\n\n    Four parameters:\n    P(L0) = prior probability student already knows skill\n    P(T)  = probability of learning skill on each opportunity\n    P(G)  = probability of correct response despite not knowing\n    P(S)  = probability of incorrect response despite knowing\n\n    State update (Bayesian posterior after observing response r):\n    P(know | correct) = P(know) × (1 - P(S)) / P(correct)\n    where P(correct) = P(know)(1-P(S)) + (1-P(know))P(G)\n\n    This is exactly the forward algorithm for HMM filtering.\n    Extensions (Deep Knowledge Tracing, 2015, Piech et al.)\n    replace the HMM with an LSTM for richer state representation.\n\n  ITEM SELECTION:\n    Given mastery estimates:\n    Choose next item from ZPD (not too easy, not too hard).\n    Optimize for learning efficiency.\n\n  EXAMPLE SYSTEMS:\n    ALEKS: Math; knowledge space theory.\n    Carnegie Learning: Cognitive Tutor; AI tutoring.\n    Khan Academy exercises: mastery-based progression.\n    Duolingo: spaced repetition + adaptive item selection.\n    i-Ready: K-8 diagnostic + adaptive practice.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 308,
+      "heading_context": "## Learning Management Systems (LMS)",
+      "confidence": "candidate",
+      "text": "  LMS LANDSCAPE\n  ==============\n\n  MAJOR PLATFORMS:\n  +----------+---------------+------------------+\n  | Canvas   | Instructure   | ~40% US higher ed|\n  | (2011)   |               | clean UX; REST API|\n  +----------+---------------+------------------+\n  | Blackboard| Anthology    | Legacy dominant  |\n  | (1997)   |               | complex; declining|\n  +----------+---------------+------------------+\n  | Moodle   | Open source   | Strong globally  |\n  | (2002)   | community     | high customization|\n  +----------+---------------+------------------+\n  | Google   | Google        | K-12 dominant    |\n  | Classroom| Workspace     | free; limited    |\n  +----------+---------------+------------------+\n  | Schoology| PowerSchool   | K-12 enterprise  |\n  +----------+---------------+------------------+\n\n  LMS FUNCTIONS:\n    Content hosting (videos, PDFs, readings)\n    Assignment submission + grading\n    Gradebook\n    Discussion forums\n    Quizzing + testing\n    Communication (announcements, messaging)\n    Integration with external tools (via LTI standard)\n\n  LIMITATION:\n    LMS = content management, not learning management.\n    Stores and delivers; doesn't optimize for learning.\n    No adaptive capability in base LMS.\n    Data: what happened (submission times, quiz scores)\n    but not why or how to improve.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:education:curriculum
+kind: guide
+module: education
+section: education
+title: Curriculum Design and Learning Objectives
+status: source-custody
+source_custody: partial
+current_path: education/04-CURRICULUM.md
+canonical_path: education/04-CURRICULUM.md
+backsource_ids: [proof-backfill:education:04-curriculum, git-history:education:04-curriculum]
+concepts: [curriculum]
+root_concepts: [curriculum]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Curriculum Design and Learning Objectives
 
 ## The Big Picture

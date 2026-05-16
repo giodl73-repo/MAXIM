@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:education:equity
+kind: guide
+module: education
+section: education
+title: Equity, Access, and the Sociology of Education
+status: source-custody
+source_custody: partial
+current_path: education/08-EQUITY.md
+canonical_path: education/08-EQUITY.md
+backsource_ids: [proof-backfill:education:08-equity, git-history:education:08-equity]
+concepts: [equity]
+root_concepts: [equity]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Equity, Access, and the Sociology of Education
 
 ## The Big Picture

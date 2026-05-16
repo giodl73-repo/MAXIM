@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-language:speech-acts
+kind: guide
+module: philosophy-of-language
+section: philosophy-of-language
+title: Speech Act Theory: Austin and Searle
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-language/05-SPEECH-ACTS.md
+canonical_path: philosophy-of-language/05-SPEECH-ACTS.md
+backsource_ids: [proof-backfill:philosophy-of-language:05-speech-acts, git-history:philosophy-of-language:05-speech-acts]
+concepts: [speech, acts]
+root_concepts: [speech, acts]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Speech Act Theory: Austin and Searle
 
 ## The Problem Speech Act Theory Solves
@@ -156,13 +175,13 @@ For a performative to succeed, certain conditions must hold. Austin calls violat
 
 +----------------------------------------------------------------+
 | INFELICITY TYPE | WHAT FAILS             | EFFECT              |
-|-----------------|------------------------|--------------------|
+|-----------------|------------------------|---------------------|
 | MISFIRE A.1/A.2 | No procedure or wrong  | Act void —          |
 |                 | circumstances          | "doesn't come off"  |
-|-----------------|------------------------|--------------------|
+|-----------------|------------------------|---------------------|
 | MISFIRE B.1/B.2 | Execution incorrect/   | Act void            |
 |                 | incomplete             |                     |
-|-----------------|------------------------|--------------------|
+|-----------------|------------------------|---------------------|
 | ABUSE Γ.1/Γ.2   | Sincerity conditions   | Act performed but   |
 |                 | violated               | hollow/abused       |
 +----------------------------------------------------------------+

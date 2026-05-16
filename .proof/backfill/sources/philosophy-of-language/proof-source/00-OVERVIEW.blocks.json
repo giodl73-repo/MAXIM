@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "philosophy-of-language\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                  PHILOSOPHY OF LANGUAGE MAP                           |\n|                                                                       |\n|  FORMAL TRADITION                  ORDINARY LANGUAGE TRADITION        |\n|  (Frege → Russell → Carnap)        (Austin → Wittgenstein II → Grice) |\n|                                                                       |\n|  Goal: logical reconstruction      Goal: describe actual practice     |\n|  of language; eliminate ambiguity  of language use                    |\n|  Tool: formal logic / type theory  Tool: close conceptual analysis    |\n|                                                                       |\n|  [---------------------------]    [-------------------------------]   |\n|  [ SEMANTIC CORE             ]    [ PRAGMATIC CORE                ]   |\n|  [ (meaning independent of   ]    [ (meaning in context)          ]   |\n|  [ utterance context)        ]    [                               ]   |\n|  [                           ]    [ speech acts                   ]   |\n|  [ sense / reference         ]    [   locutionary / illocutionary ]   |\n|  [ truth conditions          ]    [   / perlocutionary            ]   |\n|  [ compositionality          ]    [ implicature (Grice maxims)    ]   |\n|  [ possible worlds           ]    [ meaning as use                ]   |\n|  [ formal / Montague grammar ]    [ language games                ]   |\n|  [---------------------------]    [-------------------------------]   |\n|              |                                 |                      |\n|              +----------------+----------------+                      |\n|                               v                                       |\n|                 [---------------------------]                         |\n|                 [ PHILOSOPHY OF MIND BRIDGE ]                         |\n|                 [ intentionality            ]                         |\n|                 [ propositional attitudes   ]                         |\n|                 [ semantic externalism      ]                         |\n|                 [ (Putnam: meanings not     ]                         |\n|                 [  in the head)             ]                         |\n|                 [---------------------------]                         |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 68,
+      "heading_context": "## The Core Questions",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------+\n| QUESTION                     | KEY BATTLEGROUND            |\n|------------------------------|-----------------------------|\n| What is meaning?             | Use theory vs truth-        |\n|                              | conditional theory          |\n|------------------------------|-----------------------------|\n| How do names refer?          | Description theory (Frege/  |\n|                              | Russell) vs causal-         |\n|                              | historical (Kripke)         |\n|------------------------------|-----------------------------|\n| What is the unit of          | Word? Sentence? Speech act? |\n| meaning?                     | Utterance in context?       |\n|------------------------------|-----------------------------|\n| How does meaning relate      | Mentalism vs anti-mentalism |\n| to mind?                     | Internalism vs externalism  |\n|------------------------------|-----------------------------|\n| Is meaning social or         | Private language argument   |\n| private?                     | (Wittgenstein)              |\n|------------------------------|-----------------------------|\n| How do parts combine into    | Compositionality principle  |\n| whole sentence meanings?     | (Frege, Montague)           |\n+------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 200,
+      "heading_context": "## Speech Act Layering (Austin/Searle)",
+      "confidence": "candidate",
+      "text": "  Utterance: \"Can you pass the salt?\"\n\n  LAYER 1: LOCUTIONARY ACT\n  +-----------------------------------------+\n  | Literal content: yes/no question about  |\n  | the hearer's physical ability to pass   |\n  | salt.                                   |\n  +-----------------------------------------+\n                   |\n                   v\n  LAYER 2: ILLOCUTIONARY ACT\n  +-----------------------------------------+\n  | What the speaker is DOING by saying it: |\n  | REQUESTING (not asking about ability).  |\n  | The illocutionary force.                |\n  +-----------------------------------------+\n                   |\n                   v\n  LAYER 3: PERLOCUTIONARY ACT\n  +-----------------------------------------+\n  | The EFFECT on the hearer:               |\n  | They pass the salt.                     |\n  | (Causal consequence of the utterance.)  |\n  +-----------------------------------------+\n\n  Different sentences can share illocutionary force:\n  \"Pass the salt.\"            → direct request\n  \"Can you pass the salt?\"    → indirect request (same force)\n  \"I'd love some salt.\"       → indirect request (even more indirect)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 236,
+      "heading_context": "## Possible Worlds: The Semantic Tool for Modality",
+      "confidence": "candidate",
+      "text": "  MODAL STATEMENT: \"Water is necessarily H₂O.\"\n\n  Without possible worlds:\n  How do we evaluate \"necessarily\"? No truth table handles it.\n\n  With possible worlds:\n  +--------------------------------------------------+\n  | ACTUAL WORLD      | POSSIBLE WORLD 1             |\n  | Water = H₂O       | Water = XYZ ← impossible!    |\n  | (this world)      | (Kripke: there IS no world   |\n  |                   | where water ≠ H₂O; rigid)    |\n  +--------------------------------------------------+\n\n  □P   = P is true in ALL accessible worlds (necessity)\n  ◇P   = P is true in SOME accessible world (possibility)\n\n  Kripke's key move: RIGID DESIGNATORS\n  Names like \"water\", \"gold\", \"Aristotle\" refer to the SAME\n  thing in all possible worlds (where they refer at all).\n  Definite descriptions (\"the teacher of Alexander\") are\n  NOT rigid — different people might fit the description\n  in different worlds.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "## Formal Semantics: Compositionality",
+      "confidence": "candidate",
+      "text": "  FREGE'S PRINCIPLE:\n  The meaning of a complex expression is a function of\n  the meanings of its parts and their mode of combination.\n\n  MATHEMATICAL FORMULATION (Montague):\n  If α is a syntactic rule combining A and B,\n  then there is a corresponding semantic rule\n  combining [A] and [B] into [α(A,B)].\n\n  This is why type theory works:\n  (λx:τ. body) : τ → σ          (function type)\n  f : τ → σ    applied to  a : τ  yields  f(a) : σ\n\n  Syntax drives semantics.\n  The λ-calculus IS Montague's underlying semantic language.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

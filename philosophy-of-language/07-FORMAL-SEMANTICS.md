@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-language:formal-semantics
+kind: guide
+module: philosophy-of-language
+section: philosophy-of-language
+title: Formal Semantics: Montague Grammar
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-language/07-FORMAL-SEMANTICS.md
+canonical_path: philosophy-of-language/07-FORMAL-SEMANTICS.md
+backsource_ids: [proof-backfill:philosophy-of-language:07-formal-semantics, git-history:philosophy-of-language:07-formal-semantics]
+concepts: [formal, semantics]
+root_concepts: [formal, semantics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Formal Semantics: Montague Grammar
 
 ## The Project
