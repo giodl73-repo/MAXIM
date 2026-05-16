@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:international-relations:constructivism
+kind: guide
+module: international-relations
+section: international-relations
+title: Constructivism: Wendt's Social Theory of IR
+status: source-custody
+source_custody: partial
+current_path: international-relations/03-CONSTRUCTIVISM.md
+canonical_path: international-relations/03-CONSTRUCTIVISM.md
+backsource_ids: [proof-backfill:international-relations:03-constructivism, git-history:international-relations:03-constructivism]
+concepts: [constructivism]
+root_concepts: [constructivism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Constructivism: Wendt's Social Theory of IR
 
 ## The Big Picture

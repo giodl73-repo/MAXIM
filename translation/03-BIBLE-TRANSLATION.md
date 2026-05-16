@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:translation:bible-translation
+kind: guide
+module: translation
+section: translation
+title: Bible Translation: Vulgate, Luther, KJV
+status: source-custody
+source_custody: partial
+current_path: translation/03-BIBLE-TRANSLATION.md
+canonical_path: translation/03-BIBLE-TRANSLATION.md
+backsource_ids: [proof-backfill:translation:03-bible-translation, git-history:translation:03-bible-translation]
+concepts: [bible, translation]
+root_concepts: [bible, translation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bible Translation: Vulgate, Luther, KJV
 
 ## The Big Picture
@@ -255,8 +274,8 @@ The 20th century saw the formal/dynamic equivalence debate institutionalized in 
   │ (very    │ literal";│ formal     │ balance;    │ fully    │
   │ awkward) │ readable │ equivalence│ readable;   │ dynamic; │
   │          │ + formal │            │ most-sold   │ modern   │
-  │ Evangelical│        │ Mainline   │ Protestant  │ idiom    │
-  │ use      │ Evang    │ Protestant │ translation │          │
+  │ Evangel- │          │ Mainline   │ Protestant  │ idiom    │
+  │ ical use │ Evang    │ Protestant │ translation │          │
   └──────────┴──────────┴────────────┴─────────────┴──────────┘
 
   SAMPLE: John 3:16

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:translation:interpretation
+kind: guide
+module: translation
+section: translation
+title: Simultaneous and Consecutive Interpretation
+status: source-custody
+source_custody: partial
+current_path: translation/07-INTERPRETATION.md
+canonical_path: translation/07-INTERPRETATION.md
+backsource_ids: [proof-backfill:translation:07-interpretation, git-history:translation:07-interpretation]
+concepts: [interpretation]
+root_concepts: [interpretation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Simultaneous and Consecutive Interpretation
 
 ## The Big Picture
@@ -134,7 +153,7 @@ GILE'S EFFORT MODEL FOR SIMULTANEOUS INTERPRETATION
   ┌─────────────────────────────────────────────────────┐
   │ • Speaker talks too fast                            │
   │ • Unfamiliar topic or terminology                   │
-  │ • Dense information (lists of numbers, proper names) │
+  │ • Dense information (numbers, proper names)         │
   │ • Long sentences requiring held memory              │
   │ • Accent or voice quality requiring extra L effort  │
   │ • Background noise increasing L effort              │

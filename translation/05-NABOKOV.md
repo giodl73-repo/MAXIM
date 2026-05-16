@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:translation:nabokov
+kind: guide
+module: translation
+section: translation
+title: Nabokov's Radical Literalism
+status: source-custody
+source_custody: partial
+current_path: translation/05-NABOKOV.md
+canonical_path: translation/05-NABOKOV.md
+backsource_ids: [proof-backfill:translation:05-nabokov, git-history:translation:05-nabokov]
+concepts: [nabokov]
+root_concepts: [nabokov]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nabokov's Radical Literalism
 
 ## The Big Picture

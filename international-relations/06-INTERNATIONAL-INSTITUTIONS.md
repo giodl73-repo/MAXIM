@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:international-relations:international-institutions
+kind: guide
+module: international-relations
+section: international-relations
+title: International Institutions: UN, WTO, IMF
+status: source-custody
+source_custody: partial
+current_path: international-relations/06-INTERNATIONAL-INSTITUTIONS.md
+canonical_path: international-relations/06-INTERNATIONAL-INSTITUTIONS.md
+backsource_ids: [proof-backfill:international-relations:06-international-institutions, git-history:international-relations:06-international-institutions]
+concepts: [international, institutions]
+root_concepts: [international, institutions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # International Institutions: UN, WTO, IMF
 
 ## The Big Picture

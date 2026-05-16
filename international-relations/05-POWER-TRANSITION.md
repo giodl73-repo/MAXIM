@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:international-relations:power-transition
+kind: guide
+module: international-relations
+section: international-relations
+title: Power Transition Theory and Hegemonic Wars
+status: source-custody
+source_custody: partial
+current_path: international-relations/05-POWER-TRANSITION.md
+canonical_path: international-relations/05-POWER-TRANSITION.md
+backsource_ids: [proof-backfill:international-relations:05-power-transition, git-history:international-relations:05-power-transition]
+concepts: [power, transition]
+root_concepts: [power, transition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Power Transition Theory and Hegemonic Wars
 
 ## The Big Picture

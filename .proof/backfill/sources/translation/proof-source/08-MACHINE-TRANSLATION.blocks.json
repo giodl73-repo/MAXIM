@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "translation\\08-MACHINE-TRANSLATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "MACHINE TRANSLATION — EVOLUTION\n════════════════════════════════════════════════════════════════════\n\n  1949-1966          1966-1989        1990-2014       2014-present\n  ┌─────────────┐   ┌─────────────┐  ┌─────────────┐  ┌───────────────┐\n  │ RULE-BASED  │   │ ALPAC       │  │ STATISTICAL │  │ NEURAL MT     │\n  │ MT (RBMT)   │   │ WINTER      │  │ MT (SMT)    │  │               │\n  │             │ → │             │→ │             │→ │ Seq2seq (2014)│\n  │ Bilingual   │   │ Funding     │  │ Noisy       │  │ Attention     │\n  │ dictionaries│   │ cut; MT     │  │ channel     │  │ (2014)        │\n  │ + grammar   │   │ declared    │  │ model;      │  │ Transformer   │\n  │ rules       │   │ unprofitable│  │ phrase-     │  │ (2017)        │\n  │             │   │             │  │ based;      │  │ Multilingual  │\n  │ Georgetown- │   │ Limited     │  │ Google      │  │ models        │\n  │ IBM 1954    │   │ commercial  │  │ Translate   │  │ (2019+)       │\n  │ (60 Russian │   │ use         │  │ 2006        │  │               │\n  │ sentences)  │   │             │  │             │  │               │\n  └─────────────┘   └─────────────┘  └─────────────┘  └───────────────┘\n\n  QUALITY INFLECTION:\n  RBMT: ~30-40% adequate    SMT: ~50-60% adequate    NMT: ~70-80%+ adequate\n  (rough estimates for general text; varies greatly by domain/language pair)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 53,
+      "heading_context": "## Rule-Based Machine Translation (RBMT)",
+      "confidence": "candidate",
+      "text": "### The Georgetown-IBM Experiment (1954)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "### The Georgetown-IBM Experiment (1954)",
+      "confidence": "candidate",
+      "text": "RBMT ARCHITECTURE\n════════════════════════════════════════════════════════════════\n\n  SOURCE TEXT\n       │\n       ▼\n  MORPHOLOGICAL ANALYSIS\n  (identify word forms, stems, case, number, tense)\n       │\n       ▼\n  SYNTACTIC PARSING\n  (parse into phrase structure)\n       │\n       ▼\n  SEMANTIC ANALYSIS\n  (assign word sense; resolve ambiguity via rules)\n       │\n       ▼\n  TRANSFER\n  (map source-language structures to target-language\n   structures via bilingual dictionary + structural rules)\n       │\n       ▼\n  GENERATION\n  (produce grammatical target-language text)\n       │\n       ▼\n  OUTPUT\n\n  KEY RESOURCE:\n  Bilingual dictionary (source word → target word)\n  + Grammar rules (source structure → target structure)\n  These were hand-crafted by linguists.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 93,
+      "heading_context": "### The Georgetown-IBM Experiment (1954)",
+      "confidence": "candidate",
+      "text": "### The ALPAC Report (1966) — First AI Winter Analogue",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 117,
+      "heading_context": "## Statistical Machine Translation (SMT)",
+      "confidence": "candidate",
+      "text": "### The IBM Models (1990)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "### Word Alignment",
+      "confidence": "candidate",
+      "text": "WORD ALIGNMENT EXAMPLE\n════════════════════════════════════════════════════════════════\n\n  German: Das Buch ist rot\n  English: The book is red\n\n  Das    → The\n  Buch   → book\n  ist    → is\n  rot    → red\n\n  But:\n  German: Ich habe das Buch gelesen\n  English: I have read the book\n\n  Ich  → I\n  habe → have\n  das  → the\n  Buch → book\n  gelesen → read (but \"read\" appears before \"book\" in English!)\n\n  IBM Models 1-5 (from simple word alignment to fully\n  parametric models) learned to handle:\n  • Reordering (verb-final German → English SOV)\n  • Fertility (one source word → multiple target words or vice versa)\n  • NULL alignment (some words have no counterpart)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 204,
+      "heading_context": "## Neural Machine Translation (NMT)",
+      "confidence": "candidate",
+      "text": "### Sequence-to-Sequence (2014)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 208,
+      "heading_context": "### Sequence-to-Sequence (2014)",
+      "confidence": "candidate",
+      "text": "SEQUENCE-TO-SEQUENCE ARCHITECTURE (2014)\n════════════════════════════════════════════════════════════════\n\n  SOURCE SENTENCE: \"The cat sat on the mat\"\n                              ↓\n  ENCODER (LSTM):\n  Reads input word by word; builds hidden state\n  Each word updates the hidden state\n  Final hidden state = fixed-length \"thought vector\"\n  representing the entire source sentence\n                              ↓\n  THOUGHT VECTOR (bottleneck)\n  A single fixed-length vector (256 or 512 dim)\n  must encode the entire source sentence meaning\n                              ↓\n  DECODER (LSTM):\n  Generates output word by word, conditioned on\n  thought vector and previously generated words\n  \"Le chat était assis sur le tapis\"\n                              ↓\n  OUTPUT SENTENCE\n\n  PROBLEM: Fixed-length bottleneck\n  Long sentences → thought vector can't encode all information\n  → quality degrades with sentence length",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 236,
+      "heading_context": "### Sequence-to-Sequence (2014)",
+      "confidence": "candidate",
+      "text": "### Attention Mechanism (Bahdanau et al. 2014)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 240,
+      "heading_context": "### Attention Mechanism (Bahdanau et al. 2014)",
+      "confidence": "candidate",
+      "text": "ATTENTION MECHANISM\n════════════════════════════════════════════════════════════════\n\n  PROBLEM SOLVED: Fixed bottleneck loses long-range information.\n  SOLUTION: Allow decoder to \"attend to\" different parts of\n  the encoder's output at each decoding step.\n\n  ENCODER: Instead of one thought vector, produces a\n  sequence of hidden states (one per input word).\n\n  DECODER: At each output step, computes:\n  1. Attention weights: how relevant is each source\n     hidden state for generating the current output word?\n  2. Context vector: weighted sum of source hidden states\n  3. Generates output word using context vector\n\n  \"Das Buch\" → generating \"The book\":\n  Decoder attends heavily to positions of \"Das\" and \"Buch\"\n  while generating \"The\" and \"book\" respectively.\n\n  Generates \"Die rote Katze\":\n  Decoder for \"red\" → attends to \"rote\"\n  Decoder for \"cat\" → attends to \"Katze\"\n\n  QUALITY IMPROVEMENT:\n  Attention allows the model to handle long sentences,\n  reordering, and rare constructions much better than\n  the fixed bottleneck.\n\n  This is the same attention mechanism in the Transformer —\n  the learner already knows this from 01-LLM-CONCEPTS.md.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 274,
+      "heading_context": "### Attention Mechanism (Bahdanau et al. 2014)",
+      "confidence": "candidate",
+      "text": "### The Transformer (Vaswani et al. 2017)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 278,
+      "heading_context": "### The Transformer (Vaswani et al. 2017)",
+      "confidence": "candidate",
+      "text": "TRANSFORMER ARCHITECTURE FOR MT\n════════════════════════════════════════════════════════════════\n\n  (The learner knows this from 01-LLM-CONCEPTS.md)\n\n  KEY DIFFERENCES FROM RECURRENT:\n  1. No sequential processing — all positions processed\n     in parallel → faster training\n  2. Multi-head self-attention: each word attends to\n     all other words in the sequence simultaneously\n  3. Positional encoding: since no recurrence, must\n     explicitly encode word order\n  4. Encoder-decoder architecture with cross-attention:\n     decoder attends to encoder states\n\n  MT-SPECIFIC QUALITY LEAP:\n  • Better handling of long-range dependencies\n  • Better reordering\n  • Faster training (parallelizable)\n  • Scales with model size and data in ways RNNs didn't\n\n  TRAINING: Sequence-to-sequence objective:\n  Teacher forcing — at each step, use the ground truth\n  previous word (not the model's previous output)\n  Evaluated by BLEU score on held-out test set\n\n  STANDARD BENCHMARK:\n  WMT (Workshop on Machine Translation) annual competition\n  Tests EN-DE, EN-FR, EN-CS, EN-ZH and other pairs\n  BLEU scores on newstest sets track year-over-year progress",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 317,
+      "heading_context": "## Training Data: The Parallel Corpus Problem",
+      "confidence": "candidate",
+      "text": "PARALLEL CORPUS SOURCES\n════════════════════════════════════════════════════════════════\n\n  INSTITUTIONAL:\n  • Europarl: European Parliament proceedings in 24 languages\n    (10 million sentences per language pair)\n  • UN Corpus: UN documents in 6 languages\n  • Canadian Hansard: Parliamentary debates (EN-FR)\n  • Opus: open source parallel corpus collection\n\n  WEB-CRAWLED:\n  • Google's training data: proprietary; enormous\n  • CommonCrawl: web crawl; contains parallel data\n    detected by language identification\n  • ParaCrawl: focused web crawl for EU language pairs\n\n  THE BIBLE:\n  The Bible is available in 2,000+ languages,\n  all verse-aligned. It is the only large parallel\n  corpus for many low-resource languages.\n  → Used for low-resource MT experiments\n  → Limitation: religious text; domain mismatch\n    for general-purpose MT\n\n  QUALITY PROBLEMS:\n  Web-crawled parallel data contains noise:\n  • Mis-aligned sentences\n  • Machine-translated references (creating circular training)\n  • Inconsistent domains\n  • Duplicate content\n\n  LOW-RESOURCE LANGUAGES:\n  Languages with small corpora (many African languages,\n  indigenous languages, minority dialects) have\n  dramatically worse MT quality.\n  NLLB-200 (No Language Left Behind, Meta 2022):\n  trained on 200 languages; dedicated data collection\n  for low-resource pairs.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 362,
+      "heading_context": "## Multilingual Neural MT",
+      "confidence": "candidate",
+      "text": "MULTILINGUAL MT ARCHITECTURE\n════════════════════════════════════════════════════════════════\n\n  CHALLENGE: Build one model that translates many pairs,\n  not N×(N-1) separate models.\n\n  APPROACH:\n  mBERT (Devlin et al. 2018): multilingual BERT;\n  trained on 104 languages; shared vocabulary\n  (WordPiece); models share cross-lingual representations.\n\n  mT5 (Xue et al. 2021): multilingual T5 encoder-decoder.\n\n  NLLB-200 (Meta 2022): specifically for MT across 200 langs.\n\n  ZERO-SHOT CROSS-LINGUAL TRANSFER:\n  Train on EN-FR and EN-DE pairs.\n  Ask to translate FR → DE (never seen directly in training).\n  Because the model shares representations across languages,\n  it can do reasonable FR→DE translation through English\n  as an implicit pivot.\n\n  Quality: generally lower than direct pair;\n  varies by language similarity to training pairs.\n\n  BENEFITS OF MULTILINGUAL MODELS:\n  • Positive transfer: high-resource languages help\n    low-resource ones\n  • Single model deployment vs. hundreds of models\n  • Zero-shot capabilities for new language pairs\n  • Cross-lingual representations useful for downstream tasks\n\n  COSTS:\n  • \"Curse of multilinguality\": capacity diluted across\n    languages; each language pair gets less model capacity\n  • Requires careful data balancing (temperature sampling)\n    to prevent high-resource languages from dominating",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

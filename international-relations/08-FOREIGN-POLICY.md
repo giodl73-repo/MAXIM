@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:international-relations:foreign-policy
+kind: guide
+module: international-relations
+section: international-relations
+title: Foreign Policy Analysis
+status: source-custody
+source_custody: partial
+current_path: international-relations/08-FOREIGN-POLICY.md
+canonical_path: international-relations/08-FOREIGN-POLICY.md
+backsource_ids: [proof-backfill:international-relations:08-foreign-policy, git-history:international-relations:08-foreign-policy]
+concepts: [foreign, policy]
+root_concepts: [foreign, policy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Foreign Policy Analysis
 
 ## The Big Picture
@@ -29,7 +48,7 @@ FOREIGN POLICY ANALYSIS — LEVELS AND MODELS
   │  Model           │  Process Model   │  Politics Model      │
   │                  │                  │                      │
   │  State as        │  State as        │  State as arena      │
-  │  unitary rational│  collection of   │  of competing        │
+  │  unitary state   │  collection of   │  of competing        │
   │  actor with      │  organizations   │  bureaucracies       │
   │  clear           │  with standard   │  with different      │
   │  preferences     │  operating       │  interests and       │

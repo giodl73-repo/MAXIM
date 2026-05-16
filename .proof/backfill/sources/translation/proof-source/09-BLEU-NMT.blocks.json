@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "translation\\09-BLEU-NMT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "MT EVALUATION — THE QUALITY MEASUREMENT PROBLEM\n════════════════════════════════════════════════════════════════════\n\n  THE FUNDAMENTAL PROBLEM:\n  Translation quality has multiple orthogonal dimensions.\n  Any single automated metric captures at most a projection.\n\n  DIMENSIONS OF TRANSLATION QUALITY:\n  ┌─────────────────────────────────────────────────────────┐\n  │ • Adequacy: is the meaning transferred?                 │\n  │ • Fluency: does it read naturally in the target?        │\n  │ • Faithfulness: are all source elements represented?    │\n  │ • Pragmatics: is register, tone, illocution preserved?  │\n  │ • Cultural adequacy: appropriate cultural adaptation?   │\n  │ • Terminology: domain-appropriate terms used?           │\n  └─────────────────────────────────────────────────────────┘\n\n  METRICS CHART:\n  BLEU ──────────────────── n-gram overlap (surface)\n  METEOR ────────────────── n-gram + synonyms + stems\n  chrF ──────────────────── character n-gram overlap\n  TER ───────────────────── edit distance\n  BERTScore ─────────────── embedding similarity (contextual)\n  COMET ─────────────────── trained regression model\n  MQM ───────────────────── human annotation framework\n  (Human eval) ──────────── ground truth, expensive",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "## Alternative Metrics",
+      "confidence": "candidate",
+      "text": "MT EVALUATION METRICS — COMPARISON\n════════════════════════════════════════════════════════════════\n\n  METEOR (Banerjee & Lavie, 2005):\n  ┌──────────────────────────────────────────────────────────┐\n  │ Adds to BLEU: synonym matching, stemming, recall         │\n  │ Correlates better with human judgment than BLEU          │\n  │ More computationally expensive                           │\n  │ Language-specific modules (worse for low-resource)       │\n  └──────────────────────────────────────────────────────────┘\n\n  TER (Translation Error Rate):\n  ┌──────────────────────────────────────────────────────────┐\n  │ Edit distance: how many edits needed to go from          │\n  │ candidate to reference?                                  │\n  │ Allows reordering (with additional cost)                 │\n  │ Lower = better; 0 = perfect match; >1 = very bad         │\n  │ Good for post-editing time estimation                    │\n  └──────────────────────────────────────────────────────────┘\n\n  chrF (Popovic, 2015):\n  ┌──────────────────────────────────────────────────────────┐\n  │ Character n-gram F-score                                 │\n  │ Better for morphologically rich languages                │\n  │ (Turkish, Finnish, Czech)                                │\n  │ No tokenization required — language-neutral              │\n  │ Correlates well with human for many languages            │\n  └──────────────────────────────────────────────────────────┘\n\n  BERTScore (Zhang et al., 2019):\n  ┌──────────────────────────────────────────────────────────┐\n  │ Compare candidate and reference using BERT contextual    │\n  │ embeddings rather than surface n-gram overlap            │\n  │ Captures semantic similarity even when paraphrased       │\n  │ \"cat sat on mat\" ≈ \"feline rested on carpet\" (higher     │\n  │ score than BLEU would give)                              │\n  │ Requires BERT model; computationally heavier             │\n  │ Still doesn't capture pragmatics, hallucination          │\n  └──────────────────────────────────────────────────────────┘\n\n  COMET (Rei et al., 2020):\n  ┌──────────────────────────────────────────────────────────┐\n  │ Trained neural model that takes source + candidate +     │\n  │ reference and predicts human quality judgment score      │\n  │ Trained on direct assessment (DA) human annotations      │\n  │ Currently best correlation with human judgments          │\n  │ Multiple variants: COMET-DA, COMET-QE (no reference)     │\n  │ Requires source sentence (unlike BLEU/METEOR which       │\n  │ only need reference)                                     │\n  └──────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 228,
+      "heading_context": "## Human Evaluation Protocols",
+      "confidence": "candidate",
+      "text": "HUMAN MT EVALUATION FRAMEWORKS\n════════════════════════════════════════════════════════════════\n\n  ADEQUACY/FLUENCY (classic):\n  Each translation segment rated on:\n  • Adequacy (1-5): how much meaning is conveyed?\n  • Fluency (1-5): how well-formed is the target text?\n  Simple; fast; widely used in early MT evaluation.\n  Problem: evaluators don't agree on scale meaning;\n  conflates many quality dimensions.\n\n  DIRECT ASSESSMENT (DA) (Graham et al. 2013):\n  Rate translation quality on a 0-100 continuous scale.\n  Single question: \"How adequately does this translation\n  express the meaning of the source?\"\n  Standardized per annotator to handle scale differences.\n  Better inter-annotator agreement than 5-point scale.\n  Used by WMT as primary human evaluation method.\n\n  MQM (Multidimensional Quality Metrics):\n  ┌──────────────────────────────────────────────────────────┐\n  │ Hierarchical error typology for professional use:        │\n  │                                                          │\n  │ ACCURACY (is the source meaning conveyed?)               │\n  │   • Mistranslation                                       │\n  │   • Addition (content not in source)                     │\n  │   • Omission (source content missing)                    │\n  │   • Untranslated                                         │\n  │                                                          │\n  │ FLUENCY (is the target well-formed?)                     │\n  │   • Grammar                                              │\n  │   • Spelling                                             │\n  │   • Punctuation                                          │\n  │   • Register (formal/informal mismatch)                  │\n  │   • Locale convention (dates, numbers, addresses)        │\n  │                                                          │\n  │ TERMINOLOGY                                              │\n  │   • Inconsistent (same term, different translations)     │\n  │   • Incorrect (wrong domain term)                        │\n  │                                                          │\n  │ SEVERITY: Critical / Major / Minor                       │\n  │                                                          │\n  │ SCORE: Sum of weighted error penalties                   │\n  │                                                          │\n  │ Used by: Google, Microsoft, professional LSPs            │\n  │ Advantage: actionable for post-editing; specific errors  │\n  │ Disadvantage: expensive; requires trained annotators     │\n  └──────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "## NMT Hallucination",
+      "confidence": "candidate",
+      "text": "MT HALLUCINATION — TYPES AND CAUSES\n════════════════════════════════════════════════════════════════\n\n  DEFINITION: Output contains content not supported by\n  (or contradicted by) the source text.\n\n  TYPES:\n  FULL HALLUCINATION: Translation has no relation to source\n  (can happen with very short inputs or language pairs\n   where the model has poor alignment)\n\n  PARTIAL HALLUCINATION: Most of the translation is correct;\n  some elements are invented.\n  \"The patient was given 500mg of ibuprofen\" →\n  \"The patient was given 500mg of ibuprofen three times a day\"\n  (three times a day not in source)\n\n  NAME/NUMBER ERRORS: Hallucinated proper nouns or numbers\n  common; these are low-frequency in training data and\n  model \"fills in\" plausibly wrong values.\n\n  CAUSES:\n  • Exposure to translation of similar text during training\n    → model generates likely-sounding text from priors\n    rather than strictly decoding the source\n  • Attention failure: model stops attending to relevant\n    source positions\n  • Out-of-domain text: model falls back on language model\n    prior when source is unfamiliar\n\n  DETECTION:\n  QE (Quality Estimation) models (COMET-QE, TransQuest):\n  Score translation quality without reference; trained to\n  detect likely errors. Can flag hallucination patterns.\n\n  Source-conditional metrics: metrics that compare\n  candidate to source (not reference) to detect\n  additions and omissions.\n\n  HUMAN ANNOTATION: Most reliable; not scalable.\n\n  IMPLICATIONS FOR HIGH-STAKES USE:\n  Medical, legal, financial MT: hallucination is\n  potentially dangerous. BLEU score of 0.6 does\n  not mean 0 hallucinations. Human review required\n  for high-stakes text.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 338,
+      "heading_context": "## Gender Bias in MT",
+      "confidence": "candidate",
+      "text": "MT GENDER BIAS — THE PROBLEM\n════════════════════════════════════════════════════════════════\n\n  SOURCE: Languages with grammatical gender (Spanish,\n  French, German, Arabic, Hebrew) encode gender\n  in verbs, adjectives, nouns.\n\n  TRANSLATION TO ENGLISH: English lacks grammatical gender;\n  pronouns (he/she/they) are the main marker.\n\n  PROBLEM:\n  When a gendered pronoun is required in English but\n  ambiguous in source, NMT systems use historical\n  training data biases:\n\n  Spanish: \"El médico llegó tarde. Él/Ella dijo...\"\n  → English training data: doctors → male\n  NMT output: \"The doctor arrived late. He said...\"\n  Ground truth: may be \"she said\" — impossible to know from source\n\n  DOCUMENTED CASES:\n  Google Translate (2018, tested by journalists):\n  Turkish (gender-neutral pronoun \"o\"):\n  \"O bir doktor\" → \"He is a doctor\"\n  \"O bir hemşire\" → \"She is a nurse\"\n  Systematic male default for high-status professions;\n  female default for care professions.\n\n  RESPONSES:\n  Google introduced gender-specific translations (2018):\n  \"He is a doctor / She is a doctor\" both offered.\n  But this only works when the source clearly disambiguates.\n\n  ROOT CAUSE:\n  Training data reflects historical (and current) gender\n  representation in professional roles.\n  The model learns the correlation; can't \"know\" the source\n  is genuinely ambiguous.\n\n  MEASUREMENT:\n  WinoMT benchmark (Stanovsky et al. 2019):\n  Test set of gender-balanced professional roles in coreference\n  sentences. Used to measure gender bias across MT systems.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 390,
+      "heading_context": "## The Adequacy vs. Fluency Tradeoff",
+      "confidence": "candidate",
+      "text": "ADEQUACY vs. FLUENCY TRADEOFF\n════════════════════════════════════════════════════════════════\n\n  NMT produces FLUENT output.\n  FLUENCY does not imply ADEQUACY.\n\n  CLASSIC EXAMPLES:\n  RBMT output: \"The minister held yesterday conference\n               of the press\"\n  → Low fluency; medium adequacy (all information present)\n\n  NMT output: \"The minister held a press conference yesterday\"\n  → High fluency; high adequacy (in this case both)\n\n  BUT NMT can also produce:\n  NMT output: \"The minister held an important press conference\"\n  → High fluency; LOWER adequacy (\"important\" not in source)\n  The hallucinated \"important\" is fluent and plausible,\n  making it harder for a reader to detect the error.\n\n  THE PARADOX:\n  NMT's fluency advantage is also a risk: fluent errors\n  are harder to detect than disfluent errors.\n  RBMT's ungrammatical output signals \"this is a translation;\n  check carefully.\" NMT's fluent output signals \"this looks\n  normal\" — even when it contains errors.\n\n  IMPLICATIONS FOR POST-EDITING:\n  Human post-editors find NMT errors harder to catch than\n  PBSMT errors, even when NMT has fewer errors per sentence.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 427,
+      "heading_context": "## The Pivot Language Problem",
+      "confidence": "candidate",
+      "text": "PIVOT LANGUAGE IN MT\n════════════════════════════════════════════════════════════════\n\n  PROBLEM: Many language pairs have very little parallel\n  data (Swahili-Japanese, etc.)\n\n  SOLUTION: Pivot through a third language (usually English)\n  Swahili → [English pivot] → Japanese\n\n  QUALITY COST:\n  Each translation step introduces errors.\n  Pivot MT quality is roughly the geometric mean\n  of the two component steps.\n\n  ALTERNATIVE: Zero-shot cross-lingual transfer\n  in multilingual models (NLLB-200).\n  Quality: usually better than cascaded pivot for\n  language pairs covered by multilingual training.\n\n  RELIGIOUS PIVOT PROBLEM:\n  For languages where the Bible is the only parallel\n  corpus: the \"pivot\" through English is through\n  a biblical register. Domain mismatch for\n  everyday translation.\n\n  BACK-TRANSLATION (Sennrich et al. 2016):\n  Generate synthetic source-language text by:\n  1. Translate target monolingual text into source (MT)\n  2. Use (synthetic source, real target) as training pair\n  Dramatically improves NMT quality especially for\n  high-quality target language output.\n  Used by almost all modern MT systems.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 466,
+      "heading_context": "## Where NMT Beats Humans and Where It Fails",
+      "confidence": "candidate",
+      "text": "NMT vs. HUMAN TRANSLATION — HONEST COMPARISON\n════════════════════════════════════════════════════════════════\n\n  NMT BEATS HUMAN (or is competitive):\n  ┌──────────────────────────────────────────────────────────┐\n  │ • Speed: tens of thousands of words per second           │\n  │ • Consistency: same source text → same translation       │\n  │ • High-resource language pairs (EN-FR, EN-DE, EN-ZH):    │\n  │   professional quality on news and technical text        │\n  │ • Cost: effectively free after training                  │\n  │ • Terminology: if given a glossary, consistent           │\n  │   terminology (translation memory equivalent)            │\n  └──────────────────────────────────────────────────────────┘\n\n  HUMAN BEATS NMT:\n  ┌──────────────────────────────────────────────────────────┐\n  │ • Literary translation: style, rhythm, cultural          │\n  │   resonance, untranslatables                             │\n  │ • Legal and medical text: hallucination risk;            │\n  │   human review remains required                          │\n  │ • Low-resource languages: NMT quality poor for           │\n  │   most African, indigenous, minority languages           │\n  │ • Pragmatics and register: irony, humor, implicature     │\n  │ • Cultural adaptation: Anthea Bell problems              │\n  │ • High-stakes errors: one bad number can be critical     │\n  │ • New terminology: domain-specific terms not in          │\n  │   training data produce neologisms or hallucinations     │\n  └──────────────────────────────────────────────────────────┘\n\n  CURRENT INDUSTRY MODEL:\n  NMT → Human post-editing (MTPE)\n  Humans review and correct NMT output.\n  Faster and cheaper than human translation from scratch.\n  MQM used to measure post-editing quality and effort.\n  \"Fit for purpose\" standard: not perfect, good enough\n  for the use case.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

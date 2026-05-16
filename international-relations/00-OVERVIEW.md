@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:international-relations:overview
+kind: guide
+module: international-relations
+section: international-relations
+title: International Relations - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: international-relations/00-OVERVIEW.md
+canonical_path: international-relations/00-OVERVIEW.md
+backsource_ids: [proof-backfill:international-relations:00-overview, git-history:international-relations:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # International Relations — Landscape and Taxonomy
 
 ## The Big Picture
@@ -143,10 +162,10 @@ IR METHODS
 
   QUANTITATIVE:
   ┌──────────────────────────────────────────────────────────┐
-  │ Correlates of War (COW) project (J. David Singer, 1963+)│
+  │ Correlates of War (COW) project (J. David Singer, 1963+) │
   │ Systematic data on:                                      │
   │ • Interstate wars (onset, duration, casualties)          │
-  │ • Alliance data (formal alliances, dyadic relationships)│
+  │ • Alliance data (formal alliances, dyadic relationships) │
   │ • Military capabilities (CINC score — composite index)   │
   │ • Trade flows, colonial relationships, contiguity        │
   │                                                          │

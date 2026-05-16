@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:international-relations:nuclear-deterrence
+kind: guide
+module: international-relations
+section: international-relations
+title: Nuclear Deterrence: MAD, Credibility, and Extended Deterrence
+status: source-custody
+source_custody: partial
+current_path: international-relations/04-NUCLEAR-DETERRENCE.md
+canonical_path: international-relations/04-NUCLEAR-DETERRENCE.md
+backsource_ids: [proof-backfill:international-relations:04-nuclear-deterrence, git-history:international-relations:04-nuclear-deterrence]
+concepts: [nuclear, deterrence]
+root_concepts: [nuclear, deterrence]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nuclear Deterrence: MAD, Credibility, and Extended Deterrence
 
 ## The Big Picture

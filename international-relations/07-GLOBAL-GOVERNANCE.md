@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:international-relations:global-governance
+kind: guide
+module: international-relations
+section: international-relations
+title: Global Governance and the Multilateral Order
+status: source-custody
+source_custody: partial
+current_path: international-relations/07-GLOBAL-GOVERNANCE.md
+canonical_path: international-relations/07-GLOBAL-GOVERNANCE.md
+backsource_ids: [proof-backfill:international-relations:07-global-governance, git-history:international-relations:07-global-governance]
+concepts: [global, governance]
+root_concepts: [global, governance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Global Governance and the Multilateral Order
 
 ## The Big Picture
@@ -21,7 +40,7 @@ GLOBAL GOVERNANCE — THE LANDSCAPE
   │ → WHO, IMF, IAEA             Need coordination even with  │
   │                              sovereign states             │
   ├────────────────────────────────────────────────────────────┤
-  │ STANDARD-SETTING:            Telecommunications, internet,│
+  │ STANDARD-SETTING:            Telecommunications, internet, │
   │ (network effects)            AI systems, trade rules       │
   │ → ITU, ICANN, ISO,           Standards = de facto power    │
   │   WTO, G7/G20                                              │

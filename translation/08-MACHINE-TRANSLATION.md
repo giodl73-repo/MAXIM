@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:translation:machine-translation
+kind: guide
+module: translation
+section: translation
+title: Machine Translation: Rule-Based to Neural
+status: source-custody
+source_custody: partial
+current_path: translation/08-MACHINE-TRANSLATION.md
+canonical_path: translation/08-MACHINE-TRANSLATION.md
+backsource_ids: [proof-backfill:translation:08-machine-translation, git-history:translation:08-machine-translation]
+concepts: [machine, translation]
+root_concepts: [machine, translation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Machine Translation: Rule-Based to Neural
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:international-relations:liberalism
+kind: guide
+module: international-relations
+section: international-relations
+title: Liberalism and Liberal Institutionalism
+status: source-custody
+source_custody: partial
+current_path: international-relations/02-LIBERALISM.md
+canonical_path: international-relations/02-LIBERALISM.md
+backsource_ids: [proof-backfill:international-relations:02-liberalism, git-history:international-relations:02-liberalism]
+concepts: [liberalism]
+root_concepts: [liberalism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Liberalism and Liberal Institutionalism
 
 ## The Big Picture
@@ -34,8 +53,8 @@ LIBERALISM IN IR — FAMILY TREE
 
   MODERN BRANCHES:
   ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐
-  │ DEMOCRATIC PEACE │ │LIBERAL           │ │ COMMERCIAL       │
-  │ THEORY           │ │INSTITUTIONALISM  │ │ LIBERALISM       │
+  │ DEMOCRATIC PEACE │ │ LIBERAL          │ │ COMMERCIAL       │
+  │ THEORY           │ │ INSTITUTIONALISM │ │ LIBERALISM       │
   │                  │ │                  │ │                  │
   │ Democracies      │ │ Institutions     │ │ Trade reduces    │
   │ don't fight      │ │ reduce           │ │ conflict         │
