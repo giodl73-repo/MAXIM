@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:control-theory:kalman-filter
+kind: guide
+module: control-theory
+section: control-theory
+title: Kalman Filter, EKF, UKF and Sensor Fusion
+status: source-custody
+source_custody: partial
+current_path: control-theory/04-KALMAN-FILTER.md
+canonical_path: control-theory/04-KALMAN-FILTER.md
+backsource_ids: [proof-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]
+concepts: [kalman, filter]
+root_concepts: [kalman, filter]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Kalman Filter, EKF, UKF & Sensor Fusion
 
 ## The Big Picture

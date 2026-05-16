@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:control-theory:optimal-control
+kind: guide
+module: control-theory
+section: control-theory
+title: Optimal Control - LQR, LQG, Pontryagin, HJB
+status: source-custody
+source_custody: partial
+current_path: control-theory/03-OPTIMAL-CONTROL.md
+canonical_path: control-theory/03-OPTIMAL-CONTROL.md
+backsource_ids: [proof-backfill:control-theory:03-optimal-control, git-history:control-theory:03-optimal-control]
+concepts: [optimal, control]
+root_concepts: [optimal, control]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Optimal Control — LQR, LQG, Pontryagin, HJB
 
 ## The Big Picture

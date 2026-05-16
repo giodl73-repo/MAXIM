@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "control-theory\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|               CONTROL THEORY LANDSCAPE                            |\n+------------------------------------------------------------------+\n|                                                                   |\n|  CLASSICAL CONTROL          MODERN (STATE-SPACE)    ADVANCED     |\n|  ┌────────────────┐         ┌──────────────────┐   ┌─────────┐ |\n|  │ PID controller │         │ State-space       │   │ Optimal │ |\n|  │ Transfer fcns  │         │ ẋ = Ax + Bu       │   │ LQR/LQG │ |\n|  │ Root locus     │         │ y = Cx + Du       │   │ H∞      │ |\n|  │ Bode plots     │         │                  │   │         │ |\n|  │ Nyquist        │         │ Controllability   │   │ Robust  │ |\n|  │ Lead/lag comp. │         │ Observability     │   │ Adaptive│ |\n|  │ Gain/phase mgn │         │ Pole placement    │   │         │ |\n|  └────────────────┘         │ Luenberger obs.   │   │ MPC     │ |\n|  SISO, frequency domain     │ Kalman filter     │   │ Nonlin. │ |\n|  Intuitive but limited      │ Separation princ. │   │ RL ctrl │ |\n|  to linear, stable systems  └──────────────────┘   └─────────┘ |\n|                             MIMO, time domain                     |\n|  OPEN-LOOP vs CLOSED-LOOP   Handles multi-input/output           |\n|  ┌──────────────────────────────────────────────────────────┐   |\n|  │  Open loop:  reference → [controller] → [plant] → output │   |\n|  │                                                          │   |\n|  │  Closed loop (feedback):                                 │   |\n|  │  reference → Σ → [controller] → [plant] → output        │   |\n|  │              ↑                               |           │   |\n|  │              └───────── feedback ────────────┘           │   |\n|  └──────────────────────────────────────────────────────────┘   |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 69,
+      "heading_context": "### System Representation",
+      "confidence": "candidate",
+      "text": "TIME DOMAIN (ODE)            FREQUENCY DOMAIN             STATE SPACE\n───────────────────────────  ─────────────────────────   ───────────────────────\nmẍ + cẋ + kx = F(t)         G(s) = Y(s)/U(s)             ẋ = Ax + Bu\n                             = k/(ms²+cs+k)               y = Cx + Du\nSpring-mass-damper           Transfer function\n                             (Laplace of ODE)             x ∈ ℝⁿ: state vector\nSecond order, SISO           SISO only                    u ∈ ℝᵐ: input\n                             Works for LTI systems        y ∈ ℝᵖ: output\n\nTransition:\nODE → Laplace transform → transfer function → poles/zeros in s-plane\nOR\nODE → state variables → state matrices A, B, C, D",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "### Stability — The Foundational Concept",
+      "confidence": "candidate",
+      "text": "STABILITY TYPES              DEFINITION                   TEST\n────────────────────────     ─────────────────────────    ──────────────────────\nBIBO stable                  Bounded input → bounded      Poles strictly in\n(Bounded I/O)                output                       left half s-plane (LTI)\n\nLyapunov stable              Small perturbation → stays   ∃ Lyapunov function\n                             near equilibrium             V(x) > 0, V̇(x) ≤ 0\n\nAsymptotically stable        Stable + convergence to      V̇(x) < 0 (strict)\n                             equilibrium                  Poles have Re(λ) < 0\n\nMarginally stable            Stable but doesn't converge  Poles on jω axis,\n                                                          no repeated poles\n\nUnstable                     Small perturbation → grows   Any pole with Re(λ) > 0",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "## Control Taxonomy",
+      "confidence": "candidate",
+      "text": "CONTROL PARADIGM       KEY IDEA                    USED WHEN\n─────────────────────  ──────────────────────────  ─────────────────────────────\nClassical / PID        Error-proportional control  Single loop, well-understood\n                       Tuned by frequency methods  plant, SISO\n\nState feedback         Full state measurement →     MIMO, fast dynamics,\n                       u = -Kx                      pole placement needed\n\nObserver-based         Estimate state from          Full state unmeasurable;\n(Luenberger/Kalman)    outputs, then feed back      combines with state feedback\n\nOptimal (LQR/LQG)      Minimize cost functional     Trade-off between control\n                       J = ∫(x'Qx + u'Ru)dt        effort and tracking error\n\nH∞ robust             Minimize worst-case gain     Significant model uncertainty,\n                       from disturbance to output   guaranteed stability margins\n\nModel Predictive (MPC) Solve optimization over      Constraints on inputs/states,\n                       receding horizon             slow-enough plants (process)\n\nAdaptive              Adjust parameters online      Unknown or time-varying plant\n\nNonlinear (feedback    Cancel nonlinearities via    Highly nonlinear plants where\nlinearization, sliding) exact algebraic inversion   linearization fails\n\nReinforcement learning  Learn policy from reward    Unknown dynamics, complex\n                        (policy gradient, SAC)      cost functions, simulation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "## The s-Domain Mental Model",
+      "confidence": "candidate",
+      "text": "s-PLANE GEOMETRY                WHAT IT MEANS\n──────────────────────────────  ────────────────────────────────────────────\n     jω                         Poles in LEFT half-plane  → stable\n      |  X   ← pole at         Poles in RIGHT half-plane → unstable\n  ────┼────────── σ             Poles on jω axis          → marginally stable\n      |      X                  (pure oscillation, no damping)\n      |\n  (Re(s)=0 is the               Zero = frequency where system has no response\n  stability boundary)           Pole = frequency where system resonates/blows up\n\nNatural frequency: ωn = √(k/m)  Damping ratio: ζ = c/(2√km)\nCharacteristic equation: s² + 2ζωn·s + ωn² = 0\nPoles: s = -ζωn ± ωn√(ζ²-1)\n\nζ < 0: unstable (growing oscillation)\nζ = 0: marginally stable (sustained oscillation)\n0 < ζ < 1: underdamped (decaying oscillation)\nζ = 1: critically damped (fastest no-overshoot)\nζ > 1: overdamped (slow, no overshoot)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "## Old-World Bridges",
+      "confidence": "candidate",
+      "text": "CONTROL CONCEPT              SOFTWARE ENGINEERING ANALOG\n────────────────────────     ────────────────────────────────────────────────\nFeedback loop                Any closed-loop process: CI/CD feedback, load\n                             balancer health checks, autoscaler\n\nPID controller               TCP congestion control (CUBIC/BBR is essentially\n                             a control system tracking bandwidth-delay product)\n\nSet point                    Desired state (replica count in Kubernetes HPA)\n\nIntegrator                   Integral in HPA: accumulated error drives action\n\nSteady-state error           Configuration drift without reconciliation loops\n\nKalman filter                Sensor fusion in robotics, GPS/INS dead reckoning,\n                             Azure anomaly detection (hidden Markov + Kalman)\n\nModel Predictive Control     Receding-horizon planning in logistics optimization\n\nState observer               Log-based state reconstruction (observability pillar\n                             in 15-OBSERVABILITY.md — same mathematical concept)\n\n\n                             The mathematical connection to software observability\n                             is direct: if rank(O) < n, there are internal states\n                             invisible to any output strategy — no amount of logging\n                             can reconstruct them. See 04-KALMAN-FILTER.md.\n\nStability margin             \"How much can deployment parameters vary before\n                             the system goes unstable\" — same Bode margin idea",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

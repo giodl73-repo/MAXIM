@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "finance\\03-FIXED-INCOME.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 487,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Caveat"
+      ],
+      "rows": [
+        [
+          "Price/yield direction",
+          "Discounted cash-flow denominator",
+          "Yield is a summary; spot curve prices the cash flows"
+        ],
+        [
+          "Bond rate risk",
+          "DV01 and modified duration",
+          "Duration is local and assumes a parallel shift"
+        ],
+        [
+          "Curve-shape risk",
+          "Key-rate durations",
+          "Non-parallel shifts require bucketed hedges, not one DV01"
+        ],
+        [
+          "Zero-coupon sensitivity",
+          "Maturity equals Macaulay duration",
+          "Coupon bonds have shorter duration than maturity"
+        ],
+        [
+          "Convexity value",
+          "Second derivative of price/yield curve",
+          "Positive convexity helps; callable/MBS convexity can turn negative"
+        ],
+        [
+          "Rate-derivative model",
+          "Product and curve object",
+          "Hull-White for tractable short-rate work; LMM/SOFR models for market-rate products"
+        ],
+        [
+          "Spot-rate extraction",
+          "Bootstrapping in maturity order",
+          "Bad input bonds or liquidity distortions contaminate later maturities"
+        ],
+        [
+          "OAS vs Z-spread",
+          "Embedded-option removal",
+          "OAS depends on the option/prepayment model"
+        ],
+        [
+          "Credit spread",
+          "Hazard rate and recovery",
+          "CDS spread roughly equals λ(1-R), but liquidity and risk premia matter"
+        ]
+      ]
+    }
+  ]
+}

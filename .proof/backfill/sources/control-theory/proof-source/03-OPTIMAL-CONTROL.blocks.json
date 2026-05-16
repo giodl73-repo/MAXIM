@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "control-theory\\03-OPTIMAL-CONTROL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|               OPTIMAL CONTROL PATHS                              |\n|                                                                  |\n|  INDIRECT METHODS (calculus of variations approach)              |\n|  ─────────────────────────────────────────────────               |\n|  Pontryagin Minimum Principle (PMP)                              |\n│  → Necessary conditions for optimality (Hamiltonian system)      |\n|  → Works for constrained inputs, nonlinear systems               |\n|  → Bang-bang control, minimum-time problems                      |\n|                                                                  |\n|  DIRECT METHODS (dynamic programming approach)                   |\n|  ────────────────────────────────────────────                    |\n|  Hamilton-Jacobi-Bellman (HJB) equation                          |\n|  → Sufficient conditions; optimal value function V*(x,t)         |\n|  → LQR: HJB + linear + quadratic = algebraic Riccati equation    |\n|  → Works backward in time; curse of dimensionality in general    |\n|                                                                  |\n|  LQR = Linear Quadratic Regulator                                |\n|  LQG = LQR + Kalman Filter (stochastic version)                  |\n|  H∞  = Minimax (worst-case disturbance)                          |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## Calculus of Variations Primer",
+      "confidence": "candidate",
+      "text": "CLASSICAL PROBLEM: minimize J = ∫_{t₀}^{t_f} L(x(t), ẋ(t), t) dt\n\nEuler-Lagrange equation (necessary condition):\n  ∂L/∂x - d/dt(∂L/∂ẋ) = 0\n\nExample: shortest path in ℝ² (L = √(1 + ẋ²))\n  E-L → ẍ = 0 → x(t) is linear → straight line ✓\n\nOPTIMAL CONTROL EXTENSION:\n  State dynamics: ẋ = f(x, u, t)  (constraint)\n  Cost: J = Φ(x(t_f)) + ∫_{t₀}^{t_f} L(x, u, t) dt\n  Optimal: u*(t) minimizes J over all admissible inputs\n\n  Control Hamiltonian: H(x, u, λ, t) = L(x, u, t) + λᵀf(x, u, t)\n  λ(t) = costate (Lagrange multiplier for dynamics constraint)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "## Pontryagin Minimum Principle (PMP)",
+      "confidence": "candidate",
+      "text": "THEOREM (Pontryagin et al. 1962):\n  If u*(t) is optimal with trajectory x*(t), then ∃ costate λ*(t) ≠ 0 such that:\n\n  1. STATE EQUATION:\n     ẋ* = ∂H/∂λ = f(x*, u*, t)\n\n  2. COSTATE EQUATION:\n     λ̇* = -∂H/∂x|_{x*,u*,λ*}  ← costate flows \"backward\" in time\n\n  3. MINIMALITY CONDITION:\n     H(x*, u*(t), λ*, t) = min_u H(x*, u, λ*, t)  for all t ∈ [t₀, t_f]\n\n  4. BOUNDARY CONDITIONS:\n     x*(t₀) = x₀  (initial state fixed)\n     λ*(t_f) = ∂Φ/∂x|_{t_f}  (transversality condition)\n\n  This gives a TWO-POINT BOUNDARY VALUE PROBLEM (TPBVP):\n    forward: ẋ = f(x, u, t)\n    backward: λ̇ = -∂H/∂x\n    boundary: x(t₀) = x₀, λ(t_f) = ∂Φ/∂x",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "### Bang-Bang Control (Minimum Time)",
+      "confidence": "candidate",
+      "text": "MINIMUM TIME PROBLEM: minimize t_f, subject to ẋ = Ax + Bu, |u| ≤ 1\n\nH = 1 + λᵀ(Ax + Bu) = 1 + λᵀAx + λᵀBu\n\nMinimality: min_u H ⟺ min_u (λᵀB)u\n  Since u ∈ [-1, +1]:\n    u* = -sign(λᵀB)  ← bang-bang! (switches between ±1)\n\nSwitching function σ(t) = λᵀ(t)B:\n  σ > 0 → u* = -1\n  σ < 0 → u* = +1\n  σ = 0 → singular arc (more analysis needed)\n\nThis explains why minimum-time controllers for rockets, F1 cars, robotics are\nbang-bang — full throttle or full brake, nothing in between.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## Hamilton-Jacobi-Bellman (HJB) Equation",
+      "confidence": "candidate",
+      "text": "BELLMAN'S PRINCIPLE OF OPTIMALITY:\n  \"An optimal policy has the property that whatever the initial state\n   and initial decisions, the remaining decisions must constitute an\n   optimal policy with regard to the state resulting from first decision.\"\n\nOPTIMAL VALUE FUNCTION:\n  V*(x, t) = min_{u[t,t_f]} J = min_{u[t,t_f]} [Φ(x(t_f)) + ∫_t^{t_f} L dτ]\n\nHJB EQUATION (PDE for V*):\n  -∂V*/∂t = min_u [L(x, u, t) + (∂V*/∂x) f(x, u, t)]\n\n  Boundary condition: V*(x, t_f) = Φ(x)\n\nOPTIMAL CONTROL from V*:\n  u*(x, t) = argmin_u [L(x, u, t) + (∂V*/∂x) f(x, u, t)]\n\nRELATIONSHIP TO PMP:\n  Costate: λ*(t) = ∂V*/∂x|_{x*(t),t}\n  Both give same u*; HJB gives value function (global), PMP gives trajectory (local)\n\nCURSE OF DIMENSIONALITY:\n  HJB is a PDE in n+1 dimensions (state + time)\n  Grid-based solution: exponential in n\n  → Practical only for low-dimensional systems (n ≤ 4-5 typically)\n  → LQR solves it analytically for linear-quadratic case\n\n  The same curse applies to optimal resource scheduling across N services with\n  M constraint dimensions — NP-hard in general, which is why approximate methods\n  (greedy, LP relaxation, receding-horizon MPC) are the practical answer in both\n  control theory and infrastructure planning.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 170,
+      "heading_context": "## LQR — Linear Quadratic Regulator",
+      "confidence": "candidate",
+      "text": "PROBLEM:\n  System:  ẋ = Ax + Bu\n  Cost:    J = ½ xᵀ(t_f)S x(t_f) + ½ ∫₀^{t_f} [xᵀQx + uᵀRu] dt\n\n  Q ≥ 0   (state cost, positive semi-definite)\n  R > 0   (input cost, positive definite)\n  S ≥ 0   (terminal state cost)\n\n  Q weights: how much do you care about state deviation?\n  R weights: how expensive is control effort?\n\nSOLUTION (via HJB with V* = xᵀPx):\n  Optimal control:  u*(t) = -R⁻¹Bᵀ P(t) x(t)\n  State feedback gain: K(t) = R⁻¹Bᵀ P(t)\n\n  P(t) satisfies the MATRIX RICCATI EQUATION (finite horizon):\n    -Ṗ = AᵀP + PA - PBR⁻¹BᵀP + Q,   P(t_f) = S\n    (backward-in-time ODE for the n×n matrix P)\n\nINFINITE-HORIZON LQR (t_f → ∞):\n  Riccati equation becomes ALGEBRAIC RICCATI EQUATION (ARE):\n    AᵀP + PA - PBR⁻¹BᵀP + Q = 0   (solve for steady-state P ≥ 0)\n\n  Optimal control: u* = -Kx   where K = R⁻¹BᵀP  ← constant gain!\n  Closed-loop: ẋ = (A - BK)x  (asymptotically stable if (A,B) controllable, (A,Q^½) observable)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 200,
+      "heading_context": "### ARE Solution",
+      "confidence": "candidate",
+      "text": "ALGEBRAIC RICCATI EQUATION:\n  AᵀP + PA - PBR⁻¹BᵀP + Q = 0\n\nSOLVING:\n  Hamiltonian matrix approach:\n    H = [ A       -BR⁻¹Bᵀ]\n        [-Q       -Aᵀ    ]   (2n × 2n)\n\n  H has n eigenvalues in LHP, n in RHP (symmetric about imaginary axis).\n  P = V₂ V₁⁻¹  where [V₁; V₂] spans the n-dim stable invariant subspace of H.\n\n  In practice: scipy.linalg.solve_continuous_are(), MATLAB lqr() function.\n\nMATLAB/Python:\n  # Python (scipy):\n  from scipy.linalg import solve_continuous_are\n  P = solve_continuous_are(A, B, Q, R)\n  K = np.linalg.inv(R) @ B.T @ P\n\nSTABILITY GUARANTEE:\n  If (A,B) stabilizable and (A, Q^½) detectable:\n  LQR closed-loop (A-BK) is always asymptotically stable.\n  Infinite gain margin (≥ 6 dB guaranteed) and phase margin ≥ 60°\n  → Remarkable robustness properties.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 231,
+      "heading_context": "### Q and R Tuning Intuition",
+      "confidence": "candidate",
+      "text": "TUNING GUIDELINES:\n  Start with: Q = Cᵀ C (weight output error)\n              R = I (unit control effort)\n\n  Q_ii large → state xᵢ must stay small (aggressive control)\n  Q_ii small → state xᵢ can deviate (relaxed control)\n  R_ii large → control uᵢ expensive (conservative control)\n  R_ii small → control uᵢ cheap (aggressive control)\n\n  ρ = R/Q trade-off: as R→0, K→∞ (all state errors penalized heavily)\n                     as R→∞, K→0 (control expensive, do nothing)\n\n  BRYSON'S RULE (practical starting point):\n    Q_ii = 1 / (max acceptable xᵢ)²\n    R_jj = 1 / (max acceptable uⱼ)²",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 255,
+      "heading_context": "## LQG — Linear Quadratic Gaussian",
+      "confidence": "candidate",
+      "text": "STOCHASTIC SYSTEM:\n  ẋ = Ax + Bu + w    (process noise: w ~ N(0, W))\n  y  = Cx + v         (measurement noise: v ~ N(0, V))\n\nSEPARATION PRINCIPLE FOR LQG:\n  1. Design Kalman filter (optimal observer for noise):\n     x̂̇ = Ax̂ + Bu + L(y - Cx̂)\n     L = Σ Cᵀ V⁻¹   (Kalman gain)\n     Σ = estimation error covariance (satisfies Riccati equation)\n\n  2. Design LQR as if full state available:\n     u = -K x̂   (feed back estimated state)\n\n  3. Combine: LQG = LQR state feedback + Kalman state estimator.\n\nDUAL RICCATI EQUATIONS:\n  LQR:    AᵀP + PA - PBR⁻¹BᵀP + Q = 0    → K = R⁻¹BᵀP\n  Kalman: AΣ + ΣAᵀ - ΣCᵀV⁻¹CΣ + W = 0   → L = ΣCᵀV⁻¹\n\n  Note perfect duality: (A,B,Q,R) ↔ (Aᵀ,Cᵀ,W,V)\n\nLQG CLOSED-LOOP EIGENVALUES = eigenvalues(A-BK) ∪ eigenvalues(A-LC)\n  (Separation principle holds for stochastic case too)\n\nLQG CAVEAT:\n  LQR guarantees 6dB gain margin, 60° phase margin.\n  LQG does NOT — combining with Kalman can destroy margins!\n  → Use LTR (Loop Transfer Recovery) or H∞ for guaranteed robustness.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 292,
+      "heading_context": "## H∞ Control (Minimax / Robust)",
+      "confidence": "candidate",
+      "text": "H∞ PROBLEM:\n  Minimize the H∞ norm of the closed-loop transfer function T_{zw}:\n  ‖T_{zw}‖_∞ = sup_ω σ_max(T_{zw}(jω)) < γ\n\n  w = exogenous input (disturbances, noise, model uncertainty)\n  z = performance output (regulated signals)\n  γ = performance bound (minimize or achieve below threshold)\n\nPHYSICAL MEANING:\n  ‖T_{zw}‖_∞ < γ means: for any disturbance w with ‖w‖₂ ≤ 1,\n  the performance output satisfies ‖z‖₂ < γ.\n  = worst-case disturbance amplification is bounded by γ.\n\nH∞ STATE-SPACE SOLUTION (Doyle-Glover-Khargonekar-Francis 1989):\n  Solve two coupled Riccati equations:\n    AᵀP + PA + PBᵤ Bᵤᵀ P + CᵀC - PB₁ B₁ᵀP/γ² = 0   (control)\n    AΣ + ΣAᵀ + ΣCᵤᵀ Cᵤ Σ + BB ᵀ - ΣC₁ᵀ C₁ Σ/γ² = 0  (filter)\n\n  Solution exists iff both Riccati solutions are positive definite\n  and ρ(PΣ) < γ² (spectral radius condition).\n\nH∞ vs LQG:\n  LQG: optimal for known noise statistics; no guaranteed margins\n  H∞: suboptimal for known stats, but guaranteed worst-case bound\n  H∞ is \"pessimistic\" but robust to model uncertainty",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 326,
+      "heading_context": "## Model Predictive Control (MPC) — Preview",
+      "confidence": "candidate",
+      "text": "MPC OPTIMIZATION (at each time step k):\n  min  Σ_{j=0}^{N-1} [x(k+j|k)ᵀ Q x(k+j|k) + u(k+j)ᵀ R u(k+j)]\n       + x(k+N|k)ᵀ P_f x(k+N|k)\n  subject to:\n    x(k+j+1|k) = A x(k+j|k) + B u(k+j)      (dynamics)\n    x_min ≤ x(k+j|k) ≤ x_max                  (state constraints)\n    u_min ≤ u(k+j) ≤ u_max                    (input constraints)\n\n  Apply only u*(k|k), then re-solve at k+1 (receding horizon)\n\nLQR vs MPC:\n  LQR: no constraints, closed-form, optimal, instant to evaluate\n  MPC: handles constraints, re-solves QP at each step, computationally heavier\n  LQR = infinite-horizon unconstrained MPC (in steady state)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

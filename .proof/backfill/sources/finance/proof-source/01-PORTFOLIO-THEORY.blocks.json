@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "finance\\01-PORTFOLIO-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "LAYERED SYSTEM — HOW THE MODELS RELATE:\n\nLAYER 1: OPTIMIZATION (Markowitz 1952)\n  Given μ (expected returns) and Σ (covariance matrix):\n  min wᵀΣw  s.t. wᵀμ = μ*, wᵀ1 = 1   → efficient frontier\n  Problem: μ estimated with large uncertainty → optimizer amplifies errors\n        ↓ ask: what equilibrium μ is consistent with everyone holding the market?\n\nLAYER 2: EQUILIBRIUM PRICING (CAPM 1964)\n  If all investors solve Markowitz with same beliefs, market clears when everyone\n  holds the market portfolio → CAPM pricing: E[Ri] - Rf = βi(E[Rm] - Rf)\n  CAPM gives prior for μ: Π = λΣw_mkt  (implied equilibrium returns)\n  Problem: single-factor, many empirical failures (size, value, momentum anomalies)\n        ↓ add systematic risk factors beyond the market\n\nLAYER 3: FACTOR MODELS (Fama-French 1992, APT 1976)\n  ri = αi + Σk βik Fk + εi    (k factors explain return covariance)\n  Factors identified empirically (SMB, HML) or theoretically (APT arbitrage)\n  Factor model gives structured Σ = BF_cov Bᵀ + D  (reduces parameters)\n  Problem: raw Markowitz on factor model μ still unstable — need Bayesian structure\n        ↓ combine equilibrium prior with investor views\n\nLAYER 4: BAYESIAN UPDATE (Black-Litterman 1990)\n  Prior: CAPM equilibrium returns Π\n  Likelihood: investor views P·μ = Q + ε\n  Posterior: μ_BL = [...] (see BL section below)\n  Result: portfolio tilted from market weights by views, proportional to conviction\n  No layer is complete alone — they compose into the practical workflow.\n\nHISTORICAL ARC:\n  1952: Markowitz — mean-variance optimization, efficient frontier\n  1964: Sharpe — CAPM (single-factor market equilibrium)\n  1973: Merton — ICAPM (multi-factor, dynamic; intertemporal hedging demands)\n  1976: Ross — APT (Arbitrage Pricing Theory; factor model without equilibrium)\n  1990: Black-Litterman — Bayesian updating of CAPM equilibrium prior\n  1992: Fama-French — 3-factor model (Mkt + SMB + HML, empirical)\n  1997: Carhart — 4-factor (+ MOM momentum)\n  2002: Ledoit-Wolf — analytical covariance shrinkage\n  2015: Fama-French — 5-factor (+ RMW profitability + CMA investment)\n  Today: 500+ published factors; factor zoo; replication crisis; ML factor research",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "## Returns and Risk Basics",
+      "confidence": "candidate",
+      "text": "RETURN DEFINITIONS:\n  Simple return:    Rt = (Pt - Pt-1 + Dt) / Pt-1\n  Log return:       rt = ln(Pt/Pt-1) = ln(1 + Rt)\n\n  Log returns are additive over time: r(0→T) = Σ rt\n  Simple returns are additive across assets: R_portfolio = Σ wi·Ri\n  Use log returns for time series; simple returns for cross-sectional portfolios\n\nEXPECTED RETURN: μ = E[R]  (estimated from sample mean or factor model)\n\nVARIANCE (risk): σ² = E[(R-μ)²]  (estimated from sample variance)\n\nCOVARIANCE: σ_ij = E[(Ri-μi)(Rj-μj)]\n\nCOVARIANCE MATRIX:\n  Σ = [σ₁₁  σ₁₂  ... σ₁ₙ]\n      [σ₂₁  σ₂₂  ... σ₂ₙ]\n      [  :        ⋱    : ]\n      [σₙ₁  σₙ₂  ... σₙₙ]\n  Symmetric, positive semi-definite\n  Diagonal: own variances; off-diagonal: pairwise covariances",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "### Portfolio Statistics",
+      "confidence": "candidate",
+      "text": "Portfolio expected return:   μ_p = wᵀμ  (dot product)\nPortfolio variance:          σ²_p = wᵀΣw\nPortfolio std deviation:     σ_p = √(wᵀΣw)\n\nDIVERSIFICATION BENEFIT:\n  If all assets have variance σ² and pairwise correlation ρ:\n    σ²_p = σ²(1/n + (1-1/n)ρ)\n\n  As n→∞: σ²_p → σ²ρ  (residual from correlation, cannot diversify away)\n\n  Systematic risk: ρ·σ² — survives diversification\n  Idiosyncratic risk: (1-ρ)σ²/n → 0 — diversified away",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "### Efficient Frontier",
+      "confidence": "candidate",
+      "text": "MINIMUM VARIANCE PORTFOLIO:\n  min  wᵀΣw\n  s.t. wᵀ1 = 1   (fully invested)\n\nSolution: w_mv = Σ⁻¹1 / (1ᵀΣ⁻¹1)\n\nEFFICIENT FRONTIER (with target return μ*):\n  min  wᵀΣw\n  s.t. wᵀ1 = 1\n       wᵀμ = μ*\n\nSolution: w* = (a·Σ⁻¹μ + b·Σ⁻¹1)  (two-fund separation!)\n          where a, b are scalars solving the two constraints\n\nTWO-FUND SEPARATION THEOREM:\n  Any efficient portfolio = linear combination of ANY two efficient portfolios\n  Investors only need to choose between: risk-free asset + market portfolio\n\nGEOMETRY:\n  μ_p\n   |          ← efficient frontier (northeast boundary of feasible set)\n   |         /\n   |        /  ← Capital Market Line (with risk-free asset)\n   |       /\n   |    *  ← minimum variance portfolio\n   |   /   ← individual assets scatter below frontier\n   |  /\n   | /\n  Rf────────────────────→ σ_p\n\n  Efficient frontier: achievable (μ,σ) with no wasted return for given risk\n  Capital Market Line: introduces risk-free asset → straight line tangent to frontier",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "## CAPM — Capital Asset Pricing Model",
+      "confidence": "candidate",
+      "text": "E[Ri] - Rf = βi · (E[Rm] - Rf)\n\nwhere:\n  Ri    = return on asset i\n  Rf    = risk-free rate\n  Rm    = market return (e.g., S&P 500)\n  βi    = Cov(Ri, Rm) / Var(Rm)  ← systematic risk loading\n  E[Rm] - Rf = equity risk premium (ERP) ≈ 5-7% historically",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 193,
+      "heading_context": "### Beta Interpretation",
+      "confidence": "candidate",
+      "text": "BETA    MEANING                      EXAMPLE\n──────  ────────────────────────────  ─────────────────────────────────────\nβ = 0   No co-movement with market    Cash (Rf), gold (roughly)\nβ = 0.5 Half the market volatility   Utility stocks, staples\nβ = 1   Moves with market            Index fund by definition\nβ = 1.5 50% more than market         Tech stocks, cyclicals\nβ < 0   Moves opposite to market     Long volatility instruments (VIX-linked)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 205,
+      "heading_context": "### Security Market Line",
+      "confidence": "candidate",
+      "text": "Expected Return\n   |                    *  (above SML = underpriced, buy)\n   |                /\n   |              /  ← Security Market Line\n   |         *  /\nE[Rm] ──── / ──────────────────\n   |      /   * (below SML = overpriced, sell)\n   Rf ──/────────────────────────→ Beta\n       0  1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "### CAPM Assumptions and Failures",
+      "confidence": "candidate",
+      "text": "ASSUMPTIONS (all violated in practice):\n  ─ Single period\n  ─ Mean-variance preferences (quadratic utility or normal returns)\n  ─ Homogeneous expectations\n  ─ Frictionless markets (no taxes, costs, short-sale constraints)\n  ─ All investors hold the same tangency portfolio (= market)\n\nEMPIRICAL FAILURES:\n  ─ Small stocks outperform (size effect, SMB) — CAPM β doesn't explain\n  ─ Value stocks outperform (B/M ratio, HML) — CAPM β doesn't explain\n  ─ Momentum: past winners beat past losers\n  ─ Low-volatility anomaly: low-β stocks earn high risk-adjusted returns\n  ─ Market β alone explains <10% of cross-sectional return variation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 242,
+      "heading_context": "## Fama-French Factor Models",
+      "confidence": "candidate",
+      "text": "3-FACTOR MODEL (1992):\n  Ri - Rf = αi + βi,mkt(Rm-Rf) + βi,smb·SMB + βi,hml·HML + εi\n\n  SMB = \"Small Minus Big\"   = return of small stocks − return of large stocks\n  HML = \"High Minus Low\"    = return of high B/M (value) − low B/M (growth)\n\n  Average annual premiums (US, 1963-2023):\n    Mkt-Rf ≈ 5.5%\n    SMB    ≈ 2.4%\n    HML    ≈ 3.1%\n\n4-FACTOR (Carhart 1997):\n  Adds: MOM = Momentum = return of 12-2 month past winners − past losers\n  MOM ≈ 7-9% historically (but crashes badly in specific years)\n\n5-FACTOR (Fama-French 2015):\n  Adds:\n    RMW = \"Robust Minus Weak\"  = profitable − unprofitable firms\n    CMA = \"Conservative Minus Aggressive\" = low − high investment firms\n  Note: HML becomes redundant when RMW and CMA included (empirically)\n\nFACTOR ZOO PROBLEM (Cochrane 2011 presidential address):\n  400+ factors published that \"predict\" returns\n  Most are data-mined / multiple hypothesis testing artifacts\n  Out-of-sample performance much weaker (Harvey et al. 2016)\n  Need t-stat > 3.0 (not 2.0) for factor to be credible",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "## Black-Litterman Model",
+      "confidence": "candidate",
+      "text": "PROBLEM WITH RAW MARKOWITZ:\n  μ is estimated with huge uncertainty from historical returns\n  Small estimation errors → extreme, unstable portfolio weights\n  \"Error maximization\" critique: optimizer amplifies estimation errors\n\nBLACK-LITTERMAN APPROACH (Goldman Sachs, 1990):\n  Start with CAPM equilibrium as prior for returns:\n    Π = λ·Σ·w_mkt   (implied equilibrium returns)\n\n  Incorporate investor \"views\" as likelihood:\n    P·μ = Q + ε   where ε ~ N(0, Ω)\n    P = view matrix (which assets)\n    Q = expected return for each view\n    Ω = uncertainty in views (diagonal)\n\n  Bayesian posterior for expected returns:\n    μ_BL = [(τΣ)⁻¹ + PᵀΩ⁻¹P]⁻¹ · [(τΣ)⁻¹Π + PᵀΩ⁻¹Q]\n\n    τ ≈ 1/T (usually small, scaling factor)\n\n  Resulting portfolio is tilted from market cap weights by views.\n\nINTUITION:\n  Without views: portfolio = market cap weights (CAPM equilibrium)\n  With views: portfolio tilts proportional to view conviction and precision\n  Uncertainty (large Ω) → small tilt; strong conviction (small Ω) → large tilt",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 312,
+      "heading_context": "## Risk Parity",
+      "confidence": "candidate",
+      "text": "EQUAL RISK CONTRIBUTION PORTFOLIO:\n  Risk contribution of asset i: RCi = wi · (Σw)i / (wᵀΣw)\n\n  Constraint: RCi = 1/n for all i\n\n  Implies: overweight low-volatility/low-correlation assets\n           underweight high-volatility assets\n\nLEVERAGE ISSUE:\n  Low-vol assets (bonds) get high weight → often leveraged to match equity target\n  Risk parity strategies borrow to fund bond allocation\n  Worked well 1980-2020 (falling rates); underperformed in 2022 rising-rate environment\n\nBRIDGEWATER ALL WEATHER:\n  Conceptually similar — balance \"risk\" across economic environments\n  Asset classes: stocks, bonds, gold, commodities × (risk on/off) = 4 buckets",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 397,
+      "heading_context": "### Almgren-Chriss Optimal Execution",
+      "confidence": "candidate",
+      "text": "PROBLEM: Liquidate (or acquire) X shares over time horizon T.\n  Trading fast → price impact (market impact cost).\n  Trading slow → market risk (price moves against you).\n\nALMGREN-CHRISS MODEL (2001):\n  Price dynamics:\n    S_k = S_{k-1} − g(v_k) − h(v_k) + σ√τ ξ_k   (permanent + temporary impact)\n    v_k = trading rate (shares/time) at step k\n    τ = time interval, ξ_k ~ N(0,1)\n\n  Linear impact (tractable case):\n    Permanent impact: g(v) = γv       (permanently moves price)\n    Temporary impact: h(v) = η v / τ  (reflects bid-ask + market depth)\n\n  Execution cost: C = Σ h(vk) · |vk| · τ    (temporary impact cost)\n  Market risk:    Var(X) = σ² Σ remaining_shares² · τ\n\n  MEAN-VARIANCE OPTIMAL SOLUTION:\n  min  E[Cost] + λ·Var(Cost)    over trajectory {v_k}\n\n  For linear impact: optimal trajectory is closed-form:\n    x(t) = X · sinh(κ(T-t)) / sinh(κT)   (hyperbolic sine decay)\n    κ = √(λσ²/η)\n    κ→0: uniform (TWAP); κ→∞: front-loaded (urgent liquidation)\n\nPARTICIPATION RATE HEURISTIC:\n  Don't trade > 10-20% of average daily volume (ADV) to avoid excessive impact.\n  Practical execution algorithms:\n    TWAP: uniform rate over horizon (ignores market conditions)\n    VWAP: proportional to expected intraday volume curve\n    IS (Implementation Shortfall): minimize arrival-price slippage (Almgren-Chriss spirit)\n    POV (Percent of Volume): track fraction of real-time volume\n\nMARKET IMPACT SCALING:\n  Square-root law (empirical): impact ∝ √(Q / ADV)\n  Kissell-Glantz: more detailed model with spread, volatility, urgency parameters\n  Impact + spread typically dominate for funds >$100M AUM",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 439,
+      "heading_context": "### Multi-Period Dynamic Optimization",
+      "confidence": "candidate",
+      "text": "SINGLE-PERIOD MARKOWITZ vs MULTI-PERIOD DYNAMIC:\n\nSingle-period:\n  Choose w today; evaluate at horizon T.\n  Ignores: rebalancing, changing investment opportunity set, liability timing.\n\nMULTI-PERIOD MEAN-VARIANCE (Samuelson, Merton 1969):\n  Continuous-time: investor maximizes E[∫ u(c,t)dt + B(W_T)]\n  Merton (1973): ICAPM — optimal portfolio = myopic portfolio (Markowitz at each t)\n  PLUS intertemporal hedging demand (hedge changes in investment opportunity set)\n  For CRRA utility + constant investment opportunities: myopic is optimal (no hedging demand)\n  For time-varying risk premium: hedge state variable (e.g., long bonds hedge rate risk)\n\nLQR / STOCHASTIC CONTROL APPROACH:\n  State: [portfolio weights, current prices, factor exposures]\n  Control: [rebalancing trades]\n  Objective: quadratic cost in tracking error + transaction costs\n  LQR gives linear optimal policy in state; solvable by Riccati equation\n  Extensions: quadratic + transaction costs → QCQP at each step\n  This is the RL/control framing: Almgren-Chriss is a special case\n\nREBALANCING WITH TRANSACTION COSTS:\n  \"No-trade zone\" (linear TC): optimal policy is not to rebalance continuously\n  but to let weights drift within a tolerance band; only trade when outside band.\n  Dumas-Luciano (1991), Cadenillas-Pliska (1999): band width ∝ TC^{1/3}\n  In practice: rebalance monthly or when drift > threshold (e.g., 5% from target)\n\nMULTI-PERIOD PORTFOLIO CONSTRUCTION (practical):\n  t=1: Markowitz QP with transaction cost penalty → w₁\n       min  (w−w_target)ᵀΣ(w−w_target) + λ_tc Σ|wi−wi_prev|\n  t=2: repeat with updated μ, Σ, w_prev = w₁\n  Convex optimization at each step; full stochastic DP only for low-dimensional state",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "control-theory\\01-PID-CLASSICAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|             CLOSED-LOOP CONTROL SYSTEM                           |\n|                                                                  |\n|            e(t)          u(t)              y(t)                  |\n|  r(t) → Σ ──→ [C(s)] ──→ [G(s)] ──────────→                      |\n|          ↑                  PLANT           |                    |\n|          │                                  |                    |\n|          └──────────────────────────────────┘ feedback           |\n|                         (unity feedback shown)                    |\n|                                                                   |\n|  r(t) = reference (desired output)                               |\n|  e(t) = r - y = tracking error                                   |\n|  u(t) = controller output (actuator signal)                      |\n|  y(t) = plant output (sensor measurement)                        |\n|                                                                   |\n|  Closed-loop TF: T(s) = C(s)G(s) / (1 + C(s)G(s))             |\n|  Error TF:       E(s)/R(s) = 1 / (1 + C(s)G(s))               |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## PID Controller",
+      "confidence": "candidate",
+      "text": "             ┌─────────────────────────────────────────────────┐\n             │  u(t) = Kp·e(t) + Ki·∫e(τ)dτ + Kd·(de/dt)       │\n             │                                                 │\n             │       Kp    = proportional gain                 │\n             │       Ki    = integral gain = Kp/Ti             │\n             │       Kd    = derivative gain = Kp·Td           │\n             └─────────────────────────────────────────────────┘\n\nTransfer function (Laplace domain):\n  C(s) = Kp(1 + 1/(Ti·s) + Td·s)\n       = Kp + Ki/s + Kd·s\n\nParallel form:\n  C(s) = Kp + Ki/s + Kd·s\n\nStandard form (ISA):\n  C(s) = Kp(1 + 1/(Ti·s) + Td·s)   Ti = integral time, Td = derivative time",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "### The Three Terms and Their Effects",
+      "confidence": "candidate",
+      "text": "TERM          EFFECT ON RESPONSE                 EFFECT ON STEADY-STATE ERROR\n────────────  ──────────────────────────────────  ──────────────────────────────\nP (prop.)     Faster response; more overshoot     Reduces error but can't\n              Higher Kp = faster but may          eliminate it for step input\n              destabilize                         Steady-state error ∝ 1/(1+Kp·Gdc)\n\nI (integral)  Eliminates steady-state error       Zero steady-state error for\n              Slows response, adds phase lag       step inputs (type 1 system)\n              Wind-up problem if output saturates  Can cause windup → instability\n\nD (derivative) Damps oscillation; predicts error  No effect on steady-state\n              Increases bandwidth; amplifies noise Usually needs low-pass filter:\n              Derivative = \"braking\" action        Kd·s / (1 + s/ωf)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "## Engineering Bridge: Anti-Windup as Backpressure",
+      "confidence": "candidate",
+      "text": "CONTROL THEORY                    DISTRIBUTED SYSTEMS EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nActuator saturation               Downstream at capacity (queue full, CPU 100%)\n  motor hits max voltage            service returns 429/503\n\nIntegrator windup                 Accumulated retry debt / queued requests\n  ∫e dt grows unboundedly           retry queue grows during outage\n\nBurst on recovery                 Thundering herd on recovery\n  integrator discharges → huge      all queued requests dispatch simultaneously\n  overshoot                         → re-saturates downstream\n\nAnti-windup (clamp integrator)    Backpressure / rate limiting\n  stop accumulating when saturated   token bucket: stop admitting when full\n  back-calculation: actively drain   leaky bucket: drain at fixed rate\n  integrator during saturation       circuit breaker: stop entirely\n──────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "## Engineering Bridge: Anti-Windup as Backpressure",
+      "confidence": "candidate",
+      "text": "BACK-CALCULATION ANTI-WINDUP:\n  u_unsat = Kp·e + Ki·∫e dt + Kd·de/dt   (unsaturated controller output)\n  u_sat   = sat(u_unsat)                  (actual actuator input)\n\n  Anti-windup feedback:\n  d/dt [integrator] = e + (1/Tt)·(u_sat - u_unsat)\n\n  When saturated: u_sat - u_unsat ≠ 0 → integrator back-calculated\n  When not saturated: u_sat = u_unsat → normal operation\n  Tt = tracking time constant (typically Ti/Td to Ti)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 153,
+      "heading_context": "## Ziegler-Nichols Tuning",
+      "confidence": "candidate",
+      "text": "### Method 1: Ultimate Gain (closed-loop step response)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "### Method 1: Ultimate Gain (closed-loop step response)",
+      "confidence": "candidate",
+      "text": "1. Set Ki = Kd = 0 (P-only controller)\n2. Increase Kp until system oscillates with constant amplitude\n   (sustained oscillation — marginally stable)\n3. Record: Ku = ultimate gain, Tu = period of oscillation\n\nCONTROLLER  Kp          Ti          Td\n──────────  ─────────── ──────────  ──────────\nP           0.5·Ku      —           —\nPI          0.45·Ku     Tu/1.2      —\nPID         0.6·Ku      Tu/2        Tu/8",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 168,
+      "heading_context": "### Method 1: Ultimate Gain (closed-loop step response)",
+      "confidence": "candidate",
+      "text": "### Method 2: Process Reaction (open-loop step response)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "### Method 2: Process Reaction (open-loop step response)",
+      "confidence": "candidate",
+      "text": "Apply step to plant input; record S-shaped response:\n  L = delay (inflection point intercept with time axis)\n  T = time constant (slope at inflection point)\n  K = steady-state gain\n\nCONTROLLER  Kp          Ti          Td\n──────────  ─────────── ──────────  ──────────\nP           T/(K·L)     —           —\nPI          0.9·T/(K·L) L/0.3       —\nPID         1.2·T/(K·L) 2L          0.5L",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "## Laplace Transform and Transfer Functions",
+      "confidence": "candidate",
+      "text": "TIME DOMAIN (ODE)               LAPLACE DOMAIN (algebra)\n──────────────────────────────  ──────────────────────────────────────────\nẍ + 2ζωn·ẋ + ωn²·x = ωn²·u   →  (s² + 2ζωn·s + ωn²)·X(s) = ωn²·U(s)\n\nTransfer function: G(s) = X(s)/U(s) = ωn² / (s² + 2ζωn·s + ωn²)\n\nPoles: roots of denominator = s = -ζωn ± jωn√(1-ζ²)\nZeros: roots of numerator (none here)\n\nSTANDARD 2ND ORDER SYSTEM:\n  G(s) = ωn² / (s² + 2ζωn·s + ωn²)\n\n  ζ < 1: underdamped — poles at s = -ζωn ± jωd  where ωd = ωn√(1-ζ²)\n  ζ = 1: critically damped — double pole at s = -ωn\n  ζ > 1: overdamped — two real poles\n  ζ = 0: undamped — poles at ±jωn\n\nStep response metrics:\n  Rise time:       tr ≈ (1.8/ωn) for ζ ≈ 0.6\n  Peak time:       tp = π/ωd\n  Overshoot:       OS% = 100·e^(-πζ/√(1-ζ²))\n  Settling time:   ts ≈ 4/(ζωn)   (2% criterion)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 220,
+      "heading_context": "## Root Locus",
+      "confidence": "candidate",
+      "text": "CLOSED-LOOP: T(s) = KG(s)H(s) / (1 + KG(s)H(s))\nCharacteristic equation: 1 + KG(s)H(s) = 0\nRoot locus: {s : KG(s)H(s) = -1}\n\nANGLE CONDITION:  ∠G(s)H(s) = ±180° (odd multiples)\nMAGNITUDE COND:   |KG(s)H(s)| = 1\n\nROOT LOCUS CONSTRUCTION RULES:\n  ─────────────────────────────────────────────────────────────────\n  Rule 1: Branches start (K=0) at open-loop poles\n  Rule 2: Branches end (K=∞) at open-loop zeros (or infinity)\n  Rule 3: Number of branches = max(#poles, #zeros)\n  Rule 4: Locus on real axis: to the left of an ODD number of real poles+zeros\n  Rule 5: Asymptotes for n-m branches going to ∞:\n            angles: (2k+1)·180°/(n-m)  for k=0,1,...,n-m-1\n            centroid: σa = (Σpoles - Σzeros)/(n-m)\n  Rule 6: Breakaway/break-in: solve dK/ds = 0\n  Rule 7: Imaginary axis crossings: Routh-Hurwitz on characteristic equation\n  ─────────────────────────────────────────────────────────────────\n\nExample: G(s) = 1/(s(s+2))  (DC motor-like plant)\n  Open-loop poles at 0 and -2; no zeros\n  Root locus: starts at 0 and -2, asymptotes at ±90°, centroid at -1\n  Breakaway point: at s = -1 (between poles)\n  As K increases: poles move toward jω axis, cross at s = ±j√2 when K=4\n  K > 4: closed-loop goes unstable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "## Frequency Domain: Bode Plots",
+      "confidence": "candidate",
+      "text": "BODE PLOT READING:\n                |G(jω)| in dB\n               40 │ ╲                         (−20 dB/decade per pole)\n               20 │   ╲  ╱──────              (−40 dB/decade for two poles)\n               0  │─────╲─────────────────\n              -20 │      ╲\n              -40 │       ╲\n                  └────────────────────→ log ω\n                       ωc = crossover\n\n              ∠G(jω) in degrees\n               0° │─────────────────\n              -90° │         ╲────────  ← each pole contributes -90°\n             -180° │               ╲──  ← phase margin measured here\n                  └────────────────────→ log ω\n\nASYMPTOTIC BODE APPROXIMATIONS:\n  Pole at s = -a:  magnitude slope breaks by -20 dB/decade at ω=a\n                   phase: −45° at ω=a, transitions −5° to −85° over 2 decades\n  Zero at s = -a:  magnitude slope breaks by +20 dB/decade at ω=a\n                   phase: +45° at ω=a\n  Integrator (pole at 0): -20 dB/decade slope, -90° phase throughout\n  Underdamped pair: resonance peak, sharp phase drop at ωn",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 291,
+      "heading_context": "## Stability Margins",
+      "confidence": "candidate",
+      "text": "PHASE CROSSOVER FREQUENCY ω_pc: where ∠G(jω) = -180°\nGAIN CROSSOVER FREQUENCY  ω_gc: where |G(jω)| = 1 (0 dB)\n\nGAIN MARGIN = 1/|G(jω_pc)|  in dB: GM = -|G(jω_pc)|_dB\n  How much gain can be increased before instability\n  Rule of thumb: GM > 6 dB (factor 2 in gain)\n\nPHASE MARGIN = 180° + ∠G(jω_gc)\n  How much more phase lag before instability\n  Rule of thumb: PM > 45° (PM ≈ 60° for good transient response)\n  Relation: PM ≈ damping ratio ζ ≈ PM/100  (rough, ζ ≈ PM(deg)/100)\n\nBODE STABILITY CRITERION (minimum phase systems only):\n  If |G(jω)| < 1 at ω where ∠G = -180°, system is stable.\n\nEXAMPLE:\n  G(s) = 10/(s(s+1)(s+5))\n  ω_pc: solve ∠G(jω) = -180° → ω_pc ≈ 2.24 rad/s\n  |G(j·2.24)| ≈ 0.5 → GM = 1/0.5 = 2 = 6 dB  ← barely adequate\n  ω_gc: |G(jω)| = 1 → ω_gc ≈ 0.74 rad/s\n  ∠G(j·0.74) ≈ -132° → PM = 180-132 = 48°  ← acceptable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 353,
+      "heading_context": "## Lead and Lag Compensators",
+      "confidence": "candidate",
+      "text": "LEAD COMPENSATOR: C(s) = Kc(s+z)/(s+p), where p > z (zero left of pole)\n  ─ Adds positive phase near ωgc → increases phase margin\n  ─ Increases bandwidth (faster response)\n  ─ Use when: PM too low, response too slow\n\nLEAD DESIGN PROCEDURE:\n  1. Find phase deficiency: φ_needed = PM_desired - PM_current + 5°-12° safety\n  2. α = (1-sin φ_needed)/(1+sin φ_needed)  (α < 1)\n  3. Max phase contribution at ω_max = 1/(τ√α)\n  4. Set ω_max = ω_gc_new (desired crossover)\n  5. z = ω_max·√α, p = ω_max/√α\n\nLAG COMPENSATOR: C(s) = Kc(s+z)/(s+p), where z > p (zero right of pole)\n  ─ Reduces gain at high frequencies → shifts crossover to lower ω\n  ─ Increases steady-state accuracy (zero ≈ at origin)\n  ─ Use when: steady-state error too large, bandwidth high enough\n\nPD, PI, PID AS COMPENSATORS:\n  PD = lead compensator (approximate, pure differentiator is improper)\n  PI = lag compensator with zero at origin\n  PID = lead-lag combination",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 381,
+      "heading_context": "## Steady-State Error and System Type",
+      "confidence": "candidate",
+      "text": "SYSTEM TYPE = number of open-loop integrators (poles at s=0)\n\nFor step input R(s) = 1/s:\n  ess = lim(s→0) s·E(s) = lim(s→0) s / (1 + G(s)C(s)) · 1/s\n      = 1/(1+Kp)  where Kp = lim(s→0) G(s)C(s)  (position constant)\n\nTYPE 0 (no integrators): ess = 1/(1+Kp), finite steady-state error to step\nTYPE 1 (one integrator): ess = 0 for step, ess = 1/Kv for ramp (velocity constant)\nTYPE 2 (two integrators): ess = 0 for step and ramp, finite for parabola\n\nPI/I controller adds one integrator → increases system type by 1 → eliminates\nsteady-state error for one lower-order input.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "ascii_table_candidate",
+      "line": 402,
+      "heading_context": "## Digital (Discrete-Time) PID",
+      "confidence": "candidate",
+      "text": "FORWARD EULER (explicit):    s ≈ (z-1)/T      (unstable for large T)\nBACKWARD EULER (implicit):   s ≈ (z-1)/(Tz)   (always stable, overdamping)\nBILINEAR (TUSTIN):           s ≈ 2(z-1)/(T(z+1))  (best frequency response)\n  Recommended — maps jω axis to unit circle\n\nDISCRETE PID (Tustin):\n  u[k] = u[k-1] + Kp(e[k]-e[k-1]) + Ki·T/2·(e[k]+e[k-1])\n                + Kd/T·(e[k]-2e[k-1]+e[k-2])\n\nSAMPLING RULE OF THUMB:\n  Sample at least 20x the bandwidth: Ts < 0.05/ωgc\n  Nyquist: Ts < π/ωgc (absolute minimum — unworkable in practice)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

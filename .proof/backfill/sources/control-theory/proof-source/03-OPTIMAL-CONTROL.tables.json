@@ -1,0 +1,68 @@
+{
+  "schema_version": "1",
+  "source_markdown": "control-theory\\03-OPTIMAL-CONTROL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 353,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether an unconstrained linear regulator is enough",
+          "LQR via the algebraic Riccati equation",
+          "Optimality is only for the chosen quadratic cost and linear model"
+        ],
+        [
+          "Whether noisy measurements require estimator/controller coupling",
+          "LQG with a Kalman filter",
+          "Separation does not guarantee robustness to model error"
+        ],
+        [
+          "Whether nominal LQR margins are the issue",
+          "Check the classical LQR stability margins",
+          "Those margins do not cover saturation, delays, or unmodeled dynamics"
+        ],
+        [
+          "Whether uncertainty dominates nominal performance",
+          "`H∞` or robust-control formulation",
+          "Conservatism buys guarantees by giving up some nominal optimality"
+        ],
+        [
+          "Whether state/input constraints drive the design",
+          "MPC with receding-horizon optimization",
+          "Feasibility and solver latency are part of the controller"
+        ],
+        [
+          "Whether minimum time produces bang-bang structure",
+          "Pontryagin Maximum Principle",
+          "PMP gives necessary conditions; singular arcs and constraints complicate them"
+        ],
+        [
+          "Whether a nonlinear continuous problem is tractable by shooting",
+          "PMP plus a two-point boundary value solve",
+          "Shooting is sensitive to initial guesses and unstable adjoint dynamics"
+        ],
+        [
+          "Whether an analytic value function is possible",
+          "Hamilton-Jacobi-Bellman equation",
+          "The curse of dimensionality blocks most high-dimensional systems"
+        ],
+        [
+          "Whether a large nonlinear system needs local trajectory optimization",
+          "DDP or iLQR",
+          "Local quadratic models can converge to a local policy, not a global optimum"
+        ],
+        [
+          "Whether the cost weights are causing odd behavior",
+          "Bryson's rule, then iterate with simulations",
+          "Weight tuning encodes engineering preference; it is not a physics law"
+        ]
+      ]
+    }
+  ]
+}

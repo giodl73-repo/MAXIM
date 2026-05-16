@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "finance\\03-FIXED-INCOME.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                     FIXED INCOME LANDSCAPE                       |\n+------------------------------------------------------------------+\n|                                                                    |\n|  INSTRUMENTS           VALUATION             RISK                  |\n|  ────────────          ──────────            ──────               |\n|  Treasury bonds        Discounted cash flow  Duration             |\n|  Corporate bonds       Yield to maturity     Convexity            |\n|  Municipal bonds       Spot rates vs        DV01                  |\n|  MBS, ABS              yield curves         Key rate dur.         |\n|  Swaps, FRAs           OAS for callables     Spread risk          |\n|  Inflation-linked      Credit spread         Credit risk          |\n|  Bond futures          Z-spread              Prepayment risk       |\n|                                                                    |\n|  TERM STRUCTURE MODELS                                             |\n|  ─────────────────────────────────────────────────────────────   |\n|  Vasicek, CIR (short rate) → Ho-Lee, Hull-White                  |\n|  HJM (forward rate process) → LMM (LIBOR market model)           |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "## The Yield Curve",
+      "confidence": "candidate",
+      "text": "SPOT RATE (zero coupon rate) r(T):\n  Yield on zero-coupon bond maturing at T.\n  d(0,T) = e^{-r(T)·T}  (continuous) or  1/(1+r_semi)^T (semi-annual)\n  Spot curve = r(T) as function of T.\n\nFORWARD RATE f(T₁,T₂):\n  Rate locked in today for borrowing from T₁ to T₂:\n  d(0,T₁) · e^{-f(T₁,T₂)·(T₂-T₁)} = d(0,T₂)\n  Instantaneous forward: f(T) = −d ln d(0,T)/dT = r(T) + T·r'(T)\n\nPAR RATE c(T):\n  Coupon rate at which a coupon bond prices at par.\n  c(T) = [1 − d(0,T)] / Σᵢ d(0,tᵢ)  (annuity factor)\n\nYIELD CURVE SHAPES:\n  Normal (upward sloping): shorter rates < longer rates — typical\n  Inverted (downward): short > long — recession predictor\n  Flat: similar rates across maturities\n  Humped: intermediate maturities highest — transition\n\n  BOOTSTRAP — extracting spot curve from coupon bonds:\n   1. 3m, 6m: already zero-coupon (T-bills) → spot rates directly\n   2. 1.5yr bond: P = c·d(0.5) + c·d(1.0) + (100+c)·d(1.5)\n      → solve for d(1.5) given d(0.5), d(1.0)\n   3. Continue: each new maturity uses all previously computed spot rates.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "### Modified Duration",
+      "confidence": "candidate",
+      "text": "MACAULAY DURATION (weighted avg time to cash flows):\n  D_Mac = (1/P) · Σᵢ tᵢ · PV(CFᵢ)\n        = Σᵢ tᵢ · [CFᵢ/(1+y)^tᵢ] / P   (semi-annual: adjust for frequency)\n\n  INTERPRETATION: bond with D_Mac = 5 years has same price sensitivity as\n  a 5-year zero-coupon bond.\n\nMODIFIED DURATION:\n  D_mod = D_Mac / (1 + y/m)   (adjusts for yield convention)\n\n  ΔP/P ≈ −D_mod · Δy           (first-order price sensitivity)\n  ΔP ≈ −D_mod · P · Δy\n\nDOLLAR DURATION (DV01 — dollar value of 1bp = 0.0001):\n  DV01 = D_mod · P / 10,000\n  ΔP ≈ −DV01 · (Δy in bps)\n\nPROPERTIES:\n  Zero coupon bond: D_Mac = T exactly (one cash flow)\n  Coupon bond: D_Mac < T (coupons paid earlier)\n  Higher coupon → shorter duration\n  Higher yield → shorter duration (higher PV weight on nearer CFs)\n\nPORTFOLIO DURATION:\n  D_port = Σᵢ wᵢ · Dᵢ  where wᵢ = market value weight",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "### Convexity",
+      "confidence": "candidate",
+      "text": "Taylor expansion of bond price vs yield:\n  ΔP/P ≈ −D_mod · Δy + ½ · Conv · (Δy)²\n\nCONVEXITY:\n  Conv = (1/P) · d²P/dy²\n       = (1/P) · Σᵢ tᵢ(tᵢ+1) · PV(CFᵢ) / (1+y)²    (annual compounding)\n\n  Always positive for non-callable bonds — convexity is good!\n  For same duration, higher convexity → better price performance in both directions.\n\nCALLABLE BOND: negative convexity when rates fall\n  (issuer calls → cap on price appreciation)\n  Effective duration = duration accounting for optionality\n  OAS (Option-Adjusted Spread) = spread after removing optionality\n\nIMMUNIZATION:\n  Match asset duration to liability duration → portfolio insensitive to yield shifts.\n  Requires periodic rebalancing (duration drifts over time).\n  Full immunization: also match convexity (protects against large moves).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 203,
+      "heading_context": "### Short Rate Models",
+      "confidence": "candidate",
+      "text": "VASICEK (1977):\n  dr = κ(θ − r)dt + σ dW   (Ornstein-Uhlenbeck process)\n\n  κ = mean reversion speed, θ = long-run mean, σ = volatility\n  Bond price: P(t,T) = A(t,T) e^{-B(t,T)r(t)}   (affine model)\n  B(t,T) = (1 − e^{-κ(T-t)})/κ\n  A(t,T) = exp[(θ − σ²/2κ²)(B − (T-t)) − σ²B²/4κ]\n\n  Problem: r can go negative (OK for some currencies; problematic for others)\n\nCOX-INGERSOLL-ROSS (CIR, 1985):\n  dr = κ(θ − r)dt + σ√r dW  (square-root diffusion)\n\n  r stays positive if 2κθ > σ² (Feller condition)\n  Bond price: still affine P(t,T) = A(t,T) e^{-B(t,T)r(t)}\n  Closed-form cap/floor pricing.\n\nHO-LEE (1986):\n  dr = θ(t)dt + σ dW          (no mean reversion, time-varying drift)\n  θ(t) calibrated to match initial yield curve exactly.\n  First arbitrage-free model — can fit observed term structure.\n\nHULL-WHITE (1990):\n  dr = [θ(t) − κr]dt + σ dW   (generalization of Vasicek + Ho-Lee)\n  θ(t) calibrated to initial forward curve.\n  Most widely used for derivatives pricing.\n  Trinomial tree or Monte Carlo implementation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 237,
+      "heading_context": "### HJM Framework",
+      "confidence": "candidate",
+      "text": "HEATH-JARROW-MORTON (1992):\n  df(t,T) = α(t,T)dt + σ(t,T)dW(t)\n  f(t,T) = instantaneous forward rate at time t for maturity T\n\n  No-arbitrage: α(t,T) = σ(t,T) ∫ₜᵀ σ(t,s)ds   (HJM drift condition)\n  → drift is determined by volatility structure (drift restriction)\n\n  Special cases:\n    Constant σ → Ho-Lee\n    σ e^{-κ(T-t)} → Hull-White\n    HJM allows non-Markovian dynamics (path-dependent)\n\nLIBOR MARKET MODEL (LMM / BGM):\n  Model LIBOR rates L(t, Tᵢ, Tᵢ₊₁) directly (market-observable)\n  dL(t,Tᵢ,Tᵢ₊₁) = μᵢ(t)L dt + σᵢ(t)L dWᵢ\n\n  Log-normal → Black formula for caps/floors exact (industry standard)\n  Swaption pricing: approximate (Rebonato formula for swap vol)\n  Monte Carlo friendly; used for complex interest rate derivatives",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 328,
+      "heading_context": "## Mortgage-Backed Securities",
+      "confidence": "candidate",
+      "text": "MBS = POOL OF MORTGAGES (example: FNMA pass-through)\n  Cash flows: principal + interest from pool of mortgages\n  Prepayment risk: borrowers refinance when rates fall → extension/contraction risk\n\nPREPAYMENT MODELS:\n  PSA (Public Securities Association): benchmark speeds\n  CPR (Conditional Prepayment Rate): annualized prepayment rate\n  100 PSA = 6% CPR in month 30+, ramps from 0% to 6% in months 1–30\n\nNEGATIVE CONVEXITY:\n  When rates fall: prepayments increase → bonds shorten (worse for longs)\n  When rates rise: prepayments decrease → bonds lengthen (worse for longs)\n  MBS has negative convexity unlike agency bullet bonds\n\nCMO (COLLATERALIZED MORTGAGE OBLIGATION):\n  Tranches with different prepayment priority:\n  PAC (Planned Amortization Class): stable cash flows over range of prepayment speeds\n  TAC: protected against prepayment in one direction\n  Z-bond: zero coupon; receives cash last (long duration, highest convexity)\n\nOAS PRICING:\n  Model option-adjusted spread via Monte Carlo of rate paths + prepayment model.\n  OAS removes optionality → compare fair value across MBS.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 360,
+      "heading_context": "## Inflation-Linked Bonds (TIPS)",
+      "confidence": "candidate",
+      "text": "TIPS (Treasury Inflation-Protected Securities):\n  Principal adjusted by CPI; coupon paid on adjusted principal.\n  At maturity: max(adjusted principal, original principal) — floor at par.\n\nCASH FLOWS:\n  Adjusted principal: P_t = P_0 × CPI_t / CPI_0   (grows with inflation)\n  Coupon: c × P_t   (real coupon rate c, paid on inflation-adjusted principal)\n  Maturity: receive P_T = P_0 × CPI_T / CPI_0   (≥ P_0)\n\nREAL YIELD vs NOMINAL YIELD:\n  Nominal bond yield = real yield + expected inflation + inflation risk premium\n  y_nominal ≈ y_real + π^e   (Fisher equation; approximate)\n  TIPS yields are real yields: investor is compensated for actual, not expected, inflation\n\n  TIPS real yield:  example 2024 range ~2.0-2.5%; negative real yields 2020-2021\n  Nominal 10yr:     example 2024 range ~4.0-4.5%\n  Breakeven inflation = y_nominal − y_real ≈ π^e (market-implied expected inflation)\n\nBREAKEVEN INFLATION RATE:\n  Breakeven = yield spread between nominal Treasury and TIPS of same maturity\n  ~2.0-2.5% in US (2024) — market prices in ~Fed target inflation\n  Breakeven > realized inflation: inflation risk premium embedded\n  Used by: Fed (to gauge credibility of 2% target), macro traders\n\n  TIPS vs nominal bond:\n  TIPS wins if: realized inflation > breakeven\n  Nominal wins if: realized inflation < breakeven\n  Investor preference: TIPS if uncertain about inflation (buys insurance)\n\nLIQUIDITY PREMIUM:\n  TIPS less liquid than nominal Treasuries → TIPS yield slightly overstates real yield\n  On-the-run TIPS vs off-the-run: spread typically 5-15bps\n  In crises (2008, March 2020): TIPS liquidity premium spiked dramatically",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 400,
+      "heading_context": "## Repo Markets",
+      "confidence": "candidate",
+      "text": "REPURCHASE AGREEMENT (REPO):\n  Seller (borrower): sells bond for cash today; agrees to buy back at higher price tomorrow\n  Buyer (lender):    provides cash; receives bond as collateral; earns repo rate\n  Economically: secured loan at repo rate; bond = collateral\n\n  Repo rate ≈ risk-free rate − collateral convenience yield\n  General collateral (GC) repo ≈ Fed funds rate (any Treasury qualifies as collateral)\n  Special repo: specific bond in high demand → repo rate < GC rate\n    (borrower of cash pays less because they're lending highly sought collateral)\n\nMECHANICS:\n  Day 0:  Dealer sells $100M Treasuries to money market fund (MMF) for $100M cash\n          Repo rate = 5.30% overnight\n  Day 1:  Dealer repurchases Treasuries for $100M × (1 + 0.0530/365) ≈ $100.0145M\n  MMF earns: 5.30% secured by Treasury collateral (near-risk-free)\n  Dealer:  funded its Treasury position overnight at repo rate\n\nUSE CASES:\n  Funding: dealers hold large bond inventories; fund them via overnight repo\n  Leverage: hedge funds borrow cash via repo to buy more bonds (leveraged bond positions)\n  Short selling: borrow specific bond via reverse repo → sell it short\n  Securities lending: asset managers lend bonds for fee income; repo market = plumbing\n  Monetary policy: Fed conducts open market operations via repo and reverse repo\n\nREPO MARKET ARCHITECTURE:\n  Bilateral repo: direct negotiation between two counterparties\n  Tri-party repo: custodian bank (BNY, JPMorgan) acts as intermediary\n                  Handles collateral management, margining, settlement\n                  Used by MMFs, pension funds — less operational risk\n  GCF repo: anonymous clearing through DTCC/FICC\n  DVP repo: delivery vs. payment settlement; highest quality\n\nREPO RISK AND CRISES:\n  Repo = money market → run risk when collateral quality falls suddenly\n  Lehman 2008: Lehman was heavily repo-funded; counterparty risk → run\n  \"Repo run\" = lenders refuse to roll overnight funding → forced asset sales\n  2008: MMFs were major repo lenders; Reserve Primary Fund \"broke the buck\"\n       → repo market seized; Fed intervened with TSLF, PDCF facilities\n  Haircut: collateral valued at discount (e.g., 2% for Treasuries, 5% for corporate bonds)\n  Haircut increases in crises → amplifies fire sales (Brunnermeier-Pedersen mechanism)\n  2019 repo spike: September repo rate spiked to 10%+ (reserve scarcity + tax payments)\n\nREPO AND YIELD CURVE:\n  Repo rate anchors the short end of the yield curve\n  Cheapest-to-deliver (CTD) in Treasury futures determined partly by repo specialness\n  Negative repo basis: OTR Treasury \"special\" → yield below fair value (supply/demand effect)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 453,
+      "heading_context": "## Engineering Bridge",
+      "confidence": "candidate",
+      "text": "BOND PRICING = DCF = NET PRESENT VALUE (familiar from corporate finance):\n  Bond price P = Σ CF_t / (1+r)^t   (same formula as NPV of project cash flows)\n  The difference: bonds have known, contractual cash flows; projects have estimated ones.\n  YTM = IRR of bond cash flows at current price. IRR in project finance = YTM in bonds.\n\nYIELD CURVE BOOTSTRAP = ITERATIVE DEPENDENCY RESOLUTION:\n  Bootstrap extracts spot rates from coupon bond prices by forward substitution:\n  r(0.5) known → r(1.0) known → solve for r(1.5) using previous two → ...\n  Exact analogy to topological sort + incremental computation:\n    Each maturity depends only on shorter maturities (already solved).\n    No circularity. Solve in maturity order.\n    Residual = \"leftover\" after discounting known-maturity cash flows = new spot discount.\n  In a build system: bootstrapped yields = compiled artifacts; coupon bonds = source files\n    with dependencies on shorter-maturity zero-coupon bonds.\n\nDURATION = FIRST DERIVATIVE OF A FUNCTION (sensitivity analysis):\n  ΔP ≈ −D_mod × P × Δy   (linear approximation)\n  This is exactly the delta of a derivative in options theory, or the gradient in ML.\n  Convexity = second derivative (Γ for options, curvature in optimization).\n  Duration matching = zeroing the first-order sensitivity; convexity matching = zeroing second.\n\nTERM STRUCTURE MODELS = STOCHASTIC DIFFERENTIAL EQUATIONS:\n  Vasicek dr = κ(θ−r)dt + σdW   is an Ornstein-Uhlenbeck process\n  Same SDE as mean-reverting systems in control theory and physics.\n  CIR adds √r diffusion to keep r ≥ 0; same as Cox process / intensity models.\n  Affine models (Vasicek, CIR) → bond price = exp(−A(T−t) − B(T−t)r(t))\n  = Laplace transform of integrated r(t) under risk-neutral measure.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

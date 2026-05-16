@@ -1,0 +1,48 @@
+{
+  "schema_version": "1",
+  "source_markdown": "control-theory\\08-ADAPTIVE-CONTROL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 355,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Linear parametric uncertainty with tracking",
+          "MRAC with Lyapunov design",
+          "Add projection to prevent drift."
+        ],
+        [
+          "SISO identification plus redesign",
+          "RLS and indirect STR",
+          "Certainty equivalence needs stability scrutiny."
+        ],
+        [
+          "Slow known operating-point changes",
+          "Gain scheduling or LPV",
+          "Simpler scheduling lacks automatic global stability proof."
+        ],
+        [
+          "Safety-critical adaptation",
+          "L1 adaptive control",
+          "Filter choice trades robustness against performance."
+        ],
+        [
+          "Unknown nonlinear dynamics",
+          "NN adaptive control with Lyapunov analysis",
+          "Approximation error and projection matter."
+        ],
+        [
+          "Time-varying parameters",
+          "RLS with forgetting factor",
+          "Forgetting factor sets tracking/noise tradeoff."
+        ]
+      ]
+    }
+  ]
+}

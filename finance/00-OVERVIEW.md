@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:finance:overview
+kind: guide
+module: finance
+section: finance
+title: Quantitative Finance - Field Map and Orientation
+status: source-custody
+source_custody: partial
+current_path: finance/00-OVERVIEW.md
+canonical_path: finance/00-OVERVIEW.md
+backsource_ids: [proof-backfill:finance:00-overview, git-history:finance:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantitative Finance — Field Map & Orientation
 
 ## The Big Picture
@@ -9,7 +28,7 @@ mathematical problems live.
 
 ```
 +------------------------------------------------------------------+
-|                 QUANTITATIVE FINANCE LANDSCAPE                    |
+|                 QUANTITATIVE FINANCE LANDSCAPE                   |
 +------------------------------------------------------------------+
 |                                                                   |
 |  ASSET PRICING      PORTFOLIO MGMT    RISK MGMT    DERIVATIVES   |
@@ -70,13 +89,14 @@ ORDER BOOK (Level 2 data)
 ──────────────────────────────────────────────────────────────
   ASK (sells)                BID (buys)
   ┌──────────────┐          ┌──────────────┐
-  │ $100.05  10  │          │ $100.00  25  │ ← Best bid
+  │ $100.05  10  │          │ $100.00  25  │
   │ $100.04  30  │          │  $99.99  100 │
   │ $100.03  15  │ ← Ask    │  $99.98  50  │
   │ $100.02  50  │          │  $99.97  200 │
   └──────────────┘          └──────────────┘
-       Spread = $100.02 - $100.00 = $0.02 (2 cents)
+Spread = $100.02 - $100.00 = $0.02 (2 cents)
 
+Best bid shown: $100.00 for 25 units.
 Market order: executes immediately at best available price
 Limit order: sits in book until match found or cancelled
 Market maker: provides liquidity both sides; profit = spread × volume

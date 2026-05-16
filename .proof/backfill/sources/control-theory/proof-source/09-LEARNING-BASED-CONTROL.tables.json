@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "control-theory\\09-LEARNING-BASED-CONTROL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 375,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Known linear-quadratic model",
+          "LQR or MPC",
+          "Learning adds risk when the model is adequate."
+        ],
+        [
+          "Unknown but safely excitable model",
+          "System ID then model-based control",
+          "Excitation must cover the operating envelope."
+        ],
+        [
+          "Unknown nonlinear system with simulator",
+          "Model-free RL plus domain randomization",
+          "Sim-to-real gap can dominate."
+        ],
+        [
+          "Sparse real-world data",
+          "Model-based RL or GP policy search",
+          "Model uncertainty must be propagated into control."
+        ],
+        [
+          "Expert demonstrations",
+          "Behavior cloning before IRL/GAIL",
+          "Distribution shift causes compounding errors."
+        ],
+        [
+          "Safety-critical learning",
+          "CBF safety filter or offline RL",
+          "Safety filter assumptions must match plant limits."
+        ],
+        [
+          "Fixed historical dataset",
+          "Offline RL such as IQL/CQL/TD3+BC",
+          "Extrapolation outside dataset support is dangerous."
+        ],
+        [
+          "LTI system with trajectories only",
+          "DeePC/Willems predictive control",
+          "Persistent excitation is the hidden prerequisite."
+        ]
+      ]
+    }
+  ]
+}

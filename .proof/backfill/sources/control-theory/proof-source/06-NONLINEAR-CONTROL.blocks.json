@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "control-theory\\06-NONLINEAR-CONTROL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│                NONLINEAR PHENOMENA — A TAXONOMY                     │\n│                                                                     │\n│  LINEAR WORLD          vs.      NONLINEAR WORLD                     │\n│  ──────────────────────         ───────────────────────────         │\n│  Single equilibrium             Multiple equilibria                 │\n│  Stability = global             Stability = local (Lyapunov)        │\n│  No limit cycles                Limit cycles (self-sustained osc.)  │\n│  Superposition holds            No superposition                    │\n│  Freq. response meaningful      Harmonics generated                 │\n│  Phase portrait: rays/spirals   Rich phase portrait geometry        │\n│                                                                     │\n│  TOOLS:                                                             │\n│  Phase plane ──► Lyapunov ──► Feedback lin ──► Sliding mode         │\n│  (2D analysis)  (stability)   (exact cancel) (robustness)           │\n│                                                                     │\n│  REALITY CHECK: Most engineered systems are nonlinear.              │\n│  Linear control works when: operating near equilibrium, small       │\n│  disturbances, adequate gain/phase margins for the linearization.   │\n│  Nonlinear control needed when: large excursions, saturation,       │\n│  time-varying operating point, need for global guarantees.          │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "### Equilibria and Their Classification",
+      "confidence": "candidate",
+      "text": "SYSTEM: ẋ₁ = f₁(x₁, x₂),  ẋ₂ = f₂(x₁, x₂)\nEQUILIBRIUM: f₁(x*) = 0, f₂(x*) = 0\n\nLINEARIZATION at x*:\n  A = Jacobian[f](x*) = [∂f₁/∂x₁  ∂f₁/∂x₂]\n                         [∂f₂/∂x₁  ∂f₂/∂x₂]\n\nCLASSIFICATION from eigenvalues λ₁, λ₂ of A:\n  ┌──────────────────────────────────────────────────────────────┐\n  │ EIGENVALUES           │ TYPE       │ STABILITY               │\n  ├───────────────────────┼────────────┼─────────────────────────┤\n  │ λ₁, λ₂ < 0 (real)    │ Stable node│ Asymptotically stable   │\n  │ λ₁, λ₂ > 0 (real)    │ Unstable   │ Unstable                │\n  │                       │ node       │                         │\n  ├───────────────────────┼────────────┼─────────────────────────┤\n  │ λ₁ < 0 < λ₂ (real)    │ Saddle     │ Unstable (saddle)       │\n  ├───────────────────────┼────────────┼─────────────────────────┤\n  │ λ = α ± jβ, α < 0    │ Stable     │ Asymptotically stable   │\n  │                       │ spiral     │                         │\n  │ λ = α ± jβ, α > 0    │ Unstable   │ Unstable                │\n  │                       │ spiral     │                         │\n  ├───────────────────────┼────────────┼─────────────────────────┤\n  │ λ = ±jβ (purely imag.)│ Center     │ Stable (Lyapunov) but   │\n  │                       │            │ NOT asymptotically —    │\n  │                       │            │ linearization ambiguous │\n  └───────────────────────┴────────────┴─────────────────────────┘\n\n  NOTE: Center is ambiguous — nonlinear terms determine actual behavior\n  (could be stable focus, unstable focus, or true center depending on\n  higher-order terms). Hartman-Grobman theorem fails here.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "### Limit Cycles and Poincaré-Bendixson",
+      "confidence": "candidate",
+      "text": "VAN DER POL OSCILLATOR:\n  ẍ - μ(1 - x²)ẋ + x = 0     (μ > 0)\n\n  For small x: negative damping (energy input) → growing oscillation\n  For large x: positive damping (energy dissipation) → amplitude decreases\n  Result: stable limit cycle — self-sustained oscillation\n\nPOINCARÉ-BENDIXSON THEOREM:\n  If a bounded region R ⊂ ℝ² has no equilibria, then any trajectory\n  that stays in R must approach a limit cycle.\n\n  CONSTRUCTIVE USE:\n  1. Find trapping region (nullclines bound trajectories inside)\n  2. Rule out equilibria inside region\n  3. Conclude: limit cycle must exist (existence proof)\n\nBENDIXSON-DULAC CRITERION (ruling out limit cycles):\n  If ∂(Bf₁)/∂x₁ + ∂(Bf₂)/∂x₂ ≠ 0 in R (doesn't change sign)\n  for some function B(x₁, x₂) > 0, then no limit cycles in R.\n\nNOTE: All of this is specific to 2D. In 3D+: chaos is possible (Lorenz).\n  Poincaré-Bendixson has no 3D analog.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "### Stability Definitions",
+      "confidence": "candidate",
+      "text": "EQUILIBRIUM x* = 0 (translate to origin without loss of generality)\n\nSTABLE (Lyapunov): ∀ε > 0, ∃δ > 0 such that ‖x(0)‖ < δ → ‖x(t)‖ < ε ∀t ≥ 0\n  (trajectories starting close stay close)\n\nASYMPTOTICALLY STABLE: Lyapunov stable AND x(t) → 0 as t → ∞\n  (trajectories converge to origin)\n\nGLOBALLY ASYMPTOTICALLY STABLE (GAS): Asymptotically stable AND\n  domain of attraction = ℝⁿ (every trajectory converges to 0)\n  → This is the gold standard for controlled systems",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "### Lyapunov's Direct Method",
+      "confidence": "candidate",
+      "text": "LYAPUNOV FUNCTION V: ℝⁿ → ℝ\n\nCONDITIONS FOR STABILITY:\n  V(0) = 0\n  V(x) > 0 for x ≠ 0  (positive definite)\n  V̇(x) = (∂V/∂x) f(x) ≤ 0  (non-positive definite along trajectories)\n  → Lyapunov stable\n\nCONDITIONS FOR ASYMPTOTIC STABILITY:\n  Same as above, but V̇(x) < 0 for x ≠ 0  (negative definite)\n  → Asymptotically stable; V is a strict Lyapunov function\n\nLaSALLE'S INVARIANCE PRINCIPLE (extends to V̇ ≤ 0):\n  If V̇ ≤ 0 in Ω, let E = {x ∈ Ω : V̇ = 0}\n  Let M = largest invariant set in E\n  Then: every trajectory starting in Ω converges to M\n  → Handles V̇ ≤ 0 (not strictly negative definite)\n  Example: V̇ = 0 only at x = 0 → origin is AS even though V̇ is only semi-definite\n\nGLOBAL ASYMPTOTIC STABILITY (BONUS CONDITION):\n  Add: V(x) → ∞ as ‖x‖ → ∞  (radially unbounded)\n  → Guarantees global (not just local) asymptotic stability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "### Finding Lyapunov Functions",
+      "confidence": "candidate",
+      "text": "LINEAR SYSTEMS: ẋ = Ax\n  V(x) = xᵀPx where P solves the Lyapunov equation:\n  AᵀP + PA = -Q  for any Q > 0 (positive definite)\n  Solution P > 0 exists ⟺ A is Hurwitz (all eigenvalues in LHP)\n\nPOLYNOMIAL SYSTEMS (Sum of Squares, SOS):\n  Want V polynomial, V > 0, V̇ < 0\n  → Rewrite as SOS program:\n    V(x) = σ₀(x) (SOS polynomial ≥ 0)\n    -V̇(x) - ε‖x‖² = σ₁(x) (SOS)\n  → Semidefinite program (SDP) — solves via MATLAB SOSTOOLS, DSOS/SDSOS\n\nPHYSICAL INTUITION (energy shaping):\n  For mechanical systems: V = kinetic + potential energy\n    V = ½q̇ᵀMq̇ + U(q)  where M = inertia matrix, U = potential\n    V̇ = -q̇ᵀDq̇ ≤ 0 when damping matrix D ≥ 0\n  → Physical energy is a Lyapunov function if system is passive\n\nNO SYSTEMATIC PROCEDURE IN GENERAL:\n  Finding Lyapunov functions is an art/heuristic for nonlinear systems.\n  SOS programs automate polynomial case but don't cover everything.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "### Input-Output Linearization",
+      "confidence": "candidate",
+      "text": "GOAL: Find a nonlinear state feedback u = α(x) + β(x)v such that\n  the closed-loop from v to output y is exactly linear (differential equation).\n\nRELATIVE DEGREE r: Number of times you must differentiate output y\n  before the input u explicitly appears.\n\n  y⁽⁰⁾ = h(x)\n  y⁽¹⁾ = ∂h/∂x · f(x)\n  y⁽²⁾ = Lf²h(x)    (Lie derivative: Lfh = ∂h/∂x · f)\n  ...\n  y⁽ʳ⁾ = Lfʳh(x) + LgLfʳ⁻¹h(x) · u    (u appears at r-th derivative)\n\n  Lie derivative: Lfh = ∂h/∂x · f(x)\n\nLINEARIZING CONTROL:\n  u = 1/LgLfʳ⁻¹h · [-Lfʳh + v]\n\n  → y⁽ʳ⁾ = v  (pure integrator chain of length r — exactly linear!)\n\nSTATE TRANSFORMATION:\n  Define: z₁ = y, z₂ = ẏ, ..., zᵣ = y⁽ʳ⁻¹⁾  → linear subsystem ż = Az + Bv\n  Remaining n-r states: internal dynamics (zero dynamics when y ≡ 0)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "### Zero Dynamics and Stability Condition",
+      "confidence": "candidate",
+      "text": "ZERO DYNAMICS: Internal dynamics when output is held to zero (y ≡ 0)\n  by appropriate input.\n\nMINIMUM PHASE: Zero dynamics are asymptotically stable\n  (analogy: minimum phase in linear systems = all zeros in LHP)\n\nCRITICAL: Feedback linearization is only safe if the system is minimum phase!\n  Non-minimum phase zero dynamics = internal instability\n  (bounded output, unbounded internal states)\n\nEXAMPLE — Pendulum-on-cart:\n  State: [x (cart pos), ẋ, θ (angle), θ̇]\n  Output: y = x (cart position)\n  Relative degree: 2 (ÿ depends on u)\n  Zero dynamics: pendulum angle when cart is fixed\n  Minimum phase? YES if pendulum hangs down (stable equilibrium θ = 0)\n  NOT minimum phase if pendulum is inverted (balancing problem):\n    → Use different output or full-state feedback approach\n\nGLOBAL VALIDITY:\n  Feedback linearization requires LgLfʳ⁻¹h(x) ≠ 0 (invertibility)\n  This may fail at certain states (singularities)\n  Domain of validity must be checked carefully",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 257,
+      "heading_context": "### Sliding Surface Design",
+      "confidence": "candidate",
+      "text": "SYSTEM: ẋ = f(x) + g(x)u + d(x)  where d(x) is disturbance, ‖d‖ ≤ D\n\nSLIDING SURFACE: s(x) = 0\n  Define: s(x) = cᵀe  where e = x - x_d (tracking error)\n  For r-th order system: s = e⁽ʳ⁻¹⁾ + c_{r-2}e⁽ʳ⁻²⁾ + ... + c₀e\n  When s = 0: error dynamics are governed by polynomial λʳ⁻¹ + c_{r-2}λʳ⁻² + ... + c₀\n  → Choose coefficients for desired sliding dynamics (stable polynomial)\n\nREACHING CONDITION: sṡ < 0  (trajectories driven toward s = 0)\n  → Once on the surface, they stay on it (positive invariant manifold)\n\nCONTROL LAW:\n  u = u_eq + u_sw\n  u_eq = equivalent control (what would maintain s = 0 nominally)\n  u_sw = -k · sgn(s)  (discontinuous switching component)\n\n  Choose k > D/|Lg s| + η (η > 0)  to overcome disturbance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "### Chattering Problem",
+      "confidence": "candidate",
+      "text": "IDEAL SLIDING: Infinitely fast switching — creates chattering\n  High-frequency oscillation in control signal u\n  → Excites unmodeled high-frequency dynamics\n  → Mechanical wear, actuator damage\n\nBOUNDARY LAYER SMOOTHING:\n  Replace sgn(s) with saturation: sat(s/φ)\n  where φ = boundary layer thickness\n\n  Inside |s| < φ: u_sw = -(k/φ)s  (linear in the layer)\n  Outside |s| ≥ φ: u_sw = -k·sgn(s) (original)\n\nTRADEOFF:\n  Smaller φ: less steady-state error, more chattering\n  Larger φ: no chattering, but steady-state error ∝ φ\n  Sliding mode → continuous approximation, losing some robustness",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 324,
+      "heading_context": "## Backstepping",
+      "confidence": "candidate",
+      "text": "PROBLEM: Strict-feedback systems (each state feeds only forward)\n  ẋ₁ = f₁(x₁) + g₁(x₁)x₂\n  ẋ₂ = f₂(x₁,x₂) + g₂(x₁,x₂)x₃\n  ...\n  ẋₙ = fₙ(x) + gₙ(x)u\n\nRECURSIVE LYAPUNOV DESIGN:\n  Step 1: Treat x₂ as \"virtual control\" for x₁-subsystem\n    Choose x₂* = α₁(x₁) to make V₁ = x₁² decrease\n    Define tracking error: z₂ = x₂ - α₁(x₁)\n\n  Step 2: Design for [x₁, z₂]-system\n    V₂ = V₁ + z₂²/2\n    Choose x₃* = α₂(x₁, x₂) so V̇₂ ≤ -c₁x₁² - c₂z₂²\n\n  Continue until actual control u appears...\n\nRESULT: Globally stabilizing controller with explicit Lyapunov function\nDRAWBACK: Differentiating virtual controls αₖ creates \"explosion of terms\"\n  — derivatives grow exponentially, implementation becomes complex\n  → Dynamic Surface Control (DSC) uses filters instead of analytic derivatives",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 352,
+      "heading_context": "## Passivity-Based Control",
+      "confidence": "candidate",
+      "text": "PASSIVE SYSTEM: ∃ storage function V(x) ≥ 0, V(0) = 0 such that:\n  V̇(x, u) ≤ yᵀu   (power supplied ≥ rate of energy storage)\n  V̇ = yᵀu - d(x)  where d(x) ≥ 0 is dissipation\n\nEULER-LAGRANGE MECHANICAL SYSTEMS:\n  M(q)q̈ + C(q,q̇)q̇ + G(q) = τ  (robot dynamics)\n  V = ½q̇ᵀM(q)q̇ + U(q)  (kinetic + potential energy)\n  V̇ = q̇ᵀτ  →  passive with input τ, output q̇\n\nIDA-PBC (Interconnection and Damping Assignment — Passivity Based Control):\n  Desired closed-loop energy: H_d(x) (shape to have minimum at setpoint)\n  Inject virtual damping: u = u_es + u_di  (energy shaping + damping injection)\n\n  RESULT: Closed loop is passive with modified energy H_d → converges to minimum\n\nADVANTAGES:\n  Global stability results for robot/power electronics control\n  Physical interpretation of control action\n  Modular: can interconnect passive subsystems → passive total system",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1",
+  "source_markdown": "control-theory\\06-NONLINEAR-CONTROL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 384,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether a 2D system has interpretable global behavior",
+          "Phase plane and Poincare-Bendixson analysis",
+          "The geometry does not generalize cleanly beyond two states"
+        ],
+        [
+          "Whether stability needs proof beyond local linearization",
+          "Lyapunov direct method or SOS for polynomial systems",
+          "Finding a Lyapunov function is constructive art, not a push-button test"
+        ],
+        [
+          "Whether nonlinearities can be exactly canceled",
+          "Feedback linearization",
+          "Zero dynamics must be stable and the diffeomorphism must hold on the domain"
+        ],
+        [
+          "Whether finite-time disturbance rejection is the goal",
+          "Sliding mode control",
+          "Chattering can damage actuators; boundary layers weaken exact rejection"
+        ],
+        [
+          "Whether the plant has strict-feedback structure",
+          "Backstepping or dynamic surface control",
+          "Backstepping assumes known nonlinear terms or an adaptive approximation"
+        ],
+        [
+          "Whether energy structure is the design handle",
+          "Passivity-based control or IDA-PBC",
+          "Passivity gives storage/dissipation logic, not arbitrary trajectory tracking"
+        ]
+      ]
+    }
+  ]
+}

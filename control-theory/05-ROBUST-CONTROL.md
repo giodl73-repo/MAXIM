@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:control-theory:robust-control
+kind: guide
+module: control-theory
+section: control-theory
+title: Robust Control
+status: source-custody
+source_custody: partial
+current_path: control-theory/05-ROBUST-CONTROL.md
+canonical_path: control-theory/05-ROBUST-CONTROL.md
+backsource_ids: [proof-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]
+concepts: [robust, control]
+root_concepts: [robust, control]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Robust Control
 
 ## The Big Picture
@@ -29,7 +48,7 @@
 │                                                                     │
 │  CLASSICAL METRICS vs ROBUST METRICS:                              │
 │  Classical: gain margin, phase margin (single SISO loop)            │
-│  Robust:    H∞ norm of closed-loop map (MIMO, structured uncertainty│
+│  Robust:    H∞ norm of closed-loop map (MIMO, structured Δ)          │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 

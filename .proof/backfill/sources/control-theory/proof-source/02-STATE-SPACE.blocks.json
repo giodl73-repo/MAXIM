@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "control-theory\\02-STATE-SPACE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              STATE-SPACE MENTAL MODEL                            |\n|                                                                  |\n|  Physical system:                                                |\n|    Inputs u(t) ─────→ [PLANT DYNAMICS] ─────→ Outputs y(t)       |\n|                           ↕                                      |\n|                        State x(t)                                |\n|                   (internal variables)                           |\n|                                                                  |\n|  Equations:                                                      |\n|    ẋ = Ax + Bu    (state update, vector ODE)                     |\n|    y  = Cx + Du   (output equation)                              |\n|                                                                  |\n|  x ∈ ℝⁿ  : state vector (position, velocity, temperature, ...)   |\n|  u ∈ ℝᵐ  : input vector (voltages, forces, flow rates, ...)      |\n|  y ∈ ℝᵖ  : output vector (sensor measurements)                   |\n|  A ∈ ℝⁿˣⁿ: system matrix    (dynamics)                           |\n|  B ∈ ℝⁿˣᵐ: input matrix     (how input enters)                   |\n|  C ∈ ℝᵖˣⁿ: output matrix    (what we can observe)                |\n|  D ∈ ℝᵖˣᵐ: feedthrough (often 0 in physical systems)             |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 87,
+      "heading_context": "### General Procedure",
+      "confidence": "candidate",
+      "text": "Given: nth-order ODE   y^(n) + a_{n-1}y^(n-1) + ... + a₁ẏ + a₀y = b_m u^(m) + ... + b₀u\n\nSet state variables:   x₁ = y, x₂ = ẏ, ..., xₙ = y^(n-1)\n\nCompanion (controllable canonical) form:\n  A = [0   1   0   ...  0 ]\n      [0   0   1   ...  0 ]\n      [⋮                  ]\n      [0   0   0   ...  1 ]\n      [-a₀ -a₁ -a₂ ... -a_{n-1}]\n\n  B = [0; 0; ... ; 0; 1]  (or with input derivatives: more complex)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 124,
+      "heading_context": "## Solution to State Equations",
+      "confidence": "candidate",
+      "text": "### Homogeneous (u=0): Matrix Exponential",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "### General Solution: Variation of Parameters",
+      "confidence": "candidate",
+      "text": "ẋ = Ax + Bu, x(0) = x₀\n\nx(t) = e^{At} x₀ + ∫₀ᵗ e^{A(t-τ)} B u(τ) dτ\n\n       ───────────   ────────────────────────────────\n       homogeneous   particular (convolution with input)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 242,
+      "heading_context": "## State Feedback Control",
+      "confidence": "candidate",
+      "text": "CLOSED-LOOP SYSTEM with state feedback:\n  u = -Kx + Nr   (K ∈ ℝᵐˣⁿ, N = precompensator for tracking)\n\n  ẋ = Ax + Bu = Ax + B(-Kx + Nr) = (A - BK)x + BNr\n  y  = Cx\n\n  Closed-loop A_cl = A - BK\n  Closed-loop eigenvalues = eigenvalues of (A - BK)\n\nGOAL: Choose K to place eigenvalues of A - BK at desired locations.\n\nPOLE PLACEMENT (arbitrary):\n  Theorem: If (A,B) is controllable, eigenvalues of (A-BK) can be\n  placed ANYWHERE in ℂ by appropriate choice of K.\n\n  SISO (m=1): Ackermann's formula\n    K = eₙᵀ 𝒞⁻¹ p(A)\n    where eₙᵀ = [0 ... 0 1], p(A) = desired characteristic polynomial evaluated at A\n\n  MIMO: more degrees of freedom; use place() algorithms or optimization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 267,
+      "heading_context": "### Desired Pole Placement",
+      "confidence": "candidate",
+      "text": "DESIRED POLE LOCATIONS depend on specs:\n  Rise time tr: ωn ≈ 1.8/tr\n  Overshoot: ζ from OS% = exp(-πζ/√(1-ζ²))\n  Settling time: ζωn ≈ 4/ts (2% criterion)\n\n  Place dominant poles at s = -ζωn ± jωn√(1-ζ²)\n  Place remaining (n-2) poles 5-10× farther left (fast modes, negligible)\n\n  Rule of thumb: non-dominant poles at Re(s) < 5 × Re(dominant poles)\n\nENERGY CONSIDERATION:\n  Poles too far left → fast response but large u(t) values\n  Physical actuators have limits: don't place poles unrealistically fast",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 289,
+      "heading_context": "## State Observer (Luenberger Observer)",
+      "confidence": "candidate",
+      "text": "OBSERVER (ESTIMATOR):\n  x̂̇ = Ax̂ + Bu + L(y - Cx̂)\n     = (A - LC)x̂ + Bu + Ly\n\n  x̂ = estimated state\n  L ∈ ℝⁿˣᵖ = observer gain matrix (to be designed)\n\nESTIMATION ERROR:\n  Define ẽ = x - x̂\n\n  ẽ̇ = ẋ - x̂̇\n     = (Ax + Bu) - ((A - LC)x̂ + Bu + Ly)\n     = A(x - x̂) - LC(x - x̂)\n     = (A - LC)ẽ\n\n  Error dynamics: ẽ(t) = e^{(A-LC)t} ẽ(0)\n\n  Choose L so eigenvalues of (A - LC) are stable and fast\n  → error ẽ → 0 exponentially\n\nPOLE PLACEMENT FOR OBSERVER:\n  Theorem: If (A,C) is observable, eigenvalues of (A-LC) can be placed\n  anywhere by appropriate choice of L.\n  (Dual of state feedback! Just replace: A→Aᵀ, B→Cᵀ, K→Lᵀ)\n\nOBSERVER POLE PLACEMENT GUIDELINE:\n  Observer poles 3-10× faster than controller poles\n  (want estimation to converge before control loop cares)\n  But: faster observer → more noise amplification",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 403,
+      "heading_context": "## Discrete-Time State-Space",
+      "confidence": "candidate",
+      "text": "**Software systems bridge:** The discrete-time state equation x[k+1] = A_d x[k] + B_d u[k] is structurally identical to a state machine or actor model: current state + input yields next state. Every microservice with internal state (connection pool count, circuit breaker state, request queue depth) is a discrete-time state-space system. A_d captures how internal state propagates between time steps; B_d captures how external inputs (requests, events, configuration changes) perturb it. Modeling a service dependency graph as a coupled discrete state-space system is the formal version of what SREs do informally when reasoning about cascading failures.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

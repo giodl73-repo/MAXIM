@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:control-theory:mpc
+kind: guide
+module: control-theory
+section: control-theory
+title: Model Predictive Control
+status: source-custody
+source_custody: partial
+current_path: control-theory/07-MPC.md
+canonical_path: control-theory/07-MPC.md
+backsource_ids: [proof-backfill:control-theory:07-mpc, git-history:control-theory:07-mpc]
+concepts: [mpc]
+root_concepts: [mpc]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Model Predictive Control
 
 ## The Big Picture

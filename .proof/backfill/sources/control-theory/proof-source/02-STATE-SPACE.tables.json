@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "control-theory\\02-STATE-SPACE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 438,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether a MIMO model needs state-space rather than transfer functions",
+          "Build the `(A,B,C,D)` realization",
+          "The chosen states are not unique; poor coordinates can hide structure"
+        ],
+        [
+          "Whether inputs can move every internal mode",
+          "Rank the controllability matrix `C`",
+          "Stabilizability is enough if only stable modes are unreachable"
+        ],
+        [
+          "Whether outputs reveal every internal mode",
+          "Rank the observability matrix `O`",
+          "Detectability is enough if only stable modes are hidden"
+        ],
+        [
+          "Whether full-state feedback can place poles",
+          "Use `K` from pole placement or Ackermann's formula",
+          "Pole placement assumes accurate state access and a controllable pair"
+        ],
+        [
+          "Whether measured outputs can support state feedback",
+          "Add a Luenberger observer on `A - LC`",
+          "Observer poles amplify noise if pushed too fast"
+        ],
+        [
+          "Whether controller and observer can be designed separately",
+          "Apply the separation principle",
+          "The principle is linear-model local; constraints and nonlinearities can break it"
+        ],
+        [
+          "Whether a nonlinear state model is stable",
+          "Search for a Lyapunov function `V(x)`",
+          "Finding `V` is the hard part; failure to find one is not instability"
+        ],
+        [
+          "Whether continuous design survives digital implementation",
+          "Discretize with zero-order hold",
+          "Sampling, delay, and actuator saturation can dominate the continuous design"
+        ],
+        [
+          "Whether state-space matches an old transfer-function view",
+          "Compute `G(s) = C(sI-A)^-1B + D`",
+          "Pole-zero cancellations can erase internal unstable modes from `G(s)`"
+        ]
+      ]
+    }
+  ]
+}
