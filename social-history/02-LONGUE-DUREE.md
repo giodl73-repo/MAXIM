@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-history:longue-duree
+kind: guide
+module: social-history
+section: social-history
+title: Braudel and the Longue Durée
+status: source-custody
+source_custody: partial
+current_path: social-history/02-LONGUE-DUREE.md
+canonical_path: social-history/02-LONGUE-DUREE.md
+backsource_ids: [proof-backfill:social-history:02-longue-duree, git-history:social-history:02-longue-duree]
+concepts: [longue, duree]
+root_concepts: [longue, duree]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Braudel and the Longue Durée
 
 ## The Big Picture
@@ -12,19 +31,19 @@ medium-term economic and social cycles, to the fast-moving events of conventiona
 |                 BRAUDEL'S THREE TEMPORAL LEVELS                   |
 |                                                                   |
 |  LEVEL            TIMESCALE       SUBJECT           MOTION        |
-|  +---------------------------------------------------------------+|
-|  | LONGUE DURÉE  | Centuries/    | Geography,       | Nearly       ||
-|  | (Long run)    | millennia     | climate, culture,| motionless   ||
-|  |               |               | mentalités       | (quasi-      ||
-|  |               |               |                  | immobile)    ||
-|  +---------------------------------------------------------------+|
-|  | CONJUNCTURE   | Decades/      | Economic cycles, | Slow         ||
-|  | (Medium run)  | generations   | social trends,   | rhythms;     ||
-|  |               |               | price movements  | undulation   ||
-|  +---------------------------------------------------------------+|
-|  | ÉVÉNEMENTS    | Days/years    | Battles, treaties,| Fast but     ||
-|  | (Events)      |               | reigns, decisions | ephemeral    ||
-|  +---------------------------------------------------------------+|
+|   --------------------------------------------------------------- |
+|    LONGUE DURÉE    Centuries/      Geography,         Nearly      |
+|    (Long run)      millennia       climate, culture,  motionless  |
+|                                    mentalités         (quasi-     |
+|                                                       immobile)   |
+|   --------------------------------------------------------------- |
+|    CONJUNCTURE     Decades/        Economic cycles,   Slow        |
+|    (Medium run)    generations     social trends,     rhythms;    |
+|                                    price movements    undulation  |
+|   --------------------------------------------------------------- |
+|    ÉVÉNEMENTS      Days/years      Battles, treaties,  Fast but   |
+|    (Events)                        reigns, decisions   ephemeral  |
+|   --------------------------------------------------------------- |
 |                                                                   |
 |  Traditional history is 90% at the événements level.              |
 |  Braudel says the real action is at the longue durée level.       |

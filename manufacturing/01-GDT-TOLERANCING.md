@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:manufacturing:gdt-tolerancing
+kind: guide
+module: manufacturing
+section: manufacturing
+title: GDandT and Tolerancing (ASME Y14.5)
+status: source-custody
+source_custody: partial
+current_path: manufacturing/01-GDT-TOLERANCING.md
+canonical_path: manufacturing/01-GDT-TOLERANCING.md
+backsource_ids: [proof-backfill:manufacturing:01-gdt-tolerancing, git-history:manufacturing:01-gdt-tolerancing]
+concepts: [gdt, tolerancing]
+root_concepts: [gdt, tolerancing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # GD&T and Tolerancing (ASME Y14.5)
 
 ## The Big Picture

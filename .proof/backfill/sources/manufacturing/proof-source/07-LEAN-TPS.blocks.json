@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "manufacturing\\07-LEAN-TPS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "TPS STRUCTURE (\"The TPS House\")\n──────────────────────────────────────────────────────────────────\n                    ┌─────────────────────────────┐\n                    │     GOAL: Best quality,     │\n                    │  lowest cost, shortest lead │\n                    │    time, best safety,       │\n                    │     high morale             │\n                    └────────────┬────────────────┘\n               .─────────────────┴────────────────────.\n               │                                      │\n    ┌──────────▼──────────┐               ┌───────────▼──────────┐\n    │     JUST-IN-TIME     │               │       JIDOKA          │\n    │  Right part, right  │               │  \"Automation with     │\n    │  amount, right time │               │  a human touch\"       │\n    │                     │               │                       │\n    │  Continuous flow    │               │  Stop when abnormal   │\n    │  Pull system/kanban │               │  Separate man/machine │\n    │  Takt time          │               │  Poka-yoke            │\n    └─────────────────────┘               └───────────────────────┘\n                         │               │\n                         └───────┬───────┘\n                                 │\n    ┌────────────────────────────▼──────────────────────────────┐\n    │                    FOUNDATION                             │\n    │   Heijunka (leveling)  ·  Standardized work               │\n    │   Kaizen (continuous improvement)                         │\n    └────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "### Takt Time",
+      "confidence": "candidate",
+      "text": "TAKT TIME CALCULATION\n──────────────────────────────────────────────────────────────────\nTakt time = Available production time / Customer demand\n\nExample:\n  8-hour shift = 480 min\n  Breaks: 30 min total\n  Available: 450 min\n  Customer demand: 90 units/day\n\n  Takt time = 450 / 90 = 5 min/unit\n\nMeaning: We need to complete one unit every 5 minutes\nto exactly match customer demand. Not faster, not slower.\n\nIf cycle time < takt: over-producing (or waiting)\nIf cycle time > takt: behind (overtime, or lose orders)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "### One-Piece Flow vs Batch",
+      "confidence": "candidate",
+      "text": "BATCH PROCESSING                    ONE-PIECE FLOW\n──────────────────────────────      ──────────────────────────────\nOP1 all 100 → OP2 all 100           OP1 one → OP2 one → OP3 one\n→ OP3 all 100                       → ship one (repeat)\n\nBatch lead time:                    Flow lead time:\n  3 operations × 2 hours each       3 operations × 2 min each\n  = 6 hours for first part          = 6 min for first part\n  = 6 hours for last part           = 6 min for last part (also)\n\nBatch reveals defects late:         Flow reveals defects immediately:\n  Defect at OP1 found at OP3        Defect at OP1 found at OP2\n  100 defective parts already made  1 defective part\n\nFlow requires balanced stations, tight coupling, immediate feedback.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "### Pull System and Kanban",
+      "confidence": "candidate",
+      "text": "PUSH vs PULL\n──────────────────────────────────────────────────────────────────\nPUSH:                              PULL:\nProduction driven by forecast.     Production triggered by actual\nMake to plan.                      consumption downstream.\n\nPlan → OP1 → OP2 → OP3 → Ship     Ship ← OP3 ← OP2 ← OP1 ← Signal\nInventory buffers at each step.    Kanban signals trigger replenishment.\n\nKanban signal types:\n  Kanban card:   physical card authorizes production of one container\n  Empty bin:     two-bin system — empty bin is signal to refill\n  e-Kanban:      electronic signal in ERP/MES\n  Triangle kbn:  reorder point signal\n\nContainer = defined quantity (batch size = ideally 1, practically small)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "### Andon System",
+      "confidence": "candidate",
+      "text": "ANDON CORD / BUTTON\n──────────────────────────────────────────────────────────────────\nWorker notices problem → pulls andon cord → light/sound signals\nTeam lead has time window (e.g., takt time = 5 min) to fix problem\nIf not fixed by end of station → production line stops\n\nCounterintuitive: stopping the line is GOOD\n  → forces root cause resolution immediately\n  → never passes defect downstream\n  → forces problem solving (Kaizen)\n\nToyota stopped their line many times per day.\nWestern factories stopped it almost never.\nToyota had fewer defects.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 193,
+      "heading_context": "### Poka-Yoke (Mistake-Proofing)",
+      "confidence": "candidate",
+      "text": "POKA-YOKE LEVELS\n──────────────────────────────────────────────────────────────────\nLevel 1 — Warning (least strong):\n  Light or alarm when error about to occur\n  Operator can still proceed with error\n\nLevel 2 — Control (medium):\n  Machine stops when abnormality detected\n  Cannot proceed until corrected\n\nLevel 3 — Prevention (strongest):\n  Physical design makes error impossible\n  Wrong part cannot be inserted (keyed connectors)\n  Wrong direction impossible (asymmetric fixture)\n\nExamples:\n  Asymmetric USB-A plug (physical prevention of wrong orientation)\n  Factory: fixtures with limit switches — part correctly seated before machine cycles\n  Assembly: color-coded parts, foolproofed gauges\n  Software analog: type systems (wrong type = compile error, not runtime failure)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "### PDCA (Plan-Do-Check-Act) / PDSA",
+      "confidence": "candidate",
+      "text": "P — Plan:    Identify problem, analyze root cause (5 Why), propose countermeasure\nD — Do:      Implement countermeasure (small scale, controlled)\nC — Check:   Measure results, compare to prediction\nA — Act:     If successful → standardize. If not → return to Plan.\n\n             ┌───────────────────────────────────────────┐\n             │               PDCA Cycle                  │\n             │                                           │\n             │   ┌───────┐         ┌───────┐             │\n             │   │  Act  │◄────────│ Check │            │\n             │   └───┬───┘         └───┬───┘            │\n             │       │                 │                 │\n             │   ┌───▼───┐         ┌───▼───┐            │\n             │   │ Plan  │────────►│  Do   │            │\n             │   └───────┘         └───────┘            │\n             └───────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 257,
+      "heading_context": "### PDCA (Plan-Do-Check-Act) / PDSA",
+      "confidence": "candidate",
+      "text": "### 5 Why (Root Cause Analysis)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "### 5 Why (Root Cause Analysis)",
+      "confidence": "candidate",
+      "text": "EXAMPLE: Machine stopped\n  Why 1? Overload, fuse blown\n  Why 2? Insufficient lubrication on bearing\n  Why 3? Oil pump not pumping adequately\n  Why 4? Pump intake clogged with debris\n  Why 5? No filter on intake, and no schedule to clean\n  Countermeasure: Add intake filter, schedule cleaning\n\nNot: replace fuse → same failure in 2 weeks\n     replace pump → same failure next month",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 299,
+      "heading_context": "## Value Stream Mapping (VSM)",
+      "confidence": "candidate",
+      "text": "TYPICAL VSM SYMBOLS\n──────────────────────────────────────────────────────────────────\nFactory/Supplier:  ┌─┐        Process box:    ┌────────┐\n                   │ │                        │ Stamp  │\n                   └─┘                        └────────┘\n\nInventory:         △           Push arrow:    ───►\n\nInformation:       ─ ─ ─►      Pull (kanban): ───○►\n\nTimeline:          ▲  cycle    Total lead time vs value-add time\n                   │  time\n                   ▼  wait\n\nTypical VSM finding:\n  Total lead time:    15 days\n  Value-added time:   45 minutes\n  → 99.7% waste in time (waiting, transport, inventory)\n  → Map shows where to focus improvement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "## 5S Methodology",
+      "confidence": "candidate",
+      "text": "5S (JAPANESE → ENGLISH)\n──────────────────────────────────────────────────────────────────\nSeiri    → Sort:       Remove everything not needed at workstation\nSeiton   → Straighten: \"A place for everything, everything in its place\"\n              Shadow boards, floor tape, labeled locations\nSeiso    → Shine:      Clean workstation daily (reveals abnormalities)\n              \"Cleaning is inspection\"\nSeiketsu → Standardize: Document the standard state, make visible\nShitsuke → Sustain:    Discipline to maintain standards, audit process\n\n6S adds:\nSafety:  Hazard identification built into workplace organization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 346,
+      "heading_context": "## Theory of Constraints (TOC) — Goldratt",
+      "confidence": "candidate",
+      "text": "SYSTEM CONSTRAINT (BOTTLENECK)\n──────────────────────────────────────────────────────────────────\nEvery system has exactly one constraint at any time.\nThroughput of entire system = throughput of constraint.\nImproving non-constraint operations achieves nothing for throughput.\n\nTOC 5 Steps:\n  1. Identify the constraint\n  2. Exploit the constraint (maximize its output, stop starving it)\n  3. Subordinate everything else to the constraint\n     (don't over-produce upstream, buffer inventory in front of constraint)\n  4. Elevate the constraint (invest to increase capacity if needed)\n  5. Return to step 1 (constraint will move after you fix it)\n\nDrum-Buffer-Rope:\n  Drum = constraint sets pace (the \"drum\" of the system)\n  Buffer = inventory in front of constraint (protects throughput)\n  Rope = signal from constraint to release work upstream (pull signal)\n\nSoftware connection:\n  Deployment pipeline has a constraint (e.g., slow integration tests)\n  Adding more devs without fixing constraint = more WIP, same throughput\n  Fix the constraint first (parallelize tests, invest in infrastructure)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

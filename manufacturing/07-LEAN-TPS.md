@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:manufacturing:lean-tps
+kind: guide
+module: manufacturing
+section: manufacturing
+title: Lean Manufacturing and the Toyota Production System
+status: source-custody
+source_custody: partial
+current_path: manufacturing/07-LEAN-TPS.md
+canonical_path: manufacturing/07-LEAN-TPS.md
+backsource_ids: [proof-backfill:manufacturing:07-lean-tps, git-history:manufacturing:07-lean-tps]
+concepts: [lean, tps]
+root_concepts: [lean, tps]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lean Manufacturing and the Toyota Production System
 
 ## The Big Picture

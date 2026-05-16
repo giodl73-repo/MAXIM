@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-history:postcolonial
+kind: guide
+module: social-history
+section: social-history
+title: Postcolonial and Subaltern History
+status: source-custody
+source_custody: partial
+current_path: social-history/06-POSTCOLONIAL.md
+canonical_path: social-history/06-POSTCOLONIAL.md
+backsource_ids: [proof-backfill:social-history:06-postcolonial, git-history:social-history:06-postcolonial]
+concepts: [postcolonial]
+root_concepts: [postcolonial]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Postcolonial and Subaltern History
 
 ## The Big Picture
@@ -12,25 +31,25 @@ field challenges who tells history, whose perspective counts, and what categorie
 |              POSTCOLONIAL HISTORY LANDSCAPE                       |
 |                                                                   |
 |  INTELLECTUAL ROOTS             KEY SCHOOLS                       |
-|  +---------------------+        +---------------------------+     |
-|  | Frantz Fanon:       |        | SUBALTERN STUDIES         |     |
-|  | Wretched of the     |        | (India, 1982-)            |     |
-|  | Earth (1961)        |        | Guha, Spivak, Bhabha,     |     |
-|  |                     |        | Chakrabarty               |     |
-|  | Aimé Césaire:       |        |                           |     |
-|  | Discourse on        |        | ORIENTALISM               |     |
-|  | Colonialism (1950)  |        | (Said 1978)               |     |
-|  |                     |        |                           |     |
-|  | C.L.R. James:       |        | COLONIAL DISCOURSE        |     |
-|  | Black Jacobins (1938|        | ANALYSIS                  |     |
-|  |                     |        | (Bhabha, Spivak)          |     |
-|  +---------------------+        +---------------------------+     |
-   |                                                                |
-   |  KEY CONCEPTS                                                  |
-|  +-----------------------------------------------------------+    |
-|  | Subaltern  |  Orientalism  |  Hybridity  |  Mimicry      |    |
-|  | Provincializing Europe  |  Coloniality  |  Decolonial    |    |
-|  +-----------------------------------------------------------+    |
+|   ---------------------          ---------------------------      |
+|    Frantz Fanon:                  SUBALTERN STUDIES               |
+|    Wretched of the                (India, 1982-)                  |
+|    Earth (1961)                   Guha, Spivak, Bhabha,           |
+|                                   Chakrabarty                     |
+|    Aimé Césaire:                                                  |
+|    Discourse on                   ORIENTALISM                     |
+|    Colonialism (1950)             (Said 1978)                     |
+|                                                                   |
+|    C.L.R. James:                  COLONIAL DISCOURSE              |
+|    Black Jacobins (1938           ANALYSIS                        |
+|                                   (Bhabha, Spivak)                |
+|   ---------------------          ---------------------------      |
+|                                                                   |
+|  KEY CONCEPTS                                                     |
+|   -----------------------------------------------------------     |
+|    Subaltern     Orientalism     Hybridity     Mimicry            |
+|    Provincializing Europe     Coloniality     Decolonial          |
+|   -----------------------------------------------------------     |
 +-------------------------------------------------------------------+
 ```
 

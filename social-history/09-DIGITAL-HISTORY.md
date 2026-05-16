@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-history:digital-history
+kind: guide
+module: social-history
+section: social-history
+title: Digital History and Big Data Methods
+status: source-custody
+source_custody: partial
+current_path: social-history/09-DIGITAL-HISTORY.md
+canonical_path: social-history/09-DIGITAL-HISTORY.md
+backsource_ids: [proof-backfill:social-history:09-digital-history, git-history:social-history:09-digital-history]
+concepts: [digital, history]
+root_concepts: [digital, history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital History and Big Data Methods
 
 ## The Big Picture
@@ -12,28 +31,28 @@ science and data science; the questions are historical.
 |              DIGITAL HISTORY LANDSCAPE                            |
 |                                                                   |
 |  DATA SOURCES              METHODS                 APPLICATIONS   |
-|  +---------------+         +------------------+   +-----------+   |
-|  | Digitized     |         | Text mining:     |   | Corpus    |  |
-|  | archives      |         | NLP, topic       |   | analysis  |  |
-|  | Newspapers    |         | modeling (LDA),  |   |           |  |
-|  | Books         |         | word2vec,        |   | Discourse |  |
-|  | Census data   |         | sentiment        |   | change    |  |
-|  | Maps          |         | analysis         |   |           |  |
-|  | Photos        |         +------------------+   | Language  |  |
-|  | Social media  |         | GIS: mapping,    |   | change    |  |
-|  |               |         | spatial analysis |   |           |  |
-|  | Linked        |         +------------------+   | Migration |  |
-|  | Open Data     |         | Network analysis:|   | routes    |  |
-|  | (genealogy,   |         | social nets,     |   |           |  |
-|  | authority     |         | correspondence   |   | Social    |  |
-|  | files)        |         | networks         |   | networks  |  |
-|  +---------------+         +------------------+   +-----------+  |
-|                                                                  |
-|  KEY TOOLS AND PROJECTS                                          |
-|  +-----------------------------------------------------------+   |
-|  | Voyant Tools  |  MALLET (topic model)  |  QGIS / ArcGIS  |    |
-|  | Gephi (nets)  |  Google Ngrams  |  JSTOR DFR  |  Palladio  |    |
-|  +-----------------------------------------------------------+    |
+|   ---------------           ------------------     -----------    |
+|    Digitized                 Text mining:           Corpus        |
+|    archives                  NLP, topic             analysis      |
+|    Newspapers                modeling (LDA),                      |
+|    Books                     word2vec,              Discourse     |
+|    Census data               sentiment              change        |
+|    Maps                      analysis                             |
+|    Photos                   ------------------      Language      |
+|    Social media              GIS: mapping,          change        |
+|                              spatial analysis                     |
+|    Linked                   ------------------      Migration     |
+|    Open Data                 Network analysis:      routes        |
+|    (genealogy,               social nets,                         |
+|    authority                 correspondence         Social        |
+|    files)                    networks               networks      |
+|   ---------------           ------------------     -----------    |
+|                                                                   |
+|  KEY TOOLS AND PROJECTS                                           |
+|   -----------------------------------------------------------     |
+|    Voyant Tools     MALLET (topic model)     QGIS / ArcGIS        |
+|    Gephi (nets)     Google Ngrams     JSTOR DFR     Palladio      |
+|   -----------------------------------------------------------     |
 +-------------------------------------------------------------------+
 ```
 

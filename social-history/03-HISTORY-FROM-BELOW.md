@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:social-history:history-from-below
+kind: guide
+module: social-history
+section: social-history
+title: History from Below: Workers and Everyday Life
+status: source-custody
+source_custody: partial
+current_path: social-history/03-HISTORY-FROM-BELOW.md
+canonical_path: social-history/03-HISTORY-FROM-BELOW.md
+backsource_ids: [proof-backfill:social-history:03-history-from-below, git-history:social-history:03-history-from-below]
+concepts: [history, from, below]
+root_concepts: [history, from]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # History from Below: Workers and Everyday Life
 
 ## The Big Picture

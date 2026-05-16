@@ -1,0 +1,112 @@
+{
+  "schema_version": "1",
+  "source_markdown": "social-history\\09-DIGITAL-HISTORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 390,
+      "heading_context": "## Method Comparison: Choosing the Right Computational Approach",
+      "headers": [
+        "Method",
+        "Input Data",
+        "Core Operation",
+        "Output",
+        "Typical Historical Question",
+        "Key Limitation"
+      ],
+      "rows": [
+        [
+          "**Text mining / word frequency**",
+          "Digitized text corpora (books, newspapers, correspondence)",
+          "Count, compare, track frequency over time",
+          "Frequency trends, vocabulary shifts",
+          "How did the word \"slavery\" / \"freedom\" / \"democracy\" change in frequency and context over time?",
+          "Context-blind: raw counts don't distinguish usage types; must be interpreted with historical knowledge"
+        ],
+        [
+          "**Topic modeling (LDA)**",
+          "Large text corpora (100s–100,000s of documents)",
+          "Probabilistic inference of latent topic structure",
+          "Topic distributions per document; topic prevalence over time",
+          "What themes dominated Civil War newspaper discourse, and how did they shift by year?",
+          "Requires human interpretation; sensitive to hyperparameter choice (number of topics k); captures co-occurrence, not argument or meaning"
+        ],
+        [
+          "**Word embeddings (word2vec, BERT)**",
+          "Diachronic text corpora (separated by period)",
+          "Train embedding spaces; compare vector positions across periods",
+          "Semantic neighborhoods; measurable meaning shift",
+          "How did \"gay\" / \"cell\" / \"computer\" change semantic meaning across the 20th century?",
+          "Requires large corpora per period; captures distributional semantics, not denotative meaning"
+        ],
+        [
+          "**GIS / spatial analysis**",
+          "Geocoded historical data (census, trade, disease, migration)",
+          "Map, layer, and spatially query data; temporal animation",
+          "Maps, spatial statistics, spatial correlations",
+          "Where did Atlantic slave trade voyages originate, and how did routes shift over time?",
+          "Data georeferencing is labor-intensive; historical place names change; projection choices affect visual interpretation"
+        ],
+        [
+          "**Network analysis**",
+          "Relational data (correspondence, citations, trade, kinship)",
+          "Graph construction; centrality, clustering, community detection",
+          "Node rankings, community structure, brokerage positions",
+          "Who were the central brokers in early modern intellectual correspondence networks?",
+          "Requires complete-enough data to be meaningful; static analysis misses temporal dynamics; edge definition is a theory-laden choice"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 400,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to do...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Find word frequency trends in historical texts",
+          "Google Ngrams, Voyant Tools"
+        ],
+        [
+          "Topic modeling of a document corpus",
+          "MALLET, Python stm"
+        ],
+        [
+          "Detect semantic change in vocabulary over time",
+          "Diachronic word embeddings (word2vec)"
+        ],
+        [
+          "Map historical data spatially",
+          "QGIS, ArcGIS, Palladio"
+        ],
+        [
+          "Analyze historical correspondence networks",
+          "Gephi, Palladio"
+        ],
+        [
+          "Access digitized historical newspapers",
+          "Chronicling America, British Newspaper Archive"
+        ],
+        [
+          "Access historical census data",
+          "IPUMS, national census archives"
+        ],
+        [
+          "Transcribe handwritten historical documents",
+          "Transkribus"
+        ],
+        [
+          "Study Atlantic slave trade spatially",
+          "SLAVEVOYAGES database"
+        ],
+        [
+          "Apply quantitative macro-history models",
+          "Turchin (Seshat, Ages of Discord)"
+        ]
+      ]
+    }
+  ]
+}

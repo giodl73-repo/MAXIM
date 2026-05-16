@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:manufacturing:casting-forming
+kind: guide
+module: manufacturing
+section: manufacturing
+title: Casting, Forging, and Forming Processes
+status: source-custody
+source_custody: partial
+current_path: manufacturing/05-CASTING-FORMING.md
+canonical_path: manufacturing/05-CASTING-FORMING.md
+backsource_ids: [proof-backfill:manufacturing:05-casting-forming, git-history:manufacturing:05-casting-forming]
+concepts: [casting, forming]
+root_concepts: [casting, forming]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Casting, Forging, and Forming Processes
 
 ## The Big Picture

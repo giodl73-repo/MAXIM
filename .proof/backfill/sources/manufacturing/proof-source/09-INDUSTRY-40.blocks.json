@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "manufacturing\\09-INDUSTRY-40.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "INDUSTRY 4.0 TECHNOLOGY STACK\n──────────────────────────────────────────────────────────────────\n┌─────────────────────────────────────────────────────────────────┐\n│  INTELLIGENCE LAYER                                             │\n│  AI/ML (predictive maintenance, quality, scheduling)            │\n│  Digital Twin (virtual model updated with real data)            │\n│  Simulation (virtual commissioning, process optimization)       │\n├─────────────────────────────────────────────────────────────────┤\n│  INTEGRATION LAYER                                               │\n│  MES ↔ ERP integration   PLM ↔ shop floor                       │\n│  Horizontal: machine-to-machine (M2M)                           │\n│  Vertical: shop floor → MES → ERP → cloud                      │\n├─────────────────────────────────────────────────────────────────┤\n│  COMMUNICATION LAYER                                            │\n│  Industrial IoT (IIoT)   OPC UA (machine protocol)              │\n│  5G private networks     TSN (Time-Sensitive Networking)        │\n│  Edge computing          MQTT / AMQP messaging                  │\n├─────────────────────────────────────────────────────────────────┤\n│  SENSING LAYER                                                   │\n│  Machine sensors (vibration, temperature, power)                │\n│  Vision systems (AOI, dimensional inspection)                   │\n│  Coordinate measuring machines (in-line CMMs)                   │\n│  RFID / barcode tracking                                         │\n├─────────────────────────────────────────────────────────────────┤\n│  PHYSICAL LAYER                                                 │\n│  CNC machines · robots · AGVs · conveyors · actuators           │\n│  Additive manufacturing · Smart tooling                         │\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## The Four Industrial Revolutions",
+      "confidence": "candidate",
+      "text": "HISTORICAL CONTEXT\n──────────────────────────────────────────────────────────────────\nIndustry 1.0 (1760s–1840s):\n  Steam power → mechanization\n  Water/steam → first factories, textile mills\n  Humans + machines replace manual craft\n\nIndustry 2.0 (1870s–1910s):\n  Electricity → assembly line, mass production\n  Ford Model T, scientific management (Taylor)\n  Standardized parts, interchangeable components\n\nIndustry 3.0 (1960s–1990s):\n  Electronics + IT → automation, CNC, robots\n  PLC control, numerical control machines\n  ERP systems, CAD/CAM, MRP\n\nIndustry 4.0 (2010s–present):\n  Cyber-physical systems + IoT + AI\n  Physical and digital worlds merge\n  Real-time, adaptive, autonomous",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "### Industrial IoT (IIoT)",
+      "confidence": "candidate",
+      "text": "IIoT ARCHITECTURE\n──────────────────────────────────────────────────────────────────\nSensor/Device Layer:\n  Vibration sensors (bearing fault detection)\n  Thermocouple, PT100 (temperature monitoring)\n  Current sensors (motor health)\n  Acoustic emission (crack detection, tool wear)\n  Vision cameras (defect detection, dimensional)\n  Force/torque sensors (robot and spindle)\n\nEdge Layer (on-premise):\n  Edge gateway: data aggregation, local processing\n  Reduces latency for real-time control decisions\n  Bandwidth reduction before cloud\n  OPC UA server: exposes machine data to factory network\n\nPlant Network:\n  Ethernet/IP, PROFINET, EtherCAT (real-time fieldbus)\n  OPC UA (unified namespace, vendor-agnostic)\n  MQTT (lightweight publish-subscribe for IIoT)\n  TSN (IEEE 802.1Qxx) — deterministic Ethernet for real-time\n\nCloud Layer:\n  AWS IoT, Azure IoT Hub, GCP IoT Core\n  Time-series databases (InfluxDB, TimescaleDB, Historian)\n  Analytics platform (dashboards, ML training)\n  Long-term storage, cross-facility visibility",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "### OPC UA (OPC Unified Architecture)",
+      "confidence": "candidate",
+      "text": "OPC UA: THE MANUFACTURING INTERNET PROTOCOL\n──────────────────────────────────────────────────────────────────\nPredecessor: OPC Classic (DCOM-based, Windows-only, 1990s)\nOPC UA (2008+): Platform-independent, secure, semantically rich\n\nArchitecture:\n  Address space = hierarchical node model (like DOM/XML)\n  Methods = callable functions on machine\n  Events = asynchronous notifications\n  Subscriptions = monitored items with configurable update rate\n\nTransport:\n  OPC UA Binary (TCP port 4840) — efficient, low latency\n  OPC UA over HTTPS/WebSocket — firewall-friendly, web integration\n  OPC UA PubSub over MQTT — for large-scale IIoT deployments\n\nCompanion Specifications (domain models):\n  OPC UA for CNC Machining (STEP-NC, tool life, program info)\n  OPC UA for Robotics (robot kinematics, status, joint data)\n  OPC UA for Welding (weld parameters, recipe management)\n  OPC UA for Plastics and Rubber Machinery\n\nBridge: OPC UA is to manufacturing what gRPC/REST is to microservices.\nVendor-neutral contract language for machine-to-machine communication.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "### Digital Twin",
+      "confidence": "candidate",
+      "text": "DIGITAL TWIN CONCEPT\n──────────────────────────────────────────────────────────────────\nTypes (NASA / Grieves classification):\n\nDigital Model:      Static model, no live data connection\n                    CAD model, simulation model\n\nDigital Shadow:     One-way live data flow: physical → digital\n                    Machine sensors feed virtual model\n                    Virtual reflects real state\n\nDigital Twin:       Two-way: physical ↔ digital\n                    Virtual drives physical behavior\n                    (true twin = feedback control loop)\n\n┌──────────────────────────────────────────────────────────────┐\n│  Physical                    Digital                         │\n│  machine                     twin                            │\n│  ┌─────────┐    sensor  →    ┌─────────┐                     │\n│  │ spindle │    data          │ FE model│                     │\n│  │ thermal │ ─────────────►  │ updated │                     │\n│  │ growth  │                  │ in real │                     │\n│  └─────────┘ ◄──────────────  │  time  │                     │\n│               control         └─────────┘                     │\n│               commands        runs what-if                    │\n│                               predicts failure                │\n└──────────────────────────────────────────────────────────────┘\n\nApplications:\n  Predictive maintenance (predicts bearing failure hours ahead)\n  Thermal compensation (CNC machine corrects for thermal growth)\n  Process optimization (find optimal parameters without trials)\n  Virtual commissioning (test control logic on virtual machine)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "### Predictive Maintenance (PdM)",
+      "confidence": "candidate",
+      "text": "MAINTENANCE STRATEGY EVOLUTION\n──────────────────────────────────────────────────────────────────\nReactive (breakdown):  Fix after failure\n                       Lowest direct cost, highest downtime risk\n                       OK for non-critical, easily replaced\n\nPreventive:            Time-based intervals (change oil every 2000h)\n                       Wastes good components, may miss early failure\n\nPredictive:            Condition-based (monitor, intervene when needed)\n                       Higher setup cost, lowest total lifecycle cost\n                       Requires sensor data + analytics\n\nPrescriptive:          AI tells you what maintenance to do AND when\n                       Integrates PdM with work order scheduling\n\nPdM technologies:\n  Vibration analysis:    FFT of vibration signal → bearing, gear fault\n  Acoustic emission:     High-frequency ultrasound → tool wear, leaks\n  Thermography (IR):     Hot bearings, electrical faults, insulation\n  Oil analysis:          Particle count, viscosity → gearbox wear\n  Current signature:     Motor current FFT → rotor, mechanical faults\n  CNC spindle load:      Power monitoring → tool wear, breakage detection",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "## Cyber-Physical Systems (CPS)",
+      "confidence": "candidate",
+      "text": "CPS CHARACTERISTICS\n──────────────────────────────────────────────────────────────────\nTraditional automation:          CPS:\n  Physical world operates        Physical world continuously\n  separately from models.        modeled in virtual world.\n  Human decides from reports.    Closed feedback loop.\n  Batch updates to models.       Real-time, adaptive.\n\nCPS properties:\n  Embedding:     computation embedded in physical process\n  Networking:    cyber and physical components connected\n  Autonomy:      self-monitoring, self-optimizing, self-healing\n  Heterogeneity: multiple domains, protocols, vendors integrated\n\nSafety critical CPS requirements:\n  Real-time guarantees (deterministic latency)\n  Fault tolerance (no single point of failure)\n  Security (IACS security, IEC 62443)\n  Functional safety (IEC 61508, ISO 13849)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 248,
+      "heading_context": "## Industrial Security (IEC 62443)",
+      "confidence": "candidate",
+      "text": "ICS/OT SECURITY THREAT LANDSCAPE\n──────────────────────────────────────────────────────────────────\nTraditional OT assumption: isolated networks, no internet exposure\nReality: ERP-MES integration = IT-OT convergence = attack surface\n\nNotable incidents:\n  Stuxnet (2010): air-gapped nuclear facility attacked via USB\n  Ukraine power grid (2015): SCADA system compromised, blackout\n  Triton/Trisis (2017): safety system targeted in refinery\n  Colonial Pipeline (2021): IT compromise → OT shutdown precaution\n\nIEC 62443 framework:\n  Security Levels (SL 0–4):\n    SL 1: Casual/coincidental protection\n    SL 2: Intentional, simple means (most industrial)\n    SL 3: Sophisticated, moderate resources\n    SL 4: State-sponsored, advanced persistent threat\n\nDefense in depth (zones and conduits model):\n  Zone = set of assets with same security level\n  Conduit = communication channel between zones\n  Each zone-conduit pair has security requirements\n  Industrial DMZ separates IT and OT networks\n\nPurdue Model (reference architecture):\n  Level 0: Field devices (sensors, actuators)\n  Level 1: Control (PLCs, DCS)\n  Level 2: Supervisory (SCADA, HMI)\n  Level 3: Site operations (MES)\n  Level 3.5: DMZ (firewalls, data diode, historian)\n  Level 4: Business planning (ERP, PLM)\n  Level 5: Enterprise / cloud",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 287,
+      "heading_context": "## Cobots and Human-Robot Collaboration",
+      "confidence": "candidate",
+      "text": "ROBOT TYPES IN MANUFACTURING\n──────────────────────────────────────────────────────────────────\nIndustrial Robot:\n  High speed, high payload, high precision\n  Safety cage required (dangerous to humans)\n  Welding, material handling, press tending\n  6-axis articulated: KUKA, ABB, FANUC, Yaskawa\n\nCobot (Collaborative Robot):\n  Force/torque limited: stops on contact with human\n  No cage required (ISO/TS 15066 compliant)\n  Lower payload (typically 3–35 kg)\n  Easier programming (teach by guiding, offline)\n  UR3/5/10 (Universal Robots), KUKA LBR iiwa, ABB SWIFTI\n\nAMR (Autonomous Mobile Robot):\n  Navigates factory floor autonomously (LiDAR, SLAM)\n  Material delivery, WIP transport\n  No fixed tracks required\n  Amazon Kiva (MobileRobots), Geek+, Fetch, MiR\n\nAGV (Automated Guided Vehicle):\n  Follows fixed path (magnetic tape, laser target, wire)\n  Predictable, simple, high payload\n  Older technology, less flexible",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 321,
+      "heading_context": "### Machine Learning in Manufacturing",
+      "confidence": "candidate",
+      "text": "ML APPLICATIONS IN MANUFACTURING\n──────────────────────────────────────────────────────────────────\nVisual inspection (AOI):\n  CNN classifies defects on product images\n  PCB inspection: missing components, solder bridges\n  Metal surface: scratches, pitting, porosity\n  Replaces human visual inspection (faster, consistent, 24/7)\n\nPredictive quality:\n  Predict final part quality from in-process measurements\n  Before part is complete — adjust or scrap early\n  Reduce CMM inspection need\n\nProcess parameter optimization:\n  Reinforcement learning adjusts machine parameters\n  Weld parameters, injection molding conditions\n  Bayesian optimization for DOE replacement\n\nDemand forecasting → production scheduling:\n  Better than statistical models for complex demand patterns\n  Direct to MES integration for adaptive scheduling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 345,
+      "heading_context": "### Machine Learning in Manufacturing",
+      "confidence": "candidate",
+      "text": "### Additive Manufacturing in Industry 4.0",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 347,
+      "heading_context": "### Additive Manufacturing in Industry 4.0",
+      "confidence": "candidate",
+      "text": "AM + INDUSTRY 4.0 INTEGRATION\n──────────────────────────────────────────────────────────────────\nClosed-loop AM:\n  In-situ monitoring (melt pool cameras, thermal imaging)\n  Real-time layer quality assessment\n  Automated anomaly detection → stop or rework\n  Layer-by-layer quality data (full digital lineage)\n\nDistributed manufacturing:\n  Send digital files, print locally\n  Eliminates supply chain for spare parts\n  Military: print parts in field (DoD AM program)\n  Aerospace: cabin parts on-demand (Airbus)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

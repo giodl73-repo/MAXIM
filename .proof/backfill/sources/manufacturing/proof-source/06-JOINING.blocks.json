@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "manufacturing\\06-JOINING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "JOINING PROCESS MAP\n──────────────────────────────────────────────────────────────────\n                              JOINING\n                               │\n           ┌───────────────────┼───────────────────┐\n           │                   │                   │\n     MECHANICAL           CHEMICAL/THERMAL       COHESIVE\n     FASTENING            JOINING               MATERIAL\n     ─────────            ──────────            ─────────\n     Bolts/screws         Fusion welding        Adhesive bonding\n     Rivets               Solid-state weld      Brazing/soldering\n     Press fit            Brazing/soldering\n     Snap fit             Diffusion bonding\n     Clinching\n\n     Reversible?          Heat input:           Bond quality:\n     Usually yes          High → Low            Adhesive = surface\n     (bolts/rivets)       Fusion welding most   Brazing = capillary\n     Interference fit     Soldering least       Welding = metallurgical\n     = semi-permanent     FSW = intermediate    (strongest)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 55,
+      "heading_context": "### MIG Welding (GMAW — Gas Metal Arc Welding)",
+      "confidence": "candidate",
+      "text": "MIG WELDING SETUP\n──────────────────────────────────────────────────────────────────\nWire electrode feeds through torch continuously.\nArc between wire and workpiece → melts both → forms weld pool.\nShielding gas protects molten metal from atmosphere.\n\n        Wire spool → wire conduit → welding gun\n                                       │\n                              Wire electrode (0.030\"–0.045\")\n                                       │\n                              ┌────────▼────────┐\n                              │   Arc / Pool    │\n                              └─────────────────┘\n                                  ↑ Shielding gas\n                                   │\n                               Solidified weld bead\n\nShielding gas choices:\n  75% Ar + 25% CO₂  →  mild steel (C25), general purpose\n  100% CO₂           →  cheaper, more spatter, deeper penetration\n  98% Ar + 2% O₂     →  stainless steel\n  100% Ar            →  aluminum\n  Tri-mix (Ar+He+CO₂) →  stainless, thick section\n\nTransfer modes:\n  Short circuit:   low current, low heat, thin material (< 3mm)\n  Globular:        high spatter, inefficient, avoid\n  Spray transfer:  high current, high deposition, thick material\n  Pulse MIG:       alternates high/low, better control, less distortion",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "### TIG Welding (GTAW — Gas Tungsten Arc Welding)",
+      "confidence": "candidate",
+      "text": "TIG WELDING\n──────────────────────────────────────────────────────────────────\nNon-consumable tungsten electrode creates arc.\nFiller rod added separately (or autogenous — no filler).\nHigher operator skill. Much better control and quality.\n\n         Tungsten electrode\n              │\n         ┌────▼────┐\n         │  Arc    │\n         └────┬────┘\n            ↑ 100% Argon shielding\n              │                  Filler rod (optional)\n          Weld pool ◄────────────────────────\n              │\n           Weld bead\n\nApplications: aerospace, stainless, titanium, aluminum (AC),\n              thin sheet, pipe welds (root pass), critical joints\n\nAC TIG for aluminum: alternating current provides \"cleaning action\"\n  → breaks up oxide layer (Al₂O₃) on oxide film\n  → DCEN (direct current electrode negative) for steel/Ti\n\nPulse TIG:\n  Alternates peak and background current\n  → excellent control of heat input\n  → thin sheet, heat-sensitive materials, root passes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "### Laser and Electron Beam Welding",
+      "confidence": "candidate",
+      "text": "LASER WELDING (LBW)\n  High-power laser focused to small spot\n  Deep narrow welds (\"keyhole\" mode)\n  Very low heat input, minimal distortion\n  Fast (1–15 m/min for thin sheet)\n  Fiber laser (Nd:YAG, diode pump) → most common\n  CO₂ laser → thick material, large spot\n  Applications: automotive body panels, battery packs, medical\n\nELECTRON BEAM WELDING (EBW)\n  Focused electron beam in vacuum\n  Extremely deep narrow welds (depth:width up to 30:1)\n  Near-zero atmospheric contamination\n  Applications: aerospace (jet engine discs), titanium, refractory metals\n  Limitation: requires vacuum chamber → large parts impractical",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "### Friction Stir Welding (FSW)",
+      "confidence": "candidate",
+      "text": "FSW PROCESS\n──────────────────────────────────────────────────────────────────\nRotating pin tool plunges into workpiece.\nFriction heats metal to plasticized state (below melt).\nTool traverses joint, mechanically stirs material.\nMetals forge together behind tool.\n\n     Shoulder (heats and forges surface)\n         │\n    ┌────▼────┐\n    │  Tool   │\n    └────┬────┘\n         → rotates + translates\n         │\n         Pin (plasticizes and stirs)\n         │\n    ┌────▼──────────────────────────────────┐\n    │  Workpiece 1    │    Workpiece 2      │\n    └─────────────────┴─────────────────────┘\n              Joint line (zero gap tolerance)\n\nProperties:\n  - No melt → no solidification defects\n  - Fine equiaxed grain at joint → excellent properties\n  - Al-Al joints: 80–90% of parent strength (vs 60–70% for MIG)\n  - No fumes, minimal distortion\n  - Can join 2024-T3 and 7075-T6 (unweldable by fusion)\n\nLimitations:\n  - Tool wear on hard materials (steel FSW is difficult)\n  - Keyhole at end of weld (run-off tab or backfill required)\n  - Joint must be rigidly clamped (high axial force)\n  - Speed: 200–1000 mm/min (slower than laser)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "### Other Solid-State Methods",
+      "confidence": "candidate",
+      "text": "DIFFUSION BONDING\n  Parts held under pressure at elevated temperature (~0.5–0.7 Tm)\n  Atomic diffusion across interface → metallurgical bond\n  No melt, no deformation\n  Very flat surfaces required (Ra < 0.4 µm)\n  Applications: titanium aerospace, multilayer metal structures\n  Batch process, slow\n\nULTRASONIC WELDING\n  Vibration at 20–70 kHz creates friction at interface\n  → local heating → pressure → bond\n  Plastics (most common), thin metals, dissimilar materials\n  Fast (0.1–2 seconds), no filler, no heat affected zone\n  Automotive: instrument panels, fuel tanks, door trim\n\nEXPLOSIVE WELDING\n  Controlled detonation of explosive layer accelerates one plate\n  into another → wavy interface → metallurgical bond\n  Joins highly dissimilar metals (aluminum-steel clad, titanium-steel)\n  Pressure vessel cladding, bimetallic transition pieces",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "### Brazing Principles",
+      "confidence": "candidate",
+      "text": "BRAZING vs SOLDERING vs WELDING\n──────────────────────────────────────────────────────────────────\n           Temperature     Filler        Base metal\n           at joint        melts?        melts?\nWelding    >T_liquidus     No (or same)  Yes\nBrazing    450°C–1150°C    Yes           No\nSoldering  <450°C          Yes           No\n\nBrazing mechanics:\n  1. Base metal heated above filler melting point\n  2. Filler (braze alloy) wets and flows by capillary action\n     into tight joint gap (0.001\"–0.010\" / 25–250 µm)\n  3. Filler solidifies → brazed joint",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "### Furnace Brazing",
+      "confidence": "candidate",
+      "text": "FURNACE (CONTROLLED ATMOSPHERE) BRAZING\n──────────────────────────────────────────────────────────────────\nParts fixtured with braze foil/paste pre-placed at joints.\nLoaded into furnace (vacuum, hydrogen, or nitrogen atmosphere).\nCycle:\n  1. Heat to pre-braze temperature (450°C) → burn off organics\n  2. Ramp to braze temperature → filler melts, flows\n  3. Hold (soak) → complete capillary flow and diffusion\n  4. Controlled cool (avoid thermal shock to ceramics or thin joints)\n\nAdvantages over torch brazing:\n  - All joints in assembly heated simultaneously\n  - No oxidation → no flux needed (vacuum or reducing atmosphere)\n  - Reproducible: time-temperature controlled\n  - Better joint quality\n  - Scale production: batch furnaces, mesh belt continuous furnaces\n\nApplications: automotive heat exchangers (Al-brazing), aerospace\n  assemblies, carbide tool inserts brazed to steel shanks",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "### Soldering",
+      "confidence": "candidate",
+      "text": "SOLDERING ALLOYS\n──────────────────────────────────────────────────────────────────\nSn-Pb (60/40, 63/37 eutectic):\n  Eutectic: 183°C, classic electronics solder\n  BANNED in EU (RoHS) for consumer electronics since 2006\n  Still used: military, aerospace, medical (exemptions)\n\nLead-free SAC (Sn-Ag-Cu):\n  SAC305: Sn-3.0Ag-0.5Cu, liquidus 217°C (most common)\n  Higher process temp → more board and component stress\n  More brittle than Sn-Pb under thermal cycling\n  RoHS compliant\n\nLow-temp alternatives:\n  Bi-Sn: 138°C eutectic → sensitive components, rework\n  In-Sn: 118°C → cryogenic, flexible electronics\n\nSoldering methods: iron, hot air, reflow oven (SMD), wave (THT)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 304,
+      "heading_context": "### Adhesive Mechanics",
+      "confidence": "candidate",
+      "text": "ADHESIVE JOINT MECHANICS\n──────────────────────────────────────────────────────────────────\nStrength depends on:\n  Adhesion (surface chemistry): adhesive bonded to substrate\n  Cohesion (adhesive strength): adhesive bonded to itself\n\nFailure modes:\n  Adhesive failure:  failure at interface (preparation problem)\n  Cohesive failure:  failure within adhesive (strength OK, design issue)\n  Mixed mode:        combination (typical in well-designed joints)\n\nGoal: cohesive failure (adhesive is load-limiting, not surface prep)\n\nLoading in adhesive joints:\n  Shear:    Strongest (adhesive designed for this)\n  Tension:  Moderate (peel and tension separations)\n  Peel:     WEAKEST → avoid peel loading in joint design\n  Cleavage: Similar to peel, one side rigid",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 339,
+      "heading_context": "### Surface Preparation (Critical)",
+      "confidence": "candidate",
+      "text": "SURFACE PREP HIERARCHY\n──────────────────────────────────────────────────────────────────\nSteel:\n  1. Degrease (MEK, acetone, IPA)\n  2. Abrade (80–120 grit) or grit blast\n  3. Wipe clean again\n  4. Apply primer if long open time or corrosion risk\n\nAluminum:\n  1. Degrease\n  2. Chemical etch (chromic acid = best, phosphoric acid = green)\n  3. Anodize (sulfuric acid or phosphoric) + prime\n  → Necessary for durable bonding (oxide layer otherwise)\n\nCFRP (carbon fiber):\n  1. Peel-ply removal (exposes fresh surface) → immediate bonding\n  2. Abrade lightly with 120 grit\n  3. Solvent wipe\n\nContamination kills bond strength:\n  Oil, mold release, dust, fingerprints → adhesive failure\n  Rule: bond within 4 hours of surface prep",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 370,
+      "heading_context": "### Welding Joint Types",
+      "confidence": "candidate",
+      "text": "BASIC WELD JOINTS (AWS nomenclature)\n──────────────────────────────────────────────────────────────────\nButt joint:      ─┤├─   Flat plates aligned, groove fill\nCorner joint:    □       Two plates at 90° corners\nT-joint:         ┴       One plate perpendicular to another\nLap joint:       ══      Plates overlapping, fillet weld\nEdge joint:      ∥       Edges parallel (thin sheet)\n\nGroove types for butt joints:\n  Square butt:   clean edges, thin material (< 6mm)\n  V-groove:      beveled edges, thicker material, single V\n  Double V:      bevel both sides, thick plate, less distortion\n  U-groove:      radiused root, less fill, tight spaces\n  J-groove:      one-sided U, limited access joints",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 389,
+      "heading_context": "### Weld Symbol on Drawing",
+      "confidence": "candidate",
+      "text": "WELD SYMBOL ANATOMY\n──────────────────────────────────────────────────────────────────\n        Tail (specification/                Weld symbol\n        process note)                       (on arrow side)\n           ╲                               /\nReference ──╲──────────────────────────────── Arrow (points to joint)\n   line       ╲\n               Note above = other side\n               Note below = arrow side\n\nCommon symbols:\n  △  Fillet weld (size = leg length, e.g., 5△)\n  |→ Groove weld (with depth of bevel indicated)\n  O  Weld all around\n  (circle at reference line intersection)\n  Field weld flag (filled triangle at reference line)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
