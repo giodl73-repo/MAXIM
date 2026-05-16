@@ -1,0 +1,49 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\02-DYNAMICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 408,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Approach"
+      ],
+      "rows": [
+        [
+          "Compute joint torques for a motion",
+          "Inverse dynamics via RNE algorithm"
+        ],
+        [
+          "Simulate robot from applied torques",
+          "Forward dynamics: q_ddot = M^{-1}(tau - C*q_dot - G)"
+        ],
+        [
+          "Understand energy / derive EOM symbolically",
+          "Lagrangian formulation"
+        ],
+        [
+          "Size a motor for a joint",
+          "Compute peak and RMS tau from RNE, back-calculate through gear ratio"
+        ],
+        [
+          "Check if grasp is stable",
+          "Force/form closure analysis using contact normals"
+        ],
+        [
+          "Control force during contact",
+          "Add J_c^T * F_c term; use impedance or force control"
+        ],
+        [
+          "Simulate for RL training (fast)",
+          "MuJoCo or Isaac Sim"
+        ],
+        [
+          "Debug robot dynamics in ROS",
+          "Drake or PyBullet with ROS bridge"
+        ]
+      ]
+    }
+  ]
+}

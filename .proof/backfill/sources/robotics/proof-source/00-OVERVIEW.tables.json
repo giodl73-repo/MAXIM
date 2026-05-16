@@ -1,0 +1,252 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 138,
+      "heading_context": "## Robot Taxonomy",
+      "headers": [
+        "Type",
+        "DOF",
+        "Workspace",
+        "Speed",
+        "Precision",
+        "Example"
+      ],
+      "rows": [
+        [
+          "Serial 6-DOF arm",
+          "6",
+          "Large, irregular",
+          "Med",
+          "High",
+          "KUKA KR, ABB IRB"
+        ],
+        [
+          "SCARA",
+          "4",
+          "Cylindrical",
+          "Fast",
+          "High",
+          "Electronics assembly"
+        ],
+        [
+          "Delta (parallel)",
+          "3+1",
+          "Compact cone",
+          "Very fast",
+          "Med-High",
+          "Adept Quattro"
+        ],
+        [
+          "Stewart platform",
+          "6",
+          "Small, symmetric",
+          "Med",
+          "Very high",
+          "Flight sims, machining"
+        ],
+        [
+          "Cartesian (gantry)",
+          "3",
+          "Rectangular",
+          "Med",
+          "Very high",
+          "CNC, 3D printing"
+        ],
+        [
+          "Collaborative (cobot)",
+          "6-7",
+          "Large",
+          "Low-Med",
+          "High",
+          "UR5e, Franka, ABB YuMi"
+        ],
+        [
+          "Legged biped",
+          "~30+",
+          "Everywhere",
+          "Med",
+          "Med",
+          "Atlas, Digit, Unitree H1"
+        ],
+        [
+          "Legged quadruped",
+          "~12+",
+          "Everywhere",
+          "Med-Fast",
+          "Med",
+          "Spot, ANYmal, Unitree Go2"
+        ],
+        [
+          "Humanoid",
+          "~40+",
+          "Human-scale",
+          "Med",
+          "Med",
+          "Atlas, Figure 01, 1X"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 228,
+      "heading_context": "## Key Institutions and Labs",
+      "headers": [
+        "Institution",
+        "Focus",
+        "Notable Work"
+      ],
+      "rows": [
+        [
+          "MIT CSAIL / Leg Lab",
+          "Legged, manipulation",
+          "Cheetah, mini cheetah; Russ Tedrake group (Drake)"
+        ],
+        [
+          "Stanford Robotics",
+          "Manipulation, HRI",
+          "PUMA heritage, Pinocchio toolkit"
+        ],
+        [
+          "CMU Robotics",
+          "Mobile, manipulation",
+          "SLAM heritage, Red Whittaker, field robotics"
+        ],
+        [
+          "ETH Zurich",
+          "Legged, learning",
+          "ANYmal; Julian Floreano aerial"
+        ],
+        [
+          "UC Berkeley",
+          "RL, manipulation",
+          "Pieter Abbeel, Sergey Levine; RT-series collaboration"
+        ],
+        [
+          "Google DeepMind",
+          "Foundation models",
+          "RT-1, RT-2, SayCan, Gemini Robotics"
+        ],
+        [
+          "Boston Dynamics",
+          "Legged, agility",
+          "BigDog, Spot, Atlas"
+        ],
+        [
+          "DARPA",
+          "Challenge programs",
+          "Grand Challenge, DRC, OFFSET, RACER"
+        ],
+        [
+          "NASA JPL",
+          "Planetary robotics",
+          "Sojourner, Spirit, Opportunity, Perseverance"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 299,
+      "heading_context": "## Old World to New World Bridges",
+      "headers": [
+        "Concept You Know",
+        "Robotics Equivalent"
+      ],
+      "rows": [
+        [
+          "Distributed systems",
+          "Robot = distributed system; physics is the network"
+        ],
+        [
+          "Service bus / message queue",
+          "ROS 2 topics and DDS pub/sub"
+        ],
+        [
+          "Database (state store)",
+          "Map representations, state estimator output"
+        ],
+        [
+          "CI/CD pipeline",
+          "ROS 2 build system (colcon), sim-based regression"
+        ],
+        [
+          "API contract",
+          "ROS 2 message types (.msg, .srv, .action files)"
+        ],
+        [
+          "Load balancing",
+          "Task allocation in multi-robot systems"
+        ],
+        [
+          "Latency SLA",
+          "Control loop timing, hard real-time constraints"
+        ],
+        [
+          "Integration testing",
+          "Hardware-in-the-loop (HIL) simulation"
+        ],
+        [
+          "Microservices",
+          "ROS 2 nodes (each a process, communicate over DDS)"
+        ],
+        [
+          "Configuration management",
+          "Robot URDF/XACRO model files"
+        ],
+        [
+          "Feature flags",
+          "ROS 2 parameters (runtime-configurable node behavior)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 344,
+      "heading_context": "## Decision Cheat Sheet — Which Chapter to Read",
+      "headers": [
+        "Question",
+        "Chapter"
+      ],
+      "rows": [
+        [
+          "How does a robot arm know where its hand is?",
+          "01 — Kinematics"
+        ],
+        [
+          "How do you compute joint torques for a motion?",
+          "02 — Dynamics"
+        ],
+        [
+          "What sensors does a robot use and how do they fuse?",
+          "03 — Sensors"
+        ],
+        [
+          "How does a robot build a map while navigating?",
+          "04 — SLAM"
+        ],
+        [
+          "How does a robot plan a collision-free path?",
+          "05 — Planning"
+        ],
+        [
+          "How does a robot follow a trajectory precisely?",
+          "06 — Control"
+        ],
+        [
+          "What actuates the joints and why harmonic drives?",
+          "07 — Actuators"
+        ],
+        [
+          "What is ROS 2 and how does Nav2/MoveIt2 work?",
+          "08 — ROS"
+        ],
+        [
+          "How do you train a robot with RL or imitation learning?",
+          "09 — AI Robotics"
+        ]
+      ]
+    }
+  ]
+}

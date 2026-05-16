@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:optics:photonic-devices
+kind: guide
+module: optics
+section: optics
+title: Photonic Devices
+status: source-custody
+source_custody: partial
+current_path: optics/05-PHOTONIC-DEVICES.md
+canonical_path: optics/05-PHOTONIC-DEVICES.md
+backsource_ids: [proof-backfill:optics:05-photonic-devices, git-history:optics:05-photonic-devices]
+concepts: [photonic, devices]
+root_concepts: [photonic, devices]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Photonic Devices
 
 ## The Big Picture

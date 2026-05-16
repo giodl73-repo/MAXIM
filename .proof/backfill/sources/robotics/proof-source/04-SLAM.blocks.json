@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\04-SLAM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                          SLAM LANDSCAPE                                   |\n+===========================================================================+\n|                                                                           |\n|  THE PROBLEM:                                                             |\n|    p(x_{1:t}, m | z_{1:t}, u_{1:t})                                       |\n|    ^^^^^^^^^   ^   ^^^^^^^^^^^^^^^^                                       |\n|    robot trajectory + map | observations + controls                       |\n|    <- ESTIMATE THESE ->     <- GIVEN THESE ->                             |\n|                                                                           |\n|  FILTER-BASED               GRAPH-BASED                                   |\n|  (online, sequential)       (offline, batch optimization)                 |\n|  ==================         ==================================             |\n|  EKF-SLAM                   Pose Graph / Factor Graph                     |\n|    Landmark-based           g2o / GTSAM / Ceres                           |\n|    O(n^2) in landmarks      Handles loop closure globally                 |\n|    < 100 landmarks          Millions of poses possible                    |\n|                                                                           |\n|  Particle Filter (FastSLAM) VISUAL SLAM          LIDAR SLAM               |\n|    Multi-modal posteriors   ORB-SLAM3             LOAM / LIO-SAM           |\n|    Rao-Blackwellized        Feature-based         Scan matching            |\n|    Handles non-Gaussianity  Keyframe selection    IMU pre-integration      |\n|                             Loop closure (BoW)    NDT / ICP                |\n|                                                                           |\n|  MAP REPRESENTATIONS:                                                     |\n|    Landmark cloud   Occupancy grid   Point cloud   Mesh   NeRF             |\n|                                                                           |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 183,
+      "heading_context": "### EKF-SLAM Limitation Visualization",
+      "confidence": "candidate",
+      "text": "  Covariance matrix P for n=3 landmarks:\n  (3+2*3) x (3+2*3) = 9x9\n\n  +-------------------------------+\n  | Rr  Rl1  Rl2  Rl3 ...         |\n  |     L1   L1L2  ...            |\n  |                               |\n  +-------------------------------+\n  Top row: robot-robot, robot-landmark correlations.\n  Other rows: landmark-landmark correlations.\n  All entries are correlated!\n  Every landmark observation updates EVERY landmark covariance.\n  n=100 landmarks: 200x200 = 40,000 matrix entries.\n  n=1000 landmarks: unfeasible in real time.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 244,
+      "heading_context": "### Pose Graph Formulation",
+      "confidence": "candidate",
+      "text": "NODES: robot poses x_1, x_2, ..., x_t\nEDGES: constraints between poses\n\n  ODOMETRY EDGE: consecutive poses connected by motion model.\n    x_{i+1} = f(x_i, u_i) + noise\n    Edge represents: \"given I was at x_i and moved u_i, I should be at x_{i+1}\"\n\n  LOOP CLOSURE EDGE: non-consecutive poses identified as the same place.\n    x_i ~ x_j (same location visited at different times)\n    This is the global correction -- fixes accumulated drift.\n\nPOSE GRAPH:\n  x1 - x2 - x3 - x4 - x5 - x6\n                 |              |\n                 +--- odom ---x7+--- LOOP CLOSURE (x6 ~ x2)\n                                    (detected: same place visited again)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 298,
+      "heading_context": "### Pipeline",
+      "confidence": "candidate",
+      "text": "INPUT FRAME\n     |\n     v\n+------------------+\n|  ORB EXTRACTION  |\n+------------------+\n Extract ORB (Oriented FAST + Rotated BRIEF) features.\n ~1000-3000 keypoints per frame. Scale-invariant.\n     |\n     v\n+------------------+\n|    TRACKING      |\n+------------------+\n Match current frame features to map points.\n Pose optimization (minimize reprojection error).\n Motion model: constant velocity assumption for init.\n     |\n     v\n+------------------+\n|  KEYFRAME SELECT |\n+------------------+\n Insert keyframe if: translation > threshold OR\n insufficient map points tracked.\n Keyframes keep a sparse set of \"good\" frames.\n     |\n     v\n+------------------+\n|  LOCAL MAPPING   |\n+------------------+\n Triangulate new map points from keyframe pairs.\n Bundle adjustment: optimize local keyframe poses\n + map points jointly. (Schur complement for speed.)\n     |\n     v\n+------------------+\n|  LOOP CLOSING    |\n+------------------+\n Detect revisited places using DBoW2 (bag-of-words).\n Verify loop closure geometrically (RANSAC).\n Correct drift: pose graph optimization.\n Fuse duplicate map points.\n     |\n     v\n+------------------+\n|  MAP REUSE       |\n+------------------+\n Save map. Reload and relocalize in saved map.\n Multi-session mapping.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 388,
+      "heading_context": "### LOAM (Lidar Odometry and Mapping)",
+      "confidence": "candidate",
+      "text": "### LIO-SAM (Shan, 2020)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 456,
+      "heading_context": "## Map Representations Comparison",
+      "confidence": "candidate",
+      "text": "+------------------+----------+----------+----------+----------+-----------+\n| Representation   | Memory   | Dense?   | Queryable| Update   | Example   |\n|                  |          |          | path plan| rate     | system    |\n+------------------+----------+----------+----------+----------+-----------+\n| Landmark cloud   | Low      | No       | No       | Fast     | EKF-SLAM  |\n| Occupancy grid   | Med-High | Yes (2D) | Yes      | Med      | GMapping  |\n| 3D point cloud   | Very high| Yes (3D) | Limited  | Slow     | LOAM      |\n| Voxel map (OcTree)| Med     | Yes (3D) | Yes      | Med      | OctoMap   |\n| Mesh             | Med      | Yes (3D) | Hard     | Slow     | RTABMap   |\n| Signed distance  | Med-High | Yes (3D) | Yes      | Fast     | KinectFusion|\n| NeRF / 3DGS      | Low-Med  | Dense    | No (yet) | Slow     | iNeRF     |\n+------------------+----------+----------+----------+----------+-----------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

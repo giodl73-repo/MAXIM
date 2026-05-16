@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:robotics:planning
+kind: guide
+module: robotics
+section: robotics
+title: Robotics - Motion Planning
+status: source-custody
+source_custody: partial
+current_path: robotics/05-PLANNING.md
+canonical_path: robotics/05-PLANNING.md
+backsource_ids: [proof-backfill:robotics:05-planning, git-history:robotics:05-planning]
+concepts: [planning]
+root_concepts: [planning]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Robotics — Motion Planning
 
 ## The Big Picture

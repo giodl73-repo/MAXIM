@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:optics:wave-optics
+kind: guide
+module: optics
+section: optics
+title: Wave Optics
+status: source-custody
+source_custody: partial
+current_path: optics/02-WAVE-OPTICS.md
+canonical_path: optics/02-WAVE-OPTICS.md
+backsource_ids: [proof-backfill:optics:02-wave-optics, git-history:optics:02-wave-optics]
+concepts: [wave, optics]
+root_concepts: [wave, optics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Wave Optics
 
 ## The Big Picture

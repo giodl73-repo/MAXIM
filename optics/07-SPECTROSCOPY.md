@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:optics:spectroscopy
+kind: guide
+module: optics
+section: optics
+title: Spectroscopy
+status: source-custody
+source_custody: partial
+current_path: optics/07-SPECTROSCOPY.md
+canonical_path: optics/07-SPECTROSCOPY.md
+backsource_ids: [proof-backfill:optics:07-spectroscopy, git-history:optics:07-spectroscopy]
+concepts: [spectroscopy]
+root_concepts: [spectroscopy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Spectroscopy
 
 ## The Big Picture

@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "optics\\07-SPECTROSCOPY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    SPECTROSCOPY LANDSCAPE                        |\n|                                                                  |\n|  INTERACTION TYPE     SPECTRAL REGION    INFORMATION OBTAINED    |\n|  ----------------     --------------    -------------------      |\n|  Absorption           UV-Vis             Electronic transitions  |\n|  (Beer-Lambert law)   IR                 Vibrational modes       |\n|                        Microwave          Rotational modes       |\n|  Emission             UV-Vis, X-ray      Elemental composition   |\n|  (excited states)     Gamma              Nuclear transitions     |\n|  Scattering           Any (Raman)        Molecular structure     |\n|  (photon energy shift) (elastic=Rayleigh)Surface chemistry(SERS) |\n|  Fluorescence         UV-Vis-NIR         Labeled molecules,      |\n|  (absorb then emit)                      environmental, biosens. |\n+------------------------------------------------------------------+\n\n  KEY RULE: The spectrum is a fingerprint.\n  Each molecule/atom has a unique absorption/emission pattern.\n  Identify the pattern -> identify the substance.\n  Measure the amplitude -> measure the concentration.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 87,
+      "heading_context": "## Absorption Spectroscopy",
+      "confidence": "candidate",
+      "text": "### Electronic Transitions (UV-Vis, 200-800nm)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 89,
+      "heading_context": "### Electronic Transitions (UV-Vis, 200-800nm)",
+      "confidence": "candidate",
+      "text": "  Transition types (energy ordering, low to high):\n  n -> pi* (lone pair to antibonding pi orbital): low-energy visible/UV\n  pi -> pi* (bonding to antibonding pi):           UV-Vis, aromatic compounds\n  sigma -> sigma*:                                 deep UV (< 200nm)\n\n  Chromophores (UV-Vis absorbing groups):\n  +------------------+------------------+---------------------+\n  |  Chromophore     |  lambda_max (nm) |  Example            |\n  +------------------+------------------+---------------------+\n  |  C=C conjugated  |  210-250         |  butadiene: 217nm   |\n  |  Benzene ring    |  254             |  toluene, amino-    |\n  |  Extended conj.  |  300-600         |  acids, GFP, drugs  |\n  |  Carbonyl (C=O)  |  280 (weak)      |  ketones, amides    |\n  |  Porphyrin       |  410 (Soret)     |  heme, chlorophyll  |\n  |  Transition metal|  400-800         |  Cu, Fe complexes   |\n  +------------------+------------------+---------------------+\n\n  Solvent effects (solvatochromism):\n  Polar solvent stabilizes polar excited state -> red shift (bathochromic)\n  or destabilizes -> blue shift (hypsochromic), depending on transition type",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 112,
+      "heading_context": "### Electronic Transitions (UV-Vis, 200-800nm)",
+      "confidence": "candidate",
+      "text": "### Vibrational Spectroscopy (IR, 2.5-25 um / 400-4000 cm^-1)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 114,
+      "heading_context": "### Vibrational Spectroscopy (IR, 2.5-25 um / 400-4000 cm^-1)",
+      "confidence": "candidate",
+      "text": "  Wavenumber nu_bar = 1/lambda = nu/c  [cm^-1]\n  4000 cm^-1 = 2500nm = 2.5 um\n  400 cm^-1  = 25000nm = 25 um\n\n  IR absorption requires dipole moment change during vibration\n  (selection rule: d(mu)/dQ != 0)\n\n  Characteristic group frequencies:\n  +------------------+------------------+---------------------+\n  |  Bond/Group      |  cm^-1 range     |  Intensity          |\n  +------------------+------------------+---------------------+\n  |  O-H stretch     |  3200-3600 (broad)| Strong, broad       |\n  |  N-H stretch     |  3300-3500       |  Medium             |\n  |  C-H stretch     |  2850-3100       |  Medium             |\n  |  C=O stretch     |  1650-1850       |  Strong             |\n  |  C=C stretch     |  1600-1680       |  Variable           |\n  |  C-O stretch     |  1000-1300       |  Strong             |\n  |  C-H bend        |  700-900         |  Strong             |\n  |  Fingerprint     |  500-1500        |  Complex, unique    |\n  +------------------+------------------+---------------------+\n\n  Fingerprint region (500-1500 cm^-1): complex pattern unique to each molecule\n  Used for definitive ID by comparison to reference spectra",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "### Atomic Emission",
+      "confidence": "candidate",
+      "text": "  Excite atoms to high energy states (flame, plasma, arc)\n  -> spontaneous emission at characteristic wavelengths\n\n  Selection rules for atomic transitions (hydrogen-like):\n  Delta_l = +/-1  (angular momentum selection rule)\n  Delta_m = 0, +/-1\n\n  Hydrogen emission series:\n  Lyman:   transitions to n=1    (UV, 91-121nm)\n  Balmer:  transitions to n=2    (visible: H_alpha 656nm, H_beta 486nm)\n  Paschen: transitions to n=3    (NIR: 820-1875nm)\n  Brackett: transitions to n=4   (MIR)\n\n  H_alpha (656nm) is the prominent red line in nebulae and stellar spectra\n  H_beta  (486nm) is the blue-green line (second Balmer)\n\n  Kirchhoff's laws of spectroscopy:\n  1. Hot dense gas emits continuous spectrum\n  2. Hot thin gas emits bright emission lines\n  3. Cool thin gas absorbs against bright background -> Fraunhofer lines\n     (Fraunhofer dark lines in solar spectrum = solar atmosphere absorption)\n\n  Stellar classification (Harvard sequence: OBAFGKM LTY):\n  O: hottest (>30000K), He+ and H lines\n  B: 10000-30000K, He and H lines\n  A: 7500-10000K, strong H Balmer lines (Vega, Sirius)\n  F: 6000-7500K, H + Ca II\n  G: 5200-6000K, Ca II + metals (Sun = G2V)\n  K: 3700-5200K, metals (Arcturus)\n  M: coolest (<3700K), molecular bands TiO, VO\n  L, T, Y: brown dwarfs, methane/ammonia bands",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 234,
+      "heading_context": "## Raman Spectroscopy",
+      "confidence": "candidate",
+      "text": "  Inelastic scattering of photons from molecules:\n  Incident photon + molecule -> scattered photon (different frequency) + molecular vibration\n\n  +--lambda_0--+          +--laser--+\n  |  incident  | scatter  |         | Raman shifts:\n  |   photon   +--------> | Stokes  | nu_Raman = nu_incident - nu_vib\n  +------------+          |  shift  | (photon loses energy to vibration)\n                          +---------+\n                          | anti-S  | nu_Raman = nu_incident + nu_vib\n                          |  shift  | (photon gains energy from vibration)\n                          +---------+ (weaker, requires thermally excited vibration)\n\n  Selection rule: polarizability must change during vibration\n  (complementary to IR: IR requires dipole change)\n  Many vibrations are both IR and Raman active, some only one\n\n  Intensity: I_Raman ~ nu^4 (strongly wavelength-dependent)\n  -> Short wavelength excitation gives more Raman signal\n  -> But: shorter wavelength -> more fluorescence background -> tradeoffs\n\n  Common excitation wavelengths:\n  532nm: high signal, fluorescence often overwhelming\n  785nm: reduced fluorescence, lower signal, popular for biological samples\n  1064nm: minimal fluorescence, much weaker Raman -> use SERS or long integration\n\n  SERS (Surface-Enhanced Raman Spectroscopy):\n  Metal nanoparticles (Au, Ag) near molecule -> electromagnetic field enhancement\n  Enhancement factor: 10^6 to 10^10 (single-molecule SERS demonstrated)\n  Mechanism: localized surface plasmon resonance (LSPR) concentrates E-field\n  Application: trace detection, single-molecule fingerprinting",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 273,
+      "heading_context": "### Czerny-Turner Grating Spectrometer",
+      "confidence": "candidate",
+      "text": "  Entrance slit                                   Detector array\n       |                                               |\n       +-- collimating mirror -> diffraction grating -> focusing mirror --+\n\n  +--slit--+  +-mirror-+  +--grating--+  +-mirror-+  +--CCD/InGaAs-+\n  |         |  |        |  |           |  |        |  |             |\n  | narrow  |->|collimt |->|  disperse |->|  focus |->| array det.  |\n  | slit    |  | mirror |  |  by angle |  | mirror |  |             |\n  +---------+  +--------+  +-----------+  +--------+  +-------------+\n\n  Dispersion: D = (m * lambda) / (d * cos(theta_d))  [deg/nm]\n  Linear dispersion on detector: D_L = f * D  [mm/nm]  (f = focal length)\n  Spectral range determined by detector array size / D_L\n\n  Focal length: 150mm (compact) to 1000mm (high resolution)\n  Gratings: 300-3600 lines/mm; more lines -> more dispersion -> narrower range\n  CCD detector: silicon (200-1100nm), cooled for low noise\n  InGaAs array: 900-1700nm (NIR/SWIR), thermoelectric cooling\n\n  Resolution = slit width contribution + diffraction limit of grating\n  Resolution limited by: R = m*N (grating) or by slit width, whichever worse",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 299,
+      "heading_context": "### Echelle Spectrograph",
+      "confidence": "candidate",
+      "text": "  Uses high diffraction order (m = 10-100) for high dispersion:\n  -> Very high resolution per grating\n  BUT: overlapping orders must be separated by cross-disperser\n\n  Echelle grating: coarse grating, steep blaze angle\n  Cross-disperser: prism or fine grating, perpendicular dispersion\n\n  Result: 2D format on detector -- wavelength in one direction, order in other\n  Like a map of spectrum folded back and forth\n\n  Used in: high-resolution astronomical spectroscopy (HIRES on Keck, HARPS)\n  Echelle for Doppler radial velocity: lambda/Delta_lambda > 50,000-100,000\n  -> Detect stellar motion of 1 m/s (exoplanet discovery tool)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 321,
+      "heading_context": "## FTIR — Fourier Transform Infrared Spectroscopy",
+      "confidence": "candidate",
+      "text": "  Michelson interferometer:\n  Source -> beamsplitter -> {reference arm (fixed mirror) + sample arm (scanning mirror)}\n         -> detector measures I(delta)  [interferogram]\n\n  I(delta) = integral S(nu) * (1 + cos(2*pi*nu*delta)) d(nu)\n\n  S(nu) = source * sample * detector spectrum\n  delta = OPD = mirror displacement x 2\n\n  Spectrum: S(nu) = FT{I(delta)}\n  (The interferogram IS the Fourier transform of the spectrum)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "### FTIR Advantages over Grating Spectrometers",
+      "confidence": "candidate",
+      "text": "  Fellgett (multiplex) advantage:\n    Grating: measures one wavelength at a time -> N measurements for N points\n    FTIR: measures ALL wavelengths simultaneously\n    SNR improvement: sqrt(N) for same measurement time\n    N = number of spectral resolution elements (can be 1000+)\n    -> FTIR SNR ~ 30x better than grating for same time (sqrt(1000))\n\n  Jacquinot (throughput) advantage:\n    Grating: slit limits throughput (entrance aperture is a narrow slit)\n    FTIR: uses a circular aperture (Jacquinot stop) -> much larger etendue\n    -> typically 40-200x more light collected\n\n  Connes advantage:\n    Wavenumber calibration from HeNe laser (position reference) -> very accurate\n    Grating calibration depends on mechanical positioning\n\n  Disadvantages:\n    Single detector -> no good for imaging\n    Moving mirror: vibration sensitivity, alignment critical\n    Not ideal for transient phenomena (scan takes seconds)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 364,
+      "heading_context": "## Atomic Spectroscopy Techniques",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  TECHNIQUE    ANALYTE        DETECTION LIMIT   PRINCIPLE         |\n|  ---------    -------        ---------------   ---------         |\n|  AAS          Trace metals   ppb-ppt           Absorption of lamp|\n|  (Atomic      (single elem.  (graphite         light by ground-  |\n|  Absorption)  at a time)     furnace: ppt)     state atoms       |\n|                                                                  |\n|  ICP-OES      Multi-element  ppb               Plasma (~10000K)  |\n|  (Optical     metals,        simultaneous      excites atoms,    |\n|  Emission     metalloids     (30+ elements)    measure emission  |\n|  Spectroscopy)                                                   |\n|                                                                  |\n|  ICP-MS       Multi-element  ppt-ppq           Plasma + mass     |\n|  (Mass Spec)  isotope ratio  10^6x better      spectrometry      |\n|               analysis       than OES          (quadrupole/TOF)  |\n|                                                                  |\n|  XRF          Surface        ppm               X-ray fluoresc.   |\n|  (X-ray       elements,      (non-destructive) K/L shell emit.   |\n|  Fluorescence) coatings                        after X-ray exc.  |\n|                                                                  |\n|  LIBS         In-situ        ppm-ppb           Laser ablation +  |\n|  (Laser-      remote         (matrix-          plasma emission   |\n|  induced      analysis       dependent)        (portable)        |\n|  breakdown)                                                      |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 396,
+      "heading_context": "## Astronomical Spectroscopy",
+      "confidence": "candidate",
+      "text": "  Doppler shift (radial velocity):\n  Delta_lambda / lambda = v_r / c\n  v_r = c * (lambda_obs - lambda_rest) / lambda_rest\n\n  Positive v_r (recession): redshift, lambda_obs > lambda_rest\n  Negative v_r (approach): blueshift, lambda_obs < lambda_rest\n\n  Example: H_alpha normally 656.28nm, observed at 656.34nm\n  v_r = 3e8 * (656.34-656.28)/656.28 = 3e8 * 9.1e-5 = 27 km/s (recession)\n\n  Cosmological redshift: z = (lambda_obs - lambda_rest) / lambda_rest\n  Galaxy at z=1: lambda_obs = 2 * lambda_rest (universe scale factor 2x smaller)\n  CMB at z~1100: visible light blueshifted down to microwave\n\n  Radial velocity technique for exoplanets:\n  Star wobbles due to orbiting planet -> periodic Doppler shift\n  Earth causes ~0.09 m/s wobble on the Sun (requires R = 10^8 resolution)\n  51 Peg b (first hot Jupiter, 1995): ~56 m/s wobble -> R ~ 100,000 sufficient",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 441,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "**Absorbance is logarithmic**: A = 2 means 99% absorption, not 2x. A = 3 means 99.9%. Beer-Lambert is log10-based. When combining two absorbers, their absorbances ADD (not multiply): A_total = A1 + A2. This is because: T_total = T1 * T2, and log(T1 * T2) = log(T1) + log(T2).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

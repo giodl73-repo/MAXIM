@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\08-ROS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         ROS 2 ECOSYSTEM LANDSCAPE                         |\n+===========================================================================+\n|                                                                           |\n|  YOUR ROBOT APPLICATION                                                   |\n|  +------------------------------------------------------------------+    |\n|  | Navigation stack  | Manipulation stack | Perception | Your code  |    |\n|  | (Nav2)            | (MoveIt2)          | pipeline   |            |    |\n|  +------------------------------------------------------------------+    |\n|                           |                                              |\n|  ROS 2 MIDDLEWARE LAYER                                                   |\n|  +------------------------------------------------------------------+    |\n|  | Nodes | Topics | Services | Actions | Parameters | Lifecycle     |    |\n|  +------------------------------------------------------------------+    |\n|                           |                                              |\n|  DDS (Data Distribution Service)                                          |\n|  +------------------------------------------------------------------+    |\n|  | Fast DDS (eProsima) | Cyclone DDS | Connext DDS                  |    |\n|  | RTPS wire protocol  | QoS policies | Discovery                   |    |\n|  +------------------------------------------------------------------+    |\n|                           |                                              |\n|  HARDWARE LAYER                                                           |\n|  +------------------------------------------------------------------+    |\n|  | ros2_control | Sensor drivers | Motor drives | Simulation        |    |\n|  +------------------------------------------------------------------+    |\n|                           |                                              |\n|  SIMULATION                BUILD SYSTEM               CLI TOOLS           |\n|  Gazebo / Isaac Sim        colcon / ament              ros2 CLI           |\n|  Ignition Gazebo           Python / CMake              rviz2 / rqt        |\n|                                                                           |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "### Actions",
+      "confidence": "candidate",
+      "text": "ACTION: for long-running tasks with progress feedback and cancellation.\n\n  Action definition file (.action):\n    # Goal\n    float64 target_angle\n    ---\n    # Result\n    float64 final_angle\n    ---\n    # Feedback\n    float64 current_angle\n\n  Client:\n    client.send_goal(goal)                   <- start\n    client.get_result_async()                <- wait for done\n    client.cancel_goal_async()               <- cancel\n\n  Feedback callback: called periodically during execution.\n  State machine: IDLE -> ACCEPTED -> EXECUTING -> SUCCEEDED/ABORTED/CANCELED\n\n  EXAMPLES:\n    MoveIt2 arm motion (send goal: \"go to pose X\", feedback: current progress)\n    Nav2 navigation (go to waypoint, feedback: distance remaining)\n    Assembly task server (execute sequence, feedback: step completed)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 229,
+      "heading_context": "### Lifecycle Nodes",
+      "confidence": "candidate",
+      "text": "LIFECYCLE NODE STATE MACHINE:\n   [Unconfigured] --on_configure()--> [Inactive]\n   [Inactive]     --on_activate()---> [Active]\n   [Active]       --on_deactivate()--> [Inactive]\n   [Inactive]     --on_cleanup()----> [Unconfigured]\n   [Active/Inactive] --on_error()--> [ErrorProcessing]\n   [Unconfigured] --on_shutdown()--> [Finalized]\n\nUSE CASE: deterministic startup/shutdown sequence.\n  Node 1 (sensor driver) must be Active before Node 2 (filter) starts.\n  Lifecycle manager controls startup order.\n  Used in: Nav2, ros2_control.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 283,
+      "heading_context": "### colcon and ament",
+      "confidence": "candidate",
+      "text": "COLCON (Collective Construction):\n  The build tool for ROS 2 workspaces.\n  Replaces catkin_make from ROS 1.\n\n  colcon build                    <- build all packages\n  colcon build --packages-select my_pkg    <- build one package\n  colcon test                     <- run all tests\n  colcon test-result               <- show results\n\nWORKSPACE STRUCTURE:\n  ws/\n  ├── src/           <- put packages here\n  │   ├── my_pkg/\n  │   │   ├── package.xml\n  │   │   ├── CMakeLists.txt  (C++ package)\n  │   │   └── ...\n  │   └── my_py_pkg/\n  │       ├── package.xml\n  │       ├── setup.py         (Python package)\n  │       └── ...\n  ├── build/         <- build artifacts (gitignore)\n  ├── install/       <- installed packages\n  └── log/           <- build logs\n\nSETUP (after building):\n  source install/setup.bash      <- adds packages to PATH/PYTHONPATH\n\nAMENT (Ant Ement):\n  The CMake/Python build extension for ROS 2 packages.\n  ament_cmake: CMake macros for C++ packages.\n  ament_python: setuptools integration for Python packages.\n\nPACKAGE.XML:\n  <depend>rclcpp</depend>          <- runtime + build dep\n  <build_depend>ament_cmake</build_depend>\n  <exec_depend>sensor_msgs</exec_depend>",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 328,
+      "heading_context": "## Nav2 Stack",
+      "confidence": "candidate",
+      "text": "NAV2 ARCHITECTURE:\n\n  Goal (x, y, theta)\n        |\n  +------------------+\n  |  BT NAVIGATOR    |\n  |  (BT.cpp)        |\n  +------------------+\n   Behavior Tree-based task execution.\n   Handles: navigate, recovery behaviors, cancel.\n        |\n  +------------------+   +------------------+\n  |  GLOBAL PLANNER  |   |  LOCALIZATION    |\n  |  NavFn (A*)      |   |  AMCL (particle  |\n  |  SMAC (lattice)  |   |  filter), or     |\n  |  Theta* (any-ang)|   |  SLAM Toolbox    |\n  +------------------+   +------------------+\n        |                        |\n  +------------------+   +------------------+\n  |  LOCAL PLANNER   |   |  COSTMAPS        |\n  |  DWB / MPPI / RPP|   |  Global costmap  |\n  |                  |   |  Local costmap   |\n  +------------------+   |  Inflation layer |\n        |                |  Obstacle layer   |\n  cmd_vel (v, omega)     +------------------+\n\nCOSTMAPS:\n  Each cell stores a cost value (0=free, 254=inscribed, 255=lethal obstacle).\n  Layers: obstacle layer (from sensor data) + inflation layer (safety buffer).\n  Global costmap: coarse, full environment.\n  Local costmap: fine, rolling window around robot.\n\nBEHAVIOR TREES (BT.cpp):\n  Nav2 uses XML-defined behavior trees for high-level logic.\n  Replaces finite state machines from Nav1.\n  Nodes: Sequence, Fallback, Action, Condition.\n  Example: [Navigate -> Recover if stuck -> Spin -> Wait -> Navigate again]\n\nNAVIGATION2 CLI:\n  ros2 action send_goal /navigate_to_pose \\\n    nav2_msgs/action/NavigateToPose \\\n    \"{pose: {header: {frame_id: map}, pose: {position: {x: 1.0, y: 2.0}}}}\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 379,
+      "heading_context": "## MoveIt2 (Manipulation)",
+      "confidence": "candidate",
+      "text": "MOVEIT2 ARCHITECTURE:\n\n  User request: \"move to pose X\"\n        |\n  +---------------------+\n  |  MOVE GROUP IFACE   |\n  +---------------------+\n   High-level API: plan, execute, query state.\n        |\n  +---------------------+   +---------------------+\n  |  MOTION PLANNING    |   |  PLANNING SCENE     |\n  |  FRAMEWORK (OMPL)   |   |  Collision objects  |\n  |  RRTConnect default |   |  ACM (allowed       |\n  |  PILZ (industrial)  |   |  collision matrix)  |\n  |                     |   |  Robot model (URDF) |\n  +---------------------+   +---------------------+\n        |\n        v\n  +---------------------+\n  |  TRAJECTORY EXEC    |\n  |  JointTrajectoryCtrl|\n  |  follow_joint_traj  |\n  +---------------------+\n        |\n  ros2_control (hardware interface)\n\nROBOT MODEL (URDF + SRDF):\n  URDF: kinematics, geometry, physical properties (links, joints, inertia).\n  SRDF: semantic: named states, planning groups, passive joints.\n  Generated by: MoveIt Setup Assistant.\n\nCOLLISION OBJECTS:\n  # Add a box to planning scene:\n  box = CollisionObject()\n  box.id = \"table\"\n  box.header.frame_id = \"world\"\n  box.primitives = [SolidPrimitive(type=BOX, dimensions=[0.5, 0.8, 0.1])]\n  scene.add_collision_object(box)\n\nOMPL PLANNERS:\n  RRTConnect (default): fast, bidirectional, good for single queries.\n  PRM: multi-query, good for repeated motions.\n  STOMP/CHOMP: trajectory optimization.\n  PILZ: deterministic, for industrial use (PTP, LIN, CIRC motion types).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

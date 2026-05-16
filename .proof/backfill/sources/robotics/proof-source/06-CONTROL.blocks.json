@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\06-CONTROL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         ROBOT CONTROL LANDSCAPE                           |\n+===========================================================================+\n|                                                                           |\n|  HIERARCHY:                                                               |\n|                                                                           |\n|  Task Planner -------> desired task (symbolic)                            |\n|       |                                                                   |\n|  Trajectory Planner --> q_d(t), q_dot_d(t), q_ddot_d(t)                 |\n|       |                                                                   |\n|  CONTROLLER <---------- state feedback: q, q_dot                         |\n|       |                                                                   |\n|  Actuators -----------> torques/forces/currents                           |\n|       |                                                                   |\n|  Plant (robot) -------> actual motion q(t)                               |\n|       |                                                                   |\n|  Sensors -------------> q, q_dot (back to controller)                    |\n|                                                                           |\n|  JOINT SPACE CONTROL      OPERATIONAL SPACE CONTROL                       |\n|  ====================     ========================                        |\n|  PID, computed-torque     Cartesian control (x,y,z)                      |\n|  Works in q directly      Uses Jacobian                                   |\n|                                                                           |\n|  FREE SPACE CONTROL       CONTACT / FORCE CONTROL                         |\n|  ===================      ======================                          |\n|  Position tracking        Impedance control                               |\n|  Trajectory following     Force/torque regulation                         |\n|                           Hybrid position-force                            |\n|                                                                           |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 69,
+      "heading_context": "### PID Structure",
+      "confidence": "candidate",
+      "text": "  PID feedback loop:\n\n  reference r(t) ─→ (sum) ─→ e(t) ─┬─→ P ──→\n                     ↑              ├─→ I ──→ (sum) ──→ u(t) ──→ Plant ──→ y(t)\n                     │              └─→ D ──→             |\n                     └──────────────── y(t) ──────────────┘\n\n        error: e(t) = r(t) - y(t)\n        r(t): reference (desired q_d)\n        y(t): measurement (actual q)\n\nu(t) = Kp * e(t)  +  Ki * integral(e) dt  +  Kd * de/dt\n\n  Kp: proportional gain (stiffness) -- drives error toward 0\n  Ki: integral gain   -- eliminates steady-state error\n  Kd: derivative gain -- damps oscillations (velocity feedback)\n\nDISCRETE IMPLEMENTATION:\n  u[k] = Kp * e[k]  +  Ki * sum(e) * dt  +  Kd * (e[k] - e[k-1]) / dt",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 139,
+      "heading_context": "## Feedforward Control",
+      "confidence": "candidate",
+      "text": "u = u_ff + u_fb\n\nu_ff = G(q_d)                  <- gravity compensation (always useful)\n     or M(q_d)*q_ddot_d + C(q_d,q_dot_d)*q_dot_d + G(q_d)  <- full model\n\nu_fb = PID(q_d - q)            <- error correction only\n\nWith feedforward:\n  PID only needs to correct MODEL ERRORS and DISTURBANCES.\n  Can use lower PID gains -> more stable, less noise amplification.\n  Gravity compensation alone reduces required Kp by 5-10x for vertical joints.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 162,
+      "heading_context": "### Derivation",
+      "confidence": "candidate",
+      "text": "ROBOT EOM: M(q) q_ddot + C(q,q_dot) q_dot + G(q) = tau\n\nLet: tau = M(q) * a + C(q,q_dot) q_dot + G(q)\n              ^\n              desired acceleration\n\nThen: M(q) q_ddot + C(q,q_dot) q_dot + G(q)\n    = M(q) * a   + C(q,q_dot) q_dot + G(q)\n   => q_ddot = a\n\nChoose: a = q_ddot_d + Kd*(q_dot_d - q_dot) + Kp*(q_d - q)\n\nThen the tracking error e = q_d - q satisfies:\n  e_ddot + Kd * e_dot + Kp * e = 0\n\nThis is a LINEAR stable ODE! Choose Kd, Kp for desired damping/bandwidth.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 183,
+      "heading_context": "### Block Diagram",
+      "confidence": "candidate",
+      "text": "q_d, q_dot_d, q_ddot_d\n         |\n         v\n  +-----------+      tau_ff = M(q)*a_des + C*q_dot + G\n  | COMPUTED  |---> tau = tau_ff\n  | TORQUE    |\n  | CONTROL   |\n  +-----------+\n         ^           a_des = q_ddot_d + Kd*(q_dot_d - q_dot) + Kp*(q_d - q)\n         |\n  q, q_dot (measured)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 220,
+      "heading_context": "## Operational-Space Control",
+      "confidence": "candidate",
+      "text": "OPERATIONAL SPACE (task space):\n  x_EE = [px, py, pz, roll, pitch, yaw]   <- end-effector pose (6D)\n\n  Cartesian error:\n  e_x = x_d - x_EE\n\n  Cartesian acceleration desired:\n  a_x = x_ddot_d + Kd*(x_dot_d - x_dot_EE) + Kp*(x_d - x_EE)\n\n  Map to joint torques via Jacobian:\n  tau = J^T * Lambda * a_x  +  C*q_dot  +  G  (+ null-space term)\n\n  where Lambda = (J M^{-1} J^T)^{-1}   <- operational space inertia matrix\n  (accounts for how joint inertia appears in Cartesian space)\n\nNULL-SPACE PROJECTION:\n  tau = tau_task  +  (I - J^T J^{+T}) * tau_null\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                    projects null-space torque so it doesn't affect EE motion\n\n  tau_null can be used for: joint limit avoidance, posture optimization,\n  secondary task (e.g., keep shoulder joint near neutral).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 255,
+      "heading_context": "### Mechanical Impedance Concept",
+      "confidence": "candidate",
+      "text": "IMPEDANCE: relationship between force and motion.\n\n  F = Z * v   (force = impedance * velocity)\n\n  OR in s-domain:\n  Z(s) = M_d * s^2 + D_d * s + K_d\n           ^            ^        ^\n           virtual mass  virtual  virtual\n           (inertia)     damping  stiffness\n\nIMPEDANCE CONTROL:\n  Robot behaves as if it WERE a mass-spring-damper system:\n  F_contact = M_d*(x_ddot_d - x_ddot) + D_d*(x_dot_d - x_dot) + K_d*(x_d - x)\n\nWHY THIS MATTERS FOR CONTACT:\n  FREE SPACE: high stiffness K_d -> tracks position precisely.\n  CONTACT: lower K_d -> complies with surface, absorbs contact forces.\n           High K_d + contact = large forces -> breaks parts or hurts humans.\n\n  Assembly robots use K_d~= 1000 N/m for insertion.\n  Surgical robots use K_d ~= 100-500 N/m for tissue safety.\n  Physical therapy robots: even lower (patient safety).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 282,
+      "heading_context": "### Implementation",
+      "confidence": "candidate",
+      "text": "IMPEDANCE CONTROL LAW (Cartesian):\n  tau = J^T * (M_d * a_x_desired  +  D_d * (x_dot_d - x_dot)  +  K_d * (x_d - x))\n         +  C*q_dot  +  G\n\nADMITTANCE CONTROL (dual of impedance):\n  Measures force F_contact.\n  Computes desired modification to reference trajectory:\n  M_d * x_ddot_desired + D_d * x_dot_desired + K_d * x_desired = F_contact\n\n  Solve for x_desired -> feed to position controller.\n\nCHOICE:\n  Impedance: use with joint-torque-controlled robots (Franka, iiwa, cobots).\n  Admittance: use with position-controlled robots that have force sensors.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 307,
+      "heading_context": "### Hybrid Position-Force Control",
+      "confidence": "candidate",
+      "text": "HYBRID CONTROL (Raibert & Craig, 1981):\n  Partition Cartesian DOF into POSITION-controlled and FORCE-controlled directions.\n\n  Example: robot pushing on a surface:\n  +----------+--------------------------------+\n  | Direction| Control mode                   |\n  +----------+--------------------------------+\n  | x, y     | POSITION (move along surface) |\n  | z        | FORCE (push with 5 N)         |\n  | rz       | POSITION (tool orientation)   |\n  +----------+--------------------------------+\n\n  Selection matrix S:\n    S = diag([0, 0, 1, 0, 0, 0])   <- select z for force control\n    (I - S) = diag([1, 1, 0, 1, 1, 1])  <- others position controlled\n\n  Force error: e_F = F_d - F_measured\n  tau_force = J^T * (I-S)^T * (Kp_F * e_F + Ki_F * integral(e_F))\n\n  LIMITATION: surface contact must be stiff enough that force sensor reads correctly.\n              Works well for: grinding, polishing, surface following, assembly insertion.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 410,
+      "heading_context": "## Learning-Based Control",
+      "confidence": "candidate",
+      "text": "RESIDUAL RL:\n  Controller = model_based_controller + learned_residual_policy\n  Residual corrects for model errors.\n  Easier to train (model does most of work, RL only learns corrections).\n  More sample-efficient than pure RL.\n\nNEURAL NETWORK POLICY AS CONTROLLER:\n  pi(o_t) = a_t    (observation -> action directly)\n  Trained by PPO, SAC, or imitation learning.\n  Runs at 50-1000 Hz on GPU or dedicated ASIC.\n\n  Examples: Isaac Lab (NVIDIA) trains locomotion policies at millions of Hz.\n            These run on Spot quadruped, Unitree Go2.\n\nLIMITATIONS:\n  No formal stability guarantees.\n  Behavior outside training distribution can be unsafe.\n  Interpretability is low.\n  Certification for safety-critical applications (surgery, autonomous vehicles)\n  requires either formal verification or extensive testing.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 437,
+      "heading_context": "## Control Architecture in ROS 2",
+      "confidence": "candidate",
+      "text": "ros2_control ARCHITECTURE:\n\n  +------------------+\n  | ros2_control     |\n  | (controller_mgr) |\n  +------------------+\n   Framework for writing hardware-agnostic controllers.\n          |\n  +------------------+\n  | Controllers      |\n  | JointPositionCtl |\n  | JointEffortCtl   |\n  | ForwardCtl       |\n  +------------------+\n   Plugins implementing a controller interface.\n   JointTrajectoryController: position control with trajectory interpolation.\n   ForwardCommandController: pass-through torques.\n   CartesianMotionController (Franka): Cartesian PID.\n          |\n  +------------------+\n  | Hardware Iface   |\n  | (robot driver)   |\n  +------------------+\n   URDF-defined joint interfaces: position, velocity, effort.\n   Real or simulated (Gazebo plugin).\n          |\n      Real robot or Gazebo/Isaac Sim",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

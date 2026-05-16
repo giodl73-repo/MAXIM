@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\03-SENSORS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                           ROBOT SENSORS LANDSCAPE                         |\n+===========================================================================+\n|                                                                           |\n|  PROPRIOCEPTIVE (self)              EXTEROCEPTIVE (world)                  |\n|  =====================              ====================                   |\n|                                                                           |\n|  Encoders                           Distance / Range                      |\n|    Optical / magnetic               LiDAR (2D, 3D)                        |\n|    Absolute / incremental           Ultrasonic                            |\n|    Resolution: 12-24 bit            IR (short range)                      |\n|                                                                           |\n|  IMU (Inertial Measurement)         Vision                                |\n|    Accelerometer (MEMS)             Monocular camera                      |\n|    Gyroscope (MEMS)                 Stereo camera                         |\n|    Integration drift               RGB-D (depth)                          |\n|    Allan variance noise model       Event camera                          |\n|                                                                           |\n|  Current / Torque sensors           Contact / Force                       |\n|    Motor current -> torque          Force/torque (6-axis)                  |\n|    Strain gauge load cells          Tactile arrays                         |\n|                                     Bump sensors                          |\n|                                                                           |\n|  SENSOR FUSION: combine multiple sensors to get better state estimate     |\n|    Kalman Filter (linear)           Extended Kalman Filter (nonlinear)    |\n|    Complementary Filter             Particle Filter                        |\n|                                                                           |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 68,
+      "heading_context": "### Encoders",
+      "confidence": "candidate",
+      "text": "ENCODER TYPES:\n===============\n\nINCREMENTAL ENCODER:\n+------------------+\n| Counts pulses as |\n| disk rotates.    |\n| Requires homing  |\n| after power-on.  |\n+------------------+\n Loses count on power cycle. Homing routine on startup.\n Cheaper. Most industrial servos use this.\n\nABSOLUTE ENCODER:\n+------------------+\n| Outputs absolute |\n| angle (Gray code |\n| or SSI/BiSS      |\n| protocol).       |\n+------------------+\n Retains position through power cycle. No homing needed.\n More expensive. Surgical robots, cobots.\n\nOPTICAL ENCODER: LED + photodetector array reads slots in disk.\n  Resolution: 512 to 1,000,000 counts/rev (10-20 bit).\n  Fragile (vibration, contamination).\n\nMAGNETIC ENCODER: Hall effect + magnetic pole disk.\n  Less precise than optical but more robust (IP67+).\n  Resolution: 12-16 bit.\n  Common in harsh environments (welding, outdoor).\n\nQUADRATURE DECODING:\n  Two channels A and B, 90 degrees phase offset.\n  Decoding A/B transitions gives direction + 4x resolution.\n  A___----____----   <- channel A\n  B_----____----_   <- channel B (90 deg shifted)\n  Rising edge of A with B=0: forward. B=1: reverse.\n\nRESOLUTION vs ACCURACY:\n  Resolution: smallest detectable motion (counts/rev).\n  Accuracy:   actual angular error (depends on disk quality, bearing).\n  High resolution != high accuracy. Eccentricity causes periodic error.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "### IMU Noise Model and Allan Variance",
+      "confidence": "candidate",
+      "text": "NOISE TERMS (per axis, gyro example):\n  n(t) = bias + random_walk(t) + noise(t)\n\n  Angle Random Walk (ARW):    sqrt(rad/s) -- white noise on rate\n  Bias Instability:           rad/s -- slow drift of zero offset\n  Rate Random Walk (RRW):     rad/s/sqrt(s) -- slow random walk of bias\n  Quantization noise:         digital resolution of ADC\n\nALLAN VARIANCE (sigma_A vs tau):\n  Standard characterization plot: log-log of sigma_A vs integration time tau.\n\n  tau:  0.001 s    -> dominated by quantization noise\n  tau:  0.01-1 s   -> white noise floor (ARW)\n  tau:  ~1-100 s   -> bias instability minimum (best operating point)\n  tau:  >100 s     -> rate random walk dominates (increases with tau)\n\n  A good IMU has a low bias instability minimum (< 1 deg/hr for tactical grade).\n  Consumer MEMS: 10-100 deg/hr. Tactical MEMS: 1-10 deg/hr.\n  Navigation grade (fiber optic gyro): 0.001-0.01 deg/hr.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 175,
+      "heading_context": "### LiDAR (Light Detection and Ranging)",
+      "confidence": "candidate",
+      "text": "LIDAR OPERATING PRINCIPLES:\n============================\n\nTIME-OF-FLIGHT (ToF):   d = c * t / 2\n  Pulse laser -> measure round-trip time.\n  Accurate at long range. Limited by pulse repetition rate.\n  Examples: Velodyne VLP-16, Ouster OS1, Livox Mid-360.\n\nFMCW (Frequency-Modulated Continuous Wave):\n  Chirp signal -> measure beat frequency between transmitted and received.\n  Also measures radial velocity (Doppler).\n  Better for moving targets. More complex.\n  Examples: Aeva Aeries II, Mobileye Iris+ (automotive).\n\nPHASE-SHIFT:\n  Continuous wave, measure phase offset.\n  Short range only (<100 m). Used in some 2D LiDAR.\n\n2D vs 3D LIDAR:\n+------------------+-----------------------------------------+\n| 2D (planar)      | Spinning laser in one plane.            |\n|                  | Single ring. Good for indoor nav.       |\n|                  | Examples: SICK TiM, Hokuyo URG.         |\n+------------------+-----------------------------------------+\n| 3D (multi-beam)  | Multiple laser beams at different       |\n|                  | vertical angles -> point cloud.         |\n|                  | 16, 32, 64, 128 beams common.           |\n|                  | Examples: Velodyne HDL-64, Ouster OS2.   |\n+------------------+-----------------------------------------+\n| Solid-state 3D   | No mechanical rotation.                 |\n|                  | MEMS mirror or VCSEL array.             |\n|                  | Smaller, cheaper, longer lifespan.      |\n|                  | Examples: Livox Avia, Hesai AT128.      |\n+------------------+-----------------------------------------+\n\nPOINT CLOUD OUTPUT:\n  Each laser return -> (x, y, z, intensity, ring_id, timestamp).\n  Velodyne VLP-16: 16 rings, 300,000 points/sec, 100m range.\n  Ouster OS2-128: 128 rings, 2.6M points/sec, 240m range.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 256,
+      "heading_context": "### Force/Torque Sensors",
+      "confidence": "candidate",
+      "text": "6-AXIS F/T SENSOR (wrist-mounted):\n  Measures: Fx, Fy, Fz (forces) + Tx, Ty, Tz (torques).\n  Principle: strain gauges on a mechanical structure.\n    - Applied force deforms the structure.\n    - Strain gauge = resistor whose resistance changes with strain.\n    - Wheatstone bridge circuit converts strain to voltage.\n  Located between robot wrist and end-effector.\n  Applications: assembly insertion, surface following, surgery, grinding.\n\nSPECIFICATIONS:\n  Range:       +/- 50 N to +/- 2000 N (forces), +/- 5 N*m to +/- 200 N*m (torques)\n  Resolution:  ~0.01 N, ~0.001 N*m\n  Bandwidth:   0-1 kHz (limited by mechanical structure resonance)\n  Overload:    rated to survive 5-10x overload (crash protection)\n\nEXAMPLES: ATI Gamma (standard), Robotiq FT 300S, OnRobot HEX-E.\n\nJOINT TORQUE SENSING (cobots only):\n  Each joint has its own torque sensor.\n  Enables whole-arm collision detection (not just wrist).\n  Franka Panda, KUKA iiwa, Kinova Gen3 have this.\n  Allows compliant behavior throughout the arm, not just at tool tip.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 368,
+      "heading_context": "### Complementary Filter (IMU + Encoder)",
+      "confidence": "candidate",
+      "text": "COMPLEMENTARY FILTER:\n\n  angle = alpha * (angle + gyro * dt)  +  (1-alpha) * accel_angle\n\n  where:\n    alpha: blend factor (0.95-0.99 typical)\n    gyro * dt: angle from integrating gyroscope (fast, drifts)\n    accel_angle: angle from accelerometer gravity vector (slow, stable)\n\n  At alpha=0.98:\n    98% weight on gyro integration (fast transients tracked)\n    2% weight on accelerometer correction (drift corrected slowly)\n\nFREQUENCY DOMAIN INTUITION:\n  Gyro: highpass filter (believe gyro at high frequency / fast motion)\n  Accel: lowpass filter (believe accel at low frequency / steady state)\n  Complementary: highpass(gyro) + lowpass(accel) = allpass (covers all frequencies)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 390,
+      "heading_context": "### Sensor Fusion Architecture for a Mobile Robot",
+      "confidence": "candidate",
+      "text": "INPUTS:\n  Wheel encoders (100 Hz)\n  IMU (200 Hz)\n  LiDAR (10-20 Hz)\n  Camera (30 Hz)\n\nFUSION PIPELINE:\n\n  IMU + Wheel encoder                LiDAR / Camera\n  -------------------                -------------------\n  Complementary filter          Scan matching / Feature tracking\n  or EKF                        Loop closure detection\n  -> Odometry (high rate,        -> SLAM pose graph update\n     100-200 Hz, drifts)        (low rate, but globally consistent)\n         |                               |\n         +-----------> fuse <------------+\n                          |\n                    Final pose estimate\n                    (continuous, globally consistent)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

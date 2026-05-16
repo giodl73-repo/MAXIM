@@ -1,0 +1,98 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\01-KINEMATICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 464,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Approach"
+      ],
+      "rows": [
+        [
+          "Joint angles -> EE pose",
+          "Forward kinematics, DH chain multiplication"
+        ],
+        [
+          "EE pose -> joint angles (known geometry)",
+          "Analytical IK (spherical wrist decoupling)"
+        ],
+        [
+          "EE pose -> joint angles (general)",
+          "Numerical IK (damped least squares)"
+        ],
+        [
+          "EE velocity -> joint velocities",
+          "Jacobian pseudoinverse: q_dot = J^+ v_EE"
+        ],
+        [
+          "Check if configuration is singular",
+          "Compute manipulability w = sqrt(det(JJ^T))"
+        ],
+        [
+          "Move joints without moving EE",
+          "Null-space projection (needs 7-DOF arm)"
+        ],
+        [
+          "Visualize what robot can reach",
+          "Monte Carlo FK sampling -> point cloud"
+        ],
+        [
+          "Pick robot for fast flat-plane work",
+          "SCARA"
+        ],
+        [
+          "Pick robot for fast pick-and-place",
+          "Delta (parallel)"
+        ],
+        [
+          "Pick robot for complex 3D manipulation",
+          "Serial 6-DOF or 7-DOF"
+        ],
+        [
+          "Need highest stiffness + precision",
+          "Stewart platform or Cartesian gantry"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 482,
+      "heading_context": "## Cross-References",
+      "headers": [
+        "If you want to understand...",
+        "Go to",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Feedback control of robot motion",
+          "`control-theory/01-PID-CLASSICAL.md`",
+          "Kinematics maps pose; control closes the loop around motion error"
+        ],
+        [
+          "Linear algebra of transforms",
+          "`mathematics/06-LINEAR-ALGEBRA.md`",
+          "Homogeneous transforms, rotations, Jacobians, and singularities are matrix geometry"
+        ],
+        [
+          "Mechanical constraints and actuation",
+          "`mechanical/01-THERMODYNAMICS.md`",
+          "Real robots have torque, friction, inertia, thermal, and power limits"
+        ],
+        [
+          "Perception and sensing",
+          "`computer-architecture/01-ISA-FUNDAMENTALS.md`",
+          "Robotic systems depend on compute, sensor pipelines, and real-time constraints"
+        ],
+        [
+          "Spatial planning",
+          "`architecture/01-SPATIAL-DESIGN.md`",
+          "Workspace, reachability, and navigation are spatial-configuration problems"
+        ]
+      ]
+    }
+  ]
+}

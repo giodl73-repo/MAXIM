@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:robotics:ros
+kind: guide
+module: robotics
+section: robotics
+title: Robotics - ROS 2 Ecosystem
+status: source-custody
+source_custody: partial
+current_path: robotics/08-ROS.md
+canonical_path: robotics/08-ROS.md
+backsource_ids: [proof-backfill:robotics:08-ros, git-history:robotics:08-ros]
+concepts: [ros]
+root_concepts: [ros]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Robotics — ROS 2 Ecosystem
 
 ## The Big Picture

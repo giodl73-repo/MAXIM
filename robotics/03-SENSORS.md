@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:robotics:sensors
+kind: guide
+module: robotics
+section: robotics
+title: Robotics - Sensors
+status: source-custody
+source_custody: partial
+current_path: robotics/03-SENSORS.md
+canonical_path: robotics/03-SENSORS.md
+backsource_ids: [proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]
+concepts: [sensors]
+root_concepts: [sensors]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Robotics — Sensors
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:robotics:dynamics
+kind: guide
+module: robotics
+section: robotics
+title: Robotics - Dynamics
+status: source-custody
+source_custody: partial
+current_path: robotics/02-DYNAMICS.md
+canonical_path: robotics/02-DYNAMICS.md
+backsource_ids: [proof-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]
+concepts: [dynamics]
+root_concepts: [dynamics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Robotics — Dynamics
 
 ## The Big Picture

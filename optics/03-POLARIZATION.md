@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:optics:polarization
+kind: guide
+module: optics
+section: optics
+title: Polarization
+status: source-custody
+source_custody: partial
+current_path: optics/03-POLARIZATION.md
+canonical_path: optics/03-POLARIZATION.md
+backsource_ids: [proof-backfill:optics:03-polarization, git-history:optics:03-polarization]
+concepts: [polarization]
+root_concepts: [polarization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Polarization
 
 ## The Big Picture

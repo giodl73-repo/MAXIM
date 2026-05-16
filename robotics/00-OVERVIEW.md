@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:robotics:overview
+kind: guide
+module: robotics
+section: robotics
+title: Robotics - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: robotics/00-OVERVIEW.md
+canonical_path: robotics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:robotics:00-overview, git-history:robotics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Robotics — Landscape Overview
 
 ## The Big Picture

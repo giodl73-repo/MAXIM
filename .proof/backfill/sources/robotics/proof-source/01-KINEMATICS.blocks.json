@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\01-KINEMATICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=========================================================================+\n|                         KINEMATICS LANDSCAPE                            |\n+=========================================================================+\n|                                                                         |\n|  FORWARD KINEMATICS (FK)                INVERSE KINEMATICS (IK)         |\n|  ========================               ========================         |\n|                                                                         |\n|  Input:  q = [q1, q2, ..., qn]          Input:  T (4x4 pose matrix)    |\n|          joint angles                            desired EE pose         |\n|          (n = DOF of robot)                                             |\n|                                                                         |\n|  Output: T_0n (4x4 matrix)              Output: q = [q1, q2, ..., qn]  |\n|          end-effector pose                       joint angles            |\n|          (position + orientation)                                        |\n|                                                                         |\n|  Always has a UNIQUE solution.          May have MULTIPLE solutions,    |\n|  O(n) computation.                      NO solution, or infinite        |\n|  Solved by DH transform chain.          solutions (redundant arms).     |\n|                                                                         |\n|  +----------+    DH chain     +----------+                              |\n|  | q1..qn   | ------------->  | T_0n     |    DIFFERENTIAL KINEMATICS   |\n|  | angles   |                 | 4x4 pose |    J(q): maps q_dot -> v_EE  |\n|  +----------+                 +----------+    Jacobian matrix           |\n|                                                                         |\n|  WORKSPACE ANALYSIS              SINGULARITIES                          |\n|  Reachable workspace:            J loses rank -> velocity               |\n|    set of all poses FK can       amplification -> infinite joint        |\n|    produce within joint limits   velocities for finite EE velocity      |\n|                                                                         |\n+=========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 101,
+      "heading_context": "### The Four DH Parameters",
+      "confidence": "candidate",
+      "text": "+-----------+----------------------------------------------------------+\n| Parameter | Meaning                                                  |\n+-----------+----------------------------------------------------------+\n| a_i       | Link length: distance along x_i between z_{i-1} and z_i |\n| alpha_i   | Link twist: rotation about x_i from z_{i-1} to z_i      |\n| d_i       | Link offset: distance along z_{i-1} from x_{i-1} to x_i |\n| theta_i   | Joint angle: rotation about z_{i-1} from x_{i-1} to x_i |\n|           |   ** THIS is the variable for revolute joints **         |\n+-----------+----------------------------------------------------------+\n\nFor revolute joint i:  theta_i is the variable, a_i/alpha_i/d_i are constants.\nFor prismatic joint i: d_i is the variable, a_i/alpha_i/theta_i are constants.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 120,
+      "heading_context": "### DH Transform Matrix",
+      "confidence": "candidate",
+      "text": "T_{i-1,i} =\n\n| cos(theta_i)  -sin(theta_i)*cos(alpha_i)   sin(theta_i)*sin(alpha_i)   a_i*cos(theta_i) |\n| sin(theta_i)   cos(theta_i)*cos(alpha_i)  -cos(theta_i)*sin(alpha_i)   a_i*sin(theta_i) |\n|      0              sin(alpha_i)                cos(alpha_i)                  d_i         |\n|      0                   0                           0                          1         |",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 139,
+      "heading_context": "### Forward Kinematics via DH Chain",
+      "confidence": "candidate",
+      "text": "### Example: 2R Planar Arm (2 revolute joints in a plane)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 141,
+      "heading_context": "### Example: 2R Planar Arm (2 revolute joints in a plane)",
+      "confidence": "candidate",
+      "text": "       L1          L2\n  o----[=====]----[=====]--- EE\n Base  J1(q1)     J2(q2)\n\nDH table:\n  i  |  a_i  |  alpha_i  |  d_i  |  theta_i\n  1  |   L1  |     0     |   0   |    q1      <- variable\n  2  |   L2  |     0     |   0   |    q2      <- variable\n\nT_01 = | cos(q1) -sin(q1) 0  L1*cos(q1) |\n       | sin(q1)  cos(q1) 0  L1*sin(q1) |\n       |    0        0    1      0       |\n       |    0        0    0      1       |\n\nT_12 = | cos(q2) -sin(q2) 0  L2*cos(q2) |\n       | sin(q2)  cos(q2) 0  L2*sin(q2) |\n       |    0        0    1      0       |\n       |    0        0    0      1       |\n\nEnd-effector position (from T_0n = T_01 * T_12):\n  x = L1*cos(q1) + L2*cos(q1+q2)\n  y = L1*sin(q1) + L2*sin(q1+q2)\n\nThis is FK. Always unique. Always solvable.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 291,
+      "heading_context": "## Singularities",
+      "confidence": "candidate",
+      "text": "MATHEMATICAL: det(J J^T) = 0   (or equivalently, sigma_min(J) ~ 0)\n\nPHYSICAL MEANING: Near a singularity,\n  - Small Cartesian velocity requires INFINITE joint velocities\n  - Joint velocities become numerically unbounded\n  - The robot \"locks up\" or thrashes in practice\n\nTYPES FOR A 6R ARM:\n+--------------+------------------------------------------+-------------+\n| Type         | Description                              | Configurtn  |\n+--------------+------------------------------------------+-------------+\n| Shoulder     | Wrist center crosses shoulder joint axis | Arm fully    |\n|              |                                          | extended     |\n+--------------+------------------------------------------+-------------+\n| Elbow        | Joints 2, 3 are aligned (arm straight)   | Fully       |\n|              | or fully folded                          | extended    |\n+--------------+------------------------------------------+-------------+\n| Wrist        | Joints 4, 6 axes are aligned             | q5 = 0       |\n|              | (gimbal lock for wrist)                  |              |\n+--------------+------------------------------------------+-------------+\n\nDETECTION:\n  Manipulability measure: w = sqrt(det(J J^T))\n  w = 0 at singularity\n  w small = near singularity (ill-conditioned)\n\nAVOIDANCE:\n  - Path planning: avoid singular configurations in trajectory\n  - Damped least squares: degrade gracefully (lambda bumped up)\n  - Singularity-robust IK: task augmentation near singularity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 350,
+      "heading_context": "### Robot Morphology Workspace Comparison",
+      "confidence": "candidate",
+      "text": "                SERIAL 6-DOF              SCARA (4-DOF)\n\n              ___________                 ___________\n             /           \\               /           \\\n            /   Large,    \\             /  Cylindrical\\\n           /   irregular   \\           / (strong in   |\n          |   envelope      |         |  horizontal,  |\n          |   (doughnut     |         |  weak in      |\n          |    shape with   |          \\  vertical)  /\n           \\   inner void) /             \\___________/\n            \\             /\n             \\___________/\n\n  Full 6-DOF pose in most of volume.    Only 4-DOF (x,y,z,rz). Fast.\n\n                DELTA (PARALLEL)        CARTESIAN (GANTRY)\n\n             <----workspace---->        +------------------+\n                   /\\                   |                  |\n                  /  \\                  |  Rectangular     |\n                 /    \\                 |  workspace.      |\n                / cone \\                |  Full stiffness  |\n               /________\\              |  throughout.     |\n                                        +------------------+\n  Very fast. Stiff. Small cone.         Large. Heavy. Expensive.\n  Pick-and-place only (limited DOF).    CNC machines, gantry robots.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 386,
+      "heading_context": "## 7-DOF Redundant Arms",
+      "confidence": "candidate",
+      "text": "6-DOF arm: J is 6x6 (square).\n  For a given EE pose: exactly 0 or finite # of IK solutions.\n  No freedom to move without changing EE pose.\n\n7-DOF arm: J is 6x7 (more joints than task DOF).\n  For a given EE pose: infinite IK solutions (a manifold in joint space).\n  The extra DOF can be used for:\n    - Obstacle avoidance (null-space motion)\n    - Joint limit avoidance\n    - Optimizing some secondary criterion (min torque, etc.)\n\nNULL-SPACE MOTION:\n  q_dot = J^+ v_EE + (I - J^+ J) * q_dot_0\n                     ^^^^^^^^^^^^^^^^^^^^^\n                     null-space projector\n                     q_dot_0: arbitrary joint velocity\n                     (I - J^+J): projects onto null space of J\n                     EE does not move while joints do!",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 413,
+      "heading_context": "### SCARA (Selective Compliance Assembly Robot Arm)",
+      "confidence": "candidate",
+      "text": "         q1 (rotation)\n         |\n    L1   |   q2 (rotation)\n  o------+------+--- q3 (translation, vertical)\n  base         EE           + q4 (rotation about vertical)\n\n  4 DOF: x, y, z, rotation about z.\n  High stiffness in XY (plane), compliant in Z (assembly).\n  Used for: PCB assembly, packaging, bolt insertion.\n  Speed: 100+ cycles/min (pick-and-place).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 428,
+      "heading_context": "### Delta Robot (Parallel)",
+      "confidence": "candidate",
+      "text": "         BASE (fixed)\n     A1---A2---A3  (3 actuators at top, fixed base)\n     |     |    |\n    upper arms (3 sets, each with 2 parallel rods)\n     |     |    |\n     +--platform+  <- end-effector moves in XYZ only (+ optional 4th axis)\n\n  All 3 actuators fire simultaneously.\n  Very high acceleration (>10g for food packaging).\n  Small workspace (cone below base).\n  Stiff because loads shared across 3 chains.\n  Examples: Adept Quattro, ABB FlexPicker.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 445,
+      "heading_context": "### Stewart Platform (Hexapod)",
+      "confidence": "candidate",
+      "text": "         TOP PLATE (end-effector)\n          o    o    o\n          |    |    |\n          6 actuated legs (linear actuators)\n          |    |    |\n          o    o    o\n         BOTTOM PLATE (base)\n\n  6 legs -> 6 DOF (position + orientation).\n  All legs share load -> very high stiffness.\n  Small workspace (must stay near neutral).\n  Applications: flight simulators, precision machining, optical alignment.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

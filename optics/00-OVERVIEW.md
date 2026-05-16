@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:optics:overview
+kind: guide
+module: optics
+section: optics
+title: Optics - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: optics/00-OVERVIEW.md
+canonical_path: optics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:optics:00-overview, git-history:optics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Optics — Landscape Overview
 
 ## The Big Picture

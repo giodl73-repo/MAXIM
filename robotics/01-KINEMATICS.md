@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:robotics:kinematics
+kind: guide
+module: robotics
+section: robotics
+title: Robotics - Kinematics
+status: source-custody
+source_custody: partial
+current_path: robotics/01-KINEMATICS.md
+canonical_path: robotics/01-KINEMATICS.md
+backsource_ids: [proof-backfill:robotics:01-kinematics, git-history:robotics:01-kinematics]
+concepts: [kinematics]
+root_concepts: [kinematics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Robotics — Kinematics
 
 ## The Big Picture

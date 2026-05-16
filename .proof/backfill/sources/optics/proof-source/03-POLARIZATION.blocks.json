@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "optics\\03-POLARIZATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    POLARIZATION LANDSCAPE                        |\n|                                                                  |\n|  POLARIZATION STATES      JONES CALCULUS    STOKES/MUELLER       |\n|  ------------------       -------------     ------------         |\n|  Linear polarization      2x1 complex       4x1 real vector      |\n|  Circular polarization    Jones vector      Stokes vector        |\n|  Elliptical polarization  2x2 Jones matrix  4x4 Mueller matrix   |\n|  Partial polarization                       handles depol.       |\n|  Unpolarized                                                     |\n|                                                                  |\n|  PHYSICAL MECHANISMS      APPLICATIONS                           |\n|  ------------------       ------------                           |\n|  Birefringence            LCD displays                           |\n|  Reflection (Brewster)    Optical isolators                      |\n|  Scattering               Stress analysis                        |\n|  Dichroism                Ellipsometry                           |\n|  Faraday rotation         Remote sensing                         |\n|  Waveplates               3D cinema                              |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 55,
+      "heading_context": "## Polarization States",
+      "confidence": "candidate",
+      "text": "  E(z,t) = Ex * cos(kz - wt + phi_x) * x_hat\n          + Ey * cos(kz - wt + phi_y) * y_hat\n\n  Ex, Ey = amplitudes\n  phi_x, phi_y = phases\n  delta = phi_y - phi_x = relative phase difference\n\n  STATE                CONDITION\n  -----                ---------\n  Linear horizontal    Ey = 0\n  Linear vertical      Ex = 0\n  Linear at angle      Ex, Ey nonzero; delta = 0 or pi\n  Right circular       Ex = Ey; delta = -pi/2  (E rotates clockwise as seen by receiver)\n  Left circular        Ex = Ey; delta = +pi/2\n  Elliptical           All other cases\n\n  Visualization of E-field tip trajectory (looking at source, xy plane):\n\n  Linear horizontal:   --------    Linear 45 deg: /\n  Linear vertical:        |        Right circular: O (clockwise)\n  Right elliptical:    (  )        Left elliptical: (  ) (counterclockwise)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 154,
+      "heading_context": "### Jones Matrices for Common Elements",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  ELEMENT                      JONES MATRIX                       |\n|  -------                      ------------                       |\n|                                                                  |\n|  Linear polarizer (horizontal)  [1 0]                            |\n|                                 [0 0]                            |\n|                                                                  |\n|  Linear polarizer (vertical)    [0 0]                            |\n|                                 [0 1]                            |\n|                                                                  |\n|  Linear polarizer at angle theta:                                |\n|  [cos^2(theta)      sin(theta)cos(theta)]                        |\n|  [sin(theta)cos(theta)   sin^2(theta)  ]                         |\n|                                                                  |\n|  Half-wave plate (fast axis at 0):                               |\n|  [1  0]  (QWP: retardation = pi/2 between slow and fast axes)    |\n|  [0 -1]                                                          |\n|                                                                  |\n|  Quarter-wave plate (fast axis at 0):                            |\n|  [1  0 ]  = [1    0  ]                                           |\n|  [0  i ]    [0  exp(i*pi/2)]                                     |\n|                                                                  |\n|  Rotation matrix (rotate polarization by angle theta):           |\n|  [ cos(theta)  sin(theta)]                                       |\n|  [-sin(theta)  cos(theta)]                                       |\n|                                                                  |\n|  Faraday rotator (rotation by theta, nonreciprocal):             |\n|  [ cos(theta)  sin(theta)]  (same form but different physics)    |\n|  [-sin(theta)  cos(theta)]                                       |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "### Composing Systems",
+      "confidence": "candidate",
+      "text": "  For elements E1, E2, E3 (light passes E1 first):\n  J_total = E3 * E2 * E1\n\n  Output field: E_out = J_total * E_in\n\n  Same matrix multiplication order as ABCD matrices:\n  rightmost matrix = first element encountered.\n\n  Example: Linear polarizer at 0 deg, then QWP fast axis at 45 deg:\n\n  J = QWP(45) * LP(0)\n\n  Input: unpolarized? Jones doesn't handle unpolarized -- use Stokes.\n  Input: horizontal linear -> becomes right circular? Check:\n\n  QWP(45) = 1/sqrt(2) * [1-i  1+i]\n                         [1+i  1-i] ... (rotated QWP)\n\n  -> Horizontal linear [1,0] becomes circular [left or right depending on orientation]\n  This is how LCDs and waveplates generate circular polarization.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 269,
+      "heading_context": "### Mueller Matrices",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  ELEMENT              MUELLER MATRIX                             |\n|  -------              -----                                      |\n|                                                                  |\n|  Linear polarizer     [1  1  0  0]                               |\n|  (horizontal) *1/2    [1  1  0  0]                               |\n|                        [0  0  0  0]                              |\n|                        [0  0  0  0]                              |\n|                                                                  |\n|  Linear polarizer     [1  0  1  0]                               |\n|  (+45 deg) *1/2       [0  0  0  0]                               |\n|                        [1  0  1  0]                              |\n|                        [0  0  0  0]                              |\n|                                                                  |\n|  Quarter-wave plate   [1  0   0   0]                             |\n|  (fast axis horiz)    [0  1   0   0]                             |\n|                        [0  0   0  -1]                            |\n|                        [0  0   1   0]                            |\n|                                                                  |\n|  Half-wave plate      [1  0   0   0]                             |\n|  (fast axis horiz)    [0  1   0   0]                             |\n|                        [0  0  -1   0]                            |\n|                        [0  0   0  -1]                            |\n|                                                                  |\n|  Ideal mirror         [1  0   0   0]                             |\n|  (at normal           [0  1   0   0]                             |\n|   incidence)          [0  0  -1   0]   <- handedness reverses    |\n|                        [0  0   0  -1]                            |\n+------------------------------------------------------------------+\n\n  System composition: M_total = M_n * ... * M2 * M1\n  Stokes output: S_out = M_total * S_in",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 331,
+      "heading_context": "### Waveplates",
+      "confidence": "candidate",
+      "text": "  Quarter-wave plate (QWP): Gamma = pi/2 = lambda/4 retardation\n    Fast axis aligned with one linear polarization component\n    Slow axis at 90 deg from fast axis\n    Effect: converts linear to elliptical/circular polarization\n    -> Linear at 45 deg to waveplate axes -> circular polarization\n\n    Input: [1, 1] (linear at 45 deg, equal components)\n    After QWP: [1, 1*exp(i*pi/2)] = [1, i]  -> right circular\n\n  Half-wave plate (HWP): Gamma = pi = lambda/2 retardation\n    Rotates the polarization ellipse\n    -> Linear at angle theta to fast axis -> linear at angle -theta\n    Effectively: reflects polarization angle about fast axis\n    Input: linear at 30 deg, fast axis at 0 deg -> output: linear at -30 deg\n\n  Common waveplate configurations:\n  QWP(45 deg) after linear(0): creates circular polarization\n  HWP(22.5 deg) after linear(0): rotates to linear(45 deg)\n  Two QWPs: can simulate any retardation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 359,
+      "heading_context": "## LCD Displays — Twisted Nematic Operation",
+      "confidence": "candidate",
+      "text": "  Unactivated (ON state for normally white):\n  +--polarizer (0 deg)--+\n  |                     |\n  |  liquid crystal      |  <-- molecules rotate 90 deg through cell\n  |  layer (90 deg twist)|     (twisted nematic = TN)\n  |                     |\n  +--polarizer (90 deg)-+\n\n  Light path: enters H-polarized -> TN layer rotates polarization 90 deg\n  -> now V-polarized -> passes rear polarizer -> BRIGHT\n\n  Activated (voltage applied):\n  +--polarizer (0 deg)--+\n  |                     |\n  |  LC molecules       |  <-- molecules align with field, lose twist\n  |  align vertical     |\n  |                     |\n  +--polarizer (90 deg)-+\n\n  Light path: enters H-polarized -> no rotation -> blocked by rear polarizer -> DARK\n\n  IPS mode: in-plane switching; both electrodes on same substrate;\n  molecules rotate in plane -> better viewing angles, more accurate color\n  VA mode: vertical alignment; molecules tilt vertically when activated;\n  high contrast ratio, some viewing angle issues",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 393,
+      "heading_context": "## Optical Isolators (Faraday Effect)",
+      "confidence": "candidate",
+      "text": "  Forward propagation:\n  Polarizer (0 deg) -> Faraday rotator (+45 deg) -> Polarizer (45 deg)\n  -> passes through (polarization matches output polarizer)\n\n  Backward propagation:\n  Polarizer (45 deg) -> Faraday rotator (+45 deg AGAIN, not -45)\n  -> now 90 deg -> blocked by input polarizer (0 deg)\n\n  Why non-reciprocal: rotation sense depends on B-field direction,\n  not on light propagation direction. Counterpropagating beam still\n  sees +45 deg rotation (not -45 deg as it would for a wave plate).\n\n  Application: protect laser sources from back-reflections\n  (back-reflections into a laser cause instability or damage).\n  Every fiber laser and semiconductor laser in a communication\n  system has an isolator at its output.\n\n  Isolation: typically 30-60 dB (1000x to 1 million x power reduction)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

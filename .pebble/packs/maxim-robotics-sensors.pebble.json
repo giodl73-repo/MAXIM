@@ -1,0 +1,545 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-robotics-sensors",
+  "source": "../../robotics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-SENSORS.md#000",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "# Robotics — Sensors"
+    },
+    {
+      "id": "03-SENSORS.md#001",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-SENSORS.md#002",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "Sensors are the robot's interface to physical reality. Two categories:\nproprioceptive (self-sensing: what are my joints doing?) and exteroceptive\n(world-sensing: what is in the environment?)."
+    },
+    {
+      "id": "03-SENSORS.md#003",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "```\n+===========================================================================+\n|                           ROBOT SENSORS LANDSCAPE                         |\n+===========================================================================+\n|                                                                           |\n|  PROPRIOCEPTIVE (self)              EXTEROCEPTIVE (world)                  |\n|  =====================              ====================                   |\n|                                                                           |\n|  Encoders                           Distance / Range                      |\n|    Optical / magnetic               LiDAR (2D, 3D)                        |\n|    Absolute / incremental           Ultrasonic                            |\n|    Resolution: 12-24 bit            IR (short range)                      |\n|                                                                           |\n|  IMU (Inertial Measurement)         Vision                                |\n|    Accelerometer (MEMS)             Monocular camera                      |\n|    Gyroscope (MEMS)                 Stereo camera                         |\n|    Integration drift               RGB-D (depth)                          |\n|    Allan variance noise model       Event camera                          |\n|                                                                           |\n|  Current / Torque sensors           Contact / Force                       |\n|    Motor current -> torque          Force/torque (6-axis)                  |\n|    Strain gauge load cells          Tactile arrays                         |\n|                                     Bump sensors                          |\n|                                                                           |\n|  SENSOR FUSION: combine multiple sensors to get better state estimate     |\n|    Kalman Filter (linear)           Extended Kalman Filter (nonlinear)    |\n|    Complementary Filter             Particle Filter                        |\n|                                                                           |\n+===========================================================================+\n```"
+    },
+    {
+      "id": "03-SENSORS.md#004",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-SENSORS.md#005",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "## Proprioceptive Sensors"
+    },
+    {
+      "id": "03-SENSORS.md#006",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "### Encoders"
+    },
+    {
+      "id": "03-SENSORS.md#007",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "Encoders measure joint angle (rotary) or position (linear). They are the most\nfundamental robot sensor — every joint needs one for closed-loop control."
+    },
+    {
+      "id": "03-SENSORS.md#008",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "```\nENCODER TYPES:\n==============="
+    },
+    {
+      "id": "03-SENSORS.md#009",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "INCREMENTAL ENCODER:\n+------------------+\n| Counts pulses as |\n| disk rotates.    |\n| Requires homing  |\n| after power-on.  |\n+------------------+\n Loses count on power cycle. Homing routine on startup.\n Cheaper. Most industrial servos use this."
+    },
+    {
+      "id": "03-SENSORS.md#010",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "ABSOLUTE ENCODER:\n+------------------+\n| Outputs absolute |\n| angle (Gray code |\n| or SSI/BiSS      |\n| protocol).       |\n+------------------+\n Retains position through power cycle. No homing needed.\n More expensive. Surgical robots, cobots."
+    },
+    {
+      "id": "03-SENSORS.md#011",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "OPTICAL ENCODER: LED + photodetector array reads slots in disk.\n  Resolution: 512 to 1,000,000 counts/rev (10-20 bit).\n  Fragile (vibration, contamination)."
+    },
+    {
+      "id": "03-SENSORS.md#012",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "MAGNETIC ENCODER: Hall effect + magnetic pole disk.\n  Less precise than optical but more robust (IP67+).\n  Resolution: 12-16 bit.\n  Common in harsh environments (welding, outdoor)."
+    },
+    {
+      "id": "03-SENSORS.md#013",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "QUADRATURE DECODING:\n  Two channels A and B, 90 degrees phase offset.\n  Decoding A/B transitions gives direction + 4x resolution.\n  A___----____----   <- channel A\n  B_----____----_   <- channel B (90 deg shifted)\n  Rising edge of A with B=0: forward. B=1: reverse."
+    },
+    {
+      "id": "03-SENSORS.md#014",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "RESOLUTION vs ACCURACY:\n  Resolution: smallest detectable motion (counts/rev).\n  Accuracy:   actual angular error (depends on disk quality, bearing).\n  High resolution != high accuracy. Eccentricity causes periodic error.\n```"
+    },
+    {
+      "id": "03-SENSORS.md#015",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "### IMUs (Inertial Measurement Units)"
+    },
+    {
+      "id": "03-SENSORS.md#016",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "IMUs measure angular rate (gyroscope) and specific force (accelerometer).\nModern IMUs are MEMS — microelectromechanical systems on a silicon chip."
+    },
+    {
+      "id": "03-SENSORS.md#017",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "```\nIMU COMPONENTS:\n==============="
+    },
+    {
+      "id": "03-SENSORS.md#018",
+      "path": [
+        "03-SENSORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:robotics:03-sensors, git-history:robotics:03-sensors]",
+        "canonical_path": "robotics/03-SENSORS.md",
+        "concepts": "[sensors]",
+        "current_path": "robotics/03-SENSORS.md",
+        "id": "maxim:robotics:sensors",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sensors]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Sensors",
+        "updated": "null"
+      },
+      "text": "MEMS ACCELEROMETER:\n  A proof mass suspended by springs on a chip.\n  Acceleration deflects the mass; measured by capacitance change.\n  Measures: specific force = a_true + g\n            (cannot separate true acceleration from gravity!)\n  Noise model: white noise + bias + scale factor error."
+    }
+  ],
+  "refs": [
+    "03-SENSORS.md"
+  ]
+}

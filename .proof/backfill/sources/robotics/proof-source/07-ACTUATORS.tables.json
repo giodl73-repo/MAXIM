@@ -1,0 +1,172 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\07-ACTUATORS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 173,
+      "heading_context": "## BLDC Motors (Brushless DC)",
+      "headers": [
+        "Property",
+        "DC Brushed",
+        "BLDC"
+      ],
+      "rows": [
+        [
+          "Commutation",
+          "Mechanical (brushes)",
+          "Electronic (FOC/ESC)"
+        ],
+        [
+          "Maintenance",
+          "Brush replacement",
+          "None"
+        ],
+        [
+          "Max speed",
+          "~10,000 rpm (brush limit)",
+          "~50,000+ rpm"
+        ],
+        [
+          "Torque density",
+          "Good",
+          "20-30% higher"
+        ],
+        [
+          "Efficiency",
+          "75-85%",
+          "85-95%"
+        ],
+        [
+          "Control complexity",
+          "Low (just voltage)",
+          "High (FOC required)"
+        ],
+        [
+          "Cost",
+          "Low",
+          "Higher"
+        ],
+        [
+          "Thermal",
+          "Rotor dissipates heat (bad)",
+          "Stator dissipates heat (better)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 280,
+      "heading_context": "## Transmissions",
+      "headers": [
+        "Type",
+        "Ratio",
+        "Backlash",
+        "Efficiency",
+        "Cost",
+        "Used in"
+      ],
+      "rows": [
+        [
+          "Spur gear",
+          "1:3 to 1:10 per stage",
+          "High",
+          "98%/stage",
+          "Low",
+          "Toys, simple robots"
+        ],
+        [
+          "Planetary gear",
+          "1:5 to 1:100",
+          "Medium",
+          "95-98%",
+          "Medium",
+          "Industrial drives"
+        ],
+        [
+          "Harmonic drive",
+          "1:30 to 1:200",
+          "Near-zero",
+          "70-90%",
+          "High",
+          "Cobots, surgical"
+        ],
+        [
+          "Ball screw",
+          "N/A (linear)",
+          "Very low",
+          "90-95%",
+          "Medium",
+          "Linear actuators"
+        ],
+        [
+          "Cable drive",
+          "1:5 to 1:50",
+          "Low",
+          "95-98%",
+          "Medium",
+          "Space robots"
+        ],
+        [
+          "Cycloidal",
+          "1:7 to 1:200",
+          "Very low",
+          "92-96%",
+          "High",
+          "High-torque robots"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 492,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Actuator choice"
+      ],
+      "rows": [
+        [
+          "Precision manipulation (6-DOF arm)",
+          "BLDC + harmonic drive + encoder"
+        ],
+        [
+          "Fast, lightweight manipulation",
+          "BLDC + low-ratio gear or direct drive"
+        ],
+        [
+          "Collaborative robot (safe contact)",
+          "BLDC + harmonic drive + joint torque sensor"
+        ],
+        [
+          "Quadruped leg (fast, impact)",
+          "BLDC + low-ratio planetary + SEA"
+        ],
+        [
+          "Heavy lift (industrial)",
+          "BLDC + high-ratio planetary, or hydraulic"
+        ],
+        [
+          "High-force, field/harsh environment",
+          "Hydraulic"
+        ],
+        [
+          "Soft gripper (safe, food)",
+          "Soft pneumatic actuator"
+        ],
+        [
+          "Rehabilitation exoskeleton",
+          "PAM or SEA"
+        ],
+        [
+          "3D printer / CNC",
+          "Stepper motor (cheap, open-loop fine)"
+        ],
+        [
+          "Joint on EtherCAT network",
+          "Servo drive with EtherCAT interface"
+        ]
+      ]
+    }
+  ]
+}

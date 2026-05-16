@@ -1,0 +1,1917 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-optics-geometric-optics",
+  "source": "../../optics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#000",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "# Geometric Optics"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#001",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#002",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "Geometric optics treats light as rays — directed lines that carry power, obey Snell's law at interfaces, and travel in straight lines through homogeneous media. Valid when all feature sizes >> wavelength. The entire field rests on one principle:"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#003",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "```\n+---------------------------------------------------------------+\n|  FERMAT'S PRINCIPLE (foundation of all geometric optics)      |\n|                                                               |\n|  Light follows the path of stationary optical path length.    |\n|  In practice: the path light takes between two points is      |\n|  the one for which the optical path length (OPL) is an        |\n|  extremum (usually a minimum -- \"least time\").                |\n|                                                               |\n|  OPL = integral of n(s) ds  along the path                    |\n|       = n * L  (uniform medium, n = refractive index)         |\n|                                                               |\n|  From Fermat's principle, you derive:                         |\n|    1. Law of reflection (theta_i = theta_r)                   |\n|    2. Snell's law of refraction                               |\n|    3. All lens equations                                      |\n|    4. ABCD matrix formalism                                   |\n+---------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#004",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#005",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "**Reader note**: Snell's law and TIR below serve as reference formulas. The ABCD matrix formalism and aberration sections later in the file are where the deeper value lies."
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#006",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "## Snell's Law and Total Internal Reflection"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#007",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "### Snell's Law"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#008",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "At any interface between media with refractive indices n1 and n2:"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#009",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "```\n              Normal to surface\n                    |\n   Medium 1 (n1)   |   theta_1 = angle of incidence\n   .................|...................\n                    |   theta_2 = angle of refraction\n   Medium 2 (n2)   |"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#010",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "n1 * sin(theta_1) = n2 * sin(theta_2)\n```"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#011",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "**Physical meaning**: phase velocity changes at the interface (v = c/n), so the wavefront tilts. The phase matching condition along the surface gives Snell's law."
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#012",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "Selected refractive indices:\n| Medium | n (at 589 nm) |\n|--------|--------------|\n| Vacuum | 1.0000 |\n| Air | 1.0003 |\n| Water | 1.333 |\n| Crown glass (BK7) | 1.517 |\n| Flint glass | 1.620 |\n| Silicon | 3.48 (at 1550 nm) |\n| Diamond | 2.42 |"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#013",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "### Total Internal Reflection (TIR)"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#014",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "When light goes from a dense medium (n1 > n2) to a less dense one, there exists a critical angle beyond which no transmitted ray exists:"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#015",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "```\n  n1 * sin(theta_c) = n2 * sin(90 deg) = n2"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#016",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "theta_c = arcsin(n2 / n1)"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#017",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "For glass (n1=1.5) to air (n2=1.0):\n  theta_c = arcsin(1/1.5) = 41.8 deg"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#018",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "At theta > theta_c:\n  +------------------+\n  | Glass (n1=1.5)   |\n  |    \\   reflected |\n  |     \\ /          |\n  |------X-----------|\n  |   (no refracted) |\n  | Air (n2=1.0)     |\n  +------------------+\n    All power reflects back. No transmitted ray.\n    Used in: fiber optics, prism reflectors, TIR microscopy.\n```"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#019",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "TIR is the physical mechanism behind optical fiber waveguiding, corner-cube retroreflectors, and the brilliance of diamond (theta_c = 24.4 deg — far steeper than glass, so most rays TIR internally)."
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#020",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#021",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "## Paraxial (Gaussian) Optics"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#022",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "\"Paraxial\" = small-angle approximation: sin(theta) ~ theta ~ tan(theta). This linearizes all optics and enables the elegant thin-lens and ABCD machinery."
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#023",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "### Thin Lens Equation"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#024",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "```\n    Object                Lens            Image\n      |                    |               |\n      |<------- do ------->|<----- di ---->|\n      |                    |               |\n      O (object)          f (focal pt)    I (image)"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#025",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "Gaussian lens equation:\n  1/f = 1/do + 1/di"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#026",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "Lateral magnification:\n  m = hi/ho = -di/do"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#027",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "Sign convention (real-is-positive):\n  - Distances measured from the lens\n  - do > 0 for real object (left of lens)\n  - di > 0 for real image (right of lens)\n  - f > 0 for converging (convex) lens\n  - f < 0 for diverging (concave) lens\n  - m < 0 means inverted image\n```"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#028",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "### Lensmaker's Equation"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#029",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "Connects focal length to surface curvatures:"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#030",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "```\n  1/f = (n_lens - 1) * [1/R1 - 1/R2]"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#031",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "R1 = radius of curvature of first surface\n       (positive if center of curvature is to the right)\n  R2 = radius of curvature of second surface\n  n_lens = refractive index of lens material"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#032",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "Biconvex lens: R1 > 0, R2 < 0  --> f > 0  (converging)\n  Biconcave lens: R1 < 0, R2 > 0  --> f < 0  (diverging)\n  Plano-convex: R1 = inf          --> 1/f = (n-1)/R2 * (-1)\n```"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#033",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#034",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "## ABCD Ray Transfer Matrix Formalism"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#035",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "This is the matrix mechanics of geometric optics. Every optical element is a 2x2 matrix; compose a system by multiplying matrices. Identical in structure to state transfer matrices in control theory."
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#036",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "### The Ray Vector"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#037",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "A ray is represented as a column vector:"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#038",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "```\n  [y ]\n  [u ]"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#039",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "y = height from optical axis\n  u = paraxial angle (ray slope, in radians, small angle)\n      or sometimes nu = n*u (reduced angle, more common in thick lens work)\n```"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#040",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "### ABCD Matrices for Common Elements"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#041",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|  ELEMENT              MATRIX          NOTES                      |\n|  -----------------    ------          -----                      |\n|                                                                  |\n|  Free space           [1  d]          d = propagation distance   |\n|  propagation          [0  1]          y' = y + d*u               |\n|                                                                  |\n|  Thin lens            [ 1    0]       f > 0: converging          |\n|  (focal length f)     [-1/f  1]       u' = u - y/f               |\n|                                                                  |\n|  Flat interface       [1  0]          n1, n2 = refractive index  |\n|  (refraction)         [0  n1/n2]      (using reduced angle nu)   |\n|                                                                  |\n|  Curved interface     [ 1      0   ]  R > 0: center to right     |\n|  (refraction, R)      [-(n2-n1)/R n1/n2]                         |\n|                                                                  |\n|  Flat mirror          [1  0]          same as free space but     |\n|  (reflection)         [0  1]          reverses direction         |\n|                                                                  |\n|  Curved mirror        [ 1    0]       f = R/2 (R = mirror radius)|\n|  (focal length f)     [-1/f  1]       same form as thin lens     |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#042",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "### System Matrix Composition"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#043",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "```\n  For a system with elements M1, M2, M3 (light travels left to right):"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#044",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "M_system = M3 * M2 * M1"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#045",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "CAUTION: Matrix order is REVERSED relative to light travel order.\n           Rightmost matrix = first element encountered by light."
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#046",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "Example: telescope (objective + eyepiece separated by f1 + f2):"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#047",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "M = [1   0 ] * [1  f1+f2] * [1   0 ]\n      [-1/f2 1]   [0    1  ]   [-1/f1 1]"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#048",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "This gives the system matrix from which you extract:\n    - Back focal distance (where image forms)\n    - Front focal distance\n    - Angular magnification\n    - Pupil locations\n```"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#049",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "### Key System Properties from ABCD"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#050",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "```\n  M = [A  B]\n      [C  D]"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#051",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "Back focal length (from last surface to rear focal point):  BFL = -A/C\n  Front focal length (from first surface to front focal pt):  FFL = -D/C\n  Rear principal plane location: H' = (1-A)/C from last surface\n  Front principal plane location: H = (D-1)/C from first surface\n  Focal length: f = -1/C"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#052",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "For a complete system: det(M) = 1 (energy conservation in lossless system)\n```"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#053",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#054",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "## Thick Lenses and Principal Planes"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#055",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "Real lenses have thickness. Principal planes (H and H') are the reference planes from which focal lengths are measured:"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#056",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "```\n         H   H'\n         |    |\n  ------>|....|------>\n         |    |\n         f    f\n      <--+    +-->"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#057",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "- Rays entering parallel to axis from left appear to pivot at H'\n  - Rays entering parallel to axis from right appear to pivot at H\n  - Focal length f measured from H to rear focal point\n  - Object distance measured from H, image distance from H'\n  - For a thin lens: H and H' coincide at the lens plane\n```"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#058",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#059",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "## Mirror Equations"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#060",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "Mirrors obey the same thin lens equation with the sign convention adjusted:"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#061",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "```\n  Concave mirror (converging, center of curvature in front):\n    f = R/2 (positive)\n    1/f = 1/do + 1/di  (same form as thin lens)\n    m = -di/do"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#062",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "Convex mirror (diverging, center of curvature behind mirror):\n    f = -R/2 (negative)\n    Always produces virtual, upright, diminished images"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#063",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "Flat mirror: f = infinity -> di = -do (virtual image, same distance behind)\n```"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#064",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#065",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "## Seidel (Third-Order) Aberrations"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#066",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "The paraxial approximation uses sin(theta) ~ theta. Third-order (Seidel) theory uses sin(theta) ~ theta - theta^3/6. This gives five primary aberrations, each with a characteristic visual signature:"
+    },
+    {
+      "id": "01-GEOMETRIC-OPTICS.md#067",
+      "path": [
+        "01-GEOMETRIC-OPTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:optics:01-geometric-optics, git-history:optics:01-geometric-optics]",
+        "canonical_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "concepts": "[geometric, optics]",
+        "current_path": "optics/01-GEOMETRIC-OPTICS.md",
+        "id": "maxim:optics:geometric-optics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "optics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[geometric, optics]",
+        "section": "optics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Geometric Optics",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|  SEIDEL ABERRATION    VISUAL SIGNATURE      CAUSE                |\n|  -----------------    ----------------      -----                |\n|                                                                  |\n|  1. Spherical         Halo around point     Marginal rays focus  |\n|     aberration        source (on axis)      closer than paraxial |\n|                                             (spherical surfaces) |\n|                                                                  |\n|  2. Coma              Comet-tail shape      Off-axis point       |\n|                       (off-axis)            sources, magnif.     |\n|                                             varies with aperture |\n|                                                                  |\n|  3. Astigmatism       Lines instead of      Off-axis rays in two |\n|                       points (off-axis)     planes focus at      |\n|                                             different distances  |\n|                                                                  |\n|  4. Field curvature   Sharp at center OR    Focal surface is     |\n|     (Petzval)         edge, not both        curved, not flat     |\n|                                                                  |\n|  5. Distortion        Straight lines bow    Magnification varies |\n|                       (barrel or pincushion)with field height    |\n|                       -- NOT a blur!                             |\n+------------------------------------------------------------------+"
+    }
+  ],
+  "refs": [
+    "01-GEOMETRIC-OPTICS.md"
+  ]
+}

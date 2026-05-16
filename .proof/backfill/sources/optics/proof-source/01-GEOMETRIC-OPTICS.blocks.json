@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "optics\\01-GEOMETRIC-OPTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|  FERMAT'S PRINCIPLE (foundation of all geometric optics)      |\n|                                                               |\n|  Light follows the path of stationary optical path length.    |\n|  In practice: the path light takes between two points is      |\n|  the one for which the optical path length (OPL) is an        |\n|  extremum (usually a minimum -- \"least time\").                |\n|                                                               |\n|  OPL = integral of n(s) ds  along the path                    |\n|       = n * L  (uniform medium, n = refractive index)         |\n|                                                               |\n|  From Fermat's principle, you derive:                         |\n|    1. Law of reflection (theta_i = theta_r)                   |\n|    2. Snell's law of refraction                               |\n|    3. All lens equations                                      |\n|    4. ABCD matrix formalism                                   |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 84,
+      "heading_context": "### Total Internal Reflection (TIR)",
+      "confidence": "candidate",
+      "text": "  n1 * sin(theta_c) = n2 * sin(90 deg) = n2\n\n  theta_c = arcsin(n2 / n1)\n\n  For glass (n1=1.5) to air (n2=1.0):\n  theta_c = arcsin(1/1.5) = 41.8 deg\n\n  At theta > theta_c:\n  +------------------+\n  | Glass (n1=1.5)   |\n  |    \\   reflected |\n  |     \\ /          |\n  |------X-----------|\n  |   (no refracted) |\n  | Air (n2=1.0)     |\n  +------------------+\n    All power reflects back. No transmitted ray.\n    Used in: fiber optics, prism reflectors, TIR microscopy.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 115,
+      "heading_context": "### Thin Lens Equation",
+      "confidence": "candidate",
+      "text": "    Object                Lens            Image\n      |                    |               |\n      |<------- do ------->|<----- di ---->|\n      |                    |               |\n      O (object)          f (focal pt)    I (image)\n\n  Gaussian lens equation:\n  1/f = 1/do + 1/di\n\n  Lateral magnification:\n  m = hi/ho = -di/do\n\n  Sign convention (real-is-positive):\n  - Distances measured from the lens\n  - do > 0 for real object (left of lens)\n  - di > 0 for real image (right of lens)\n  - f > 0 for converging (convex) lens\n  - f < 0 for diverging (concave) lens\n  - m < 0 means inverted image",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "### Lensmaker's Equation",
+      "confidence": "candidate",
+      "text": "  1/f = (n_lens - 1) * [1/R1 - 1/R2]\n\n  R1 = radius of curvature of first surface\n       (positive if center of curvature is to the right)\n  R2 = radius of curvature of second surface\n  n_lens = refractive index of lens material\n\n  Biconvex lens: R1 > 0, R2 < 0  --> f > 0  (converging)\n  Biconcave lens: R1 < 0, R2 > 0  --> f < 0  (diverging)\n  Plano-convex: R1 = inf          --> 1/f = (n-1)/R2 * (-1)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 175,
+      "heading_context": "### ABCD Matrices for Common Elements",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  ELEMENT              MATRIX          NOTES                      |\n|  -----------------    ------          -----                      |\n|                                                                  |\n|  Free space           [1  d]          d = propagation distance   |\n|  propagation          [0  1]          y' = y + d*u               |\n|                                                                  |\n|  Thin lens            [ 1    0]       f > 0: converging          |\n|  (focal length f)     [-1/f  1]       u' = u - y/f               |\n|                                                                  |\n|  Flat interface       [1  0]          n1, n2 = refractive index  |\n|  (refraction)         [0  n1/n2]      (using reduced angle nu)   |\n|                                                                  |\n|  Curved interface     [ 1      0   ]  R > 0: center to right     |\n|  (refraction, R)      [-(n2-n1)/R n1/n2]                         |\n|                                                                  |\n|  Flat mirror          [1  0]          same as free space but     |\n|  (reflection)         [0  1]          reverses direction         |\n|                                                                  |\n|  Curved mirror        [ 1    0]       f = R/2 (R = mirror radius)|\n|  (focal length f)     [-1/f  1]       same form as thin lens     |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 243,
+      "heading_context": "## Thick Lenses and Principal Planes",
+      "confidence": "candidate",
+      "text": "         H   H'\n         |    |\n  ------>|....|------>\n         |    |\n         f    f\n      <--+    +-->\n\n  - Rays entering parallel to axis from left appear to pivot at H'\n  - Rays entering parallel to axis from right appear to pivot at H\n  - Focal length f measured from H to rear focal point\n  - Object distance measured from H, image distance from H'\n  - For a thin lens: H and H' coincide at the lens plane",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 264,
+      "heading_context": "## Mirror Equations",
+      "confidence": "candidate",
+      "text": "  Concave mirror (converging, center of curvature in front):\n    f = R/2 (positive)\n    1/f = 1/do + 1/di  (same form as thin lens)\n    m = -di/do\n\n  Convex mirror (diverging, center of curvature behind mirror):\n    f = -R/2 (negative)\n    Always produces virtual, upright, diminished images\n\n  Flat mirror: f = infinity -> di = -do (virtual image, same distance behind)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 283,
+      "heading_context": "## Seidel (Third-Order) Aberrations",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|  SEIDEL ABERRATION    VISUAL SIGNATURE      CAUSE                |\n|  -----------------    ----------------      -----                |\n|                                                                  |\n|  1. Spherical         Halo around point     Marginal rays focus  |\n|     aberration        source (on axis)      closer than paraxial |\n|                                             (spherical surfaces) |\n|                                                                  |\n|  2. Coma              Comet-tail shape      Off-axis point       |\n|                       (off-axis)            sources, magnif.     |\n|                                             varies with aperture |\n|                                                                  |\n|  3. Astigmatism       Lines instead of      Off-axis rays in two |\n|                       points (off-axis)     planes focus at      |\n|                                             different distances  |\n|                                                                  |\n|  4. Field curvature   Sharp at center OR    Focal surface is     |\n|     (Petzval)         edge, not both        curved, not flat     |\n|                                                                  |\n|  5. Distortion        Straight lines bow    Magnification varies |\n|                       (barrel or pincushion)with field height    |\n|                       -- NOT a blur!                             |\n+------------------------------------------------------------------+\n\n  Barrel distortion:          Pincushion distortion:\n  +-------+                   +-------+\n  |  /-\\  |                   | /---\\ |\n  | | | | |                   |/     \\|\n  |  \\-/  |                   |\\     /|\n  +-------+                   | \\---/ |\n  Wide-angle lenses            +-------+\n                               Telephoto lenses",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 347,
+      "heading_context": "### Telescope",
+      "confidence": "candidate",
+      "text": "  Keplerian (refracting):\n\n  Objective (f_obj):           Eyepiece (f_eye):\n    +----+                        +----+\n    |    |                        |    |\n    |    |                        |    |\n    +----+                        +----+\n  Light from objective forms an intermediate image\n  between the two lenses, then the eyepiece collimates\n  it into parallel rays for the eye.\n  Total length:  f_obj + f_eye\n\n  Angular magnification: M = -f_obj / f_eye\n  (negative = inverted image)\n\n  Galilean: uses diverging eyepiece (f_eye < 0)\n    M = -f_obj / f_eye  (positive = upright)\n    Shorter length, smaller exit pupil\n    Opera glasses, binoculars use this with image-erecting prisms\n\n  Newtonian reflecting:\n    Parabolic primary mirror avoids spherical aberration\n    Flat secondary at 45 deg deflects beam to eyepiece on side\n    f/# of 5-8 typical for amateur, f/2-3 for fast survey telescopes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 376,
+      "heading_context": "### Microscope",
+      "confidence": "candidate",
+      "text": "  Object                Objective          Tube lens        Eyepiece\n  (near focus)          (NA, f_obj)        (f_tube)         (f_eye)\n     |                       |                 |                |\n     *----[high-NA capture]---+--[intermediate--+--image to eye--+\n                                   image]\n\n  Total magnification M = M_obj * M_eye\n    M_obj = -L / f_obj  (L = tube length, 160mm traditional, 200mm modern)\n    M_eye = 250mm / f_eye  (250mm = \"near point\")\n\n  Resolution (Abbe limit for coherent illumination):\n    d_min = lambda / (2 * NA)\n    d_min = lambda / (n * NA)  (for incoherent: Rayleigh criterion)\n\n  Numerical aperture:\n    NA = n * sin(theta_max)\n    n = refractive index of medium between objective and sample\n    Oil immersion (n=1.515) gives NA up to ~1.45\n    Water immersion (n=1.33) gives NA up to ~1.2\n\n  NA matters more than magnification:\n    Resolution depends only on NA and lambda\n    Magnification above the \"useful\" range adds no new detail (\"empty magnification\")\n    Useful magnification ~ 500-1000 * NA",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 405,
+      "heading_context": "### Camera",
+      "confidence": "candidate",
+      "text": "  f-number (f/#):\n    f/# = f / D   (focal length / aperture diameter)\n    \"Stops\": f/1.4, f/2, f/2.8, f/4, f/5.6, f/8, f/11, f/16\n    Each stop halves the area (doubles the f/#), halves the light\n\n  Depth of field (DOF):\n    DOF approximately = 2 * f/# * c / m^2  (for distant objects)\n    c = circle of confusion diameter (pixel pitch or acceptable blur)\n    m = magnification\n\n    Large f/# -> deep DOF (landscape photography, f/11-f/16)\n    Small f/# -> shallow DOF (portrait \"bokeh\", f/1.4-f/2.8)\n\n  Diffraction limit vs. sensor resolution:\n    Airy disk diameter ~ 2.44 * lambda * f/#\n    At f/16, lambda=550nm: Airy disk ~ 21 um\n    If pixel pitch < Airy disk diameter: diffraction-limited\n    If pixel pitch > Airy disk diameter: pixel-limited\n    Practical balance: f/8-f/11 for most sensors",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "robotics\\05-PLANNING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                        MOTION PLANNING LANDSCAPE                          |\n+===========================================================================+\n|                                                                           |\n|  TASK PLANNING              PATH PLANNING            TRAJECTORY PLANNING   |\n|  (symbolic)                 (geometric)              (time-parameterized)  |\n|  ============               ============             ==================    |\n|  What to do?                Where to go?             When to be where?    |\n|  PDDL / behavior trees      C-space: RRT, PRM, A*    CHOMP, min-snap      |\n|  LLM reasoning              Obstacle avoidance       Velocity profiles     |\n|  1-10 Hz                    1-100 Hz                 100-1000 Hz           |\n|                                                                           |\n|  INPUT: task goal           INPUT: start, goal,      INPUT: waypoints,     |\n|         world state                obstacle map             constraints     |\n|  OUTPUT: action sequence    OUTPUT: collision-free   OUTPUT: q(t), q_dot(t)|\n|                                     waypoints                q_ddot(t)     |\n|                                                                           |\n|  REACTIVE CONTROL           COLLISION CHECKING       TASK-AND-MOTION       |\n|  Potential fields           GJK/EPA                  PDDLStream            |\n|  Velocity obstacles         BVH (AABB, OBB)          STRIPS operators      |\n|  DWA / MPC                  Continuous (CCD)         Geometric constraints |\n|                                                                           |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "### A* (Heuristic Search)",
+      "confidence": "candidate",
+      "text": "A* ALGORITHM:\n  OPEN: priority queue of nodes to expand (sorted by f = g + h)\n  CLOSED: set of already-expanded nodes\n\n  f(n) = g(n) + h(n)\n  g(n): cost from start to n (exact)\n  h(n): heuristic estimate of cost from n to goal\n\n  ADMISSIBLE HEURISTIC: h(n) <= actual cost to goal\n    -> A* is guaranteed to find optimal path\n\n  COMMON HEURISTICS:\n    Euclidean distance: h = sqrt(dx^2 + dy^2)   [admissible]\n    Manhattan distance: h = |dx| + |dy|          [admissible for 4-connected]\n    Octile distance: for 8-connected grid         [admissible]\n\n  ALGORITHM:\n  while OPEN not empty:\n    n = OPEN.pop()   (lowest f)\n    if n == goal: return path\n    for each neighbor m of n:\n      g_new = g(n) + cost(n, m)\n      if m not in CLOSED, or g_new < g(m):\n        g(m) = g_new\n        f(m) = g_new + h(m)\n        parent(m) = n\n        OPEN.push(m)\n    CLOSED.add(n)\n\nCOMPLEXITY: O(b^d) worst case (b=branching factor, d=depth)\nIn practice with good h: near-linear in path length.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "### RRT* (Asymptotically Optimal RRT)",
+      "confidence": "candidate",
+      "text": "RRT* (Karaman & Frazzoli, 2011):\n  Adds two steps to RRT to achieve asymptotic optimality:\n\n  1. NEAR NODES: instead of just 1 nearest neighbor, find all nodes within\n     radius r (r shrinks as tree grows: r = gamma*(log(n)/n)^{1/d}).\n\n  2. REWIRING:\n     a. Choose q_new's parent = the near node minimizing total cost to q_new.\n        (not just q_near, but the best of all near nodes.)\n     b. For each near node q_near_i:\n        If cost(q_start -> q_new -> q_near_i) < cost(q_start -> q_near_i):\n          rewire: make q_new the parent of q_near_i.\n\n  RESULT: As N -> inf, path converges to the optimal path.\n  COST: O(n log n) per iteration vs O(1) for RRT. Slower but better quality.\n\nRRT* PATH QUALITY vs ITERATION COUNT:\n  n=1000:   ~30% above optimal\n  n=10000:  ~10% above optimal\n  n=100000: ~3% above optimal\n  Sufficient quality usually reached well before convergence.\n\nBIDIRECTIONAL RRT (BiRRT):\n  Grow two trees: one from q_start, one from q_goal.\n  Connect when they are close enough.\n  2-5x faster than single-tree RRT in practice.\n  Used in: MoveIt2 OMPL integration.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 405,
+      "heading_context": "### PDDLStream",
+      "confidence": "candidate",
+      "text": "PDDLStream (Garrett, 2020):\n  Extends PDDL with \"streams\" -- generators that produce certified geometric facts.\n\n  Stream: certifies that a geometric fact is true (with a feasible plan).\n  Example: \"grasp_stream(?obj) -> grasp_pose\"\n           runs IK + collision checking to certify the grasp is feasible.\n\n  PDDLStream interleaves task planning with geometric feasibility checks.\n  If a symbolic plan is geometrically infeasible, it backtracks in the task plan.\n\n  This solves the fundamental TAMP problem: geometric constraints can invalidate\n  symbolic plans (\"pick cup from table\" requires a collision-free approach path;\n  if the table is blocked, the symbolic plan is infeasible -> replan symbolically).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
