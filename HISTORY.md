@@ -2,7 +2,7 @@
 
 The MAXIM reference library was built across four days in February 2026. What started as three computing modules became 217 directories, 2,481 files, and 826,537 lines — a personal reference library covering the full scope of human knowledge, organized as a 52-card deck.
 
-Each phase of AI-assisted work claims one of the 52 archetype roles from the card deck. Over years of reviews, expansions, and refinements, all 52 will eventually be spoken for. These are the first twenty-eight.
+Each phase of AI-assisted work claims one of the 52 archetype roles from the card deck. Over years of reviews, expansions, and refinements, all 52 will eventually be spoken for. These are the first twenty-nine.
 
 ---
 
@@ -39,8 +39,9 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 | 26 | Feb 27 | The Prover | K♥ | First AI encryption — periodic table as cipher, 26 Red puzzles authored, 18 principles, answer protocol |
 | 27 | Feb 27 | The Timekeeper | 3♣ | Atlas SVG pipeline — Natural Earth coastlines, PhyloPic silhouettes, 8 maps, repo crash + recovery |
 | 28 | May 15 | The Humanist | A♥ | Gold reset + two new layers — Crosscut Atlas and Recovery Codex, proof-scrubbed for future readers |
+| 29 | May 16 | The Binder | 4♥ | Source corpus — 205 modules bound through PROOF, CROP, PEBBLE, and FLETCH |
 
-*24 roles remain unclaimed.*
+*23 roles remain unclaimed.*
 
 ---
 
@@ -78,8 +79,9 @@ Each phase adds a small poetic detail to its card's image concept — a mark lef
 | 26 | The Prover | *...and beside the proof tree, a second notation — not Gödel numbers but element symbols, each letter of the undecidable sentence encoded as the atom at that position in the table: H for first, He for second, Li for third — the proof that what computation cannot break, the periodic table can hide* |
 | 27 | The Timekeeper | *...and at the base of the spiral, a crack — Hadean basalt split open by a script that ran too fast — and beside it, the same strata rebuilt from the river-bottom up, each layer traced not from memory but from the 110-meter coastline data, every polygon earned* |
 | 28 | The Humanist | *...and on the reading table, two new folios lie open beside the lamp — one a thirteen-lens atlas, one a thirteen-part recovery codex — their margins scrubbed clean by proof marks, left for the reader who may have no other library* |
+| 29 | The Binder | *...and between the laminate layers, 11,105 copper stitches pass through every sheet, each rivet tying a guide to its source record, view, pack, and cacheline* |
 
-*24 cards await their flair.*
+*23 cards await their flair.*
 
 ---
 
@@ -763,6 +765,32 @@ This was the phase where MAXIM stopped being only a reference library and became
 
 ---
 
+# Phase 29: The Binder
+
+**Card**: 4♥ — Four of Hearts
+**Date**: May 16, 2026
+**Commits**: `32480e1` → `93c609d0`
+**Image flair**: *...and between the laminate layers, 11,105 copper stitches pass through every sheet, each rivet tying a guide to its source record, view, pack, and cacheline*
+
+The Binder does not merely collect pages. The Binder makes layers hold.
+
+MAXIM already had the guides: 205 TRACKER-order modules of numbered Markdown, diagrams, tables, bridges, and decision sheets. This phase gave those guides a second life as a reusable source corpus. Each guide became a PROOF literal source, a table sidecar, a structured block sidecar, a source record, a CROP view, a PEBBLE pack, and a FLETCH cacheline. The work was not to rewrite the library, but to bind each page to the machinery that can carry it elsewhere without losing its provenance.
+
+The process became an assembly line with judgment in the loop. Agents backfilled modules in pairs. The main thread owned merges, validation, pushes, aggregate counts, and stale-notification discipline. Every registry was checked. Every shaft path had to exist. The legacy `computing/` module kept its `computing-software` source identity. The final pass closed the whole corpus at 205 modules, 2,180 guides, 3,830 tables, 17,441 structured blocks, 2,385 views and packs, and 11,105 FLETCH cachelines.
+
+Then the rule was written down: future MAXIM edits happen in the numbered guide source first, and the generated PROOF/CROP/PEBBLE/FLETCH outputs are regenerated from that source. The Binder leaves not just the bound volume, but the binding method.
+
+**Key commits**:
+- `32480e1` Add module backfill source-corpus scaffolding
+- `2bc086b` Add source backfill module skill
+- `ae56877` Merge source-corpus batch through 184 modules
+- `f35205e` Complete 205-module source-corpus backfill
+- `93c609d` Document source-first MAXIM edits
+
+**Scale**: 205 of 205 modules backfilled; 2,180 guides bound into source records; 3,830 tables and 17,441 structured blocks emitted by PROOF; 2,385 CROP/PEBBLE views and packs; 205 FLETCH registries; 11,105 FLETCH cachelines; TRACKER dependency totals updated; source-first maintenance rule committed for future edits.
+
+---
+
 ## Cumulative Scale
 
 | Metric | Count |
@@ -787,8 +815,8 @@ This was the phase where MAXIM stopped being only a reference library and became
 | Repo crashes survived | 1 |
 | Safety Rules | 5 |
 | Design reviews | 5 (Tufte, Vignelli, Wurman, Fuller, cartographers) + 9 puzzle-hunt experts (2 rounds) |
-| Roles claimed | 28 of 52 |
-| Roles remaining | 24 |
+| Roles claimed | 29 of 52 |
+| Roles remaining | 23 |
 | Wave 1 agents deployed | 10 (archetype sharpening) |
 | Wave 2 agents deployed | 5 (style tightening) |
 | Wave 3 agents deployed | 5 (content expansion) |
@@ -808,3 +836,7 @@ This was the phase where MAXIM stopped being only a reference library and became
 | Production skills built | 3 (/puzzle-review, /puzzle-author, /puzzle-test) |
 | Crosscut Atlas guides | 13 + overview |
 | Recovery Codex volumes | 13 + overview |
+| Source-corpus modules backfilled | 205 of 205 |
+| Source-corpus guides bound | 2,180 |
+| Source-corpus structured blocks | 17,441 |
+| FLETCH source-corpus cachelines | 11,105 |

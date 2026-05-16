@@ -93,7 +93,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 |------|-------|---------------|
 | 4♣ | The Colorist | A visible spectrum bar UV→IR with named pigments at their absorption wavelengths |
 | 4♦ | The Forger | A kiln cross-section — fire at base, temperature gradient rising, raw clay in / vitrified ceramic out — and in the cooling tray, fifty-two steel wafers the size of playing cards — each one etched so fine that the whole volume is there, legible only to the loupe, fired permanent by a beam thinner than a hair |
-| 4♥ | The Binder | A composite laminate cross-section — fiber layers at 0°/45°/90° angles with matrix fill between |
+| 4♥ | The Binder | A composite laminate cross-section — fiber layers at 0°/45°/90° angles with matrix fill between — and between the laminate layers, 11,105 copper stitches pass through every sheet, each rivet tying a guide to its source record, view, pack, and cacheline |
 | 4♠ | The Joiner | An exploded mortise-and-tenon joint — tenon, mortise, grain direction arrows, glue surface marked |
 
 ### 3 — Earth & Space
