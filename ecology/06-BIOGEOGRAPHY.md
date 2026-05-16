@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ecology:biogeography
+kind: guide
+module: ecology
+section: ecology
+title: Biogeography - Island Biogeography, Dispersal vs Vicariance, Diversity Gradients
+status: source-custody
+source_custody: partial
+current_path: ecology/06-BIOGEOGRAPHY.md
+canonical_path: ecology/06-BIOGEOGRAPHY.md
+backsource_ids: [proof-backfill:ecology:06-biogeography, git-history:ecology:06-biogeography]
+concepts: [biogeography]
+root_concepts: [biogeography]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biogeography — Island Biogeography, Dispersal vs Vicariance, Diversity Gradients
 
 ## The Big Picture

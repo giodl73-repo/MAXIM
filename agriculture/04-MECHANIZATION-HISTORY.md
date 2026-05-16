@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:agriculture:mechanization-history
+kind: guide
+module: agriculture
+section: agriculture
+title: Mechanization History - Plow to GPS, Labor Displacement
+status: source-custody
+source_custody: partial
+current_path: agriculture/04-MECHANIZATION-HISTORY.md
+canonical_path: agriculture/04-MECHANIZATION-HISTORY.md
+backsource_ids: [proof-backfill:agriculture:04-mechanization-history, git-history:agriculture:04-mechanization-history]
+concepts: [mechanization, history]
+root_concepts: [mechanization, history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mechanization History — Plow to GPS, Labor Displacement
 
 ## The Big Picture

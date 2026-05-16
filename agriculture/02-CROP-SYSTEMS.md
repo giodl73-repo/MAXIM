@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:agriculture:crop-systems
+kind: guide
+module: agriculture
+section: agriculture
+title: Crop Systems - Monoculture, Rotation, Cover Crops, Agroforestry
+status: source-custody
+source_custody: partial
+current_path: agriculture/02-CROP-SYSTEMS.md
+canonical_path: agriculture/02-CROP-SYSTEMS.md
+backsource_ids: [proof-backfill:agriculture:02-crop-systems, git-history:agriculture:02-crop-systems]
+concepts: [crop, systems]
+root_concepts: [crop, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Crop Systems — Monoculture, Rotation, Cover Crops, Agroforestry
 
 ## The Big Picture

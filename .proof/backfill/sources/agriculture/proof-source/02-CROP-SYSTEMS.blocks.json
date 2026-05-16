@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "agriculture\\02-CROP-SYSTEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|              CROP SYSTEM DIVERSITY SPECTRUM                   |\n|                                                               |\n|  LOW DIVERSITY                          HIGH DIVERSITY        |\n|  ───────────────────────────────────────────────────────────  |\n|  Monoculture → Rotation → Intercrop → Polyculture → Agroforest|\n|                                                               |\n|  MANAGEMENT                                                   |\n|  INTENSITY           HIGH ─────────────────────→ LOW          |\n|                                                               |\n|  ECOSYSTEM           LOW  ─────────────────────→ HIGH         |\n|  SERVICES                                                     |\n|                                                               |\n|  MECHANIZATION       EASY ─────────────────────→ HARDER       |\n|  TRACTABILITY                                                 |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 48,
+      "heading_context": "## Engineering Bridge: Diversity as Fault Tolerance",
+      "confidence": "candidate",
+      "text": "CROP SYSTEM                   DISTRIBUTED SYSTEMS EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nMONOCULTURE                   Single point of failure (SPOF) architecture\n  One species over large area  → Single service with no redundancy\n  Uniform genetic base         → Identical replicas: same vulnerability in all\n  One pest adaptation kills all→ Exploit that works on one instance works on all\n  Irish Potato Famine 1845:   → Production outage: all replicas fail simultaneously\n    one pathogen (Phytophthora)\n    → nation-wide crop failure\n  Advantage: mechanization    → Operational simplicity; single deployment target\n    efficiency, low overhead    horizontal scaling is trivial if nothing goes wrong\n\nPOLYCULTURE / ROTATION         Fault-tolerant distributed architecture\n  Multiple species / timing    → Service redundancy + diverse failure modes\n  Pest can't adapt to all      → No single vulnerability cascades to total failure\n  N-fixing legumes in rotation → Shared infrastructure (legume = free N source)\n    reduce external input need   for subsequent crop, like shared caching layer\n  \"Portfolio diversification\"  → Multiple uncorrelated risk streams; variance ↓\n  Cost: complexity             → Higher operational overhead; scheduling complexity\n\nROTATION TIMING                Circuit breaker pattern\n  Planting a different crop    → Break the feedback loop: pest builds up on Host A\n  next year                      → no host available next season → population crash\n  Pathogen can't overwinter    → The \"circuit breaker\" opens the pathogen cycle;\n  without host                   prevents cascade to failure state\n\nCROP DIVERSITY SPECTRUM        Redundancy vs. efficiency trade-off\n  Monoculture (1 spp)          → RAID 0: maximum throughput, zero redundancy\n  Rotation (N seasons)         → Time-based redundancy: fault tolerance over time\n  Intercropping (2–3 spp)      → RAID 1: mirroring; slower throughput, failure isolated\n  Agroforestry (multi-layer)   → Multi-tier architecture: canopy, subcanopy, ground\n                                   cover each provide different \"services\"\n                                   (water retention, N fixation, pest habitat, shade)\n\nMONOCULTURE RISK QUANTIFICATION:\n  Single variety planted globally (e.g., Cavendish banana, IR8 rice):\n    Genetic diversity = 0 for that locus → all individuals share same susceptibility\n    P(at least 1 regional outbreak) = 1 - (1-p)^n where p = annual pathogen emergence\n    n = number of independent regions; for n=100, p=0.01 → P = 63% per year\n    → Why Ug99 wheat stem rust is a global threat: uniform genetic base globally",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## Monoculture — Industrial Baseline",
+      "confidence": "candidate",
+      "text": "ADVANTAGES:\n  Mechanization efficiency (one machine set → whole operation)\n  Agronomic simplicity (one planting date, one harvest date)\n  Economies of scale (input purchasing, marketing)\n  Specialization (equipment, knowledge, contracts)\n\nDISADVANTAGES:\n  Pest and disease pressure:\n    - Uniform susceptible host → pest/pathogen buildup\n    - Irish Potato Famine (1845): monoculture of single variety + Phytophthora\n    - Ug99 wheat stem rust: threatening globally uniform wheat varieties\n  Soil degradation:\n    - Same root architecture every year → compaction in same zones\n    - No N fixation unless it's a legume\n    - Same residue chemistry → reduced decomposer diversity\n  Input dependency:\n    - N fertilizer replaces legumes + organic N (from rotation)\n    - Pesticides replace natural enemies\n  Vulnerability:\n    - One crop failure → total income loss\n    - No \"portfolio diversification\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "## Crop Rotation — Time Diversification",
+      "confidence": "candidate",
+      "text": "EXAMPLE ROTATIONS:\n\nCORN-SOYBEAN (US Midwest):\n  Year 1: Corn (N user)\n  Year 2: Soybean (N fixer; breaks corn rootworm cycle)\n  → Reduces N fertilizer 30–50% for corn after soy\n  → Reduces insecticides (rootworm breaks in rotation)\n\nSMALL GRAIN ROTATION (UK/Europe):\n  Year 1: Winter wheat\n  Year 2: Spring barley\n  Year 3: Oilseed rape (canola)\n  Year 4: Back to wheat\n\n4-FIELD NORFOLK ROTATION (historical, 18th century):\n  Year 1: Wheat\n  Year 2: Turnips (fodder + cleanup weeds)\n  Year 3: Barley + undersown clover\n  Year 4: Clover (N fixation; rest)\n  → First \"scientific\" rotation; eliminated summer fallow\n  → Doubled yields; supported livestock integration",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "## Cover Crops — The Off-Season Investment",
+      "confidence": "candidate",
+      "text": "COVER CROP FUNCTIONS:\n  ┌─────────────────────────────────────────────────────────┐\n  │ FUNCTION           SPECIES             MECHANISM        │\n  │─────────────────   ─────────────────   ──────────────   │\n  │ N fixation         Crimson clover,      Rhizobium       │\n  │                    hairy vetch,         symbiosis       │\n  │                    field peas           50–200 kg N/ha  │\n  │                                         (credit to next │\n  │                                          crop)          │\n  │                                                         │\n  │ N scavenging       Winter rye,          Capture resid.  │\n  │ (catch crop)       annual ryegrass      N; prevent      │\n  │                                         winter leaching │\n  │                                                         │\n  │ Erosion control    Any grass cover      Root binding;   │\n  │                                         canopy          │\n  │                                                         │\n  │ Weed suppression   Winter rye (allelopathic), buckwheat │\n  │                                                         │\n  │ Soil biology       Diverse mixes        Feed soil       │\n  │                                         microbiome      │\n  │                                                         │\n  │ Compaction relief  Tillage radish,      Deep taproot    │\n  │ (bio-drilling)     turnip               pierces hardpan │\n  └─────────────────────────────────────────────────────────┘\n\nTERMINATION METHODS:\n  Rolling/crimping: Crush at flowering → mulch without tillage\n  Herbicide: Flexible; works in no-till systems\n  Frost kill: Some species (buckwheat, cowpeas) winter-kill naturally",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "## Intercropping — Space Diversification",
+      "confidence": "candidate",
+      "text": "TYPES:\n\nROW INTERCROPPING:      MIXED INTERCROPPING:     RELAY INTERCROPPING:\nCorn ─ Soy ─ Corn       Mixed maize + bean       Wheat underseeded with\nCorn ─ Soy ─ Corn       (traditional subsistence)  clover; clover emerges\n(organized rows)                                    as wheat matures\n\nSTRIP INTERCROPPING:\nWide strips of different crops\n(mechanizable with careful planning)\n\nBENEFITS:\n  Land Equivalent Ratio (LER) > 1.0 for many combinations\n  LER = (Y_a/Y_A) + (Y_b/Y_B)\n  (yield of intercrop mixture as fraction of sole-crop yields)\n  LER 1.2 = 20% more production on same land\n\n  WHY LER > 1?\n  - Temporal/spatial niche complementarity\n  - N fixation by legume benefits cereal companion\n  - Natural enemy habitat (within-field refugia)\n  - Microclimate moderation (shade, humidity)\n  - Reduced pest pressure (dilution effect; confusion)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## Agroforestry — Integrating Trees",
+      "confidence": "candidate",
+      "text": "AGROFORESTRY SYSTEMS:\n\nSILVOARABLE:            SILVOPASTORAL:          FOREST FARMING:\nTrees + annual crops    Trees + livestock        Shade crops under forest\n                        grazing                  (ginseng, mushrooms)\n\nWINDBREAKS:             RIPARIAN BUFFERS:        HOME GARDENS:\nTrees on field margins  Trees/shrubs along       Diverse tropical\nreduce wind erosion      waterways → filter       gardens; SE Asia,\n                         nutrients, shade, bank  Central America\n                         stability\n\nBENEFITS:\n  Biomass/carbon accumulation (trees sequester C)\n  Microclimate moderation (windbreak → reduces crop water stress)\n  Diversified income (fruit/nut trees + annual crops)\n  Nutrient cycling (deep roots recycle leached nutrients)\n  Biodiversity (habitat for birds, insects, beneficial species)\n\nEXAMPLE: Farmers in Burkina Faso practice \"farmer managed natural\nregeneration\" (FMNR) — protecting naturally regenerating trees in\ncropland. 5+ million hectares restored in Sahel; increased yields,\nreduced fallow period, improved resilience.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "## No-Till and Reduced Tillage",
+      "confidence": "candidate",
+      "text": "TILLAGE PURPOSES (conventional):\n  Seedbed preparation (fine, loose tilth)\n  Weed control (mechanical)\n  Incorporation of residues and fertilizers\n  Compaction relief (subsoiling)\n\nTILLAGE COSTS:\n  Destroys soil structure (aggregate breakdown)\n  Oxidizes SOM (CO₂ release)\n  Exposes soil to erosion\n  Fuel cost (~30 L diesel/ha for full tillage)\n  Time constraint (narrow windows)\n\nNO-TILL:\n  Seeds drilled directly into undisturbed soil\n  Residue cover maintained at surface (protects from erosion + rainfall impact)\n  Requires: herbicides for weed control OR cover crops\n  SOM builds under no-till (slower oxidation)\n  Used on ~15% of global cropland (130 million ha)\n\nCONSERVATION TILLAGE SPECTRUM:\n  Conventional → Reduced → Strip-till → No-till → Permanent raised bed\n  (deep plowing)  (fewer passes)  (only seed row)  (no disturbance)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

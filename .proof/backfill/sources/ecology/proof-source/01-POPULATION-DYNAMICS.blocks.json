@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ecology\\01-POPULATION-DYNAMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|              POPULATION DYNAMICS FRAMEWORK                    |\n|                                                               |\n|  SINGLE SPECIES           MULTI-SPECIES                       |\n|  dN/dt = f(N, environment) dN₁/dt = f(N₁, N₂, ...)            |\n|                                                               |\n|  Exponential growth  ←→  Lotka-Volterra predator-prey         |\n|  Logistic growth     ←→  Competition models                   |\n|  Structured models   ←→  Mutualism models                     |\n|  Stochastic models   ←→  Food web models                      |\n|                                                               |\n|  SPATIAL EXTENSION: Metapopulation (patch dynamics)           |\n|  EVOLUTIONARY: r vs K selection; life history theory          |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 69,
+      "heading_context": "### Logistic Growth — Density Dependence",
+      "confidence": "candidate",
+      "text": "dN/dt = rN(1 - N/K)\n\nWHERE:\n  r = intrinsic rate of increase (maximal; at N→0)\n  K = carrying capacity (equilibrium at N = K)\n  (1 - N/K) = density-dependent damping term\n\nSOLUTION: Sigmoidal (S-curve)\n  N(t) = K / (1 + ((K-N₀)/N₀) × e^(-rt))\n\nN << K: growth ≈ exponential (N/K ≈ 0)\nN ≈ K/2: fastest growth (inflection point)\nN → K: growth slows to zero\nN > K: negative growth (population declines)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "## Lotka-Volterra Predator-Prey Model",
+      "confidence": "candidate",
+      "text": "PREY (N): dN/dt = rN - αNP\n          [grows exponentially] - [killed by predators]\n\nPREDATOR (P): dP/dt = βNP - dP\n              [grows from prey] - [dies at rate d]\n\nPARAMETERS:\n  r = prey intrinsic growth rate\n  α = predation rate (probability of predator-prey encounter → kill)\n  β = conversion efficiency (prey eaten → predator offspring)\n  d = predator mortality rate\n\nEQUILIBRIUM (coexistence):\n  N* = d/β   (prey level that sustains predators)\n  P* = r/α   (predator level that controls prey)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "## Lotka-Volterra Predator-Prey Model",
+      "confidence": "candidate",
+      "text": "TYPE I: Linear (passive filter feeders)\n  Consumption ∝ N (constant proportion)\n\nTYPE II: Saturating (most vertebrate predators)\n  Consumption plateaus (handling time limits)\n  At high N, predator is always handling prey\n  → \"Prey switching\" + \"low-density prey escape\"\n\nTYPE III: Sigmoidal (prey switching, learning predators)\n  At low N: reduced hunting effort (other prey available)\n  At medium N: switch + learn → rising\n  At high N: saturates like Type II\n  → Stabilizes predator-prey dynamics at low prey density",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 269,
+      "heading_context": "## Stochastic Demography — Extinction Risk",
+      "confidence": "candidate",
+      "text": "STOCHASTIC RISKS:\n  Environmental stochasticity: year-to-year variation in r\n    (droughts, harsh winters) → variance adds\n\n  Demographic stochasticity: random deaths/births in small N\n    (even at K=0 average drift, small N → random extinction)\n    Important when N < ~100 individuals\n\n  Genetic: inbreeding depression, loss of adaptive variation\n    (minimum viable population: MVP ~50-500 individuals)\n\n  Allee effects: positive density dependence at low N\n    (hard to find mates; reduced anti-predator defense)\n    → Below Allee threshold, population → 0 even with resources",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

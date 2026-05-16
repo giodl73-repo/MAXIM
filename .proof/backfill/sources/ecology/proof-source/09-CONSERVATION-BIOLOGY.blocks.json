@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "ecology\\09-CONSERVATION-BIOLOGY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|              CONSERVATION BIOLOGY FRAMEWORK                   |\n|                                                               |\n|  PROBLEM:  Accelerating biodiversity loss                     |\n|            Habitat loss / fragmentation / degradation         |\n|            Overexploitation                                   |\n|            Invasive species                                   |\n|            Pollution                                          |\n|            Climate change                                     |\n|            (HIPPO acronym: H,I,P,P,O)                         |\n|                                                               |\n|  TOOLS:                                                       |\n|  Protected areas   Species recovery plans                     |\n|  Connectivity      Ex situ conservation (zoos, seed banks)    |\n|  Rewilding         Environmental law / CITES                  |\n|  Restoration       Payment for ecosystem services             |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 121,
+      "heading_context": "## Habitat Fragmentation — The Primary Threat",
+      "confidence": "candidate",
+      "text": "FRAGMENTATION EFFECTS:\n\nORIGINAL LANDSCAPE           FRAGMENTED LANDSCAPE\n\n+------------------+         +----+ +--+  +------+\n|                  |         | A  | |B |  |  C   |\n|  CONTINUOUS      |    →    +----+ +--+  +------+\n|  HABITAT         |         (same total area; very different ecology)\n|                  |\n+------------------+\n\nCONSEQUENCES:\n1. Reduced area (SAR) → fewer species\n2. Edge effects:\n   - Different microclimate: warmer, drier, windier at edges\n   - Edge predators penetrate interior (crows, raccoons, cats)\n   - Invasive species penetrate along edges\n   - \"Edge-sensitive\" species lose interior habitat\n\n3. Isolation:\n   - Reduced gene flow → inbreeding\n   - Lost metapopulation dynamics (no rescue effect)\n   - Local extinction not replaced by recolonization\n\n4. Increased vulnerability to stochastic events\n   (small, isolated populations)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 212,
+      "heading_context": "## Systematic Conservation Planning — Algorithms and Tools",
+      "confidence": "candidate",
+      "text": "PROBLEM FORMULATION:\n  Input: n candidate sites × m biodiversity features (species, habitats)\n         c[i] = cost of protecting site i (acquisition + management)\n         a[i][j] = representation of feature j in site i (presence/abundance)\n         T[j] = target for feature j (e.g., 10% of range protected)\n\n  Objective: minimize Σ c[i] × x[i]   (total cost)\n  Subject to: Σ a[i][j] × x[i] ≥ T[j] for all j   (representation targets)\n              x[i] ∈ {0, 1}   (binary: protect or not)\n\n  → Integer linear program; NP-hard in general\n  → Practical solutions via simulated annealing (Marxan) or ILP solvers",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 256,
+      "heading_context": "## Systematic Conservation Planning — Algorithms and Tools",
+      "confidence": "candidate",
+      "text": "- High irreplaceability + high vulnerability = immediate priority (few alternatives + high threat)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 266,
+      "heading_context": "## Rewilding — Restoring Ecological Processes",
+      "confidence": "candidate",
+      "text": "CORE REWILDING CONCEPTS:\n\nREWILDING 3Cs (Soulé & Noss, Terborgh):\n  1. Cores: Large core protected areas\n  2. Corridors: Connectivity between cores\n  3. Carnivores: Reintroduce apex predators\n  (trophic cascades restore ecosystem function)\n\nPASSIVE REWILDING:\n  Remove agricultural pressure; let nature recover\n  (European rewilding: abandoned farmland → forest)\n\nTRANSLOCATION / REINTRODUCTION:\n  Return locally extinct native species\n  Gray wolves to Yellowstone (1995) — transformative trophic cascade\n  Beavers to Scotland/England — ecosystem engineers\n  European bison to Poland — from 12 animals in 1952\n\nPLEISTOCENE REWILDING (Donlan et al. 2005):\n  Controversial proposal: reintroduce proxies for\n  Pleistocene megafauna to Americas (horses, camels,\n  cheetah analogs, Asian elephants as mammoth proxies)\n  Argument: fill functional roles lost ~13,000 years ago\n  Controversy: ecosystems have reorganized since then",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 332,
+      "heading_context": "## Climate Change Adaptation in Conservation",
+      "confidence": "candidate",
+      "text": "CORE PROBLEM:\n  Species' climate envelopes are shifting poleward and upslope\n  Current protected areas were sited for current climate, not future climate\n  → Many reserves may become climatically unsuitable for their target species\n  → Species need to track shifting climate: poleward ~50 km/decade, upslope ~10 m/decade\n  → But landscape fragmentation blocks dispersal\n\nADAPTATION STRATEGIES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ PASSIVE: reduce other stressors, let species self-adjust        │\n  │   Reduce fragmentation (improve matrix permeability)            │\n  │   Reduce overexploitation, pollution                            │\n  │   → Creates \"headroom\" for adaptation                           │\n  │                                                                 │\n  │ CONNECTIVITY: facilitate natural dispersal                      │\n  │   Climate corridors: route from current → future habitat        │\n  │   Stepping stones: intermediate patches for long-distance moves │\n  │   → Design for future climate, not current conditions           │\n  │                                                                 │\n  │ MANAGED RELOCATION (assisted migration):                        │\n  │   Deliberately move individuals/populations to future habitat   │\n  │   High controversy: could introduce new invasive dynamics       │\n  │   Best cases: species with very limited dispersal ability       │\n  │   (plants, tortoises, freshwater fish above dispersal barriers) │\n  │   Examples: Torreya taxifolia (Florida) moved to NC mountains   │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 362,
+      "heading_context": "## Climate Change Adaptation in Conservation",
+      "confidence": "candidate",
+      "text": "IDENTIFY:\n  Current population locations\n  Predicted future suitable habitat (species distribution model under RCP4.5/8.5)\n  Least-cost path connecting current → future (graph shortest-path on resistance surface)\n\nRESISTANCE SURFACE:\n  Each landscape cell assigned resistance to movement\n  (land cover, slope, human infrastructure)\n  Least-cost corridor = minimum cumulative resistance path\n  Tools: Circuitscape (circuit theory model), Linkage Mapper\n\nTRADEOFFS:\n  Short/direct corridors: less land required; more exposed to predation in matrix\n  Long/wide corridors: more resilient; more land cost; risk of connecting isolated disease patches",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

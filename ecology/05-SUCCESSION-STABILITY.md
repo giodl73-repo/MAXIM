@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ecology:succession-stability
+kind: guide
+module: ecology
+section: ecology
+title: Succession and Stability - Succession Models, Resilience, Regime Shifts
+status: source-custody
+source_custody: partial
+current_path: ecology/05-SUCCESSION-STABILITY.md
+canonical_path: ecology/05-SUCCESSION-STABILITY.md
+backsource_ids: [proof-backfill:ecology:05-succession-stability, git-history:ecology:05-succession-stability]
+concepts: [succession, stability]
+root_concepts: [succession, stability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Succession and Stability — Succession Models, Resilience, Regime Shifts
 
 ## The Big Picture

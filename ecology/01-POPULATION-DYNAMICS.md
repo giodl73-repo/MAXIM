@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ecology:population-dynamics
+kind: guide
+module: ecology
+section: ecology
+title: Population Dynamics - Growth Models, Lotka-Volterra, r/K, Metapopulation
+status: source-custody
+source_custody: partial
+current_path: ecology/01-POPULATION-DYNAMICS.md
+canonical_path: ecology/01-POPULATION-DYNAMICS.md
+backsource_ids: [proof-backfill:ecology:01-population-dynamics, git-history:ecology:01-population-dynamics]
+concepts: [population, dynamics]
+root_concepts: [population, dynamics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Population Dynamics — Growth Models, Lotka-Volterra, r/K, Metapopulation
 
 ## The Big Picture

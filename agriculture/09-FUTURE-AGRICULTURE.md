@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:agriculture:future-agriculture
+kind: guide
+module: agriculture
+section: agriculture
+title: Future Agriculture - Precision Farming, Vertical, Cellular, CRISPR, Regenerative
+status: source-custody
+source_custody: partial
+current_path: agriculture/09-FUTURE-AGRICULTURE.md
+canonical_path: agriculture/09-FUTURE-AGRICULTURE.md
+backsource_ids: [proof-backfill:agriculture:09-future-agriculture, git-history:agriculture:09-future-agriculture]
+concepts: [future, agriculture]
+root_concepts: [future, agriculture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Future Agriculture — Precision Farming, Vertical, Cellular, CRISPR, Regenerative
 
 ## The Big Picture

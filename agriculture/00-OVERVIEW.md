@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:agriculture:overview
+kind: guide
+module: agriculture
+section: agriculture
+title: Agriculture - Overview
+status: source-custody
+source_custody: partial
+current_path: agriculture/00-OVERVIEW.md
+canonical_path: agriculture/00-OVERVIEW.md
+backsource_ids: [proof-backfill:agriculture:00-overview, git-history:agriculture:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Agriculture — Overview
 
 ## The Big Picture
@@ -6,8 +25,8 @@ Agriculture is humanity's single largest transformation of the biosphere — cov
 
 ```
 +------------------------------------------------------------------+
-|                    AGRICULTURE SYSTEM OVERVIEW                    |
-|                                                                   |
+|                    AGRICULTURE SYSTEM OVERVIEW                   |
+|                                                                  |
 |  INPUTS                 PROCESSES              OUTPUTS           |
 |  ────────               ─────────────          ───────────────── |
 |  Land                   Crop growing           Food (calories,   |
@@ -17,13 +36,13 @@ Agriculture is humanity's single largest transformation of the biosphere — cov
 |  Labor                  Mechanization          Waste/runoff      |
 |  Energy                 Processing             GHGs              |
 |  Seeds/genetics         Trade                  Land use change   |
-|                                                                   |
-|  CONSTRAINTS:                                                     |
-|  Finite arable land (~13% of total land)                        |
-|  Water scarcity (37% of cropland irrigated)                     |
-|  Climate change (shifting zones, extreme events)                |
-|  Soil degradation (estimated 33% of soils degraded)             |
-|  Biodiversity loss (agriculture = leading driver)               |
+|                                                                  |
+|  CONSTRAINTS:                                                    |
+|  Finite arable land (~13% of total land)                         |
+|  Water scarcity (37% of cropland irrigated)                      |
+|  Climate change (shifting zones, extreme events)                 |
+|  Soil degradation (estimated 33% of soils degraded)              |
+|  Biodiversity loss (agriculture = leading driver)                |
 +------------------------------------------------------------------+
 ```
 ---

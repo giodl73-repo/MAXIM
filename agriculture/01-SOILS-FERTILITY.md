@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:agriculture:soils-fertility
+kind: guide
+module: agriculture
+section: agriculture
+title: Soils and Fertility - Texture, CEC, NPK, pH, Organic Matter
+status: source-custody
+source_custody: partial
+current_path: agriculture/01-SOILS-FERTILITY.md
+canonical_path: agriculture/01-SOILS-FERTILITY.md
+backsource_ids: [proof-backfill:agriculture:01-soils-fertility, git-history:agriculture:01-soils-fertility]
+concepts: [soils, fertility]
+root_concepts: [soils, fertility]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Soils and Fertility — Texture, CEC, NPK, pH, Organic Matter
 
 ## The Big Picture

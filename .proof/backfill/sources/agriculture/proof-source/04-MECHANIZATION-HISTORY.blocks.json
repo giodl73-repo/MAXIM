@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "agriculture\\04-MECHANIZATION-HISTORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              MECHANIZATION TIMELINE                              |\n|                                                                  |\n|  ~8000 BCE  Digging stick → stone hoe → animal-drawn plow        |\n|  ~3500 BCE  Bronze plow; irrigation canals; oxen                 |\n|  ~1000 CE   Iron plow, horse collar (Europe); moldboard plow     |\n|  1793       Cotton gin (Whitney) — fiber processing              |\n|  1831       McCormick reaper — grain harvesting                  |\n|  1868       Horse-drawn threshing machine                        |\n|  1892       First gasoline tractor (Froelich)                    |\n|  1917       Fordson tractor — first mass-produced                |\n|  1930s      All-crop combine harvester goes mainstream           |\n|  1940s–50s  Mechanical cotton picker, sugar beet harvester       |\n|  1960s      Herbicides replace much hand-weeding                 |\n|  1990s      GPS guidance (first automated; tractor lightbars)    |\n|  2000s      RTK GPS, autosteer tractors, variable rate app       |\n|  2010s      UAVs, satellite imagery, yield mapping               |\n|  2020s      Autonomous tractors, robotic weeding, AI scouting    |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## Engineering Bridge: Mechanization Waves as Computing Eras",
+      "confidence": "candidate",
+      "text": "MECHANIZATION WAVE              COMPUTING EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nWAVE 1: PHYSICAL SUBSTITUTION   Batch mainframe era\n  Hand tools → animal power →     Automate the mechanical bottleneck\n  steam → gasoline tractor         Each step: same task, less human energy\n  Constraint: human/animal power → CPU constraint: one job at a time\n  McCormick reaper (1831)          Operators feed tasks; machine runs\n  Fordson tractor (1917)           batch → machine runs unattended\n\nWAVE 2: CHEMICAL INPUTS         Minicomputer / distributed systems era\n  Synthetic fertilizer (1920s+)   Add a new layer of abstraction over\n  Pesticides, herbicides (1940s+)   the physical layer\n  The machine does physical work;  Software (fertilizer) can substitute\n  chemistry optimizes the process   for architectural complexity (rotation)\n  Constraint: crop genetics         Constraint: bandwidth to connect nodes\n  → Input intensification           → Network-bound, not CPU-bound\n\nWAVE 3: DIGITAL / DATA          IoT / Edge computing era\n  GPS, sensors, analytics (1990s+) Positioning → sensing → analytics →\n  The intelligence layer wraps       actuation: same 4-layer stack\n  the physical + chemical layers    as any IoT/edge deployment\n  Constraint: decision quality       Constraint: latency + edge inference\n  → \"Wrong rate at wrong place\"      → \"Wrong action at wrong node\"\n    wastes physical + chemical         wastes compute + network\n\nPRECISION AGRICULTURE STACK     IoT STACK (direct mapping)\n  Layer 1: Positioning (RTK GPS)  → Device registration + location service\n    ±2-5 cm field position           (GPS coordinates in device shadow)\n  Layer 2: Sensing                → Telemetry ingestion\n    Soil EC, NDVI, yield monitor     (time-series sensor streams)\n    Canopy N sensor (real-time)      (edge device → IoT hub)\n  Layer 3: Analytics / Decision  → Stream processing + ML inference\n    FMIS, prescription maps          (Azure Stream Analytics / ML model)\n    Zone management                  (rules engine + model output)\n  Layer 4: Variable Rate Apply   → Actuator command dispatch\n    Planter, spreader, sprayer       (IoT hub → device method invoke)\n    Individual nozzle on/off         (per-device command; not broadcast)\n\nAUTOSTEER (RTK GPS guidance)    GPS-fused dead reckoning in autonomous systems\n  ±2.5 cm accuracy                → Sub-centimeter localization\n  Eliminates 5-15% field overlap  → Removes wasted work from schedule\n\nYIELD MONITOR (combine-mounted) Distributed telemetry with spatial join\n  Grain flow sensor + GPS         → (sensor reading × position) → map\n  Maps yield variation across     → Spatial aggregation: same as keying\n    field in real time               telemetry records by grid cell\n  Input for next year's           → Feedback loop: telemetry informs\n    prescription map                 next deployment configuration",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "## Ancient Plow Evolution — Soil Tillage History",
+      "confidence": "candidate",
+      "text": "DIGGING STICK / HOE (Neolithic):\n  Human-powered; limited to loose, light soils\n  No draft animal needed; suitable for gardens\n  Still used for raised-bed systems in many tropics\n\nARD (SCRATCH PLOW) (~5000 BCE):\n  Simple pointed stake drawn by oxen or humans\n  Scratches rather than inverts soil\n  Suitable for dry, sandy Mediterranean soils\n  Still functional in arid environments (less erosion)\n\nMOLDBOARD PLOW (~1000 CE, Europe):\n  Three components: coulter (cuts vertically), share (cuts horizontally),\n  moldboard (inverts and turns soil slice)\n  Turns heavy, wet northern European soils (clay)\n  Required 4–8 oxen initially; enabled open-field agriculture\n  Increased yields dramatically but created permanent field strips\n  (still-visible ridge-and-furrow patterns in English meadows)\n\nSTEEL MOLDBOARD (John Deere, 1837):\n  Self-scouring steel replaced iron/wood → didn't clog in sticky\n  Midwest prairie soils → opened the Great Plains",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "## Tractor Evolution — Replacing Draft Animals",
+      "confidence": "candidate",
+      "text": "HORSE-POWER ERA (pre-1920):\n  1 farm horse ≈ 0.75 hp sustained; needs 2 ha of feed itself\n  Average US farm 1890s: 4-6 horses + large feed base\n  → Horse was a significant energy cost\n\nEARLY GAS TRACTORS (1892–1920):\n  First tractors: heavy, unreliable, expensive\n  Fordson (1917): mass production → price dropped from $900 to $395\n  By 1920: more than 200 tractor manufacturers in US (then consolidation)\n\nRUBBER TIRES (1932):\n  Switched from steel wheels → road travel possible\n  Reduced soil compaction dramatically\n  Higher speeds → more acres/day\n\nROW CROP TRACTOR (1920s–30s):\n  Narrow front end + cultivating equipment → weed control between rows\n  Replaced much of the hand-hoeing labor\n\nTHREE-POINT HITCH (Ferguson, 1939):\n  Standard hydraulic implement attachment\n  Allowed implements to float and respond to ground conditions\n  Still the global standard today\n\nPOST-WWII CONSOLIDATION:\n  Horse population peaks 1920: ~21 million horses on US farms\n  Horse numbers collapse with tractors:\n  1960: <3 million horses; land freed by horse feeding → crop production",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 228,
+      "heading_context": "## GPS and Precision Agriculture — The Third Revolution",
+      "confidence": "candidate",
+      "text": "PRECISION AGRICULTURE LAYERS:\n\nLAYER 1: POSITIONING\n  GPS: ±5–15m accuracy (autonomous signal)\n  DGPS: ±1–3m (differential correction)\n  RTK GPS: ±2–5 cm (real-time kinematic; local base station)\n  → Autosteer tractors: RTK guidance to ±2.5 cm\n    → Eliminates overlap, reduces input waste, reduces operator fatigue\n\nLAYER 2: SENSING (spatial data collection)\n  Yield monitors: Map yield variation across field (combine-mounted)\n  Soil sampling: Grid (2.5 ha/sample) or zone-based\n  Remote sensing: Satellite NDVI, Sentinel-2, Planet Labs\n  UAV (drone) scouting: Disease, pest, emergence, stand count\n  Soil sensors: EC (electrical conductivity) mapping → texture proxy\n\nLAYER 3: DECISION SUPPORT\n  Prescription maps: Variable rate application maps\n  (apply more N where needed; less where adequate)\n  Farm management information systems (FMIS)\n  AI/ML: crop stress detection, disease identification\n\nLAYER 4: VARIABLE RATE APPLICATION\n  Variable rate seeder: plant population varies across field\n  Variable rate fertilizer spreader: N, P, K adjusted by zone\n  Variable rate sprayer: Individual nozzle control (turn on/off based on\n  GPS position) → reduces herbicide use 30–80% where target sparse",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 266,
+      "heading_context": "## Labor Displacement — The Social Transformation",
+      "confidence": "candidate",
+      "text": "TIMELINE OF US AGRICULTURAL EMPLOYMENT:\n  1790: ~90% of population farms\n  1850: ~65%\n  1900: ~40%\n  1940: ~18%\n  1960: ~8%\n  1980: ~3%\n  2020: ~1.3% (but huge productivity gains)\n\nLABOR PRODUCTIVITY:\n  1800: 1 farmer feeds ~4 people\n  1900: 1 farmer feeds ~10 people\n  1940: 1 farmer feeds ~19 people\n  1960: 1 farmer feeds ~47 people\n  2020: 1 farmer feeds ~155 people\n\nCONSEQUENCES:\n  Rural depopulation (Dust Bowl + mechanization → mass migration)\n  Urban industrial labor supply → industrialization\n  Developing world: 2 billion still in subsistence agriculture\n  Rapid mechanization there = massive social disruption risk\n  (China rural-urban migration: 300 million in 30 years)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

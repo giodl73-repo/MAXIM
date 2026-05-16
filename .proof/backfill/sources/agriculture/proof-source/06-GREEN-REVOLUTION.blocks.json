@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "agriculture\\06-GREEN-REVOLUTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              GREEN REVOLUTION YIELD IMPACTS                      |\n|                                                                  |\n|  WHEAT (global):   1960: ~1.1 t/ha  →  1990: ~2.6 t/ha           |\n|  RICE (Asia):      1960: ~1.7 t/ha  →  1990: ~3.5 t/ha           |\n|  MAIZE (global):   1960: ~1.9 t/ha  →  1990: ~3.6 t/ha           |\n|                                                                  |\n|  INDIA (wheat):    1965: 10 MT/yr   →  1978: 19 MT/yr (famine    |\n|                                          averted; net exporter)  |\n|                                                                  |\n|  KEY INPUTS REQUIRED:                                            |\n|  1. Semi-dwarf varieties (genetics)                              |\n|  2. Synthetic N fertilizer (Haber-Bosch)                         |\n|  3. Irrigation (water control)                                   |\n|  4. Pesticides (protect yield)                                   |\n|  → Remove any one pillar → revolution fails                      |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 49,
+      "heading_context": "## Engineering Bridge: The Green Revolution as Platform Engineering",
+      "confidence": "candidate",
+      "text": "GREEN REVOLUTION CONCEPT        PLATFORM / SYSTEMS ENGINEERING EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nTHE FOUR PILLARS                System-of-systems with hard dependencies\n  1. Semi-dwarf varieties       → Runtime (execution environment)\n  2. Synthetic N fertilizer     → SDK / standard library\n  3. Irrigation infrastructure  → Network / transport layer\n  4. Credit + markets + ext.    → Distribution + ecosystem\n     services + pesticides\n\n  FAILURE MODE: remove any one  → Dependency resolution failure\n    pillar → revolution fails     (missing runtime = no execution;\n  Semi-dwarfs + no N:             missing N = same as pre-revolution\n    yield marginally better         yield; missing irrigation = dwarf\n  Semi-dwarfs + N + no water:     varieties fail in drought)\n    yield gain absent            → Analogous to: great language runtime\n  All four present:               with no package ecosystem = no adoption\n    3–5× yield multiplier          (Node without npm; .NET without NuGet)\n\nHARVEST INDEX (HI)              Throughput efficiency / useful work ratio\n  HI = grain mass / total       → Fraction of total compute/energy going\n       above-ground biomass        to useful output vs overhead\n  Traditional HI: ~25-30%       → 25–30% throughput utilization\n  Semi-dwarf HI: ~50-60%        → 50–60% throughput utilization\n                                 → Same total biomass; more goes to grain\n                                 → Same total energy; more goes to payload\n  ADD N fertilizer to tall        (same as: old protocol with large\n    variety: plant grows taller    header overhead; new protocol cuts\n    → more stem, same grain        header → payload ratio improves)\n  ADD N fertilizer to dwarf:    → Taller stems = wasted header bytes;\n    grain fills → HI maintained   dwarf gene removes wasted overhead\n    yield rises 3–5×\n  HI theoretical maximum: ~60%  → Protocol efficiency ceiling\n    (cannot allocate >60% to grain  (some overhead is irreducible:\n    without root/leaf failure)      stems, leaves = unavoidable cost)\n\nSHUTTLE BREEDING                Parallel testing across environments\n  Borlaug: grow 2 crops/yr in   → Run test suite in 2 CI environments\n    different altitudes/lat.       simultaneously (different configs)\n  Selection: broad adaptation   → Select for: runs on any platform\n    photoperiod insensitivity     → Feature flag: not tied to day-length\n  Result: 6 generations in 3 yr  → 2× iteration speed vs sequential\n    vs 3 generations in 3 yr\n\nCGIAR NETWORK                   Open-source research commons\n  15 international centers      → Foundation projects (IRRI = jQuery for\n  CIMMYT: wheat germplasm bank    rice genetics; CIMMYT = same for wheat)\n  Svalbard vault (gene bank)    → Backup repository (GitHub + cold storage)\n  Free distribution of seed     → Public domain release; no patent lock\n  Collaborative improvement       → Fork → improve → merge back\n\nYIELD PLATEAU (post-1990)       Diminishing returns to optimization\n  HI ceiling ~60%; genetics     → Asymptotic approach to theoretical max\n    approaching potential yield  → Each 1% improvement requires 10×\n  More N no longer increases       more effort (compiler optimization\n    yield (diminishing returns)    past -O2 → marginal gains per hour)\n  Climate stress at anthesis    → External load spike beyond design spec\n    (heat during pollination)      → system degraded even at full capacity\n  → \"Yield gap\" = distance from → Distance from theoretical throughput:\n    experiment to farm yield       profiling gap, not ceiling\n    (better management, not         (close yield gap before inventing\n     new technology, closes most)   new architecture)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "## The Pre-Revolution Malthusian Crisis",
+      "confidence": "candidate",
+      "text": "CONTEXT (1960s):\n  World population: 3 billion, growing at ~2%/yr\n  Asia: 1-2 famines/decade historically\n  India: 1943 Bengal Famine killed 2-3 million (WWII-era)\n  China: Great Leap Forward famine (1959-61): 15-45 million dead\n  Pakistan, India: food aid dependent\n\n  Paul Ehrlich, \"The Population Bomb\" (1968):\n  \"In the 1970s and 1980s hundreds of millions of people\n   will starve to death in spite of any crash programs\n   embarked upon now.\"\n\n  Lester Brown predicted India incapable of self-sufficiency\n\nLIMITING FACTOR: Yield ceiling of traditional tall varieties\n  Traditional varieties (landraces): tall, adapted to low-input\n  Add more N fertilizer → plant grows taller → LODGING\n  (plant falls over, cannot be harvested → yield lost)\n  → The agronomic barrier to more N = plant architecture\n  → Solution: breed shorter, stiffer plants",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "### The Genetics",
+      "confidence": "candidate",
+      "text": "CONVENTIONAL WHEAT HEIGHT: ~1.2-1.5 m\n\nRHT GENE (Reduced Height):\n  Rht1 and Rht2: semi-dwarfing genes from Japanese\n  Norin 10 wheat (bred by Gonjiro Inazuka, 1935)\n  Norin 10 brought to US by Orville Vogel (USDA) after WWII\n\n  Rht genes: encode DELLA proteins that repress gibberellin\n             signaling → shorter, stiffer culm (stem)\n  Effect: plant height 60-90 cm (vs 120-150 cm)\n          Energy allocation: less to stem → MORE TO GRAIN\n          → Higher harvest index (grain/total biomass)\n\n  Traditional HI: ~25-30%\n  Semi-dwarf HI:  ~50-60%\n  (Harvest Index = the key innovation; same total biomass,\n   more in edible grain)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "### Borlaug's Breeding Program",
+      "confidence": "candidate",
+      "text": "INTERNATIONAL WHEAT IMPROVEMENT CENTER (CIMMYT), Mexico:\n\nNorman Borlaug (1944 onward, Rockefeller Foundation):\n  Key innovation: \"shuttle breeding\"\n    - Grow two crops per year in contrasting environments\n      (lowland Sonora + highland Toluca, Mexico)\n    - Selects for: broad adaptation, photoperiod insensitivity\n    - Speeds breeding cycle: 6 generations in 3 years vs 3\n    - Result: varieties adapted to wide latitude ranges\n\n  Cross Norin 10 dwarfing genes into adapted Mexican wheats\n  → Pitic 62, Penjamo 62, Lerma Rojo 64, Sonora 64\n\n  1963: Sonora 64 sent to Pakistan and India → tested\n  1965-66: India drought + crisis; seed stocks deployed\n  1968: India's wheat harvest doubles → self-sufficient\n  Borlaug: Nobel Peace Prize 1970\n\nSEMI-DWARF WHEAT ADOPTION:\n  1970: ~10% of wheat area in developing world\n  1990: ~70% of wheat area globally",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "### International Rice Research Institute (IRRI)",
+      "confidence": "candidate",
+      "text": "THE IR8 CROSS (Peter Jennings, IRRI, 1966):\n  Parent 1: Dee-geo-woo-gen (DGWG) — Taiwanese semi-dwarf\n  Parent 2: Peta — tall Indonesian variety (good yield potential)\n\n  IR8 characteristics:\n    Height: 100 cm (vs 150-180 cm traditional)\n    Tillering: profuse (more stems → more panicles)\n    Harvest index: 45-50% (vs 25-30%)\n    Yield: 9-10 t/ha (vs 1-3 t/ha traditional)\n    Photoperiod insensitivity: can grow in any season\n    Response to N: absorbs high N without lodging\n\n  Called \"Miracle Rice\"\n  Early problems: coarse grain; chalky; poor taste\n    → Later varieties (IR36, IR64, IR72) fixed eating quality\n    IR36 (1976): became world's most widely grown crop variety\n\nADOPTION TRAJECTORY:\n  1966: IR8 released\n  1968: Philippines: 4-fold yield increase in early adopters\n  1975: modern varieties on ~30% of Asian rice area\n  1990: >75% of Asian rice area\n  India rice production: 1970: 42 MT → 1990: 75 MT",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 271,
+      "heading_context": "## Geographic Impact — Where It Worked and Where It Didn't",
+      "confidence": "candidate",
+      "text": "SUCCESS CASES:\n  Mexico: wheat self-sufficiency by 1956 (before \"Revolution\")\n  India:  wheat tripled 1965-1980; rice doubled 1970-1990\n          → from famine-prone importer to net exporter\n  Pakistan: similar to India; Punjab = breadbasket\n  Philippines: rice from importer to self-sufficient (briefly)\n  China: parallel development (domestically driven, not CGIAR)\n\nPARTIAL SUCCESS:\n  Latin America: wheat + maize gains; less rice transformation\n  Indonesia: rice self-sufficient by 1985 (Suharto priority)\n\nLIMITED SUCCESS:\n  Sub-Saharan Africa: Green Revolution largely bypassed\n  Reasons:\n    - Diverse crops (cassava, sorghum, millet, yam) vs\n      wheat/rice that CGIAR focused on\n    - Rain-fed agriculture (no irrigation infrastructure)\n    - Poor soil infrastructure → fertilizer less effective\n    - Fragmented markets, weak extension services\n    - Different pest/disease complexes\n\n  Africa's \"Green Revolution\" (early 2000s):\n    - AGRA (Alliance for Green Revolution in Africa)\n    - Focus on maize, sorghum, bean improvement\n    - Results mixed; more modest than Asia",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "### Genetic Erosion",
+      "confidence": "candidate",
+      "text": "BEFORE GREEN REVOLUTION:\n  India: ~30,000 rice varieties in farmer use (landraces)\n         diverse, locally adapted, resilient\n  Traditional wheat: hundreds of locally adapted varieties\n\nAFTER GREEN REVOLUTION:\n  3-5 widely adopted semi-dwarf varieties displaced most\n  → Genetic erosion: loss of diversity = loss of options\n\n  WHY THIS MATTERS:\n    Landraces contain: disease resistance genes, stress tolerance,\n    nutritional diversity, local adaptation to climate extremes\n    → CGIAR gene banks (IRRI: 100,000+ rice accessions;\n       CIMMYT: 150,000+ wheat accessions) preserve genetics\n    → But farmers are no longer maintaining this diversity\n       in situ (in the field)\n\n  PRACTICAL CONSEQUENCE:\n    Ug99 wheat stem rust (1999): devastated IR8-era semi-dwarfs\n    → Required genes from landraces/wild relatives\n    BYDV, blast, BPH (brown planthopper): constant arms race\n    → The genetic uniformity creates vulnerability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 333,
+      "heading_context": "### Environmental Costs",
+      "confidence": "candidate",
+      "text": "GROUNDWATER DEPLETION:\n  Punjab (India + Pakistan): tube well irrigation for wheat/rice\n  Water table declining 1-3 m/yr in heavily farmed areas\n  Ogallala Aquifer (US Great Plains): parallel problem\n  → \"Fossil water\" being mined; no renewable replenishment\n\nSOIL DEGRADATION:\n  Continuous rice-wheat rotation (Punjab):\n    2 crops/year without fallow; intensive tillage\n    Soil organic matter declining; soil compaction\n    Yield growth slowing → \"yield fatigue\" or \"yield plateau\"\n    Punjab rice yields: stagnant since late 1990s\n\nWATER POLLUTION:\n  Nitrogen runoff → eutrophication of Punjab rivers\n  Pesticide use → residues in food, water, beneficial insects\n  Soil salinization in poorly drained irrigation systems\n\nATMOSPHERIC N₂O:\n  High N inputs → denitrification → N₂O emissions\n  Agriculture = 60% of global anthropogenic N₂O (GWP 265)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 359,
+      "heading_context": "### Social and Economic Critiques",
+      "confidence": "candidate",
+      "text": "\"WHO BENEFITED?\":\n  Large farmers: could afford seed, fertilizer, credit → gained most\n  Small farmers: benefits, but often excluded from credit;\n                 some lost land to consolidation\n  Landless laborers: mixed — some more work harvesting;\n                      mechanization displaced some\n\n  Amartya Sen: famines are about entitlement (access), not\n  production. Green Revolution raised production but not\n  equally distributed access.\n\n  Punjab Paradox: food production surged but nutritional\n  diversity declined (shift from lentils/vegetables to\n  wheat/rice monoculture)\n\nDISPLACEMENT OF CROP DIVERSITY:\n  Coarse grains (sorghum, millet, teff): marginalized\n  Legumes: displaced by wheat/rice (N from fertilizer\n           replaced legume N fixation)\n  → Dietary diversity reduced even as calories increased\n\nFARMER DEBT AND VULNERABILITY:\n  Input-dependent farming creates annual debt cycles\n  Price volatility in inputs (N tied to natural gas prices)\n  Market price fluctuation → farmer income volatile\n  Punjab farmer suicides (India): contested link to debt from\n  high-input farming",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 393,
+      "heading_context": "## The Yield Plateau — After the Revolution",
+      "confidence": "candidate",
+      "text": "YIELD TRENDS (rice, wheat, global):\n  1960-1990: rapid linear yield growth (Green Revolution)\n  1990-present: growth rate slowing\n\n  Potential yield (experiment station, optimal management)\n  vs actual farm yield: \"yield gap\"\n  Wheat: actual yield ~50% of potential\n  Rice: actual yield ~40-60% of potential\n\n  Why growth slowing?\n    - Genetic potential ceiling (harvest index can't exceed ~60%)\n    - Soil degradation reducing responsiveness to inputs\n    - Climate change: heat stress at anthesis (pollination critical)\n    - Water constraint tightening\n    - Diminishing returns to N (yield not increasing with more N)\n\nTHE SECOND GREEN REVOLUTION DEBATE:\n  PROPONENTS: Need another revolution for 10 billion by 2050\n    → CRISPR gene editing (faster, more precise than conventional)\n    → Speed breeding (LED lighting, 6 generations/yr)\n    → Nitrogen use efficiency genes\n    → Drought/heat tolerance traits\n\n  CRITICS: First revolution's social + environmental costs not\n  addressed; same model will repeat the problems\n    → Agroecological approach: diversity + local knowledge\n    → Regenerative farming rather than input intensification",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

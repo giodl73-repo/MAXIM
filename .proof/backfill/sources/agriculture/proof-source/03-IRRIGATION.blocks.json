@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "agriculture\\03-IRRIGATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|              IRRIGATION SYSTEM OVERVIEW                       |\n|                                                               |\n|  WATER SOURCES:                                               |\n|  Surface: Rivers, canals, reservoirs, lakes                   |\n|  Groundwater: Wells pumping aquifers                          |\n|  Treated wastewater: Increasing (Israel, Singapore)           |\n|                                                               |\n|  DELIVERY METHODS    EFFICIENCY (applied/evapotranspired)     |\n|  ───────────────────  ─────────────────────────────────────   |\n|  Flood/surface       50-65%  (significant deep percolation)   |\n|  Sprinkler           70-80%  (wind drift + evaporation)       |\n|  Drip/micro          85-95%  (direct to root zone)            |\n|  Subsurface drip     90-95%  (below evaporation)              |\n|                                                               |\n|  WATER BUDGET: ET demand = crop water need                    |\n|  Effective rainfall + Irrigation = ET + leaching fraction     |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 50,
+      "heading_context": "## Engineering Bridge: Irrigation as a Control System",
+      "confidence": "candidate",
+      "text": "IRRIGATION CONCEPT            CONTROL SYSTEMS EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nIRRIGATION SCHEDULING         Closed-loop control system\n  Sense: soil moisture sensor → Error signal: actual θ vs. target θ\n    (FDR/TDR probe)\n  Decide: ET model (Penman-   → Controller: compute required irrigation dose\n    Monteith) + soil model      (PID-like: proportional to deficit + feed-forward\n                                from weather forecast)\n  Actuate: valve open/pump on → Actuator output: water applied to field\n  Target: maintain θ between  → Setpoint: keep state in feasible operating range\n    field capacity and wilting  (same as maintaining buffer above empty, below full)\n\n  OPEN LOOP (schedule-based): → Feed-forward only; no feedback\n    Fixed calendar schedule     Efficient when ET is predictable (constant climate)\n    No sensor needed            Fails when disturbances occur (heat wave, rain)\n  CLOSED LOOP (sensor-based): → Feedback control\n    Soil moisture triggers      Corrects for disturbances; more efficient\n    Reduces over-application    Same as: PID thermostat vs. open-loop furnace timer\n\nEFFICIENCY LADDER (flood → drip) = Precision increase in resource allocation\n  Flood/surface (50–65%):    → Broadcast delivery: no targeting; saturates field\n                                 same waste as sending a full 1 MB response when\n                                 client needs 10 bytes\n  Sprinkler (70–80%):        → Narrowcast delivery: targets field area;\n                                 still loses to wind drift + evaporation\n  Drip (85–95%):             → Point delivery: water at root zone exactly;\n                                 same as lazy evaluation — compute only what's needed\n  Subsurface drip (90–95%):  → Delivery below evaporation surface; maximum\n                                 efficiency; removes evaporation loss entirely\n                                 analog: in-memory cache vs. disk I/O\n\nEVAPOTRANSPIRATION (ET) MODEL  Feedforward term in control law\n  ETc = ETo × Kc             → Predict disturbance (water demand) from observable\n  ETo from weather data        inputs (solar, temp, humidity, wind)\n  Kc = crop coefficient        → Use model to pre-apply correction before error\n  Water stress threshold       → Saturating nonlinearity (when θ < threshold,\n                                   stomata close, growth stops — binary switch)\n\nIRRIGATION SALINITY           Feedback with integrating effect\n  Salts accumulate in root zone → every irrigation application deposits dissolved\n  when evaporation removes water  minerals; no drainage = all minerals stay\n  Leaching fraction (LF)       → Required \"flush\" to prevent salt accumulation\n    LF = EC_iw / (5·EC_threshold - EC_iw)  (steady-state salt balance)\n  Over-irrigation (no drainage) → Saturate integrator → irreversible soil damage\n  20% of irrigated land already → ~40 million ha of degraded state globally\n    salt-impaired",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 103,
+      "heading_context": "## Water Requirements — Crop ET",
+      "confidence": "candidate",
+      "text": "REFERENCE ET (ETo): ET from a reference crop (grass) under given climate\n  Calculated from: temperature, humidity, wind, solar radiation\n  (Penman-Monteith equation — FAO standard)\n\nCROP ET (ETc) = ETo × Kc\n  Kc = crop coefficient (varies by growth stage)\n  Kc initial (germination): 0.3–0.4\n  Kc mid-season (full canopy): 1.0–1.3 (depends on crop)\n  Kc late (maturity): 0.6–0.9\n\nWATER STRESS: When soil water < critical threshold, crop experiences stress\n  Stomata close → less CO₂ → reduced photosynthesis and yield\n  \"Turgor loss point\" = wilting; cells collapse",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 138,
+      "heading_context": "## Surface Irrigation Methods",
+      "confidence": "candidate",
+      "text": "         WATER INLET\n              ↓\n _______________________________________________\n|               FLOODED FIELD                   |\n|_______________________________________________|\n\nSUITABLE FOR: Paddy rice (essential for anaerobic soil; controls weeds)\n              Level fields only\nEFFICIENCY: 40-65%\nPROBLEMS: Significant deep percolation and surface runoff\n          Saturation → anoxia for non-paddy crops\n          Requires precise leveling (now done with laser-leveling)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 168,
+      "heading_context": "## Sprinkler Irrigation",
+      "confidence": "candidate",
+      "text": "TYPES:\n  Solid-set: Permanent risers + stationary nozzles\n             (orchards, high-value crops)\n\n  Center pivot: Rotating arm on towers circling well/pump\n                (up to 800m arm; covers circular field)\n                → Distinctive circles seen from satellites over US Plains\n\n  Linear move: Same as pivot but travels linearly\n               (rectangular fields)\n\n  Traveling gun: Single large nozzle pulled across field\n                (less common; high pressure, wind-sensitive)\n\nEFFICIENCY: 70-80% (evaporation from droplets, canopy interception, wind drift)\nAPPLICATION: Most adaptable; can apply on uneven terrain\nPROBLEMS: Wet foliage → fungal diseases; high energy costs (pressure needed)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "## Drip Irrigation — Precision Water Delivery",
+      "confidence": "candidate",
+      "text": "SURFACE DRIP:           SUBSURFACE DRIP (SDI):\nTubing on surface       Tubing buried 30-50 cm below surface\n     ↓                        ↓\nEmitters at plant         Emitters at root zone\nbase (0.5–4 L/hr)        Below evaporation → higher efficiency\n                          Below tillage → permanent installation\n\nEMITTER SPACING: 10-50 cm (depends on soil and crop)\nWORKING PRESSURE: 0.5–1.5 bar (low; unlike sprinkler)\n\nADVANTAGES:\n  Efficiency 85-95% (only wets root zone)\n  Fertigation: dissolve fertilizer directly in water → precision\n  Lower disease pressure (no wet foliage)\n  Works on any terrain\n  Reduces weed germination (inter-row stays dry)\n\nDISADVANTAGES:\n  High capital cost ($500–2000+/ha installation)\n  Emitter clogging (requires filtration)\n  Rodent damage (surface drip)\n  Requires monitoring (can't see if working)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 227,
+      "heading_context": "## Salinization — The Slow Agricultural Disaster",
+      "confidence": "candidate",
+      "text": "SALT ACCUMULATION PROCESS:\n  Irrigation water (low salt) → Crop evapotranspiration removes water\n                              ↓\n  Residual salt concentration increases in root zone\n  If drainage is poor:\n  → Salt builds up in soil over years → decades\n  → Electrical conductivity (EC) rises beyond crop tolerance\n  → Osmotic stress (plant can't extract water even if present)\n  → Reduced yields → abandoned fields\n\nEXTENT:\n  ~20% of world's irrigated land (30 million ha) significantly affected\n  An estimated 2000 ha/day lost to salinization\n  1.5 million ha abandoned to salinization per year globally\n  Ancient Mesopotamian collapse partly attributed to soil salinization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 327,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "**Salinization ≠ just in deserts** — Salinization occurs anywhere with irrigation + poor drainage + any evaporative water loss. The Imperial Valley (California), Murray-Darling Basin (Australia), and Po Valley (Italy) all have salinization problems despite non-desert climates.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

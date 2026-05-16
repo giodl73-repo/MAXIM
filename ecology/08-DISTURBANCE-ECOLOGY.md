@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ecology:disturbance-ecology
+kind: guide
+module: ecology
+section: ecology
+title: Disturbance Ecology - IDH, Fire Ecology, Invasive Species
+status: source-custody
+source_custody: partial
+current_path: ecology/08-DISTURBANCE-ECOLOGY.md
+canonical_path: ecology/08-DISTURBANCE-ECOLOGY.md
+backsource_ids: [proof-backfill:ecology:08-disturbance-ecology, git-history:ecology:08-disturbance-ecology]
+concepts: [disturbance, ecology]
+root_concepts: [disturbance, ecology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Disturbance Ecology — IDH, Fire Ecology, Invasive Species
 
 ## The Big Picture

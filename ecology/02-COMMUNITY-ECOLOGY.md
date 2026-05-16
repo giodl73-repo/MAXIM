@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ecology:community-ecology
+kind: guide
+module: ecology
+section: ecology
+title: Community Ecology - Interactions, Keystone Species, Trophic Cascades
+status: source-custody
+source_custody: partial
+current_path: ecology/02-COMMUNITY-ECOLOGY.md
+canonical_path: ecology/02-COMMUNITY-ECOLOGY.md
+backsource_ids: [proof-backfill:ecology:02-community-ecology, git-history:ecology:02-community-ecology]
+concepts: [community, ecology]
+root_concepts: [community, ecology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Community Ecology — Interactions, Keystone Species, Trophic Cascades
 
 ## The Big Picture

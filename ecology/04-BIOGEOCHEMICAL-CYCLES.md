@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ecology:biogeochemical-cycles
+kind: guide
+module: ecology
+section: ecology
+title: Biogeochemical Cycles - Carbon, Nitrogen, Phosphorus, Sulfur
+status: source-custody
+source_custody: partial
+current_path: ecology/04-BIOGEOCHEMICAL-CYCLES.md
+canonical_path: ecology/04-BIOGEOCHEMICAL-CYCLES.md
+backsource_ids: [proof-backfill:ecology:04-biogeochemical-cycles, git-history:ecology:04-biogeochemical-cycles]
+concepts: [biogeochemical, cycles]
+root_concepts: [biogeochemical, cycles]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biogeochemical Cycles — Carbon, Nitrogen, Phosphorus, Sulfur
 
 ## The Big Picture

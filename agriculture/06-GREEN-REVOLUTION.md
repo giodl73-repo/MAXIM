@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:agriculture:green-revolution
+kind: guide
+module: agriculture
+section: agriculture
+title: Green Revolution - Borlaug Dwarf Wheat, IR8 Rice, Yield Tripling, Costs and Legacies
+status: source-custody
+source_custody: partial
+current_path: agriculture/06-GREEN-REVOLUTION.md
+canonical_path: agriculture/06-GREEN-REVOLUTION.md
+backsource_ids: [proof-backfill:agriculture:06-green-revolution, git-history:agriculture:06-green-revolution]
+concepts: [green, revolution]
+root_concepts: [green, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Green Revolution — Borlaug Dwarf Wheat, IR8 Rice, Yield Tripling, Costs and Legacies
 
 ## The Big Picture

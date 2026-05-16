@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "agriculture\\05-FERTILIZERS-PESTICIDES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              CHEMICAL INPUTS TO AGRICULTURE                      |\n|                                                                  |\n|  FERTILIZERS                   PESTICIDES                        |\n|  ----------------------        ----------------------------      |\n|  Provide macronutrients        Kill or repel organisms that      |\n|  (N, P, K) + secondary        compete with or damage crops       |\n|                                                                  |\n|  SOURCES:                      CLASSES:                          |\n|  Synthetic: Haber-Bosch N      Herbicides   (weeds)              |\n|  Mined:     P (phosphate rock) Insecticides (insects)            |\n|  Mined:     K (potash/sylvite) Fungicides   (fungi)              |\n|  Organic:   manure, compost    Nematicides  (nematodes)          |\n|                                Rodenticides (rodents)            |\n|                                Molluscicides (slugs/snails)      |\n|                                                                  |\n|  GLOBAL SCALE:                                                   |\n|  ~190 million tonnes N applied/yr (synthetic)                    |\n|  ~4 million tonnes active ingredient pesticide/yr                |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 52,
+      "heading_context": "## Engineering Bridge: Chemical Agriculture as Optimization and Adversarial Strategy",
+      "confidence": "candidate",
+      "text": "AGRICULTURAL CONCEPT            CS / ENGINEERING EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nHABER-BOSCH PROCESS             Constrained engineering optimization\n  N₂ + 3H₂ ⇌ 2NH₃ (equilibrium)  → Maximize yield subject to constraints\n  Le Chatelier: high pressure     → Raise pressure: shift equilibrium right\n    favors product (4 mol → 2 mol)   (constraint relaxation on one axis)\n  Le Chatelier: low temp favors   → But low temp: rate → 0 (kinetic floor)\n    product (exothermic)           Same trade-off as: aggressive GC vs\n  Bosch's solution: compromise      throughput; cannot optimize both dims\n    400–500°C + Fe catalyst          simultaneously → Pareto frontier\n    15–25% single-pass yield         → Recycle unreacted gas (memoization)\n  CATALYST = rate accelerator      → The catalyst doesn't shift equilibrium\n    (Fe, K₂O, Al₂O₃ promoters)       (thermodynamics); it accelerates the\n    → Enables economic rate at         path to equilibrium (kinetics)\n    350–500°C vs uncatalyzed ~800°C   Same as: JIT compiler doesn't change\n                                       semantics; only execution speed\n  HYDROGEN BOTTLENECK             → External dependency (natural gas)\n    SMR: CH₄ + H₂O → CO + 3H₂      → Haber-Bosch sustainability =\n    → Tightly coupled to CH₄ price    function of H₂ source (green H₂)\n\nNITROGEN USE EFFICIENCY (NUE)   Throughput vs loss in a leaky pipeline\n  30–50% of applied N taken up    → 50–70% \"packet loss\" on N delivery\n  Rest: leaching, denitrification, → Different loss paths need different\n    volatilization, immobilization    mitigations (analogous to TCP vs UDP\n  Split applications              → Backpressure: deliver in smaller\n    (starter + sidedress)            batches matched to uptake rate\n  Nitrification inhibitors        → Rate-limiting the pipeline stage\n    (slow NH₄⁺ → NO₃⁻)             that causes the leak\n  Controlled-release fertilizer   → Buffered output queue; smooth delivery\n\nECONOMIC THRESHOLD (ET)         Decision theory under uncertainty\n  ET = pest density requiring     → Decision boundary: spray if and only\n    action; spray costs justified    if E[loss from inaction] > spray cost\n  EIL = crop loss = pesticide     → Break-even analysis; ET set below EIL\n    cost (exact break-even)          to account for population growth lag\n  NOT spraying below threshold    → Avoid Type I error (unnecessary spray)\n    → does NOT mean ignoring pest    → Monitor (observe) rather than act\n  ALSO prevents resistance        → Below-threshold spraying = applying\n    (selection pressure without      selection pressure without full kill\n    full kill = worst of both)       → worst-case adversarial training\n\nMOA ROTATION (resistance mgmt)  Adversarial strategy against evolving opponent\n  Problem: any pest population    → Adversary population has diverse\n    contains rare resistant indivs    encodings of the same behavior\n  Pesticide selects resistant     → Selection = gradient descent toward\n    individuals; they reproduce      the one target the attacker knows\n  MOA rotation: switch biochemical → Rotate attack surface: make previous\n    target each application           \"fitness advantage\" irrelevant\n  Refuge strategy: 20% unsprayed → Leave a pool of susceptible indivs\n    field → dilute resistance alleles  to slow allele frequency shift\n  Tank mixes (2 MOA simultaneously) → Require double mutation to escape\n    → extremely rare (epistasis)      → analogous to 2-factor auth:\n                                       must compromise both independently\n  FUNGICIDE GROUPS:               → If QoI (Group 11) + DMI (Group 3):\n    G143A mutation → QoI resistant   A single SNP breaks one key;\n    → NEVER use QoI alone             can't break both simultaneously\n    Must tank-mix with multi-site     Multi-site = \"unhashable\" defense:\n    (Group M: mancozeb, chlorothalonil) no single mutation confers resistance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 119,
+      "heading_context": "### Background: The Nitrogen Problem",
+      "confidence": "candidate",
+      "text": "NITROGEN CYCLE BEFORE HABER-BOSCH:\n  N₂ (atmosphere, 78%) — almost inert\n       ↓ (biological N fixation only)\n  NH₄⁺ from:\n    - Legume-Rhizobium symbiosis\n    - Free-living Azotobacter, cyanobacteria\n    - Lightning (small contribution)\n\n  Global natural fixation: ~130 Tg N/yr\n\n  Problem by 1900: Europe's population growth\n  outstripping soil N capacity → food security crisis\n  Guano (seabird droppings, Peru) and Chilean\n  saltpeter (NaNO₃) being mined as N sources → finite",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 140,
+      "heading_context": "### The Synthesis",
+      "confidence": "candidate",
+      "text": "THE HABER-BOSCH REACTION:\n  N₂ + 3H₂ ⇌ 2NH₃    ΔH = -92 kJ/mol (exothermic)\n\nEQUILIBRIUM PROBLEM:\n  Le Chatelier's Principle:\n    ↑ Pressure → favors product (4 mol gas → 2 mol gas)\n    ↓ Temperature → favors product (exothermic reaction)\n    But: low temp → reaction rate too slow\n\n  SOLUTION (Bosch's engineering triumph):\n    Pressure:    150–300 atm\n    Temperature: 400–500°C (compromise — rate vs equilibrium)\n    Catalyst:    Iron (Fe) promoted with K₂O and Al₂O₃\n    Single-pass conversion: ~15–25%\n    Unreacted gas: recycled continuously\n    Yield at equilibrium (industrial): ~10–15% → acceptable\n    because gas recycled\n\n  HYDROGEN SOURCE (the hidden cost):\n    Originally: water electrolysis\n    Modern: steam methane reforming (SMR) of natural gas\n    CH₄ + H₂O → CO + 3H₂  (then water-gas shift)\n    → Haber-Bosch is tightly coupled to fossil fuel supply\n    → ~1-2% of global energy consumption\n    → ~1.4% of global CO₂ emissions\n\nSCALE:\n  Global production: ~180 million tonnes NH₃/yr (2023)\n  ~80% used for agriculture\n  Rest: explosives, plastics, industrial chemicals\n\n  \"Half of nitrogen atoms in your body passed through\n   a Haber-Bosch reactor\" (estimated 50% of human\n   N now synthetic in origin)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 183,
+      "heading_context": "## Synthetic N Fertilizers — Forms and Properties",
+      "confidence": "candidate",
+      "text": "FERTILIZER NITROGEN FORMS:\n\nANHYDROUS AMMONIA (NH₃):\n  82% N; injected directly into soil at ~30 cm depth\n  Must be sealed → volatile if exposed\n  Lowest cost per unit N\n  Specialist equipment; risk of escape\n  Converts quickly to NH₄⁺ → then NO₃⁻ in soil\n\nUREA (CO(NH₂)₂):\n  46% N; most widely used solid fertilizer globally\n  Applied: broadcast, incorporated, or UAN solution\n  Converts to NH₄⁺ via urease enzyme (hydrolysis)\n  PROBLEM: Volatilization as NH₃ if surface-applied\n            without incorporation (can lose 20-40%)\n  Solution: urease inhibitors (NBPT) slow hydrolysis\n\nAMMONIUM NITRATE (NH₄NO₃):\n  34% N; half as NH₄⁺ (slow release), half as NO₃⁻ (fast)\n  Widely used in Europe; restricted in US (explosive risk)\n  CAN = calcium ammonium nitrate (safer blended form)\n\nUAN SOLUTION (28-32% N):\n  Urea + ammonium nitrate in aqueous solution\n  Easy to apply with liquid systems; blend with\n  herbicides possible\n\nCONTROLLED-RELEASE FERTILIZERS:\n  Polymer-coated urea: release over 60-180 days\n  Nitrification inhibitors: slow NH₄⁺ → NO₃⁻ conversion\n  → Less leaching; higher N use efficiency (NUE)\n  → Higher cost; niche use (golf, high-value horticulture)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 224,
+      "heading_context": "## Phosphorus and Potassium Fertilizers",
+      "confidence": "candidate",
+      "text": "PHOSPHORUS FERTILIZERS:\n  Source: Phosphate rock (fluorapatite, Ca₅(PO₄)₃F)\n          Mined in Morocco (~70% world reserves),\n          China, Russia, USA\n\n  Processing:\n    Phosphate rock + H₂SO₄ → superphosphate\n    (SSP: 18-20% P₂O₅; TSP: 46% P₂O₅)\n    Phosphate rock + phosphoric acid → DAP, MAP\n    DAP (18-46-0): diammonium phosphate — most used\n    MAP (11-52-0): monoammonium phosphate\n\n  KEY CONCERN: Phosphate rock is non-renewable\n    Estimated reserves: 50–300 years at current use\n    (highly contested; Morocco holds strategic position)\n    Phosphorus cannot be synthesized — only recycled\n    → \"Peak phosphorus\" concern: global food security\n       fundamentally tied to phosphate mining access\n\nPOTASSIUM FERTILIZERS:\n  Source: Potash deposits (ancient evaporite basins)\n          Sylvite (KCl): Canada, Russia, Belarus (~75% reserves)\n          Langbeinite, kainite (contain K + Mg + S)\n\n  Muriate of potash (MOP): KCl, 60% K₂O (most common)\n  Sulfate of potash (SOP): K₂SO₄, 50% K₂O + S\n                           (use when Cl⁻ sensitive crops: potato, some fruits)\n\n  Belarus/Russia dominate supply →\n  2022 sanctions disrupted global K supply → price spike",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "### Herbicides",
+      "confidence": "candidate",
+      "text": "HERBICIDE MODE OF ACTION (MOA):\n\nPHOTOSYNTHESIS INHIBITORS (Group C):\n  Atrazine (triazine): blocks PSII electron transport\n  Linuron (urea): same target\n  Use: corn, sorghum; very widely used in US\n  Problem: Atrazine groundwater contamination widespread\n\nAMINO ACID SYNTHESIS INHIBITORS:\n  ALS inhibitors (Group B):\n    Sulfonylureas, imidazolinones\n    Block acetohydroxy acid synthase → branched AA synthesis stops\n    Very low use rates (grams/ha vs kg/ha)\n    High resistance evolution risk\n\n  EPSP inhibitors (Group G):\n    Glyphosate (Roundup): blocks EPSPS enzyme in shikimate pathway\n    → No shikimate pathway in animals (hence low mammalian toxicity)\n    Broad-spectrum; kills almost all vegetation\n    Basis of GMO herbicide-tolerant crops (Roundup Ready)\n    Half-life in soil: 2–197 days (highly variable, binds to clay)\n    Global use: >800 million kg/yr (most used herbicide on Earth)\n    Resistance evolution: >250 weed species now resistant\n\nCELL MEMBRANE DISRUPTORS (Group E):\n  PPO inhibitors (e.g., lactofen): generate reactive oxygen species\n  → Membrane lipid peroxidation → rapid cell death\n  Contact herbicide; good resistance management tool\n\nSYNTHETIC AUXINS (Group O):\n  2,4-D, dicamba, MCPA\n  Mimic auxin (IAA) → disrupt cell elongation in dicots\n  Selective: monocots (grass, grain crops) not affected\n  Old herbicides (2,4-D since 1944) but still widely used\n  Dicamba: volatility → drift to non-target crops problem",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 303,
+      "heading_context": "### Insecticides",
+      "confidence": "candidate",
+      "text": "INSECTICIDE CLASSES AND TARGETS:\n\nORGANOPHOSPHATES (OPs):\n  Mechanism: inhibit acetylcholinesterase (AChE)\n             → acetylcholine accumulates → nerve overstimulation\n  Examples: chlorpyrifos, malathion, parathion\n  Broad-spectrum; high vertebrate toxicity (same AChE)\n  Most OPs phased out from food uses in developed world\n\nCARBAMATES:\n  Same target (AChE) as OPs; reversible inhibition\n  Examples: carbofuran, carbaryl (Sevin)\n  Lower persistence; still used but declining\n\nPYRETHROIDS (synthetic pyrethrins):\n  Target: Na⁺ voltage-gated channels → stay open → paralysis\n  Examples: cypermethrin, permethrin, deltamethrin\n  Low mammalian toxicity (temperature-dependent Na channel)\n  Very toxic to fish, aquatic invertebrates, bees\n  Highly stable; widely used in grain storage, cotton, vegetables\n\nNEONICOTINOIDS:\n  Target: nicotinic acetylcholine receptors (nAChR) — systemic\n  Examples: imidacloprid, clothianidin, thiamethoxam\n  Systemic: taken up by plant, expressed in all tissues including nectar/pollen\n  Highly effective on sucking insects (aphids, whiteflies)\n  Bee toxicity: linked to colony collapse disorder (contested but restricted in EU)\n  Most widely used insecticide class globally (>25% of market)\n\nBt TOXINS (biological, not synthetic):\n  Bacillus thuringiensis proteins disrupt insect gut\n  Cry proteins bind to brush border → pore formation → death\n  Used as spray; also expressed in Bt-GMO crops\n  Highly specific (lepidoptera, coleoptera, diptera strains)\n  Safe for vertebrates, beneficial insects (mostly)\n\nDIAMIDES:\n  Target: ryanodine receptors (muscle Ca²⁺ release channels)\n  Examples: chlorantraniliprole, cyantraniliprole\n  Low vertebrate toxicity; high efficacy on caterpillars\n  Newer class; resistance emerging",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 349,
+      "heading_context": "### Fungicides",
+      "confidence": "candidate",
+      "text": "FUNGICIDE CLASSES:\n\nDEMETHYLATION INHIBITORS (DMIs, Group 3):\n  Triazoles: tebuconazole, propiconazole, prothioconazole\n  Imidazoles: prochloraz\n  Block ergosterol biosynthesis (fungal membrane lipid)\n  → Systemic; preventive and curative\n  Most widely used fungicide class (cereals, soybeans, fruits)\n\nQUINONE OUTSIDE INHIBITORS (QoIs/Strobilurins, Group 11):\n  Azoxystrobin, trifloxystrobin\n  Block Complex III (bc₁) in mitochondrial electron transport\n  Very broad spectrum; powerful systemic activity\n  RESISTANCE RISK: single point mutation (G143A) confers\n  near-complete resistance → must rotate MOA\n\nSDHI (Succinate Dehydrogenase Inhibitors, Group 7):\n  Boscalid, fluxapyroxad, benzovindiflupyr\n  Block Complex II of mitochondrial ETC\n  Newer, effective; resistance developing rapidly in some pathogens\n\nMULTI-SITE INHIBITORS (Group M):\n  Mancozeb (dithiocarbamate), chlorothalonil, copper\n  Multiple sites → resistance evolution very slow\n  Used as tank mix partners to protect at-risk MOA fungicides\n  Copper: oldest fungicide (Bordeaux mixture since 1882);\n          heavy metal accumulation in organic viticulture",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 385,
+      "heading_context": "## Integrated Pest Management (IPM)",
+      "confidence": "candidate",
+      "text": "IPM HIERARCHY (decision ladder):\n\n1. PREVENTION (no inputs required)\n   Crop rotation → breaks pest/disease cycles\n   Resistant varieties → genetic defense\n   Timing (plant/harvest to avoid peak pest)\n   Sanitation (remove volunteer plants, infected residue)\n   Correct fertility → avoid lush growth that attracts pests\n\n2. MONITORING + ECONOMIC THRESHOLDS\n   Scout fields: sample pest populations (counts/trap)\n   Economic Injury Level (EIL): crop loss = pesticide cost\n   Economic Threshold (ET): pest density requiring action\n   → Do NOT spray below ET (economic + resistance logic)\n\n   EXAMPLE: Soybean aphid ET = 250 aphids/plant\n   before R1 (flowering), with increasing population\n   → Below threshold: no spray, rely on natural enemies\n   → Above threshold: treat if population rising\n\n3. BIOLOGICAL CONTROL\n   Conservation biocontrol: habitat for natural enemies\n     (wildflower strips, hedgerows → parasitoids, predators)\n   Augmentative biocontrol: release Trichogramma wasps,\n     lacewings, ladybeetles for greenhouse/field\n   Classical biocontrol: introduce natural enemy from\n     country of origin of invasive pest\n     (requires careful host-specificity testing)\n\n   Natural enemies can suppress 50-80% of pest populations\n   if not disrupted by pesticide applications\n\n4. CULTURAL AND MECHANICAL CONTROL\n   Trap crops: plant preferred host on border → concentrate pests\n   Physical barriers: row covers, sticky traps, copper tape\n   Precision cultivation: mechanical weed control between rows\n   Soil solarization: solar heating kills soilborne pathogens\n\n5. TARGETED CHEMICAL CONTROL (last resort)\n   Select: most specific MOA for target pest\n   Rotate MOA: never use same group consecutively\n   Time: spray at vulnerable life stage, avoid flowering\n   Buffer: maintain buffer zones near water, sensitive areas\n   Record: track usage for resistance monitoring",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 434,
+      "heading_context": "## Integrated Pest Management (IPM)",
+      "confidence": "candidate",
+      "text": "RESISTANCE EVOLUTION:\n  Any pest population contains rare resistant individuals\n  Pesticide exposure selects for these → survive, reproduce\n  → Resistance can evolve in 2-20 generations depending on\n     selection pressure, inheritance, migration\n\nPREVENTION:\n  Rotate MOA (mode of action): different biochemical target\n    in alternating applications or seasons\n  Refuge strategy: leave 20% of field unsprayed → susceptible\n    individuals survive, dilute resistance alleles\n  Tank mixes: two MOAs simultaneously → double mutation\n    required (extremely rare) for resistance\n  Biological + chemical rotation: break selection pressure\n\nIRAC/FRAC/HRAC: insecticide/fungicide/herbicide resistance\n  action committees maintain MOA numbering system\n  Always check Group number (1, 2, 11, 14...) not trade name",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 459,
+      "heading_context": "## Environmental Impacts of Agricultural Chemicals",
+      "confidence": "candidate",
+      "text": "NITROGEN POLLUTION CASCADE:\n\n  NH₃ volatilization\n    → atmospheric deposition to sensitive ecosystems\n    → N eutrophication of lichens, bogs (most sensitive)\n\n  NO₃⁻ leaching to groundwater\n    → Drinking water contamination (>10 mg/L = health risk)\n    → EU Nitrates Directive, US MCL = 10 mg/L\n\n  NO₃⁻ to surface water\n    → Algal blooms → eutrophication → hypoxia\n    → Gulf of Mexico Dead Zone: ~22,000 km² hypoxic zone\n       fed by Mississippi River agriculture\n    → Baltic Sea, Chesapeake Bay, Black Sea similar\n\n  N₂O emissions from soil denitrification\n    → GHG with GWP 265× CO₂ (100-yr)\n    → Agriculture: ~60% of global anthropogenic N₂O\n    → Denitrification increased by excess N application\n       and wet conditions\n\nPHOSPHORUS POLLUTION:\n  P attached to soil particles → surface runoff → water\n  P drives eutrophication in freshwater (N in marine)\n  \"Legacy P\" in soils takes decades to flush through\n  No atmospheric sink → accumulates in sediments\n\nPESTICIDE ENVIRONMENTAL FATE:\n  Persistence: DT₅₀ (time for 50% degradation)\n    Glyphosate: 2-200 days (variable)\n    Chlorpyrifos: 30-60 days soil; hours in water\n    Imidacloprid: 40-1200 days (soil type dependent)\n\n  Non-target impacts:\n    Bees: neonicotinoids, pyrethroids\n    Aquatic invertebrates: pyrethroids (ng/L lethal doses)\n    Birds: rodenticides (secondary poisoning raptors)\n    Natural enemies: broad-spectrum insecticides → pest resurgence",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
