@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-reformers:anti-colonial
+kind: guide
+module: political-reformers
+section: political-reformers
+title: Anti-Colonial Leaders: Gandhi, Nehru, Ho Chi Minh, Nkrumah, Nyerere
+status: source-custody
+source_custody: partial
+current_path: political-reformers/05-ANTI-COLONIAL.md
+canonical_path: political-reformers/05-ANTI-COLONIAL.md
+backsource_ids: [proof-backfill:political-reformers:05-anti-colonial, git-history:political-reformers:05-anti-colonial]
+concepts: [anti, colonial]
+root_concepts: [anti, colonial]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Anti-Colonial Leaders: Gandhi, Nehru, Ho Chi Minh, Nkrumah, Nyerere
 
 ## The Big Picture

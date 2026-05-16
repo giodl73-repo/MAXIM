@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:writers-poets:overview
+kind: guide
+module: writers-poets
+section: writers-poets
+title: Writers and Poets - Overview
+status: source-custody
+source_custody: partial
+current_path: writers-poets/00-OVERVIEW.md
+canonical_path: writers-poets/00-OVERVIEW.md
+backsource_ids: [proof-backfill:writers-poets:00-overview, git-history:writers-poets:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Writers & Poets — Overview
 
 ## The Big Picture

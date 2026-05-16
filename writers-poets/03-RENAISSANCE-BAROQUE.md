@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:writers-poets:renaissance-baroque
+kind: guide
+module: writers-poets
+section: writers-poets
+title: Renaissance and Baroque Literature - Shakespeare, Cervantes, Milton, Montaigne
+status: source-custody
+source_custody: partial
+current_path: writers-poets/03-RENAISSANCE-BAROQUE.md
+canonical_path: writers-poets/03-RENAISSANCE-BAROQUE.md
+backsource_ids: [proof-backfill:writers-poets:03-renaissance-baroque, git-history:writers-poets:03-renaissance-baroque]
+concepts: [renaissance, baroque]
+root_concepts: [renaissance, baroque]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Renaissance and Baroque Literature — Shakespeare, Cervantes, Milton, Montaigne
 
 ## The Context: Print, Humanism, and the Vernacular

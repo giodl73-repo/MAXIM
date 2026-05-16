@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:writers-poets:literary-modernism
+kind: guide
+module: writers-poets
+section: writers-poets
+title: Literary Modernism - Joyce, Woolf, Proust, Kafka, Mann, Musil
+status: source-custody
+source_custody: partial
+current_path: writers-poets/06-MODERNISM.md
+canonical_path: writers-poets/06-MODERNISM.md
+backsource_ids: [proof-backfill:writers-poets:06-literary-modernism, git-history:writers-poets:06-literary-modernism]
+concepts: [literary, modernism]
+root_concepts: [literary, modernism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Literary Modernism — Joyce, Woolf, Proust, Kafka, Mann, Musil
 
 ## What Modernism Was

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-reformers:democratic-reformers
+kind: guide
+module: political-reformers
+section: political-reformers
+title: Democratic Reformers: FDR, Attlee, Adenauer, De Gaulle, Lula
+status: source-custody
+source_custody: partial
+current_path: political-reformers/07-DEMOCRATIC-REFORMERS.md
+canonical_path: political-reformers/07-DEMOCRATIC-REFORMERS.md
+backsource_ids: [proof-backfill:political-reformers:07-democratic-reformers, git-history:political-reformers:07-democratic-reformers]
+concepts: [democratic, reformers]
+root_concepts: [democratic, reformers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Democratic Reformers: FDR, Attlee, Adenauer, De Gaulle, Lula
 
 ## The Big Picture

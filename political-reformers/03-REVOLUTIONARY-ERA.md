@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-reformers:revolutionary-era
+kind: guide
+module: political-reformers
+section: political-reformers
+title: Revolutionary Era: Cromwell, Washington, Jefferson, Hamilton, Robespierre, Napoleon
+status: source-custody
+source_custody: partial
+current_path: political-reformers/03-REVOLUTIONARY-ERA.md
+canonical_path: political-reformers/03-REVOLUTIONARY-ERA.md
+backsource_ids: [proof-backfill:political-reformers:03-revolutionary-era, git-history:political-reformers:03-revolutionary-era]
+concepts: [revolutionary, era]
+root_concepts: [revolutionary, era]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Revolutionary Era: Cromwell, Washington, Jefferson, Hamilton, Robespierre, Napoleon
 
 ## The Big Picture

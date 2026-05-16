@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-reformers:overview
+kind: guide
+module: political-reformers
+section: political-reformers
+title: Political Reformers - Overview
+status: source-custody
+source_custody: partial
+current_path: political-reformers/00-OVERVIEW.md
+canonical_path: political-reformers/00-OVERVIEW.md
+backsource_ids: [proof-backfill:political-reformers:00-overview, git-history:political-reformers:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Political Reformers — Overview
 
 ## The Landscape

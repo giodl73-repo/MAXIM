@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-reformers:ancient-reformers
+kind: guide
+module: political-reformers
+section: political-reformers
+title: Ancient Political Reformers: Solon, Cleisthenes, Pericles, Gracchi
+status: source-custody
+source_custody: partial
+current_path: political-reformers/01-ANCIENT-REFORMERS.md
+canonical_path: political-reformers/01-ANCIENT-REFORMERS.md
+backsource_ids: [proof-backfill:political-reformers:01-ancient-reformers, git-history:political-reformers:01-ancient-reformers]
+concepts: [ancient, reformers]
+root_concepts: [ancient, reformers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient Political Reformers: Solon, Cleisthenes, Pericles, Gracchi
 
 ## The Big Picture

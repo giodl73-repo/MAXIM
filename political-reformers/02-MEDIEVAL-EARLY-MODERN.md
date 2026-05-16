@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-reformers:medieval-early-modern
+kind: guide
+module: political-reformers
+section: political-reformers
+title: Medieval and Early Modern Reformers: Magna Carta, de Montfort, Luther, Calvin
+status: source-custody
+source_custody: partial
+current_path: political-reformers/02-MEDIEVAL-EARLY-MODERN.md
+canonical_path: political-reformers/02-MEDIEVAL-EARLY-MODERN.md
+backsource_ids: [proof-backfill:political-reformers:02-medieval-early-modern, git-history:political-reformers:02-medieval-early-modern]
+concepts: [medieval, early, modern]
+root_concepts: [medieval, early]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Medieval and Early Modern Reformers: Magna Carta, de Montfort, Luther, Calvin
 
 ## The Big Picture
