@@ -1,0 +1,206 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 117,
+      "heading_context": "## Transform Landscape",
+      "headers": [
+        "Signal type",
+        "Domain",
+        "Transform",
+        "Output"
+      ],
+      "rows": [
+        [
+          "CT periodic",
+          "Continuous",
+          "Fourier Series",
+          "Discrete spectral lines cₙ"
+        ],
+        [
+          "CT aperiodic, energy",
+          "Continuous",
+          "CT Fourier Transform",
+          "Continuous spectrum X(jω)"
+        ],
+        [
+          "DT aperiodic, finite N",
+          "Discrete",
+          "DFT / FFT",
+          "N complex coefficients X[k]"
+        ],
+        [
+          "DT aperiodic, infinite",
+          "Discrete",
+          "DTFT",
+          "Continuous periodic spectrum X(e^{jω})"
+        ],
+        [
+          "CT causal / one-sided",
+          "Continuous",
+          "Laplace transform",
+          "X(s), s ∈ ℂ"
+        ],
+        [
+          "DT causal / one-sided",
+          "Discrete",
+          "Z-transform",
+          "X(z), z ∈ ℂ"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 191,
+      "heading_context": "## Key Quantities",
+      "headers": [
+        "Quantity",
+        "Symbol",
+        "Unit",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Frequency",
+          "f",
+          "Hz",
+          "cycles per second"
+        ],
+        [
+          "Angular frequency",
+          "ω",
+          "rad/s",
+          "ω = 2πf"
+        ],
+        [
+          "Normalized frequency",
+          "f̂",
+          "cycles/sample",
+          "f̂ = f/fs ∈ [0,1)"
+        ],
+        [
+          "Digital angular frequency",
+          "ω̂",
+          "rad/sample",
+          "ω̂ = 2πf̂ ∈ [0,2π)"
+        ],
+        [
+          "Sample rate",
+          "fs",
+          "Hz",
+          "samples per second"
+        ],
+        [
+          "Nyquist frequency",
+          "fN",
+          "Hz",
+          "fN = fs/2"
+        ],
+        [
+          "Signal power",
+          "P",
+          "W (or dBW)",
+          "∫\\|x\\|² dt normalized"
+        ],
+        [
+          "SNR",
+          "SNR",
+          "dB",
+          "10·log₁₀(Psignal/Pnoise)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 208,
+      "heading_context": "## Bridges to Prior Knowledge",
+      "headers": [
+        "MIT / Azure Background",
+        "DSP Equivalent"
+      ],
+      "rows": [
+        [
+          "Inner product ⟨f,g⟩ in Hilbert space",
+          "Fourier coefficient: cₙ = ⟨x(t), e^{jnω₀t}⟩/T"
+        ],
+        [
+          "Eigenvalue equation Av = λv",
+          "Sinusoids are eigenfunctions of LTI: H(e^{jω})e^{jωn}"
+        ],
+        [
+          "Hilbert space L²(ℝ)",
+          "Space of finite-energy signals"
+        ],
+        [
+          "Linear algebra projection",
+          "Spectral analysis as basis decomposition"
+        ],
+        [
+          "Difference equations (recurrences)",
+          "IIR filter implementation"
+        ],
+        [
+          "Finite state machine with shift register",
+          "FIR filter tap-delay line"
+        ],
+        [
+          "Probability distribution",
+          "Power spectral density (energy distribution in frequency)"
+        ],
+        [
+          "Azure pipeline stages",
+          "Signal processing chain (cascade of LTI systems)"
+        ],
+        [
+          "Poisson process",
+          "Shot noise, Poisson spectral statistics"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 228,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "Periodic or aperiodic signal?",
+          "Fourier Series vs. Fourier Transform"
+        ],
+        [
+          "Continuous math vs. computable?",
+          "CT FT vs. DFT (FFT in practice)"
+        ],
+        [
+          "Need to reduce noise at certain frequencies?",
+          "Filter design (FIR or IIR)"
+        ],
+        [
+          "Characterize a random/noisy signal?",
+          "PSD, Wiener-Khinchin theorem"
+        ],
+        [
+          "Signal has time-varying frequency?",
+          "STFT or wavelet transform"
+        ],
+        [
+          "Few sinusoids in noise (high resolution)?",
+          "MUSIC / ESPRIT subspace methods"
+        ],
+        [
+          "Need frequency resolution from short record?",
+          "Welch / multitaper averaging"
+        ],
+        [
+          "Long convolution efficiently?",
+          "FFT-based overlap-add/overlap-save"
+        ]
+      ]
+    }
+  ]
+}

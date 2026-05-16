@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\07-SPECTRAL-ESTIMATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 256,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "General finite-data PSD",
+          "Welch with overlap and Hann window",
+          "Segment length, not total record length, sets resolution."
+        ],
+        [
+          "Narrowband spectrum with bias control",
+          "Multitaper estimation",
+          "Taper count trades variance reduction against spectral smoothing."
+        ],
+        [
+          "AR/MA parameter estimation",
+          "Burg AR or Yule-Walker",
+          "Parametric methods are only as good as the model family."
+        ],
+        [
+          "Few sinusoids in noise",
+          "MUSIC or ESPRIT",
+          "Assumes correct model order and usually white noise."
+        ],
+        [
+          "Unknown sinusoid count",
+          "MDL/AIC model-order selection before subspace estimation",
+          "Wrong order splits or hides peaks."
+        ],
+        [
+          "Specific known frequency",
+          "Goertzel algorithm for one DFT bin",
+          "Efficient for targeted bins, not broad spectral discovery."
+        ],
+        [
+          "Non-stationary signal",
+          "STFT or other time-frequency processing",
+          "Window length fixes the time-frequency resolution tradeoff."
+        ]
+      ]
+    }
+  ]
+}

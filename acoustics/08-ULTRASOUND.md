@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:acoustics:ultrasound
+kind: guide
+module: acoustics
+section: acoustics
+title: Ultrasound - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: acoustics/08-ULTRASOUND.md
+canonical_path: acoustics/08-ULTRASOUND.md
+backsource_ids: [proof-backfill:acoustics:08-ultrasound, git-history:acoustics:08-ultrasound]
+concepts: [ultrasound]
+root_concepts: [ultrasound]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ultrasound — A Layered Guide
 
 ## The Big Picture

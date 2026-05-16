@@ -1,0 +1,125 @@
+{
+  "schema_version": "1",
+  "source_markdown": "acoustics\\02-PSYCHOACOUSTICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 164,
+      "heading_context": "## Critical Bands and Masking",
+      "headers": [
+        "Perceptual Phenomenon",
+        "Codec Mechanism",
+        "Trade-off"
+      ],
+      "rows": [
+        [
+          "Critical bands (Bark scale)",
+          "MDCT filterbank divides spectrum into ~32 subbands",
+          "More subbands = finer masking control = more overhead"
+        ],
+        [
+          "Simultaneous masking",
+          "Allocate fewer bits to frequencies masked by louder neighbors",
+          "More aggressive masking = lower bitrate = more artifacts"
+        ],
+        [
+          "Temporal masking",
+          "Pre-echo control: shorten MDCT window around transients",
+          "Short window = less frequency resolution during attacks"
+        ],
+        [
+          "Missing fundamental",
+          "Pitch preservation metric for quality assessment",
+          "Low bitrates may destroy harmonic structure"
+        ],
+        [
+          "Equal-loudness contours",
+          "Quieter frequencies get fewer bits (less audible distortion)",
+          "Low-frequency detail sacrificed first at low bitrates"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 273,
+      "heading_context": "## Key Auditory Illusions",
+      "headers": [
+        "Illusion",
+        "Mechanism"
+      ],
+      "rows": [
+        [
+          "Missing fundamental",
+          "Temporal theory — brain infers pitch from harmonics"
+        ],
+        [
+          "Shepard tone",
+          "Looping octave tones with amplitude envelope → infinite rising tone"
+        ],
+        [
+          "Phantom center (stereo)",
+          "Two identical stereo channels → perceived center image"
+        ],
+        [
+          "Precedence effect (Haas)",
+          "Echo within 30–40 ms fuses with first sound, direction from first"
+        ],
+        [
+          "Octave equivalence",
+          "Tones at 2:1 ratio sound similar (octave equivalence)"
+        ],
+        [
+          "Pitch shifts with loudness",
+          "Very low/high frequencies shift pitch with level (Stevens' rule)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 292,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether codec artifacts should be audible",
+          "Masking threshold versus quantization noise",
+          "Pre-echo and swish appear when noise escapes temporal or frequency masking"
+        ],
+        [
+          "Whether a dB reading matches perceived loudness",
+          "A-weighting and equal-loudness contours",
+          "dB(A) is a rough public-noise proxy, not a universal loudness model"
+        ],
+        [
+          "Whether speaker defects will be noticed",
+          "2-5 kHz response and distortion first",
+          "Human hearing is most sensitive where speech cues live"
+        ],
+        [
+          "Whether binaural rendering works",
+          "Listener-specific HRTF and headphone calibration",
+          "Generic HRTFs can externalize poorly or invert front/back location"
+        ],
+        [
+          "Whether bass is perceived without bass energy",
+          "Missing-fundamental and harmonic structure",
+          "The brain infers pitch from harmonics only when the harmonic pattern is coherent"
+        ],
+        [
+          "Whether a hall is too reverberant",
+          "Early/late energy balance and RT60 by band",
+          "Late reverberation masks clarity; early reflections can support presence"
+        ],
+        [
+          "Whether stereo ambience is spatially convincing",
+          "ITD and ILD cues from microphone geometry",
+          "Spacing and angling trade image width against phase and mono compatibility"
+        ]
+      ]
+    }
+  ]
+}

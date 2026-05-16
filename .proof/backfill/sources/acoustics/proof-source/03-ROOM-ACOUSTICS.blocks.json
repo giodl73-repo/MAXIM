@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "acoustics\\03-ROOM-ACOUSTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ROOM SOUND FIELD TIMELINE\n════════════════════════════════════════════════════════════════════\n\nSource emits a pulse at t=0\n\n                                                     Late reverb\n                    Early reflections               (diffuse field)\n         Direct     (from nearby surfaces)\n         ↓          ↓↓↓↓                          ↓↓↓↓↓↓↓↓↓↓↓↓↓\n         │          │││                           ─────────────────────\nSound ──►│──────────│││────────────────────────── echo density grows ──► silence\nLevel   ─┼──        │││                                                RT60\n(dB)     │  └─Direct│││Early                     Diffuse reverberant\n         │          └┘└reflections                tail decays -60 dB\n         ─────────────────────────────────────────────────────────►\n         0        5–50ms           100ms                  Time\n                                              ↑\n                                    Schroeder freq crossover\n\nTHREE ACOUSTIC ZONES:\n1. Direct field: falls as 1/r²\n2. Early reflections: arrive within 50–80 ms, carry useful spatial information\n3. Reverberant (diffuse) field: energy density uniform, dominated by late reflections",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 84,
+      "heading_context": "## Sabine Formula",
+      "confidence": "candidate",
+      "text": "SABINE FORMULA:\n\nT60 = 0.161 · V / (S · ᾱ)      (SI units)\n\nV  = room volume (m³)\nS  = total surface area (m²)\nᾱ  = average absorption coefficient (dimensionless, 0–1)\nS·ᾱ = total absorption A (m² Sabin or \"sabins\")\n\nABSORPTION COEFFICIENTS (typical, 500 Hz):\nMaterial                    α\n────────────────────────────────────────\nBare concrete               0.02\nPlaster on brick            0.03\nGlass (large pane)          0.03\nCarpet (thick)              0.35\nAcoustic ceiling tile       0.65–0.80\nUpholstered seat (unoccupied) 0.60\nAudience (per person)       0.45 m²\nPorous absorber (mineral wool) 0.80–0.95\n\nEXAMPLE: Concert hall\nV = 15,000 m³, S = 5,000 m², ᾱ = 0.15\nT60 = 0.161 × 15,000 / (5,000 × 0.15) = 0.161 × 15,000 / 750 = 3.2 s\n(too reverberant — need more absorption or smaller volume)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 149,
+      "heading_context": "## Frequency Dependence of Absorption",
+      "confidence": "candidate",
+      "text": "ABSORPTION VS FREQUENCY (typical materials)\n\nα\n1.0│\n   │\n0.8│           Thick mineral    ●──────────────●\n   │           wool (100mm)    ●               ●\n0.6│                         ●\n   │         Acoustic     ●─●─●───────────────●\n0.4│         ceiling tile●\n   │                   ●\n0.2│   Carpet (10mm)  ●─●─●──●───●────────────●\n   │                ●\n0.0│────●──●──●──●──────────────────────────────\n   │ Bare concrete / plaster\n   └──────────────────────────────────────────►\n      63  125  250  500  1k   2k   4k  (Hz)\n\nKEY OBSERVATIONS:\n• Low frequencies (< 250 Hz) require thick absorbers (λ/4 minimum = 0.34 m at 250 Hz)\n• Thin carpet: good at high frequencies, useless at low\n• Porous absorbers (mineral wool): effective above ~400 Hz only\n• Bass traps needed for low-frequency control:\n  - Corner-mounted porous absorbers (minimum 200mm thick)\n  - Resonant panel absorbers (tuned to specific low frequency)\n  - Helmholtz resonators (cavity resonator, adjustable frequency)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "## Early Reflections and the Precedence Effect",
+      "confidence": "candidate",
+      "text": "ROOM IMPULSE RESPONSE ANATOMY\n\nh(t):     Direct    Early          Late reverb\n           pulse    reflections    (exponential decay)\n             │       ↓↓↓          ↓↓↓↓↓↓↓↓↓↓↓↓↓\n             ●      ●●●          ──────────────────────── decay -60dB\n             0    10-50ms         50ms+\n             │         │\n             │         │\n             ├─ Useful: ─┤\n             │ Haas zone │\n             │ (fuses    │\n             │ with      │  Beyond 50ms: perceived as echo\n             │ direct)   │  (in speech) or reverberance\n                         │  (in music)\n\nPRECEDENCE EFFECT (Haas effect):\nSound arriving within 30–50 ms of direct sound:\n• Fuses perceptually with direct sound (not heard as separate echo)\n• Direction is attributed to FIRST arriving sound (precedence)\n• Level threshold: 10 dB later over 30 ms → separate echo perceived\n\nPRACTICAL IMPLICATION:\nSound system design must ensure early reflections from walls arrive\nwithin the 50 ms fusion window, or they cause intelligibility loss.\nPA system delay lines: align delayed speakers so they don't create echoes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 244,
+      "heading_context": "## Diffusion",
+      "confidence": "candidate",
+      "text": "DIFFUSERS:\n1. Schroeder diffuser (QRD - Quadratic Residue Diffuser):\n   Periodic array of wells with depths determined by quadratic residues mod prime p.\n   All frequencies in design range diffused equally in one plane.\n   Scattering coefficient ≈ 0.8–1.0 in design band.\n\n2. Primitive Root Diffuser (PRD): Similar, 2D diffusion.\n\n3. MLS (Maximum Length Sequence) diffuser: depth sequence based on MLS.\n\n4. Profiled diffusers (convex/concave panels): broadband, less controlled.\n\nDIFFUSION COEFFICIENT d(f):\nd = 1: perfectly diffuse (all scattered energy in non-specular directions)\nd = 0: perfectly specular (mirror reflection)\n\nWHEN TO USE:\n• Recording studio control room rear wall: diffusion instead of absorption\n  → preserves energy, avoids acoustically dead space\n• Concert hall side walls: diffusion creates acoustic width sensation\n• Avoid flat parallel walls → standing wave build-up → use diffusion or splaying",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

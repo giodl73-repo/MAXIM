@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:acoustics:psychoacoustics
+kind: guide
+module: acoustics
+section: acoustics
+title: Psychoacoustics - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: acoustics/02-PSYCHOACOUSTICS.md
+canonical_path: acoustics/02-PSYCHOACOUSTICS.md
+backsource_ids: [proof-backfill:acoustics:02-psychoacoustics, git-history:acoustics:02-psychoacoustics]
+concepts: [psychoacoustics]
+root_concepts: [psychoacoustics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Psychoacoustics — A Layered Guide
 
 ## The Big Picture

@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\01-FOURIER-ANALYSIS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 108,
+      "heading_context": "## Continuous Fourier Transform",
+      "headers": [
+        "Time domain x(t)",
+        "Frequency domain X(jω)",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "δ(t)",
+          "1",
+          "Impulse → flat spectrum"
+        ],
+        [
+          "1",
+          "2πδ(ω)",
+          "DC → impulse at DC"
+        ],
+        [
+          "e^{-at}u(t), a>0",
+          "1/(a+jω)",
+          "Exponential decay → Lorentzian"
+        ],
+        [
+          "rect(t/T)",
+          "T·sinc(ωT/2π)",
+          "Rectangular pulse → sinc"
+        ],
+        [
+          "sinc(t)",
+          "π·rect(ω/(2π))",
+          "Sinc → rectangular"
+        ],
+        [
+          "e^{jω₀t}",
+          "2πδ(ω-ω₀)",
+          "Sinusoid → spectral line"
+        ],
+        [
+          "Gaussian e^{-t²}",
+          "√π·e^{-ω²/4}",
+          "Gaussian ↔ Gaussian"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 252,
+      "heading_context": "## Spectral Leakage and Windowing",
+      "headers": [
+        "Window",
+        "Main Lobe Width",
+        "Peak Sidelobe (dB)",
+        "Use Case"
+      ],
+      "rows": [
+        [
+          "Rectangular",
+          "2/N (narrowest)",
+          "-13 dB (worst)",
+          "When you need resolution and know no leakage"
+        ],
+        [
+          "Hann (raised cosine)",
+          "4/N",
+          "-31 dB",
+          "General purpose audio"
+        ],
+        [
+          "Hamming",
+          "4/N",
+          "-41 dB",
+          "Speech processing"
+        ],
+        [
+          "Blackman",
+          "6/N",
+          "-57 dB",
+          "When leakage rejection matters more than resolution"
+        ],
+        [
+          "Blackman-Harris",
+          "8/N",
+          "-92 dB",
+          "Precision spectral analysis"
+        ],
+        [
+          "Kaiser (β=14)",
+          "variable",
+          "-100+ dB",
+          "Programmable trade-off"
+        ],
+        [
+          "Flat top",
+          "8/N",
+          "-93 dB",
+          "Amplitude accuracy (calibration)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 286,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether finite sampled data can be analyzed",
+          "DFT/FFT",
+          "The DFT assumes periodic extension of the buffer"
+        ],
+        [
+          "Whether a continuous-time system is being designed",
+          "Continuous-time Fourier transform",
+          "Ideal transforms ignore sampling and implementation constraints"
+        ],
+        [
+          "Whether the signal is truly periodic",
+          "Fourier series",
+          "Spectral lines smear when periodicity is only approximate"
+        ],
+        [
+          "Whether sidelobe rejection dominates",
+          "Blackman-Harris or Kaiser window",
+          "Lower sidelobes widen the main lobe"
+        ],
+        [
+          "Whether frequency resolution dominates",
+          "Rectangular window",
+          "Narrow main lobe comes with high sidelobes"
+        ],
+        [
+          "Whether general spectral analysis needs balance",
+          "Hann window",
+          "It is a compromise, not a universally optimal window"
+        ],
+        [
+          "Whether amplitude measurement is the priority",
+          "Flat-top window",
+          "Amplitude accuracy trades away frequency resolution"
+        ],
+        [
+          "Whether FFT length is awkward",
+          "FFTW planning or Bluestein algorithm",
+          "Algorithm choice affects speed, not spectral assumptions"
+        ]
+      ]
+    }
+  ]
+}

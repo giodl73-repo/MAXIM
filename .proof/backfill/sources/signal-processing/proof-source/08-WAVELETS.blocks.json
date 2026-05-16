@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\08-WAVELETS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE PROBLEM WITH FOURIER\n\nFourier Transform of x(t):\n• Tells you which frequencies are present\n• Tells you nothing about WHEN they occur\n• Captures global frequency content\n\nExample: chirp signal (frequency sweeps from low to high)\n  Fourier spectrum: broad smear — \"all frequencies present\" — useless timing info\n  You lose: when does each frequency occur?\n\nMusical note in time: ─────────────────────────────────────────────►\n  [silence ...]  [NOTE F#]  [silence ...]  [NOTE B♭]  [silence ...]\n\n  FT magnitude:  Shows F# and B♭ present — but when? FT can't say.\n\nTHIS IS THE LIMITATION THAT MOTIVATED TIME-FREQUENCY ANALYSIS",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "## Short-Time Fourier Transform (STFT)",
+      "confidence": "candidate",
+      "text": "FIXED RESOLUTION PROBLEM\n\nSTFT uses the SAME window width for all frequencies:\n\nHigh frequency (short period):    Low frequency (long period):\n  ┌──window──┐                      ┌──────── same window ────────┐\n  │ ╫╫╫╫╫╫╫╫│                      │ ╫                            │\n  └──────────┘                      └────────────────────────────┘\n  Many cycles fit → good freq res   Less than one cycle → bad freq res\n\nResult: fixed grid in time-frequency plane\n   freq │────────────────────\n        │ same boxes everywhere\n        │────────────────────\n        │────────────────────\n        └──────────────────────► time\n\nBut we want: high freq → narrow time boxes (fast events)\n             low freq  → wide time boxes (slow events)\n→ LOGARITHMIC FREQUENCY SCALE → wavelets",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "## Wavelet Transform",
+      "confidence": "candidate",
+      "text": "CONTINUOUS WAVELET TRANSFORM:\n\nW_x(a, b) = (1/√|a|) ∫ x(t) · ψ*((t-b)/a) dt\n\na: scale parameter (a>1 = dilate/stretch → low frequency analysis)\n              (0<a<1 = compress → high frequency analysis)\nb: translation parameter (time position of the wavelet)\n\nMother wavelet ψ(t): localized oscillating function with:\n• Zero mean: ∫ψ(t) dt = 0  (oscillation, \"wave\" part)\n• Finite energy: ∫|ψ(t)|² dt < ∞  (localization, \"-let\" = little part)\n\nRESULT: Logarithmically-spaced frequency resolution\n   freq │▓▓│▓▓▓│▓▓▓▓▓▓│▓▓▓▓▓▓▓▓▓▓▓▓│\n        │  │   │      │             │\n        │hi│ ↑ │      │  low freq:  │\n        │fr│ narrow   │  wide time  │\n        │eq│ time     │  broad freq │\n        └──────────────────────────► time",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "## Mother Wavelets",
+      "confidence": "candidate",
+      "text": "WAVELET FAMILIES\n\nHaar (simplest):\nψ(t) = +1 for 0 ≤ t < 1/2\n       -1 for 1/2 ≤ t < 1\n        0 otherwise\n\n   ┌──────┐          Compact support: 1\n   │  +1  │          Discontinuous\n   ┤──────┤──────    Good for: edges, step functions\n   │  -1  │          Bad for: smooth signals\n   └──────┘\n\nMorlet:\nψ(t) = e^{-t²/2} · e^{jω₀t}   (Gaussian-modulated complex sinusoid)\n\n   ╭─────╮            No compact support (infinite)\n  ╱       ╲           Good for: oscillatory signals\n │         │          Used in: geophysics, EEG, audio analysis\n  ╲       ╱\n   ╰─────╯\n\nDaubechies (D-4, D-8, ...):\nCompactly supported, orthonormal wavelets.\nNo closed-form expression — defined by filter coefficients.\nGood for: general signal compression, image processing (JPEG 2000)\n\nMexican Hat (ψ = -d²/dt² Gaussian):\n\"Ricker wavelet\" in geophysics. Symmetric, real-valued.\n\nBiorthogonal:\nSeparate analysis and synthesis wavelets. Used in JPEG 2000.\nAllows symmetric FIR filters (linear phase) at cost of non-orthogonality.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "## Multiresolution Analysis (MRA)",
+      "confidence": "candidate",
+      "text": "MRA FRAMEWORK\n\nA multiresolution analysis is a sequence of subspaces:\n... ⊂ V₋₁ ⊂ V₀ ⊂ V₁ ⊂ ... = L²(ℝ)\n\nwhere each Vⱼ captures \"approximation at resolution 2ʲ\"\n\nThe \"detail\" between Vⱼ and Vⱼ₊₁ is the wavelet subspace Wⱼ:\nVⱼ₊₁ = Vⱼ ⊕ Wⱼ     (orthogonal direct sum)\n\nPRACTICAL MEANING:\nV₀: coarse approximation (low-frequency content)\nW₀: detail at this level (frequency band between V₀ and V₁)\nW₁: detail at next level (higher frequency band)\n...\n\nFILTER BANK INTERPRETATION:\n                                H₀(z) (lowpass) ──► ↓2 ──► coarse approx\nSignal x[n] ──► split ──┤\n                                H₁(z) (highpass) ──► ↓2 ──► detail coefficients",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "## Discrete Wavelet Transform (DWT)",
+      "confidence": "candidate",
+      "text": "DWT ANALYSIS (decomposition):\n\nx[n] ──┬──► [H₀(z)] ──► [↓2] ──► cA₁  (approximation level 1)\n       │\n       └──► [H₁(z)] ──► [↓2] ──► cD₁  (detail level 1)\n\nThen apply again to cA₁:\n\ncA₁ ──┬──► [H₀(z)] ──► [↓2] ──► cA₂  (approximation level 2)\n      │\n      └──► [H₁(z)] ──► [↓2] ──► cD₂  (detail level 2)\n\n... and so on for J levels.\n\nRESULT for signal of length N:\n{cAJ (N/2ᴶ samples), cDJ, cD_{J-1}, ..., cD₁}\nTotal samples = N  (perfect reconstruction — no information loss)\n\nFILTER DESIGN CONSTRAINT (perfect reconstruction):\nH₀ and H₁ must be QMF (Quadrature Mirror Filters):\nH₁(z) = z^{-(N-1)} · H₀(-z⁻¹)   for orthogonal wavelets",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 231,
+      "heading_context": "## Discrete Wavelet Transform (DWT)",
+      "confidence": "candidate",
+      "text": "h₀ = [(1+√3), (3+√3), (3-√3), (1-√3)] / (4√2)\n   ≈ [0.4830, 0.8365, 0.2241, -0.1294]\n\nThese define both the wavelet ψ(t) and scaling function φ(t).\nThe wavelet is the impulse response of the highpass filter.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "## DWT Frequency-Scale Correspondence",
+      "confidence": "candidate",
+      "text": "WAVELET FREQUENCY BANDS for J-level DWT, sample rate fs:\n\nLevel | Band            | Samples per level | Signal content\n──────┼─────────────────┼───────────────────┼──────────────────\ncD₁  | [fs/4, fs/2]    | N/2               | Highest freq detail\ncD₂  | [fs/8, fs/4]    | N/4               | Second-highest\ncD₃  | [fs/16, fs/8]   | N/8               | ...\n...  | ...             | ...               | ...\ncDⱼ  | [fs/2^{J+1}, fs/2^J] | N/2^J       | ...\ncAⱼ  | [0, fs/2^{J+1}] | N/2^J            | Coarsest approx\n\nFor speech at fs = 8 kHz, 5-level DWT:\ncD₁: 2000–4000 Hz  (fricatives, sibilants)\ncD₂: 1000–2000 Hz  (formant region)\ncD₃: 500–1000 Hz   (vowel fundamentals)\ncD₄: 250–500 Hz    (pitch harmonics)\ncD₅: 125–250 Hz    (low pitch)\ncA₅: 0–125 Hz      (DC + very low)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "## JPEG 2000 and Wavelet Image Compression",
+      "confidence": "candidate",
+      "text": "JPEG 2000 vs JPEG COMPARISON\n\nJPEG (1992):              JPEG 2000 (2000):\n8×8 DCT blocks          Entire image wavelet transform\nBlock artifacts at       No blocking artifacts\nlow bitrates            Progressive transmission\nPoor at low bitrates    Better at all bitrates\n                        Lossless and lossy modes\n                        Region-of-interest coding\n\nJPEG 2000 STEPS:\n1. Color transform: RGB → YCbCr\n2. 2D DWT: CDF 9/7 biorthogonal wavelet (lossy) or Le Gall 5/3 (lossless)\n3. Coefficient quantization: more aggressive at fine scales\n4. EBCOT entropy coding: embedded block coding with optimized truncation\n\nWAVELET DECOMPOSITION (2D, 3-level):\nOriginal → LL₃ | LH₃ | LH₂ | LH₁\n(image)      ─── ─────── ──────────\n            HL₃ | HH₃ |\n            ────────────   HH₂ |  HH₁\n            HL₂ | HL₁\n\nLL = low-low (coarse approximation)\nLH = low-high (horizontal edges)\nHL = high-low (vertical edges)\nHH = high-high (diagonal edges)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:acoustics:room-acoustics
+kind: guide
+module: acoustics
+section: acoustics
+title: Room Acoustics - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: acoustics/03-ROOM-ACOUSTICS.md
+canonical_path: acoustics/03-ROOM-ACOUSTICS.md
+backsource_ids: [proof-backfill:acoustics:03-room-acoustics, git-history:acoustics:03-room-acoustics]
+concepts: [room, acoustics]
+root_concepts: [room, acoustics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Room Acoustics — A Layered Guide
 
 ## The Big Picture

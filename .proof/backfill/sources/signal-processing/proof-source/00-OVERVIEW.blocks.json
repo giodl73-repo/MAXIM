@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SIGNAL CATEGORIES\n═══════════════════════════════════════════════════════════════\n\n    Continuous-time (CT)          Discrete-time (DT)\n    ┌─────────────────┐           ┌─────────────────┐\n    │   Deterministic │           │   Deterministic │\n    │  x(t) = sin(2πft)│          │  x[n] = sin(2πfn)│\n    │                 │  sample   │                 │\n    │  Closed-form    │  ──────►  │  Finite samples │\n    │  representation │           │  in memory      │\n    └─────────────────┘           └─────────────────┘\n    ┌─────────────────┐           ┌─────────────────┐\n    │   Stochastic    │           │   Stochastic    │\n    │  x(t) = noise   │           │  x[n] = noisy   │\n    │                 │  sample   │  measurements   │\n    │  Statistical    │  ──────►  │                 │\n    │  description    │           │  PSD, statistics│\n    └─────────────────┘           └─────────────────┘\n           ▲                              │\n           │                              ▼\n       Analog world                  Digital world\n       (physics, circuits)          (DSPs, computers)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## The Fundamental Duality",
+      "confidence": "candidate",
+      "text": "TIME DOMAIN ◄────────────────────────────► FREQUENCY DOMAIN\n                    Fourier Transform\n\n  x(t) or x[n]                              X(f) or X[jω]\n\n  ┌────────────┐                            ┌────────────┐\n  │ What the   │                            │ What       │\n  │ signal     │                            │ frequencies│\n  │ looks like │                            │ it contains│\n  │ over time  │                            │ and at what│\n  │            │                            │ amplitudes │\n  └────────────┘                            └────────────┘\n\n  Good for:                                 Good for:\n  • Causality / ordering                    • Filter design\n  • Difference equations                    • Spectral analysis\n  • Convolution (→ multiplication)          • Noise characterization\n  • Edge/onset detection                    • Modulation / demodulation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "## Signal Taxonomy",
+      "confidence": "candidate",
+      "text": "SIGNALS\n├── By time axis\n│   ├── Continuous-time (CT) — x(t), t ∈ ℝ\n│   │   Tools: ODE theory, Laplace transform (s-domain), CT Fourier transform\n│   └── Discrete-time (DT) — x[n], n ∈ ℤ\n│       Tools: Difference equations, Z-transform (z-domain), DFT/FFT\n│\n├── By amplitude\n│   ├── Analog — amplitude ∈ ℝ (continuous)\n│   └── Digital — amplitude quantized (finite bits)\n│\n├── By predictability\n│   ├── Deterministic — exact mathematical formula exists\n│   │   ├── Periodic     — x(t) = x(t+T)  → Fourier series representation\n│   │   └── Aperiodic    — finite energy, x(t)→0 as t→±∞\n│   └── Stochastic — only statistical description possible\n│       ├── Wide-sense stationary (WSS) — mean and autocorrelation shift-invariant\n│       └── Non-stationary — statistics vary with time (EEG, speech)\n│\n└── By energy/power classification\n    ├── Energy signal — E = ∫|x(t)|² dt < ∞  (zero average power)\n    │   Examples: finite pulses, decaying exponentials\n    └── Power signal — P = lim_{T→∞} (1/2T) ∫_{-T}^{T} |x(t)|² dt < ∞\n        Examples: periodic signals, random noise processes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "## The DSP Signal Chain",
+      "confidence": "candidate",
+      "text": "Physics          Anti-alias     ADC               DSP Core           DAC          Reconstruct\n  │              Filter (LPF)   │                    │                │            Filter\n  │                │            │                    │                │              │\n  ▼                ▼            ▼                    ▼                ▼              ▼\n[Sound]  ──►  [Remove >fs/2] ─► [Sample]  ──►  [Filter/         [Quantized]  ──► [Smooth]  ──► [Speaker]\n[Light]        (prevent        [Quantize]       Transform/        samples out      (remove        [Screen]\n[RF]            aliasing)      x[n] ∈ ℤ        Analyze/                          images)        [Antenna]\n                               N bits           Synthesize]\n                               ADC output       y[n] ∈ ℤ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "## Module Map",
+      "confidence": "candidate",
+      "text": "signal-processing/\n│\n├── 01-FOURIER-ANALYSIS       The mathematical engine\n│       Fourier Series → DFT → FFT; windowing; spectral leakage\n│\n├── 02-SAMPLING-THEORY        Analog-to-digital boundary\n│       Nyquist-Shannon; aliasing; ADC/DAC; sigma-delta\n│\n├── 03-FILTERS                Frequency shaping\n│       FIR vs IIR; filter families (Butterworth/Chebyshev/elliptic); design\n│\n├── 04-CONVOLUTION-CORRELATION  Core operations\n│       Linear convolution; circular; cross-correlation; matched filter\n│\n├── 05-Z-TRANSFORM            System analysis\n│       Poles/zeros; ROC; stability; digital biquad\n│\n├── 06-STOCHASTIC-SIGNALS     When signals are random\n│       PSD; Wiener-Khinchin; noise types (white/1/f/thermal/shot); SNR\n│\n├── 07-SPECTRAL-ESTIMATION    Measuring frequency from finite data\n│       Periodogram; Welch; MUSIC; ESPRIT\n│\n├── 08-WAVELETS               Time-frequency analysis\n│       STFT limits; multiresolution; DWT; JPEG 2000\n│\n└── 09-APPLICATIONS           Where DSP lives\n        Audio; image processing; radar; medical; ML features",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 220,
+      "heading_context": "## Bridges to Prior Knowledge",
+      "confidence": "candidate",
+      "text": "| CNN convolutional layer | Bank of learned FIR filters (kernel weights = coefficients, backprop = filter optimization) |\n| Attention mechanism (transformer) | Dynamic, input-dependent filter: Q·Kᵀ softmax = data-driven spectral shaping |\n| Pooling layers | Downsampling (cf. DWT ↓2) |",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:acoustics:noise-vibration
+kind: guide
+module: acoustics
+section: acoustics
+title: Noise and Vibration - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: acoustics/09-NOISE-VIBRATION.md
+canonical_path: acoustics/09-NOISE-VIBRATION.md
+backsource_ids: [proof-backfill:acoustics:09-noise-vibration, git-history:acoustics:09-noise-vibration]
+concepts: [noise, vibration]
+root_concepts: [noise, vibration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Noise and Vibration — A Layered Guide
 
 ## The Big Picture

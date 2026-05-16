@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "acoustics\\08-ULTRASOUND.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ULTRASOUND FREQUENCY AND APPLICATION MAP\n════════════════════════════════════════════════════════════════════\n\nFrequency:  20 kHz    200 kHz    2 MHz     20 MHz     200 MHz\n            │         │          │         │          │\n            ▼         ▼          ▼         ▼          ▼\n         ┌──────────┬──────────┬──────────┬──────────┬──────────┐\n         │Ultrasonic│  Power   │ Medical  │High-freq │ Acoustic │\n         │cleaning, │ultrasound│ imaging  │imaging   │microscopy│\n         │welding,  │(HIFU,    │(cardiac/ │(vascular/│(SAM)     │\n         │sonication│lithotrip)│obstetric)│skin)     │          │\n         │          │          │          │          │          │\n         │Industrial│Therapy   │Diagnosis │Surface   │Research  │\n         │NDT       │          │          │ tissue   │          │\n         └──────────┴──────────┴──────────┴──────────┴──────────┘\n\nKEY TRADE-OFF: Higher frequency → better resolution (λ = c/f → smaller) BUT\n               shorter range (attenuation ∝ f in tissue)\n\nλ in tissue at 5 MHz: λ = 1540 m/s / 5 MHz = 0.31 mm (axial resolution ≈ λ/2)\nλ in tissue at 15 MHz: λ = 0.10 mm → superficial imaging (skin, eyes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## Piezoelectric Effect",
+      "confidence": "candidate",
+      "text": "PIEZOELECTRIC EFFECT\n\nDIRECT: Apply force/stress to crystal → electric charge generated\n         (mechanical → electrical: sensor/microphone)\n\nINVERSE: Apply electric field to crystal → mechanical strain\n          (electrical → mechanical: actuator/transmitter)\n\nMATERIALS:\nQuartz: natural, low coupling, very stable → frequency references\nPZT (lead zirconate titanate): strong coupling, ceramic, dominant for medical imaging\nPVDF (polyvinylidene fluoride): polymer, flexible, lower coupling, wide bandwidth\nLiNbO₃, LiTaO₃: for high-frequency and wide-bandwidth applications\n\nCOUPLING COEFFICIENT k:\nk² = electrical energy converted / total mechanical energy stored\nPZT: k ≈ 0.5–0.7 (efficient)\nPVDF: k ≈ 0.1–0.2 (less efficient but wide bandwidth)\n\nRESONANT FREQUENCY:\nFor thickness-mode vibration (most common):\nf₀ = c_piezo / (2·t)   where t = thickness\nAt 5 MHz: t = c_PZT / (2·f) = 4000 m/s / 10⁷ = 0.4 mm\n\nBacking material: damping layer behind transducer to reduce ringdown\n(improves bandwidth at cost of sensitivity)\nMatching layers: λ/4 matching layers between piezo and tissue (impedance matching)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "### A-Mode (Amplitude Mode)",
+      "confidence": "candidate",
+      "text": "A-MODE (1D):\n\nTransmit short pulse → receive echoes → plot amplitude vs time (= depth)\n\nPulse echo:\n  ─────────────────────────────────────────────────────────\n  Transmit: ∥∥∥\n  Echo from surface 1:           ┌┐\n  Echo from surface 2:                  ┌┐\n  Echo from surface 3:                           ┌┐\n  ─────────────────────────────────────────────────────────\n  Time:     0               10µs             20µs\n  Depth:    0               7.7mm            15.4mm   (at c=1540m/s, depth=c·t/2)\n\nA-mode: plot echo amplitude vs depth (one scan line)\nUsed for: ophthalmology (eye measurements), cardiac measurements",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "### B-Mode (Brightness Mode) — Standard Imaging",
+      "confidence": "candidate",
+      "text": "B-MODE (2D cross-sectional image):\n\nSteer or move beam through many angles/positions:\n  Scan line 1: ──────── echoes → column 1 of image\n  Scan line 2: ──────── echoes → column 2\n  Scan line N: ──────── echoes → column N\n\nAssemble 2D image: brightness ∝ echo amplitude\n\nMODERN TRANSDUCER ARRAY:\nLinear array: 128–256 elements, electronic steering\n  → Real-time frame rate 30–60 Hz\n  → No mechanical scanning\n\nRESOLUTION:\nAxial (along beam): ≈ c·τ/2  where τ = pulse duration\n  = c/(2·BW)  for bandwidth BW\n  At 5 MHz, 50% bandwidth: axial resolution ≈ 0.15 mm\n\nLateral (across beam): ≈ λ·F/D   (diffraction limit)\n  = λ·F/D  where F = focal distance, D = aperture\n  At 5 MHz, 40mm focus, 20mm aperture: lateral ≈ 0.75 mm\n\nDynamic focusing: synthesize focus at every depth during receive (no moving parts)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 188,
+      "heading_context": "## Industrial Nondestructive Testing (NDT)",
+      "confidence": "candidate",
+      "text": "NDT IMAGING METHODS\n\nPULSE-ECHO (UT):\n  Transmit → travel through material → echo from defect or back wall\n\n  Probe ──────────────────────── Back wall\n  ||||  →  →  →  →  →  →  →  →  echo\n            ↓ defect → early echo!\n\n  Defect location = echo time × c / 2\n\nPHASED ARRAY UT (PAUT):\n  Array of 16–256 elements\n  Electronic steering and focusing (like medical imaging)\n  → Full cross-sectional imaging\n  → TOFD (Time of Flight Diffraction): two probes, measures diffracted tips of cracks\n    → More accurate sizing than amplitude-based methods\n\nCOMMON INSPECTIONS:\n  Weld inspection: pipeline welds, pressure vessels (ASME code)\n  Aerospace: composites for delamination (A320, 787 fuselage)\n  Railroad: wheel and rail flaw inspection (automated at speed)\n  Nuclear: reactor pressure vessel welds (mandatory, strict codes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

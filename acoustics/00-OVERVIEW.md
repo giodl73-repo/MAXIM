@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:acoustics:overview
+kind: guide
+module: acoustics
+section: acoustics
+title: Acoustics - Overview
+status: source-custody
+source_custody: partial
+current_path: acoustics/00-OVERVIEW.md
+canonical_path: acoustics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:acoustics:00-overview, git-history:acoustics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Acoustics — Overview
 
 ## The Big Picture

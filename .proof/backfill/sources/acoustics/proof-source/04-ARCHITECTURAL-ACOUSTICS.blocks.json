@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "acoustics\\04-ARCHITECTURAL-ACOUSTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## Concert Hall Acoustics",
+      "confidence": "candidate",
+      "text": "CONCERT HALL ACOUSTIC PARAMETERS\n\n1. RT60 (Reverberation Time):\n   Optimal for orchestral: 1.8–2.2 s at mid-frequencies (500-1000 Hz)\n   RT60 at 125 Hz should be > RT60 at 500 Hz (bass \"warmth\")\n\n2. EDT (Early Decay Time):\n   Decay time of first 10 dB of decay × 6 (extrapolated to 60 dB)\n   EDT < RT60 in a well-designed hall (early energy is clear)\n   Subjective impression of reverberance correlates better with EDT than RT60\n\n3. C80 (Clarity, 80 ms):\n   C80 = 10·log₁₀[E_early / E_late]  dB\n   E_early = energy in first 80 ms; E_late = energy after 80 ms\n   C80 > 0 dB: clear (good for chamber music)\n   C80 < 0 dB: reverberant (good for orchestral music, Brahms)\n   Optimal: -2 to +2 dB for symphony\n\n4. G (Strength / Loudness):\n   G = 10·log₁₀[E_measured / E_free_field]  dB\n   Measures how much the room amplifies the sound.\n   Optimal: G > 4 dB (room should strengthen the orchestra)\n\n5. LF / LFC (Lateral Energy Fraction):\n   Fraction of early energy arriving from lateral directions.\n   High LF → \"envelopment\" (feeling of being surrounded by sound)\n   Optimal: LF > 0.2 for good spatial impression",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "### Design for Speech Intelligibility",
+      "confidence": "candidate",
+      "text": "KEY PRINCIPLES:\n\n1. Short RT60 (0.3–0.7 s at 500 Hz):\n   RT60 < 0.5s → modulation preserved → STI high\n   Use absorptive finishes, avoid parallel reflective surfaces\n\n2. Low background noise:\n   Background noise (HVAC, external) must be 15–20 dB below speech\n   Design to NC 25–35 for classrooms (see below)\n\n3. Avoid late echoes:\n   Any distinct reflection > 50 ms after direct sound → echo → hurts STI\n   Avoid deep overhanging balconies, flat rear walls (use diffusion)\n\n4. Sound reinforcement delay alignment:\n   Delay loudspeakers to arrive just after (or with) direct sound\n   Listener perceives direction from first arrival (precedence effect)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 178,
+      "heading_context": "### LEDE (Live End Dead End)",
+      "confidence": "candidate",
+      "text": "LEDE CONTROL ROOM CONCEPT (Chips Davis, 1980):\n\nDEAD END (front):          LIVE END (rear):\n  │                              │\n  │  Absorptive treatment         Diffusive treatment\n  │  (anechoic near monitors)     (reflective/diffusive rear wall)\n  │                               QRD diffusers\n  │  Near-field monitoring        Angled side panels\n  │  possible                     Ceiling cloud (absorptive)\n  │\n  ├─────── MONITORING POSITION ──────────────────────────────►\n  │        Engineer's desk\n  │        Near mixing position: anechoic\n  │        Far field: controlled early reflections from rear\n\nBENEFITS:\n• No early reflections that corrupt monitor listening\n• Late energy from rear is diffuse → pleasant ambience, not coloring\n• Stereo image clarity (no comb filtering from side walls)\n• Low RT60 at mid/high freq (< 0.3s), controlled bass",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 242,
+      "heading_context": "## Sound Transmission Loss (STC)",
+      "confidence": "candidate",
+      "text": "STC (Sound Transmission Class): single-number rating of how well a construction\nassembly blocks airborne sound.\n\nSTC calculation:\n1. Measure transmission loss TL(f) = 10·log₁₀(incident power / transmitted power)  dB\n2. Fit STC reference curve to measured data\n   (max sum of deficiencies ≤ 32 dB, max single deficiency ≤ 8 dB)\n3. STC = reference curve value at 500 Hz\n\nCOMMON CONSTRUCTIONS:\nAssembly                              STC\n─────────────────────────────────────────────────────────\nSingle sheet drywall (1/2\")          28\nDouble drywall (2×1/2\" on each side) 40\nDecoupled double stud wall           50–60\nOffice drywall partition (std)       35–42\nConcrete masonry unit (CMU) 8\"      48–55\nLaminated glass (10mm)              36\nDouble glazed window (air gap)      28–35\nHeavy concrete slab                 55–60\n\nMASS LAW:\nTL ≈ 20·log₁₀(m·f) - 47  dB    (for limp mass, below coincidence)\nm = surface mass density (kg/m²), f = frequency\n\n→ Doubling mass: +6 dB TL at any frequency\n→ Doubling frequency: +6 dB TL\nBass is hardest to block (low f → low TL)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

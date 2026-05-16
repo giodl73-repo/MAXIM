@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:signal-processing:filters
+kind: guide
+module: signal-processing
+section: signal-processing
+title: Digital Filters - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: signal-processing/03-FILTERS.md
+canonical_path: signal-processing/03-FILTERS.md
+backsource_ids: [proof-backfill:signal-processing:03-filters, git-history:signal-processing:03-filters]
+concepts: [filters]
+root_concepts: [filters]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Filters — A Layered Guide
 
 ## The Big Picture

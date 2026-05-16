@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "acoustics\\06-ELECTROACOUSTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ELECTROACOUSTIC TRANSDUCER MAP\n════════════════════════════════════════════════════════════════════\n\nACOUSTIC ──────────────────────────────────────────► ELECTRICAL\n  │                 TRANSDUCTION                          │\n  │                 MECHANISMS                            │\n  │                                                       │\n  │   Electromagnetic (dynamic)    Moving coil in field   │\n  │   Electrostatic (condenser)    Moving plate in field  │\n  │   Piezoelectric                Mechanical strain      │\n  │   Magnetostrictive             Magnetic strain        │\n  │   Electret                     Permanent polarization │\n  │                                                       │\n  ▼                                                       ▼\nPressure wave                               Electrical signal\n(Pa, m/s)                                   (V, A, W)\n\nRECIPROCITY PRINCIPLE:\nAny transducer that converts acoustic → electrical also works in reverse.\nDynamic microphone ↔ Dynamic loudspeaker (same physical principle)\nCondenser microphone ↔ Electrostatic loudspeaker\nPiezo microphone ↔ Piezo speaker (buzzer, ultrasonic transducer)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "### Dynamic (Moving Coil) Microphone",
+      "confidence": "candidate",
+      "text": "DYNAMIC MICROPHONE CONSTRUCTION:\n\n        Sound\n         ↓\n    ┌─────────────────────────────┐\n    │  Diaphragm (plastic/mylar)  │\n    │       │                     │\n    │    ┌──┴──┐                  │\n    │    │Coil │ ← suspended in   │\n    │    │     │   magnetic gap   │\n    │    └──┬──┘                  │\n    │       │                     │\n    │   [permanent magnet]        │\n    └─────────────────────────────┘\n            │\n        Electrical output\n        (AC voltage, ~1 mV/Pa)\n\nPHYSICS: Faraday's law — coil moves in magnetic field → EMF = B·l·v\n         v = velocity of diaphragm (acoustic particle velocity)\n         Output voltage ∝ diaphragm velocity (velocity microphone)\n\nCHARACTERISTICS:\n• Robust, handles high SPL (130+ dB), doesn't need power\n• Limited low-frequency response (mass of coil + diaphragm)\n• Typically ±3 dB from 50 Hz – 15 kHz (decent dynamic range)\n• Self-noise: 14–20 dB SPL equivalent\n• Use: live vocals, drums, guitar amps (Shure SM58, SM57)\n\nPROXIMITY EFFECT:\nClose-miking (< 30 cm) of directional dynamics: bass frequencies boosted.\nCause: pressure gradient mics (cardioid) have a distance-dependent low-frequency response.\nF_bass boost = ∝ 1/distance at low frequencies.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 97,
+      "heading_context": "### Condenser (Capacitor) Microphone",
+      "confidence": "candidate",
+      "text": "CONDENSER MICROPHONE CONSTRUCTION:\n\n    Sound ↓\n    ┌─────────┐\n    │ Thin    │  Backplate (fixed electrode)\n    │ Membrane│──────────────────────\n    │(moving  │  Air gap (~20 µm)\n    │electrode│──────────────────────\n    └─────────┘  Fixed backplate\n                  ↑\n            V_bias = 48–200V DC (phantom power or internal)\n\nPHYSICS: Q = C·V, but Q is held constant by high source impedance.\n         If membrane moves Δd: C = ε₀A/d, so ΔV = V·Δd/d\n         Output voltage ∝ diaphragm displacement (pressure microphone)\n\nCHARACTERISTICS:\n• Highest sensitivity (typically -40 to -25 dBV/Pa)\n• Very flat, extended frequency response (20 Hz – 20 kHz, ±1-2 dB)\n• Requires 48V phantom power (P48) — standard for XLR microphones\n• More fragile than dynamic (moisture, rough handling)\n• Use: studio vocals, acoustic instruments, measurement mics\n\nSMALL DIAPHRAGM vs LARGE DIAPHRAGM:\nSmall (< 1/2\" capsule): better transient response, flatter off-axis response\nLarge (≈ 1\"): warmer sound, more sensitive, character (KM84/AKG 414)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "## Polar Patterns",
+      "confidence": "candidate",
+      "text": "POLAR PATTERNS\n\nOmnidirectional: captures equally from all directions\n    Sensitivity: 1 (all angles)\n\nCardioid: front-facing, rejects rear\n    Sensitivity: (1 + cos θ)/2\n    Front to back rejection: ∞ (null at 180°) → practical 20-25 dB\n\nHypercardioid: narrower pickup, some rear sensitivity\n    Sensitivity: (1 + 3cos θ)/4\n    Maximum rejection: at 120° from front\n\nFigure-8 / Bidirectional: front + rear, null at sides\n    Sensitivity: cos θ\n    Use: MS recording, ribbon mics\n\n        Omni          Cardioid          Figure-8\n         ●               ●                 ●\n    ◄─ – – – ─►    ◄──/  \\──►         ◄─/│\\─►\n         ●            ───              ───┼───\n                                          │\n\nMULTI-PATTERN CONDENSERS (e.g., AKG C414):\nCombine two back-to-back capsules electrically to select pattern.\nPhysical cardioid capsule: omni + figure-8 = cardioid.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "## Loudspeaker Design",
+      "confidence": "candidate",
+      "text": "DYNAMIC LOUDSPEAKER STRUCTURE:\n\n            ┌─────────────────────────────────────────┐\n            │                                         │\n            │  Spider ─►[Voice coil]◄─ Spider         │\n            │           Motor: B·l·I = Force          │\n            │  Force moves diaphragm (cone or dome)   │\n            │                                         │\n            │  [Cone/dome diaphragm]                  │\n            │  │                                      │\n            │  └──► Acoustic radiation                │\n            └─────────────────────────────────────────┘\n  Input AC drives the voice coil from the left.\n\nPARAMETERS (Thiele-Small parameters):\n  fs: free-air resonance frequency\n  Qts: total Q factor at resonance\n  Vas: equivalent acoustic volume\n  Sensitivity: dB SPL at 1m, 1W (typically 85–92 dBSPL)\n  Xmax: maximum linear excursion (determines max SPL at bass)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 205,
+      "heading_context": "## Loudspeaker Design",
+      "confidence": "candidate",
+      "text": "TYPICAL SPEAKER DRIVER FREQUENCY RANGES:\n\nDriver           Diameter    Frequency Range      Use\n────────────────────────────────────────────────────────────\nSubwoofer        12–21\"      20–80 Hz            Deep bass\nWoofer            8–15\"      50–500 Hz           Bass/mid-bass\nMidrange          3–6\"       500–3000 Hz         Vocals, instruments\nTweeter           1–2\"       2000–20,000 Hz      High frequencies\nSuper-tweeter    < 1\"        10,000–40,000+ Hz   Air, HF extension\n\nTWO-WAY SPEAKER: woofer + tweeter + crossover\nTHREE-WAY: woofer + midrange + tweeter + crossover\n\nCROSSOVER NETWORK:\nPassive: L/C filter after amplifier → splits frequency bands → different drivers\nActive (bi-amp/tri-amp): separate DSP filters → separate amplifiers → separate drivers\nActive is more efficient, better controlled, but more complex\n\nButterworth 2nd-order crossover:\n  LPF: H_LPF(f) = 1/(1 + (f/fc)² + j√2·f/fc)   → woofer\n  HPF: H_HPF(f) = (f/fc)² / (1 + (f/fc)² + j√2·f/fc)  → tweeter",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 231,
+      "heading_context": "### Enclosure Types",
+      "confidence": "candidate",
+      "text": "LOUDSPEAKER ENCLOSURES\n\nSEALED BOX:\n  Woofer in sealed enclosure.\n  Roll-off: 12 dB/octave below fs (2nd order)\n  Tighter bass, smaller enclosure, well-controlled\n  Less efficient than ported\n\nPORTED (Vented/Bass-Reflex):\n  Port is a Helmholtz resonator tuned to extend bass.\n  Below port tuning: roll-off steeper (24 dB/octave)\n  More efficient, deeper bass extension for same driver\n  Trade-off: louder transients possible but port creates non-linearity at extremes\n\nOPEN BAFFLE:\n  No enclosure, driver on flat board.\n  Rear and front waves cancel (dipole radiation) at low frequencies\n  Very open sound but very inefficient at bass\n\nHORN-LOADED:\n  Throat → flaring horn → bell\n  Exponential/tractrix horn profiles match driver impedance to air\n  Very high efficiency (99 dB/W/m), but large, directional, complex\n  Used in: PA systems, vintage hi-fi, acoustic amplification",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

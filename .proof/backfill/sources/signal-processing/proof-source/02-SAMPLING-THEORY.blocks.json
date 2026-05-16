@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\02-SAMPLING-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SAMPLING PIPELINE\n══════════════════════════════════════════════════════════════════════\n\nContinuous        Anti-alias    Ideal         Quantizer     Digital\n  Signal            Filter      Sampler       (ADC)         Signal\n                   (LPF)\n  x(t)   ───►  [f < fs/2]  ──►  x[n]=x(nTs)  ──►  xq[n]   ──►  bits\n\n                    │                │               │\n                    │                │               │\n               Removes content   Samples at      Rounds to\n               above Nyquist      rate fs         B bits\n               BEFORE aliasing  = 1/Ts          2^B levels\n\n  Reconstruction (DAC):\n\n  bits   ──►  xq[n]  ──►  [Hold]  ──►  [Reconstruct  ──►  x̂(t)\n                           (S&H)       filter fLPF<fs/2]\n\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## Nyquist-Shannon Sampling Theorem",
+      "confidence": "candidate",
+      "text": "FREQUENCY DOMAIN VIEW\n\nx(t) spectrum (bandlimited to B):         After sampling at fs:\n                                          Spectrum repeats every fs Hz\n      │                                         │\n   ───┤   ████                    ████ ... ─────┤─ ... ████ ... ████ ...\n      │  ─B   B                         0      fs   2fs\n      0       f                         └── if fs>2B, no overlap (good)\n                                              if fs<2B, overlap → ALIASING",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "## Aliasing",
+      "confidence": "candidate",
+      "text": "ALIASING MECHANISM\n\nSignal at frequency f, sampled at fs:\n\nIf f = 100 Hz, fs = 400 Hz  → no alias, appears at 100 Hz ✓\nIf f = 300 Hz, fs = 400 Hz  → alias! appears at |300-400| = 100 Hz  ✗\nIf f = 500 Hz, fs = 400 Hz  → alias! appears at |500-400| = 100 Hz  ✗\n\nGeneral formula: alias frequency = |f - round(f/fs) · fs|\n\nFOLDING DIAGRAM (fs = 400 Hz, Nyquist = 200 Hz):\n\n      0 Hz  ─────────── 200 Hz ─────────── 400 Hz ─────────── 600 Hz\n      ├─────────────────────┤←─────────────┤←─────────────────┤\n      DC                Nyquist           fs               3fs/2\n      Signals here appear  These fold back to [0, 200 Hz]\n      correctly            as aliases",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 173,
+      "heading_context": "## Oversampling and Noise Shaping",
+      "confidence": "candidate",
+      "text": "SIGMA-DELTA MODULATOR (1-bit)\n\n         .--------------------------------------.\n         |                                      |\nx(t) ---►+--► [Loop filter H(z)] --► [1-bit] --►+--► Digital stream\n         ^-                                          (at M·fs)\n         |\n         '------- feedback ---------------------'\n\nQuantizer noise E(z) sees transfer function: NTF(z) = 1 - H(z)\nDesign H(z) as integrator → NTF = highpass → noise shaped away from DC",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "## ADC/DAC Architecture Overview",
+      "confidence": "candidate",
+      "text": "ADC TYPES vs SPEED/RESOLUTION TRADE-OFF\n\nSpeed (samples/sec)\n│\n│  GS/s  Flash ADC ────────────────────────────────────────────●\n│        (comparator array, 2^B comparators for B bits)\n│        Fastest; limited to ~8 bits; ultrasound/radar\n│\n│  MS/s  SAR ADC   ──────────────────────────────●\n│        (successive approximation register)\n│        Mid-speed, mid-resolution; best efficiency\n│        Dominant in microcontrollers, IoT sensors\n│\n│  kS/s  Delta-Sigma ──────────────────────────●\n│        (1-bit oversampling + noise shaping)\n│        High resolution (up to 24 bit)\n│        Audio, industrial instrumentation, ΔΣ ADC\n│\n└──────────────────────────────────────────────────────────────►\n   Low resolution (8-bit)                     High resolution (24-bit)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 220,
+      "heading_context": "## DAC and Reconstruction",
+      "confidence": "candidate",
+      "text": "ZERO-ORDER HOLD EFFECT\n\nDigital samples: ─●──●──●──●──●──\nIdeal D/A:       ─/──/──/──/──/── (impulse train, then filter)\nZOH output:      ─████████████─── (holds each sample until next)\n\nZOH introduces spectral shaping: H_ZOH(f) = Ts·sinc(f·Ts)·e^{-jπfTs}\n\nThis attenuates high frequencies — reconstruction filter must compensate\n(inverse sinc pre-emphasis) for flat frequency response.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

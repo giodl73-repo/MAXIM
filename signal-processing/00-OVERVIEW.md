@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:signal-processing:overview
+kind: guide
+module: signal-processing
+section: signal-processing
+title: Signal Processing - Overview
+status: source-custody
+source_custody: partial
+current_path: signal-processing/00-OVERVIEW.md
+canonical_path: signal-processing/00-OVERVIEW.md
+backsource_ids: [proof-backfill:signal-processing:00-overview, git-history:signal-processing:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Signal Processing — Overview
 
 ## The Big Picture

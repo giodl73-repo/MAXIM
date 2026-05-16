@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:signal-processing:stochastic-signals
+kind: guide
+module: signal-processing
+section: signal-processing
+title: Stochastic Signals - A Layered Guide
+status: source-custody
+source_custody: partial
+current_path: signal-processing/06-STOCHASTIC-SIGNALS.md
+canonical_path: signal-processing/06-STOCHASTIC-SIGNALS.md
+backsource_ids: [proof-backfill:signal-processing:06-stochastic-signals, git-history:signal-processing:06-stochastic-signals]
+concepts: [stochastic, signals]
+root_concepts: [stochastic, signals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stochastic Signals — A Layered Guide
 
 ## The Big Picture

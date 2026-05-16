@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\01-FOURIER-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "FOURIER FAMILY TREE\n══════════════════════════════════════════════════════════════════════\n\n   Signal type              Transform              Output\n   ─────────────────────────────────────────────────────────────────\n   CT, periodic             Fourier Series         Discrete cₙ\n   x(t+T) = x(t)           FS                     spectral lines\n\n   CT, aperiodic            Fourier Transform      Continuous X(jω)\n   x(t) → 0 as t→±∞       CFT                    spectrum\n\n   DT, periodic (period N)  Discrete Fourier       N complex\n   x[n+N] = x[n]           Series                 coefficients\n\n   DT, any finite N         DFT / FFT              X[k], k=0..N-1\n   (treated as 1 period)   (computable)            N-point spectrum\n\n   DT, infinite sequence    DTFT                   Continuous X(e^jω)\n   general x[n]            (theoretical)           ω-periodic, 2π\n\n══════════════════════════════════════════════════════════════════════\nIn practice: everything becomes a DFT/FFT because that's what\ncomputers can compute. The others are analysis/design tools.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "## Fourier Series",
+      "confidence": "candidate",
+      "text": "         +∞\nx(t) =   Σ  cₙ · e^{j·n·ω₀·t}        where ω₀ = 2π/T (fundamental)\n        n=-∞\n\n          1   T\ncₙ  =   ─── ∫  x(t) · e^{-j·n·ω₀·t} dt\n          T   0\n\nInterpretation: cₙ is the amplitude and phase of the nth harmonic.\n|cₙ| = magnitude spectrum (one-sided: multiply by 2 for n>0)\n∠cₙ = phase spectrum",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "### Parseval's Theorem (Power Form)",
+      "confidence": "candidate",
+      "text": "1   T                  +∞\n─ ∫  |x(t)|² dt  =   Σ  |cₙ|²\nT   0                 n=-∞\n\nPower in time domain = Sum of power in each harmonic",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 96,
+      "heading_context": "## Continuous Fourier Transform",
+      "confidence": "candidate",
+      "text": "                   +∞\nX(jω) = F{x(t)} = ∫  x(t) · e^{-jωt} dt      (Analysis)\n                  -∞\n\n                   1   +∞\nx(t) = F⁻¹{X(jω)} = ─── ∫  X(jω) · e^{jωt} dω  (Synthesis)\n                   2π  -∞",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 119,
+      "heading_context": "## Continuous Fourier Transform",
+      "confidence": "candidate",
+      "text": "- Linearity: F{ax+by} = aX + bY",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "## Discrete Fourier Transform",
+      "confidence": "candidate",
+      "text": "Analysis:             N-1\nX[k] = Σ  x[n] · W_N^{nk}   where  W_N = e^{-j2π/N}\n         n=0\n\n                          k = 0, 1, ..., N-1\n\n           1   N-1\nSynthesis: x[n] = ─   Σ  X[k] · W_N^{-nk}\n           N  k=0\n\n           n = 0, 1, ..., N-1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "## Discrete Fourier Transform",
+      "confidence": "candidate",
+      "text": "DFT output layout for real input (N=8):\nIndex: 0   1   2   3   4   5   6   7\n       DC  f   2f  3f  fN  -3f -2f -f\n            │               │\n            │               └── Nyquist (real for real input)\n            └── fundamental = fs/N",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "## FFT — Cooley-Tukey Radix-2",
+      "confidence": "candidate",
+      "text": "FFT PERFORMANCE\n───────────────────────────────────────\nN         DFT (N²)   FFT (N·log₂N)   Speedup\n───────────────────────────────────────\n64        4,096       384             10.7×\n1,024     1,048,576   10,240          102×\n1,048,576 10^12       20,971,520      47,000×\n───────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "## FFT — Cooley-Tukey Radix-2",
+      "confidence": "candidate",
+      "text": "SCALING STRATEGY      HOW                          TRADEOFF\n──────────────────────────────────────────────────────────────────────────\nStatic scaling        Right-shift by 1 after each    Simple; loses 1 bit SNR per stage\n                      radix-2 stage (divide by 2)    Total loss: log₂N bits\n\nBlock floating point  Track max magnitude per block  Better dynamic range; more complex\n                      shift only when near overflow   logic\n\nSaturation            Clamp to max on overflow       Preserves large signals; distorts\n                      (ARM SSAT instruction)          small signals near clipping",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

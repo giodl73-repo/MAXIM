@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\04-CONVOLUTION-CORRELATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 81,
+      "heading_context": "## Linear Convolution",
+      "confidence": "candidate",
+      "text": "- Distributivity: x ★ (h₁ + h₂) = (x ★ h₁) + (x ★ h₂)  (parallel = add filters)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "## Circular Convolution",
+      "confidence": "candidate",
+      "text": "LINEAR vs CIRCULAR (N-point DFT)\n\nLinear convolution:     y_lin[n] = Σ x[k]·h[n-k],  length = M+L-1\n                                    k\n\nCircular convolution:   y_circ[n] = Σ x[k]·h[(n-k) mod N]\n                                      k\n\nPROBLEM: If N < M+L-1, the circular convolution wraps around:\n  y_lin   = [1, 3, 5, 3,  0,  0, ...]  (linear, zero tail)\n  y_circ  = [1+3, 3+0, 5+0, 3+0] = [4, 3, 5, 3]  for N=4\n             └── aliasing from wrap! ─┘\n\nSOLUTION: Zero-pad both x and h to length ≥ M+L-1 before DFT.\nThen circular convolution equals linear convolution.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "## Long-Input Convolution: Overlap-Add / Overlap-Save",
+      "confidence": "candidate",
+      "text": "OVERLAP-ADD METHOD\n\nFilter h: length L\nInput x: broken into blocks of length M (non-overlapping)\n\nFor each block xₖ:\n1. Zero-pad xₖ to length N ≥ M+L-1\n2. FFT(xₖ) × FFT(h)  (precompute FFT of h)\n3. IFFT → yₖ of length N = M+L-1\n4. Each yₖ output has L-1 samples of \"tail\" that overlap with next block\n5. Add overlapping parts → correct linear convolution output\n\nOUTPUT ASSEMBLY:\nBlock 1:  [────────────────────]tail₁\nBlock 2:  [────────────────────]tail₂\n                            tail₁+[tail of block2 start]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 208,
+      "heading_context": "## Matched Filter",
+      "confidence": "candidate",
+      "text": "MATCHED FILTER DESIGN\n\nGiven known signal s[n] of length L contaminated by noise:\nReceived: x[n] = α·s[n - n₀] + w[n]   (delayed signal + white noise)\n\nOptimal filter: h[n] = s[L-1-n]  (time-reversed version of s)\nFilter output: y[n] = x[n] ★ h[n] = Rsx[n]  (cross-correlation)\n\nAt n = n₀ + L - 1:\n  Signal term: α · Rss[0] = α · ∫|s|²   (maximum possible, by Cauchy-Schwarz)\n  Noise term:  minimum\n\nPeak SNR = 2·E_s / N₀   where E_s = signal energy, N₀ = noise PSD\n\nRADAR PULSE COMPRESSION:\nTransmit long coded pulse (high energy) → correlate with replica →\ndetect narrow pulse (high range resolution) with full energy\nThis is why radar waveforms are designed for good autocorrelation properties\n(low sidelobes) — LFM chirp, phase-coded sequences (Barker codes, Gold codes).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 236,
+      "heading_context": "## Bridge: CNN Layers as Learned FIR Filter Banks",
+      "confidence": "candidate",
+      "text": "DSP CONVOLUTION              CNN \"CONVOLUTION\"\n──────────────────────────────────────────────────────────────────────────\nFIR filter h[n]              Kernel weights w[k] (3×3, 5×5, etc.)\nConvolution y = h * x        Forward pass y = w ⊛ x (actually cross-correlation —\n  (flip h, slide, dot)          ML libraries don't flip the kernel)\nFilter bank (parallel FIRs)  Multiple output channels = multiple learned filters\nDownsampling by M            Stride = M (skip M positions between outputs)\nFilter design (Parks-McCl)   Backpropagation (gradient descent on w)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

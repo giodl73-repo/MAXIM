@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "signal-processing\\03-FILTERS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "FILTER TAXONOMY\n════════════════════════════════════════════════════════════════════════\n\n                           DIGITAL FILTERS\n                                 │\n              ┌──────────────────┼──────────────────┐\n              │                                     │\n             FIR                                   IIR\n    (Finite Impulse Response)         (Infinite Impulse Response)\n              │                                     │\n   h[n] has finite length N             h[n] decays but never ends\n   y[n] = Σ bₖ x[n-k]                  y[n] = Σ bₖ x[n-k] + Σ aₖ y[n-k]\n   (no feedback)                        (has feedback / recursion)\n              │                                     │\n   Always stable                        Can be unstable\n   Linear phase possible                More efficient (lower order)\n   No analog prototype needed           Designed from analog prototypes\n              │                                     │\n              │             DESIGN METHODS           │\n              │                                     │\n   • Window method                      • Bilinear transform (BLT)\n   • Parks-McClellan (optimal)          • Impulse invariance\n   • Frequency sampling                 • Matched Z-transform",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## Frequency Response",
+      "confidence": "candidate",
+      "text": "H(e^{jω}) = |H(e^{jω})| · e^{j∠H(e^{jω})}\n              magnitude         phase\n\nMAGNITUDE RESPONSE shapes the amplitude:\n  |H| = 1  → passband (signal passes unchanged)\n  |H| = 0  → stopband (signal blocked)\n  0<|H|<1  → transition band\n\nPHASE RESPONSE determines timing:\n  Linear phase: ∠H(e^{jω}) = -αω   (all frequencies delayed same amount)\n  Non-linear:   different frequencies delayed differently → phase distortion\n\nFILTER TYPES (magnitude response shape):\n  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐\n  │    LPF     │  │    HPF     │  │    BPF     │  │    BSF     │\n  │ ████──     │  │ ──████     │  │ ──███──    │  │ ███──███   │\n  │ 0     fN   │  │ 0     fN   │  │ 0    fN    │  │ 0    fN    │\n  │ Low-pass   │  │ High-pass  │  │ Bandpass   │  │ Bandstop   │\n  └────────────┘  └────────────┘  └────────────┘  └────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "## FIR Filters",
+      "confidence": "candidate",
+      "text": "FIR STRUCTURE (direct form, order M = N-1 taps):\n\nx[n] ──┬──►[z⁻¹]──┬──►[z⁻¹]──┬──►[z⁻¹]──┬── ...\n       │          │          │          │\n       ▼          ▼          ▼          ▼\n     ×b₀        ×b₁        ×b₂        ×b₃    ...\n       │          │          │          │\n       └──────────┴──────────┴──────────┴──►[Σ]──► y[n]\n\nEach z⁻¹ is a one-sample delay register.\nThis is literally a shift register with multiply-accumulate.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## IIR Filters",
+      "confidence": "candidate",
+      "text": "IIR STRUCTURE (direct form II, order N):\n\n         b₀      b₁      b₂\nx[n]──►[×]──┬──►[+]──►[×]──►[+]──► y[n]\n            │          │\n           [z⁻¹]      [z⁻¹]\n            │   a₁ ←──┘\n           [+]◄──── feedback ─────\n            │   a₂ ←──────────────\n           [z⁻¹]\n            └────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "## IIR Filters",
+      "confidence": "candidate",
+      "text": "         b₀ + b₁z⁻¹ + b₂z⁻² + ... + b_N z⁻N\nH(z) = ─────────────────────────────────────────\n          1 + a₁z⁻¹ + a₂z⁻² + ... + a_N z⁻N\n\nIIR has both poles and zeros.\nSTABILITY: all poles must be inside unit circle |z| < 1.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "## IIR Filter Families",
+      "confidence": "candidate",
+      "text": "FILTER FAMILY COMPARISON (lowpass, same order N=5)\n\nMagnitude response:           Phase response:\n│                             │\n│ Butterworth:   smooth       │ Butterworth:   smooth, monotone\n│ ─────────────────────       │\n│ Chebyshev I:   equiripple   │ Chebyshev I:   worse phase\n│ ─╱╲──────────────────       │\n│ Chebyshev II:  equiripple   │ Chebyshev II:  stop only\n│ ──────────────╱╲──          │\n│ Elliptic:      equiripple   │ Elliptic:      worst phase\n│ ─╱╲──────────╱╲──          │                (most nonlinear)\n│ Bessel:        gentle slope │ Bessel:        maximally linear phase\n│ ──────────────────          │                (best group delay)\n└──────────────────────►f     └────────────────────────────────►f",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "## Filter Design via Bilinear Transform",
+      "confidence": "candidate",
+      "text": "BILINEAR TRANSFORM\n\nMaps s-plane → z-plane:\n         2   1 - z⁻¹\ns = ─── · ──────────        (replace s with this expression)\n        Ts   1 + z⁻¹\n\nProperties:\n• Maps entire jω axis to unit circle (no aliasing)\n• Maps stable s-plane poles (left half) to inside z unit circle\n• Nonlinear frequency warping: ω_d = 2/Ts · tan(Ω_a · Ts/2)\n\nFREQUENCY WARPING:\nAnalog frequency Ω_a maps to digital frequency ω_d, but nonlinearly.\nMust pre-warp critical frequencies before designing analog prototype.\n\nExample: want digital cutoff at ω_c = π/4 rad/sample with fs = 8kHz\nPre-warp: Ω_a = 2·fs·tan(ω_c/2) = 2·8000·tan(π/8) = 6,627 Hz\nDesign Butterworth at Ω_a = 6,627 Hz → bilinear transform → digital filter at ω_c exactly.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## The Biquad: Standard Building Block",
+      "confidence": "candidate",
+      "text": "BIQUAD TRANSFER FUNCTION:\n\n       b₀ + b₁z⁻¹ + b₂z⁻²\nH(z) = ─────────────────────      (one pair of conjugate poles, one pair of zeros)\n        1 + a₁z⁻¹ + a₂z⁻²\n\nCASCADE for higher order:\n\nInput ──► [Biquad 1] ──► [Biquad 2] ──► [Biquad 3] ──► Output\n          (2nd order)    (2nd order)    (2nd order)\n          H₁(z)          H₂(z)          H₃(z)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 301,
+      "heading_context": "## Adaptive Filters",
+      "confidence": "candidate",
+      "text": "ADAPTIVE FILTER STRUCTURE\n                    +------------------+\n                    |  FIR filter w[n] |\n                    +------------------+\n                       ^             |\n  x[n] ----------------+             +-----> y[n] = wᵀx\n                                           |\n                       weight update       v\n                       w[n+1] = w[n]    e[n] = d[n] - y[n]\n                                + μ·e[n]·x[n]   (LMS)\n                       ^\n                       d[n] (desired signal)\n\nLMS (Least Mean Squares, Widrow-Hoff 1960):\n  w[n+1] = w[n] + μ · e[n] · x[n]\n  μ = step size (learning rate — same parameter as in SGD)\n  Convergence: 0 < μ < 2/(λ_max) where λ_max = largest eigenvalue of Rxx\n  Misadjustment: excess MSE ∝ μ·M (M = filter order)\n  Cost: O(M) per sample — very cheap\n\nRLS (Recursive Least Squares):\n  Minimizes weighted least squares over all past data (exponential forgetting λ)\n  Convergence: much faster than LMS (~M× fewer samples)\n  Cost: O(M²) per sample — expensive but justified for fast-changing environments\n\nAPPLICATIONS:\n  Echo cancellation (telephone, video): model echo path, subtract estimate\n  Active noise control: generate anti-noise signal to cancel acoustic noise\n  Channel equalization: invert channel distortion in real time\n  System identification: estimate unknown plant transfer function online",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
