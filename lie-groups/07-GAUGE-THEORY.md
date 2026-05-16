@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:lie-groups:gauge-theory
+kind: guide
+module: lie-groups
+section: lie-groups
+title: Gauge Theory and the Standard Model
+status: source-custody
+source_custody: partial
+current_path: lie-groups/07-GAUGE-THEORY.md
+canonical_path: lie-groups/07-GAUGE-THEORY.md
+backsource_ids: [proof-backfill:lie-groups:07-gauge-theory, git-history:lie-groups:07-gauge-theory]
+concepts: [gauge, theory]
+root_concepts: [gauge, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Gauge Theory and the Standard Model
 
 ## The Big Picture

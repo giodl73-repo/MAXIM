@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "variational-calculus\\04-LAGRANGIAN-MECHANICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              LAGRANGIAN MECHANICS ARCHITECTURE                        |\n|                                                                       |\n|  NEWTONIAN                 LAGRANGIAN                                 |\n|  ---------                 ----------                                 |\n|  F = ma for each particle  δS = 0 (action is stationary)              |\n|  Coordinates: Cartesian    Generalized coordinates q_i                |\n|  Constraints: eliminated   Automatically handled                      |\n|  Conservation laws:        Follow from symmetry (Noether)             |\n|    found case-by-case       systematically                            |\n|  Vectors (forces)          Scalar (Lagrangian function)               |\n|  Frame-dependent           Covariant (works in any frame)             |\n|                                                                       |\n|  CENTRAL OBJECT:  L(q, q̇, t) = T − V                                  |\n|  T = kinetic energy,  V = potential energy                            |\n|                                                                       |\n|  E-L EQUATIONS:   d/dt(∂L/∂q̇ᵢ) = ∂L/∂qᵢ                               |\n|  \"Momentum rate = generalized force\"                                  |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "### Generalized Coordinates",
+      "confidence": "candidate",
+      "text": "  A system with N particles in 3D has 3N degrees of freedom.\n  Holonomic constraints reduce these to n < 3N DOF.\n\n  GENERALIZED COORDINATES: q = (q₁,...,q_n)\n  Any convenient set of independent parameters that fully describe\n  the configuration of the system.\n\n  EXAMPLES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ Double pendulum:     q = (θ₁, θ₂)  (two angles)                 │\n  │ Rigid body rotation: q = (φ, θ, ψ)  (Euler angles)              │\n  │ Molecule:            q = (COM position, bond lengths, angles)   │\n  │ Elastic rod:         q(s,t) = shape function (infinite DOF)     │\n  │ EM field:            q = A_μ(x,t)  (gauge potential — field)    │\n  └─────────────────────────────────────────────────────────────────┘\n\n  TRANSFORMATION:\n  rᵢ = rᵢ(q₁,...,q_n, t)   (particle positions from generalized coords)\n  ṙᵢ = Σⱼ (∂rᵢ/∂qⱼ)q̇ⱼ + ∂rᵢ/∂t",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 124,
+      "heading_context": "### Simple Pendulum",
+      "confidence": "candidate",
+      "text": "  Generalized coordinate: q = θ (angle from vertical)\n  Position: x = ℓ sin θ, y = −ℓ cos θ\n\n  T = ½mℓ²θ̇²\n  V = −mgℓ cos θ  (zero at top)\n\n  L = T − V = ½mℓ²θ̇² + mgℓ cos θ\n\n  ∂L/∂θ̇ = mℓ²θ̇,   ∂L/∂θ = −mgℓ sin θ\n\n  E-L: d/dt(mℓ²θ̇) + mgℓ sin θ = 0\n       mℓ²θ̈ + mgℓ sin θ = 0\n       θ̈ + (g/ℓ) sin θ = 0   ← nonlinear pendulum equation\n\n  Small angle: θ̈ + (g/ℓ)θ = 0  (SHO with ω = √(g/ℓ))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 163,
+      "heading_context": "### Particle in Electromagnetic Field",
+      "confidence": "candidate",
+      "text": "  L = ½m|ṙ|² − q(φ − ṙ·A/c)\n\n  where φ = electric potential, A = vector potential.\n\n  ∂L/∂ṙ = mṙ + qA/c  (canonical momentum includes field term!)\n\n  E-L: d/dt(mṙ + qA/c) = −q∇φ + q/c ∇(ṙ·A)\n\n  Using dA/dt = ∂A/∂t + (ṙ·∇)A and Maxwell's relations:\n  mṙ̈ = q(E + ṙ×B/c)   (Lorentz force)\n\n  KEY POINT: Canonical momentum p = mṙ + qA/c ≠ kinetic momentum mṙ.\n  The difference matters for quantum mechanics (minimal coupling).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "### Rigid Body Rotation",
+      "confidence": "candidate",
+      "text": "  Generalized coordinates: Euler angles (φ, θ, ψ)\n  (or quaternion parameterization in modern robotics)\n\n  T = ½ ωᵀ I ω = ½ Σᵢⱼ Iᵢⱼ ωᵢ ωⱼ\n\n  where I = moment of inertia tensor, ω = angular velocity.\n\n  L = ½ ωᵀ I ω − V\n\n  E-L equations → EULER'S EQUATIONS OF RIGID BODY MOTION:\n  I₁ω̇₁ − (I₂−I₃)ω₂ω₃ = N₁\n  I₂ω̇₂ − (I₃−I₁)ω₃ω₁ = N₂\n  I₃ω̇₃ − (I₁−I₂)ω₁ω₂ = N₃\n\n  where N = external torque.\n  Without torque: ω precesses in body frame → Euler's free rotation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "## Conservation Laws from the Lagrangian",
+      "confidence": "candidate",
+      "text": "  CYCLIC COORDINATE:  ∂L/∂qᵢ = 0  (L does not explicitly contain qᵢ)\n\n  → d/dt(∂L/∂q̇ᵢ) = 0  →  pᵢ = ∂L/∂q̇ᵢ = CONST  (conserved)\n\n  EXAMPLES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ L = ½m(ṙ² + r²θ̇²) − V(r)  [central force, polar coords]         │\n  │ ∂L/∂θ = 0 → p_θ = mr²θ̇ = const  (angular momentum conserved)    │\n  │ ∂L/∂θ = 0 means V = V(r) only: isotropy → ang. mom. conserved   │\n  │                                                                 │\n  │ L = ½m(ẋ² + ẏ²) − V(x−a, y)  [translation symmetry in x]        │\n  │ ∂L/∂(x−a)/∂x = 0 for translations x→x+c                         │\n  │ → px = mẋ = const  (x-momentum conserved)                       │\n  └─────────────────────────────────────────────────────────────────┘\n\n  ENERGY CONSERVATION (from time-translation symmetry):\n  If L has no explicit t: dH/dt = 0\n  H = Σᵢ q̇ᵢ ∂L/∂q̇ᵢ − L = T + V  (when T is quadratic in q̇)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 231,
+      "heading_context": "## Lagrangian for Continuous Systems: Field Theory",
+      "confidence": "candidate",
+      "text": "  LAGRANGIAN DENSITY: L(φ, ∂_μφ, x)  where φ(x,t) is a field.\n\n  ACTION: S[φ] = ∫ L d⁴x  (4D spacetime integral)\n\n  E-L FOR FIELDS (scalar field theory):\n  ∂L/∂φ − ∂_μ (∂L/∂(∂_μφ)) = 0\n\n  EXAMPLES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ Free scalar: L = ½(∂_μφ)(∂^μφ) − ½m²φ²                          │\n  │   E-L: □φ + m²φ = 0  (Klein-Gordon equation)                    │\n  │                                                                 │\n  │ EM field: L = −¼ F_μν F^μν  where F = dA (field strength)       │\n  │   E-L: ∂_μF^μν = 0  (Maxwell's equations!)                      │\n  │                                                                 │\n  │ GR: L = √(−g) R  (Einstein-Hilbert action, R = Ricci scalar)    │\n  │   E-L: G_μν = 0  (Einstein vacuum equations)                    │\n  │   With matter: G_μν = 8πT_μν                                    │\n  └─────────────────────────────────────────────────────────────────┘\n\n  The entire Standard Model of particle physics is defined by\n  a single Lagrangian density — arguably the most compact and\n  complete description of physics yet discovered.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

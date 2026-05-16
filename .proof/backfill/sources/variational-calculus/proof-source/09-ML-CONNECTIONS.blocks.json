@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "variational-calculus\\09-ML-CONNECTIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "VARIATIONAL CALCULUS ↔ MACHINE LEARNING MAP\n═══════════════════════════════════════════════════════════════════════════════\n\n  VARIATIONAL CONCEPT               ML INSTANTIATION\n  ──────────────────────────────    ────────────────────────────────────────\n  Functional J[y]                   Loss functional L[θ] or L[f]\n  Euler-Lagrange equation           Stationarity condition for parameters\n  Gradient flow ẋ = −∇F             Gradient descent θ_t = −η ∇L(θ)\n  Geodesic (shortest path)          Optimal transport path\n  Hamilton's principle              Neural ODEs (continuous depth)\n  Adjoint method / PMP              Backpropagation through time\n  Wasserstein distance              Earth mover's distance for distributions\n  Gibbs variational principle       ELBO in variational inference (VAE)\n  Calculus of variations on Γ       Distribution-valued optimization (flows)\n  Minimizing surface area           Implicit regularization of neural nets",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 72,
+      "heading_context": "### From Euler-Lagrange to Gradient Flow",
+      "confidence": "candidate",
+      "text": "VARIATIONAL STRUCTURE OF GRADIENT DESCENT:\n\n  CONTINUOUS TIME:\n  θ̇(t) = −∇L(θ)    (gradient flow)\n  Solution θ(t) → local minimum of L as t → ∞.\n\n  DISCRETE TIME (Euler):\n  θ_{k+1} = θ_k − η ∇L(θ_k)\n  Implicit Euler (more stable):\n  θ_{k+1} = θ_k − η ∇L(θ_{k+1})  ← proximal gradient method\n\n  MOMENTUM (Heavy ball / Nesterov):\n  v_{k+1} = γ v_k − η ∇L(θ_k)\n  θ_{k+1} = θ_k + v_{k+1}\n  This is the DISCRETE DAMPED HARMONIC OSCILLATOR (Euler-Lagrange with damping).\n  Lagrangian: L[θ(t)] = (1/2)|θ̇|² − U(θ)  → equation of motion θ̈ + γθ̇ = −∇U\n  Nesterov momentum → optimal convergence rate for convex L.\n\n  SECOND-ORDER METHODS (Newton):\n  θ_{k+1} = θ_k − H⁻¹ ∇L    (H = Hessian)\n  This minimizes the second-order Taylor expansion — a quadratic variational problem.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "## Neural ODEs as Variational Problems",
+      "confidence": "candidate",
+      "text": "ADJOINT METHOD = CONTINUOUS BACKPROP:\n\n  DISCRETE (ResNet):\n  Forward: z₀ → z₁ → ... → z_T\n  Backward: δz_T → δz_{T-1} → ... → δz_0   (reverse chain rule)\n  Gradient: ∂L/∂θ_k = δz_{k+1} × ∂f_{θ_k}/∂θ_k\n\n  CONTINUOUS (NeuralODE):\n  Forward: ż = f_θ(z,t)  [integrate forward, ODE solver]\n  Backward: ȧ = −aᵀ ∂f/∂z  [adjoint ODE, integrate backward]\n  Gradient: dL/dθ = ∫₀^T aᵀ ∂f/∂θ dt\n\n  ADVANTAGE: O(1) memory (no stored activations) — just run backward ODE.\n  COST: Two ODE solves per training step.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "## Optimal Transport as a Variational Problem",
+      "confidence": "candidate",
+      "text": "MONGE PROBLEM (original, 1781):\n  Find a deterministic map T: ℝ^d → ℝ^d such that T#μ = ν (pushforward),\n  minimizing ∫ c(x, T(x)) dμ(x).\n\n  For c(x,y) = |x−y|²: T is the gradient of a convex function T = ∇φ.\n  Brenier's theorem (1991): THE solution is T(x) = ∇φ(x) where φ satisfies\n  the Monge-Ampère equation: det(∇²φ(x)) = μ(x)/ν(∇φ(x)).\n\nKANTOROVICH RELAXATION:\n  Relax to joint distributions (transport plans):\n  min_{π ≥ 0}  ∫∫ c(x,y) dπ(x,y)\n  subject to: ∫ dπ(x,y) = dμ(x)  and  ∫ dπ(x,y) = dν(y)\n\n  This is a LINEAR PROGRAM — convex, solvable via duality.\n\nKANTOROVICH DUAL (Wasserstein-2):\n  W₂²(μ,ν) = sup_{φ convex} [∫ φ dμ − ∫ φ* dν]\n  where φ*(y) = sup_x [⟨x,y⟩ − φ(x)] is the convex conjugate.\n  This is a VARIATIONAL PROBLEM over convex functions φ.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 287,
+      "heading_context": "## Schrödinger Bridge and Diffusion Models",
+      "confidence": "candidate",
+      "text": "DIFFUSION MODEL = STOCHASTIC OPTIMAL TRANSPORT:\n\n  Forward process: x₀ → x_T (add noise to data over T steps)\n  Reverse process: x_T → x₀ (remove noise = generate data)\n\n  The reverse process is the time-reversal of the forward diffusion:\n  ẋ = f(x,t) − g²(t) ∇_x log p_t(x)   [reverse SDE]\n  where ∇_x log p_t(x) is the SCORE FUNCTION.\n\n  SCORE MATCHING: train a network s_θ(x,t) ≈ ∇_x log p_t(x).\n  Loss: E[‖s_θ(x_t,t) − ∇ log p_t(x_t|x_0)‖²]\n  This is a variational functional minimization over s_θ.\n\n  VARIATIONAL STRUCTURE:\n  The diffusion process minimizes a stochastic action functional.\n  Schrödinger bridge = constrained minimum-entropy stochastic process.\n  DDPM ≈ time-reversed Ornstein-Uhlenbeck process.\n  The score function ∇ log p(x) = −∇U (gradient of log density = energy force).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "lie-groups\\02-LIE-ALGEBRAS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|               THE LIE ALGEBRA–LIE GROUP CORRESPONDENCE               |\n+----------------------------------------------------------------------+\n|                                                                      |\n|  LIE ALGEBRA g = T_e G                 LIE GROUP G                  |\n|  (tangent space at identity)           (the smooth manifold)         |\n|                                                                      |\n|  - Vector space                        - Smooth manifold             |\n|  - Bracket [X,Y]: g x g -> g          - Multiplication G x G -> G   |\n|  - Skew-symmetric: [X,Y]=-[Y,X]       - Smooth, associative         |\n|  - Jacobi identity                     - Identity element e          |\n|                                                                      |\n|         exp: g  ---------------------> G                            |\n|                X |-------------------> e^X                          |\n|                                                                      |\n|         log: G  ---------------------> g  (local, near e)           |\n|                                                                      |\n|  LINEAR, FLAT, EASY                    CURVED, NONLINEAR, GLOBAL     |\n|  Can add: X + Y in g                  Multiplication: g.h in G       |\n|  Can differentiate                    May not commute                |\n|                                                                      |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 101,
+      "heading_context": "## The Exponential Map",
+      "confidence": "candidate",
+      "text": "exp: g -------> G\n     X |------> e^X = I + X + X^2/2! + X^3/3! + ... = sum_{n=0}^{inf} X^n / n!",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 166,
+      "heading_context": "## The Baker-Campbell-Hausdorff Formula",
+      "confidence": "candidate",
+      "text": "log(exp(X)exp(Y)) = sum_{n=1}^{inf} (-1)^{n-1}/n * sum_{p+q=n, p_i+q_i>=1}\n  [X^{p_1} Y^{q_1} X^{p_2} Y^{q_2} ... X^{p_n} Y^{q_n}] / (p_1! q_1! ... p_n! q_n!)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "## The Adjoint Representation",
+      "confidence": "candidate",
+      "text": "Ad: G -------> GL(g)    (the adjoint representation)\n    g |------> Ad_g where Ad_g(X) = g X g^{-1}\n\nad: g -------> gl(g) = End(g)    (the adjoint at algebra level)\n    X |------> ad_X where ad_X(Y) = [X,Y]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 210,
+      "heading_context": "## Lie's Three Theorems",
+      "confidence": "candidate",
+      "text": "THEOREM 1: Every Lie group G determines a Lie algebra g = T_e G.\n           Lie group homomorphism phi: G -> H differentiates to\n           Lie algebra homomorphism dphi: g -> h.\n\nTHEOREM 2: Every Lie algebra homomorphism f: g -> h integrates\n           (uniquely) to a Lie group homomorphism F: G_tilde -> H\n           where G_tilde is the simply-connected cover of G.\n\nTHEOREM 3 (Lie-Cartan): Every finite-dimensional Lie algebra g\n           over R or C is the Lie algebra of a unique simply-connected\n           Lie group G_tilde.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 262,
+      "heading_context": "## Structural Properties of so(3) in Detail",
+      "confidence": "candidate",
+      "text": "BASIS: L_x = [[0,0,0],[0,0,-1],[0,1,0]]\n       L_y = [[0,0,1],[0,0,0],[-1,0,0]]\n       L_z = [[0,-1,0],[1,0,0],[0,0,0]]\n\nBRACKET: [L_x, L_y] = L_z\n         [L_y, L_z] = L_x\n         [L_z, L_x] = L_y\n\nThis is the same as the cross product! so(3) iso (R^3, x)\n(where x denotes cross product)\n\nCASIMIR: L^2 = L_x^2 + L_y^2 + L_z^2 commutes with all L_i\n         (up to sign: C_2 = -(L_x^2 + L_y^2 + L_z^2) is positive)\n\nEXPONENTIATION:\n  exp(theta * n_hat . L) = I + sin(theta) (n_hat . L) + (1-cos theta)(n_hat . L)^2\n  This is Rodrigues' rotation formula.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

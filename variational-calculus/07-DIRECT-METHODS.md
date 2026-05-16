@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:variational-calculus:direct-methods
+kind: guide
+module: variational-calculus
+section: variational-calculus
+title: Direct Methods and Sobolev Spaces
+status: source-custody
+source_custody: partial
+current_path: variational-calculus/07-DIRECT-METHODS.md
+canonical_path: variational-calculus/07-DIRECT-METHODS.md
+backsource_ids: [proof-backfill:variational-calculus:07-direct-methods, git-history:variational-calculus:07-direct-methods]
+concepts: [direct, methods]
+root_concepts: [direct, methods]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Direct Methods and Sobolev Spaces
 
 ## The Big Picture

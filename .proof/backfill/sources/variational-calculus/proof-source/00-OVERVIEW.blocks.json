@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "variational-calculus\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              VARIATIONAL CALCULUS LANDSCAPE                            |\n|                                                                       |\n|  CENTRAL QUESTION:                                                    |\n|  Minimize J[u] = ∫ₐᵇ F(x, u, u') dx   over all u with u(a)=A, u(b)=B│\n|                                                                       |\n|  ANSWER: the Euler-Lagrange equation                                  |\n|  ∂F/∂u − d/dx(∂F/∂u') = 0                                            |\n|                                                                       |\n|  THIS IS DEEPER THAN NEWTON:                                          |\n|  Newton's laws F = ma  ← derived from this via Lagrangian mechanics   |\n|  Maxwell's equations    ← extremum of the electromagnetic action      |\n|  Einstein's equations   ← extremum of the Einstein-Hilbert action     |\n|  Schrödinger equation   ← extremum of the quantum action              |\n|                                                                       |\n|  CONNECTIONS TO MODERN COMPUTING:                                     |\n|  Gradient descent = discrete variational optimization                  |\n|  Neural ODEs = continuous-depth variational problem                    |\n|  Optimal transport = variational problem over probability measures     |\n|  Pontryagin maximum principle = constrained variational control        |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## The Core Problem",
+      "confidence": "candidate",
+      "text": "  FUNCTIONAL:  J: V → R  maps a function u to a real number.\n\n  Examples:\n  ┌────────────────────────────────────────────────────────────────┐\n  │ BRACHISTOCHRONE: J[u] = ∫₀ᵃ √(1+u'²)/√(2gu) dx              │\n  │   (time for bead to slide from (0,0) to (a,b) on curve y=u(x))│\n  │                                                                │\n  │ GEODESIC: J[u] = ∫₀ᵀ √(1+u'²) dx  (arc length)              │\n  │   (shortest path between two points on a surface)             │\n  │                                                                │\n  │ LEAST ACTION: J[q] = ∫ₜ₁ᵗ² [½m|q̇|² − V(q)] dt              │\n  │   (integral of kinetic minus potential energy)                 │\n  │                                                                │\n  │ DIRICHLET ENERGY: J[u] = ½ ∫_Ω |∇u|² dx                     │\n  │   (a.k.a. harmonic energy; minimized by Laplace equation)     │\n  │                                                                │\n  │ OPTIMAL TRANSPORT: min over maps T: ∫ c(x,T(x)) dμ(x)       │\n  │   (cheapest way to move mass from distribution μ to ν)        │\n  └────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "## Historical Development",
+      "confidence": "candidate",
+      "text": "  1696 — BRACHISTOCHRONE PROBLEM (Bernoulli)\n          Posed: find curve of fastest descent.\n          Solved by: Newton, Bernoulli, Leibniz, l'Hôpital (same month!)\n          Answer: cycloid.\n\n  1744 — EULER develops systematic methods\n          Euler-Lagrange equation (Euler's form)\n\n  1755 — LAGRANGE (age 19!) perfects the formalism\n          Variational notation δ; δJ = 0 condition\n          Lagrange: \"this is the analysis of analysis\"\n\n  1788 — LAGRANGIAN MECHANICS\n          Mécanique analytique — Newton's laws from least action.\n\n  1834 — HAMILTON'S PRINCIPLE\n          Principle of least action in mechanics.\n\n  1905 — EINSTEIN special relativity (action formulation)\n\n  1915 — EINSTEIN general relativity (Einstein-Hilbert action)\n\n  1918 — NOETHER'S THEOREM\n          Symmetry → conservation law (deepest result)\n\n  1950s — PONTRYAGIN MAXIMUM PRINCIPLE (optimal control)\n\n  1994 — OPTIMAL TRANSPORT (Monge-Kantorovich-Brenier)\n          Wasserstein distance and earth-mover's distance.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "## The Euler-Lagrange Equation",
+      "confidence": "candidate",
+      "text": "  BASIC PROBLEM:\n  J[u] = ∫ₐᵇ F(x, u(x), u'(x)) dx\n\n  with FIXED ENDPOINT CONDITIONS: u(a) = A, u(b) = B.\n\n  EULER-LAGRANGE EQUATION:\n  ┌────────────────────────────────────────────────────────────────┐\n  │  ∂F/∂u − d/dx (∂F/∂u') = 0                                   │\n  │                                                                │\n  │  or in notation F_u − (F_{u'})_x = 0                         │\n  └────────────────────────────────────────────────────────────────┘\n\n  This is a 2nd order ODE for u(x), with BCs u(a)=A, u(b)=B.\n\n  QUICK EXAMPLES:\n  ┌────────────────────────────────────────────────────────────────────┐\n  │ F = √(1+u'²) (arc length):   E-L gives u'' = 0 → u = straight line│\n  │ F = ½u'²   (Dirichlet):       E-L gives u'' = 0 → harmonic fn     │\n  │ F = ½u'² − ½u² (oscillator): E-L gives u'' + u = 0 (SHO!)        │\n  │ F = ½mq̇² − V(q):            E-L gives mq̈ = −∇V  (Newton's 2nd!) │\n  └────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "## Lagrangian Mechanics: The Primary Application",
+      "confidence": "candidate",
+      "text": "  PRINCIPLE OF LEAST ACTION (Hamilton's principle):\n\n  The physical trajectory q(t) from q(t₁) to q(t₂) is the one\n  that makes the ACTION stationary:\n\n  S[q] = ∫_{t₁}^{t₂} L(q, q̇, t) dt,  where L = T − V\n\n  δS = 0  (variation with fixed endpoints)\n\n  → Euler-Lagrange equations:\n  d/dt (∂L/∂q̇ᵢ) − ∂L/∂qᵢ = 0  for each generalized coordinate qᵢ\n\n  For L = ½mq̇² − V(q):\n  d/dt(mq̇) − (−∂V/∂q) = 0\n  mq̈ = −∂V/∂q = F(q)   ← Newton's second law!\n\n  BUT: the variational principle is MORE POWERFUL than Newton's F=ma.\n  It works in any coordinate system.\n  It naturally handles constraints.\n  It generalizes to fields (classical and quantum field theory).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "## Noether's Theorem: Symmetry → Conservation",
+      "confidence": "candidate",
+      "text": "  NOETHER'S THEOREM:\n  ┌────────────────────────────────────────────────────────────────┐\n  │  Every continuous symmetry of the action → a conservation law. │\n  └────────────────────────────────────────────────────────────────┘\n\n  EXAMPLES:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ Symmetry               Conservation Law                          │\n  │ ──────────             ─────────────────                         │\n  │ Time translation       Energy conservation                       │\n  │ Space translation      Momentum conservation                     │\n  │ Rotation               Angular momentum conservation             │\n  │ U(1) phase rotation    Electric charge conservation              │\n  │ SU(2) isospin sym.     Isospin conservation (weak force)         │\n  │ SU(3) color sym.       Color charge conservation (strong force)  │\n  └──────────────────────────────────────────────────────────────────┘\n\n  This is why physics has conservation laws at all.\n  The conservation laws are not independent facts — they follow from\n  the symmetries of the action functional.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "## From Functionals to Gradient Flows: The ML Connection",
+      "confidence": "candidate",
+      "text": "  GRADIENT DESCENT (machine learning):\n  θ_{n+1} = θ_n − η ∇_θ L(θ)\n\n  This is EULER'S METHOD applied to the gradient flow ODE:\n  dθ/dt = −∇_θ L(θ)\n\n  In the limit η → 0 (continuous time), gradient descent is:\n  a variational steepest-descent trajectory on the parameter manifold.\n\n  NEURAL ODES (Chen et al. 2018):\n  Instead of discrete layers: continuous depth.\n  dh/dt = f(h(t), t; θ),  h(0) = input,  output = h(T)\n  Training = optimize over θ by solving the ADJOINT equations\n  (time-reversed variational problem — Pontryagin principle!)\n\n  OPTIMAL TRANSPORT (Wasserstein distance):\n  W₂(μ,ν)² = min over transport plans γ: ∫ |x−y|² dγ(x,y)\n  Equivalently (Brenier): W₂² = min over maps T: ∫ |x−T(x)|² dμ\n  Used in: generative models (Wasserstein GAN), distribution matching,\n           data augmentation, causal inference.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

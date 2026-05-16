@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "variational-calculus\\02-EULER-LAGRANGE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Central Result",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              EULER-LAGRANGE EQUATION                                  |\n|                                                                       |\n|  FUNCTIONAL:  J[u] = ∫ₐᵇ F(x, u, u') dx                               |\n|                                                                       |\n|  EULER-LAGRANGE EQUATION:                                             |\n|  ┌────────────────────────────────────────────────────────────────┐   |\n|  │  ∂F     d  (  ∂F  )                                           │   |\n|  │  ── − ─── │ ───── │ = 0                                       │   |\n|  │  ∂u    dx  (  ∂u' )                                           │   |\n|  └────────────────────────────────────────────────────────────────┘   |\n|                                                                       |\n|  EXPANDED:  F_u − F_{u'x} − F_{u'u}u' − F_{u'u'}u'' = 0            |\n|  (a 2nd order ODE for u(x))                                          |\n|                                                                       |\n|  BOUNDARY CONDITIONS:  u(a) = A,  u(b) = B  (if fixed)              |\n|  OR:  natural BCs from free endpoints (F_{u'} = 0 at free end)       |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 84,
+      "heading_context": "### Arc Length: Geodesics",
+      "confidence": "candidate",
+      "text": "  PROBLEM: shortest path between (a,A) and (b,B)\n  J[u] = ∫ₐᵇ √(1 + u'²) dx\n\n  F = √(1+u'²),  F_u = 0,  F_{u'} = u'/√(1+u'²)\n\n  E-L: d/dx [u'/√(1+u'²)] = 0\n       → u'/√(1+u'²) = const\n       → u' = const   (constant slope)\n       → u(x) = mx + c  (straight line)\n\n  ANSWER: the shortest path in the plane is a straight line. ✓\n  (Obvious geometrically, but confirms the method works.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 129,
+      "heading_context": "### Minimal Surface",
+      "confidence": "candidate",
+      "text": "  PROBLEM: Surface of revolution with minimal area.\n  Rotate u(x) around x-axis; area = 2π ∫ u·√(1+u'²) dx\n\n  F = u√(1+u'²),  F_u = √(1+u'²),  F_{u'} = uu'/√(1+u'²)\n\n  E-L: √(1+u'²) − d/dx[uu'/√(1+u'²)] = 0\n\n  This simplifies to: u·u'' = 1 + u'²\n  Solution: u(x) = a·cosh((x−b)/a)  (CATENARY)\n\n  ANSWER: The minimal surface of revolution is a catenoid —\n  surface formed by rotating a catenary.\n  Soap film between two circular rings forms a catenoid.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "## Multiple Variables: PDEs from E-L",
+      "confidence": "candidate",
+      "text": "  J[u] = ∫_Ω F(x, u, ∇u) dx   (x ∈ R^n)\n\n  E-L EQUATION:\n  ∂F/∂u − Σᵢ ∂/∂xᵢ (∂F/∂(∂u/∂xᵢ)) = 0\n\n  or:  F_u − ∇·(∂F/∂(∇u)) = 0\n\n  EXAMPLES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ J = ½∫|∇u|²dx:  −∇²u = 0        (Laplace equation)              │\n  │ J = ½∫[|∇u|²−2fu]dx: −∇²u = f   (Poisson equation)              │\n  │ J = ∫√(1+|∇u|²)dx: −∇·(∇u/√(1+|∇u|²)) = 0 (minimal surface)│\n  │ J = ½∫[|∇u|²+V(x)u²]dx: −∇²u+V(x)u = 0  (Schrödinger type) │\n  │ J = ½∫[u_tt²−c²u_xx²]dt dx: u_tt − c²u_xx = 0  (wave!)          │\n  └─────────────────────────────────────────────────────────────────┘\n\n  KEY INSIGHT: Every major linear PDE of physics is the E-L equation\n  of a corresponding quadratic action functional.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 227,
+      "heading_context": "## Noether's Theorem: Formal Statement",
+      "confidence": "candidate",
+      "text": "  SETUP: Action S[q] = ∫ L(q, q̇, t) dt invariant under a\n  one-parameter family of transformations:\n    q → Q(q, s),   t → T(t, s)   (s = parameter, s=0 is identity)\n\n  NOETHER'S CURRENT:\n  For a variational symmetry (δS = 0):\n\n  J = Σᵢ (∂L/∂q̇ᵢ)·(∂Qᵢ/∂s|_{s=0}) − H·(∂T/∂s|_{s=0})\n\n  where H = Σᵢ (∂L/∂q̇ᵢ)q̇ᵢ − L  (Hamiltonian).\n\n  CONSERVATION LAW: dJ/dt = 0 along solutions.\n\n  ┌────────────────────────────────────────────────────────────┐\n  │ SYMMETRY               CONSERVED QUANTITY                  │\n  │ q → q + a (translation)  → pᵢ = ∂L/∂q̇ᵢ  (momentum)         │\n  │ t → t + s (time shift)   → H = Σpq̇ − L   (energy)          │\n  │ q → R(s)q (rotation)     → L = q × p       (ang. moment)   │\n  │ φ → φ + s (U(1) phase)   → Q (electric charge)             │\n  └────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 256,
+      "heading_context": "## Conjugate Momentum and Legendre Transform",
+      "confidence": "candidate",
+      "text": "  CANONICAL MOMENTUM (conjugate to q):\n  pᵢ = ∂L/∂q̇ᵢ\n\n  PHYSICAL MEANING:\n  In L = ½m|q̇|² − V(q): p = mq̇ (usual momentum).\n  In electromagnetic coupling: p = mq̇ + eA/c (kinetic + vector potential).\n  In relativistic L = −mc²√(1−v²/c²): p = mv/√(1−v²/c²) (relativistic momentum).\n\n  E-L EQUATION in terms of p:\n  d/dt(pᵢ) = ∂L/∂qᵢ\n  ṗᵢ = ∂L/∂qᵢ  (generalized force = rate of change of momentum)\n\n  LEGENDRE TRANSFORM (to Hamiltonian):\n  H(q, p) = Σᵢ pᵢ q̇ᵢ − L(q, q̇, t)\n  where q̇ is expressed as a function of p from pᵢ = ∂L/∂q̇ᵢ.\n  (This requires the map q̇ → p to be invertible: ∂²L/∂q̇² nonsingular)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 279,
+      "heading_context": "## Computing the E-L Equation: Procedure",
+      "confidence": "candidate",
+      "text": "  PROCEDURE for J[u] = ∫ₐᵇ F(x, u, u') dx:\n\n  STEP 1: Compute partial derivatives of F.\n    F_u = ∂F/∂u\n    F_{u'} = ∂F/∂u'\n\n  STEP 2: Compute total derivative of F_{u'}.\n    d/dx F_{u'} = (∂F_{u'}/∂x) + (∂F_{u'}/∂u)u' + (∂F_{u'}/∂u')u''\n               = F_{u'x} + F_{u'u}u' + F_{u'u'}u''\n\n  STEP 3: E-L equation:\n    F_u − F_{u'x} − F_{u'u}u' − F_{u'u'}u'' = 0\n\n  STEP 4: Solve the 2nd order ODE with BCs.\n\n  IF F has no explicit x (autonomous):\n    Use Beltrami: F − u'F_{u'} = C (reduces to 1st order ODE).\n\n  IF F is quadratic in u':\n    F = ½A(x)u'² + B(x)uu' + ½C(x)u²\n    E-L gives:  −(Au')' + ½B'u − Bu' − ½(−C+...)u = 0\n    → 2nd order linear ODE.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:variational-calculus:optimal-control
+kind: guide
+module: variational-calculus
+section: variational-calculus
+title: Optimal Control and Pontryagin Principle
+status: source-custody
+source_custody: partial
+current_path: variational-calculus/08-OPTIMAL-CONTROL.md
+canonical_path: variational-calculus/08-OPTIMAL-CONTROL.md
+backsource_ids: [proof-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]
+concepts: [optimal, control]
+root_concepts: [optimal, control]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Optimal Control and Pontryagin Principle
 
 ## The Big Picture

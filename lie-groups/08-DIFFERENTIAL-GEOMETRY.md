@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:lie-groups:differential-geometry
+kind: guide
+module: lie-groups
+section: lie-groups
+title: Lie Groups in Differential Geometry
+status: source-custody
+source_custody: partial
+current_path: lie-groups/08-DIFFERENTIAL-GEOMETRY.md
+canonical_path: lie-groups/08-DIFFERENTIAL-GEOMETRY.md
+backsource_ids: [proof-backfill:lie-groups:08-differential-geometry, git-history:lie-groups:08-differential-geometry]
+concepts: [differential, geometry]
+root_concepts: [differential, geometry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lie Groups in Differential Geometry
 
 ## The Big Picture

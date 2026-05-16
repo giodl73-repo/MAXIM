@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:variational-calculus:constraints
+kind: guide
+module: variational-calculus
+section: variational-calculus
+title: Constrained Variation and Lagrange Multipliers
+status: source-custody
+source_custody: partial
+current_path: variational-calculus/03-CONSTRAINTS.md
+canonical_path: variational-calculus/03-CONSTRAINTS.md
+backsource_ids: [proof-backfill:variational-calculus:03-constraints, git-history:variational-calculus:03-constraints]
+concepts: [constraints]
+root_concepts: [constraints]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Constrained Variation and Lagrange Multipliers
 
 ## The Big Picture

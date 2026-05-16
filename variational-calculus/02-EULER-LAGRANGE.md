@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:variational-calculus:euler-lagrange
+kind: guide
+module: variational-calculus
+section: variational-calculus
+title: Euler-Lagrange Equations
+status: source-custody
+source_custody: partial
+current_path: variational-calculus/02-EULER-LAGRANGE.md
+canonical_path: variational-calculus/02-EULER-LAGRANGE.md
+backsource_ids: [proof-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]
+concepts: [euler, lagrange]
+root_concepts: [euler, lagrange]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Euler-Lagrange Equations
 
 **Reader note**: The E-L derivation and classical examples below serve as reference. The key value for this learner is the connection between E-L and the fundamental PDEs of physics (Laplace, wave, Schrodinger as E-L equations of their action functionals), Noether's theorem, and the field-theory generalization — these sections follow the classical material.

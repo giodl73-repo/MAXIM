@@ -1,0 +1,283 @@
+{
+  "schema_version": "1",
+  "source_markdown": "lie-groups\\01-MATRIX-GROUPS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 137,
+      "heading_context": "## Orthogonal and Special Orthogonal Groups",
+      "headers": [
+        "Group",
+        "pi_1",
+        "pi_2",
+        "pi_3",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "SO(2)",
+          "Z",
+          "0",
+          "0",
+          "Circle S^1"
+        ],
+        [
+          "SO(3)",
+          "Z/2Z",
+          "0",
+          "Z",
+          "Real proj space RP^3"
+        ],
+        [
+          "SO(4)",
+          "Z/2Z",
+          "0",
+          "Z+Z",
+          ""
+        ],
+        [
+          "SO(n), n>=5",
+          "Z/2Z",
+          "0",
+          "Z",
+          "Stable range"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 188,
+      "heading_context": "## Unitary and Special Unitary Groups",
+      "headers": [
+        "Group",
+        "dim",
+        "Topology",
+        "Physics role"
+      ],
+      "rows": [
+        [
+          "U(1)",
+          "1",
+          "S^1",
+          "Electromagnetism gauge group"
+        ],
+        [
+          "SU(2)",
+          "3",
+          "S^3",
+          "Weak force; double cover of SO(3)"
+        ],
+        [
+          "SU(3)",
+          "8",
+          "—",
+          "Strong force (QCD); 8 gluons = 8 generators"
+        ],
+        [
+          "SU(5)",
+          "24",
+          "—",
+          "Grand unification candidate"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 219,
+      "heading_context": "## Symplectic Groups",
+      "headers": [
+        "Group",
+        "Form preserved",
+        "Compact?",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Sp(2n,R)",
+          "Real symplectic",
+          "No",
+          "Phase space symmetry"
+        ],
+        [
+          "Sp(2n,C)",
+          "Complex symplectic",
+          "No",
+          "Complex geometry"
+        ],
+        [
+          "Sp(n) = USp(2n)",
+          "Hermitian + symplectic",
+          "Yes",
+          "C-series compact form"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 234,
+      "heading_context": "## The Classical Groups: Summary Table",
+      "headers": [
+        "Group",
+        "Definition",
+        "Preserved structure",
+        "dim",
+        "Compact?",
+        "Connected?"
+      ],
+      "rows": [
+        [
+          "GL(n,R)",
+          "det != 0",
+          "nothing",
+          "n^2",
+          "No",
+          "No (2 comp.)"
+        ],
+        [
+          "GL(n,C)",
+          "det != 0",
+          "nothing",
+          "2n^2",
+          "No",
+          "Yes"
+        ],
+        [
+          "SL(n,R)",
+          "det = 1",
+          "volume",
+          "n^2-1",
+          "No",
+          "Yes (n>=2)"
+        ],
+        [
+          "SL(n,C)",
+          "det = 1",
+          "complex volume",
+          "2(n^2-1)",
+          "No",
+          "Yes"
+        ],
+        [
+          "O(n)",
+          "A^T A=I",
+          "Euclidean inner prod",
+          "n(n-1)/2",
+          "Yes",
+          "No (2 comp.)"
+        ],
+        [
+          "SO(n)",
+          "A^T A=I, det=1",
+          "orientation + metric",
+          "n(n-1)/2",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "U(n)",
+          "A†A=I",
+          "Hermitian inner prod",
+          "n^2",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "SU(n)",
+          "A†A=I, det=1",
+          "Hermitian + volume",
+          "n^2-1",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Sp(2n,R)",
+          "A^T JA=J",
+          "symplectic form",
+          "n(2n+1)",
+          "No",
+          "Yes"
+        ],
+        [
+          "Sp(n)",
+          "compact symp",
+          "Hermitian + symp",
+          "n(2n+1)",
+          "Yes",
+          "Yes"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 330,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Invertible real linear maps",
+          "`GL(n,R)`",
+          "Includes scale, shear, rotation, reflection; determinant can be any nonzero value."
+        ],
+        [
+          "Volume-preserving real maps",
+          "`SL(n,R)`",
+          "Determinant one preserves oriented volume, not lengths."
+        ],
+        [
+          "Pure rotations in `R^n`",
+          "`SO(n)`",
+          "Connected identity component; excludes reflections."
+        ],
+        [
+          "Rotations plus reflections",
+          "`O(n)`",
+          "Determinant sign separates orientation-preserving and reversing components."
+        ],
+        [
+          "Complex unitary transformations",
+          "`U(n)`",
+          "Preserves Hermitian inner product; real dimension is `n^2`."
+        ],
+        [
+          "Special unitary symmetry",
+          "`SU(n)`",
+          "Removes determinant phase, but global quotient/center issues remain."
+        ],
+        [
+          "Electromagnetic gauge symmetry",
+          "`U(1)`",
+          "Abelian phase symmetry; local gauge field is the photon."
+        ],
+        [
+          "Weak interaction gauge symmetry",
+          "`SU(2)`",
+          "Physical electroweak theory mixes with hypercharge `U(1)`."
+        ],
+        [
+          "Strong interaction gauge symmetry",
+          "`SU(3)`",
+          "Eight real generators correspond to gluon color directions."
+        ],
+        [
+          "Rigid 3D motion",
+          "`SE(3) = SO(3) semi-direct R^3`",
+          "Translations and rotations do not commute."
+        ],
+        [
+          "Hamiltonian linear symmetry",
+          "`Sp(2n,R)`",
+          "Notation varies; verify whether author writes `Sp(n)` or `Sp(2n)`."
+        ],
+        [
+          "Special-relativistic spacetime symmetry",
+          "`SO(3,1)` or cover `SL(2,C)`",
+          "Spinor representations require the double cover, not just Lorentz matrices."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "variational-calculus\\07-DIRECT-METHODS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|              DIRECT METHODS CONCEPT                                   |\n|                                                                       |\n|  CLASSICAL APPROACH:                                                  |\n|  1. Derive E-L equation.                                              |\n|  2. Solve E-L to find candidate minimizer.                            |\n|  3. Verify it's actually a minimum.                                   |\n|  PROBLEM: E-L may have no smooth solution. Existence not guaranteed.  |\n|                                                                       |\n|  DIRECT METHODS (Tonelli, 1910s):                                     |\n|  1. Show J[u] is bounded below (infimum exists).                      |\n|  2. Take minimizing sequence: u_n with J[u_n] → inf J.                |\n|  3. Extract convergent subsequence (compactness).                     |\n|  4. Show J is lower semicontinuous: J[u*] ≤ lim inf J[u_n].           |\n|  5. Conclude: J[u*] = inf J — the minimizer exists.                   |\n|                                                                       |\n|  ANALOGY: In Rⁿ, min of f on compact set K exists by EVT.             |\n|  Direct methods: replace \"compact set\" by \"weakly compact\" set in     |\n|  Sobolev space, and \"continuous\" by \"weakly lower semicontinuous.\"    |\n|                                                                       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 56,
+      "heading_context": "## Why Classical Existence Fails",
+      "confidence": "candidate",
+      "text": "### The Weierstrass Non-Existence Example (1870)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "## Sobolev Spaces: The Right Setting",
+      "confidence": "candidate",
+      "text": "  W^{k,p}(Ω):  {u ∈ L^p(Ω) : D^α u ∈ L^p(Ω) for |α| ≤ k}\n\n  NORM: ‖u‖_{W^{k,p}} = (Σ_{|α|≤k} ‖D^α u‖^p_{L^p})^{1/p}\n\n  SPECIAL CASES:\n  W^{0,p} = L^p(Ω)\n  W^{1,2} = H¹(Ω)  [the most important for variational problems]\n  W^{1,1}(Ω) = BV(Ω) — functions of bounded variation (closure)\n\n  W₀^{k,p}(Ω): closure of C_c^∞(Ω) — functions with zero boundary trace.\n\n  KEY PROPERTIES:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ REFLEXIVITY: W^{k,p} is reflexive for 1 < p < ∞.                 │\n  │   → Every bounded sequence has a weakly convergent subsequence.  │\n  │   (This is the key compactness property for direct methods.)     │\n  │                                                                  │\n  │ SOBOLEV EMBEDDING: if k − n/p > j, then W^{k,p} ↪ C^j.           │\n  │   n=3, p=2: H¹ ↪ L^6  (into Lebesgue spaces)                     │\n  │             H² ↪ C⁰  (into continuous functions)                 │\n  │                                                                  │\n  │ RELLICH-KONDRACHOV: if q < p* = np/(n−p), W^{1,p}↪↪ L^q          │\n  │   (compactly embedded — bounded sequences converge strongly)     │\n  │                                                                  │\n  │ POINCARÉ INEQUALITY: ‖u‖_L^p ≤ C ‖∇u‖_L^p for u ∈ W₀^{1,p}  │\n  │   → ‖∇u‖ alone controls ‖u‖ — coercivity follows.                │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "## Weak Convergence and Weak Lower Semicontinuity",
+      "confidence": "candidate",
+      "text": "  WEAK CONVERGENCE in Banach space X:\n  u_n ⇀ u  (weakly) if  ⟨φ, u_n⟩ → ⟨φ, u⟩  for all φ ∈ X*.\n\n  Example: In H¹(Ω):\n  u_n ⇀ u  iff  ∫ u_n v dx → ∫ u v dx and ∫ ∇u_n · ∇v dx → ∫ ∇u · ∇v dx\n  for all v ∈ H¹.\n\n  KEY FACT: In reflexive Banach spaces, bounded sequences have\n  weakly convergent subsequences.\n  (Banach-Alaoglu theorem)\n\n  WEAK LOWER SEMICONTINUITY (wlsc):\n  J is wlsc if: u_n ⇀ u  →  J[u] ≤ lim inf J[u_n].\n\n  THIS IS THE CRITICAL PROPERTY FOR DIRECT METHODS.\n  (Stronger than continuity would allow: limit of J's could overshoot.)\n\n  Note: wlsc is WEAKER than continuity. Many functionals that are NOT\n  weakly continuous ARE weakly lower semicontinuous.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "## Convexity and Lower Semicontinuity",
+      "confidence": "candidate",
+      "text": "  THEOREM (Tonelli-Morrey):\n  For J[u] = ∫_Ω F(x, u, ∇u) dx:\n\n  F convex in (u, ∇u) → J is weakly lower semicontinuous in W^{1,p}.\n\n  More precisely: if F(x, u, A) is convex in A (for each fixed x,u),\n  then J is wlsc in W^{1,p}.\n\n  PROOF SKETCH:\n  u_n ⇀ u weakly. ∇u_n ⇀ ∇u weakly.\n  By convexity of F in A:\n  F(x, u, ∇u) ≤ F(x, u, ∇u_n) + D_A F(x,u,∇u)·(∇u−∇u_n)\n\n  Integrate, take lim inf:\n  ∫F(x,u,∇u) ≤ lim inf ∫F(x,u,∇u_n) + D_A F · (∇u − weak limit ∇u_n)\n  = lim inf J[u_n] + 0   (the last term → 0 by weak convergence)  ■\n\n  NON-CONVEX F: need QUASICONVEXITY (Morrey 1952):\n  F is quasiconvex if: ∫_{[0,1]^n} F(A+∇η) ≥ F(A) for all η ∈ W₀^{1,∞}.\n  Quasiconvexity ↔ J is weakly lower semicontinuous.\n  Convexity ⟹ Quasiconvexity ⟹ Rank-one convexity.\n  None of the reverses hold in general (Šverák, 1993).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "## The Fundamental Theorem of Direct Methods",
+      "confidence": "candidate",
+      "text": "  THEOREM: J[u] has a minimizer on V = {u ∈ W^{1,p}: u|_{∂Ω} = g} if:\n\n  1. COERCIVITY:      J[u_n] → ∞ whenever ‖u_n‖_{W^{1,p}} → ∞\n                      (no escape to infinity)\n\n  2. WLSC:           J is weakly lower semicontinuous in W^{1,p}\n                      (limit infimum ≤ infimum of sequence)\n\n  PROOF:\n  Let m = inf_{u∈V} J[u] > −∞ (bounded below from coercivity).\n  Take minimizing sequence u_n: J[u_n] → m.\n  u_n is bounded in W^{1,p} (from coercivity).\n  Reflexivity → subsequence u_{n_k} ⇀ u* weakly in W^{1,p}.\n  wlsc: J[u*] ≤ lim inf J[u_{n_k}] = m.\n  Also J[u*] ≥ m (m is the infimum).\n  Conclusion: J[u*] = m — minimizer exists!  ■",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "## Growth Conditions and Coercivity",
+      "confidence": "candidate",
+      "text": "  COERCIVITY OF F:\n  J[u] = ∫_Ω F(x,u,∇u) dx is coercive if:\n  J[u] → ∞ as ‖u‖_{W^{1,p}} → ∞.\n\n  SUFFICIENT: F(x,u,A) ≥ α|A|^p − β  for some α>0, β≥0.\n  Then J[u] ≥ α∫|∇u|^p − β|Ω| ≥ α‖u‖^p_{W^{1,p}/C} − const.\n\n  p-GROWTH CONDITIONS:\n  Standard assumption: c₁|A|^p − C ≤ F(x,u,A) ≤ c₂(|A|^p + 1)\n  p = 2: natural for L² theory, linear elliptic PDEs\n  p = 1: total variation regularization (BV functions, L1 TV)\n  p → ∞: Lipschitz, Chebyshev approximation\n  1 < p < ∞: natural for nonlinear PDEs (p-Laplacian)\n\n  p-LAPLACIAN (prototype nonlinear elliptic):\n  J[u] = ∫|∇u|^p dx,  minimizer satisfies:\n  −Δ_p u = −div(|∇u|^{p-2}∇u) = 0\n\n  p=2: ordinary Laplacian\n  p=1: total variation (edge-preserving image denoising, ROF model)\n  p=∞: Lipschitz extension (infinity-Laplacian)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 257,
+      "heading_context": "## Gamma-Convergence",
+      "confidence": "candidate",
+      "text": "  J_ε Γ-converges to J₀ if:\n\n  (1) LOWER BOUND: if u_ε → u, then J₀[u] ≤ lim inf J_ε[u_ε]\n  (2) UPPER BOUND (recovery): for all u, ∃u_ε → u with\n      J_ε[u_ε] → J₀[u]\n\n  KEY THEOREM: if J_ε Γ-converges to J₀ and u_ε minimize J_ε,\n  then u_ε converge to minimizer of J₀.\n\n  APPLICATIONS:\n  • HOMOGENIZATION: J_ε[u] = ∫ F(x/ε, ∇u) dx (rapidly oscillating coeff.)\n    Γ-limit = ∫ F_hom(∇u) dx  (effective homogeneous medium)\n  • PHASE TRANSITIONS: Modica-Mortola functional\n    J_ε[u] = ∫[ε|∇u|² + W(u)/ε] dx\n    Γ-limit = perimeter functional ∫|∇u| (phase interfaces)\n  • BRITTLE FRACTURE: Ambrosio-Tortorelli approximation of crack energy.\n  • MACHINE LEARNING: deep networks as Γ-limits of shallow networks??",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

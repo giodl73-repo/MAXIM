@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:lie-groups:root-systems
+kind: guide
+module: lie-groups
+section: lie-groups
+title: Root Systems and Weight Lattices
+status: source-custody
+source_custody: partial
+current_path: lie-groups/05-ROOT-SYSTEMS.md
+canonical_path: lie-groups/05-ROOT-SYSTEMS.md
+backsource_ids: [proof-backfill:lie-groups:05-root-systems, git-history:lie-groups:05-root-systems]
+concepts: [root, systems]
+root_concepts: [root, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Root Systems and Weight Lattices
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:lie-groups:representations
+kind: guide
+module: lie-groups
+section: lie-groups
+title: Representation Theory of Lie Groups
+status: source-custody
+source_custody: partial
+current_path: lie-groups/03-REPRESENTATIONS.md
+canonical_path: lie-groups/03-REPRESENTATIONS.md
+backsource_ids: [proof-backfill:lie-groups:03-representations, git-history:lie-groups:03-representations]
+concepts: [representations]
+root_concepts: [representations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Representation Theory of Lie Groups
 
 ## The Big Picture
@@ -296,7 +315,7 @@ a theory with symmetry G is computed by induced representations.
 | Find all irreps of SU(2) | V_j for j = 0, 1/2, 1, ...; dim = 2j+1 |
 | Find all irreps of compact G | Dominant integral weights in h* |
 | Check if two irreps are isomorphic | Compare characters (they determine the rep) |
-| Decompose V tensor W for SU(2) | Triangle rule: sum_{j=|j1-j2|}^{j1+j2} V_j |
+| Decompose V tensor W for SU(2) | Triangle rule: sum_{j=\|j1-j2\|}^{j1+j2} V_j |
 | Harmonic analysis on G | Peter-Weyl: L^2(G) = hat-sum_pi V_pi tensor V_pi* |
 
 ---
