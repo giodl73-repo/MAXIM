@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:entomology:economic-entomology
+kind: guide
+module: entomology
+section: entomology
+title: Economic Entomology: Pests and Biocontrol
+status: source-custody
+source_custody: partial
+current_path: entomology/08-ECONOMIC-ENTOMOLOGY.md
+canonical_path: entomology/08-ECONOMIC-ENTOMOLOGY.md
+backsource_ids: [proof-backfill:entomology:08-economic-entomology, git-history:entomology:08-economic-entomology]
+concepts: [economic, entomology]
+root_concepts: [economic, entomology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Economic Entomology: Pests and Biocontrol
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:entomology:insect-ecology
+kind: guide
+module: entomology
+section: entomology
+title: Insect Ecology and Population Dynamics
+status: source-custody
+source_custody: partial
+current_path: entomology/07-INSECT-ECOLOGY.md
+canonical_path: entomology/07-INSECT-ECOLOGY.md
+backsource_ids: [proof-backfill:entomology:07-insect-ecology, git-history:entomology:07-insect-ecology]
+concepts: [insect, ecology]
+root_concepts: [insect, ecology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Insect Ecology and Population Dynamics
 
 ## The Big Picture

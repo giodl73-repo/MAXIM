@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ornithology:overview
+kind: guide
+module: ornithology
+section: ornithology
+title: Ornithology - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: ornithology/00-OVERVIEW.md
+canonical_path: ornithology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:ornithology:00-overview, git-history:ornithology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ornithology — Landscape and Taxonomy
 
 ## The Big Picture

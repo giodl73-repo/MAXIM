@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ornithology:conservation
+kind: guide
+module: ornithology
+section: ornithology
+title: Conservation: Decline, Threats, and Recovery
+status: source-custody
+source_custody: partial
+current_path: ornithology/09-CONSERVATION.md
+canonical_path: ornithology/09-CONSERVATION.md
+backsource_ids: [proof-backfill:ornithology:09-conservation, git-history:ornithology:09-conservation]
+concepts: [conservation]
+root_concepts: [conservation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Conservation: Decline, Threats, and Recovery
 
 ## The Big Picture

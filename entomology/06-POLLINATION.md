@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:entomology:pollination
+kind: guide
+module: entomology
+section: entomology
+title: Pollination Biology and Pollinator Decline
+status: source-custody
+source_custody: partial
+current_path: entomology/06-POLLINATION.md
+canonical_path: entomology/06-POLLINATION.md
+backsource_ids: [proof-backfill:entomology:06-pollination, git-history:entomology:06-pollination]
+concepts: [pollination]
+root_concepts: [pollination]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pollination Biology and Pollinator Decline
 
 ## The Big Picture

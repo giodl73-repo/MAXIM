@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ornithology:flight-mechanics
+kind: guide
+module: ornithology
+section: ornithology
+title: Flight Mechanics and Wing Morphology
+status: source-custody
+source_custody: partial
+current_path: ornithology/02-FLIGHT-MECHANICS.md
+canonical_path: ornithology/02-FLIGHT-MECHANICS.md
+backsource_ids: [proof-backfill:ornithology:02-flight-mechanics, git-history:ornithology:02-flight-mechanics]
+concepts: [flight, mechanics]
+root_concepts: [flight, mechanics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Flight Mechanics and Wing Morphology
 
 ## The Big Picture
