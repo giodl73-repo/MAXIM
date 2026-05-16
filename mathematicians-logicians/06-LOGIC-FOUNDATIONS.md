@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematicians-logicians:logic-foundations
+kind: guide
+module: mathematicians-logicians
+section: mathematicians-logicians
+title: Logic and Foundations - Frege, Russell, Hilbert, Gödel, Church
+status: source-custody
+source_custody: partial
+current_path: mathematicians-logicians/06-LOGIC-FOUNDATIONS.md
+canonical_path: mathematicians-logicians/06-LOGIC-FOUNDATIONS.md
+backsource_ids: [proof-backfill:mathematicians-logicians:06-logic-foundations, git-history:mathematicians-logicians:06-logic-foundations]
+concepts: [logic, foundations]
+root_concepts: [logic, foundations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Logic and Foundations — Frege, Russell, Hilbert, Gödel, Church
 
 ## The Crisis and Its Resolution

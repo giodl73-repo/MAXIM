@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physicists-astronomers:quantum-pioneers
+kind: guide
+module: physicists-astronomers
+section: physicists-astronomers
+title: Quantum Pioneers - Planck, Bohr, De Broglie, Heisenberg, Schrödinger, Born, Pauli
+status: source-custody
+source_custody: partial
+current_path: physicists-astronomers/06-QUANTUM-PIONEERS.md
+canonical_path: physicists-astronomers/06-QUANTUM-PIONEERS.md
+backsource_ids: [proof-backfill:physicists-astronomers:06-quantum-pioneers, git-history:physicists-astronomers:06-quantum-pioneers]
+concepts: [quantum, pioneers]
+root_concepts: [quantum, pioneers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantum Pioneers — Planck, Bohr, De Broglie, Heisenberg, Schrödinger, Born, Pauli
 
 ## The Quantum Crisis
@@ -445,7 +464,7 @@ particles are fermions (antisymmetric), integer spin particles are bosons
 | Matrix mechanics | Heisenberg | 1925 |
 | Uncertainty principle ΔxΔp ≥ ℏ/2 | Heisenberg | 1927 |
 | Wave equation (Schrödinger equation) | Schrödinger | 1926 |
-| Probability interpretation |ψ|² | Born | 1926 |
+| Probability interpretation \|ψ\|² | Born | 1926 |
 | Exclusion principle | Pauli | 1925 |
 | Spin (quantum) | Pauli (Uhlenbeck + Goudsmit proposed spin) | |
 | Neutrino prediction | Pauli | 1930 (confirmed 1956) |

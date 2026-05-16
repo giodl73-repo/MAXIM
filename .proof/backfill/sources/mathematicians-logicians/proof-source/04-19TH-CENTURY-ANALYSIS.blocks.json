@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematicians-logicians\\04-19TH-CENTURY-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## The Problem They Were Solving",
+      "confidence": "candidate",
+      "text": "THE FOUNDATION CRISIS OF EARLY 19TH CENTURY\n=============================================\n\nWhat Cauchy found wrong:\n  Fourier (1822): The heat equation's solution requires\n  \"any function\" to have a Fourier series.\n  But what IS a function? Can any arbitrary rule be a function?\n\n  Early calculus: Differentiation was applied freely.\n  Cauchy's question: When is it valid?\n\n  Early series: Power series, Fourier series used freely.\n  Cauchy's question: When do they converge?\n\nWhat they built in response:\n  Cauchy → rigorous limits, continuity, convergence tests\n  Riemann → rigorous integral, complex analysis (Riemann surfaces)\n  Weierstrass → epsilon-delta, pathological counterexamples\n  Dedekind → real numbers from rationals (Dedekind cuts)\n  Cantor → set theory, transfinite numbers, cardinality",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "### The Contribution: Making Calculus Rigorous",
+      "confidence": "candidate",
+      "text": "CAUCHY'S FORMALIZATION\n=======================\n\nBefore Cauchy: \"The derivative is the infinitely small change.\"\n  Berkeley's objection: You compute dy/dx as if dx ≠ 0, then set dx = 0.\n  This is inconsistent.\n\nCauchy's approach (Cours d'analyse, 1821):\n  The derivative of f at x is:\n    f'(x) = lim_{h→0} [f(x+h) - f(x)] / h\n\n  \"Limit\" means: for any desired precision ε > 0, there exists δ > 0\n  such that whenever |h| < δ, the ratio is within ε of the limit.\n\n  No infinitesimals. No \"ghosts.\" Just inequalities.\n\nThis made the derivative a DEFINED OBJECT, not a vague intuition.\nThe epsilon-delta machinery was refined by Weierstrass (see below).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "### The Contribution: Making Calculus Rigorous",
+      "confidence": "candidate",
+      "text": "  (|aₘ - aₙ| → 0 as m,n → ∞)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "### The Contribution: Geometry, Integration, and the Zeta Function",
+      "confidence": "candidate",
+      "text": "RIEMANN'S DEFINITION OF THE INTEGRAL\n======================================\n\nTo define ∫_a^b f(x) dx rigorously:\n  Partition [a,b] into n subintervals: a = x₀ < x₁ < ... < xₙ = b\n  Pick any sample point cᵢ in each [xᵢ₋₁, xᵢ]\n  Form the Riemann sum: Σᵢ f(cᵢ)(xᵢ - xᵢ₋₁)\n\n  The integral is the limit of these sums as max(xᵢ - xᵢ₋₁) → 0,\n  IF this limit is the same for all partitions and sample points.\n\nWhat functions are Riemann integrable?\n  - All continuous functions on [a,b]\n  - Functions with finitely many discontinuities\n  NOT: functions with \"too many\" discontinuities\n\nRiemann gave a necessary and sufficient condition:\n  f is Riemann integrable iff its set of discontinuities has\n  measure zero. (This was later formalized by Lebesgue.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "### The Contribution: Epsilon-Delta and Pathological Functions",
+      "confidence": "candidate",
+      "text": "THE EPSILON-DELTA DEFINITION\n==============================\n\nCauchy had the right ideas; Weierstrass made them completely rigorous.\n\n\"f is continuous at a\" means:\n  ∀ε > 0, ∃δ > 0 such that |x - a| < δ → |f(x) - f(a)| < ε\n\n\"lim_{x→a} f(x) = L\" means:\n  ∀ε > 0, ∃δ > 0 such that 0 < |x - a| < δ → |f(x) - L| < ε\n\nThese definitions:\n  1. Eliminate infinitesimals entirely — pure finite inequalities\n  2. Are logically precise — can be verified or refuted\n  3. Distinguish \"continuous at a point\" from \"uniformly continuous\"\n     (whether δ can be chosen independently of where you are)\n  4. Make pathological cases visible (see below)\n\nThe universal quantifier + existential quantifier structure (∀ε ∃δ) is\nexactly the structure you saw in formal logic and type theory at MIT.\nWeierstrass essentially wrote formal logic into analysis.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

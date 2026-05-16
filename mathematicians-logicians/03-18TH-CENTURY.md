@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematicians-logicians:18th-century
+kind: guide
+module: mathematicians-logicians
+section: mathematicians-logicians
+title: 18th-Century Giants - Euler, Lagrange, Laplace, Gauss
+status: source-custody
+source_custody: partial
+current_path: mathematicians-logicians/03-18TH-CENTURY.md
+canonical_path: mathematicians-logicians/03-18TH-CENTURY.md
+backsource_ids: [proof-backfill:mathematicians-logicians:03-18th-century, git-history:mathematicians-logicians:03-18th-century]
+concepts: [18th, century]
+root_concepts: [18th, century]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 18th-Century Giants — Euler, Lagrange, Laplace, Gauss
 
 ## Timeline and Intellectual Lineage
@@ -88,9 +107,9 @@ Königsberg (now Kaliningrad) had 7 bridges over the Pregel River:
   ┌─────────────────────────────────────┐
   │         LANDMASS A                  │
   │    ──bridge──  ──bridge──           │
-  │WEST│        │ISLAND│        │EAST   │
-  │    ──bridge──   ──bridge──  ─bridge─│
-  │         LANDMASS B         ─bridge─│
+  │ WEST        ISLAND        EAST      │
+  │    ──bridge──   ──bridge──  ─bridge │
+  │         LANDMASS B         ─bridge─ │
   └─────────────────────────────────────┘
   (7 bridges connecting 4 landmasses)
 

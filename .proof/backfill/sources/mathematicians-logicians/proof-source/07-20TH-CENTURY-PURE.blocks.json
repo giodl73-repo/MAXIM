@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematicians-logicians\\07-20TH-CENTURY-PURE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The 20th Century: Abstraction at Full Power",
+      "confidence": "candidate",
+      "text": "20TH CENTURY PURE MATHEMATICS — CONCEPTUAL MAP\n================================================\n\nANALYSIS                 ALGEBRA / GEOMETRY        FOUNDATIONS\n--------                 ------------------        -----------\nHardy (analytic NT,      Von Neumann (operator      Hilbert (1900–)\n  G.H. Hardy)              algebras, QM, games)     Gödel (1930–)\nRamanujan (partitions,   Noether (abstract           ↓\n  modular forms)           algebra — File 05)       Bourbaki group\nHardy-Ramanujan          Weil (arithmetic           (1935–)\n  number theory           geometry, conjectures)    Axiomatics as a\n  partnership            Grothendieck (categories,   cultural program\n                           schemes, K-theory)\n                         Atiyah (index theorem,\n                           K-theory, topology)\n\nKEY THEME: \"Pure\" math that physics needed\n  Hilbert spaces → quantum mechanics\n  Von Neumann algebras → quantum field theory\n  Lie groups → gauge theory / Standard Model\n  Differential geometry → general relativity\n  K-theory → string theory, condensed matter",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 70,
+      "heading_context": "### The Contribution: Analytic Number Theory and Hardy-Weinberg",
+      "confidence": "candidate",
+      "text": "PARTITION NUMBERS — THE PROBLEM\n=================================\n\nThe partition function p(n) counts the number of ways to write n\nas an unordered sum of positive integers.\n\np(1) = 1:  {1}\np(2) = 2:  {2}, {1+1}\np(3) = 3:  {3}, {2+1}, {1+1+1}\np(4) = 5:  {4}, {3+1}, {2+2}, {2+1+1}, {1+1+1+1}\np(5) = 7\np(10) = 42\np(50) = 204,226\np(100) = 190,569,292\np(200) = 3,972,999,029,388\n\nThe numbers grow FAST. Is there a formula?\n\nHardy and Ramanujan (1918): The asymptotic formula for p(n):\n\n  p(n) ~ (1/(4n√3)) · exp(π√(2n/3))  as n → ∞\n\nThis is the Hardy-Ramanujan asymptotic formula.\nLater, Rademacher found an exact series (not just asymptotic).\n\nThe method: \"circle method\" — use complex analysis (integrals around\na circle in the complex plane) to extract information about a power\nseries coefficient. This method is now a standard tool.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 149,
+      "heading_context": "### The Contribution: Modular Forms and Infinite Series",
+      "confidence": "candidate",
+      "text": "WHAT RAMANUJAN DISCOVERED\n==========================\n\nRamanujan discovered, largely without proof, thousands of identities.\nMany were not understood until decades later.\n\nExamples of Ramanujan's identities:\n\n1/1 + 1/(1+1) + 1/(1+2/1+2/...) = (√5 - 1)/2  [a continued fraction = φ⁻¹]\n\nΣₙ₌₀^∞ (2n choose n)³ = π/(Γ(1/4))⁴ · 4/(2π)  [hypergeometric series for 1/π]\n\nMore famously:\n  1 + 2 + 3 + 4 + ... = -1/12\n\nThis is NOT saying the series converges. It's the regularized value:\nζ(-1) = -1/12 (Riemann zeta function evaluated at -1).\nThis regularization is physically real in quantum field theory\n(Casimir effect uses zeta regularization).\n\nMODULAR FORMS:\n  A modular form of weight k is a function f: H → C (H = upper half-plane)\n  satisfying: f((az+b)/(cz+d)) = (cz+d)^k f(z) for (a b; c d) ∈ SL(2,Z)\n\n  Ramanujan's tau function τ(n): coefficients of Δ(z) = q ∏(1-qⁿ)²⁴\n  Ramanujan conjectured |τ(p)| ≤ 2p^(11/2) for prime p.\n  Proved by Pierre Deligne (1974) using algebraic geometry Ramanujan couldn't access.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 188,
+      "heading_context": "### The Contribution: Modular Forms and Infinite Series",
+      "confidence": "candidate",
+      "text": "1 + q/(1-q) + q⁴/((1-q)(1-q²)) + ... = ∏_{n≡±1 (mod 5)} 1/(1-qⁿ)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 219,
+      "heading_context": "### The Contribution: The Architecture of Modern Computation and Science",
+      "confidence": "candidate",
+      "text": "VON NEUMANN ARCHITECTURE (1945 EDVAC Report)\n=============================================\n\nThe architecture of essentially every computer built since 1945:\n\n  ┌────────────────────────────────────────────────────┐\n  │                    BUS                             │\n  │  ┌──────────┐   ┌──────────┐   ┌──────────────┐    │\n  │  │   CPU    │   │ Control  │   │    Memory    │   │\n  │  │ (ALU +   │   │  Unit    │   │  (program +  │   │\n  │  │ registers│   │          │   │   data       │   │\n  │  └──────────┘   └──────────┘   │   unified)   │   │\n  │                                └──────────────┘   │\n  │  ┌──────────────────────────────────────────────┐  │\n  │  │               I/O                            │  │\n  │  └──────────────────────────────────────────────┘  │\n  └────────────────────────────────────────────────────┘\n\nKey innovations:\n  1. STORED PROGRAM: Instructions stored in same memory as data.\n     Program can modify itself (or read its own code).\n  2. FETCH-DECODE-EXECUTE cycle: Uniform instruction processing.\n  3. Random access to memory (vs. sequential tape).\n  4. Binary arithmetic (influenced by his collaborations with logicians).\n\n\"Von Neumann bottleneck\": CPU and memory connected by a single bus.\n  Data must flow through this bottleneck.\n  Modern solutions: cache hierarchy, DMA, SIMD, GPU parallelism.\n\nYou have built systems on this architecture for 30 years.\nEvery Azure VM, every .NET runtime, every SQL Server instance\nruns on it.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 449,
+      "heading_context": "### The Contribution: The Language of Modern Mathematics",
+      "confidence": "candidate",
+      "text": "CATEGORIES AS THE LANGUAGE OF MATHEMATICS\n==========================================\n\nA category C consists of:\n  - Objects: Ob(C)\n  - Morphisms: for each pair (A,B) ∈ Ob(C)×Ob(C), a set Hom(A,B)\n  - Composition: f: A→B, g: B→C gives g∘f: A→C\n  - Identity: idₐ: A→A with identity laws\n\nA functor F: C → D maps objects to objects and morphisms to morphisms,\npreserving composition and identity.\n\nA natural transformation η: F → G maps between functors.\n\nWHAT THIS CAPTURES:\n  - Structure-preserving maps between structures\n  - \"The same\" structure in different settings\n  - Adjunctions: the fundamental pattern in mathematics\n\n  Left adjoint ⊣ Right adjoint:\n    Free ⊣ Forgetful (free group is left adjoint to underlying set)\n    Colimit ⊣ Diagonal ⊣ Limit\n    Quantification ⊣ Substitution (in predicate logic)\n\nCategory theory has permeated:\n  - Programming language theory (monads, functors in Haskell)\n  - Proof theory (proof nets, categorical logic)\n  - Topology (algebraic topology, homological algebra)\n  - Physics (topological quantum field theory, string theory)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

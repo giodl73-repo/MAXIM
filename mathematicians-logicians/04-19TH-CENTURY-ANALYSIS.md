@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematicians-logicians:19th-century-analysis
+kind: guide
+module: mathematicians-logicians
+section: mathematicians-logicians
+title: 19th-Century Analysis - Cauchy, Riemann, Weierstrass, Cantor, Dedekind
+status: source-custody
+source_custody: partial
+current_path: mathematicians-logicians/04-19TH-CENTURY-ANALYSIS.md
+canonical_path: mathematicians-logicians/04-19TH-CENTURY-ANALYSIS.md
+backsource_ids: [proof-backfill:mathematicians-logicians:04-19th-century-analysis, git-history:mathematicians-logicians:04-19th-century-analysis]
+concepts: [19th, century, analysis]
+root_concepts: [19th, century]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 19th-Century Analysis — Cauchy, Riemann, Weierstrass, Cantor, Dedekind
 
 ## The Problem They Were Solving

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physicists-astronomers:classical-mechanics
+kind: guide
+module: physicists-astronomers
+section: physicists-astronomers
+title: Classical Mechanics - Newton, Hooke, Huygens, Lagrange, Hamilton
+status: source-custody
+source_custody: partial
+current_path: physicists-astronomers/02-CLASSICAL-MECHANICS.md
+canonical_path: physicists-astronomers/02-CLASSICAL-MECHANICS.md
+backsource_ids: [proof-backfill:physicists-astronomers:02-classical-mechanics, git-history:physicists-astronomers:02-classical-mechanics]
+concepts: [classical, mechanics]
+root_concepts: [classical, mechanics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Classical Mechanics — Newton, Hooke, Huygens, Lagrange, Hamilton
 
 ## The Framework Being Built

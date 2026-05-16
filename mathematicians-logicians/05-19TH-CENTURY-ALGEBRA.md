@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematicians-logicians:19th-century-algebra
+kind: guide
+module: mathematicians-logicians
+section: mathematicians-logicians
+title: 19th-Century Algebra - Galois, Abel, Cayley, Lie, Noether
+status: source-custody
+source_custody: partial
+current_path: mathematicians-logicians/05-19TH-CENTURY-ALGEBRA.md
+canonical_path: mathematicians-logicians/05-19TH-CENTURY-ALGEBRA.md
+backsource_ids: [proof-backfill:mathematicians-logicians:05-19th-century-algebra, git-history:mathematicians-logicians:05-19th-century-algebra]
+concepts: [19th, century, algebra]
+root_concepts: [19th, century]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 19th-Century Algebra — Galois, Abel, Cayley, Lie, Noether
 
 ## The Revolution: From Solving Equations to Studying Structure

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physicists-astronomers:modern-cosmology
+kind: guide
+module: physicists-astronomers
+section: physicists-astronomers
+title: Modern Cosmology and Astrophysics - Hubble, Chandrasekhar, Marie Curie, Hawking, Penrose, Vera Rubin
+status: source-custody
+source_custody: partial
+current_path: physicists-astronomers/09-MODERN-COSMOLOGY.md
+canonical_path: physicists-astronomers/09-MODERN-COSMOLOGY.md
+backsource_ids: [proof-backfill:physicists-astronomers:09-modern-cosmology, git-history:physicists-astronomers:09-modern-cosmology]
+concepts: [modern, cosmology]
+root_concepts: [modern, cosmology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Cosmology and Astrophysics — Hubble, Chandrasekhar, Marie Curie, Hawking, Penrose, Vera Rubin
 
 ## The Modern View of the Universe at Large

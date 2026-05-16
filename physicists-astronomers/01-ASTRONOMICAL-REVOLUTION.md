@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physicists-astronomers:astronomical-revolution
+kind: guide
+module: physicists-astronomers
+section: physicists-astronomers
+title: The Astronomical Revolution - Copernicus, Tycho, Kepler, Galileo
+status: source-custody
+source_custody: partial
+current_path: physicists-astronomers/01-ASTRONOMICAL-REVOLUTION.md
+canonical_path: physicists-astronomers/01-ASTRONOMICAL-REVOLUTION.md
+backsource_ids: [proof-backfill:physicists-astronomers:01-astronomical-revolution, git-history:physicists-astronomers:01-astronomical-revolution]
+concepts: [astronomical, revolution]
+root_concepts: [astronomical, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Astronomical Revolution — Copernicus, Tycho, Kepler, Galileo
 
 ## The Problem They Were Solving
