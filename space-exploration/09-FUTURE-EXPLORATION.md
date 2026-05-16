@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:space-exploration:future-exploration
+kind: guide
+module: space-exploration
+section: space-exploration
+title: Future Exploration: Moon, Mars, and Beyond
+status: source-custody
+source_custody: partial
+current_path: space-exploration/09-FUTURE-EXPLORATION.md
+canonical_path: space-exploration/09-FUTURE-EXPLORATION.md
+backsource_ids: [proof-backfill:space-exploration:09-future-exploration, git-history:space-exploration:09-future-exploration]
+concepts: [future, exploration]
+root_concepts: [future, exploration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Future Exploration: Moon, Mars, and Beyond
 
 ## The Big Picture

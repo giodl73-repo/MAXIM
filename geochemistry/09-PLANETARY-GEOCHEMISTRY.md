@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geochemistry:planetary-geochemistry
+kind: guide
+module: geochemistry
+section: geochemistry
+title: Planetary Geochemistry and Cosmochemistry
+status: source-custody
+source_custody: partial
+current_path: geochemistry/09-PLANETARY-GEOCHEMISTRY.md
+canonical_path: geochemistry/09-PLANETARY-GEOCHEMISTRY.md
+backsource_ids: [proof-backfill:geochemistry:09-planetary-geochemistry, git-history:geochemistry:09-planetary-geochemistry]
+concepts: [planetary, geochemistry]
+root_concepts: [planetary, geochemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Planetary Geochemistry and Cosmochemistry
 
 ## The Big Picture

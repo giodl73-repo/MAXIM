@@ -1,0 +1,2001 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-space-exploration-human-spaceflight",
+  "source": "../../space-exploration",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#000",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "# Human Spaceflight: Physiology and Life Support"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#001",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#002",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "Human spaceflight is not just an engineering challenge — it's a biomedical engineering challenge. The human body did not evolve for microgravity, radiation, or sealed life support systems. Every system that keeps humans alive in space must work 100% of the time."
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#003",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|        HUMAN SPACEFLIGHT: CONSTRAINT DEPENDENCY CHAIN            |\n+------------------------------------------------------------------+\n|                                                                  |\n|  RADIATION (hard constraint — sets mission duration ceiling)     |\n|  GCRs ~1.8 mSv/day → ~700-1200 mSv Mars round trip             |\n|  Exceeds NASA 400-800 mSv career limit → caps mission duration  |\n|       |                                                          |\n|       v (duration cap drives everything below)                  |\n|  BONE LOSS (2%/month without countermeasures)                   |\n|  Requires 2+ hr/day vigorous exercise to mitigate               |\n|       |                                                          |\n|       v (exercise drives resource consumption)                  |\n|  ECLSS SIZING (closed-loop life support)                         |\n|  O₂ demand  + CO₂ scrubbing + water recovery + food calories    |\n|  Exercise ↑ → O₂ consumption ↑, CO₂ production ↑, water ↑      |\n|  Water recovery efficiency: 93% (goal 98%+)                      |\n|       |                                                          |\n|       v (resource mass → rocket equation → mission feasibility)  |\n|  MASS / LAUNCH CONSTRAINT                                        |\n|  ~2 kg/person/day (food) + consumables + spares + medical       |\n|  Mars 3-year mission: unfeasible without closed-loop + ISRU      |\n|                                                                  |\n|  VIIP (vision impairment) — orthogonal unresolved constraint     |\n|  70% of ISS astronauts show eye changes; no countermeasure yet  |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#004",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#005",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "## Physiological Effects of Microgravity"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#006",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "### Bone and Muscle"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#007",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "```\nMUSCULOSKELETAL EFFECTS\n========================"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#008",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "BONE LOSS:\n    Rate: ~1-2% bone density per month (without countermeasures)\n    Mechanism: without weight-bearing, bone remodeling shifts to resorption\n    Primarily: lower limbs, lumbar spine, pelvis\n    Calcium: excreted in urine; elevated urinary Ca²⁺ (kidney stone risk)\n    Countermeasure: ~2 hrs/day vigorous exercise (ARED on ISS: Advanced Resistive Exercise Device)\n    Recovery: months after return; some permanent loss after long durations"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#009",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "MUSCLE ATROPHY:\n    Rate: ~20% loss in lower limbs within 5-11 days without exercise\n    Type I (slow-twitch endurance) fibers affected first\n    Shift to less fatigue-resistant fiber types\n    Countermeasure: combined aerobic + resistive exercise\n    ISS protocol: 6 days/week exercise, 2+ hours/day including T2 (treadmill),\n                  CEVIS (bike), ARED (weights)"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#010",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "FLUID SHIFT:\n    Earth: 70% of body fluid in legs (hydrostatic pressure)\n    Microgravity: fluid redistributes toward upper body\n    Facial puffiness + sinus congestion (common complaint, day 1)\n    Leg circumference decreases (\"bird legs\")\n    Cardiac output initially decreases → blood pressure adaptations\n```"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#011",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "### Vision and VIIP"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#012",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "```\nVISUAL IMPAIRMENT INTRACRANIAL PRESSURE (VIIP)\n==============================================="
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#013",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "DISCOVERY: ~70% of long-duration astronauts show structural eye changes\n  FIRST RECOGNIZED: ~2006-2010; now considered major concern for Mars"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#014",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "MECHANISM:\n    Fluid shift → increased intracranial pressure (ICP)\n    → Optic disc swelling (papilledema)\n    → Choroidal folds (retinal deformations)\n    → Globe flattening (eyeball shape changes)\n    → Hyperopic shift (farsightedness increases)\n    → In some: permanent visual impairment on return"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#015",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "SEVERITY SPECTRUM:\n    Grade 1: Cotton wool spots on retina; minimal symptoms\n    Grade 2: Optic disc edema, some visual field loss\n    Grade 3-4: Significant visual impairment (rare but documented)"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#016",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "MONITORING: Regular ophthalmologic exams; Optical Coherence Tomography (OCT)\n  COUNTERMEASURES: None definitively effective yet; lower-body negative pressure\n                   (LBNP) draws fluid down; under study"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#017",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "MARS CONCERN:\n    ~3-year mission; 6 months transit + 18 months surface + 6 months return\n    VIIP could accumulate to disabling levels\n    No return possible if vision deteriorates in transit\n    Critical unresolved problem for Mars human mission safety\n```"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#018",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#019",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "## Radiation Exposure"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#020",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "```\nRADIATION DOSIMETRY IN SPACE\n=============================="
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#021",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "DOSE UNITS:\n    Gray (Gy): absorbed energy per unit mass (J/kg)\n    Sievert (Sv): effective dose = Gy × quality factor (accounts for biological damage)\n    Quality factors: photons/electrons = 1; protons = 2-5; heavy ions = 20"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#022",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "DOSE RATES:\n    LEO (ISS, 51° incl.): ~0.3-1 mSv/day (vs 0.01 mSv/day on Earth surface)\n    ISS annual: ~100-150 mSv/yr (vs Earth 2-3 mSv/yr average)\n    GEO: ~3-5 mSv/day (higher; more Van Allen exposure)\n    Interplanetary: ~1.8 mSv/day (outside Earth's magnetic field)\n    Solar particle event (SPE): can add 100s mSv in hours\n    Mars surface: ~0.67 mSv/day (with atmosphere shielding; no magnetic field)"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#023",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "CUMULATIVE DOSE LIMITS (NASA):\n    Career limit: 3% excess lifetime risk of cancer (statistical)\n    Translates to: ~400-800 mSv career limit depending on age + sex\n    Single year limit: ~50 mSv (as low as reasonably achievable, ALARA)\n    Mars round trip: ~700-1200 mSv (exceeds career limits under current rules!)"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#024",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "SHIELDING:\n    Adding mass helps against energetic particles but:\n    GCRs: secondary radiation from heavy ions hitting shielding is worse than primary\n    Optimal shielding: hydrogen-rich material (polyethylene, water, food stores)\n    Spacecraft walls: adequate for solar wind; insufficient for GCRs\n    Water wall concept: surround habitat with water tanks (also life support!)"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#025",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "COUNTERMEASURE RESEARCH:\n    Pharmaceutical: antioxidants, DNA repair enhancers; no approved protocol\n    Timing: fly during solar maximum (GCR minimum) + shelter during SPEs\n    SPE shelter: high-mass central core of spacecraft (storm shelter)\n```"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#026",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#027",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "## Life Support Systems (ECLSS)"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#028",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "```\nENVIRONMENTAL CONTROL AND LIFE SUPPORT SYSTEM (ECLSS)\n======================================================="
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#029",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "ATMOSPHERE MANAGEMENT:\n    O₂ generation: Oxygen Generation Assembly (OGA) — electrolysis of water\n    H₂O → H₂ + ½O₂; O₂ into cabin; H₂ to Sabatier system or vented\n    Pressure control: N₂ supply; maintain 14.7 psi (101 kPa) total; 21% O₂\n    (Or: 100% O₂ at 34.5 kPa — early Apollo; fire risk)"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#030",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "CO₂ removal: Carbon Dioxide Removal Assembly (CDRA)\n    Zeolite beds (adsorbent); alternating beds to regenerate\n    Target: < 5 mmHg CO₂ partial pressure (above this: headaches, impairment)\n    Problematic at high crew levels: CO₂ buildup on ISS occasionally exceeds limits"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#031",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "Sabatier Reactor:\n    CO₂ + 4H₂ → CH₄ + 2H₂O\n    Recovers water from H₂ waste stream; methane vented\n    Closes the water loop partially"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#032",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "WATER RECOVERY:\n    Urine Processor Assembly (UPA): distills urine → brine\n    Water Recovery System (WRS): processes brine + condensate → potable water\n    Current efficiency: ~85-93% (some water still lost in brine)\n    Future goal: 98%+ (closed loop)\n    Without recovery: need ~3 kg/person/day resupply (for drinking, hygiene, food)\n    With recovery: significantly reduced resupply mass"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#033",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "FOOD:\n    ISS: ~3000 kcal/person/day from packaged food (irradiated, thermostabilized)\n    Shelf life: 1-3 years\n    Currently: all food brought from Earth; no in-flight production\n    Mass: ~2 kg/person/day (food + packaging)\n    Taste: reported as blander; fluid shift reduces sense of smell/taste\n    XROOTS experiment: growing plants on ISS; romaine lettuce eaten on ISS (2015)"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#034",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "WASTE MANAGEMENT:\n    Solid waste: sealed in bags; stored; returned or burned on reentry (cargo vehicle)\n    Urine: collected; processed to water\n    Microbial control: constant HEPA filtration; surface wipe-downs with biocides\n    Atmosphere: continuous filtration; VOC removal; CO₂ primary concern\n```"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#035",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#036",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "## Spacecraft Vehicle Systems"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#037",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "### Soyuz (1967-present)"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#038",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "```\nSOYUZ MS CREW CAPSULE\n======================"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#039",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "CREW: 3 (sometimes 2 with cargo)\n  LAUNCH VEHICLE: Soyuz-2.1a\n  DURATION: up to 6 months docked to ISS; 3.5-hour ascent; 3.5-hour descent"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#040",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "MODULES:\n    Orbital Module (OM): habitable during approach/departure; 5 m³\n    Descent Module (DM): crew ride during ascent + descent; 3.5 m³\n    Instrument/Service Module (SM): propulsion + solar panels; non-habitable"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#041",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "RE-ENTRY + LANDING:\n    Ballistic re-entry (not lifting body)\n    Parachutes + retrorockets for landing (Kazakhstan steppe)\n    Solid rocket braking motors fire just before impact (1m altitude)\n    ~3.5G peak deceleration\n    First operational capsule design still in service (updated avionics)"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#042",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "LEGACY:\n    Most reliable human spacecraft ever (99.9%+ crew survival rate)\n    Long-duration record holders: Valeri Polyakov (Russian), 437 days (1994-1995, Mir)\n    Joint US-Russia ISS year mission: Scott Kelly (NASA/American) + Mikhail Kornienko (Roscosmos), 342 days (2015-2016)\n```"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#043",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "### SpaceX Crew Dragon"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#044",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "```\nSPACEX CREW DRAGON\n==================="
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#045",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "CREW: up to 7; typically 4 for ISS missions\n  LAUNCH VEHICLE: Falcon 9\n  REUSE: Capsule reused (3+ flights demonstrated); trunk discarded"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#046",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "KEY FEATURES:\n    Fully automated docking (no manual options required)\n    Touch-screen interface (significant departure from toggle switches)\n    Abort system: 8 SuperDraco engines in capsule wall (pusher, not tower)\n    Can abort at any point during ascent (all-altitude abort capability)\n    Seats: custom-molded to each crew member\n    Life support: N₂/O₂ atmosphere; 14.7 psi"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#047",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "FIRST OPERATIONAL FLIGHT:\n    Demo-2: May 30, 2020 — first crewed commercial orbital flight\n    Crew-1: November 2020 — first operational commercial crew to ISS"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#048",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "ABORT SYSTEM:\n    SuperDraco: hypergolic (NTO/MMH); 71 kN each × 8 = 568 kN total\n    Pusher design (no tower to jettison)\n    In-flight abort demonstrated successfully Oct 2019 (maximum dynamic pressure)\n```"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#049",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#050",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "## EVA (Extravehicular Activity)"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#051",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "```\nSPACEWALK (EVA) SYSTEMS\n========================"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#052",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "PURPOSE:\n    Repair/maintenance (Hubble servicing, ISS maintenance)\n    Construction assembly (ISS built by 200+ EVAs)\n    Science (JAXA experiments outside ISS)\n    Exploration (Moon surface operations)"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#053",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "EMU (Extravehicular Mobility Unit) — ISS spacesuit:\n    Upper Torso + Lower Torso + Gloves + Helmet + PLSS (backpack)\n    PLSS: Primary Life Support System\n      O₂ supply: 8+ hrs operational; 30 min consumable O₂ emergency\n      CO₂ removal: lithium hydroxide canisters\n      Water cooling: 1 liter/hr to undergarment cooling system\n      Pressure: 29.6 kPa (4.3 psi) pure O₂ (much lower than cabin)\n      Communications, displays, biosensors"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#054",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "PREBREATHE PROTOCOL:\n    Cabin: 14.7 psi, 21% O₂ → 2.1 psi partial O₂\n    Suit: 4.3 psi pure O₂\n    Problem: nitrogen dissolved in blood at 14.7 psi → if suddenly at 4.3 psi,\n             nitrogen comes out of solution → decompression sickness (bends)\n    Protocol: breathe 100% O₂ for 4 hours before EVA to purge N₂ from tissues\n    Alternative: campout at 10.2 psi for 24 hours first\n    ISS typically: 4-hour pre-breathe in suit"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#055",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "LUNAR SURFACE SUIT (Artemis xEMU / Axiom suit):\n    Designed for 1/6 G on lunar surface; mobility for sampling, climbing\n    Dusty regolith: critical challenge; suits must seal against lunar dust\n    Lunar dust: sharp, electrostatically charged, sub-micron particles\n                Sticks to everything; abrasive; potential health hazard\n    New suit features: hip and waist mobility; improved glove dexterity"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#056",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "DURATION: Typically 6-8 hours; record is 8hr 56min\n```"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#057",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#058",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "## Long-Duration Mission Challenges"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#059",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "```\nMARS MISSION REQUIREMENTS\n==========================="
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#060",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "TIMELINE:\n    Transit Earth → Mars: 6-9 months (minimum energy)\n    Mars surface stay: 14-20 months (conjunction class) or 30-90 days (opposition)\n    Transit Mars → Earth: 6-9 months\n    Total: ~2.5-3 years (conjunction class preferred for crew health)"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#061",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "CUMULATIVE PHYSIOLOGICAL CHALLENGES:\n    Bone loss: mitigation critical; resistive exercise but limited gravity on Mars\n    VIIP: 3 years of ICP elevation; unknown outcome at mission end\n    Radiation: ~700-1200 mSv (exceeds current career limits)\n    Muscle: Mars 1/3 G partially helps vs full microgravity transit\n    Psychological: isolation, 3-22 minute delay (no real-time communication), confinement"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#062",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "COMMUNICATION DELAY:\n    Mars: 3-22 minute one-way (6-44 min round trip)\n    No real-time mission control support for emergencies on Mars\n    Crew must be fully autonomous for medical, engineering, operations\n    Mental health: loss of instant communication with family/friends; critical"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#063",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "AUTONOMOUS MEDICAL CARE:\n    No evacuation possible from Mars surface\n    All medical situations (surgery, diagnosis) must be handled on-board\n    Telemedicine with 22-min delay; remote guidance possible but not real-time\n    Crew medical training: much more extensive than ISS crews\n    Stock: surgical tools, medications, diagnostic equipment; mass-constrained"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#064",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "FOOD FOR MARS:\n    Not feasible to carry 3 years of food (mass)\n    Bioregenerative life support: grow food on Mars / in transit\n    VEGGIE/AstroGarden (ISS): lettuce, radishes, peppers grown; eaten on ISS\n    Required for Mars: caloric closure (not just supplements from plants)\n    Estimated: ~10-50 m² growing area for caloric supplement; more for full diet\n```"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#065",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#066",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#067",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "| Question | Answer |\n|---|---|\n| What is the single most dangerous unresolved issue for Mars? | VIIP/ICP: ~70% of ISS astronauts show eye changes; 3-year Mars mission may cause permanent visual impairment; no effective countermeasure yet |\n| Why is bone loss a problem even with exercise? | Exercise mitigates but doesn't eliminate bone loss; current ISS protocols reduce loss to ~0.5-1%/month in weight-bearing bones; Mars surface (1/3 g) may partially help |\n| What are the radiation career limits and how does Mars compare? | NASA career limit: ~400-800 mSv (3% excess cancer risk); Mars round trip: ~700-1200 mSv — exceeds limits under current rules; either limits must be revised or shielding improved |\n| Why must EVA suits operate at 4.3 psi pure O₂? | Lower pressure = easier suit mobility (less like a balloon); 4.3 psi × 100% O₂ = same O₂ partial pressure as sea level; but requires nitrogen pre-breathe to avoid bends |\n| What is ECLSS? | Environmental Control and Life Support System: integrates atmosphere management (O₂ gen, CO₂ removal), water recovery, pressure control, and thermal control |\n| What is the record for continuous time in space? | Valeri Polyakov: 437 days (1994-1995) on Mir; longest single mission; demonstrated survival of >1 year mission but with significant recovery time needed post-flight |\n| Why is communication delay psychologically significant for Mars? | Up to 44-minute round-trip delay means no real-time conversation with family, friends, or mission control; crew must be psychologically self-sufficient for 3 years |"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#068",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#069",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "## Engineering Parallels"
+    },
+    {
+      "id": "07-HUMAN-SPACEFLIGHT.md#070",
+      "path": [
+        "07-HUMAN-SPACEFLIGHT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:space-exploration:07-human-spaceflight, git-history:space-exploration:07-human-spaceflight]",
+        "canonical_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "concepts": "[human, spaceflight]",
+        "current_path": "space-exploration/07-HUMAN-SPACEFLIGHT.md",
+        "id": "maxim:space-exploration:human-spaceflight",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[human, spaceflight]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Human Spaceflight: Physiology and Life Support",
+        "updated": "null"
+      },
+      "text": "**ECLSS as a closed-loop control system.** The Environmental Control and Life Support System is a set of coupled feedback loops: O₂ partial pressure is regulated by the electrolysis system, CO₂ concentration is measured and controlled by zeolite beds, water is recycled from urine and condensate at ~93% efficiency. Each loop has sensors, actuators, setpoints, and error signals — standard control theory applied to life-critical resources. The 93% water recovery figure is the steady-state efficiency under nominal conditions; like any real control system, margin matters because the 7% loss must be resupplied, and on a 3-year Mars mission with no resupply, the closed-loop fraction must approach 98%+."
+    }
+  ],
+  "refs": [
+    "07-HUMAN-SPACEFLIGHT.md"
+  ]
+}

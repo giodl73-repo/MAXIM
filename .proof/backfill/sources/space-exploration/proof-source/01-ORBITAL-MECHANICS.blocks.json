@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "space-exploration\\01-ORBITAL-MECHANICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    ORBITAL MECHANICS FRAMEWORK                   |\n+------------------------------------------------------------------+\n|                                                                  |\n|  GOVERNING PHYSICS  (sets the hard constraints)                  |\n|  -----------------------------------------------                |\n|  Newton's gravity (F=GMm/r²)                                     |\n|  Conservation of energy  +  Conservation of angular momentum     |\n|       |                               |                          |\n|       v                               v                          |\n|  KEY EQUATIONS  (closed-form results from the physics)           |\n|  -----------------------------------------------                |\n|  Vis-viva: v²=GM(2/r−1/a)    Tsiolkovsky: Δv=Isp·g₀·ln(m₀/mf) |\n|  Kepler T²∝a³                Hohmann: min-energy transfer orbit  |\n|  Orbital elements (6 params define any conic)                    |\n|       |                               |                          |\n|       v                               v                          |\n|  MISSION APPLICATIONS  (engineering choices within the envelope) |\n|  -----------------------------------------------                |\n|  Orbit insertion    Δv budget    Gravity assists                  |\n|  Station-keeping    Launch windows   GTO / TLI / TMI             |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "## Kepler's Laws",
+      "confidence": "candidate",
+      "text": "KEPLER'S THREE LAWS\n====================\n\n  LAW 1 (Elliptical Orbits):\n    All orbits are conic sections (ellipse, parabola, hyperbola)\n    Sun (or attracting body) at one focus\n    Circle = special case of ellipse (e = 0)\n\n  LAW 2 (Equal Areas):\n    A line from body to focus sweeps equal areas in equal times\n    → Faster near periapsis (closest point); slower near apoapsis\n    → Conservation of angular momentum: L = m × v × r = constant\n\n  LAW 3 (Harmonic Law):\n    T² ∝ a³\n    T² = (4π²/GM) × a³\n    where T = period, a = semi-major axis, GM = standard gravitational param.\n    For Earth orbit: T (years) ≈ a (AU)^(3/2)\n    ISS (408 km ≈ 0.0063 AU from Earth center): T ≈ 92 min\n\nORBITAL ELEMENTS (6 parameters define any orbit):\n  a:   semi-major axis (size)\n  e:   eccentricity (shape)\n  i:   inclination (tilt relative to reference plane)\n  Ω:   right ascension of ascending node (orientation of plane)\n  ω:   argument of periapsis (orientation of ellipse in plane)\n  ν/M: true/mean anomaly (position in orbit at epoch)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 119,
+      "heading_context": "## The Tsiolkovsky Rocket Equation",
+      "confidence": "candidate",
+      "text": "TSIOLKOVSKY ROCKET EQUATION\n=============================\n\n  Δv = v_e × ln(m₀/mf)\n     = Isp × g₀ × ln(m₀/mf)\n\n  where:\n    Δv  = total velocity change achievable (km/s)\n    v_e = effective exhaust velocity (km/s) = Isp × g₀\n    Isp = specific impulse (s) — engine efficiency metric\n    g₀  = 9.80665 m/s² (standard gravity; just a units conversion)\n    m₀  = initial mass (spacecraft + full propellant)\n    mf  = final mass (spacecraft + empty tanks)\n    ln(m₀/mf) = natural log of the mass ratio\n\n  TYRANNY OF THE ROCKET EQUATION:\n    To achieve higher Δv for the same dry mass:\n    → Need exponentially more propellant\n    → Example: Δv = 9.4 km/s, Isp = 311 s (kerosene)\n      Mass ratio needed = e^(9400/(311×9.8)) = e^(3.09) = 22\n      → 21 kg of propellant per 1 kg of payload + structure\n    → This is why rockets are mostly propellant (95%+ by mass)\n    → Why staging exists: drop empty tanks to reduce dead mass\n\n  STAGING:\n    Multi-stage rocket: each stage is discarded when empty\n    Effective mass ratio = product of individual stage mass ratios\n    2-stage: m_ratio_1 × m_ratio_2 (much more favorable)\n    Tsiolkovsky equation applied per stage:\n    Δv_total = Δv_stage_1 + Δv_stage_2 + ...\n\n  PHYSICAL INSIGHT:\n    High Isp → less propellant for same Δv\n    Chemical rockets: Isp ≈ 300-460 s (limited by bond energy of molecules)\n    Ion engines: Isp ≈ 1500-10,000 s (much more efficient; but low thrust)\n    Nuclear thermal: Isp ≈ 800-1000 s (hydrogen heated by reactor)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 164,
+      "heading_context": "### Hohmann Transfer",
+      "confidence": "candidate",
+      "text": "HOHMANN TRANSFER ORBIT\n=======================\n\n  Minimum-energy transfer between two CIRCULAR, COPLANAR orbits\n\n  GEOMETRY:\n  +--------------+\n  | Initial      |\n  | Orbit r₁     |\n  +--------------+\n\n    BURN 1: Δv₁ at periapsis.\n\n    Transfer ellipse (semi-major axis a = (r₁ + r₂) / 2)\n    touches both orbits.\n\n    BURN 2: Δv₂ at apoapsis.\n\n  +--------------+\n  | Final        |\n  | Orbit r₂     |\n  +--------------+\n\n  MATH:\n    Δv₁ = √(GM/r₁) × (√(2r₂/(r₁+r₂)) - 1)\n    Δv₂ = √(GM/r₂) × (1 - √(2r₁/(r₁+r₂)))\n    Transfer time = T_hohmann/2 = π√((r₁+r₂)³/(8GM))\n\n  EARTH LEO → GEO EXAMPLE:\n    r₁ = 6778 km (LEO); r₂ = 42,164 km (GEO)\n    Δv₁ ≈ 2.46 km/s (from LEO)\n    Δv₂ ≈ 1.47 km/s (to circularize at GEO)\n    Total: ~3.93 km/s\n    Transfer time: ~5.25 hours (one-way)\n\n  LIMITATIONS:\n    Only optimal for coplanar, circular → circular\n    Plane changes are very expensive (Δv = 2v × sin(Δi/2))\n    Combined inclination change + apoapsis kick → cheaper than separate\n    Not applicable to hyperbolic/escape trajectories (need Δv > escape)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "### Gravity Assists (Flyby Maneuvers)",
+      "confidence": "candidate",
+      "text": "GRAVITY ASSISTS\n===============\n\n  FREE Δv by exchanging momentum with a planet\n\n  MECHANISM:\n    Spacecraft approaches planet on hyperbolic trajectory\n    In the planet's reference frame: speed unchanged (hyperbolic, elastic)\n    In the heliocentric frame: SPEED CHANGES\n\n    If spacecraft flies behind a planet (in direction of orbital motion):\n    → Planet's gravity pulls spacecraft forward\n    → Spacecraft gains energy (stolen from planet's orbital energy)\n    → Δv = up to 2 × v_planet (for a retrograde pass; theoretical max)\n\n  REAL EXAMPLES:\n    Voyager 1: Jupiter (1979) + Saturn (1980) → escape solar system\n    Cassini: Earth flyby (1999) + Jupiter (2000) → Saturn insertion 2004\n    Messenger: 2 Earth + 2 Venus + 3 Mercury flybys to slow down to Mercury orbit\n    New Horizons: Jupiter (2007) gravity assist → Pluto (2015)\n    Parker Solar Probe: 7 Venus flybys to lower perihelion to <10 R_Sun\n\n  TYPES:\n    Prograde flyby (pass behind planet): GAIN energy (speed up in heliocentric)\n    Retrograde flyby (pass ahead of planet): LOSE energy (slow down)\n    Polar flyby: change inclination without much energy change\n\n  VELCRONAUTICS? (deceleration):\n    Arriving at Mercury or going deep into solar gravity well:\n    Use retrograde gravity assists to LOSE energy\n    Messenger needed 6.9 km/s of deceleration; gravity assists provided most of it",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "## Orbit Types",
+      "confidence": "candidate",
+      "text": "ORBIT TAXONOMY\n===============\n\n  BY ALTITUDE (Earth):\n    LEO:  200-2000 km   v~7.8 km/s, T~90-127 min\n    MEO: 2000-35786 km  (GPS ~20,200 km; T~12 hr)\n    GEO: 35,786 km      v~3.1 km/s, T=24 hr (geostationary)\n    HEO: >35,786 km     (Molniya; highly elliptical)\n\n  BY INCLINATION:\n    Equatorial: i ≈ 0° (GEO)\n    Polar:      i ≈ 90° (Earth observation, SSO)\n    Sun-synchronous (SSO): i ≈ 97-99° (ascending node precesses at 1°/day\n                           → always same local time; Earth obs standard)\n    Retrograde: i > 90°\n\n  SPECIAL ORBITS:\n    Molniya: highly elliptical; apoapsis over Russia; 12-hr period\n             Used for Soviet communications over high latitudes\n    Tundra:  ~63.4° incl.; 24-hr period; single apoapsis over target\n    GTO (Geostationary Transfer): Hohmann transfer ellipse from LEO to GEO\n    HEO for radiation avoidance: keeps spacecraft in Van Allen belts less\n    Graveyard orbit: +300 km above GEO; end-of-life disposal for GEO sats\n\n  EARTH-MOON-SUN:\n    LAGRANGE POINTS (5 equilibrium points in 3-body problem):\n      L1: between Earth and Moon (~326,000 km from Earth)\n      L2: behind Moon (far side); ~450,000 km\n      L3: behind Earth (opposite Moon)\n      L4/L5: 60° ahead/behind Moon; Trojan points (stable)\n      L1/L2/L3: unstable (need stationkeeping)\n      L4/L5: stable\n\n    HALO ORBITS:\n      L1/L2 halo: orbit around the Lagrange point (not a true equilibrium)\n      Require small ΔV station-keeping to maintain\n      SOHO, JWST (L2), ACE (L1), DSCOVR (L1)\n      Lunar Gateway: NRHO (Near-Rectilinear Halo Orbit) around L2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 292,
+      "heading_context": "## Delta-V Budget",
+      "confidence": "candidate",
+      "text": "CUMULATIVE Δv BUDGET (km/s from Earth surface)\n================================================\n\n  To achieve:                           Δv (km/s)\n  ---------------                       ---------\n  LEO (200 km, i=28.5°)                 9.4\n  LEO (200 km, polar, i=90°)            9.7\n  GEO (from LEO, Hohmann + plane chg)   4.2\n  Lunar flyby (escape + targeting)      3.1 (from LEO)\n  Lunar orbit (from LEO)                3.9\n  Lunar surface (from LEO, 1-way)       5.7\n  Trans-Mars Injection (from LEO)       3.6-6.3  (window-dependent)\n  Mars orbit capture (from TMI)         0.5-2.0  (aerobraking or propulsive)\n  Mars surface (from LEO)               ~13-15\n  Jupiter (flyby from LEO, direct)      ~8-9\n  Jupiter (with Earth+Venus gravity)    ~4-6\n\n  GRAVITY AND DRAG LOSSES:\n    Getting from surface to LEO requires ~9.4 km/s total, but\n    orbital velocity at LEO is only 7.8 km/s\n    Difference (~1.6 km/s): gravity drag (thrust wasted fighting gravity\n    during vertical ascent) + aerodynamic drag (thinner at altitude,\n    so drag loss small ~0.1-0.2 km/s)\n    → Launch vehicles must produce ~21% more Δv than orbital velocity alone\n\n  AEROBRAKING:\n    Use atmosphere to lose velocity (no propellant cost)\n    Used: Mars missions, Magellan (Venus), Cassini (Saturn aerobraking ~ not)\n    Saves enormous Δv for Mars orbit insertion\n    Requires careful thermal design for entry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

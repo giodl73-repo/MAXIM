@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:space-exploration:spacecraft-design
+kind: guide
+module: space-exploration
+section: space-exploration
+title: Spacecraft Design and Subsystems
+status: source-custody
+source_custody: partial
+current_path: space-exploration/05-SPACECRAFT-DESIGN.md
+canonical_path: space-exploration/05-SPACECRAFT-DESIGN.md
+backsource_ids: [proof-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]
+concepts: [spacecraft, design]
+root_concepts: [spacecraft, design]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Spacecraft Design and Subsystems
 
 ## The Big Picture

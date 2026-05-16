@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:space-exploration:propulsion
+kind: guide
+module: space-exploration
+section: space-exploration
+title: Propulsion Systems: Chemical to Electric
+status: source-custody
+source_custody: partial
+current_path: space-exploration/02-PROPULSION.md
+canonical_path: space-exploration/02-PROPULSION.md
+backsource_ids: [proof-backfill:space-exploration:02-propulsion, git-history:space-exploration:02-propulsion]
+concepts: [propulsion]
+root_concepts: [propulsion]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Propulsion Systems: Chemical to Electric
 
 ## The Big Picture

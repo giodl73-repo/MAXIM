@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geochemistry:ocean-geochemistry
+kind: guide
+module: geochemistry
+section: geochemistry
+title: Ocean Geochemistry and the Marine Record
+status: source-custody
+source_custody: partial
+current_path: geochemistry/08-OCEAN-GEOCHEMISTRY.md
+canonical_path: geochemistry/08-OCEAN-GEOCHEMISTRY.md
+backsource_ids: [proof-backfill:geochemistry:08-ocean-geochemistry, git-history:geochemistry:08-ocean-geochemistry]
+concepts: [ocean, geochemistry]
+root_concepts: [ocean, geochemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ocean Geochemistry and the Marine Record
 
 ## The Big Picture

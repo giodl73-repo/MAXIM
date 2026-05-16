@@ -1,0 +1,82 @@
+{
+  "schema_version": "1",
+  "source_markdown": "space-exploration\\01-ORBITAL-MECHANICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 329,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "What does the Tsiolkovsky equation tell you?",
+          "How much velocity change you can achieve given propellant mass and exhaust velocity; exponential relationship — doubling Δv requires squaring the mass ratio"
+        ],
+        [
+          "What is specific impulse (Isp)?",
+          "Thrust per unit propellant mass flow rate; units = seconds; proportional to exhaust velocity; the efficiency metric for rocket engines"
+        ],
+        [
+          "Why is orbital mechanics so different from normal engineering?",
+          "Counterintuitive: firing retrograde (backward) raises your orbit at the opposite side; \"speeding up\" while going forward puts you in a higher, slower orbit"
+        ],
+        [
+          "What is the cheapest way to change orbits?",
+          "Hohmann transfer (two burns at periapsis and apoapsis); only minimum energy for coplanar circular orbits; plane changes are very expensive"
+        ],
+        [
+          "How do gravity assists provide free ΔV?",
+          "Spacecraft steals orbital energy from the planet; in planet reference frame speed unchanged; in heliocentric frame speed changes"
+        ],
+        [
+          "What is a halo orbit?",
+          "Quasi-periodic orbit around a Lagrange point (not a true equilibrium); requires station-keeping; used by JWST (L2), SOHO (L1)"
+        ],
+        [
+          "Why is the rocket equation \"tyrannical\"?",
+          "To go from 9 km/s to 10 km/s ΔV requires exponentially more propellant — not linearly. Every extra km/s costs more than the last."
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 343,
+      "heading_context": "## Cross-References",
+      "headers": [
+        "If you want to understand...",
+        "Go to",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Newtonian mechanics behind orbits",
+          "`physics/02-NEWTONIAN-MECHANICS.md`",
+          "Kepler, vis-viva, and conics are Newtonian mechanics in inverse-square gravity"
+        ],
+        [
+          "Control loops and station-keeping",
+          "`control-theory/01-PID-CLASSICAL.md`",
+          "Halo orbits and attitude control are continuous correction problems"
+        ],
+        [
+          "Launch systems and mission architecture",
+          "`space-exploration/02-ROCKETS.md`",
+          "The rocket equation constrains vehicle design, staging, and payload fraction"
+        ],
+        [
+          "Satellite communications constraints",
+          "`telecommunications/01-ELECTROMAGNETIC-SPECTRUM.md`",
+          "GEO/LEO choices affect FSPL, latency, pointing, and spectrum selection"
+        ],
+        [
+          "Optimization framing for trajectory design",
+          "`numerical-methods/01-FLOATING-POINT.md`",
+          "Real mission design is numerical optimization over continuous state and discrete burns"
+        ]
+      ]
+    }
+  ]
+}

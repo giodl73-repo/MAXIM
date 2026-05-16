@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:space-exploration:space-economy
+kind: guide
+module: space-exploration
+section: space-exploration
+title: Space Economy: Commercial Space and New Space
+status: source-custody
+source_custody: partial
+current_path: space-exploration/08-SPACE-ECONOMY.md
+canonical_path: space-exploration/08-SPACE-ECONOMY.md
+backsource_ids: [proof-backfill:space-exploration:08-space-economy, git-history:space-exploration:08-space-economy]
+concepts: [space, economy]
+root_concepts: [space, economy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Space Economy: Commercial Space and New Space
 
 ## The Big Picture

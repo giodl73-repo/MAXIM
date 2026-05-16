@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:space-exploration:launch-vehicles
+kind: guide
+module: space-exploration
+section: space-exploration
+title: Launch Vehicles: Evolution and Architecture
+status: source-custody
+source_custody: partial
+current_path: space-exploration/03-LAUNCH-VEHICLES.md
+canonical_path: space-exploration/03-LAUNCH-VEHICLES.md
+backsource_ids: [proof-backfill:space-exploration:03-launch-vehicles, git-history:space-exploration:03-launch-vehicles]
+concepts: [launch, vehicles]
+root_concepts: [launch, vehicles]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Launch Vehicles: Evolution and Architecture
 
 ## The Big Picture

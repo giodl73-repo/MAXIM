@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geochemistry:carbon-cycle
+kind: guide
+module: geochemistry
+section: geochemistry
+title: Carbon Cycle Geochemistry
+status: source-custody
+source_custody: partial
+current_path: geochemistry/05-CARBON-CYCLE.md
+canonical_path: geochemistry/05-CARBON-CYCLE.md
+backsource_ids: [proof-backfill:geochemistry:05-carbon-cycle, git-history:geochemistry:05-carbon-cycle]
+concepts: [carbon, cycle]
+root_concepts: [carbon, cycle]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Carbon Cycle Geochemistry
 
 ## The Big Picture

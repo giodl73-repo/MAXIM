@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:space-exploration:reusability
+kind: guide
+module: space-exploration
+section: space-exploration
+title: Reusability Revolution: SpaceX and Beyond
+status: source-custody
+source_custody: partial
+current_path: space-exploration/04-REUSABILITY.md
+canonical_path: space-exploration/04-REUSABILITY.md
+backsource_ids: [proof-backfill:space-exploration:04-reusability, git-history:space-exploration:04-reusability]
+concepts: [reusability]
+root_concepts: [reusability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Reusability Revolution: SpaceX and Beyond
 
 ## The Big Picture

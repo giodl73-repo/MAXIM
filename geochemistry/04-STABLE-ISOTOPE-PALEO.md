@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geochemistry:stable-isotope-paleo
+kind: guide
+module: geochemistry
+section: geochemistry
+title: Stable Isotope Paleoclimatology
+status: source-custody
+source_custody: partial
+current_path: geochemistry/04-STABLE-ISOTOPE-PALEO.md
+canonical_path: geochemistry/04-STABLE-ISOTOPE-PALEO.md
+backsource_ids: [proof-backfill:geochemistry:04-stable-isotope-paleo, git-history:geochemistry:04-stable-isotope-paleo]
+concepts: [stable, isotope, paleo]
+root_concepts: [stable, isotope]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stable Isotope Paleoclimatology
 
 ## The Big Picture

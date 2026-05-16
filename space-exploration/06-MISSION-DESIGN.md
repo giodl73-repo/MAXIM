@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:space-exploration:mission-design
+kind: guide
+module: space-exploration
+section: space-exploration
+title: Mission Design: Interplanetary Trajectories
+status: source-custody
+source_custody: partial
+current_path: space-exploration/06-MISSION-DESIGN.md
+canonical_path: space-exploration/06-MISSION-DESIGN.md
+backsource_ids: [proof-backfill:space-exploration:06-mission-design, git-history:space-exploration:06-mission-design]
+concepts: [mission, design]
+root_concepts: [mission, design]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mission Design: Interplanetary Trajectories
 
 ## The Big Picture

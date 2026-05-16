@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:space-exploration:orbital-mechanics
+kind: guide
+module: space-exploration
+section: space-exploration
+title: Orbital Mechanics and the Rocket Equation
+status: source-custody
+source_custody: partial
+current_path: space-exploration/01-ORBITAL-MECHANICS.md
+canonical_path: space-exploration/01-ORBITAL-MECHANICS.md
+backsource_ids: [proof-backfill:space-exploration:01-orbital-mechanics, git-history:space-exploration:01-orbital-mechanics]
+concepts: [orbital, mechanics]
+root_concepts: [orbital, mechanics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Orbital Mechanics and the Rocket Equation
 
 ## The Big Picture

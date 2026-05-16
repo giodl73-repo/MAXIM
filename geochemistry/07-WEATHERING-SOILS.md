@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geochemistry:weathering-soils
+kind: guide
+module: geochemistry
+section: geochemistry
+title: Weathering, Soils, and Regolith
+status: source-custody
+source_custody: partial
+current_path: geochemistry/07-WEATHERING-SOILS.md
+canonical_path: geochemistry/07-WEATHERING-SOILS.md
+backsource_ids: [proof-backfill:geochemistry:07-weathering-soils, git-history:geochemistry:07-weathering-soils]
+concepts: [weathering, soils]
+root_concepts: [weathering, soils]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Weathering, Soils, and Regolith
 
 ## The Big Picture

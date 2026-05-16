@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "space-exploration\\05-SPACECRAFT-DESIGN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|          SPACECRAFT SUBSYSTEM DEPENDENCY GRAPH                   |\n+------------------------------------------------------------------+\n|                                                                  |\n|  MASS BUDGET (links everything — every kg costs Δv)              |\n|  ←——————————————————————————————————————————————→               |\n|                                                                  |\n|  EPS (Power)  ←——— THERMAL constrains max power dissipation     |\n|  Solar + RTG         (radiators must reject waste heat)          |\n|       |                                                          |\n|       v  (powers all)                                            |\n|  +---------+  +---------+  +---------+  +---------+             |\n|  | ADCS    |  | COMMS   |  | PAYLOAD |  | PROP    |             |\n|  | Star    |  | HGA/LGA |  | Science |  | Δv +    |             |\n|  | trackers|  | Transpdr|  | instr.  |  | ACS     |             |\n|  | RWs/CMG |  | Modem   |  |         |  | thrustr.|             |\n|  +---------+  +---------+  +---------+  +---------+             |\n|       |             |                        ^                   |\n|       +——→ ADCS pointing constrains COMMS    |                   |\n|           (HGA must point within 0.1°)       |                   |\n|                                              |                   |\n|  C&DH (flight computer + fault mgmt) ————→ commands all         |\n|  STRUCTURE (primary + mechanisms) — carries all loads            |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## Power System (EPS)",
+      "confidence": "candidate",
+      "text": "ELECTRICAL POWER SYSTEM\n========================\n\n  POWER GENERATION:\n    Solar panels (photovoltaic): most common; 28-33% efficiency (triple-junction GaAs)\n    Near-Sun: ISS generates ~84-120 kW from 2500 m² of panels\n    Far from Sun: power ∝ 1/r²; Jupiter: 1/25× Earth flux; Saturn: 1/90×\n\n    RTG (Radioisotope Thermoelectric Generator):\n    ²³⁸Pu → decay heat → thermoelectric conversion\n    Power density: ~4-8 W/kg\n    Cassini: 870 W from 3 RTGs (1997); New Horizons: ~200 W; Perseverance: 110 W\n    Limited Pu supply (DOE production); allocated only to science missions\n    MMRTG (Multi-Mission): standard unit ~125 W initial\n\n    Fuel cells: H₂ + O₂ → electricity + water\n    Used: Apollo, Shuttle; not used on current missions (tanks too heavy)\n\n  ENERGY STORAGE:\n    Lithium-ion batteries: current standard; ~150-250 Wh/kg\n    NiH₂ (nickel-hydrogen): legacy; ISS uses NiH₂ → being upgraded to LiIon\n    Charging during sunlit period; discharge during eclipse\n    Eclipse fraction: for 400 km LEO orbit, ~35 min eclipse per 92-min orbit\n\n  POWER DISTRIBUTION:\n    Regulated bus (constant voltage): most reliable; extra components\n    Unregulated bus: simpler; voltage varies with solar conditions (ripple)\n    Typical bus voltages: 28 V (small), 50 V, 100 V, 120 V (ISS)\n    RTG: direct battery charging; no MPPT (max power point tracking)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "## Attitude Determination and Control (ADCS)",
+      "confidence": "candidate",
+      "text": "ATTITUDE DETERMINATION AND CONTROL\n=====================================\n\n  PURPOSE: Point spacecraft (instruments, antennas, solar panels, thrusters)\n\n  ATTITUDE DETERMINATION (sensing):\n    STAR TRACKER: most precise; compares star pattern to catalog\n      Accuracy: 0.001° (arcseconds); autonomous identification\n      Works in any attitude; autonomous \"lost in space\" initialization\n    SUN SENSOR: simple; coarse (1°) or fine (0.001°)\n      Course/acquisition: first step after anomaly\n    EARTH SENSOR: horizon scanner; for nadir-pointing in LEO\n    MAGNETOMETER: senses Earth's magnetic field; 0.5-3° accuracy\n    GYROSCOPE (IMU): measures angular rate; drifts over time\n      Fiber optic gyro (FOG): no moving parts; ~0.001°/hr drift\n      Ring laser gyro: similar\n      MEMS gyro: small, cheap; higher drift\n\n  ATTITUDE CONTROL (actuation):\n    REACTION WHEELS (RWs): spin up/down to produce torque\n      Conservation of angular momentum: wheel accelerates → body decelerates\n      3 wheels (+ spare) for 3-axis control\n      Max torque: 0.03-0.5 N·m; momentum stored: 1-100 N·m·s\n      Saturation: wheel at max RPM → must desaturate by dumping to magnetorquer or thruster\n    MAGNETORQUERS: interact with Earth's B field → small torque\n      No propellant; limited to Earth-orbiting missions with B field\n      Used for desaturation + coarse control\n    THRUSTERS: hydrazine or cold gas; used for large maneuvers\n      Attitude control = monoprop thrusters in pairs (torque couples)\n    CONTROL MOMENT GYROSCOPES (CMGs): gyroscopes that change axis\n      ISS: 4 CMGs; Hubble: 6 gyroscopes\n      Much higher torque than RWs at same mass\n    MAGNETIC ATTITUDE (passive): permanent magnet aligns with B field\n      Simple + cheap; used on early small satellites\n\n  POINTING REQUIREMENTS:\n    Star trackers: ~0.001° accuracy → JWST, Hubble (fine guidance)\n    GEO comms: antenna pointing to <0.1° for high-gain downlink\n    Science imagers: 0.001-0.01° (arcsec level)\n    Solar panels: 5-10° sufficient for power generation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 188,
+      "heading_context": "## Communications (RF)",
+      "confidence": "candidate",
+      "text": "SPACECRAFT COMMUNICATIONS\n===========================\n\n  LINK BUDGET FUNDAMENTALS:\n    P_received = P_transmit + G_transmit - L_path + G_receive - L_misc\n\n    EIRP (Effective Isotropic Radiated Power): P_tx + G_tx antenna (dBW)\n    L_path = free-space path loss = 20 log₁₀(4πR/λ) [dB]\n    G_receive = receive antenna gain\n    Required minimum: S/N ratio for chosen modulation + coding\n\n  FREQUENCY BANDS:\n    UHF (300 MHz - 3 GHz):   Low gain; passes through ionosphere poorly;\n                               used for launch/entry telemetry\n    S-band (2-4 GHz):         Low-medium; TDRSS relay; most spacecraft\n    X-band (8-12 GHz):        High gain; deep space (DSN standard); ~500 kbps-10 Mbps\n    Ka-band (26-40 GHz):      Very high gain; broadband downlink; rain fade on ground\n    Optical/Laser:             Gbps+ potential; demonstration stage (LCRD, TBIRD)\n\n  ANTENNAS:\n    HGA (High Gain Antenna): parabolic dish; must point at Earth/DSN\n                              High data rate; narrow beamwidth (0.1-1°)\n    MGA (Medium Gain): intermediate; small dish or horn\n    LGA (Low Gain Antenna): omnidirectional; low data rate; always in view\n                              Critical for anomaly recovery (no pointing needed)\n\n  DEEP SPACE NETWORK (DSN):\n    NASA's 3-complex network: Goldstone (CA), Madrid (Spain), Canberra (AU)\n    70 m and 34 m dish antennas\n    Supports all NASA planetary missions + others (ESA, JAXA)\n    Bottleneck: limited assets shared among many missions\n\n  DATA RATE EXAMPLES:\n    Voyager 1 (now ~23 light-hours away): ~160 bits/sec\n    Mars Reconnaissance Orbiter: 6 Mbps peak\n    Hubble: 1-2 Mbps\n    ISS to ground: 3-450 Mbps (via TDRSS)\n    TBIRD (2022): 200 Gbps optical demo",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 279,
+      "heading_context": "## Radiation Environment",
+      "confidence": "candidate",
+      "text": "SPACE RADIATION ENVIRONMENT\n==============================\n\n  SOURCES:\n    VAN ALLEN BELTS:\n      Inner belt: ~1000-6000 km altitude; protons (MeV), electrons\n      Outer belt: ~15,000-30,000 km; electrons (MeV)\n      Slot region: ~8,000-15,000 km; relatively benign\n      South Atlantic Anomaly (SAA): Van Allen belt dips at ~200-800 km\n\n    SOLAR EVENTS:\n      Solar Flares: X-ray + EUV burst; ionizing dose\n      Solar Energetic Particles (SEPs): proton events; MeV-GeV; days duration\n      Worst SEP events: August 1972, October 2003 (\"Halloween storms\")\n\n    GALACTIC COSMIC RAYS (GCRs):\n      Isotropic; ions (H, He, Fe) at near-relativistic energies\n      Blocked by solar wind during solar maximum\n      Peak during solar minimum; 10-100 MeV/nucleon dominant\n      Most penetrating; no shielding fully stops them\n\n  EFFECTS ON ELECTRONICS:\n    Total Ionizing Dose (TID): accumulated radiation damage; charge trapping\n    Displacement Damage: atom displacements in crystal structure; dark current\n    Single Event Effects (SEEs):\n      SEU (Single Event Upset): bit flip; recoverable\n      SET (Single Event Transient): glitch in analog circuits\n      SEL (Single Event Latchup): supply-current latch; potentially destructive\n      SEG (Single Event Gate Rupture): gate oxide breakdown → permanent\n\n  MITIGATION:\n    Shielding: aluminum + polyethylene absorb protons; electrons scatter\n    Rad-hard parts: radiation-hardened ICs (RH devices); higher cost\n    Error-correcting codes (EDAC): SECDED (single-error correct, double-detect)\n    Watchdog timers: reset after anomalous behavior\n    Redundancy: cold/warm/hot spares; vote logic for critical functions\n    Orbit selection: avoid worst radiation (GEO somewhat worse than LEO in SAA)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
