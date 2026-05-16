@@ -1,0 +1,2569 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-behavioral-economics-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.behavioral-economics.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-behavioral-economics-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-behavioral-economics-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-behavioral-economics-source-corpus.json",
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-behavioral-economics-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-behavioral-economics-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-behavioral-economics-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-behavioral-economics-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-behavioral-economics-overview.json",
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-behavioral-economics-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.rational-choice-critique.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-behavioral-economics-rational-choice-critique.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-behavioral-economics-rational-choice-critique.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.rational-choice-critique.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-behavioral-economics-rational-choice-critique.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.rational-choice-critique.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-behavioral-economics-rational-choice-critique.json",
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-behavioral-economics-rational-choice-critique.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.rational-choice-critique.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/01-RATIONAL-CHOICE-CRITIQUE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.rational-choice-critique.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/01-RATIONAL-CHOICE-CRITIQUE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.rational-choice-critique.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/01-RATIONAL-CHOICE-CRITIQUE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.rational-choice-critique.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/01-RATIONAL-CHOICE-CRITIQUE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.rational-choice-critique.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/01-RATIONAL-CHOICE-CRITIQUE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.rational-choice-critique.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/01-RATIONAL-CHOICE-CRITIQUE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.prospect-theory.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-behavioral-economics-prospect-theory.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/02-PROSPECT-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-behavioral-economics-prospect-theory.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/02-PROSPECT-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.prospect-theory.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-behavioral-economics-prospect-theory.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.prospect-theory.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-behavioral-economics-prospect-theory.json",
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-behavioral-economics-prospect-theory.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/02-PROSPECT-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.prospect-theory.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/02-PROSPECT-THEORY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.prospect-theory.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/02-PROSPECT-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/02-PROSPECT-THEORY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/02-PROSPECT-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.prospect-theory.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/02-PROSPECT-THEORY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.prospect-theory.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/02-PROSPECT-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/02-PROSPECT-THEORY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/02-PROSPECT-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.prospect-theory.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/02-PROSPECT-THEORY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.prospect-theory.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/02-PROSPECT-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/02-PROSPECT-THEORY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/02-PROSPECT-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.heuristics-biases.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-behavioral-economics-heuristics-biases.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/03-HEURISTICS-BIASES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-behavioral-economics-heuristics-biases.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/03-HEURISTICS-BIASES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.heuristics-biases.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-behavioral-economics-heuristics-biases.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.heuristics-biases.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-behavioral-economics-heuristics-biases.json",
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-behavioral-economics-heuristics-biases.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/03-HEURISTICS-BIASES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.heuristics-biases.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/03-HEURISTICS-BIASES.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.heuristics-biases.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/03-HEURISTICS-BIASES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/03-HEURISTICS-BIASES.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/03-HEURISTICS-BIASES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.heuristics-biases.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/03-HEURISTICS-BIASES.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.heuristics-biases.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/03-HEURISTICS-BIASES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/03-HEURISTICS-BIASES.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/03-HEURISTICS-BIASES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.heuristics-biases.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/03-HEURISTICS-BIASES.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.heuristics-biases.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/03-HEURISTICS-BIASES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/03-HEURISTICS-BIASES.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/03-HEURISTICS-BIASES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.mental-accounting.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-behavioral-economics-mental-accounting.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/04-MENTAL-ACCOUNTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-behavioral-economics-mental-accounting.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/04-MENTAL-ACCOUNTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.mental-accounting.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-behavioral-economics-mental-accounting.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.mental-accounting.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-behavioral-economics-mental-accounting.json",
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-behavioral-economics-mental-accounting.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/04-MENTAL-ACCOUNTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.mental-accounting.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/04-MENTAL-ACCOUNTING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.mental-accounting.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/04-MENTAL-ACCOUNTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/04-MENTAL-ACCOUNTING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/04-MENTAL-ACCOUNTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.mental-accounting.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/04-MENTAL-ACCOUNTING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.mental-accounting.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/04-MENTAL-ACCOUNTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/04-MENTAL-ACCOUNTING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/04-MENTAL-ACCOUNTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.mental-accounting.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/04-MENTAL-ACCOUNTING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.mental-accounting.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/04-MENTAL-ACCOUNTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/04-MENTAL-ACCOUNTING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/04-MENTAL-ACCOUNTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.social-preferences.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-behavioral-economics-social-preferences.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/05-SOCIAL-PREFERENCES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-behavioral-economics-social-preferences.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/05-SOCIAL-PREFERENCES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.social-preferences.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-behavioral-economics-social-preferences.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.social-preferences.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-behavioral-economics-social-preferences.json",
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-behavioral-economics-social-preferences.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/05-SOCIAL-PREFERENCES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.social-preferences.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/05-SOCIAL-PREFERENCES.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.social-preferences.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/05-SOCIAL-PREFERENCES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/05-SOCIAL-PREFERENCES.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/05-SOCIAL-PREFERENCES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.social-preferences.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/05-SOCIAL-PREFERENCES.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.social-preferences.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/05-SOCIAL-PREFERENCES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/05-SOCIAL-PREFERENCES.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/05-SOCIAL-PREFERENCES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.social-preferences.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/05-SOCIAL-PREFERENCES.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.social-preferences.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/05-SOCIAL-PREFERENCES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/05-SOCIAL-PREFERENCES.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/05-SOCIAL-PREFERENCES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.intertemporal-choice.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-behavioral-economics-intertemporal-choice.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/06-INTERTEMPORAL-CHOICE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-behavioral-economics-intertemporal-choice.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/06-INTERTEMPORAL-CHOICE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.intertemporal-choice.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-behavioral-economics-intertemporal-choice.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.intertemporal-choice.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-behavioral-economics-intertemporal-choice.json",
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-behavioral-economics-intertemporal-choice.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/06-INTERTEMPORAL-CHOICE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.intertemporal-choice.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/06-INTERTEMPORAL-CHOICE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.intertemporal-choice.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/06-INTERTEMPORAL-CHOICE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/06-INTERTEMPORAL-CHOICE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/06-INTERTEMPORAL-CHOICE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.intertemporal-choice.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/06-INTERTEMPORAL-CHOICE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.intertemporal-choice.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/06-INTERTEMPORAL-CHOICE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/06-INTERTEMPORAL-CHOICE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/06-INTERTEMPORAL-CHOICE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.intertemporal-choice.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/06-INTERTEMPORAL-CHOICE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.intertemporal-choice.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/06-INTERTEMPORAL-CHOICE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/06-INTERTEMPORAL-CHOICE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/06-INTERTEMPORAL-CHOICE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.nudge-choice-architecture.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-behavioral-economics-nudge-choice-architecture.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-behavioral-economics-nudge-choice-architecture.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.nudge-choice-architecture.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-behavioral-economics-nudge-choice-architecture.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.nudge-choice-architecture.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-behavioral-economics-nudge-choice-architecture.json",
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-behavioral-economics-nudge-choice-architecture.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.nudge-choice-architecture.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/07-NUDGE-CHOICE-ARCHITECTURE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.nudge-choice-architecture.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/07-NUDGE-CHOICE-ARCHITECTURE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.nudge-choice-architecture.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/07-NUDGE-CHOICE-ARCHITECTURE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.nudge-choice-architecture.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/07-NUDGE-CHOICE-ARCHITECTURE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.nudge-choice-architecture.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/07-NUDGE-CHOICE-ARCHITECTURE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.nudge-choice-architecture.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/07-NUDGE-CHOICE-ARCHITECTURE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.market-anomalies.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-behavioral-economics-market-anomalies.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/08-MARKET-ANOMALIES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-behavioral-economics-market-anomalies.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/08-MARKET-ANOMALIES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.market-anomalies.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-behavioral-economics-market-anomalies.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.market-anomalies.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-behavioral-economics-market-anomalies.json",
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-behavioral-economics-market-anomalies.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/08-MARKET-ANOMALIES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.market-anomalies.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/08-MARKET-ANOMALIES.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.market-anomalies.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/08-MARKET-ANOMALIES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/08-MARKET-ANOMALIES.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/08-MARKET-ANOMALIES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.market-anomalies.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/08-MARKET-ANOMALIES.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.market-anomalies.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/08-MARKET-ANOMALIES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/08-MARKET-ANOMALIES.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/08-MARKET-ANOMALIES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.market-anomalies.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/08-MARKET-ANOMALIES.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.market-anomalies.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/08-MARKET-ANOMALIES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/08-MARKET-ANOMALIES.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/08-MARKET-ANOMALIES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.applications-policy.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-behavioral-economics-applications-policy.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/09-APPLICATIONS-POLICY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-behavioral-economics-applications-policy.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/09-APPLICATIONS-POLICY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.applications-policy.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-behavioral-economics-applications-policy.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.applications-policy.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-behavioral-economics-applications-policy.json",
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-behavioral-economics-applications-policy.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/09-APPLICATIONS-POLICY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.applications-policy.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/09-APPLICATIONS-POLICY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.applications-policy.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/09-APPLICATIONS-POLICY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/09-APPLICATIONS-POLICY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/09-APPLICATIONS-POLICY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.applications-policy.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/09-APPLICATIONS-POLICY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.applications-policy.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/09-APPLICATIONS-POLICY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/09-APPLICATIONS-POLICY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/09-APPLICATIONS-POLICY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.applications-policy.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/09-APPLICATIONS-POLICY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.applications-policy.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/09-APPLICATIONS-POLICY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/09-APPLICATIONS-POLICY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/09-APPLICATIONS-POLICY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.applications-product-ux.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-behavioral-economics-applications-product-ux.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/10-APPLICATIONS-PRODUCT-UX.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-behavioral-economics-applications-product-ux.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/10-APPLICATIONS-PRODUCT-UX.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.applications-product-ux.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-behavioral-economics-applications-product-ux.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.applications-product-ux.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.behavioral-economics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-behavioral-economics-applications-product-ux.json",
+            "module": "behavioral-economics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-behavioral-economics-applications-product-ux.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/10-APPLICATIONS-PRODUCT-UX.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.applications-product-ux.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/10-APPLICATIONS-PRODUCT-UX.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.applications-product-ux.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/10-APPLICATIONS-PRODUCT-UX.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/10-APPLICATIONS-PRODUCT-UX.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/10-APPLICATIONS-PRODUCT-UX.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.applications-product-ux.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/10-APPLICATIONS-PRODUCT-UX.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.applications-product-ux.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/10-APPLICATIONS-PRODUCT-UX.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/10-APPLICATIONS-PRODUCT-UX.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/10-APPLICATIONS-PRODUCT-UX.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.behavioral-economics.applications-product-ux.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/behavioral-economics/proof-source/10-APPLICATIONS-PRODUCT-UX.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.behavioral-economics.applications-product-ux.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "behavioral-economics",
+            "guide": "behavioral-economics/10-APPLICATIONS-PRODUCT-UX.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/behavioral-economics/proof-source/10-APPLICATIONS-PRODUCT-UX.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "behavioral-economics",
+        "guide": "behavioral-economics/10-APPLICATIONS-PRODUCT-UX.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

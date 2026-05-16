@@ -1,26 +1,45 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:behavioral-economics:overview
+kind: guide
+module: behavioral-economics
+section: behavioral-economics
+title: Behavioral Economics - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: behavioral-economics/00-OVERVIEW.md
+canonical_path: behavioral-economics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:behavioral-economics:00-overview, git-history:behavioral-economics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Behavioral Economics — Landscape Overview
 
 ## The Challenge to Homo Economicus
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                   BEHAVIORAL ECONOMICS LANDSCAPE                             │
-│                                                                               │
-│  NEOCLASSICAL MODEL             BEHAVIORAL ECONOMICS                         │
-│  (Homo economicus)              (Homo sapiens)                               │
+│                   BEHAVIORAL ECONOMICS LANDSCAPE                            │
+│                                                                             │
+│  NEOCLASSICAL MODEL             BEHAVIORAL ECONOMICS                        │
+│  (Homo economicus)              (Homo sapiens)                              │
 │  ─────────────────────          ─────────────────────────────────────────   │
-│  Unlimited cognitive capacity   Bounded rationality (Simon)                  │
-│  Stable, coherent preferences   Reference-dependent preferences              │
-│  Perfect information processing Systematic cognitive shortcuts               │
-│  Pure self-interest             Social preferences (fairness, reciprocity)   │
-│  Exponential time discounting   Hyperbolic/quasi-hyperbolic discounting      │
-│  Consistent risk preferences    Loss aversion; probability weighting         │
-│  Fungible wealth accounts       Mental accounts (non-fungible categories)    │
-│                                                                               │
+│  Unlimited cognitive capacity   Bounded rationality (Simon)                 │
+│  Stable, coherent preferences   Reference-dependent preferences             │
+│  Perfect information processing Systematic cognitive shortcuts              │
+│  Pure self-interest             Social preferences (fairness, reciprocity)  │
+│  Exponential time discounting   Hyperbolic/quasi-hyperbolic discounting     │
+│  Consistent risk preferences    Loss aversion; probability weighting        │
+│  Fungible wealth accounts       Mental accounts (non-fungible categories)   │
+│                                                                             │
 │  THE BEHAVIORAL RESEARCH PROGRAM (1969-present):                            │
 │  IDENTIFY systematic deviations from the standard model                     │
-│  EXPLAIN mechanisms (psychological/neural)                                   │
-│  PREDICT where and when deviations occur                                     │
+│  EXPLAIN mechanisms (psychological/neural)                                  │
+│  PREDICT where and when deviations occur                                    │
 │  APPLY to policy, product design, institutional design                      │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -100,16 +119,16 @@ SCHOOLS:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    CORE FINDINGS TAXONOMY                                    │
-│                                                                               │
-│  RISK & UNCERTAINTY              SOCIAL BEHAVIOR                             │
+│                    CORE FINDINGS TAXONOMY                                   │
+│                                                                             │
+│  RISK & UNCERTAINTY              SOCIAL BEHAVIOR                            │
 │  ─────────────────────           ───────────────────────────                │
 │  Loss aversion (λ ≈ 2)           Inequity aversion (Fehr-Schmidt)           │
 │  Probability weighting           Reciprocal altruism                        │
 │  Ambiguity aversion              Trust and cooperation                      │
 │  Framing effects                 Social norms and conformity                │
 │  Overconfidence                  Reputation effects                         │
-│                                                                               │
+│                                                                             │
 │  COGNITIVE SHORTCUTS             TIME & DECISIONS                           │
 │  ─────────────────────           ───────────────────────────                │
 │  Availability heuristic          Present bias / β-δ model                   │
@@ -117,8 +136,8 @@ SCHOOLS:
 │  Anchoring and adjustment        Projection bias                            │
 │  Affect heuristic                Hot-cold empathy gap                       │
 │  Attribute substitution          Procrastination                            │
-│                                                                               │
-│  REFERENCE POINTS & ACCOUNTS     CONTEXT EFFECTS                           │
+│                                                                             │
+│  REFERENCE POINTS & ACCOUNTS     CONTEXT EFFECTS                            │
 │  ─────────────────────────────   ───────────────────────────                │
 │  Mental accounting               Default effects                            │
 │  Sunk cost fallacy               Choice overload (Paradox of choice)        │

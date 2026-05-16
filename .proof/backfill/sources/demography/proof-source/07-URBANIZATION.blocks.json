@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "demography\\07-URBANIZATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Urban Transition",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    GLOBAL URBANIZATION TREND                                │\n│                                                                             │\n│  % Urban:                                                                   │\n│                                                                             │\n│  1800: ~3%    Cities: London 1M, Beijing 1M (only two ≥ 1M)                 │\n│  1900: ~13%   Industrial revolution → urban growth in Europe, N. America    │\n│  1950: ~29%   Post-WWII industrialization; developing world urbanizing      │\n│  2007: ~50%   MILESTONE: First time more people in cities than rural        │\n│  2023: ~56%   4.4B urban dwellers                                           │\n│  2050: ~68%   Projected; 6.7B urban (net growth = megacity equivalents)     │\n│                                                                             │\n│  CURRENT REGIONAL URBANIZATION RATES:                                       │\n│  North America: 83%  | South America: 83%  | Europe: 75%                    │\n│  Asia: 52%           | Africa: 44% (fastest growing, largest growth)        │\n│  Oceania: 68%        |                                                      │\n│                                                                             │\n│  URBAN GROWTH HOTSPOTS 2023-2050:                                           │\n│  India: +416M urban                                                         │\n│  China: +255M urban                                                         │\n│  Nigeria: +189M urban                                                       │\n│  These 3 countries = ~35% of global urban growth                            │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 52,
+      "heading_context": "## Why Cities Exist — Economic Geography",
+      "confidence": "candidate",
+      "text": "URBAN AGGLOMERATION ECONOMIES:\n  Cities exist because co-location generates economic returns exceeding costs.\n  Three sources (Marshall 1890):\n  1. Labor market pooling: larger pool → better job-worker matches\n     Workers don't quit every time a firm closes; firms hire in large pool\n  2. Input sharing: specialized suppliers can reach scale serving many nearby firms\n     (legal, accounting, specialized manufacturing)\n  3. Knowledge spillovers: ideas diffuse through proximity\n     \"Knowledge is in the air\" (Marshall) — face-to-face interaction, informal\n\n  MODERN FORMALIZATION (Glaeser, Lucas & Rossi-Hansberg):\n  μ(density) = total factor productivity premium from density\n  Empirical estimate: doubling city density → ~2-6% productivity increase\n  (varies by sector; highest for information-intensive industries)\n\nURBAN SCALING LAWS (Bettencourt et al. 2007):\n  Y ∝ N^β   where N = city population, Y = urban metric\n\n  SUPERLINEAR (β > 1): socioeconomic metrics scale faster than population\n  GDP per capita: β ≈ 1.13\n  Innovation (patents, R&D): β ≈ 1.15-1.20\n  Wages: β ≈ 1.10\n  Crime: β ≈ 1.15\n  → 2× city population → 2^1.15 ≈ 2.22× more GDP, innovation, AND crime\n\n  SUBLINEAR (β < 0.85): infrastructure scales slower than population (efficiency)\n  Road lane miles: β ≈ 0.83\n  Total electrical cable: β ≈ 0.84\n  → Infrastructure economies of scale: larger cities more efficient per capita\n\n  LINEAR (β ≈ 1): employment, housing units scale proportionally\n\n  MECHANISM: Superlinear social metrics from increased interaction rate per person\n  (interaction rate ∝ N/area; area ∝ N^{0.85} due to density increase → per-person\n  contact ∝ N^{0.15} → returns > linear)\n\n  CONNECTION TO INFORMATION THEORY: Superlinear scaling of knowledge production\n  reflects network effects — see information-theory/ and Zipf in next section.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## Zipf's Law and Urban Hierarchy",
+      "confidence": "candidate",
+      "text": "ZIPF'S LAW FOR CITIES:\n  Rank × Size ≈ constant\n  P_r ∝ 1/r^α   where α ≈ 1\n\n  More precisely:\n  P_r = P_1 / r^α\n  where P_r = population of city ranked r, P_1 = largest city population\n\n  EMPIRICAL REGULARITY:\n  For the US city size distribution: α ≈ 1.0 (Zipf exponent ≈ 1)\n  2nd-largest city ≈ 1/2 the largest\n  3rd-largest city ≈ 1/3 the largest\n  10th-largest city ≈ 1/10 the largest\n\n  US 2020 (Metro Statistical Areas):\n  1. New York: 20.1M → rank × size = 20.1M\n  2. Los Angeles: 13.2M → 2 × 13.2 = 26.4M (slight deviation)\n  3. Chicago: 9.5M → 3 × 9.5 = 28.5M\n  4. Dallas: 7.7M → 4 × 7.7 = 30.8M\n  Average: roughly consistent with Zipf\n\n  LOG-LOG PLOT:\n  log(rank) vs. log(size) → approximately linear with slope ≈ -1\n  → Power law distribution of city sizes\n\n  THEORY: WHY ZIPF?\n  Multiple mechanisms proposed; no single consensus:\n  - Gibrat's law (proportional random growth): if cities grow proportionally\n    with independent random shocks → Pareto/power law in long run\n  - Yule process (preferential attachment)\n  - Self-organized criticality\n  - Convergent point of network and sorting dynamics\n\n  CONNECTION TO INFORMATION THEORY:\n  Zipf's law appears across: city sizes, word frequencies, firm sizes,\n  income distributions, earthquake magnitudes, solar flare intensities.\n  The ubiquity suggests a deep mathematical/information-theoretic origin.\n  Zipf (1949): minimization of effort → power law; connection to\n  minimum description length / entropy maximization (see information-theory/)\n\nPRIMATE CITIES:\n  When the Zipf distribution is NOT followed — one city dominates enormously.\n  Paris: French population largest city / second city ≈ 8-10× (not 2×)\n  Bangkok, Jakarta, Kinshasa, Lagos: similarly primate\n  Causes: colonial capital development; political centralization;\n    poor secondary city development; road network hub-and-spoke\n\n  PRIMATE CITY PROBLEMS:\n  Economic overconcentration → congestion costs; high land costs;\n  regional inequality (rural/secondary city vs. capital gap);\n  political instability (large capital population can threaten government)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 151,
+      "heading_context": "## Megacities and Urban Systems",
+      "confidence": "candidate",
+      "text": "### City Size Definitions (UN) and Megacities (2023)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "## Informal Settlements (Slums)",
+      "confidence": "candidate",
+      "text": "UN-HABITAT SLUM DEFINITION (one or more deficiency):\n  1. Lack of access to improved water\n  2. Lack of access to improved sanitation\n  3. Lack of durable housing\n  4. Insufficient living area (overcrowding > 3 persons/room)\n  5. Lack of security of tenure\n\n  GLOBAL SCALE:\n  ~1.1B people in slums (2020)\n  Sub-Saharan Africa: ~60% of urban population in slums\n  South Asia: ~35%\n  Southeast Asia: ~30%\n  Latin America: ~20%\n\n  Examples: Dharavi (Mumbai): ~700K in 2.4 km²; Kibera (Nairobi): ~250-500K;\n            Mathare (Nairobi), Manshiyat Nasser (Cairo), Cite Soleil (Haiti)\n\nFORMATION MECHANISM:\n  Rural-urban migrants arrive faster than formal housing market can accommodate.\n  Informal settlements form on vacant/marginal land:\n    Riverbanks, hillslopes, railway margins, flood plains\n    (Less valuable/disputed land → easier occupation)\n  Community self-builds incrementally over time.\n  Infrastructure added by community or NGOs; formal services absent.\n\nSLUM UPGRADING VS. RELOCATION:\n  RELOCATION: move slum residents to formal housing\n    Often fails: residents return to original locations (economic livelihood)\n    or new relocation sites too far from employment\n  UPGRADING: formalize tenure + improve infrastructure in place\n    Evidence better: improves health, economic outcomes without displacement\n    Examples: Brazilian favela upgrading, South African BNG housing program\n    Challenges: resistance from property owners; political will\n\nHEALTH IN INFORMAL SETTLEMENTS:\n  Overcrowding → respiratory disease transmission (TB, COVID, measles)\n  Lack of sanitation → diarrheal disease (cholera, typhoid)\n  Standing water → vector-borne disease (malaria, dengue in tropical cities)\n  Air pollution from cooking fires + traffic\n  Paradox: urban slums may have lower under-5 mortality than rural areas\n    (closer to health facilities) but higher infectious disease burden",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 242,
+      "heading_context": "## Urban-Rural Health Gradient",
+      "confidence": "candidate",
+      "text": "URBAN HEALTH ADVANTAGE (historic):\n  Access to hospitals, doctors, specialists\n  Better access to emergency services\n  Higher income → better nutrition, housing, sanitation\n  More educated → better health behaviors\n\nURBAN HEALTH DISADVANTAGE:\n  Air pollution (traffic, industry)\n  Urban heat island (climate change intensifying)\n  Stress, noise, crowding\n  Sedentary lifestyle (car-dependent cities)\n  Processed food environments\n  Mental health: social isolation in anonymous urban settings\n\nRURAL HEALTH CHALLENGES:\n  Provider shortage (physicians/hospitals concentrated in cities)\n  Distance to emergency care\n  Higher injury rates (agriculture, transport)\n  Fewer specialty services\n\n  US RURAL-URBAN MORTALITY GAP (widening since 1999):\n  Rural US now has higher all-cause mortality than urban US\n  Driven by: drug overdose, CVD, unintentional injury, suicide\n  Rural populations older, lower income, higher obesity, higher uninsured rate\n  \"Deaths of despair\" (Case & Deaton): concentrated in rural and deindustrialized regions",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

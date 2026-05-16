@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:behavioral-economics:heuristics-biases
+kind: guide
+module: behavioral-economics
+section: behavioral-economics
+title: Heuristics and Biases
+status: source-custody
+source_custody: partial
+current_path: behavioral-economics/03-HEURISTICS-BIASES.md
+canonical_path: behavioral-economics/03-HEURISTICS-BIASES.md
+backsource_ids: [proof-backfill:behavioral-economics:03-heuristics-biases, git-history:behavioral-economics:03-heuristics-biases]
+concepts: [heuristics, biases]
+root_concepts: [heuristics, biases]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Heuristics and Biases
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:demography:demographic-dividend
+kind: guide
+module: demography
+section: demography
+title: Demographic Dividend
+status: source-custody
+source_custody: partial
+current_path: demography/09-DEMOGRAPHIC-DIVIDEND.md
+canonical_path: demography/09-DEMOGRAPHIC-DIVIDEND.md
+backsource_ids: [proof-backfill:demography:09-demographic-dividend, git-history:demography:09-demographic-dividend]
+concepts: [demographic, dividend]
+root_concepts: [demographic, dividend]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Demographic Dividend
 
 ## The Dividend Mechanism
@@ -8,21 +27,21 @@
 │                                                                             │
 │  STAGE 1: HIGH FERTILITY           STAGE 2: FERTILITY DECLINE               │
 │  Young, wide-based pyramid         Small new cohorts enter reproductive age │
-│                                    Large working-age cohort already in place  │
+│                                    Large work-age cohort already in place   │
 │  ┌──────────┐ Small working-age    ┌──────────┐                             │
-│  │  ████    │                      │  ██      │                              │
-│  │  ██████  │                      │  ████    │ Small youth cohort            │
-│  │  ████████│ ← large child cohort │  ██████  │                              │
-│  │  ████████│                      │████████████← BULGE                      │
-│  └──────────┘                      │ ████████ │ ← large working-age          │
-│                                    │  ██████  │   Modest elderly             │
-│                                    └──────────┘                              │
-│                                                                               │
+│  │  ████    │                      │  ██      │                             │
+│  │  ██████  │                      │  ████    │ Small youth cohort          │
+│  │  ████████│ ← large child cohort │  ██████  │                             │
+│  │  ████████│                      │████████████← BULGE                     │
+│  └──────────┘                      │ ████████ │ ← large working-age         │
+│                                    │  ██████  │   Modest elderly            │
+│                                    └──────────┘                             │
+│                                                                             │
 │  FERTILITY DECLINE → CHILD COHORTS SHRINK                                   │
 │  WORKING-AGE BULGE ARRIVES (large cohort from earlier high-fertility era)   │
 │  ELDERLY STILL MODEST (those cohorts were born in high-mortality era)       │
-│                                                                               │
-│  RESULT: Total Dependency Ratio FALLS to historic minimum                    │
+│                                                                             │
+│  RESULT: Total Dependency Ratio FALLS to historic minimum                   │
 │  → WINDOW OF OPPORTUNITY for accelerated savings and growth                 │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

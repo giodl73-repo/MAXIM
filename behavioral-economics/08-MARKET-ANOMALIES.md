@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:behavioral-economics:market-anomalies
+kind: guide
+module: behavioral-economics
+section: behavioral-economics
+title: Market Anomalies
+status: source-custody
+source_custody: partial
+current_path: behavioral-economics/08-MARKET-ANOMALIES.md
+canonical_path: behavioral-economics/08-MARKET-ANOMALIES.md
+backsource_ids: [proof-backfill:behavioral-economics:08-market-anomalies, git-history:behavioral-economics:08-market-anomalies]
+concepts: [market, anomalies]
+root_concepts: [market, anomalies]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Market Anomalies
 
 ## The Big Picture

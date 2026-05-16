@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:demography:mortality-life-expectancy
+kind: guide
+module: demography
+section: demography
+title: Mortality and Life Expectancy
+status: source-custody
+source_custody: partial
+current_path: demography/03-MORTALITY-LIFE-EXPECTANCY.md
+canonical_path: demography/03-MORTALITY-LIFE-EXPECTANCY.md
+backsource_ids: [proof-backfill:demography:03-mortality-life-expectancy, git-history:demography:03-mortality-life-expectancy]
+concepts: [mortality, life, expectancy]
+root_concepts: [mortality, life]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mortality and Life Expectancy
 
 ## Mortality Analysis Framework
@@ -17,7 +36,7 @@
 │  PERIOD vs. COHORT:                                                         │
 │  Period life table: snapshot of current conditions (synthetic cohort)       │
 │  Cohort life table: follows actual birth cohort through time                │
-│  Cross-sectional: bias when mortality changing rapidly (period underestimates│
+│  Cross-sectional: bias when mortality changes fast (period underestimates)  │
 │    actual cohort survival when mortality is improving)                      │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

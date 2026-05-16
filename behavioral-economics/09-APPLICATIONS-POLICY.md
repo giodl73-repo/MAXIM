@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:behavioral-economics:applications-policy
+kind: guide
+module: behavioral-economics
+section: behavioral-economics
+title: Behavioral Economics in Policy
+status: source-custody
+source_custody: partial
+current_path: behavioral-economics/09-APPLICATIONS-POLICY.md
+canonical_path: behavioral-economics/09-APPLICATIONS-POLICY.md
+backsource_ids: [proof-backfill:behavioral-economics:09-applications-policy, git-history:behavioral-economics:09-applications-policy]
+concepts: [applications, policy]
+root_concepts: [applications, policy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Behavioral Economics in Policy
 
 ## Government Behavioral Insight Teams
@@ -9,7 +28,7 @@
 │  BIT (UK Behavioural Insights Team, 2010):                                  │
 │  First government behavioral unit. Started in Cabinet Office.               │
 │  Now quasi-commercial, operating in 30+ countries.                          │
-│  Flagship interventions: tax compliance, organ donation, employment services │
+│  Flagship interventions: tax compliance, organ donation, jobs               │
 │                                                                             │
 │  SBST (Social and Behavioral Sciences Team, US, 2014-2017):                 │
 │  White House unit. Executive Order (Obama). >200 trials run.                │
@@ -27,7 +46,7 @@
 │                                                                             │
 │  CONNECTION TO COMPUTING:                                                   │
 │  This is A/B testing applied to policy. Same statistical framework as       │
-│  product feature testing (see statistics-applied/). Same power calculations. │
+│  product feature testing (see statistics-applied/). Same power calcs.       │
 │  The political challenge: policymakers less comfortable with randomized     │
 │  control than product managers. Same technical problem, different context.  │
 └─────────────────────────────────────────────────────────────────────────────┘

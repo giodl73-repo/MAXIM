@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "demography\\08-POPULATION-PROJECTIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Projection Framework",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    POPULATION PROJECTION APPROACHES                         │\n│                                                                             │\n│  DETERMINISTIC SCENARIOS       PROBABILISTIC             SIMPLIFIED         │\n│  ──────────────────────────    ─────────────────         ────────────────── │\n│  UN: Low/Medium/High variants  UN probabilistic          Extrapolation      │\n│  Conditional on assumed        forecasts (since 2015)    Exponential model  │\n│  fertility/mortality/migration Time series of            Logistic model     │\n│  paths                         fertility rates           (S-curve)          │\n│                                Bayesian model            Cohort model       │\n│                                Uncertainty intervals     simplifications    │\n│                                                                             │\n│  COHORT-COMPONENT MODEL: Standard method for all serious projection         │\n│  - Projects cohorts forward using fertility, mortality, migration           │\n│  - Leslie matrix formulation                                                │\n│  - Requires assumptions for each demographic component                      │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 46,
+      "heading_context": "## Cohort-Component Model — Full Specification",
+      "confidence": "candidate",
+      "text": "COHORT-COMPONENT METHOD:\n  The standard workhorse for population projection.\n  Projects population by age group and sex separately,\n  applying fertility rates to women of childbearing age\n  and survival rates to each cohort.\n\nSTEP-BY-STEP ALGORITHM:\n  Input: N(x, s, t) = population in age group x, sex s, at time t\n\n  1. SURVIVAL (advance all cohorts one time period):\n     N(x+n, s, t+n) = N(x, s, t) × sSₓ(t)\n     where sSₓ = survival ratio = nLx+n / nLx (from life table)\n     For oldest age group (open interval): survival + new entrants\n\n  2. BIRTHS (generate new youngest cohort from fertility rates):\n     B(t) = Σₓ ASFR(x, t) × N(x, female, t) × n\n     (sum over 5-year age groups of reproductive-age women)\n\n  3. SURVIVAL OF BIRTHS:\n     N(0-4, male, t+5) = B(t) × (1/(1+SRB)) × ₅L₀ / l₀ × 5\n     N(0-4, female, t+5) = B(t) × (SRB/(1+SRB)) × ₅L₀ / l₀ × 5\n     where SRB = sex ratio at birth (typically ~1.05 males per female)\n\n  4. MIGRATION (add net migrants to appropriate age/sex groups):\n     N(x, s, t+n) += NM(x, s, t)\n     (Net migrants allocated by assumed age-sex distribution)\n\n  PROJECTED POPULATION: iterate forward in 5-year steps\n\n  LESLIE MATRIX FORM (without migration):\n  n(t+n) = A × n(t)\n  where n is full age-sex vector, A is the age-sex projection matrix\n  (See 01-POPULATION-DYNAMICS for matrix structure)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 84,
+      "heading_context": "## UN World Population Prospects Methodology",
+      "confidence": "candidate",
+      "text": "UN WPP (World Population Prospects):\n  Published every 2 years by UN Population Division, DESA.\n  WPP2022: latest major revision.\n  Coverage: 237 countries/territories.\n\nDATA SOURCES:\n  Fertility: UNPD synthesis from census, survey, vital registration\n  Mortality: similar synthesis + special methods for child mortality\n    (UN IGME: Inter-Agency Group on Child Mortality Estimation)\n    cause-of-death models for LMICs\n  Migration: synthesis of bilateral flow data + residual estimation\n\nKEY MODELS:\n  Fertility projection (Alkema et al. 2011; UN methodology):\n    Bayesian hierarchical time series model for TFR\n    Phase I (TFR > 5): fertility decline modeled as logistic function of time\n    Phase II (TFR in transition): rate of decline modeled as random walk\n    Phase III (TFR < 2.1): autoregressive model around 1.85-2.1 range\n    Implemented as probabilistic forecast with credible intervals\n\n  Mortality projection (UN mortality model):\n    Life expectancy projection using Coherent Kannisto-Thatcher method\n    Sex-specific projections; convergence modeled at very high LE\n    Country-specific adjustments for HIV/AIDS, tobacco\n\nSCENARIO VARIANTS:\n  Deterministic scenarios (WPP):\n    Medium: central estimate\n    Low:    Medium TFR − 0.5 children\n    High:   Medium TFR + 0.5 children\n    Zero migration: Medium fertility/mortality, no net migration\n    Constant fertility: Current period fertility throughout\n    Constant mortality: Current mortality throughout\n    Instant replacement: Fertility immediately → replacement\n\n  Probabilistic forecast (since WPP2015):\n    Bayesian hierarchical models → 80% and 95% prediction intervals\n    UN 2100 projection (WPP2022):\n      Median: 10.4B\n      80% CI: 9.4B – 12.7B\n      95% CI: 8.9B – 12.4B  ← enormous uncertainty",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 130,
+      "heading_context": "## Uncertainty in Long-Run Projections",
+      "confidence": "candidate",
+      "text": "SOURCES OF PROJECTION UNCERTAINTY:\n\n  FERTILITY:\n    Most uncertain component long-term.\n    Will Sub-Saharan Africa follow similar transition path to Asia?\n    How far will fertility fall in East Asia? Recovery possible?\n    What are actual fertility desires vs. constrained fertility?\n\n  MORTALITY:\n    Less uncertain historically — generally declining.\n    Key uncertainties:\n    - Pace of mortality improvement at old ages\n    - Effect of climate change on mortality\n    - Pandemic risk (COVID-19 showed sudden mortality shocks)\n    - Long COVID, drug overdose epidemics (US LE already declining)\n\n  MIGRATION:\n    Most episodic and politically determined component.\n    Policy shocks: Brexit → UK migration patterns shifted\n    Conflict: Syrian civil war → 5M+ international refugees\n    Climate migration: difficult to project; potentially large\n    Political unpredictability makes migration projections least reliable\n\nPROJECTION UNCERTAINTY BY HORIZON:\n  5-year:    Small: age structure largely determined by existing population\n             Migration uncertainty; mortality shocks possible\n  10-year:   Moderate: fertility choices affect birth cohort size\n  20-year:   Substantial: fertility rates highly uncertain\n  30-year:   Large: cumulative fertility uncertainty dominates\n  50-year+:  Very large: multiple demographic generations of uncertainty\n  100-year:  Scenarios rather than forecasts; structural uncertainty dominant\n\nIIASA ALTERNATIVE PROJECTIONS:\n  International Institute for Applied Systems Analysis.\n  Wittgenstein Centre for Demography and Global Human Capital.\n  Uses education as additional projection variable (beyond age/sex).\n  More educated women → lower fertility → slower growth.\n  Education scenarios lead to different population outcomes.\n  IIASA 2023 \"advanced scenario\" (fast education spread):\n    Global peak ~9.7B around 2070; decline to ~8.8B by 2100.\n    Substantially lower than UN median due to education-fertility link.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "## Stochastic vs. Deterministic Projections",
+      "confidence": "candidate",
+      "text": "DETERMINISTIC SCENARIOS:\n  Specify assumed paths for fertility, mortality, migration.\n  No explicit uncertainty quantification.\n  Pros: transparent, interpretable, policy-relevant (\"what if\" analysis)\n  Cons: range of scenarios not a probability distribution\n    (High and Low variants are NOT confidence intervals)\n\n  COMMON MISTAKE: UN High and Low variants span ± 0.5 TFR from medium.\n  These are NOT the 95% confidence interval.\n  Actual uncertainty is larger and irregular.\n\nPROBABILISTIC FORECASTING:\n  Bayesian hierarchical models (Raftery, Alkema, et al.; adopted by UN):\n  Approach:\n  1. Model past TFR trajectories for all countries\n  2. Estimate prior distribution for parameters\n  3. Update with country-specific data\n  4. Sample future trajectories → posterior predictive distribution\n  5. Apply to mortality model → sample life expectancy trajectories\n  6. Combine in cohort-component model → population trajectory distribution\n\n  RESULT: 80% and 95% prediction intervals for population by country\n\n  UN 2100 Probabilistic Results (WPP2022):\n  World:           10.4B median  [9.4–12.7B at 80%]\n  Africa:          3.9B median   [3.2–5.3B at 80%]\n  Asia:            4.7B median   [4.0–5.6B at 80%]\n  Europe:          0.72B median  [0.65–0.79B at 80%]\n  N. America:      0.45B median  [0.39–0.52B at 80%]\n  Latin America:   0.72B median  [0.58–0.92B at 80%]\n\n  KEY: Africa's uncertainty range spans 2.1B people. More than all of Europe.\n  The key uncertainty is Sub-Saharan Africa fertility transition speed.\n\n  This is Bayesian forecasting under uncertainty — see statistics-applied/.\n  The UN model is a production-quality Bayesian hierarchical time series model\n  with explicit credible intervals — exactly what Bayesian forecasting is for.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 218,
+      "heading_context": "## Illustrative Projections — Key Countries",
+      "confidence": "candidate",
+      "text": "### UN WPP2022 Population Projections — Median Variant",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

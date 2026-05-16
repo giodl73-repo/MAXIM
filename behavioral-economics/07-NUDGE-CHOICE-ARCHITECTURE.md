@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:behavioral-economics:nudge-choice-architecture
+kind: guide
+module: behavioral-economics
+section: behavioral-economics
+title: Nudge and Choice Architecture
+status: source-custody
+source_custody: partial
+current_path: behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md
+canonical_path: behavioral-economics/07-NUDGE-CHOICE-ARCHITECTURE.md
+backsource_ids: [proof-backfill:behavioral-economics:07-nudge-choice-architecture, git-history:behavioral-economics:07-nudge-choice-architecture]
+concepts: [nudge, choice, architecture]
+root_concepts: [nudge, choice]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nudge and Choice Architecture
 
 ## The Big Picture

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "demography\\02-FERTILITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Fertility Measurement Landscape",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    FERTILITY MEASUREMENT HIERARCHY                          │\n│                                                                             │\n│  CRUDE MEASURE          PERIOD MEASURES         COHORT MEASURES             │\n│  ──────────────         ───────────────         ───────────────             │\n│  CBR (crude birth rate) ASFR by age             Completed cohort fertility  │\n│  General Fertility Rate GFR                     Cohort NRR                  │\n│  (children per 100      TFR (Total Fertility    (follows one birth cohort   │\n│   women 15-49)          Rate)                    to end of reproduction)    │\n│                         NRR (Net Reproduction   Parity progression ratios   │\n│                         Rate)                   (prob. having n+1 given n)  │\n│                         GRR (Gross Reprod. Rate)                            │\n│                                                                             │\n│  BEHAVIORAL FRAMEWORK: BONGAARTS PROXIMATE DETERMINANTS MODEL               │\n│  Decompose fertility into biological/behavioral intermediate variables      │\n│                                                                             │\n│  TRANSITION THEORIES: Why does fertility fall?                              │\n│  Demographic transition theory, wealth flows theory, second DT              │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 48,
+      "heading_context": "## Key Period Fertility Measures",
+      "confidence": "candidate",
+      "text": "AGE-SPECIFIC FERTILITY RATE (ASFR):\n  ASFR_x = (Births to women aged x) / (Women aged x) × 1000\n  Units: births per 1,000 women aged x per year\n\nTOTAL FERTILITY RATE (TFR):\n  TFR = Σ ASFR_x × n / 1000   (summed over all reproductive ages, n = interval width)\n  For 5-year age groups (15-19, 20-24, ..., 45-49):\n  TFR = 5 × Σ ASFR_i / 1000   (i = 7 age groups × 5 years)\n\n  INTERPRETATION:\n  Average number of children a woman would have if she experienced\n  the current age-specific fertility rates throughout her reproductive life.\n  This is a SYNTHETIC COHORT measure — no real woman experiences this.\n\n  REPLACEMENT-LEVEL TFR:\n  The TFR at which each generation exactly replaces itself.\n  In low-mortality populations: ≈2.1 (slightly above 2 due to sex ratio\n  at birth ~1.05 males/female and mortality before reproductive age)\n  In high-mortality settings: >2.5-3.0 (more women die before completing reproduction)\n\n### TFR Global Reference Values (2023)\n\n| Country / Region | TFR | Note |\n|---|---|---|\n| Niger | 6.9 | Highest globally |\n| Somalia | 6.0 | |\n| Mali | 5.9 | |\n| Sub-Saharan Africa | 4.5 | Range 3.5–7.0 |\n| India | 2.0 | Below replacement; crossed milestone ~2021 |\n| United States | 1.62 | |\n| Germany | 1.46 | |\n| Italy | 1.24 | |\n| Japan | 1.20 | |\n| South Korea | 0.72 | Lowest ever recorded for a country (2023) |\n\nGROSS REPRODUCTION RATE (GRR):\n  GRR = TFR × (proportion of births that are female)\n  ≈ TFR × 0.4878  (using sex ratio at birth of 1.05)\n  GRR = average daughters per woman (ignoring mortality)\n\nNET REPRODUCTION RATE (NRR):\n  NRR = Σ ASFR_x × l(x) × (proportion female)\n  = average daughters per woman, accounting for mortality of women\n    before they reach each age x\n\n  NRR = 1: replacement (stationary population in long run)\n  NRR > 1: growing\n  NRR < 1: declining (below replacement)\n\n  NRR = GRR × average survival to reproductive age\n  In low-mortality countries: NRR ≈ GRR × 0.98 ≈ GRR (mortality adjustment small)\n  In high-mortality countries: NRR << GRR (many women die before reproducing)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "## Quantum vs. Tempo Effects",
+      "confidence": "candidate",
+      "text": "QUANTUM: How many children do women ultimately have?\n         = completed cohort fertility\n         The fundamental biological/behavioral quantity.\n\nTEMPO:   WHEN do women have their children?\n         = timing/spacing of births\n         Can distort period measures without changing quantum.\n\nTEMPO DISTORTION OF PERIOD TFR:\n  If women delay births (increase mean age at childbearing):\n  → In any given year, fewer births than expected\n  → Period TFR understates true cohort quantum\n  This is called \"tempo distortion\" or \"tempo effect.\"\n\n  Bongaarts-Feeney Tempo-Adjusted TFR:\n  TFR* = TFR / (1 − r̄)\n  where r̄ = annual change in mean age at childbearing\n\n  Example: TFR = 1.5, mean age increasing by 0.1 year/year\n  r̄ = 0.1\n  TFR* = 1.5 / (1 − 0.1) = 1.5 / 0.9 = 1.67\n\n  IMPLICATION: European period TFRs of ~1.5 may reflect cohort fertility\n  of ~1.7-1.8 once tempo adjustment is made.\n  Some forecast: fertility will \"bounce back\" as timing shifts end.\n  Others: quantum genuinely below replacement in many countries.\n\nEMPIRICAL TEST:\n  Compare period TFR to completed cohort fertility for cohorts\n  who have finished reproduction. If cohort > period, tempo distortion confirmed.\n  For Germany/Italy: cohort completed fertility (1965-70 birth cohorts) ≈ 1.6-1.7\n  vs. period TFR ~1.4-1.5 in 1990s-2000s → large tempo distortion confirmed.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "## Parity Progression Ratios",
+      "confidence": "candidate",
+      "text": "PARITY PROGRESSION RATIO (PPR):\n  PPRₙ = Probability that a woman with n children has at least one more child\n  P₀ = Probability of having at least 1 child (given in population)\n  P₁ = Probability of having at least 2 (given already have 1)\n  P₂ = Probability of having at least 3 (given already have 2)\n\n  TFR = Σ P₀ × P₁ × ... × Pₙ\n\n  USEFULNESS:\n  Reveals WHICH parity drives fertility change.\n  Fertility decline in Europe: primarily from P₂ and P₃ declining\n  (stopping after 2 children, fewer 3+ child families)\n  Japan low fertility: driven by delay of P₀ (fewer women having any child)\n  South Korea: extreme delay of P₀ + high P₀ to P₁ conditional probability\n    → many childless + the few who have children have 1-2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "## Theories of Fertility Transition",
+      "confidence": "candidate",
+      "text": "CLASSICAL DEMOGRAPHIC TRANSITION THEORY:\n  Modernization → development → fertility decline.\n  Causal mechanism:\n  Economic development → lower child mortality (less \"insurance\" fertility needed)\n  Urbanization → children shift from economic asset to economic cost\n  Education (especially women's) → opportunity cost of childbearing rises\n  Female labor force participation → opportunity cost rises\n  Secularization → weakened religious pronatalism\n  Evidence: broadly confirmed; universal pattern across developed countries\n\nWEALTH FLOWS THEORY (Caldwell 1976):\n  Fertility is rational response to intergenerational wealth flows direction.\n  High fertility rational when children contribute labor early + support elderly parents\n  (net wealth flows from children to parents = upward flows)\n  Low fertility rational when children consume resources for long period\n  (net flows from parents to children = downward flows)\n  Modern education and nuclear families shift flows from upward to downward.\n  Transition occurs when downward flows become dominant in family calculations.\n\nIDEATIONAL THEORY:\n  Ideas, not just economics, drive fertility.\n  Diffusion of low-fertility norms from developed regions.\n  Media exposure → adoption of small-family norms.\n  Evidence: some African countries with high infant mortality already adopting\n  low-fertility ideals — driven by globalization/media, not development.\n\nSECOND DEMOGRAPHIC TRANSITION (SDT, van de Kaa & Lesthaeghe 1986):\n  Post-WWII Europe: second fertility decline below replacement.\n  Characterized by:\n  - Rise of cohabitation (vs. marriage)\n  - Delayed marriage and first birth\n  - Increased non-marital births\n  - Fertility below replacement\n  - Diverse family forms (single parents, same-sex couples, childlessness)\n  Driver: individualization, autonomy, self-realization values\n  (Maslow's hierarchy: from security needs → self-actualization)\n  SDT is about values, not just economics.\n  Spreading globally: South Korea, Japan, China show SDT patterns.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 249,
+      "heading_context": "## Fertility Globally — Current Patterns",
+      "confidence": "candidate",
+      "text": "### Regional Fertility (TFR, 2023 Estimates)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

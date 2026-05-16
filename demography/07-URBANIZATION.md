@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:demography:urbanization
+kind: guide
+module: demography
+section: demography
+title: Urbanization
+status: source-custody
+source_custody: partial
+current_path: demography/07-URBANIZATION.md
+canonical_path: demography/07-URBANIZATION.md
+backsource_ids: [proof-backfill:demography:07-urbanization, git-history:demography:07-urbanization]
+concepts: [urbanization]
+root_concepts: [urbanization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Urbanization
 
 ## The Urban Transition
@@ -17,7 +36,7 @@
 │                                                                             │
 │  CURRENT REGIONAL URBANIZATION RATES:                                       │
 │  North America: 83%  | South America: 83%  | Europe: 75%                    │
-│  Asia: 52%           | Africa: 44% (fastest growing, absolute largest growth)│
+│  Asia: 52%           | Africa: 44% (fastest growing, largest growth)        │
 │  Oceania: 68%        |                                                      │
 │                                                                             │
 │  URBAN GROWTH HOTSPOTS 2023-2050:                                           │
@@ -154,6 +173,7 @@ PRIMATE CITIES:
 | Mumbai | ~21M | South Asia |
 | New York | ~20M | North America |
 
+```
 Total: ~35 megacities globally.
 
 WORLD CITY NETWORK (Sassen, Taylor):

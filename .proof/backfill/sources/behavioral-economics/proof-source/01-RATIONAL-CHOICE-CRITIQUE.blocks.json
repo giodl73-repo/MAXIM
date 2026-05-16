@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "behavioral-economics\\01-RATIONAL-CHOICE-CRITIQUE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│              RATIONAL CHOICE THEORY — LANDSCAPE AND CRITIQUE                │\n│                                                                             │\n│  LAYER 1: THE FORMAL BASELINE                                               │\n│  ─────────────────────────────────────────────────────────────────────────  │\n│  Expected Utility Theory (vNM 1944):                                        │\n│  EU(L) = Σᵢ pᵢ × U(xᵢ)    [axioms: completeness, transitivity,              │\n│                              continuity, independence]                      │\n│  Representation theorem: axioms ⟺ exists U s.t. agent maximizes EU          │\n│  This is the formal spec. Behavioral critique = finding where               │\n│  actual human choices violate the axioms.                                   │\n│                                                                             │\n│  LAYER 2: SYSTEMATIC VIOLATIONS (empirical falsification of the axioms)     │\n│  ─────────────────────────────────────────────────────────────────────────  │\n│  Allais Paradox (1953):       Violates INDEPENDENCE axiom                   │\n│    Certainty effect — 100% probability is categorically different from 99%  │\n│  Ellsberg Paradox (1961):     Violates SUBJECTIVE PROBABILITY axiom         │\n│    Ambiguity aversion — known vs unknown probabilities treated differently  │\n│  Preference reversals (1979): Violates TRANSITIVITY + COMPLETENESS          │\n│    Price vs choice reversal — preferences are context-dependent             │\n│  WTA ≫ WTP:                   Violates WEALTH EQUIVALENCE assumption        │\n│    Endowment effect — owning something changes its subjective value         │\n│                                                                             │\n│  LAYER 3: THEORETICAL ALTERNATIVES                                          │\n│  ─────────────────────────────────────────────────────────────────────────  │\n│  Savage (1954):   Subjective EU — handle uncertainty via subjective probs   │\n│    Ellsberg violates this too (sure-thing principle)                        │\n│  Simon (1955):    Bounded rationality — opt. infeasible; satisficing        │\n│  Maximin EU:      Handle ambiguity by maximizing worst-case EU              │\n│  Robust opt.:     Uncertainty set instead of single distribution            │\n│                                                                             │\n│  LAYER 4: PROSPECT THEORY PREVIEW (full treatment in 02-PROSPECT-THEORY)    │\n│  ─────────────────────────────────────────────────────────────────────────  │\n│  Loss aversion: U(−x) ≈ −2 × U(x)   (losses feel ~2× as bad as gains)       │\n│  Probability weighting: π(p) ≠ p     (overweight small; underweight large)  │\n│  Reference dependence: utility = f(Δ from reference, not absolute wealth)   │\n│  Diminishing sensitivity: concave in gains, convex in losses                │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 67,
+      "heading_context": "## Expected Utility Theory — The Baseline",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                    EXPECTED UTILITY THEORY (vNM 1944)                       │\n│                                                                             │\n│  A rational agent facing a lottery L = {(x₁, p₁), (x₂, p₂), ..., (xₙ, pₙ)}  │\n│  selects the option maximizing expected utility:                            │\n│                                                                             │\n│  EU(L) = Σᵢ pᵢ × U(xᵢ)                                                      │\n│                                                                             │\n│  AXIOMS (vNM):                                                              │\n│  1. Completeness:     ∀A,B: A ≽ B or B ≽ A (always comparable)              │\n│  2. Transitivity:     A ≽ B and B ≽ C → A ≽ C                               │\n│  3. Continuity:       ∃p s.t. A ~ pB + (1-p)C (no lexicographic pref)       │\n│  4. Independence:     If A ≽ B, then pA+(1-p)C ≽ pB+(1-p)C for all C, p     │\n│                       (mixtures preserve preference order)                  │\n│                                                                             │\n│  THEOREM: Preferences satisfy these axioms iff they can be represented      │\n│  by a utility function U: outcomes → ℝ such that lotteries are ranked       │\n│  by expected utility.                                                       │\n│                                                                             │\n│  The representation theorem is the formal justification for EU theory.      │\n│  Behavioral economics asks: do people's preferences satisfy these axioms?   │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 138,
+      "heading_context": "## The Ellsberg Paradox (1961)",
+      "confidence": "candidate",
+      "text": "ELLSBERG'S SETUP:\n  Urn contains 90 balls: 30 RED, 60 BLACK or YELLOW (unknown split).\n\nPROBLEM 1: Choose between:\n  A: Win $100 if RED drawn\n  B: Win $100 if BLACK drawn\n\n  MOST PEOPLE CHOOSE A (known 1/3 probability over unknown black probability)\n\nPROBLEM 2: Choose between:\n  C: Win $100 if RED or YELLOW drawn\n  D: Win $100 if BLACK or YELLOW drawn\n\n  MOST PEOPLE CHOOSE D (known 2/3 probability over unknown red+yellow)\n\nINCONSISTENCY:\n  Choice A implies: P(Red) > P(Black)\n  Choice D implies: P(Red) + P(Yellow) < P(Black) + P(Yellow)\n    → P(Red) < P(Black)\n  These two preferences are contradictory under any subjective probability.\n\nELLSBERG PARADOX = AMBIGUITY AVERSION:\n  People prefer known probabilities (risk) over unknown probabilities (ambiguity).\n  Risk: probability distribution known (a dice, a known urn).\n  Uncertainty (Knightian): probability distribution unknown.\n  Ambiguity aversion: people pay a premium to face risk rather than uncertainty.\n\nFORMAL MODELS:\n  Maximin expected utility (Gilboa-Schmeidler): maximize worst-case EU.\n  Choquet expected utility: capacity (non-additive measure) instead of probability.\n  Robust optimization: maximize subject to worst-case distribution in an ambiguity set.\n\nORGANIZATIONAL APPLICATION:\n  Strategy under Knightian uncertainty — you don't know the probability\n  distribution of outcomes. Classical EU analysis doesn't apply.\n  Options: robust strategies (perform well across scenarios), real options\n  (preserve flexibility), scenario planning.\n  This is different from risk management (known distribution).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "## Savage's Subjective Expected Utility",
+      "confidence": "candidate",
+      "text": "SAVAGE (1954): SUBJECTIVE EU\n  Extends vNM to handle uncertainty by allowing subjective probabilities.\n  Agents act as-if they have a subjective probability distribution over states.\n  Axioms: add \"sure-thing principle\" (version of independence for uncertainty).\n\n  The sure-thing principle:\n  If you prefer A over B in every state of the world, you prefer A over B.\n\n  Ellsberg paradox violates the sure-thing principle:\n  State S1 (30 Red, 60 Yellow, 0 Black):\n    P1 state: A wins with 1/3, B wins with 0 → prefer A\n  State S2 (30 Red, 0 Yellow, 60 Black):\n    P1 state: A wins with 1/3, B wins with 2/3 → prefer B\n  Person flip-flops depending on state — but doesn't know which state\n  they're in. The sure-thing principle doesn't require knowing;\n  Ellsberg preferences can't be consistent with any coherent probability.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

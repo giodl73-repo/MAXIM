@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:behavioral-economics:mental-accounting
+kind: guide
+module: behavioral-economics
+section: behavioral-economics
+title: Mental Accounting
+status: source-custody
+source_custody: partial
+current_path: behavioral-economics/04-MENTAL-ACCOUNTING.md
+canonical_path: behavioral-economics/04-MENTAL-ACCOUNTING.md
+backsource_ids: [proof-backfill:behavioral-economics:04-mental-accounting, git-history:behavioral-economics:04-mental-accounting]
+concepts: [mental, accounting]
+root_concepts: [mental, accounting]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mental Accounting
 
 ## Thaler's Mental Accounting Framework
@@ -14,7 +33,7 @@
 │  People maintain SEPARATE MENTAL ACCOUNTS for money.                        │
 │  Accounts have:                                                             │
 │    - Implicit labels (food budget, entertainment, savings, "windfall")      │
-│    - Non-fungibility: money in one account not freely transferred to another │
+│    - Non-fungibility: money in one account not freely moved to another      │
 │    - Different psychological "prices" for spending                          │
 │    - Different loss aversion across accounts                                │
 │                                                                             │

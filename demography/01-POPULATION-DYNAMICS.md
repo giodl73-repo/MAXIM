@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:demography:population-dynamics
+kind: guide
+module: demography
+section: demography
+title: Population Dynamics
+status: source-custody
+source_custody: partial
+current_path: demography/01-POPULATION-DYNAMICS.md
+canonical_path: demography/01-POPULATION-DYNAMICS.md
+backsource_ids: [proof-backfill:demography:01-population-dynamics, git-history:demography:01-population-dynamics]
+concepts: [population, dynamics]
+root_concepts: [population, dynamics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Population Dynamics
 
 ## The Balancing Equation as a Dynamical System
@@ -11,7 +30,7 @@
 │  Components:                                                                │
 │  B(t)  = Births in period t → t+1        determined by ASFR × women_x       │
 │  D(t)  = Deaths in period t → t+1        determined by ASDR × N_x           │
-│  IM(t) = In-migrants in period            driven by economic/political forces │
+│  IM(t) = In-migrants in period            driven by econ/political forces   │
 │  EM(t) = Out-migrants in period           selective, age/skill-structured   │
 │                                                                             │
 │  NATURAL INCREASE:  NI = B − D                                              │

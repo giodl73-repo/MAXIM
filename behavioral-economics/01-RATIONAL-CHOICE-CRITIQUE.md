@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:behavioral-economics:rational-choice-critique
+kind: guide
+module: behavioral-economics
+section: behavioral-economics
+title: Rational Choice - Critique and Alternatives
+status: source-custody
+source_custody: partial
+current_path: behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md
+canonical_path: behavioral-economics/01-RATIONAL-CHOICE-CRITIQUE.md
+backsource_ids: [proof-backfill:behavioral-economics:01-rational-choice-critique, git-history:behavioral-economics:01-rational-choice-critique]
+concepts: [rational, choice, critique]
+root_concepts: [rational, choice]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rational Choice — Critique and Alternatives
 
 ## The Big Picture
@@ -30,7 +49,7 @@
 │  ─────────────────────────────────────────────────────────────────────────  │
 │  Savage (1954):   Subjective EU — handle uncertainty via subjective probs   │
 │    Ellsberg violates this too (sure-thing principle)                        │
-│  Simon (1955):    Bounded rationality — optimization infeasible; satisficing │
+│  Simon (1955):    Bounded rationality — opt. infeasible; satisficing        │
 │  Maximin EU:      Handle ambiguity by maximizing worst-case EU              │
 │  Robust opt.:     Uncertainty set instead of single distribution            │
 │                                                                             │

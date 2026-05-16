@@ -1,32 +1,51 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:demography:overview
+kind: guide
+module: demography
+section: demography
+title: Demography - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: demography/00-OVERVIEW.md
+canonical_path: demography/00-OVERVIEW.md
+backsource_ids: [proof-backfill:demography:00-overview, git-history:demography:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Demography — Landscape Overview
 
 ## The Big Picture: Population as a Dynamical System
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    DEMOGRAPHY LANDSCAPE                                      │
-│                                                                               │
-│  FORMAL DEMOGRAPHY               SOCIAL DEMOGRAPHY                           │
-│  (mathematical/statistical)      (contextual/behavioral)                     │
-│                                                                               │
+│                    DEMOGRAPHY LANDSCAPE                                     │
+│                                                                             │
+│  FORMAL DEMOGRAPHY               SOCIAL DEMOGRAPHY                          │
+│  (mathematical/statistical)      (contextual/behavioral)                    │
+│                                                                             │
 │  ┌─────────────────────┐         ┌─────────────────────────────────────┐    │
-│  │ Life tables          │         │ SES gradients in fertility/mortality │    │
-│  │ Cohort-component     │         │ Race/ethnicity × demographic outcomes│    │
-│  │ projection           │         │ Gender and reproductive behavior     │    │
-│  │ Fertility/mortality  │         │ Migration and identity               │    │
-│  │ measurement          │         │ Religion and family formation        │    │
-│  │ Population momentum  │         │ Policy effects on demographics       │    │
+│  │ Life tables          │         │ SES gradients in fertility/mortality │  │
+│  │ Cohort-component     │         │ Race/ethnicity × demographic outcomes│  │
+│  │ projection           │         │ Gender and reproductive behavior     │  │
+│  │ Fertility/mortality  │         │ Migration and identity               │  │
+│  │ measurement          │         │ Religion and family formation        │  │
+│  │ Population momentum  │         │ Policy effects on demographics       │  │
 │  └─────────────────────┘         └─────────────────────────────────────┘    │
-│                                                                               │
-│  THREE FUNDAMENTAL PROCESSES:                                                 │
+│                                                                             │
+│  THREE FUNDAMENTAL PROCESSES:                                               │
 │  FERTILITY (births) + MORTALITY (deaths) + MIGRATION (in/out)               │
 │  → determines population SIZE, STRUCTURE, DISTRIBUTION                      │
-│                                                                               │
-│  MATHEMATICAL STRUCTURE:                                                      │
-│  Population = a dynamical system                                             │
-│  Balancing equation = first-order difference equation                        │
-│  Leslie matrix = age-structured linear system (eigenvalue theory)            │
-│  Life table = survival function (same hazard framework as reliability)       │
+│                                                                             │
+│  MATHEMATICAL STRUCTURE:                                                    │
+│  Population = a dynamical system                                            │
+│  Balancing equation = first-order difference equation                       │
+│  Leslie matrix = age-structured linear system (eigenvalue theory)           │
+│  Life table = survival function (same hazard framework as reliability)      │
 │  Stable population theory = steady-state of the demographic system          │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
