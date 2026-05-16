@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:criminology:strain-anomie
+kind: guide
+module: criminology
+section: criminology
+title: Strain Theory and Anomie
+status: source-custody
+source_custody: partial
+current_path: criminology/02-STRAIN-ANOMIE.md
+canonical_path: criminology/02-STRAIN-ANOMIE.md
+backsource_ids: [proof-backfill:criminology:02-strain-anomie, git-history:criminology:02-strain-anomie]
+concepts: [strain, anomie]
+root_concepts: [strain, anomie]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Strain Theory and Anomie
 
 ## The Big Picture

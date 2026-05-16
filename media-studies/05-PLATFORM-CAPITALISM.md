@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:media-studies:platform-capitalism
+kind: guide
+module: media-studies
+section: media-studies
+title: Platform Capitalism and the Attention Economy
+status: source-custody
+source_custody: partial
+current_path: media-studies/05-PLATFORM-CAPITALISM.md
+canonical_path: media-studies/05-PLATFORM-CAPITALISM.md
+backsource_ids: [proof-backfill:media-studies:05-platform-capitalism, git-history:media-studies:05-platform-capitalism]
+concepts: [platform, capitalism]
+root_concepts: [platform, capitalism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Platform Capitalism and the Attention Economy
 
 ## The Big Picture
@@ -54,7 +73,7 @@ Srnicek analyzes platforms as a new business model that has emerged since the 20
   MULTISIDED MARKET:
   +-----------+                +-----------+
   |  GROUP A  | <-- Platform   |  GROUP B  |
-  |  (Users)  |   mediates     |(Advertisers|
+  |  (Users)  |   mediates     |Advertisers|
   |           |   interaction  | Sellers,  |
   |           |                | Developers|
   +-----------+                +-----------+
@@ -86,7 +105,7 @@ Srnicek analyzes platforms as a new business model that has emerged since the 20
 | INDUSTRIAL       | Sensors + data analytics for             | GE Predix,     |
 |                  | manufacturers/infrastructure             | Siemens MindS. |
 +------------------+------------------------------------------+---------------+
-| PRODUCT          | Leverage platform position to sell       | Apple hardware,|
+| PRODUCT          | Leverage platform position to sell       | Apple hardware|
 |                  | products + ecosystem lock-in             | Amazon retail |
 +------------------+------------------------------------------+---------------+
 | LEAN             | Outsource assets to providers;           | Uber, Airbnb,  |

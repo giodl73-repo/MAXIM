@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:criminology:desistance
+kind: guide
+module: criminology
+section: criminology
+title: Desistance, Reentry, and Rehabilitation
+status: source-custody
+source_custody: partial
+current_path: criminology/08-DESISTANCE.md
+canonical_path: criminology/08-DESISTANCE.md
+backsource_ids: [proof-backfill:criminology:08-desistance, git-history:criminology:08-desistance]
+concepts: [desistance]
+root_concepts: [desistance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Desistance, Reentry, and Rehabilitation
 
 ## The Big Picture

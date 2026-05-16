@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:media-studies:frankfurt-school
+kind: guide
+module: media-studies
+section: media-studies
+title: Frankfurt School and Critical Theory
+status: source-custody
+source_custody: partial
+current_path: media-studies/02-FRANKFURT-SCHOOL.md
+canonical_path: media-studies/02-FRANKFURT-SCHOOL.md
+backsource_ids: [proof-backfill:media-studies:02-frankfurt-school, git-history:media-studies:02-frankfurt-school]
+concepts: [frankfurt, school]
+root_concepts: [frankfurt, school]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Frankfurt School and Critical Theory
 
 ## The Big Picture

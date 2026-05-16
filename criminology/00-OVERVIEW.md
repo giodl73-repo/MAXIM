@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:criminology:overview
+kind: guide
+module: criminology
+section: criminology
+title: Criminology - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: criminology/00-OVERVIEW.md
+canonical_path: criminology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:criminology:00-overview, git-history:criminology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Criminology — Landscape and Taxonomy
 
 ## The Big Picture

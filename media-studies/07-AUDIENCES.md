@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:media-studies:audiences
+kind: guide
+module: media-studies
+section: media-studies
+title: Audiences, Reception, and Participatory Culture
+status: source-custody
+source_custody: partial
+current_path: media-studies/07-AUDIENCES.md
+canonical_path: media-studies/07-AUDIENCES.md
+backsource_ids: [proof-backfill:media-studies:07-audiences, git-history:media-studies:07-audiences]
+concepts: [audiences]
+root_concepts: [audiences]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Audiences, Reception, and Participatory Culture
 
 ## The Big Picture

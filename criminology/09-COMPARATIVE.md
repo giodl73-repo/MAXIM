@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:criminology:comparative
+kind: guide
+module: criminology
+section: criminology
+title: Comparative Criminology and International Systems
+status: source-custody
+source_custody: partial
+current_path: criminology/09-COMPARATIVE.md
+canonical_path: criminology/09-COMPARATIVE.md
+backsource_ids: [proof-backfill:criminology:09-comparative, git-history:criminology:09-comparative]
+concepts: [comparative]
+root_concepts: [comparative]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Comparative Criminology and International Systems
 
 ## The Big Picture

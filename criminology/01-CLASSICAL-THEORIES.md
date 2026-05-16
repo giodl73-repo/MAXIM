@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:criminology:classical-theories
+kind: guide
+module: criminology
+section: criminology
+title: Classical and Rational Choice Theories
+status: source-custody
+source_custody: partial
+current_path: criminology/01-CLASSICAL-THEORIES.md
+canonical_path: criminology/01-CLASSICAL-THEORIES.md
+backsource_ids: [proof-backfill:criminology:01-classical-theories, git-history:criminology:01-classical-theories]
+concepts: [classical, theories]
+root_concepts: [classical, theories]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Classical and Rational Choice Theories
 
 ## The Big Picture

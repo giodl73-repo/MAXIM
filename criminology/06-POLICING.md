@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:criminology:policing
+kind: guide
+module: criminology
+section: criminology
+title: Policing: Strategies, Bias, and Reform
+status: source-custody
+source_custody: partial
+current_path: criminology/06-POLICING.md
+canonical_path: criminology/06-POLICING.md
+backsource_ids: [proof-backfill:criminology:06-policing, git-history:criminology:06-policing]
+concepts: [policing]
+root_concepts: [policing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Policing: Strategies, Bias, and Reform
 
 ## The Big Picture

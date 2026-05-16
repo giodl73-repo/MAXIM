@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:criminology:incarceration
+kind: guide
+module: criminology
+section: criminology
+title: Mass Incarceration as Policy Choice
+status: source-custody
+source_custody: partial
+current_path: criminology/07-INCARCERATION.md
+canonical_path: criminology/07-INCARCERATION.md
+backsource_ids: [proof-backfill:criminology:07-incarceration, git-history:criminology:07-incarceration]
+concepts: [incarceration]
+root_concepts: [incarceration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mass Incarceration as Policy Choice
 
 ## The Big Picture

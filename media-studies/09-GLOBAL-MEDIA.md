@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:media-studies:global-media
+kind: guide
+module: media-studies
+section: media-studies
+title: Global Media Flows and Cultural Imperialism
+status: source-custody
+source_custody: partial
+current_path: media-studies/09-GLOBAL-MEDIA.md
+canonical_path: media-studies/09-GLOBAL-MEDIA.md
+backsource_ids: [proof-backfill:media-studies:09-global-media, git-history:media-studies:09-global-media]
+concepts: [global, media]
+root_concepts: [global, media]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Global Media Flows and Cultural Imperialism
 
 ## The Big Picture
