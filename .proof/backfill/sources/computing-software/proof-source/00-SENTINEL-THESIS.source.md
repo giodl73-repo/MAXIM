@@ -4,6 +4,26 @@ ops: [backfill]
 content_tags: [markdown]
 proof_original: "00-SENTINEL-THESIS.md"
 ---
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computing-software:sentinel-thesis
+kind: guide
+module: computing-software
+section: computing-software
+title: The Sentinel - Volume Thesis
+status: source-custody
+source_custody: partial
+current_path: computing/00-SENTINEL-THESIS.md
+canonical_path: computing/00-SENTINEL-THESIS.md
+backsource_ids: [proof-backfill:computing-software:00-sentinel-thesis, git-history:computing-software:00-sentinel-thesis]
+concepts: [distributed systems, security engineering, cloud architecture, consensus, zero trust]
+root_concepts: [sentinel principle]
+index_roles: [volume-map, bridge-map]
+remap_from: []
+remap_to: []
+updated: null
+---
+
 # The Sentinel — Volume Thesis
 
 **K-Spade C-IV: Distributed Systems / Security Engineering / Cloud Architecture**
