@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\04-JAVA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 43,
+      "heading_context": "## JVM Ecosystem Landscape",
+      "confidence": "candidate",
+      "text": "SOURCE → COMPILER → BYTECODE → RUNTIME\n\n  Java source (.java)\n       │\n       ▼\n  ┌─────────┐\n  │  javac  │\n  └─────────┘\n       │\n       ▼\n  .class files (JVM bytecode — stack-based instruction set, not native)\n       │\n       ▼\n  ┌──────────────────────────────────────────────────────────┐\n  │                      JVM Runtime                         │\n  │                                                          │\n  │  ┌──────────────┐    ┌──────────────┐    ┌───────────┐   │\n  │  │ Class Loader │───▶│ JIT Compiler │───▶│  Native   │  │\n  │  │              │    │  (HotSpot)   │    │   Code    │  │\n  │  └──────────────┘    └──────────────┘    └───────────┘  │\n  │         │                   │                            │\n  │         ▼                   ▼                            │\n  │  ┌──────────────┐    ┌──────────────┐                    │\n  │  │  Bytecode    │    │  GC (G1GC /  │                    │\n  │  │ Interpreter  │    │  ZGC / etc.) │                    │\n  │  │  (warmup)    │    └──────────────┘                    │\n  │  └──────────────┘                                        │\n  └──────────────────────────────────────────────────────────┘\n\n  JVM also hosts: Kotlin · Scala · Clojure · Groovy\n  (all compile to the same .class bytecode format)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "### Collections",
+      "confidence": "candidate",
+      "text": "// Immutable (preferred for data passing)\nList.of(1, 2, 3)\nMap.of(\"k\", 1, \"k2\", 2)    // up to 10 pairs\nSet.of(1, 2, 3)\nMap.copyOf(map)\n\n// Mutable\nnew ArrayList<>(List.of(1, 2, 3))\nnew HashMap<>()\nnew HashSet<>()\nnew LinkedHashMap<>()       // insertion-ordered map\nnew TreeMap<>()             // sorted map\n\n// Array (fixed size)\nint[] a = {1, 2, 3};\nint[] a = new int[5];       // zero-initialized\nint[][] matrix = new int[3][3];\n\n// No tuple — use records or Map.Entry<K,V> or custom\n// Streams (Java 8+)\nlist.stream()\n    .filter(x -> x > 0)\n    .map(x -> x * 2)\n    .collect(Collectors.toList())",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "### Control Flow",
+      "confidence": "candidate",
+      "text": "if (cond) { } else if (cond2) { } else { }\n\n// Ternary\nint max = (a > b) ? a : b;\n\n// Switch expression (Java 14+) — no fall-through, returns value\nint result = switch (day) {\n    case MONDAY, FRIDAY -> 8;\n    case TUESDAY -> 9;\n    default -> 5;\n};\n\n// Pattern matching in switch (Java 21+)\nObject obj = ...;\nswitch (obj) {\n    case Integer i -> System.out.println(\"int: \" + i);\n    case String s when s.length() > 5 -> System.out.println(\"long string\");\n    case null -> System.out.println(\"null\");\n    default -> System.out.println(\"other\");\n}\n\n// Pattern matching instanceof (Java 16+)\nif (obj instanceof String s && s.length() > 3) {\n    s.toUpperCase()   // s is String in this scope\n}\n\n// Enhanced for\nfor (var item : list) { }\nfor (var entry : map.entrySet()) { entry.getKey(); entry.getValue(); }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 346,
+      "heading_context": "## Bridge from C#: Virtual-by-Default vs Non-Virtual-by-Default",
+      "confidence": "candidate",
+      "text": "METHOD DISPATCH — THE DEFAULT FLIP\n\n  Java (virtual by default):          C# (non-virtual by default):\n  ┌─────────────────────────┐         ┌─────────────────────────┐\n  │ class Animal {          │         │ class Animal {          │\n  │   void speak() { ... }  │         │   void Speak() { ... }  │\n  │ }                       │         │ }                       │\n  │                         │         │                         │\n  │ class Dog extends Animal│         │ class Dog : Animal {    │\n  │   void speak() { ... }  │         │   void Speak() { ... }  │\n  │ }                       │         │ }                       │\n  └─────────────────────────┘         └─────────────────────────┘\n\n  Animal a = new Dog();               Animal a = new Dog();\n  a.speak()  →  Dog.speak()  [OK]       a.Speak()  →  Animal.Speak() [!]\n  (virtual dispatch works)            (non-virtual — Dog hides, not overrides)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

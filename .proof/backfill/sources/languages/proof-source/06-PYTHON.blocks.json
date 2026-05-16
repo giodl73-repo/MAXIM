@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\06-PYTHON.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 41,
+      "heading_context": "## Python Execution Model & Ecosystem Landscape",
+      "confidence": "candidate",
+      "text": "SOURCE                 COMPILATION              RUNTIME\n─────────────────────────────────────────────────────────────────────────\n\n your_module.py   ──►  CPython compiler  ──►  .pyc bytecode cache\n  (UTF-8 text)          (built into             (__pycache__/)\n                         CPython)\n                                          ──►  CPython VM (interpreter)\n                                               ┌─────────────────────┐\n                                               │  Bytecode evaluator │\n                                               │  ┌───────────────┐  │\n                                               │  │  GIL          │   │\n                                               │  │ (one thread   │   │\n                                               │  │  runs Python  │   │\n                                               │  │  bytecode at  │   │\n                                               │  │  a time)      │   │\n                                               │  └───────────────┘   │\n                                               │  Reference-counted   │\n                                               │  heap + cycle GC     │\n                                               └─────────────────────┘\n\nALTERNATIVE RUNTIMES:\n  CPython  — default, C implementation, the GIL lives here\n  PyPy     — JIT compiler, 5-10x faster for CPU-bound loops, same .py source\n  Jython   — runs on JVM, true threads (no GIL), Java interop\n  GraalPy  — GraalVM polyglot, experimental\n\n─────────────────────────────────────────────────────────────────────────\nC# COMPARISON: IL → CLR JIT → native code (true OS threads, no GIL)\nPython:        .py → bytecode → interpreter (GIL limits thread parallelism)\n\nGIL IMPACT ON CONCURRENCY:\n  I/O-bound work   → threading or asyncio works fine (GIL released on I/O)\n  CPU-bound work   → use multiprocessing (separate processes, each with own GIL)\n                     or PyPy, or C extensions that release the GIL (NumPy does)\n  Python 3.13+     → experimental \"free-threaded\" build (--disable-gil) available\n\n─────────────────────────────────────────────────────────────────────────\nPACKAGING ECOSYSTEM:\n\n pyproject.toml          ← project metadata + dependencies (PEP 517/518)\n (or setup.py legacy)\n       │\n       ▼\n   pip / uv / poetry     ← installers / resolvers\n       │\n       ▼\n  PyPI (pypi.org)        ← package registry (like NuGet)\n       │\n       ▼\n  .venv/  (virtualenv)   ← isolated environment per project\n  site-packages/         ← installed packages live here\n\n  Wheel (.whl)  — pre-built binary distribution (fast install)\n  sdist (.tar.gz) — source distribution (requires build step)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

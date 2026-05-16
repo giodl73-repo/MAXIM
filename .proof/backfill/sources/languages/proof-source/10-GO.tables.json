@@ -1,0 +1,208 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\10-GO.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## Type System Snapshot",
+      "headers": [
+        "Axis",
+        "Go"
+      ],
+      "rows": [
+        [
+          "Binding",
+          "Early + interface dispatch (structural)"
+        ],
+        [
+          "Typing",
+          "Static"
+        ],
+        [
+          "Strength",
+          "Strong — no implicit conversions"
+        ],
+        [
+          "Type system",
+          "Structural for interfaces; nominal for everything else"
+        ],
+        [
+          "Type inference",
+          "Partial — `:=` short declaration, function args"
+        ],
+        [
+          "Memory model",
+          "GC (concurrent tri-color mark-sweep)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 544,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "go build / go run",
+          "Build and run"
+        ],
+        [
+          "go mod",
+          "Module management"
+        ],
+        [
+          "gofmt / goimports",
+          "Formatter (enforced style)"
+        ],
+        [
+          "gopls",
+          "LSP"
+        ],
+        [
+          "testing package",
+          "Built-in test framework"
+        ],
+        [
+          "goroutine + net/http",
+          "Standard library HTTP server"
+        ],
+        [
+          "gin / fiber / chi",
+          "Web frameworks"
+        ],
+        [
+          "sqlc / gorm",
+          "Database"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 559,
+      "heading_context": "## Gotchas from C#",
+      "headers": [
+        "C# behavior",
+        "Go behavior",
+        "Consequence"
+      ],
+      "rows": [
+        [
+          "`List<T>` is always a reference",
+          "Slice is a reference to backing array — sub-slices share backing",
+          "Modifying sub-slice modifies original"
+        ],
+        [
+          "`Dictionary<K,V>` readable when null",
+          "Writing to nil map **panics**",
+          "Initialize with `make`"
+        ],
+        [
+          "Classes have inheritance",
+          "Go has no inheritance — use composition (embedding)",
+          "Different OOP model"
+        ],
+        [
+          "Multiple return not idiomatic",
+          "Multiple return values are idiomatic `(T, error)`",
+          "Learn to love it"
+        ],
+        [
+          "`try/catch`",
+          "`if err != nil` on every call",
+          "More verbose; more explicit"
+        ],
+        [
+          "`using` for cleanup",
+          "`defer` for cleanup",
+          "`defer` runs at function end, not block end"
+        ],
+        [
+          "Ternary `cond ? a : b`",
+          "No ternary",
+          "Write the if/else"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 573,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Decision",
+        "Use X",
+        "When Y"
+      ],
+      "rows": [
+        [
+          "**goroutine vs `sync.WaitGroup` vs channel**",
+          "goroutine alone",
+          "Fire-and-forget; result not needed by caller"
+        ],
+        [
+          "",
+          "goroutine + `WaitGroup`",
+          "Fan-out work; need to know when all are done; no inter-goroutine data"
+        ],
+        [
+          "",
+          "goroutine + channel",
+          "Goroutines need to communicate results back; pipeline patterns"
+        ],
+        [
+          "**pointer receiver vs value receiver**",
+          "pointer receiver `(p *T)`",
+          "Method mutates the struct; struct is large (avoid copy cost)"
+        ],
+        [
+          "",
+          "value receiver `(p T)`",
+          "Read-only method; small struct; consistency when T has no pointer methods"
+        ],
+        [
+          "**`errors.Is` vs `errors.As` vs type assertion**",
+          "`errors.Is(err, target)`",
+          "Check for a specific sentinel error value anywhere in the chain"
+        ],
+        [
+          "",
+          "`errors.As(err, &target)`",
+          "Unwrap chain looking for a specific error type; extract its fields"
+        ],
+        [
+          "",
+          "type assertion `err.(*MyErr)`",
+          "Direct type check without unwrapping; only use when not using `%w` wrapping"
+        ],
+        [
+          "**`interface{}` / `any` vs generics**",
+          "`interface{}` / `any`",
+          "Pre-Go 1.18 code; truly heterogeneous containers; `fmt`-style variadic"
+        ],
+        [
+          "",
+          "generics `[T constraint]`",
+          "Type-safe algorithms over multiple types; avoid `interface{}` + type assertion boilerplate"
+        ],
+        [
+          "**`make` vs `new` vs composite literal**",
+          "`make(T, ...)`",
+          "Slices, maps, channels — initializes internal structure (len/cap/buffer)"
+        ],
+        [
+          "",
+          "`new(T)`",
+          "Allocates zeroed T and returns `*T`; rarely needed; prefer composite literal"
+        ],
+        [
+          "",
+          "`T{...}` composite literal",
+          "Structs, arrays, slices, maps with known values; most readable"
+        ]
+      ]
+    }
+  ]
+}

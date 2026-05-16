@@ -1,0 +1,214 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\12-FSHARP.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## Type System Snapshot",
+      "headers": [
+        "Axis",
+        "F#"
+      ],
+      "rows": [
+        [
+          "Binding",
+          "Early (static) + .NET vtable for OOP interop"
+        ],
+        [
+          "Typing",
+          "Static"
+        ],
+        [
+          "Strength",
+          "Strong"
+        ],
+        [
+          "Type system",
+          "Nominal; structural for anonymous records"
+        ],
+        [
+          "Type inference",
+          "**Full HM** — annotate rarely"
+        ],
+        [
+          "Memory model",
+          "GC (.NET, same as C#)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 498,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "dotnet CLI",
+          "Build and run (same as C#)"
+        ],
+        [
+          "NuGet",
+          "Package management"
+        ],
+        [
+          "Paket",
+          "Alternative package manager"
+        ],
+        [
+          "FSharp.Core",
+          "Standard library"
+        ],
+        [
+          "Ionide",
+          "VS Code extension for F#"
+        ],
+        [
+          "Giraffe / Saturn",
+          "Web frameworks"
+        ],
+        [
+          "Fable",
+          "F# → JavaScript compiler"
+        ],
+        [
+          "FAKE",
+          "Build automation in F#"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 513,
+      "heading_context": "## F# vs C# Mental Model",
+      "headers": [
+        "Concept",
+        "C#",
+        "F#"
+      ],
+      "rows": [
+        [
+          "Default",
+          "Mutable",
+          "Immutable"
+        ],
+        [
+          "Data modeling",
+          "Class hierarchy",
+          "Discriminated union + record"
+        ],
+        [
+          "Null",
+          "null + T?",
+          "Option<'T>"
+        ],
+        [
+          "Equality",
+          "Must implement",
+          "Structural by default"
+        ],
+        [
+          "Code organization",
+          "Classes, interfaces",
+          "Modules, types"
+        ],
+        [
+          "Error handling",
+          "try/catch",
+          "Result + computation expr"
+        ],
+        [
+          "Async",
+          "async Task<T>",
+          "async { let! x = ... }"
+        ],
+        [
+          "Polymorphism",
+          "Interface/virtual",
+          "Typeclass via interface"
+        ],
+        [
+          "Data pipeline",
+          "LINQ method chain",
+          "`\\|>` pipeline"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 529,
+      "heading_context": "## When to Choose F#",
+      "headers": [
+        "Scenario",
+        "F# wins",
+        "C# wins",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Data transformation pipelines (ETL, reports, analytics)",
+          "Yes",
+          "",
+          "`\\|>` chains are readable; immutable collections compose cleanly; no side-effect leakage"
+        ],
+        [
+          "Domain modeling with complex variants",
+          "Yes",
+          "",
+          "Discriminated unions replace inheritance + null + flag fields; exhaustive pattern match catches unhandled cases at compile time"
+        ],
+        [
+          "Type-safe DSLs",
+          "Yes",
+          "",
+          "Computation expressions let you embed domain semantics in syntax; Fable compiles F# to JS for full-stack type safety"
+        ],
+        [
+          "Heavy OOP / COM interop",
+          "",
+          "Yes",
+          "C# class/interface model maps directly to COM vtables and OOP APIs; F# OOP is possible but verbose"
+        ],
+        [
+          "Async I/O workflows",
+          "Competitive",
+          "Competitive",
+          "F# `async { }` is older and compositional; C# `async Task` has wider library support and `IAsyncEnumerable<T>`"
+        ],
+        [
+          "Script / exploration (`.fsx`)",
+          "Yes",
+          "",
+          "`dotnet fsi` REPL; no project file; top-level expressions; faster iteration than C# scripting"
+        ],
+        [
+          "Railway-Oriented Programming (explicit error flow)",
+          "Yes",
+          "",
+          "`Result` + `result { }` CE makes error paths first-class without exceptions; C# can do it but is more verbose"
+        ],
+        [
+          "Immutable-first data with structural equality",
+          "Yes",
+          "",
+          "All records/DUs get `=` by default; C# `record` gives you this but you must opt in explicitly per type"
+        ],
+        [
+          "Large team, mixed FP/OOP background",
+          "",
+          "Yes",
+          "C# is more universally known; F# code style varies significantly between developers without discipline"
+        ],
+        [
+          "Existing C# codebase, partial adoption",
+          "Selective",
+          "",
+          "F# projects can live in the same solution; use F# for the domain model layer, C# for the API/UI layer"
+        ]
+      ]
+    }
+  ]
+}

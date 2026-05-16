@@ -1,0 +1,320 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\05-CSHARP.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## Type System Snapshot",
+      "headers": [
+        "Axis",
+        "C#"
+      ],
+      "rows": [
+        [
+          "Binding",
+          "**Early** (non-virtual default) — unlike Java"
+        ],
+        [
+          "Typing",
+          "Static"
+        ],
+        [
+          "Strength",
+          "Strong"
+        ],
+        [
+          "Type system",
+          "Nominal + structural for `dynamic`"
+        ],
+        [
+          "Type inference",
+          "Partial — `var`, `new()`, anonymous types, `_` discard"
+        ],
+        [
+          "Memory model",
+          "GC (.NET generational: Gen0/1/2 + LOH)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 391,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "dotnet CLI",
+          "Build, run, publish"
+        ],
+        [
+          "NuGet",
+          "Package manager"
+        ],
+        [
+          "ASP.NET Core",
+          "Web framework"
+        ],
+        [
+          "Entity Framework Core",
+          "ORM"
+        ],
+        [
+          "xUnit / NUnit / MSTest",
+          "Testing"
+        ],
+        [
+          "Blazor",
+          "WebAssembly / server-side UI"
+        ],
+        [
+          "MAUI",
+          "Cross-platform desktop/mobile"
+        ],
+        [
+          "Roslyn",
+          "Compiler API (source generators, analyzers)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 406,
+      "heading_context": "## The C# Evolution Milestones",
+      "headers": [
+        "Version",
+        "Year",
+        "Key Addition"
+      ],
+      "rows": [
+        [
+          "2.0",
+          "2005",
+          "Generics, nullable types, iterators"
+        ],
+        [
+          "3.0",
+          "2007",
+          "LINQ, lambda, `var`, extension methods"
+        ],
+        [
+          "4.0",
+          "2010",
+          "`dynamic`, named/optional params"
+        ],
+        [
+          "5.0",
+          "2012",
+          "**async/await**"
+        ],
+        [
+          "6.0",
+          "2015",
+          "String interpolation, `?.`, `nameof`"
+        ],
+        [
+          "7.0",
+          "2017",
+          "Tuples, pattern matching, `out var`"
+        ],
+        [
+          "8.0",
+          "2019",
+          "Nullable references, `switch` expressions, ranges"
+        ],
+        [
+          "9.0",
+          "2020",
+          "Records, init-only, top-level statements"
+        ],
+        [
+          "10.0",
+          "2021",
+          "Record structs, global using, file-scoped namespace"
+        ],
+        [
+          "11.0",
+          "2022",
+          "Raw strings, generic math, `required`"
+        ],
+        [
+          "12.0",
+          "2023",
+          "Collection expressions, primary constructors"
+        ],
+        [
+          "13.0",
+          "2024",
+          "`params` collections, `lock` object, `field` keyword"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 427,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When",
+        "Avoid when"
+      ],
+      "rows": [
+        [
+          "`record class`",
+          "Immutable data bags; structural equality needed; DTOs, value objects",
+          "Mutable state; identity matters (two instances with same data are distinct)"
+        ],
+        [
+          "`record struct`",
+          "Same as record class but value semantics + stack allocation matters; small immutable structs",
+          "Large structs (copy cost); need inheritance"
+        ],
+        [
+          "`class`",
+          "Mutable state; identity matters; OOP inheritance hierarchies",
+          "Pure data containers with no behavior"
+        ],
+        [
+          "`struct`",
+          "High-frequency small values; avoid GC pressure; `Span<T>`, `Vector<T>` patterns",
+          "Size > ~16 bytes; need inheritance; virtual dispatch"
+        ],
+        [
+          "`readonly struct`",
+          "Struct that is never mutated after construction; enables `in` param optimization",
+          "Any mutation needed"
+        ],
+        [
+          "`ref struct`",
+          "Must not escape the stack; wraps managed pointers (`Span<T>`)",
+          "Stored in fields, captured in lambdas, boxed"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 438,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "`Task<T>`",
+          "General case; method sometimes async; consumed by multiple awaiters"
+        ],
+        [
+          "`ValueTask<T>`",
+          "Hot path that frequently completes synchronously (avoids heap alloc); cache-hit patterns"
+        ],
+        [
+          "`Task` (no result)",
+          "Fire-and-forget infrastructure; never `async void` except event handlers"
+        ],
+        [
+          "`async void`",
+          "**Only** event handlers (`Button.Click += async (s,e) => ...`); exceptions are unobservable everywhere else"
+        ],
+        [
+          "`IAsyncEnumerable<T>`",
+          "Streaming results; infinite sequences; `await foreach` consumers; server-sent events"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 448,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When",
+        "Constraint"
+      ],
+      "rows": [
+        [
+          "`T[]`",
+          "General heap arrays; interop; long-lived",
+          "Heap allocation; GC pressure at high frequency"
+        ],
+        [
+          "`Span<T>`",
+          "Stack-allocated slices; parsing; zero-copy subranges",
+          "Cannot escape stack; no async; no fields in classes"
+        ],
+        [
+          "`Memory<T>`",
+          "Same as Span but heap-capable; can cross async boundaries",
+          "Slight overhead vs Span"
+        ],
+        [
+          "`ArraySegment<T>`",
+          "Legacy interop with older APIs expecting segments",
+          "Less expressive than Span/Memory"
+        ],
+        [
+          "`IMemoryOwner<T>`",
+          "Pooled memory (ArrayPool); explicit lifetime",
+          "Manual Dispose required"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 458,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "`IEnumerable<T>`",
+          "Lazily-evaluated sequences; LINQ source; widest compatibility; caller only iterates"
+        ],
+        [
+          "`IReadOnlyCollection<T>`",
+          "Count needed; caller does not mutate; slightly narrower than List"
+        ],
+        [
+          "`IReadOnlyList<T>`",
+          "Index access needed; immutable view of ordered data"
+        ],
+        [
+          "`ICollection<T>`",
+          "Caller may Add/Remove; Count guaranteed"
+        ],
+        [
+          "`IList<T>`",
+          "Full random-access + mutation; prefer concrete type in private APIs"
+        ],
+        [
+          "Concrete (`List<T>`, `T[]`)",
+          "Private/internal APIs; performance-critical code where interface dispatch matters"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 469,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "`IEnumerable<T>`",
+          "In-memory data; F# seq equivalent; evaluated in the process"
+        ],
+        [
+          "`IQueryable<T>`",
+          "Database queries via EF Core; expression tree translated to SQL; never call `.ToList()` until you mean it"
+        ]
+      ]
+    }
+  ]
+}

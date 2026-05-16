@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:cheatsheet
+kind: guide
+module: languages
+section: languages
+title: Universal Language Cheat Sheet
+status: source-custody
+source_custody: partial
+current_path: languages/01-CHEATSHEET.md
+canonical_path: languages/01-CHEATSHEET.md
+backsource_ids: [proof-backfill:languages:01-cheatsheet, git-history:languages:01-cheatsheet]
+concepts: [cheatsheet]
+root_concepts: [cheatsheet]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Universal Language Cheat Sheet
 
 > **Navigation** — This file is ~51KB / ~1,400 lines. Use your editor's symbol search or Ctrl+F on the section headers below to jump directly to a language or topic.

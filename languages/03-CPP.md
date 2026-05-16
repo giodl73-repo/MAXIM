@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:cpp
+kind: guide
+module: languages
+section: languages
+title: Language: C++
+status: source-custody
+source_custody: partial
+current_path: languages/03-CPP.md
+canonical_path: languages/03-CPP.md
+backsource_ids: [proof-backfill:languages:03-cpp, git-history:languages:03-cpp]
+concepts: [cpp]
+root_concepts: [cpp]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language: C++
 
 > C with object-oriented and generic programming layered on top — the language that proves zero-cost abstraction is achievable at the cost of enormous complexity.

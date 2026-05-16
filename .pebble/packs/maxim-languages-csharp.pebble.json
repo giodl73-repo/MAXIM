@@ -1,0 +1,1721 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-languages-csharp",
+  "source": "../../languages",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-CSHARP.md#000",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "# Language: C#"
+    },
+    {
+      "id": "05-CSHARP.md#001",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "> The home base — .NET CLR, modern type system evolution, LINQ, async/await origin, and records. Used as the reference language throughout this series."
+    },
+    {
+      "id": "05-CSHARP.md#002",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-CSHARP.md#003",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "## Type System Snapshot"
+    },
+    {
+      "id": "05-CSHARP.md#004",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "| Axis | C# |\n|------|-----|\n| Binding | **Early** (non-virtual default) — unlike Java |\n| Typing | Static |\n| Strength | Strong |\n| Type system | Nominal + structural for `dynamic` |\n| Type inference | Partial — `var`, `new()`, anonymous types, `_` discard |\n| Memory model | GC (.NET generational: Gen0/1/2 + LOH) |"
+    },
+    {
+      "id": "05-CSHARP.md#005",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-CSHARP.md#006",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "## CLR Ecosystem Map"
+    },
+    {
+      "id": "05-CSHARP.md#007",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "```\n  SOURCE & TOOLCHAIN\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  .cs source files                                                   │\n  │         │                                                           │\n  │         ▼                                                           │\n  │  ┌─────────────────────────────────────────────────────┐            │\n  │  │  Roslyn Compiler (Microsoft.CodeAnalysis)           │           │\n  │  │  ├── Syntax tree (parse)                            │           │\n  │  │  ├── Semantic model (bind, type-check)              │           │\n  │  │  ├── Analyzers + Source Generators (Roslyn API)     │           │\n  │  │  └── Emit                                           │           │\n  │  └─────────────────────────────────────────────────────┘           │\n  │         │                                                           │\n  │         ▼                                                           │\n  │  IL / CIL  (.dll / .exe — platform-neutral bytecode)               │\n  │  + Metadata (reflection info, assembly manifest)                    │\n  └─────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "05-CSHARP.md#008",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "RUNTIME (CLR)\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Class Loader  →  JIT Compiler (RyuJIT)  →  Native code (x64/ARM)   │\n  │                       │                                             │\n  │  ┌────────────────────┼────────────────────────────────────────┐    │\n  │  │  Runtime Services  │                                        │   │\n  │  │  ├── GC       Gen0 (short-lived) → Gen1 → Gen2 + LOH        │   │\n  │  │  ├── Thread Pool   (I/O completion ports + worker threads)  │   │\n  │  │  ├── Exception handling  (SEH-based, managed wrappers)      │   │\n  │  │  ├── Reflection + Metadata API                              │   │\n  │  │  └── P/Invoke + COM interop layer                           │   │\n  │  └────────────────────────────────────────────────────────────┘   │\n  └─────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "05-CSHARP.md#009",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "TYPE HIERARCHY (System namespace)\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  System.Object  (every managed type roots here)                     │\n  │       │                                                             │\n  │       ├── System.ValueType  (stack-allocated by default)            │\n  │       │         ├── struct          (user-defined value types)      │\n  │       │         ├── enum            (int-backed by default)         │\n  │       │         ├── Nullable<T>     (T? — boxing on heap if needed) │\n  │       │         └── record struct   (C# 10 — value type + =with=)   │\n  │       │                                                             │\n  │       └── Reference types  (heap-allocated, GC-tracked)             │\n  │                 ├── class           (single inheritance)            │\n  │                 ├── record class    (C# 9 — structural equality)    │\n  │                 ├── interface       (multiple; default members C#8) │\n  │                 ├── delegate        (type-safe function pointer)    │\n  │                 └── array           (T[] — covariant, SZArray IL)   │\n  │                                                                     │\n  │  Managed pointers (not in hierarchy — compiler-only types)          │\n  │       ├── ref T            (byref — alias to variable)              │\n  │       ├── in T             (readonly ref — no copy, no write)       │\n  │       ├── out T            (write-before-read byref)                │\n  │       ├── Span<T>          (ref struct — stack-only slice)          │\n  │       └── ref struct       (must live on stack, no boxing)          │\n  └─────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "05-CSHARP.md#010",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-CSHARP.md#011",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "## Syntax Reference Card"
+    },
+    {
+      "id": "05-CSHARP.md#012",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "### Variables & Types\n```csharp\nvar x = 5;                      // inferred: int\nint x = 5;                      // explicit\nconst int MAX = 100;            // compile-time constant\nreadonly int size;              // runtime constant (set in ctor only)\nint x = default;                // 0 (default value for type)"
+    },
+    {
+      "id": "05-CSHARP.md#013",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Newer declaration forms (C# 9+)\nusing var stream = File.OpenRead(\"f\");  // scoped using"
+    },
+    {
+      "id": "05-CSHARP.md#014",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Deconstruction\nvar (a, b) = (1, 2);\nvar (x, y, _) = point;         // _ discards third"
+    },
+    {
+      "id": "05-CSHARP.md#015",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Nullable value types\nint? n = null;                  // Nullable<int>\nn.HasValue  n.Value  n.GetValueOrDefault()"
+    },
+    {
+      "id": "05-CSHARP.md#016",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Nullable reference types (C# 8+ — project-level opt-in)\nstring? nullable = null;\nstring nonNull = \"value\";       // compiler warns if you assign null\n```"
+    },
+    {
+      "id": "05-CSHARP.md#017",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "### Equality & Comparison\n```csharp\n// == is overloadable\n// For string: == is VALUE equality (C# overrides ==)\nstring a = \"hello\";\nstring b = new string(\"hello\".ToCharArray());\na == b              // true (string overloads ==)\nobject.ReferenceEquals(a, b)    // false (different objects)"
+    },
+    {
+      "id": "05-CSHARP.md#018",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// object.Equals / virtual\na.Equals(b)                     // true\nobject.Equals(a, b)             // null-safe"
+    },
+    {
+      "id": "05-CSHARP.md#019",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Records get structural == automatically (C# 9+)\nrecord Point(int X, int Y);\nnew Point(1, 2) == new Point(1, 2)  // true [OK]"
+    },
+    {
+      "id": "05-CSHARP.md#020",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Pattern matching\nx is int n                          // type check + extract\nx is > 0 and < 100                  // relational pattern\nx is null                           // null check"
+    },
+    {
+      "id": "05-CSHARP.md#021",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// IComparable\nstring.Compare(a, b, StringComparison.OrdinalIgnoreCase)\n```"
+    },
+    {
+      "id": "05-CSHARP.md#022",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "### Logical Operators\n```csharp\n&&    // short-circuit AND\n||    // short-circuit OR\n!     // NOT\n&     // non-short-circuit logical AND (also bitwise)\n|     // non-short-circuit logical OR (also bitwise)\n^     // bitwise XOR (not exponentiation!)\n~     // bitwise complement\n<<  >>  >>>   // shifts (>>> unsigned right shift, C# 11+)"
+    },
+    {
+      "id": "05-CSHARP.md#023",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Null-conditional and null-coalescing\nx?.Property         // null if x is null\nx?.Method()         // null if x is null\nx ?? \"default\"      // \"default\" if x is null\nx ??= \"default\"     // assign default if x is null\n```"
+    },
+    {
+      "id": "05-CSHARP.md#024",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "### Collections\n```csharp\n// C# 12 collection expressions (preferred syntax)\nint[] arr = [1, 2, 3];\nList<int> list = [1, 2, 3];\nint[] spread = [..arr, 4, 5];"
+    },
+    {
+      "id": "05-CSHARP.md#025",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Pre-C# 12\nint[] arr = new[] { 1, 2, 3 };\nint[] arr = new int[5];                     // zero-initialized\nvar list = new List<int> { 1, 2, 3 };\nvar dict = new Dictionary<string, int>\n{\n    [\"a\"] = 1,                              // index init\n    { \"b\", 2 }                              // add init\n};\nvar set = new HashSet<int> { 1, 2, 3 };"
+    },
+    {
+      "id": "05-CSHARP.md#026",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Tuples (C# 7+)\n(int x, int y) point = (1, 2);\nvar (x, y) = point;                         // deconstruct\npoint.x  point.y                            // named members"
+    },
+    {
+      "id": "05-CSHARP.md#027",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Records (immutable data classes, C# 9+)\nrecord Point(int X, int Y);\nvar p2 = p with { X = 10 };               // non-destructive mutation"
+    },
+    {
+      "id": "05-CSHARP.md#028",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// LINQ\nvar result = list\n    .Where(x => x > 0)\n    .Select(x => x * 2)\n    .OrderBy(x => x)\n    .ToList();"
+    },
+    {
+      "id": "05-CSHARP.md#029",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Query syntax\nvar result = from x in list\n             where x > 0\n             select x * 2;\n```"
+    },
+    {
+      "id": "05-CSHARP.md#030",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "### Control Flow\n```csharp\nif (cond) { } else if (cond2) { } else { }"
+    },
+    {
+      "id": "05-CSHARP.md#031",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Ternary\nvar max = (a > b) ? a : b;"
+    },
+    {
+      "id": "05-CSHARP.md#032",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Switch expression (C# 8+) — the main pattern matching mechanism\nvar result = shape switch\n{\n    Circle c => Math.PI * c.Radius * c.Radius,\n    Rectangle r => r.Width * r.Height,\n    _ => throw new ArgumentException()\n};"
+    },
+    {
+      "id": "05-CSHARP.md#033",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Tuple switch\nvar (role, country) = (user.Role, user.Country);\nvar access = (role, country) switch\n{\n    (Role.Admin, _) => Access.Full,\n    (_, \"US\") => Access.US,\n    _ => Access.Basic\n};"
+    },
+    {
+      "id": "05-CSHARP.md#034",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Pattern matching in if\nif (obj is Customer { Name: var name, Age: > 18 })\n    Console.WriteLine(name);"
+    },
+    {
+      "id": "05-CSHARP.md#035",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Null checks\nif (x is not null) { }\nArgumentNullException.ThrowIfNull(x);   // .NET 6+\n```"
+    },
+    {
+      "id": "05-CSHARP.md#036",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "### Strings & Characters\n```csharp\n// string — immutable, System.String, UTF-16\nstring s = \"hello\";\nstring s = $\"Hello, {name}! Score: {score:F2}\";    // interpolation\nstring s = $\"Debug: {obj:D}\";                       // with format\nstring s = @\"C:\\Users\\no\\escape\\needed\";            // verbatim\nstring s = \"\"\"\n    Raw \"string\" with \"quotes\"\n    no escaping needed\n    \"\"\";                                             // raw (C# 11)"
+    },
+    {
+      "id": "05-CSHARP.md#037",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Operations\ns.Length                    // char count (UTF-16 units)\ns.ToUpper()  s.ToLower()\ns.Trim()  s.TrimStart()  s.TrimEnd()\ns.Contains(\"sub\")\ns.StartsWith(\"prefix\")\ns.Replace(\"old\", \"new\")\ns.Split(',')\nstring.Join(\", \", list)\ns[0]                        // char at index\ns[1..3]                     // \"el\" (Range indexing, C# 8+)\ns[^1]                       // last char (Index from end)"
+    },
+    {
+      "id": "05-CSHARP.md#038",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// StringBuilder\nvar sb = new StringBuilder();\nsb.Append(\"hello\").Append(' ').Append(\"world\");\nsb.ToString()"
+    },
+    {
+      "id": "05-CSHARP.md#039",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// char — UTF-16 code unit (2 bytes)\nchar c = 'A';\nchar.IsLetter(c)\nchar.ToUpper(c)\n(int)c                      // 65"
+    },
+    {
+      "id": "05-CSHARP.md#040",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Rune — full Unicode code point (C# 8+)\nRune r = new Rune(0x1F600);  // emoji as single code point\n```"
+    },
+    {
+      "id": "05-CSHARP.md#041",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "### Null / Nullable\n```csharp\n// Reference types: always nullable pre-C#8; nullable analysis in C# 8+\nstring? s = null;               // explicitly nullable\nstring nonNull = \"value\";       // compiler ensures non-null"
+    },
+    {
+      "id": "05-CSHARP.md#042",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Value types: Nullable<T> = T?\nint? n = null;\nn.HasValue\nn.Value                         // throws InvalidOperationException if null\nn.GetValueOrDefault(0)"
+    },
+    {
+      "id": "05-CSHARP.md#043",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Null operators\nx?.Property                     // null propagation\nx?.Method()?.Property           // chained\nx ?? defaultValue               // null coalescing\nx ??= defaultValue              // null coalescing assignment"
+    },
+    {
+      "id": "05-CSHARP.md#044",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Null patterns\nif (x is null) { }\nif (x is not null) { }\nx ?? throw new ArgumentNullException(nameof(x));\n```"
+    },
+    {
+      "id": "05-CSHARP.md#045",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "### Functions\n```csharp\n// Method\nint Add(int a, int b) => a + b;     // expression-bodied\nint Add(int a, int b) { return a + b; }"
+    },
+    {
+      "id": "05-CSHARP.md#046",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Static local function (C# 8+)\nstatic int Local(int x) => x * 2;"
+    },
+    {
+      "id": "05-CSHARP.md#047",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Generic method\nT Identity<T>(T x) => x;\nT Max<T>(T a, T b) where T : IComparable<T> => a.CompareTo(b) > 0 ? a : b;"
+    },
+    {
+      "id": "05-CSHARP.md#048",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Lambda / delegate\nFunc<int, int> double_ = x => x * 2;\nFunc<int, int, int> add = (a, b) => a + b;\nAction<string> print = s => Console.WriteLine(s);\nPredicate<string> nonEmpty = s => !string.IsNullOrEmpty(s);"
+    },
+    {
+      "id": "05-CSHARP.md#049",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Method group\nAction<string> print = Console.WriteLine;"
+    },
+    {
+      "id": "05-CSHARP.md#050",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Async/await\nasync Task<string> FetchAsync(string url)\n{\n    var response = await httpClient.GetStringAsync(url);\n    return response;\n}"
+    },
+    {
+      "id": "05-CSHARP.md#051",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Extension methods\nstatic class StringExtensions\n{\n    public static string Shout(this string s) => s.ToUpper() + \"!\";\n}\n\"hello\".Shout()   // \"HELLO!\"\n```"
+    },
+    {
+      "id": "05-CSHARP.md#052",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "### Error Handling\n```csharp\ntry\n{\n    var result = DoSomething();\n}\ncatch (ArgumentNullException e) when (e.ParamName == \"x\")  // exception filter\n{\n    Console.Error.WriteLine(e.Message);\n}\ncatch (InvalidOperationException e)\n{\n    throw new ApplicationException(\"wrapped\", e);    // rethrow with context\n}\ncatch (Exception e)\n{\n    throw;      // rethrow preserving stack trace (not: throw e;)\n}\nfinally\n{\n    // always runs\n}"
+    },
+    {
+      "id": "05-CSHARP.md#053",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// using — deterministic cleanup (IDisposable)\nusing var connection = new SqlConnection(connectionString);\n// connection.Dispose() called at end of scope"
+    },
+    {
+      "id": "05-CSHARP.md#054",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "// Modern: Result pattern (common in functional C#)\n// No built-in Result<T,E> — use libraries like LanguageExt, FluentResults\n```"
+    },
+    {
+      "id": "05-CSHARP.md#055",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-CSHARP.md#056",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "## What Makes It Distinct"
+    },
+    {
+      "id": "05-CSHARP.md#057",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "1. **Non-virtual by default** — unlike Java. Methods only become virtual with `virtual` keyword. `override` is required, `sealed` locks it back. Cleaner object model.\n2. **LINQ** — Language-Integrated Query: `from x in list where x > 0 select x` works on IEnumerable, IQueryable (SQL), XML, and anything that implements the pattern. Transformative for data handling.\n3. **async/await** — C# invented it (2012). `async`/`await` as a first-class language feature, not a library bolted on. Node.js, Python, Rust all followed.\n4. **Records + pattern matching** — C# 9–12 added records, pattern switches, list patterns, property patterns. Functional programming features added to an OOP language.\n5. **Nullable reference types (C# 8+)** — opt-in static null analysis. The type system now distinguishes `string` (non-null) from `string?` (nullable). Gradual adoption via project settings."
+    },
+    {
+      "id": "05-CSHARP.md#058",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-CSHARP.md#059",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "## Ecosystem"
+    },
+    {
+      "id": "05-CSHARP.md#060",
+      "path": [
+        "05-CSHARP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:languages:05-csharp, git-history:languages:05-csharp]",
+        "canonical_path": "languages/05-CSHARP.md",
+        "concepts": "[csharp]",
+        "current_path": "languages/05-CSHARP.md",
+        "id": "maxim:languages:csharp",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[csharp]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C#",
+        "updated": "null"
+      },
+      "text": "| Tool | Purpose |\n|------|---------|\n| dotnet CLI | Build, run, publish |\n| NuGet | Package manager |\n| ASP.NET Core | Web framework |\n| Entity Framework Core | ORM |\n| xUnit / NUnit / MSTest | Testing |\n| Blazor | WebAssembly / server-side UI |\n| MAUI | Cross-platform desktop/mobile |\n| Roslyn | Compiler API (source generators, analyzers) |"
+    }
+  ],
+  "refs": [
+    "05-CSHARP.md"
+  ]
+}

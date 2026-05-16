@@ -1,0 +1,210 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\04-JAVA.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## Type System Snapshot",
+      "headers": [
+        "Axis",
+        "Java"
+      ],
+      "rows": [
+        [
+          "Binding",
+          "Late — all instance methods are virtual by default"
+        ],
+        [
+          "Typing",
+          "Static"
+        ],
+        [
+          "Strength",
+          "Strong — no implicit conversions between incompatible types"
+        ],
+        [
+          "Type system",
+          "Nominal"
+        ],
+        [
+          "Type inference",
+          "Partial — `var` (Java 10+), diamond `<>`, lambda type inference"
+        ],
+        [
+          "Memory model",
+          "GC — G1GC default, ZGC/Shenandoah for low-latency"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 367,
+      "heading_context": "## Bridge from C#: Virtual-by-Default vs Non-Virtual-by-Default",
+      "headers": [
+        "Intent",
+        "Java",
+        "C#"
+      ],
+      "rows": [
+        [
+          "Override a method",
+          "`@Override void speak()`",
+          "`override void Speak()`"
+        ],
+        [
+          "Prevent override",
+          "`final void speak()`",
+          "`sealed override void Speak()` (or just no `virtual`)"
+        ],
+        [
+          "Allow override in C#",
+          "*(default)*",
+          "`virtual void Speak()`"
+        ],
+        [
+          "Prevent subclassing",
+          "`final class Dog`",
+          "`sealed class Dog`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 412,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "javac / OpenJDK",
+          "Compiler and runtime"
+        ],
+        [
+          "Maven / Gradle",
+          "Build and dependency management"
+        ],
+        [
+          "Spring Boot",
+          "Web framework (dominant)"
+        ],
+        [
+          "Hibernate / JPA",
+          "ORM"
+        ],
+        [
+          "JUnit 5 / Mockito",
+          "Testing"
+        ],
+        [
+          "IntelliJ IDEA",
+          "Primary IDE"
+        ],
+        [
+          "GraalVM",
+          "Native compilation (AOT)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 426,
+      "heading_context": "## Gotchas from C#",
+      "headers": [
+        "C# behavior",
+        "Java behavior",
+        "Note"
+      ],
+      "rows": [
+        [
+          "`==` on strings is value equality",
+          "`==` on strings is reference equality",
+          "Use `.equals()` always"
+        ],
+        [
+          "Properties: `obj.Name`",
+          "No properties: `obj.getName()`",
+          "Records have `obj.name()` though"
+        ],
+        [
+          "Non-virtual by default",
+          "Virtual by default",
+          "Sealed classes / `final`"
+        ],
+        [
+          "No checked exceptions",
+          "Checked exceptions (`throws`)",
+          "Verbose or work around with unchecked"
+        ],
+        [
+          "`int?` = `Nullable<int>`",
+          "No nullable primitives — use `Integer`",
+          "Boxing overhead"
+        ],
+        [
+          "`using` = scoped dispose",
+          "`try-with-resources`",
+          "Different syntax, same concept"
+        ],
+        [
+          "`var` since C# 3",
+          "`var` since Java 10",
+          "Both are local type inference"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 450,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Decision",
+        "Use X when..."
+      ],
+      "rows": [
+        [
+          "**`ArrayList` vs `LinkedList`**",
+          "`ArrayList` almost always — O(1) random access, CPU-cache-friendly. `LinkedList` only when you need O(1) insert/delete at arbitrary positions with an iterator in hand (rare in practice)."
+        ],
+        [
+          "**`ArrayList` vs `array`**",
+          "Array when size is fixed and you need raw performance or primitive storage (`int[]`). `ArrayList` when you need dynamic sizing or collection API."
+        ],
+        [
+          "**`HashMap` vs `LinkedHashMap`**",
+          "`LinkedHashMap` when insertion order matters (predictable iteration, LRU cache with `removeEldestEntry`). `HashMap` otherwise — faster."
+        ],
+        [
+          "**`HashMap` vs `TreeMap`**",
+          "`TreeMap` when you need keys in sorted order or range queries (`headMap`, `tailMap`, `subMap`). `HashMap` otherwise — O(1) vs O(log n)."
+        ],
+        [
+          "**Checked vs unchecked exception**",
+          "Checked (`extends Exception`) when the caller can reasonably recover and you want the compiler to enforce handling — e.g., `IOException`, `SQLException`. Unchecked (`extends RuntimeException`) for programming errors or unrecoverable conditions. When in doubt: unchecked. Checked exceptions are controversial; Kotlin, C#, Scala all dropped them."
+        ],
+        [
+          "**`interface` vs `abstract class`**",
+          "`interface` for defining a contract a class can implement alongside others (multiple interface implementation allowed). `abstract class` when you need shared state (fields) or non-public members. Java 8+ `default` methods blurred the line — interfaces can now have implementations, so the gap is smaller. Still: a class can only extend one abstract class."
+        ],
+        [
+          "**`Stream` vs `Collection`**",
+          "`Stream` for lazy pipeline processing — chaining `filter/map/reduce` without materializing intermediates. `Collection` when you need to iterate multiple times, random access, or mutate. Streams are single-use and lazy; collections are reusable and eager."
+        ],
+        [
+          "**`Optional<T>` vs null**",
+          "`Optional<T>` for method return types where absence is a legitimate outcome and you want to force callers to handle it. Do NOT use `Optional` for fields, parameters, or collection elements — it adds boxing overhead and API noise without benefit. Null + `@Nullable` annotation is fine for internal fields."
+        ],
+        [
+          "**Java vs Kotlin (new JVM project)**",
+          "Kotlin for greenfield Android, new Spring Boot services, or when your team is comfortable — better null safety, less boilerplate, coroutines. Java when you need maximum library compatibility, Java-only tooling, or a larger hiring pool."
+        ],
+        [
+          "**`record` vs `class`**",
+          "`record` for pure immutable data carriers (DTOs, value objects, response types). `class` when you need mutability, inheritance, or non-trivial construction logic."
+        ]
+      ]
+    }
+  ]
+}

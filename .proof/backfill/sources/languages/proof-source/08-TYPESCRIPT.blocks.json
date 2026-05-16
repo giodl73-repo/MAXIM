@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\08-TYPESCRIPT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 41,
+      "heading_context": "## TypeScript Compilation Landscape",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                     TYPESCRIPT COMPILATION PIPELINE                         │\n│                                                                             │\n│  ┌─────────────────────┐                                                    │\n│  │   SOURCE  (.ts)     │  Types, interfaces, generics, decorators           │\n│  │                     │  Type annotations on every binding                 │\n│  │  function add(      │                                                    │\n│  │    a: number,       │                                                    │\n│  │    b: number        │                                                    │\n│  │  ): number { ... }  │                                                    │\n│  └──────────┬──────────┘                                                    │\n│             │                                                               │\n│             ▼                                                               │\n│  ┌─────────────────────────────────────────────────────────────────────┐   │\n│  │                    tsc  (TypeScript Compiler)                       │   │\n│  │                                                                     │   │\n│  │   Parse → Build symbol table → Type check → Emit                    │   │\n│  └──────────────────────┬──────────────────────┬────────────────────────┘  │\n│                         │                      │                            │\n│              ┌──────────▼──────────┐  ┌────────▼────────────────────────┐  │\n│              │  TYPE CHECK ERRORS  │  │  JS OUTPUT  (.js)               │  │\n│              │  (compile-time only)│  │  (types fully erased)           │  │\n│              │                     │  │                                 │  │\n│              │  error TS2345:      │  │  function add(a, b) {           │  │\n│              │  Argument of type   │  │    return a + b;                │  │\n│              │  'string' is not    │  │  }                              │  │\n│              │  assignable to      │  │                                 │  │\n│              │  parameter of type  │  │  No type annotations.           │  │\n│              │  'number'           │  │  No interfaces.                 │  │\n│              │                     │  │  No generics.                   │  │\n│              │  These errors do    │  │  Identical to hand-written JS.  │  │\n│              │  NOT stop emit      │  │                                 │  │\n│              │  by default.        │  └────────────────┬────────────────┘  │\n│              └─────────────────────┘                   │                   │\n│                                                        ▼                   │\n│                              ┌──────────────────────────────────────────┐  │\n│                              │   RUNTIME  (V8 / Node.js / browser)      │  │\n│                              │                                          │  │\n│                              │   Pure JavaScript. Zero type awareness.  │  │\n│                              │   Types DO NOT EXIST here.               │  │\n│                              │                                          │  │\n│                              │   • No interface checks                  │  │\n│                              │   • No generic type parameters           │  │\n│                              │   • 'as T' is a no-op at runtime         │  │\n│                              │   • instanceof works only for classes    │  │\n│                              └──────────────────────────────────────────┘  │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 97,
+      "heading_context": "### Structural vs. Nominal Typing",
+      "confidence": "candidate",
+      "text": "C# — NOMINAL                          TypeScript — STRUCTURAL\n─────────────────────────────────      ─────────────────────────────────\ninterface IAnimal {                    interface Animal {\n    string Name { get; }                 name: string;\n}                                      }\n\nclass Dog : IAnimal {           ←─ MUST DECLARE     class Dog {\n    public string Name { get; set; }                  name: string;\n}                                                     constructor(n: string) {\n                                                        this.name = n;\nclass Cat {                                           }\n    public string Name { get; set; }     }\n}\n                                       class Cat {\n// Cat does NOT implement IAnimal.        name: string = \"Whiskers\";\n// This fails to compile:              }\nvoid Greet(IAnimal a) { }\nGreet(new Cat());  // ERROR            // Cat has the right shape.\n                                       // This compiles fine:\n                                       function greet(a: Animal) { }\n                                       greet(new Cat());  // OK [OK]\n                                       greet({ name: \"Rex\" }); // OK [OK]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 293,
+      "heading_context": "### Type System Features",
+      "confidence": "candidate",
+      "text": "// Union types\ntype StringOrNumber = string | number;\ntype Nullable<T> = T | null;\ntype Optional<T> = T | undefined;\n\n// Intersection types\ntype AdminUser = User & { adminLevel: number };\n\n// Conditional types\ntype NonNullable<T> = T extends null | undefined ? never : T;\ntype ReturnType<T extends (...args: any) => any> =\n    T extends (...args: any) => infer R ? R : never;\n\n// Mapped types\ntype Readonly<T> = { readonly [K in keyof T]: T[K] };\ntype Partial<T> = { [K in keyof T]?: T[K] };\ntype Pick<T, K extends keyof T> = { [P in K]: T[P] };\n\n// Template literal types (TypeScript 4.1+)\ntype EventName = `on${Capitalize<string>}`;\ntype CSSProperty = `${string}-${string}`;\ntype RouteId = `${string}Id`;\n\n// Utility types\nPartial<User>               // all fields optional\nRequired<User>              // all fields required\nReadonly<User>              // all fields readonly\nPick<User, \"id\" | \"name\">  // subset of fields\nOmit<User, \"password\">     // all fields except\nRecord<string, number>      // dictionary\nNonNullable<string | null>  // string\nReturnType<typeof f>        // infer function return type\nParameters<typeof f>        // infer function parameters",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

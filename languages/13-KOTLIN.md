@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:kotlin
+kind: guide
+module: languages
+section: languages
+title: Language: Kotlin
+status: source-custody
+source_custody: partial
+current_path: languages/13-KOTLIN.md
+canonical_path: languages/13-KOTLIN.md
+backsource_ids: [proof-backfill:languages:13-kotlin, git-history:languages:13-kotlin]
+concepts: [kotlin]
+root_concepts: [kotlin]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language: Kotlin
 
 > Modern JVM language — null safety baked in, coroutines for async, extension functions, and data classes. The C# of the Java world; dominant on Android.

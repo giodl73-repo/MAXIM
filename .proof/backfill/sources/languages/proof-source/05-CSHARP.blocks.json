@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\05-CSHARP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 41,
+      "heading_context": "## CLR Ecosystem Map",
+      "confidence": "candidate",
+      "text": "  SOURCE & TOOLCHAIN\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  .cs source files                                                   │\n  │         │                                                           │\n  │         ▼                                                           │\n  │  ┌─────────────────────────────────────────────────────┐            │\n  │  │  Roslyn Compiler (Microsoft.CodeAnalysis)           │           │\n  │  │  ├── Syntax tree (parse)                            │           │\n  │  │  ├── Semantic model (bind, type-check)              │           │\n  │  │  ├── Analyzers + Source Generators (Roslyn API)     │           │\n  │  │  └── Emit                                           │           │\n  │  └─────────────────────────────────────────────────────┘           │\n  │         │                                                           │\n  │         ▼                                                           │\n  │  IL / CIL  (.dll / .exe — platform-neutral bytecode)               │\n  │  + Metadata (reflection info, assembly manifest)                    │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  RUNTIME (CLR)\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Class Loader  →  JIT Compiler (RyuJIT)  →  Native code (x64/ARM)   │\n  │                       │                                             │\n  │  ┌────────────────────┼────────────────────────────────────────┐    │\n  │  │  Runtime Services  │                                        │   │\n  │  │  ├── GC       Gen0 (short-lived) → Gen1 → Gen2 + LOH        │   │\n  │  │  ├── Thread Pool   (I/O completion ports + worker threads)  │   │\n  │  │  ├── Exception handling  (SEH-based, managed wrappers)      │   │\n  │  │  ├── Reflection + Metadata API                              │   │\n  │  │  └── P/Invoke + COM interop layer                           │   │\n  │  └────────────────────────────────────────────────────────────┘   │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  TYPE HIERARCHY (System namespace)\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  System.Object  (every managed type roots here)                     │\n  │       │                                                             │\n  │       ├── System.ValueType  (stack-allocated by default)            │\n  │       │         ├── struct          (user-defined value types)      │\n  │       │         ├── enum            (int-backed by default)         │\n  │       │         ├── Nullable<T>     (T? — boxing on heap if needed) │\n  │       │         └── record struct   (C# 10 — value type + =with=)   │\n  │       │                                                             │\n  │       └── Reference types  (heap-allocated, GC-tracked)             │\n  │                 ├── class           (single inheritance)            │\n  │                 ├── record class    (C# 9 — structural equality)    │\n  │                 ├── interface       (multiple; default members C#8) │\n  │                 ├── delegate        (type-safe function pointer)    │\n  │                 └── array           (T[] — covariant, SZArray IL)   │\n  │                                                                     │\n  │  Managed pointers (not in hierarchy — compiler-only types)          │\n  │       ├── ref T            (byref — alias to variable)              │\n  │       ├── in T             (readonly ref — no copy, no write)       │\n  │       ├── out T            (write-before-read byref)                │\n  │       ├── Span<T>          (ref struct — stack-only slice)          │\n  │       └── ref struct       (must live on stack, no boxing)          │\n  └─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "### Collections",
+      "confidence": "candidate",
+      "text": "// C# 12 collection expressions (preferred syntax)\nint[] arr = [1, 2, 3];\nList<int> list = [1, 2, 3];\nint[] spread = [..arr, 4, 5];\n\n// Pre-C# 12\nint[] arr = new[] { 1, 2, 3 };\nint[] arr = new int[5];                     // zero-initialized\nvar list = new List<int> { 1, 2, 3 };\nvar dict = new Dictionary<string, int>\n{\n    [\"a\"] = 1,                              // index init\n    { \"b\", 2 }                              // add init\n};\nvar set = new HashSet<int> { 1, 2, 3 };\n\n// Tuples (C# 7+)\n(int x, int y) point = (1, 2);\nvar (x, y) = point;                         // deconstruct\npoint.x  point.y                            // named members\n\n// Records (immutable data classes, C# 9+)\nrecord Point(int X, int Y);\nvar p2 = p with { X = 10 };               // non-destructive mutation\n\n// LINQ\nvar result = list\n    .Where(x => x > 0)\n    .Select(x => x * 2)\n    .OrderBy(x => x)\n    .ToList();\n\n// Query syntax\nvar result = from x in list\n             where x > 0\n             select x * 2;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "### Control Flow",
+      "confidence": "candidate",
+      "text": "if (cond) { } else if (cond2) { } else { }\n\n// Ternary\nvar max = (a > b) ? a : b;\n\n// Switch expression (C# 8+) — the main pattern matching mechanism\nvar result = shape switch\n{\n    Circle c => Math.PI * c.Radius * c.Radius,\n    Rectangle r => r.Width * r.Height,\n    _ => throw new ArgumentException()\n};\n\n// Tuple switch\nvar (role, country) = (user.Role, user.Country);\nvar access = (role, country) switch\n{\n    (Role.Admin, _) => Access.Full,\n    (_, \"US\") => Access.US,\n    _ => Access.Basic\n};\n\n// Pattern matching in if\nif (obj is Customer { Name: var name, Age: > 18 })\n    Console.WriteLine(name);\n\n// Null checks\nif (x is not null) { }\nArgumentNullException.ThrowIfNull(x);   // .NET 6+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 310,
+      "heading_context": "### Functions",
+      "confidence": "candidate",
+      "text": "// Method\nint Add(int a, int b) => a + b;     // expression-bodied\nint Add(int a, int b) { return a + b; }\n\n// Static local function (C# 8+)\nstatic int Local(int x) => x * 2;\n\n// Generic method\nT Identity<T>(T x) => x;\nT Max<T>(T a, T b) where T : IComparable<T> => a.CompareTo(b) > 0 ? a : b;\n\n// Lambda / delegate\nFunc<int, int> double_ = x => x * 2;\nFunc<int, int, int> add = (a, b) => a + b;\nAction<string> print = s => Console.WriteLine(s);\nPredicate<string> nonEmpty = s => !string.IsNullOrEmpty(s);\n\n// Method group\nAction<string> print = Console.WriteLine;\n\n// Async/await\nasync Task<string> FetchAsync(string url)\n{\n    var response = await httpClient.GetStringAsync(url);\n    return response;\n}\n\n// Extension methods\nstatic class StringExtensions\n{\n    public static string Shout(this string s) => s.ToUpper() + \"!\";\n}\n\"hello\".Shout()   // \"HELLO!\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 476,
+      "heading_context": "### Span<T> vs Memory<T> vs array — async boundary decision",
+      "confidence": "candidate",
+      "text": "Need zero-copy slice?\n    └── Yes → Span<T>\n            └── Crosses async boundary / stored in field?\n                    ├── No  → Span<T> (stack only)\n                    └── Yes → Memory<T>\n\nLong-lived heap buffer with explicit lifetime?\n    └── Yes → ArrayPool<T>.Shared.Rent() + IMemoryOwner<T>",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 563,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "// Compiler checks exhaustiveness for switch EXPRESSIONS (C# 8+)\n// Switch STATEMENTS do not warn — another reason to prefer switch expressions\n\nShape s = ...;\nvar area = s switch                 // compiler WILL warn if a DU case is missing\n{\n    Circle c => ...,\n    // Rectangle missing → CS8509 warning\n};\n\n// For class hierarchies (not sealed): compiler cannot know all subtypes\n// — you must include _ => ... fallthrough",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

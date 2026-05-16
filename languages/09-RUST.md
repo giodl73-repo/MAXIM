@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:rust
+kind: guide
+module: languages
+section: languages
+title: Language: Rust
+status: source-custody
+source_custody: partial
+current_path: languages/09-RUST.md
+canonical_path: languages/09-RUST.md
+backsource_ids: [proof-backfill:languages:09-rust, git-history:languages:09-rust]
+concepts: [rust]
+root_concepts: [rust]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language: Rust
 
 > Memory safety without garbage collection — ownership types and the borrow checker eliminate entire classes of bugs at compile time. Zero-cost abstractions from ML/Haskell applied to systems programming.

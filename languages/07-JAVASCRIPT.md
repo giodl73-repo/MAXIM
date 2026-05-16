@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:javascript
+kind: guide
+module: languages
+section: languages
+title: Language: JavaScript
+status: source-custody
+source_custody: partial
+current_path: languages/07-JAVASCRIPT.md
+canonical_path: languages/07-JAVASCRIPT.md
+backsource_ids: [proof-backfill:languages:07-javascript, git-history:languages:07-javascript]
+concepts: [javascript]
+root_concepts: [javascript]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language: JavaScript
 
 > The web's assembly language — designed in 10 days, evolved into a general-purpose runtime. Dynamic, weakly typed, prototype-based OOP, event-loop concurrency.

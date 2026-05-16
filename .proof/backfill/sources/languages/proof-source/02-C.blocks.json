@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\02-C.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 45,
+      "heading_context": "### Compilation Pipeline",
+      "confidence": "candidate",
+      "text": "  source.c        source.h\n     │                │\n     ▼                ▼\n┌──────────────────────────────────────┐\n│  PREPROCESSOR  (cpp / cc -E)         │\n│  #include → paste text               │\n│  #define → substitute tokens         │\n│  #ifdef → strip excluded blocks      │\n│  No type checking — pure text subs   │\n└──────────────────┬───────────────────┘\n                   │  preprocessed .c (pure C, no directives)\n                   ▼\n┌──────────────────────────────────────┐\n│  COMPILER  (cc -S)                   │\n│  Parse + type-check                  │\n│  AST → IR → optimization passes      │\n│  Undefined behavior exploited here   │\n│  One .c → one .s                     │\n└──────────────────┬───────────────────┘\n                   │  assembly .s\n                   ▼\n┌──────────────────────────────────────┐\n│  ASSEMBLER  (as)                     │\n│  .s → machine code                   │\n│  Symbols still unresolved            │\n│  Produces relocatable object (.o)    │\n└──────────────────┬───────────────────┘\n                   │  object file(s) .o + libraries .a / .so\n                   ▼\n┌──────────────────────────────────────┐\n│  LINKER  (ld, invoked by cc)         │\n│  Resolve symbol references           │\n│  Combine .o files + libc             │\n│  Lay out text/data/bss segments      │\n└──────────────────┬───────────────────┘\n                   │\n                   ▼\n              executable\n              (ELF / Mach-O / PE)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "### Process Memory Layout",
+      "confidence": "candidate",
+      "text": "High address\n┌───────────────────────────────────────┐\n│              STACK                    │\n│  Local variables, function params     │\n│  Return addresses, saved registers    │\n│  Grows DOWNWARD ↓                     │\n│  Lifetime: function call duration     │\n│  Size: fixed (default ~1–8 MB)        │\n├───────────────────────────────────────┤\n│         (unmapped / grows)            │\n├───────────────────────────────────────┤\n│               HEAP                    │\n│  malloc() / calloc() / realloc()      │\n│  Grows UPWARD ↑                       │\n│  Lifetime: explicit — malloc to free  │\n│  You own it; forget free = leak       │\n├───────────────────────────────────────┤\n│          DATA SEGMENT                 │\n│  .bss  — zero-initialized globals     │\n│  .data — initialized globals/statics  │\n│  Lifetime: program lifetime           │\n│  static int x = 5;  lives here        │\n├───────────────────────────────────────┤\n│          CODE SEGMENT (.text)         │\n│  Machine instructions                 │\n│  Read-only (writing → segfault)       │\n│  \"hello\" string literals live here    │\n│  char *s = \"hello\"; → points here     │\n└───────────────────────────────────────┘\nLow address",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 350,
+      "heading_context": "## What Makes It Distinct",
+      "confidence": "candidate",
+      "text": "5. **Preprocessor** — `#define`, `#include`, `#ifdef` — textual substitution that runs before compilation; not part of the type system",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

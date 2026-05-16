@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\12-FSHARP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "chart_like",
+      "line": 52,
+      "heading_context": "## F# Conceptual Maps",
+      "confidence": "candidate",
+      "text": "### 1. Pipeline Model: |> vs C# LINQ Method Chains",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "### 1. Pipeline Model: |> vs C# LINQ Method Chains",
+      "confidence": "candidate",
+      "text": "  F# PIPELINE — data flows left to right, any function composes\n\n  rawData\n    |> List.filter (fun x -> x.Active)        // predicate\n    |> List.map    (fun x -> x.Value * 2)      // transform\n    |> List.sortBy (fun x -> x)               // order\n    |> List.sum                               // aggregate\n    = 220\n\n  Each step: takes the accumulated value, returns new value.\n  |> is just: let (|>) x f = f x\n\n  ┌──────────┐   |>   ┌──────────┐   |>   ┌──────────┐   |>   ┌──────────┐\n  │  rawData │ ──────▶│  filter  │ ──────▶│   map    │ ──────▶│   sum    │\n  └──────────┘        └──────────┘        └──────────┘        └──────────┘\n\n  C# LINQ EQUIVALENT — method chains on IEnumerable<T>\n\n  rawData\n    .Where(x => x.Active)\n    .Select(x => x.Value * 2)\n    .OrderBy(x => x)\n    .Sum()\n\n  Differences that matter:\n  ┌────────────────────────────────┬──────────────────────────────────────┐\n  │  F# |> pipeline                │  C# LINQ method chain                │\n  ├────────────────────────────────┼──────────────────────────────────────┤\n  │  Works on any function         │  Works only on IEnumerable/IQueryable│\n  │  Composes with >>              │  No generic composition operator      │\n  │  Partial application natural   │  Lambda required at each step         │\n  │  IQueryable not applicable     │  IQueryable → SQL translation via EF  │\n  │  Value: readability + compose  │  Value: EF Core SQL translation       │\n  └────────────────────────────────┴──────────────────────────────────────┘\n\n  Function composition (no data yet — builds the pipeline function):\n  let pipeline = List.filter pred >> List.map xform >> List.sum\n  //             ────────────────  >>  ────────────  >>  ────────\n  //             f >> g = fun x -> g (f x)   (left-to-right)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 96,
+      "heading_context": "### 1. Pipeline Model: |> vs C# LINQ Method Chains",
+      "confidence": "candidate",
+      "text": "### 2. Computation Expression Desugaring",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "### 2. Computation Expression Desugaring",
+      "confidence": "candidate",
+      "text": "  SURFACE SYNTAX                    DESUGARED FORM\n  ──────────────────────────────    ──────────────────────────────────────\n\n  async {                           async.Delay(fun () ->\n      let! x = fetchUser id             fetchUser id |> async.Bind(fun x ->\n      let! y = fetchOrders x            fetchOrders x |> async.Bind(fun y ->\n      return x.Name, y.Length           async.Return(x.Name, y.Length))))\n  }\n\n  result {                          parseInput raw\n      let! parsed = parseInput raw      |> Result.bind(fun parsed ->\n      let! valid  = validate parsed     validate parsed\n      return transform valid            |> Result.bind(fun valid ->\n  }                                     Ok(transform valid)))\n\n  option {                          Some 5\n      let! x = Some 5                   |> Option.bind(fun x ->\n      let! y = Some 3                   Some 3\n      return x + y                      |> Option.bind(fun y ->\n  }  // = Some 8                        Some(x + y)))\n\n  KEY: every CE keyword maps to a builder method\n  ┌────────────┬──────────────────────────────────────────────────────┐\n  │  CE syntax │  Builder method called                               │\n  ├────────────┼──────────────────────────────────────────────────────┤\n  │  let! x=m  │  builder.Bind(m, fun x -> ...)                      │\n  │  return v  │  builder.Return(v)                                   │\n  │  return! m │  builder.ReturnFrom(m)                               │\n  │  do! m     │  builder.Bind(m, fun () -> ...)                      │\n  │  yield v   │  builder.Yield(v)              (seq/IAsyncEnumerable)│\n  │  for x in  │  builder.For(seq, fun x -> ...) (seq CE)             │\n  └────────────┴──────────────────────────────────────────────────────┘\n\n  The builder object (AsyncBuilder, ResultBuilder, etc.) is just a class\n  with those methods. You can write your own for any effect type.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 261,
+      "heading_context": "### Control Flow",
+      "confidence": "candidate",
+      "text": "// If — expression (returns a value)\nlet result = if x > 0 then \"positive\" else \"non-positive\"\n\n// if without else returns unit — both branches must have same type\nif condition then\n    printfn \"yes\"\n// else is unit by default\n\n// Match (F#'s pattern matching — exhaustive by default with warning)\nlet describe x =\n    match x with\n    | 0 -> \"zero\"\n    | 1 -> \"one\"\n    | n when n < 0 -> \"negative\"\n    | _ -> \"other\"\n\n// Active patterns (named patterns — powerful extension)\nlet (|Positive|Negative|Zero|) n =\n    if n > 0 then Positive\n    elif n < 0 then Negative\n    else Zero\n\nmatch n with\n| Positive -> \"pos\"\n| Negative -> \"neg\"\n| Zero -> \"zero\"\n\n// Pipeline — the idiomatic F# style\nlet result =\n    input\n    |> parse\n    |> validate\n    |> transform\n    |> serialize\n\n// Composition operators\nlet pipeline = parse >> validate >> transform    // >> left-to-right\nlet pipeline = serialize << transform << validate // << right-to-left\n\n// Loops (less idiomatic than recursion/map/fold, but exist)\nfor i in 1..10 do\n    printfn \"%d\" i\n\nwhile condition do\n    doSomething ()",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 310,
+      "heading_context": "### Algebraic Data Types",
+      "confidence": "candidate",
+      "text": "// Discriminated Unions (DUs) — the core modeling tool\ntype Shape =\n    | Circle of radius: float\n    | Rectangle of width: float * height: float\n    | Triangle of base: float * height: float\n\n// Pattern matching is exhaustive — compiler warns if case missing\nlet area shape =\n    match shape with\n    | Circle r -> System.Math.PI * r * r\n    | Rectangle (w, h) -> w * h\n    | Triangle (b, h) -> 0.5 * b * h\n\n// Recursive DU (like a linked list)\ntype MyList<'a> =\n    | Empty\n    | Cons of head: 'a * tail: MyList<'a>\n\n// Option (built-in DU)\ntype Option<'a> = Some of 'a | None\n\n// Result (F# 4.1+)\ntype Result<'T, 'TError> = Ok of 'T | Error of 'TError\n\n// Records (immutable by default)\ntype Person = {\n    Name: string\n    Age: int\n}\nlet alice = { Name = \"Alice\"; Age = 30 }\nlet older = { alice with Age = 31 }   // non-destructive update [OK]\n\n// Anonymous records (F# 4.6+)\nlet point = {| X = 1; Y = 2 |}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 488,
+      "heading_context": "## What Makes It Distinct",
+      "confidence": "candidate",
+      "text": "1. **Pipeline operator `|>`** — the signature F# idiom. Data flows left to right. `input |> parse |> validate |> serialize` reads like a sentence. C# LINQ is similar but F# `|>` works on any function.",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

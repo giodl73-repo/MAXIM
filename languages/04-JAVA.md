@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:languages:java
+kind: guide
+module: languages
+section: languages
+title: Language: Java
+status: source-custody
+source_custody: partial
+current_path: languages/04-JAVA.md
+canonical_path: languages/04-JAVA.md
+backsource_ids: [proof-backfill:languages:04-java, git-history:languages:04-java]
+concepts: [java]
+root_concepts: [java]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language: Java
 
 > Write once, run anywhere — the JVM, garbage collection, and uniform object model that influenced C#, Kotlin, and Scala.

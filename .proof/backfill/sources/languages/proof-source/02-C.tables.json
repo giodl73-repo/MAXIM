@@ -1,0 +1,262 @@
+{
+  "schema_version": "1",
+  "source_markdown": "languages\\02-C.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## Type System Snapshot",
+      "headers": [
+        "Axis",
+        "C"
+      ],
+      "rows": [
+        [
+          "Binding",
+          "Early (static dispatch always)"
+        ],
+        [
+          "Typing",
+          "Static"
+        ],
+        [
+          "Strength",
+          "**Weak** — implicit int↔pointer, silent truncation, sign coercions"
+        ],
+        [
+          "Type system",
+          "Nominal (struct names; no inheritance)"
+        ],
+        [
+          "Type inference",
+          "None — must annotate everything"
+        ],
+        [
+          "Memory model",
+          "**Manual** — malloc/free; stack via automatic storage"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 128,
+      "heading_context": "## Conceptual Map",
+      "headers": [
+        "Declaration",
+        "Region",
+        "Lifetime",
+        "Writable?"
+      ],
+      "rows": [
+        [
+          "`int x;` inside function",
+          "Stack",
+          "Function call",
+          "Yes"
+        ],
+        [
+          "`int *p = malloc(n)`",
+          "Heap",
+          "Until `free(p)`",
+          "Yes"
+        ],
+        [
+          "`static int x = 0;`",
+          "Data (.bss/.data)",
+          "Program lifetime",
+          "Yes"
+        ],
+        [
+          "`char *s = \"hello\";`",
+          "Code (.text)",
+          "Program lifetime",
+          "**No** — writing = UB"
+        ],
+        [
+          "`char s[] = \"hello\";`",
+          "Stack (copy)",
+          "Function call",
+          "Yes"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 356,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "gcc / clang",
+          "Compilers (clang preferred for better diagnostics)"
+        ],
+        [
+          "make / cmake",
+          "Build systems"
+        ],
+        [
+          "gdb / lldb",
+          "Debuggers"
+        ],
+        [
+          "valgrind",
+          "Memory error detection (slow, thorough)"
+        ],
+        [
+          "AddressSanitizer",
+          "Compiler-instrumented memory checks (fast)"
+        ],
+        [
+          "clang-format",
+          "Code formatter"
+        ],
+        [
+          "cppcheck",
+          "Static analysis"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 372,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Decision",
+        "Use When",
+        "Avoid When / Watch Out For"
+      ],
+      "rows": [
+        [
+          "**Stack allocation** (`int x;`, `int a[N];`)",
+          "Size known at compile time; lifetime is function-scoped; N is small (< a few KB)",
+          "Large arrays (stack overflow); lifetime must outlive current scope"
+        ],
+        [
+          "**Heap allocation** (`malloc`)",
+          "Size determined at runtime; lifetime must outlive function; large buffers",
+          "Forgetting `free` (leak); double-free (UB); always check for NULL return"
+        ],
+        [
+          "**`malloc(n)`**",
+          "Allocating uninitialized memory you will fully write before reading",
+          "Uninitialized reads are UB — use `calloc` if you need zero-init"
+        ],
+        [
+          "**`calloc(count, size)`**",
+          "Zero-initialized array of count elements; integer overflow protection in size calc",
+          "Slower than malloc due to zeroing; still must `free`"
+        ],
+        [
+          "**`realloc(ptr, newsize)`**",
+          "Growing/shrinking an existing heap block",
+          "May return a different pointer — always assign return value; passing a freed pointer = UB"
+        ],
+        [
+          "**`free(ptr)`**",
+          "Every `malloc`/`calloc`/`realloc` must have exactly one `free`",
+          "Double-free = UB; `free(NULL)` is safe (no-op)"
+        ],
+        [
+          "**Pointer** (`int *p`)",
+          "Nullable (can be NULL); pointer arithmetic needed; passing large structs by reference",
+          "Array decay: `int a[]` passed to function becomes `int *` — size lost"
+        ],
+        [
+          "**Array** (`int a[N]`)",
+          "Fixed-size, stack-allocated collection; sizeof gives full size within declaring scope",
+          "Decays to pointer when passed to function — pass size separately"
+        ],
+        [
+          "**`static` storage class**",
+          "Variable that persists across function calls (local static); file-scope variable hidden from other TUs",
+          "Local statics are not thread-safe (C11 `_Thread_local` for thread-local)"
+        ],
+        [
+          "**`extern` storage class**",
+          "Declare a symbol defined in another translation unit",
+          "Not a definition — no storage allocated; must match type exactly"
+        ],
+        [
+          "**`auto` storage class**",
+          "Default for local variables; rarely written explicitly",
+          "Redundant keyword in C (every local is auto by default)"
+        ],
+        [
+          "**`signed` integers**",
+          "Arithmetic where negative values are meaningful",
+          "Overflow is **undefined behavior** — compiler may delete \"impossible\" checks"
+        ],
+        [
+          "**`unsigned` integers**",
+          "Bit manipulation, sizes, indices, modular arithmetic",
+          "Underflow wraps silently: `0u - 1` = `UINT_MAX`; mixing signed/unsigned in comparisons promotes to unsigned"
+        ],
+        [
+          "**C99 features** (`//` comments, `for` init, designated initializers, VLAs, `<stdint.h>`)",
+          "Default baseline for new code",
+          "VLAs are optional in C11+; avoid them"
+        ],
+        [
+          "**C11 features** (`_Atomic`, `_Generic`, `_Static_assert`, threads)",
+          "Portable atomics, type-generic macros, compile-time assertions",
+          "VLAs made optional; `<threads.h>` not universally implemented"
+        ],
+        [
+          "**C23 features** (`nullptr`, `bool`/`true`/`false` as keywords, `#embed`, `typeof`)",
+          "Modern compilers targeting latest standard",
+          "Compiler support varies; check target toolchain before adopting"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 395,
+      "heading_context": "## Gotchas from C#",
+      "headers": [
+        "C# behavior",
+        "C behavior",
+        "Consequence"
+      ],
+      "rows": [
+        [
+          "`string` is object, `==` compares value",
+          "`char*` comparison with `==` compares addresses",
+          "Silent logic bug"
+        ],
+        [
+          "`int` is 32-bit always",
+          "`int` is \"at least 16 bits\" (usually 32)",
+          "Use `int32_t`"
+        ],
+        [
+          "Arithmetic on `int` wraps in `checked {}` context",
+          "Signed overflow is **undefined behavior**",
+          "Silent wrong results"
+        ],
+        [
+          "Array bounds checked",
+          "Array access unchecked",
+          "Buffer overflow → UB or exploit"
+        ],
+        [
+          "`foreach` iterates safely",
+          "`for (int i = 0; i <= n; i++)` with off-by-one = UB",
+          "Off-by-one reads garbage"
+        ],
+        [
+          "`null` is type-safe",
+          "`NULL` is `0` cast to pointer",
+          "Confuses int and pointer"
+        ],
+        [
+          "GC manages memory",
+          "Must `free` every `malloc`",
+          "Memory leaks, double-free"
+        ]
+      ]
+    }
+  ]
+}
