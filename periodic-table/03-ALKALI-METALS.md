@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:periodic-table:alkali-metals
+kind: guide
+module: periodic-table
+section: periodic-table
+title: Alkali Metals (Group 1) - Li, Na, K, Rb, Cs, Fr
+status: source-custody
+source_custody: partial
+current_path: periodic-table/03-ALKALI-METALS.md
+canonical_path: periodic-table/03-ALKALI-METALS.md
+backsource_ids: [proof-backfill:periodic-table:03-alkali-metals, git-history:periodic-table:03-alkali-metals]
+concepts: [alkali, metals]
+root_concepts: [alkali, metals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Alkali Metals (Group 1) — Li, Na, K, Rb, Cs, Fr
 
 ## The Big Picture

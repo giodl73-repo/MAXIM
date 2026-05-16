@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:crusades-levant
+kind: guide
+module: historical-geography
+section: historical-geography
+title: The Crusades and Outremer - Crusader States to the Fall of Acre
+status: source-custody
+source_custody: partial
+current_path: historical-geography/12-CRUSADES-LEVANT.md
+canonical_path: historical-geography/12-CRUSADES-LEVANT.md
+backsource_ids: [proof-backfill:historical-geography:12-crusades-levant, git-history:historical-geography:12-crusades-levant]
+concepts: [crusades, levant]
+root_concepts: [crusades, levant]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Crusades and Outremer — Crusader States to the Fall of Acre
 
 ## The Big Picture
@@ -5,38 +24,21 @@
 ```
 THE LEVANT UNDER CRUSADER CONTROL (peak, c. 1140):
 
-  MEDITERRANEAN SEA
-       |
-  +----+----------------------------------+
-  |  COUNTY OF EDESSA                     |
-  |  (furthest east; first to fall 1144)  |
-  +--------------------------------------+
-  |  PRINCIPALITY OF ANTIOCH             |
-  |  (Bohemond I; Norman/Italian)        |
-  |  Capital: Antioch                    |
-  +--------------------------------------+
-  |  COUNTY OF TRIPOLI                   |
-  |  (Raymond family; link between       |
-  |   Antioch and Jerusalem)             |
-  +--------------------------------------+
-  |  KINGDOM OF JERUSALEM                |
-  |  Capital: Jerusalem                  |
-  |  Main ports: Acre (most vital),      |
-  |   Tyre, Caesarea, Jaffa              |
-  |  Interior: Nablus, Hebron,           |
-  |   Krak des Chevaliers area (border)  |
-  +--------------------------------------+
-        |                  |
-   PRINCIPALITY         LORDSHIP
-   OF GALILEE           OF OULTREJOURDAIN
-                        (Transjordan;
-                         controlled
-                         trade routes)
+Mediterranean Sea coastal chain:
+  - County of Edessa: furthest east; first to fall in 1144
+  - Principality of Antioch: Bohemond I; Norman/Italian; capital Antioch
+  - County of Tripoli: Raymond family; link between Antioch and Jerusalem
+  - Kingdom of Jerusalem: capital Jerusalem; key ports Acre, Tyre,
+    Caesarea, and Jaffa; interior includes Nablus, Hebron, and border castles
 
-MILITARY ORDERS (hold territory throughout):
-  Hospitallers: Krak des Chevaliers + others
-  Templars: Temple Mount area + many castles
-  Teutonic Knights: (join later; focus on Levant + Baltic)
+Dependent territories:
+  - Principality of Galilee
+  - Lordship of Oultrejourdain: Transjordan, controlling trade routes
+
+Military orders holding territory throughout:
+  - Hospitallers: Krak des Chevaliers and other castles
+  - Templars: Temple Mount area and many castles
+  - Teutonic Knights: later presence, with focus in Levant and Baltic
 ```
 
 ---

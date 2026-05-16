@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:eastern-europe
+kind: guide
+module: historical-geography
+section: historical-geography
+title: Eastern Europe - Poland, Bohemia, Hungary, Baltic
+status: source-custody
+source_custody: partial
+current_path: historical-geography/07-EASTERN-EUROPE.md
+canonical_path: historical-geography/07-EASTERN-EUROPE.md
+backsource_ids: [proof-backfill:historical-geography:07-eastern-europe, git-history:historical-geography:07-eastern-europe]
+concepts: [eastern, europe]
+root_concepts: [eastern, europe]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Eastern Europe — Poland, Bohemia, Hungary, Baltic
 
 ## The Big Picture (c. 1000–1600 CE)

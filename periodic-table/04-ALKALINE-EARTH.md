@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:periodic-table:alkaline-earth
+kind: guide
+module: periodic-table
+section: periodic-table
+title: Alkaline Earth Metals (Group 2) - Be, Mg, Ca, Sr, Ba, Ra
+status: source-custody
+source_custody: partial
+current_path: periodic-table/04-ALKALINE-EARTH.md
+canonical_path: periodic-table/04-ALKALINE-EARTH.md
+backsource_ids: [proof-backfill:periodic-table:04-alkaline-earth, git-history:periodic-table:04-alkaline-earth]
+concepts: [alkaline, earth]
+root_concepts: [alkaline, earth]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Alkaline Earth Metals (Group 2) — Be, Mg, Ca, Sr, Ba, Ra
 
 ## The Big Picture

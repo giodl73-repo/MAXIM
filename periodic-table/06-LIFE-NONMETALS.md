@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:periodic-table:life-nonmetals
+kind: guide
+module: periodic-table
+section: periodic-table
+title: The Life Nonmetals - C, N, O, P, S
+status: source-custody
+source_custody: partial
+current_path: periodic-table/06-LIFE-NONMETALS.md
+canonical_path: periodic-table/06-LIFE-NONMETALS.md
+backsource_ids: [proof-backfill:periodic-table:06-life-nonmetals, git-history:periodic-table:06-life-nonmetals]
+concepts: [life, nonmetals]
+root_concepts: [life, nonmetals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Life Nonmetals — C, N, O, P, S
 
 ## The Big Picture

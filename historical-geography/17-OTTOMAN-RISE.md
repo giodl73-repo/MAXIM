@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:ottoman-rise
+kind: guide
+module: historical-geography
+section: historical-geography
+title: Ottoman Rise - From Anatolian Beylik to World Empire
+status: source-custody
+source_custody: partial
+current_path: historical-geography/17-OTTOMAN-RISE.md
+canonical_path: historical-geography/17-OTTOMAN-RISE.md
+backsource_ids: [proof-backfill:historical-geography:17-ottoman-rise, git-history:historical-geography:17-ottoman-rise]
+concepts: [ottoman, rise]
+root_concepts: [ottoman, rise]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ottoman Rise — From Anatolian Beylik to World Empire
 
 ## The Big Picture

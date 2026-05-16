@@ -1,50 +1,47 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:western-europe
+kind: guide
+module: historical-geography
+section: historical-geography
+title: Western Europe - France, Iberia, England, Italy
+status: source-custody
+source_custody: partial
+current_path: historical-geography/03-WESTERN-EUROPE.md
+canonical_path: historical-geography/03-WESTERN-EUROPE.md
+backsource_ids: [proof-backfill:historical-geography:03-western-europe, git-history:historical-geography:03-western-europe]
+concepts: [western, europe]
+root_concepts: [western, europe]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Western Europe — France, Iberia, England, Italy
 
 ## The Big Picture (c. 1000–1500 CE)
 
 ```
-+------------------------------------------------------------------+
-| WESTERN EUROPE c. 1000 CE                                        |
-|                                                                  |
-|  NORTH SEA                 +-----------+                         |
-|  +---------+               | DENMARK   |                         |
-|  |ENGLAND  |               +-----------+                         |
-|  |Kingdoms |                                                     |
-|  |of Mercia|  NORTH                                              |
-|  |Wessex   |  SEA                                                |
-|  |etc.     |                                                     |
-|  +---------+                                                     |
-|                                                                  |
-|  +-------------------------------------------------------+       |
-|  |              KINGDOM OF FRANCE                        |       |
-|  | [ILE-DE-FRANCE: royal demesne — tiny!]                |       |
-|  | Normandy | Champagne | Flanders (rich!)               |       |
-|  | Anjou    | Burgundy  | Toulouse                       |       |
-|  | Brittany | Aquitaine (huge — disputed)                |       |
-|  +-------------------------------------------------------+       |
-|       |                  |                                        |
-|  +-----------+   +-------+----+                                  |
-|  | KINGDOM   |   | NAVARRE    |                                  |
-|  | OF ARAGON |   | (Pyrenees) |                                  |
-|  |           |   +------------+                                  |
-|  +-----------+                                                   |
-|  +-----------+   +------------+   +-----------+                  |
-|  | CASTILE   |   | LEON       |   | PORTUGAL  |                 |
-|  |           |   |            |   | (emerging)|                 |
-|  +-----------+   +------------+   +-----------+                 |
-   |                                                              |
-   |  [TAIFA KINGDOMS / AL-ANDALUS — Muslim south of Iberia]      |
-   |                                                              |
-|  +------------------------+   +----------------------------+    |
-|  | PAPAL STATES (central) |   | KINGDOM OF SICILY (south)  |   |
-|  +------------------------+   | Norman / then Hohenstaufen |   |
-|  +------------------------+   +----------------------------+    |
-|  | MILAN / GENOA / VENICE |                                     |
-|  | (north Italy — HRE     |                                     |
-|  |  nominally, but cities |                                     |
-|  |  do as they please)    |                                     |
-|  +------------------------+                                     |
-+------------------------------------------------------------------+
+WESTERN EUROPE c. 1000 CE
+
+North Sea zone:
+  - England: kingdoms of Mercia, Wessex, and others
+  - Denmark across the North Sea
+
+France:
+  - Royal demesne: Ile-de-France, still small
+  - Major territories: Normandy, Champagne, Flanders, Anjou, Burgundy,
+    Toulouse, Brittany, and Aquitaine
+
+Iberia:
+  - Aragon and Navarre in the northeast
+  - Castile, Leon, and emerging Portugal in the west
+  - Taifa kingdoms / al-Andalus in the Muslim south
+
+Italy:
+  - Papal States in the center
+  - Kingdom of Sicily in the south
+  - Milan, Genoa, and Venice in the north: nominally HRE, practically urban powers
 ```
 
 ---

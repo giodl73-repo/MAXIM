@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:title-glossary
+kind: guide
+module: historical-geography
+section: historical-geography
+title: Title Glossary - Every Rank, Territory, and Concept
+status: source-custody
+source_custody: partial
+current_path: historical-geography/02-TITLE-GLOSSARY.md
+canonical_path: historical-geography/02-TITLE-GLOSSARY.md
+backsource_ids: [proof-backfill:historical-geography:02-title-glossary, git-history:historical-geography:02-title-glossary]
+concepts: [title, glossary]
+root_concepts: [title, glossary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Title Glossary — Every Rank, Territory, and Concept
 
 ## The Title Hierarchy (Western European)

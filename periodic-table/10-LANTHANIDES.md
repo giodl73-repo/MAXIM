@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:periodic-table:lanthanides
+kind: guide
+module: periodic-table
+section: periodic-table
+title: Lanthanides - La through Lu (Z=57–71)
+status: source-custody
+source_custody: partial
+current_path: periodic-table/10-LANTHANIDES.md
+canonical_path: periodic-table/10-LANTHANIDES.md
+backsource_ids: [proof-backfill:periodic-table:10-lanthanides, git-history:periodic-table:10-lanthanides]
+concepts: [lanthanides]
+root_concepts: [lanthanides]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lanthanides — La through Lu (Z=57–71)
 
 ## The Big Picture

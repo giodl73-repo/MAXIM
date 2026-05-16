@@ -1,51 +1,55 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:byzantine-empire
+kind: guide
+module: historical-geography
+section: historical-geography
+title: The Byzantine Empire - Eastern Rome, 330–1453
+status: source-custody
+source_custody: partial
+current_path: historical-geography/08-BYZANTINE-EMPIRE.md
+canonical_path: historical-geography/08-BYZANTINE-EMPIRE.md
+backsource_ids: [proof-backfill:historical-geography:08-byzantine-empire, git-history:historical-geography:08-byzantine-empire]
+concepts: [byzantine, empire]
+root_concepts: [byzantine, empire]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Byzantine Empire — Eastern Rome, 330–1453
 
 ## The Big Picture — Geographic Extent and Contraction
 
 ```
 BYZANTINE EMPIRE: SPATIAL CONTRACTION ACROSS TIME
-===================================================
 
-JUSTINIAN'S PEAK (c. 565 CE):
-  +──────────────────────────────────────────────────────+
-  |  SPAIN    |   ITALY    |     BALKANS    |            |
-  |  (Betica) |  (Sicily + | (up to Danube) | ANATOLIA   |
-  |           |  Ravenna)  |                | (all)      |
-  +───────────+────────────+───────────────+───────────+
-  |   NORTH AFRICA (coast)  |  EGYPT  |  SYRIA/LEVANT  |
-  +─────────────────────────+─────────+────────────────+
-  Mediterranean: controlled as a Roman lake
+JUSTINIAN PEAK (c. 565 CE):
+  Spain (Betica), Italy (Sicily and Ravenna), Balkans to the Danube,
+  Anatolia, North African coast, Egypt, and Syria/Levant.
+  Mediterranean: controlled as a Roman lake.
 
 AFTER ARAB CONQUESTS (c. 700 CE):
-  +──────────────────────────────+
-  |     BALKANS (reduced)        |
-  +──────────────────────────────+
-  |  W. ANATOLIA  | E. ANATOLIA  |
-  +───────────────+─────────────+
-  [Syria, Egypt, N. Africa: LOST to Umayyads 636–698]
+  Balkans reduced; Anatolia divided between western and eastern fronts.
+  Syria, Egypt, and North Africa lost to Umayyad expansion (636-698).
 
 MACEDONIAN PEAK (c. 1025 CE):
-  +───────────────────────────────────────────+
-  |  BALKANS (Bulgaria, Serbia — recovered)   |
-  +───────────────────────────────────────────+
-  |        ANATOLIA (full control)            |
-  +───────────────────────────────────────────+
-  |  ANTIOCH + N. SYRIA (reconquered)         |
-  +───────────────────────────────────────────+
+  Balkans recovered in Bulgaria and Serbia; Anatolia under full control;
+  Antioch and northern Syria reconquered.
 
-AFTER MANZIKERT (1071) + CRUSADER PERIOD:
-  Reduced to: Constantinople + Thrace + coastal strips
-  [Fourth Crusade 1204: Latins occupy Constantinople 57 years]
+AFTER MANZIKERT (1071) AND THE CRUSADER PERIOD:
+  Reduced to Constantinople, Thrace, and coastal strips.
+  Fourth Crusade (1204): Latins occupy Constantinople for 57 years.
 
 LATE BYZANTINE (c. 1350 CE):
-  Constantinople + Morea (Peloponnese) + fragments
-  Surrounded by Ottoman, Genoese, Venetian territories
+  Constantinople, Morea (Peloponnese), and fragments, surrounded by
+  Ottoman, Genoese, and Venetian territories.
 
 STRATEGIC CHOKEPOINTS:
-  Constantinople → controls Bosphorus (Black Sea ↔ Mediterranean)
-  Dardanelles   → controls Sea of Marmara approach
-  Themes system → military districts that self-funded defense
-  Triple land walls → 5.6 km; held 1,000 years until 1453
+  Constantinople controls the Bosphorus from Black Sea to Mediterranean.
+  Dardanelles controls the Sea of Marmara approach.
+  Themes system creates self-funded military districts.
+  Triple land walls run 5.6 km and hold until 1453.
 ```
 
 ---

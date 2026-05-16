@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:periodic-table:noble-gases
+kind: guide
+module: periodic-table
+section: periodic-table
+title: Noble Gases (Group 18) - He, Ne, Ar, Kr, Xe, Rn, Og
+status: source-custody
+source_custody: partial
+current_path: periodic-table/02-NOBLE-GASES.md
+canonical_path: periodic-table/02-NOBLE-GASES.md
+backsource_ids: [proof-backfill:periodic-table:02-noble-gases, git-history:periodic-table:02-noble-gases]
+concepts: [noble, gases]
+root_concepts: [noble, gases]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Noble Gases (Group 18) — He, Ne, Ar, Kr, Xe, Rn, Og
 
 ## The Big Picture

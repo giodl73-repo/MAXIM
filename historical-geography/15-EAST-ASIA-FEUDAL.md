@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:east-asia-feudal
+kind: guide
+module: historical-geography
+section: historical-geography
+title: East Asia - China's Dynastic Cycle, Japanese Feudalism, Korean Kingdoms
+status: source-custody
+source_custody: partial
+current_path: historical-geography/15-EAST-ASIA-FEUDAL.md
+canonical_path: historical-geography/15-EAST-ASIA-FEUDAL.md
+backsource_ids: [proof-backfill:historical-geography:15-east-asia-feudal, git-history:historical-geography:15-east-asia-feudal]
+concepts: [east, asia, feudal]
+root_concepts: [east, asia]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # East Asia — China's Dynastic Cycle, Japanese Feudalism, Korean Kingdoms
 
 ## The Big Picture
@@ -186,7 +205,7 @@ MING DECLINE:
 
 ```
 JAPANESE EMPEROR SYSTEM:
-  Tennō (天皇) = Heavenly Sovereign
+  Tenno = Heavenly Sovereign
   Divine origin: descended from sun goddess Amaterasu
   Never dethroned (the same dynasty for 1,400+ years — possibly oldest
   continuous dynasty in the world)

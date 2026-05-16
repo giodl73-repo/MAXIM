@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:periodic-table:p-block
+kind: guide
+module: periodic-table
+section: periodic-table
+title: The p-Block Remainder - B, Al, Si, Ge/As/Sb, Se/Te/Po, Sn, Pb, Bi
+status: source-custody
+source_custody: partial
+current_path: periodic-table/07-P-BLOCK.md
+canonical_path: periodic-table/07-P-BLOCK.md
+backsource_ids: [proof-backfill:periodic-table:07-p-block, git-history:periodic-table:07-p-block]
+concepts: [p, block]
+root_concepts: [p, block]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The p-Block Remainder — B, Al, Si, Ge/As/Sb, Se/Te/Po, Sn, Pb, Bi
 
 ## The Big Picture

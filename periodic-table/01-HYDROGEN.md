@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:periodic-table:hydrogen
+kind: guide
+module: periodic-table
+section: periodic-table
+title: Hydrogen (H, Z=1) - The Universal Anomaly
+status: source-custody
+source_custody: partial
+current_path: periodic-table/01-HYDROGEN.md
+canonical_path: periodic-table/01-HYDROGEN.md
+backsource_ids: [proof-backfill:periodic-table:01-hydrogen, git-history:periodic-table:01-hydrogen]
+concepts: [hydrogen]
+root_concepts: [hydrogen]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hydrogen (H, Z=1) — The Universal Anomaly
 
 ## The Big Picture

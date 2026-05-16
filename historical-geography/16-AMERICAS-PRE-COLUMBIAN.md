@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historical-geography:americas-pre-columbian
+kind: guide
+module: historical-geography
+section: historical-geography
+title: Pre-Columbian Americas - Aztec, Inca, Maya, and North America
+status: source-custody
+source_custody: partial
+current_path: historical-geography/16-AMERICAS-PRE-COLUMBIAN.md
+canonical_path: historical-geography/16-AMERICAS-PRE-COLUMBIAN.md
+backsource_ids: [proof-backfill:historical-geography:16-americas-pre-columbian, git-history:historical-geography:16-americas-pre-columbian]
+concepts: [americas, pre, columbian]
+root_concepts: [americas, pre]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pre-Columbian Americas — Aztec, Inca, Maya, and North America
 
 ## The Big Picture
