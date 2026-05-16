@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historiography:rankean-positivism
+kind: guide
+module: historiography
+section: historiography
+title: Rankean Positivism: Archives, Quellenkritik, and Historicism
+status: source-custody
+source_custody: partial
+current_path: historiography/03-RANKEAN-POSITIVISM.md
+canonical_path: historiography/03-RANKEAN-POSITIVISM.md
+backsource_ids: [proof-backfill:historiography:03-rankean-positivism, git-history:historiography:03-rankean-positivism]
+concepts: [rankean, positivism]
+root_concepts: [rankean, positivism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rankean Positivism: Archives, Quellenkritik, and Historicism
 
 ## The Big Picture

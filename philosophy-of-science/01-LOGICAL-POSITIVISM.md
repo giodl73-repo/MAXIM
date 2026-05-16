@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-science:logical-positivism
+kind: guide
+module: philosophy-of-science
+section: philosophy-of-science
+title: Logical Positivism: Vienna Circle, Verification, Carnap, Hempel
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-science/01-LOGICAL-POSITIVISM.md
+canonical_path: philosophy-of-science/01-LOGICAL-POSITIVISM.md
+backsource_ids: [proof-backfill:philosophy-of-science:01-logical-positivism, git-history:philosophy-of-science:01-logical-positivism]
+concepts: [logical, positivism]
+root_concepts: [logical, positivism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Logical Positivism: Vienna Circle, Verification, Carnap, Hempel
 
 ## The Big Picture
@@ -13,7 +32,7 @@ Logical positivism was the attempt to make philosophy scientific by applying the
 |  +-----------------+  +-----------------+  +----------------+   |
 |  |  Frege / Russell|  |  Hume / Mach    |  |  Einstein GR   |   |
 |  |  Symbolic logic |  |  Empiricism,    |  |  as model of   |   |
-|  |  as foundation   |  |  positivism     |  |  scientific     | |
+|  |  as foundation  |  |  positivism     |  |  scientific    |   |
 |  |  of mathematics |  |  sensation-base |  |  rigor         |   |
 |  +-----------------+  +-----------------+  +----------------+   |
 |          |                    |                    |             |

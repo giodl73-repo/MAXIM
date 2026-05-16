@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-science:by-field
+kind: guide
+module: philosophy-of-science
+section: philosophy-of-science
+title: Philosophy by Field: Physics, Biology, Economics, Psychology, CS
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-science/09-BY-FIELD.md
+canonical_path: philosophy-of-science/09-BY-FIELD.md
+backsource_ids: [proof-backfill:philosophy-of-science:09-by-field, git-history:philosophy-of-science:09-by-field]
+concepts: [by, field]
+root_concepts: [by, field]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Philosophy by Field: Physics, Biology, Economics, Psychology, CS
 
 ## The Big Picture
@@ -45,32 +64,33 @@ QM is the most predictively accurate physical theory ever developed. Its formali
 |  Measurement gives eigenvalue with Born rule probability.       |
 |  Formalism: uncontested. Interpretation: 5+ serious rivals.     |
 |                                                                  |
-+--------------------+-------------------------------------------+ |
-| INTERPRETATION     | ONTOLOGY / KEY CLAIM                      | |
-+--------------------+-------------------------------------------+ |
-| Copenhagen         | No fact about unmeasured quantities.      | |
-| (Bohr, Heisenberg) | Wavefunction is not real; just a          | |
-|                    | calculation tool. Measurement defines     | |
-|                    | what was measured.                        | |
-+--------------------+-------------------------------------------+ |
-| Many-Worlds        | Wavefunction is real. No collapse.        | |
-| (Everett 1957)     | All branches exist. Observers split       | |
-|                    | at each "measurement." You are in         | |
-|                    | one branch; all others also exist.        | |
-+--------------------+-------------------------------------------+ |
-| Bohmian Mechanics  | Hidden variables. Particles have          | |
-| (de Broglie-Bohm)  | definite positions at all times.          | |
-|                    | Wavefunction is real, guides particles.   | |
-|                    | Reproduces QM predictions exactly.        | |
-+--------------------+-------------------------------------------+ |
-| QBism              | Wavefunction = agent's beliefs about      | |
-| (Fuchs, Caves)     | outcomes, not objective property of       | |
-|                    | the world. Measurement = agent update.    | |
-|                    | Bayesian QM; deeply anti-realist.         | |
-+--------------------+-------------------------------------------+ |
-| Relational QM      | Wavefunction relative to observer system. | |
-| (Rovelli)          | No absolute state; only relative states.  | |
-+--------------------+-------------------------------------------+ |
++--------------------+-------------------------------------------+
+| INTERPRETATION     | ONTOLOGY / KEY CLAIM                      |
++--------------------+-------------------------------------------+
+| Copenhagen         | No fact about unmeasured quantities.      |
+| (Bohr, Heisenberg) | Wavefunction is not real; just a          |
+|                    | calculation tool. Measurement defines     |
+|                    | what was measured.                        |
++--------------------+-------------------------------------------+
+| Many-Worlds        | Wavefunction is real. No collapse.        |
+| (Everett 1957)     | All branches exist. Observers split       |
+|                    | at each "measurement." You are in         |
+|                    | one branch; all others also exist.        |
++--------------------+-------------------------------------------+
+| Bohmian Mechanics  | Hidden variables. Particles have          |
+| (de Broglie-Bohm)  | definite positions at all times.          |
+|                    | Wavefunction is real, guides particles.   |
+|                    | Reproduces QM predictions exactly.        |
++--------------------+-------------------------------------------+
+| QBism              | Wavefunction = agent's beliefs about      |
+| (Fuchs, Caves)     | outcomes, not objective property of       |
+|                    | the world. Measurement = agent update.    |
+|                    | Bayesian QM; deeply anti-realist.         |
++--------------------+-------------------------------------------+
+| Relational QM      | Wavefunction relative to observer system. |
+| (Rovelli)          | No absolute state; only relative states.  |
++--------------------+-------------------------------------------+
+
 |                                                                  |
 |  ALL produce identical empirical predictions. Pure under-        |
 |  determination. Choice is metaphysical, not empirical.           |

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-science:kuhn-paradigms
+kind: guide
+module: philosophy-of-science
+section: philosophy-of-science
+title: Kuhn and Paradigms: Normal Science, Crisis, Revolution, Incommensurability
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-science/03-KUHN-PARADIGMS.md
+canonical_path: philosophy-of-science/03-KUHN-PARADIGMS.md
+backsource_ids: [proof-backfill:philosophy-of-science:03-kuhn-paradigms, git-history:philosophy-of-science:03-kuhn-paradigms]
+concepts: [kuhn, paradigms]
+root_concepts: [kuhn, paradigms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Kuhn and Paradigms: Normal Science, Crisis, Revolution, Incommensurability
 
 ## The Big Picture

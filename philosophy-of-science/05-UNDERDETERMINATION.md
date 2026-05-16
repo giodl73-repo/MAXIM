@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-science:underdetermination
+kind: guide
+module: philosophy-of-science
+section: philosophy-of-science
+title: Underdetermination and the Duhem-Quine Thesis: Theory Choice, Holism
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-science/05-UNDERDETERMINATION.md
+canonical_path: philosophy-of-science/05-UNDERDETERMINATION.md
+backsource_ids: [proof-backfill:philosophy-of-science:05-underdetermination, git-history:philosophy-of-science:05-underdetermination]
+concepts: [underdetermination]
+root_concepts: [underdetermination]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Underdetermination and the Duhem-Quine Thesis: Theory Choice, Holism
 
 ## The Big Picture

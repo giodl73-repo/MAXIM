@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "philosophy-of-science\\07-CAUSATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|            THEORIES OF EXPLANATION AND CAUSATION                 |\n+------------------------------------------------------------------+\n|                                                                  |\n|  MODELS OF EXPLANATION:                                          |\n|  +------------------+  +-------------------+  +---------------+ |\n|  |  DN MODEL        |  |  CAUSAL-MECHANICAL|  |  PRAGMATIC    | |\n|  |  (Hempel)        |  |  (Salmon)         |  |  (van Fraassen| |\n|  |  Deduction from  |  |  Explanation via  |  |  Explanation  | |\n|  |  laws + conds.   |  |  causal processes |  |  relative to  | |\n|  |                  |  |  and conserved    |  |  interests and| |\n|  |                  |  |  quantities       |  |  contrast cls.| |\n|  +------------------+  +-------------------+  +---------------+ |\n|                                                                  |\n|  THEORIES OF CAUSATION:                                          |\n|  +------------------+  +-------------------+  +---------------+ |\n|  |  REGULARITY      |  |  COUNTERFACTUAL   |  |INTERVENTIONIST| |\n|  |  (Hume)          |  |  (Lewis)          |  |  (Woodward)   | |\n|  |  C causes E =    |  |  C causes E =     |  |  C causes E = | |\n|  |  Cs regularly    |  |  if C had not     |  |  ideal interv.| |\n|  |  followed by Es  |  |  occurred, E would|  |  on C changes | |\n|  |                  |  |  not have occurred|  |  E            | |\n|  +------------------+  +-------------------+  +---------------+ |\n|                                                                  |\n|  CAUSAL BAYES NETS:                                              |\n|  Graph structure encodes conditional independence; do-calculus  |\n|  distinguishes observation (P(E|C)) from intervention (P(E|do(C)))|\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "### The Model",
+      "confidence": "candidate",
+      "text": "DEDUCTIVE-NOMOLOGICAL STRUCTURE:\n\n  L1, L2, ..., Lk     (laws of nature)\n  C1, C2, ..., Cm     (initial conditions / antecedent conditions)\n  ─────────────────── (deductive entailment)\n  E                   (explanandum: the phenomenon to be explained)\n\nEXAMPLE: Why did the mercury rise when heated?\n  L1: For any substance with high thermal expansion coefficient,\n      an increase in temperature produces volume expansion\n  L2: Mercury has a high thermal expansion coefficient\n  C1: The mercury was heated (temperature increased)\n  ─────────────────────────────────────────────────\n  E:  The mercury expanded (rose in the tube)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 96,
+      "heading_context": "## Problems with the DN Model",
+      "confidence": "candidate",
+      "text": "### 1. The Asymmetry Problem (Flagpole)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "### 1. The Asymmetry Problem (Flagpole)",
+      "confidence": "candidate",
+      "text": "FLAGPOLE ARGUMENT:\n\n  Observation: A flagpole of height H casts a shadow of length S\n  given sun at angle θ.\n\n  DN EXPLANATION 1 (correct):\n  L:  Law of rectilinear propagation of light + geometry\n  C1: Pole height H, sun at angle θ\n  ─────────────────────────\n  E:  Shadow length S = H/tan(θ)     ← GOOD explanation\n\n  DN EXPLANATION 2 (problematic):\n  L:  Same optical laws\n  C1: Shadow length S, sun at angle θ\n  ─────────────────────────\n  E:  Pole height H = S · tan(θ)     ← \"Explains\" pole height!\n\n  But shadow does not CAUSE or explain the pole's height.\n  The pole causes the shadow. DN model gets the direction wrong.\n  Asymmetry in causation is not captured by symmetric deduction.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 121,
+      "heading_context": "### 1. The Asymmetry Problem (Flagpole)",
+      "confidence": "candidate",
+      "text": "### 2. The Irrelevance Problem",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "### 2. The Irrelevance Problem",
+      "confidence": "candidate",
+      "text": "BIRTH CONTROL PILLS AND PREGNANCY:\n\n  L:  No man who takes birth control pills gets pregnant\n  C:  John takes birth control pills\n  ────────────────────────────────\n  E:  John does not get pregnant\n\n  This is a valid DN explanation. But John's taking birth\n  control pills is IRRELEVANT to his not getting pregnant.\n  The real explanation is: John is male.\n\n  DN model cannot filter irrelevant factors from explanatory ones.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 138,
+      "heading_context": "### 2. The Irrelevance Problem",
+      "confidence": "candidate",
+      "text": "### 3. The Problem of Statistical Explanation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "## Counterfactual Analysis of Causation (Lewis)",
+      "confidence": "candidate",
+      "text": "POSSIBLE WORLDS SEMANTICS:\n\n  Actual world:  C occurs, E occurs\n\n  Nearest possible world where C doesn't occur:\n  → E also doesn't occur → C caused E (counterfactual dependence)\n\n  OR:\n  → E still occurs → C did NOT cause E\n\n  EXAMPLE:\n  My flipping the light switch (C) causes the light to go on (E).\n  In the nearest world where I don't flip: light stays off.\n  → Counterfactual dependence → C caused E\n\n  PROBLEM: PREEMPTION\n  Two assassins, A and B. A shoots first and kills the victim.\n  B would have shot if A hadn't.\n\n  Does A cause the death? Yes.\n  Counterfactual test: if A hadn't shot, B would have.\n  The victim STILL DIES. No counterfactual dependence.\n  → Lewis's test incorrectly says A didn't cause the death.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "### The Core Idea",
+      "confidence": "candidate",
+      "text": "INTERVENTIONIST STRUCTURE:\n\n  X ────────────────────→ Y   (X causes Y)\n\n  Intervention I sets X to value x':\n  I ──→ X = x' ──────────→ Y changes\n        (all other causes of Y unchanged by I)\n\n  If Y changes when I manipulate X: X causes Y.\n  If Y doesn't change: X doesn't cause Y (or is not on the right path).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 244,
+      "heading_context": "### The Causal Graph",
+      "confidence": "candidate",
+      "text": "EXAMPLE: Smoking and Cancer\n\n     Smoking ────────→ Cancer\n        |                 ↑\n        |                 |\n        └──→ Yellow fingers → (none — confound illustrates)\n\nActually:\n  Genotype ──→ Smoking\n  Genotype ──→ Cancer\n  Smoking  ──→ Cancer\n\n  DAG:\n  Genotype → Smoking → Cancer\n      |               ↑\n      └───────────────┘\n\n  Observational data: P(Cancer | Smoking) is high.\n  Is this causal?\n  Confounded: Genotype causes both.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 276,
+      "heading_context": "### Observation vs. Intervention",
+      "confidence": "candidate",
+      "text": "ADJUSTING FOR CONFOUNDERS (do-calculus):\n\n  Original graph: Genotype → Smoking → Cancer\n                  Genotype ──────────→ Cancer\n\n  After do(Smoking = high):\n  Genotype → [Smoking = high set by intervention] → Cancer\n  Genotype ──────────────────────────────────────→ Cancer\n  But arrow Genotype → Smoking is CUT (smoking is set by us)\n\n  Now: P(Cancer | do(Smoking)) no longer confounded by Genotype.\n  This is what RCTs implement physically.\n\nBACKDOOR CRITERION:\n  A set of variables Z blocks all backdoor paths from X to Y.\n  Conditioning on Z makes observational = interventional.\n  → Can estimate causal effects from observational data\n    if you have measured the right confounders.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 307,
+      "heading_context": "## Probabilistic Causation",
+      "confidence": "candidate",
+      "text": "- The whole conjunction (short + oxygen + dry material) was sufficient but unnecessary (arson would also suffice)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:historiography:digital-humanities
+kind: guide
+module: historiography
+section: historiography
+title: Digital Humanities: Text Mining, Network Analysis, GIS in History
+status: source-custody
+source_custody: partial
+current_path: historiography/07-DIGITAL-HUMANITIES.md
+canonical_path: historiography/07-DIGITAL-HUMANITIES.md
+backsource_ids: [proof-backfill:historiography:07-digital-humanities, git-history:historiography:07-digital-humanities]
+concepts: [digital, humanities]
+root_concepts: [digital, humanities]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Humanities: Text Mining, Network Analysis, GIS in History
 
 ## The Big Picture
@@ -9,9 +28,9 @@ DIGITAL HISTORY TOOLKIT
 
   TEXT MINING              NETWORK ANALYSIS        GIS / SPATIAL
   +----------------+       +----------------+      +----------------+
-  | Large corpus   |       | Correspondence |      | Historical maps |
+  | Large corpus   |       | Correspondence |      | Historical maps|
   | (millions of   |       | networks       |      | overlaid on    |
-  |  words)        |       | Social networks|      | modern GIS data |
+  |  words)        |       | Social networks|      | modern GIS data|
   |                |       | Citation nets  |      |                |
   | Tools:         |       | Tools:         |      | Tools:         |
   | LDA topic model|       | Gephi, Cytosc- |      | QGIS, ArcGIS   |

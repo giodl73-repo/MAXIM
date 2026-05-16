@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-science:social-studies
+kind: guide
+module: philosophy-of-science
+section: philosophy-of-science
+title: Social Studies of Science: SSK, Laboratory Studies, Actor-Network Theory
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-science/08-SOCIAL-STUDIES.md
+canonical_path: philosophy-of-science/08-SOCIAL-STUDIES.md
+backsource_ids: [proof-backfill:philosophy-of-science:08-social-studies, git-history:philosophy-of-science:08-social-studies]
+concepts: [social, studies]
+root_concepts: [social, studies]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Social Studies of Science: SSK, Laboratory Studies, Actor-Network Theory
 
 ## The Big Picture
