@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:microbiology:overview
+kind: guide
+module: microbiology
+section: microbiology
+title: Microbiology - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: microbiology/00-OVERVIEW.md
+canonical_path: microbiology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:microbiology:00-overview, git-history:microbiology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Microbiology — Landscape Overview
 
 ## The Big Picture

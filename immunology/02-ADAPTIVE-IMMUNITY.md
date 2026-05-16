@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:immunology:adaptive-immunity
+kind: guide
+module: immunology
+section: immunology
+title: Adaptive Immunity
+status: source-custody
+source_custody: partial
+current_path: immunology/02-ADAPTIVE-IMMUNITY.md
+canonical_path: immunology/02-ADAPTIVE-IMMUNITY.md
+backsource_ids: [proof-backfill:immunology:02-adaptive-immunity, git-history:immunology:02-adaptive-immunity]
+concepts: [adaptive, immunity]
+root_concepts: [adaptive, immunity]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Adaptive Immunity
 
 ## The Big Picture

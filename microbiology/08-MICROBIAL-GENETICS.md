@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:microbiology:microbial-genetics
+kind: guide
+module: microbiology
+section: microbiology
+title: Microbial Genetics
+status: source-custody
+source_custody: partial
+current_path: microbiology/08-MICROBIAL-GENETICS.md
+canonical_path: microbiology/08-MICROBIAL-GENETICS.md
+backsource_ids: [proof-backfill:microbiology:08-microbial-genetics, git-history:microbiology:08-microbial-genetics]
+concepts: [microbial, genetics]
+root_concepts: [microbial, genetics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Microbial Genetics
 
 ## The Big Picture

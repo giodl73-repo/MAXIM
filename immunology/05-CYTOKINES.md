@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:immunology:cytokines
+kind: guide
+module: immunology
+section: immunology
+title: Cytokines and Immune Signaling
+status: source-custody
+source_custody: partial
+current_path: immunology/05-CYTOKINES.md
+canonical_path: immunology/05-CYTOKINES.md
+backsource_ids: [proof-backfill:immunology:05-cytokines, git-history:immunology:05-cytokines]
+concepts: [cytokines]
+root_concepts: [cytokines]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cytokines and Immune Signaling
 
 ## The Big Picture
@@ -87,15 +106,15 @@ CYTOKINES: THE SIGNALING NETWORK OF IMMUNITY
   JAK-STAT SPECIFICITY TABLE:
   ┌────────────────────────────────────────────────────────────────┐
   │ Cytokine     │ JAKs used    │ STAT activated │ Effect          │
-  ├──────────────┼──────────────┼────────────────┼────────────────┤
-  │ IFN-α/β     │ JAK1, TYK2  │ STAT1, STAT2   │ Antiviral ISGs │
-  │ IFN-γ       │ JAK1, JAK2  │ STAT1          │ MHC↑, Th1      │
-  │ IL-2        │ JAK1, JAK3  │ STAT5          │ T cell prolif. │
-  │ IL-4        │ JAK1, JAK3  │ STAT6          │ Th2, IgE       │
-  │ IL-6        │ JAK1, JAK2  │ STAT3          │ Acute phase    │
-  │ IL-12       │ JAK2, TYK2  │ STAT4          │ Th1, NK activ. │
-  │ IL-21       │ JAK1, JAK3  │ STAT3          │ Tfh, GC        │
-  │ GM-CSF      │ JAK2        │ STAT5          │ Myeloid diff.  │
+  ├──────────────┼──────────────┼────────────────┼─────────────────┤
+  │ IFN-α/β     │ JAK1, TYK2  │ STAT1, STAT2   │ Antiviral ISGs    │
+  │ IFN-γ       │ JAK1, JAK2  │ STAT1          │ MHC↑, Th1         │
+  │ IL-2        │ JAK1, JAK3  │ STAT5          │ T cell prolif.    │
+  │ IL-4        │ JAK1, JAK3  │ STAT6          │ Th2, IgE          │
+  │ IL-6        │ JAK1, JAK2  │ STAT3          │ Acute phase       │
+  │ IL-12       │ JAK2, TYK2  │ STAT4          │ Th1, NK activ.    │
+  │ IL-21       │ JAK1, JAK3  │ STAT3          │ Tfh, GC           │
+  │ GM-CSF      │ JAK2        │ STAT5          │ Myeloid diff.     │
   └────────────────────────────────────────────────────────────────┘
 
   JAK INHIBITORS (targeted immunosuppression):

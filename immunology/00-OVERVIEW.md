@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:immunology:overview
+kind: guide
+module: immunology
+section: immunology
+title: Immunology - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: immunology/00-OVERVIEW.md
+canonical_path: immunology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:immunology:00-overview, git-history:immunology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Immunology — Landscape Overview
 
 ## The Big Picture

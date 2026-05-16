@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:immunology:immunotherapy
+kind: guide
+module: immunology
+section: immunology
+title: Immunotherapy
+status: source-custody
+source_custody: partial
+current_path: immunology/07-IMMUNOTHERAPY.md
+canonical_path: immunology/07-IMMUNOTHERAPY.md
+backsource_ids: [proof-backfill:immunology:07-immunotherapy, git-history:immunology:07-immunotherapy]
+concepts: [immunotherapy]
+root_concepts: [immunotherapy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Immunotherapy
 
 ## The Big Picture
@@ -10,7 +29,7 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   ┌────────────────────────────────────────────────────────────────┐
   │  NORMAL                         CANCER                         │
   │  MHC I displays self-peptides   MHC I downregulated            │
-  │  No co-stimulation → T cell     PD-L1 upregulated → T exhaust│
+  │  No co-stimulation → T cell     PD-L1 upregulated → T exhaust  │
   │   ignored                        Tregs recruited to tumor      │
   │  No "eat me" signal             MDSCs suppress T cells         │
   │                                  IDO: Trp depletion → anergy   │

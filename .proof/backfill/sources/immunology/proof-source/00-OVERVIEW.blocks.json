@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "immunology\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE IMMUNE SYSTEM AS A DISTRIBUTED COMPUTING SYSTEM\n=====================================================\n\n  FRAMING:\n  ─ Innate immunity  = firewall (pattern matching against known bad)\n  ─ Adaptive immunity = ML system (learns from examples, remembers)\n  ─ Tolerance        = classifier accuracy (avoid false positives)\n  ─ Inflammation     = alerting and incident response\n  ─ Memory           = model persistence (keeps the learned state)\n\n  TWO-ARM ARCHITECTURE:\n\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  INNATE IMMUNITY (Born with it — first 0–4 hours)               │\n  │  ─────────────────────────────────────────────────              │\n  │  Pattern recognition: PRRs detect PAMPs and DAMPs               │\n  │  Fixed rules: TLR4 binds LPS → always triggers inflammation     │\n  │  No learning: same response every time                          │\n  │  Cells: Neutrophils, macrophages, NK cells, DCs, mast cells     │\n  │  Soluble: Complement, cytokines, acute-phase proteins           │\n  │  Response time: Minutes to hours                                │\n  │                                                                 │\n  │  ADAPTIVE IMMUNITY (Learned — 5–14 days for primary response)   │\n  │  ─────────────────────────────────────────────────────────      │\n  │  Specific recognition: BCR/TCR bind exact molecular shapes      │\n  │  Learning: Clonal selection = select the \"model\" that fits      │\n  │  Memory: Long-lived plasma cells + memory T/B cells             │\n  │  Cells: B lymphocytes, T lymphocytes                            │\n  │  Soluble: Antibodies (immunoglobulins)                          │\n  │  Response time: Days to weeks (primary); hours (secondary)      │\n  └─────────────────────────────────────────────────────────────────┘\n\n  THEIR RELATIONSHIP:\n  Innate activates adaptive (DCs present antigen to T cells)\n  Adaptive refines innate (IgG opsonizes → macrophages phagocytose)\n  Innate provides context (danger signals → adaptive priming)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "## Cellular Cast",
+      "confidence": "candidate",
+      "text": "  IMMUNE CELL TAXONOMY\n  =====================\n\n  HEMATOPOIETIC STEM CELL (HSC)\n       │\n       ├──► MYELOID PROGENITOR\n       │         │\n       │         ├──► Neutrophil        First responder; phagocyte; most abundant WBC\n       │         ├──► Eosinophil        Antiparasitic; allergy effector\n       │         ├──► Basophil          Allergy/anaphylaxis (IgE receptor)\n       │         ├──► Mast cell         Tissue-resident; IgE receptor; allergy\n       │         ├──► Monocyte          Circulating precursor to macrophage\n       │         ├──► Macrophage        Tissue-resident phagocyte; antigen presentation\n       │         ├──► Dendritic cell    Professional antigen-presenting cell (APC)\n       │         └──► (NK cell)         Innate killer; detects missing-self\n       │\n       └──► LYMPHOID PROGENITOR\n                 │\n                 ├──► B cell            Antibody producer; humoral immunity\n                 │       └──► Plasma cell     Antibody secretion factory\n                 │\n                 ├──► T cell            Cell-mediated immunity\n                 │       ├──► CD4+ helper T   Orchestrates immune response\n                 │       │       ├──► Th1      Drives macrophage activation\n                 │       │       ├──► Th2      Drives B cell class switching\n                 │       │       ├──► Th17     Neutrophil recruitment; mucosal\n                 │       │       └──► Treg     Suppresses immune response\n                 │       └──► CD8+ cytotoxic T  Kills infected/cancer cells\n                 │\n                 └──► NK cell (also can be lymphoid)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "## The Self/Non-Self Problem",
+      "confidence": "candidate",
+      "text": "  THE FUNDAMENTAL CHALLENGE\n  ===========================\n\n  The immune system must:\n  1. DESTROY pathogens (bacteria, viruses, fungi, parasites)\n  2. TOLERATE self (avoid attacking own tissues)\n  3. TOLERATE commensals (gut bacteria, skin flora)\n  4. TOLERATE pregnancy (fetal alloantigens)\n  5. REMEMBER past encounters (immunological memory)\n\n  FAILURE MODES:\n  ┌───────────────────────────────────────────────────────────────┐\n  │ Too little immunity → immunodeficiency (infections)           │\n  │ Too much immunity → autoimmunity (self-attack)                │\n  │ Misdirected immunity → allergy (harmless antigens)            │\n  │ Tolerance failure in tumors → cancer (self-cells not killed)  │\n  │ Rejection of transplant → alloimmunity                        │\n  └───────────────────────────────────────────────────────────────┘\n\n  TOLERANCE MECHANISMS:\n  Central tolerance: Delete self-reactive lymphocytes during development\n                     (thymus for T cells; bone marrow for B cells)\n  Peripheral tolerance: Suppress mature self-reactive cells in periphery\n                        (Treg cells; anergy; deletion upon re-encounter)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "## Key Molecular Concepts",
+      "confidence": "candidate",
+      "text": "  ANTIGEN vs. EPITOPE vs. HAPTEN\n  ================================\n\n  Antigen:   Any molecule that the immune system recognizes\n  Epitope:   The specific part of an antigen that the receptor binds\n             (~10–15 aa for T cell; conformational for B cell)\n  Hapten:    Small molecule that is not immunogenic alone; must be\n             conjugated to a carrier protein to elicit a response\n\n  IMMUNOGENICITY FACTORS:\n  ─ Foreignness: More foreign = more immunogenic\n  ─ Size: Large proteins more immunogenic than small peptides\n  ─ Chemical complexity: Polymers > homopolymers\n  ─ Degradability: Must be processed to peptide for T cell presentation\n  ─ Route: subcutaneous > intradermal > intravenous for immunogenicity\n\n  MHC: THE ANTIGEN DISPLAY SYSTEM\n  ─────────────────────────────────\n  MHC class I:  Displays INTRACELLULAR peptides; recognized by CD8 T cells\n                Present on all nucleated cells\n                Signal: \"I am making this protein — is it foreign?\"\n  MHC class II: Displays EXTRACELLULAR peptides; recognized by CD4 T cells\n                Present on professional APCs (DCs, macrophages, B cells)\n                Signal: \"I ate this pathogen — your response is needed\"\n\n  HLA (Human Leukocyte Antigen) = the human version of MHC\n  Most polymorphic locus in human genome (>30,000 HLA alleles)\n  HLA typing: critical for transplant matching, autoimmune disease risk",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "## The Adaptive Immune Response: Overview",
+      "confidence": "candidate",
+      "text": "  ADAPTIVE IMMUNE RESPONSE TIMELINE\n  ===================================\n\n  DAY 0: INFECTION\n  ─ Pathogen enters tissue\n  ─ Innate immune cells detect PAMPs → cytokines released\n  ─ Dendritic cells engulf pathogen → migrate to lymph node\n\n  DAY 1–4: ACTIVATION PHASE\n  ─ DC presents antigen peptide (on MHC) to naïve T cells\n  ─ T cell with matching TCR recognizes MHC:peptide complex\n  ─ Signal 1 (TCR:MHC) + Signal 2 (CD28:B7 co-stimulation)\n  ─ T cell activated → proliferates clonally\n\n  DAY 4–7: EFFECTOR PHASE\n  ─ Effector T cells migrate to infection site\n  ─ CD8 T cells kill infected cells\n  ─ CD4 Th cells activate macrophages; help B cells\n  ─ B cells proliferate in germinal centers → antibody production\n  ─ Affinity maturation: higher-affinity antibodies selected\n\n  DAY 7–14: PEAK RESPONSE\n  ─ Antibody titers peak\n  ─ Infected cell killing peaks\n  ─ Pathogen cleared\n\n  DAY 14–30: CONTRACTION\n  ─ ~90–95% of effector cells die (apoptosis)\n  ─ Small population survives → memory cells\n\n  LIFETIME: MEMORY\n  ─ Long-lived plasma cells in bone marrow secrete antibodies for life\n  ─ Memory T cells: respond faster/stronger on re-exposure\n  ─ Secondary response: 100–1000x faster; much higher titer\n\n  ANALOGY: Clonal selection is training a new ML model;\n           memory is caching the trained model weights.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

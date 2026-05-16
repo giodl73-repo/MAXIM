@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:microbiology:pathogen-mechanisms
+kind: guide
+module: microbiology
+section: microbiology
+title: Pathogen Mechanisms and Virulence
+status: source-custody
+source_custody: partial
+current_path: microbiology/06-PATHOGEN-MECHANISMS.md
+canonical_path: microbiology/06-PATHOGEN-MECHANISMS.md
+backsource_ids: [proof-backfill:microbiology:06-pathogen-mechanisms, git-history:microbiology:06-pathogen-mechanisms]
+concepts: [pathogen, mechanisms]
+root_concepts: [pathogen, mechanisms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pathogen Mechanisms and Virulence
 
 ## The Big Picture
@@ -186,7 +205,7 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
   │                                    → Spastic paralysis           │
   │                                    (opposite of botulinum)       │
   │                                                                  │
-  │ Shiga toxin        STEC (E. coli)  Phage-encoded (like diphther)│
+  │ Shiga toxin        STEC (E. coli)  Phage-encoded (like diphther) │
   │ (Stx1, Stx2)       S. dysenteriae  B5: Gb3 glycolipid binding    │
   │                                    A: Cleaves 28S rRNA (N-glycos)│
   │                                    → Halts ribosomes → cell death│
@@ -271,7 +290,7 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
   ┌────────────────────────────────────────────────────────────────┐
   │ PHAGOSOMAL ESCAPE:                                             │
   │   Listeria monocytogenes (gold standard model organism)        │
-  │   LLO (listeriolysin O): Pore-forming toxin; dissolves phagosome│
+  │   LLO (listeriolysin O): Pore-forming toxin; lyses phagosome   │
   │   → Bacteria in cytoplasm → ActA (actin polymerizing protein)  │
   │   → Arp2/3-mediated actin rocket → propels through cell        │
   │   → Protrusions → taken up by neighboring cells                │

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:microbiology:viral-biology
+kind: guide
+module: microbiology
+section: microbiology
+title: Viral Biology
+status: source-custody
+source_custody: partial
+current_path: microbiology/02-VIRAL-BIOLOGY.md
+canonical_path: microbiology/02-VIRAL-BIOLOGY.md
+backsource_ids: [proof-backfill:microbiology:02-viral-biology, git-history:microbiology:02-viral-biology]
+concepts: [viral, biology]
+root_concepts: [viral, biology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Viral Biology
 
 ## The Big Picture

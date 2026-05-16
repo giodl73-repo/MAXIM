@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:immunology:immunodeficiency
+kind: guide
+module: immunology
+section: immunology
+title: Immunodeficiency and Immune Failure
+status: source-custody
+source_custody: partial
+current_path: immunology/09-IMMUNODEFICIENCY.md
+canonical_path: immunology/09-IMMUNODEFICIENCY.md
+backsource_ids: [proof-backfill:immunology:09-immunodeficiency, git-history:immunology:09-immunodeficiency]
+concepts: [immunodeficiency]
+root_concepts: [immunodeficiency]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Immunodeficiency and Immune Failure
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:microbiology:applied-microbiology
+kind: guide
+module: microbiology
+section: microbiology
+title: Applied Microbiology
+status: source-custody
+source_custody: partial
+current_path: microbiology/09-APPLIED-MICROBIOLOGY.md
+canonical_path: microbiology/09-APPLIED-MICROBIOLOGY.md
+backsource_ids: [proof-backfill:microbiology:09-applied-microbiology, git-history:microbiology:09-applied-microbiology]
+concepts: [applied, microbiology]
+root_concepts: [applied, microbiology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Applied Microbiology
 
 ## The Big Picture
@@ -178,7 +197,7 @@ APPLIED MICROBIOLOGY: MICROBES AS INDUSTRIAL ASSETS
   │ AEROBIC DEGRADATION:                                           │
   │   Initial attack: Oxygenases (monooxygenase or dioxygenase)    │
   │   → Introduce -OH groups → activate for β-oxidation pathway    │
-  │   Key organisms: Pseudomonas putida (toluene, xylene, naphth.)│
+  │   Key organisms: Pseudomonas putida (toluene, xylene, naphth.) │
   │                  Rhodococcus (aromatic + aliphatic)            │
   │                  Marinobacter (marine hydrocarbons)            │
   │                                                                │

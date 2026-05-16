@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:microbiology:archaea-eukaryotic-microbes
+kind: guide
+module: microbiology
+section: microbiology
+title: Archaea and Eukaryotic Microbes
+status: source-custody
+source_custody: partial
+current_path: microbiology/03-ARCHAEA-EUKARYOTIC-MICROBES.md
+canonical_path: microbiology/03-ARCHAEA-EUKARYOTIC-MICROBES.md
+backsource_ids: [proof-backfill:microbiology:03-archaea-eukaryotic-microbes, git-history:microbiology:03-archaea-eukaryotic-microbes]
+concepts: [archaea, eukaryotic, microbes]
+root_concepts: [archaea, eukaryotic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Archaea and Eukaryotic Microbes
 
 ## The Big Picture
@@ -148,12 +167,12 @@ THE FORGOTTEN DOMAINS: ARCHAEA AND MICROBIAL EUKARYOTES
   │ GIARDIA lamblia (excavate)                                       │
   │   Diplomonad: Two nuclei; no mitochondria (reduced to mitosome)  │
   │   Cyst: Environmental resistance; infectious dose: ~10 cysts     │
-  │   Trophozoite: Attaches to intestinal epithelium → malabsorption│
-  │   Transmission: Fecal-oral, contaminated water ("beaver fever")│
+  │   Trophozoite: Attaches to intestinal epithelium → malabsorption │
+  │   Transmission: Fecal-oral, contaminated water ("beaver fever")  │
   │                                                                  │
   │ TRYPANOSOMA brucei (kinetoplastid)                               │
   │   African sleeping sickness; transmitted by tsetse fly           │
-  │   VSG coat: Hypervariable surface glycoprotein → antigenic var. │
+  │   VSG coat: Hypervariable surface glycoprotein → antigenic var.  │
   │   Switches VSG gene every few generations → escapes immunity     │
   │   Large archive of silent VSG genes → millions of variants       │
   │                                                                  │

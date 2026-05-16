@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "microbiology\\02-VIRAL-BIOLOGY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "BALTIMORE CLASSIFICATION: THE FORMAL VIRAL TAXONOMY\n=====================================================\n\n  CONCEPT: Classify viruses by genome type and replication strategy.\n  David Baltimore, 1971. The logical framework the field needed.\n\n  Central dogma: DNA → RNA → Protein\n  Virus strategy: How does THIS genome get to mRNA (→ protein)?\n\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  CLASS │ GENOME      │ STRATEGY              │ EXAMPLES          │\n  ├────────┼─────────────┼───────────────────────┼───────────────────┤\n  │  I     │ dsDNA       │ Transcription → mRNA  │ Herpes, Adeno,    │\n  │        │             │ (like eukaryotes)      │ Pox, HPV          │\n  ├────────┼─────────────┼───────────────────────┼───────────────────┤\n  │  II    │ ssDNA (+)   │ ssDNA → dsDNA → mRNA  │ Parvovirus, AAV,  │\n  │        │             │                       │ Circovirus        │\n  ├────────┼─────────────┼───────────────────────┼───────────────────┤\n  │  III   │ dsRNA       │ Segmented genome;      │ Rotavirus,        │\n  │        │             │ virion RdRp makes mRNA │ Reovirus          │\n  ├────────┼─────────────┼───────────────────────┼───────────────────┤\n  │  IV    │ ssRNA (+)   │ Genome = mRNA         │ SARS-CoV-2,       │\n  │        │             │ (directly translated) │ Poliovirus, HCV,  │\n  │        │             │                       │ Dengue, Zika      │\n  ├────────┼─────────────┼───────────────────────┼───────────────────┤\n  │  V     │ ssRNA (−)   │ Virion RdRp makes      │ Influenza, Ebola, │\n  │        │             │ (+) strand first       │ Measles, Rabies,  │\n  │        │             │                        │ RSV               │\n  ├────────┼─────────────┼───────────────────────┼───────────────────┤\n  │  VI    │ ssRNA (+)   │ Reverse transcription │ HIV-1, HIV-2,     │\n  │        │ retroviruses│ RNA→DNA → integrates  │ HTLV              │\n  ├────────┼─────────────┼───────────────────────┼───────────────────┤\n  │  VII   │ dsDNA       │ RNA intermediate       │ Hepatitis B,      │\n  │        │ pararetrovir│ (partially dsDNA)      │ Cauliflower mosaic│\n  └────────┴─────────────┴───────────────────────┴───────────────────┘\n\n  KEY INSIGHT: The classification predicts what enzymes the virus must\n  carry. Class V viruses MUST bring their own RdRp (RNA-dependent RNA\n  polymerase) because host cells don't make (−) strand RNA. Class VI\n  must bring reverse transcriptase. Class I uses host RNA pol II.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 71,
+      "heading_context": "## Virion Structure",
+      "confidence": "candidate",
+      "text": "  VIRION ANATOMY\n  ===============\n\n  MINIMUM COMPONENTS:\n  1. Genetic material (DNA or RNA; single- or double-stranded; linear or circular)\n  2. Capsid protein shell\n\n  OPTIONAL (but common):\n  3. Lipid envelope (from host membrane, with viral proteins)\n  4. Matrix proteins (under envelope)\n  5. Viral enzymes (RT, integrase, RdRp, helicase, etc.)\n\n  CAPSID ARCHITECTURES:\n  ┌────────────────────────────────────────────────────────────────┐\n  │ ICOSAHEDRAL (most viruses):                                    │\n  │   20 equilateral triangular faces                              │\n  │   Mathematically optimal packing for sphere-like protein shell │\n  │   Triangulation number (T): determines size/complexity         │\n  │   Examples: Adenovirus (T=25), Poliovirus (T=1), AAV (T=1)     │\n  │                                                                │\n  │ HELICAL:                                                       │\n  │   Protein subunits spiral around nucleic acid                  │\n  │   Common in plant viruses (TMV) + enveloped animal viruses     │\n  │   Examples: Influenza, Measles, Rabies, RSV                    │\n  │                                                                │\n  │ COMPLEX (none of the above):                                   │\n  │   Poxviruses: \"Brick-shaped\"; most complex known               │\n  │   Bacteriophage T4: Icosahedral head + helical tail            │\n  └────────────────────────────────────────────────────────────────┘\n\n  ENVELOPED vs. NON-ENVELOPED:\n  ┌────────────────────────────────────────────────────────────────┐\n  │ ENVELOPED:                                                     │\n  │   Lipid bilayer from host cell (usually ER or plasma membrane) │\n  │   Viral glycoproteins embedded (hemagglutinin, gp120, etc.)    │\n  │   Fragile: Disrupted by detergent, drying, stomach acid        │\n  │   → Usually transmitted through close contact, respiratory     │\n  │   Examples: HIV, Influenza, SARS-CoV-2, CMV, EBV               │\n  │                                                                │\n  │ NON-ENVELOPED (naked):                                         │\n  │   Capsid directly exposed                                      │\n  │   Resistant: Survives on surfaces, stomach acid, detergent     │\n  │   → Often fecal-oral transmission; highly contagious           │\n  │   Examples: Poliovirus, Norovirus, Rotavirus, Adenovirus, HPV  │\n  └────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "### Lytic vs. Lysogenic (Bacteriophage)",
+      "confidence": "candidate",
+      "text": "  BACTERIOPHAGE LIFECYCLES (two strategies)\n  ===========================================\n\n  LYTIC CYCLE:\n  ┌────────────────────────────────────────────────────────────────┐\n  │ 1. Adsorption: Phage tail fibers bind specific bacterial       │\n  │    surface receptor (LPS, pili, outer membrane protein)        │\n  │ 2. Injection: DNA (sometimes RNA) injected into bacterium      │\n  │ 3. Early gene expression: Phage takes over host machinery      │\n  │ 4. DNA replication: Phage genome amplified                     │\n  │ 5. Late gene expression: Capsid proteins, tail fibers          │\n  │ 6. Assembly: Phage particles assembled                         │\n  │ 7. Lysis: Holins + lysins burst bacterial cell wall            │\n  │    Release: 50–200 new phage particles                         │\n  │    Time: ~30–60 minutes                                        │\n  └────────────────────────────────────────────────────────────────┘\n\n  LYSOGENIC CYCLE (temperate phages):\n  ┌────────────────────────────────────────────────────────────────┐\n  │ 1. Phage injects DNA                                           │\n  │ 2. Integration: Phage DNA integrates into bacterial chromosome │\n  │    via site-specific recombination (attB × attP)               │\n  │ 3. PROPHAGE: Integrated phage genome silenced                  │\n  │    CI repressor: Blocks lytic gene expression                  │\n  │ 4. Replication with host: Prophage copied every cell division  │\n  │ 5. INDUCTION: UV, mitomycin C, DNA damage                      │\n  │    → RecA cleaves CI repressor → lytic cycle begins            │\n  │                                                                │\n  │ MEDICAL IMPORTANCE OF LYSOGENY:                                │\n  │   Prophages encode many bacterial virulence factors:           │\n  │   Shiga toxin: stx1/stx2 on lambdoid phage in E. coli O157     │\n  │   Cholera toxin: ctx on CTXφ phage in V. cholerae              │\n  │   Diphtheria toxin: tox gene on corynephage β                  │\n  │   Scarlet fever toxin: on phage in S. pyogenes                 │\n  └────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "### Animal Virus Replication",
+      "confidence": "candidate",
+      "text": "  GENERAL ANIMAL VIRUS REPLICATION CYCLE\n  =========================================\n\n  STEP 1: ATTACHMENT (tropism determination)\n  Viral surface protein binds specific cell surface receptor\n  Examples:\n  ─ HIV gp120 → CD4 (helper T cells, macrophages)\n  ─ SARS-CoV-2 spike → ACE2 (lung epithelium, gut, kidney)\n  ─ Influenza HA → Sialic acid (respiratory tract)\n  ─ EBV gp350 → CR2/CD21 (B cells)\n  ─ Rabies → nAChR + p75NTR (neurons)\n\n  Receptor binding = tropism = which cells/tissues virus infects\n\n  STEP 2: ENTRY\n  Enveloped: Membrane fusion (direct or after endocytosis)\n  ─ pH-dependent (influenza: requires endosomal acidification)\n  ─ pH-independent (HIV: fuses directly at plasma membrane)\n  Non-enveloped: Endocytosis → endosome → pore/disruption\n\n  STEP 3: UNCOATING\n  Capsid dissolves in cytoplasm; genome released\n\n  STEP 4: GENOME REPLICATION (location varies by genome type)\n  DNA viruses: Usually nucleus (use host DNA pol or own pol)\n  RNA viruses: Usually cytoplasm (must bring own RdRp/RT)\n  Influenza: Segmented (−)RNA; replicates in NUCLEUS (unusual)\n  Poxvirus: Large dsDNA; replicates entirely in cytoplasm (unusual)\n\n  STEP 5: TRANSCRIPTION → TRANSLATION\n  mRNA synthesis using genome or host transcription\n  Translation at host ribosomes\n\n  STEP 6: ASSEMBLY\n  New genomes + capsid proteins → new virions\n  Budding (enveloped) or lysis (non-enveloped)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 210,
+      "heading_context": "### HIV (Class VI)",
+      "confidence": "candidate",
+      "text": "  HIV REPLICATION (covered in immunology/09 — summary)\n  ======================================================\n  gp120:CD4:CCR5 → membrane fusion → reverse transcriptase → dsDNA\n  → Integrase → provirus → transcription + translation → budding\n  Unique: Integrates permanently → latent reservoir challenge\n  Drug targets: Reverse transcriptase (NRTIs/NNRTIs), Integrase (INSTIs),\n               Protease (PIs), Entry (CCR5 antagonist, fusion inhibitor)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "### Influenza (Class V)",
+      "confidence": "candidate",
+      "text": "  INFLUENZA: THE ANNUAL PROBLEM VIRUS\n  =====================================\n\n  STRUCTURE: (−)ssRNA, 8 segments; enveloped\n  Surface proteins:\n  ─ HA (Hemagglutinin): Binds sialic acid; vaccine target\n    18 subtypes (H1–H18) based on amino acid sequence\n  ─ NA (Neuraminidase): Cleaves sialic acid → release\n    11 subtypes (N1–N11)\n  ─ M2: Ion channel; target of amantadine (now largely resistant)\n\n  ANTIGENIC VARIATION:\n  Antigenic drift: Gradual mutations in HA/NA (point mutations)\n    → Annual vaccine reformulation needed\n    → \"Original Antigenic Sin\" complicates universal vaccines\n\n  Antigenic shift: Sudden change via reassortment\n    → Two influenza strains infect same cell (e.g., pig cell)\n    → Segments mix: Novel HA+NA combination emerges\n    → Population has no immunity → PANDEMIC POTENTIAL\n    → 1918 H1N1, 1957 H2N2, 1968 H3N2, 2009 H1N1 (swine)\n\n  NEURAMINIDASE INHIBITORS (antivirals):\n  Oseltamivir (Tamiflu), zanamivir (Relenza), baloxavir\n  Block NA → new virions can't release from infected cells\n  Effective if started early (48h) → reduces duration by 1–2 days\n\n  REPLICATION SUBTLETY:\n  Influenza replicates in NUCLEUS — unusual for RNA virus\n  Nuclear import: vRNP (viral ribonucleoprotein) → nuclear pore\n  Reason: Needs host splicing machinery for M2/NS2 mRNA processing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 256,
+      "heading_context": "### Influenza (Class V)",
+      "confidence": "candidate",
+      "text": "### SARS-CoV-2 (Class IV)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 258,
+      "heading_context": "### SARS-CoV-2 (Class IV)",
+      "confidence": "candidate",
+      "text": "  SARS-COV-2: THE EXEMPLAR CLASS IV RNA VIRUS\n  =============================================\n\n  GENOME: +ssRNA, ~30 kb, largest RNA viral genome known\n  Proteins: 4 structural (S, E, M, N) + 16 non-structural (nsp1–16)\n\n  SPIKE (S) PROTEIN:\n  ─ Binds ACE2 (angiotensin-converting enzyme 2)\n  ─ S1 subunit: RBD (receptor-binding domain) contacts ACE2\n  ─ S2 subunit: Fusion machinery\n  ─ Furin cleavage site at S1/S2: Contributes to high transmissibility\n  ─ TMPRSS2: Host serine protease activates fusion at plasma membrane\n\n  REPLICATION COMPARTMENT: ER-derived double-membrane vesicles\n  ─ Replicase complex (RdRp + exonuclease) produces (−) strand then (+)\n  ─ ExoN proofreading: Why coronaviruses have low error rate for RNA virus\n  ─ ~30 kb genome requires fidelity mechanism (others average 10–15 kb)\n\n  ANTIVIRAL TARGETS:\n  ─ Paxlovid (nirmatrelvir/ritonavir): Mpro (main protease) inhibitor\n  ─ Remdesivir: Adenosine analogue → RdRp inhibitor; chain terminator\n  ─ Molnupiravir: Mutagenic nucleoside → viral error catastrophe",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 287,
+      "heading_context": "## Viral Evolution",
+      "confidence": "candidate",
+      "text": "  VIRAL EVOLUTION: RAPID ADAPTATION\n  ====================================\n\n  ERROR-PRONE REPLICATION:\n  ─ RNA-dependent RNA polymerases (RdRp): ~10⁻⁴ to 10⁻⁵ errors/base/cycle\n  ─ DNA polymerases: ~10⁻⁸ to 10⁻¹⁰ errors/base/cycle\n  ─ RNA viruses = \"quasispecies\": Population of related but not identical variants\n  ─ Each infected cell produces swarm of mutant genomes\n\n  QUASISPECIES MODEL:\n  Not a single viral sequence — a CLOUD of sequences\n  Consensus sequence ≠ dominant sequence (may not even exist individually)\n  High fitness virus = fit average of the cloud, not any single variant\n  Implication: Anti-mutagen drugs (ribavirin) can push past error threshold\n    → Lethal mutagenesis → quasispecies goes extinct (viral suicide)\n\n  SELECTIVE PRESSURE:\n  Immune selection: Antibodies select for escape mutations in surface proteins\n    → Influenza HA antigenic drift; HIV env hypervariability\n  Drug selection: Antiviral drugs select for resistance mutations\n    → HIV RT resistance (AZT: K65R, M184V)\n    → HCV NS5A resistance; SARS-CoV-2 Paxlovid resistance (Mpro mutations)\n  Transmission selection: Variants that transmit better outcompete others\n    → SARS-CoV-2 Omicron: More infectious, less severe, more immune evasive\n\n  RECOMBINATION:\n  RNA viruses: Some recombine (coronaviruses: template switching)\n  Influenza: Segment reassortment (more dramatic) → new pandemic strains\n  Retroviruses: Frequent recombination during reverse transcription\n    → HIV diversity within a single patient",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 324,
+      "heading_context": "## Lysogenic Conversion and Phage Ecology",
+      "confidence": "candidate",
+      "text": "  BACTERIOPHAGES: THE MOST ABUNDANT BIOLOGICAL ENTITIES\n  =======================================================\n\n  NUMBERS: ~10³¹ phage particles on Earth (10x more than bacteria)\n  ~10⁷ phages per mL of ocean water\n  Marine phages kill ~50% of bacteria in ocean daily\n\n  PHAGE ECOLOGY:\n  \"Kill the winner\": When a bacterial species becomes too abundant,\n  its specific phage amplifies → brings it back down → diversity maintained\n\n  PHAGE THERAPY:\n  Using phages to treat antibiotic-resistant infections\n  Historically abandoned when antibiotics arrived (1940s)\n  Reviving as last-resort therapy for pan-resistant infections\n  Challenges: Phage resistance, narrow host range, regulatory\n  FDA compassionate use cases: Several documented successes (UC San Diego)\n\n  PHAGE AS MOLECULAR TOOLS:\n  λ phage: Classic molecular biology vector (gene cloning)\n  M13 phage display: scFv antibody libraries (→ antibody drugs)\n  T4 DNA ligase: Essential molecular biology enzyme (from T4 phage)\n  Cas proteins: CRISPR-Cas system discovered in bacteria as anti-phage defense",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

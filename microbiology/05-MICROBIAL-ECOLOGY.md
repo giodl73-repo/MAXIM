@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:microbiology:microbial-ecology
+kind: guide
+module: microbiology
+section: microbiology
+title: Microbial Ecology
+status: source-custody
+source_custody: partial
+current_path: microbiology/05-MICROBIAL-ECOLOGY.md
+canonical_path: microbiology/05-MICROBIAL-ECOLOGY.md
+backsource_ids: [proof-backfill:microbiology:05-microbial-ecology, git-history:microbiology:05-microbial-ecology]
+concepts: [microbial, ecology]
+root_concepts: [microbial, ecology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Microbial Ecology
 
 ## The Big Picture
