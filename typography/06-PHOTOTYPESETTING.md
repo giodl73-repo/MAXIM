@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:typography:phototypesetting
+kind: guide
+module: typography
+section: typography
+title: 06 - Phototypesetting: The Transitional Era (1950s–1980s)
+status: source-custody
+source_custody: partial
+current_path: typography/06-PHOTOTYPESETTING.md
+canonical_path: typography/06-PHOTOTYPESETTING.md
+backsource_ids: [proof-backfill:typography:06-phototypesetting, git-history:typography:06-phototypesetting]
+concepts: [phototypesetting]
+root_concepts: [phototypesetting]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 06 — Phototypesetting: The Transitional Era (1950s–1980s)
 
 ## The Big Picture

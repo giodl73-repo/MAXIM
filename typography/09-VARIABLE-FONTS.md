@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:typography:variable-fonts
+kind: guide
+module: typography
+section: typography
+title: 09 - Variable Fonts: Fonts as Design Spaces
+status: source-custody
+source_custody: partial
+current_path: typography/09-VARIABLE-FONTS.md
+canonical_path: typography/09-VARIABLE-FONTS.md
+backsource_ids: [proof-backfill:typography:09-variable-fonts, git-history:typography:09-variable-fonts]
+concepts: [variable, fonts]
+root_concepts: [variable, fonts]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 09 — Variable Fonts: Fonts as Design Spaces
 
 ## The Big Picture

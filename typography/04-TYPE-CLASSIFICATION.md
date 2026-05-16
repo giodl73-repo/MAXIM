@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:typography:type-classification
+kind: guide
+module: typography
+section: typography
+title: 04 - Type Classification: The Genealogy of Typefaces
+status: source-custody
+source_custody: partial
+current_path: typography/04-TYPE-CLASSIFICATION.md
+canonical_path: typography/04-TYPE-CLASSIFICATION.md
+backsource_ids: [proof-backfill:typography:04-type-classification, git-history:typography:04-type-classification]
+concepts: [type, classification]
+root_concepts: [type, classification]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — Type Classification: The Genealogy of Typefaces
 
 ## The Big Picture

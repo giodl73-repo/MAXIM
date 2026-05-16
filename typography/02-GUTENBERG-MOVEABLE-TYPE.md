@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:typography:gutenberg-moveable-type
+kind: guide
+module: typography
+section: typography
+title: 02 - Gutenberg and Moveable Type
+status: source-custody
+source_custody: partial
+current_path: typography/02-GUTENBERG-MOVEABLE-TYPE.md
+canonical_path: typography/02-GUTENBERG-MOVEABLE-TYPE.md
+backsource_ids: [proof-backfill:typography:02-gutenberg-moveable-type, git-history:typography:02-gutenberg-moveable-type]
+concepts: [gutenberg, moveable, type]
+root_concepts: [gutenberg, moveable]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 02 — Gutenberg and Moveable Type
 
 ## The Big Picture

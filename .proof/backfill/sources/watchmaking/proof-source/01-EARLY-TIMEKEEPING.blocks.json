@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "watchmaking\\01-EARLY-TIMEKEEPING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "PRE-MECHANICAL TIMEKEEPING TAXONOMY\n\n┌─────────────────────────────────────────────────────────────────┐\n│                    TIME MEASUREMENT METHODS                     │\n│                      (before ~1280 CE)                          │\n└─────────────────────────────────────────────────────────────────┘\n           │                    │                    │\n           ▼                    ▼                    ▼\n┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐\n│  ASTRONOMICAL    │  │  FLOW-BASED      │  │  COMBUSTION      │\n│                  │  │                  │  │                  │\n│ Sundial (shadow) │  │ Clepsydra (water)│  │ Candle clock     │\n│ Gnomon           │  │ Sand glass       │  │ Incense clock    │\n│ Armillary sphere │  │                  │  │ Oil lamp clock   │\n│ Nocturnal        │  │                  │  │                  │\n│ Astrolabe        │  │                  │  │                  │\n└──────────────────┘  └──────────────────┘  └──────────────────┘\n       │                      │                      │\n   ERRORS:              ERRORS:               ERRORS:\n   Equation of time     Pressure varies       Rate varies with\n   Cloud cover          with head height      temperature,\n   Latitude-specific    Temperature           humidity, draft\n   Night unusable       viscosity             Fuel quality\n                        Evaporation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "### The Gnomon: Simplest Astronomical Clock",
+      "confidence": "candidate",
+      "text": "                    Celestial North Pole\n                           ↑\n                          /|\n                         / |\n                        /  |\n                       /   |  gnomon (pole) aligned to\n                      /    |  Earth's rotation axis\n                     /  φ  |  angle = latitude φ\n                    /──────┤\n                   /       |\n                  /        |\n                EQUATORIAL PLANE\n                (hour marks equally spaced: 15° apart)\n\nFor a horizontal sundial at latitude φ:\n- Hour lines are NOT equally spaced on the horizontal plate\n- Hour angle H maps to: tan(line_angle) = sin(φ) × tan(H)\n- At equator (φ=0°): all hour lines collapse to a single line (useless)\n- At poles (φ=90°): all hour lines equally spaced (equatorial dial)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "### The Equation of Time: Why a Perfect Sundial Disagrees with a Perfect Clock",
+      "confidence": "candidate",
+      "text": "EQUATION OF TIME (Apparent Solar Time − Mean Solar Time)\n\n+16 min ─┤                        ╭──╮\n         │                       /    \\\n+12 min ─┤                      /      \\\n         │                     /        \\\n +8 min ─┤       ╭─╮          /          \\\n         │      /   \\        /            \\\n +4 min ─┤     /     \\      /              \\\n         │    /       \\    /                \\\n   0 min ─┼──/─────────\\──/──────────────────\\─\n         │              \\/                    \\\n -4 min ─┤                                     \\\n         │                                      \\\n -8 min ─┤                                       ╰──╮\n         │                                           \\\n-12 min ─┤                                            \\\n         │                                             \\\n-16 min ─┤                                              ╰\n         └─────────────────────────────────────────────────\n          Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct  Nov  Dec\n\nFour times per year the equation of time passes through zero:\n~April 15, ~June 14, ~September 1, ~December 25\nThese are the only days when a sundial and a mean-time clock agree exactly.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "### The Basic Problem: Variable Flow Rate",
+      "confidence": "candidate",
+      "text": "OUTFLOW CLEPSYDRA — PRESSURE PROBLEM\n\n┌─────────────────────────┐\n│ ████████████████████    │\n│                         │\n│ ████████████            │\n│                         │\n│ ██                      │\n│                         │\n│         ─┼─             │\n└─────────────────────────┘\n  h₁ full: flow rate Q₁ = Cd·A·√(2g·h₁)\n  h₂ half full: Q₂ = Cd·A·√(2g·h₂) = Q₁ × √(h₂/h₁) = Q₁/√2 ≈ 71%\n  Orifice (area A) at bottom.\n           │\n           ▼\n        outflow\n\nTorricelli's law: v = √(2gh)\nTime marks are NOT equally spaced — they compress as the vessel empties.\nA clepsydra calibrated at full is fast when full, slow when nearly empty.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 193,
+      "heading_context": "### The Basic Problem: Variable Flow Rate",
+      "confidence": "candidate",
+      "text": "### Ctesibius of Alexandria (~270 BCE)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "### Ctesibius of Alexandria (~270 BCE)",
+      "confidence": "candidate",
+      "text": "CTESIBIUS CLEPSYDRA (~270 BCE)\n\nSupply vessel:\n┌──────────┐\n│          │\n│ overflow │\n│ level    │\n│          │\n│ drain    │\n└──────────┘\n   supply\n\nMeasuring vessel:\n┌──────────────┐\n│              │\n│ float        │\n│ (rises as    │\n│  water       │\n│  rises)      │\n└──────────────┘\n\nConnected via orifice (constant head). Float rises → gear train →\nrotating drum with hour marks → indicator pointer.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 241,
+      "heading_context": "### Roman Clepsydra in the Courts",
+      "confidence": "candidate",
+      "text": "### Su Song's Astronomical Clock Tower (1088 CE)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "### Su Song's Astronomical Clock Tower (1088 CE)",
+      "confidence": "candidate",
+      "text": "SU SONG'S CLOCK TOWER — SCHEMATIC (~1088 CE)\n\n┌─────────────────────────────────────────────────────┐\n│  TOP: Armillary sphere (bronze, ~30 cm diameter)    │\n│       Motor-driven to track celestial coordinates   │\n│       Astronomer could sight star positions         │\n├─────────────────────────────────────────────────────┤\n│  MIDDLE: Celestial globe (bronze)                    │\n│          Rotated once per sidereal day               │\n│          Showed positions of sun, moon, planets      │\n├─────────────────────────────────────────────────────┤\n│  FRONT: Five-story pagoda                           │\n│         36 wooden jacks on rotating platform        │\n│         Appeared at windows to announce:            │\n│           Hours (red tablets)                       │\n│           Watches (green tablets)                   │\n│           Quarter-hours (bells)                     │\n│           Special announcements (drums, gongs)      │\n├─────────────────────────────────────────────────────┤\n│  CORE: Water-wheel escapement (the key innovation)   │\n│        36 scoops on wheel; each holds water          │\n│        When scoop fills to set weight: trips lever   │\n│        Wheel advances one step; timer resets         │\n├─────────────────────────────────────────────────────┤\n│  BASE: Constant-head water supply (Ctesibius method)│\n│        Clepsydra feeds wheel scoops at constant rate│\n└─────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 303,
+      "heading_context": "### Chinese Incense Clocks",
+      "confidence": "candidate",
+      "text": "CHINESE INCENSE CLOCK\n\nTray with carved groove:\n┌──────────────────────────────────────────────┐\n│                                              │\n│   ←──────── incense powder in groove ──────► │\n│                                              │\n│  start ●─────────────────────────────● end   │\n│        │← alarm thread (weight attached)     │\n│             burns at calibrated rate         │\n│                                              │\n│  When fire reaches thread: weight falls      │\n│  into metal tray → audible alarm             │\n└──────────────────────────────────────────────┘\n\nMore sophisticated: spiral grooves, branching grooves for multiple alarms,\ndifferent incense blends for different times of day.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 343,
+      "heading_context": "### The Original Horologium",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────┐\n│              SALISBURY CATHEDRAL CLOCK, 1386                │\n│                                                             │\n│  Status: Still running (with 17th-century modifications)    │\n│  One of the oldest mechanical clocks still in operation     │\n│                                                             │\n│  Components:                                                │\n│  - Wrought iron frame (no brass — all iron)                 │\n│  - Two weight-driven trains:                                │\n│    1. Going train (drives escapement + tolls the hour)      │\n│    2. Quarter-striking train (was present; later removed)   │\n│  - Verge-and-foliot escapement (original; replaced 1790s)   │\n│  - No original dial (faces installed 1884 for tourists)     │\n│                                                             │\n│  Accuracy: ±15 min/day at best                              │\n│  Corrected: Daily by comparison to sundial in the close     │\n└─────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 376,
+      "heading_context": "## The Astrolabe: Astronomical Computing Engine",
+      "confidence": "candidate",
+      "text": "ASTROLABE STRUCTURE\n\n         rete (rotatable):\n           ┌──────────┐\n           │  *    *  │\n           │    ☉     │\n           │  *       │\n           └──────────┘\n           Star positions (pierced fretwork). Ecliptic ring (sun path).\n                |\n         mater (fixed base):\n           ┌──────────┐\n           │  tympan  │\n           │          │\n           └──────────┘\n           Horizon + hour lines for specific latitude\n           (swappable for different latitudes).\n\nBy rotating the rete until a star is at the observed altitude,\nyou read off the local sidereal time from the hour circle.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 419,
+      "heading_context": "## Summary: Error Comparison Table",
+      "confidence": "candidate",
+      "text": "TIMEKEEPING METHOD         | APPROX DATE  | ACCURACY       | PORTABLE | NOTES\n───────────────────────────┼──────────────┼────────────────┼──────────┼───────────────\nSimple sundial (gnomon)    | ~3500 BCE    | ±15–30 min     | Fixed    | Outdoors only\nCalibrated sundial (EoT)   | ~500 BCE     | ±1–2 min       | Fixed    | EoT correction\nSimple clepsydra           | ~400 BCE     | ±30 min        | Portable | Variable head\nCtesibius clepsydra        | ~270 BCE     | ±15 min/day    | Large    | Constant head\nSu Song water clock        | 1088 CE      | ~±5 min/day    | Fixed    | Water escapement\nSand glass (30 min)        | ~1300 CE     | ±2–3 min/use   | Portable | Interval only\nCandle / incense clock     | ~700 CE      | ±5–10 min      | Portable | Interval only\nVerge tower clock          | ~1300 CE     | ±15 min/day    | Fixed    | Mechanical step",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

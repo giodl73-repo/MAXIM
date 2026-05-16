@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:watchmaking:wristwatch-era
+kind: guide
+module: watchmaking
+section: watchmaking
+title: Watchmaking - 06 The Wristwatch Era
+status: source-custody
+source_custody: partial
+current_path: watchmaking/06-WRISTWATCH-ERA.md
+canonical_path: watchmaking/06-WRISTWATCH-ERA.md
+backsource_ids: [proof-backfill:watchmaking:06-wristwatch-era, git-history:watchmaking:06-wristwatch-era]
+concepts: [wristwatch, era]
+root_concepts: [wristwatch, era]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Watchmaking — 06 The Wristwatch Era
 ## From Pocket to Wrist: Industry, Complications, and the Luxury Economy of Mechanical Time
 

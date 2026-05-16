@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:watchmaking:lever-escapement
+kind: guide
+module: watchmaking
+section: watchmaking
+title: Watchmaking - 05 The Lever Escapement
+status: source-custody
+source_custody: partial
+current_path: watchmaking/05-LEVER-ESCAPEMENT.md
+canonical_path: watchmaking/05-LEVER-ESCAPEMENT.md
+backsource_ids: [proof-backfill:watchmaking:05-lever-escapement, git-history:watchmaking:05-lever-escapement]
+concepts: [lever, escapement]
+root_concepts: [lever, escapement]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Watchmaking — 05 The Lever Escapement
 ## Thomas Mudge's 1759 Invention — The Escapement That Conquered the Wristwatch
 

@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "watchmaking\\08-ATOMIC-CLOCKS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "### Why Cesium?",
+      "confidence": "candidate",
+      "text": "CESIUM-133 GROUND STATE HYPERFINE STRUCTURE\n\nElectron spin: s = 1/2 (up or down)\nNuclear spin: I = 7/2\n\nTotal angular momentum F = I + s = 7/2 + 1/2 = 4 (parallel)\n                        or F = I - s = 7/2 - 1/2 = 3 (antiparallel)\n\nEnergy diagram:\n                    ────────────────────────── F = 4 state\n                              ↕\n               ΔE = h × 9,192,631,770 Hz\n                    (microwave, λ ≈ 3.26 cm)\n                              ↕\n                    ────────────────────────── F = 3 state\n\n                    6s ground state (split by hyperfine interaction)\n\nThe energy difference between F=4 and F=3:\n  ΔE = h × ν = 6.626×10⁻³⁴ J·s × 9.192×10⁹ Hz = 6.09×10⁻²⁴ J\n  (extremely small; about 6 parts per billion of the electron rest mass energy)\n\nWhy this transition is so stable:\n  - It's between two levels of the SAME electronic state (ground state)\n  - No electronic transition → very narrow natural linewidth\n  - Γ_natural ≈ 10⁻⁹ Hz (linewidth essentially zero — transition is forbidden by\n    magnetic dipole selection rules but allowed by HFS; extremely long lifetime)\n  - Fractional linewidth: Γ/ν ≈ 10⁻⁹ / 9.19×10⁹ ≈ 10⁻¹⁹\n    (the Q factor of the cesium transition: ~10¹⁰ to 10¹⁴ in practice)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "### Why Not Another Atom?",
+      "confidence": "candidate",
+      "text": "COMPARISON OF ATOMIC REFERENCES\n\nAtom | Transition     | Frequency    | Why Used / Why Not\n─────┼────────────────┼──────────────┼─────────────────────────────────────────\nCs   | Hyperfine 6s   | 9.19 GHz     | Primary standard; only stable isotope;\n     | F=4 ↔ F=3      | (microwave)  | microwave easy to generate; atom beam\n     |                |              | compatible with Ramsey method; defines SI\n─────┼────────────────┼──────────────┼─────────────────────────────────────────\nRb   | Hyperfine 5s   | 6.83 GHz     | Smaller, cheaper than Cs; secondary\n     | F=2 ↔ F=1      | (microwave)  | standard; ±5×10⁻¹¹ stability; GPS sats\n─────┼────────────────┼──────────────┼─────────────────────────────────────────\nH    | Hyperfine 1s   | 1.42 GHz     | Hydrogen maser; very good short-term\n     | F=1 ↔ F=0      | (microwave)  | stability; larger apparatus; used in VLBI\n─────┼────────────────┼──────────────┼─────────────────────────────────────────\nSr   | Optical 5s²    | 429 THz      | Next-generation optical lattice clock;\n     | ¹S₀ ↔ ³P₀      | (optical)    | ~100× better than Cs; lattice trapping\n─────┼────────────────┼──────────────┼─────────────────────────────────────────\nYb   | Optical 6s²    | 518 THz      | Alternative optical lattice; competitive\n     | ¹S₀ ↔ ³P₀      | (optical)    | with Sr; NIST Yb clock\n─────┼────────────────┼──────────────┼─────────────────────────────────────────\nAl⁺  | Optical 3s²    | 1.12 PHz     | Quantum logic clock (NIST); highest\n     | ¹S₀ ↔ ³P₀      | (UV)         | accuracy demonstrated; 2 × 10⁻¹⁸",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "## Cesium Beam Clock: The First Generation",
+      "confidence": "candidate",
+      "text": "CESIUM BEAM CLOCK — OPERATION\n\nSource: cesium oven (350–400°C)\n        thermal beam of Cs atoms at ~250 m/s\n\nState selector A:\n        magnetic field deflects atoms\n        F=4 atoms → one path\n        F=3 atoms → different path\n        Only F=4 atoms enter microwave cavity\n\nMicrowave cavity (Ramsey cavity):\n        two separated interaction regions\n        microwave at ~9.19 GHz applied\n        F=4 → F=3 transition induced if frequency correct\n        (Ramsey separated oscillatory fields method — 1949)\n\nState detector B:\n        magnetic field deflects atoms after cavity\n        counts F=3 atoms (those that transitioned)\n\nFeedback loop:\n        counts of F=3 atoms → error signal\n        adjusts oscillator frequency to maximize counts\n        → oscillator locked to 9,192,631,770 Hz\n\nOutput:\n        very stable 9.19 GHz signal\n        divided down to 1 Hz (10 MHz standard output)\n\nRAMSEY METHOD KEY INSIGHT:\n  Single microwave interaction region: linewidth limited by time in cavity\n  Two separated regions: linewidth limited by time BETWEEN regions\n  → longer interrogation time → narrower linewidth → better frequency resolution\n  → Ramsey fringes (interference pattern in transition probability vs frequency)\n  Norman Ramsey received Nobel Prize in Physics 1989 for this",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "## Cesium Fountain Clock: NIST-F1, NIST-F2",
+      "confidence": "candidate",
+      "text": "CESIUM FOUNTAIN CLOCK — SCHEMATIC\n\n          ↑ detection zone\n          │  laser fluorescence counts F=3 atoms after cavity\n          │\n     ┌─────────┐\n     │microwave│\n     │ cavity  │\n     └────┬────┘\n     Cavity: atoms pass through twice (up and down).\n          │  ↑ atom fountaining up and down\n          │  ↓\n     ┌────┴────┐\n     │ trapping│ ← magneto-optical trap (MOT)\n     │ region  │    6 laser beams slow Cs atoms to ~5 cm/s\n     │         │    from 250 m/s thermal velocity\n     └─────────┘    temperature ~1 µK\n\nOPERATING SEQUENCE:\n  1. Load: ~10^7 Cs atoms captured in MOT (takes ~0.5 sec)\n  2. Launch: laser frequency chirp launches atoms upward at ~4 m/s\n  3. State select: microwave pulse puts all atoms in F=3 state\n  4. First cavity interaction: atoms pass through cavity upward\n  5. Free flight: atoms travel ~1 meter above cavity (takes ~0.5 sec)\n  6. Second cavity interaction: atoms fall back through cavity\n  7. Detection: fluorescence counts F=3 and F=4 atoms separately\n  8. Compute: transition probability → error signal → adjust oscillator\n  9. Repeat\n\nWHY BETTER THAN BEAM CLOCK:\n  Beam clock interrogation time: ~0.005 sec (travels ~1m at 250 m/s)\n  Fountain interrogation time: ~1 sec (fountains ~1m, falls back)\n  → 200× longer interrogation time\n  → 200× narrower Ramsey fringe linewidth\n  → 200× better frequency resolution at same signal-to-noise ratio\n\n  Laser cooling also eliminates first-order Doppler shifts\n  (atoms moving much slower; residual Doppler measured and corrected)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "## Timescales: TAI, UTC, GPS Time",
+      "confidence": "candidate",
+      "text": "TIMESCALE RELATIONSHIPS\n\n                    EARTH'S ROTATION\n                    (UT1: irregular; slowing ~1.7 ms/century)\n                           │\n                           │ IERS monitors ΔUT1 = UTC - UT1\n                           │ When |ΔUT1| approaches 0.9 sec:\n                           │   leap second announced\n                           ▼\nTAI ──────────────────────────────────────────────────────────────────\n(International Atomic Time)\n  - Average of ~450 atomic clocks in ~80 laboratories worldwide\n  - Weighted by accuracy; NIST-F2, PTB-Cs3, etc. have high weight\n  - Monotonically increasing; no leap seconds; no adjustments\n  - Reference for everything else\n  - At any moment: TAI = UTC + 37 seconds (as of 2024; was 35 in 2012)\n\nUTC ──────────────────────────────────────────────────────────────────\n(Coordinated Universal Time)\n  - UTC = TAI - (leap second count)\n  - Tracks Earth's rotation to within ±0.9 seconds\n  - Leap seconds added (rarely subtracted) as needed\n  - Announced by IERS with 6 months notice\n  - Most computer systems and civilian time signals use UTC\n\nGPS Time ─────────────────────────────────────────────────────────────\n(GPS System Time)\n  - Epoch: January 6, 1980, 00:00:00 UTC\n    (at that moment, GPS time = UTC; no offset)\n  - GPS system does NOT add leap seconds\n  - GPS time now ahead of UTC by 18 seconds (as of 2024)\n    (18 leap seconds have been added to UTC since 1980)\n  - Each GPS receiver broadcasts the current UTC offset\n    in the navigation message; civilian receivers apply it\n  - IMPORTANT: Raw GPS time ≠ UTC; offset changes with each new\n    leap second; firmware must track this\n\nUNIX TIME ────────────────────────────────────────────────────────────\n(POSIX Epoch: Jan 1, 1970, 00:00:00 UTC)\n  - Counts seconds since epoch\n  - Specification says: NOT counting leap seconds\n    (a POSIX \"day\" is always exactly 86,400 seconds)\n  - At a leap second: a POSIX second is \"stretched\" to cover\n    both the regular second AND the leap second\n  - Result: POSIX time is slightly wrong around leap seconds\n  - \"Leap smear\": Google/AWS/Amazon smear the leap second over\n    a 24-hour window (add 1/86400 sec per second all day)\n    → clocks never tick backward; no 23:59:60 timestamp\n    → smeared time is not UTC during the smear period",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 294,
+      "heading_context": "## Timescales: TAI, UTC, GPS Time",
+      "confidence": "candidate",
+      "text": "LEAP SECOND INCIDENTS\n\n2012 UTC leap second (June 30 → July 1):\n  - Reddit, LinkedIn, FourSquare, Yelp all crashed\n  - Root cause: Linux kernel's HRTIMER implementation\n    set an interrupt for 23:59:60 that never fired\n    → processes waiting on timer never woke up\n    → 100% CPU spin in NTP-triggered re-scheduling\n  - Fix: apply \"slew\" rate correction via adjtimex()\n    rather than step adjustment\n\n2017 Cloudflare outage:\n  - Custom Go code that assumed monotonically increasing\n    clock (it wasn't — leap second caused wall clock\n    to repeat a second)\n  - Negative time differences in rate calculations\n  - Lesson: always use monotonic clock for intervals\n\nCORRECT PRACTICE:\n  Intervals:      clock_gettime(CLOCK_MONOTONIC)  → never steps\n  Wall time:      clock_gettime(CLOCK_REALTIME)   → may step at leap second\n  NTP discipline: handled by kernel; adjtimex frequency discipline\n                  smooths out clock steps vs abrupt jumps\n  PTP hardware:   IEEE 1588 timestamps to nanosecond precision\n                  but leap second handling is application responsibility",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 328,
+      "heading_context": "## Optical Lattice Clocks: The Next Generation",
+      "confidence": "candidate",
+      "text": "CLOCK UNCERTAINTY SCALING\n\nΔf/f ~ 1 / (Q × √(N × T_avg))\n\nwhere:\n  Q = quality factor = f₀ / Δf_linewidth\n  N = number of atoms detected per measurement\n  T_avg = total averaging time\n\nFor cesium fountain:\n  f₀ = 9.19 GHz; Q ≈ 10¹⁰ to 10¹¹ (limited by transit time through cavity)\n  N ≈ 10⁵ to 10⁶ atoms detected per cycle\n  Fundamental limit from Q ≈ 10⁻¹⁵ to 10⁻¹⁶ fractional frequency\n\nFor optical lattice clock (Sr-87):\n  f₀ = 429 THz (100,000× higher than cesium!)\n  → for the SAME Q factor: Δf/f is 100,000× smaller\n  → but optical Q achievable >> microwave Q\n  Sr lattice Q ≈ 10¹⁵ to 10¹⁷\n  → fundamental limits at 10⁻¹⁸ to 10⁻²⁰ level",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 353,
+      "heading_context": "### Strontium Optical Lattice Clock",
+      "confidence": "candidate",
+      "text": "STRONTIUM LATTICE CLOCK — OPERATING PRINCIPLE\n\nThe transition: Sr-87 ¹S₀ → ³P₀\n  Frequency: 429,228,004,229,873.4 Hz (optical; deep red/infrared)\n  This is an \"ultra-narrow\" transition: Γ_natural ≈ 10⁻³ Hz\n  Q factor ≈ 4×10¹⁷\n  Sensitivity: 10⁻¹⁸ level achievable\n\nThe lattice: Sr atoms trapped in a 3D lattice of laser standing waves\n  ┌─────────────────────────────────────────────────────┐\n  │   laser beams from 6 directions form standing waves │\n  │   intensity maxima every λ/2 ≈ 390 nm apart         │\n  │   atoms trapped at intensity minima                 │\n  │   (red-detuned trap: atoms attracted to intensity   │\n  │    minima by AC Stark effect)                       │\n  │                                                     │\n  │   \"Magic wavelength\" trick:                         │\n  │   Lattice laser wavelength chosen so that           │\n  │   AC Stark shift is EQUAL for ground and excited    │\n  │   states → net shift on clock transition = 0        │\n  │   → lattice trapping doesn't perturb clock frequency│\n  │                                                     │\n  │   Magic wavelength for Sr: λ_magic ≈ 813 nm         │\n  └─────────────────────────────────────────────────────┘\n\nNumber of atoms: ~10,000 in the lattice (more than fountain → better SNR)\nInterrogation time: up to ~10 seconds (atoms trapped; not falling out)\n  (vs ~1 second for cesium fountain)\n\nCurrent best accuracy: ~2×10⁻¹⁸ (JILA Sr2, 2017)\n  = 1 second in ~15 billion years (longer than the age of the universe)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 391,
+      "heading_context": "### The Q-Factor Arc: From Foliot to Optical Lattice",
+      "confidence": "candidate",
+      "text": "Q-FACTOR PROGRESSION\n──────────────────────────────────────────────────\nOscillator              Q factor    Δf/f (stability)\nFoliot (1300s)          ~1          ~10⁻²\nBalance wheel (1500s)   ~300        ~10⁻⁴\nPendulum (1657)         ~10⁴        ~10⁻⁷\nQuartz crystal (1927)   ~10⁵        ~10⁻⁹\nCesium microwave (1955) ~10¹⁰       ~10⁻¹⁶\nStrontium optical (2017)~4×10¹⁷     ~2×10⁻¹⁸",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 405,
+      "heading_context": "### The Q-Factor Arc: From Foliot to Optical Lattice",
+      "confidence": "candidate",
+      "text": "### What To Do With 10⁻¹⁸ Accuracy?",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 413,
+      "heading_context": "### What To Do With 10⁻¹⁸ Accuracy?",
+      "confidence": "candidate",
+      "text": "Δf/f = g × Δh / c²\n     = 9.81 m/s² × 1 m / (3×10⁸ m/s)²\n     = 1.09 × 10⁻¹⁶ per meter of elevation\n\nFor a 10⁻±⁸ clock:\n  - Detectable elevation difference: 1.09×10⁻¹⁶ / 1×10⁻¹⁸ ≈ 100 meters → 1 cm!\n  - Two optical lattice clocks can determine their elevation difference\n    to ~1 cm accuracy just by comparing frequencies\n  - No GPS needed\n  - Works underground, in tunnels, under ocean\n\nApplications:\n  - Geodesy (measuring geoid — the equipotential surface of Earth's gravity field)\n  - Monitoring magma chambers (density changes → gravity changes → clock rate changes)\n  - Detecting oil and mineral deposits via local gravity variation\n  - Volcano monitoring",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 444,
+      "heading_context": "## GPS: Atomic Clocks in Orbit",
+      "confidence": "candidate",
+      "text": "GPS TIMING ARCHITECTURE\n\nEach GPS satellite carries:\n  2 cesium atomic clocks  (primary reference; ±2×10⁻¹² accuracy)\n  2 rubidium atomic clocks (backup; ±5×10⁻¹¹ accuracy)\n\nThe fundamental measurement:\n  Satellite broadcasts a timestamped signal\n  Receiver notes its local time when signal arrives\n  Time-of-flight × c = range to satellite\n  Four satellites → four ranges → 3D position + receiver clock correction\n\nPosition accuracy budget:\n  Timing error source              | Position error (1σ)\n  ─────────────────────────────────┼────────────────────\n  Satellite clock instability       | ~0.7 m\n  Ephemeris errors                  | ~1.0 m\n  Tropospheric delay                | ~0.7 m\n  Ionospheric delay (L1 only)       | ~4.0 m\n  Multipath reflections             | ~0.3 m\n  Receiver noise                    | ~0.3 m\n  ─────────────────────────────────┼────────────────────\n  Total (RSS):                      | ~4.2 m\n\nTiming → position: 1 nanosecond of timing error = 30 cm position error.\nThe satellite clock error (~0.7 m) corresponds to ~2.3 ns of time error.\n\nGPS Control Segment:\n  Master Control Station (Schriever AFB, CO) + monitor stations\n  Track all satellite clocks; upload corrections daily\n  Satellites \"steered\" to GPS System Time via TDMA uplink\n  GPS System Time kept within 100 ns of UTC (typically much better)\n\nRELATIVISTIC CORRECTIONS IN GPS (the celebrated example):\n  GPS requires corrections for both special and general relativity:\n  - SR: satellite moving at ~3.87 km/s → time dilation\n    → satellite clock runs slow by 7.2 µs/day\n  - GR: satellite at 20,200 km altitude → gravitational blueshift\n    → satellite clock runs fast by 45.9 µs/day\n  Net: satellite clock runs fast by 38.7 µs/day\n  Without correction: GPS position drifts at ~10 km/day\n  Correction: satellite clocks pre-offset by -4.465×10⁻¹⁰\n  (they tick slightly slower than ground clocks; GR exactly corrects this)\n\n  GPS is the most widely used daily demonstration of relativistic physics.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 498,
+      "heading_context": "## NTP and PTP: Computing Bridge",
+      "confidence": "candidate",
+      "text": "NTP (Network Time Protocol, RFC 5905)\n\nStratum hierarchy:\n  Stratum 0: Physical reference (atomic clock, GPS with 1-PPS output)\n             Not directly on the network; outputs reference signal\n  Stratum 1: Server directly connected to stratum 0 (via serial/PPS)\n             Accuracy: ~1–10 µs from reference\n  Stratum 2: Server synchronized to stratum 1 via network\n             Accuracy: ~1–5 ms (internet); ~100 µs (local)\n  Stratum 3+: Each hop adds ~1ms typical uncertainty\n  Stratum 16: \"Unsynchronized\" (error state)\n\nClock algorithm:\n  Measure RTT to server: t = (t₂-t₁) + (t₄-t₃) / 2\n    (assumes symmetric path; measured 4 timestamps)\n  Filter: keep best of 8 samples (discard outliers)\n  Combine multiple servers: weighted average by stratum and dispersion\n  Discipline: don't step the clock; slew it (adjtimex frequency adjust)\n    → maximum slew rate: 500 ppm (0.5 ms/sec)\n    → if offset > 125 ms: step is permitted (or required)\n\nAccuracy over internet: ±1–50 ms (path latency variation dominates)\nAccuracy over LAN: ±0.1–1 ms\nWith hardware timestamping: ±10–100 µs\n\nPTP / IEEE 1588-2008 (Precision Time Protocol)\n\nDesigned for sub-microsecond synchronization:\n  Hardware timestamping: NIC timestamps TX/RX at wire level\n    → removes software interrupt jitter from timestamp\n  Transparent clock: network switches measure own forwarding latency\n    → correct for switch latency in PTP messages\n  Boundary clock: switch or router acts as PTP slave + master\n    → terminates PTP domain; converts stratum hierarchy\n\nAccuracy achievable:\n  With hardware timestamping, transparent clocks: ±100 ns to ±1 µs\n  With boundary clocks across WAN: ±1–5 µs\n  Without hardware support (\"software PTP\"): ±1–10 ms (similar to NTP)\n\nApplications:\n  5G RAN (radio access networks): require ±1.5 µs for MIMO coherence\n  Financial exchanges (MiFID II): timestamps to 1 µs accuracy required\n  Power grid synchrophasors (IEC 61850-9-3): ±1 µs for protection relays\n  CERN LHC data acquisition: synchronized to ~1 ns across 27 km ring",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 550,
+      "heading_context": "## Decision Cheat Sheet: Atomic Clock Selection",
+      "confidence": "candidate",
+      "text": "NEED                              | TECHNOLOGY             | ACCURACY     | COST\n──────────────────────────────────┼────────────────────────┼──────────────┼──────────────\nPortable reference, fieldwork     | Miniature Rb oscillator| ±5×10⁻¹¹   | $1,000–$5,000\n  (testing, military, GNSS)       | + GPS discipline        | (GPS-limited)|\n\nDatacenter time server            | OCXO + GPS 1-PPS       | ±100 ns      | $2,000–$10,000\n  (NTP stratum 1)                  | or Rb + GPS             |              |\n\nTrading floor / HFT reference     | Cs beam + GPS          | ±100 ns      | $20,000–$50,000\n  (MiFID II compliance)            | + PTP grandmaster       |              |\n\nTelecom sync (5G, SONET)          | Rb oscillator +        | ±1 µs        | $5,000–$20,000\n                                  | GPS/GNSS               | (TS-2110)    |\n\nNational frequency standard       | Cs fountain            | ±3×10⁻¹⁶   | $500,000+\n  (NPL, NIST, PTB, SYRTE)         |                        |              |\n\nPhysics research / geodesy        | Optical lattice        | ±2×10⁻¹⁸   | $1,000,000+\n  (next SI second definition)      | (Sr or Yb)             |              |\n\nSatellite navigation              | Cs beam + Rb (backup)  | ±2×10⁻¹²   | $100,000+\n  (GPS, Galileo satellites)        | per satellite           |              | per satellite",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

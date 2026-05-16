@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "watchmaking\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "chart_like",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ACCURACY TIMELINE — Error per Day (log scale, approximate)\n\n±15 min/day  ┤▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  Verge & foliot  (1280s–1650s)\n             │                         (no natural frequency; just inertia)\n ±1 min/day  ┤     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  Pendulum clock  (1656–1720s)\n             │                         (isochronous oscillator; still G-sensitive)\n±10 sec/day  ┤          ▓▓▓▓▓▓▓▓▓▓▓  Temperature-compensated pendulum (1720s)\n             │                         (gridiron, mercury compensation)\n ±5 sec/day  ┤              ▓▓▓▓▓▓▓▓  Marine chronometer   (1759–1830s)\n             │                         (H4 class; temp-compensated balance)\n ±1 sec/day  ┤                  ▓▓▓▓  Lever escapement watch (1850s–1960s)\n             │                         (COSC standard: ±4 sec/day)\n±15 sec/year ┤                      ▓  Quartz wristwatch  (1969–present)\n             │                         (32,768 Hz crystal; TCXO: ±1 sec/year)\n ±1 sec/year ┤                      ·  TCXO / GPS-disciplined   (present)\n             │\n±1 sec/300M yr┤                     ·  Cesium fountain   (NIST-F2, 2014)\n             │\n±1 sec/15B yr┤                     ·  Optical lattice clock  (Sr-87; ongoing)\n             │                         (15 billion years > age of universe)\n\n           1280    1660    1760    1870   1970   2000  2020",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 62,
+      "heading_context": "## The Fundamental Problem: Oscillator Physics",
+      "confidence": "candidate",
+      "text": "+------------------+     +------------------+     +------------------+\n|   ENERGY SOURCE  | --> |    OSCILLATOR    | --> |   COUNTER/DISPLAY|\n|                  |     |                  |     |                  |\n| Gravity (weight) |     | Foliot (inertia) |     | Gear train       |\n| Spring (mainspr) |     | Pendulum (gravty)|     | Hands / digits   |\n| Battery (quartz) |     | Balance wheel    |     | Electronic disp  |\n| Mains power      |     | Quartz crystal   |     | RF output        |\n| Laser cooling    |     | Atomic transition|     | PPS signal       |\n+------------------+     +------------------+     +------------------+\n          |                       |\n          |   ESCAPEMENT          |\n          |   bridges these two:  |\n          |   - Releases energy   |\n          |     in measured pulses|\n          |   - Counts oscillations\n          +-->  to gear train     |",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "## Key Inventions in Chronological Order",
+      "confidence": "candidate",
+      "text": "~3500 BCE  Sundial (gnomon) — shadow position tracks solar time\n           Error: equation of time (±16 min); cannot operate at night or indoors\n\n~400 BCE   Clepsydra (water clock) — flow rate measures elapsed time\n           Error: ∂Q/∂h = varies as vessel empties; solved by constant-head float valve\n           Ctesibius (~270 BCE): float-regulated clock with gear train\n\n1088 CE    Su Song's astronomical water clock tower — water-wheel escapement\n           precursor mechanism, armillary sphere automation (China)\n\n~1280      Verge-and-foliot escapement — FIRST mechanical clock\n           Crown wheel + vertical verge shaft + horizontal foliot bar\n           Error: ±15 min/day; no natural frequency in foliot\n\n~1510      Coiled mainspring replaces hanging weight → portability\n           Peter Henlein, Nuremberg; first pocket \"watches\"\n\n1656       Christiaan Huygens — pendulum clock\n           T = 2π√(L/g): first clock with a natural frequency\n           Error: ~1 min/day → later <10 sec/day\n\n~1670      Anchor escapement (Hooke/Clement) — frees pendulum between impulses\n           → longer effective pendulum → grandfather clock form factor\n\n1715       Deadbeat anchor (George Graham) — eliminates recoil\n           Error: ~1 sec/day; accurate enough for astronomical observation\n\n~1720s     Temperature compensation — gridiron pendulum (Harrison)\n           Mercury pendulum (Graham); bimetallic strips\n\n1735–1759  John Harrison's H1–H4 marine chronometers\n           H4: 5.1 seconds of error over 81 days at sea\n           Solved the longitude problem; earned the Longitude Prize\n\n1759       Thomas Mudge — lever escapement\n           Still the dominant escapement in mechanical watches today\n\n1780s      Earnshaw/Arnold — detent escapement for marine chronometers\n           More accurate than lever but fragile; lever wins in portable watches\n\n1801       Breguet tourbillon patent — rotating cage averages gravity errors\n           Useful in vertical pocket watches; mostly decorative in modern wristwatches\n\n1880       Curie brothers — piezoelectric effect in quartz\n\n1927       Bell Labs (Warren Marrison) — first quartz clock\n           Room-sized; used for radio frequency standards\n\n1955       Louis Essen, NPL — first cesium atomic clock\n           Defines the second by atomic physics, not astronomical observation\n\n1967       SI second redefined: 9,192,631,770 cycles of Cs-133 hyperfine transition\n           Second is now physics, not astronomy\n\n1969       Seiko Quartz Astron — first commercial quartz wristwatch\n           ±5 sec/year vs ±15 sec/day for best mechanical\n\n1970s–80s  Quartz Crisis — Swiss watch industry decimated\n           Employment: 90,000 → 28,000\n\n1983       Swatch — plastic quartz watch; saved the Swiss low end\n\n1998       NIST-F1 cesium fountain clock — ±1 sec in 20 million years\n\n2014       NIST-F2 — ±1 sec in 300 million years\n\n2014–pres  Optical lattice clocks (JILA Sr, NIST Yb) — ±1 sec in 15 billion years\n           Applications: relativistic geodesy, redefining the SI second again",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "## Horology Taxonomy",
+      "confidence": "candidate",
+      "text": "HOROLOGY\n├── TIMEKEEPING INSTRUMENTS\n│   ├── Astronomical (gnomon, sundial, armillary sphere)\n│   ├── Flow-based (clepsydra, sand glass, incense clock)\n│   ├── Mechanical (verge, pendulum, lever, tourbillon)\n│   ├── Electronic (quartz crystal, MEMS)\n│   └── Atomic (cesium beam, cesium fountain, optical lattice)\n│\n├── CHRONOMETRY (precision measurement of time intervals)\n│   ├── Marine chronometers\n│   ├── Observatory clocks\n│   ├── Stopwatches / chronographs\n│   └── Primary frequency standards\n│\n├── HOROLOGY TRADES\n│   ├── Watchmaking (portable timekeepers)\n│   ├── Clockmaking (stationary; larger movements)\n│   ├── Horological conservation / restoration\n│   └── Scientific metrology (atomic standards)\n│\n└── TIMESCALES & STANDARDS\n    ├── TAI — International Atomic Time (monotonic accumulation)\n    ├── UTC — Coordinated Universal Time (TAI + leap seconds)\n    ├── GPS Time (epoch: Jan 6, 1980; no leap seconds)\n    ├── UT1 — Earth rotation-based (irregular)\n    └── Sidereal time (Earth's rotation vs stars)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 199,
+      "heading_context": "## Error Sources: The Catalog",
+      "confidence": "candidate",
+      "text": "ERROR SOURCE          | EFFECT                          | MITIGATION\n----------------------+---------------------------------+---------------------------\nNo natural frequency  | Period depends on drive force   | Pendulum; balance spring\nTemperature           | Thermal expansion changes L     | Gridiron; mercury; Nivarox\nGravity (position)    | Vertical vs horizontal rate     | Tourbillon; positional testing\nFriction              | Irreproducible drag              | Jewel bearings; lubricants\nMainspring torque var | More torque fully wound          | Fusee; remontoire; barrel slip\nMagnetism             | Perturbs alloy properties        | Soft iron cage; silicon parts\nAir pressure          | Buoyancy and drag on pendulum   | Vacuum clock (Shortt, 1921)\nWear                  | Geometry changes over time       | Hard materials; lubricants\nVibration/shock       | Disturbs oscillator              | Incabloc; Kif shock jewels\nHumidity              | Affects some materials           | Modern alloys not affected\nAccuracy of period def| \"Second\" was astronomical        | Atomic definition (1967)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "## Bridge: Watchmaking → Distributed Computing",
+      "confidence": "candidate",
+      "text": "TIMEKEEPING PROBLEM             DISTRIBUTED SYSTEMS ANALOG\n───────────────────────────────────────────────────────────\nLongitude problem:              Network time synchronization:\n  \"what time is it at           \"what time is it at the\n   Greenwich right now?\"         primary server right now?\"\n\nMarine chronometer:             NTP stratum 0/1:\n  reference clock carried        atomic clock at tier 0;\n  on ship; read at local noon     servers query it\n\nH4's 5.1 sec error in 81 days:  NTP accuracy:\n  ~1 sec/day in practice          ~10ms over internet\n  (varies with temperature)       (varies with path latency)\n\nEquation of time correction:    NTP's asymmetric path correction:\n  solar time ≠ mean solar time    RTT/2 assumes symmetric delay —\n  (elliptic orbit + axial tilt)   wrong if upstream ≠ downstream\n\nTemperature compensation:       Clock drift compensation:\n  Nivarox hairspring,            NTP frequency discipline (adjtimex)\n  gridiron pendulum               adjusts kernel tick rate\n\nTourbillon (position averaging): Vector clocks / Lamport timestamps:\n  mechanism rotates through       can't trust wall clock; instead\n  all positions every 60 sec      track causal ordering explicitly\n\nLeap second (UTC):              Leap second handling:\n  Earth's rotation slows;         Unix epoch smears or skips;\n  add 1 sec to stay in sync       Google/AWS \"leap smear\" UTC±24h\n\nGPS time vs UTC:                System clock vs monotonic clock:\n  GPS doesn't add leap seconds    clock_gettime(CLOCK_REALTIME) can\n  → 18 seconds ahead of UTC       jump; CLOCK_MONOTONIC cannot\n  → your code must know this       → use monotonic for intervals",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 294,
+      "heading_context": "## Module Map",
+      "confidence": "candidate",
+      "text": "watchmaking/\n│\n├── 00-OVERVIEW.md          ← You are here\n│   The big picture: sundial to atomic clock; why it matters;\n│   computing bridge (NTP, PTP, GPS time, vector clocks)\n│\n├── 01-EARLY-TIMEKEEPING.md\n│   Sundials (gnomon, equation of time, analemma)\n│   Clepsydra (Ctesibius, Su Song's tower clock)\n│   Sand glasses, incense clocks, canonical hours\n│\n├── 02-VERGE-ESCAPEMENT.md\n│   The first mechanical escapement (~1280)\n│   Crown wheel + verge + foliot\n│   Why accuracy was terrible; coiled mainspring; portability\n│\n├── 03-PENDULUM-REVOLUTION.md\n│   Galileo's isochronism; Huygens' 1656 clock\n│   T = 2π√(L/g); anchor escapement; temperature compensation\n│   Gridiron pendulum; deadbeat escapement\n│\n├── 04-MARINE-CHRONOMETER.md\n│   Longitude problem; Queen Anne's Act (1714)\n│   Harrison's H1–H4; grasshopper escapement\n│   Earnshaw/Arnold detent escapement; longitude → GPS\n│\n├── 05-LEVER-ESCAPEMENT.md\n│   Thomas Mudge (1759); detached escapement principle\n│   Swiss lever geometry; why it won over detent\n│   COSC chronometer standard; club-tooth escape wheel\n│\n├── 06-WRISTWATCH-ERA.md\n│   WWI pocket → wrist; Swiss industry geography\n│   Complications: tourbillon, perpetual calendar, repeater\n│   Ébauche system; luxury economics; COSC/PP Seal\n│\n├── 07-QUARTZ-REVOLUTION.md\n│   Piezoelectric effect; 32,768 Hz = 2^15\n│   Seiko Astron (1969); Swiss crisis 1970s–80s\n│   Swatch; TCXO vs OCXO; MEMS oscillators\n│\n├── 08-ATOMIC-CLOCKS.md\n│   Cs-133 hyperfine at 9,192,631,770 Hz; 1967 SI second\n│   Ramsey method; NIST-F2; TAI / UTC / GPS time\n│   Optical lattice clocks; relativistic geodesy\n│\n└── 09-MOVEMENT-ANATOMY.md\n    Mainspring → barrel → gear train → escapement\n    Jewel bearings; keyless works; finishing grades\n    Materials science (Nivarox, silicon); COSC testing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 351,
+      "heading_context": "## Decision Cheat Sheet: Timekeeping Technology",
+      "confidence": "candidate",
+      "text": "NEED                              TECHNOLOGY                    ACCURACY\n──────────────────────────────────────────────────────────────────────────\nSeconds per day, outdoor only     Sundial (calibrated)          ±1 min\n                                  (after equation of time corr)\nTime elapsed, short intervals     Sand glass / stopwatch        ±1–2%\n(hours)\n\nPortable time, no electronics     Mechanical lever watch        ±4–30 sec/day\n                                  (COSC certified: ±4 sec/day)\n\nPortable time, practical          Quartz wristwatch             ±15 sec/year\naccuracy                          (standard, uncompensated)\n\nPortable time, high accuracy      TCXO wristwatch / GPS watch   ±1 sec/year\n                                  (Citizen Eco-Drive GPS, etc.)  to seconds/decade\n\nStationary precision reference    OCXO + GPS discipline         ±100 ns (10^-10)\n\nNetwork time synchronization      NTP (RFC 5905)                ±1–50 ms\n(internet)\n\nSub-microsecond synchronization   PTP / IEEE 1588               ±100 ns – 1 µs\n(local network / 5G / exchange)\n\nPrimary frequency standard        Cesium fountain (NIST-F2)     ±3×10^-16\n(national metrology lab)\n\nNext-generation standard          Optical lattice clock         ±1×10^-18\n(physics research / geodesy)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

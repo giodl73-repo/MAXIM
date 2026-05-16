@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "typography\\06-PHOTOTYPESETTING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "PHOTOTYPESETTING TECHNOLOGY GENERATIONS\n────────────────────────────────────────────────────────────────────────────────\n\nGENERATION 1 (1950s): Mechanical/Optical\n  Physical film negatives of characters + light flash + photographic paper\n  Rotating disk or filmstrip of character images\n  Speed: slight improvement over hot metal\n  Examples: Photon (USA), Intertype Fotosetter\n\nGENERATION 2 (1960s): Electro-optical\n  Electronic control of exposure timing + lens adjustment\n  CRT tubes beginning to appear for character generation\n  Speed: ~5,000–8,000 chars/hr\n  Examples: Linofilm, Photon 713, IBM 2680\n\nGENERATION 3 (1970s–early 1980s): Fully digital rasterization\n  Characters defined as digital bitmaps\n  CRT or laser beam exposes photographic media\n  Speed: 10,000–30,000 chars/hr\n  Fully controllable spacing, kerning, tracking\n  Examples: Compugraphic EditWriter, Berthold Diatronic, Hell Digiset\n\nDIGITAL FRONT-END (1980s): Transition to PostScript\n  Fully digital composition → PostScript interpreter → imagesetter\n  Characters as Bézier outlines (resolution-independent)\n  Speed: limited by RIP (Raster Image Processor), not mechanics\n  → This is the digital typography era (Module 07)\n\n────────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "### Why Phototypesetting at All?",
+      "confidence": "candidate",
+      "text": "LETTERPRESS vs OFFSET LITHOGRAPHY\n──────────────────────────────────────────────────────────────────────\n\nLETTERPRESS (hot metal era):\n  Metal type → inked → paper pressed against it\n  Type face makes direct contact with paper\n  Requires: physical metal type + forme + heavy press\n  Output quality: good for text; limited for halftones\n\nOFFSET LITHOGRAPHY (phototype era):\n  Film negative → photosensitive plate (UV exposed)\n  Plate → rubber blanket roller → paper\n  Type never touches paper (indirect \"offset\" printing)\n  Requires: film negative → NOT metal type\n  Output quality: superior halftones; cheaper for long runs\n  Speed: much faster for high-volume printing\n\nWHY THIS MATTERS:\n  If your output process wants film negatives,\n  there is no reason to cast metal type at all.\n  Phototypesetting: directly expose characters onto film.\n  Bypass metal entirely.\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 92,
+      "heading_context": "### Why Phototypesetting at All?",
+      "confidence": "candidate",
+      "text": "### Photon / Lumitype (1954)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 96,
+      "heading_context": "### Photon / Lumitype (1954)",
+      "confidence": "candidate",
+      "text": "PHOTON MACHINE DESIGN (~1954)\n──────────────────────────────────────────────────────────────────────\n\n  SPINNING DISK:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ Glass disk rotating at high speed                               │\n  │ 96 characters arranged in concentric rings on the disk          │\n  │ Each character = a film negative image of the letterform        │\n  │                                                                 │\n  │         ┌────────────────────────────────────────────────┐      │\n  │         │  •  A  B  C  D  E  F  G  ...  (outer ring)     │     │\n  │         │    • a  b  c  d  e  f  g  ... (inner ring)     │     │\n  │         └────────────────────────────────────────────────┘     │\n  └─────────────────────────────────────────────────────────────────┘\n\n  When a character is needed:\n  1. Disk rotates to position desired character over the light path\n  2. Stroboscopic flash fires (microseconds — freezes the disk)\n  3. Light passes through character's film negative\n  4. Lens focuses and sizes the image\n  5. Character exposed onto photosensitive paper/film\n  6. Paper/film advances by character width amount\n\n  SIZE CONTROL:\n  A lens between disk and paper controls size\n  Same disk character can be output at 6pt through 72pt by adjusting lens\n  This was a key advantage over hot metal: one matrix → all sizes\n  (Hot metal: different physical matrix for each size)\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "## Generation 2: Electronic Control (1960s)",
+      "confidence": "candidate",
+      "text": "INTERTYPE FOTOSETTER — HYBRID DESIGN\n──────────────────────────────────────────────────────────────────────\n\nThe Intertype Fotosetter (1950) was an interesting transitional machine:\n  - Used Linotype-compatible matrices (existing investment)\n  - But instead of casting metal, flashed light through the matrix\n  - Matrix returned via same distributor mechanism as Linotype\n\nThis exemplifies the classic crossing-the-chasm problem:\n  Optimize for backward compatibility (reuse existing matrices)\n  vs. start clean with optically superior new designs\n  Fotosetter chose backward compatibility → limited upside\n  Later machines chose new designs → better quality but customer friction\n\nTHE TRANSITION PLAYBOOK:\n  Linotype → Linofilm: same brand, new technology (protect base)\n  ATF → couldn't make the transition (became irrelevant)\n  Monotype → Monophoto: survived the transition\n  New entrants: Compugraphic, Hell → better technology, no legacy\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "## Generation 3: Digital Rasterization (1970s)",
+      "confidence": "candidate",
+      "text": "HELL DIGISET (1965–1970) — FIRST DIGITAL TYPESETTER\n──────────────────────────────────────────────────────────────────────\n\nDeveloped by Dr. Ing. Rudolf Hell (Germany)\nThe first typesetter to use digitally stored character bitmaps\n\nArchitecture:\n  Magnetic disk: stores character bitmaps as digital data\n  CRT output: scans electron beam to draw characters\n  Photographic paper: exposed by CRT beam\n\nPerformance (Digiset 50T):\n  Speed: ~10,000 chars/hr\n  Resolution: 600–1200 dpi\n  Type sizes: 5–72pt from same digital master (via scaling)\n\nTHE BITMAP PROBLEM:\n  Characters stored as bitmaps at one resolution\n  Scaling up = blocky/aliased\n  Different size masters needed for quality\n  → Motivates outline (vector) representation\n  → PostScript (1982) solves this with Bézier curve outlines\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "### Compugraphic and Market Expansion",
+      "confidence": "candidate",
+      "text": "COMPUGRAPHIC'S MARKET STRATEGY\n──────────────────────────────────────────────────────────────────────\n\nBefore Compugraphic:\n  Phototypesetting machines cost $100,000–$500,000\n  Only major newspapers and large print shops could afford them\n  Small print shops still used hand composition\n\nCompugraphic innovation:\n  EditWriter series (1972): $25,000 – $50,000\n  Affordable for small newspapers, trade publications\n  Simplified operation (keyboard + digital storage + output)\n  \"Democratized\" professional typesetting\n\nResult:\n  Thousands of small publications switched from hot metal\n  New profession: typesetting operator (vs. Linotype operator)\n  Desktop typesetting: Compugraphic was the closest thing to DTP\n  before the Macintosh (1984)\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 224,
+      "heading_context": "## ITC: Type Licensing as Software Licensing",
+      "confidence": "candidate",
+      "text": "ITC FOUNDING AND STRUCTURE\n──────────────────────────────────────────────────────────────────────\n\nFOUNDERS:\n  Aaron Burns — graphic designer and typography educator\n  Herb Lubalin — celebrated typographic designer\n  Ed Rondthaler — veteran of phototypesetting industry (Photo-Lettering Inc.)\n\nCONTEXT:\n  By 1970, phototypesetting created a problem:\n  Same typeface sold by 20 different vendors under 20 different names\n  No licensing infrastructure for type designs\n  Designers received no royalties when their work was reproduced\n  In the US, letterform designs were NOT (and still are NOT) copyright-protected\n    — the utility exception: letterforms are utilitarian\n    — but the SOFTWARE encoding a font IS copyrighted\n  In Germany, designs ARE protected; in UK, partial protection\n\nITC BUSINESS MODEL:\n  1. License typeface designs from designers (pay royalties)\n  2. License those designs to phototypesetting manufacturers\n  3. Manufacturers pay ITC per unit manufactured or per license\n  4. Designers receive royalties from ITC\n\n  Revenue flow:\n    Manufacturer → ITC → Designer\n  (ITC takes a cut; designer gets royalty; manufacturer gets licensed design)\n\nWHY THIS WAS REVOLUTIONARY:\n  Before ITC: type designers often received one-time payment for designs\n  After ITC: designers could receive ongoing royalties from popular typefaces\n  This made type design a sustainable intellectual profession\n  Parallel to software licensing (vs. work-for-hire)\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "### ITC's Type Design Legacy",
+      "confidence": "candidate",
+      "text": "KEY ITC TYPEFACE RELEASES (1970–1990)\n──────────────────────────────────────────────────────────────────────\n\n1970  ITC Avant Garde Gothic (Herb Lubalin + Tom Carnase)\n      Based on Lubalin's logo design for Avant Garde magazine (1968)\n      Geometric sans with distinctive round forms and tight spacing\n      Associated with the 1970s aesthetic; now nostalgic\n      Note: works well as display; less so as body text (too tight default)\n\n1971  ITC Souvenir (Ed Benguiat revival of Souvenir, Morris Benton 1914)\n      Soft, rounded; extremely popular 1970s face; now vintage cliché\n\n1974  ITC American Typewriter (Joel Kaden + Tony Stan)\n      Slab serif resembling typewriter type; instantly recognizable\n      Popular for advertising of the period\n\n1974  ITC Bookman revival\n1975  ITC Garamond (Tony Stan) — controversial revival;\n      very different proportions from historical Garamond; not recommended\n\n1975  ITC Tiffany (Ed Benguiat) — art nouveau influenced display\n\n1977  ITC Galliard (Matthew Carter) — superb revival of Granjon types\n\n1978  ITC Novarese (Aldo Novarese)\n\n1980  ITC Clearface (Morris Fuller Benton revival)\n\nThe ITC era created a distinctive visual culture — warm, rounded, slightly\ninflated forms. Look at a 1975 book or magazine and you'll recognize it.\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 301,
+      "heading_context": "## Notable Type Designs of the Phototypesetting Era",
+      "confidence": "candidate",
+      "text": "### Optima (Hermann Zapf, 1958)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 305,
+      "heading_context": "### Optima (Hermann Zapf, 1958)",
+      "confidence": "candidate",
+      "text": "OPTIMA — THE HYBRID\n──────────────────────────────────────────────────────────────────────\n\nDesigned: Hermann Zapf; Stempel, Frankfurt; 1958\nInspired by: Zapf saw inscriptions on 15th-century Florentine gravestones\n             with letterforms that were not serif but had slight terminal flares\n             (Like the Roman capital letter tradition, but without full serifs)\n\nOPTICAL PROPERTIES:\n  Strokes: taper slightly toward terminals, then flare outward slightly\n  The flare is NOT a serif — no perpendicular foot — but provides\n  the visual anchoring that serifs provide\n  Result: legibility of a serif face + cleanliness of a sans\n\n  This makes Optima extremely hard to classify:\n  ATypI calls it: \"Glyphic\" — carved letterforms\n  Others: \"humanist sans with flares\"\n  Design truth: it doesn't fit the classification system\n\nUSE:\n  Long-form text where you want sans-serif cleanliness without coldness\n  Premium design contexts: cosmetics branding, medical\n  Vietnam Veterans Memorial (Maya Lin, 1982) — inscribed in Optima\n  Lufthansa (historical brand identity)\n\nLIMITATION:\n  The subtle terminal flare can disappear at small sizes on low-resolution\n  output → use at 11pt minimum for text; shines at display sizes\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 337,
+      "heading_context": "### Optima (Hermann Zapf, 1958)",
+      "confidence": "candidate",
+      "text": "### Frutiger (Adrian Frutiger, 1975)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 341,
+      "heading_context": "### Frutiger (Adrian Frutiger, 1975)",
+      "confidence": "candidate",
+      "text": "FRUTIGER — DESIGNED FOR MOVEMENT\n──────────────────────────────────────────────────────────────────────\n\nCommission: Charles de Gaulle Airport (Roissy), opened 1974\n            Signage system; type visible from moving vehicle at distance\nDesigned:   Adrian Frutiger; 1975 (simultaneously adapted for phototypesetting)\n\nDESIGN CONSTRAINTS:\n  Must read: from a car moving at 30+ mph (50+ km/h)\n  Must read: at oblique angles (not straight-on)\n  Must read: at varying distances\n  Must distinguish: all letterforms instantly (I/l/1, O/0, etc.)\n\nDESIGN SOLUTIONS:\n  Open apertures: 'c', 'e', 'a' letters opened up so they never close\n    to looking like 'o' at distance\n  Clear letter distinctions: 'i' has distinct top serif-like element;\n    '1' has distinct base; 'I' clear cap form\n  Humanist proportions: not mechanical uniformity; natural rhythm\n  Consistent stroke terminals: clear rhythm; not mechanical\n  Wide range of weights: signage needs Light through Black\n\nRESULT:\n  Considered by many designers the most legible sans-serif typeface ever made\n  Still used at Charles de Gaulle (and many other airports worldwide)\n  Influenced subsequent humanist sans: Myriad, Meta, Thesis\n  Frutiger Neue (2014): updated version\n\nWHY THIS MATTERS FOR ENGINEERS:\n  Frutiger's design process is a case study in type for user needs:\n  Not \"what looks elegant\" but \"what works in these conditions\"\n  The font-as-UX-solution approach\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 383,
+      "heading_context": "## The Font Naming Chaos Problem",
+      "confidence": "candidate",
+      "text": "THE FONT NAME PROBLEM\n──────────────────────────────────────────────────────────────────────\n\nPROBLEM:\n  In the hot metal era: Linotype's matrices ≠ Monotype's matrices\n  (Different physical equipment; different sizes; proprietary)\n\n  In phototypesetting: same typeface design could be manufactured\n  by ANY phototypesetter vendor — but licensing was unclear\n  → Each vendor gave the design a different name:\n\n  Helvetica (original):\n    Linotype:         \"Helvetica\"\n    Berthold:         \"Akzidenz-Grotesk\" (different but similar)\n    ITC:              Didn't touch Helvetica (too well-known)\n    Compugraphic:     \"Helios\"\n    Autologic:        \"Triumvirate\"\n    Alphatype:        \"Megaron\"\n    AM Varityper:     \"Geneva\" (not the Apple font)\n\n  Garamond:\n    Linotype:         \"Garamond\"\n    Berthold:         \"Garamond\"  ← same name, different design!\n    ITC:              \"ITC Garamond\" ← very different design\n    Stempel:          \"Stempel Garamond\"\n\n  Futura:\n    Bauer:            \"Futura\"\n    Compugraphic:     \"Spartan\"\n    Intertype:        \"Techno\"\n    Mergenthaler:     \"Twentieth Century\"\n    Monotype:         \"Twentieth Century\" (licensed)\n\nThis created:\n  1. Consumer confusion (which \"Garamond\" am I getting?)\n  2. No legal clarity (designs not protected in US)\n  3. No standardization (file formats incompatible between vendors)\n  4. Designer frustration (no royalties on copied designs)\n\nRESOLUTION:\n  PostScript (1982): standardized outline format\n  OpenType (2000): unified format with licensing metadata\n  Digital licensing: font files are copyrighted software\n  ITC: established royalty model\n  → But the naming confusion persists in many font databases today\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 438,
+      "heading_context": "## Desktop Publishing: The Phase Transition (1984–1988)",
+      "confidence": "candidate",
+      "text": "1984–1985: THE DESKTOP PUBLISHING REVOLUTION\n──────────────────────────────────────────────────────────────────────\n\nJanuary 1984:  Apple Macintosh launched\n               - 9\" screen, 72 dpi, WYSIWYG interface\n               - Bit-mapped screen fonts (Susan Kare)\n               - MacPaint: drawing tools for desktop\n               - No PostScript yet\n\nJanuary 1985:  Apple LaserWriter launched\n               - First desktop laser printer with PostScript built in\n               - 300 dpi output (600 dpi equivalent perception with PostScript)\n               - Fonts: included Times, Helvetica, Courier, Symbol\n               - Resident fonts = no download time for those faces\n\nJuly 1985:     Aldus PageMaker 1.0 (for Macintosh)\n               - First desktop page layout program\n               - Print to LaserWriter = typeset-quality output at your desk\n               - Previous cost: $50,000+ professional typesetting system\n               - New cost: $3,000 Mac + $7,000 LaserWriter + $500 software\n\nECONOMIC DISRUPTION:\n  Professional typesetters: their trade made obsolete in ~5 years\n  Newspapers: composing rooms emptied by 1990\n  New profession: \"desktop publisher\" (derogatory from professionals)\n  Knowledge democratization: anyone with a Mac could do what\n  required years of training and expensive equipment\n\nTHE QUALITY GAP CLOSED FAST:\n  1985: LaserWriter at 300 dpi looked \"good enough\" for most uses\n  1987: Linotype L300 PostScript imagesetter at 1270 dpi\n  1989: PostScript imagesetters at 2400 dpi = film quality\n  By 1990: DTP output indistinguishable from professional phototypesetting\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

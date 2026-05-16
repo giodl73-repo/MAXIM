@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:typography:overview
+kind: guide
+module: typography
+section: typography
+title: Typography - Overview: Frozen Language
+status: source-custody
+source_custody: partial
+current_path: typography/00-OVERVIEW.md
+canonical_path: typography/00-OVERVIEW.md
+backsource_ids: [proof-backfill:typography:00-overview, git-history:typography:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Typography — Overview: Frozen Language
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:typography:typeface-anatomy
+kind: guide
+module: typography
+section: typography
+title: 03 - Typeface Anatomy: The Engineering Vocabulary
+status: source-custody
+source_custody: partial
+current_path: typography/03-TYPEFACE-ANATOMY.md
+canonical_path: typography/03-TYPEFACE-ANATOMY.md
+backsource_ids: [proof-backfill:typography:03-typeface-anatomy, git-history:typography:03-typeface-anatomy]
+concepts: [typeface, anatomy]
+root_concepts: [typeface, anatomy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03 — Typeface Anatomy: The Engineering Vocabulary
 
 ## The Big Picture

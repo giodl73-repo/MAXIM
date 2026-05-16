@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:watchmaking:marine-chronometer
+kind: guide
+module: watchmaking
+section: watchmaking
+title: Watchmaking - 04 The Marine Chronometer
+status: source-custody
+source_custody: partial
+current_path: watchmaking/04-MARINE-CHRONOMETER.md
+canonical_path: watchmaking/04-MARINE-CHRONOMETER.md
+backsource_ids: [proof-backfill:watchmaking:04-marine-chronometer, git-history:watchmaking:04-marine-chronometer]
+concepts: [marine, chronometer]
+root_concepts: [marine, chronometer]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Watchmaking — 04 The Marine Chronometer
 ## The Longitude Problem, John Harrison's H1–H4, and the Solution That Reshaped Navigation
 

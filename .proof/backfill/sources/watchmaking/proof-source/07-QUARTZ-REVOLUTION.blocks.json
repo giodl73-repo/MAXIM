@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "watchmaking\\07-QUARTZ-REVOLUTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "## Piezoelectricity: The Physics",
+      "confidence": "candidate",
+      "text": "PIEZOELECTRIC MECHANISM (quartz, SiO₂)\n\nQuartz crystal structure: spiral arrangement of SiO₄ tetrahedra\n  Silicon atoms: positive charge centers\n  Oxygen atoms: negative charge centers\n\nUnstressed state:\n  Positive and negative charge centers coincide\n  No net dipole → no electric field\n\nMechanically stressed:\n  Crystal lattice deforms\n  Positive and negative centers SHIFT relative to each other\n  Net electric dipole moment appears → charge on crystal faces\n\nInverse piezoelectric:\n  Apply voltage → forces on charges → lattice deforms\n  Apply AC voltage at resonant frequency → sustained oscillation\n\nFor quartz: the piezoelectric axes are along the crystallographic a-axes.\nThe cut angle relative to these axes determines the resonant frequency\nand its temperature coefficient.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 82,
+      "heading_context": "## Piezoelectricity: The Physics",
+      "confidence": "candidate",
+      "text": "QUARTZ CRYSTAL CUTS\n\nAT-cut: standard for wristwatches and TCXO\n  - Cut at ~35°15' to the optical (Z) axis\n  - Frequency-temperature characteristic: cubic curve\n    passes through zero temperature coefficient at ~25°C\n    → frequency very stable near room temperature\n  - Frequency: 32,768 Hz for wristwatch crystals (tuning fork shape)\n\nSC-cut (Stress-Compensated): for high-stability OCXO\n  - Double-rotated cut; stress-compensated\n  - Better close-in phase noise; better aging\n  - Used in precision oscillators, not wristwatches\n\nIT-cut, BT-cut: older, less common\n\nTemperature coefficient of AT-cut quartz (near 25°C):\n  f(T) = f₀ × [1 + a(T-T₀) + b(T-T₀)² + c(T-T₀)³]\n  where a≈0, b≈-0.034 ppm/°C², c≈0.11 ppb/°C³\n  → variation ≈ ±30 ppm over 0°C to 50°C range\n  → ±30 ppm × 86400 sec/day = ±2.6 sec/day if uncompensated",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "## Why 32,768 Hz?",
+      "confidence": "candidate",
+      "text": "32,768 = 2^15\n\nA binary counter circuit that divides by 2 fifteen times:\n  32,768 Hz → /2 → 16,384 Hz\n  16,384 Hz → /2 → 8,192 Hz\n  8,192 Hz  → /2 → 4,096 Hz\n  4,096 Hz  → /2 → 2,048 Hz\n  2,048 Hz  → /2 → 1,024 Hz\n  1,024 Hz  → /2 → 512 Hz\n  512 Hz    → /2 → 256 Hz\n  256 Hz    → /2 → 128 Hz\n  128 Hz    → /2 → 64 Hz\n  64 Hz     → /2 → 32 Hz\n  32 Hz     → /2 → 16 Hz\n  16 Hz     → /2 → 8 Hz\n  8 Hz      → /2 → 4 Hz\n  4 Hz      → /2 → 2 Hz\n  2 Hz      → /2 → 1 Hz  ← drives second hand stepper motor\n\n15 binary divide-by-2 stages → exactly 1 Hz output\nBinary division is trivially implemented in CMOS logic (T flip-flops)\nNo analog components required in the divider chain\nPower consumption: nanowatts per flip-flop stage at 3V",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 138,
+      "heading_context": "## Why 32,768 Hz?",
+      "confidence": "candidate",
+      "text": "The quartz oscillator circuit is a Pierce oscillator topology (inverter + crystal + feedback capacitors). The crystal's mechanical Q of 80,000-100,000 replaces what an LC tank circuit does in a Colpitts oscillator, but with ~1000x better selectivity (Q_crystal/Q_LC ~ 10^5/10^2). This Q ratio is exactly the mechanical-watch-to-quartz accuracy gap. The Q-factor progression through the series: foliot Q ~ 1, balance wheel Q ~ 300, pendulum Q ~ 10^4, quartz Q ~ 10^5, atomic microwave Q ~ 10^10, optical lattice Q ~ 10^17. Each order-of-magnitude improvement in Q corresponds to an order-of-magnitude improvement in fractional frequency stability (delta-f/f ~ 1/Q).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "## Why 32,768 Hz?",
+      "confidence": "candidate",
+      "text": "TUNING FORK CRYSTAL DIMENSIONS (typical wristwatch)\n\n     ┌──┐  ┌──┐\n     │  │  │  │\n     │  │  │  │\n     └──┘  └──┘\n     Tines: 2 mm long, 0.1 mm wide, 0.1 mm thick.\n        \\  /\n         \\/\n         /\\\n        /  \\\n       └────┘  ← base (1 mm wide)\n\nElectrodes deposited on tine surfaces\nAC voltage at 32,768 Hz drives flexural vibration\nPiezoelectric charges on tine surfaces → feedback to sustain oscillation\n\nEntire unit: 1.5–2.5 mm long, 0.5 mm wide, 0.1 mm thick\nMass: ~0.001 g\nFrequency tolerance: ±20 ppm from target (at manufacture)\nAging rate: ±1–2 ppm/year (crystal ages as surface stress relaxes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "## Quartz Oscillator Circuit",
+      "confidence": "candidate",
+      "text": "QUARTZ OSCILLATOR — SCHEMATIC PRINCIPLE\n\n        ┌─────────────────────────────────┐\n        │         XTAL (32,768 Hz)        │\n        │                                 │\n        │    ┌──────────────────────┐     │\n        │    │  inverter gate (CMOS)│     │\n        │    │                      │     │\n        │   ─┤ input         output├──── feedback\n        │  ┌─┤               ┌─────┤     │\n        │  │ └──────────────────────┘    │\n        │  │                              │\n        │  C₁ (load capacitor)  C₂       │\n        │  │    (adjustable trim for     │\n        │  GND   frequency calibration)  │\n        └─────────────────────────────────┘\n\nOperation:\n1. Noise starts oscillation (or power-on transient)\n2. Inverter amplifies signal at crystal's resonant frequency\n3. Crystal's narrow-band resonance filters everything else out\n4. Positive feedback sustains oscillation at 32,768 Hz\n5. Crystal's mechanical Q (typically 80,000–100,000 for tuning fork)\n   determines selectivity — only frequencies within a few Hz of\n   32,768 Hz can sustain oscillation\n\nLoad capacitance (C₁, C₂) affects the effective crystal resonance\nslightly. Trimmer capacitor allows factory calibration of ±1–2 sec/day\nresolution on the final frequency.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 212,
+      "heading_context": "## Temperature Compensation",
+      "confidence": "candidate",
+      "text": "OSCILLATOR ACCURACY GRADES\n\nGrade         | Technology           | Typical Stability  | Power     | Application\n──────────────┼──────────────────────┼────────────────────┼───────────┼────────────────\nNone          | XO (bare crystal)    | ±30 ppm            | 0.5–2 µW  | Cheap watches\n              | (Crystal Oscillator) | (±2.6 sec/day)     |           |\n              |                      | ±15 sec/year over  |           |\n              |                      | typical temp range |           |\n              |                      |                    |           |\nTCXO          | Temperature-         | ±1–2 ppm           | 2–5 mW    | Quality watches\n(Temperature- | Compensated Crystal  | (±0.09 sec/day)    |           | GPS receivers\nCompensated   | Oscillator           | ±1–3 sec/year      |           |\nXO)           | Thermistor measures  |                    |           |\n              | temp; correction     |                    |           |\n              | applied to crystal   |                    |           |\n              | voltage or output    |                    |           |\n              | frequency            |                    |           |\n              |                      |                    |           |\nOCXO          | Oven-Controlled      | ±0.01–0.1 ppm      | 0.5–2 W   | Test equipment\n(Oven-        | Crystal Oscillator   | (±0.001–0.01 s/day)|           | Telecom\nControlled    | Crystal heated to    | ±0.3–3 sec/year    |           | infrastructure\nXO)           | constant temperature |                    |           | GPSDO reference\n              | (typically 80–90°C)  |                    |           |\n              | Tight thermal        |                    |           |\n              | control ~±0.001°C    |                    |           |",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 324,
+      "heading_context": "### The Nicolas Hayek Intervention",
+      "confidence": "candidate",
+      "text": "SWATCH DESIGN PHILOSOPHY\n\nName: \"Second watch\" (fashion watch you buy multiple of)\n      or \"Swiss watch\" (sa-WATCH) — both interpretations intended\n\nEngineering constraints:\n  - Cost target: under SFr 15 wholesale (retail SFr 50)\n    (Competing with ¥3,900 Casio)\n  - Must be manufactured entirely in Switzerland\n    (for Swiss Made positioning)\n  - Must be assembled in ≤51 operations (vs 150+ for traditional watch)\n\nDesign innovations:\n  - Plastic case (polycarbonate or polyamide)\n  - Movement mounted DIRECTLY in case back\n    (eliminates separate movement holder → fewer parts)\n  - 51 components total (vs 91 for traditional Swiss quartz)\n  - Ultrasonic welding of case → sealed permanently\n    (no serviceability but no service needed; battery lasts 3 years)\n  - Movement accessed by cutting open the case\n    (no need for removable case back)\n\nETA Delirium-derived movement (ETA 255.111):\n  Thinnest mass-production quartz movement: 0.98 mm thick\n  32,768 Hz tuning fork crystal\n  ±15 sec/year accuracy (standard, no TCXO)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 363,
+      "heading_context": "## Modern Quartz: MEMS and the Next Generation",
+      "confidence": "candidate",
+      "text": "MEMS OSCILLATOR vs QUARTZ CRYSTAL\n\n                     | Quartz Crystal      | MEMS Silicon\n─────────────────────┼─────────────────────┼────────────────────────\nManufacturing        | Grown crystal, cut  | Photolithography;\n                     | and polished        | batch fabrication\nSize                 | 1–3 mm (tuning fork)| 0.2–0.5 mm\nCost at volume       | ~$0.50              | ~$0.10\nTemperature coeff    | ±30 ppm (AT-cut)    | ±1–3 ppm (with MEMS TCXO)\nFrequency aging      | ±1–2 ppm/year       | ±0.1–1 ppm/year\nIntegration with IC  | External component  | Can be integrated\n                     |                     | on same die\nFragility            | Brittle quartz      | Silicon (also brittle)\n\nMEMS oscillators (SiTime, Microchip/Vectron) are already in:\n  - Cell phones (timing ICs)\n  - IoT sensors\n  - Industrial equipment\n\nNot yet in watches (as of 2024): power consumption and long-term\naging performance still optimized for quartz in wearables.\nExpected to penetrate watch market in 2020s–2030s.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 392,
+      "heading_context": "## Accuracy Comparison: The Full Spectrum",
+      "confidence": "candidate",
+      "text": "TECHNOLOGY                  | ACCURACY          | DAILY ERROR | APPLICATION\n────────────────────────────┼───────────────────┼─────────────┼────────────────────\nVerge/foliot mechanical     | ±15 min/day       | ±900 sec    | Pre-1656 tower clocks\nLever mechanical (unregul.) | ±30–60 sec/day    | ±30–60 sec  | Basic mechanical watch\nLever mechanical (COSC)     | ±4 sec/day        | ±4 sec      | COSC chronometer\nStandard quartz (XO)        | ±15 sec/year      | ±0.04 sec   | Consumer quartz watch\nTCXO quartz                 | ±1–5 sec/year     | ±0.003 sec  | Quality quartz watch\nGPS-disciplined quartz      | ±0.001 sec/year   | effectively | GPS radio watch\n                            |                   | atomic accuracy\nOCXO (lab)                  | ±0.1 ppm          | 0.009 sec   | Lab/telecom ref\nRubidium atomic             | ±5×10⁻¹¹          | 4×10⁻⁶ sec  | GPS satellites (Rb)\nCesium beam (commercial)    | ±2×10⁻¹²          | 2×10⁻⁷ sec  | Primary ref\nCesium fountain (NIST-F2)   | ±3×10⁻¹⁶          | 3×10⁻¹¹ sec | National standard\nOptical lattice             | ±1×10⁻¹⁸          | 9×10⁻¹⁴ sec | Frontier research\n\nMECHANICAL vs QUARTZ: The ratio is approximately 100:1 in favor of quartz.\nThis is the gap that destroyed the Swiss industry.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 416,
+      "heading_context": "## Decision Cheat Sheet: Quartz Technology Selection",
+      "confidence": "candidate",
+      "text": "NEED                               | TECHNOLOGY              | COST (movement)\n───────────────────────────────────┼─────────────────────────┼────────────────────\nFashion/casual watch, accuracy     | Standard quartz XO      | $1–$5\n  not critical                     | 32,768 Hz, no comp      |\n\nGeneral purpose, ±15 sec/year      | Consumer quartz         | $3–$15\n                                   | (most watch movements)  |\n\nPrecision dress watch              | TCXO quartz watch       | $20–$100 (movement)\n\nNavigation, field use              | GPS-radio watch         | $50–$200+ (watch)\n  (Citizen Eco-Drive GPS,           | Syncs to GPS/radio daily|\n   Seiko Astron, Casio Oceanus)     |                         |\n\nTiming reference on local network  | GPS-disciplined OCXO    | $500–$5,000\n  (PTP grandmaster clock)           | (GPSDO)                 |\n\nTelecom/5G synchronization         | Rubidium oscillator     | $1,000–$10,000\n                                   | + GPS discipline         |\n\nNational primary standard          | Cesium fountain         | $500,000+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
