@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "infrastructure-systems\\04-FAILURE-MODES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "INFRASTRUCTURE FAILURE TAXONOMY\n=================================\n\n                    FAILURE CAUSE\n                          |\n         +----------------+----------------+\n         |                |                |\n    PHYSICAL         NATURAL HAZARD     CYBER\n    DEGRADATION      (external)         (IT/OT)\n         |                |                |\n   Material failure  Earthquake          Attack\n   Fatigue           Hurricane           Malware\n   Corrosion         Flood               Ransomware\n   Overload          Tornado             Insider\n   Construction      Ice storm           SCADA failure\n   defects           Wildfire\n         |                |                |\n         +----------------+----------------+\n                          |\n                     SYSTEMIC\n                    (underlying)\n                          |\n              Deferred maintenance\n              Budget constraints\n              Organizational failure\n              Regulatory gaps\n              Design standards obsolescence",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 64,
+      "heading_context": "### Corrosion",
+      "confidence": "candidate",
+      "text": "CORROSION: THE INVISIBLE INFRASTRUCTURE KILLER\n===============================================\n\nUS ANNUAL CORROSION COST: ~$270B/yr (2002 NACE study, inflation-adjusted ~$550B/yr 2025)\n  ~3.1% of GDP -- comparable to annual federal defense spending\n  Infrastructure-specific portion: ~$100B/yr (bridges, pipelines, utilities)\n\nMECHANISMS:\n  Electrochemical corrosion (dominant):\n    Galvanic cell: two dissimilar metals + electrolyte (moisture, salt water)\n    Anode: Fe -> Fe2+ + 2e- (iron oxidizes, dissolves)\n    Cathode: O2 + 2H2O + 4e- -> 4OH- (oxygen reduction)\n    Net: 4Fe + 3O2 + 2H2O -> 2Fe2O3*H2O (rust = iron hydroxide)\n    Accelerators: salt (road salt on bridges: Cl- disrupts passive oxide layer),\n                  moisture, low pH, elevated temperature, impressed current\n\n  Microbiologically influenced corrosion (MIC):\n    Sulfate-reducing bacteria (SRB): produce H2S from sulfate\n    H2S attacks steel pipe: Fe + H2S -> FeS + 2H (accelerated corrosion under anaerobic conditions)\n    Common in: water mains, buried gas pipelines, oil pipelines\n\n  Stress corrosion cracking (SCC):\n    Combined: tensile stress + corrosive environment + susceptible material\n    Results in cracking at stress levels well below yield strength\n    Catastrophic: no visible warning; sudden failure\n    Example: SCC in high-pressure gas pipelines (high-strength steel + cathodically disbonded coating)\n    San Bruno, CA pipeline explosion (2010): SCC + poor maintenance + seam weld defect -> 8 deaths\n\nPIPELINE CORROSION:\n  US natural gas transmission: ~500,000 km of pipeline\n  Average age: >40 years (many pre-1970)\n  Cathodic protection: impressed current or sacrificial anode\n    CP maintains pipe potential at -850 mV vs. Cu/CuSO4 reference\n    CP failure: corrosion resumes; typical failure: coating disbondment + CP inadequacy\n  Inline inspection (ILI): \"smart pig\" tool runs inside pipeline\n    Magnetic flux leakage (MFL): detects metal loss (corrosion)\n    Geometry tool: detects dents, deformations\n    Run interval: high-consequence areas every 5-7 years (per federal regulations)\n\nBRIDGE CORROSION:\n  Rebar in concrete: normally passive (high pH concrete)\n  Chloride ingress (road salt, marine): destroys passive film -> active corrosion\n  Rebar expands 2-3x when rusting -> concrete spalling (chunks falling off)\n  Approximately 7.5% of US bridges are structurally deficient (2024)\n  ~600 bridges in poor condition (FHWA BCI < 50 -- immediate priority)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 114,
+      "heading_context": "### Fatigue and Material Failure",
+      "confidence": "candidate",
+      "text": "METAL FATIGUE IN INFRASTRUCTURE\n=================================\n\nMECHANISM:\n  Cyclic loading: each load cycle creates/propagates microcracks\n  Paris law: da/dN = C * (delta_K)^m\n    a = crack length, N = cycles, K = stress intensity factor (MPa*sqrt(m))\n  Critical crack length: when K > K_IC (fracture toughness): catastrophic failure\n\nINFRASTRUCTURE EXAMPLES:\n  Railway: rail fatigue from passing trains (1B+ cycles over 50 years)\n    Rail inspection: eddy current, ultrasonic (detect cracks before failure)\n    Change-out interval: 100-500 million gross tonnes (varies by traffic)\n\n  Bridges: girder web fatigue at connection details\n    AASHTO fatigue categories: A (best) to E' (worst)\n    Fatigue life: 20-100 million cycles (major highway bridge)\n    Silver Bridge collapse (WV, 1967): 46 deaths; eyebar chain stress corrosion + fatigue\n    -> Led to National Bridge Inspection Program (NBIP)\n\n  Offshore wind: cyclic wave + wind loading on monopile foundations\n    10^8 to 10^9 load cycles over 25-year design life\n    Foundation inspection every 5 years; grouted connections problematic (cracking found)\n\nCONCRETE FAILURE MODES:\n  Carbonation: CO2 + Ca(OH)2 -> CaCO3 (reduces pH -> rebar corrosion initiation)\n  Alkali-silica reaction (ASR): alkali (Na+, K+) + reactive silica aggregate -> expansive gel\n    Concrete cracking, \"map cracking\" visible on surface\n    Long time scale: 10-30 years to manifest; irreversible once started\n  RAAC (Reinforced Autoclaved Aerated Concrete): UK problem 2023\n    Brittle failure without warning; 100+ UK school buildings closed suddenly\n    Design life ~30 years; buildings now 50-60 years old",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "### Earthquake and Liquefaction",
+      "confidence": "candidate",
+      "text": "SEISMIC INFRASTRUCTURE FAILURE MODES\n======================================\n\nGROUND SHAKING:\n  Bridges: inadequate seating length (spans fall off bearings); column shear failure\n  Pipelines: wave propagation damage at bends, joints, transitions\n  Buildings: soft-story collapse; unreinforced masonry\n\nLIQUEFACTION:\n  Mechanism: saturated loose sand + shaking -> pore pressure increase -> soil loses strength\n  Behaves like liquid: bearing capacity essentially zero\n  Results: buildings tilt/sink, buried pipes float up, bridges settle\n  Geographic risk: river deltas, reclaimed land, coastal areas\n    Christchurch NZ (2011): extensive liquefaction damage to entire neighborhoods\n    Kobe (1995): port area on reclaimed land: massive liquefaction\n\n  Mitigation: densification (vibroflotation, dynamic compaction), drainage, deep foundations\n\nLANDSLIDE AND ROCKFALL:\n  Triggered by: earthquake, heavy rain, saturation\n  Infrastructure at risk: mountain roads, railways, pipelines, powerlines\n  Washington state SR 530 (Oso mudslide, 2014): 43 deaths, US 2 highway buried\n\nCHEMICAL PLANT EARTHQUAKE:\n  Puerto Rico (2020): multiple earthquakes + power outages -> chemical plant issues\n  Texas (2021): winter storm + power outages -> chemical plant cooling failures\n  Harvey (2017): Arkema chemical plant: loss of refrigeration + flooding\n    -> peroxide decomposition -> fire -> toxic fumes (key: power + flooding = chemical cascade)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 188,
+      "heading_context": "### Hurricane Harvey: Cross-Sector Case Study",
+      "confidence": "candidate",
+      "text": "HURRICANE HARVEY (August-September 2017)\n==========================================\n\nDIRECTLY OBSERVED CROSS-SECTOR CASCADE:\n\n1. FLOODING (primary hazard):\n   51\" of rain over Houston metro (largest US rain event on record)\n   Addicks and Barker reservoirs: EXCEEDED CAPACITY (by design, to prevent worse flooding)\n   Controlled release: flooded 3,000+ homes\n   Uncontrolled release risk: dam failure would flood 60,000+ homes\n\n2. POWER OUTAGES:\n   ~30,000 customers without power at peak (relatively limited due to wind)\n   Power outages disabled: gas stations (no pump power), ATMs, stores\n\n3. WASTEWATER:\n   Houston MUD: 45+ water/wastewater systems compromised\n   Storm inundation of wastewater lift stations -> sewage overflow\n   Bayou Buffalo Bayou, Brays Bayou: E. coli counts 135x safe limit\n\n4. CHEMICAL PLANTS (Arkema Crosby):\n   Plant in 100-year floodplain (designed for 100-yr flood)\n   Harvey: exceeded 500-yr flood threshold\n   Loss of primary + backup power for refrigeration\n   Organic peroxides (unstable without cooling): decomposed -> fire\n   Sheriff deputy hospitalized from vapor exposure during firefighting attempt\n   Lesson: design basis flood exceeded; chemical consequence unanticipated\n\n5. HEALTH SYSTEM:\n   Multiple hospitals flooded (some built in floodplain without elevation)\n   Patient evacuation mid-storm -> dangerous transfers\n   Medication access: pharmacy chain access disrupted for 1M+ patients\n\nTOTAL COST: $125B (second only to Katrina)\nKEY LESSON: Design basis flood (100-year) is increasingly being exceeded\n  Climate change: Harvey-level events more frequent\n  Floodplain maps: based on historical data, increasingly inaccurate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 317,
+      "heading_context": "### Stuxnet: The Canonical ICS Attack",
+      "confidence": "candidate",
+      "text": "### Colonial Pipeline (2021) -- OT Perspective",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 327,
+      "heading_context": "## Systemic Failure: Deferred Maintenance",
+      "confidence": "candidate",
+      "text": "DEFERRED MAINTENANCE DYNAMICS\n================================\n\nDEFINITION:\n  Deferred maintenance: maintenance known to be needed but postponed\n  Not negligence necessarily: constrained budgets, competing priorities\n  BUT: accumulated deferred maintenance = \"unfunded liability\"\n\nMECHANISM:\n  Year 1: $100k maintenance needed, only $60k budgeted -> $40k deferred\n  Year 2: $100k new + $40k deferred carry-forward -> $140k needed, $60k budgeted\n  Year 5: ~$240k deferred backlog; asset now in \"poor\" condition\n  Year 8: Asset fails: $500k emergency repair + 4-week outage + $2M economic impact\n  NPV analysis shows: the $40k/yr savings was not worth $2.5M+ eventual cost\n\nDEFERRED MAINTENANCE RATIOS:\n  Universities: 2:1 to 10:1 (deferred backlog vs. annual maintenance budget)\n    Many campuses have $500M+ deferred maintenance backlog\n  Transit agencies: NYC MTA: ~$40B capital backlog (2024)\n  Hospitals: ~$200B national estimate\n  Federal buildings: ~$25B federal real property deferred maintenance\n  Highway bridges: ~$125B (FHWA estimate)\n\nPOLITICAL ECONOMY OF DEFERRAL:\n  Budget pressure: operations (nurses, police, teachers) more visible than maintenance\n  Politician incentive: ribbon cuttings for new projects > maintenance of old\n  Asset ownership diffuse: no single actor has clear responsibility for condition\n  Time horizon mismatch: 3-year budget cycles vs. 50-year asset life\n  \"Infrastructure is invisible until it fails\": no constituency for maintenance\n\nCONDITION-BASED MAINTENANCE (the fix):\n  Move from calendar-based to condition-based scheduling\n  Sensor monitoring + predictive models -> maintain when needed, not on schedule\n  Avoids both: premature maintenance (cost waste) and deferred maintenance (failure risk)\n  Infrastructure example: bridge health monitoring (SHM) -> extend inspection interval for\n    well-monitored bridges, reduce interval for deteriorating ones",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 370,
+      "heading_context": "## Failure Statistics",
+      "confidence": "candidate",
+      "text": "INFRASTRUCTURE FAILURE STATISTICS (US, PHMSA/NTSB/ASCE DATA)\n===============================================================\n\nNatural gas pipeline incidents (PHMSA, avg 2019-2024):\n  ~100-120 significant incidents/year\n  ~10-15 fatalities/year\n  Leading causes: excavation damage (811 violations), corrosion, incorrect operations\n  Pipeline safety investment: ~$15B/yr (driven by incident response)\n\nBridge failures:\n  ~100-200 bridge collapses/year (mostly small bridges, rural)\n  Structural deficiency: 43,000 bridges rated structurally deficient (2024)\n  Notable: FIU pedestrian bridge (2018): construction error -> 6 deaths\n           I-5 bridge (Skagit, WA 2013): oversized truck + design vulnerability\n           Fern Hollow (Pittsburgh, 2022): corrosion + deferred maintenance -> collapse\n\nWater main breaks:\n  ~250,000 water main breaks/year (US)\n  ~6 billion gallons/day water lost to leaks (14-18% of treated water)\n  Leading cause: age, cast iron (pre-1950 mains), corrosion\n  Replacement rate needed: ~1%/year; actual rate: ~0.4%/year (under-investing)\n\nPower outages:\n  All causes: ~1,300 major outages/year (NERC DOE-417 reports)\n  Weather-caused: ~65% of all outage events\n  Non-weather: equipment failure (20%), human error (10%), cyber (rare but growing)\n  Average US customer: 5-8 hours/year without power (SAIDI)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

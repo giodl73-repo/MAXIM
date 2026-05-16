@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:infrastructure-systems:failure-modes
+kind: guide
+module: infrastructure-systems
+section: infrastructure-systems
+title: Infrastructure Failure Modes: Physical, Cyber, Systemic
+status: source-custody
+source_custody: partial
+current_path: infrastructure-systems/04-FAILURE-MODES.md
+canonical_path: infrastructure-systems/04-FAILURE-MODES.md
+backsource_ids: [proof-backfill:infrastructure-systems:04-failure-modes, git-history:infrastructure-systems:04-failure-modes]
+concepts: [failure, modes]
+root_concepts: [failure, modes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Infrastructure Failure Modes: Physical, Cyber, Systemic
 
 ## The Big Picture

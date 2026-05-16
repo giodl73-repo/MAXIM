@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-storage:future
+kind: guide
+module: energy-storage
+section: energy-storage
+title: Future Energy Storage: Long-Duration, Thermal, and 2040+ Roadmap
+status: source-custody
+source_custody: partial
+current_path: energy-storage/09-FUTURE.md
+canonical_path: energy-storage/09-FUTURE.md
+backsource_ids: [proof-backfill:energy-storage:09-future, git-history:energy-storage:09-future]
+concepts: [future]
+root_concepts: [future]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Future Energy Storage: Long-Duration, Thermal, and 2040+ Roadmap
 
 ## The Big Picture

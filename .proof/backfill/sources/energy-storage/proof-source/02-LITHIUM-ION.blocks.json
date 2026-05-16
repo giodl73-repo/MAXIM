@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-storage\\02-LITHIUM-ION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "LI-ION CELL ARCHITECTURE\n===========================\n\n               CATHODE (positive)           ANODE (negative)\n               ==================           ================\nMATERIALS:     LiMO2 or LiFePO4            Graphite (LiC6) or Si\nREACTION:      LiMO2 <-> Li(1-x)MO2 + xLi+ Graphite + xLi+ + xe- <-> LixC6\nVOLTAGE:       ~3.0-4.5 V vs. Li/Li+        ~0.01-0.3 V vs. Li/Li+\nCAPACITY:      100-250 mAh/g                372 mAh/g (graphite)\n\nCELL CONSTRUCTION:\n  Cathode: AM powder + carbon black (conductive) + PVDF binder -> coat on Al foil\n  Anode:   AM powder + carbon black + CMC/SBR binder -> coat on Cu foil\n  Separator: polyethylene (PE) or polypropylene (PP), 20-40 um, porous\n  Electrolyte: LiPF6 in EC/EMC/DMC (fills separator and electrode pores)\n\n  Formats:\n    Cylindrical: 18650 (18mm x 65mm), 21700 (21mm x 70mm, Tesla standard)\n    Prismatic: rigid metal or plastic case (EV packs, grid storage)\n    Pouch: flexible laminate, highest energy density (EV, consumer)\n\nCELL VOLTAGE NOMINAL: ~3.6-3.7 V (NMC); 3.2 V (LFP)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 58,
+      "heading_context": "## Cathode Chemistries",
+      "confidence": "candidate",
+      "text": "### LFP: Lithium Iron Phosphate (LiFePO4)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 60,
+      "heading_context": "### LFP: Lithium Iron Phosphate (LiFePO4)",
+      "confidence": "candidate",
+      "text": "LFP CATHODE\n============\n\nCrystal structure: olivine (Pnma space group)\n  PO4 tetrahedra stabilize structure -- key to thermal stability\n  Li in 1D channels (limited rate capability vs. layered oxides)\n\nELECTROCHEMISTRY:\n  Discharge: LiFePO4 -> FePO4 + Li+ + e-  (Fe3+/Fe2+ couple)\n  Charge:    FePO4 + Li+ + e- -> LiFePO4\n  E° ~ 3.45 V vs. Li/Li+ (3.2 V nominal cell voltage with graphite anode)\n  Flat voltage plateau (two-phase reaction: LiFePO4 <-> FePO4)\n    -> very flat discharge curve (good for SOC estimation by capacity counting;\n       bad for OCV-based SOC estimation -- flat = ambiguous)\n\nPROPERTIES:\n  Specific capacity:   170 mAh/g (theoretical, ~160 mAh/g practical)\n  Energy density:      ~90-120 Wh/kg (cell level, lower voltage hurts)\n  Cycle life:          3000-10,000+ cycles to 80% capacity\n  Temperature range:   -20 to 60 C (more tolerant than NMC)\n  Thermal runaway:     Onset >270 C (vs. NMC ~180 C)\n  Cost:                Lowest among Li-ion cathodes (no Co, no Ni)\n  Mn/Co/Ni content:    None (Fe and P only with Li)\n\nAPPLICATIONS:\n  Grid energy storage (dominant)\n  Commercial EVs: BYD Han, Tesla Model 3/Y (Standard Range)\n    BYD \"Blade Battery\": LFP cell-to-pack, eliminates module\n  E-buses, e-trucks (long cycle life, thermal safety preferred over energy density)\n  Stationary backup power\n  Grid ESS (Tesla Megapack: LFP as of 2021)\n\nLFP vs. NMC for EV (2025):\n  LFP: $55/kWh cell cost vs. NMC: $70-80/kWh cell cost\n  LFP: 250 Wh/kg vs. NMC: 300 Wh/kg\n  LFP wins on cost and cycle life; NMC wins on range (more kWh per kg)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "### NMC: Lithium Nickel Manganese Cobalt Oxide",
+      "confidence": "candidate",
+      "text": "NMC CATHODE (LiNixMnyCozO2, x+y+z=1)\n========================================\n\nCrystal structure: layered oxide (R-3m, alpha-NaFeO2 type)\n  Li layers interleave with transition metal layers\n  Li+ diffuses in 2D planes -- high rate capability vs. LFP 1D channels\n\nCOMPOSITION VARIANTS:\n  NMC 111 (equal Ni:Mn:Co = 1:1:1):\n    E ~ 3.7 V; capacity ~160 mAh/g; first commercial NMC; stable\n  NMC 532 (Ni:Mn:Co = 5:3:2):\n    E ~ 3.7 V; capacity ~170 mAh/g; improved energy over 111\n  NMC 622 (6:2:2):\n    E ~ 3.7 V; capacity ~180 mAh/g; higher energy, less Co\n  NMC 811 (8:1:1):\n    E ~ 3.7 V; capacity ~200 mAh/g; highest energy density (highest Ni)\n    Thermal runaway onset: ~180 C (more reactive at high SOC)\n    Li/Ni mixing: Ni2+ (similar size to Li+) disordering at high Ni content\n    Requires careful synthesis; more reactive cathode surface\n    Used in: Panasonic 21700, LG, SK cells for premium EVs\n\nCOBALT:\n  Co stabilizes structure and improves electronic conductivity\n  High cost: ~$30/kg (volatile -- DRC mining concentration)\n  Supply chain concerns: cobalt-free or low-cobalt is major research push\n  NMC 811 reduces Co from 33% to 10% vs NMC111 (by molar)\n\nHIGH-VOLTAGE NMC (4.4-4.5 V cutoff):\n  More Li extracted -> higher capacity (>220 mAh/g for NMC811)\n  Requires electrolyte additives or high-voltage electrolyte\n  Cycle stability challenge: more aggressive for electrolyte and cathode surface",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 163,
+      "heading_context": "### LMO and LNMO",
+      "confidence": "candidate",
+      "text": "LMO (LiMn2O4): spinel structure\n  Capacity: ~100-120 mAh/g\n  Voltage: 4.0 V (Mn4+/Mn3+ couple)\n  Advantages: low cost, Mn abundant, no Co/Ni\n  Disadvantages: capacity fade (Mn dissolution into electrolyte, Jahn-Teller distortion)\n  Use: blended with NMC to reduce cost (Nissan Leaf Gen 1)\n\nLNMO (LiNi0.5Mn1.5O4): high-voltage spinel\n  Voltage: 4.7 V (Ni4+/Ni2+ couple, two-electron)\n  Capacity: ~130-140 mAh/g\n  Challenge: needs high-voltage electrolyte stable at 4.7 V\n  Mn3+ content very low: minimal Jahn-Teller, good cycle stability in theory\n  Status: in research; limited commercial deployment",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 216,
+      "heading_context": "## Battery Management System (BMS)",
+      "confidence": "candidate",
+      "text": "BMS ARCHITECTURE\n=================\n\n                    +------------------+\n                    |   VEHICLE / EMS  |\n                    +--------+---------+\n                             |\n                    +--------+---------+\n                    |    MASTER BMS    |\n                    +--+-------+---+---+\n                       |       |   |\n                       v       v   v\n                    +------+ +------+\n                    | SLAVE| | SLAVE|\n                    | BMS  | | BMS  |\n                    +--+---+ +--+---+\n\n  VEHICLE / EMS — higher-level energy management\n  Bus           — CAN / LIN / Ethernet\n  MASTER BMS    — pack-level SOC, SOH, thermal\n  SLAVE BMS     — module-level (cell voltage, balance, NTC temp sensors)\n                       |        |\n               .---.---.   .---.---.\n               | Cell  | | | Cell  |\n               | stack| | | stack  |\n               '------'   '-------'\n\nBMS FUNCTIONS:\n  1. Cell voltage monitoring (every cell, 1-10 ms)\n     Resolution: 0.1-1 mV\n     Purpose: detect overvoltage (>4.2V for NMC = electrolyte oxidation)\n              detect undervoltage (<2.5-3.0V = copper dissolution from anode)\n\n  2. Current measurement (Hall effect or shunt resistor)\n     Used for: Coulomb counting SOC estimation, overcurrent protection\n\n  3. Temperature monitoring\n     Multiple NTC sensors per module\n     Charge inhibit if T < 0 C (Li plating risk)\n     Discharge limit if T < -20 C\n     Shutdown if T > 60 C\n     Thermal runaway detection: rapid dT/dt rise\n\n  4. Cell balancing\n     Passive balancing: bleed energy from high-SOC cells via resistor\n       Simple, cheap, generates heat, wastes energy\n       Bleed current: 10-100 mA; balancing while charging (not discharging)\n     Active balancing: transfer energy from high to low cells\n       Switched capacitor, inductor, or transformer-based\n       More complex, more expensive, energy-efficient\n       Used in: premium EVs (some Teslas), grid storage with wide SOC variation\n\n  5. SOC estimation\n     Coulomb counting + EKF (Extended Kalman Filter)\n     Input: V, I, T; Output: SOC estimate\n     Accuracy: +/- 1-3% in well-designed BMS\n     Error source: Coulomb efficiency <1.0 (parasitic reactions waste charge)\n\n  6. SOH (State of Health) estimation\n     SOH = (current capacity / rated capacity) * 100%\n     Methods: incremental capacity analysis (dQ/dV peaks), Electrochemical Impedance\n       Spectroscopy (EIS, requires brief perturbation), cycle counting models\n     Battery end-of-life typically defined at SOH = 80%\n\n  7. Fault protection\n     Latching relay (contactor): disconnect pack on fault\n     Faults: overvoltage, undervoltage, overcurrent, overtemperature, short circuit\n     Two-contactor design: main + pre-charge (for capacitive loads)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 291,
+      "heading_context": "## Degradation Mechanisms",
+      "confidence": "candidate",
+      "text": "LI-ION DEGRADATION TAXONOMY\n==============================\n\n                    CAPACITY FADE\n                         |\n          +--------------+----------------+\n          |              |                |\n   LITHIUM LOSS    ACTIVE MATERIAL    IMPEDANCE\n   (most common)     LOSS             RISE\n          |              |                |\n   - SEI growth      - Particle crack  - SEI thickening\n   - Li plating      - Mn dissolution  - Contact loss\n   - Electrolyte     - Phase transf.   - Lithium plating\n     reduction       - Co dissolution  - Electrode porosity\n\nMECHANISM 1: SEI GROWTH (calendar + cycle aging)\n  SEI grows continuously: thicker = more Li consumed = capacity loss\n  Rate: proportional to sqrt(time) (diffusion-limited after initial layer)\n  Accelerated by: high SOC (above 80%), high temperature, high voltage\n  Mitigation: store at 50-60% SOC, cooler temperature, avoid >80% charge daily\n\nMECHANISM 2: LITHIUM PLATING\n  During fast charging: Li+ arrives at anode faster than it can intercalate\n  -> Li deposits as metallic lithium on anode surface\n  Conditions: high charge rate (>1C), low temperature (<15 C), high SOC (>80%)\n  Consequences:\n    a. Irreversible Li loss (plated Li becomes electrochemically inactive)\n    b. Dendrite formation: metallic Li grows as needles -> can puncture separator\n       Separator penetration -> internal short -> thermal runaway\n  Detection: voltage plateau during discharge (at ~0 V) from Li stripping\n  Mitigation: thermal preconditioning, rate limiting, charging curves (CC-CV)\n\nMECHANISM 3: PARTICLE CRACKING (cathode, silicon anode)\n  Repeated volume changes fatigue active material particles\n  Cracked particles: expose fresh surface -> more electrolyte decomposition\n  Also: isolated particle fragments lose electrical contact -> capacity loss\n  NMC particles: cracking at grain boundaries (polycrystalline -> single crystal NMC)\n  Silicon: catastrophic cracking unless nanostructured (see 09-APPLICATIONS.md)\n\nMECHANISM 4: MANGANESE DISSOLUTION (LMO, some NMC)\n  Mn3+ disproportionates: 2Mn3+ -> Mn4+ + Mn2+ (at elevated temperature)\n  Mn2+ dissolves into electrolyte, migrates to anode, poisons graphite SEI\n  Accelerated by: trace HF (from LiPF6 hydrolysis), elevated temperature\n  Mitigation: HF scavenging additives, LiNO3, single-crystal cathode grains\n\nDEGRADATION MODEL: Calendar + Cycle\n  Total capacity fade = calendar aging + cycle aging\n  Calendar: f(T, SOC) - Arrhenius temperature dependence (every 10 C: ~2x faster)\n  Cycle: f(DOD, C-rate, T) - more aggressive cycles -> more degradation\n\n  Typical end-of-life criteria: 80% capacity OR 80% power (whichever comes first)\n  EV battery warranty: 8 years / 100,000 miles to 70% capacity (many OEMs)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

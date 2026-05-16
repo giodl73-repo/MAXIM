@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-storage\\06-COMPRESSED-AIR.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "### The Compression Heat Problem",
+      "confidence": "candidate",
+      "text": "THERMODYNAMICS OF AIR COMPRESSION\n====================================\n\nISOTHERMAL COMPRESSION (theoretical ideal):\n  Keep temperature constant during compression (T = constant)\n  Work = n * R * T * ln(P2/P1)  (minimum work to compress gas)\n  All work goes to increasing pressure only; no temperature rise\n  Problem: requires infinitely slow compression or perfect heat exchange\n  Not practical at large scale\n\nADIABATIC COMPRESSION (actual, no heat exchange):\n  T rises during compression: T2 = T1 * (P2/P1)^((gamma-1)/gamma)\n  gamma for air = 1.4\n  From 1 bar to 70 bar:\n    T2 = 293 K * (70)^(0.4/1.4) = 293 K * 70^0.286 = 293 * 3.57 = 1046 K = 773 C\n  Air exits compressor at hundreds of degrees C\n  If that heat is WASTED: efficiency lost (you paid to heat the air, then cooled it)\n  If that heat is STORED: efficiency recovered (use it to reheat during expansion)\n\nEXPANSION (generation):\n  Cold high-pressure air expands adiabatically:\n    T drops: T2 = T1 * (P1/P2)^((gamma-1)/gamma)\n  Expanding cold compressed air (after stored heat was lost) -> very cold air out\n  Cold air has LOW enthalpy -> can't drive turbine efficiently\n  For diabatic CAES: burn natural gas to heat air before expansion (restores enthalpy)\n  For A-CAES: use stored thermal energy from compression instead of burning gas",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 106,
+      "heading_context": "### Diabatic CAES: Huntorf and McIntosh",
+      "confidence": "candidate",
+      "text": "DIABATIC CAES (first generation)\n==================================\n\nOPERATING PLANTS:\n  Huntorf (Germany, 1978): 321 MW, 8 hours\n    First CAES plant in the world; still operating\n    Compresses air into two salt caverns at 70 bar\n    Burns natural gas to reheat air before turbine expansion\n    Heat rate: ~4,400 kJ/kWh of natural gas (adds fuel input)\n    RTE: ~42% (electricity in) if you count the gas input\n    If you count only electricity-in/electricity-out: ~42%\n    Use case: overnight off-peak power -> daytime peak power\n\n  McIntosh (Alabama, USA, 1991): 110 MW, 26 hours\n    Improved Huntorf with recuperator (uses exhaust heat to pre-heat inlet air)\n    RTE: ~54% (better than Huntorf)\n    Salt cavern: ~500,000 m^3 at 45-76 bar\n    Only two commercial diabatic CAES plants in world as of 2025\n\nDIABATIC EFFICIENCY ANALYSIS:\n  Input:  1 kWh electricity (to compress) + 0.69 kWh of gas (to reheat)\n  Output: 1 kWh electricity\n  Pure electrical RTE: 42-55%\n  Not a pure storage technology -- also a gas peaker (burns fuel)\n  Economics: depends on electricity price + gas price arbitrage\n  Environmental: CO2 emissions from gas combustion (problematic for clean grid)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 137,
+      "heading_context": "### Adiabatic CAES (A-CAES)",
+      "confidence": "candidate",
+      "text": "ADIABATIC CAES (second generation)\n=====================================\n\nKEY DISTINCTION: store compression heat in a Thermal Energy Storage (TES) unit\nThen: use stored heat to re-heat air during expansion\nResult: no gas burning required; higher RTE\n\nA-CAES CYCLE:\n  Charge phase:\n    1. Motor drives compressor (electricity -> mechanical -> pressure + heat)\n    2. Compressed air exits at 600-800 C (depending on pressure ratio)\n    3. Air passes through TES (solid rock, molten salt, oil -- stores heat)\n    4. Cooled compressed air enters underground cavern at ambient-ish temperature\n\n  Discharge phase:\n    1. Cold compressed air exits cavern\n    2. Air passes through TES (picks up stored heat back)\n    3. Hot (600-800 C) compressed air drives turbine\n    4. Turbine drives generator -> electricity out\n\nTES MATERIALS FOR A-CAES:\n  Solid rock beds: cheap, simple; limited temperature (< 600 C)\n  Ceramic tiles: up to 900 C; specific heat ~1 kJ/kg/K\n  Molten salt (like CSP plants): 565 C limit (NaNO3/KNO3)\n  Oil (Therminol VP-1): up to 400 C; lower temperature stores less energy\n  Concrete: cheap, slow response\n\nTHEORETICAL RTE:\n  A-CAES with ideal TES and turbomachinery: ~70-72% round-trip\n  Real systems with losses: ~60-70%\n  Significantly better than diabatic (42-55%)\n\nSTATUS:\n  ADELE project (Germany, RWE + Zublin + DLR): pilot-scale A-CAES\n    Target: 200 MW, 1 GWh; Huntorf salt cavern as storage\n    Project stalled ~2016 due to economics (natural gas cheap in Germany then)\n  Hydrostor (Canada): A-CAES in aquifers (water-compensated: water column maintains\n    constant pressure regardless of fill level -- allows constant turbine operation)\n    Projects in development: 500 MW (Rosamond, CA), 400 MW (Adelaide, AUS)\n  General Compression: isothermal CAES concept using ocean water heat sink (Texas)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 184,
+      "heading_context": "## Liquid Air Energy Storage (LAES)",
+      "confidence": "candidate",
+      "text": "LIQUID AIR ENERGY STORAGE\n===========================\n\nPROCESS:\n  Charge:\n    1. Air liquefaction: compress + cool + expand through Joule-Thomson valve\n       Linde-Hampson cycle: T drops from ~300K to 77K (-196 C, boiling point of N2)\n       Specific work for liquefaction: ~0.45 kWh/kg-liquid-air (energy cost!)\n    2. Store liquid air in well-insulated cryogenic tank (-196 C, near atmospheric pressure)\n       Tank: double-walled vacuum-insulated (like a giant Dewar flask)\n       Boiloff rate: 0.1-0.2%/day (acceptable for weekly cycling)\n\n  Discharge:\n    1. Pump liquid air to high pressure (150-200 bar) using cryogenic pump\n       (liquid is easy to pump vs. compressing gas)\n    2. Heat liquid air using ambient heat or waste industrial heat\n    3. Air expands through turbine (like CAES discharge, but from liquid start)\n    4. Generate electricity\n\nEFFICIENCY:\n  Liquefaction: ~45-60% of electricity goes to making liquid air\n  Regasification + generation: ~60% of stored energy recovered\n  Net RTE: ~45-60% (better with industrial waste heat input)\n\n  With co-location at industrial waste heat source:\n    Warm-up air from steel plant exhaust, power station cooling water\n    -> Adds ~20% to RTE (waste heat is \"free\")\n    Net: up to 70% RTE with waste heat\n\nADVANTAGES vs. CAES:\n  NO geological requirement: any flat industrial site works\n  Modular: tanks can be shipped and installed anywhere\n  Geographic independence: major advantage vs. CAES caverns or pumped hydro\n  Long duration possible: add more liquid air tanks (cheap)\n\nDISADVANTAGES:\n  High liquefaction energy cost (45-60% of energy input lost to liquefy)\n  Expensive equipment: cryogenic compressors, turbines, tanks\n  Insulation requirement (boiloff if stored too long)\n\nCOMMERCIAL STATUS:\n  Highview Power: 50 MW / 250 MWh plant in operation (Greater Manchester, UK, 2023)\n    First commercial LAES facility\n    Uses landfill gas peaker plant waste heat for warm-up\n  Highview + Sumitomo: 50 MW / 250 MWh projects in multiple countries\n  Technology Risk Level (TRL): ~7-8 (commercial demonstration achieved)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "infrastructure-systems\\02-INTERDEPENDENCY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "INTERDEPENDENCY MATRIX (partial, US infrastructure)\n=====================================================\n\n            POWER  WATER  TELECOM  TRANSPORT  HEALTHCARE  FUEL\nPOWER ->       -     *       *         *          *          *\nWATER ->       *     -       *         -          *          -\nTELECOM ->     *     *       -         *          *          *\nTRANSPORT ->   *     *       *         -          *          *\nHEALTHCARE ->  *     *       *         *           -         -\nFUEL ->        *     -       *         *          -           -\n\n* = significant dependency (row depends on column)\n- = minimal dependency\n\nExamples:\n  POWER -> WATER: pumps, SCADA, UV treatment, chlorination dosing\n  WATER -> POWER: cooling water for thermoelectric (90% of generation)\n                  hydroelectric (direct electricity generation)\n  TELECOM -> POWER: all telecom requires electricity\n  POWER -> TELECOM: SCADA for grid management uses telecom\n  FUEL -> TRANSPORT: fuel delivery requires transport (tankers, trucks)\n  TRANSPORT -> FUEL: fuel supply chain moves via transport\n\nMOST DANGEROUS CYCLES:\n  Power <-> Water: circular dependency, no safe break point\n  Power <-> Telecom: circular, but telecom can run longer on backup\n  Transport <-> Fuel: highly coupled but with significant buffer time",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "## Rinaldi-Peerenboom-Kelly Taxonomy (2001)",
+      "confidence": "candidate",
+      "text": "FOUR TYPES OF INTERDEPENDENCY (Rinaldi et al.)\n================================================\n\n1. PHYSICAL INTERDEPENDENCY\n   Output of one system is a physical input to another\n   Examples:\n     Natural gas -> gas turbine power plant -> electricity\n     Electricity -> water pump -> water treatment\n     River flow -> hydroelectric turbine -> electricity\n   Characteristic: physical commodity or product flows between systems\n   Failure propagation: usually unidirectional, predictable\n   Detection: relatively straightforward (flow meters, sensors)\n\n2. CYBER INTERDEPENDENCY\n   Information/data flow between systems through SCADA, control networks\n   Examples:\n     SCADA network failure -> water treatment operators lose visibility\n     Communications network failure -> grid operator loses situational awareness\n     IT network compromise -> OT network penetration (Stuxnet pathway)\n   Characteristic: information flows; no physical commodity transferred\n   Failure propagation: can be bidirectional, non-obvious, instant\n   Detection: much harder (data flows are invisible)\n   Risk: increasingly dominant as infrastructure becomes digitized\n\n3. GEOGRAPHIC INTERDEPENDENCY\n   Multiple systems co-located; damage to one location damages many\n   Examples:\n     Underground utility corridor: power, gas, water, fiber in same trench\n       One contractor's mistake: destroys all four simultaneously\n     Hurricane: one event disrupts multiple sectors in same geography\n     Earthquake: bridge collapse blocks road, severs water main, breaks fiber conduit\n   Characteristic: shared physical space/location\n   Failure propagation: simultaneous, geographically bounded\n   Detection: natural hazard monitoring, GIS co-location mapping\n\n4. LOGICAL INTERDEPENDENCY\n   Systems linked by policies, business rules, or non-physical mechanisms\n   Examples:\n     Regulatory requirement: water utility must meet SDWA standards ->\n       forces specific treatment process -> specific chemical supply needed\n     Financial: utility bond default -> credit downgrade -> capital denied -> deferred maintenance\n     Organizational: same management company runs water + electric utilities;\n       management failure cascades to both\n   Characteristic: no physical or cyber link; governance/policy coupling\n   Failure propagation: slow, indirect, often missed until too late\n   Detection: financial analysis, organizational review",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 119,
+      "heading_context": "## Network Topology and Cascade Dynamics",
+      "confidence": "candidate",
+      "text": "### N-1 and N-2 Security Standards",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "### N-1 and N-2 Security Standards",
+      "confidence": "candidate",
+      "text": "N-1 AND N-2 RELIABILITY STANDARDS\n====================================\n\nN-1 SECURITY (power grid standard, NERC TPL-001):\n  System must remain stable after loss of ANY single element (line, transformer, generator)\n  \"N\" = all elements; \"N-1\" = all elements minus one\n  After any single contingency: no violations (voltage, flow, frequency)\n  This is the mandatory minimum for bulk electric system (TPL-001-4)\n\nN-1-1 SECURITY:\n  System must survive N-1 contingency FOLLOWED BY a second contingency\n  More expensive to achieve; required for extra-high voltage critical paths\n\nN-2 SECURITY:\n  System must survive simultaneous loss of any TWO elements\n  Not universally required; specified for critical corridors or extremely high-consequence nodes\n  Very expensive to engineer\n\nWHY N-1 IS MINIMUM:\n  Statistics: any single element fails with some probability in planning horizon\n  If N-1 violation: 2003 Northeast blackout type event possible\n  Economic justification: cost of N-1 violations >> cost of N-1 compliance\n\nN-1 VIOLATION SCENARIOS:\n  Equipment: generator trip, transmission line trip, transformer failure\n  Each scenario analyzed: does the remaining network handle the load?\n  Powerflow analysis: steady-state\n  Stability analysis: transient and dynamic\n  Contingency list: all credible N-1 events enumerated and checked\n\nAPPLICABILITY BEYOND POWER:\n  N-1 concept used in: telecom network design, water network design\n  \"Any single pipe failure: water supply maintained\" -> N-1 compliant water network\n  \"Any single fiber cut: connectivity maintained\" -> ring topology (SONET BLSR: N-1)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "### Cascading Failure: Motter-Lai Model",
+      "confidence": "candidate",
+      "text": "MOTTER-LAI CASCADE MODEL (2002)\n=================================\n\nA simple network model that captures cascade behavior:\n\nSETUP:\n  Network of N nodes and edges\n  Each node i has: load L_i (current demand) and capacity C_i (maximum capacity)\n  Capacity: C_i = (1 + tolerance) * L_i  (tolerance > 0: margin above load)\n  Load: proportional to betweenness centrality (number of shortest paths through node)\n\nCASCADE INITIATION:\n  Remove one node (failure)\n  Reroute flows: shortest paths recomputed\n  Some nodes now carry more load (original paths gone; new paths through remaining nodes)\n  Nodes where new load L_i > C_i: FAIL\n  Each failure: reroutes more load -> more nodes may fail\n  Iterate until stable\n\nKEY RESULT:\n  Small tolerance (tight capacity margins): cascade from single node removal is catastrophic\n    (removes fraction of network)\n  Large tolerance (generous margins): single node removal contained\n  Threshold behavior: small change in tolerance -> large change in cascade size\n  \"Phase transition\": system transitions from robust to fragile at critical tolerance\n\nREAL-WORLD IMPLICATION:\n  Infrastructure built to tight margins (economic optimization): vulnerable to cascade\n  Infrastructure built to generous margins (resilience investment): cascade-resistant\n  Cost of building excess capacity: paid upfront\n  Cost of cascade failure: potentially catastrophic (2003 blackout: $6B)\n\n  This is the fundamental tension: efficiency vs. resilience\n\nPOWER GRID SPECIFIC:\n  Transmission lines: thermal limit (ampacity = current carrying capacity)\n  When line trips: power reroutes via remaining lines\n  If remaining lines at near-capacity: immediate overload -> trip -> cascade\n  Real example: 2003 NE blackout followed Motter-Lai dynamics approximately\n    Initial failure: 1 line\n    Cascade: 11 additional 345kV lines, 400+ smaller units\n    All within 4 minutes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 260,
+      "heading_context": "## Case Studies",
+      "confidence": "candidate",
+      "text": "### 2003 Northeast Blackout",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "### 2003 Northeast Blackout",
+      "confidence": "candidate",
+      "text": "2003 NORTHEAST BLACKOUT TIMELINE\n===================================\n\nDATE: August 14, 2003\n\nINITIATING EVENT (software):\n  9:14 AM: FirstEnergy (Ohio) SCADA alarm system fails silently\n            (XA/21 software -- alarm function crashed, no notification)\n  Operators: unaware of developing problems for 1 hour+\n\nPHYSICAL CASCADE:\n  12:15 PM: Stuart-Atlanta 345kV line trips (fault -> relay operated)\n  12:45 PM: Hanna-Juniper 345kV trips (overloaded after Stuart-Atlanta)\n   1:31 PM: Star-South Canton 138kV trips\n   3:05 PM: Perry nuclear power plant trips (overloaded)\n   3:32 PM: Sammis-Star 345kV line sags into tree (high load -> heat -> sag -> flashover)\n   4:05 PM: RAPID CASCADE BEGINS\n             40+ transmission lines trip in rapid sequence\n             Eastward cascade: Ohio -> Pennsylvania -> New York -> Ontario -> New England\n   4:09 PM: New York City blackout (4 minutes after cascade begins)\n   4:13 PM: 50 million people without power\n\nCAUSES (NERC/DOE investigation):\n  1. Software alarm failure (root cause -- no operator awareness)\n  2. Inadequate situational awareness tools at FirstEnergy\n  3. Insufficient real-time monitoring of system conditions\n  4. Failure to cut load before cascade (2003 protocol: didn't cut load soon enough)\n  5. Inadequate system robustness (N-1 violations developing undetected)\n\nFIXES IMPLEMENTED:\n  NERC CIP-014: physical security of substations\n  NERC FAC-002: system operating limits more visible to operators\n  NERC EOP-005: emergency operations procedures\n  NERC MOD-011: system modeling accuracy requirements\n  Improved SCADA alarm management standards\n  Enhanced Eastern Interconnection situational awareness tools",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 301,
+      "heading_context": "### 2003 Northeast Blackout",
+      "confidence": "candidate",
+      "text": "### Colonial Pipeline (2021)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

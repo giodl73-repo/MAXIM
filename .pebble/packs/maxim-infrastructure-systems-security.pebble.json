@@ -1,0 +1,405 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-infrastructure-systems-security",
+  "source": "../../infrastructure-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-SECURITY.md#000",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "# Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth"
+    },
+    {
+      "id": "08-SECURITY.md#001",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "08-SECURITY.md#002",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "Infrastructure security has two largely separate domains: physical security (fences, guards,\naccess control) and cybersecurity. Physical security is mature and well-understood. Cyber\nis the fast-moving frontier. The defining challenge: operational technology (OT) --\nthe industrial control systems that run physical infrastructure -- was designed for\nreliability and safety, not security. It is now connected to corporate IT networks and\nincreasingly to the internet, without security architectures commensurate with that exposure."
+    },
+    {
+      "id": "08-SECURITY.md#003",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "```\nINFRASTRUCTURE ATTACK SURFACE\n================================"
+    },
+    {
+      "id": "08-SECURITY.md#004",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "PHYSICAL ATTACK SURFACE            CYBER ATTACK SURFACE\n   =====================              ====================\n   Substations (5,000+ in US)         Internet-exposed ICS (Shodan: 50k+ devices)\n   Dams, water treatment plants       IT/OT convergence points (historians)\n   Pipeline pump/compressor stations  Remote access VPNs (vendor maintenance)\n   Telecom switching centers          Engineering workstations (dual-homed)\n   Data centers (cloud providers)     Supply chain (firmware, software updates)\n   Underwater cables (96% of traffic) Insider threat (disgruntled operators)"
+    },
+    {
+      "id": "08-SECURITY.md#005",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "COMBINED (compound):\n   Physical access enables cyber: attacker inside perimeter -> USB/console access\n   Cyber enables physical damage: Stuxnet, CRASHOVERRIDE destroyed physical equipment"
+    },
+    {
+      "id": "08-SECURITY.md#006",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "ATTACK CONSEQUENCE SPECTRUM:\n  Level 0: Data theft, no operational impact\n  Level 1: Operational disruption (brief outage, controlled recovery)\n  Level 2: Extended outage, economic damage ($1M - $1B)\n  Level 3: Physical equipment damage, recovery weeks-months (Colonial, Ukraine power)\n  Level 4: Catastrophic physical damage with casualties (Stuxnet category; hypothetical US grid attack)"
+    },
+    {
+      "id": "08-SECURITY.md#007",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "MOST DANGEROUS INFRASTRUCTURE TARGETS (by consequence):\n  1. Bulk electric grid (cascading blackout potential)\n  2. Natural gas pipeline network (explosion/supply disruption)\n  3. Water treatment systems (mass poisoning potential)\n  4. Nuclear facilities (radiological release risk)\n  5. Financial infrastructure (economic disruption)\n  Per CISA: energy + water are highest consequence; most actively targeted\n```"
+    },
+    {
+      "id": "08-SECURITY.md#008",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-SECURITY.md#009",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "## ICS/SCADA Architecture"
+    },
+    {
+      "id": "08-SECURITY.md#010",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "### The Purdue Model"
+    },
+    {
+      "id": "08-SECURITY.md#011",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "```\nPURDUE ENTERPRISE REFERENCE ARCHITECTURE (ISA-95)\n==================================================="
+    },
+    {
+      "id": "08-SECURITY.md#012",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "A layered model for industrial control system architecture.\nOriginal design: isolation by layer; security = no communication between layers.\nCurrent reality: IT/OT convergence eroded layer separation everywhere."
+    },
+    {
+      "id": "08-SECURITY.md#013",
+      "path": [
+        "08-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:08-security, git-history:infrastructure-systems:08-security]",
+        "canonical_path": "infrastructure-systems/08-SECURITY.md",
+        "concepts": "[security]",
+        "current_path": "infrastructure-systems/08-SECURITY.md",
+        "id": "maxim:infrastructure-systems:security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[security]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Security: ICS/SCADA, OT/IT Convergence, Defense in Depth",
+        "updated": "null"
+      },
+      "text": "LEVEL 5: ENTERPRISE NETWORK (IT)\n+-------------------------------------------------------+\n| ERP systems (SAP, Oracle)                             |\n| Business intelligence, analytics                      |\n| Corporate email, internet access                      |\n| Cloud connectivity                                    |\n+-------------------------------------------------------+\n                         |  ← ENTERPRISE/DMZ FIREWALL\nLEVEL 4: SITE BUSINESS PLANNING / LOGISTICS\n+-------------------------------------------------------+\n| Production scheduling                                 |\n| Site-level IT (Active Directory, file shares)         |\n| Engineering workstations (often dual-homed to L3)     |\n+-------------------------------------------------------+\n                         |  ← IT/OT FIREWALL (THE CRITICAL BOUNDARY)\n                         |    (often poorly implemented; many exceptions poke holes)\nLEVEL 3: MANUFACTURING OPERATIONS MANAGEMENT (IT/OT BOUNDARY)\n+-------------------------------------------------------+\n| Historian servers (OSIsoft PI, GE Historian)          |\n| MES (Manufacturing Execution System)                  |\n| Remote access termination (vendor VPN gateway)        |\n| Data diode or unidirectional security gateway         |\n+-------------------------------------------------------+\n   ↑ HIGHEST-RISK COMPONENT (aggregates OT data to IT)\n                         |  ← OT FIREWALL\nLEVEL 2: SUPERVISORY CONTROL\n+-------------------------------------------------------+\n| SCADA servers                                         |\n| HMIs (Human Machine Interfaces)                       |\n| Engineering stations (PLC programming tools)          |\n| DCS (Distributed Control Systems)                     |\n| Historian data collection agents                      |\n+-------------------------------------------------------+\nLEVEL 1: BASIC CONTROL\n+-------------------------------------------------------+\n| PLCs (Programmable Logic Controllers)                 |\n| RTUs (Remote Terminal Units)                          |\n| IEDs (Intelligent Electronic Devices - substations)   |\n| Safety Instrumented Systems (SIS)                     |\n+-------------------------------------------------------+\nLEVEL 0: PHYSICAL PROCESS\n+-------------------------------------------------------+\n| Sensors (temperature, pressure, flow, vibration)      |\n| Actuators (valves, motors, pumps, circuit breakers)   |\n| Physical infrastructure being controlled              |\n+-------------------------------------------------------+"
+    }
+  ],
+  "refs": [
+    "08-SECURITY.md"
+  ]
+}

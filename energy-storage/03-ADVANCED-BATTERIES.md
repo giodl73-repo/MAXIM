@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-storage:advanced-batteries
+kind: guide
+module: energy-storage
+section: energy-storage
+title: Advanced Batteries: Solid-State, Sodium-Ion, Lithium-Sulfur, Li-Air
+status: source-custody
+source_custody: partial
+current_path: energy-storage/03-ADVANCED-BATTERIES.md
+canonical_path: energy-storage/03-ADVANCED-BATTERIES.md
+backsource_ids: [proof-backfill:energy-storage:03-advanced-batteries, git-history:energy-storage:03-advanced-batteries]
+concepts: [advanced, batteries]
+root_concepts: [advanced, batteries]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Advanced Batteries: Solid-State, Sodium-Ion, Lithium-Sulfur, Li-Air
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-storage:pumped-hydro
+kind: guide
+module: energy-storage
+section: energy-storage
+title: Pumped Hydro: Physics, Sites, Efficiency, and Global Dominance
+status: source-custody
+source_custody: partial
+current_path: energy-storage/05-PUMPED-HYDRO.md
+canonical_path: energy-storage/05-PUMPED-HYDRO.md
+backsource_ids: [proof-backfill:energy-storage:05-pumped-hydro, git-history:energy-storage:05-pumped-hydro]
+concepts: [pumped, hydro]
+root_concepts: [pumped, hydro]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pumped Hydro: Physics, Sites, Efficiency, and Global Dominance
 
 ## The Big Picture

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-storage\\08-GRID-ECONOMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "### Formula Deep Dive",
+      "confidence": "candidate",
+      "text": "LCOS CALCULATION WALKTHROUGH\n==============================\n\nINPUTS:\n  CAPEX:      $300/kWh (Li-ion BESS, 2025)\n  O&M:        $5/kWh/year (2% of CAPEX)\n  Project life: 15 years (battery replacement at year 10)\n  Replacement:  $150/kWh at year 10 (future cell cost)\n  WACC:         8% (cost of capital)\n  RTE:          92%\n  Cycles/yr:    365 (one full cycle per day)\n  DoD:          85%\n  Capacity at end of life: 80% of initial\n  Average annual degradation: 1.3%/yr -> 15 yr remaining capacity ~ 84% of initial\n\nENERGY THROUGHPUT per year:\n  Initial: 1 kWh * 85% DoD * 92% RTE * 365 = 285 kWh/yr useful output\n  With degradation: average ~270 kWh/yr over life\n\nTOTAL ENERGY DISCHARGED over 15 years: ~4,050 kWh\n\nCOST CALCULATION:\n  Year 0 CAPEX: $300/kWh\n  O&M PV at 8%: $5 * sum(1/(1.08)^t, t=1..15) = $5 * 8.56 = $42.8\n  Replacement PV: $150 / (1.08)^10 = $69.5\n\n  Total cost: $300 + $42.8 + $69.5 = $412.3/kWh\n\n  LCOS = $412.3 / 4.05 = $101.8/MWh\n\nSIMPLIFIED SENSITIVITY:\n  Lower WACC (4%): LCOS ~ $85/MWh (financing cost matters a lot)\n  More cycles (730/yr, 2 cycles/day): LCOS ~ $60/MWh (spread cost over more energy)\n  Lower degradation (0.5%/yr): LCOS ~ $90/MWh\n  Higher CAPEX ($400/kWh): LCOS ~ $135/MWh\n  Lower CAPEX ($200/kWh): LCOS ~ $70/MWh (2030 projections)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 101,
+      "heading_context": "### Formula Deep Dive",
+      "confidence": "candidate",
+      "text": "### LCOS Comparison by Technology (2025)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "### Li-Ion Cost Trajectory",
+      "confidence": "candidate",
+      "text": "LI-ION BATTERY PACK COST LEARNING CURVE\n=========================================\n\nYear  Cost ($/kWh, pack)  Notes\n----  ------------------  ---------------------------------\n2010  $1,100              First commercial EVs\n2012  $750                Nissan Leaf, Tesla Roadster era\n2015  $400                Tesla Gigafactory 1 announced\n2018  $180                BloombergNEF \"100/kWh possible by 2025\"\n2020  $140                Actual: passed $100/kWh sooner\n2022  $152                Spike: Li2CO3 price $80/kg (supply shock)\n2023  $139                Li2CO3 normalized $10-15/kg\n2024  $115                LFP-driven China competition\n2025  $95-110             BYD sub-$60/kWh cell cost\n2026  $90 (projected)     LFP scale economies\n2030  $60-80 (projected)  BloombergNEF/NREL projections\n\nLEARNING RATE: ~18-20% cost reduction per doubling of cumulative production\n  Cumulative production 2013-2023: grew ~30x (roughly 5 doublings)\n  Cost decline: (1-0.18)^5 = 0.37 -> 63% decline expected; actual: 89%\n  Actual faster than pure learning curve: raw material price decline also contributed\n\nCOMPARISON TO SOLAR PV:\n  Solar PV learning rate: ~22-24% (similar, slightly faster)\n  Solar PV 2010-2025: $5.00/W -> $0.20/W = 96% decline in 15 years\n  Both technologies show faster-than-expected cost decline (policy + manufacturing scale)\n\nCOST FLOOR ANALYSIS:\n  Cell cost dominated by materials (cathode, anode, electrolyte): ~70-75%\n  Material cost floor: Li2CO3 + cathode metal + graphite + copper + aluminum\n  At LFP cell: LFP cathode ($8/kg) + graphite ($10/kg) + LiPF6 ($10/kg) + foils\n  Material floor estimate: ~$30-50/kWh (theoretical minimum for LFP)\n  Current LFP cell (CATL): ~$50-60/kWh -- already near material cost floor\n  Further significant reductions require: sodium-ion, new chemistry, recycled materials",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "### What Grid Storage Earns",
+      "confidence": "candidate",
+      "text": "REVENUE STREAMS FOR GRID STORAGE\n==================================\n\n1. FREQUENCY REGULATION (FR):\n   Grid frequency must stay near 60 Hz (US) or 50 Hz (EU)\n   Mismatch between generation and load causes frequency deviation\n   Batteries respond in <100 ms (vs. thermal plants: seconds to minutes)\n   Revenue: $10-100/MW/hr (varies by market, volatility)\n   Best use: shorter cycles, many events per day\n   Li-ion advantage: very fast response; best technology for FR\n\n2. SPINNING RESERVE / CONTINGENCY RESERVE:\n   Standby capacity that can respond within 10-30 minutes\n   Pays for capacity availability, not just actual energy delivery\n   Revenue: $3-20/MW/hr (capacity payment)\n   BESS: can provide this with minimal cycling (less degradation)\n\n3. ENERGY ARBITRAGE:\n   Buy low (overnight: $20-40/MWh), sell high (peak: $100-300/MWh)\n   Value depends on price spread: larger spread = more revenue\n   Revenue: $10-50/MWh stored (typical in US markets, 2025)\n   Duration matters: store 4 hours, sell during 4 peak hours\n   Risk: electricity price forecasting is imperfect\n\n4. DEMAND CHARGE REDUCTION (commercial/industrial):\n   Utilities charge C&I customers based on peak 15-minute demand (~$5-25/kW/month)\n   BESS: discharge during demand peaks -> reduce peak demand charge\n   Not a grid service -- behind-the-meter economics\n   ROI: very strong in high demand-charge markets (California: $15-25/kW/month)\n   This alone can justify BESS payback in 5-8 years for many C&I customers\n\n5. CAPACITY PAYMENTS:\n   Grid operators pay resources to be available during capacity shortfalls\n   PJM, CAISO, ISO-NE: capacity markets pay $/MW/year\n   Revenue: $10,000-100,000/MW/year (highly market-dependent)\n   FERC Order 841 (2018): mandated that storage can access wholesale markets\n   (was previously locked out of many market structures)\n\n6. TRANSMISSION CONGESTION RELIEF:\n   BESS sited at congested transmission node\n   Store during off-peak (low congestion), inject during congestion\n   Avoids expensive transmission upgrades (deferred T&D investment)\n   Revenue: captured as price differential between nodes (LMP difference)\n   Transmission deferral value: $200-1,000/kW/yr for targeted installations\n\nSTACKING EXAMPLE (2-hour Li-ion BESS, US market):\n  Frequency regulation:      $25/MW/hr * 2 hr * 365 days = $18,250/MW/yr\n  Energy arbitrage:          $20/MWh * 2 MWh * 250 days = $10,000/MW/yr\n  Capacity payment:          $30,000/MW/yr (PJM example)\n  Demand reduction (C&I):    Not applicable for utility-scale\n  Total revenue:             ~$58,000/MW/yr = $5.8/kW/month\n  Asset cost at $1,000/kW:   Annual cost ~$120/kW/yr (10% WACC, 15-yr)\n  Revenue vs. cost:          $5.8/kW * 12 = $70/kW vs. $120/kW cost\n  Shortfall: needs other revenue or lower CAPEX to be viable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "## The Duck Curve and Why Storage Matters",
+      "confidence": "candidate",
+      "text": "CALIFORNIA DUCK CURVE\n======================\n\nNet load (load minus solar generation) by hour, March day, California:\n\nNet   |\nLoad  |\n(GW)  |\n  25  +      \\                          /\n              \\                        /\n  20  +        \\      \"neck of duck\"  /\n                \\                  /\n  15  +          \\_____________  /\n                               \\/   <- trough (noon solar surplus)\n  10  +                          <- \"belly of duck\"\n       0    6    12    18    24\n                   Hour\n\nPROBLEM:\n  Morning: high load, no solar -> ramp up conventional generation\n  Noon: solar surplus -> conventional must ramp DOWN (fast)\n  Evening: solar drops, load peaks -> must ramp UP extremely fast\n  California: 13,000 MW ramp in 3 hours (5 PM to 8 PM) required\n  Natural gas peakers: fast but expensive and carbon-emitting\n\nSTORAGE SOLUTION:\n  Store solar surplus at noon (charge BESS)\n  Discharge during evening peak (6-9 PM)\n  Reduces need for gas peakers\n  Reduces curtailment (solar generation that can't be used, turned off)\n\n  California BESS deployments: 7,500 MW installed (2025)\n  Each MW of BESS that discharges 4 hours in the evening:\n    Replaces ~0.5 MW peaker (capacity credit)\n    Reduces ~2 MWh of gas generation (energy credit)\n    Earns frequency regulation revenue during other hours\n\nCURTAILMENT ECONOMICS:\n  Solar curtailed in California 2024: >10 TWh/yr\n  At $20/MWh curtailment avoided: $200M/yr value at risk\n  BESS deployment reduces curtailment -> captures this value\n  Duck curve drives BESS economics in high-solar grids",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 275,
+      "heading_context": "## Project Finance Basics",
+      "confidence": "candidate",
+      "text": "STORAGE PROJECT FINANCE\n========================\n\nCAPITAL STACK:\n  Equity (owner): 20-40% of project cost\n  Senior debt (lenders): 60-80% of project cost\n  Tax equity (US: ITC/PTC investment tax credit): ~26-30% of CAPEX offset\n\n  US IRA (Inflation Reduction Act 2022):\n    Standalone storage ITC: 30% of CAPEX (new 2023)\n    Previously: storage only qualified if paired with solar\n    ITC impact: reduces effective CAPEX by 30% -> major deployment driver\n    Project in high-solar zone + ITC: BESS economics much improved\n\nREVENUE CONTRACT TYPES:\n  Merchant: sell into spot market (higher risk, no guaranteed revenue)\n  Tolling: grid operator pays fixed capacity payment (lower risk, lower upside)\n  PPA (Power Purchase Agreement): off-taker buys output at fixed price\n  Ancillary service contract: ISO/RTO contracts for FR, spinning reserve\n  Hybrid: combination (capacity payment + merchant arbitrage)\n\nTYPICAL UTILITY-SCALE BESS PROJECT (2025):\n  Size: 100 MW / 400 MWh (4-hour)\n  CAPEX: $300/kWh * 400 = $120M\n  ITC benefit: $36M (30%)\n  Net CAPEX: $84M\n  Debt financing (70%): $58.8M at 6% interest, 20 year amortization\n  Equity: $25.2M\n  Annual debt service: $5.1M\n  Annual O&M: ~$2.4M (2% of $120M)\n  Required revenue: $7.5M/yr to break even\n  Revenue at $75/kW/year: 100 MW * $75,000 = $7.5M -> break even\n  Revenue at $100/kW/year: $10M -> positive IRR\n  Typical IRR target for equity: 8-12%",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

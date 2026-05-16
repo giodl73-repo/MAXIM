@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-storage\\03-ADVANCED-BATTERIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "### Why Solid State?",
+      "confidence": "candidate",
+      "text": "LIQUID ELECTROLYTE PROBLEMS -> SOLID ELECTROLYTE SOLUTIONS\n============================================================\n\nPROBLEM 1: FLAMMABILITY\n  Liquid electrolyte (EC/DMC): flash point 25 C, flammable\n  -> Thermal runaway -> fire / explosion\n  Solid electrolyte: ceramic, polymer, oxide, or sulfide formulations can reduce\n  flammable-liquid-electrolyte risk, but pack-level safety still depends on\n  lithium metal, dendrites, interfaces, abuse tolerance, and manufacturing quality.\n\nPROBLEM 2: ELECTROCHEMICAL STABILITY WINDOW\n  Liquid: unstable vs. lithium metal anode (forms SEI, consumes Li)\n  Solid (LLZO ceramic): stable vs. Li metal at 0 V\n  -> Use lithium metal anode directly\n\nPROBLEM 3: ENERGY DENSITY CEILING WITH GRAPHITE ANODE\n  Graphite: 372 mAh/g\n  Lithium metal: 3860 mAh/g (~10x)\n  Graphite needed because liquid electrolyte + Li metal = dendrite growth + fire\n  Solid electrolyte mechanically blocks dendrite propagation (in theory)\n  -> Li metal anode is the prize that drives solid-state development\n\nPOTENTIAL GAINS WITH LI METAL + SOLID ELECTROLYTE:\n  Cell energy density: ~500+ Wh/kg (vs. 300 Wh/kg for Li-ion)\n  Temperature range: wider (solid doesn't freeze or boil)\n  No liquid leakage\n  Potentially longer cycle life (if interface stable)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "### Solid Electrolyte Types",
+      "confidence": "candidate",
+      "text": "SOLID ELECTROLYTE COMPARISON\n==============================\n\nOXIDE CERAMICS:\n  LLZO (Li7La3Zr2O12 -- \"Lithium Lanthanum Zirconate\"):\n    Ionic conductivity: 0.3-1.0 mS/cm (bulk)\n    Electrochemical window: ~0-6 V vs. Li/Li+ (excellent)\n    Stability vs. Li metal: good (thin Li3N/Li2O interphase forms, stable)\n    Mechanical: hard, brittle (crack during cycling or handling)\n    Sinterable into dense pellets at 1000+ C\n    Interface resistance: Li/LLZO interface is the key problem\n      -> not intimate contact between rigid Li metal and rigid ceramic\n      -> high impedance unless pressure or interlayer used\n    Toyota, Solid Power, QuantumScape: LLZO development programs\n    Status: pouch cell prototypes; not in production automotive cells yet\n\nSULFIDE CERAMICS:\n  LGPS (Li10GeP2S12 -- Kanno 2011):\n    Ionic conductivity: ~12 mS/cm (comparable to liquid electrolyte!)\n    Electrochemical window: narrow (~1.7-2.1 V vs. Li/Li+ intrinsically)\n      Below 1.7 V: reduces at anode interface\n      Above 2.1 V: oxidizes at cathode interface\n      BUT: kinetically limited, artificial interphase forms -> effective window wider\n    Moisture sensitivity: reacts with H2O to produce H2S gas (toxic!)\n      Manufacturing requires extremely dry environment (<0.1 ppm H2O)\n    Better ionic conductivity makes sulfide attractive despite challenges\n\n  Li6PS5Cl (argyrodite):\n    Conductivity: ~3-5 mS/cm\n    Easier to synthesize than LGPS\n    Samsung SDI, Solid Power: using argyrodite variants\n\nPOLYMER:\n  PEO (polyethylene oxide) + Li salt (LiTFSI):\n    Conductivity at 25 C: 0.01-0.1 mS/cm (too low for room-temp fast charge)\n    Conductivity at 80 C: >1 mS/cm (requires elevated temperature)\n    Bolloré Bluecar: PEO cell, operated at 80 C (heated battery)\n    Flexible, easy to manufacture (roll-to-roll)\n    No moisture sensitivity\n    Disadvantage: requires heating, narrow temperature range\n\nCOMPOSITE (ceramic + polymer):\n  Ceramic filler in polymer matrix\n  Improved mechanical properties and conductivity vs. pure polymer\n  Research area: LLZO particles in PEO, PVDF matrices",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "### Manufacturing Challenges",
+      "confidence": "candidate",
+      "text": "SOLID-STATE MANUFACTURING CHALLENGES\n======================================\n\nCHALLENGE 1: SOLID-SOLID INTERFACE RESISTANCE\n  In liquid cell: electrolyte wets electrode surface intimately\n  In solid cell: two rigid solids in contact -> limited contact area\n  Contact resistance dominates at electrode-electrolyte interface\n  Volume change during cycling (Si: 300%, graphite: 10%) -> interface cracks\n\n  Solutions being explored:\n    - Applied stack pressure (stack maintained under compression in housing)\n    - Interlayer coating on electrode (Li3PO4, ZnO, Al2O3 ALD)\n    - In-situ forming Li metal anode (deposit Li from cathode on first charge)\n    - Soft sulfide electrolyte (more compliant than oxide)\n\nCHALLENGE 2: THIN FILM DEPOSITION\n  Sulfide electrolyte: best as thin film (<50 um)\n  ALD, PVD, solution casting approaches\n  Scale-up: roll-to-roll casting being developed (Toyota aim: 2027)\n\nCHALLENGE 3: DENDRITE SUPPRESSION\n  Solid electrolyte was supposed to block Li dendrites\n  Reality: dendrites can propagate through grain boundaries in ceramic\n  LLZO: dendrites enter grain boundaries under pressure, grow through ceramic\n  At low stack pressure: dendrites not suppressed\n  At high pressure: dendrites suppressed (>5 MPa needed per some studies)\n  Design implication: solid-state pack needs pressure management hardware\n\nTIMELINE (as of 2026):\n  Toyota: solid-state EV prototype 2026, production 2027-2028 (repeatedly delayed)\n  QuantumScape (VW partnership): anode-less LLZO cell, >1000 cycles demonstrated\n  Samsung SDI: sulfide-based, production target 2027\n  Solid Power (BMW/Ford partnership): sulfide pilot line 2024\n  Most realistic estimate: volume production for premium EVs 2028-2030",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 180,
+      "heading_context": "### Why Sodium?",
+      "confidence": "candidate",
+      "text": "SODIUM vs. LITHIUM\n===================\n\nNa vs. Li:\n  Abundance: Na = 23,600 ppm (earth crust), Li = 20 ppm -> 1000x more abundant\n  Cost: NaCO3 = $0.20/kg vs. Li2CO3 = $20-80/kg (price volatile)\n  E° vs. NHE: Na/Na+ = -2.71 V (vs. Li/Li+ = -3.04 V)\n    -> Na cell voltage ~0.3-0.4 V lower than comparable Li cell\n  Na+ ionic radius: 1.02 Angstrom (vs. Li+ 0.76 Angstrom)\n    -> Na+ needs larger host lattice sites -> harder to find good materials\n  Theoretical specific capacity: Na/g = 23.4 mAh/g lower than Li/g = 26.2 mAh/g\n    (by mole, similar; by mass, Na is 23/7 = 3.3x heavier)\n\nBottom line: Na-ion is structurally disadvantaged on gravimetric energy density\nrelative to Li-ion because sodium is heavier and larger, but the trade can still\nwin where cost, abundance, cold-weather behavior, or stationary footprint matter.\n  BUT: at grid storage scale, $/kWh matters far more than Wh/kg",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 256,
+      "heading_context": "### The Energy Density Promise",
+      "confidence": "candidate",
+      "text": "LI-S THEORETICAL CAPACITY\n===========================\n\nCathode reaction (reduction):\n  S8 + 16Li+ + 16e- -> 8Li2S\n  (all steps: S8 -> Li2S8 -> Li2S6 -> Li2S4 -> Li2S2 -> Li2S)\n\nSpecific capacity of S: 1675 mAh/g (based on 16 electrons per S8 = 2 electrons per S)\nCell voltage: ~2.1 V (vs. Li/Li+)\nSpecific energy: 1675 mAh/g * 2.1 V = 2600 Wh/kg (cathode only)\nvs. LiCoO2: 137 mAh/g * 3.9 V = 535 Wh/kg\n\nLi-S theoretical: ~2600 Wh/kg cathode, ~1700 Wh/kg complete cell\nCurrent Li-ion: ~300 Wh/kg cell\nPotential improvement: ~5-6x\n\nLi2S is INSOLUBLE; S8 is INSOLUBLE; but intermediates (Li2Sx, x>2) are SOLUBLE",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 278,
+      "heading_context": "### The Polysulfide Shuttle Problem",
+      "confidence": "candidate",
+      "text": "POLYSULFIDE SHUTTLE\n====================\n\nDischarge reaction sequence:\n  S8 -> Li2S8 -> Li2S6 -> Li2S4 (all soluble in liquid electrolyte)\n  Li2S4 -> Li2S2 -> Li2S (insoluble)\n\nSHUTTLE MECHANISM:\n  Long-chain polysulfides (Li2S8, Li2S6) dissolve and diffuse to lithium anode\n  At anode: polysulfides are reduced (instead of Li+ being stripped)\n    Li2S8 + 2Li -> 2Li2S4 (short-chain)\n    Short-chain diffuses back to cathode: Li2S4 + 2Li+ + 2e- -> Li2S2 + Li2S\n  Net: sulfur \"shuttles\" between electrodes, consuming lithium continuously\n\nCONSEQUENCES:\n  Self-discharge: cell loses capacity standing (shuttle continues without load)\n  Columbic efficiency <100%: charge consumed by shuttle, not stored\n  Lithium anode corrosion: polysulfides react with Li -> Li2S on anode\n  Capacity fade: sulfur material becomes inactive (Li2S precipitates randomly)\n  Typical commercial-grade Li-S (2024): ~300-400 cycles to 80% (vs. >1000 for Li-ion)\n\nSHUTTLE MITIGATION STRATEGIES:\n  1. ETHER ELECTROLYTE: polysulfides more soluble in DOL/DME (dimethoxyethane)\n     Counterintuitive: MORE solubility -> better kinetics, faster discharge\n     But shuttle still occurs -- fundamental tension\n\n  2. POROUS CARBON CATHODE HOSTS: sulfur confined in micropores\n     Physical confinement of sulfur and polysulfides\n     High surface area carbon (>2000 m^2/g) -- MOF-derived carbons, CNT, graphene\n     Practical capacity: ~800-1000 mAh/g (much less than 1675 mAh/g theoretical)\n\n  3. SOLID-STATE ELECTROLYTE: eliminates solubility -- polysulfides can't dissolve\n     Sulfide solid electrolyte (LGPS) + Li-S cathode: promising combination\n     Early results: reduced shuttle, but Li2S formation kinetics slow at solid interface\n\n  4. INTERLAYER: separator coating (e.g., Al2O3, TiO2) blocks polysulfide migration\n     Some success: Coulombic efficiency improves\n\nCURRENT BEST PERFORMANCE (2025):\n  Oxis Energy (UK): ~400 Wh/kg cell, ~400 cycles (before closure 2021)\n  Lyten / Sion Power: ~500 Wh/kg target, 300-500 cycles demonstrated\n  Aviation application (weight-critical): HAPS (High Altitude Pseudo-Satellite) drones\n    Airbus Zephyr: uses Li-S (SionPower) for stratospheric flight (weight critical)\n  Consumer: not yet (cycle life insufficient)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 331,
+      "heading_context": "### The Ultimate Energy Density",
+      "confidence": "candidate",
+      "text": "LI-AIR THEORETICAL ENERGY DENSITY\n====================================\n\nCathode reaction: 2Li + O2 -> Li2O2  (or Li2O with 4 electrons)\n  Using atmospheric oxygen as cathode reactant (not stored in battery)\n\nSpecific energy:\n  Li-O2: 3460 Wh/kg (Li only, O2 from air)\n  Gasoline: 13,000 Wh/kg (includes O2 for combustion)\n  Li-ion NMC: ~300 Wh/kg (complete cell)\n\nIf achievable: battery energy density approaching gasoline (before 4x ICE efficiency advantage)\n\nFUNDAMENTAL REACTIONS:\n  Discharge: 2Li -> 2Li+ + 2e- (anode)\n             O2 + 2Li+ + 2e- -> Li2O2 (cathode, E° = 2.96 V vs. Li/Li+)\n  Charge:    Li2O2 -> 2Li+ + O2 + 2e- (should be reversible)\n\n  But: overpotential during charge is large (>1 V above discharge)\n    Discharge: ~2.6-2.8 V; Charge: ~4.0-4.2 V\n    Round-trip efficiency: ~65-70% (poor vs. Li-ion 90-95%)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 357,
+      "heading_context": "### Why Li-Air Is Not Commercial",
+      "confidence": "candidate",
+      "text": "LI-AIR CHALLENGES (each alone would be disqualifying)\n=======================================================\n\n1. SOLID PRODUCT BLOCKING:\n   Li2O2 (solid, insoluble) forms and clogs cathode pores\n   As cathode fills with Li2O2: resistance rises, capacity lost\n   Cathode must be redesigned for each charge cycle\n\n2. CARBON CATHODE INSTABILITY:\n   Standard approach: porous carbon air electrode\n   Problem: LiO2 (intermediate) reacts with carbon: LiO2 + C -> Li2CO3\n   Li2CO3 is electrochemically irreversible -> capacity fade per cycle\n   Alternative: metal (Au, Ru) electrode -- expensive; TiC, MnO2 -- research\n\n3. LITHIUM METAL ANODE:\n   Same dendrite/safety issues as solid-state Li\n   Especially severe with liquid electrolyte\n\n4. ELECTROLYTE DECOMPOSITION:\n   O2 radicals (superoxide) are highly reactive\n   Organic electrolytes react with O2-: DMF, DMSO, ionic liquids\n   Finding stable electrolyte: major unsolved research challenge\n   Contenders: DMSO (partially stable), ionic liquids (expensive), solid-state\n\n5. CO2 AND H2O POISONING:\n   Real air contains CO2 and H2O\n   CO2 reacts: Li2O2 + CO2 -> Li2CO3 (irreversible)\n   H2O reacts: Li2O2 + H2O -> LiOH (partially reversible)\n   Requires: dry, CO2-free air supply -> needs air scrubbing system (adds weight/cost)\n\nSTATUS: Best lab Li-O2 cells achieve ~50-100 cycles. Not close to practical.\nCambridge (Clare Grey group), MIT (Yang Shao-Horn) are prominent research centers.\nThe challenges are fundamental chemistry, not just engineering.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

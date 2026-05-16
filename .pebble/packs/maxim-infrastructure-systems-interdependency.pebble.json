@@ -1,0 +1,1805 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-infrastructure-systems-interdependency",
+  "source": "../../infrastructure-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-INTERDEPENDENCY.md#000",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "# Infrastructure Interdependency: Cascading Failures and Coupling Analysis"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#001",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#002",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "Infrastructure systems don't fail independently. They are coupled: physically,\nthrough shared geography, through SCADA and data networks, and through operational\npolicies. Understanding interdependency is prerequisite to understanding failure modes\nthat can't be found by analyzing individual systems in isolation."
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#003",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "```\nINTERDEPENDENCY MATRIX (partial, US infrastructure)\n====================================================="
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#004",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "POWER  WATER  TELECOM  TRANSPORT  HEALTHCARE  FUEL\nPOWER ->       -     *       *         *          *          *\nWATER ->       *     -       *         -          *          -\nTELECOM ->     *     *       -         *          *          *\nTRANSPORT ->   *     *       *         -          *          *\nHEALTHCARE ->  *     *       *         *           -         -\nFUEL ->        *     -       *         *          -           -"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#005",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "* = significant dependency (row depends on column)\n- = minimal dependency"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#006",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "Examples:\n  POWER -> WATER: pumps, SCADA, UV treatment, chlorination dosing\n  WATER -> POWER: cooling water for thermoelectric (90% of generation)\n                  hydroelectric (direct electricity generation)\n  TELECOM -> POWER: all telecom requires electricity\n  POWER -> TELECOM: SCADA for grid management uses telecom\n  FUEL -> TRANSPORT: fuel delivery requires transport (tankers, trucks)\n  TRANSPORT -> FUEL: fuel supply chain moves via transport"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#007",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "MOST DANGEROUS CYCLES:\n  Power <-> Water: circular dependency, no safe break point\n  Power <-> Telecom: circular, but telecom can run longer on backup\n  Transport <-> Fuel: highly coupled but with significant buffer time\n```"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#008",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#009",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "## Rinaldi-Peerenboom-Kelly Taxonomy (2001)"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#010",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "The foundational academic framework for infrastructure interdependency.\nPublished in IEEE Control Systems Magazine, 2001."
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#011",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "```\nFOUR TYPES OF INTERDEPENDENCY (Rinaldi et al.)\n================================================"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#012",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "1. PHYSICAL INTERDEPENDENCY\n   Output of one system is a physical input to another\n   Examples:\n     Natural gas -> gas turbine power plant -> electricity\n     Electricity -> water pump -> water treatment\n     River flow -> hydroelectric turbine -> electricity\n   Characteristic: physical commodity or product flows between systems\n   Failure propagation: usually unidirectional, predictable\n   Detection: relatively straightforward (flow meters, sensors)"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#013",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "2. CYBER INTERDEPENDENCY\n   Information/data flow between systems through SCADA, control networks\n   Examples:\n     SCADA network failure -> water treatment operators lose visibility\n     Communications network failure -> grid operator loses situational awareness\n     IT network compromise -> OT network penetration (Stuxnet pathway)\n   Characteristic: information flows; no physical commodity transferred\n   Failure propagation: can be bidirectional, non-obvious, instant\n   Detection: much harder (data flows are invisible)\n   Risk: increasingly dominant as infrastructure becomes digitized"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#014",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "3. GEOGRAPHIC INTERDEPENDENCY\n   Multiple systems co-located; damage to one location damages many\n   Examples:\n     Underground utility corridor: power, gas, water, fiber in same trench\n       One contractor's mistake: destroys all four simultaneously\n     Hurricane: one event disrupts multiple sectors in same geography\n     Earthquake: bridge collapse blocks road, severs water main, breaks fiber conduit\n   Characteristic: shared physical space/location\n   Failure propagation: simultaneous, geographically bounded\n   Detection: natural hazard monitoring, GIS co-location mapping"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#015",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "4. LOGICAL INTERDEPENDENCY\n   Systems linked by policies, business rules, or non-physical mechanisms\n   Examples:\n     Regulatory requirement: water utility must meet SDWA standards ->\n       forces specific treatment process -> specific chemical supply needed\n     Financial: utility bond default -> credit downgrade -> capital denied -> deferred maintenance\n     Organizational: same management company runs water + electric utilities;\n       management failure cascades to both\n   Characteristic: no physical or cyber link; governance/policy coupling\n   Failure propagation: slow, indirect, often missed until too late\n   Detection: financial analysis, organizational review\n```"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#016",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#017",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "## Network Topology and Cascade Dynamics"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#018",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "### N-1 and N-2 Security Standards"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#019",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "```\nN-1 AND N-2 RELIABILITY STANDARDS\n===================================="
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#020",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "N-1 SECURITY (power grid standard, NERC TPL-001):\n  System must remain stable after loss of ANY single element (line, transformer, generator)\n  \"N\" = all elements; \"N-1\" = all elements minus one\n  After any single contingency: no violations (voltage, flow, frequency)\n  This is the mandatory minimum for bulk electric system (TPL-001-4)"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#021",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "N-1-1 SECURITY:\n  System must survive N-1 contingency FOLLOWED BY a second contingency\n  More expensive to achieve; required for extra-high voltage critical paths"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#022",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "N-2 SECURITY:\n  System must survive simultaneous loss of any TWO elements\n  Not universally required; specified for critical corridors or extremely high-consequence nodes\n  Very expensive to engineer"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#023",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "WHY N-1 IS MINIMUM:\n  Statistics: any single element fails with some probability in planning horizon\n  If N-1 violation: 2003 Northeast blackout type event possible\n  Economic justification: cost of N-1 violations >> cost of N-1 compliance"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#024",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "N-1 VIOLATION SCENARIOS:\n  Equipment: generator trip, transmission line trip, transformer failure\n  Each scenario analyzed: does the remaining network handle the load?\n  Powerflow analysis: steady-state\n  Stability analysis: transient and dynamic\n  Contingency list: all credible N-1 events enumerated and checked"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#025",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "APPLICABILITY BEYOND POWER:\n  N-1 concept used in: telecom network design, water network design\n  \"Any single pipe failure: water supply maintained\" -> N-1 compliant water network\n  \"Any single fiber cut: connectivity maintained\" -> ring topology (SONET BLSR: N-1)\n```"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#026",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "### Cascading Failure: Motter-Lai Model"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#027",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "```\nMOTTER-LAI CASCADE MODEL (2002)\n================================="
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#028",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "A simple network model that captures cascade behavior:"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#029",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "SETUP:\n  Network of N nodes and edges\n  Each node i has: load L_i (current demand) and capacity C_i (maximum capacity)\n  Capacity: C_i = (1 + tolerance) * L_i  (tolerance > 0: margin above load)\n  Load: proportional to betweenness centrality (number of shortest paths through node)"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#030",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "CASCADE INITIATION:\n  Remove one node (failure)\n  Reroute flows: shortest paths recomputed\n  Some nodes now carry more load (original paths gone; new paths through remaining nodes)\n  Nodes where new load L_i > C_i: FAIL\n  Each failure: reroutes more load -> more nodes may fail\n  Iterate until stable"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#031",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "KEY RESULT:\n  Small tolerance (tight capacity margins): cascade from single node removal is catastrophic\n    (removes fraction of network)\n  Large tolerance (generous margins): single node removal contained\n  Threshold behavior: small change in tolerance -> large change in cascade size\n  \"Phase transition\": system transitions from robust to fragile at critical tolerance"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#032",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "REAL-WORLD IMPLICATION:\n  Infrastructure built to tight margins (economic optimization): vulnerable to cascade\n  Infrastructure built to generous margins (resilience investment): cascade-resistant\n  Cost of building excess capacity: paid upfront\n  Cost of cascade failure: potentially catastrophic (2003 blackout: $6B)"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#033",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "This is the fundamental tension: efficiency vs. resilience"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#034",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "POWER GRID SPECIFIC:\n  Transmission lines: thermal limit (ampacity = current carrying capacity)\n  When line trips: power reroutes via remaining lines\n  If remaining lines at near-capacity: immediate overload -> trip -> cascade\n  Real example: 2003 NE blackout followed Motter-Lai dynamics approximately\n    Initial failure: 1 line\n    Cascade: 11 additional 345kV lines, 400+ smaller units\n    All within 4 minutes\n```"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#035",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#036",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "## Coupling Tightness: Normal Accident Theory"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#037",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "Charles Perrow (1984, \"Normal Accidents\") developed the framework for understanding\nwhy complex systems fail in ways their designers could not anticipate."
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#038",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "```\nPERROW'S TWO-DIMENSIONAL RISK TAXONOMY\n========================================"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#039",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "LOOSE COUPLING          TIGHT COUPLING\n                    (buffers, slack,         (no slack, no\n                    substitutions,           substitutions,\n                    delays OK)               time-critical)\n                    ==================       ==================\nLINEAR              Linear/Loose:             Linear/Tight:\nINTERACTIONS        Continuous manufacturing  Rail transport\n(expected,          Single-goal assembly      Marine transport\nvisible)            Most assembly lines       Linear reservoir\n                    Post offices              Power grids*"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#040",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "Low risk                  Moderate risk\n                    ==================        ==================\nCOMPLEX             Complex/Loose:            Complex/Tight:\nINTERACTIONS        R&D programs              Nuclear power plants\n(unexpected,        Universities              Chemical plants\nmultiple paths,     Multi-goal agencies       Aircraft\ninvisible)          Trade schools             Space missions\n                    Dams*                     Military early warning"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#041",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "Moderate risk             HIGH RISK\n                    ==================        ==================\n* Dams: linear but tight if reservoir behind; complex at spillway/gate level\n* Power grids: linear (parallel paths) but extremely tight coupling"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#042",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "HIGH-RISK SYSTEMS (Complex + Tight):\n  Failures are: inevitable given sufficient time (hence \"normal accidents\")\n  Cannot be eliminated: complexity makes unknown failure modes inevitable\n  Cannot be slowed down: tight coupling means fast propagation before intervention\n  Mitigation: add redundancy (addresses tight coupling), limit complexity\n               or fundamentally de-couple (difficult for infrastructure)"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#043",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "INFRASTRUCTURE IMPLICATIONS:\n  As infrastructure becomes more digitized (SCADA), coupling tightens\n  (software can respond faster than humans, propagating failures faster)\n  As systems become more interconnected, complexity grows\n  Both trends increase Perrow risk\n  Counter-trend: better sensors allow earlier detection (if acting fast enough)\n```"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#044",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#045",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "## Case Studies"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#046",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "### 2003 Northeast Blackout"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#047",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "```\n2003 NORTHEAST BLACKOUT TIMELINE\n==================================="
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#048",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "DATE: August 14, 2003"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#049",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "INITIATING EVENT (software):\n  9:14 AM: FirstEnergy (Ohio) SCADA alarm system fails silently\n            (XA/21 software -- alarm function crashed, no notification)\n  Operators: unaware of developing problems for 1 hour+"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#050",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "PHYSICAL CASCADE:\n  12:15 PM: Stuart-Atlanta 345kV line trips (fault -> relay operated)\n  12:45 PM: Hanna-Juniper 345kV trips (overloaded after Stuart-Atlanta)\n   1:31 PM: Star-South Canton 138kV trips\n   3:05 PM: Perry nuclear power plant trips (overloaded)\n   3:32 PM: Sammis-Star 345kV line sags into tree (high load -> heat -> sag -> flashover)\n   4:05 PM: RAPID CASCADE BEGINS\n             40+ transmission lines trip in rapid sequence\n             Eastward cascade: Ohio -> Pennsylvania -> New York -> Ontario -> New England\n   4:09 PM: New York City blackout (4 minutes after cascade begins)\n   4:13 PM: 50 million people without power"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#051",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "CAUSES (NERC/DOE investigation):\n  1. Software alarm failure (root cause -- no operator awareness)\n  2. Inadequate situational awareness tools at FirstEnergy\n  3. Insufficient real-time monitoring of system conditions\n  4. Failure to cut load before cascade (2003 protocol: didn't cut load soon enough)\n  5. Inadequate system robustness (N-1 violations developing undetected)"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#052",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "FIXES IMPLEMENTED:\n  NERC CIP-014: physical security of substations\n  NERC FAC-002: system operating limits more visible to operators\n  NERC EOP-005: emergency operations procedures\n  NERC MOD-011: system modeling accuracy requirements\n  Improved SCADA alarm management standards\n  Enhanced Eastern Interconnection situational awareness tools\n```"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#053",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "### Colonial Pipeline (2021)"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#054",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "```\nCOLONIAL PIPELINE RANSOMWARE (May 2021)\n========================================="
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#055",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "OPERATOR: Colonial Pipeline Company\nSYSTEM: 8,850 km pipeline; 45% of East Coast fuel supply (gasoline, diesel, jet fuel)"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#056",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "ATTACK:\n  May 7, 2021: DarkSide ransomware group breached IT network\n  Colonial: proactively shut down OT (pipeline operations) as precaution\n    (IT/OT systems not directly connected; shutdown was self-imposed for safety)\n  Ransom: $4.4M in Bitcoin paid; decryption tool provided (later partially recovered by FBI)"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#057",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "IMPACT:\n  6 days of pipeline shutdown\n  Fuel shortages: Southeast US (NC, SC, GA, FL most affected)\n  Panic buying exacerbated shortages\n  Jet fuel shortage: Delta, American reduced flights\n  Biden administration: emergency waiver on truck transport regulations"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#058",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "LESSONS:\n  1. Self-imposed OT shutdown: not OT compromise -- IT/OT separation worked\n     BUT: IT systems so entangled with billing/dispatch that pipeline couldn't operate safely\n  2. Single pipeline = significant concentration risk for East Coast fuel\n  3. Ransomware on IT can affect physical operations without direct OT compromise\n  4. Critical infrastructure operators became mandatory ransomware reporters (TSA directive)\n  5. Multi-factor authentication mandatory for OT access (TSA SD-2021-01)\n```"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#059",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#060",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "## Quantitative Interdependency Analysis"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#061",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "```\nCASCADE MODELING APPROACHES\n=============================="
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#062",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "1. AGENT-BASED MODELS:\n   Each infrastructure component is an agent with state, behavior rules\n   Simulate interactions: physical flows, cyber signals, human decisions\n   Example: IMACLIM, NISAC's models for national infrastructure\n   Strength: captures heterogeneous behavior, emergence\n   Weakness: parameter-intensive, hard to validate"
+    },
+    {
+      "id": "02-INTERDEPENDENCY.md#063",
+      "path": [
+        "02-INTERDEPENDENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:infrastructure-systems:02-interdependency, git-history:infrastructure-systems:02-interdependency]",
+        "canonical_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "concepts": "[interdependency]",
+        "current_path": "infrastructure-systems/02-INTERDEPENDENCY.md",
+        "id": "maxim:infrastructure-systems:interdependency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "infrastructure-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[interdependency]",
+        "section": "infrastructure-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure Interdependency: Cascading Failures and Coupling Analysis",
+        "updated": "null"
+      },
+      "text": "2. NETWORK ANALYSIS:\n   Represent infrastructure as graph: nodes (facilities), edges (connections)\n   Compute: betweenness centrality (critical nodes), algebraic connectivity,\n            vulnerability to targeted attacks vs. random failures\n   Motter-Lai model (above) is network analysis approach\n   Strength: computationally tractable, rigorous for topology questions\n   Weakness: doesn't capture physical constraints (flows, capacities fully)"
+    }
+  ],
+  "refs": [
+    "02-INTERDEPENDENCY.md"
+  ]
+}

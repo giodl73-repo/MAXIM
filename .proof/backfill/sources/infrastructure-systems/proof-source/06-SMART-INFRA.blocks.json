@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "infrastructure-systems\\06-SMART-INFRA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SMART INFRASTRUCTURE TECHNOLOGY STACK\n=======================================\n\n                    APPLICATIONS LAYER\n          +----------------------------------+\n          | Predictive maintenance           |\n          | Anomaly detection                |\n          | Digital twin simulation          |\n          | Capacity planning                |\n          | Emergency response optimization  |\n          +----------------------------------+\n                           |\n                  ANALYTICS LAYER\n          +----------------------------------+\n          | AI/ML models (RUL, anomaly)      |\n          | Time series analysis             |\n          | Physics-based simulation         |\n          | Digital twin engine              |\n          +----------------------------------+\n                           |\n               DATA MANAGEMENT LAYER\n          +----------------------------------+\n          | Time-series database (InfluxDB,  |\n          | OSIsoft PI, Azure TSI)           |\n          | Data lake (raw sensor data)      |\n          | Asset management integration     |\n          +----------------------------------+\n                           |\n              CONNECTIVITY LAYER\n          +----------------------------------+\n          | LoRaWAN, NB-IoT, LTE-M           |\n          | Cellular (4G/5G), WiFi           |\n          | Fiber backbone                   |\n          | SCADA/industrial protocols       |\n          +----------------------------------+\n                           |\n                 SENSING LAYER\n          +----------------------------------+\n          | IoT edge devices                 |\n          | Vibration, strain, temperature   |\n          | Smart meters (AMI)               |\n          | Environmental sensors            |\n          | Cameras (visual/thermal)         |\n          +----------------------------------+\n                           |\n               PHYSICAL INFRASTRUCTURE",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 84,
+      "heading_context": "### Definition and Architecture",
+      "confidence": "candidate",
+      "text": "DIGITAL TWIN DEFINITION (ISO 23247)\n======================================\n\n\"A digital representation of an observable manufacturing element\n with synchronization between the element and its digital representation\"\n\nMore broadly for infrastructure (ASCE, NIST):\n  Digital twin = virtual replica + bidirectional data connection + models\n\nTHREE-COMPONENT DEFINITION:\n  1. PHYSICAL ASSET: the real infrastructure (bridge, pipeline, power plant)\n  2. VIRTUAL MODEL: digital representation (CAD, BIM, physics simulation)\n  3. DATA CONNECTION: sensors -> virtual model (real-time or periodic update)\n     Ideally bidirectional: model outputs inform maintenance decisions -> back to physical\n\nMATURITY LEVELS:\n  Level 1: Digital shadow (data flows from physical to virtual, one-way)\n  Level 2: Digital twin (bidirectional, model updated from data)\n  Level 3: Autonomous twin (model predicts, decisions made automatically)\n\nMost current \"digital twin\" implementations are Level 1-2.\nLevel 3 is aspirational for most infrastructure contexts.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "### Examples",
+      "confidence": "candidate",
+      "text": "SINGAPORE VIRTUAL SINGAPORE\n==============================\n\nProject: complete 3D model of Singapore's entire built environment\nScale: 278 km^2 island, all buildings, terrain, underground, utilities\nData: LiDAR surveys, photogrammetry, building permits, sensor integration\nPlatform: CityEngine + custom analytics\n\nApplications enabled:\n  Sunlight analysis: which rooftops viable for solar panels?\n  Disaster simulation: flood evacuation modeling, population distribution\n  Infrastructure planning: where to route new utility corridor?\n  Emergency response: 3D navigation for first responders\n  Urban heat island: identify cooling opportunities\n  Construction planning: simulate crane operation in built environment\n\nStatus: operational since 2018; updated continuously\nInvestment: SGD$100M (Singapore government)\nImpact: measurably faster planning approvals; solar deployment decisions evidence-based\n\nASSET-LEVEL DIGITAL TWIN (Bridge):\n  Physical: strain gauges, accelerometers, displacement sensors, cameras\n  Virtual: FEM (finite element model) calibrated to as-built drawing\n  Connection: sensor data -> update FEM material properties, boundary conditions\n  Analytics:\n    Structural health: compare measured response to expected -> detect damage\n    Load monitoring: track actual load history -> update fatigue life estimates\n    Alert system: notify when response exceeds threshold\n  Example: Tsing Ma Bridge (Hong Kong): 280 sensors, continuous SHM since 1997\n\nNASA AIRCRAFT DIGITAL TWIN (Grieves 2010, pioneered concept):\n  Aircraft wing: sensor data from each flight -> update structural model\n  Model predicts: remaining fatigue life at each critical location\n  Maintenance scheduling: replace before failure, not on fixed schedule\n  Cost impact: 30-40% reduction in maintenance cost (Boeing/DOD estimates)\n  This is the mature aerospace model; infrastructure is still catching up",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "### Sensor Types for Infrastructure",
+      "confidence": "candidate",
+      "text": "INFRASTRUCTURE IoT SENSORS\n============================\n\nVIBRATION / ACCELERATION:\n  MEMS accelerometer (same as phone): $1-20/unit, ±1-16g range\n  Piezoelectric accelerometer: $50-500/unit, high frequency, high precision\n  Applications: bridge modal frequency tracking, pump/motor bearing condition,\n               pipeline vibration (flow-induced), compressor health\n  Sampling: 100-10,000 Hz for machinery; 1-100 Hz for structures\n\nSTRAIN / DEFORMATION:\n  Foil strain gauge: $5-50; requires amplifier + data acquisition\n  Fiber Bragg Grating (FBG): $100-500/sensor but can multiplex 100/fiber\n  Applications: bridge load, pipeline pressure, structural settlement\n  Accuracy: 1-10 microstrain (1 microstrain = 1 μm/m = 10^-6)\n\nTEMPERATURE:\n  Thermocouple: $2-20, -200 to 1400 C, ±0.5-2 C\n  RTD (PT100): $10-50, better accuracy ±0.1 C\n  Infrared: non-contact, good for remote/moving targets\n  Applications: transformer winding temperature, pipe freeze detection,\n               concrete cure monitoring, wildfire proximity detection\n\nPRESSURE:\n  Piezoelectric / capacitive: $20-500\n  Applications: water main pressure, gas pipeline monitoring, pump performance\n  Key for water: pressure transient monitoring -> detect leaks (pressure wave analysis)\n\nFLOW:\n  Ultrasonic (clamp-on): $200-2000, non-invasive, good for large pipes\n  Electromagnetic flowmeter: $500-5000, requires full-bore installation\n  Applications: water loss detection (district metering), irrigation optimization\n\nCORROSION:\n  Electrical resistance (ER) probes: measure metal loss over time\n  Electrochemical noise: detect corrosion activity\n  Applications: pipeline CP monitoring, chemical plant monitoring\n\nWATER QUALITY:\n  Multi-parameter sonde: pH, dissolved oxygen, turbidity, conductivity, chlorine\n  Applications: real-time water quality monitoring, contamination detection\n  Cost: $2,000-20,000 per monitoring station; low maintenance designs preferred",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "### Smart Meters (AMI)",
+      "confidence": "candidate",
+      "text": "ADVANCED METERING INFRASTRUCTURE (AMI)\n========================================\n\nAMI COMPONENTS:\n  Smart meter: digital meter with 2-way communication\n    Read frequency: 15-minute intervals (vs. monthly for legacy)\n    Protocols: ANSI C12.19 (data format), ZigBee/RF mesh/cellular (communication)\n    Cost: $100-300 per endpoint installed (meter + comms)\n  Communication network: mesh radio, cellular, or PLC (power line carrier)\n  Head-end system: data collection and management\n\n  US AMI deployment (2024): ~115 million smart electric meters (~80% of accounts)\n  Smart water meters: ~50 million (US, growing)\n\nGRID BENEFITS:\n  Outage detection: meter stops communicating = outage at that address\n    SAIDI improvement: ~10-15% faster restoration (pinpoint outage location)\n  Load profiling: actual 15-min data vs. estimated hourly/daily\n    Better demand forecasting: reduce reserve margin requirements\n  Time-of-use pricing: enable demand response programs\n  Remote connect/disconnect: no truck roll for service establishment\n  Theft detection: compare energy billed vs. energy delivered (line losses)\n\nWATER SYSTEM BENEFITS:\n  Leak detection: continuous read vs. monthly\n    Customer side: meter reads 24 hr/day, no usage at night = no leak; constant usage = leak\n    Distribution: district metering area (DMA) night minimum flow -> system leak rate\n  Water demand forecasting: hourly profiles vs. estimated\n  Conservation programs: real-time customer usage feedback\n\nPRIVACY AND SECURITY:\n  AMI data: 15-minute intervals reveal home occupancy patterns, appliance usage\n  Data security: TLS encryption in transit, secure storage\n  Privacy rules: some states (CA SB 1476): restrict AMI data sharing\n  Cybersecurity: AMI head-end = high-value target (know grid load distribution)\n    NERC CIP does NOT currently apply to distribution-level AMI\n    Gap: most AMI deployed without NERC-level cybersecurity requirements",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 287,
+      "heading_context": "## Predictive Maintenance",
+      "confidence": "candidate",
+      "text": "PREDICTIVE MAINTENANCE HIERARCHY\n===================================\n\nREACTIVE (run to failure):\n  Wait for failure, then repair\n  Cost: 3-5x preventive maintenance per event\n  Risk: unplanned outage, safety incidents, secondary damage\n  Suitable for: non-critical assets with cheap failure, no safety impact\n\nPREVENTIVE (time/cycle-based):\n  Replace or service on schedule regardless of condition\n  Example: replace pump seals every 3 years regardless of condition\n  Problem: may replace functional components (waste); may miss early failure\n\nCONDITION-BASED MAINTENANCE (CBM):\n  Maintain when condition indicators reach threshold\n  Uses: periodic inspection, manual NDE\n  Better than preventive: only maintain when needed\n  Limitation: condition checked infrequently; failure can occur between checks\n\nPREDICTIVE MAINTENANCE (PdM):\n  Continuous monitoring -> model predicts remaining useful life (RUL)\n  Maintenance scheduled to occur just before predicted failure\n  Data: vibration, temperature, oil analysis, electrical signatures\n  Models: physics-based (fatigue crack growth model) or data-driven (ML)\n\nPRESCRIPTIVE MAINTENANCE (future):\n  System not only predicts failure but recommends optimal action\n  Account for: parts availability, crew scheduling, outage windows, cost\n  Optimize: lowest cost maintenance plan given constraints\n\nPdM TECHNOLOGY STACK:\n  Vibration-based PdM (rotating equipment):\n    Accelerometer on bearing housing + FFT analysis\n    Bearing fault frequencies: BPFI, BPFO, BSF (ball pass frequencies)\n    Early bearing fault: peaks at fault frequencies in FFT\n    Advanced fault: broadband vibration increase + harmonics\n    Lead time: 4-8 weeks before failure (vibration-based)\n\n  Oil analysis (critical gearboxes, turbines):\n    Sample oil every 250-1000 hours\n    Spectrometric analysis: metal wear particles (Fe, Cu, Al, Sn)\n    Viscosity, acid number, water content\n    Lead time: 2-6 months before failure (contamination, viscosity change early)\n\n  Motor current signature analysis (MCSA):\n    Measure motor current waveform (no contact with rotating parts)\n    FFT of current: detect: broken rotor bars, air gap eccentricity, bearing faults\n    Increasingly done with edge-compute devices on motor control center",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 343,
+      "heading_context": "## AI Applications in Smart Infrastructure",
+      "confidence": "candidate",
+      "text": "AI APPLICATIONS IN INFRASTRUCTURE\n====================================\n\n1. ANOMALY DETECTION (time series):\n   Input: sensor stream (vibration, temperature, pressure, flow)\n   Model: LSTM autoencoder, Isolation Forest, OC-SVM\n   Output: anomaly score; alert when threshold exceeded\n   Challenge: high false positive rate (infrastructure has normal variation)\n   Approach: adaptive thresholds (seasonal normalization), multi-sensor fusion\n\n2. REMAINING USEFUL LIFE (RUL) PREDICTION:\n   Input: historical sensor data + failure event labels\n   Model: LSTM, Transformer, or physics-hybrid\n   Output: RUL estimate (hours to failure) + confidence interval\n   Training data challenge: failures are rare (hard to get labeled data)\n   Transfer learning: pretrain on similar assets, fine-tune to specific asset\n\n3. COMPUTER VISION FOR INSPECTION:\n   Input: drone images or inspection robot camera\n   Model: CNN-based object detection (YOLOv8, Detectron2)\n   Output: crack location, width, severity score\n   Performance: comparable to experienced inspector for visible defects\n   Deployment: drone + GPU edge compute -> inspection report generated in the field\n   Application: bridge deck inspection, pavement condition, tower inspection\n\n4. ROOT CAUSE ANALYSIS:\n   Input: alert from anomaly detection + asset context + maintenance history\n   Model: causal inference, Bayesian network, or LLM-based reasoning\n   Output: probable cause + recommended action\n   Challenge: causal relationships require domain knowledge (physics, not just data)\n\n5. DEMAND FORECASTING:\n   Input: historical load/flow/consumption + weather, calendar, events\n   Model: gradient boosting (XGBoost), LSTM, seasonal decomposition\n   Output: next 24-168 hour demand forecast\n   Use: power grid dispatch, water treatment plant chemical dosing, traffic management\n   Performance: MAPE 1-5% for 24-hour horizon (state of art)\n\n6. PREDICTIVE FAILURE ANALYTICS (for capital planning):\n   Input: condition scores, age, material, maintenance history, environment\n   Model: survival analysis (Cox proportional hazards), Weibull regression\n   Output: probability of failure in next 1-10 years per asset\n   Use: capital plan prioritization, budget modeling\n\nFAILURE MODE OF AI IN INFRASTRUCTURE:\n  Training data bias: model trained on normal conditions, fails on anomalies\n  Distribution shift: model trained on asset in good condition performs poorly as it ages\n  False confidence: model gives confident prediction; actual failure different mechanism\n  No physics constraints: pure ML model can predict physically impossible states\n  Solution: hybrid models (physics-informed neural networks: PINN)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

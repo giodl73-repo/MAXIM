@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:infrastructure-systems:governance
+kind: guide
+module: infrastructure-systems
+section: infrastructure-systems
+title: Infrastructure Governance: Ownership, Regulation, Funding, and Policy
+status: source-custody
+source_custody: partial
+current_path: infrastructure-systems/09-GOVERNANCE.md
+canonical_path: infrastructure-systems/09-GOVERNANCE.md
+backsource_ids: [proof-backfill:infrastructure-systems:09-governance, git-history:infrastructure-systems:09-governance]
+concepts: [governance]
+root_concepts: [governance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Infrastructure Governance: Ownership, Regulation, Funding, and Policy
 
 ## The Big Picture

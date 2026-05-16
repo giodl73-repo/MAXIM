@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-storage:compressed-air
+kind: guide
+module: energy-storage
+section: energy-storage
+title: Compressed Air and Gravity Storage: CAES, Adiabatic, LAES, and Gravity
+status: source-custody
+source_custody: partial
+current_path: energy-storage/06-COMPRESSED-AIR.md
+canonical_path: energy-storage/06-COMPRESSED-AIR.md
+backsource_ids: [proof-backfill:energy-storage:06-compressed-air, git-history:energy-storage:06-compressed-air]
+concepts: [compressed, air]
+root_concepts: [compressed, air]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Compressed Air and Gravity Storage: CAES, Adiabatic, LAES, and Gravity
 
 ## The Big Picture

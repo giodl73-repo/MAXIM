@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:infrastructure-systems:resilience
+kind: guide
+module: infrastructure-systems
+section: infrastructure-systems
+title: Infrastructure Resilience: Frameworks, Metrics, and Investment
+status: source-custody
+source_custody: partial
+current_path: infrastructure-systems/03-RESILIENCE.md
+canonical_path: infrastructure-systems/03-RESILIENCE.md
+backsource_ids: [proof-backfill:infrastructure-systems:03-resilience, git-history:infrastructure-systems:03-resilience]
+concepts: [resilience]
+root_concepts: [resilience]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Infrastructure Resilience: Frameworks, Metrics, and Investment
 
 ## The Big Picture

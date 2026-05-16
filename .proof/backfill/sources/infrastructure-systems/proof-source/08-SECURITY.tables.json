@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "infrastructure-systems\\08-SECURITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 460,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Security question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "What is the Purdue Model?",
+          "Layered IT/OT architecture (L0 physical to L5 enterprise); security designed around layer separation"
+        ],
+        [
+          "Why is the historian server dangerous?",
+          "Sits at IT/OT boundary; by design bridges air gap; pivot point for OT access from IT side"
+        ],
+        [
+          "Most deployed ICS protocol",
+          "Modbus (1979); zero security by design; plaintext, no authentication"
+        ],
+        [
+          "What did CRASHOVERRIDE do?",
+          "2016 Ukraine power grid; automated relay manipulation to open breakers; 200k customers blacked out"
+        ],
+        [
+          "Water sector equivalent of NERC CIP?",
+          "None at equivalent depth; AWIA 2018 requires risk assessment but not specific controls"
+        ],
+        [
+          "Data diode purpose",
+          "Hardware-enforced one-way gateway: OT data flows to IT; nothing flows back; prevents IT→OT attacks"
+        ],
+        [
+          "What is CIRCIA?",
+          "2022 law requiring 72-hr incident reporting and 24-hr ransomware payment disclosure for critical infrastructure"
+        ],
+        [
+          "Best OT monitoring approach",
+          "Passive network monitoring (not active scanning — active scanning can crash fragile PLCs)"
+        ],
+        [
+          "CIP-013 subject",
+          "Supply chain risk management for BES cyber systems"
+        ]
+      ]
+    }
+  ]
+}

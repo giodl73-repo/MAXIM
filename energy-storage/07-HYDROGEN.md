@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-storage:hydrogen
+kind: guide
+module: energy-storage
+section: energy-storage
+title: Hydrogen: Electrolysis, Storage, Fuel Cells, and the Hydrogen Economy
+status: source-custody
+source_custody: partial
+current_path: energy-storage/07-HYDROGEN.md
+canonical_path: energy-storage/07-HYDROGEN.md
+backsource_ids: [proof-backfill:energy-storage:07-hydrogen, git-history:energy-storage:07-hydrogen]
+concepts: [hydrogen]
+root_concepts: [hydrogen]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hydrogen: Electrolysis, Storage, Fuel Cells, and the Hydrogen Economy
 
 ## The Big Picture

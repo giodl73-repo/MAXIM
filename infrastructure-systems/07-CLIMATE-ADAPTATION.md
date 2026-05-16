@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:infrastructure-systems:climate-adaptation
+kind: guide
+module: infrastructure-systems
+section: infrastructure-systems
+title: Climate Adaptation for Infrastructure: Sea Level Rise, Flooding, Heat, Wildfire
+status: source-custody
+source_custody: partial
+current_path: infrastructure-systems/07-CLIMATE-ADAPTATION.md
+canonical_path: infrastructure-systems/07-CLIMATE-ADAPTATION.md
+backsource_ids: [proof-backfill:infrastructure-systems:07-climate-adaptation, git-history:infrastructure-systems:07-climate-adaptation]
+concepts: [climate, adaptation]
+root_concepts: [climate, adaptation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Climate Adaptation for Infrastructure: Sea Level Rise, Flooding, Heat, Wildfire
 
 ## The Big Picture

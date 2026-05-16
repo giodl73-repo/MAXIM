@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-storage:electrochemical
+kind: guide
+module: energy-storage
+section: energy-storage
+title: Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer
+status: source-custody
+source_custody: partial
+current_path: energy-storage/01-ELECTROCHEMICAL.md
+canonical_path: energy-storage/01-ELECTROCHEMICAL.md
+backsource_ids: [proof-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]
+concepts: [electrochemical]
+root_concepts: [electrochemical]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer
 
 ## The Big Picture

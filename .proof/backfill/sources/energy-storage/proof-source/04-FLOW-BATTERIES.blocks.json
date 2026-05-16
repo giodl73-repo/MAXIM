@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-storage\\04-FLOW-BATTERIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "FLOW BATTERY ARCHITECTURE\n===========================\n\n                 POWER SUBSYSTEM              ENERGY SUBSYSTEM\n                 ================             =================\n\n           .--- ELECTROCHEMICAL STACK ---.   .--- ELECTROLYTE TANKS ---.\n           |                             |   |                          |\n           |  NEGATIVE        POSITIVE   |   |  Negative    Positive    |\n           |  ELECTRODE       ELECTRODE  |   |  electrolyte electrolyte |\n           |    |                  |    |   |  (reduced)   (oxidized)  |\n    e- <---|----+------------------+-----|   |   [Tank A]    [Tank B]   |\n           |    |                  |    |   |                          |\n           | Ion-exchange membrane |    |   .----.-----.   .-----.----.\n           |    |  (H+, Cl-...) |  |    |        |     |         |    |\n           '----'---------------'--'    |       Pump       Pump       |\n                |               |       '-------'-----'---'-----'-----'\n                |               |               |         |\n           Flow in          Flow out     Electrolyte circulates through stack\n\nKEY DISTINCTION FROM LI-ION:\n  Li-ion: energy stored IN solid electrodes (fixed per cell design)\n  Flow: energy stored IN external liquid tanks (changeable, scalable)\n\n  Scale up ENERGY: add bigger tanks (cheap)\n  Scale up POWER:  add more cell stacks (expensive, fixed cost per kW)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 60,
+      "heading_context": "### Power vs. Energy Cost",
+      "confidence": "candidate",
+      "text": "COST STRUCTURE COMPARISON\n===========================\n\nLI-ION:\n  Energy and power inextricably linked\n  Adding kWh also adds kW (same cell adds both)\n  $/kWh and $/kW scale together\n\nFLOW BATTERY:\n  Power: stack (electrode + membrane + bipolar plates): ~$200-400/kW (expensive)\n  Energy: tanks + electrolyte: $20-150/kWh (cheap at long duration)\n\n  Cost break-even vs. Li-ion: ~4-8 hours duration\n  At <4 hr: Li-ion wins (stack cost dominates, energy cheap for Li-ion)\n  At >8 hr: Flow wins (tank cost cheap, Li-ion needs proportionally more expensive cells)\n\n  For 12-hour storage:\n    Li-ion: ~$250-400/kWh (cell cost x 12h duration)\n    VRB: ~$150-250/kWh (fixed stack cost amortized over 12h, cheap vanadium tanks)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 88,
+      "heading_context": "### Chemistry and Structure",
+      "confidence": "candidate",
+      "text": "VRFB CHEMISTRY\n===============\n\nNEGATIVE ELECTRODE (anode during charge, cathode during discharge):\n  V3+ + e- -> V2+  (charge, reduction, E° = -0.26 V vs. SHE)\n  V2+ -> V3+ + e-  (discharge, oxidation)\n\nPOSITIVE ELECTRODE (cathode during charge, anode during discharge):\n  VO2+ + H2O -> VO2+ + 2H+ + e-  (charge, oxidation)\n  VO2+ + 2H+ + e- -> VO2+ + H2O  (discharge, reduction)\n  E° = +1.00 V vs. SHE\n\nFULL CELL:\n  V2+ | membrane | VO2+  discharge: cell voltage ~ 1.26 V (standard)\n  V3+ | membrane | VO2+  fully discharged: lower voltage\n  Open circuit at full SOC: ~1.4-1.6 V (concentration-dependent via Nernst)\n\nKEY ADVANTAGE -- SAME ELEMENT IN BOTH TANKS:\n  Cross-contamination does NOT permanently degrade electrolyte\n  If V2+ crosses membrane to VO2+ tank: both become a mix of V(II) and V(V)\n  -> Re-charge restores separation\n  Vs. other flow chemistries (Fe/Cr, Zn/Br): cross-contamination = irreversible contamination\n\n  This is why VRFB has 10,000+ cycle life claim (vs. ~2000 for most batteries)\n  Electrolyte degradation mechanism: HVO4- formation at high T (>45 C)\n    Reversible if kept in temperature range; manageable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 162,
+      "heading_context": "### Chemistry and Promise",
+      "confidence": "candidate",
+      "text": "IRON-AIR BATTERY\n==================\n\nNEGATIVE ELECTRODE (iron): Fe + 2OH- -> Fe(OH)2 + 2e-  (discharge oxidation)\nPOSITIVE ELECTRODE (air):  1/2 O2 + H2O + 2e- -> 2OH-  (discharge reduction)\n\nOVERALL: Fe + 1/2 O2 + H2O -> Fe(OH)2  (rust formation -- discharge)\nCHARGE:  Fe(OH)2 + 2e- -> Fe + 2OH-    (un-rust -- charge)\n\nKEY INSIGHT:\n  This is literally controlled rusting and un-rusting\n  Iron: $0.05/kg (most abundant and cheap structural metal)\n  Oxygen: free from air (like Li-air, cathode is open to atmosphere)\n  Alkaline electrolyte: KOH (cheap)\n\n  This is why Form Energy claims $20/kWh cost target -- raw materials are trivially cheap\n\nTHEORETICAL ENERGY DENSITY:\n  Fe theoretical: 960 mAh/g (2-electron)\n  Average cell voltage: ~1.0 V (lower than Li-ion)\n  Theoretical: ~960 Wh/kg (Fe only)\n  Practical (with iron electrode, KOH, air electrode, housing): ~50-100 Wh/kg\n  Lower than Li-ion BUT: $20/kWh target vs. $80-100/kWh for Li-ion\n  Energy density doesn't matter for stationary storage: only $/kWh counts\n\nADVANTAGES:\n  Abundant, cheap materials (Fe, O2, KOH)\n  Non-toxic, non-flammable (no organic electrolyte)\n  Long duration: designed for 100+ hours (vs. 4-hour Li-ion)\n  Fully dischargeable (100% DoD safe)\n  Calendar life: 20+ years target (iron doesn't dissolve)\n\nCHALLENGES:\n  ROUND-TRIP EFFICIENCY: ~45% (vs. 90-95% Li-ion)\n    Iron electrode: significant overpotential (charge voltage >> discharge voltage)\n    Air electrode: oxygen reduction is kinetically slow (same problem as fuel cells)\n    Hydrogen evolution: side reaction at iron anode during charging steals current\n  SLOW CHARGE/DISCHARGE: designed for multi-day operation, not fast response\n  HYDROGEN EVOLUTION (HER): Fe electrode competes with 2H2O + 2e- -> H2 + 2OH-\n    H2 produced during charging (small amount): must be managed/vented\n    HER reduces Coulombic efficiency; hydrogen safety in enclosed space\n  POWER DENSITY: ~100 W/m^2 (very low) -- requires large electrode area for power",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "### Form Energy and Iron-Air Status",
+      "confidence": "candidate",
+      "text": "FORM ENERGY (Cambridge, MA -- founded 2017)\n============================================\n\nTechnology: Iron-air battery for 100-hour grid storage\nTarget cost: <$20/kWh (vs. Li-ion ~$80-100/kWh for 4-hr systems)\nTarget RTE: 45% (acceptable for long-duration arbitrage given low cost)\n\nTimeline:\n  2021: $240M Series D (Bill Gates' Breakthrough Energy Ventures, Eni)\n  2022: Factory announcement (Weirton, WV -- former steel plant)\n  2023: First customer pilot deployments (Georgia Power)\n  2024-2025: Factory production scaling\n  2026+: Grid-scale deployments\n\nWhy 45% RTE is acceptable economically:\n  Arbitrage: buy electricity at $20/MWh (night), sell at $100/MWh (peak)\n  Even at 45% RTE: store 1 MWh, recover 0.45 MWh\n  Revenue: 0.45 * $100 = $45, Cost: 1.0 * $20 = $20 -> Margin: $25/MWh stored\n  Compare: Li-ion at 90% RTE: 0.9 * $100 = $90, Cost: $20 -> Margin: $70/MWh\n  Li-ion better revenue per cycle, but MUCH higher capital cost\n  Iron-air: ~$1,000-1,500/kW (power), $20/kWh (energy) -- capital very cheap for 100-hr",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 237,
+      "heading_context": "## Other Flow Battery Chemistries",
+      "confidence": "candidate",
+      "text": "FLOW BATTERY CHEMISTRY ALTERNATIVES\n======================================\n\nZINC-BROMINE (Zn/Br2):\n  Negative: Zn2+ + 2e- -> Zn   (E = -0.76 V)\n  Positive: Br2 + 2e- -> 2Br-  (E = +1.07 V)\n  Cell voltage: ~1.83 V (high voltage for flow battery)\n  Energy density: ~60-80 Wh/L (high for flow; Br2 complexed to reduce vapour pressure)\n  Challenge: Br2 is corrosive, toxic; Zn dendriting if poorly managed\n  Companies: RedT, ZBB Energy, Eos Energy (hybrid: zinc-manganese)\n\nIRON-CHROMIUM (Fe/Cr):\n  Historical first (NASA 1970s)\n  E_cell ~ 1.0 V; cross-contamination problem (different metals -- permanent)\n  Lower RTE (~65%), catalyst needed for Cr2+/Cr3+ kinetics\n  Low material cost; being revisited by EnergyNor, Jing New Energy\n\nORGANIC FLOW (quinone-based):\n  Quinone/hydroquinone redox couples (carbon-oxygen molecules from biomass)\n  Neutral pH: safer than acid/base aqueous systems\n  Theoretical low cost (organic synthesis from renewable feedstocks)\n  Challenges: quinone degradation mechanisms; commercial maturity low\n  Harvard, Kemiwatt, CMBlu developing\n\nAQUEOUS ORGANIC HYBRID:\n  Organic negative, bromine positive: voltage ~1.0 V\n  High energy density, non-toxic negative, but Br2 concern remains\n\nCOMPARISON:\n  Technology    Cell V   Energy/L    RTE    Maturity     Cost Target\n  VRFB           1.26V   20-40 Wh/L  65-80%  Commercial  $150-250/kWh\n  Zn-Br          1.83V   60-80 Wh/L  65-75%  Limited commercial  $150/kWh\n  Fe-air         1.0V    50-100 Wh/L  45%    Pilot       $20-30/kWh\n  Organic        ~0.8V   20-30 Wh/L  ~75%   Research    $100/kWh (target)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-storage:grid-economics
+kind: guide
+module: energy-storage
+section: energy-storage
+title: Grid-Scale Storage Economics: LCOS, Learning Curves, and Revenue Stacking
+status: source-custody
+source_custody: partial
+current_path: energy-storage/08-GRID-ECONOMICS.md
+canonical_path: energy-storage/08-GRID-ECONOMICS.md
+backsource_ids: [proof-backfill:energy-storage:08-grid-economics, git-history:energy-storage:08-grid-economics]
+concepts: [grid, economics]
+root_concepts: [grid, economics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Grid-Scale Storage Economics: LCOS, Learning Curves, and Revenue Stacking
 
 ## The Big Picture
